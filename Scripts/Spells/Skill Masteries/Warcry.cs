@@ -8,7 +8,7 @@ namespace Server.Spells.SkillMasteries
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
 
-            "Warcry", "",
+            "Okrzyk Wojenny", "",
                 -1,
                 9002
             );

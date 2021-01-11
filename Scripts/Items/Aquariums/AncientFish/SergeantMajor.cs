@@ -6,6 +6,7 @@ namespace Server.Items
         public SergeantMajor()
             : base(0xA360)
         {
+            Name = "Garbik pasiasty";
         }
 
         public SergeantMajor(Serial serial)

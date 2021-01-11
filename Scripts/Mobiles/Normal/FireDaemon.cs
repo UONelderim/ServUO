@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a fire daemon corpse")]
+    [CorpseName("zwloki ognistego demona")]
     public class FireDaemon : BaseCreature, IAuraCreature
     {
         [Constructable]
         public FireDaemon()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a fire daemon";
+            Name = "ognisty demon";
             Body = 9;
             BaseSoundID = 0x47D;
             Hue = 1636;

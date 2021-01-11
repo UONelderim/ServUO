@@ -14,7 +14,7 @@ namespace Server.Spells.Mysticism
         public override SpellCircle Circle => SpellCircle.Sixth;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-            "Cleansing Winds", "In Vas Mani Hur",
+            "Oczyszczający Podmuch", "In Vas Mani Hur",
             230,
             9022,
             Reagent.Garlic,

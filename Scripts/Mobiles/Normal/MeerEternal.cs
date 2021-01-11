@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a meer's corpse")]
+    [CorpseName("zwloki prastarego meera")]
     public class MeerEternal : BaseCreature
     {
         private DateTime m_NextAbilityTime;
@@ -12,7 +12,7 @@ namespace Server.Mobiles
         public MeerEternal()
             : base(AIType.AI_Spellweaving, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a meer eternal";
+            Name = "prastary meer";
             Body = 772;
 
             SetStr(416, 505);

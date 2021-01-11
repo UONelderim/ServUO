@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a crystal vortex corpse")]
+    [CorpseName("resztki krysztalowego wiru")]
     public class CrystalVortex : BaseCreature
     {
         [Constructable]
         public CrystalVortex()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a crystal vortex";
+            Name = "krysztalowy wir";
             Body = 0xD;
             Hue = 0x2B2;
             BaseSoundID = 0x107;

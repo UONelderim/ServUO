@@ -29,13 +29,13 @@ namespace Server.Mobiles
             {
                 Body = 0x191;
                 Name = NameList.RandomName("female");
-                Title = "the Harbor Mistress";
+                Title = "- zarzadca portu";
             }
             else
             {
                 Body = 0x190;
                 Name = NameList.RandomName("male");
-                Title = "the Harbor Master";
+                Title = "- zarzadca portu";
             }
 
             AddItem(new Shirt(Utility.RandomDyedHue()));

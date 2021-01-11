@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a white wolf corpse")]
+    [CorpseName("zwloki snieznego wilka")]
     public class WhiteWolf : BaseCreature
     {
         [Constructable]
         public WhiteWolf()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a white wolf";
+            Name = "sniezny wilk";
             Body = Utility.RandomList(34, 37);
             BaseSoundID = 0xE5;
 

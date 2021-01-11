@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a blade spirit corpse")]
+    [CorpseName("resztki ducha ostrzy")]
     public class BladeSpirits : BaseCreature
     {
         [Constructable]
@@ -16,7 +16,7 @@ namespace Server.Mobiles
         public BladeSpirits(bool summoned)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.3, 0.6)
         {
-            Name = "a blade spirit";
+            Name = "duch ostrzy";
             Body = 574;
 
             bool weak = summoned && Siege.SiegeShard;

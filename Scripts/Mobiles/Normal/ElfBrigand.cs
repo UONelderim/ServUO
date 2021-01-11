@@ -22,7 +22,7 @@ namespace Server.Mobiles
                 Name = NameList.RandomName("Elf male");
             }
 
-            Title = "the brigand";
+            Title = "- banita";
             Hue = Race.RandomSkinHue();
 
             SetStr(86, 100);

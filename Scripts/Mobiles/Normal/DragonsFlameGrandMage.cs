@@ -2,15 +2,15 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a black order grand mage corpse")]
+    [CorpseName("zwłoki wielkiego maga vox populi")]
     public class DragonsFlameGrandMage : DragonsFlameMage
     {
         [Constructable]
         public DragonsFlameGrandMage()
             : base()
         {
-            Name = "Black Order Grand Mage";
-            Title = "of the Dragon's Flame Sect";
+            Name = "wielki mag";
+			Title = "- Przynależy do Vox Populi";
             SetStr(340, 360);
             SetDex(200, 215);
             SetInt(500, 515);

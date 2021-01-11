@@ -3,15 +3,15 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("Gray Goblin Mage [Renowned] corpse")]
+    [CorpseName("resztki slawnego szarego maga goblinow")]
     public class GrayGoblinMageRenowned : BaseRenowned
     {
         [Constructable]
         public GrayGoblinMageRenowned()
             : base(AIType.AI_Mage)
         {
-            Name = "Gray Goblin Mage";
-            Title = "[Renowned]";
+            Name = "Szary Mag Goblinów";
+            Title = "[slawny]";
 
             Body = 723;
             Hue = 1900;

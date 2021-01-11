@@ -11,6 +11,7 @@ namespace Server.Items
             : base(0x2FCB)
         {
             Weight = 2.0;
+			Name = "Lesny biustonosz";
         }
 
         public FemaleLeafChest(Serial serial)

@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("The remains of Flurry")]
+    [CorpseName("resztki Flurry")]
     public class Flurry : BaseCreature
     {
         [Constructable]

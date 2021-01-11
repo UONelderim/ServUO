@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an archaeosaurus corpse")]
+    [CorpseName("zwloki archaeozaura")]
     public class Archaeosaurus : BaseCreature
     {
         public override bool AttacksFocus => true;
@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public Archaeosaurus()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, .2, .4)
         {
-            Name = "an Archaeosaurus";
+            Name = "Archaeozaur";
             Body = 1287;
             BaseSoundID = 422;
 

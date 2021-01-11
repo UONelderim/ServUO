@@ -6,14 +6,14 @@ using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an iron beetle corpse")]
+    [CorpseName("zwloki zelaznego zuka")]
     public class IronBeetle : BaseCreature
     {
         [Constructable]
         public IronBeetle()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.25, 0.5)
         {
-            Name = "an iron beetle";
+            Name = "zelazny zuk";
             Body = 714;
             BaseSoundID = 397;
 

@@ -31,7 +31,7 @@ namespace Server.Mobiles
                 Name = NameList.RandomName("male");
                 AddItem(new ShortPants(Utility.RandomNeutralHue()));
             }
-            Title = "the peasant";
+            Title = "- wiesniak";
             HairItemID = Race.RandomHair(Female);
             HairHue = Race.RandomHairHue();
             Race.RandomFacialHair(this);

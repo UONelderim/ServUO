@@ -8,6 +8,7 @@ namespace Server.Items
         public RubyMace()
         {
             Attributes.WeaponDamage = 5;
+			Name = "Diamentowa bulawa";
         }
 
         public RubyMace(Serial serial)

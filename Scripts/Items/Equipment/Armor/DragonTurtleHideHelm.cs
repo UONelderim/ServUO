@@ -25,6 +25,7 @@ namespace Server.Items
             : base(0x782D)
         {
             Weight = 2.0;
+			Name = "helm ze skorupy smoczego zolwia";
         }
 
         public DragonTurtleHideHelm(Serial serial)

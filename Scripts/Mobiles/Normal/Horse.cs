@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a horse corpse")]
+    [CorpseName("zwloki konia")]
     public class Horse : BaseMount
     {
         private static readonly int[] m_IDs = new int[]
@@ -12,7 +12,7 @@ namespace Server.Mobiles
         };
         [Constructable]
         public Horse()
-            : this("a horse")
+            : this("kon")
         {
         }
 

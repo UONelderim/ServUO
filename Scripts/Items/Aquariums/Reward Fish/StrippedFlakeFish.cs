@@ -6,6 +6,7 @@ namespace Server.Items
         public StrippedFlakeFish()
             : base(0x3B0A)
         {
+            Name = "rybka z Celendir";
         }
 
         public StrippedFlakeFish(Serial serial)

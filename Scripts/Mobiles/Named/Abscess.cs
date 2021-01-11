@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an abscess's corpse")]
+    [CorpseName("zwloki abcess")]
     public class Abscess : BaseCreature
     {
         [Constructable]

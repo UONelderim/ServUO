@@ -19,6 +19,7 @@ namespace Server.Items
             : base(0x9A97)
         {
             LootType = LootType.Blessed;
+            Name = "mlynek";
         }
 
         /*public bool CheckAccessible(Mobile from, Item item)

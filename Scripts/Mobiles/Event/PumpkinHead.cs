@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a killer pumpkin corpse")]
+    [CorpseName("zaszlachtowany morderca dyn")]
     public class PumpkinHead : BaseCreature
     {
         [Constructable]

@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an ice serpent corpse")]
+    [CorpseName("zwloki ogromnego lodowego weza")]
     public class IceSerpent : BaseCreature
     {
         [Constructable]
         public IceSerpent()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a giant ice serpent";
+            Name = "ogromny lodowy waz";
             Body = 89;
             BaseSoundID = 219;
 

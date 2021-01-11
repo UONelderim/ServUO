@@ -6,6 +6,7 @@ namespace Server.Items
         public QueenTrigger()
             : base(0xA361)
         {
+            Name = "Rogatnica piekna";
         }
 
         public QueenTrigger(Serial serial)

@@ -5,14 +5,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a goat corpse")]
+    [CorpseName("zwloki kozy")]
     public class Goat : BaseCreature
     {
         [Constructable]
         public Goat()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a goat";
+            Name = "koza";
             Body = 0xD1;
             BaseSoundID = 0x99;
 

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a medusa corpse")]
+    [CorpseName("zwloki meduzy")]
     public class Medusa : BaseSABoss, ICarvable
     {
         private readonly List<Mobile> m_TurnedToStone = new List<Mobile>();
@@ -23,7 +23,7 @@ namespace Server.Mobiles
         public Medusa()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.1, 0.2)
         {
-            Name = "Medusa";
+            Name = "Meduza";
             Body = 728;
 
             SetStr(1235, 1391);

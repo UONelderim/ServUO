@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a horde minion corpse")]
+    [CorpseName("zwloki slugi hordy")]
     public class HordeMinion : BaseCreature
     {
         [Constructable]
         public HordeMinion()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a horde minion";
+            Name = "sluga hordy";
             Body = 776;
             BaseSoundID = 357;
 

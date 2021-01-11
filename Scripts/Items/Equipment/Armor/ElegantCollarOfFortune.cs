@@ -14,6 +14,7 @@ namespace Server.Items
         {
             Attributes.Luck = 300;
             Attributes.RegenMana = 1;
+			Name = "Elegancki szczesliwy kolnierzyk";
         }
 
         public override int BasePhysicalResistance => 15;

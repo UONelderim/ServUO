@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a dragon turtle corpse")]
+    [CorpseName("zwloki smoczego zolwia")]
     public class DragonTurtle : BaseChampion
     {
         public override Type[] UniqueList => new Type[] { };
@@ -19,7 +19,7 @@ namespace Server.Mobiles
         [Constructable]
         public DragonTurtle() : base(AIType.AI_Mage)
         {
-            Name = "a dragon turtle";
+            Name = "smoczy żółw";
             Body = 1288;
             BaseSoundID = 362;
 

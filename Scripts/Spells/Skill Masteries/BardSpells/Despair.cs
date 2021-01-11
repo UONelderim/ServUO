@@ -11,7 +11,7 @@ namespace Server.Spells.SkillMasteries
         public static readonly string ModName = "Despair";
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Despair", "Kal Des Mani Tym",
+                "Rozpacz", "Kal Des Mani Tym",
                 -1,
                 9002
             );

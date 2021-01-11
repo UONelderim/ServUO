@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a chaos dragoon corpse")]
+    [CorpseName("zwloki smoczego wojownika")]
     public class ChaosDragoon : BaseCreature
     {
         [Constructable]
         public ChaosDragoon()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.15, 0.4)
         {
-            Name = "a chaos dragoon";
+            Name = "smoczy wojownik";
             Body = 0x190;
             Hue = Race.RandomSkinHue();
 

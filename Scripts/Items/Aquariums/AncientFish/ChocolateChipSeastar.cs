@@ -6,6 +6,7 @@ namespace Server.Items
         public ChocolateChipSeastar()
             : base(0xA395)
         {
+            Name = "rogata gwiazda morska";
         }
 
         public ChocolateChipSeastar(Serial serial)

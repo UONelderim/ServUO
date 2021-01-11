@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a sabre-toothed tiger corpse")]
+    [CorpseName("zwloki tygrysa szablozebnego")]
     [TypeAlias("Server.Mobiles.SabertoothedTiger")]
     public class SabreToothedTiger : BaseCreature
     {
@@ -12,7 +12,7 @@ namespace Server.Mobiles
         public SabreToothedTiger()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "sabre-toothed tiger";
+            Name = "tygrys szablozebny";
             Body = 0x588;
             Female = true;
 

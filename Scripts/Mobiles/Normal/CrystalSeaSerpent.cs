@@ -2,13 +2,13 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a crystal sea serpent corpse")]
+    [CorpseName("zwloki krysztalowego weza morskiego")]
     public class CrystalSeaSerpent : SeaSerpent
     {
         [Constructable]
         public CrystalSeaSerpent()
         {
-            Name = "a crystal sea serpent";
+            Name = "krysztalowy waz morski";
             Hue = 0x47E;
 
             SetStr(250, 450);

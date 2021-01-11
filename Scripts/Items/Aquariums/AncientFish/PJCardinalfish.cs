@@ -6,6 +6,7 @@ namespace Server.Items
         public PJCardinalfish()
             : base(0xA366)
         {
+            Name = "ryba z Herenport";
         }
 
         public PJCardinalfish(Serial serial)

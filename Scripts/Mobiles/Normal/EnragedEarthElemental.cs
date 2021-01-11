@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an earth elemental corpse")]
+    [CorpseName("resztki wscieklego zywiolaka ziemi")]
     public class EnragedEarthElemental : BaseCreature
     {
         [Constructable]
         public EnragedEarthElemental()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Enraged Earth Elemental";
+            Name = "Wsciekly zywiolak ziemi";
             Body = 14;
             BaseSoundID = 268;
             Hue = 442;

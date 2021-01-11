@@ -9,6 +9,7 @@ namespace Server.Items
         public FurnitureDyeTub()
         {
             LootType = LootType.Blessed;
+            Name = "Farba do mebli";
         }
 
         public FurnitureDyeTub(Serial serial)

@@ -6,6 +6,7 @@ namespace Server.Items
         public SpinedScratcherFish()
             : base(0x3B05)
         {
+            Name = "ryba z kolcami";
         }
 
         public SpinedScratcherFish(Serial serial)

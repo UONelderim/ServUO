@@ -6,6 +6,7 @@ namespace Server.Items
         public SmallMouthSuckerFin()
             : base(0x3B01)
         {
+            Name = "pletwa";
         }
 
         public SmallMouthSuckerFin(Serial serial)

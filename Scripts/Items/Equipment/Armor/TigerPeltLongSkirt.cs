@@ -27,6 +27,7 @@ namespace Server.Items
             : base(0x7826)
         {
             Weight = 1.0;
+			Name = "Dluga spodnica ze skory tygrysa";
         }
 
         public TigerPeltLongSkirt(Serial serial)

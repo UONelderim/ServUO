@@ -6,6 +6,7 @@ namespace Server.Items
         public VesperReefTiger()
             : base(0x3B08)
         {
+            Name = "rafowiec z cesarstwa";
         }
 
         public VesperReefTiger(Serial serial)

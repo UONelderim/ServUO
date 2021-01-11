@@ -2,13 +2,13 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a dragon corpse")]
+    [CorpseName("zwloki smoka mrozu")]
     public class FrostDragon : BaseCreature, IAuraCreature
     {
         [Constructable]
         public FrostDragon() : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a frost dragon";
+            Name = "smok mrozu";
             Body = Utility.RandomList(12, 59);
             BaseSoundID = 362;
 

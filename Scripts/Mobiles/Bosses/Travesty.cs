@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a travesty's corpse")]
+    [CorpseName("zwloki oszusta")]
     public class Travesty : BasePeerless
     {
         public override double WeaponAbilityChance => IsBodyMod ? base.WeaponAbilityChance : 0.1;
@@ -37,7 +37,7 @@ namespace Server.Mobiles
         public Travesty()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Travesty";
+            Name = "Travesty - Oszust";
             Body = 0x108;
 
             BaseSoundID = 0x46E;

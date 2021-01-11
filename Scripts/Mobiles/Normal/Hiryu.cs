@@ -3,12 +3,12 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a hiryu corpse")]
+    [CorpseName("zwloki smoczego pawia")]
     public class Hiryu : BaseMount
     {
         [Constructable]
         public Hiryu()
-            : base("a hiryu", 243, 0x3E94, AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
+            : base("Smoczy paw", 243, 0x3E94, AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Hue = GetHue();
 

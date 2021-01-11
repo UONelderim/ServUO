@@ -5,7 +5,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a sheep corpse")]
+    [CorpseName("zwloki owcy")]
     public class Sheep : BaseCreature, ICarvable
     {
         private DateTime m_NextWoolTime;
@@ -13,7 +13,7 @@ namespace Server.Mobiles
         public Sheep()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a sheep";
+            Name = "owca";
             Body = 0xCF;
             BaseSoundID = 0xD6;
 

@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a crane corpse")]
+    [CorpseName("zwloki zurawia")]
     public class Crane : BaseCreature
     {
         [Constructable]
         public Crane()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a crane";
+            Name = "zuraw";
             Body = 254;
             BaseSoundID = 0x4D7;
 

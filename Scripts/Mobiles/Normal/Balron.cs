@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a balron corpse")]
+    [CorpseName("zwloki balrona")]
     public class Balron : BaseCreature
     {
         [Constructable]

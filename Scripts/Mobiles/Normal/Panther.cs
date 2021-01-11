@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a panther corpse")]
+    [CorpseName("zwloki pantery")]
     public class Panther : BaseCreature
     {
         [Constructable]
         public Panther()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a panther";
+            Name = "pantera";
             Body = 0xD6;
             Hue = 0x901;
             BaseSoundID = 0x462;

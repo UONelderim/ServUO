@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a jwilson corpse")]
+    [CorpseName("resztki sluzu")]
     public class Jwilson : BaseCreature
     {
         [Constructable]
@@ -9,7 +9,7 @@ namespace Server.Mobiles
         {
             Hue = Utility.RandomList(0x89C, 0x8A2, 0x8A8, 0x8AE);
             Body = 0x33;
-            Name = ("jwilson");
+            Name = ("sluz");
 
             InitStats(Utility.Random(22, 13), Utility.Random(16, 6), Utility.Random(16, 5));
 

@@ -3,15 +3,15 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("Devourer of Souls [Renowned] corpse")]
+    [CorpseName("zwloki [slawny] pozeracza dusz")]
     public class DevourerRenowned : BaseRenowned
     {
         [Constructable]
         public DevourerRenowned()
             : base(AIType.AI_NecroMage)
         {
-            Name = "Devourer of Souls";
-            Title = "[Renowned]";
+            Name = "pozeracz dusz";
+            Title = "[slawny]";
             Body = 303;
             BaseSoundID = 357;
 

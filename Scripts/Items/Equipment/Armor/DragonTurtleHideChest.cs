@@ -25,6 +25,7 @@ namespace Server.Items
             : base(0x782A)
         {
             Weight = 8.0;
+			Name = "Napiersnik ze skorupy smoczego zolwia";
         }
 
         public DragonTurtleHideChest(Serial serial)

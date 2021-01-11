@@ -6,7 +6,7 @@ namespace Server.Spells.SkillMasteries
     public class PerseveranceSpell : BardSpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Perserverance", "Unus Jux Sanct",
+                "Wytrwałość", "Unus Jux Sanct",
                 -1,
                 9002
             );

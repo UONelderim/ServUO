@@ -6,6 +6,7 @@ namespace Server.Items
         public AlbinoCourtesanFish()
             : base(0x3B04)
         {
+            Name = "biala ryba krolewska";
         }
 
         public AlbinoCourtesanFish(Serial serial)

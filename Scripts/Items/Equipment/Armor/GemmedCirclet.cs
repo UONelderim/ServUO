@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B70)
         {
             Weight = 2.0;
+			Name = "Diadem wysadzany klejnotami";
         }
 
         public GemmedCirclet(Serial serial)

@@ -6,6 +6,7 @@ namespace Server.Items
         public RedDartFish()
             : base(0x3B00)
         {
+            Name = "czerwona ryba z tasandory";
         }
 
         public RedDartFish(Serial serial)

@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a poison elementals corpse")]
+    [CorpseName("zwloki zywiolaka trucizny")]
     public class PoisonElemental : BaseCreature
     {
         [Constructable]
         public PoisonElemental()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a poison elemental";
+            Name = "zywiolak trucizny";
             Body = 162;
             BaseSoundID = 263;
 

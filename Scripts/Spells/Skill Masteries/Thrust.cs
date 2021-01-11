@@ -9,7 +9,7 @@ namespace Server.Spells.SkillMasteries
     public class ThrustSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Thrust", "",
+                "Szybki Cios", "",
                 -1,
                 9002
             );

@@ -10,6 +10,7 @@ namespace Server.Items
         {
             Hue = 1159;
             Movable = true;
+            Name = "eliksir kowersji metalu";
         }
 
         public ElixirofMetalConversion(Serial serial)

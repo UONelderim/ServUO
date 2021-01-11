@@ -6,6 +6,7 @@ namespace Server.Items
         public Scorpionfish()
             : base(0xA36B)
         {
+            Name = "ryba Skorpenowata";
         }
 
         public Scorpionfish(Serial serial)

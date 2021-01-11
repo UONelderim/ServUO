@@ -22,7 +22,7 @@ namespace Server.Mobiles
 
             Body = 0x190;
             Name = NameList.RandomName("male");
-            Title = "the Paladin";
+            Title = "- paladyn";
             Hue = Race.RandomSkinHue();
 
             switch (Utility.Random(5))

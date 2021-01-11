@@ -6,6 +6,7 @@ namespace Server.Items
         public BarrelSponge()
             : base(0xA38A)
         {
+            Name = "Gigantyczna gabka beczkowa";
         }
 
         public BarrelSponge(Serial serial)

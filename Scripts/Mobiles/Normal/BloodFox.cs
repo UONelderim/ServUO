@@ -2,13 +2,13 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a blood fox corpse")]
+    [CorpseName("zwloki krwawego lisa")]
     public class BloodFox : BaseCreature
     {
         [Constructable]
         public BloodFox() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Blood Fox";
+            Name = "krwawy lis";
             Body = 0x58f;
             Female = true;
 

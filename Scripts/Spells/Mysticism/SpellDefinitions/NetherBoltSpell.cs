@@ -8,7 +8,7 @@ namespace Server.Spells.Mysticism
         public override SpellCircle Circle => SpellCircle.First;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Nether Bolt", "In Corp Ylem",
+                "Mistczny Promień", "In Corp Ylem",
                 230,
                 9022,
                 Reagent.BlackPearl,

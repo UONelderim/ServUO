@@ -6,6 +6,7 @@ namespace Server.Items
         public SeaHorseFish()
             : base(0x3B10)
         {
+            Name = "konik morski";
         }
 
         public SeaHorseFish(Serial serial)

@@ -25,6 +25,7 @@ namespace Server.Items
         {
             Weight = 3.0;
             StrRequirement = 10;
+			Name = "Kaptur czarodzieja";
         }
 
         public MagesHood(Serial serial)

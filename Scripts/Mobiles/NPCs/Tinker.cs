@@ -12,7 +12,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public Tinker()
-            : base("the tinker")
+            : base("- majster")
         {
             SetSkill(SkillName.Lockpicking, 60.0, 83.0);
             SetSkill(SkillName.RemoveTrap, 75.0, 98.0);

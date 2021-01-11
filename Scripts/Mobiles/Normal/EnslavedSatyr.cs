@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an enslaved satyr corpse")]
+    [CorpseName("zwloki uwiezionego satyra")]
     public class EnslavedSatyr : Satyr
     {
         [Constructable]
         public EnslavedSatyr()
             : base()
         {
-            Name = "an enslaved satyr";
+            Name = "uwieziony satyr";
 
             Fame = 10000;
             Karma = -10000;

@@ -14,7 +14,7 @@ namespace Server.Spells.SkillMasteries
         private DateTime m_NextDamage;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Tribulation", "In Jux Hur Rel",
+                "Ciepienie", "In Jux Hur Rel",
                 -1,
                 9002
             );
@@ -60,7 +60,7 @@ namespace Server.Spells.SkillMasteries
             }
             else if (Caster == m)
             {
-                Caster.SendMessage("You cannot target yourself!");
+                Caster.SendMessage("Nie możesz użyć tego na sobie!");
             }
             else if (HasHarmfulEffects(m, GetType()))
             {

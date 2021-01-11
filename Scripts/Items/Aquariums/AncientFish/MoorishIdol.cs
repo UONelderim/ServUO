@@ -6,6 +6,7 @@ namespace Server.Items
         public MoorishIdol()
             : base(0xA35F)
         {
+            Name = "Idolek z Ened-en-Glad";
         }
 
         public MoorishIdol(Serial serial)

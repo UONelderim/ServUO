@@ -9,8 +9,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Body = 0x190;
-            Name = "Zealot of Khaldun";
-            Title = "the Knight";
+            Name = "przeklety rycerz";
             Hue = 0;
 
             SetStr(351, 400);

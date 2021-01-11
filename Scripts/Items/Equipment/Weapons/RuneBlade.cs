@@ -12,6 +12,7 @@ namespace Server.Items
         {
             Weight = 7.0;
             Layer = Layer.TwoHanded;
+			Name = "Ostrza zdobione runami";
         }
 
         public RuneBlade(Serial serial)

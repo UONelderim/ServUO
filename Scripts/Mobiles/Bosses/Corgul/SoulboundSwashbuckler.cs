@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public SoulboundSwashbuckler()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a soulbound swashbuckler";
+            Name = "zaklety wojak";
             Body = 0x190;
             Hue = Race.RandomSkinHue();
             Utility.AssignRandomHair(this);

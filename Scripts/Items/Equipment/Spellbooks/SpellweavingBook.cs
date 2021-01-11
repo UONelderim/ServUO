@@ -13,6 +13,7 @@ namespace Server.Items
             : base(content, 0x2D50)
         {
             Hue = 0x8A2;
+            Name = "Ksiega Druidyzmu";
         }
 
         public SpellweavingBook(Serial serial)

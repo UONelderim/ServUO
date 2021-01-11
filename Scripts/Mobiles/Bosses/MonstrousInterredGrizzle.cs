@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a monstrous interred grizzle corpse")]
+    [CorpseName("zwloki wielkiej pokracznej bestii")]
     public class MonstrousInterredGrizzle : BasePeerless
     {
         private static readonly int[] m_Tiles =
@@ -27,7 +27,7 @@ namespace Server.Mobiles
         public MonstrousInterredGrizzle()
             : base(AIType.AI_Spellweaving, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a monstrous interred grizzle";
+            Name = "Wielka Pokraczna Bestia";
             Body = 0x103;
             BaseSoundID = 589;
 

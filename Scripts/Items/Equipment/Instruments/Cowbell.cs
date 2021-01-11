@@ -8,6 +8,7 @@ namespace Server.Items
         public CowBellComponent()
             : base(0x4C5A, 0x66E)
         {
+            Name = "dzwonek";
         }
 
         public CowBellComponent(Serial serial)
@@ -35,6 +36,7 @@ namespace Server.Items
         [Constructable]
         public CowBellDeed()
         {
+            Name = "dzwonek";
         }
 
         public CowBellDeed(Serial serial)

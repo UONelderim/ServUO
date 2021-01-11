@@ -23,7 +23,7 @@ namespace Server.Items
             : base(itemID)
         {
             Movable = false;
-
+            Name = "krew";
             TimerRegistry.Register(_TimerID, this, DecayTime, blood => blood.Delete());
         }
 

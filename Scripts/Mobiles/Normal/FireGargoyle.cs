@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a charred corpse")]
+    [CorpseName("zwloki ognistego gargulca")]
     public class FireGargoyle : BaseCreature, IAuraCreature
     {
         [Constructable]
         public FireGargoyle()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = NameList.RandomName("fire gargoyle");
+            Name = NameList.RandomName("ognisty gargulec");
             Body = 130;
             BaseSoundID = 0x174;
 

@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("the remains of Grim")]
+    [CorpseName("zwloki grima")]
     public class Grim : Drake
     {
         [Constructable]

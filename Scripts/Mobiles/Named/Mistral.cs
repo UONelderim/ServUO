@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a mistral corpse")]
+    [CorpseName("resztki mistrala")]
     public class Mistral : BaseCreature
     {
         [Constructable]

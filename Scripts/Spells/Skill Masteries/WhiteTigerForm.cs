@@ -12,7 +12,7 @@ namespace Server.Spells.SkillMasteries
     public class WhiteTigerFormSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "White Tiger Form", "",
+                "Forma Białego Tygrysa", "",
                 -1,
                 9002
             );

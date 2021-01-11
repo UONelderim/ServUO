@@ -9,6 +9,7 @@ namespace Server.Items
             Weight = DefaultWeight;
             LootType = LootType.Blessed;
             Layer = Layer.Bracelet;
+            Name = "przenosny zegar sloneczny";
         }
 
         public WristWatch(Serial serial)

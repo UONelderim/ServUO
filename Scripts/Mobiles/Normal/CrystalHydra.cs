@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a crystal hydra corpse")]
+    [CorpseName("zwloki krysztalowej hydry")]
     public class CrystalHydra : BaseCreature
     {
         [Constructable]
         public CrystalHydra()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a crystal hydra";
+            Name = "krysztalowa hydra";
             Body = 0x109;
             Hue = 0x47E;
             BaseSoundID = 0x16A;

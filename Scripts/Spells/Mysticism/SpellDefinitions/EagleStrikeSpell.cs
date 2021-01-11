@@ -10,7 +10,7 @@ namespace Server.Spells.Mysticism
         public override bool DelayedDamageStacking => false;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Eagle Strike", "Kal Por Xen",
+                "Przywołanie Orła", "Kal Por Xen",
                 230,
                 9022,
                 Reagent.Bloodmoss,

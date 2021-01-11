@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a pixie corpse")]
+    [CorpseName("zwloki wrozki")]
     public class Pixie : BaseCreature
     {
         [Constructable]
         public Pixie()
             : base(AIType.AI_Mage, FightMode.Evil, 10, 1, 0.2, 0.4)
         {
-            Name = NameList.RandomName("pixie");
+            Name = NameList.RandomName("wrozka");
             Body = 128;
             BaseSoundID = 0x467;
 

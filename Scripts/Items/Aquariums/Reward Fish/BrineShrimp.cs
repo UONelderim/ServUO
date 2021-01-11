@@ -6,6 +6,7 @@ namespace Server.Items
         public BrineShrimp()
             : base(0x3B11)
         {
+            Name = "Artemia";
         }
 
         public BrineShrimp(Serial serial)

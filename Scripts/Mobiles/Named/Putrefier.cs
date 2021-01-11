@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a Putrefier corpse")]
+    [CorpseName("zwloki zatrutego demona")]
     public class Putrefier : Balron
     {
         [Constructable]

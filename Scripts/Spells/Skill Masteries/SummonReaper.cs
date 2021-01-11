@@ -9,7 +9,7 @@ namespace Server.Spells.SkillMasteries
     public class SummonReaperSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Summon Reaper", "Lartarisstree",
+                "Przyzwanie Drzewca", "Lartarisstree",
                 204,
                 9061
             );

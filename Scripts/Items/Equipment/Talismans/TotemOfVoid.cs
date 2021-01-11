@@ -19,6 +19,7 @@ namespace Server.Items
             Protection = GetRandomProtection(false);
             Attributes.RegenHits = 2;
             Attributes.LowerManaCost = 10;
+            Name = "Totem Pustki";
         }
 
         public TotemOfVoid(Serial serial)

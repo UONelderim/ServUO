@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B79)
         {
             Weight = 6.0;
+			Name = "Lesny wzmocniony damski napiersnik";
         }
 
         public HideFemaleChest(Serial serial)

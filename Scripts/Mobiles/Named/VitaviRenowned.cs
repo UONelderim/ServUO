@@ -4,7 +4,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("Vitavi [Renowned] corpse")]
+    [CorpseName("cialo Vitavi [Slynnego]")]
     public class VitaviRenowned : BaseRenowned
     {
         [Constructable]
@@ -12,7 +12,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Mystic)
         {
             Name = "Vitavi";
-            Title = "[Renowned]";
+            Title = "[Slynny]";
             Body = 0x8F;
             BaseSoundID = 437;
 

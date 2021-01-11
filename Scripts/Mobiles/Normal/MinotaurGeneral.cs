@@ -1,12 +1,12 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a minotaur general corpse")]
+    [CorpseName("zwloki generala minotaurow")]
     public class MinotaurGeneral : MinotaurCaptain
     {
         [Constructable]
         public MinotaurGeneral()
         {
-            Name = "a minotaur general";
+            Name = "general minotaurow";
             Body = 0x118;
             BaseSoundID = 1270;
 

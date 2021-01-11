@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a pit fiend corpse")]
+    [CorpseName("zwloki prastarego demona")]
     public class PitFiend : BaseCreature
     {
         [Constructable]
         public PitFiend()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a pit fiend";
+            Name = "Prastary demon";
             Body = 43;
             Hue = 1863;
             BaseSoundID = 357;

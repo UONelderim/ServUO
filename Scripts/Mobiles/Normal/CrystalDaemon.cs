@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a crystal daemon corpse")]
+    [CorpseName("zwloki krysztalowego demona")]
     public class CrystalDaemon : BaseCreature
     {
         [Constructable]
         public CrystalDaemon()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a crystal daemon";
+            Name = "krysztalowy demon";
             Body = 0x310;
             Hue = 0x3E8;
             BaseSoundID = 0x47D;

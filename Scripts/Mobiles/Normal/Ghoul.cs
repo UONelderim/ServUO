@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a ghostly corpse")]
+    [CorpseName("resztki ghula")]
     public class Ghoul : BaseCreature
     {
         [Constructable]
         public Ghoul()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a ghoul";
+            Name = "ghul";
             Body = 153;
             BaseSoundID = 0x482;
 

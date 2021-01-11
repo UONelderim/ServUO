@@ -6,7 +6,8 @@ namespace Server.Items
         public LeafySeaDragon()
             : base(0xA390)
         {
-        }
+            Name = "lisciasty smok morski";
+         }
 
         public LeafySeaDragon(Serial serial)
             : base(serial)

@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B71)
         {
             Weight = 5.0;
+			Name = "Kruczy helm";
         }
 
         public RavenHelm(Serial serial)

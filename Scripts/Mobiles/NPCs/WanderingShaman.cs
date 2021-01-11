@@ -10,7 +10,7 @@ namespace Server.Mobiles
         public WanderingShaman()
         {
             Name = NameList.RandomName("savage");
-            Title = "the wandering shaman";
+            Title = "- wedrujacy szaman";
             Hue = 0;
 
             HairItemID = 0;

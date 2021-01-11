@@ -7,7 +7,7 @@ namespace Server.Mobiles
         public BoundSoul()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a bound soul";
+            Name = "zakleta dusza";
             Body = 0x3CA;
             Hue = 0x4001;
 

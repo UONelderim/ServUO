@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a ferret corpse")]
+    [CorpseName("zwloki fretki")]
     public class Ferret : BaseCreature
     {
         private static readonly string[] m_Vocabulary =
@@ -18,7 +18,7 @@ namespace Server.Mobiles
         public Ferret()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a ferret";
+            Name = "fretka";
             Body = 0x117;
 
             SetStr(41, 48);

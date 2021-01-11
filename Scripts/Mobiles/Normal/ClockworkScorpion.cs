@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a clockwork scorpion corpse")]
+    [CorpseName("zwloki mechanicznego skorpiona")]
     public class ClockworkScorpion : BaseCreature, IRepairableMobile
     {
         public Type RepairResource => typeof(Items.IronIngot);
@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public ClockworkScorpion()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.4, 0.8)
         {
-            Name = "a clockwork scorpion";
+            Name = "mechaniczny skorpion";
             Body = 717;
 
             SetStr(225, 245);

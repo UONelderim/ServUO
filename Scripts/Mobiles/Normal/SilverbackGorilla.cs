@@ -3,14 +3,14 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a silverback gorilla corpse")]
+    [CorpseName("zwloki goryla")]
     public class SilverbackGorilla : BaseCreature
     {
         [Constructable]
         public SilverbackGorilla()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, .2, .4)
         {
-            Name = "a silverback gorilla";
+            Name = "goryl srebrzystogrzbiety";
             Body = 0x1D;
             BaseSoundID = 0x9E;
 

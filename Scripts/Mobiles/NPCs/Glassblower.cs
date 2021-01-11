@@ -8,7 +8,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Glassblower()
-            : base("the alchemist")
+            : base("- szklarz")
         {
             SetSkill(SkillName.Alchemy, 85.0, 100.0);
             SetSkill(SkillName.TasteID, 85.0, 100.0);

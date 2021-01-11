@@ -6,6 +6,7 @@ namespace Server.Items
         public YellowBoxfish()
             : base(0xA371)
         {
+            Name = "Kostera gruzelkowata";
         }
 
         public YellowBoxfish(Serial serial)

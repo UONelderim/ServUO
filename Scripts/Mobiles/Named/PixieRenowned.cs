@@ -3,15 +3,15 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("Pixie [Renowned] corpse")]
+    [CorpseName("cialo sławnej wrozki")]
     public class PixieRenowned : BaseRenowned
     {
         [Constructable]
         public PixieRenowned()
             : base(AIType.AI_Mage)
         {
-            Name = "Pixie";
-            Title = "[Renowned]";
+            Name = "Wrozka";
+            Title = "[slawna]";
             Body = 128;
             BaseSoundID = 0x467;
 

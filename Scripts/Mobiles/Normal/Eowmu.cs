@@ -41,7 +41,7 @@ namespace Server.Mobiles
         }
     }
 
-    [CorpseName("an eowmu corpse")]
+    [CorpseName("zwloki Eowmu")]
     public class Eowmu : BaseMount
     {
         [Constructable]

@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a chaos daemon corpse")]
+    [CorpseName("zwloki demona chaosu")]
     public class ChaosDaemon : BaseCreature
     {
         [Constructable]
         public ChaosDaemon()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a chaos daemon";
+            Name = "demon chaosu";
             Body = 792;
             BaseSoundID = 0x3E9;
 

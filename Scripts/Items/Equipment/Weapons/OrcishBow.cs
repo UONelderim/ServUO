@@ -10,6 +10,7 @@ namespace Server.Items
             Hue = 1107;
             Attributes.WeaponDamage = 25;
             WeaponAttributes.DurabilityBonus = 70;
+			Name = "Orczy luk";
         }
 
         public OrcishBow(Serial serial)

@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a lady of the snow corpse")]
+    [CorpseName("zwloki pani sniegu")]
     public class LadyOfTheSnow : BaseCreature
     {
         [Constructable]
         public LadyOfTheSnow()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a lady of the snow";
+            Name = "pani sniegu";
             Body = 252;
             BaseSoundID = 0x482;
 

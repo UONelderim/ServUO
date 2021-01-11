@@ -4,7 +4,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a solen queen corpse")]
+    [CorpseName("zwloki krolowej czerwonych mrowek")]
     public class RedSolenQueen : BaseCreature, IRedSolen
     {
         private bool m_BurstSac;
@@ -14,7 +14,7 @@ namespace Server.Mobiles
         public RedSolenQueen()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a red solen queen";
+            Name = "Krolowa czerwonych mrowek";
             Body = 783;
             BaseSoundID = 959;
 

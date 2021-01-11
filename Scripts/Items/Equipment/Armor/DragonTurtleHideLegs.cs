@@ -25,6 +25,7 @@ namespace Server.Items
             : base(0x782C)
         {
             Weight = 5.0;
+			Name = "Nogawice ze skorupy smoczego zolwia";
         }
 
         public DragonTurtleHideLegs(Serial serial)

@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a devourer of souls corpse")]
+    [CorpseName("zwloki pozeracza dusz")]
     public class Devourer : BaseCreature
     {
         [Constructable]
         public Devourer()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a devourer of souls";
+            Name = "pozeracz dusz";
             Body = 303;
             BaseSoundID = 357;
 

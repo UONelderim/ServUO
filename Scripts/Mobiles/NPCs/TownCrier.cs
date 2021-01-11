@@ -460,7 +460,7 @@ namespace Server.Mobiles
 
             InitStats(100, 100, 25);
 
-            Title = "the town crier";
+            Title = "- krzykacz";
             Hue = Race.RandomSkinHue();
 
             if (Female = Utility.RandomBool())

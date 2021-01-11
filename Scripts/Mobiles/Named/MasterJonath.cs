@@ -2,13 +2,13 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a Master Jonath corpse")]
+    [CorpseName("zwloki Mistrza Jonasza")]
     public class MasterJonath : BoneMagi
     {
         [Constructable]
         public MasterJonath()
         {
-            Name = "Master Jonath";
+            Name = "<Mistrz Jonasz";
             Hue = 0x455;
 
             SetStr(109, 131);

@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an turkey corpse")]
+    [CorpseName("zwloki indyka")]
     public class Turkey : BaseCreature
     {
         [Constructable]
@@ -13,7 +13,7 @@ namespace Server.Mobiles
         [Constructable]
         public Turkey(bool tamable) : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a turkey";
+            Name = "indyk";
             Body = 95;
             BaseSoundID = 0x66A;
 

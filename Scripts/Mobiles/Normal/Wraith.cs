@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a ghostly corpse")]
+    [CorpseName("zwloki widma")]
     public class Wraith : BaseCreature
     {
         [Constructable]
         public Wraith()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a wraith";
+            Name = "widmo";
             Body = 26;
             Hue = 0x4001;
             BaseSoundID = 0x482;

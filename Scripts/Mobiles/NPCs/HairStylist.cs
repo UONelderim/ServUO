@@ -7,7 +7,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public HairStylist()
-            : base("the hair stylist")
+            : base("- fryzjer")
         {
             SetSkill(SkillName.Alchemy, 80.0, 100.0);
             SetSkill(SkillName.Magery, 90.0, 110.0);

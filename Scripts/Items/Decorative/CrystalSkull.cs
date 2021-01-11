@@ -9,6 +9,7 @@ namespace Server.Items
         public CrystalSkull()
             : base(0x9A1A)
         {
+            Name = "krysztalowa czaszka";
         }
 
         public CrystalSkull(Serial serial)

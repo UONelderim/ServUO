@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an air elemental corpse")]
+    [CorpseName("zwloki zywiołaka powietrza")]
     public class AirElemental : BaseCreature
     {
         [Constructable]
         public AirElemental()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an air elemental";
+            Name = "zywiołak powietrza";
             Body = 13;
             Hue = 0x4001;
             BaseSoundID = 655;

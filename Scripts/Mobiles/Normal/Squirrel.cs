@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a squirrel corpse")]
+    [CorpseName("zwłoki wiewiorki")]
     public class Squirrel : BaseCreature
     {
         [Constructable]
         public Squirrel()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a squirrel";
+            Name = "wiewiorka";
             Body = 0x116;
 
             SetStr(44, 50);

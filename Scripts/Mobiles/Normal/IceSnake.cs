@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("an ice snake corpse")]
+    [CorpseName("zwloki lodowej zmiji")]
     public class IceSnake : BaseCreature
     {
         [Constructable]
         public IceSnake()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an ice snake";
+            Name = "lodowa zmija";
             Body = 52;
             Hue = 0x480;
             BaseSoundID = 0xDB;

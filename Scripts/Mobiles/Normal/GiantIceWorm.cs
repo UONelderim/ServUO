@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a giant ice worm corpse")]
+    [CorpseName("zwloki wielkiego lodowego robala")]
     public class GiantIceWorm : BaseCreature
     {
         [Constructable]
@@ -8,7 +8,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Body = 89;
-            Name = "a giant ice worm";
+            Name = "wielki lodowy robal";
             BaseSoundID = 0xDC;
 
             SetStr(216, 245);

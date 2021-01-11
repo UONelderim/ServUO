@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a horse corpse")]
+    [CorpseName("zwloki jucznego konia")]
     public class PackHorse : BaseCreature
     {
         [Constructable]
         public PackHorse()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a pack horse";
+            Name = "juczny kon";
             Body = 291;
             BaseSoundID = 0xA8;
 

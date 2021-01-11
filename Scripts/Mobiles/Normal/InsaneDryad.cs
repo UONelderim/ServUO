@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a dryad's corpse")]
+    [CorpseName("resztki szalonej driady")]
     public class MLDryad : BaseCreature
     {
         public override bool InitialInnocent => true;
@@ -16,7 +16,7 @@ namespace Server.Mobiles
         public MLDryad()
             : base(AIType.AI_Mage, FightMode.Evil, 10, 1, 0.2, 0.4)
         {
-            Name = "a dryad";
+            Name = "szalona driada";
             Body = 266;
             BaseSoundID = 0x57B;
 

@@ -6,6 +6,7 @@ namespace Server.Items
         public FandancerFish()
             : base(0x3B02)
         {
+            Name = "elficka ryba pospolita";
         }
 
         public FandancerFish(Serial serial)

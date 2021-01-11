@@ -6,6 +6,7 @@ namespace Server.Items
         public StaghornCoral()
             : base(0xA38D)
         {
+            Name = "rozgaleziony i kamienisty koral";
         }
 
         public StaghornCoral(Serial serial)

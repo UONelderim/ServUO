@@ -24,7 +24,7 @@ namespace Server.Items
         {
             Hue = 0x489;
             Weight = 1.0;
-
+            Name = "Branzoleta polaczenia";
             m_Inscription = "";
         }
 

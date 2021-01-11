@@ -3,14 +3,14 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a cu sidhe corpse")]
+    [CorpseName("zwloki cu sidhe")]
     public class CuSidhe : BaseMount
     {
         public override double HealChance => 1.0;
 
         [Constructable]
         public CuSidhe()
-            : this("a cu sidhe")
+            : this("cu sidhe")
         {
         }
 

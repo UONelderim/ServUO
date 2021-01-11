@@ -6,6 +6,7 @@ namespace Server.Items
         public CleanerShrimp()
             : base(0xA37C)
         {
+            Name = "Czystsze krewetki";
         }
 
         public CleanerShrimp(Serial serial)

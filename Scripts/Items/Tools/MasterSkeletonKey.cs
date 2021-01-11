@@ -11,6 +11,7 @@
         public MasterSkeletonKey()
         {
             Uses = 10;
+            Name = "kosciany klucz do skrzyni";
         }
 
         public MasterSkeletonKey(Serial serial) : base(serial)

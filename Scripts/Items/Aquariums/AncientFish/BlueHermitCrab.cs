@@ -6,6 +6,7 @@ namespace Server.Items
         public BlueHermitCrab()
             : base(0xA37F)
         {
+            Name = "Clibanarius tricolor";
         }
 
         public BlueHermitCrab(Serial serial)

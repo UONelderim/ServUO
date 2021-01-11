@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a skeletal drake corpse")]
+    [CorpseName("resztki koscianego draka")]
     public class SkeletalDrake : BaseCreature
     {
         [Constructable]
         public SkeletalDrake()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a skeletal drake";
+            Name = "kosciany drak";
             Body = 104;
             Hue = 2101;
             BaseSoundID = 0x488;

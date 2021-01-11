@@ -25,6 +25,7 @@ namespace Server.Items
             : base(0x7828)
         {
             Weight = 2.0;
+			Name = "czapa ze skory tygrysa";
         }
 
         public TigerPeltHelm(Serial serial)

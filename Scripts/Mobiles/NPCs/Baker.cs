@@ -7,7 +7,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Baker()
-            : base("the baker")
+            : base("piekarz")
         {
             SetSkill(SkillName.Cooking, 75.0, 98.0);
             SetSkill(SkillName.TasteID, 36.0, 68.0);

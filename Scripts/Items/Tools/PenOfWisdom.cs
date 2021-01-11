@@ -33,6 +33,7 @@ namespace Server.Items
             m_UsesRemaining = uses;
             Hue = 1260;
             ShowUsesRemaining = true;
+            Name = "pioro madrosci";
         }
 
         public virtual bool ShowUsesRemaining

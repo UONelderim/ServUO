@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a bulbous putrification corpse")]
+    [CorpseName("zwloki bulgoczacej mazi")]
     public class BulbousPutrification : BaseCreature
     {
         [Constructable]
         public BulbousPutrification()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a bulbous putrification";
+            Name = "bulgoczaca maz";
             Body = 0x307;
             Hue = 0x55C;
             BaseSoundID = 0x165;

@@ -3,14 +3,14 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a chief paroxysmus corpse")]
+    [CorpseName("zwloki oblesnego kucharza")]
     public class ChiefParoxysmus : BasePeerless
     {
         [Constructable]
         public ChiefParoxysmus()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a chief paroxysmus";
+            Name = "Oblesny Kucharz";
             Body = 0x100;
 
             SetStr(1232, 1400);

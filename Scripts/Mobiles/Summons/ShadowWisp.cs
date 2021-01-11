@@ -3,13 +3,13 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a shadow wisp corpse")]
+    [CorpseName("resztki mrocznej smugi")]
     public class ShadowWispFamiliar : BaseFamiliar
     {
         private DateTime m_NextFlare;
         public ShadowWispFamiliar()
         {
-            Name = "a shadow wisp";
+            Name = "mroczna smuga";
             Body = 165;
             Hue = 0x901;
             BaseSoundID = 466;

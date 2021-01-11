@@ -57,7 +57,7 @@ namespace Server.Mobiles
             : base(null, AIType.AI_NecroMage, FightMode.Closest)
         {
             m_Altar = altar;
-            Name = "Corgul the Soulbinder";
+            Name = "Corgul - zaklinacz dusz";
             BaseSoundID = 609;
             Body = 0x4C;
             Hue = 2076;

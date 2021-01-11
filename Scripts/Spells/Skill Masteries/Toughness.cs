@@ -5,7 +5,7 @@ namespace Server.Spells.SkillMasteries
     public class ToughnessSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Toughness", "",
+                "Kamienna Skóra", "",
                 -1,
                 9002
             );

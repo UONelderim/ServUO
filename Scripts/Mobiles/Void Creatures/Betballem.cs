@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a betballem corpse")]
+    [CorpseName("zwloki betballem")]
     public class Betballem : BaseVoidCreature
     {
         public override VoidEvolution Evolution => VoidEvolution.Killing;

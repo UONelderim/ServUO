@@ -10,7 +10,7 @@ namespace Server.Spells.Mysticism
         public override bool DelayedDamageStacking => false;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Bombard", "Corp Por Ylem",
+                "Bombarda", "Corp Por Ylem",
                 230,
                 9022,
                 Reagent.Bloodmoss,

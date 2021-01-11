@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a night terror corpse")]
+    [CorpseName("Resztki nocnego terroru")]
     public class NightTerror : BaseCreature
     {
         [Constructable]
         public NightTerror()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Night Terror";
+            Name = "Nocny terror";
             Body = 0x30c;
             Hue = 2963;
 

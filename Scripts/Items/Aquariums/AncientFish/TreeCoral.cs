@@ -6,6 +6,7 @@ namespace Server.Items
         public TreeCoral()
             : base(0xA38F)
         {
+            Name = "drzewiasty koralowiec";
         }
 
         public TreeCoral(Serial serial)

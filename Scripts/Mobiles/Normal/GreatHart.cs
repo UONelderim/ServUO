@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a deer corpse")]
+    [CorpseName("zwloki jelenia")]
     public class GreatHart : BaseCreature
     {
         [Constructable]
         public GreatHart()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a great hart";
+            Name = "jelen";
             Body = 0xEA;
 
             SetStr(41, 71);

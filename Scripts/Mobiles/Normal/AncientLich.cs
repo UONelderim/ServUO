@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("an ancient liche's corpse")]
+    [CorpseName("zwloki starozytnego licza")]
     public class AncientLich : BaseCreature
     {
         [Constructable]
         public AncientLich()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = NameList.RandomName("ancient lich");
+            Name = NameList.RandomName("starozytny licz");
             Body = 78;
             BaseSoundID = 412;
 

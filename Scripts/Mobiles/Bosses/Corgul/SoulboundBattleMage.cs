@@ -5,7 +5,7 @@ namespace Server.Mobiles
         [Constructable]
         public SoulboundBattleMage()
         {
-            Title = "the soulbound battle mage";
+            Title = "zakleta dusza maga";
 
             SetStr(156);
             SetDex(101);

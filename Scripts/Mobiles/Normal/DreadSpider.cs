@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a dread spider corpse")]
+    [CorpseName("zwloki tarantuli")]
     public class DreadSpider : BaseCreature
     {
         [Constructable]
         public DreadSpider()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a dread spider";
+            Name = "tarantula";
             Body = 11;
             BaseSoundID = 1170;
 

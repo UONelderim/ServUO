@@ -51,6 +51,7 @@ namespace Server.Items
         {
             Weight = 2.0;
             Layer = Layer.Waist;
+            Name = "Pas pierwszej pomocy";
             m_Attributes = new AosAttributes(this);
         }
 

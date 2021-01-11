@@ -14,7 +14,7 @@ namespace Server.Spells.SkillMasteries
         private readonly List<Mobile> m_Mods = new List<Mobile>();
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Invigorate", "An Zu",
+                "Pobudzenie", "An Zu",
                 -1,
                 9002
             );

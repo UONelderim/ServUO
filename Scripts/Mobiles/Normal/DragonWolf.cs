@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a dragon wolf corpse")]
+    [CorpseName("zwloki smoczego wilka")]
     public class DragonWolf : BaseCreature
     {
         [Constructable]
         public DragonWolf()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a dragon wolf";
+            Name = "smoczy wilk";
             Body = 719;
             BaseSoundID = 0x5ED;
 

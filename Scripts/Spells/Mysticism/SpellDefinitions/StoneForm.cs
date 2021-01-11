@@ -13,7 +13,7 @@ namespace Server.Spells.Mysticism
         }
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Stone Form", "In Rel Ylem",
+                "Kamienna Forma", "In Rel Ylem",
                 230,
                 9022,
                 Reagent.Bloodmoss,

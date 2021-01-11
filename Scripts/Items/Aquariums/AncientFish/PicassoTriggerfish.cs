@@ -6,6 +6,7 @@ namespace Server.Items
         public PicassoTriggerfish()
             : base(0xA36E)
         {
+            Name = "poddenerwowana ryba Borginsona";
         }
 
         public PicassoTriggerfish(Serial serial)

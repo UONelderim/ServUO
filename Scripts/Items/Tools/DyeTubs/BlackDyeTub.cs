@@ -7,6 +7,7 @@ namespace Server.Items
         {
             Hue = DyedHue = 0x0001;
             Redyable = false;
+            Name = "czarna farba";
         }
 
         public BlackDyeTub(Serial serial)

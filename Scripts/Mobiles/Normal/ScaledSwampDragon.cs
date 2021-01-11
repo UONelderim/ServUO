@@ -1,11 +1,11 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a swamp dragon corpse")]
+    [CorpseName("zwloki bagiennego jaszczura")]
     public class ScaledSwampDragon : BaseMount
     {
         [Constructable]
         public ScaledSwampDragon()
-            : this("a swamp dragon")
+            : this("bagienny jaszczur")
         {
         }
 

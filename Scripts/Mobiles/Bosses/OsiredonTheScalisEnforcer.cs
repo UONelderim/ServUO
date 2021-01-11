@@ -45,7 +45,7 @@ namespace Server.Mobiles
         public Osiredon(Mobile fisher)
             : base(fisher, AIType.AI_NecroMage, FightMode.Closest)
         {
-            Name = "osiredon the scalis enforcer";
+            Name = "osiredon - egzekutor z dna oceanu";
             Body = 1068;
             BaseSoundID = 589;
 

@@ -6,6 +6,7 @@ namespace Server.Items
         public PygmySeahorse()
             : base(0xA372)
         {
+            Name = "jarlinski konik morski";
         }
 
         public PygmySeahorse(Serial serial)

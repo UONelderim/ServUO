@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a frost ooze corpse")]
+    [CorpseName("resztki zamarznietego sluzu")]
     public class FrostOoze : BaseCreature
     {
         [Constructable]
         public FrostOoze()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a frost ooze";
+            Name = "zamarzniety sluz";
             Body = 94;
             BaseSoundID = 456;
 

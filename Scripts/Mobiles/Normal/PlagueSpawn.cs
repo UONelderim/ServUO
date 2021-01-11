@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a plague spawn corpse")]
+    [CorpseName("zwloki slugi plagi")]
     public class PlagueSpawn : BaseCreature
     {
         private Mobile m_Owner;
@@ -21,7 +21,7 @@ namespace Server.Mobiles
             m_Owner = owner;
             m_ExpireTime = DateTime.UtcNow + TimeSpan.FromMinutes(1.0);
 
-            Name = "a plague spawn";
+            Name = "sluga plagi";
             Hue = Utility.Random(0x11, 15);
 
             switch (Utility.Random(12))

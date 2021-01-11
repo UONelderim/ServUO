@@ -10,6 +10,7 @@ namespace Server.Engines.Quests.Hag
         {
             Weight = 1.0;
             Hue = 0x2D;
+            Name = "lek na kaca";
 
             m_Uses = 20;
         }

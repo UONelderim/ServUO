@@ -17,6 +17,7 @@ namespace Server.Items
         public VialofArmorEssence()
             : base(0x5722)
         {
+            Name = "fiolka esencji pancerza";
         }
 
         public VialofArmorEssence(Serial serial)

@@ -38,6 +38,7 @@ namespace Server.Items
         {
             LootType = LootType.Blessed;
             Hue = 0x0;
+            Name = "mlota Pana";
         }
 
         public HammerOfHephaestus(Serial serial)

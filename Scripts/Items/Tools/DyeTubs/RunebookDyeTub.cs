@@ -7,6 +7,7 @@ namespace Server.Items
         public RunebookDyeTub()
         {
             LootType = LootType.Blessed;
+            Name = "farba do ksiag z runami";
         }
 
         public RunebookDyeTub(Serial serial)

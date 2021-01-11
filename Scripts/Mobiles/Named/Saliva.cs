@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a saliva corpse")]
+    [CorpseName("cialo salivy")]
     public class Saliva : Harpy
     {
         [Constructable]
         public Saliva()
             : base()
         {
-            Name = "a saliva";
+            Name = "saliva";
             Hue = 0x11E;
 
             SetStr(136, 206);

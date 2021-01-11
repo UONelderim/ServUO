@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an unfrozen mummy corpse")]
+    [CorpseName("resztki zamarznietej mumii")]
     public class UnfrozenMummy : BaseCreature
     {
         [Constructable]
         public UnfrozenMummy()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.4, 0.8)
         {
-            Name = "an unfrozen mummy";
+            Name = "zamarznieta mumia";
             Body = 0x9B;
             Hue = 0x480;
             BaseSoundID = 0x1D7;

@@ -4,7 +4,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a ki-rin corpse")]
+    [CorpseName("zwloki ki-rina")]
     public class Kirin : BaseMount
     {
         [Constructable]

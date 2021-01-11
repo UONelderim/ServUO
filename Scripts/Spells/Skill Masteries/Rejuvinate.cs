@@ -9,7 +9,7 @@ namespace Server.Spells.SkillMasteries
     public class RejuvinateSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Rejuvinate", "In Vas Ort Grav Mani",
+                "Odrodzenie", "In Vas Ort Grav Mani",
                 204,
                 9061
             );

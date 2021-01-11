@@ -10,6 +10,7 @@ namespace Server.Items
             : base(0x26C3)
         {
             Weight = 6.0;
+			Name = "Kusza samopowtarzalna";
         }
 
         public RepeatingCrossbow(Serial serial)

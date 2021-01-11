@@ -6,6 +6,7 @@ namespace Server.Items
         public SpeckledCrab()
             : base(0x3AFC)
         {
+            Name = "krab z celendir";
         }
 
         public SpeckledCrab(Serial serial)

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a stygian dragon corpse")]
+    [CorpseName("Zwloki Wielkiego Pradawnego Smoka")]
     public class StygianDragon : BaseSABoss
     {
         private DateTime m_Delay;
@@ -15,7 +15,7 @@ namespace Server.Mobiles
         public StygianDragon()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.3, 0.5)
         {
-            Name = "Stygian Dragon";
+            Name = "Wielki Pradawny Smok";
             Body = 826;
             BaseSoundID = 362;
 

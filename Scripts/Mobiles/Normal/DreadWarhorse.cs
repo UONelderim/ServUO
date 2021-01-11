@@ -2,14 +2,14 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a dread warhorse corpse")]
+    [CorpseName("zwloki mrocznego konia bojowego")]
     public class DreadWarhorse : BaseMount
     {
         private DateTime _NextTrick;
 
         [Constructable]
         public DreadWarhorse()
-            : this("a dread warhorse")
+            : this("mroczny kon bojowy")
         {
         }
 

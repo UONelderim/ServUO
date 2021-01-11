@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B76)
         {
             Weight = 3.0;
+			Name = "lesny wzmocniony karczek";
         }
 
         public HideGorget(Serial serial)

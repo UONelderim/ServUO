@@ -9,6 +9,7 @@ namespace Server.Items
         public LeatherDyeTub()
         {
             LootType = LootType.Blessed;
+            Name = "farba do skor";
         }
 
         public LeatherDyeTub(Serial serial)

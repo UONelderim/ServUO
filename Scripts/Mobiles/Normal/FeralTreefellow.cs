@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a treefellow corpse")]
+    [CorpseName("zwloki magicznego drzewca")]
     public class FeralTreefellow : BaseCreature
     {
         [Constructable]
         public FeralTreefellow()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a feral treefellow";
+            Name = "magiczny drzewiec";
             Body = 301;
 
             SetStr(1351, 1600);

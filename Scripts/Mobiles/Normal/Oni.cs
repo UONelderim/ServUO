@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("an oni corpse")]
+    [CorpseName("zwloki onina")]
     public class Oni : BaseCreature
     {
         [Constructable]
         public Oni()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an oni";
+            Name = "onin";
             Body = 241;
 
             SetStr(801, 910);

@@ -1,11 +1,11 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a ridgeback corpse")]
+    [CorpseName("zwloki dziobaka")]
     public class Ridgeback : BaseMount
     {
         [Constructable]
         public Ridgeback()
-            : this("a ridgeback")
+            : this("dziobak")
         {
         }
 

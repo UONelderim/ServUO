@@ -2,13 +2,13 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a sentinel spider corpse")]
+    [CorpseName("zwloki agresywnego pajaka")]
     public class SentinelSpider : BaseCreature
     {
         [Constructable]
         public SentinelSpider() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a Sentinel spider";
+            Name = "agresywny pajak";
             Body = 0x9d;
             Hue = 1141;
             BaseSoundID = 0x388;

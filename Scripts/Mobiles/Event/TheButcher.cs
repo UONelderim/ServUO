@@ -4,7 +4,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an butcher corpse")]
+    [CorpseName("zwloki rzeźnika")]
     public class TheButcher : BaseCreature
     {
         [Constructable]
@@ -12,7 +12,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Necro, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Name = NameList.RandomName("daemon");
-            Title = "the Butcher";
+            Title = "- rzeźnik";
             Hue = 2075;
             Body = 306;
             BaseSoundID = 0x2A7;

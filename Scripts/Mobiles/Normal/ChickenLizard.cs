@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a chicken lizard corpse")]
+    [CorpseName("zlowki mlodego jaszczura")]
     public class ChickenLizard : BaseCreature
     {
         private DateTime m_NextEgg;
@@ -15,7 +15,7 @@ namespace Server.Mobiles
         public ChickenLizard()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a chicken lizard";
+            Name = "mlody jaszczur";
             Body = 716;
 
             SetStr(74, 95);

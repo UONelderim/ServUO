@@ -27,7 +27,7 @@ namespace Server.Mobiles
                 Name = NameList.RandomName("male");
                 AddItem(new LongPants(Utility.RandomNeutralHue()));
                 AddItem(new FancyShirt(Utility.RandomDyedHue()));
-                Title = "the actor";
+                Title = "aktor";
             }
 
             AddItem(new Boots(Utility.RandomNeutralHue()));

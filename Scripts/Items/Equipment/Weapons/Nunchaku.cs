@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x27AE)
         {
             Weight = 5.0;
+			Name = "Cep bojowy";
         }
 
         public Nunchaku(Serial serial)

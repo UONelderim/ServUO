@@ -6,6 +6,7 @@ namespace Server.Items
         public Frogfish()
             : base(0xA36A)
         {
+            Name = "ryba Antenariusowata";
         }
 
         public Frogfish(Serial serial)

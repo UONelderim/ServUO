@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an acid slug corpse")]
+    [CorpseName("zwloki sluzu pokrytego kwasem")]
     public class AcidSlug : BaseCreature, IAcidCreature
     {
         [Constructable]
         public AcidSlug()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an acid slug";
+            Name = "sluz pokryty kwasem";
             Body = 51;
 
             switch (Utility.Random(4))

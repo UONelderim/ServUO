@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B6B)
         {
             Weight = 8.0;
+			Name = "Inkrustowane nogawice";
         }
 
         public WoodlandLegs(Serial serial)

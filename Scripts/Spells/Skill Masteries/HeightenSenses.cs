@@ -9,7 +9,7 @@ namespace Server.Spells.SkillMasteries
     public class HeightenedSensesSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-            "Heightened Senses", "",
+            "Wyostrzone Zmysły", "",
             -1,
             9002
         );

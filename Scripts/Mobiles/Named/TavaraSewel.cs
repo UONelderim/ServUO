@@ -8,7 +8,7 @@ namespace Server.Mobiles
         public TavaraSewel()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Title = "the Cursed";
+            Title = "Przeklete";
 
             Hue = 0x8838;
             Female = true;

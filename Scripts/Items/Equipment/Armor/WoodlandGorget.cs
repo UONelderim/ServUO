@@ -7,6 +7,8 @@ namespace Server.Items
         public WoodlandGorget()
             : base(0x2B69)
         {
+			Name = "Inkrustowany karczek";
+			Weight = 1.0;
         }
 
         public WoodlandGorget(Serial serial)

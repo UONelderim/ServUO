@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a troglodyte corpse")]
+    [CorpseName("zwloki troglodyty")]
     public class Troglodyte : BaseCreature
     {
         public override double HealChance => 1.0;
@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public Troglodyte()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)// NEED TO CHECK
         {
-            Name = "a troglodyte";
+            Name = "troglodyta";
             Body = 267;
             BaseSoundID = 0x59F;
 

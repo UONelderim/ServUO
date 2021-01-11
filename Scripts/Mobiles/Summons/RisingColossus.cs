@@ -18,7 +18,7 @@ namespace Server.Mobiles
             int hitsbonus = (int)((baseskill - 83) * 1.14 + ((boostskill - 30) * 1.03) + 20);
             double skillvalue = boostskill != 0 ? ((baseskill + boostskill) / 2) : ((baseskill + 20) / 2);
 
-            Name = "a rising colossus";
+            Name = "wielki kolos";
             Body = 829;
 
             SetHits(315 + hitsbonus);

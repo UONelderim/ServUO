@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a Spite corpse")]
+    [CorpseName("zwloki Spite")]
     public class Spite : Changeling
     {
         [Constructable]

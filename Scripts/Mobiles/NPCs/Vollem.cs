@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a vollem corpse")]
+    [CorpseName("zwloki vollema")]
     public class Vollem : BaseCreature, IRepairableMobile
     {
         public virtual Type RepairResource => IsMechanical ? typeof(Items.IronIngot) : typeof(Items.Bandage);
@@ -12,7 +12,7 @@ namespace Server.Mobiles
         public Vollem()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a vollem";
+            Name = "vollem";
             Body = 0x125;
 
             SetStr(496, 524);

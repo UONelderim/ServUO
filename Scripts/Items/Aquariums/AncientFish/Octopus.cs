@@ -6,6 +6,7 @@ namespace Server.Items
         public Octopus()
             : base(0xA384)
         {
+            Name = "osmiornica";
         }
 
         public Octopus(Serial serial)

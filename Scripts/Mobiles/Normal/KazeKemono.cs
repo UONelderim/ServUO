@@ -2,7 +2,7 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a kaze kemono corpse")]
+    [CorpseName("zwloki lesnej zjawy")]
     public class KazeKemono : BaseCreature
     {
         private static readonly Hashtable m_FlurryOfTwigsTable = new Hashtable();
@@ -12,7 +12,7 @@ namespace Server.Mobiles
         public KazeKemono()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a kaze kemono";
+            Name = "lesna zjawa";
             Body = 196;
             BaseSoundID = 655;
 

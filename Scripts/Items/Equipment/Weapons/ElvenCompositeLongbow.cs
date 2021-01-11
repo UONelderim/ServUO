@@ -10,6 +10,7 @@ namespace Server.Items
             : base(0x2D1E)
         {
             Weight = 8.0;
+			Name = "Dlugi luk";
         }
 
         public ElvenCompositeLongbow(Serial serial)

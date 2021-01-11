@@ -569,6 +569,7 @@ namespace Server.Items
         public JesterShoes(int hue)
             : base(0x7819, hue)
         {
+            Name = "buty blazna";
         }
 
         public JesterShoes(Serial serial)

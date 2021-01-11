@@ -6,6 +6,7 @@ namespace Server.Items
         public Squirrelfish()
             : base(0xA365)
         {
+            Name = "ryba Hajdukowata";
         }
 
         public Squirrelfish(Serial serial)

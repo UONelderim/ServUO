@@ -7,6 +7,7 @@ namespace Server.Items
             : base(0x3B0D)
         {
             Hue = 0x4FA;
+            Name = "pospolita ryba z garlan";
         }
 
         public PurpleFrog(Serial serial)

@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a stygian drake corpse")]
+    [CorpseName("zwloki mlodego smoka ostrogrzbietego")]
     public class StygianDrake : BaseCreature
     {
         [Constructable]
         public StygianDrake()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Stygian Drake";
+            Name = "Mlody smok ostrogrzbiety";
             Body = 0x58E;
             Hue = 32768;
             Female = true;

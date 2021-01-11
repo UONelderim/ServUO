@@ -18,6 +18,7 @@ namespace Server.Items
         public SnakeCharmerFlute()
         {
             Hue = 0x187;
+            Name = "flet zaklinaczy wezy";
         }
 
         public SnakeCharmerFlute(Serial serial)

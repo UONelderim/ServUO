@@ -7,14 +7,14 @@ namespace Server.Mobiles
     {
     }
 
-    [CorpseName("a bloodworm corpse")]
+    [CorpseName("zwloki pijawki")]
     public class BloodWorm : BaseCreature, IBloodCreature
     {
         [Constructable]
         public BloodWorm()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a bloodworm";
+            Name = "pijawka";
             Body = 287;
 
             SetStr(401, 473);

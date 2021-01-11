@@ -28,7 +28,7 @@ namespace Server.Mobiles
         public SoulboundPirateRaider()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a soulbound pirate raider";
+            Name = "zaklety pirat";
             Body = 0x190;
             Hue = Race.RandomSkinHue();
             Utility.AssignRandomHair(this);

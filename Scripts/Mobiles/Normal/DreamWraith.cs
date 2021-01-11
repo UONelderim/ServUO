@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a dream wraith corpse")]
+    [CorpseName("resztki sennej mary")]
     public class DreamWraith : BaseCreature
     {
         [Constructable]
         public DreamWraith()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a dream wraith";
+            Name = "senna mara";
             Body = 740;
             BaseSoundID = 0x482;
 

@@ -12,6 +12,7 @@ namespace Server.Items
         {
             LootType = LootType.Blessed;
             Weight = 6.0;
+            Name = "Drewniany Parawan";
         }
 
         public CarvedWoodenScreen(Serial serial)

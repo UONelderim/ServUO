@@ -9,6 +9,8 @@ namespace Server.Items
                 Hue = 0x965;
             else
                 Hue = 0x961;
+
+            Name = "nieczytelna mapa";
         }
 
         public IndecipherableMap(Serial serial)

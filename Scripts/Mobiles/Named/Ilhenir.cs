@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a corpse of Ilhenir")]
+    [CorpseName("zwloki splamionego")]
     public class Ilhenir : BaseChampion
     {
         private readonly DateTime m_NextDrop = DateTime.UtcNow;
@@ -16,7 +16,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Mage)
         {
             Name = "Ilhenir";
-            Title = "the Stained";
+            Title = "splamiony";
             Body = 0x103;
             Hue = 1164;
 

@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a Master Theophilus corpse")]
+    [CorpseName("zwloki mistrza nekromantów")]
     public class MasterTheophilus : EvilMageLord
     {
         [Constructable]
         public MasterTheophilus()
         {
-            Name = "Master Theophilus";
-            Title = "the necromancer";
+            Name = "Mistrz Theophilus";
+            Title = "- nekromanta";
             Hue = 0;
 
             SetStr(137, 187);

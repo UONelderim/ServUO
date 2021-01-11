@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a chicken lizard corpse")]
+    [CorpseName("zwloki jaszczura")]
     public class BattleChickenLizard : BaseCreature
     {
         [Constructable]
         public BattleChickenLizard()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.05, 0.1)
         {
-            Name = "a battle chicken lizard";
+            Name = "jaszczur";
             Body = 716;
 
             SetStr(94, 177);

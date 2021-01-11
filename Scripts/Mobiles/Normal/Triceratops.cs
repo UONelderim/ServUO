@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a triceratops corpse")]
+    [CorpseName("zwloki triceratopsa")]
     public class Triceratops : BaseCreature
     {
         public override double HealChance => .167;

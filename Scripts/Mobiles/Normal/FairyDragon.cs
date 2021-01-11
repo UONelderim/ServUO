@@ -4,7 +4,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a fairy dragon corpse")]
+    [CorpseName("zwloki pisklecia magicznego smoka")]
     public class FairyDragon : BaseCreature
     {
 
@@ -19,7 +19,7 @@ namespace Server.Mobiles
         public FairyDragon()
             : base(AIType.AI_Mystic, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "fairy dragon";
+            Name = "piskle magicznego smoka";
             Body = 718;
             BaseSoundID = 362;
 

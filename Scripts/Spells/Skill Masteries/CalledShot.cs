@@ -7,7 +7,7 @@ namespace Server.Spells.SkillMasteries
     public class CalledShotSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Called Shot", "",
+                "Wyzywający Rzut", "",
                 -1,
                 9002
             );

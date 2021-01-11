@@ -52,6 +52,7 @@ namespace Server.Items
             m_Level = SecureLevel.CoOwners;
             m_Charges = 50;
             LootType = LootType.Blessed;
+            Name = "skrzynia odeslanie";
         }
 
         public override void OnDoubleClick(Mobile from)

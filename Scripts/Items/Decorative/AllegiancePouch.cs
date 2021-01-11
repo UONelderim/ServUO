@@ -21,6 +21,7 @@ namespace Server.Items
             Hue = 2958;
             Weight = 1.0;
             LootType = LootType.Regular;
+            Name = "plecak sprzmierzenca";
 
             DropItem(new OrderBanner());
             DropItem(new ChaosBanner());

@@ -6,6 +6,7 @@ namespace Server.Items
         public ArrowCrab()
             : base(0xA37E)
         {
+            Name = "Krab pajakowy";
         }
 
         public ArrowCrab(Serial serial)

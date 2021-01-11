@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a ghostly corpse")]
+    [CorpseName("resztki cienia gargulca")]
     public class GargoyleShade : BaseCreature
     {
         [Constructable]
         public GargoyleShade()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a gargoyle shade";
+            Name = "cien gargulca";
             Body = 0x4;
             Hue = 16385;
             BaseSoundID = 0x482;

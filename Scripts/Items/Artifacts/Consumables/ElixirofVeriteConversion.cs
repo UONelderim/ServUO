@@ -10,6 +10,7 @@ namespace Server.Items
         {
             Hue = 2207;
             Movable = true;
+            Name = "eliksir verytu";
         }
 
         public ElixirofVeriteConversion(Serial serial)

@@ -6,6 +6,7 @@ namespace Server.Items
         public SeaUrchin()
             : base(0xA388)
         {
+            Name = "jezowiec";
         }
 
         public SeaUrchin(Serial serial)

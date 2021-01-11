@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a skree corpse")]
+    [CorpseName("zwloki smoczego pisklecia")]
     public class Skree : BaseCreature
     {
         public override bool CanAngerOnTame => true;
@@ -9,7 +9,7 @@ namespace Server.Mobiles
         public Skree()
             : base(AIType.AI_Mystic, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a skree";
+            Name = "smocze piskle";
             Body = 733;
 
             SetStr(297, 330);

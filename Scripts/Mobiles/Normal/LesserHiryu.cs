@@ -2,12 +2,12 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a hiryu corpse")]
+    [CorpseName("zwloki mlodego hiryu")]
     public class LesserHiryu : BaseMount
     {
         [Constructable]
         public LesserHiryu()
-            : base("a lesser hiryu", 243, 0x3E94, AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
+            : base("mlody hiryu", 243, 0x3E94, AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Hue = GetHue();
 

@@ -6,6 +6,7 @@ namespace Server.Items
         public LionsManeJelly()
             : base(0xA387)
         {
+            Name = "Beltwa festonowa";
         }
 
         public LionsManeJelly(Serial serial)

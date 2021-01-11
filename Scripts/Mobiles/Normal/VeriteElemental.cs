@@ -3,14 +3,14 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an ore elemental corpse")]
+    [CorpseName("zwloki zywiolaka verytu")]
     public class VeriteElemental : BaseCreature
     {
         [Constructable]
         public VeriteElemental()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a verite elemental";
+            Name = "zywiolak verytu";
             Body = 113;
             BaseSoundID = 268;
 

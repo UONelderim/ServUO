@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B6E)
         {
             Weight = 2.0;
+			Name = "Diadem";
         }
 
         public Circlet(Serial serial)

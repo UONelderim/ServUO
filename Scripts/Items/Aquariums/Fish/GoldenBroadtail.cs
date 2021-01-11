@@ -6,6 +6,7 @@ namespace Server.Items
         public GoldenBroadtail()
             : base(0x3B03)
         {
+            Name = "ryba o zlotym ogonie";
         }
 
         public GoldenBroadtail(Serial serial)

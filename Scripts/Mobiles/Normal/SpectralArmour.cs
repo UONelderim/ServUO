@@ -10,7 +10,7 @@ namespace Server.Mobiles
         {
             Body = 637;
             Hue = 0x8026;
-            Name = "spectral armour";
+            Name = "przeklety miecz";
 
             Buckler buckler = new Buckler();
             ChainCoif coif = new ChainCoif();

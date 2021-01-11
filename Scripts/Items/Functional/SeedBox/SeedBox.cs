@@ -54,7 +54,7 @@ namespace Server.Engines.Plants
             Entries = new List<SeedEntry>();
 
             LootType = LootType.Blessed;
-
+            Name = "skrzynia na nasiona";
             Level = SecureLevel.Owner;
         }
 

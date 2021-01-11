@@ -4,7 +4,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a plague beast lord corpse")]
+    [CorpseName("zwloki strasznej bestii plagi")]
     public class PlagueBeastLord : BaseCreature, ICarvable, IScissorable
     {
         private Mobile m_OpenedBy;
@@ -13,7 +13,7 @@ namespace Server.Mobiles
         public PlagueBeastLord()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a plague beast lord";
+            Name = "Straszna bestia plagi ";
             Body = 775;
             BaseSoundID = 679;
             SpeechHue = 0x3B2;

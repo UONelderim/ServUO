@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a Lady Jennifyr corpse")]
+    [CorpseName("zwloki Lady Jennifyr")]
     public class LadyJennifyr : SkeletalKnight
     {
         private static readonly Dictionary<Mobile, ExpireTimer> m_Table = new Dictionary<Mobile, ExpireTimer>();

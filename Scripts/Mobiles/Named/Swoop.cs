@@ -2,13 +2,13 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a Swoop corpse")]
+    [CorpseName("zwloki paskudnego ptaszyska")]
     public class Swoop : Eagle
     {
         [Constructable]
         public Swoop()
         {
-            Name = "Swoop";
+            Name = "paskudne ptaszysko";
             Hue = 0xE0;
 
             AI = AIType.AI_Melee;

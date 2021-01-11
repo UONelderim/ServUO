@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a wyvern corpse")]
+    [CorpseName("zwloki wywerny")]
     public class Wyvern : BaseCreature
     {
         [Constructable]
         public Wyvern()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a wyvern";
+            Name = "wywerna";
             Body = 62;
             BaseSoundID = 362;
 

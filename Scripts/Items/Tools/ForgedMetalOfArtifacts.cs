@@ -19,6 +19,7 @@ namespace Server.Items
             ItemID = 4023;
             m_UsesRemaining = uses;
             LootType = LootType.Blessed;
+            Name = "kawalek boskiego metalu";
         }
 
         [Constructable]

@@ -6,6 +6,7 @@ namespace Server.Items
         public Filefish()
             : base(0xA36F)
         {
+            Name = "ryba Jednorozkowata";
         }
 
         public Filefish(Serial serial)

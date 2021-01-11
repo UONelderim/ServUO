@@ -6,7 +6,7 @@ using Server.Targeting;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an orcish corpse")]
+    [CorpseName("zwloki orka")]
     public class OrcScout : BaseCreature
     {
         public override double HealChance => 1.0;
@@ -15,7 +15,7 @@ namespace Server.Mobiles
         public OrcScout()
             : base(AIType.AI_OrcScout, FightMode.Closest, 10, 7, 0.2, 0.4)
         {
-            Name = "an orc scout";
+            Name = "ork zwiadowca";
             Body = 0xB5;
             BaseSoundID = 0x45A;
 

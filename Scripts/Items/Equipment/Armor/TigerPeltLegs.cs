@@ -27,6 +27,7 @@ namespace Server.Items
             : base(0x7824)
         {
             Weight = 2.0;
+			Name = "Nogawice ze skory tygrysa";
         }
 
         public TigerPeltLegs(Serial serial)

@@ -7,6 +7,7 @@ namespace Server.Items
         public VacationWafer()
             : base(0x973)
         {
+            Name = "platek wakacyjny";
         }
 
         public VacationWafer(Serial serial)

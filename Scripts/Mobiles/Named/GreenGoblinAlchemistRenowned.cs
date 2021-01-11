@@ -3,15 +3,15 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("Green Goblin Alchemist [Renowned] corpse")]
+    [CorpseName("resztki slawnego alchemika zielonych goblinow")]
     public class GreenGoblinAlchemistRenowned : BaseRenowned
     {
         [Constructable]
         public GreenGoblinAlchemistRenowned()
             : base(AIType.AI_Melee)
         {
-            Name = "Green Goblin Alchemist";
-            Title = "[Renowned]";
+            Name = "Alchemik Zielonych Goblinow";
+            Title = "[slawny]";
             Body = 723;
             BaseSoundID = 0x600;
 

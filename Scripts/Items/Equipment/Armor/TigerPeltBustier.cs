@@ -26,6 +26,7 @@ namespace Server.Items
             : base(0x7823)
         {
             Weight = 6.0;
+			Name = "Biustonosz ze skory tygrysa";
         }
 
         public TigerPeltBustier(Serial serial)

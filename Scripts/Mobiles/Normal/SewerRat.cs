@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a sewer rat corpse")]
+    [CorpseName("zwloki szczura sciekowego")]
     public class Sewerrat : BaseCreature
     {
         [Constructable]
         public Sewerrat()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a sewer rat";
+            Name = "szczur sciekowy";
             Body = 238;
             BaseSoundID = 0xCC;
 

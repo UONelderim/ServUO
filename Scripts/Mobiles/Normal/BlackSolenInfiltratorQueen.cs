@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a solen infiltrator corpse")]
+    [CorpseName("zwloki szpiega czarnych mrowek")]
     public class BlackSolenInfiltratorQueen : BaseCreature, IBlackSolen
     {
         [Constructable]
         public BlackSolenInfiltratorQueen()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a black solen infiltrator";
+            Name = "szpieg czarnych mrowek";
             Body = 807;
             BaseSoundID = 959;
             Hue = 0x453;

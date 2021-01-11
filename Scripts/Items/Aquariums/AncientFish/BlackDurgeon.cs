@@ -6,6 +6,7 @@ namespace Server.Items
         public BlackDurgeon()
             : base(0xA36D)
         {
+            Name = "Humuhumu'ele'ele";
         }
 
         public BlackDurgeon(Serial serial)

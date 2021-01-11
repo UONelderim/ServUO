@@ -2,15 +2,15 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a black order mage corpse")]
+    [CorpseName("zwłoki wielkiego maga vox populi")]
     public class DragonsFlameMage : BaseCreature
     {
         [Constructable]
         public DragonsFlameMage()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Black Order Mage";
-            Title = "of the Dragon's Flame Sect";
+            Name = "wielki mag";
+			Title = "- Przynależy do Vox Populi";
             Female = Utility.RandomBool();
             Race = Race.Human;
             Hue = Race.RandomSkinHue();

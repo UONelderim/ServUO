@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a meer corpse")]
+    [CorpseName("zwloki kapitana meerow")]
     public class MeerCaptain : BaseCreature
     {
         private DateTime m_NextAbilityTime;
@@ -13,7 +13,7 @@ namespace Server.Mobiles
         public MeerCaptain()
             : base(AIType.AI_Paladin, FightMode.Evil, 10, 1, 0.2, 0.4)
         {
-            Name = "a meer captain";
+            Name = "kapitan meerow";
             Body = 773;
 
             SetStr(96, 110);

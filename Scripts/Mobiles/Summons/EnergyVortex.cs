@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an energy vortex corpse")]
+    [CorpseName("resztki wira energii")]
     public class EnergyVortex : BaseCreature
     {
         [Constructable]
@@ -15,7 +15,7 @@ namespace Server.Mobiles
         public EnergyVortex(bool summoned)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an energy vortex";
+            Name = "wir energii";
 
             if (0.002 > Utility.RandomDouble()) // Per OSI FoF, it's a 1/500 chance.
             {

@@ -9,8 +9,8 @@ namespace Server.Mobiles
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Body = 0x190;
-            Name = "Zealot of Khaldun";
-            Title = "the Summoner";
+            Name = "przeklety mag";
+           
 
             SetStr(351, 400);
             SetDex(101, 150);

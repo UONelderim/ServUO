@@ -3,14 +3,14 @@ using Server.Misc;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an orcish corpse")]
+    [CorpseName("zwloki orka siepacza")]
     public class OrcChopper : BaseCreature
     {
         [Constructable]
         public OrcChopper()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an orc chopper";
+            Name = "ork siepacz";
             Body = 7;
             BaseSoundID = 0x45A;
             Hue = 0x96D;

@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a mantra effervescence corpse")]
+    [CorpseName("resztki mantry")]
     public class MantraEffervescence : BaseCreature
     {
         [Constructable]
         public MantraEffervescence()
             : base(AIType.AI_Spellweaving, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a mantra effervescence";
+            Name = "mantra";
             Body = 0x111;
             BaseSoundID = 0x56E;
 

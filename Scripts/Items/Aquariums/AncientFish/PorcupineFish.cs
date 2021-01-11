@@ -6,6 +6,7 @@ namespace Server.Items
         public Porcupinefish()
             : base(0xA370)
         {
+            Name = "ryba Najezkowata";
         }
 
         public Porcupinefish(Serial serial)

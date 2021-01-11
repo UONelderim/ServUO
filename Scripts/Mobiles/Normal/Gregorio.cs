@@ -11,7 +11,7 @@ namespace Server.Mobiles
         {
             Race = Race.Human;
             Name = "Gregorio";
-            Title = "the brigand";
+            Title = "- banita";
 
             InitBody();
             InitOutfit();

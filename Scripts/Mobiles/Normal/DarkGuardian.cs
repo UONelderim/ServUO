@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a dark guardians' corpse")]
+    [CorpseName("resztki mrocznego straznika")]
     public class DarkGuardian : BaseCreature
     {
         [Constructable]
         public DarkGuardian()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a dark guardian";
+            Name = "mroczny straznik";
             Body = 78;
             BaseSoundID = 0x3E9;
 

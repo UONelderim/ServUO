@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a arch daemon corpse")]
+    [CorpseName("zwloki starozytnego demona")]
     public class ArchDaemon : BaseCreature
     {
         [Constructable]
         public ArchDaemon()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an arch deamon";
+            Name = "starozytny demon";
             Body = 40;
             Hue = 1755;
             BaseSoundID = 357;

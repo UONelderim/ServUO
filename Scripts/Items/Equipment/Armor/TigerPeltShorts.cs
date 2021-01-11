@@ -25,6 +25,7 @@ namespace Server.Items
             : base(0x7825)
         {
             Weight = 3.0;
+			Name = "krotkie spodnie ze skory tygrysa";
         }
 
         public TigerPeltShorts(Serial serial)

@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a krakens corpse")]
+    [CorpseName("zwloki krakena")]
     public class Kraken : BaseCreature
     {
         private DateTime m_NextWaterBall;
@@ -14,7 +14,7 @@ namespace Server.Mobiles
         {
             m_NextWaterBall = DateTime.UtcNow;
 
-            Name = "a kraken";
+            Name = "kraken";
             Body = 77;
             BaseSoundID = 353;
 

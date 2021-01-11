@@ -3,7 +3,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a human corpse")]
+    [CorpseName("cialo tasandorczyka")]
     public class BritannianInfantry : BaseCreature
     {
         public override double HealChance => 1.0;
@@ -17,7 +17,7 @@ namespace Server.Mobiles
             Body = 0x190;
             Hue = 33779;
             Name = NameList.RandomName("male");
-            Title = "the Britannian";
+            Title = "- Tasandorczyk";
 
             SetStr(115, 150);
             SetDex(150);

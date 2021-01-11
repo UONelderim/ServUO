@@ -8,6 +8,7 @@ namespace Server.Items
         public EmeraldMace()
         {
             WeaponAttributes.ResistPoisonBonus = 5;
+			Name = "Diamentowy mlot";
         }
 
         public EmeraldMace(Serial serial)

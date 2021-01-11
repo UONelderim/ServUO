@@ -17,6 +17,7 @@ namespace Server.Items
             MaxCharges = Charges;
             Hue = 1165;
             Attributes.Brittle = 1;
+            Name = "Talizman Many";
             Attributes.LowerManaCost = 6;
 
             switch (Utility.Random(3))

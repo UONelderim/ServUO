@@ -6,7 +6,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public MageGuildmaster()
-            : base("mage")
+            : base("mistrz gildii magow")
         {
             SetSkill(SkillName.EvalInt, 85.0, 100.0);
             SetSkill(SkillName.Inscribe, 65.0, 88.0);

@@ -6,6 +6,7 @@ namespace Server.Items
         public MantisShrimp()
             : base(0xA37D)
         {
+            Name = "Ustonogi";
         }
 
         public MantisShrimp(Serial serial)

@@ -9,7 +9,7 @@ namespace Server.Spells.SkillMasteries
     public class NetherBlastSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Nether Blast", "In Vas Por Grav",
+                "Uderzenie Z Ziemi", "In Vas Por Grav",
                 204,
                 9061,
                 Reagent.DragonBlood,

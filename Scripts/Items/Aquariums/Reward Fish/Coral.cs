@@ -6,6 +6,7 @@ namespace Server.Items
         public Coral()
             : base(Utility.RandomList(0x3AF9, 0x3AFA, 0x3AFB))
         {
+            Name = "koralowiec";
         }
 
         public Coral(Serial serial)

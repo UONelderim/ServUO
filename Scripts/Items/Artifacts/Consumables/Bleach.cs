@@ -7,6 +7,7 @@ namespace Server.Items
             : base(PigmentType.None)
         {
             LootType = LootType.Blessed;
+            Name = "wybielacz";
         }
 
         public Bleach(Serial serial)

@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("the remains of an enraged colossus")]
+    [CorpseName("resztki wscieklego kolosa")]
     public class EnragedColossus : BaseCreature
     {
         [Constructable]
         public EnragedColossus()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.4, 0.5)
         {
-            Name = "Rising Colossus";
+            Name = "Wsciekly kolos";
             Body = 829;
 
             SetStr(600);

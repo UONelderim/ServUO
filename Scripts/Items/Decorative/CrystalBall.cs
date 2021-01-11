@@ -10,7 +10,7 @@ namespace Server.Items
         [Constructable]
         public MagicCrystalBall() : base(0xE2E)
         {
-            Name = "a crystal ball";
+            Name = "krysztalowa kula";
             Weight = 10;
             Stackable = false;
             LootType = LootType.Blessed;

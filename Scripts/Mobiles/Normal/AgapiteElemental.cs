@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an ore elemental corpse")]
+    [CorpseName("zwloki zywiołaka agapitu")]
     public class AgapiteElemental : BaseCreature
     {
         [Constructable]
         public AgapiteElemental()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an agapite elemental";
+            Name = "zywiołak agapitu";
             Body = 107;
             BaseSoundID = 268;
 

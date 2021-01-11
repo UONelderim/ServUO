@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a rune beetle corpse")]
+    [CorpseName("zwloki zuka runicznego")]
     public class RuneBeetle : BaseCreature
     {
         private static readonly Hashtable m_Table = new Hashtable();
@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public RuneBeetle()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a rune beetle";
+            Name = "zuk runiczny";
             Body = 244;
 
             SetStr(401, 460);

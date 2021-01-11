@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a navrey corpse")]
+    [CorpseName("zwloki Navrey")]
     public class Navrey : BaseCreature
     {
         private NavreysController m_Spawner;
@@ -25,7 +25,7 @@ namespace Server.Mobiles
         {
             m_Spawner = spawner;
 
-            Name = "Navrey Night-Eyes";
+            Name = "Navrey o Dziewieciu Oczach";
             Body = 735;
             BaseSoundID = 389;
 

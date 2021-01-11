@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x46FA)
         {
             LootType = LootType.Blessed;
+            Name = "dekoracyjny aniol";
         }
 
         public AngelDecoration(Serial serial)

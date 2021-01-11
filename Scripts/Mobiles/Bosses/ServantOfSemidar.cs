@@ -6,7 +6,7 @@ namespace Server.Mobiles
         public ServantOfSemidar()
             : base(AIType.AI_Melee, FightMode.None, 10, 1, 0.2, 0.4)
         {
-            Name = "a servant of Semidar";
+            Name = "sluga Semidar";
             Body = 0x26;
         }
 

@@ -1,12 +1,12 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a hare corpse")]
+    [CorpseName("zwloki krolika")]
     public class EnragedRabbit : BaseEnraged
     {
         public EnragedRabbit(Mobile summoner)
             : base(summoner)
         {
-            Name = "a rabbit";
+            Name = "krolik";
             Body = 0xcd;
         }
 
@@ -43,13 +43,13 @@ namespace Server.Mobiles
         }
     }
 
-    [CorpseName("a deer corpse")]
+    [CorpseName("zwloki jelenia")]
     public class EnragedHart : BaseEnraged
     {
         public EnragedHart(Mobile summoner)
             : base(summoner)
         {
-            Name = "a great hart";
+            Name = "jelen";
             Body = 0xea;
         }
 
@@ -86,13 +86,13 @@ namespace Server.Mobiles
         }
     }
 
-    [CorpseName("a deer corpse")]
+    [CorpseName("zwloki lani")]
     public class EnragedHind : BaseEnraged
     {
         public EnragedHind(Mobile summoner)
             : base(summoner)
         {
-            Name = "a hind";
+            Name = "lania";
             Body = 0xed;
         }
 
@@ -129,13 +129,13 @@ namespace Server.Mobiles
         }
     }
 
-    [CorpseName("a bear corpse")]
+    [CorpseName("zwloki czarnego niedzwiedzia")]
     public class EnragedBlackBear : BaseEnraged
     {
         public EnragedBlackBear(Mobile summoner)
             : base(summoner)
         {
-            Name = "a black bear";
+            Name = "czarny niedzwiedz";
             Body = 0xd3;
             BaseSoundID = 0xa3;
         }
@@ -158,13 +158,13 @@ namespace Server.Mobiles
         }
     }
 
-    [CorpseName("an eagle corpse")]
+    [CorpseName("zwloki orla")]
     public class EnragedEagle : BaseEnraged
     {
         public EnragedEagle(Mobile summoner)
             : base(summoner)
         {
-            Name = "an eagle";
+            Name = "orzel";
             Body = 0x5;
             BaseSoundID = 0x2ee;
         }

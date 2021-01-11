@@ -2,13 +2,13 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a beetle corpse")]
+    [CorpseName("zwloku zuka mrozu")]
     public class FrostMite : BaseCreature, IAuraCreature
     {
         [Constructable]
         public FrostMite() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Frost Mite";
+            Name = "zuk mrozu";
             Body = 0x590;
             Female = true;
 

@@ -4,14 +4,14 @@ using Server.Misc;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a glowing ratman corpse")]
+    [CorpseName("zwloki maga szczuroczlekow")]
     public class RatmanMage : BaseCreature
     {
         [Constructable]
         public RatmanMage()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = NameList.RandomName("ratman");
+            Name = NameList.RandomName("mag jaszczuroczlekow");
             Body = 0x8F;
             BaseSoundID = 437;
 

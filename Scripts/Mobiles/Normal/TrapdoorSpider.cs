@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a trapdoor spider corpse")]
+    [CorpseName("zwloki ziemnego pajaka")]
     public class TrapdoorSpider : BaseCreature
     {
         public override bool CanStealth => true;
@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public TrapdoorSpider()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a trapdoor spider";
+            Name = "Pajak ziemny";
             Body = 737;
             Hidden = true;
 

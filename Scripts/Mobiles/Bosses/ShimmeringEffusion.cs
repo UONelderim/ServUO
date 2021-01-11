@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a shimmering effusion corpse")]
+    [CorpseName("resztki lsniącego wysieku")]
     public class ShimmeringEffusion : BasePeerless
     {
         [Constructable]
         public ShimmeringEffusion()
             : base(AIType.AI_Spellweaving, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a shimmering effusion";
+            Name = "Lsniący Wysiek";
             Body = 0x105;
 
             SetStr(500, 550);

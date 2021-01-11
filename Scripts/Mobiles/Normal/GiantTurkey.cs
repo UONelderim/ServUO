@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a giant turkey corpse")]
+    [CorpseName("zwloki wielkiego indyka")]
     public class GiantTurkey : BaseCreature
     {
         [Constructable]
         public GiantTurkey()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a giant turkey";
+            Name = "wielki indyk";
             Body = 1026;
             BaseSoundID = 0x66A;
 

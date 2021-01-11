@@ -15,7 +15,7 @@ namespace Server.Mobiles
         {
             SpeechHue = Utility.RandomDyedHue();
             Hue = Race.RandomSkinHue();
-            Name = "an elite ninja";
+            Name = "elitarny zabojca Vox populi";
 
             Body = (Female = Utility.RandomBool()) ? 0x191 : 0x190;
 

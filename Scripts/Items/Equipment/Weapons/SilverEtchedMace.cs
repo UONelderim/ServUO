@@ -8,6 +8,7 @@ namespace Server.Items
         public SilverEtchedMace()
         {
             Slayer = SlayerName.Exorcism;
+			Name = "Diamenotwa bulawa";
         }
 
         public SilverEtchedMace(Serial serial)

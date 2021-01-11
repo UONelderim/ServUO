@@ -3,15 +3,15 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("Wyvern [Renowned] corpse")]
+    [CorpseName("calo [slynnej] wywerny")]
     public class WyvernRenowned : BaseRenowned
     {
         [Constructable]
         public WyvernRenowned()
             : base(AIType.AI_Mage)
         {
-            Name = "Wyvern";
-            Title = "[Renowned]";
+            Name = "Wyverna";
+            Title = "[Slynna]";
             Body = 62;
             Hue = 243;
             BaseSoundID = 362;

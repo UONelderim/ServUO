@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a shadow dweller corpse")]
+    [CorpseName("zwloki mroczniaka")]
     public class ShadowDweller : BaseCreature
     {
         [Constructable]
         public ShadowDweller()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a shadow dweller";
+            Name = "mroczniak";
             Body = 740;
             Hue = 1;
             BaseSoundID = 0x5F1;

@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an ethereal warrior corpse")]
+    [CorpseName("zwloki eterycznego wojownika")]
     public class EtherealWarrior : BaseCreature
     {
         private static readonly TimeSpan ResurrectDelay = TimeSpan.FromSeconds(2.0);

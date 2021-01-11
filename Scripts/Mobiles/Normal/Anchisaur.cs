@@ -5,7 +5,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an anchisaur corpse")]
+    [CorpseName("zwloki anchizaura")]
     public class Anchisaur : BaseCreature
     {
         public override bool AttacksFocus => true;
@@ -15,7 +15,7 @@ namespace Server.Mobiles
         public Anchisaur()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, .2, .4)
         {
-            Name = "an anchisaur";
+            Name = "anchizaur";
             Body = 1292;
             BaseSoundID = 422;
 

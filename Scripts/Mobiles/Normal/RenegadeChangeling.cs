@@ -2,13 +2,13 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a renegade changeling corpse")]
+    [CorpseName("zwloki silnej spaczonej wrozki")]
     public class RenegadeChangeling : Changeling
     {
         [Constructable]
         public RenegadeChangeling()
         {
-            Name = "a renegade changeling";
+            Name = "Silna spaczona wrozka";
             Body = 264;
             BaseSoundID = 0x470;
 

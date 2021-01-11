@@ -25,6 +25,7 @@ namespace Server.Items
             Weight = 2.0;
             Hue = hue;
             m_Failure = false;
+            Name = "wor zbieracza smieci";
         }
 
         public override void GetContextMenuEntries(Mobile from, List<ContextMenuEntry> list)

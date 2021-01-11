@@ -11,7 +11,7 @@ namespace Server.Engines.Quests.Matriarch
     {
         public BaseSolenMatriarch()
         {
-            Name = "the solen matriarch";
+            Name = "- krolowa mrowek";
 
             Body = 0x328;
 

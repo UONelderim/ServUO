@@ -7,7 +7,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Gardener()
-            : base("the gardener")
+            : base("- ogrodnik")
         {
         }
 

@@ -6,6 +6,7 @@ namespace Server.Items
         public FrenchAngelfish()
             : base(0xA377)
         {
+            Name = "tasandorska ryba matki";
         }
 
         public FrenchAngelfish(Serial serial)

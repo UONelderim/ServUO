@@ -6,6 +6,7 @@ namespace Server.Items
         public MakotoCourtesanFish()
             : base(0x3AFD)
         {
+            Name = "krolewska ryba z garlan";
         }
 
         public MakotoCourtesanFish(Serial serial)

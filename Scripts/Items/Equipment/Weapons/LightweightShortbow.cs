@@ -8,6 +8,7 @@ namespace Server.Items
         public LightweightShortbow()
         {
             Balanced = true;
+			Name = "Krotki luk";
         }
 
         public LightweightShortbow(Serial serial)

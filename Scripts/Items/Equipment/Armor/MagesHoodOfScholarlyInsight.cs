@@ -32,6 +32,7 @@ namespace Server.Items
             Attributes.SpellDamage = 15;
             Attributes.CastSpeed = 1;
             Attributes.LowerManaCost = 10;
+			Name = "Kaptur wybitnego czarodzieja";
         }
 
         public MagesHoodOfScholarlyInsight(Serial serial)

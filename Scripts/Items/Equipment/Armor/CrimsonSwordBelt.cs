@@ -11,6 +11,7 @@ namespace Server.Items
             Attributes.BonusDex = 5;
             Attributes.BonusHits = 10;
             Attributes.RegenHits = 2;
+			Name = "Pas z krotkim mieczem";
         }
 
         public CrimsonSwordBelt(Serial serial)

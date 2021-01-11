@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a dragon corpse")]
+    [CorpseName("zwloki wielkiego smoka")]
     public class GreaterDragon : BaseCreature
     {
         [Constructable]
         public GreaterDragon()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.3, 0.5)
         {
-            Name = "a greater dragon";
+            Name = "wielki smok";
             Body = Utility.RandomList(12, 59);
             BaseSoundID = 362;
 

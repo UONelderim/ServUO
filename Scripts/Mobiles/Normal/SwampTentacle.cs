@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a swamp tentacle corpse")]
+    [CorpseName("zwloki bagiennej macki")]
     public class SwampTentacle : BaseCreature
     {
         [Constructable]
         public SwampTentacle()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a swamp tentacle";
+            Name = "bagienna macka";
             Body = 66;
             BaseSoundID = 352;
 

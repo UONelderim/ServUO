@@ -5,14 +5,14 @@ using Server.Targeting;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a goblin corpse")]
+    [CorpseName("zwloki zielonego goblina")]
     public class GreenGoblinScout : BaseCreature
     {
         [Constructable]
         public GreenGoblinScout()
             : base(AIType.AI_OrcScout, FightMode.Closest, 10, 7, 0.2, 0.4)
         {
-            Name = "a green goblin scout";
+            Name = "zwiadowca zielonych goblinow";
             Body = 723;
             BaseSoundID = 0x600;
 

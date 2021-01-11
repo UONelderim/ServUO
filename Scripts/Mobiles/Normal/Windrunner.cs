@@ -41,12 +41,12 @@ namespace Server.Mobiles
         }
     }
 
-    [CorpseName("a Windrunner corpse")]
+    [CorpseName("zwloki ogara")]
     public class Windrunner : BaseMount
     {
         [Constructable]
         public Windrunner()
-            : this("Windrunner")
+            : this("ogar z garth")
         {
         }
 

@@ -25,6 +25,7 @@ namespace Server.Items
             : base(0x7822)
         {
             Weight = 6.0;
+			Name = "Napiersnik ze skory tygrysa";
         }
 
         public TigerPeltChest(Serial serial)

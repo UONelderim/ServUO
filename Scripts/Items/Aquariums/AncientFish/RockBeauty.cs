@@ -6,6 +6,7 @@ namespace Server.Items
         public RockBeauty()
             : base(0xA376)
         {
+            Name = "Nefrytek trojbarwny";
         }
 
         public RockBeauty(Serial serial)

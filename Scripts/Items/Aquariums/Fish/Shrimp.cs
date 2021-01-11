@@ -6,6 +6,7 @@ namespace Server.Items
         public Shrimp()
             : base(0x3B14)
         {
+            Name = "krewetka";
         }
 
         public Shrimp(Serial serial)

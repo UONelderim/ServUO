@@ -12,6 +12,7 @@ namespace Server.Items
         {
             Weight = 12.0;
             Layer = Layer.TwoHanded;
+			Name = "Ksiezycowe ostrze";
         }
 
         public Lajatang(Serial serial)

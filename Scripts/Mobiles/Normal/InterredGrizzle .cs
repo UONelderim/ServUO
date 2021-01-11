@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("an interred grizzle corpse")]
+    [CorpseName("zwłoki przeklętego")]
     public class InterredGrizzle : BaseCreature
     {
         [Constructable]
         public InterredGrizzle()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an interred grizzle";
+            Name = "przeklęty";
             Body = 259;
 
             SetStr(451, 500);

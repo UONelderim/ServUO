@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a drake corpse")]
+    [CorpseName("zwloki smoczego pisklecia")]
     public class Drake : BaseCreature
     {
         [Constructable]
         public Drake()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a drake";
+            Name = "smocze piskle";
             Body = Utility.RandomList(60, 61);
             BaseSoundID = 362;
 
