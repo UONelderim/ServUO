@@ -7,7 +7,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Miller()
-            : base("the miller")
+            : base("- mlynarz")
         {
         }
 

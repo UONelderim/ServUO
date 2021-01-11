@@ -9,7 +9,7 @@ namespace Server.Spells.Mysticism
         public override SpellCircle Circle => SpellCircle.Eighth;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Rising Colossus", "Kal Vas Xen Corp Ylem",
+                "Powstanie Kolosa", "Kal Vas Xen Corp Ylem",
                 230,
                 9022,
                 Reagent.DaemonBone,

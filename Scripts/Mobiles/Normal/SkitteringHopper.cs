@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a skittering hopper corpse")]
+    [CorpseName("zwloki koscianego skoczka")]
     public class SkitteringHopper : BaseCreature
     {
         [Constructable]
         public SkitteringHopper()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a skittering hopper";
+            Name = "kosciany skoczek";
             Body = 302;
             BaseSoundID = 959;
 

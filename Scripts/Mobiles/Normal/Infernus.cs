@@ -2,14 +2,14 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an infernus corpse")]
+    [CorpseName("zwloki piekielnika")]
     public class Infernus : BaseCreature
     {
         [Constructable]
         public Infernus()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, .2, .4)
         {
-            Name = "an infernus";
+            Name = "piekielnik";
             Body = 0x9F;
             Hue = 1955;
             BaseSoundID = 278;

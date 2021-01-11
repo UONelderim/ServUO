@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B6D)
         {
             Weight = 8.0;
+			Name = "Damski intruktowany napiersnik";
         }
 
         public FemaleElvenPlateChest(Serial serial)

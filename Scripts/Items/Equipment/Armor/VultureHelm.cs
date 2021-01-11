@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B72)
         {
             Weight = 5.0;
+			Name = "Ptasi helm";
         }
 
         public VultureHelm(Serial serial)

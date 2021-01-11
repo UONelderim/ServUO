@@ -2,7 +2,7 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a tsuki wolf corpse")]
+    [CorpseName("zwloki wilka tsuki")]
     public class TsukiWolf : BaseCreature
     {
         private static readonly Hashtable m_Table = new Hashtable();
@@ -10,7 +10,7 @@ namespace Server.Mobiles
         public TsukiWolf()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a tsuki wolf";
+            Name = "wilk tsuki";
             Body = 250;
 
             switch (Utility.Random(3))

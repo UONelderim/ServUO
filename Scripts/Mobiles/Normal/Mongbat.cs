@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a mongbat corpse")]
+    [CorpseName("zwloki olbrzymiego nietoperza")]
     public class Mongbat : BaseCreature
     {
         [Constructable]
         public Mongbat()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a mongbat";
+            Name = "olbrzymi nietoperz";
             Body = 39;
             BaseSoundID = 422;
 

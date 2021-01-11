@@ -6,6 +6,7 @@ namespace Server.Items
         public Jellyfish()
             : base(0x3B0E)
         {
+            Name = "meduza";
         }
 
         public Jellyfish(Serial serial)

@@ -6,6 +6,7 @@ namespace Server.Items
         public StrippedSosarianSwill()
             : base(0x3B0A)
         {
+            Name = "rybka z Tingref";
         }
 
         public StrippedSosarianSwill(Serial serial)

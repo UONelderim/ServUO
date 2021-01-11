@@ -11,7 +11,7 @@ namespace Server.Spells.SkillMasteries
     public class ShieldBashSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Shield Bash", "",
+                "Uderzenie Tarczą", "",
                 -1,
                 9002
             );

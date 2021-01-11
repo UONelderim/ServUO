@@ -3,14 +3,14 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a yamandon corpse")]
+    [CorpseName("zwloki yamandona")]
     public class Yamandon : BaseCreature
     {
         [Constructable]
         public Yamandon()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a yamandon";
+            Name = "yamandon";
             Body = 249;
 
             SetStr(786, 930);

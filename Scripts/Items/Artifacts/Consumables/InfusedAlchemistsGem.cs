@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x1EA7)
         {
             Weight = 1.0;
+            Name = "zaklety klejnot alchemika";
         }
 
         public InfusedAlchemistsGem(Serial serial)

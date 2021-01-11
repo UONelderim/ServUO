@@ -6,6 +6,7 @@ namespace Server.Items
         public GiantAnemone()
             : base(0xA386)
         {
+            Name = "ogromny ukwiał";
         }
 
         public GiantAnemone(Serial serial)

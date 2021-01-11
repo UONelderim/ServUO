@@ -5,7 +5,7 @@ namespace Server.Spells.SkillMasteries
     public class EtherealBurstSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Ethereal Blast", "Uus Ort Grav",
+                "Eteryczne Uderzenie", "Uus Ort Grav",
                 -1,
                 9002,
                 Reagent.Bloodmoss,

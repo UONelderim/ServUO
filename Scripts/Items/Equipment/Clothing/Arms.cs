@@ -13,6 +13,7 @@ namespace Server.Items
             : base(0x0404, Layer.Arms, hue)
         {
             Weight = 2.0;
+            Name = "Materiałowe Gargulcowe Naramienniki";
         }
 
         public GargishClothArms(Serial serial)
@@ -59,6 +60,7 @@ namespace Server.Items
             : base(0x0403, Layer.Arms, hue)
         {
             Weight = 2.0;
+            Name = "Damskie Materiałowe Gargulcowe Naramienniki";
         }
 
         public FemaleGargishClothArms(Serial serial)
@@ -92,6 +94,7 @@ namespace Server.Items
             : base(0x0404, Layer.Arms, hue)
         {
             Weight = 2.0;
+            Name = "Męskie Materiałowe Gargulcowe Naramienniki";
         }
 
         public MaleGargishClothArms(Serial serial)

@@ -5,7 +5,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a Niporailem corpse")]
+    [CorpseName("zwloki zlodzieja")]
     public class Niporailem : BaseSABoss
     {
         public override Type[] UniqueSAList => new Type[]
@@ -55,7 +55,7 @@ namespace Server.Mobiles
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Name = "Niporailem";
-            Title = "the Thief";
+            Title = "zlodziej";
             Body = 0x2D2;
 
             SetStr(1000);

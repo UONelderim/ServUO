@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a bird corpse")]
+    [CorpseName("zwloki ptaka")]
     public class Bird : BaseCreature
     {
         [Constructable]
@@ -14,13 +14,13 @@ namespace Server.Mobiles
                 switch (Utility.Random(3))
                 {
                     case 0:
-                        Name = "a crow";
+                        Name = "wrona";
                         break;
                     case 2:
-                        Name = "a raven";
+                        Name = "kruk";
                         break;
                     case 1:
-                        Name = "a magpie";
+                        Name = "sroka";
                         break;
                 }
             }

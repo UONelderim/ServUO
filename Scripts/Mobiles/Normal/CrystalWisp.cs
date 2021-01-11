@@ -5,7 +5,7 @@ namespace Server.Mobiles
         [Constructable]
         public CrystalWisp()
         {
-            Name = "a crystal wisp";
+            Name = "krysztalowa smuga";
             Hue = 0x482;
         }
 

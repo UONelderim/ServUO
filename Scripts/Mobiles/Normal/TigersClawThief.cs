@@ -2,15 +2,15 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a black order thief corpse")]
+    [CorpseName("zwłoki złodzieka vox populi")]
     public class TigersClawThief : BaseCreature
     {
         [Constructable]
         public TigersClawThief()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Black Order Thief";
-            Title = "of the Tiger's Claw Sect";
+            Name = "Złodziej";
+			Title = "- Przynależy do Vox Populi";
             Female = Utility.RandomBool();
             Race = Race.Human;
             Hue = Race.RandomSkinHue();

@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a gaman corpse")]
+    [CorpseName("zwloki gamana")]
     public class Gaman : BaseCreature
     {
         [Constructable]
         public Gaman()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a gaman";
+            Name = "gaman";
             Body = 248;
 
             SetStr(146, 175);

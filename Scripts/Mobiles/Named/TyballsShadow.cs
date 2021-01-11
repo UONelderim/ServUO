@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a tyball shadow corpse")]
+    [CorpseName("resztki cienia smierci")]
     public class TyballsShadow : BaseCreature
     {
         [Constructable]
@@ -13,7 +13,7 @@ namespace Server.Mobiles
             Body = 0x190;
             Hue = 0x4001;
             Female = false;
-            Name = "Tyball's Shadow";
+            Name = "Cien smierci";
 
             SetStr(400, 450);
             SetDex(210, 250);

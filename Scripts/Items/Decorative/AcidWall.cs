@@ -7,6 +7,7 @@ namespace Server.Items
             : base(969)
         {
             Hue = 1828;
+            Name = "sciana kwasu";
         }
 
         public AcidWall(Serial serial)

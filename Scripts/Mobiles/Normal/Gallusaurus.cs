@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a gallusaurus corpse")]
+    [CorpseName("zwloki galluzaura")]
     public class Gallusaurus : BaseCreature
     {
         public override bool AttacksFocus => !Controlled;
@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public Gallusaurus()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, .2, .4)
         {
-            Name = "a gallusaurus";
+            Name = "galluzaur";
             Body = 1286;
             BaseSoundID = 0x275;
 

@@ -3,14 +3,14 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a yomotsu corpse")]
+    [CorpseName("zwloki wojowniku yomotsu")]
     public class YomotsuWarrior : BaseCreature
     {
         [Constructable]
         public YomotsuWarrior()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a yomotsu warrior";
+            Name = "wojownik yomotsu";
             Body = 245;
             BaseSoundID = 0x452;
 

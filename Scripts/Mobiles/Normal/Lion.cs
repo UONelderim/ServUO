@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a lion corpse")]
+    [CorpseName("zwloki lwa")]
     public class Lion : BaseCreature
     {
         public override double HealChance => .167;
@@ -9,7 +9,7 @@ namespace Server.Mobiles
         public Lion()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Lion";
+            Name = "lew";
             Body = 0x592;
             Female = true;
             BaseSoundID = 0x3EF;

@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a greater phoenix corpse")]
+    [CorpseName("wielki stary feniks")]
     public class GreaterPhoenix : BaseCreature
     {
         [Constructable]
         public GreaterPhoenix()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, .2, .4)
         {
-            Name = "a greater phoenix";
+            Name = "wielki stary feniks";
             Body = 832;
             BaseSoundID = 0x8F;
 

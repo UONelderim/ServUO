@@ -8,6 +8,7 @@ namespace Server.Items
         public HeavyOrnateAxe()
         {
             Attributes.WeaponDamage = 8;
+			Name = "Ciezki zdobiony topor";
         }
 
         public HeavyOrnateAxe(Serial serial)

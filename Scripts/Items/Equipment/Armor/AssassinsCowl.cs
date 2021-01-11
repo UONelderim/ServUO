@@ -25,6 +25,7 @@ namespace Server.Items
         {
             Weight = 3.0;
             StrRequirement = 45;
+			Name = "Kaptur skrytobojcy";
         }
 
         public AssassinsCowl(Serial serial)

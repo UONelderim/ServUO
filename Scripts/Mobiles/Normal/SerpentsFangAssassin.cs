@@ -2,15 +2,15 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a black order assassin corpse")]
+    [CorpseName("zwloki mordercy")]
     public class SerpentsFangAssassin : BaseCreature
     {
         [Constructable]
         public SerpentsFangAssassin()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Black Order Assassin";
-            Title = "of the Serpent's Fang Sect";
+            Name = "Morderca";
+            Title = "- Przynależy do Vox Populi";
             Female = Utility.RandomBool();
             Race = Race.Human;
             Hue = Race.RandomSkinHue();

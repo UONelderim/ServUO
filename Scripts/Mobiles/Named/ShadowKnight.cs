@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a shadow knight corpse")]
+    [CorpseName("cialo mrocznego rycerza")]
     public class ShadowKnight : BaseCreature
     {
         public override bool CanStealth => true;
@@ -14,8 +14,8 @@ namespace Server.Mobiles
         public ShadowKnight()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = NameList.RandomName("shadow knight");
-            Title = "the Shadow Knight";
+            Name = NameList.RandomName("mroczny rycerz");
+            Title = "Mroczny Rycerz";
             Body = 311;
 
             SetStr(250);

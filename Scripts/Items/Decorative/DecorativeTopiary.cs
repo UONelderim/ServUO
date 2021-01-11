@@ -8,6 +8,7 @@ namespace Server.Items
         {
             Weight = 1.0;
             LootType = LootType.Blessed;
+            Name = "zimowe drzewko";
         }
 
         public DecorativeTopiary(Serial serial)
@@ -19,7 +20,7 @@ namespace Server.Items
         {
             base.GetProperties(list);
 
-            list.Add(1070880); // Winter 2004
+           // list.Add(1070880); // Winter 2004
         }
 
         public override void Serialize(GenericWriter writer)

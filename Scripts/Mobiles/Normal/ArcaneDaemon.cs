@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an arcane daemon corpse")]
+    [CorpseName("zwloki dziwnego demona cienia")]
     public class ArcaneDaemon : BaseCreature
     {
         [Constructable]
         public ArcaneDaemon()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an arcane daemon";
+            Name = "dziwny demon cienia";
             Body = 0x310;
             BaseSoundID = 0x47D;
 

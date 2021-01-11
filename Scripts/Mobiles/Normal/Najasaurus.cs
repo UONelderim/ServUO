@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a najasaurus corpse")]
+    [CorpseName("zwloki najazaura")]
     public class Najasaurus : BaseCreature
     {
         public override bool AttacksFocus => !Controlled;
@@ -9,7 +9,7 @@ namespace Server.Mobiles
         public Najasaurus()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, .2, .4)
         {
-            Name = "a najasaurus";
+            Name = "Najazaur";
             Body = 1289;
             BaseSoundID = 219;
 

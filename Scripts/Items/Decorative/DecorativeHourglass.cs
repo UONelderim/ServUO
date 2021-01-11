@@ -9,6 +9,7 @@ namespace Server.Items
         public DecorativeHourglass()
             : base(0xA339)
         {
+            Name = "klepsydra";
         }
 
         public DecorativeHourglass(Serial serial)

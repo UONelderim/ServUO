@@ -8,6 +8,7 @@ namespace Server.Items
             : base(Utility.Random(0x155E, 2))
         {
             Movable = false;
+            Name = "dekoracyjna bron";
         }
 
         public DecorativeBowWest(Serial serial)

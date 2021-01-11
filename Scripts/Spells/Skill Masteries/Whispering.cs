@@ -12,7 +12,7 @@ namespace Server.Spells.SkillMasteries
     public class WhisperingSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Whispering", "",
+                "Szepty", "",
                 -1,
                 9002
             );

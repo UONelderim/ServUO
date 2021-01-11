@@ -11,6 +11,7 @@ namespace Server.Items
         {
             Movable = false;
             Hue = 0x56;
+            Name = "kamien szulera";
         }
 
         public GamblingStone(Serial serial)

@@ -11,6 +11,7 @@ namespace Server.Items
         {
             Weight = 1.0;
             Movable = false;
+            Name = "magiczne pnacza";
         }
 
         public AcidVine(Serial serial)

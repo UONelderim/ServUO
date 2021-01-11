@@ -7,6 +7,7 @@ namespace Server.Items
         [Constructable]
         public WallMountedBellSouthDeed()
         {
+            Name = "dzwon scienny";
         }
 
         public WallMountedBellSouthDeed(Serial serial)
@@ -38,6 +39,7 @@ namespace Server.Items
         public WallMountedBellSouthAddon()
         {
             AddComponent(new InstrumentedAddonComponent(0x4C5C, 0x66C), 0, 0, 10);
+            Name = "dzwon scienny";
         }
 
         public WallMountedBellSouthAddon(Serial serial)
@@ -65,6 +67,7 @@ namespace Server.Items
         [Constructable]
         public WallMountedBellEastDeed()
         {
+            Name = "dzwon scienny";
         }
 
         public WallMountedBellEastDeed(Serial serial)
@@ -96,6 +99,7 @@ namespace Server.Items
         public WallMountedBellEastAddon()
         {
             AddComponent(new InstrumentedAddonComponent(0x4C5D, 0x66C), 0, 0, 10);
+            Name = "dzwon scienny";
         }
 
         public WallMountedBellEastAddon(Serial serial)

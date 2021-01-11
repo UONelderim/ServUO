@@ -6,6 +6,7 @@ namespace Server.Items
         [Constructable]
         public JukaBow()
         { 
+		Name = "Luk krola Juka";
 		}
 
         public JukaBow(Serial serial)

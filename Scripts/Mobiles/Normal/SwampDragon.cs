@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a swamp dragon corpse")]
+    [CorpseName("zwloki bagiennego jaszczura")]
     public class SwampDragon : BaseMount
     {
         private bool m_BardingExceptional;
@@ -14,7 +14,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public SwampDragon()
-            : this("a swamp dragon")
+            : this("bagienny jaszczur")
         {
         }
 

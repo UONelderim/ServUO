@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a phoenix corpse")]
+    [CorpseName("zwloki feniksa")]
     public class Phoenix : BaseCreature, IAuraCreature
     {
         [Constructable]
         public Phoenix()
             : base(AIType.AI_Mage, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a phoenix";
+            Name = "feniks";
             Body = 0x340;
             BaseSoundID = 0x8F;
 

@@ -7,6 +7,7 @@
             : base()
         {
             Hue = Utility.RandomBool() ? 142 : 947;
+            Name = "Latarnia Zaćmienia";
         }
 
         public TwilightLantern(Serial serial)

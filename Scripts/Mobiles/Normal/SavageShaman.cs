@@ -7,14 +7,14 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a savage corpse")]
+    [CorpseName("zwloki szamana dzikusow")]
     public class SavageShaman : BaseCreature
     {
         [Constructable]
         public SavageShaman()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = NameList.RandomName("savage shaman");
+            Name = NameList.RandomName("szaman dzikusow");
 
             Female = true;
             Body = 186;

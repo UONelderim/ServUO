@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a Lady Lissith corpse")]
+    [CorpseName("zwloki Lady Lissith")]
     public class LadyLissith : GiantBlackWidow
     {
         [Constructable]

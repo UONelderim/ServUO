@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B74)
         {
             Weight = 6.0;
+			Name = "Lesny wzmocniony napiersnik";
         }
 
         public HideChest(Serial serial)

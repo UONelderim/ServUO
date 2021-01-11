@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a goblin corpse")]
+    [CorpseName("zwloki goblina")]
     public class GreenGoblin : BaseCreature
     {
         [Constructable]
         public GreenGoblin()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a green goblin";
+            Name = "zielony goblin";
             Body = 723;
             BaseSoundID = 0x600;
 

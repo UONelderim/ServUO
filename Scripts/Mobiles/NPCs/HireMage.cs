@@ -10,7 +10,7 @@ namespace Server.Mobiles
         {
             SpeechHue = Utility.RandomDyedHue();
             Hue = Race.RandomSkinHue();
-            Title = "the mage";
+            Title = "- mag";
             if (Female = Utility.RandomBool())
             {
                 Body = 0x191;

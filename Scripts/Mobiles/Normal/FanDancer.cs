@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a fan dancer corpse")]
+    [CorpseName("zwloki tancerza ostrzy")]
     public class FanDancer : BaseCreature
     {
         private static readonly Hashtable m_Table = new Hashtable();
@@ -13,7 +13,7 @@ namespace Server.Mobiles
         public FanDancer()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a fan dancer";
+            Name = "tancerz ostrzy";
             Body = 247;
             BaseSoundID = 0x372;
 

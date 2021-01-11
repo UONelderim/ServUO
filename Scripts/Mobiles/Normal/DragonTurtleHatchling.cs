@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a dragon turtle hatchling corpse")]
+    [CorpseName("zwloki pisklecia smoczego zolwia")]
     public class DragonTurtleHatchling : BaseCreature
     {
         [Constructable]
@@ -12,7 +12,7 @@ namespace Server.Mobiles
         {
             Body = 1294;
             BaseSoundID = 362;
-            Name = "a dragon turtle hatchling";
+            Name = "piskle smoczego zolwia";
 
             SetStr(550, 650);
             SetDex(55, 65);

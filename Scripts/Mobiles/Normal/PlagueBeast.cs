@@ -4,7 +4,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a plague beast corpse")]
+    [CorpseName("zwloki bestii plagi")]
     public class PlagueBeast : BaseCreature, IDevourer
     {
         private int m_DevourTotal;
@@ -44,7 +44,7 @@ namespace Server.Mobiles
         public PlagueBeast()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a plague beast";
+            Name = "bestia plagi";
             Body = 775;
 
             SetStr(302, 500);

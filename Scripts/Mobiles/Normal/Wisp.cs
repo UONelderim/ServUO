@@ -4,14 +4,14 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a wisp corpse")]
+    [CorpseName("zwloki smugi")]
     public class Wisp : BaseCreature
     {
         [Constructable]
         public Wisp()
             : base(AIType.AI_Mage, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a wisp";
+            Name = "smuga";
             Body = 58;
             BaseSoundID = 466;
 

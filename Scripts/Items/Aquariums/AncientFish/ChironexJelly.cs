@@ -6,6 +6,7 @@ namespace Server.Items
         public ChironexJelly()
             : base(0xA392)
         {
+            Name = "osa morska";
         }
 
         public ChironexJelly(Serial serial)

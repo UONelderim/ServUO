@@ -6,6 +6,7 @@ namespace Server.Items
         public FalseClownfish()
             : base(0xA362)
         {
+            Name = "Amfiprion plamisty";
         }
 
         public FalseClownfish(Serial serial)

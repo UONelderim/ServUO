@@ -6,6 +6,7 @@ namespace Server.Items
         public MinocBlueFish()
             : base(0x3AFE)
         {
+            Name = "niebieska ryba z herenport";
         }
 
         public MinocBlueFish(Serial serial)

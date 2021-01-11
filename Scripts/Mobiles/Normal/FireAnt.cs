@@ -2,13 +2,13 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a fire ant corpse")]
+    [CorpseName("zwloki ognistej mrowki")]
     public class FireAnt : BaseCreature
     {
         [Constructable]
         public FireAnt() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a fire ant";
+            Name = "ognista mrowka";
             Body = 738;
 
             SetStr(225);

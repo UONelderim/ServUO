@@ -6,6 +6,7 @@ namespace Server.Items
         public BandedCoralShrimp()
             : base(0xA37B)
         {
+            Name = "Krewetka boksujaca";
         }
 
         public BandedCoralShrimp(Serial serial)

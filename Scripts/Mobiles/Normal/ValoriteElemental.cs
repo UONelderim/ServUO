@@ -3,14 +3,14 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an ore elemental corpse")]
+    [CorpseName("zwloki zywiolaka valorytu")]
     public class ValoriteElemental : BaseCreature
     {
         [Constructable]
         public ValoriteElemental()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a valorite elemental";
+            Name = "zywiolak valorytu";
             Body = 112;
             BaseSoundID = 268;
 

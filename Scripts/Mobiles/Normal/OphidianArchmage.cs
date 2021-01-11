@@ -1,12 +1,12 @@
 namespace Server.Mobiles
 {
-    [CorpseName("an ophidian corpse")]
+    [CorpseName("zwloki starszego maga Ophidian")]
     public class OphidianArchmage : BaseCreature
     {
         private static readonly string[] m_Names = new string[]
         {
-            "an ophidian justicar",
-            "an ophidian zealot"
+            "starszy mag ophidian",
+            "wielki mag ophidian"
         };
         [Constructable]
         public OphidianArchmage()

@@ -7,7 +7,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Thief()
-            : base("the thief")
+            : base("- zlodziej")
         {
             SetSkill(SkillName.Camping, 55.0, 78.0);
             SetSkill(SkillName.DetectHidden, 65.0, 88.0);

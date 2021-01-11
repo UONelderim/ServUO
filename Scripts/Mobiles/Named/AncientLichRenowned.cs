@@ -3,15 +3,15 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("Ancient Lich [Renowned] corpse")]
+    [CorpseName("zwloki [Uznanego] starozytnego licza")]
     public class AncientLichRenowned : BaseRenowned
     {
         [Constructable]
         public AncientLichRenowned()
             : base(AIType.AI_NecroMage)
         {
-            Name = "Ancient Lich";
-            Title = "[Renowned]";
+            Name = "starozytny licz";
+            Title = "[Uznany]";
             Body = 78;
             BaseSoundID = 412;
 

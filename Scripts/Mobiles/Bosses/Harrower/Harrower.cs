@@ -53,7 +53,7 @@ namespace Server.Mobiles
         public Harrower()
             : base(AIType.AI_NecroMage, FightMode.Closest, 18, 1, 0.2, 0.4)
         {
-            Name = "the harrower";
+            Name = "Przedwieczny";
             BodyValue = 146;
 
             SetStr(900, 1000);
@@ -147,7 +147,7 @@ namespace Server.Mobiles
 
             m_TrueForm = true;
 
-            Name = "the true harrower";
+            Name = "Prawdziwa forma Przedwiecznego";
             BodyValue = 780;
             Hue = 0x497;
 

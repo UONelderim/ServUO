@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a betrayer corpse")]
+    [CorpseName("zwloki zdrajcy")]
     public class Betrayer : BaseCreature
     {
         private DateTime m_NextAbilityTime;
@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public Betrayer()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a betrayer";
+            Name = "zdrajca";
             Body = 767;
 
             SetStr(401, 500);

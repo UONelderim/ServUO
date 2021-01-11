@@ -8,6 +8,7 @@ namespace Server.Items
         {
             Weight = 4.0;
             Layer = Layer.OneHanded;
+			Name = "Czakram";
         }
 
         public Boomerang(Serial serial)

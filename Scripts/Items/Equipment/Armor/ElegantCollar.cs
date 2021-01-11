@@ -25,6 +25,7 @@ namespace Server.Items
         {
             Layer = Layer.Neck;
             Weight = 3.0;
+			Name = "Elegancki kolnierz";
         }
 
         public ElegantCollar(Serial serial)

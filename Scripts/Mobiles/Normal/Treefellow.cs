@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a treefellow corpse")]
+    [CorpseName("zwloki drzewca")]
     public class Treefellow : BaseCreature
     {
         [Constructable]
         public Treefellow()
             : base(AIType.AI_Melee, FightMode.Evil, 10, 1, 0.2, 0.4)
         {
-            Name = "a treefellow";
+            Name = "drzewiec";
             Body = 301;
 
             SetStr(196, 220);

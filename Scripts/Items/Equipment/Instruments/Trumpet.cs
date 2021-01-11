@@ -8,6 +8,7 @@ namespace Server.Items
         public TrumpetComponent()
             : base(0x4C3C, 0x66F)
         {
+            Name = "trabka";
         }
 
         public TrumpetComponent(Serial serial)
@@ -35,6 +36,7 @@ namespace Server.Items
         [Constructable]
         public TrumpetDeed()
         {
+            Name = "trabka";
         }
 
         public TrumpetDeed(Serial serial)

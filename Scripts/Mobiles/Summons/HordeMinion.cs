@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a horde minion corpse")]
+    [CorpseName("zwloki slugi hordy")]
     public class HordeMinionFamiliar : BaseFamiliar
     {
         public override bool DisplayWeight => true;
@@ -25,7 +25,7 @@ namespace Server.Mobiles
 
         public HordeMinionFamiliar()
         {
-            Name = "a horde minion";
+            Name = "sluga hordy";
             Body = 776;
             BaseSoundID = 0x39D;
 

@@ -7,6 +7,7 @@ namespace Server.Items
         {
             Hue = DyedHue = 0x489;
             Redyable = false;
+            Name = "farba koloru ognistego";
         }
 
         public BlazeDyeTub(Serial serial)

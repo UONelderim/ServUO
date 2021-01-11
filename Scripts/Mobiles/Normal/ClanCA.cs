@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a clan chitter assistant corpse")]
+    [CorpseName("zwloki lucznika z klanu Chitter")]
     public class ClanCA : BaseCreature
     {
         [Constructable]
         public ClanCA()
             : base(AIType.AI_Archer, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Clan Chitter Assistant";
+            Name = "Lucznik klanu Chitter";
             Body = 0x8E;
             BaseSoundID = 437;
 

@@ -7,7 +7,7 @@ namespace Server.Spells.SkillMasteries
     public class PlayingTheOddsSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Playing the Odds", "",
+                "Szczęśliwy Traf", "",
                 -1,
                 9002
             );

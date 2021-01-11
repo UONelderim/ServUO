@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a rai-ju corpse")]
+    [CorpseName("zwloki zywiolaka wilgoci")]
     public class RaiJu : BaseCreature
     {
         private static readonly Hashtable m_Table = new Hashtable();
@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public RaiJu()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a Rai-Ju";
+            Name = "zywiolak wilgoci";
             Body = 199;
             BaseSoundID = 0x346;
 

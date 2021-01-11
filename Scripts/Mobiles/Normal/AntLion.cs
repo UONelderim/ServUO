@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an ant lion corpse")]
+    [CorpseName("zwloki mrowkolewa")]
     public class AntLion : BaseCreature
     {
         private DateTime _NextTunnel;
@@ -15,7 +15,7 @@ namespace Server.Mobiles
         public AntLion()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an ant lion";
+            Name = "mrowkolew";
             Body = 787;
             BaseSoundID = 1006;
 

@@ -11,6 +11,7 @@ namespace Server.Items
             : base(0x2FC8)
         {
             Weight = 2.0;
+			Name = "Lesne naramienniki";
         }
 
         public LeafArms(Serial serial)

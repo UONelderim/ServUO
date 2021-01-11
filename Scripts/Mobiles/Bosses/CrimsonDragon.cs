@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a crimson dragon corpse")]
+    [CorpseName("zwloki karmazynowego mlodego smoka")]
     public class CrimsonDragon : BasePeerless
     {
         public override bool GiveMLSpecial => false;
@@ -13,7 +13,7 @@ namespace Server.Mobiles
         public CrimsonDragon()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a crimson dragon";
+            Name = "karmazynowy mlody smok";
             Body = 197;
 
             BaseSoundID = 362;

@@ -5,7 +5,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a void corpse")]
+    [CorpseName("zwloki ponuraka")]
     public class VoidManifestation : BaseCreature
     {
         private int m_Type;
@@ -20,7 +20,7 @@ namespace Server.Mobiles
         {
             m_Type = type;
 
-            Name = "a void manifestation";
+            Name = "ponurak";
             Body = 740;
             Hue = 2071;
             BaseSoundID = 684;

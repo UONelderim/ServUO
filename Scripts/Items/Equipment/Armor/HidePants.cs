@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B78)
         {
             Weight = 5.0;
+			Name = "Lesne wzmocnione nogawice";
         }
 
         public HidePants(Serial serial)

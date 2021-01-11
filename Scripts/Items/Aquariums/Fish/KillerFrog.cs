@@ -6,6 +6,7 @@ namespace Server.Items
         public KillerFrog()
             : base(0x3B0D)
         {
+            Name = "zabojcza zaba";
         }
 
         public KillerFrog(Serial serial)

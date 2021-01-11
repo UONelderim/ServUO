@@ -15,6 +15,7 @@ namespace Server.Items
             : base(0x32F8, 10)
         {
             Hue = 0;
+            Name = "narzedzie do grawerowania";
         }
 
         public WeaponEngravingTool(Serial serial)

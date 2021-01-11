@@ -9,6 +9,7 @@ namespace Server.Items
         {
             Stackable = false;
             Weight = 10.0;
+            Name = "kupa kosci";
         }
 
         public BonePile(Serial serial)

@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("an ettins corpse")]
+    [CorpseName("zwloki ettina")]
     public class Ettin : BaseCreature
     {
         [Constructable]
         public Ettin()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an ettin";
+            Name = "ettin";
             Body = 18;
             BaseSoundID = 367;
 

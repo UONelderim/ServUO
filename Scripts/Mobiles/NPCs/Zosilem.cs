@@ -12,7 +12,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Zosilem()
-            : base("Zosilem", "the Alchemist")
+            : base("Zosilem", "- alchemik")
         {
             SetSkill(SkillName.Alchemy, 85.0, 100.0);
             SetSkill(SkillName.TasteID, 65.0, 88.0);

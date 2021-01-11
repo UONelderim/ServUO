@@ -7,6 +7,7 @@ namespace Server.Items
             : base(0x403B, 0x392, 0x44)
         {
             Weight = 10.0;
+            Name = "Basetla";
         }
 
         public AudChar(Serial serial)

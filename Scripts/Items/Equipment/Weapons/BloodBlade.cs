@@ -7,6 +7,7 @@ namespace Server.Items
         public BloodBlade()
             : base(0x8FE)
         {
+			Name = "Krwawe ostrze";
         }
 
         public BloodBlade(Serial serial)

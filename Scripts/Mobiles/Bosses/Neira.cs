@@ -13,7 +13,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Mage)
         {
             Name = "Neira";
-            Title = "the necromancer";
+            Title = "- nekromantka";
             Body = 401;
             Hue = 0x83EC;
 

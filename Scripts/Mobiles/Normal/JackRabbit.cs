@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a jack rabbit corpse")]
+    [CorpseName("zwloki krolika")]
     public class JackRabbit : BaseCreature
     {
         [Constructable]
         public JackRabbit()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a jack rabbit";
+            Name = "krolik jack";
             Body = 0xCD;
             Hue = 0x1BB;
 

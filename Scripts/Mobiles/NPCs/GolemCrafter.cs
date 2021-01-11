@@ -7,7 +7,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public GolemCrafter()
-            : base("the golem crafter")
+            : base("- tworca golemow")
         {
             SetSkill(SkillName.Lockpicking, 60.0, 83.0);
             SetSkill(SkillName.RemoveTrap, 75.0, 98.0);

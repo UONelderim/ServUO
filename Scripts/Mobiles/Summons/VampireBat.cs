@@ -1,11 +1,11 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a vampire bat corpse")]
+    [CorpseName("zwloki wampierzego nietoperza")]
     public class VampireBatFamiliar : BaseFamiliar
     {
         public VampireBatFamiliar()
         {
-            Name = "a vampire bat";
+            Name = "wampirzy nietoperz";
             Body = 317;
             BaseSoundID = 0x270;
 

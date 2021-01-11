@@ -1,12 +1,12 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a drake corpse")]
+    [CorpseName("zwloki mlodego smoka zimna")]
     public class ColdDrake : BaseCreature, IAuraCreature
     {
         [Constructable]
         public ColdDrake() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a cold drake";
+            Name = "mlody smok zimna";
             Body = Utility.RandomList(60, 61);
             BaseSoundID = 362;
 

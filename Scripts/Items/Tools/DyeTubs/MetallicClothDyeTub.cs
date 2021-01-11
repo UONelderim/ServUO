@@ -6,6 +6,7 @@ namespace Server.Items
         public MetallicClothDyeTub()
         {
             LootType = LootType.Blessed;
+            Name = "farba o kolorze metalicznym do farbowania materialu";
         }
 
         public MetallicClothDyeTub(Serial serial)

@@ -6,6 +6,7 @@ namespace Server.Items
         public Fireclam()
             : base(0xA385)
         {
+            Name = "malz ognisty";
         }
 
         public Fireclam(Serial serial)

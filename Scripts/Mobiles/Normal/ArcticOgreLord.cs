@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a frozen ogre lord's corpse")]
+    [CorpseName("zwloki lodowego lorda ogrow")]
     public class ArcticOgreLord : BaseCreature
     {
         [Constructable]
         public ArcticOgreLord()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an arctic ogre lord";
+            Name = "lodowy lord ogrow";
             Body = 135;
             BaseSoundID = 427;
 

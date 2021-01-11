@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a terathan warrior corpse")]
+    [CorpseName("zwloki wojownika terathan")]
     public class TerathanWarrior : BaseCreature
     {
         [Constructable]
         public TerathanWarrior()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a terathan warrior";
+            Name = "wojownik terathan";
             Body = 70;
             BaseSoundID = 589;
 

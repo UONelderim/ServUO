@@ -3,14 +3,14 @@ using Server.Misc;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an orcish corpse")]
+    [CorpseName("zwloki orka")]
     public class Orc : BaseCreature
     {
         [Constructable]
         public Orc()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = NameList.RandomName("orc");
+            Name = NameList.RandomName("ork");
             Body = 17;
             BaseSoundID = 0x45A;
 

@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a Visceral corpse")]
+    [CorpseName("zwloki wiscery")]
     public class Viscera : BaseCreature
     {
         [Constructable]
         public Viscera()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Viscera";
+            Name = "Wiscera";
             Body = 775;
             Hue = 2718;
             BaseSoundID = 679;

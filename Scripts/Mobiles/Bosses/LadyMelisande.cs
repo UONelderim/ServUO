@@ -3,14 +3,14 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a lady melisande corpse")]
+    [CorpseName("zwloki krolowej wrozek")]
     public class LadyMelisande : BasePeerless
     {
         [Constructable]
         public LadyMelisande()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Lady Melisande";
+            Name = "Krolowa Wróżek";
             Body = 0x102;
             BaseSoundID = 451;
 
@@ -18,7 +18,7 @@ namespace Server.Mobiles
             SetDex(300, 400);
             SetInt(1500, 1700);
 
-            SetHits(100000);
+            SetHits(50000);
 
             SetDamage(11, 18);
 

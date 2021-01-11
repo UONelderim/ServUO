@@ -6,6 +6,7 @@ namespace Server.Items
         public SpinyLobster()
             : base(0xA37A)
         {
+            Name = "homar";
         }
 
         public SpinyLobster(Serial serial)

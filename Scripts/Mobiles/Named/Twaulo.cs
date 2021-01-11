@@ -4,7 +4,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a corpse of Twaulo")]
+    [CorpseName("zwloki Twaulo")]
     public class Twaulo : BaseChampion
     {
         [Constructable]
@@ -12,7 +12,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Melee)
         {
             Name = "Twaulo";
-            Title = "of the Glade";
+            Title = "smukly";
             Body = 101;
             BaseSoundID = 679;
             Hue = 0x455;

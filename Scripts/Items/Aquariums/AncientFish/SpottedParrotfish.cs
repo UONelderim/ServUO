@@ -6,6 +6,7 @@ namespace Server.Items
         public SpottedParrotfish()
             : base(0xA364)
         {
+            Name = "Papugoryba dwubarwna";
         }
 
         public SpottedParrotfish(Serial serial)

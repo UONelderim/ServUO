@@ -6,6 +6,7 @@ namespace Server.Items
         public GrayAngelfish()
             : base(0xA375)
         {
+            Name = "szara ryba matki";
         }
 
         public GrayAngelfish(Serial serial)

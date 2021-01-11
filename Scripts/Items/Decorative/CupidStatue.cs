@@ -11,6 +11,7 @@ namespace Server.Items
         {
             Weight = 1.0;
             LootType = LootType.Blessed;
+            Name = "statuetka bozka milosci";
         }
 
         public CupidStatue(Serial serial)

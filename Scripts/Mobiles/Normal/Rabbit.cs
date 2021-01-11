@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a hare corpse")]
+    [CorpseName("zwloki krolika")]
     public class Rabbit : BaseCreature
     {
         [Constructable]
         public Rabbit()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a rabbit";
+            Name = "krolik";
             Body = 205;
 
             if (0.5 >= Utility.RandomDouble())

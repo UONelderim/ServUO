@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("an putrid undead guardian corpse")]
+    [CorpseName("zwloki gnijacego straznika")]
     public class PutridUndeadGuardian : BaseCreature
     {
         [Constructable]
         public PutridUndeadGuardian()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an putrid undead guardian";
+            Name = "gnijacy straznik";
             Body = 722;
 
             SetStr(79);

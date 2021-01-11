@@ -16,6 +16,7 @@ namespace Server.Items
             : base(0x4B20)
         {
             LootType = LootType.Blessed;
+            Name = "znak";
         }
 
         public override void OnDoubleClick(Mobile from)

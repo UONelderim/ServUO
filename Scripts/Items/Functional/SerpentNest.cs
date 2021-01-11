@@ -14,6 +14,7 @@ namespace Server.Items
         {
             Hue = 0x456;
             Movable = false;
+            Name = "gniazdo wezy";
         }
 
         public SerpentNest(Serial serial)

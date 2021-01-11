@@ -14,6 +14,7 @@ namespace Server.Items
         public ScaleCollar() : base(4235)
         {
             Hue = 2125;
+            Name = "kaganiec";
         }
 
         public override void OnDoubleClick(Mobile from)

@@ -10,7 +10,7 @@ namespace Server.Spells.Mysticism
         public override DamageType SpellDamageType => DamageType.SpellAOE;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Nether Cyclone", "Grav Hur",
+                "Cyklon", "Grav Hur",
                 230,
                 9022,
                 Reagent.MandrakeRoot,

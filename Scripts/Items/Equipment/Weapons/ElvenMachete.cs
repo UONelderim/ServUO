@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2D35)
         {
             Weight = 6.0;
+			Name = "Maczeta";
         }
 
         public ElvenMachete(Serial serial)

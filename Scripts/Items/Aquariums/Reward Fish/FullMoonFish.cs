@@ -6,6 +6,7 @@ namespace Server.Items
         public FullMoonFish()
             : base(0x3B15)
         {
+            Name = "ryba pelnego ksiezyca";
         }
 
         public FullMoonFish(Serial serial)

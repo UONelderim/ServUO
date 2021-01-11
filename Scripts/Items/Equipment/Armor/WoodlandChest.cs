@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B67)
         {
             Weight = 8.0;
+			Name = "Inkrustowany napiersnik";
         }
 
         public WoodlandChest(Serial serial)

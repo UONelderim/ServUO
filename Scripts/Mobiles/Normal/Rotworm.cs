@@ -4,7 +4,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a rotworm corpse")]
+    [CorpseName("zwloki mlodej pijawki")]
     [TypeAlias("Server.Mobiles.RotWorm")]
     public class Rotworm : BaseCreature
     {
@@ -12,7 +12,7 @@ namespace Server.Mobiles
         public Rotworm()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.25, 0.5)
         {
-            Name = "a rotworm";
+            Name = "mloda pijawka";
             Body = 732;
 
             SetStr(200, 300);

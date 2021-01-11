@@ -8,6 +8,7 @@ namespace Server.Items
         {
             Movable = true;
             Stackable = false;
+            Name = "karty";
         }
 
         public DecoCards5(Serial serial)

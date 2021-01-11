@@ -2,15 +2,15 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a black order high executioner corpse")]
+    [CorpseName("zwloki kata")]
     public class SerpentsFangHighExecutioner : SerpentsFangAssassin
     {
         [Constructable]
         public SerpentsFangHighExecutioner()
             : base()
         {
-            Name = "Black Order High Executioner";
-            Title = "of the Serpent's Fang Sect";
+            Name = "Kat";
+            Title = "- Przynależy do Vox Populi";
             SetStr(545, 560);
             SetDex(160, 175);
             SetInt(160, 175);

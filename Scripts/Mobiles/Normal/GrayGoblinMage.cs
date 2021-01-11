@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a goblin mage corpse")]
+    [CorpseName("zwloki maga szarych goblinow")]
     public class GrayGoblinMage : BaseCreature
     {
         [Constructable]
         public GrayGoblinMage()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a gray goblin mage";
+            Name = "mag szarych goblinow";
 
             Body = 723;
             Hue = 1900;

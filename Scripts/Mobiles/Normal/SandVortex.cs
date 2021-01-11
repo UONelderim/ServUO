@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a sand vortex corpse")]
+    [CorpseName("zwloki piaskowego wiru")]
     public class SandVortex : BaseCreature
     {
         private DateTime m_NextAttack;
@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public SandVortex()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a sand vortex";
+            Name = "piaskowy wir";
             Body = 790;
             BaseSoundID = 263;
 

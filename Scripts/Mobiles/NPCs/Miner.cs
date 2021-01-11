@@ -7,7 +7,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Miner()
-            : base("the miner")
+            : base("- gornik")
         {
             SetSkill(SkillName.Mining, 65.0, 88.0);
         }

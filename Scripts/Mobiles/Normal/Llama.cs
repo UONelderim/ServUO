@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a llama corpse")]
+    [CorpseName("zwloki lamy")]
     public class Llama : BaseCreature
     {
         [Constructable]
         public Llama()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a llama";
+            Name = "lama";
             Body = 0xDC;
             BaseSoundID = 0x3F3;
 

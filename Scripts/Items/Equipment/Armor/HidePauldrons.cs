@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B77)
         {
             Weight = 4.0;
+			Name = "Lesne wzmocnione naramienniki";
         }
 
         public HidePauldrons(Serial serial)

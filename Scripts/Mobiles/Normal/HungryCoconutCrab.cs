@@ -53,14 +53,14 @@ namespace Server.Mobiles
         }
     }
 
-    [CorpseName("a coconut crab corpse")]
+    [CorpseName("zwloki ogromnego kraba")]
     public class HungryCoconutCrab : BaseCreature
     {
         [Constructable]
         public HungryCoconutCrab()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "hungry coconut crab";
+            Name = "ogromny krab";
             Body = 0x5E7;
             Hue = 2713;
             BaseSoundID = 0x4F2;

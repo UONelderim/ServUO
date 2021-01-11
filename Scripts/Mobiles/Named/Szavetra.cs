@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a Szavetra corpse")]
+    [CorpseName("zwloki piekielnego succuba")]
     public class Szavetra : Succubus
     {
         [Constructable]

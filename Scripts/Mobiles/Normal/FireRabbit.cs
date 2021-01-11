@@ -2,13 +2,13 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a hare corpse")]
+    [CorpseName("zwloki krolika")]
     public class FireRabbit : VorpalBunny
     {
         [Constructable]
         public FireRabbit()
         {
-            Name = "a fire rabbit";
+            Name = "ognisty krolik";
 
             Hue = 0x550; // guessed
 

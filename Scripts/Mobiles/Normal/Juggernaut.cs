@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a juggernaut corpse")]
+    [CorpseName("zwloki juggernauta")]
     public class Juggernaut : BaseCreature
     {
         [Constructable]
         public Juggernaut()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.3, 0.6)
         {
-            Name = "a blackthorn juggernaut";
+            Name = "juggernaut";
             Body = 768;
 
             SetStr(301, 400);

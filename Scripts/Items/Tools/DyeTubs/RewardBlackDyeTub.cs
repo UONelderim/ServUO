@@ -9,6 +9,7 @@ namespace Server.Items
             Hue = DyedHue = 0x0001;
             Redyable = false;
             LootType = LootType.Blessed;
+            Name = "czarna farba";
         }
 
         public RewardBlackDyeTub(Serial serial)

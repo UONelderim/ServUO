@@ -8,7 +8,7 @@ namespace Server.Mobiles
         public ParoxysmusSwampDragon()
             : base()
         {
-            Name = "Chief Paroxysmus' Swamp Dragon";
+            Name = "Bagienny jaszczur Przedwiecznego";
 
             BardingResource = CraftResource.Iron;
             BardingExceptional = true;

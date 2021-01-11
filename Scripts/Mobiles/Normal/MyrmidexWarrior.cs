@@ -3,14 +3,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a myrmidex corpse")]
+    [CorpseName("zwloki wojownika myrmideksow")]
     public class MyrmidexWarrior : BaseCreature
     {
         [Constructable]
         public MyrmidexWarrior()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, .2, .4)
         {
-            Name = "a myrmidex warrior";
+            Name = "wojownik myrmideksow";
 
             Body = 1403;
             BaseSoundID = 959;

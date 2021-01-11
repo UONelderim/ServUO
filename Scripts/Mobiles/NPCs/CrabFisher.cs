@@ -9,7 +9,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public CrabFisher()
-            : base("the crab fisher")
+            : base("polawiacz krabow")
         {
             SetSkill(SkillName.Fishing, 36.0, 68.0);
         }

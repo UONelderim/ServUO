@@ -18,7 +18,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public AnimalTrainer()
-            : base("the animal trainer")
+            : base("treset zwierzat")
         {
             SetSkill(SkillName.AnimalLore, 64.0, 100.0);
             SetSkill(SkillName.AnimalTaming, 90.0, 100.0);

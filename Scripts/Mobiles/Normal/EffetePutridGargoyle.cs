@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("an effete putrid gargoyle corpse")]
+    [CorpseName("zwloki przekletego gargulca")]
     public class EffetePutridGargoyle : BaseCreature
     {
         [Constructable]
         public EffetePutridGargoyle()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an effete putrid gargoyle";
+            Name = "przeklety gargulec";
             Body = 4;
             BaseSoundID = 372;
 

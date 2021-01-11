@@ -3,15 +3,15 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("Acid Elemental [Renowned] corpse")]
+    [CorpseName("zwloki [Uznanego] żywiołaka kwasu")]
     public class AcidElementalRenowned : BaseRenowned
     {
         [Constructable]
         public AcidElementalRenowned()
             : base(AIType.AI_Mage)
         {
-            Name = "Acid Elemental";
-            Title = "[Renowned]";
+            Name = "Żywiołak kwasu";
+            Title = "[Uznany]";
             Body = 0x9E;
             BaseSoundID = 278;
 

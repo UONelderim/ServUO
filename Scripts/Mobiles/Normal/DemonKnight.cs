@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a demon knight corpse")]
+    [CorpseName("resztki Mrocznego Ojca")]
     public class DemonKnight : BaseCreature
     {
         private bool m_InHere;
@@ -15,7 +15,7 @@ namespace Server.Mobiles
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Name = NameList.RandomName("demon knight");
-            Title = "the Dark Father";
+            Title = "Mroczny Ojciec";
             Body = 318;
             BaseSoundID = 0x165;
 

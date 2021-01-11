@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a terathan drone corpse")]
+    [CorpseName("zwolki trutnia terathan")]
     public class TerathanDrone : BaseCreature
     {
         [Constructable]
         public TerathanDrone()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a terathan drone";
+            Name = "truten terathan";
             Body = 71;
             BaseSoundID = 594;
 

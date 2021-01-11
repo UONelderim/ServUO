@@ -10,6 +10,7 @@ namespace Server.Items
             : base(0x2D2B)
         {
             Weight = 6.0;
+			Name = "Krotki luk";
         }
 
         public MagicalShortbow(Serial serial)

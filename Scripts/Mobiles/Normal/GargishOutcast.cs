@@ -12,7 +12,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Mystic, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Race = Race.Gargoyle;
-            Title = "the Gargish Outcast";
+            Title = "- wyrzutek gargulcow";
 
             SetStr(150);
             SetInt(150);

@@ -1,11 +1,11 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a sea horse corpse")]
+    [CorpseName("zwloki konia morskiego")]
     public class SeaHorse : BaseMount
     {
         [Constructable]
         public SeaHorse()
-            : this("a sea horse")
+            : this("kon morski")
         {
             CanSwim = true;
         }

@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a clan ribbon supplicant corpse")]
+    [CorpseName("zwloki dostawcy z klanu wstazki")]
     public class ClanRS : BaseCreature
     {
         [Constructable]
         public ClanRS()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Clan Ribbon Supplicant";
+            Name = "dostawca z klanu wstazki";
             Body = 42;
             Hue = 2952;
             BaseSoundID = 437;

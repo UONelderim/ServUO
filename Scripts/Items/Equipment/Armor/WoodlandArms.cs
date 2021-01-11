@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B6C)
         {
             Weight = 5.0;
+			Name = "Inkrustowane naramienniki";
         }
 
         public WoodlandArms(Serial serial)

@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("stone monster corpse")]
+    [CorpseName("zwloki kamiennej bestii")]
     public class StoneMonster : BaseCreature
     {
         [Constructable]
         public StoneMonster()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.6, 1.2)
         {
-            Name = "Stone Monster";
+            Name = "Kamienna bestia";
 
             switch (Utility.Random(6))
             {

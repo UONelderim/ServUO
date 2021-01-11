@@ -8,6 +8,7 @@ namespace Server.Items
         {
             Weight = 8.0;
             Layer = Layer.OneHanded;
+			Name = "Gwiezdzisty czakram";
         }
 
         public SoulGlaive(Serial serial)

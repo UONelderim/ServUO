@@ -8,7 +8,7 @@ using Server.Network;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an abyssal infernal corpse")]
+    [CorpseName("zwloki Potwora z Otchlani smierci")]
     public class AbyssalInfernal : BaseChampion
     {
         private static readonly Dictionary<Mobile, Point3D> m_Table = new Dictionary<Mobile, Point3D>();
@@ -20,7 +20,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Mage)
         {
             Body = 713;
-            Name = "Abyssal Infernal";
+            Name = "Potwor z Otchlani smierci";
 
             SetStr(1200, 1300);
             SetDex(100, 125);

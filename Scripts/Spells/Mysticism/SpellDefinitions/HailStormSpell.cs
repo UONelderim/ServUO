@@ -12,7 +12,7 @@ namespace Server.Spells.Mysticism
         public override DamageType SpellDamageType => DamageType.SpellAOE;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Hail Storm", "Kal Des Ylem",
+                "Burza Gradowa", "Kal Des Ylem",
                 230,
                 9022,
                 Reagent.BlackPearl,

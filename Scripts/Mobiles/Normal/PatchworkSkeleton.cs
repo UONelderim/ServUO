@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a patchwork skeletal corpse")]
+    [CorpseName("zwloki pozszywanego szkieleta")]
     public class PatchworkSkeleton : BaseCreature
     {
         [Constructable]
         public PatchworkSkeleton()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a patchwork skeleton";
+            Name = "pozszywany szkielet";
             Body = 309;
             BaseSoundID = 0x48D;
 

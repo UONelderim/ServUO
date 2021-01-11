@@ -1,12 +1,12 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a Chiikkaha the Toothed corpse")]
+    [CorpseName("zwloki zebatego skurczybyka")]
     public class Chiikkaha : RatmanMage
     {
         [Constructable]
         public Chiikkaha()
         {
-            Name = "Chiikkaha the Toothed";
+            Name = "Chiikkaha Zebaty Skruczybyk";
 
             SetStr(450, 476);
             SetDex(157, 179);

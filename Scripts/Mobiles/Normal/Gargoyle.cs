@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a gargoyle corpse")]
+    [CorpseName("zwloki gargulca")]
     public class Gargoyle : BaseCreature
     {
         [Constructable]
         public Gargoyle()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a gargoyle";
+            Name = "gargulec";
             Body = 4;
             BaseSoundID = 372;
 

@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x156C)
         {
             Movable = false;
+            Name = "tarcza";
         }
 
         public DecorativeShield1(Serial serial)

@@ -6,6 +6,7 @@ namespace Server.Items
         public EagleRay()
             : base(0xA373)
         {
+            Name = "manta";
         }
 
         public EagleRay(Serial serial)

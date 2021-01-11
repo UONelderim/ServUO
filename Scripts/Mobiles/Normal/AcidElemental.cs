@@ -6,14 +6,14 @@ namespace Server.Mobiles
     {
     }
 
-    [CorpseName("an acid elementals corpse")]
+    [CorpseName("zwloki zywiolaka kwasu")]
     public class AcidElemental : BaseCreature, IAcidCreature
     {
         [Constructable]
         public AcidElemental()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an acid elemental";
+            Name = "zywiołak kwasu";
             Body = 158;
             BaseSoundID = 263;
 

@@ -1231,6 +1231,7 @@ namespace Server.Items
         {
             Weight = 1.0;
             StrRequirement = 0;
+            Name = "Szata Mnicha";  
         }
 
         public override int LabelNumber => 1076584;// A monk's robe
@@ -1533,6 +1534,7 @@ namespace Server.Items
         public FloweredDress(int hue)
             : base(0x781E, hue)
         {
+            Name = "suknia w kwiaty";
         }
 
         public FloweredDress(Serial serial)
@@ -1561,6 +1563,7 @@ namespace Server.Items
         public EveningGown()
             : this(0)
         {
+            Name = "elegancka suknia";
         }
 
         [Constructable]
@@ -1602,6 +1605,7 @@ namespace Server.Items
             : base(0x9985, Layer.OuterTorso, hue)
         {
             Weight = 1.0;
+            Name = "epolety";
         }
 
         public Epaulette(Serial serial)

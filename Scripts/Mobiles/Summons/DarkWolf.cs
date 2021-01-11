@@ -4,13 +4,13 @@ using System.Linq;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a dark wolf corpse")]
+    [CorpseName("zwloki mrocznego wilka")]
     public class DarkWolfFamiliar : BaseFamiliar
     {
         private DateTime m_NextRestore;
         public DarkWolfFamiliar()
         {
-            Name = "a dark wolf";
+            Name = "mroczny wilk";
             Body = 99;
             Hue = 0x901;
             BaseSoundID = 0xE5;

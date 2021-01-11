@@ -6,6 +6,7 @@ namespace Server.Items
         public HippoTang()
             : base(0xA391)
         {
+            Name = "Pokolec krolewski";
         }
 
         public HippoTang(Serial serial)

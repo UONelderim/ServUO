@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an impaler corpse")]
+    [CorpseName("zwloki impalera")]
     public class Impaler : BaseCreature
     {
         [Constructable]

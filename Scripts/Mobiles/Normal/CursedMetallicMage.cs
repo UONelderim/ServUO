@@ -8,7 +8,7 @@ namespace Server.Mobiles
         public CursedMetallicMage()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "cursed metallic mage";
+            Name = "przeklety mag";
             Body = 148;
             BaseSoundID = 451;
 

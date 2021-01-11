@@ -8,7 +8,7 @@ namespace Server.Spells.SkillMasteries
     public class InjectedStrikeSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Injected Strike", "",
+                "Ukłucie", "",
                 -1,
                 9002
             );

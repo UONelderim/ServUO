@@ -4,7 +4,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a changeling corpse")]
+    [CorpseName("zwloki spaczonej wrozki")]
     public class Changeling : BaseCreature
     {
         private static readonly int[] m_FireNorth = new int[]

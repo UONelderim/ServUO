@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a minion's corpse")]
+    [CorpseName("zwloki mechanicznego straznika")]
     public class ExodusMinion : BaseCreature
     {
         [Constructable]
         public ExodusMinion()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "exodus minion";
+            Name = "mechaniczny straznik";
             Body = 0x2F5;
 
             SetStr(851, 950);

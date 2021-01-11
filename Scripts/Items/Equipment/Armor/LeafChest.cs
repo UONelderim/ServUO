@@ -11,6 +11,7 @@ namespace Server.Items
             : base(0x2FC5)
         {
             Weight = 2.0;
+			Name = "Lesny napiersnik";
         }
 
         public LeafChest(Serial serial)

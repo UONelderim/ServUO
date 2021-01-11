@@ -10,6 +10,7 @@ namespace Server.Items
         {
             Hue = 2425;
             Movable = true;
+            Name = "eliksir agapitu";
         }
 
         public ElixirofAgapiteConversion(Serial serial)

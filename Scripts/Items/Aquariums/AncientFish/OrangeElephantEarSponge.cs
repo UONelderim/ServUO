@@ -6,6 +6,7 @@ namespace Server.Items
         public OrangeElephantEarSponge()
             : base(0xA389)
         {
+            Name = "Pomarańczowa Gabka Sloniowata";
         }
 
         public OrangeElephantEarSponge(Serial serial)

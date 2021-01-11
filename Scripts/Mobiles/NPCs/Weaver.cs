@@ -13,7 +13,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public Weaver()
-            : base("the weaver")
+            : base("- tkacz")
         {
             SetSkill(SkillName.Tailoring, 65.0, 88.0);
         }

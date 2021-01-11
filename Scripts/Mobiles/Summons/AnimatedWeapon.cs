@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an animated weapon corpse")]
+    [CorpseName("resztki ozywionej broni")]
     public class AnimatedWeapon : BaseCreature
     {
         public override bool DeleteCorpseOnDeath => true;
@@ -15,7 +15,7 @@ namespace Server.Mobiles
         public AnimatedWeapon(Mobile caster, int level)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.3, 0.6)
         {
-            Name = "an animated weapon";
+            Name = "ozywiona bron";
             Body = 692;
 
             SetStr(10 + level);

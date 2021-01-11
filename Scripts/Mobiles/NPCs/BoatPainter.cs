@@ -9,7 +9,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public BoatPainter()
-            : base("the boat painter")
+            : base("malarz łodzi")
         {
             SetSkill(SkillName.Carpentry, 36.0, 68.0);
         }

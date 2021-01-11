@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a Primeval Lich corpse")]
+    [CorpseName("zwloki prymitywnego licza")]
     public class PrimevalLich : BaseChampion
     {
         private DateTime m_NextDiscordTime;
@@ -18,7 +18,7 @@ namespace Server.Mobiles
         public PrimevalLich()
             : base(AIType.AI_NecroMage)
         {
-            Name = "Primeval Lich";
+            Name = "Prymitywny licz";
             Body = 830;
 
             SetStr(500);

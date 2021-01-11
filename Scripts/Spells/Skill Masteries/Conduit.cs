@@ -8,7 +8,7 @@ namespace Server.Spells.SkillMasteries
     public class ConduitSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Conduit", "Uus Corp Grav",
+                "Połączenie z Zaświatami", "Uus Corp Grav",
                 204,
                 9061,
                 Reagent.NoxCrystal,

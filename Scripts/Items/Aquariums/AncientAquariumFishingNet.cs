@@ -9,6 +9,7 @@ namespace Server.Items
         {
             ItemID = 0xDC8;
             Hue = 2967;
+            Name = "starozytna siec rybacka";
         }
 
         public AncientAquariumFishNet(Serial serial)

@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a Malefic corpse")]
+    [CorpseName("zwloki Malefica")]
     public class Malefic : DreadSpider
     {
         [Constructable]

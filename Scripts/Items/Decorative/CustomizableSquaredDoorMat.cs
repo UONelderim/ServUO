@@ -15,6 +15,7 @@ namespace Server.Items
         [Constructable]
         public CustomizableSquaredDoorMatAddon(DirectionType type)
         {
+	        Name = "wycieraczka";
             switch (type)
             {
                 case DirectionType.South:

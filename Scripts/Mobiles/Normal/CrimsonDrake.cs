@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a crimson drake corpse")]
+    [CorpseName("zwloki karmazynowego smoczego pisklaka")]
     public class CrimsonDrake : BaseCreature, IElementalCreature
     {
         private ElementType m_Type;
@@ -52,7 +52,7 @@ namespace Server.Mobiles
                     break;
             }
 
-            Name = "Crimson Drake";
+            Name = "karmazynowe smocze piskle";
             Female = true;
             BaseSoundID = 362;
 

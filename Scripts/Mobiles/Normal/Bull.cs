@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a bull corpse")]
+    [CorpseName("zwloki byka")]
     public class Bull : BaseCreature
     {
         [Constructable]
         public Bull()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a bull";
+            Name = "byk";
             Body = Utility.RandomList(0xE8, 0xE9);
             BaseSoundID = 0x64;
 

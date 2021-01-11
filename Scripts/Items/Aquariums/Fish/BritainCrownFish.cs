@@ -6,6 +6,7 @@ namespace Server.Items
         public BritainCrownFish()
             : base(0x3AFF)
         {
+            Name = "tasandorska ryba krolewska";
         }
 
         public BritainCrownFish(Serial serial)

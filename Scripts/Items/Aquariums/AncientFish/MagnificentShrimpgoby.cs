@@ -6,6 +6,7 @@ namespace Server.Items
         public MagnificentShrimpgoby()
             : base(0xA368)
         {
+            Name = "Wielka Krewetka Dag'a";
         }
 
         public MagnificentShrimpgoby(Serial serial)

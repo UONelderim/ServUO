@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a dire wolf corpse")]
+    [CorpseName("zwloki wscieklego wilka")]
     [TypeAlias("Server.Mobiles.Direwolf")]
     public class DireWolf : BaseCreature
     {
@@ -8,7 +8,7 @@ namespace Server.Mobiles
         public DireWolf()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a dire wolf";
+            Name = "wsciekly wilk";
             Body = 23;
             BaseSoundID = 0xE5;
 

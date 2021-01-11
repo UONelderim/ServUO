@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a clan scratch henchrat corpse")]
+    [CorpseName("zwloki giermka z klanu drapaczy")]
     public class ClanSH : BaseCreature
     {
         [Constructable]
         public ClanSH()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Clan Scratch Henchrat";
+            Name = "giermek z klanu drapaczy";
             Body = 42;
             BaseSoundID = 437;
 

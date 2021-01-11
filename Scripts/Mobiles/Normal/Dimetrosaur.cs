@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a dimetrosaur corpse")]
+    [CorpseName("zwloki dimetrozaura")]
     public class Dimetrosaur : BaseCreature
     {
         public override bool AttacksFocus => !Controlled;
@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public Dimetrosaur()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, .2, .4)
         {
-            Name = "a dimetrosaur";
+            Name = "dimetrozaur";
             Body = 1285;
 
             SetStr(526, 601);

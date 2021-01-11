@@ -9,7 +9,7 @@ namespace Server.Spells.Mysticism
         public override SpellCircle Circle => SpellCircle.Fifth;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Mass Sleep", "Vas Zu",
+                "Masowy Sen", "Vas Zu",
                 230,
                 9022,
                 Reagent.Ginseng,

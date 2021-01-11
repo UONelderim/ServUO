@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an evil mage corpse")]
+    [CorpseName("zwloki zlego maga")]
     public class EvilMage : BaseCreature
     {
         [Constructable]
@@ -10,7 +10,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Name = NameList.RandomName("evil mage");
-            Title = "the evil mage";
+            Title = "zly mag";
 
             Robe robe = new Robe(Utility.RandomNeutralHue());
             Sandals sandals = new Sandals();

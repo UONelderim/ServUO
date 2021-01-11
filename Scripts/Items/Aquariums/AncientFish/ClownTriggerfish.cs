@@ -6,6 +6,7 @@ namespace Server.Items
         public ClownTriggerfish()
             : base(0xA36C)
         {
+            Name = "Rogatnica jasnoplama";
         }
 
         public ClownTriggerfish(Serial serial)

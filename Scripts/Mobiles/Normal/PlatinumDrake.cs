@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a platinum drake corpse")]
+    [CorpseName("zwloki smoka ostrogrzbietego")]
     public class PlatinumDrake : BaseCreature, IElementalCreature
     {
         private ElementType m_Type;
@@ -52,7 +52,7 @@ namespace Server.Mobiles
                     break;
             }
 
-            Name = "Platinum Drake";
+            Name = "Smok ostrogrzbiety";
             Female = true;
             BaseSoundID = 362;
 

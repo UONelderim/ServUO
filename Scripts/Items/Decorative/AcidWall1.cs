@@ -6,6 +6,7 @@ namespace Server.Items
         public AcidWall1()
             : base(578)
         {
+            Name = "sciana kwasu";
         }
 
         public AcidWall1(Serial serial)

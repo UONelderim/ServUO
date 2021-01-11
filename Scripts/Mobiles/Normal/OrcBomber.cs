@@ -4,7 +4,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an orcish corpse")]
+    [CorpseName("zwloki orka bombardiera")]
     public class OrcBomber : BaseCreature
     {
         private DateTime m_NextBomb;
@@ -15,7 +15,7 @@ namespace Server.Mobiles
         {
             Body = 182;
 
-            Name = "an orc bomber";
+            Name = "ork bombardier";
             BaseSoundID = 0x45A;
 
             SetStr(147, 215);

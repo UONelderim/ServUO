@@ -6,14 +6,14 @@ using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a tangling root corpse")]
+    [CorpseName("resztki pnacza")]
     public class TanglingRoots : BaseCreature
     {
         [Constructable]
         public TanglingRoots()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a tangling root";
+            Name = "bijace pnacze";
             Body = 8;
             BaseSoundID = 684;
 

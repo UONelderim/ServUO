@@ -9,6 +9,7 @@ namespace Server.Items
         public StatuetteDyeTub()
         {
             LootType = LootType.Blessed;
+            Name = "farba do statuetek";
         }
 
         public StatuetteDyeTub(Serial serial)

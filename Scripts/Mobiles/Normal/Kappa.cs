@@ -3,14 +3,14 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a kappa corpse")]
+    [CorpseName("zwloki kappy")]
     public class Kappa : BaseCreature
     {
         [Constructable]
         public Kappa()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a kappa";
+            Name = "kappa";
             Body = 240;
 
             SetStr(186, 230);

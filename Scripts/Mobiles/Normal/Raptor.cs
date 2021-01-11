@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 namespace Server.Mobiles
 {
-    [CorpseName("a raptor corpse")]
+    [CorpseName("zwloki raptora")]
     public class Raptor : BaseCreature
     {
         private const int MaxFriends = 2;
@@ -24,7 +24,7 @@ namespace Server.Mobiles
         {
             m_IsFriend = isFriend;
 
-            Name = "a raptor";
+            Name = "raptor";
             Body = 730;
 
             SetStr(404, 471);

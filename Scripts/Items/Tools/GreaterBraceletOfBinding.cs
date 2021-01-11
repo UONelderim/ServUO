@@ -22,7 +22,7 @@ namespace Server.Items
         {
             Hue = 2575;
             Weight = 1.0;
-
+            Name = "Wieksza Branzoleta polaczenia";
             LootType = LootType.Blessed;
         }
 

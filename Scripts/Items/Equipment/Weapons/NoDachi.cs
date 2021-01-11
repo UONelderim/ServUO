@@ -12,6 +12,7 @@ namespace Server.Items
         {
             Weight = 10.0;
             Layer = Layer.TwoHanded;
+			Name = "Klejmor";
         }
 
         public NoDachi(Serial serial)

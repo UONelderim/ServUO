@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B6A)
         {
             Weight = 2.0;
+			Name = "Inkrustowane rekawice";
         }
 
         public WoodlandGloves(Serial serial)

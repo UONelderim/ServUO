@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a revenant lion corpse")]
+    [CorpseName("zwloki biesa")]
     public class RevenantLion : BaseCreature
     {
         [Constructable]
         public RevenantLion()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a Revenant Lion";
+            Name = "bies";
             Body = 251;
 
             SetStr(276, 325);

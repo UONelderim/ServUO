@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a leopard corpse")]
+    [CorpseName("zwloki snieznego lamparta")]
     public class SnowLeopard : BaseCreature
     {
         [Constructable]
         public SnowLeopard()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a snow leopard";
+            Name = "sniezny lampart";
             Body = Utility.RandomList(64, 65);
             BaseSoundID = 0x73;
 

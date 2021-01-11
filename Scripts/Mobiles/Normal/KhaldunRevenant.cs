@@ -12,7 +12,7 @@ namespace Server.Mobiles
         public KhaldunRevenant(Mobile target)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.18, 0.36)
         {
-            Name = "a revenant";
+            Name = "msciwiec";
             Body = 0x3CA;
             Hue = 0x41CE;
 

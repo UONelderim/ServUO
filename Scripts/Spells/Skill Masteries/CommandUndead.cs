@@ -7,7 +7,7 @@ namespace Server.Spells.SkillMasteries
     public class CommandUndeadSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Command Undead", "In Corp Xen Por",
+                "Wezwanie Nieumarłych", "In Corp Xen Por",
                 204,
                 9061,
                 Reagent.DaemonBlood,

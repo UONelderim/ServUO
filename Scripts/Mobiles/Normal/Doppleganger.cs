@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a doppleganger corpse")]
+    [CorpseName("zwloki zmiennoksztaltnego")]
     public class Doppleganger : BaseCreature
     {
         [Constructable]
         public Doppleganger()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a doppleganger";
+            Name = "zmiennoksztaltny";
             Body = 0x309;
             BaseSoundID = 0x451;
 

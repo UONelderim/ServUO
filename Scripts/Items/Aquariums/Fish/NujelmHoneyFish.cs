@@ -6,6 +6,7 @@ namespace Server.Items
         public NujelmHoneyFish()
             : base(0x3B06)
         {
+            Name = "miodowa ryba z thila";
         }
 
         public NujelmHoneyFish(Serial serial)

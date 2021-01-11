@@ -7,7 +7,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Necromancer()
-            : base("the Necromancer")
+            : base("- nekromanta")
         {
             SetSkill(SkillName.EvalInt, 80.0, 100.0);
             SetSkill(SkillName.Inscribe, 80.0, 100.0);

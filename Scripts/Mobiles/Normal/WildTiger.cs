@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a tiger corpse")]
+    [CorpseName("zwloki tygrysa")]
     public class WildTiger : BaseMount
     {
         public override double HealChance => .167;
@@ -13,7 +13,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public WildTiger()
-            : this("a wild tiger")
+            : this("tygrys")
         {
             CanRide = false;
         }

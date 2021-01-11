@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a dragon corpse")]
+    [CorpseName("zwloki wezowego smoka")]
     public class SerpentineDragon : BaseCreature
     {
         [Constructable]
         public SerpentineDragon()
             : base(AIType.AI_Mage, FightMode.Evil, 10, 1, 0.2, 0.4)
         {
-            Name = "a serpentine dragon";
+            Name = "wezowy smok";
             Body = 103;
             BaseSoundID = 362;
 

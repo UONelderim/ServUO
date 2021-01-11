@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("an eagle corpse")]
+    [CorpseName("zwloki orla")]
     public class Eagle : BaseCreature
     {
         [Constructable]
         public Eagle()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "an eagle";
+            Name = "orzel";
             Body = 5;
             BaseSoundID = 0x2EE;
 

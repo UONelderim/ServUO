@@ -3,14 +3,14 @@ using Server.Misc;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a glowing orc corpse")]
+    [CorpseName("zwloki maga orkow")]
     public class OrcishMage : BaseCreature
     {
         [Constructable]
         public OrcishMage()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an orcish mage";
+            Name = "orczy mag";
             Body = 140;
             BaseSoundID = 0x45A;
 

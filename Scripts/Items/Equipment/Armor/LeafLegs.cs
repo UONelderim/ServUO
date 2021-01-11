@@ -11,6 +11,7 @@ namespace Server.Items
             : base(0x2FC9)
         {
             Weight = 2.0;
+			Name = "Lesne nogawice";
         }
 
         public LeafLegs(Serial serial)

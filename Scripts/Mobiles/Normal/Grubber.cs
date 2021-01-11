@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a grubber corpse")]
+    [CorpseName("zwłoki kradzieja")]
     public class Grubber : BaseCreature
     {
         [Constructable]
         public Grubber()
             : base(AIType.AI_Melee, FightMode.None, 10, 1, 0.06, 0.1)
         {
-            Name = "a grubber";
+            Name = "kradziej";
             Body = 270;
 
             SetStr(15);

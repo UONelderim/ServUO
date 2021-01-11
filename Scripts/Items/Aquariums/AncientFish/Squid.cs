@@ -6,6 +6,7 @@ namespace Server.Items
         public Squid()
             : base(0xA383)
         {
+            Name = "kalamarnica";
         }
 
         public Squid(Serial serial)

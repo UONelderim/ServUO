@@ -10,7 +10,7 @@ namespace Server.Spells.Mysticism
         public override SpellCircle Circle => SpellCircle.Third;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Sleep", "In Zu",
+                "Sen", "In Zu",
                 230,
                 9022,
                 Reagent.Nightshade,

@@ -6,6 +6,7 @@ namespace Server.Items
         public SeaFan()
             : base(0xA38C)
         {
+            Name = "wachlarz morski";
         }
 
         public SeaFan(Serial serial)

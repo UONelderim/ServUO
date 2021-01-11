@@ -2,14 +2,14 @@ using Server.Mobiles;
 
 namespace Server.Engines.Quests.Samurai
 {
-    [CorpseName("a cursed soul corpse")]
+    [CorpseName("resztki przekletej duszy")]
     public class CursedSoul : BaseCreature
     {
         [Constructable]
         public CursedSoul()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a cursed soul";
+            Name = "przekleta dusza";
             Body = 3;
             BaseSoundID = 471;
 

@@ -9,7 +9,7 @@ namespace Server.Spells.SkillMasteries
     public class BodyGuardSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Body Guard", "",
+                "Ochroniarz", "",
                 -1,
                 9002
             );

@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a lava lizard corpse")]
+    [CorpseName("zwloki ogistej jaszczurki")]
     public class LavaLizard : BaseCreature
     {
         [Constructable]
         public LavaLizard()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a lava lizard";
+            Name = "ognista jaszczurka";
             Body = 0xCE;
             Hue = Utility.RandomList(0x647, 0x650, 0x659, 0x662, 0x66B, 0x674);
             BaseSoundID = 0x5A;

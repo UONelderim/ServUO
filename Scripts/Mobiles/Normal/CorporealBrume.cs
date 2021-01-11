@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a corporeal brume corpse")]
+    [CorpseName("resztki zmaterializowanej mgly")]
     public class CorporealBrume : BaseCreature, IAuraCreature
     {
         [Constructable]
         public CorporealBrume()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a corporeal brume";
+            Name = "zmaterializowana mgla";
             Body = 0x104;
             BaseSoundID = 0x56B;
 

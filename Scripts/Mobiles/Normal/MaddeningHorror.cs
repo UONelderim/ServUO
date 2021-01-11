@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a maddening horror corpse")]
+    [CorpseName("zwloki szalonego horroru")]
     public class MaddeningHorror : BaseCreature
     {
         [Constructable]
         public MaddeningHorror()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a maddening horror";
+            Name = "szalony horror";
             Body = 721;
 
             SetStr(270, 290);

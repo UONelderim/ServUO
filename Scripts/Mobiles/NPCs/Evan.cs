@@ -7,7 +7,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Evan()
-            : base("Evan", "the beggar")
+            : base("Evan", "zebrak")
         {
         }
 

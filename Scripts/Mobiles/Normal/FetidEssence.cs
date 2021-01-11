@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a fetid essence corpse")]
+    [CorpseName("resztki cuchnącej esencji")]
     public class FetidEssence : BaseCreature
     {
         [Constructable]
         public FetidEssence()
             : base(AIType.AI_Spellweaving, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a fetid essence";
+            Name = "cuchnąca esencja";
             Body = 273;
 
             SetStr(101, 150);

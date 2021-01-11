@@ -6,6 +6,7 @@ namespace Server.Items
         public YellowFinBluebelly()
             : base(0x3B07)
         {
+            Name = "zoltawa ryba z Herenport";
         }
 
         public YellowFinBluebelly(Serial serial)

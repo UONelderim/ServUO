@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a meer's corpse")]
+    [CorpseName("zwloki maga meerow")]
     public class MeerMage : BaseCreature
     {
         private static readonly Hashtable m_Table = new Hashtable();
@@ -13,7 +13,7 @@ namespace Server.Mobiles
         public MeerMage()
             : base(AIType.AI_Spellweaving, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a meer mage";
+            Name = "mag meerow";
             Body = 770;
 
             SetStr(171, 200);

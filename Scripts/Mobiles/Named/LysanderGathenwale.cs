@@ -8,7 +8,7 @@ namespace Server.Mobiles
         public LysanderGathenwale()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Title = "the Cursed";
+            Title = "przeklety";
 
             Hue = 0x8838;
             Body = 0x190;

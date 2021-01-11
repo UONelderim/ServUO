@@ -11,6 +11,7 @@ namespace Server.Items
             : base(0x2F5A)
         {
             Hue = 0x27;
+            Name = "Duch Krwawego Drzewa";
             MaxChargeTime = 1200;
             Removal = TalismanRemoval.Damage;
             Blessed = GetRandomBlessed();

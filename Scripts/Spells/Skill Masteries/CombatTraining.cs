@@ -19,7 +19,7 @@ namespace Server.Spells.SkillMasteries
     public class CombatTrainingSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Combat Training", "",
+                "Trening Bojowy", "",
                 -1,
                 9002
             );

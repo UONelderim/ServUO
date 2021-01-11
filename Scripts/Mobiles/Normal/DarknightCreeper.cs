@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a darknight creeper corpse")]
+    [CorpseName("zwloki mrocznego lowcy")]
     public class DarknightCreeper : BaseCreature
     {
         [Constructable]

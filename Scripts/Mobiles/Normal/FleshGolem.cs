@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a flesh golem corpse")]
+    [CorpseName("resztki golema krwi")]
     public class FleshGolem : BaseCreature
     {
         [Constructable]
         public FleshGolem()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a flesh golem";
+            Name = "golem krwi";
             Body = 304;
             BaseSoundID = 684;
 

@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B75)
         {
             Weight = 2.0;
+			Name = "Lesne wzmocnione rekawice";
         }
 
         public HideGloves(Serial serial)

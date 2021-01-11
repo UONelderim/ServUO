@@ -9,6 +9,7 @@ namespace Server.Items
             : base(BeverageType.Ale)
         {
             Hue = 0x66C;
+            Name = "krasnoludzki rum";
         }
 
         public AdmiralsHeartyRum(Serial serial)

@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a plague rat corpse")]
+    [CorpseName("zwloki szczura")]
 
     public class PlagueRat : BaseCreature
     {
@@ -8,7 +8,7 @@ namespace Server.Mobiles
         public PlagueRat()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a Clan Ribbon Plague Rat";
+            Name = "zarazony szczur";
             Body = 0xD7;
             Hue = 1710;
             BaseSoundID = 0x188;

@@ -8,7 +8,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public Shipwright()
-            : base("the shipwright")
+            : base("- szkutnik")
         {
             SetSkill(SkillName.Carpentry, 60.0, 83.0);
             SetSkill(SkillName.Macing, 36.0, 68.0);

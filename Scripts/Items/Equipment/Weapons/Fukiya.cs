@@ -17,6 +17,7 @@ namespace Server.Items
         {
             Weight = 4.0;
             Layer = Layer.OneHanded;
+			Name = "Dmuchawka";
         }
 
         public Fukiya(Serial serial)

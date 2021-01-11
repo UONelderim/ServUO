@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a blood elemental corpse")]
+    [CorpseName("zwloki żywiolaka krwi")]
     public class BloodElemental : BaseCreature, IBloodCreature
     {
         [Constructable]
         public BloodElemental()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a blood elemental";
+            Name = "zywiolak krwi";
             Body = 159;
             BaseSoundID = 278;
 

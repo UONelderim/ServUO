@@ -6,6 +6,7 @@ namespace Server.Items
         public Spadefish()
             : base(0xA379)
         {
+            Name = "czarnuch";
         }
 
         public Spadefish(Serial serial)

@@ -25,6 +25,7 @@ namespace Server.Items
             : base(0x782E)
         {
             Weight = 3.0;
+			Name = "Naramienniki ze skorupy smoczego zolwia";
         }
 
         public DragonTurtleHideArms(Serial serial)

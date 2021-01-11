@@ -3,14 +3,14 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a savage corpse")]
+    [CorpseName("zwloki jezdzca dzikusow")]
     public class SavageRider : BaseCreature
     {
         [Constructable]
         public SavageRider()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.15, 0.4)
         {
-            Name = NameList.RandomName("savage rider");
+            Name = NameList.RandomName("dziki jezdziec");
 
             Body = 185;
 

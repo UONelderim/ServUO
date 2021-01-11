@@ -12,6 +12,7 @@ namespace Server.Items
         public MysticBook(ulong content)
             : base(content, 0x2D9D)
         {
+            Name = "Ksiega Mistycyzmu";
         }
 
         public MysticBook(Serial serial)

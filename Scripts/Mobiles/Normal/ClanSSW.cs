@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a clan scratch savage wolf corpse")]
+    [CorpseName("zwloki dzikiego wilka z klanu drapaczy")]
     public class ClanSSW : BaseCreature
     {
         [Constructable]
         public ClanSSW()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Clan Scratch Savage Wolf";
+            Name = "dziki wilk z klanu drapaczy";
             Body = 98;
             Hue = 0x2C;
             BaseSoundID = 229;

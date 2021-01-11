@@ -8,7 +8,7 @@ namespace Server.Spells.SkillMasteries
     public class ToleranceSpell : SkillMasterySpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Tolerence", "",
+                "Tolerancja", "",
                 -1,
                 9002
             );

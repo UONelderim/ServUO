@@ -7,6 +7,7 @@
         {
             Hue = DyedHue = 2498;
             Redyable = false;
+            Name = "biała farba do farbowania materialu";
         }
 
         public WhiteClothDyeTub(Serial serial)

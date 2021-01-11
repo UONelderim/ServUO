@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an overseer's corpse")]
+    [CorpseName("zwloki mechanicznego obserwatora")]
     public class ExodusOverseer : BaseCreature
     {
         private bool m_FieldActive;
@@ -10,7 +10,7 @@ namespace Server.Mobiles
         public ExodusOverseer()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "exodus overseer";
+            Name = "mechaniczny obserwator";
             Body = 0x2F4;
 
             SetStr(561, 650);

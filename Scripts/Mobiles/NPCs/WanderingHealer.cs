@@ -7,7 +7,7 @@ namespace Server.Mobiles
         [Constructable]
         public WanderingHealer()
         {
-            Title = "the wandering healer";
+            Title = "- wedrowny uzdrowiciel";
 
             AddItem(new GnarledStaff());
 

@@ -3,14 +3,14 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a plant corpse")]
+    [CorpseName("zwloki moczarniaka")]
     public class BogThing : BaseCreature
     {
         [Constructable]
         public BogThing()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.6, 1.2)
         {
-            Name = "a bog thing";
+            Name = "moczarniak";
             Body = 780;
 
             SetStr(801, 900);

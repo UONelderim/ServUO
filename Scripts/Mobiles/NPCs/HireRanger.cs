@@ -22,7 +22,7 @@ namespace Server.Mobiles
                 AddItem(new ShortPants(Utility.RandomNeutralHue()));
             }
 
-            Title = "the ranger";
+            Title = "- najemnik";
             HairItemID = Race.RandomHair(Female);
             HairHue = Race.RandomHairHue();
             Race.RandomFacialHair(this);

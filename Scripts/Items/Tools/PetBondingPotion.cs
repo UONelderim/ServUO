@@ -13,6 +13,7 @@ namespace Server.Items
             Weight = 1.0;
             LootType = LootType.Blessed;
             Hue = 2629;
+            Name = "Wywar Oswajacza";
         }
 
         public override void OnDoubleClick(Mobile from) // Override double click of the deed to call our target 

@@ -12,7 +12,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Melee)
         {
             Name = "Serado";
-            Title = "the awakened";
+            Title = "- Przebudzony";
 
             Body = 249;
             Hue = 0x96C;

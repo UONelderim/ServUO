@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a clan scratch tinkerer corpse")]
+    [CorpseName("zwloki majstra z klanu drapaczy")]
     public class ClanCT : BaseCreature
     {
         [Constructable]
         public ClanCT()
             : base(AIType.AI_Archer, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Clan Scratch Tinkerer";
+            Name = "Majster z Klanu Drapaczy";
             Body = 0x8E;
             BaseSoundID = 437;
 

@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an abyssal abomination corpse")]
+    [CorpseName("zwloki abominacji z otchlani")]
     public class AbyssalAbomination : BaseCreature
     {
         [Constructable]
         public AbyssalAbomination()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an Abyssal Abomination";
+            Name = "abominacja z otchlani";
             Body = 312;
             Hue = 769;
             BaseSoundID = 0x451;

@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a lifestealer corpse")]
+    [CorpseName("zwloki wysysacza zycia")]
     public class Lifestealer : BaseCreature
     {
         [Constructable]
         public Lifestealer()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a lifestealer";
+            Name = "wysysacz zycia";
             Body = 303;
             Hue = 2606;
             BaseSoundID = 357;

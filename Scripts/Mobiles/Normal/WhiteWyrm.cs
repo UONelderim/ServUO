@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a white wyrm corpse")]
+    [CorpseName("zwloki snieznego wyrma")]
     public class WhiteWyrm : BaseCreature
     {
         public override double AverageThreshold => 0.25;
@@ -10,7 +10,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Body = Utility.RandomBool() ? 180 : 49;
-            Name = "a white wyrm";
+            Name = "sniezny wyrm";
             BaseSoundID = 362;
 
             SetStr(721, 760);

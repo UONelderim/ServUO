@@ -3,14 +3,14 @@ using Server.Misc;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a ratman archer corpse")]
+    [CorpseName("zwloki lucznika szczuroczlekow")]
     public class RatmanArcher : BaseCreature
     {
         [Constructable]
         public RatmanArcher()
             : base(AIType.AI_Archer, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = NameList.RandomName("ratman");
+            Name = NameList.RandomName("lucznik szczuroczlekow");
             Body = 0x8E;
             BaseSoundID = 437;
 

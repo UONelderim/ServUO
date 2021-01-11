@@ -15,6 +15,7 @@ namespace Server.Items
             : base(0xA4A8)
         {
             Weight = 1;
+            Name = "rzeźba";
         }
 
         public SculptureWoodScept(Serial serial)

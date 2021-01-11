@@ -6,6 +6,7 @@ namespace Server.Items
         public BangaiCardinalfish()
             : base(0xA367)
         {
+            Name = "Apogon kardynal";
         }
 
         public BangaiCardinalfish(Serial serial)

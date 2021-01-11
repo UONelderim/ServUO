@@ -6,7 +6,7 @@ namespace Server.Mobiles
         public CorruptedSoul()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, .1, 5)
         {
-            Name = "a corrupted soul";
+            Name = "zepsuta dusza";
             Body = 0x3CA;
             Hue = 0x453;
 

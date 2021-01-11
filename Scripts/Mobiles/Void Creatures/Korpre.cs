@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a korpre corpse")]
+    [CorpseName("zwloki korpre")]
     public class Korpre : BaseVoidCreature
     {
         public override VoidEvolution Evolution => VoidEvolution.None;

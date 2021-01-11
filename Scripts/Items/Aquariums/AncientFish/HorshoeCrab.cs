@@ -6,6 +6,7 @@ namespace Server.Items
         public HorseshoeCrab()
             : base(0xA380)
         {
+            Name = "krab konski";
         }
 
         public HorseshoeCrab(Serial serial)

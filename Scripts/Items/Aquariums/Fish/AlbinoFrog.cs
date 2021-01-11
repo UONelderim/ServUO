@@ -7,6 +7,7 @@ namespace Server.Items
             : base(0x3B0D)
         {
             Hue = 0x47E;
+            Name = "zaba albinos";
         }
 
         public AlbinoFrog(Serial serial)

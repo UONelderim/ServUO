@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a skeletal corpse")]
+    [CorpseName("resztki koscianego maga")]
     public class SkeletalMage : BaseCreature
     {
         [Constructable]
         public SkeletalMage()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a skeletal mage";
+            Name = "kosciany mag";
             Body = 148;
             BaseSoundID = 451;
 

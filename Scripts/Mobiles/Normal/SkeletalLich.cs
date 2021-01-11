@@ -2,13 +2,13 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a skeletal corpse")]
+    [CorpseName("resztki licza")]
     public class SkeletalLich : BaseCreature
     {
         [Constructable]
         public SkeletalLich() : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a skeletal lich";
+            Name = "licz";
             Body = 309;
             Hue = 1345;
             BaseSoundID = 0x48D;

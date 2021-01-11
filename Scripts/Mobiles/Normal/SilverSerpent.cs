@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a silver serpent corpse")]
+    [CorpseName("zwloki ogromnego srebrnego weza")]
     public class SilverSerpent : BaseCreature
     {
         [Constructable]
@@ -10,7 +10,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Body = 92;
-            Name = "a silver serpent";
+            Name = "ogromny srebrny waz";
             BaseSoundID = 219;
             Hue = 1150;
 

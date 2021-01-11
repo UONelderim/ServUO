@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a dread horns corpse")]
+    [CorpseName("zwloki spaczonego jednorozca")]
     public class DreadHorn : BasePeerless
     {
         public virtual int StrikingRange => 12;
@@ -13,7 +13,7 @@ namespace Server.Mobiles
         [Constructable]
         public DreadHorn() : base(AIType.AI_Spellweaving, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a Dread Horn";
+            Name = "Spaczony Jednorozec";
             Body = 257;
             BaseSoundID = 0xA8;
 

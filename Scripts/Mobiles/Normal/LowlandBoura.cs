@@ -3,7 +3,7 @@ using Server.Network;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a boura corpse")]
+    [CorpseName("zwloki nizinnej boury")]
     public class LowlandBoura : BaseCreature, ICarvable
     {
         private bool GatheredFur { get; set; }
@@ -11,7 +11,7 @@ namespace Server.Mobiles
         [Constructable]
         public LowlandBoura() : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a lowland boura";
+            Name = "nizinna boura";
             Body = 715;
 
             SetStr(337, 411);

@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("an alligator corpse")]
+    [CorpseName("zwloki aligatora")]
     public class Alligator : BaseCreature
     {
         [Constructable]
         public Alligator()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an alligator";
+            Name = "aligator";
             Body = 0xCA;
             BaseSoundID = 660;
 

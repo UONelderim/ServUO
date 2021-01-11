@@ -30,7 +30,7 @@ namespace Server.Spells.Mysticism
         public override SpellCircle Circle => SpellCircle.Second;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Purge", "An Ort Sanct ",
+                "Oczyszczenie", "An Ort Sanct ",
                 230,
                 9022,
                 Reagent.Garlic,

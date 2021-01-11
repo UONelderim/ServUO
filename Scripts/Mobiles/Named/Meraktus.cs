@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace Server.Mobiles
 {
-    [CorpseName("the remains of Meraktus")]
+    [CorpseName("zwloki Meraktusa")]
     public class Meraktus : BaseChampion
     {
         public override ChampionSkullType SkullType => ChampionSkullType.Pain;
@@ -34,7 +34,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Melee)
         {
             Name = "Meraktus";
-            Title = "the Tormented";
+            Title = "Umeczony";
             Body = 263;
             BaseSoundID = 680;
             Hue = 0x835;

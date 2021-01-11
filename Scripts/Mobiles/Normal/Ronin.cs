@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a ronin corpse")]
+    [CorpseName("zwloki wojownika vox populi")]
     public class Ronin : BaseCreature
     {
         public override bool ClickTitle => false;
@@ -15,7 +15,7 @@ namespace Server.Mobiles
         {
             SpeechHue = Utility.RandomDyedHue();
             Hue = Race.RandomSkinHue();
-            Name = "a ronin";
+            Name = "Wojownik - przynalezy do vox populi";
             Body = (Female = Utility.RandomBool()) ? Body = 0x191 : Body = 0x190;
 
             SetStr(326, 375);

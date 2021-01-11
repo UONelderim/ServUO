@@ -9,6 +9,7 @@ namespace Server.Items
             : base(0x9A96)
         {
             LootType = LootType.Blessed;
+            Name = "Parowe narzedzie do wyrobu napojow";
         }
 
         public SteamPoweredBeverageMaker(Serial serial)

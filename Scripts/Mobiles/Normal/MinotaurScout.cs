@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a minotaur corpse")]
+    [CorpseName("zwloki zwiadowcy minotaurow")]
     public class MinotaurScout : BaseCreature
     {
         [Constructable]
         public MinotaurScout()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)// NEED TO CHECK
         {
-            Name = "a minotaur scout";
+            Name = "minotaur zwiadowca";
             Body = 281;
 
             SetStr(353, 375);

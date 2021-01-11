@@ -7,7 +7,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Farmer()
-            : base("the farmer")
+            : base("- farmer")
         {
             SetSkill(SkillName.Lumberjacking, 36.0, 68.0);
             SetSkill(SkillName.TasteID, 36.0, 68.0);

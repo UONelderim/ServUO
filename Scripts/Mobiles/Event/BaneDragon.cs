@@ -31,7 +31,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public BaneDragon()
-            : base("Bane Dragon", 0x31A, 0x3EBD, AIType.AI_Mage, FightMode.Aggressor, 10, 1, 0.2, 0.4)
+            : base("bagienny smok zaglady", 0x31A, 0x3EBD, AIType.AI_Mage, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
             BaseSoundID = 0x16A;
             Hue = 1175;

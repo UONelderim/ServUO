@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an ore elemental corpse")]
+    [CorpseName("zwloki zywiolaka miedzi")]
     public class CopperElemental : BaseCreature
     {
         [Constructable]
         public CopperElemental()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a copper elemental";
+            Name = "zywiolak miedzi";
             Body = 109;
             BaseSoundID = 268;
 

@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a snake corpse")]
+    [CorpseName("zwloki weza koralwoego")]
     public class CoralSnake : BaseCreature
     {
         [Constructable]
         public CoralSnake()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a coral snake";
+            Name = "waz koralowy";
             Body = 52;
             Hue = 0x21;
             BaseSoundID = 0xDB;

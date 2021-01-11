@@ -6,6 +6,7 @@ namespace Server.Items
         public ElkhornCoral()
             : base(0xA38E)
         {
+            Name = "Koralowiec Elficki";
         }
 
         public ElkhornCoral(Serial serial)

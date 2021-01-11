@@ -28,6 +28,7 @@ namespace Server.Items
             : base(0x782B)
         {
             Weight = 6.0;
+			Name = "Biustonosz ze skorupy smoczego zolwia";
         }
 
         public DragonTurtleHideBustier(Serial serial)

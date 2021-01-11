@@ -24,6 +24,7 @@ namespace Server.Items
             : base(0x2FC6)
         {
             Weight = 2.0;
+			Name = "Lesne rekawice";
         }
 
         public LeafGloves(Serial serial)

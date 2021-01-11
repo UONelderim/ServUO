@@ -6,6 +6,8 @@ namespace Server.Items
         public HumpbackGrouper()
             : base(0xA363)
         {
+
+            Name = "humbak";
         }
 
         public HumpbackGrouper(Serial serial)

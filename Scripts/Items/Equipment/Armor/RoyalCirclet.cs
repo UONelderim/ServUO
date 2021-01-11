@@ -8,6 +8,7 @@ namespace Server.Items
             : base(0x2B6F)
         {
             Weight = 2.0;
+			Name = "Waski diadem";
         }
 
         public RoyalCirclet(Serial serial)

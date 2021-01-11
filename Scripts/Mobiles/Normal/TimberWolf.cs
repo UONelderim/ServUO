@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a timber wolf corpse")]
+    [CorpseName("zwloki lesnego wilka")]
     public class TimberWolf : BaseCreature
     {
         [Constructable]
         public TimberWolf()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a timber wolf";
+            Name = "lesny wilk";
             Body = 225;
             BaseSoundID = 0xE5;
 

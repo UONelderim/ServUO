@@ -1,11 +1,11 @@
 namespace Server.Mobiles
 {
-    [CorpseName("an ostard corpse")]
+    [CorpseName("zwloki lesnego ostarda")]
     public class ForestOstard : BaseMount
     {
         [Constructable]
         public ForestOstard()
-            : this("a forest ostard")
+            : this("lesny ostard")
         {
         }
 

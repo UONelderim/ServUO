@@ -8,7 +8,7 @@ namespace Server.Spells.Mysticism
     public class SpellPlagueSpell : MysticSpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Spell Plague", "Vas Rel Jux Ort",
+                "Plaga", "Vas Rel Jux Ort",
                 230,
                 9022,
                 Reagent.DaemonBone,

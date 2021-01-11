@@ -1,11 +1,11 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a death adder corpse")]
+    [CorpseName("zwloki mrocznego weza")]
     public class DeathAdder : BaseFamiliar
     {
         public DeathAdder()
         {
-            Name = "a death adder";
+            Name = "mroczny waz";
             Body = 0x15;
             Hue = 0x455;
             BaseSoundID = 219;

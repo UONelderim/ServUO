@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an allosaurus corpse")]
+    [CorpseName("zwloki allozaura")]
     public class Allosaurus : BaseCreature
     {
         public override bool AttacksFocus => true;
@@ -10,7 +10,7 @@ namespace Server.Mobiles
         [Constructable]
         public Allosaurus() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, .2, .4)
         {
-            Name = "an allosaurus";
+            Name = "allozaur";
             Body = 1290;
 
             SetStr(699, 828);

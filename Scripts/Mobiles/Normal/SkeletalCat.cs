@@ -41,12 +41,12 @@ namespace Server.Mobiles
         }
     }
 
-    [CorpseName("a Skeletal Cat corpse")]
+    [CorpseName("resztki koscianego kota")]
     public class SkeletalCat : BaseMount
     {
         [Constructable]
         public SkeletalCat()
-            : this("Skeletal Cat")
+            : this("kosciany kot")
         {
         }
 

@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a sea serpents corpse")]
+    [CorpseName("zwloki weza morskiego")]
     [TypeAlias("Server.Mobiles.Seaserpant")]
     public class SeaSerpent : BaseCreature
     {
@@ -10,7 +10,7 @@ namespace Server.Mobiles
         public SeaSerpent()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a sea serpent";
+            Name = "waz morski";
             Body = 150;
             BaseSoundID = 447;
 

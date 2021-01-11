@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a coil corpse")]
+    [CorpseName("zwloki coil")]
     public class Coil : SilverSerpent
     {
         [Constructable]

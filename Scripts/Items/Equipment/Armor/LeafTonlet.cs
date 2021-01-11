@@ -11,6 +11,7 @@ namespace Server.Items
             : base(0x2FCA)
         {
             Weight = 2.0;
+			Name = "Lesna spodnica";
         }
 
         public LeafTonlet(Serial serial)

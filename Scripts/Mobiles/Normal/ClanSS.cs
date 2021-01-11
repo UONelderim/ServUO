@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a clan scratch scrounger corpse")]
+    [CorpseName("zwloki naciagacza z klanu drapaczy")]
     public class ClanSS : BaseCreature
     {
         [Constructable]
         public ClanSS()
             : base(AIType.AI_Archer, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Clan Scratch Scrounger";
+            Name = "naciagacz z klanu drapaczy";
             Body = 0x8E;
             BaseSoundID = 437;
 

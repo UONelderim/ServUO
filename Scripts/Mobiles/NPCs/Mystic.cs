@@ -7,7 +7,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Mystic()
-            : base("the mystic")
+            : base("- mistyk")
         {
             SetSkill(SkillName.EvalInt, 65.0, 88.0);
             SetSkill(SkillName.Inscribe, 60.0, 83.0);

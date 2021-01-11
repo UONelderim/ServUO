@@ -19,7 +19,7 @@ namespace Server.Mobiles
             : base(target)
         {
             InitStats(150, 150, 150);
-            Title = "the guard";
+            Title = "straznik";
 
             SpeechHue = Utility.RandomDyedHue();
 

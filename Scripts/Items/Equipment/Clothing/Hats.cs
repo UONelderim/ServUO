@@ -20,6 +20,7 @@ namespace Server.Items
         public ZooMemberBonnet(int hue)
             : base(hue)
         {
+            Name = "Kapelusz Członka Zoo";
         }
 
         public ZooMemberBonnet(Serial serial)
@@ -977,6 +978,7 @@ namespace Server.Items
         public OrcishKinMask()
             : this(0x8A4)
         {
+            Name = "Maska Orka";
         }
 
         [Constructable]
@@ -1396,6 +1398,7 @@ namespace Server.Items
         public ChefsToque()
             : this(0)
         {
+            Name = "czapka kucharska";
         }
 
         [Constructable]

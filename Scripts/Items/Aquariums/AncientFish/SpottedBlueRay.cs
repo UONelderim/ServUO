@@ -6,6 +6,7 @@ namespace Server.Items
         public SpottedBlueRay()
             : base(0xA374)
         {
+            Name = "Patelnica niebieskoplama";
         }
 
         public SpottedBlueRay(Serial serial)

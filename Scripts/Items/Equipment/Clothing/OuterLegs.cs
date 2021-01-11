@@ -302,6 +302,7 @@ namespace Server.Items
         public GuildedKilt(int hue)
             : base(0x781B, hue)
         {
+            Name = "kilt zdobiony złotymi nićmi";
         }
 
         public GuildedKilt(Serial serial)
@@ -336,6 +337,7 @@ namespace Server.Items
         public CheckeredKilt(int hue)
             : base(0x781C, hue)
         {
+            Name = "Kilt w krate";
         }
 
         public CheckeredKilt(Serial serial)
@@ -370,6 +372,7 @@ namespace Server.Items
         public FancyKilt(int hue)
             : base(0x781D, hue)
         {
+            Name = "wytworny kilt";
         }
 
         public FancyKilt(Serial serial)

@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an anlorlem corpse")]
+    [CorpseName("zwloki anlorlem")]
     public class Anlorlem : BaseVoidCreature
     {
         public override VoidEvolution Evolution => VoidEvolution.Grouping;

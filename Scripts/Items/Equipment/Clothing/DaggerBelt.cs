@@ -10,6 +10,7 @@ namespace Server.Items
         {
             Weight = 3.0;
             Layer = Layer.Waist;
+            Name = "pas na sztylety";
         }
 
         public DaggerBelt(Serial serial)

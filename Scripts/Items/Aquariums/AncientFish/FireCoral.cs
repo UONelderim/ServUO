@@ -6,6 +6,7 @@ namespace Server.Items
         public FireCoral()
             : base(0xA38B)
         {
+            Name = "koralowiec ognisty";
         }
 
         public FireCoral(Serial serial)

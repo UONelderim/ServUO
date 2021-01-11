@@ -15,7 +15,7 @@ namespace Server.Items
         public StrangeContraptionComponent(int id, int hue = 0)
             : base(id)
         {
-            Name = "a strange contraption";
+            Name = "dziwny wynalazek";
             Hue = hue;
         }
 

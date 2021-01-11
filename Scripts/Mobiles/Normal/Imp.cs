@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an imp corpse")]
+    [CorpseName("zwloki chochlika")]
     public class Imp : BaseCreature
     {
         [Constructable]
         public Imp()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an imp";
+            Name = "chochlik";
             Body = 74;
             BaseSoundID = 422;
 

@@ -6,6 +6,7 @@ namespace Server.Items
         public Mandarinfish()
             : base(0xA369)
         {
+            Name = "Mandaryn wspanialy";
         }
 
         public Mandarinfish(Serial serial)

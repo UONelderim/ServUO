@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a minion of scelestus corpse")]
+    [CorpseName("zwloki slugi scelestusa")]
     public class MinionOfScelestus : BaseCreature
     {
         private static readonly int MaxWanderDistance = 45;
@@ -12,7 +12,7 @@ namespace Server.Mobiles
         public MinionOfScelestus()
             : base(AIType.AI_Mage, FightMode.Weakest, 10, 1, 0.2, 0.4)
         {
-            Name = "a minion of scelestus";
+            Name = "sluga scelestusa";
             Body = 9;
             BaseSoundID = 357;
             Hue = 1159;

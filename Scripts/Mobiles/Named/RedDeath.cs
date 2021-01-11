@@ -2,12 +2,12 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a Red Death corpse")]
+    [CorpseName("resztki czerwonej smierci")]
     public class RedDeath : SkeletalMount
     {
         [Constructable]
         public RedDeath()
-            : base("Red Death")
+            : base("czerwona smierc")
         {
             Hue = 0x21;
             BaseSoundID = 0x1C3;

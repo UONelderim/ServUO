@@ -5,7 +5,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("A Drelgor The Impaler Corpse")]
+    [CorpseName("zwlokis dreglora")]
     public class Drelgor : BaseCreature
     {
         private bool init = false; //Don't change this.
@@ -16,7 +16,7 @@ namespace Server.Mobiles
         public Drelgor()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Drelgor the Impaler";
+            Name = "Drelgor";
             Body = 147;
             BaseSoundID = 451;
 

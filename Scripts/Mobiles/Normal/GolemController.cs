@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a golem controller corpse")]
+    [CorpseName("zwloki kontrolera golemow")]
     public class GolemController : BaseCreature
     {
         [Constructable]
@@ -10,7 +10,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Name = NameList.RandomName("golem controller");
-            Title = "the controller";
+            Title = "- kontroler golemow";
 
             Body = 400;
             Hue = 0x455;

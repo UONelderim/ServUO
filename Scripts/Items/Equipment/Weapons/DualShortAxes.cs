@@ -7,6 +7,7 @@ namespace Server.Items
         public DualShortAxes()
             : base(0x8FD)
         {
+			Name = "Podwojne topory";
         }
 
         public DualShortAxes(Serial serial)

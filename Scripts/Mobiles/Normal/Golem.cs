@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a golem corpse")]
+    [CorpseName("resztki golema")]
     public class Golem : BaseCreature, IRepairableMobile
     {
         [CommandProperty(AccessLevel.GameMaster)]
@@ -39,7 +39,7 @@ namespace Server.Mobiles
         public Golem(bool summoned, double scalar)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.4, 0.8)
         {
-            Name = "a golem";
+            Name = "golem";
             Body = 752;
 
             SetStr((int)(251 * scalar), (int)(350 * scalar));

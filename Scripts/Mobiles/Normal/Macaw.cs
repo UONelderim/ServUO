@@ -18,7 +18,7 @@ namespace Server.Items
         {
             MacawSpawner = spawner;
 
-            Name = "vicious macaw";
+            Name = "okrutna papuga";
             Body = 5;
             Hue = Utility.RandomBirdHue();
 

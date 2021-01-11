@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("an ice fiend corpse")]
+    [CorpseName("zwloki lodowego demona")]
     public class IceFiend : BaseCreature, IAuraCreature
     {
         [Constructable]
         public IceFiend()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an ice fiend";
+            Name = "lodowy demon";
             Body = 43;
             BaseSoundID = 357;
 

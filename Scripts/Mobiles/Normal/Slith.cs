@@ -2,13 +2,13 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a slith corpse")]
+    [CorpseName("zwloki jaszczura")]
     public class Slith : BaseCreature
     {
         [Constructable]
         public Slith() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a slith";
+            Name = "jaszczur";
             Body = 734;
 
             SetStr(129, 136);

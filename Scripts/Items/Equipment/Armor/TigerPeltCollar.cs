@@ -25,6 +25,7 @@ namespace Server.Items
             : base(0x7829)
         {
             Weight = 1.0;
+			Name = "Karczek ze skory tygrysa";
         }
 
         public TigerPeltCollar(Serial serial)

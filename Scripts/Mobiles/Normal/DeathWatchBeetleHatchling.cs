@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a deathwatchbeetle hatchling corpse")]
+    [CorpseName("zwloki mlodej szczypawki")]
     public class DeathwatchBeetleHatchling : BaseCreature
     {
         [Constructable]
         public DeathwatchBeetleHatchling()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a deathwatch beetle hatchling";
+            Name = "mloda szczypawka";
             Body = 242;
 
             SetStr(26, 50);

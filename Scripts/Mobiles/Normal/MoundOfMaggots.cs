@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a maggoty corpse")] // TODO: Corpse name?
+    [CorpseName("resztki mogilnej larwy")] // TODO: Corpse name?
     public class MoundOfMaggots : BaseCreature
     {
         [Constructable]
         public MoundOfMaggots()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a mound of maggots";
+            Name = "mogilna larwa";
             Body = 319;
             BaseSoundID = 898;
 

@@ -16,7 +16,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public Banker()
-            : base("the banker")
+            : base("bankier")
         { }
 
         public Banker(Serial serial)

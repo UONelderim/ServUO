@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an inhuman corpse")]
+    [CorpseName("zwloki przekletego")]
     public class Cursed : BaseCreature
     {
         [Constructable]
         public Cursed()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Title = "the Cursed";
+            Title = "- przeklety";
 
             Hue = Utility.RandomMinMax(0x8596, 0x8599);
             Body = 0x190;

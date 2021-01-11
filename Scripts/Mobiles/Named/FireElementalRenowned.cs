@@ -3,15 +3,15 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("Fire Elemental [Renowned] corpse")]
+    [CorpseName("resztki slawnego zywiołaka ognia")]
     public class FireElementalRenowned : BaseRenowned
     {
         [Constructable]
         public FireElementalRenowned()
             : base(AIType.AI_Mage)
         {
-            Name = "Fire Elemental";
-            Title = "[Renowned]";
+            Name = "zywiołak ognia";
+            Title = "[slawny]";
             Body = 15;
             BaseSoundID = 838;
 

@@ -6,6 +6,7 @@ namespace Server.Items
         public FlamingoTongue()
             : base(0xA382)
         {
+            Name = "jezyk flaminga";
         }
 
         public FlamingoTongue(Serial serial)

@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a daemon corpse")]
+    [CorpseName("zwloki demona")]
     public class SummonedDaemon : BaseCreature
     {
         [Constructable]

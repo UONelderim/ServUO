@@ -2,15 +2,15 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a black order master corpse")]
+    [CorpseName("zwłoki mistrza vox populi")]
     public class TigersClawMaster : TigersClawThief
     {
         [Constructable]
         public TigersClawMaster()
             : base()
         {
-            Name = "Black Order Master";
-            Title = "of the Serpent's Fang Sect";
+            Name = "Mistrz";
+			Title = "- Przynależy do Vox Populi";
             SetStr(440, 460);
             SetDex(400, 415);
             SetInt(200, 215);

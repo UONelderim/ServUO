@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a fleshrenderer corpse")]
+    [CorpseName("zwloki Siltrin Caluss")]
     public class FleshRenderer : BaseCreature
     {
         public override bool SupportsRunAnimation => false;
@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public FleshRenderer()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a fleshrenderer";
+            Name = "Siltrin Caluss";
             Body = 315;
 
             SetStr(401, 460);

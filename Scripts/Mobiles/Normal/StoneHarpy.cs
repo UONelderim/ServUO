@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a stone harpy corpse")]
+    [CorpseName("zwloki kamiennej harpii")]
     public class StoneHarpy : BaseCreature
     {
         [Constructable]
         public StoneHarpy()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a stone harpy";
+            Name = "Kamienna harpia";
             Body = 73;
             BaseSoundID = 402;
 

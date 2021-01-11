@@ -2,14 +2,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a reapers corpse")]
+    [CorpseName("zwloki zniwiarza")]
     public class Reaper : BaseCreature
     {
         [Constructable]
         public Reaper()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a reaper";
+            Name = "zniwiarz";
             Body = 47;
             BaseSoundID = 442;
 

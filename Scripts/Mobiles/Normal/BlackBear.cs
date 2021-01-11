@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a bear corpse")]
+    [CorpseName("zwloki czarnego niedzwiedzia")]
     public class BlackBear : BaseCreature
     {
         [Constructable]
         public BlackBear()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "a black bear";
+            Name = "czarny niedzwiedz";
             Body = 211;
             BaseSoundID = 0xA3;
 

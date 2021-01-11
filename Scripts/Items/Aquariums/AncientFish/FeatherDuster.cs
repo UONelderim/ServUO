@@ -6,6 +6,7 @@ namespace Server.Items
         public FeatherDuster()
             : base(0xA381)
         {
+            Name = "robaki z miotełki";
         }
 
         public FeatherDuster(Serial serial)

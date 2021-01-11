@@ -6,6 +6,7 @@ namespace Server.Items
         public Beaugregory()
             : base(0xA378)
         {
+            Name = "beaugregory";
         }
 
         public Beaugregory(Serial serial)

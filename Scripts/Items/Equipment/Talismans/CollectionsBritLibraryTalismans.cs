@@ -14,6 +14,7 @@ namespace Server.Items
             : base(0x2F58)
         {
             Skill = TalismanSkill.Alchemy;
+            Name = "Alechemiczny Wyrob";
             SuccessBonus = GetRandomSuccessful();
             Blessed = GetRandomBlessed();
             Attributes.EnhancePotions = 15;
@@ -50,6 +51,7 @@ namespace Server.Items
         {
             Blessed = GetRandomBlessed();
             Attributes.BonusStr = 1;
+            Name = "Taliznam Wojownika";
             Attributes.RegenHits = 2;
             Attributes.WeaponDamage = 20;
             Removal = TalismanRemoval.Damage;
@@ -90,6 +92,7 @@ namespace Server.Items
             ExceptionalBonus = GetRandomExceptional();
             Attributes.BonusInt = 5;
             Attributes.BonusMana = 2;
+            Name = "Wiedza Maga";
         }
 
         public MyBookTalisman(Serial serial)
@@ -125,6 +128,7 @@ namespace Server.Items
             SkillBonuses.SetValues(1, SkillName.EvalInt, 5.0);
             Removal = TalismanRemoval.Ward;
             MaxChargeTime = 1200;
+            Name = "Mowiacy Jezykiem Smug";
         }
 
         public TalkingtoWispsTalisman(Serial serial)
@@ -161,6 +165,7 @@ namespace Server.Items
             SkillBonuses.SetValues(0, SkillName.MagicResist, 5.0);
             SkillBonuses.SetValues(1, SkillName.Anatomy, 7.0);
             MaxChargeTime = 1800;
+            Name = "Ozdoba Przywolywacza";
         }
 
         public GrammarOfOrchishTalisman(Serial serial)
@@ -197,6 +202,7 @@ namespace Server.Items
             SkillBonuses.SetValues(0, SkillName.AnimalTaming, 5.0);
             SkillBonuses.SetValues(1, SkillName.AnimalLore, 5.0);
             MaxChargeTime = 1800;
+            Name = "ptaki Tasandory";
         }
 
         public BirdsofBritanniaTalisman(Serial serial)
@@ -233,6 +239,7 @@ namespace Server.Items
             SkillBonuses.SetValues(1, SkillName.Musicianship, 5.0);
             Removal = TalismanRemoval.Curse;
             MaxChargeTime = 1200;
+            Name = "Przybornik Podroznego Barda";
         }
 
         public TheLifeOfTravelingMinstrelTalisman(Serial serial)

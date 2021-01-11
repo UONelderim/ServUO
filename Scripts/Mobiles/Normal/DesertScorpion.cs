@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a desert scorpion corpse")]
+    [CorpseName("resztki pustynnego skorpiona")]
     public class DesertScorpion : BaseCreature
     {
         [Constructable]
         public DesertScorpion()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, .2, .4)
         {
-            Name = "a desert scorpion";
+            Name = "pustynny skorpion";
             Body = 0x2CD;
             BaseSoundID = 397;
 

@@ -6,6 +6,7 @@ namespace Server.Items
         public SpottedBuccaneer()
             : base(0x3B09)
         {
+            Name = "kropkowana ryba z Ferion";
         }
 
         public SpottedBuccaneer(Serial serial)

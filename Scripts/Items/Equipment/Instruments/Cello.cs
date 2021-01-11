@@ -35,6 +35,7 @@ namespace Server.Items
         [Constructable]
         public CelloDeed()
         {
+            Name = "wiolaczela";
         }
 
         public CelloDeed(Serial serial)

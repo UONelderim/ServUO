@@ -29,6 +29,7 @@ namespace Server.Items
             Weight = 10.0;
             Filter = new JewelryBoxFilter();
             Level = SecureLevel.CoOwners;
+            Name = "pojemnik na bizuterie";
         }
 
         public bool Dye(Mobile from, DyeTub sender)

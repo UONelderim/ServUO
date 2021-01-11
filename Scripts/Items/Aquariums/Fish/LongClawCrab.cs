@@ -7,6 +7,7 @@ namespace Server.Items
             : base(0x3AFC)
         {
             Hue = 0x527;
+            Name = "krab o dlugich szczypcach";
         }
 
         public LongClawCrab(Serial serial)

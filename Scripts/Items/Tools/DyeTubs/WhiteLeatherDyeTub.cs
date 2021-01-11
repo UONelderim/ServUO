@@ -9,6 +9,7 @@ namespace Server.Items
         {
             Hue = DyedHue = 2498;
             Redyable = false;
+            Name = "biala farba do farbowania skor";
         }
 
         public WhiteLeatherDyeTub(Serial serial)

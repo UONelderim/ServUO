@@ -8,6 +8,7 @@ namespace Server.Items
         public SerratedWarCleaver()
         {
             Attributes.WeaponDamage = 7;
+			Name = "Zakrzywiony miecz";
         }
 
         public SerratedWarCleaver(Serial serial)

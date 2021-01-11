@@ -12,7 +12,7 @@ namespace Server.Spells.Mysticism
         public override SpellCircle Circle => SpellCircle.Fifth;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Spell Trigger", "In Vas Ort Ex ",
+                "Zaklęty Kamień", "In Vas Ort Ex ",
                 230,
                 9022,
                 Reagent.Garlic,

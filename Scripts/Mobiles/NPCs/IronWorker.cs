@@ -11,7 +11,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public IronWorker()
-            : base("the iron worker")
+            : base("- kowal")
         {
             SetSkill(SkillName.Begging, 64.0, 100.0);
             SetSkill(SkillName.ArmsLore, 36.0, 68.0);
