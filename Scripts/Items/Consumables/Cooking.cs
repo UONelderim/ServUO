@@ -522,7 +522,11 @@ namespace Server.Items
                     reader.ReadInt();
                     Stackable = true;
                     break;
-            }
+				case 2:
+				case 1:
+					reader.ReadInt();
+					break;
+			}
         }
     }
 

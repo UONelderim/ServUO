@@ -27,7 +27,7 @@ namespace Server.Mobiles
 		ThighBoots
 	}
 
-	public abstract class BaseVendor : BaseCreature, IVendor
+	public abstract partial class BaseVendor : BaseCreature, IVendor
 	{
 		[ConfigProperty("Vendors.UseVendorEconomy")]
 		public static bool UseVendorEconomy { get => Config.Get("Vendors.UseVendorEconomy", !Siege.SiegeShard); set => Config.Set("Housing.UseVendorEconomy", value); }

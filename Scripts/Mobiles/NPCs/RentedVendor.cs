@@ -53,7 +53,8 @@ namespace Server.Mobiles
         private bool m_RenterRenew;
         private int m_RenewalPrice;
         private int m_RentalGold;
-        private DateTime m_RentalExpireTime;
+
+        protected DateTime m_RentalExpireTime;
 
         public RentedVendor(Mobile owner, BaseHouse house, VendorRentalDuration duration, int rentalPrice, bool landlordRenew, int rentalGold)
             : base(owner, house)

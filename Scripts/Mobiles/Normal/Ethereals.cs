@@ -385,18 +385,51 @@ namespace Server.Mobiles
             base.Deserialize(reader);
             int version = reader.ReadInt();
 
-            m_Transparent = reader.ReadBool();
-            m_TransparentMountedID = reader.ReadInt();
-            m_NonTransparentMountedID = reader.ReadInt();
-            m_TransparentMountedHue = reader.ReadInt();
-            m_NonTransparentMountedHue = reader.ReadInt();
-            m_StatueID = reader.ReadInt();
-            m_StatueHue = reader.ReadInt();
+			switch ( version )
+			{
+				case 7:
+				case 6:
+				case 5:
+					m_Transparent = reader.ReadBool();
+					m_TransparentMountedID = reader.ReadInt();
+					m_NonTransparentMountedID = reader.ReadInt();
+					m_TransparentMountedHue = reader.ReadInt();
+					m_NonTransparentMountedHue = reader.ReadInt();
+					m_StatueID = reader.ReadInt();
+					m_StatueHue = reader.ReadInt();
 
-            m_IsRewardItem = reader.ReadBool();
-            m_Rider = reader.ReadMobile();
+					m_IsRewardItem = reader.ReadBool();
+					m_Rider = reader.ReadMobile();
+					break;
+				case 4:
+					m_NonTransparentMountedID = reader.ReadInt(); // m_DefaultMountedID = reader.ReadInt();
+					m_NonTransparentMountedHue = reader.ReadInt(); // m_OriginalHue = reader.ReadInt();
+					m_TransparentMountedHue = reader.ReadInt(); // m_EtherealHue = reader.ReadInt();
+					goto case 3;
+				case 3:
+					reader.ReadBool();
+					goto case 2;
+				case 2:
+					m_IsRewardItem = reader.ReadBool();
+					goto case 0;
+				case 1:
+					reader.ReadInt();
+					goto case 0;
+				case 0:
+					{
+						m_TransparentMountedID = reader.ReadInt(); // m_MountedID = reader.ReadInt();
+						m_StatueID = reader.ReadInt(); // m_RegularID = reader.ReadInt();
+						m_Rider = reader.ReadMobile();
 
-            AddFollowers();
+						if ( m_TransparentMountedID == 0x3EA2 )
+						{
+							m_TransparentMountedID = 0x3EAA;
+						}
+					}
+					break;
+			}
+
+			AddFollowers();
         }
 
         public override DeathMoveResult OnParentDeath(Mobile parent)

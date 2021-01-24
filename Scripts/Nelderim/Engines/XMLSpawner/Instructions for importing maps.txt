@@ -1,0 +1,24 @@
+If you would like to import maps that have been saved in either the .map or .msf file formats, here are some step-by-step instructions
+
+1) unzip the package like Neruns
+2) find the directory containing the .map files (e.g. Data/Monsters)
+3) while ingame, type the command "[xmlimportmap Data/Monsters"
+
+that will instantly read all of the spawner definitions in all .map files under the Data/Monsters directory and load them as xmlspawners.
+
+For cwards .msf maps, do exactly the same thing except use the [xmlimportmsf command instead of [xmlimportmap
+
+
+note that you can also use SpawnEditor2 to import maps.
+
+1) open the Files menu, and select "Import .map file"
+2) select a .map file from the file browser
+3) repeat for other .map files that you want to import
+
+(same procedure for .msf, just use the "Import .msf file" option)
+
+4) Once you have loaded in your converted .map or .msf files, you can save them out to XML by hitting the 'Save' button in the spawner selection panel in the main editor window.
+5) You can then load this XML file while ingame by using the "[xmlload filename" command.
+
+You can also send the converted spawners directly to a live server if you have the TransferServer installed by just hitting the 'Send to Server' button while in SpawnEditor2
+Also note, if you sent them and then decided that you wanted to 'unsend' them, you can just right click that button and select 'Unload spawners from server' instead.

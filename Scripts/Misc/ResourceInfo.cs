@@ -35,6 +35,18 @@ namespace Server.Items
         Heartwood,
         Bloodwood,
         Frostwood,
+
+        BowstringLeather = 401,
+        BowstringCannabis,
+        BowstringSilk,
+        BowstringGut,
+        BowstringFiresteed,
+        BowstringUnicorn,
+        BowstringNightmare,
+        BowstringKirin,
+        BowstringSpined,
+        BowstringHorned,
+        BowstringBarbed
     }
 
     public enum CraftResourceType

@@ -1137,8 +1137,11 @@ namespace Server.Items
             if (m_TalismanProtection == null)
                 m_TalismanProtection = new TalismanAttribute();
 
-            #region Mondain's Legacy Sets
-            if (m_SetAttributes == null)
+			if ( m_SAAbsorptionAttributes == null)
+				m_SAAbsorptionAttributes = new SAAbsorptionAttributes(this);
+
+			#region Mondain's Legacy Sets
+			if (m_SetAttributes == null)
                 m_SetAttributes = new AosAttributes(this);
 
             if (m_SetSkillBonuses == null)

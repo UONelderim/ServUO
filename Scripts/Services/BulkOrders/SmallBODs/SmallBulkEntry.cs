@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Server.Engines.BulkOrders
 {
-    public class SmallBulkEntry
+    public partial class SmallBulkEntry
     {
         private static Hashtable m_Cache;
         private readonly Type m_Type;

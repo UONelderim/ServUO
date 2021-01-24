@@ -173,7 +173,7 @@ namespace Server.Items
         }
     }
 
-    public class BandageContext
+    public partial class BandageContext
     {
         private readonly Mobile m_Healer;
         private readonly Mobile m_Patient;
@@ -358,51 +358,8 @@ namespace Server.Items
 
                         if (petPatient != null && petPatient.IsDeadPet)
                         {
-                            Mobile master = petPatient.ControlMaster;
-
-                            if (master != null && m_Healer == master)
-                            {
-                                petPatient.ResurrectPet();
-
-                                for (int i = 0; i < petPatient.Skills.Length; ++i)
-                                {
-                                    petPatient.Skills[i].Base -= 0.1;
-                                }
-                            }
-                            else if (master != null && master.InRange(petPatient, 3))
-                            {
-                                healerNumber = 1049658; // The owner has been asked to sanctify the resurrection.
-
-                                master.CloseGump(typeof(PetResurrectGump));
-                                master.SendGump(new PetResurrectGump(m_Healer, petPatient));
-                            }
-                            else
-                            {
-                                bool found = false;
-
-                                List<Mobile> friends = petPatient.Friends;
-
-                                for (int i = 0; friends != null && i < friends.Count; ++i)
-                                {
-                                    Mobile friend = friends[i];
-
-                                    if (friend.InRange(petPatient, 3))
-                                    {
-                                        healerNumber = 1049658; // The owner has been asked to sanctify the resurrection.
-
-                                        friend.CloseGump(typeof(PetResurrectGump));
-                                        friend.SendGump(new PetResurrectGump(m_Healer, petPatient));
-
-                                        found = true;
-                                        break;
-                                    }
-                                }
-
-                                if (!found)
-                                {
-                                    healerNumber = 1049659; // Neither the owner or friends of the pet are nearby to sanctify the resurrection.
-                                }
-                            }
+                            if ( AllowPetRessurection( m_Healer, petPatient ) )
+                                healerNumber = 1049670; // Wlasciciel stworzenia misi byc w poblizu aby wskrzesic te stworzenie.
                         }
                         else
                         {

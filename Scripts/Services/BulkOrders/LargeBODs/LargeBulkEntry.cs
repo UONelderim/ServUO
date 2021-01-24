@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Server.Engines.BulkOrders
 {
-    public class LargeBulkEntry
+    public partial class LargeBulkEntry
     {
         private static Hashtable m_Cache;
         private readonly SmallBulkEntry m_Details;

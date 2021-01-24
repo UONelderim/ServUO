@@ -11,7 +11,7 @@ namespace Server
 	}
 
 	[Parsable]
-	public abstract class Race
+	public abstract partial class Race
 	{
 		public static Race[] Races { get; } = new Race[0x100];
 

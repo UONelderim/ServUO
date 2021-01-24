@@ -7,8 +7,8 @@ namespace Server.Mobiles
         {
             Title = "the healer";
 
-            SetSkill(SkillName.Forensics, 80.0, 100.0);
-            SetSkill(SkillName.SpiritSpeak, 80.0, 100.0);
+            //SetSkill(SkillName.Forensics, 80.0, 100.0); //!NELDERIM!
+            SetSkill( SkillName.SpiritSpeak, 80.0, 100.0);
             SetSkill(SkillName.Swords, 80.0, 100.0);
         }
 
@@ -25,8 +25,8 @@ namespace Server.Mobiles
             if (!base.CheckTeach(skill, from))
                 return false;
 
-            return (skill == SkillName.Forensics) ||
-                   (skill == SkillName.Healing) ||
+            //return (skill == SkillName.Forensics) || //!NELDERIM!
+            return (skill == SkillName.Healing) ||
                    (skill == SkillName.SpiritSpeak) ||
                    (skill == SkillName.Swords);
         }

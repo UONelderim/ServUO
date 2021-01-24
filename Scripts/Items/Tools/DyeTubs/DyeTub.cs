@@ -94,10 +94,22 @@ namespace Server.Items
             base.Deserialize(reader);
             int version = reader.ReadInt();
 			
-			m_SecureLevel = (SecureLevel)reader.ReadInt();
-			m_Redyable = reader.ReadBool();
-            m_DyedHue = reader.ReadInt();
-        }
+			switch ( version )
+			{
+				case 1:
+					{
+						m_SecureLevel = (SecureLevel)reader.ReadInt();
+						goto case 0;
+					}
+				case 0:
+					{
+						m_Redyable = reader.ReadBool();
+						m_DyedHue = reader.ReadInt();
+
+						break;
+					}
+			}
+		}
 
         public override void GetContextMenuEntries(Mobile from, List<ContextMenuEntry> list)
         {

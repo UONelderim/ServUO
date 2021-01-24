@@ -6,22 +6,22 @@ using System.Linq;
 
 namespace Server.Items
 {
-    public class FireHorn : Item
+    public partial class FireHorn : Item
     {
-        [Constructable]
+		[Constructable]
         public FireHorn()
             : base(0xFC7)
         {
             Hue = 0x466;
             Weight = 1.0;
-        }
+		}
 
         public FireHorn(Serial serial)
             : base(serial)
         {
         }
 
-        public override int LabelNumber => 1060456;// fire horn
+		public override int LabelNumber => 1060456;// fire horn
         public override void OnDoubleClick(Mobile from)
         {
             if (CheckUse(from))
@@ -102,7 +102,7 @@ namespace Server.Items
 
             ColUtility.Free(targets);
 
-            if (Utility.RandomDouble() < 0.01)
+            if ( --UsesRemaining <= 0 )
             {
                 from.SendLocalizedMessage(1049619); // The fire horn crumbles in your hands.
                 Delete();
@@ -114,14 +114,14 @@ namespace Server.Items
             base.Serialize(writer);
 
             writer.WriteEncodedInt(0); // version
-        }
+		}
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
 
             int version = reader.ReadEncodedInt();
-        }
+		}
 
         private static void EndAction(object state)
         {

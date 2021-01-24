@@ -295,7 +295,7 @@ namespace Server.Engines.BulkOrders
             return m_Type != null && (itemType == m_Type || itemType.IsSubclassOf(m_Type));
         }
 
-        public void EndCombine(Mobile from, object o)
+        public virtual void EndCombine(Mobile from, object o)
         {
             if (o is Item && ((Item)o).IsChildOf(from.Backpack))
             {

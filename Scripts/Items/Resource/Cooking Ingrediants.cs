@@ -174,7 +174,7 @@ namespace Server.Items
         }
     }
 
-    public class Salt : Item
+    public class Salt : BaseReagent
     {
         public override int LabelNumber => 1159201; // salt
 

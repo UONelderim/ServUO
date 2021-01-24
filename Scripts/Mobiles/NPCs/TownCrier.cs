@@ -444,7 +444,7 @@ namespace Server.Mobiles
         }
     }
 
-    public class TownCrier : Mobile, ITownCrierEntryList
+    public partial class TownCrier : Mobile, ITownCrierEntryList
     {
         private static readonly List<TownCrier> m_Instances = new List<TownCrier>();
 

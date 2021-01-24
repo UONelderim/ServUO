@@ -45,7 +45,7 @@ namespace Server
 		EvalInt = 16,
 		Healing = 17,
 		Fishing = 18,
-		Forensics = 19,
+		Herbalism = 19,
 		Herding = 20,
 		Hiding = 21,
 		Provocation = 22,
@@ -820,7 +820,7 @@ namespace Server
 		public Skill Fishing { get => this[SkillName.Fishing]; set { } }
 
 		[CommandProperty(AccessLevel.Counselor)]
-		public Skill Forensics { get => this[SkillName.Forensics]; set { } }
+		public Skill Herbalism { get => this[SkillName.Herbalism]; set { } }
 
 		[CommandProperty(AccessLevel.Counselor)]
 		public Skill Herding { get => this[SkillName.Herding]; set { } }

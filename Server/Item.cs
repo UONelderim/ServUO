@@ -774,7 +774,7 @@ namespace Server
 		VisList = 0x200,
 	}
 
-	public class Item : IEntity, IHued, IComparable<Item>, ISerializable, ISpawnable
+	public partial class Item : IEntity, IHued, IComparable<Item>, ISerializable, ISpawnable
 	{
 		public static readonly List<Item> EmptyItems = new List<Item>();
 

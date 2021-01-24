@@ -56,6 +56,28 @@ namespace Server.Items
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-        }
+
+			switch ( version )
+			{
+				case 3:
+					break;
+				case 2:
+					{
+						if ( version == 2 )
+							ShowUsesRemaining = reader.ReadBool();
+						goto case 1;
+					}
+				case 1:
+					{
+						if ( version == 2 )
+							UsesRemaining = reader.ReadInt();
+						goto case 0;
+					}
+				case 0:
+					{
+						break;
+					}
+			}
+		}
     }
 }

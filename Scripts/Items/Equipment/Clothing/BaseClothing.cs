@@ -1628,7 +1628,10 @@ namespace Server.Items
             if (m_MaxHitPoints == 0 && m_HitPoints == 0)
                 m_HitPoints = m_MaxHitPoints = Utility.RandomMinMax(InitMinHits, InitMaxHits);
 
-            Mobile parent = Parent as Mobile;
+			if ( m_SAAbsorptionAttributes == null )
+				m_SAAbsorptionAttributes = new SAAbsorptionAttributes(this);
+
+			Mobile parent = Parent as Mobile;
 
             if (parent != null)
             {

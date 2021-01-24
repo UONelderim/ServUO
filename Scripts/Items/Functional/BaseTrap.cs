@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    public abstract class BaseTrap : Item
+    public abstract partial class BaseTrap : Item
     {
         private DateTime m_NextPassiveTrigger, m_NextActiveTrigger;
         public BaseTrap(int itemID)
@@ -16,7 +16,7 @@ namespace Server.Items
         {
         }
 
-        public virtual bool PassivelyTriggered => false;
+		public virtual bool PassivelyTriggered => false;
         public virtual TimeSpan PassiveTriggerDelay => TimeSpan.Zero;
         public virtual int PassiveTriggerRange => -1;
         public virtual TimeSpan ResetDelay => TimeSpan.Zero;
@@ -71,14 +71,14 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write(0); // version
-        }
+			writer.Write(0); // version
+		}
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-        }
+		}
     }
 }

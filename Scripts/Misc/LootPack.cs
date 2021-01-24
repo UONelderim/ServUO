@@ -6,7 +6,7 @@ using System;
 
 namespace Server
 {
-    public class LootPack
+    public partial class LootPack
     {
         public static int GetLuckChance(Mobile killer, Mobile victim)
         {

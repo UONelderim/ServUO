@@ -89,7 +89,14 @@ namespace Server.Multis
                         BoatItem = reader.ReadItem() as BaseBoat;
                         break;
                     }
-            }
+				case 1:
+					{
+						MultiID = reader.ReadInt();
+						Offset = reader.ReadPoint3D();
+						reader.ReadString();
+						break;
+					}
+			}
         }
 
         public override void OnDoubleClick(Mobile from)

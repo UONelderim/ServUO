@@ -10,7 +10,7 @@ using System;
 
 namespace Server.Misc
 {
-    public class SkillCheck
+    public partial class SkillCheck
     {
         private static readonly TimeSpan _StatGainDelay;
         private static readonly TimeSpan _PetStatGainDelay;

@@ -2212,7 +2212,7 @@ namespace Server
             {
                 case SkillName.EvalInt:
                     return 1002070; // Evaluate Intelligence
-                case SkillName.Forensics:
+                case SkillName.Herbalism:
                     return 1002078; // Forensic Evaluation
                 case SkillName.Lockpicking:
                     return 1002097; // Lockpicking
