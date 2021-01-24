@@ -70,8 +70,13 @@ namespace Server.Items
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-			
-			Level = (SecureLevel)reader.ReadInt();            
+
+			switch ( version )
+			{
+				case 1:
+					Level = (SecureLevel)reader.ReadInt();
+					break;
+			}        
         }
     }
 }

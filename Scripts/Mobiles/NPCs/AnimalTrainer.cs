@@ -505,7 +505,7 @@ namespace Server.Mobiles
             reader.ReadInt();
         }
 
-        private class StableEntry : ContextMenuEntry
+        protected class StableEntry : ContextMenuEntry
         {
             private readonly Mobile m_From;
             private readonly AnimalTrainer m_Trainer;
@@ -586,7 +586,7 @@ namespace Server.Mobiles
             }
         }
 
-        private class ClaimAllEntry : ContextMenuEntry
+        protected class ClaimAllEntry : ContextMenuEntry
         {
             private readonly Mobile m_From;
             private readonly AnimalTrainer m_Trainer;

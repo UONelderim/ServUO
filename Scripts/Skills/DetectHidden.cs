@@ -26,7 +26,7 @@ namespace Server.SkillHandlers
     {
         public static void Initialize()
         {
-            SkillInfo.Table[(int)SkillName.DetectHidden].Callback = OnUse;
+            //SkillInfo.Table[(int)SkillName.DetectHidden].Callback = OnUse; // !NELDERIM!
         }
 
         public static TimeSpan OnUse(Mobile src)

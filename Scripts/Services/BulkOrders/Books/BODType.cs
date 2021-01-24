@@ -9,6 +9,7 @@ namespace Server.Engines.BulkOrders
         Tinkering,
         Fletching,
         Carpentry,
-        Cooking
-    }
+        Cooking,
+		Hunter //!NELDERIM!
+	}
 }

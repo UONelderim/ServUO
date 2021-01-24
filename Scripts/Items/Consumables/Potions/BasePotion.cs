@@ -43,7 +43,18 @@ namespace Server.Items
         Urali,
         Sakkhra,
         Shatter,
-        FearEssence
+        FearEssence,
+
+        // !NELDERIM!
+        WaterElemental,
+        FireElemental,
+        EarthElemental,
+        Revitalize,
+        SuperPotion,
+        PetResurrect,
+
+        NAgilityGreater,
+        NStrengthGreater,
     }
 
     public abstract class BasePotion : Item, ICraftable, ICommodity

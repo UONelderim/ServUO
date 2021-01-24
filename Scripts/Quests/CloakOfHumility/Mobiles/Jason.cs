@@ -11,8 +11,8 @@ namespace Server.Mobiles
 
         public override bool CheckTeach(SkillName skill, Mobile from)
         {
-            return (skill == SkillName.Forensics)
-                || (skill == SkillName.Healing)
+            //return (skill == SkillName.Forensics) //!NELDERIM!
+            return (skill == SkillName.Healing)
                 || (skill == SkillName.SpiritSpeak)
                 || (skill == SkillName.Swords);
         }
@@ -26,8 +26,8 @@ namespace Server.Mobiles
         public Jason()
             : base("Jason", "the Healer")
         {
-            SetSkill(SkillName.Forensics, 80.0, 100.0);
-            SetSkill(SkillName.SpiritSpeak, 80.0, 100.0);
+            //SetSkill(SkillName.Forensics, 80.0, 100.0); //!NELDERIM!
+            SetSkill( SkillName.SpiritSpeak, 80.0, 100.0);
             SetSkill(SkillName.Swords, 80.0, 100.0);
         }
 

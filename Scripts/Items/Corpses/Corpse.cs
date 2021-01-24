@@ -75,7 +75,7 @@ namespace Server.Items
         Murderer = 0x00000200
     }
 
-    public class Corpse : Container, ICarvable
+    public partial class Corpse : Container, ICarvable
     {
         private Mobile m_Owner; // Whos corpse is this?
         private Mobile m_Killer; // Who killed the owner?
@@ -644,7 +644,7 @@ namespace Server.Items
 
             writer.Write(12); // version
 
-            if (RestoreEquip == null)
+			if (RestoreEquip == null)
             {
                 writer.Write(false);
             }
@@ -714,7 +714,7 @@ namespace Server.Items
 
             switch (version)
             {
-                case 12:
+				case 12:
                     {
                         if (reader.ReadBool())
                         {
@@ -1207,7 +1207,7 @@ namespace Server.Items
 
             Mobile dead = m_Owner;
 
-            if (GetFlag(CorpseFlag.Carved) || dead == null)
+            if ((GetFlag(CorpseFlag.Carved) && (from.Skills[SkillName.Camping].Value <= CampingCarved)) || dead == null)
             {
                 PrivateOverheadMessage(MessageType.Regular, 0x3B2, 500485, from.NetState); // You see nothing useful to carve from the corpse.
             }

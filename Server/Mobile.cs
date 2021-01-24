@@ -527,7 +527,7 @@ namespace Server
 	///     Base class representing players, npcs, and creatures.
 	/// </summary>
 	[System.Runtime.InteropServices.ComVisible(true)]
-	public class Mobile : IEntity, IHued, IComparable<Mobile>, ISerializable, ISpawnable, IDamageable
+	public partial class Mobile : IEntity, IHued, IComparable<Mobile>, ISerializable, ISpawnable, IDamageable
 	{
 		#region CompareTo(...)
 		public int CompareTo(IEntity other)
@@ -6694,7 +6694,7 @@ namespace Server
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
 		public AccessLevel AccessLevel
 		{
-			get => m_AccessLevel;
+			get => HiddenGM ? AccessLevel.Player : m_AccessLevel; // !NELDERIM!
 			set
 			{
 				var oldValue = m_AccessLevel;

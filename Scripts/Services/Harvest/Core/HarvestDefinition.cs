@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Server.Engines.Harvest
 {
-    public class HarvestDefinition
+    public partial class HarvestDefinition
     {
         public HarvestDefinition()
         {

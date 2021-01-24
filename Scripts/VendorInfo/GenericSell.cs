@@ -12,6 +12,8 @@ namespace Server.Mobiles
 
         private Type[] m_Types;
 
+        public Dictionary<Type, int> Table => m_Table; //!NELDERIM!
+
         public Type[] Types
         {
             get

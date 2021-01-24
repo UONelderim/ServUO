@@ -288,7 +288,7 @@ namespace Server.Items
         }
     }
 
-    public class TrophyAddon : Item, IAddon
+    public partial class TrophyAddon : Item, IAddon
     {
         public override bool ForceShowProperties => true;
 
@@ -476,7 +476,7 @@ namespace Server.Items
     }
 
     [Flipable(0x14F0, 0x14EF)]
-    public class TrophyDeed : Item
+    public partial class TrophyDeed : Item
     {
         private int m_WestID;
         private int m_NorthID;
@@ -573,6 +573,7 @@ namespace Server.Items
 
             switch (version)
             {
+				case 3: //TODO remove case3 after migration
                 case 2:
                     {
                         DateCaught = reader.ReadDateTime();

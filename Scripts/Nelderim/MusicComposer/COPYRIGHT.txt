@@ -1,0 +1,3 @@
+Music Composer for UO copyright information, released under GPL 3.0 license
+
+Any redistribution, source code or game must retain the original attribution(s) to the author Bobby Kramer.

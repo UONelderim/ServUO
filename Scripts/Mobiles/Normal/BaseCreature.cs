@@ -38,7 +38,8 @@ namespace Server.Mobiles
         Weakest, // Attack the weakest
         Closest, // Attack the closest
         Evil, // Only attack aggressor -or- negative karma
-        Good // Only attack aggressor -or- positive karma
+        Good, // Only attack aggressor -or- positive karma
+        Criminal // Attack the closest criminal !NELDERIM!
     }
 
     public enum OrderType
@@ -72,7 +73,13 @@ namespace Server.Mobiles
         Eggs = 0x0010,
         Gold = 0x0020,
         Metal = 0x0040,
-        BlackrockStew = 0x0080
+        BlackrockStew = 0x0080,
+        Amethyst = 0x0100, // !NELDERIM!
+        Sapphire = 0x0200,
+        StarSapphire = 0x0400,
+        Emerald = 0x0800,
+        Ruby = 0x1000,
+        Diamond = 0x2000 // !NELDERIM!
     }
 
     [Flags]
@@ -201,7 +208,7 @@ namespace Server.Mobiles
         }
     }
 
-    public class BaseCreature : Mobile, ITamable, IHonorTarget, IEngravable
+    public partial class BaseCreature : Mobile, ITamable, IHonorTarget, IEngravable
     {
         public const int MaxLoyalty = 100;
 
@@ -2758,8 +2765,8 @@ namespace Server.Mobiles
                 AdjustTameRequirements();
             }
 
-            if (AI == AIType.AI_UNUSED1 || AI == AIType.AI_UNUSED2)
-                AI = AIType.AI_Melee; // Can be safely removed on 1/1/2021 - Dan
+            //if (AI == AIType.AI_UNUSED1 || AI == AIType.AI_UNUSED2) // !NELDERIM!
+            //    AI = AIType.AI_Melee; // Can be safely removed on 1/1/2021 - Dan
         }
 
         public virtual bool IsHumanInTown()

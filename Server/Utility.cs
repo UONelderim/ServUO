@@ -15,7 +15,7 @@ using System.Xml;
 
 namespace Server
 {
-	public static class Utility
+	public static partial class Utility
 	{
 		private static Encoding m_UTF8, m_UTF8WithEncoding;
 
@@ -1310,7 +1310,7 @@ namespace Server
 			SkillName.Alchemy, SkillName.Anatomy, SkillName.AnimalLore, SkillName.ItemID, SkillName.ArmsLore, SkillName.Parry,
 			SkillName.Begging, SkillName.Blacksmith, SkillName.Fletching, SkillName.Peacemaking, SkillName.Camping,
 			SkillName.Carpentry, SkillName.Cartography, SkillName.Cooking, SkillName.DetectHidden, SkillName.Discordance,
-			SkillName.EvalInt, SkillName.Healing, SkillName.Fishing, SkillName.Forensics, SkillName.Herding, SkillName.Hiding,
+			SkillName.EvalInt, SkillName.Healing, SkillName.Fishing, SkillName.Herbalism, SkillName.Herding, SkillName.Hiding,
 			SkillName.Provocation, SkillName.Inscribe, SkillName.Lockpicking, SkillName.Magery, SkillName.MagicResist,
 			SkillName.Tactics, SkillName.Snooping, SkillName.Musicianship, SkillName.Poisoning, SkillName.Archery,
 			SkillName.SpiritSpeak, SkillName.Stealing, SkillName.Tailoring, SkillName.AnimalTaming, SkillName.TasteID,

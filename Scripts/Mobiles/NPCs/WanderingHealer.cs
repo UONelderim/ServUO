@@ -12,8 +12,8 @@ namespace Server.Mobiles
             AddItem(new GnarledStaff());
 
             SetSkill(SkillName.Camping, 80.0, 100.0);
-            SetSkill(SkillName.Forensics, 80.0, 100.0);
-            SetSkill(SkillName.SpiritSpeak, 80.0, 100.0);
+            //SetSkill(SkillName.Forensics, 80.0, 100.0); //!NELDERIM!
+            SetSkill( SkillName.SpiritSpeak, 80.0, 100.0);
         }
 
         public WanderingHealer(Serial serial)
@@ -30,7 +30,7 @@ namespace Server.Mobiles
 
             return (skill == SkillName.Anatomy) ||
                    (skill == SkillName.Camping) ||
-                   (skill == SkillName.Forensics) ||
+                   //(skill == SkillName.Forensics) || //!NELDERIM!
                    (skill == SkillName.Healing) ||
                    (skill == SkillName.SpiritSpeak);
         }

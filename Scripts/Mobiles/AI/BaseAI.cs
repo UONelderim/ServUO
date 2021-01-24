@@ -18,14 +18,14 @@ namespace Server.Mobiles
     {
         AI_Use_Default,
         AI_Melee,
-        AI_UNUSED1,
+        AI_Animal, // !NELDERIM!
         AI_Archer,
         AI_Healer,
         AI_Vendor,
         AI_Mage,
-        AI_UNUSED2,
-        AI_UNUSED3,
-        AI_UNUSED4,
+        AI_BattleMage, // !NELDERIM!
+        AI_Boss, // !NELDERIM!
+        AI_Mounted, //!NELDERIM!
         AI_NecroMage,
         AI_OrcScout,
         AI_Spellbinder,
@@ -387,7 +387,7 @@ namespace Server.Mobiles
 			SkillName.EvalInt, SkillName.Fishing, SkillName.Provocation, SkillName.Lockpicking, SkillName.Magery,
             SkillName.MagicResist, SkillName.Tactics, SkillName.Snooping, SkillName.RemoveTrap, SkillName.Musicianship,
             SkillName.Poisoning, SkillName.Archery, SkillName.SpiritSpeak, SkillName.Tailoring, SkillName.AnimalTaming,
-            SkillName.TasteID, SkillName.Tinkering, SkillName.Veterinary, SkillName.Forensics, SkillName.Herding,
+            SkillName.TasteID, SkillName.Tinkering, SkillName.Veterinary, SkillName.Herbalism, SkillName.Herding,
             SkillName.Tracking, SkillName.Stealth, SkillName.Inscribe, SkillName.Swords, SkillName.Macing, SkillName.Fencing,
             SkillName.Wrestling, SkillName.Lumberjacking, SkillName.Mining, SkillName.Meditation
         };

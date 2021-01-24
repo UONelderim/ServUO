@@ -1,0 +1,66 @@
+
+namespace Server.Misc
+{
+    public partial class SkillCheck
+    {
+        public static double[,] SkillGains = new double[,]
+        { 
+         /*                       { SkillGain,  STR,    DEX,    INT     }, */
+         /* [0]  Alchemy */       { 1.5,        0,      1.0,    1.0     }, 
+         /* [1]  Anatomy */       { 1.75,       2.0,    0,      2.0     }, 
+         /* [2]  AnimalLore */    { 1.75,       2.0,    0,      2.4     }, 
+         /* [3]  ItemID */        { 3,          0,      0,      2       }, 
+         /* [4]  ArmsLore */      { 1,          2.0,    0,      1.8     }, 
+         /* [5]  Parry */         { 1.0,        1.5,    1.0,    0       }, 
+         /* [6]  Begging */       { 10.0,       0,      1.0,    1.0     }, 
+         /* [7]  Blacksmith */    { 2.5,        3.0,    1.5,    0       }, 
+         /* [8]  Fletching */     { 2.5,        1.5,    3.0,    0       }, 
+         /* [9]  Peacemaking */   { 10.0,       0,      1.0,    1.5    }, 
+         /* [10] Camping */       { 1.0,        0.1,    0.5,    0.2  }, 
+         /* [11] Carpentry */     { 2.5,        0,      1.5,   1.0     }, 
+         /* [12] Cartography */   { 2.5,        0,      1,    2,      },
+         /* [13] Cooking */       { 2.0,        0,      6,      4       }, 
+         /* [14] DetectHidden */  { 10.0,       0,      1.6,    1     }, 
+         /* [15] Discordance */   { 1.5,        0,      0.5,   1.5    }, 
+         /* [16] EvalInt */       { 1.0,        2,      0,      6       }, 
+         /* [17] Healing */       { 5.0,        0,      1.2,    2       },
+         /* [18] Fishing */       { 8.5,        4,      6,    0       }, 
+         /* [19] Zielarstwo */    { 3.5,        0,      1,    2     }, 
+         /* [20] Herding */       { 1.0,        0,      0,      6       }, 
+         /* [21] Hiding */        { 5.0,        0,      5,      2       },
+         /* [22] Provocation */   { 11.5,       0,      1,    2    }, 
+         /* [23] Inscribe */      { 1.5,       0,      1,    3     }, 
+         /* [24] Lockpicking */   { 1,          0,      2,   1     }, 
+         /* [25] Magery */        { 2.5,        2,      0,      6       }, 
+         /* [26] MagicResist */   { 1.5,        4,      0,      4     }, 
+         /* [27] Tactics */       { 3.0,        4,    2,      0       }, 
+         /* [28] Snooping */      { 1.0,        0,      4,      2       }, 
+         /* [29] Musicianship */  { 1.5,        0,      2,      1     }, 
+         /* [30] Poisoning */     { 4.0,       0,      2,      1.5    },
+         /* [31] Archery */       { 2.6,        2,      4,      0       }, 
+         /* [32] SpiritSpeak */   { 5.75,       0.5,   0,      4       }, 
+         /* [33] Stealing */      { 10.5,       0,      5,   1.5    }, 
+         /* [34] Tailoring */     { 2.5,        0,      3.5,   0.5    }, 
+         /* [35] AnimalTaming */  { 10.5,       4,      0,      2       }, 
+         /* [36] TasteID */       { 1.5,        0,      10,      0       }, 
+         /* [37] Tinkering */     { 1.5,        0,      3,    1     }, 
+         /* [38] Tracking */      { 10.5,       0,      3.5,   3    }, 
+         /* [39] Veterinary */    { 2.5,        0,      4,      3     }, 
+         /* [40] Swords */        { 2.25,       6,      4,      0       }, 
+         /* [41] Macing */        { 2.35,       6,      4,      0       }, 
+         /* [42] Fencing */       { 2.15,       6,      4,      0       }, 
+         /* [43] Wrestling */     { 2.5,        6,      4,      0       }, 
+         /* [44] Lumberjacking */ { 5.0,        6,      2,      0       }, 
+         /* [45] Mining */        { 5.0,        6.5,      2,      0       }, 
+         /* [46] Meditation */    { 4.0,        0.5,   0,      6       }, 
+         /* [47] Stealth */       { 6.5,        0,      6,      2       }, 
+         /* [48] RemoveTrap */    { 8.5,        0,      4,      4       }, 
+         /* [49] Necromancy */    { 2.5,        2,    1,    6       }, 
+         /* [50] Focus */         { 0,          0,      4,      1.5    }, 
+         /* [51] Chivalry */      { 2.5,        2,      0,      1.5    }, 
+         /* [52] Bushido */       { 2.5,        2,      0,      1.5    }, 
+         /* [53] Ninjitsu */      { 2.5,        2,      0,      1.5    }, 
+         /* [54] Spellweaving */  { 2.0,        1.5,   0,      4       }
+        };
+    }
+}

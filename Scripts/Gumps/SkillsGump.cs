@@ -497,7 +497,7 @@ namespace Server.Gumps
                 SkillName.Anatomy,
                 SkillName.AnimalLore,
                 SkillName.ArmsLore,
-                SkillName.Forensics,
+                SkillName.Herbalism,
                 SkillName.ItemID,
                 SkillName.TasteID
             })
