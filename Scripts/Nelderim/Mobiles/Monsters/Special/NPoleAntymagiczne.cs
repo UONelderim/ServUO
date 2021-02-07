@@ -15,6 +15,7 @@ namespace Server.Mobiles
 		public override bool AutoDispel{ get{ return true; } }
 		public override bool CanRummageCorpses{ get{ return true; } }
 		public override Poison PoisonImmune{ get{ return Poison.Lethal; } }
+		public override bool IgnoreHonor { get { return true; } }
 
 		[Constructable]
 		public NPoleAntymagiczne () : base( AIType.AI_Melee, FightMode.Weakest, 12, 1, 0.1, 0.2 )
