@@ -31,15 +31,15 @@ namespace Server.ACC.CSS.Systems.Cleric
 
 		public ClericDivineFocusSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
 		{
-			                    if (this.Scroll != null)
-                        Scroll.Consume();
+			if (this.Scroll != null)
+				Scroll.Consume();
 		}
 
 		public static double GetScalar( Mobile m )
 		{
 			double val = 1.0;
 
-			if ( m.CanBeginAction( typeof( ClericDivineFocusSpell ) ) )
+			if ( !m.CanBeginAction( typeof( ClericDivineFocusSpell ) ) )
 				val = 1.5;
 
 			return val;
