@@ -51,7 +51,7 @@ namespace Server.ACC.CSS.Systems.Cleric
 				m.FixedParticles( 0x376A, 1, 62, 0x480, 3, 3, EffectLayer.Waist );
 				m.FixedParticles( 0x3779, 1, 46, 0x481, 5, 3, EffectLayer.Waist );
 
-				double toHeal = Caster.Skills[SkillName.Healing].Value / 0.6 /*+ Utility.Random( 5 )*/;
+				double toHeal = Caster.Skills[SkillName.Healing].Value * 0.5 /*+ Utility.Random( 5 )*/;
 
 				toHeal *= ClericDivineFocusSpell.GetScalar( Caster );
 
