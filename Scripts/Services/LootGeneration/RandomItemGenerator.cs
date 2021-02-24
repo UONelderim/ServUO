@@ -9,7 +9,7 @@ namespace Server.Items
 {
     public class RandomItemGenerator
     {
-        public static bool Enabled => true;
+        public static bool Enabled => false;
         public static int FeluccaLuckBonus { get; private set; }
         public static int FeluccaBudgetBonus { get; private set; }
 

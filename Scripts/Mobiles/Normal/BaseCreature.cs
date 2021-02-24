@@ -22,6 +22,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Nelderim;
+
 #endregion
 
 namespace Server.Mobiles
@@ -5036,7 +5038,9 @@ namespace Server.Mobiles
                     KillersLuck = LootPack.GetLuckChanceForKiller(this);
                     break;
             }
-
+            
+            AddLoot(NelderimLoot.Generate(this, stage));
+            
             GenerateLoot();
 
             if (m_Paragon)

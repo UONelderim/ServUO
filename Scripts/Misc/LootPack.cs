@@ -577,13 +577,13 @@ namespace Server
         #endregion
 
         #region Generic accessors
-        public static LootPack Poor => LootPoor;
-        public static LootPack Meager => LootMeager;
-        public static LootPack Average => LootAverage;
-        public static LootPack Rich => LootRich;
-        public static LootPack FilthyRich => LootFilthyRich;
-        public static LootPack UltraRich => LootUltraRich;
-        public static LootPack SuperBoss => LootSuperBoss;
+        public static LootPack Poor => Config.Get("Nelderim.UseNelderimLoot", false) ? Empty : LootPoor;
+        public static LootPack Meager => Config.Get("Nelderim.UseNelderimLoot", false) ? Empty : LootMeager;
+        public static LootPack Average => Config.Get("Nelderim.UseNelderimLoot", false) ? Empty : LootAverage;
+        public static LootPack Rich => Config.Get("Nelderim.UseNelderimLoot", false) ? Empty : LootRich;
+        public static LootPack FilthyRich => Config.Get("Nelderim.UseNelderimLoot", false) ? Empty : LootFilthyRich;
+        public static LootPack UltraRich => Config.Get("Nelderim.UseNelderimLoot", false) ? Empty : LootUltraRich;
+        public static LootPack SuperBoss => Config.Get("Nelderim.UseNelderimLoot", false) ? Empty : LootSuperBoss;
         #endregion
 
         public static readonly LootPack LowScrolls = new LootPack(new[] { new LootPackEntry(false, true, LowScrollItems, 100.00, 1) });
@@ -811,6 +811,8 @@ namespace Server
 
         public static bool IsStygian(IEntity e)
         {
+	        if (!Config.Get("Nelderim.EnableSALoot", true))
+		        return false;
             if (e == null)
                 return false;
 
@@ -1031,7 +1033,7 @@ namespace Server
             StandardLootItem = standardLootItem;
         }
 
-        public int GetBonusProperties()
+        public virtual int GetBonusProperties()
         {
             int p0 = 0, p1 = 0, p2 = 0, p3 = 0, p4 = 0, p5 = 0;
 
