@@ -11,7 +11,7 @@ namespace Server
 {
     public partial class LootPack
     {
-        public static readonly LootPackItem[] NL_Scrolls1 = new LootPackItem[]
+	    public static readonly LootPackItem[] NL_Scrolls1 = new LootPackItem[]
         {
             new LootPackItem( typeof( ClumsyScroll ), 1 ),
             new LootPackItem( typeof( CreateFoodScroll ), 1 ),
@@ -269,10 +269,12 @@ namespace Server
 
         };
 
+        
+        public static readonly LootPack Empty = new LootPack(new LootPackEntry[0]);
         public static readonly LootPack AvatarScrolls = new LootPack( new LootPackEntry[]
-            {
-                new LootPackEntry( false, true, AvatarScrollItems, 30.00, 1 )
-            } );
+        {
+				new LootPackEntry( false, true, AvatarScrollItems, 30.00, 1 )
+        } );
         public static readonly LootPack DruidScrolls = new LootPack( new LootPackEntry[]
         {
                 new LootPackEntry( false, true, DruidScrollItems, 30.00, 1 )
@@ -294,8 +296,8 @@ namespace Server
                 new LootPackEntry( false, true, BardScrollItems, 30.00, 1 )
         } );
         public static readonly LootPack AncientScrolls = new LootPack( new LootPackEntry[]
-{
+		{
                 new LootPackEntry( false, true, AncientScrollItems, 30.00, 1 )
-} );
+		} );
     }
 }

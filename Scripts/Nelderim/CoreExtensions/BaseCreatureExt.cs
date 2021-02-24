@@ -191,7 +191,7 @@ namespace Server.Mobiles
 		{
 			double difficulty = BaseDifficulty * DifficultyScalar;
 
-			m_Difficulty = Math.Round(difficulty, 4) + 0.001; // So it's never 0.0
+			m_Difficulty = Math.Round(difficulty, 4) + 0.0001; // So it's never 0.0
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
