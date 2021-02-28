@@ -392,9 +392,9 @@ namespace Server
 
 					StaticTile* pCur = pTiles, pEnd = pTiles + count;
 
-					while (pCur < pEnd)
-					{
-						lists[pCur->m_X & 0x7][pCur->m_Y & 0x7].Add(pCur->m_ID, pCur->m_Z);
+						while (pCur < pEnd)
+						{
+							lists[pCur->m_X & 0x7][pCur->m_Y & 0x7].Add(pCur->m_ID, pCur->m_Z, pCur->m_Hue);
 
 						++pCur;
 					}
