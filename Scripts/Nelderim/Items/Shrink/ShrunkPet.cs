@@ -212,7 +212,7 @@ namespace Server.Items
                 m_Pet = newPet;
                 m_LastSerial = newPet.Serial;
                 m_Deprecated = false;
-
+                this.Hue = PetHue;
                 ItemID = ShrinkTable.Lookup(m_Pet.Body);
             }
         }
