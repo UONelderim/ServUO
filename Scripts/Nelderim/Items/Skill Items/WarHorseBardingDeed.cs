@@ -33,7 +33,7 @@ namespace Server.Items
 		{
 			base.GetProperties( list );
 
-			if ( m_Exceptional && m_Crafter != null )
+			if ( m_Exceptional/* && m_Crafter*/ != null )
 				//list.Add( 1050043, m_Crafter.Name ); // crafted by ~1_NAME~
 				list.Add(1060636); // exceptional
 		}
