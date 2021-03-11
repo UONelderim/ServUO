@@ -8,7 +8,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 {
     public abstract class AvatarSpell : CSpell
     {
-        public override SkillName CastSkill { get { return SkillName.Begging; } }
+        public override SkillName CastSkill { get { return SkillName.Meditation; } }
         public override SkillName DamageSkill { get { return SkillName.Anatomy; } }
 
         public abstract SpellCircle Circle { get; }
