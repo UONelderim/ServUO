@@ -15,8 +15,6 @@ namespace Nelderim
 {
 	public class NelderimLootPackEntry : LootPackEntry
 	{
-		public int MinProps { get; set; }
-		
 		public NelderimLootPackEntry(
 			bool atSpawnTime,
 			bool onStolen,
@@ -27,19 +25,21 @@ namespace Nelderim
 			int maxProps,
 			int minIntensity,
 			int maxIntensity,
-			bool standardLootItem) : 
-			base(atSpawnTime, onStolen, items, chance, quantity, 
-			maxProps, minIntensity, maxIntensity, standardLootItem)
+			bool standardLootItem) :
+			base(atSpawnTime, onStolen, items, chance, quantity,
+				maxProps, minIntensity, maxIntensity, standardLootItem)
 		{
 			MinProps = minProps;
 		}
+
+		public int MinProps { get; set; }
 
 		public override int GetBonusProperties()
 		{
 			return Utility.RandomMinMax(MinProps, MinProps);
 		}
 	}
-	
+
 	public class NelderimLoot
 	{
 		public static LootPack Generate(BaseCreature bc, LootStage stage)
@@ -49,7 +49,7 @@ namespace Nelderim
 				if (bc.Controlled || bc.Summoned || bc.AI == AIType.AI_Animal)
 					return LootPack.Empty;
 
-				List<LootPackEntry> entries = new List<LootPackEntry>();
+				var entries = new List<LootPackEntry>();
 
 				if (stage == LootStage.Spawning)
 					GenerateGold(bc, ref entries);
@@ -73,40 +73,40 @@ namespace Nelderim
 
 		private static void GenerateGold(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			int minGold = (int)Math.Ceiling(Math.Pow((bc.Difficulty * 630), 0.49));
-			int maxGold = (int)Math.Ceiling(minGold * 1.3);
+			var minGold = (int)Math.Ceiling(Math.Pow(bc.Difficulty * 630, 0.49));
+			var maxGold = (int)Math.Ceiling(minGold * 1.3);
 
-			int gold = (int) (Utility.RandomMinMax(minGold, maxGold) * Config.Get("NelderimLoot.GoldModifier", 1.0));
+			var gold = (int)(Utility.RandomMinMax(minGold, maxGold) * Config.Get("NelderimLoot.GoldModifier", 1.0));
 
 			entries.Add(new LootPackEntry(true, true, LootPack.Gold, 100.0, gold));
 		}
 
 		private static void GenerateRecallRunes(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			int count = (int)Math.Min(5, 1 + bc.Difficulty / 500);
-			double chance = Math.Pow(bc.Difficulty, 0.6) / 10;
+			var count = (int)Math.Min(5, 1 + bc.Difficulty / 500);
+			var chance = Math.Pow(bc.Difficulty, 0.6) / 10;
 
-			for (int i = 0; i < count; i++)
+			for (var i = 0; i < count; i++)
 				entries.Add(new LootPackEntry(false, true, RecallRune, chance, 1));
 		}
 
 		private static void GenerateGems(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			int count = (int)Math.Ceiling(Math.Pow(bc.Difficulty, 0.35));
-			double chance = Math.Max(0.01, Math.Min(1, 0.1 + Math.Pow(bc.Difficulty, 0.3) / 20)) * 100;
+			var count = (int)Math.Ceiling(Math.Pow(bc.Difficulty, 0.35));
+			var chance = Math.Max(0.01, Math.Min(1, 0.1 + Math.Pow(bc.Difficulty, 0.3) / 20)) * 100;
 
-			for (int i = 0; i < count; i++)
+			for (var i = 0; i < count; i++)
 				entries.Add(new LootPackEntry(false, true, LootPack.GemItems, chance, 1));
 		}
-		
+
 		private static void GenerateScrolls(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			int count = (int)Math.Floor(Math.Pow((1 + bc.Difficulty) * 39.0, 0.15));
-			double scrollChance = Math.Max(0.01, Math.Min(0.8, Math.Pow(bc.Difficulty * 0.5, 0.29) * 0.03));
-			
-			double[] chances = GetChances(Math.Min(1, Math.Pow(bc.Difficulty, 0.9) / 10000), 2.0, NL_scrolls.Length);
+			var count = (int)Math.Floor(Math.Pow((1 + bc.Difficulty) * 39.0, 0.15));
+			var scrollChance = Math.Max(0.01, Math.Min(0.8, Math.Pow(bc.Difficulty * 0.5, 0.29) * 0.03));
 
-			for ( int i = 0 ; i < count; i++) 
+			var chances = GetChances(Math.Min(1, Math.Pow(bc.Difficulty, 0.9) / 10000), 2.0, NL_scrolls.Length);
+
+			for (var i = 0; i < count; i++)
 			{
 				if (Utility.RandomDouble() >= scrollChance)
 					continue;
@@ -114,42 +114,41 @@ namespace Nelderim
 				entries.Add(new LootPackEntry(false, true, NL_scrolls[Utility.RandomIndex(chances)], 100, 1));
 			}
 		}
-		
-		private static void GeneratePotions( BaseCreature bc, ref List<LootPackEntry> entries )
-		{
-			int count = (int)Math.Floor( Math.Pow( (1+bc.Difficulty) * 39.0 , 0.15 ) );
-			double potionChance =  Math.Max( 0.01, Math.Min( 0.8, Math.Pow( bc.Difficulty * 0.5 , 0.29 ) * 0.1 )) * 100;
 
-			for( int i = 0; i < count; i++ )
-				entries.Add( new LootPackEntry( false, true, LootPack.PotionItems, potionChance, 1 ) );
-		}
-		
-		private static void GenerateInstruments( BaseCreature bc, ref List<LootPackEntry> entries )
+		private static void GeneratePotions(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			double chance = (double)Math.Max( 0.01, Math.Min( 1, Math.Pow( bc.Difficulty, 0.3 ) / 30 ) ) * 100;
-			entries.Add( new LootPackEntry( false, true, LootPack.Instruments, chance, 1 ) );
+			var count = (int)Math.Floor(Math.Pow((1 + bc.Difficulty) * 39.0, 0.15));
+			var potionChance = Math.Max(0.01, Math.Min(0.8, Math.Pow(bc.Difficulty * 0.5, 0.29) * 0.1)) * 100;
+
+			for (var i = 0; i < count; i++)
+				entries.Add(new LootPackEntry(false, true, LootPack.PotionItems, potionChance, 1));
 		}
-		
+
+		private static void GenerateInstruments(BaseCreature bc, ref List<LootPackEntry> entries)
+		{
+			var chance = Math.Max(0.01, Math.Min(1, Math.Pow(bc.Difficulty, 0.3) / 30)) * 100;
+			entries.Add(new LootPackEntry(false, true, LootPack.Instruments, chance, 1));
+		}
+
 		public static void GenerateMagicItems(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			double countModifier = Config.Get("NelderimLoot.ItemsCountModifier", 1.0);
-			int itemsMin = (int)Math.Floor(Math.Pow(bc.Difficulty, 0.275) * countModifier);
-			int itemsMax = (int)Math.Max(1, itemsMin + Math.Ceiling((double)itemsMin / 3 * countModifier));
-			int itemsCount = Utility.RandomMinMax(itemsMin, itemsMax);
+			var countModifier = Config.Get("NelderimLoot.ItemsCountModifier", 1.0);
+			var itemsMin = (int)Math.Floor(Math.Pow(bc.Difficulty, 0.275) * countModifier);
+			var itemsMax = (int)Math.Max(1, itemsMin + Math.Ceiling((double)itemsMin / 3 * countModifier));
+			var itemsCount = Utility.RandomMinMax(itemsMin, itemsMax);
 
-			double propsModifier = Config.Get("NelderimLoot.PropsCountModifier", 1.0);
-			int minProps = (int)Utility.Clamp(Math.Log(bc.Difficulty * 0.1) * propsModifier, 1, 5);
-			int maxProps = (int)Utility.Clamp(Math.Log(bc.Difficulty) * propsModifier, 1, 5);
-			
-			double minIntensityModifier = Config.Get("NelderimLoot.MinPropsIntensityModifier", 1.0);
-			double maxIntensityModifier = Config.Get("NelderimLoot.MaxPropsIntensityModifier", 1.0);
-			double minIntensity = Utility.Clamp( Math.Pow(bc.Difficulty, 0.6) * minIntensityModifier, 5, 30);
-			double maxIntensity = Utility.Clamp( (Math.Pow(bc.Difficulty, 0.75) + 30) * maxIntensityModifier, 50, 100);
-			int reduceStep = (int)(Math.Max(1, itemsCount * 0.2)); // Po kazdym 20% itemow oslabiamy loot
-			for ( int i = 0; i < itemsCount; i++ )
+			var propsModifier = Config.Get("NelderimLoot.PropsCountModifier", 1.0);
+			var minProps = (int)Utility.Clamp(Math.Log(bc.Difficulty * 0.1) * propsModifier, 1, 5);
+			var maxProps = (int)Utility.Clamp(Math.Log(bc.Difficulty) * propsModifier, 1, 5);
+
+			var minIntensityModifier = Config.Get("NelderimLoot.MinPropsIntensityModifier", 1.0);
+			var maxIntensityModifier = Config.Get("NelderimLoot.MaxPropsIntensityModifier", 1.0);
+			var minIntensity = Utility.Clamp(Math.Pow(bc.Difficulty, 0.6) * minIntensityModifier, 5, 30);
+			var maxIntensity = Utility.Clamp((Math.Pow(bc.Difficulty, 0.75) + 30) * maxIntensityModifier, 50, 100);
+			var reduceStep = (int)Math.Max(1, itemsCount * 0.2); // Po kazdym 20% itemow oslabiamy loot
+			for (var i = 0; i < itemsCount; i++)
 			{
 				if (i % reduceStep == 0)
-				{
 					switch (Utility.Random(4))
 					{
 						case 0:
@@ -166,45 +165,44 @@ namespace Nelderim
 							maxIntensity *= 0.8;
 							break;
 					}
-				}
-				entries.Add( new NelderimLootPackEntry( false, false, NelderimItems, 100.0, 1, minProps, maxProps, (int)minIntensity, (int)maxIntensity, true ) );
+
+				entries.Add(new NelderimLootPackEntry(false, false, NelderimItems, 100.0, 1, minProps, maxProps,
+					(int)minIntensity, (int)maxIntensity, true));
 			}
 		}
-		
-		private static double[] GetChances( double baseChance, double factor, int count )
+
+		private static double[] GetChances(double baseChance, double factor, int count)
 		{
-			double[] chances = new double[ count ];
+			var chances = new double[count];
 			double sum = 0;
-			
+
 			chances[0] = baseChance;
-			for ( int i = 1; i < count; i++ )
+			for (var i = 1; i < count; i++)
 			{
 				chances[i] = Math.Min(1 - sum, chances[i - 1] * factor);
-				if (chances[i - 1] < 0.01) 
+				if (chances[i - 1] < 0.01)
 				{
 					chances[i] += chances[i - 1];
 					chances[i - 1] = 0;
 				}
 				else
-					sum += chances[ i ];
+					sum += chances[i];
 			}
-			
+
 			return chances;
 		}
 
 		#region LootPacks
-		
+
 		public static readonly LootPackItem[] NelderimItems =
 		{
-			new LootPackItem( typeof( BaseWeapon ), 20 ),
-			new LootPackItem( typeof( BaseRanged ), 4 ),
-			new LootPackItem( typeof( BaseArmor ), 60 ),
-			new LootPackItem( typeof( BaseShield ), 7 ),
-			new LootPackItem( typeof( BaseJewel ), 20 )
+			new LootPackItem(typeof(BaseWeapon), 20), new LootPackItem(typeof(BaseRanged), 4),
+			new LootPackItem(typeof(BaseArmor), 60), new LootPackItem(typeof(BaseShield), 7),
+			new LootPackItem(typeof(BaseJewel), 20)
 		};
 
-		public static readonly LootPackItem[] RecallRune = {new LootPackItem(typeof(RecallRune), 1)};
-		
+		public static readonly LootPackItem[] RecallRune = { new LootPackItem(typeof(RecallRune), 1) };
+
 		public static readonly LootPackItem[] NL_Scrolls1 =
 		{
 			new LootPackItem(typeof(ClumsyScroll), 1), new LootPackItem(typeof(CreateFoodScroll), 1),
@@ -272,7 +270,7 @@ namespace Nelderim
 			new LootPackItem(typeof(FocusAttackScroll), 1)
 		};
 
-		public static readonly LootPackItem[] NL_Scrolls7 = 
+		public static readonly LootPackItem[] NL_Scrolls7 =
 		{
 			new LootPackItem(typeof(ChainLightningScroll), 1), new LootPackItem(typeof(EnergyFieldScroll), 1),
 			new LootPackItem(typeof(FlamestrikeScroll), 1), new LootPackItem(typeof(GateTravelScroll), 1),
@@ -283,7 +281,7 @@ namespace Nelderim
 			new LootPackItem(typeof(KiAttackScroll), 1), new LootPackItem(typeof(DeathStrikeScroll), 1)
 		};
 
-		public static readonly LootPackItem[] NL_Scrolls8 = 
+		public static readonly LootPackItem[] NL_Scrolls8 =
 		{
 			new LootPackItem(typeof(EarthquakeScroll), 1), new LootPackItem(typeof(EnergyVortexScroll), 1),
 			new LootPackItem(typeof(ResurrectionScroll), 1), new LootPackItem(typeof(SummonAirElementalScroll), 1),
@@ -293,9 +291,9 @@ namespace Nelderim
 			new LootPackItem(typeof(SummonWaterElementalScroll), 1),
 			new LootPackItem(typeof(NobleSacrificeScroll), 1), new LootPackItem(typeof(VampiricEmbraceScroll), 1)
 		};
-		
-		private static readonly LootPackItem[][] NL_scrolls = 
-		{ 
+
+		private static readonly LootPackItem[][] NL_scrolls =
+		{
 			NL_Scrolls8, NL_Scrolls7, NL_Scrolls6, NL_Scrolls5, NL_Scrolls4, NL_Scrolls3, NL_Scrolls2, NL_Scrolls1
 		};
 
@@ -319,7 +317,9 @@ namespace Nelderim
 			new LootPackItem(typeof(AvatarHeavensGateScroll), 1),
 			new LootPackItem(typeof(AvatarMarkOfGodsScroll), 1),
 			new LootPackItem(typeof(AvatarRestorationScroll), 1),
-			new LootPackItem(typeof(AvatarSacredBoonScroll), 1)
+			new LootPackItem(typeof(AvatarSacredBoonScroll), 1),
+			new LootPackItem(typeof(AvatarAngelicFaithScroll), 1),
+			new LootPackItem(typeof(AvatarArmysPaeonScroll), 1)
 		};
 
 		public static readonly LootPackItem[] BardScrollItems =
@@ -393,6 +393,7 @@ namespace Nelderim
 			new LootPackItem(typeof(UndeadSwarmOfInsectsScroll), 1),
 			new LootPackItem(typeof(UndeadVolcanicEruptionScroll), 1)
 		};
+
 		#endregion
 	}
 }
