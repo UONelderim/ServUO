@@ -36,7 +36,7 @@ namespace Server.Nelderim
 					}
 				}
 
-                return Race.Races[ index ];
+                return Race.AllRaces[ index ];
 			}
 		}
 		
