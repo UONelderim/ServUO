@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using Server;
+using System.Collections.Generic;
 using Server.Mobiles;
-using Server.Network;
-using Server.Items;
 using Server.Spells;
 
 namespace Server.ACC.CSS.Systems.Bard
@@ -11,49 +8,51 @@ namespace Server.ACC.CSS.Systems.Bard
 	public class BardMagesBalladSpell : BardSpell
 	{
 		private static SpellInfo m_Info = new SpellInfo(
-		                                                "Pieśń Do Magów", "Mentus",
-		                                                //SpellCircle.First,
-		                                                212,9041
-		                                               );
+			"Pieśń Do Magów", "Mentus",
+			//SpellCircle.First,
+			212, 9041
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.First; }
-        }
-
-		public override double CastDelay{ get{ return 3; } }
-		public override double RequiredSkill{ get{ return 85; } }
-		public override int RequiredMana{ get{ return 30; } }
-
-		public BardMagesBalladSpell( Mobile caster, Item scroll) : base( caster, scroll, m_Info )
+		public override SpellCircle Circle
 		{
-			                    if (this.Scroll != null)
-                        Scroll.Consume();
+			get { return SpellCircle.First; }
+		}
+
+		public override double CastDelay { get { return 3; } }
+		public override double RequiredSkill { get { return 85; } }
+		public override int RequiredMana { get { return 30; } }
+
+		public BardMagesBalladSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
+		{
+			if (this.Scroll != null)
+				Scroll.Consume();
 		}
 
 		public override void OnCast()
 		{
-			if( CheckSequence() )
+			if (CheckSequence())
 			{
-				ArrayList targets = new ArrayList();
+				List<Mobile> targets = new List<Mobile>();
 
-				foreach ( Mobile m in Caster.GetMobilesInRange( 3 ) )
+				foreach (Mobile m in Caster.GetMobilesInRange(3))
 				{
-					if ( Caster.CanBeBeneficial( m, false, true ) && !(m is Golem) )
-						targets.Add( m );
+					if (Caster.CanBeBeneficial(m, false, true) && !(m is Golem))
+						targets.Add(m);
 				}
 
-				for ( int i = 0; i < targets.Count; ++i )
+				int ticks = (int)(Caster.Skills[CastSkill].Value * 0.05);
+				int manaRegen = (int)(Caster.Skills[DamageSkill].Value * 0.05);
+				TimeSpan delay = TimeSpan.FromSeconds(2);
+				TimeSpan interval = TimeSpan.FromSeconds(2);
+
+				for (int i = 0; i < targets.Count; ++i)
 				{
-					Mobile m = (Mobile)targets[i];
+					Mobile m = targets[i];
 
-					TimeSpan duration = TimeSpan.FromSeconds( Caster.Skills[SkillName.Provocation].Value * 0.1 );
-					int rounds = (int)( Caster.Skills[SkillName.Musicianship].Value * .16 );
+					new ExpireTimer(m, ticks, manaRegen, delay, interval).Start();
 
-					new ExpireTimer( m, 0, rounds, TimeSpan.FromSeconds( 2 ) ).Start();
-
-					m.FixedParticles( 0x376A, 9, 32, 5030, 0x256, 3, EffectLayer.Waist );
-					m.PlaySound( 0x1F2 );
+					m.FixedParticles(0x376A, 9, 32, 5030, 0x256, 3, EffectLayer.Waist);
+					m.PlaySound(0x1F2);
 				}
 			}
 
@@ -63,31 +62,31 @@ namespace Server.ACC.CSS.Systems.Bard
 		private class ExpireTimer : Timer
 		{
 			private Mobile m_Mobile;
-			private int m_Round;
-			private int m_Totalrounds;
+			private int m_MaxTicks;
+			private int m_Ticks;
+			private int m_ManaRegen;
 
-			public ExpireTimer( Mobile m, int round, int totalrounds, TimeSpan delay ) : base( delay )
+
+			public ExpireTimer(Mobile m, int ticks, int manaRegen, TimeSpan delay, TimeSpan interval) : base(delay,
+				interval)
 			{
 				m_Mobile = m;
-				m_Round = round;
-				m_Totalrounds = totalrounds;
+				m_MaxTicks = ticks;
+				m_Ticks = 0;
+				m_ManaRegen = manaRegen;
 			}
 
 			protected override void OnTick()
 			{
-				if ( m_Mobile != null )
+				if (m_Mobile != null)
 				{
+					m_Mobile.Mana += m_ManaRegen;
+					m_Ticks++;
 
-					m_Mobile.Mana += 10;
-
-					if ( m_Round >= m_Totalrounds )
+					if (m_Ticks >= m_MaxTicks)
 					{
-						m_Mobile.SendMessage( "Efekt pieśni wygasa" );
-					}
-					else
-					{
-						m_Round += 1;
-						new ExpireTimer( m_Mobile, m_Round, m_Totalrounds, TimeSpan.FromSeconds( 2 ) ).Start();
+						m_Mobile.SendMessage("Efekt pieśni wygasa");
+						Stop();
 					}
 				}
 			}
