@@ -176,14 +176,17 @@ namespace Server.Mobiles
 			Name = caster.Name;
 			NameHue = caster.NameHue;
 
-			Title = caster.Title;
-			Kills = caster.Kills;
-
 			Guild = caster.Guild;
 			GuildFealty = caster.GuildFealty;
 			GuildTitle = caster.GuildTitle;
 			Label1 = caster.Label1;
 			Label2 = caster.Label2;
+
+			Title = caster.Title;
+			if (caster.Guild != null)
+				Title += String.Format(" [{0}]", caster.Guild.Abbreviation);
+
+			Kills = caster.Kills;
 
 			HairItemID = caster.HairItemID;
 			HairHue = caster.HairHue;
