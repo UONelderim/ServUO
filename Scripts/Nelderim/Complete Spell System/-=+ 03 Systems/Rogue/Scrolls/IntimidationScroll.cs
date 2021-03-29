@@ -14,7 +14,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 		[Constructable]
 		public RogueIntimidationScroll( int amount ) : base( typeof( RogueIntimidationSpell ), 0xE39, amount )
 		{
-			Name = "Intimidation";
+			Name = "Zastraszenie";
 			Hue = 0x20;
 		}
 

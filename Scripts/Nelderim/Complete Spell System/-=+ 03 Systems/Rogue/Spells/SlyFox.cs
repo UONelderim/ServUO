@@ -15,7 +15,7 @@ namespace Server.ACC.CSS.Systems.Rogue
     public class RogueSlyFoxSpell : RogueSpell
     {
         private static SpellInfo m_Info = new SpellInfo(
-                                                        "Sly Fox", " ",
+                                                        "Sly Fox", " *Twoje cialo zaczyna zmieniac ksztalt* ",
             //SpellCircle.Fourth,
                                                         212,
                                                         9041,
@@ -24,108 +24,121 @@ namespace Server.ACC.CSS.Systems.Rogue
                                                         Reagent.Nightshade
                                                         );
 
-        public override SpellCircle Circle
+         public override SpellCircle Circle
         {
-            get { return SpellCircle.Fourth; }
+            get { return SpellCircle.Eighth; }
         }
+		public override double RequiredSkill{ get{ return 80.0; } }
 
-        public override double CastDelay { get { return 0; } }
-        public override double RequiredSkill { get { return 0; } }
-        public override int RequiredMana { get { return 0; } }
+		public override int RequiredMana{ get{ return 50; } }
 
-        private static Dictionary<Mobile, object[]> m_Table = new Dictionary<Mobile, object[]>();
+		private static Hashtable m_Table = new Hashtable();
 
-        public RogueSlyFoxSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-                                if (this.Scroll != null)
+		public RogueSlyFoxSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
+		{
+			                    if (this.Scroll != null)
                         Scroll.Consume();
-        }
+		}
 
-        public override bool CheckCast()
-        {
+		public static bool HasEffect( Mobile m )
+		{
+			return ( m_Table[m] != null );
+		}
+
+		public static void RemoveEffect( Mobile m )
+		{
+			object[] mods = (object[])m_Table[m];
+
+			if ( mods != null )
+			{
+				m.RemoveStatMod( ((StatMod)mods[0]).Name );
+				m.RemoveStatMod( ((StatMod)mods[1]).Name );
+				m.RemoveStatMod( ((StatMod)mods[2]).Name );
+				//m.RemoveSkillMod( (SkillMod)mods[3] );
+				//m.RemoveSkillMod( (SkillMod)mods[4] );
+				m.RemoveSkillMod( (SkillMod)mods[3] );
+			}
+
+			m_Table.Remove( m );
+
+			m.EndAction( typeof( RogueSlyFoxSpell ) );
+
+			m.BodyMod = 0;
+			m.HueMod = 0;
+		}
+
+		public override bool CheckCast()
+		{
             if (!TransformationSpellHelper.CheckCast(Caster, this))
                 return false;
 
             return base.CheckCast();
-        }
+		}
 
-        public override void OnCast()
-        {
-            if (Caster.CanBeginAction(typeof(RogueSlyFoxSpell)) && CheckSequence())
-            {
-                Caster.BeginAction(typeof(RogueSlyFoxSpell));
-                new InternalTimer(Caster, TimeSpan.FromMinutes(1)).Start();
+		public override void OnCast()
+		{
+            TransformationSpellHelper.OnCast(Caster, this);
 
-                object[] mods = new object[]
+            if ( CheckSequence() )
+			{
+                RemoveEffect(Caster);
+
+				object[] mods = new object[]
 				{
-					new StatMod( StatType.Dex, "SlyFoxSpellStatMod", 20, TimeSpan.Zero ),
-					new DefaultSkillMod( SkillName.Hiding, true, 20 ),
-					new DefaultSkillMod( SkillName.Stealth, true, 20 )
+					new StatMod( StatType.Str, "[Rogue] Str Offset", 10, TimeSpan.Zero ),
+					new StatMod( StatType.Dex, "[Rogue] Dex Offset", 10, TimeSpan.Zero ),
+					new StatMod( StatType.Int, "[Rogue] Int Offset", 10, TimeSpan.Zero ),
+					//new DefaultSkillMod( SkillName.Macing, true, 20 ),
+					//new DefaultSkillMod( SkillName.Healing, true, 20 ),
+					new DefaultSkillMod( SkillName.Tracking, true, 20 )
 				};
 
-                m_Table[Caster] = mods;
+				m_Table[Caster] = mods;
 
-                Caster.AddStatMod((StatMod)mods[0]);
-                Caster.AddSkillMod((SkillMod)mods[1]);
-                Caster.AddSkillMod((SkillMod)mods[2]);
+				Caster.AddStatMod( (StatMod)mods[0] );
+				Caster.AddStatMod( (StatMod)mods[1] );
+				Caster.AddStatMod( (StatMod)mods[2] );
+				//Caster.AddSkillMod( (SkillMod)mods[3] );
+				//Caster.AddSkillMod( (SkillMod)mods[4] );
+				Caster.AddSkillMod( (SkillMod)mods[3] );
 
+				double span = 10.0 /* ClericDivineFocusSpell.GetScalar( Caster )*/;
+				new InternalTimer( Caster, TimeSpan.FromMinutes( (int)span ) ).Start();
 
-                IMount mount = Caster.Mount;
+				IMount mount = Caster.Mount;
 
-                if (mount != null)
-                    mount.Rider = null;
+				if ( mount != null )
+					mount.Rider = null;
 
-                Caster.BodyMod = 225;
-                Caster.PlaySound(0xE5);
-                Caster.FixedParticles(0x3728, 1, 13, 0x480, 92, 3, EffectLayer.Head);
-            }
-            else
-                Caster.SendMessage("Nie możesz się stać listem w tym stanie!");
-        }
+				Caster.BodyMod = 65;
+				Caster.HueMod = 2702;
+				Caster.BeginAction( typeof( RogueSlyFoxSpell ) );
+				Caster.PlaySound( 0x165 );
+				Caster.FixedParticles( 0x3728, 1, 13, 0x480, 92, 3, EffectLayer.Head );
+			}
 
-        public static void RemoveEffect(Mobile m)
-        {
-            if (m_Table.ContainsKey(m))
-            {
-                object[] mods = m_Table[m];
+            FinishSequence();
+		}
 
-                if (mods != null)
-                {
-                    m.RemoveStatMod(((StatMod)mods[0]).Name);
-                    m.RemoveSkillMod((SkillMod)mods[1]);
-                    m.RemoveSkillMod((SkillMod)mods[2]);
-                }
+		private class InternalTimer : Timer
+		{
+			private Mobile m_Owner;
+			private DateTime m_Expire;
 
-                m_Table.Remove(m);
+			public InternalTimer( Mobile owner, TimeSpan duration ) : base( TimeSpan.Zero, TimeSpan.FromSeconds( 0.1 ) )
+			{
+				m_Owner = owner;
+				m_Expire = DateTime.Now + duration;
+			}
 
-                m.BodyMod = 0;
-
-                m.EndAction(typeof(RogueSlyFoxSpell));
-            }
-        }
-
-        private class InternalTimer : Timer
-        {
-            private Mobile m_Owner;
-            private DateTime m_Expire;
-
-            public InternalTimer(Mobile owner, TimeSpan duration)
-                : base(TimeSpan.Zero, TimeSpan.FromSeconds(1))
-            {
-                m_Owner = owner;
-                m_Expire = DateTime.Now + duration;
-
-            }
-
-            protected override void OnTick()
-            {
-                if (DateTime.Now >= m_Expire)
-                {
-                    RogueSlyFoxSpell.RemoveEffect(m_Owner);
-                    Stop();
-                }
-            }
-        }
-    }
+			protected override void OnTick()
+			{
+				if ( DateTime.Now >= m_Expire )
+				{
+					RogueSlyFoxSpell.RemoveEffect( m_Owner );
+					Stop();
+				}
+			}
+		}
+	}
 }

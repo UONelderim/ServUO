@@ -54,11 +54,12 @@ namespace Server.ACC.CSS.Systems.Rogue
 
         public override void OnCast()
         {
+            Caster.PlaySound( 22 );
             Caster.Hidden = true;
             if (Caster.CanBeginAction(typeof(RogueShadowSpell)))
             {
                 Caster.BeginAction(typeof(RogueShadowSpell));
-                DefaultSkillMod mod = new DefaultSkillMod(SkillName.Stealth, true, 50.0);
+                DefaultSkillMod mod = new DefaultSkillMod(SkillName.Stealth, true, 5.0);
                 m_Table.Add(Caster, mod);
                 Caster.AddSkillMod(mod);
 
@@ -67,7 +68,7 @@ namespace Server.ACC.CSS.Systems.Rogue
             else
                 Caster.SendMessage("Już się ukryłeś!");
         }
-
+    
         private class InternalTimer : Timer
         {
             private Mobile m_Owner;
