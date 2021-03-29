@@ -15,7 +15,7 @@ namespace Server.ACC.CSS.Systems.Rogue
     public class RogueFalseCoinSpell : RogueSpell
     {
         private static SpellInfo m_Info = new SpellInfo(
-                                                        "Fałszywa moneta", "*wyciąga mały woreczek monet",
+                                                        "Fałszywa moneta", "*wyciaga maly woreczek monet*",
             //SpellCircle.Fourth,
                                                         218,
                                                         9002,
@@ -107,7 +107,7 @@ namespace Server.ACC.CSS.Systems.Rogue
                 }
                 else
                 {
-                    from.SendMessage("That cannot be copied."); // I cannot mark that object.
+                    from.SendMessage("Tego nie skopiujesz."); // I cannot mark that object.
                 }
             }
 

@@ -15,7 +15,7 @@ namespace Server.ACC.CSS.Systems.Rogue
     public class RogueIntimidationSpell : RogueSpell
     {
         private static SpellInfo m_Info = new SpellInfo(
-                                                        "Intimidation", " ",
+                                                        "Zastraszenie", " *wpatruje sie gniewnie w cel* ",
             //SpellCircle.Fourth,
                                                         212,
                                                         9041
@@ -26,101 +26,71 @@ namespace Server.ACC.CSS.Systems.Rogue
             get { return SpellCircle.Fourth; }
         }
 
-        public override double CastDelay { get { return 0; } }
-        public override double RequiredSkill { get { return 0; } }
-        public override int RequiredMana { get { return 0; } }
+        public override double CastDelay { get { return 3; } }
 
-        private static Dictionary<Mobile, object[]> m_Table = new Dictionary<Mobile, object[]>();
+		public override double RequiredSkill{ get{ return 80.0; } }
 
-        public RogueIntimidationSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-        }
+		public override int RequiredMana{ get{ return 35; } }
 
-        public override bool CheckCast()
-        {
-            if (!TransformationSpellHelper.CheckCast(Caster, this))
-                return false;
-
-            return base.CheckCast();
-        }
-
+       public RogueIntimidationSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
+		{
+			                    if (this.Scroll != null)
+                        Scroll.Consume();
+		}
         public override void OnCast()
-        {
-            if (Caster.CanBeginAction(typeof(RogueSlyFoxSpell)) && CheckSequence())
-            {
-                Caster.BeginAction(typeof(RogueIntimidationScroll));
-                new InternalTimer(Caster, TimeSpan.FromMinutes(1)).Start();
+		{
+			Caster.Target = new InternalTarget( this );
+		}
 
-                object[] mods = new object[]
+		public void Target( Mobile m )
+		{
+			if ( !Caster.CanSee( m ) )
+			{
+				Caster.SendLocalizedMessage( 500237 ); // Target can not be seen.
+			}
+			else if ( CheckHSequence( m ) )
+			{
+				m.BoltEffect( 0x480 );
+
+				SpellHelper.Turn( Caster, m );
+
+				double damage = Caster.Skills[SkillName.Hiding].Value;
+
+				if ( Core.AOS )
 				{
-					new StatMod( StatType.Dex, "RogueIntimidationSpellDexMod", -20, TimeSpan.Zero ),
-					new StatMod( StatType.Str, "RogueIntimidationSpellStrMod", 20, TimeSpan.Zero ),
-					new DefaultSkillMod( SkillName.Hiding, true, -20 ),
-					new DefaultSkillMod( SkillName.Stealth, true, -20 ),
-					new DefaultSkillMod( SkillName.Swords, true, 20 ),
-					new DefaultSkillMod( SkillName.Macing, true, 20 ),
-					new DefaultSkillMod( SkillName.Fencing, true, -20 )
+					SpellHelper.Damage( TimeSpan.Zero, m, Caster, damage, 0, 0, 0, 0, 40 );
+				}
+				else
+				{
+					SpellHelper.Damage( TimeSpan.Zero, m, Caster, damage );
+				}
+			}
 
-				};
+			FinishSequence();
+		}
 
-                m_Table[Caster] = mods;
 
-                Caster.AddStatMod((StatMod)mods[0]);
-                Caster.AddStatMod((StatMod)mods[1]);
-                Caster.AddSkillMod((SkillMod)mods[2]);
-                Caster.AddSkillMod((SkillMod)mods[3]);
-                Caster.AddSkillMod((SkillMod)mods[4]);
-                Caster.AddSkillMod((SkillMod)mods[5]);
-                Caster.AddSkillMod((SkillMod)mods[6]);
-            }
-            else
-                Caster.SendMessage("You cannot intimidate someone in that state!");
-        }
-        public static void RemoveEffect(Mobile m)
-        {
-            if (m_Table.ContainsKey(m))
-            {
-                object[] mods = (object[])m_Table[m];
+		private class InternalTarget : Target
+		{
+			private RogueIntimidationSpell m_Owner;
 
-                if (mods != null)
-                {
-                    m.RemoveStatMod(((StatMod)mods[0]).Name);
-                    m.RemoveStatMod(((StatMod)mods[1]).Name);
-                    m.RemoveSkillMod((SkillMod)mods[2]);
-                    m.RemoveSkillMod((SkillMod)mods[3]);
-                    m.RemoveSkillMod((SkillMod)mods[4]);
-                    m.RemoveSkillMod((SkillMod)mods[5]);
-                    m.RemoveSkillMod((SkillMod)mods[6]);
-                }
+			public InternalTarget( RogueIntimidationSpell owner ) : base( 12, false, TargetFlags.Harmful )
+			{
+				m_Owner = owner;
+			}
 
-                m_Table.Remove(m);
+			protected override void OnTarget( Mobile from, object o )
+			{
+				if ( o is Mobile )
+				{
+					m_Owner.Target( (Mobile)o );
+				}
+			}
 
-                m.EndAction(typeof(RogueIntimidationSpell));
-            }
-        }
-
-        private class InternalTimer : Timer
-        {
-            private Mobile m_Owner;
-            private DateTime m_Expire;
-
-            public InternalTimer(Mobile owner, TimeSpan duration)
-                : base(TimeSpan.Zero, TimeSpan.FromSeconds(1))
-            {
-                m_Owner = owner;
-                m_Expire = DateTime.Now + duration;
-
-            }
-
-            protected override void OnTick()
-            {
-                if (DateTime.Now >= m_Expire)
-                {
-                    RogueIntimidationSpell.RemoveEffect(m_Owner);
-                    Stop();
-                }
-            }
-        }
-    }
+			protected override void OnTargetFinish( Mobile from )
+			{
+				m_Owner.FinishSequence();
+			}
+		}
+	}
 }
