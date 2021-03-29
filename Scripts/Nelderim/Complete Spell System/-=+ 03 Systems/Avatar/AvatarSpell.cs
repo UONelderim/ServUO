@@ -32,7 +32,7 @@ namespace Server.ACC.CSS.Systems.Avatar
             if (!base.CheckCast())
                 return false;
 
-            if (Caster.Skills[SkillName.Begging].Value < RequiredSkill)
+            if (Caster.Skills[SkillName.Meditation].Value < RequiredSkill)
             {
                 Caster.SendLocalizedMessage(1060172, RequiredSkill.ToString("F1")); // You must have at least ~1_SKILL_REQUIREMENT~ Chivalry to use this ability,
                 return false;
