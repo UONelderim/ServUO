@@ -83,7 +83,7 @@ namespace Server.ACC.CSS.Systems.Cleric
 				WeaponAttributes.UseBestSkill = 1;
 				Name = "Topór Wiary";
 
-				double time = ( owner.Skills[SkillName.Healing].Value / 20.0 ) * ClericDivineFocusSpell.GetScalar( owner );
+				double time = ( owner.Skills[SkillName.Anatomy].Value / 20.0 ) * ClericDivineFocusSpell.GetScalar( owner );
 				m_Expire = DateTime.Now + TimeSpan.FromMinutes( (int)time );
 				m_Timer = new InternalTimer( this, m_Expire );
 

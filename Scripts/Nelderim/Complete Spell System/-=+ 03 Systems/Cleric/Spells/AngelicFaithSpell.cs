@@ -96,7 +96,7 @@ namespace Server.ACC.CSS.Systems.Cleric
 				//Caster.AddSkillMod( (SkillMod)mods[4] );
 				Caster.AddSkillMod( (SkillMod)mods[3] );
 
-				double span = 10.0 /* ClericDivineFocusSpell.GetScalar( Caster )*/;
+				double span = (1.0 * Caster.Skills[DamageSkill].Value)/10;
 				new InternalTimer( Caster, TimeSpan.FromMinutes( (int)span ) ).Start();
 
 				IMount mount = Caster.Mount;

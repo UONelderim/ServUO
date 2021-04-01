@@ -132,7 +132,7 @@ namespace Server.ACC.CSS.Systems.Cleric
 
 				if ( DateTime.Now >= NextTick )
 				{
-					double heal = Utility.RandomMinMax( 6, 9 ) + source.Skills[SkillName.Magery].Value / 50.0;
+					double heal = Utility.RandomMinMax( 6, 9 ) + source.Skills[SkillName.Anatomy].Value / 50.0;
 					heal *= ClericDivineFocusSpell.GetScalar( source );
 
 					dest.Heal( (int)heal );
