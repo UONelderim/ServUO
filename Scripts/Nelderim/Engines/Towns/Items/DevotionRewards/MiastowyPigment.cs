@@ -4,7 +4,7 @@
 	{
 		[Constructable]
 		public PigmentTasandora()
-			: base((int)PigmentTarget.Cloth, 5, 2894)
+			: this(5)
 		{
 		}
 
@@ -12,6 +12,7 @@
 		public PigmentTasandora(int uses)
 			: base((int)PigmentTarget.Cloth, uses, 2894)
 		{
+			Name = "Pigment barw tasandory";
 		}
 
 		public override void Serialize(GenericWriter writer)
