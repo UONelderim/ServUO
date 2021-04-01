@@ -1,12 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Server.Gumps;
-using Server.Network;
-using Server.Mobiles;
 using Server.Commands;
+using Server.Gumps;
+using Server.Mobiles;
+using Server.Network;
 using Server.Targeting;
-
 
 namespace Server.Items
 {
@@ -20,7 +19,8 @@ namespace Server.Items
 
 		private static List<NReward> m_Rewards;
 
-		private static void BuildRewardsList() {
+		private static void BuildRewardsList()
+		{
 			m_Rewards = new List<NReward>();
 
 			m_Rewards.Add(new PowerScrollReward(5, 4000));
@@ -28,7 +28,7 @@ namespace Server.Items
 			m_Rewards.Add(new PowerScrollReward(15, 240000));
 			m_Rewards.Add(new PowerScrollReward(20, 960000));
 			m_Rewards.Add(new PowderOfTranslocationReward(50000));
-			m_Rewards.Add(new SilverReward(1000));
+			//m_Rewards.Add(new SilverReward(1000));
 			m_Rewards.Add(new BallOfSummoningReward(10000));
 			m_Rewards.Add(new PowderOfTemperamentReward(20000));
 			m_Rewards.Add(new DedicatedPowerScrollReward(5, 10000));
@@ -43,15 +43,18 @@ namespace Server.Items
 			m_Rewards.Sort();
 		}
 
-		public static void Initialize() {
+		public static void Initialize()
+		{
 			CommandSystem.Register("Reward", AccessLevel.Counselor, new CommandEventHandler(Reward_OnCommand));
 			BuildRewardsList();
 		}
 
 		[Usage("Reward [klasa 1-16")]
 		[Description("Nagradza cel scrollem nagrody o wartosci odpowiedniej do klasy.")]
-		private static void Reward_OnCommand(CommandEventArgs arg) {
-			if (arg.Length < 1) {
+		private static void Reward_OnCommand(CommandEventArgs arg)
+		{
+			if (arg.Length < 1)
+			{
 				arg.Mobile.SendMessage("Reward [klasa 1-16]");
 				return;
 			}
@@ -66,13 +69,16 @@ namespace Server.Items
 		}
 
 		[Constructable]
-		public RewardScroll() : this(0) {
+		public RewardScroll() : this(0)
+		{
 		}
 
-		public RewardScroll(int rewardClass) : this(rewardClass, 0) {
+		public RewardScroll(int rewardClass) : this(rewardClass, 0)
+		{
 		}
 
-		public RewardScroll(int rewardClass, int repeat) : base(0x14F0) {
+		public RewardScroll(int rewardClass, int repeat) : base(0x14F0)
+		{
 			base.Weight = 0.1;
 
 			LootType = LootType.Blessed;
@@ -80,21 +86,25 @@ namespace Server.Items
 
 			m_Value = (int)(250 * Math.Pow(2, 16 - m_Class));
 			m_Given = new ArrayList();
-			if (repeat == 0) {
+			if (repeat == 0)
+			{
 				if (m_Class >= 1 && m_Class <= 9)
 					m_Repeat = 6;
 				else
 					m_Repeat = 1;
-			} else
+			}
+			else
 				m_Repeat = repeat;
 
 			base.Hue = m_Class <= 2 ? 1935 : m_Class <= 6 ? 0x8a5 : m_Class <= 11 ? 2401 : 0x972;
 		}
 
-		public RewardScroll(Serial serial) : base(serial) {
+		public RewardScroll(Serial serial) : base(serial)
+		{
 		}
 
-		public override void Serialize(GenericWriter writer) {
+		public override void Serialize(GenericWriter writer)
+		{
 			base.Serialize(writer);
 
 			writer.Write((int)0); // version
@@ -104,34 +114,42 @@ namespace Server.Items
 			writer.Write((int)m_Value);
 		}
 
-		public override void Deserialize(GenericReader reader) {
+		public override void Deserialize(GenericReader reader)
+		{
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 
-			switch (version) {
-				case 0: {
-						m_Repeat = reader.ReadInt();
-						m_Class = reader.ReadInt();
-						m_Value = reader.ReadInt();
-						break;
+			switch (version)
+			{
+				case 0:
+				{
+					m_Repeat = reader.ReadInt();
+					m_Class = reader.ReadInt();
+					m_Value = reader.ReadInt();
+					break;
 				}
 			}
 		}
 
 		[CommandProperty(AccessLevel.Counselor)]
-		public double Value {
-			get {
+		public double Value
+		{
+			get
+			{
 				return m_Value;
 			}
 		}
 
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
-		public int Class {
-			get {
+		public int Class
+		{
+			get
+			{
 				return m_Class;
 			}
-			set {
+			set
+			{
 				m_Class = Utility.Clamp(value, 1, 16);
 				m_Value = (int)(250 * Math.Pow(2, 16 - m_Class));
 				Hue = m_Class == 1 ? 1935 : m_Class <= 6 ? 0x8a5 : m_Class <= 11 ? 2401 : 0x972;
@@ -140,55 +158,73 @@ namespace Server.Items
 		}
 
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
-		public int Repeat {
-			get {
+		public int Repeat
+		{
+			get
+			{
 				return m_Repeat;
 			}
 		}
 
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
-		public ArrayList GivenRewards {
-			get {
+		public ArrayList GivenRewards
+		{
+			get
+			{
 				return m_Given;
 			}
 		}
 
-		public override void AddNameProperty(ObjectPropertyList list) {
+		public override void AddNameProperty(ObjectPropertyList list)
+		{
 			list.Add(505595, m_Class.ToString()); // zwoj nagrody klasy ~1_VALUE~
 			list.Add(505903, m_Repeat.ToString()); // Mozliwe jest ~1_VALUE~ losowac nagrod.
 		}
 
-		public override void OnAosSingleClick(Mobile from) {
+		public override void OnAosSingleClick(Mobile from)
+		{
 			base.LabelTo(from, 505595, m_Class.ToString()); // // zwoj nagrody o wartosci ~1_VALUE~ centarow
 		}
 
-		public void Use(Mobile m, bool firstStage) {
+		public void Use(Mobile m, bool firstStage)
+		{
 			Mobile from = m;
 
 			if (Deleted || !(from is PlayerMobile) || !from.Alive || from == null)
 				return;
 
-			if (IsChildOf(from.Backpack)) {
-				if (firstStage) {
+			if (IsChildOf(from.Backpack))
+			{
+				if (firstStage)
+				{
 					from.CloseGump(typeof(RewardScroll.InternalGump));
 					from.SendGump(new InternalGump(from, this));
-				} else {
-					string log = from.AccessLevel + " " + CommandLogging.Format(from) + " used Reward Scroll " + CommandLogging.Format(this) + " of value " + m_Value + " [RewardScroll]";
+				}
+				else
+				{
+					string log = from.AccessLevel + " " + CommandLogging.Format(from) + " used Reward Scroll " +
+					             CommandLogging.Format(this) + " of value " + m_Value + " [RewardScroll]";
 					CommandLogging.WriteLine(from, log);
 					CommandLogging.WriteLine(from, "[RewardScroll] LabelOfCreator = " + ModifiedBy);
 
 					Generate(from);
 
-					while (m_TotalGold > 0) {
+					while (m_TotalGold > 0)
+					{
 						Item money;
 
-						if (m_TotalGold < 5000) {
+						if (m_TotalGold < 5000)
+						{
 							money = (Item)new Items.Gold(m_TotalGold);
 							m_TotalGold = 0;
-						} else if (m_TotalGold < 500000) {
+						}
+						else if (m_TotalGold < 500000)
+						{
 							money = (BankCheck)new BankCheck(m_TotalGold);
 							m_TotalGold = 0;
-						} else {
+						}
+						else
+						{
 							money = (BankCheck)new BankCheck(500000);
 							m_TotalGold -= 500000;
 						}
@@ -206,23 +242,27 @@ namespace Server.Items
 					from.FixedParticles(0x373A, 10, 15, 5012, EffectLayer.Waist);
 					from.PlaySound(0x1E0);
 
-					if (m_Repeat > 1) {
-						from.SendGump(new RewardScroll.InternalRepeatGump( this, m_Given));
-					} else
+					if (m_Repeat > 1)
+					{
+						from.SendGump(new RewardScroll.InternalRepeatGump(this, m_Given));
+					}
+					else
 						Delete();
-
-
 				}
-			} else {
+			}
+			else
+			{
 				from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
 			}
 		}
 
-		public override void OnDoubleClick(Mobile from) {
+		public override void OnDoubleClick(Mobile from)
+		{
 			Use(from, true);
 		}
 
-		private void Generate(Mobile from) {
+		private void Generate(Mobile from)
+		{
 			int TotalRewardValue = 0;
 			double InternalValue = m_Value;
 
@@ -230,17 +270,23 @@ namespace Server.Items
 			ArrayList rewards = new ArrayList();
 
 			// generujemy liste dostepnych prezentow, znaczy takich, ktorych wartosc nie przekracza dostepnego zlota
-			for (int i = 0; i < m_Rewards.Count && (m_Rewards[i] as NReward).Value <= m_Value; i++) {
+			for (int i = 0; i < m_Rewards.Count && (m_Rewards[i] as NReward).Value <= m_Value; i++)
+			{
 				rewards.Add(m_Rewards[i]);
 				totalValue += (m_Rewards[i] as NReward).Value;
 			}
 
-			while (m_Value > 0) {
+			while (m_Value > 0)
+			{
 				// losujemy nagrode
 				int rnd = Utility.Random(totalValue);
 				NReward reward = null;
 
-				for (int i = 0; i < rewards.Count && rnd >= 0 && (rewards[i] as NReward).Value <= (InternalValue - TotalRewardValue); i++) {
+				for (int i = 0;
+				     i < rewards.Count && rnd >= 0 &&
+				     (rewards[i] as NReward).Value <= (InternalValue - TotalRewardValue);
+				     i++)
+				{
 					reward = rewards[i] as NReward;
 					rnd -= reward.Value;
 				}
@@ -249,7 +295,8 @@ namespace Server.Items
 				// jesli tak, to przydzielamy
 				// jak nie to dalej
 
-				if (reward != null && Utility.RandomDouble() < 50.0 / (double)reward.Value) {
+				if (reward != null && Utility.RandomDouble() < 50.0 / (double)reward.Value)
+				{
 					TotalRewardValue += reward.Value;
 
 					Item rewardItem = reward.Generate(from);
@@ -264,10 +311,11 @@ namespace Server.Items
 
 
 				m_Value -= 50;
-
 			}
+
 			// nowa korekcja wartosci		
-			if (TotalRewardValue > InternalValue) {
+			if (TotalRewardValue > InternalValue)
+			{
 				int diff = (int)(TotalRewardValue - InternalValue);
 				TotalRewardValue -= m_TotalGold;
 				m_TotalGold -= diff;
@@ -276,13 +324,14 @@ namespace Server.Items
 					m_TotalGold = 0;
 
 				TotalRewardValue += m_TotalGold;
-			} else if (TotalRewardValue < InternalValue) {
+			}
+			else if (TotalRewardValue < InternalValue)
+			{
 				int diff = (int)(InternalValue - TotalRewardValue);
 				TotalRewardValue -= m_TotalGold;
 				m_TotalGold += diff;
 				TotalRewardValue += m_TotalGold;
 			}
-
 		}
 
 		public class InternalGump : Gump
@@ -290,7 +339,8 @@ namespace Server.Items
 			private Mobile m_Mobile;
 			private RewardScroll m_Scroll;
 
-			public InternalGump(Mobile mobile, RewardScroll scroll) : base(25, 50) {
+			public InternalGump(Mobile mobile, RewardScroll scroll) : base(25, 50)
+			{
 				m_Mobile = mobile;
 				m_Scroll = scroll;
 
@@ -303,12 +353,14 @@ namespace Server.Items
 
 
 				if (m_Scroll.Repeat > 1)
-					AddHtmlLocalized(40, 48, 387, 100, 505904, true, true); /* <B>Zwój nagrody tej klasy umo¿liwia wielokrotne losowanie nagród.</B><BR><BR>
+					AddHtmlLocalized(40, 48, 387, 100, 505904, true,
+						true); /* <B>Zwój nagrody tej klasy umo¿liwia wielokrotne losowanie nagród.</B><BR><BR>
                                                                      * Nim zaakceptujesz wylosowany zestaw nagród obejrzyj je. Odrzucajac to losowanie,
                                                                      * masz mozliwosc ponownego uzycia zwoju. Przeniesienie jakiejkolwiek z nagrod poza
                                                                      * plecak, lub uzycie jej, spowoduje brak mozliwoœci ponownego losowania. */
 				else
-					AddHtmlLocalized(40, 48, 387, 100, 505597, true, true); /* Uzycie zwoju spowoduje materializacje w plecaku nagrody o wartoœci zblizonej 
+					AddHtmlLocalized(40, 48, 387, 100, 505597, true,
+						true); /* Uzycie zwoju spowoduje materializacje w plecaku nagrody o wartoœci zblizonej 
 				                                                             * do wartosci zapisanej na zwoju.<BR><BR>
 				                                                             * Nagroda ta z pewnoscia <B>bedzie ciezsza i zajmie w plecaku wiecej miejsca</B> 
 				                                                             * niz sam zwój, zatem wykorzystaj go w miejscu, gdzie mo¿esz zlozyc uzyskane nagrody.<BR><BR>
@@ -322,10 +374,13 @@ namespace Server.Items
 				AddButton(275, 172, 4005, 4007, 0, GumpButtonType.Reply, 0);
 				AddHtmlLocalized(310, 172, 120, 20, 1046363, 0xFFFFFF, false, false); // No
 
-				AddHtml(40, 20, 260, 20, String.Format("<basefont color=#FFFFFF>Zwój nagrody klasy {0}</basefont>", m_Scroll.Class), false, false);
+				AddHtml(40, 20, 260, 20,
+					String.Format("<basefont color=#FFFFFF>Zwój nagrody klasy {0}</basefont>", m_Scroll.Class), false,
+					false);
 			}
 
-			public override void OnResponse(NetState state, RelayInfo info) {
+			public override void OnResponse(NetState state, RelayInfo info)
+			{
 				if (info.ButtonID == 1)
 					m_Scroll.Use(m_Mobile, false);
 			}
@@ -338,7 +393,8 @@ namespace Server.Items
 			private int m_Repeat;
 			private ArrayList m_Given;
 
-			public InternalRepeatGump(RewardScroll scroll, ArrayList items) : base(25, 50) {
+			public InternalRepeatGump(RewardScroll scroll, ArrayList items) : base(25, 50)
+			{
 				m_Scroll = scroll;
 				m_Class = m_Scroll.Class;
 				m_Repeat = m_Scroll.Repeat;
@@ -362,40 +418,53 @@ namespace Server.Items
 				AddButton(275, 172, 4005, 4007, 0, GumpButtonType.Reply, 0);
 				AddHtmlLocalized(310, 172, 120, 20, 1046363, 0xFFFFFF, false, false); // No
 
-				AddHtml(40, 20, 260, 20, String.Format("<basefont color=#FFFFFF>Zwój nagrody klasy {0}</basefont>", m_Class), false, false);
+				AddHtml(40, 20, 260, 20,
+					String.Format("<basefont color=#FFFFFF>Zwój nagrody klasy {0}</basefont>", m_Class), false, false);
 			}
 
-			public override void OnResponse(NetState state, RelayInfo info) {
+			public override void OnResponse(NetState state, RelayInfo info)
+			{
 				Mobile from = state.Mobile;
 
-				if (info.ButtonID == 0) {
-					if (ConsumeAllRewards(m_Given, from)) {
+				if (info.ButtonID == 0)
+				{
+					if (ConsumeAllRewards(m_Given, from))
+					{
 						RewardScroll rs = new RewardScroll(m_Class, m_Repeat - 1);
 						from.Backpack.DropItem(rs);
 						from.PlaySound(0x1FF);
-					} else
+					}
+					else
 						from.SendLocalizedMessage(505906);
-				} else
+				}
+				else
 					from.SendLocalizedMessage(505907);
 			}
 
-			private bool ConsumeAllRewards(ArrayList Rewards, Mobile from) {
+			private bool ConsumeAllRewards(ArrayList Rewards, Mobile from)
+			{
 				ArrayList items = new ArrayList();
 				ArrayList m_rewards = new ArrayList();
 				m_rewards = Rewards;
 
-				foreach (Item item in from.Backpack.Items) {
-					foreach (Item rew in m_rewards) {
-						if (item == rew) {
+				foreach (Item item in from.Backpack.Items)
+				{
+					foreach (Item rew in m_rewards)
+					{
+						if (item == rew)
+						{
 							items.Add(item);
 						}
 					}
 				}
-				if (m_rewards.Count == items.Count) {
+
+				if (m_rewards.Count == items.Count)
+				{
 					foreach (Item item in items)
 						item.Delete();
 					return true;
-				} 
+				}
+
 				return false;
 			}
 		}
@@ -405,18 +474,22 @@ namespace Server.Items
 		{
 			int m_Class;
 
-			public InternalTarget(int sc) : base(-1, false, TargetFlags.None) {
+			public InternalTarget(int sc) : base(-1, false, TargetFlags.None)
+			{
 				m_Class = sc;
 			}
 
-			protected override void OnTarget(Mobile from, object targeted) {
-				if (targeted is PlayerMobile) {
+			protected override void OnTarget(Mobile from, object targeted)
+			{
+				if (targeted is PlayerMobile)
+				{
 					PlayerMobile pm = targeted as PlayerMobile;
 					RewardScroll rs = new RewardScroll(m_Class);
 
 					rs.ModifiedBy = (string)CommandLogging.Format(from);
 
-					if (pm != null && pm.Alive && pm.Backpack != null && pm.Backpack.TryDropItem(from, rs, false)) {
+					if (pm != null && pm.Alive && pm.Backpack != null && pm.Backpack.TryDropItem(from, rs, false))
+					{
 						from.SendLocalizedMessage(505599);
 						pm.SendLocalizedMessage(505600);
 
@@ -425,7 +498,8 @@ namespace Server.Items
 						log += " [RewardScroll]";
 						CommandLogging.WriteLine(from, log);
 						CommandLogging.WriteLine(pm as Mobile, log);
-					} else
+					}
+					else
 						from.SendLocalizedMessage(505601);
 				}
 			}
