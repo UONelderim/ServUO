@@ -3,73 +3,72 @@ using System.Collections;
 
 namespace Server.Items
 {
-    public abstract class NReward : IComparable
-    {
-        private int m_Value;
-        public int Value { get { return m_Value; } }
+	public abstract class NReward : IComparable
+	{
+		private int m_Value;
+		public int Value { get { return m_Value; } }
 
-        public NReward( int value )
-        {
-            m_Value = value;
-        }
+		public NReward(int value)
+		{
+			m_Value = value;
+		}
 
-        public int CompareTo( object o )
-        {
-            if ( o == null )
-                return 1;
+		public int CompareTo(object o)
+		{
+			if (o == null)
+				return 1;
 
-            if ( !(o is NReward) )
-                throw new ArgumentException();
+			if (!(o is NReward))
+				throw new ArgumentException();
 
-            NReward r = (NReward)o;
+			NReward r = (NReward)o;
 
-            if ( this.Value > r.Value )
-                return 1;
+			if (this.Value > r.Value)
+				return 1;
 
-            if ( this.Value < r.Value )
-                return -1;
+			if (this.Value < r.Value)
+				return -1;
 
-            return 0;
-        }
+			return 0;
+		}
 
-        public abstract Item Generate( Mobile from );
-    }
+		public abstract Item Generate(Mobile from);
+	}
 
-    public class PowerScrollReward : NReward
-    {
-        private int m_PSClass;
+	public class PowerScrollReward : NReward
+	{
+		private int m_PSClass;
 
-        public PowerScrollReward( int PSclass, int value ) : base( value )
-        {
-            m_PSClass = PSclass;
-        }
+		public PowerScrollReward(int PSclass, int value) : base(value)
+		{
+			m_PSClass = PSclass;
+		}
 
-        public override Item Generate( Mobile from )
-        {
-            PowerScroll ps = PowerScroll.CreateRandomNoCraft( m_PSClass, m_PSClass );
-            ps.LootType = LootType.Cursed;
-            from.SendLocalizedMessage( 1049524 ); // You have received a scroll of power!
-            return ps;
-        }
-    }
-    public class PowderOfTranslocationReward : NReward
-    {
+		public override Item Generate(Mobile from)
+		{
+			PowerScroll ps = PowerScroll.CreateRandomNoCraft(m_PSClass, m_PSClass);
+			ps.LootType = LootType.Cursed;
+			from.SendLocalizedMessage(1049524); // You have received a scroll of power!
+			return ps;
+		}
+	}
 
+	public class PowderOfTranslocationReward : NReward
+	{
+		public PowderOfTranslocationReward(int value) : base(value)
+		{
+		}
 
-        public PowderOfTranslocationReward( int value ) : base( value )
-        {
-
-        }
-
-        public override Item Generate( Mobile from )
-        {
-            PowderOfTranslocation ps = new PowderOfTranslocation( 5 );
+		public override Item Generate(Mobile from)
+		{
+			PowderOfTranslocation ps = new PowderOfTranslocation(5);
 
 
-            return ps;
-        }
-    }
-    public class SilverReward : NReward
+			return ps;
+		}
+	}
+
+	/*public class SilverReward : NReward
     {
 
 
@@ -77,7 +76,7 @@ namespace Server.Items
         {
 
         }
-
+    
         public override Item Generate( Mobile from )
         {
             Silver ps = new Silver( 1 );
@@ -85,108 +84,105 @@ namespace Server.Items
 
             return ps;
         }
-    }
-    public class PowderOfTemperamentReward : NReward
-    {
+    }*/
+	public class PowderOfTemperamentReward : NReward
+	{
+		public PowderOfTemperamentReward(int value) : base(value)
+		{
+		}
+
+		public override Item Generate(Mobile from)
+		{
+			PowderOfTemperament ps = new PowderOfTemperament(5);
 
 
-        public PowderOfTemperamentReward( int value ) : base( value )
-        {
+			return ps;
+		}
+	}
 
-        }
+	public class BallOfSummoningReward : NReward
+	{
+		public BallOfSummoningReward(int value) : base(value)
+		{
+		}
 
-        public override Item Generate( Mobile from )
-        {
-            PowderOfTemperament ps = new PowderOfTemperament( 5 );
-
-
-            return ps;
-        }
-    }
-    public class BallOfSummoningReward : NReward
-    {
+		public override Item Generate(Mobile from)
+		{
+			BallOfSummoning ps = new BallOfSummoning();
 
 
-        public BallOfSummoningReward( int value ) : base( value )
-        {
+			return ps;
+		}
+	}
 
-        }
+	public class DedicatedPowerScrollReward : NReward
+	{
+		private int m_PSClass;
 
-        public override Item Generate( Mobile from )
-        {
-            BallOfSummoning ps = new BallOfSummoning();
+		public DedicatedPowerScrollReward(int PSclass, int value) : base(value)
+		{
+			m_PSClass = PSclass;
+		}
 
+		public override Item Generate(Mobile from)
+		{
+			ArrayList candidates = new ArrayList();
+			PowerScroll ps = PowerScroll.CreateRandomNoCraft(m_PSClass, m_PSClass);
 
-            return ps;
-        }
-    }
-    public class DedicatedPowerScrollReward : NReward
-    {
-        private int m_PSClass;
+			for (int i = 0; i < PowerScroll.Skills.Count; i++)
+			{
+				SkillName skillName = PowerScroll.Skills[i];
+				if (skillName == SkillName.Tailoring || skillName == SkillName.Blacksmith ||
+				    skillName == SkillName.Fletching) continue;
+				Skill skill = from.Skills[skillName];
 
-        public DedicatedPowerScrollReward( int PSclass, int value ) : base( value )
-        {
-            m_PSClass = PSclass;
-        }
+				if (skill.Lock == SkillLock.Up && skill.Cap < 100 + m_PSClass)
+					candidates.Add(skill);
+			}
 
-        public override Item Generate( Mobile from )
-        {
-            ArrayList candidates = new ArrayList();
-            PowerScroll ps = PowerScroll.CreateRandomNoCraft( m_PSClass, m_PSClass );
+			if (candidates.Count > 0)
+			{
+				Skill s = candidates[Utility.Random(candidates.Count)] as Skill;
+				ps = new PowerScroll(s.SkillName, 100 + m_PSClass);
+			}
 
-            for ( int i = 0; i < PowerScroll.Skills.Count; i++ )
-            {
-                SkillName skillName = PowerScroll.Skills[i];
-                if ( skillName == SkillName.Tailoring || skillName == SkillName.Blacksmith || skillName == SkillName.Fletching ) continue;
-                Skill skill = from.Skills[skillName];
+			ps.LootType = LootType.Cursed;
+			from.SendLocalizedMessage(1049524); // You have received a scroll of power!
+			return ps;
+		}
+	}
 
-                if ( skill.Lock == SkillLock.Up && skill.Cap < 100 + m_PSClass )
-                    candidates.Add( skill );
-            }
+	public class MinorArtifactScrollReward : NReward
+	{
+		private bool m_Chosen;
 
-            if ( candidates.Count > 0 )
-            {
-                Skill s = candidates[Utility.Random( candidates.Count )] as Skill;
-                ps = new PowerScroll( s.SkillName, 100 + m_PSClass );
-            }
+		public MinorArtifactScrollReward(bool chosen, int value) : base(value)
+		{
+			m_Chosen = chosen;
+		}
 
-            ps.LootType = LootType.Cursed;
-            from.SendLocalizedMessage( 1049524 ); // You have received a scroll of power!
-            return ps;
-        }
-    }
+		public override Item Generate(Mobile from)
+		{
+			MinorArtifactRewardScroll mrs = new MinorArtifactRewardScroll(m_Chosen);
+			mrs.LootType = LootType.Cursed;
+			return mrs;
+		}
+	}
 
-    public class MinorArtifactScrollReward : NReward
-    {
-        private bool m_Chosen;
+	public class MajorArtifactScrollReward : NReward
+	{
+		private bool m_Chosen;
 
-        public MinorArtifactScrollReward( bool chosen, int value ) : base( value )
-        {
-            m_Chosen = chosen;
-        }
+		public MajorArtifactScrollReward(bool chosen, int value) : base(value)
+		{
+			m_Chosen = chosen;
+		}
 
-        public override Item Generate( Mobile from )
-        {
-            MinorArtifactRewardScroll mrs = new MinorArtifactRewardScroll( m_Chosen );
-            mrs.LootType = LootType.Cursed;
-            return mrs;
-        }
-    }
-
-    public class MajorArtifactScrollReward : NReward
-    {
-        private bool m_Chosen;
-
-        public MajorArtifactScrollReward( bool chosen, int value ) : base( value )
-        {
-            m_Chosen = chosen;
-        }
-
-        public override Item Generate( Mobile from )
-        {
-            MajorArtifactRewardScroll mrs = new MajorArtifactRewardScroll( m_Chosen );
-            mrs.LootType = LootType.Cursed;
-            return mrs;
-        }
-    }
+		public override Item Generate(Mobile from)
+		{
+			MajorArtifactRewardScroll mrs = new MajorArtifactRewardScroll(m_Chosen);
+			mrs.LootType = LootType.Cursed;
+			return mrs;
+		}
+	}
 }
