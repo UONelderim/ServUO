@@ -13,10 +13,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 			"Zaklęcie", "Spojrz w moje oczy!",
 			//SpellCircle.Fourth,
 			218,
-			9012,
-			Reagent.BlackPearl,
-			Reagent.Nightshade,
-			Reagent.SpidersSilk
+			9012
 		);
 
 		public override SpellCircle Circle
@@ -24,9 +21,9 @@ namespace Server.ACC.CSS.Systems.Rogue
 			get { return SpellCircle.Fourth; }
 		}
 
-		public override double CastDelay { get { return 0; } }
-		public override double RequiredSkill { get { return 0; } }
-		public override int RequiredMana { get { return 0; } }
+		public override double CastDelay { get { return 2; } }
+		public override double RequiredSkill { get { return 80; } }
+		public override int RequiredMana { get { return 30; } }
 
 		private Timer m_Timer;
 

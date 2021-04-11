@@ -41,7 +41,7 @@ namespace Server.ACC.CSS.Systems.Bard
 				}
 
 				int ticks = (int)(Caster.Skills[CastSkill].Value * 0.05);
-				int manaRegen = Math.Max(1, (int)(Caster.Skills[DamageSkill].Value * 0.05));
+				int manaRegen = Math.Max(1, (int)(Caster.Skills[DamageSkill].Value * 0.08));
 				TimeSpan delay = TimeSpan.FromSeconds(2);
 				TimeSpan interval = TimeSpan.FromSeconds(2);
 
