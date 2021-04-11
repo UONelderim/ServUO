@@ -1,171 +1,164 @@
 using System;
 using System.Collections;
-using Server;
 using Server.Items;
-using Server.Gumps;
 using Server.Spells;
 using Server.Targeting;
-using Server.Network;
-using Server.Regions;
-using Server.Mobiles;
-
 
 namespace Server.ACC.CSS.Systems.Rogue
 {
-    public class RogueFalseCoinSpell : RogueSpell
-    {
-        private static SpellInfo m_Info = new SpellInfo(
-                                                        "Fałszywa moneta", "*wyciaga maly woreczek monet*",
-            //SpellCircle.Fourth,
-                                                        218,
-                                                        9002,
-                                                        Reagent.Nightshade,
-                                                        Reagent.SulfurousAsh
-                                                       );
+	public class RogueFalseCoinSpell : RogueSpell
+	{
+		private static SpellInfo m_Info = new SpellInfo(
+			"Fałszywa moneta", "*wyciaga maly woreczek monet*",
+			//SpellCircle.Fourth,
+			218,
+			9002
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Fourth; }
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Fourth; }
+		}
 
-        public override double CastDelay { get { return 0; } }
-        public override double RequiredSkill { get { return 0; } }
-        public override int RequiredMana { get { return 0; } }
+		public override double CastDelay { get { return 2; } }
+		public override double RequiredSkill { get { return 50; } }
+		public override int RequiredMana { get { return 10; } }
 
-        private FalseCoin m_Fake;
+		private FalseCoin m_Fake;
 
-        public RogueFalseCoinSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-        }
+		public RogueFalseCoinSpell(Mobile caster, Item scroll)
+			: base(caster, scroll, m_Info)
+		{
+		}
 
-        public override void OnCast()
-        {
-            Caster.Target = new InternalTarget(this);
-        }
+		public override void OnCast()
+		{
+			Caster.Target = new InternalTarget(this);
+		}
 
-        public override bool CheckCast()
-        {
-            if (!base.CheckCast())
-                return false;
+		public override bool CheckCast()
+		{
+			if (!base.CheckCast())
+				return false;
 
-            return SpellHelper.CheckTravel(Caster, TravelCheckType.Mark);
-        }
+			return SpellHelper.CheckTravel(Caster, TravelCheckType.Mark);
+		}
 
-        public void Target(Gold gold)
-        {
-            if (!Caster.CanSee(gold))
-            {
-                Caster.SendLocalizedMessage(500237); // Target can not be seen.
-            }
+		public void Target(Gold gold)
+		{
+			if (!Caster.CanSee(gold))
+			{
+				Caster.SendLocalizedMessage(500237); // Target can not be seen.
+			}
 
-            else if (CheckSequence())
-            {
-                if (Caster.BeginAction(typeof(RogueFalseCoinSpell)))
-                {
-                    if (this.Scroll != null)
-                        Scroll.Consume();
-                    FalseCoin fake = new FalseCoin();
-                    fake.m_Amount = gold.Amount * 5;
-                    fake.Name = "" + (gold.Amount * 5) + " złote monety";
-                    m_Fake = fake;
-                    Caster.AddToBackpack(fake);
-                    Caster.PlaySound(0x2E6);
+			else if (CheckSequence())
+			{
+				if (Caster.BeginAction(typeof(RogueFalseCoinSpell)))
+				{
+					if (this.Scroll != null)
+						Scroll.Consume();
+					FalseCoin fake = new FalseCoin();
+					fake.m_Amount = gold.Amount;
+					fake.Name = "" + gold.Amount + " złote monety";
+					m_Fake = fake;
+					Caster.AddToBackpack(fake);
+					Caster.PlaySound(0x2E6);
 
-                    IEntity from = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z + 50), Caster.Map);
-                    IEntity to = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z), Caster.Map);
-                    Effects.SendMovingParticles(from, to, 0x1EC6, 1, 0, false, false, 33, 3, 9501, 1, 0, EffectLayer.Head, 0x100);
-                    StopTimer(Caster);
+					IEntity from = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z + 50), Caster.Map);
+					IEntity to = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z), Caster.Map);
+					Effects.SendMovingParticles(from, to, 0x1EC6, 1, 0, false, false, 33, 3, 9501, 1, 0,
+						EffectLayer.Head, 0x100);
+					StopTimer(Caster);
 
-                    Timer t = new InternalTimer(Caster, m_Fake);
+					Timer t = new InternalTimer(Caster, m_Fake);
 
-                    m_Timers[Caster] = t;
+					m_Timers[Caster] = t;
 
-                    t.Start();
-                }
+					t.Start();
+				}
+			}
 
-            }
+			FinishSequence();
+		}
 
-            FinishSequence();
-        }
+		private class InternalTarget : Target
+		{
+			private RogueFalseCoinSpell m_Owner;
 
-        private class InternalTarget : Target
-        {
-            private RogueFalseCoinSpell m_Owner;
+			public InternalTarget(RogueFalseCoinSpell owner)
+				: base(12, false, TargetFlags.None)
+			{
+				m_Owner = owner;
+			}
 
-            public InternalTarget(RogueFalseCoinSpell owner)
-                : base(12, false, TargetFlags.None)
-            {
-                m_Owner = owner;
-            }
+			protected override void OnTarget(Mobile from, object o)
+			{
+				if (o is Gold)
+				{
+					m_Owner.Target((Gold)o);
+				}
+				else
+				{
+					from.SendMessage("Tego nie skopiujesz."); // I cannot mark that object.
+				}
+			}
 
-            protected override void OnTarget(Mobile from, object o)
-            {
-                if (o is Gold)
-                {
-                    m_Owner.Target((Gold)o);
-                }
-                else
-                {
-                    from.SendMessage("Tego nie skopiujesz."); // I cannot mark that object.
-                }
-            }
+			protected override void OnTargetFinish(Mobile from)
+			{
+				m_Owner.FinishSequence();
+			}
+		}
 
-            protected override void OnTargetFinish(Mobile from)
-            {
-                m_Owner.FinishSequence();
-            }
-        }
-        private static Hashtable m_Timers = new Hashtable();
+		private static Hashtable m_Timers = new Hashtable();
 
-        public static bool StopTimer(Mobile m)
-        {
-            Timer t = (Timer)m_Timers[m];
+		public static bool StopTimer(Mobile m)
+		{
+			Timer t = (Timer)m_Timers[m];
 
-            if (t != null)
-            {
-                t.Stop();
-                m_Timers.Remove(m);
-            }
+			if (t != null)
+			{
+				t.Stop();
+				m_Timers.Remove(m);
+			}
 
-            return (t != null);
-        }
+			return (t != null);
+		}
 
-        private class InternalTimer : Timer
-        {
-            private Mobile m_Owner;
-            private FalseCoin m_Weapon;
-
-
-            public InternalTimer(Mobile owner, FalseCoin weapon)
-                : base(TimeSpan.FromSeconds(0))
-            {
-                m_Owner = owner;
-                m_Weapon = weapon;
+		private class InternalTimer : Timer
+		{
+			private Mobile m_Owner;
+			private FalseCoin m_Weapon;
 
 
-                int val = (int)owner.Skills[SkillName.Magery].Value;
+			public InternalTimer(Mobile owner, FalseCoin weapon)
+				: base(TimeSpan.FromSeconds(0))
+			{
+				m_Owner = owner;
+				m_Weapon = weapon;
 
-                if (val > 100)
-                    val = 100;
 
-                Delay = TimeSpan.FromSeconds(val);
-                Priority = TimerPriority.TwoFiftyMS;
-            }
+				int val = (int)owner.Skills[SkillName.Magery].Value;
 
-            protected override void OnTick()
-            {
-                if (!m_Owner.CanBeginAction(typeof(RogueFalseCoinSpell)))
-                {
-                    if (m_Weapon != null)
-                    {
-                        m_Weapon.Delete();
-                        m_Owner.SendMessage("fałszywe monety rozpływają się w powietrzu!");
-                    }
-                    m_Owner.EndAction(typeof(RogueFalseCoinSpell));
+				if (val > 100)
+					val = 100;
 
-                }
-            }
-        }
-    }
+				Delay = TimeSpan.FromSeconds(val);
+				Priority = TimerPriority.TwoFiftyMS;
+			}
+
+			protected override void OnTick()
+			{
+				if (!m_Owner.CanBeginAction(typeof(RogueFalseCoinSpell)))
+				{
+					if (m_Weapon != null)
+					{
+						m_Weapon.Delete();
+						m_Owner.SendMessage("fałszywe monety rozpływają się w powietrzu!");
+					}
+
+					m_Owner.EndAction(typeof(RogueFalseCoinSpell));
+				}
+			}
+		}
+	}
 }
