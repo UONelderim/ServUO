@@ -18,6 +18,7 @@ namespace Server.Items
 			this.Song = _Song;
 			this.SongName = _SongName;
 			this.Weight = 1.0;
+			this.LootType = LootType.Blessed;
 		}
 		public BaseMusicComposedSong( Serial serial ) : base( serial ){
 			this.Weight = 1.0;
@@ -78,6 +79,8 @@ namespace Server.Items
 			int version = reader.ReadInt();
 			this.Song = reader.ReadString();
 			this.SongName = reader.ReadString();
+
+			this.LootType = LootType.Blessed;
 		}
 	}
 }
