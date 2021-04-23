@@ -69,6 +69,7 @@ namespace Server.Items
 			m_CreatureInfo.Add(typeof(Travesty), new ArtInfo(6, ArtGroup.Boss));
 			m_CreatureInfo.Add(typeof(ChiefParoxysmus), new ArtInfo(10, ArtGroup.Boss));
 			m_CreatureInfo.Add(typeof(Harrower), new ArtInfo(100, ArtGroup.Boss));
+			m_CreatureInfo.Add(typeof(AncientRuneBeetle), new ArtInfo(7, ArtGroup.Boss));
 
 			//Mini Bossy
 			m_CreatureInfo.Add(typeof(WladcaJezioraLawy), new ArtInfo(7, ArtGroup.Miniboss));
