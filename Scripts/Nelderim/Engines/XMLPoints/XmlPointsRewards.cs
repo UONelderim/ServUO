@@ -47,7 +47,7 @@ namespace Server.Engines.XmlSpawner2
             PointsRewardList.Add( new XmlPointsRewards( 1000, typeof(RewardScroll), "Zwoj nagrody klasy 7", 1000, 0x14F0, new object[] { 7 }));
             PointsRewardList.Add( new XmlPointsRewards( 3000, typeof(RewardScroll), "Zwoj nagrody klasy 6", 3000, 0x14F0, new object[] { 6 }));
             PointsRewardList.Add( new XmlPointsRewards( 8000, typeof(RewardScroll), "Zwoj nagrody klasy 5", 8000, 0x14F0, new object[] { 5 }));
-            PointsRewardList.Add( new XmlPointsRewards( 250, typeof(Silver), "Srebrne monety", 300, 0xEF0, new object[] { 500 }));
+            PointsRewardList.Add( new XmlPointsRewards( 400, typeof(Silver), "Srebrne monety", 300, 0xEF0, new object[] { 500 }));
 
 
             // this is an example of adding a mobile as a reward
