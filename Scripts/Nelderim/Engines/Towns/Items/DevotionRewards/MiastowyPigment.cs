@@ -15,6 +15,10 @@
 			Name = "Pigment barw tasandory";
 		}
 
+		public PigmentTasandora(Serial serial) : base(serial)
+		{
+		}
+
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
