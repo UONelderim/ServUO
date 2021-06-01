@@ -8,7 +8,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 	public class RogueSlyFoxSpell : RogueSpell
 	{
 		private static SpellInfo m_Info = new SpellInfo(
-			"Sly Fox", " *Twoje cialo zaczyna zmieniac ksztalt* ",
+			"Przebiegła forma", " *Twoje cialo zaczyna zmieniac ksztalt* ",
 			//SpellCircle.Fourth,
 			212,
 			9041,
