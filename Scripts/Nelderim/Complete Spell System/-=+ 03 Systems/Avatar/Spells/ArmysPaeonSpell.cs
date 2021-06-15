@@ -50,7 +50,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 				{
 					Mobile m = (Mobile)targets[i];
 
-					TimeSpan duration = TimeSpan.FromSeconds( Caster.Skills[CastSkill].Value * 0.3 );
+					TimeSpan duration = TimeSpan.FromSeconds( Caster.Skills[CastSkill].Value * 0.6 );
 					int rounds = (int)( Caster.Skills[SkillName.Anatomy].Value * .16 );
 
 					new ExpireTimer( m, 0, rounds, TimeSpan.FromSeconds( 2 ) ).Start();
