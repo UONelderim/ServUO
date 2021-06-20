@@ -582,7 +582,7 @@ namespace Server.Engines.Apiculture
 			{
 				string iName = item.ItemData.Name.ToUpper();
 				
-				if( iName.IndexOf("WATER") != -1 ) 
+				if( iName.IndexOf("WOD") != -1 ) 
 					WaterInRange++;																									 
 			}
 
