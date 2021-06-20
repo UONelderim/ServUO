@@ -56,7 +56,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 			m.EndAction(typeof(RogueSlyFoxSpell));
 
 			m.BodyMod = 0;
-			m.HueMod = 0;
+			m.HueMod = -1;
 		}
 
 		public override bool CheckCast()

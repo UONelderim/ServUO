@@ -58,7 +58,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 			m.EndAction( typeof( AvatarAngelicFaithSpell ) );
 
 			m.BodyMod = 0;
-			m.HueMod = 0;
+			m.HueMod = -1;
 		}
 
 		public override bool CheckCast()
