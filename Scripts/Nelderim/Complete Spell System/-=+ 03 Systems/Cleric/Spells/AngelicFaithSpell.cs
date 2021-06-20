@@ -58,7 +58,7 @@ namespace Server.ACC.CSS.Systems.Cleric
 			m.EndAction( typeof( ClericAngelicFaithSpell ) );
 
 			m.BodyMod = 0;
-			m.HueMod = 0;
+			m.HueMod = -1;
 		}
 
 		public override bool CheckCast()

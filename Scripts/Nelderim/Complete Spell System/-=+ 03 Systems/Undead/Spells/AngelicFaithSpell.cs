@@ -66,7 +66,7 @@ namespace Server.ACC.CSS.Systems.Undead
 			m.EndAction( typeof( UndeadAngelicFaithSpell ) );
 
 			m.BodyMod = 0;
-			m.HueMod = 0;
+			m.HueMod = -1;
 		}
 
 		public override bool CheckCast()
