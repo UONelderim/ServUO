@@ -15,13 +15,13 @@ namespace Server.Items
 		{ 
 			
 			Weight = 1.0; 
-			Attributes.RegenMana = -5;
-            Attributes.RegenHits = -8;
+			Attributes.RegenMana = -3;
+            Attributes.RegenHits = -5;
 			Hue = 1153; 
 			Name = "Przyspieszenie Wilkolaka"; 
 			LootType = LootType.Blessed;
-			Movable = false;
             SkillBonuses.SetValues(0, SkillName.Fencing, 30.0);
+			Label1 = "dotkniecie piersciena powoduje, iz Twe konczyny pracuja szybciej";
 			
 			
 			
