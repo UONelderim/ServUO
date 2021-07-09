@@ -605,7 +605,7 @@ namespace Server.Gumps
 							AddHtmlLocalized(10, 140, 240, 20, 1063789, LabelColor, false, false); // Nazwa
 							AddHtmlLocalized(200, 140, 240, 20, 1063792, LabelColor, false, false); // Oddana ilosc
 							perPage = 10;
-							Dictionary<string, int> m_cits_by_resources =
+							Dictionary<Mobile, int> m_cits_by_resources =
 								TownDatabase.GetCitizensByResource(m_Town.Town, (TownResourceType)subpageindex);
 							var items = from pair in m_cits_by_resources
 								orderby pair.Value descending
@@ -614,17 +614,17 @@ namespace Server.Gumps
 							minIndex = 0;
 							maxIndex = m_cits_by_resources.Count < perPage ? m_cits_by_resources.Count : perPage;
 							i = 0; // As enumarator
-							foreach (KeyValuePair<string, int> kvp in items)
+							foreach (KeyValuePair<Mobile, int> kvp in items)
 							{
 								if (i >= minIndex && i < maxIndex)
 								{
-									if (kvp.Key == from.Name)
+									if (kvp.Key == from)
 									{
-										AddLabel(10, 160 + i * 20, HasResourceHue, kvp.Key);
+										AddLabel(10, 160 + i * 20, HasResourceHue, kvp.Key.Name);
 									}
 									else
 									{
-										AddLabel(10, 160 + i * 20, LabelHue, kvp.Key);
+										AddLabel(10, 160 + i * 20, LabelHue, kvp.Key.Name);
 									}
 
 									AddLabel(200, 160 + i * 20, LabelHue, kvp.Value.ToString());
@@ -674,7 +674,7 @@ namespace Server.Gumps
 							AddHtmlLocalized(200, 120, 240, 20, 1063791, LabelColor, false,
 								false); // Data przystapienia
 							perPage = 10;
-							Dictionary<string, DateTime> m_cits_by_date =
+							Dictionary<Mobile, DateTime> m_cits_by_date =
 								TownDatabase.GetCitizensByJoinDate(m_Town.Town);
 							var dateItems = from pair in m_cits_by_date
 								orderby pair.Value ascending
@@ -686,17 +686,17 @@ namespace Server.Gumps
 								: (subpageindex + 1) * perPage;
 							i = 0; // As enumarator
 							j = 0; // As for aligning on Y grid
-							foreach (KeyValuePair<string, DateTime> kvp in dateItems)
+							foreach (KeyValuePair<Mobile, DateTime> kvp in dateItems)
 							{
 								if (i >= minIndex && i < maxIndex)
 								{
-									if (kvp.Key == from.Name)
+									if (kvp.Key == from)
 									{
-										AddLabel(10, 140 + j * 20, HasResourceHue, kvp.Key);
+										AddLabel(10, 140 + j * 20, HasResourceHue, kvp.Key.Name);
 									}
 									else
 									{
-										AddLabel(10, 140 + j * 20, LabelHue, kvp.Key);
+										AddLabel(10, 140 + j * 20, LabelHue, kvp.Key.Name);
 									}
 
 									AddLabel(200, 140 + j * 20, LabelHue, kvp.Value.ToString());
@@ -3150,9 +3150,9 @@ namespace Server.Gumps
 						false, false); // Czy przyjmujesz tytul kanclerza budownictwa w miescie ~1_val~?
 					break;
 				case 10: // Zabierz tytul kanclerza
-					SortedList<string, Mobile> m_cons_to_remove =
+					List<Mobile> m_cons_to_remove =
 						TownDatabase.GetCitizensByNameWithStatusAsList(town, TownStatus.Counsellor);
-					tmpMobileToRemove = m_cons_to_remove.Values[IndexOfRemove];
+					tmpMobileToRemove = m_cons_to_remove[IndexOfRemove];
 					// Send GUMP to ask if player wants it
 					AddHtmlLocalized(10, 10, 250, 250, 1063882, string.Format("{0}", tmpMobileToRemove.Name),
 						LabelColor, false, false); // Czy na pewnoe chcesz pozbawic ~1_val~ statusu kanclerza?
