@@ -1,226 +1,233 @@
-using Server.Items;
 using System;
+using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("zwloki krolowej wrozek")]
-    public class LadyMelisande : BasePeerless
-    {
-        [Constructable]
-        public LadyMelisande()
-            : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
-        {
-            Name = "Krolowa Wróżek";
-            Body = 0x102;
-            BaseSoundID = 451;
+	[CorpseName("zwloki krolowej wrozek")]
+	public class LadyMelisande : BasePeerless
+	{
+		[Constructable]
+		public LadyMelisande()
+			: base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
+		{
+			Name = "Krolowa Wróżek";
+			Body = 0x102;
+			BaseSoundID = 451;
 
-            SetStr(400, 1000);
-            SetDex(300, 400);
-            SetInt(1500, 1700);
+			SetStr(400, 1000);
+			SetDex(300, 400);
+			SetInt(1500, 1700);
 
-            SetHits(50000);
+			SetHits(30000);
 
-            SetDamage(11, 18);
+			SetDamage(11, 18);
 
-            SetDamageType(ResistanceType.Physical, 50);
-            SetDamageType(ResistanceType.Energy, 50);
+			SetDamageType(ResistanceType.Physical, 50);
+			SetDamageType(ResistanceType.Energy, 50);
 
-            SetResistance(ResistanceType.Physical, 40, 60);
-            SetResistance(ResistanceType.Fire, 40, 50);
-            SetResistance(ResistanceType.Cold, 55, 65);
-            SetResistance(ResistanceType.Poison, 70, 75);
-            SetResistance(ResistanceType.Energy, 70, 80);
+			SetResistance(ResistanceType.Physical, 40, 60);
+			SetResistance(ResistanceType.Fire, 40, 50);
+			SetResistance(ResistanceType.Cold, 55, 65);
+			SetResistance(ResistanceType.Poison, 70, 75);
+			SetResistance(ResistanceType.Energy, 70, 80);
 
-            SetSkill(SkillName.Wrestling, 100, 105);
-            SetSkill(SkillName.Tactics, 100, 105);
-            SetSkill(SkillName.MagicResist, 120);
-            SetSkill(SkillName.Magery, 120);
-            SetSkill(SkillName.EvalInt, 120);
-            SetSkill(SkillName.Meditation, 120);
-            SetSkill(SkillName.Necromancy, 120);
-            SetSkill(SkillName.SpiritSpeak, 120);
+			SetSkill(SkillName.Wrestling, 100, 105);
+			SetSkill(SkillName.Tactics, 100, 105);
+			SetSkill(SkillName.MagicResist, 120);
+			SetSkill(SkillName.Magery, 120);
+			SetSkill(SkillName.EvalInt, 120);
+			SetSkill(SkillName.Meditation, 120);
+			SetSkill(SkillName.Necromancy, 120);
+			SetSkill(SkillName.SpiritSpeak, 120);
 
-            Timer.DelayCall(TimeSpan.FromSeconds(1), SpawnSatyrs);
+			Timer.DelayCall(TimeSpan.FromSeconds(1), SpawnSatyrs);
 
-            Fame = 25000;
-            Karma = -25000;
+			Fame = 25000;
+			Karma = -25000;
 
-            SetAreaEffect(AreaEffect.AuraOfNausea);
-        }
+			SetAreaEffect(AreaEffect.AuraOfNausea);
+		}
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.SuperBoss, 8);
-            AddLoot(LootPack.Parrot, 1);
-            AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
-            AddLoot(LootPack.PeerlessResource, 8);
-            AddLoot(LootPack.Talisman, 5);
-            AddLoot(LootPack.LootItem<DiseasedBark>());
-            AddLoot(LootPack.LootItem<EternallyCorruptTree>());
-            AddLoot(LootPack.LootItem<MelisandesFermentedWine>(4, 8));
-            AddLoot(LootPack.LootItem<ParrotItem>(60.0));
-            AddLoot(LootPack.RandomLootItem(new[] { typeof(MelisandesHairDye), typeof(MelisandesCorrodedHatchet), typeof(AlbinoSquirrelImprisonedInCrystal) }, 22.25, 1));
-        }
+		public override void GenerateLoot()
+		{
+			AddLoot(LootPack.SuperBoss, 8);
+			AddLoot(LootPack.Parrot, 1);
+			AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
+			AddLoot(LootPack.PeerlessResource, 8);
+			AddLoot(LootPack.Talisman, 5);
+			AddLoot(LootPack.LootItem<DiseasedBark>());
+			AddLoot(LootPack.LootItem<EternallyCorruptTree>());
+			AddLoot(LootPack.LootItem<MelisandesFermentedWine>(4, 8));
+			AddLoot(LootPack.LootItem<ParrotItem>(60.0));
+			AddLoot(LootPack.RandomLootItem(
+				new[]
+				{
+					typeof(MelisandesHairDye), typeof(MelisandesCorrodedHatchet),
+					typeof(AlbinoSquirrelImprisonedInCrystal)
+				}, 22.25, 1));
+		}
 
-        public override void OnThink()
-        {
-            base.OnThink();
+		public override void OnThink()
+		{
+			base.OnThink();
 
-            Mobile combatant = Combatant as Mobile;
+			Mobile combatant = Combatant as Mobile;
 
-            if (combatant != null)
-            {
-                if (CanTakeLife(combatant))
-                    TakeLife(combatant);
+			if (combatant != null)
+			{
+				if (CanTakeLife(combatant))
+					TakeLife(combatant);
 
-                if (CanSmackTalk())
-                    SmackTalk();
-            }
-        }
+				if (CanSmackTalk())
+					SmackTalk();
+			}
+		}
 
-        public override void SetLocation(Point3D newLocation, bool isTeleport)
-        {
-            if (newLocation.Z > -10)
-                base.SetLocation(newLocation, isTeleport);
-        }
+		public override void SetLocation(Point3D newLocation, bool isTeleport)
+		{
+			if (newLocation.Z > -10)
+				base.SetLocation(newLocation, isTeleport);
+		}
 
-        public override void OnDamage(int amount, Mobile from, bool willKill)
-        {
-            if (willKill)
-            {
-                SpawnHelper(new Reaper(), 6490, 948, 19);
-                SpawnHelper(new InsaneDryad(), 6497, 946, 17);
-                SpawnHelper(new StoneHarpy(), 6511, 946, 28);
+		public override void OnDamage(int amount, Mobile from, bool willKill)
+		{
+			if (willKill)
+			{
+				SpawnHelper(new Reaper(), 6490, 948, 19);
+				SpawnHelper(new InsaneDryad(), 6497, 946, 17);
+				SpawnHelper(new StoneHarpy(), 6511, 946, 28);
 
-                Say(1075118); // Noooooo!  You shall never defeat me.  Even if I should fall, my tree will sustain me and I will rise again.
-            }
+				Say(1075118); // Noooooo!  You shall never defeat me.  Even if I should fall, my tree will sustain me and I will rise again.
+			}
 
-            base.OnDamage(amount, from, willKill);
-        }
+			base.OnDamage(amount, from, willKill);
+		}
 
-        public override bool GivesMLMinorArtifact => true;
+		public override bool GivesMLMinorArtifact => true;
 
-        public override Poison PoisonImmune => Poison.Lethal;
+		public override Poison PoisonImmune => Poison.Lethal;
 
-        public override int TreasureMapLevel => 5;
+		public override int TreasureMapLevel => 5;
 
-        public LadyMelisande(Serial serial)
-            : base(serial)
-        {
-        }
+		public LadyMelisande(Serial serial)
+			: base(serial)
+		{
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-            writer.Write(0); // version
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+			writer.Write(0); // version
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-            int version = reader.ReadInt();
-        }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+			int version = reader.ReadInt();
+		}
 
-        #region Smack Talk
-        private DateTime m_NextSmackTalk;
+		#region Smack Talk
 
-        public bool CanSmackTalk()
-        {
-            if (m_NextSmackTalk > DateTime.UtcNow)
-                return false;
+		private DateTime m_NextSmackTalk;
 
-            if (Combatant == null)
-                return false;
+		public bool CanSmackTalk()
+		{
+			if (m_NextSmackTalk > DateTime.UtcNow)
+				return false;
 
-            return Hits > 0.5 * HitsMax;
-        }
+			if (Combatant == null)
+				return false;
 
-        public void SmackTalk()
-        {
-            Say(Utility.RandomMinMax(1075102, 1075115)); // Muahahahaha!  I'll feast on your flesh.
+			return Hits > 0.5 * HitsMax;
+		}
 
-            m_NextSmackTalk = DateTime.UtcNow + TimeSpan.FromSeconds(2 + Utility.RandomDouble() * 3);
-        }
+		public void SmackTalk()
+		{
+			Say(Utility.RandomMinMax(1075102, 1075115)); // Muahahahaha!  I'll feast on your flesh.
 
-        #endregion
+			m_NextSmackTalk = DateTime.UtcNow + TimeSpan.FromSeconds(2 + Utility.RandomDouble() * 3);
+		}
 
-        #region Take Life
-        private DateTime m_NextTakeLife;
+		#endregion
 
-        public bool CanTakeLife(Mobile from)
-        {
-            if (m_NextTakeLife > DateTime.UtcNow)
-                return false;
+		#region Take Life
 
-            if (!CanBeHarmful(from))
-                return false;
+		private DateTime m_NextTakeLife;
 
-            if (Hits > 0.1 * HitsMax || Hits < 0.025 * HitsMax)
-                return false;
+		public bool CanTakeLife(Mobile from)
+		{
+			if (m_NextTakeLife > DateTime.UtcNow)
+				return false;
 
-            return true;
-        }
+			if (!CanBeHarmful(from))
+				return false;
 
-        public void TakeLife(Mobile from)
-        {
-            Hits += from.Hits / (from.Player ? 2 : 6);
+			if (Hits > 0.1 * HitsMax || Hits < 0.025 * HitsMax)
+				return false;
 
-            FixedParticles(0x376A, 9, 32, 5005, EffectLayer.Waist);
-            PlaySound(0x1F2);
+			return true;
+		}
 
-            Say(1075117);  // Muahahaha!  Your life essence is MINE!
-            Say(1075120); // An unholy aura surrounds Lady Melisande as her wounds begin to close.
+		public void TakeLife(Mobile from)
+		{
+			Hits += from.Hits / (from.Player ? 2 : 6);
 
-            m_NextTakeLife = DateTime.UtcNow + TimeSpan.FromSeconds(15 + Utility.RandomDouble() * 45);
-        }
+			FixedParticles(0x376A, 9, 32, 5005, EffectLayer.Waist);
+			PlaySound(0x1F2);
 
-        #endregion
+			Say(1075117); // Muahahaha!  Your life essence is MINE!
+			Say(1075120); // An unholy aura surrounds Lady Melisande as her wounds begin to close.
 
-        #region Helpers
-        public override bool CanSpawnHelpers => true;
+			m_NextTakeLife = DateTime.UtcNow + TimeSpan.FromSeconds(15 + Utility.RandomDouble() * 45);
+		}
 
-        public override int MaxHelpersWaves => 1;
+		#endregion
 
-        public override void SpawnHelpers()
-        {
-            int count = 4;
+		#region Helpers
 
-            if (Altar != null)
-            {
-                count = Math.Min(Altar.Fighters.Count, 4);
+		public override bool CanSpawnHelpers => true;
 
-                for (int i = 0; i < count; i++)
-                {
-                    Mobile fighter = Altar.Fighters[i];
+		public override int MaxHelpersWaves => 1;
 
-                    if (CanBeHarmful(fighter))
-                    {
-                        EnslavedSatyr satyr = new EnslavedSatyr
-                        {
-                            FightMode = FightMode.Closest
-                        };
-                        SpawnHelper(satyr, GetSpawnPosition(fighter.Location, fighter.Map, 2));
+		public override void SpawnHelpers()
+		{
+			int count = 4;
 
-                        satyr.Combatant = fighter;
+			if (Altar != null)
+			{
+				count = Math.Min(Altar.Fighters.Count, 4);
 
-                        fighter.SendLocalizedMessage(1075116); // A twisted satyr scrambles onto the branch beside you and attacks!
-                    }
-                }
-            }
-            else
-            {
-                for (int i = 0; i < count; i++)
-                    SpawnHelper(new EnslavedSatyr(), 4);
-            }
-        }
+				for (int i = 0; i < count; i++)
+				{
+					Mobile fighter = Altar.Fighters[i];
 
-        public void SpawnSatyrs()
-        {
-            SpawnHelper(new EnslavedSatyr(), 6485, 945, 19);
-            SpawnHelper(new EnslavedSatyr(), 6486, 948, 22);
-            SpawnHelper(new EnslavedSatyr(), 6487, 945, 17);
-            SpawnHelper(new EnslavedSatyr(), 6488, 947, 23);
-        }
-        #endregion
-    }
+					if (CanBeHarmful(fighter))
+					{
+						EnslavedSatyr satyr = new EnslavedSatyr { FightMode = FightMode.Closest };
+						SpawnHelper(satyr, GetSpawnPosition(fighter.Location, fighter.Map, 2));
+
+						satyr.Combatant = fighter;
+
+						fighter.SendLocalizedMessage(
+							1075116); // A twisted satyr scrambles onto the branch beside you and attacks!
+					}
+				}
+			}
+			else
+			{
+				for (int i = 0; i < count; i++)
+					SpawnHelper(new EnslavedSatyr(), 4);
+			}
+		}
+
+		public void SpawnSatyrs()
+		{
+			SpawnHelper(new EnslavedSatyr(), 6485, 945, 19);
+			SpawnHelper(new EnslavedSatyr(), 6486, 948, 22);
+			SpawnHelper(new EnslavedSatyr(), 6487, 945, 17);
+			SpawnHelper(new EnslavedSatyr(), 6488, 947, 23);
+		}
+
+		#endregion
+	}
 }
