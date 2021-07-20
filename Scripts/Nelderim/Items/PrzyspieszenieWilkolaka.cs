@@ -1,47 +1,81 @@
 using System;
-using Server;
-using Server.Misc;
-using Server.Items;
-using Server.Targeting;
-using Server.Commands;
+using Server.Mobiles;
+using Server.Network;
 
 namespace Server.Items 
 {
     public class PrzyspieszenieWilkolaka : SilverRing
-	{ 
+    {
+	    public static void Initialize()
+	    {
+		    EventSink.Login += new LoginEventHandler( OnLogin );
+		    EventSink.Logout += new LogoutEventHandler( OnLogout );
+	    }
+
+	    private static void OnLogin(LoginEventArgs e)
+	    {
+		    Item ring = e.Mobile.FindItemOnLayer(Layer.Ring);
+		    if (ring != null && ring is PrzyspieszenieWilkolaka)
+		    {
+			    ring.OnEquip(e.Mobile);
+		    }
+	    }
+
+	    private static void OnLogout(LogoutEventArgs e)
+	    {
+		    Item ring = e.Mobile.FindItemOnLayer(Layer.Ring);
+		    if (ring != null && ring is PrzyspieszenieWilkolaka)
+		    {
+			    ring.OnRemoved(e.Mobile);
+		    }
+	    }
+
+	    private Timer m_Timer;
 		
 		[Constructable] 
 		public PrzyspieszenieWilkolaka()  
-		{ 
-			
+		{
 			Weight = 1.0; 
-			Attributes.RegenMana = -3;
-            Attributes.RegenHits = -5;
 			Hue = 1153; 
 			Name = "Przyspieszenie Wilkolaka"; 
 			LootType = LootType.Blessed;
             SkillBonuses.SetValues(0, SkillName.Fencing, 30.0);
 			Label1 = "dotkniecie piersciena powoduje, iz Twe konczyny pracuja szybciej";
-			
-			
-			
 		}
 
-		public override void OnDoubleClick( Mobile m ) 
+		public override bool OnEquip(Mobile from)
 		{
-			string prefix = Server.Commands.CommandSystem.Prefix;
-
-			if ( m.AccessLevel >= AccessLevel.Player)
+			if (from != null && from.Map != Map.Internal)
 			{
-				CommandSystem.Handle( m, String.Format( "{0}speedboost", prefix ) );	
+				from.Send(SpeedControl.MountSpeed);
+				if(m_Timer == null || !m_Timer.Running)
+					m_Timer = new InternalTimer(from, this);
+
+				IMount mount = from.Mount;
+				if (mount != null)
+				{
+					mount.Rider = null;
+				}
+				BaseMount.SetMountPrevention(from, BlockMountType.Dazed, TimeSpan.FromDays(90));
 			}
 
-			else
+			return base.OnEquip(from);
+		}
+
+		public override void OnRemoved(object parent)
+		{
+			if (parent != null && parent is Mobile)
 			{
-				m.SendMessage( "You are unable to use that!" );
-				this.Delete();
+				Mobile m = (Mobile) parent;
+				m.Send(SpeedControl.Disable);
+				BaseMount.SetMountPrevention(m, BlockMountType.Dazed, TimeSpan.FromSeconds(10));
 			}
-		} 
+			if (m_Timer != null && m_Timer.Running)
+			{
+				m_Timer.Stop();
+			}
+			base.OnRemoved(parent);
+		}
 
 		public PrzyspieszenieWilkolaka( Serial serial ) : base( serial ) 
 		{ 
@@ -56,7 +90,33 @@ namespace Server.Items
 		public override void Deserialize( GenericReader reader ) 
 		{ 
 			base.Deserialize( reader ); 
-			int version = reader.ReadInt(); 
-		} 
+			int version = reader.ReadInt();
+		}
+
+		private class InternalTimer : Timer
+		{
+			private Mobile m_Mobile;
+			private PrzyspieszenieWilkolaka m_Ring;
+			
+			public InternalTimer(Mobile m, PrzyspieszenieWilkolaka ring) : base(TimeSpan.Zero, TimeSpan.FromSeconds(3))
+			{
+				m_Mobile = m;
+				m_Ring = ring;
+				Start();
+			}
+
+			protected override void OnTick()
+			{
+				if (m_Mobile != null && !m_Mobile.Deleted && m_Mobile.Player && m_Mobile.Map != Map.Internal && m_Ring != null && m_Ring.Parent.Equals(m_Mobile) )
+				{
+					m_Mobile.Hits--;
+					m_Mobile.Mana--;
+				}
+				else
+				{
+					Stop();
+				}
+			}
+		}
 	}
 }
