@@ -1,6 +1,7 @@
 using System;
 using Server.Mobiles;
 using Server.Network;
+using Server.Spells.Ninjitsu;
 
 namespace Server.Items 
 {
@@ -57,6 +58,8 @@ namespace Server.Items
 					mount.Rider = null;
 				}
 				BaseMount.SetMountPrevention(from, BlockMountType.Dazed, TimeSpan.FromDays(90));
+				AnimalFormContext ctx = new AnimalFormContext(new Timer(TimeSpan.Zero), null, true, typeof(PrzyspieszenieWilkolaka));
+				AnimalForm.AddContext(from, ctx);
 			}
 
 			return base.OnEquip(from);
@@ -69,6 +72,7 @@ namespace Server.Items
 				Mobile m = (Mobile) parent;
 				m.Send(SpeedControl.Disable);
 				BaseMount.SetMountPrevention(m, BlockMountType.Dazed, TimeSpan.FromSeconds(10));
+				AnimalForm.RemoveContext(m, false);
 			}
 			if (m_Timer != null && m_Timer.Running)
 			{
