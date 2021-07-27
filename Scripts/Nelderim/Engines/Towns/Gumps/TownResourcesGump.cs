@@ -544,7 +544,7 @@ namespace Server.Gumps
 							AddHtmlLocalized(10, 120, 240, 20, 1063789, LabelColor, false, false); // Nazwa
 							AddHtmlLocalized(200, 120, 240, 20, 1063790, LabelColor, false, false); // Ranga
 							perPage = 10;
-							SortedDictionary<string, string> m_cits = TownDatabase.GetCitizensByName(m_Town.Town);
+							SortedDictionary<Mobile, string> m_cits = TownDatabase.GetCitizensByName(m_Town.Town);
 							// Wyswietlenie listy nazw i rang
 							minIndex = subpageindex * perPage;
 							maxIndex = m_cits.Count < (subpageindex + 1) * perPage
@@ -556,13 +556,13 @@ namespace Server.Gumps
 							{
 								if (i >= minIndex && i < maxIndex)
 								{
-									if (kvp.Key == from.Name)
+									if (kvp.Key == from)
 									{
-										AddLabel(10, 140 + j * 20, HasResourceHue, kvp.Key);
+										AddLabel(10, 140 + j * 20, HasResourceHue, kvp.Key.Name);
 									}
 									else
 									{
-										AddLabel(10, 140 + j * 20, LabelHue, kvp.Key);
+										AddLabel(10, 140 + j * 20, LabelHue, kvp.Key.Name);
 									}
 
 									AddLabel(200, 140 + j * 20, LabelHue, kvp.Value);
@@ -928,7 +928,7 @@ namespace Server.Gumps
 							AddHtmlLocalized(200, 120, 240, 20, 1063782, LabelColor, false,
 								false); // Zabierz obywatelstwo
 							perPage = 10;
-							SortedDictionary<string, string> m_cits_to_remove =
+							SortedDictionary<Mobile, string> m_cits_to_remove =
 								TownDatabase.GetCitizensByName(m_Town.Town);
 							// Wyswietlenie listy nazw i rang
 							minIndex = subpageindex * perPage;
@@ -941,7 +941,7 @@ namespace Server.Gumps
 							{
 								if (i >= minIndex && i < maxIndex)
 								{
-									AddLabel(10, 140 + j * 20, LabelHue, kvp.Key);
+									AddLabel(10, 140 + j * 20, LabelHue, kvp.Key.Name);
 									AddButton(200, 140 + j * 20, 4002, 4004, GetButtonID(39, i), GumpButtonType.Reply,
 										0);
 									j++;
