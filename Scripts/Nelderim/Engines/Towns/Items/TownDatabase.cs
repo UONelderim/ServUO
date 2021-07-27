@@ -673,9 +673,9 @@ namespace Nelderim.Towns
 			return m_citizens;
 		}
 
-		public static SortedDictionary<string, string> GetCitizensByName(Towns town)
+		public static SortedDictionary<Mobile, string> GetCitizensByName(Towns town)
 		{
-			SortedDictionary<string, string> m_citizens = new SortedDictionary<string, string>();
+			SortedDictionary<Mobile, string> m_citizens = new SortedDictionary<Mobile, string>();
 			Mobile tmpMobile;
 			string citStatus = "";
 
@@ -710,7 +710,7 @@ namespace Nelderim.Towns
 								break;
 						}
 
-						m_citizens.Add(tmpMobile.Name, citStatus);
+						m_citizens.Add(tmpMobile, citStatus);
 					}
 				}
 			}
