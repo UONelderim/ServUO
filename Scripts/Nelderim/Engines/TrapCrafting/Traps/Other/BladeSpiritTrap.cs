@@ -27,12 +27,16 @@ namespace Server.Items
         {
             from.PlaySound(0x4A);  // click sound
 
-            Point3D loc = Location;
-            BaseCreature.Summon(new BladeSpirits(), false, Owner, new Point3D(loc), 0x212, (TimeSpan.FromSeconds(60)));
+            if (Owner != null)
+            {
+                Point3D loc = Location;
+                BaseCreature.Summon(new BladeSpirits(), false, Owner, new Point3D(loc), 0x212,
+                    (TimeSpan.FromSeconds(60)));
 
-            bool m_TrapsLimit = Trapcrafting.Config.TrapsLimit;
-            if (m_TrapsLimit && Owner != null && ((PlayerMobile)Owner).TrapsActive > 0)
-                ((PlayerMobile)Owner).TrapsActive -= 1;
+                bool m_TrapsLimit = Trapcrafting.Config.TrapsLimit;
+                if (m_TrapsLimit && Owner != null && ((PlayerMobile) Owner).TrapsActive > 0)
+                    ((PlayerMobile) Owner).TrapsActive -= 1;
+            }
 
             Delete();
         }
