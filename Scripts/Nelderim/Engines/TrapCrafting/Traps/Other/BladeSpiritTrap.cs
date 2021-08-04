@@ -27,14 +27,14 @@ namespace Server.Items
         {
             from.PlaySound(0x4A);  // click sound
 
-            Point3D loc = this.Location;
+            Point3D loc = Location;
             BaseCreature.Summon(new BladeSpirits(), false, from, new Point3D(loc), 0x212, (TimeSpan.FromSeconds(60)));
 
             bool m_TrapsLimit = Trapcrafting.Config.TrapsLimit;
-            if ((m_TrapsLimit) && (((PlayerMobile)this.Owner).TrapsActive > 0))
-                ((PlayerMobile)this.Owner).TrapsActive -= 1;
+            if (m_TrapsLimit && Owner != null && ((PlayerMobile)Owner).TrapsActive > 0)
+                ((PlayerMobile)Owner).TrapsActive -= 1;
 
-            this.Delete();
+            Delete();
         }
 
         public BladeSpiritTrap(Serial serial) : base(serial)
