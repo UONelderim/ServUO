@@ -45,7 +45,7 @@ namespace Server.Mobiles
             {
                 if (e.Speech.ToLower().IndexOf("zadan") >= 0 || e.Speech.ToLower().IndexOf("witaj") >= 0)
                 {
-                    string message1 = "ELO KURWINOXY! ZAJEBIECIE W NOSA!";
+                    string message1 = "Hrrr... Czego tu szukasz? Nie powinno Cie tu być... Lepiej zawróć... Chociaż, skoro tak bardzo chcesz zajrzeć do krainy, której nawet drowy się obiawiają... śmiało. Przepuszczę Cię... ale najpierw przynieś mi serca smoka, ognistego i lodowego smoka oraz wyrma. Potrzebuję ich do mojego wywaru... Ruszaj więc...";
                     this.Say(message1);
                 }
             }
@@ -55,6 +55,8 @@ namespace Server.Mobiles
         public int sercesmoka = 0;
         public int serceczerwonegosmoka = 1;
         public int sercewyrma = 2;
+        public int serceniebieskiegosmoka = 3;
+
 
         public override bool OnDragDrop(Mobile from, Item dropped)
         {
@@ -71,7 +73,7 @@ namespace Server.Mobiles
                     WrotaElghin portal = new WrotaElghin();
                     portal.MoveToWorld(loc, map);
 
-                    Say(true, " WBIJAC MORDY! ");
+                    Say(true, "Ooo tak! Wspaniale... Proszę oto portal, który zaprowadzi cię w szpony śmierci... hahaha, ruszaj śmiało, tylko śpiesz sie! Za chwilę go zamknę! ");
 
                     sercesmoka = 0;
                 }
@@ -89,7 +91,7 @@ namespace Server.Mobiles
                     WrotaElghin portal = new WrotaElghin();
                     portal.MoveToWorld(loc, map);
 
-                    Say(true, " WBIJAC MORDY! ");
+                    Say(true, "Ooo tak! Wspaniale... Proszę oto portal, który zaprowadzi cię w szpony śmierci... hahaha, ruszaj śmiało, tylko śpiesz sie! Za chwilę go zamknę! ");
 
                     sercewyrma = 1;
                 }
@@ -107,9 +109,27 @@ namespace Server.Mobiles
                     WrotaElghin portal = new WrotaElghin();
                     portal.MoveToWorld(loc, map);
 
-                    Say(true, " WBIJAC MORDY! ");
+                    Say(true, "Ooo tak! Wspaniale... Proszę oto portal, który zaprowadzi cię w szpony śmierci... hahaha, ruszaj śmiało, tylko śpiesz sie! Za chwilę go zamknę! ");
 
                     serceczerwonegosmoka = 2;
+                }
+            }
+
+            else if (dropped is BlueDragonsHeart)
+            {
+                dropped.Delete();
+                serceniebieskiegosmoka++;
+
+                if (serceniebieskiegosmoka > 1)
+                {
+                    Point3D loc = new Point3D(5914, 3227, 0);
+                    Map map = Map.Felucca;
+                    WrotaElghin portal = new WrotaElghin();
+                    portal.MoveToWorld(loc, map);
+
+                    Say(true, "Ooo tak! Wspaniale... Proszę oto portal, który zaprowadzi cię w szpony śmierci... hahaha, ruszaj śmiało, tylko śpiesz sie! Za chwilę go zamknę! ");
+
+                    serceniebieskiegosmoka = 3;
                 }
             }
 
