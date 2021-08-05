@@ -128,8 +128,8 @@ namespace Server.Items
                 if (this.IsChildOf(from.Backpack))
                     from.SendMessage("Pułapka musi zostać najpierw ustawiona zanim ją uzbroisz.");
 
-                else if (from.Skills.Tinkering.Value < this.ArmingSkillReq)
-                    from.SendMessage("Niestety nie masz na tyle umiejętności Majsterkowania, by uzbroić tę pułapkę");
+               // else if (from.Skills.Tinkering.Value < this.ArmingSkillReq)
+                //    from.SendMessage("Niestety nie masz na tyle umiejętności Majsterkowania, by uzbroić tę pułapkę");
 
                 else if (!from.InRange(this.GetWorldLocation(), 2))
                     from.SendMessage("Z tego miejsca nie możesz uzbroić pułapki.");
