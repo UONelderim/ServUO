@@ -19,7 +19,7 @@ namespace Server.Items
             Hue = 2892;
             Dispellable = false;
             TargetMap = Map.Malas;
-            Target = new Point3D(208, 8, 0);
+            Target = new Point3D(206, 11, -1);
         }
 
         public WrotaElghin(Serial serial)

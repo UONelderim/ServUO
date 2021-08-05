@@ -34,107 +34,143 @@ namespace Server.Mobiles
         {
         }
 
+        public override void OnSpeech( SpeechEventArgs e )
+{
+base.OnSpeech( e );
 
-        public override void OnSpeech(SpeechEventArgs e)
-        {
-            base.OnSpeech(e);
+Mobile from = e.Mobile;
 
-            Mobile from = e.Mobile;
-
-            if (from.InRange(this, 2))
-            {
-                if (e.Speech.ToLower().IndexOf("zadan") >= 0 || e.Speech.ToLower().IndexOf("witaj") >= 0)
-                {
-                    string message1 = "Hrrr... Czego tu szukasz? Nie powinno Cie tu być... Lepiej zawróć... Chociaż, skoro tak bardzo chcesz zajrzeć do krainy, której nawet drowy się obiawiają... śmiało. Przepuszczę Cię... ale najpierw przynieś mi serca smoka, ognistego i lodowego smoka oraz wyrma. Potrzebuję ich do mojego wywaru... Ruszaj więc...";
+if ( from.InRange( this, 2 ))
+{
+if (e.Speech.ToLower().IndexOf( "zadan" ) >= 0 || e.Speech.ToLower().IndexOf( "witaj" ) >= 0 ) {
+ string message1 = "Hrrr... Czego tu szukasz? Nie powinno Cie tu byc... Lepiej zawroc... Chociaz, skoro tak bardzo chcesz zajrzec do krainy, ktorej nawet drowy sie obiawiaja... smialo. Przepuszcze Cie... ale najpierw przynies mi serca smoka, starozytnego ognistego i starozytnego lodowego smoka. Potrzebuje ich do mojego wywaru... Ruszaj wiec...";
                     this.Say(message1);
-                }
-            }
-        }
+}
+}
+}
 
 
-        public int sercesmoka = 0;
-        public int serceczerwonegosmoka = 1;
-        public int sercewyrma = 2;
-        public int serceniebieskiegosmoka = 3;
 
 
-        public override bool OnDragDrop(Mobile from, Item dropped)
-        {
 
-            if (dropped is DragonsHeart)
-            {
-                dropped.Delete();
-                sercesmoka++;
 
-                if (sercesmoka > 0)
-                {
-                    Point3D loc = new Point3D(5914, 3227, 0);
-                    Map map = Map.Felucca;
-                    WrotaElghin portal = new WrotaElghin();
-                    portal.MoveToWorld(loc, map);
 
-                    Say(true, "Ooo tak! Wspaniale... Proszę oto portal, który zaprowadzi cię w szpony śmierci... hahaha, ruszaj śmiało, tylko śpiesz sie! Za chwilę go zamknę! ");
 
-                    sercesmoka = 0;
-                }
-            }
+public int serce1;
+public int serce2;
+public int serce3;
+public int serce4;
+public override bool OnDragDrop( Mobile from, Item dropped )
+		{
 
-            else if (dropped is RedDragonsHeart)
-            {
-                dropped.Delete();
-                sercewyrma++;
+			if ( dropped is DragonsHeart )
+			{
+				dropped.Delete();
+			
+	
+						
+								Say( true, " Pierwsza pieczec zostala otwarta, do otwarcia nastepnej potrzebuje Serce Lodowego Smoka! " );
 
-                if (sercewyrma > 1)
-                {
-                    Point3D loc = new Point3D(5914, 3227, 0);
-                    Map map = Map.Felucca;
-                    WrotaElghin portal = new WrotaElghin();
-                    portal.MoveToWorld(loc, map);
+			serce1=1;
+}
+	
 
-                    Say(true, "Ooo tak! Wspaniale... Proszę oto portal, który zaprowadzi cię w szpony śmierci... hahaha, ruszaj śmiało, tylko śpiesz sie! Za chwilę go zamknę! ");
 
-                    sercewyrma = 1;
-                }
-            }
 
-            else if (dropped is WyrmsHeart)
-            {
-                dropped.Delete();
-                serceczerwonegosmoka++;
 
-                if (serceczerwonegosmoka > 2)
-                {
-                    Point3D loc = new Point3D(5914, 3227, 0);
-                    Map map = Map.Felucca;
-                    WrotaElghin portal = new WrotaElghin();
-                    portal.MoveToWorld(loc, map);
+		if ( dropped is BlueDragonsHeart && serce1<1 )
+			{
+		
+			
+	
 
-                    Say(true, "Ooo tak! Wspaniale... Proszę oto portal, który zaprowadzi cię w szpony śmierci... hahaha, ruszaj śmiało, tylko śpiesz sie! Za chwilę go zamknę! ");
+						
+Say( true, "Glupcze najpierw potrzebuje serce zwyklego smoka!" );
 
-                    serceczerwonegosmoka = 2;
-                }
-            }
+			
+}
+	
 
-            else if (dropped is BlueDragonsHeart)
-            {
-                dropped.Delete();
-                serceniebieskiegosmoka++;
 
-                if (serceniebieskiegosmoka > 1)
-                {
-                    Point3D loc = new Point3D(5914, 3227, 0);
-                    Map map = Map.Felucca;
-                    WrotaElghin portal = new WrotaElghin();
-                    portal.MoveToWorld(loc, map);
 
-                    Say(true, "Ooo tak! Wspaniale... Proszę oto portal, który zaprowadzi cię w szpony śmierci... hahaha, ruszaj śmiało, tylko śpiesz sie! Za chwilę go zamknę! ");
 
-                    serceniebieskiegosmoka = 3;
-                }
+
+
+
+
+		if ( dropped is BlueDragonsHeart && serce1>0 )
+			{
+				dropped.Delete();
+					
+								Say( true, " Druga pieczec zostala otwarta, do otwarcia przedostateniej potrzebuje serce Ognistego Smoka " );
+
+			serce2=1;
+}
+
+
+
+
+
+
+
+
+	if ( dropped is RedDragonsHeart && serce1<1 )
+			{
+		
+			
+	
+
+						
+								Say( true, "Glupcze najpierw potrzebuje serce Starozytnego Lodowego Smoka!" );
+
+			
+}
+
+
+	if ( dropped is RedDragonsHeart && serce2<1 && serce1>0 )
+			{
+		
+			
+	
+
+						
+								Say( true, "Glupcze, teraz potrzebuje serce Starozytnego Lodowego Smoka!" );
+
+			
+}
+	
+
+	
+
+
+
+if ( dropped is RedDragonsHeart && serce2>0 )
+			{
+				dropped.Delete();
+
+			serce3=1;
+if ( serce1>0 && serce2>0 && serce3>0)
+{
+	Point3D loc = new Point3D(5914, 3227, 0); 
+			Map map = Map.Felucca;
+WrotaElghin portal = new WrotaElghin();
+portal.MoveToWorld( loc, map );
+
+
+
+						
+								Say( true, " Ooo tak! Wspaniale... Prosze oto portal, ktory zaprowadzi cie w szpony smierci... hahaha, ruszaj smialo, tylko spiesz sie! Za chwile go zamkne! " );
+
+serce1=0;
+serce2=0;
+serce3=0;
+
+}
             }
 
             return base.OnDragDrop(from, dropped);
         }
+        
 
         public override void Serialize(GenericWriter writer)
         {
