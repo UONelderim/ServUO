@@ -14,7 +14,7 @@ namespace Server.Mobiles
 		{
 		}
 		[Constructable]
-		public NChimera( string name ) : base( name, 276, 0x3e90, AIType.AI_BattleMage, FightMode.Aggressor, 12, 1, 0.2, 0.4 )
+		public NChimera( string name ) : base( name, 276, 0x3e90, AIType.AI_Mage, FightMode.Aggressor, 12, 1, 0.2, 0.4 )
 		{
 			BaseSoundID = 0x4FB;
 		

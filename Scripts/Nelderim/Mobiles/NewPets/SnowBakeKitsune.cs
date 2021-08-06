@@ -9,7 +9,7 @@ namespace Server.Mobiles
 	{
 
 		[Constructable]
-		public SnowBakeKitsune() : base( AIType.AI_BattleMage, FightMode.Closest, 12, 1, 0.2, 0.4 )
+		public SnowBakeKitsune() : base( AIType.AI_Mage, FightMode.Closest, 12, 1, 0.2, 0.4 )
 		{
 			Name = "śnieżne kitsune";
 			Body = 246;

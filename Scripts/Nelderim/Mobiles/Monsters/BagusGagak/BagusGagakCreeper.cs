@@ -10,7 +10,7 @@ namespace Server.Mobiles
 		public override bool IgnoreYoungProtection { get { return Core.ML; } }
 
 		[Constructable]
-		public BagusGagakCreeper() : base( AIType.AI_BattleMage, FightMode.Closest, 12, 1, 0.2, 0.4 )
+		public BagusGagakCreeper() : base( AIType.AI_Mage, FightMode.Closest, 12, 1, 0.2, 0.4 )
 		{
 			Name = "Pelzacz Bagus Gagak";
 			Body = 313;

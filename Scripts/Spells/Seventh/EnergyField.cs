@@ -99,7 +99,7 @@ namespace Server.Spells.Seventh
         }
 
         [DispellableField]
-        private class InternalItem : Item
+        public class InternalItem : Item
         {
             private readonly Timer m_Timer;
             private readonly Mobile m_Caster;

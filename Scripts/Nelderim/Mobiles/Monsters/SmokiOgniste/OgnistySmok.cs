@@ -8,7 +8,7 @@ namespace Server.Mobiles
 	public class OgnistySmok : BaseCreature
 	{
 		[Constructable]
-		public OgnistySmok () : base( AIType.AI_BattleMage, FightMode.Weakest, 12, 1, 0.2, 0.4 )
+		public OgnistySmok () : base( AIType.AI_Mage, FightMode.Weakest, 12, 1, 0.2, 0.4 )
 		{
 			Name = "ognisty smok";
 

@@ -10,7 +10,7 @@
 @ECHO: Compile %EXENAME% for Windows
 @ECHO:
 
-@PAUSE
+REM @PAUSE
 
 dotnet build -c Release
 
@@ -26,5 +26,5 @@ dotnet build -c Release
 
 @ECHO OFF
 
-"%CURPATH%%EXENAME%.exe"
+REM "%CURPATH%%EXENAME%.exe"
 

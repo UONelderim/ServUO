@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public override double SwitchTargetChance { get { return 0.2; } }	
 		
 		[Constructable] 
-		public HungaNekahiMage() : base( AIType.AI_BattleMage, FightMode.Weakest, 12, 6, 0.2, 0.4 ) 
+		public HungaNekahiMage() : base( AIType.AI_Mage, FightMode.Weakest, 12, 6, 0.2, 0.4 ) 
 		{ 
 
 			Title = "- Nekahi Mag";

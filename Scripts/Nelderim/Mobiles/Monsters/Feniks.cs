@@ -13,7 +13,7 @@ namespace Server.Mobiles
 		private Timer m_aoeTimer;
 
 		[Constructable]
-		public Feniks() : base(AIType.AI_BattleMage, FightMode.Closest, 12, 1, 0.4, 0.45)
+		public Feniks() : base(AIType.AI_Mage, FightMode.Closest, 12, 1, 0.4, 0.45)
 		{
 			Name = "feniks";
 			Body = 0x5;

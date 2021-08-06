@@ -10,7 +10,7 @@ namespace Server.Mobiles
 		public override bool IgnoreYoungProtection { get { return Core.ML; } }
 
 		[Constructable]
-		public VitVarg() : base( AIType.AI_BattleMage, FightMode.Closest, 14, 1, 0.2, 0.4 )
+		public VitVarg() : base( AIType.AI_Mage, FightMode.Closest, 14, 1, 0.2, 0.4 )
 		{
 			Name = "Bialy Wilk";
 			Body = 311;

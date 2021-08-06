@@ -2,11 +2,85 @@ using Server.Items;
 using Server.Spells;
 using System;
 using System.Collections.Generic;
+using Server.Nelderim;
 
 namespace Server.Mobiles
 {
 	public partial class BaseCreature
 	{
+		public virtual void AnnounceRandomRumor( PriorityLevel level )
+        {
+            try
+            {
+                List<RumorRecord> RumorsList = RumorsSystem.GetRumors( this, level );
+
+                if ( RumorsList == null || RumorsList.Count == 0 )
+                    return;
+                
+                int sum = 0;
+
+                foreach ( RumorRecord r in RumorsList )
+                    sum += (int)r.Priority;
+
+                int index = Utility.Random( sum );
+                double chance = ( (double)sum ) / ( 4.0 * ( (int)level ) );
+                
+                sum = 0;
+                RumorRecord rumor = null;
+
+                foreach ( RumorRecord r in RumorsList )
+                {
+                    sum += (int)r.Priority;
+
+                    if ( sum > index )
+                    {
+                        rumor = r;
+                        break;
+                    }
+                }
+
+                if ( Utility.RandomDouble() < chance )
+                    Say( rumor.Coppice );
+            }
+            catch ( Exception exc )
+            {
+                Console.WriteLine( exc.ToString() );
+            }
+
+        }
+
+        public virtual double GetRumorsActionPropability()
+        {
+	        try
+            {
+                List<RumorRecord> RumorsList = RumorsSystem.GetRumors( this, PriorityLevel.Low );
+
+                if ( RumorsList == null || RumorsList.Count == 0 )
+                    return 0;
+
+                int sum = 0;
+
+                foreach ( RumorRecord r in RumorsList )
+                    sum += (int)r.Priority;
+
+                double chance = sum / 320.0;
+
+                return Math.Max(1.0, chance);
+
+            }
+            catch ( Exception exc )
+            {
+                Console.WriteLine( exc.ToString() );
+            }
+
+            return 0.00;
+        }
+		
+		public bool Activation( Mobile target )
+		{
+			return ( Utility.RandomDouble() < Math.Pow( this.GetDistanceToSqrt( target ), -2 ) );
+		}
+		
 		[CommandProperty(AccessLevel.Counselor)]
 		public virtual double AttackMasterChance => 0.05;
 
@@ -40,29 +114,30 @@ namespace Server.Mobiles
 			}
 		}
 
-		public double MagicDPS
+		public double MagicDPS //TODO
 		{
 			get
 			{
 				double spellDamage = 0;
 				double castDelay = 0;
 
-				if (AIObject is SpellCasterAI)
-				{
-					SpellCasterAI ai = (SpellCasterAI)AIObject;
-					int maxCircle = ai.GetMaxCircle();
-					Spell s = ai.GetRandomDamageSpell();
-
-					if (s == null)
-						return 0;
-
-					int[] circleDmg = new int[] {1, 8, 11, 11, 20, 30, 38};
-					spellDamage = (double)s.GetNewAosDamage(circleDmg[maxCircle - 1], 1, 5, false, null);
-					castDelay = 0.25 + (maxCircle * 0.25);
-					return spellDamage / castDelay;
-				}
-				else
-					return 0;
+				// if (AIObject is SpellCasterAI)
+				// {
+				// 	SpellCasterAI ai = (SpellCasterAI)AIObject;
+				// 	int maxCircle = ai.GetMaxCircle();
+				// 	Spell s = ai.GetRandomDamageSpell();
+				//
+				// 	if (s == null)
+				// 		return 0;
+				//
+				// 	int[] circleDmg = new int[] {1, 8, 11, 11, 20, 30, 38};
+				// 	spellDamage = (double)s.GetNewAosDamage(circleDmg[maxCircle - 1], 1, 5, false, null);
+				// 	castDelay = 0.25 + (maxCircle * 0.25);
+				// 	return spellDamage / castDelay;
+				// }
+				// else
+				// 	return 0;
+				return 0;
 			}
 		}
 

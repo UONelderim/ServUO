@@ -9,10 +9,14 @@ namespace Server.Mobiles
         public override bool DoActionWander()
         {
             m_Mobile.DebugSay("I have no combatant");
+            
+            OnGuardActionWarden();
 
             if (AcquireFocusMob(m_Mobile.RangePerception, m_Mobile.FightMode, false))
             {
                 m_Mobile.DebugSay("I have detected {0}, attacking", m_Mobile.FocusMob.Name);
+                
+                OnGuardActionAttack( m_Mobile.FocusMob );
 
                 m_Mobile.Combatant = m_Mobile.FocusMob;
                 Action = ActionType.Combat;
@@ -55,8 +59,7 @@ namespace Server.Mobiles
 
                 if (c == null)
                 {
-                    m_Mobile.DebugSay("My combatant has fled, so I am on guard");
-                    Action = ActionType.Guard;
+	                OnCombatantFled( c );
 
                     return true;
                 }

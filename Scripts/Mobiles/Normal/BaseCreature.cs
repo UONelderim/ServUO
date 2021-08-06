@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Nelderim;
+using Nelderim.Races;
 
 #endregion
 
@@ -1358,6 +1359,25 @@ namespace Server.Mobiles
             if (t.m_iTeam != c.m_iTeam)
             {
                 return true;
+            }
+            
+            // If you're a spider, drows are not enemies
+            if (SlayerGroup.GetEntryByName(SlayerName.SpidersDeath).Slays(this) &&
+                (m.Race is Drow ||
+                 m is BaseCreature bc &&
+                 bc.Controlled &&
+                 bc.ControlMaster?.Race is Drow) &&
+                !this.IsChampionSpawn &&
+                !(this is NSzeol) &&
+                !(this is Mephitis)
+            )
+            {
+	            // Except when drow attacked you
+	            foreach (AggressorInfo aggr in m.Aggressed)
+		            if (aggr.Defender.Equals(this))
+			            return true;
+	            
+	            return false;
             }
 
             // If I'm summoned/controlled and they aren't summoned/controlled, they are my enemy
@@ -3120,6 +3140,9 @@ namespace Server.Mobiles
                 case AIType.AI_Necro:
                     m_AI = new NecroAI(this);
                     break;
+                case AIType.AI_Animal:
+	                m_AI = new AnimalAI(this);
+	                break;
             }
         }
 
@@ -4961,6 +4984,10 @@ namespace Server.Mobiles
 
             m_dActiveSpeed = activeSpeed;
             m_dPassiveSpeed = passiveSpeed;
+            if (Math.Abs(m_dCurrentSpeed - m_dActiveSpeed) < 0.01)
+	            m_dCurrentSpeed = activeSpeed;
+            else
+	            m_dCurrentSpeed = passiveSpeed;
         }
         #endregion
 
@@ -6078,7 +6105,7 @@ namespace Server.Mobiles
 
         public long NextReacquireTime { get { return m_NextReacquireTime; } set { m_NextReacquireTime = value; } }
 
-        public virtual TimeSpan ReacquireDelay => TimeSpan.FromSeconds(10.0);
+        public virtual TimeSpan ReacquireDelay => TimeSpan.Zero;
         public virtual bool ReacquireOnMovement => false;
 
         public virtual bool AcquireOnApproach => m_Paragon || ApproachWait;
