@@ -29,7 +29,7 @@ namespace Server.Commands.Generic
 
             if (command == null)
                 e.Mobile.SendMessage("That is either an invalid command name or one that does not support this modifier.");
-            else if (e.Mobile.AccessLevel < command.AccessLevel)
+            else if (e.Mobile.TrueAccessLevel < command.AccessLevel)
                 e.Mobile.SendMessage("You do not have access to that command.");
             else if (command.ValidateArgs(this, e))
                 Process(e.Mobile, command, e.Arguments);

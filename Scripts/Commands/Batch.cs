@@ -90,7 +90,7 @@ namespace Server.Commands
                         e.Mobile.SendMessage("That is either an invalid command name or one that does not support this modifier: {0}.", commandString);
                         return;
                     }
-                    else if (e.Mobile.AccessLevel < command.AccessLevel)
+                    else if (e.Mobile.TrueAccessLevel < command.AccessLevel)
                     {
                         e.Mobile.SendMessage("You do not have access to that command: {0}.", commandString);
                         return;

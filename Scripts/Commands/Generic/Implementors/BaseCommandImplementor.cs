@@ -334,7 +334,7 @@ namespace Server.Commands.Generic
                 {
                     e.Mobile.SendMessage("That is either an invalid command name or one that does not support this modifier.");
                 }
-                else if (e.Mobile.AccessLevel < command.AccessLevel)
+                else if (e.Mobile.TrueAccessLevel < command.AccessLevel)
                 {
                     e.Mobile.SendMessage("You do not have access to that command.");
                 }
