@@ -5,7 +5,7 @@ namespace Server.Mobiles
     {
         [Constructable]
         public GiantToad()
-            : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
+            : base(AIType.AI_Animal, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Name = "ogromna ropucha";
             Body = 80;

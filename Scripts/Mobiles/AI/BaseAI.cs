@@ -23,13 +23,13 @@ namespace Server.Mobiles
         AI_Healer,
         AI_Vendor,
         AI_Mage,
-        AI_BattleMage, // !NELDERIM!
         AI_Boss, // !NELDERIM!
         AI_Mounted, //!NELDERIM!
+        AI_UNUSED2,
         AI_NecroMage,
         AI_OrcScout,
         AI_Spellbinder,
-        AI_UNUSED5,
+        AI_UNUSED1,
         AI_Samurai,
         AI_Ninja,
         AI_Spellweaving,
@@ -48,7 +48,7 @@ namespace Server.Mobiles
         Interact
     }
 
-    public abstract class BaseAI
+    public abstract partial class BaseAI
     {
         public Timer m_Timer;
         protected ActionType m_Action;
@@ -93,6 +93,13 @@ namespace Server.Mobiles
             {
                 m_Timer.Start();
             }
+            
+            // NELDERIM!
+            m_NextTargetChange = DateTime.Now;
+            m_NextRangeChange = DateTime.Now;
+            m_NextIntoleranceCheck = DateTime.Now;
+            m_DefaultRange = m.RangeFight;
+            // NELDERIM!
 
             Action = ActionType.Wander;
         }
@@ -530,9 +537,15 @@ namespace Server.Mobiles
                 }
             }
 
-            if (m_Mobile.Controlled && m_Mobile.Commandable)
+			if(m_Mobile.Controlled && m_Mobile.Commandable)
             {
-                m_Mobile.DebugSay("Listening...");
+	            if (Config.Get("Nelderim.CustomAICommands", false))
+	            {
+		            NelderimOnSpeech(e);
+		            return;
+	            }
+
+	            m_Mobile.DebugSay("Listening...");
 
                 bool isOwner = (e.Mobile == m_Mobile.ControlMaster);
                 bool isFriend = (!isOwner && m_Mobile.IsPetFriend(e.Mobile));
@@ -874,6 +887,7 @@ namespace Server.Mobiles
 
                 case ActionType.Combat:
                     m_Mobile.OnActionCombat();
+                    TryTargetChange(); // NELDERIM!
                     return DoActionCombat();
 
                 case ActionType.Guard:
@@ -1784,6 +1798,12 @@ namespace Server.Mobiles
 
         public virtual bool DoOrderRelease()
         {
+	        // NELDERIM!
+	        Console.WriteLine(
+		        "ROZKAZ WYPUSZCZENIA PETA (DoOrderRelease): OwnerSerial({0}) OwnerName({1}) Serial({2}) Name({3}) ",
+		        m_Mobile.ControlMaster != null ? m_Mobile.ControlMaster.Serial.ToString() : "-",
+		        m_Mobile.ControlMaster != null ? m_Mobile.ControlMaster.Name : "-", m_Mobile.Serial, m_Mobile.Name);
+	        
             m_Mobile.DebugSay("I have been released");
 
             m_Mobile.PlaySound(m_Mobile.GetAngerSound());
@@ -1817,7 +1837,7 @@ namespace Server.Mobiles
             {
                 Timer.DelayCall(TimeSpan.FromSeconds(1), m_Mobile.Delete);
             }
-            else
+            else if (!(m_Mobile is Sheep)) // NELDERIM! ?Do wyjebania?
             {
                 m_Mobile.BeginDeleteTimer();
             }
@@ -2781,6 +2801,11 @@ namespace Server.Mobiles
                 m_Mobile.FocusMob = m_Mobile.ControlTarget;
                 return (m_Mobile.FocusMob != null);
             }
+            
+            // NELDERIM
+            if (m_Mobile.Meditating && (m_Mobile.Combatant != null && m_Mobile.Combatant is Mobile c && c.Paralyzed))
+	            return false;
+            //
 
             if (m_Mobile.ConstantFocus != null)
             {
@@ -2844,7 +2869,7 @@ namespace Server.Mobiles
                     }
 
                     // Staff members cannot be targeted.
-                    if (m.IsStaff())
+                    if (m.AccessLevel > AccessLevel.Player)
                     {
                         continue;
                     }
@@ -2896,6 +2921,17 @@ namespace Server.Mobiles
                     if (!IsHostile(m, acqType) && !m_Mobile.IsEnemy(m))
                     {
                         continue;
+                    }
+
+					// If you're not a guard and aren't already in combat with target
+                    if (!(m_Mobile is BaseNelderimGuard) && m is PlayerMobile pm && !(m_Mobile.Combatant == m))
+                    {
+	                    // Ignore players under honor until they attacked anything
+	                    if (pm.HonorActive && !(m_Mobile.IgnoreHonor && (m.Aggressed.Count != 0 || m.Aggressors.Count != 0)))
+		                    continue;
+	                    // Ignore mobile under Mask of Death effect
+	                    if (m.MaskOfDeathEffect)
+		                    continue;
                     }
 
                     theirVal = m_Mobile.GetFightModeRanking(m, acqType, bPlayerOnly);

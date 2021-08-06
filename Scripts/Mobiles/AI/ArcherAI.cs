@@ -10,9 +10,13 @@ namespace Server.Mobiles
         {
             m_Mobile.DebugSay("I have no combatant");
 
+            OnGuardActionWarden();
+
             if (AcquireFocusMob(m_Mobile.RangePerception, m_Mobile.FightMode, false))
             {
                 m_Mobile.DebugSay("I have detected {0} and I will attack", m_Mobile.FocusMob.Name);
+
+                OnGuardActionAttack( m_Mobile.FocusMob );
 
                 m_Mobile.Combatant = m_Mobile.FocusMob;
                 Action = ActionType.Combat;
@@ -51,7 +55,7 @@ namespace Server.Mobiles
                     {
                         m_Mobile.DebugSay("I have lost {0}", c.Name);
 
-                        Action = ActionType.Guard;
+                        OnCombatantFled( m_Mobile.Combatant );
                         return true;
                     }
                 }

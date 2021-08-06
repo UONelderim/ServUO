@@ -178,5 +178,15 @@ namespace Server.Mobiles
 				catch { }
 			}
 		}
+		
+		// Nietolerancja
+		private bool m_IntolerateAction;
+
+		[CommandProperty( AccessLevel.GameMaster )]
+		public bool Noticed
+		{
+			set { m_IntolerateAction = value; }
+			get { return m_IntolerateAction; }
+		}
 	}
 }

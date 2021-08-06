@@ -22,7 +22,7 @@ namespace Server.Mobiles
 		public override int Meat{ get{ return 1; } }
 
 		[Constructable]
-		public GreaterDaemon () : base( AIType.AI_BattleMage, FightMode.Closest, 11, 1, 0.2, 0.4 )
+		public GreaterDaemon () : base( AIType.AI_Mage, FightMode.Closest, 11, 1, 0.2, 0.4 )
 		{
 			Name = "wielki bezimienny demon";
 			Body = 9;

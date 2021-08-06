@@ -11,7 +11,7 @@ namespace Server.Mobiles
 		public override double SwitchTargetChance { get { return 0.15; } }
 
 		[Constructable]
-		public StaryLodowySmok () : base( AIType.AI_BattleMage, FightMode.Weakest, 12, 1, 0.2, 0.4 )
+		public StaryLodowySmok () : base( AIType.AI_Mage, FightMode.Weakest, 12, 1, 0.2, 0.4 )
 		{
 			Name = "stary lodowy smok";
 

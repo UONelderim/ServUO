@@ -7,7 +7,7 @@ namespace Server.Mobiles
 	public class xCommonArcaneDaemon : BaseCreature
 	{
 		[Constructable]
-		public xCommonArcaneDaemon() : base( AIType.AI_BattleMage, FightMode.Closest, 12, 1, 0.2, 0.4 )
+		public xCommonArcaneDaemon() : base( AIType.AI_Mage, FightMode.Closest, 12, 1, 0.2, 0.4 )
 		{
 			Name = "dziwny demon cienia";
 			Body = 0x310;

@@ -7,7 +7,7 @@ namespace Server
 {
     public static class SpeedInfo
     {
-        public static readonly double MinDelay = 0.1;
+	    public static readonly double MinDelay = 0.1;
         public static readonly double MaxDelay = 0.5;
         public static readonly double MinDelayWild = 0.4;
         public static readonly double MaxDelayWild = 0.8;
@@ -32,6 +32,8 @@ namespace Server
             {
                 activeSpeed = min;
             }
+
+            // activeSpeed *= 1.65; //!NELDERIM
 
             passiveSpeed = activeSpeed * 2;
 

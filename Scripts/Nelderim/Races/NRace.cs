@@ -113,7 +113,7 @@ namespace Nelderim.Races
 
         public override bool ValidateEquipment( Item item )
         {
-            throw new NotImplementedException();
+	        return true;
         }
 
         public override int ClipSkinHue( int hue )

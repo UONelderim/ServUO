@@ -8,7 +8,7 @@ namespace Server.Mobiles
 	{
 
 		[Constructable]
-		public WladcaJezioraLawy() : base( AIType.AI_BattleMage, FightMode.Strongest, 11, 1, 0.2, 0.4 )
+		public WladcaJezioraLawy() : base( AIType.AI_Mage, FightMode.Strongest, 11, 1, 0.2, 0.4 )
 		{
 			Name = "Wladca Jeziora Lawy";
 			Body = 0x311;

@@ -97,6 +97,8 @@ namespace Server.Mobiles
 
         public override bool DoActionWander()
         {
+	        OnGuardActionWarden();
+	        
             if (SmartAI && m_Mobile.Skills[SkillName.Meditation].Base > 0 && m_Mobile.Mana < m_Mobile.ManaMax &&
                 !m_Mobile.Meditating)
             {
@@ -109,6 +111,8 @@ namespace Server.Mobiles
             if (AcquireFocusMob(m_Mobile.RangePerception, m_Mobile.FightMode, false))
             {
                 m_Mobile.DebugSay("I am going to attack {0}", m_Mobile.FocusMob.Name);
+                
+                OnGuardActionAttack( m_Mobile.FocusMob );
 
                 m_Mobile.Combatant = m_Mobile.FocusMob;
                 Action = ActionType.Combat;
@@ -191,8 +195,7 @@ namespace Server.Mobiles
 
                 if (c == null)
                 {
-                    m_Mobile.DebugSay("My combatant has fled, so I am on guard");
-                    Action = ActionType.Guard;
+	                OnCombatantFled( c );
 
                     return true;
                 }

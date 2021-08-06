@@ -14,7 +14,7 @@ namespace Server.Mobiles
 		}
 
 		[Constructable]
-		public BagiennyKoszmar( string name ) : base( name, 0x74, 0x3EA7, AIType.AI_BattleMage, FightMode.Closest, 12, 1, 0.2, 0.4 )
+		public BagiennyKoszmar( string name ) : base( name, 0x74, 0x3EA7, AIType.AI_Mage, FightMode.Closest, 12, 1, 0.2, 0.4 )
 		{
 			BaseSoundID = 0xA8;
 

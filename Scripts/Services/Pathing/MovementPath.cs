@@ -40,7 +40,8 @@ namespace Server
 
                 if (alg == null)
                 {
-                    alg = FastAStarAlgorithm.Instance;
+                    // alg = FastAStarAlgorithm.Instance;
+                    alg = NelderimAStarAlgorithm.Instance;
                     //if ( !alg.CheckCondition( m, map, start, goal ) )	// SlowAstar is still broken
                     //	alg = SlowAStarAlgorithm.Instance;		// TODO: Fix SlowAstar
                 }
@@ -91,8 +92,9 @@ namespace Server
 
             Spells.SpellHelper.GetSurfaceTop(ref p);
 
-            Path(from, p, FastAStarAlgorithm.Instance, "Fast", 0);
-            Path(from, p, SlowAStarAlgorithm.Instance, "Slow", 2);
+            // Path(from, p, FastAStarAlgorithm.Instance, "Fast", 0);
+            // Path(from, p, SlowAStarAlgorithm.Instance, "Slow", 2);
+            Path(from, p, NelderimAStarAlgorithm.Instance, "Nelderim", 2);
             m_OverrideAlgorithm = null;
             /*MovementPath path = new MovementPath( from, new Point3D( p ) );
             if ( !path.Success )

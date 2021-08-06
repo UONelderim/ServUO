@@ -8,7 +8,7 @@ namespace Server.Mobiles
         public override double DispelFocus => 45.0;
 
         [Constructable]
-        public StormElemental() : base( AIType.AI_BattleMage, FightMode.Closest, 12, 1, 0.2, 0.4 )
+        public StormElemental() : base( AIType.AI_Mage, FightMode.Closest, 12, 1, 0.2, 0.4 )
         {
             Name = "zywiolak burzy";
             Body = 13;

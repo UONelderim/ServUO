@@ -11,7 +11,7 @@ namespace Server.Mobiles
 		public override double SwitchTargetChance { get { return 0.15; } }
 
 		[Constructable]
-		public NelderimDragon() : base(AIType.AI_BattleMage, FightMode.Closest, 11, 1, 0.2, 0.4)
+		public NelderimDragon() : base(AIType.AI_Mage, FightMode.Closest, 11, 1, 0.2, 0.4)
 		{
 			Name = NameList.RandomName("dragon");
 

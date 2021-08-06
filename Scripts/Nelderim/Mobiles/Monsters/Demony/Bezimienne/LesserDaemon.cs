@@ -8,7 +8,7 @@ namespace Server.Mobiles
 	public class LesserDaemon : BaseCreature
 	{
 		[Constructable]
-		public LesserDaemon() : base( AIType.AI_BattleMage, FightMode.Closest, 12, 1, 0.2, 0.4 )
+		public LesserDaemon() : base( AIType.AI_Mage, FightMode.Closest, 12, 1, 0.2, 0.4 )
 		{
 			Name = "pomniejszy bezimienny demon";
 			Body = 39;

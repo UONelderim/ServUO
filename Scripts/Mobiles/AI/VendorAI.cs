@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    public class VendorAI : BaseAI
+    public partial class VendorAI : BaseAI
     {
         public VendorAI(BaseCreature m)
             : base(m)
@@ -33,6 +33,8 @@ namespace Server.Mobiles
                 {
                     m_Mobile.Warmode = false;
 
+                    NelderimRumors();
+                    
                     base.DoActionWander();
                 }
             }
