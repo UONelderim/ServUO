@@ -164,7 +164,7 @@ namespace Server.ACC.CSS.Systems.Undead
                 m_Owner = owner;
                 m_OldBody = body;
 
-                int val = (int)owner.Skills[SkillName.Magery].Value;
+                int val = (int)owner.Skills[SkillName.Necromancy].Value;
 
                 if (val > 100)
                     val = 50;
