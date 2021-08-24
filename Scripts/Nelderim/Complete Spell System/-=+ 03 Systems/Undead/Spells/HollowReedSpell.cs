@@ -1,55 +1,56 @@
-using System;
-using Server.Targeting;
-using Server.Network;
 using Server.Spells;
+using Server.Targeting;
 
 namespace Server.ACC.CSS.Systems.Undead
 {
 	public class UndeadHollowReedSpell : UndeadSpell
 	{
 		private static SpellInfo m_Info = new SpellInfo(
-		                                                "Hedonizm", "En Nargh Aeta Sec En Ess ",
-                                                        //SpellCircle.Second,
-		                                                203,
-		                                                9061,
-		                                                false,
-		                                                Reagent.Bloodmoss,
-		                                                Reagent.MandrakeRoot,
-		                                                Reagent.Nightshade
-		                                               );
+			"Hedonizm", "En Nargh Aeta Sec En Ess ",
+			//SpellCircle.Second,
+			203,
+			9061,
+			false,
+			Reagent.Bloodmoss,
+			Reagent.MandrakeRoot,
+			Reagent.Nightshade
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Second; }
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Second; }
+		}
 
-		public override double CastDelay{ get{ return 1.0; } }
-		public override double RequiredSkill{ get{ return 30.0; } }
-		public override int RequiredMana{ get{ return 30; } }
+		public override double CastDelay { get { return 1.0; } }
+		public override double RequiredSkill { get { return 30.0; } }
+		public override int RequiredMana { get { return 30; } }
 
-		public UndeadHollowReedSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
+		public UndeadHollowReedSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
 		}
 
 		public override void OnCast()
 		{
-			Caster.Target = new InternalTarget( this );
+			Caster.Target = new InternalTarget(this);
 		}
 
-		public void Target( Mobile m )
+		public void Target(Mobile m)
 		{
-			if ( !Caster.CanSee( m ) )
+			if (!Caster.CanSee(m))
 			{
-				Caster.SendLocalizedMessage( 500237 ); // Target can not be seen.
+				Caster.SendLocalizedMessage(500237); // Target can not be seen.
 			}
-			else if ( CheckBSequence( m ) )
+			else if (CheckBSequence(m))
 			{
-				SpellHelper.Turn( Caster, m );
-				SpellHelper.AddStatBonus( Caster, m, true, StatType.Str );
-				SpellHelper.AddStatBonus( Caster, m, false, StatType.Dex );
+				SpellHelper.Turn(Caster, m);
+				SpellHelper.AddStatBonus(Caster, m, StatType.Str);
+				SpellHelper.DisableSkillCheck = true;
+				SpellHelper.AddStatBonus(Caster, m, StatType.Dex);
+				SpellHelper.AddStatBonus(Caster, m, StatType.Int);
+				SpellHelper.DisableSkillCheck = false;
 
-				m.PlaySound( 0x56D );
-				m.FixedParticles( 0x373A, 10, 15, 5018, EffectLayer.Waist );
+				m.PlaySound(0x56D);
+				m.FixedParticles(0x373A, 10, 15, 5018, EffectLayer.Waist);
 			}
 
 			FinishSequence();
@@ -59,20 +60,20 @@ namespace Server.ACC.CSS.Systems.Undead
 		{
 			private UndeadHollowReedSpell m_Owner;
 
-			public InternalTarget( UndeadHollowReedSpell owner ) : base( 12, false, TargetFlags.Beneficial )
+			public InternalTarget(UndeadHollowReedSpell owner) : base(12, false, TargetFlags.Beneficial)
 			{
 				m_Owner = owner;
 			}
 
-			protected override void OnTarget( Mobile from, object o )
+			protected override void OnTarget(Mobile from, object o)
 			{
-				if ( o is Mobile )
+				if (o is Mobile)
 				{
-					m_Owner.Target( (Mobile)o );
+					m_Owner.Target((Mobile)o);
 				}
 			}
 
-			protected override void OnTargetFinish( Mobile from )
+			protected override void OnTargetFinish(Mobile from)
 			{
 				m_Owner.FinishSequence();
 			}
