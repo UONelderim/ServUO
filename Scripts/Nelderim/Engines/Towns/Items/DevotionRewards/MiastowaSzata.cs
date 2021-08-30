@@ -143,7 +143,7 @@ namespace Server.Items
         public MiastowaSzataWioskaDrowow()
             : base(1908)
         {
-            Name = "Szata wioski Drowow";
+            Name = "Szata Podmroku";
         }
 
         public MiastowaSzataWioskaDrowow(Serial serial)
@@ -361,7 +361,7 @@ namespace Server.Items
         public MiastowaSzataZKapturemWioskaDrowow()
             : base(1908)
         {
-            Name = "Szata wioski Drowow";
+            Name = "Szata Podmroku";
         }
 
         public MiastowaSzataZKapturemWioskaDrowow(Serial serial)

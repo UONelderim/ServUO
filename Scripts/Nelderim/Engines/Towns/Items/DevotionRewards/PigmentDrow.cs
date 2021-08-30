@@ -13,7 +13,7 @@ namespace Server.Items
         public PigmentDrow(int uses)
             : base(PigmentTarget.Cloth, uses, 2909)
         {
-            Name = "Pigment barw Wioski Drowow";
+            Name = "Pigment barw Podmroku";
         }
 
         public PigmentDrow(Serial serial) : base(serial)
