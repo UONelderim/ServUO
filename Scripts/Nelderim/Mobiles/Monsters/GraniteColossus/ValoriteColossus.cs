@@ -58,7 +58,7 @@ namespace Server.Mobiles
 			base.OnDeath( c );
 			
 			ValoriteGranite granite = new ValoriteGranite();
-   			granite.Amount = 10;
+   			granite.Amount = 1;
    			c.DropItem(granite);
 
 		}
