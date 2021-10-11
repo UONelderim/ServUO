@@ -1,313 +1,224 @@
 using System;
-using System.Reflection;
-using Server.Targeting;
-using Server.Network;
-using Server.Mobiles;
 using Server.Items;
+using Server.Mobiles;
 using Server.Spells;
+using Server.Spells.Necromancy;
+using Server.Spells.Ninjitsu;
 
 namespace Server.ACC.CSS.Systems.Ancient
 {
-    public class AncientCloneSpell : AncientSpell
-    {
-        private static SpellInfo m_Info = new SpellInfo(
-                                                        "Klonowanie", "In Quas Xen",
-            //SpellCircle.Sixth,
-                                                        230,
-                                                        9022,
-                                                        Reagent.SulfurousAsh,
-                                                        Reagent.SpidersSilk,
-                                                        Reagent.Bloodmoss,
-                                                        Reagent.Ginseng,
-                                                        Reagent.Nightshade,
-                                                        Reagent.MandrakeRoot
-                                                       );
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Sixth; }
-        }
-        public override double RequiredSkill { get { return 71.1; } }
-        public override int RequiredMana { get { return 33; } }
-        public AncientCloneSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-        }
+	public class AncientCloneSpell : AncientSpell
+	{
+		private static SpellInfo m_Info = new SpellInfo(
+			"Klonowanie", "In Quas Xen",
+			//SpellCircle.Sixth,
+			230,
+			9022,
+			Reagent.SulfurousAsh,
+			Reagent.SpidersSilk,
+			Reagent.Bloodmoss,
+			Reagent.Ginseng,
+			Reagent.Nightshade,
+			Reagent.MandrakeRoot
+		);
 
-        public override void OnCast()
-        {
-            if(CheckSequence())
-                Caster.Target = new InternalTarget(this);
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Sixth; }
+		}
 
-        public override TimeSpan CastDelayBase
-        {
-            get { return base.CastDelayBase.Add(TimeSpan.FromSeconds(28)); }
-        }
+		public override double RequiredSkill { get { return 71.1; } }
+		public override int RequiredMana { get { return 33; } }
 
-        public override double CastDelayFastScalar
-        {
-            get { return 5.0; }
-        }
+		public AncientCloneSpell(Mobile caster, Item scroll)
+			: base(caster, scroll, m_Info)
+		{
+		}
 
-        public override TimeSpan GetCastDelay()
-        {
-            if (Core.AOS)
-                return base.GetCastDelay();
+		public override bool CheckCast()
+		{
+			if (Caster.Mounted)
+			{
+				Caster.SendLocalizedMessage(1063132); // You cannot use this ability while mounted.
+				return false;
+			}
+			else if ((Caster.Followers + 1) > Caster.FollowersMax)
+			{
+				Caster.SendLocalizedMessage(
+					1063133); // You cannot summon a mirror image because you have too many followers.
+				return false;
+			}
+			else if (TransformationSpellHelper.UnderTransformation(Caster, typeof(HorrificBeastSpell)))
+			{
+				Caster.SendLocalizedMessage(1061091); // You cannot cast that spell in this form.
+				return false;
+			}
 
-            return base.GetCastDelay() + TimeSpan.FromSeconds(6.0);
-        }
+			return base.CheckCast();
+		}
 
-        public void Target(Mobile m)
-        {
-            if (!Caster.CanSee(m))
-            {
-                Caster.SendLocalizedMessage(500237); // Target can not be seen.
-            }
-            else if (CheckHSequence(m))
-            {
-                Mobile source = Caster;
-                if (this.Scroll != null)
-                    Scroll.Consume();
-                SpellHelper.Turn(Caster, m);
+		public override bool CheckDisturb(DisturbType type, bool firstCircle, bool resistable)
+		{
+			return false;
+		}
 
-                Clone dg = new Clone(m);
+		public override void OnBeginCast()
+		{
+			base.OnBeginCast();
 
-                dg.Body = m.Body;
+			Caster.SendLocalizedMessage(1063134); // You begin to summon a mirror image of yourself.
+		}
 
-                dg.Hue = m.Hue;
-                dg.Name = m.Name;
-                dg.SpeechHue = m.SpeechHue;
-                dg.Fame = m.Fame;
-                dg.Karma = (0 - m.Karma);
-                dg.EmoteHue = m.EmoteHue;
-                dg.Title = m.Title;
-                dg.Criminal = (m.Criminal);
-                dg.Str = m.Str;
-                dg.Int = m.Int;
-                dg.Hits = m.Hits;
-                dg.Dex = m.Dex;
-                dg.Mana = m.Mana;
-                dg.Stam = m.Stam;
-                dg.Female = m.Female;
-                dg.AccessLevel = m.AccessLevel;
+		public override void OnCast()
+		{
+			if (Caster.Mounted)
+			{
+				Caster.SendLocalizedMessage(1063132); // You cannot use this ability while mounted.
+			}
+			else if ((Caster.Followers + 1) > Caster.FollowersMax)
+			{
+				Caster.SendLocalizedMessage(
+					1063133); // You cannot summon a mirror image because you have too many followers.
+			}
+			else if (TransformationSpellHelper.UnderTransformation(Caster, typeof(HorrificBeastSpell)))
+			{
+				Caster.SendLocalizedMessage(1061091); // You cannot cast that spell in this form.
+			}
+			else if (CheckSequence())
+			{
+				Caster.FixedParticles(0x376A, 1, 14, 0x13B5, EffectLayer.Waist);
+				Caster.PlaySound(0x511);
 
-                dg.VirtualArmor = (m.VirtualArmor);
-                dg.SetSkill(SkillName.Wrestling, m.Skills[SkillName.Wrestling].Value);
-                dg.SetSkill(SkillName.Tactics, m.Skills[SkillName.Tactics].Value);
-                dg.SetSkill(SkillName.Anatomy, m.Skills[SkillName.Anatomy].Value);
+				new Clone(Caster).MoveToWorld(Caster.Location, Caster.Map);
+			}
 
-                dg.SetSkill(SkillName.Magery, m.Skills[SkillName.Magery].Value);
-                dg.SetSkill(SkillName.MagicResist, m.Skills[SkillName.MagicResist].Value);
-                dg.SetSkill(SkillName.Meditation, m.Skills[SkillName.Meditation].Value);
-                dg.SetSkill(SkillName.EvalInt, m.Skills[SkillName.EvalInt].Value);
+			FinishSequence();
+		}
+	}
+}
 
-                dg.SetSkill(SkillName.Archery, m.Skills[SkillName.Archery].Value);
-                dg.SetSkill(SkillName.Macing, m.Skills[SkillName.Macing].Value);
-                dg.SetSkill(SkillName.Swords, m.Skills[SkillName.Swords].Value);
-                dg.SetSkill(SkillName.Fencing, m.Skills[SkillName.Fencing].Value);
-                dg.SetSkill(SkillName.Lumberjacking, m.Skills[SkillName.Lumberjacking].Value);
-                dg.SetSkill(SkillName.Alchemy, m.Skills[SkillName.Alchemy].Value);
-                dg.SetSkill(SkillName.Parry, m.Skills[SkillName.Parry].Value);
-                dg.SetSkill(SkillName.Focus, m.Skills[SkillName.Focus].Value);
-                dg.SetSkill(SkillName.Necromancy, m.Skills[SkillName.Necromancy].Value);
-                dg.SetSkill(SkillName.Chivalry, m.Skills[SkillName.Chivalry].Value);
-                dg.SetSkill(SkillName.ArmsLore, m.Skills[SkillName.ArmsLore].Value);
-                dg.SetSkill(SkillName.Poisoning, m.Skills[SkillName.Poisoning].Value);
-                dg.SetSkill(SkillName.SpiritSpeak, m.Skills[SkillName.SpiritSpeak].Value);
-                dg.SetSkill(SkillName.Stealing, m.Skills[SkillName.Stealing].Value);
-                dg.SetSkill(SkillName.Inscribe, m.Skills[SkillName.Inscribe].Value);
-                dg.Kills = (m.Kills);
+namespace Server.Mobiles
+{
+	public class AncientCloneSpell : BaseCreature
+	{
+		private Mobile m_Caster;
 
+		public AncientCloneSpell(Mobile caster) : base(AIType.AI_Melee, FightMode.None, 10, 1, 0.2, 0.4)
+		{
+			m_Caster = caster;
 
-                // Clear Items
-                RemoveFromAllLayers(dg);
+			Body = caster.Body;
 
-                // Then copy
-                CopyFromLayer(m, dg, Layer.FirstValid);
-                CopyFromLayer(m, dg, Layer.TwoHanded);
-                CopyFromLayer(m, dg, Layer.Shoes);
-                CopyFromLayer(m, dg, Layer.Pants);
-                CopyFromLayer(m, dg, Layer.Shirt);
-                CopyFromLayer(m, dg, Layer.Helm);
-                CopyFromLayer(m, dg, Layer.Gloves);
-                CopyFromLayer(m, dg, Layer.Ring);
-                CopyFromLayer(m, dg, Layer.Talisman);
-                CopyFromLayer(m, dg, Layer.Neck);
-                CopyFromLayer(m, dg, Layer.Hair);
-                CopyFromLayer(m, dg, Layer.Waist);
-                CopyFromLayer(m, dg, Layer.InnerTorso);
-                CopyFromLayer(m, dg, Layer.Bracelet);
-                CopyFromLayer(m, dg, Layer.Face);
-                CopyFromLayer(m, dg, Layer.FacialHair);
-                CopyFromLayer(m, dg, Layer.MiddleTorso);
-                CopyFromLayer(m, dg, Layer.Earrings);
-                CopyFromLayer(m, dg, Layer.Arms);
-                CopyFromLayer(m, dg, Layer.Cloak);
-                CopyFromLayer(m, dg, Layer.OuterTorso);
-                CopyFromLayer(m, dg, Layer.OuterLegs);
-                CopyFromLayer(m, dg, Layer.LastUserValid);
-                DupeFromLayer(m, dg, Layer.Mount);
-                dg.ControlSlots = 5;
-                SpellHelper.Summon(dg, Caster, 0x215, TimeSpan.FromSeconds(4.0 * Caster.Skills[SkillName.Magery].Value), false, false);
+			Race = caster.Race;
+			Hue = caster.Hue;
+			Female = caster.Female;
+			Name = caster.Name;
+			NameHue = caster.NameHue;
+			Label1 = caster.Label1;
+			Label2 = caster.Label2;
 
-            }
+			Guild = caster.Guild;
+			GuildFealty = caster.GuildFealty;
+			GuildTitle = caster.GuildTitle;
 
-            FinishSequence();
-        }
+			Title = caster.Title;
+			if (caster.Guild != null)
+				Title += String.Format(" [{0}]", caster.Guild.Abbreviation);
 
-        private void CopyFromLayer(Mobile from, Mobile mimic, Layer layer)
-        {
-            if (from.FindItemOnLayer(layer) != null)
-            {
-                Item copy = (Item)from.FindItemOnLayer(layer);
-                Type t = copy.GetType();
+			Kills = caster.Kills;
 
-                ConstructorInfo[] info = t.GetConstructors();
+			HairItemID = caster.HairItemID;
+			HairHue = caster.HairHue;
 
-                foreach (ConstructorInfo c in info)
-                {
-                    //if ( !c.IsDefined( typeof( ConstructableAttribute ), false ) ) continue;
+			FacialHairItemID = caster.FacialHairItemID;
+			FacialHairHue = caster.FacialHairHue;
 
-                    ParameterInfo[] paramInfo = c.GetParameters();
+			for (int i = 0; i < caster.Skills.Length; ++i)
+			{
+				Skills[i].Base = caster.Skills[i].Base;
+				Skills[i].Cap = caster.Skills[i].Cap;
+			}
 
-                    if (paramInfo.Length == 0)
-                    {
-                        object[] objParams = new object[0];
+			for (int i = 0; i < caster.Items.Count; i++)
+			{
+				AddItem(CloneItem(caster.Items[i]));
+			}
 
-                        try
-                        {
-                            Item newItem = null;
-                            object o = c.Invoke(objParams);
+			Warmode = true;
 
-                            if (o != null && o is Item)
-                            {
-                                newItem = (Item)o;
-                                CopyProperties(newItem, copy);//copy.Dupe( item, copy.Amount );
-                                newItem.Parent = null;
+			Summoned = true;
+			SummonMaster = caster;
 
-                                mimic.EquipItem(newItem);
-                            }
+			ControlOrder = OrderType.Follow;
+			ControlTarget = caster;
 
-                            if (newItem != null)
-                            {
-                                if (newItem is BaseWeapon && o is BaseWeapon)
-                                {
-                                    BaseWeapon weapon = newItem as BaseWeapon;
-                                    BaseWeapon oweapon = o as BaseWeapon;
-                                    weapon.Attributes = oweapon.Attributes;
-                                    weapon.WeaponAttributes = oweapon.WeaponAttributes;
+			TimeSpan duration = TimeSpan.FromSeconds(30 + caster.Skills.Ninjitsu.Fixed / 40);
 
-                                }
-                                if (newItem is BaseArmor && o is BaseArmor)
-                                {
-                                    BaseArmor armor = newItem as BaseArmor;
-                                    BaseArmor oarmor = o as BaseArmor;
-                                    armor.Attributes = oarmor.Attributes;
-                                    armor.ArmorAttributes = oarmor.ArmorAttributes;
-                                    armor.SkillBonuses = oarmor.SkillBonuses;
+			new UnsummonTimer(caster, this, duration).Start();
+			SummonEnd = DateTime.Now + duration;
 
-                                }
+			MirrorImage.AddClone(m_Caster);
+		}
 
-                                mimic.EquipItem(newItem);
-                            }
-                        }
-                        catch
-                        {
-                            from.Say("Error!");
-                            return;
-                        }
-                    }
-                }
-            }
+		//	protected override BaseAI ForcedAI { get { return new CloneAI( this ); } }
 
-            if (mimic.FindItemOnLayer(layer) != null && mimic.FindItemOnLayer(layer).LootType != LootType.Blessed)
-                mimic.FindItemOnLayer(layer).LootType = LootType.Newbied;
-        }
+		public override bool IsHumanInTown() { return false; }
 
-        private void DupeFromLayer(Mobile from, Mobile mimic, Layer layer)
-        {
-            //if (from.FindItemOnLayer(layer) != null)
-            //	mimic.AddItem(from.FindItemOnLayer(layer).Dupe(1));
+		private Item CloneItem(Item item)
+		{
+			Item newItem = new Item(item.ItemID);
+			newItem.Hue = item.Hue;
+			newItem.Layer = item.Layer;
 
-            if (mimic.FindItemOnLayer(layer) != null && mimic.FindItemOnLayer(layer).LootType != LootType.Blessed)
-                mimic.FindItemOnLayer(layer).LootType = LootType.Newbied;
-        }
+			return newItem;
+		}
 
-        private static void CopyProperties(Item dest, Item src)
-        {
-            PropertyInfo[] props = src.GetType().GetProperties();
+		public override void OnDamage(int amount, Mobile from, bool willKill)
+		{
+			Delete();
+		}
 
-            for (int i = 0; i < props.Length; i++)
-            {
-                try
-                {
-                    if (props[i].CanRead && props[i].CanWrite)
-                    {
-                        //Console.WriteLine( "Setting {0} = {1}", props[i].Name, props[i].GetValue( src, null ) );
-                        props[i].SetValue(dest, props[i].GetValue(src, null), null);
-                    }
-                }
-                catch
-                {
-                    //Console.WriteLine( "Denied" );
-                }
-            }
-        }
+		public override bool DeleteCorpseOnDeath { get { return true; } }
 
-        private void DeleteFromLayer(Mobile from, Layer layer)
-        {
-            if (from.FindItemOnLayer(layer) != null)
-                from.RemoveItem(from.FindItemOnLayer(layer));
-        }
+		public override void OnDelete()
+		{
+			Effects.SendLocationParticles(EffectItem.Create(Location, Map, EffectItem.DefaultDuration), 0x3728, 10, 15,
+				5042);
 
-        private void RemoveFromAllLayers(Mobile from)
-        {
-            DeleteFromLayer(from, Layer.FirstValid);
-            DeleteFromLayer(from, Layer.TwoHanded);
-            DeleteFromLayer(from, Layer.Shoes);
-            DeleteFromLayer(from, Layer.Pants);
-            DeleteFromLayer(from, Layer.Shirt);
-            DeleteFromLayer(from, Layer.Helm);
-            DeleteFromLayer(from, Layer.Gloves);
-            DeleteFromLayer(from, Layer.Ring);
-            DeleteFromLayer(from, Layer.Talisman);
-            DeleteFromLayer(from, Layer.Neck);
-            DeleteFromLayer(from, Layer.Hair);
-            DeleteFromLayer(from, Layer.Waist);
-            DeleteFromLayer(from, Layer.InnerTorso);
-            DeleteFromLayer(from, Layer.Bracelet);
-            DeleteFromLayer(from, Layer.Face);
-            DeleteFromLayer(from, Layer.FacialHair);
-            DeleteFromLayer(from, Layer.MiddleTorso);
-            DeleteFromLayer(from, Layer.Earrings);
-            DeleteFromLayer(from, Layer.Arms);
-            DeleteFromLayer(from, Layer.Cloak);
-            DeleteFromLayer(from, Layer.OuterTorso);
-            DeleteFromLayer(from, Layer.OuterLegs);
-            DeleteFromLayer(from, Layer.LastUserValid);
-            DeleteFromLayer(from, Layer.Mount);
-        }
+			base.OnDelete();
+		}
 
-        private class InternalTarget : Target
-        {
-            private AncientCloneSpell m_Owner;
+		public override void OnAfterDelete()
+		{
+			MirrorImage.RemoveClone(m_Caster);
+			base.OnAfterDelete();
+		}
 
-            public InternalTarget(AncientCloneSpell owner)
-                : base(12, false, TargetFlags.Harmful)
-            {
-                m_Owner = owner;
-            }
+		public override bool IsDispellable { get { return false; } }
+		public override bool Commandable { get { return false; } }
 
-            protected override void OnTarget(Mobile from, object o)
-            {
-                if (o is Mobile)
-                    m_Owner.Target((Mobile)o);
-            }
+		public AncientCloneSpell(Serial serial) : base(serial)
+		{
+		}
 
-            protected override void OnTargetFinish(Mobile from)
-            {
-                m_Owner.FinishSequence();
-            }
-        }
-    }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+
+			writer.WriteEncodedInt(0); // version
+
+			writer.Write(m_Caster);
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+
+			int version = reader.ReadEncodedInt();
+
+			m_Caster = reader.ReadMobile();
+
+			MirrorImage.AddClone(m_Caster);
+		}
+	}
 }
