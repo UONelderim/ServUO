@@ -4,7 +4,7 @@ using Server.Network;
 
 namespace Server.Mobiles
 {
-	[CorpseName( "zwloki szkieletae" )]
+	[CorpseName( "zwloki szkieleta" )]
 	public class SkeletalWorrior : BaseCreature
 	{
 		private bool m_Stunning;
