@@ -88,20 +88,19 @@ namespace Server
         {
             bool IsPlayer = false;
 
-            var Mobs = GetMobilesInRange(3);
+            IPooledEnumerable<Mobile> Mobs = GetMobilesInRange(3);
 
             if (Mobs != null)
             {
-                foreach (var mob in Mobs)
+                foreach (Mobile mob in Mobs)
                 {
                     if (mob is PlayerMobile)
                     {
-                        PlayerMobile pm = (PlayerMobile)mob;
                         bool GoodLoad = true;
 
-                        if (X == pm.X)
+                        if (X == mob.X)
                         {
-                            if (Y == pm.Y)
+                            if (Y == mob.Y)
                                 GoodLoad = false;
                         }
 

@@ -9,14 +9,14 @@ namespace Server.OneTime.Timers
 
         public OneDayTimer() : base(TimeSpan.FromDays(1), TimeSpan.FromDays(1))
         {
-            LastTime = DateTime.Now.Day;
+            LastTime = DateTime.UtcNow.Day;
         }
 
         protected override void OnTick()
         {
-            int dateTime = DateTime.Now.Hour;
+            int dateTime = DateTime.UtcNow.Day;
 
-            if (LastTime != dateTime)
+            if (LastTime != dateTime && !OneTimerHelper.IsPaused)
             {
                 LastTime = dateTime;
 

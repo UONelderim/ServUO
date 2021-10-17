@@ -4,34 +4,33 @@ namespace Server.OneTime
 {
     public static class OneTimeStart
     {
-        public static Timer TimeTick { get; set; }           //UOTicksPerTick(1000) = 15000 est -debug
-        public static Timer TimeMillisecond { get; set; }     //UOTicksPerMillisecond(1000) = 5000 est -debug
-
-        public static Timer TimeSecond { get; set; }          //Rest of the times work on time, no tick info needed! 
+        public static Timer TimeTick { get; set; }     
+        public static Timer TimeMillisecond { get; set; }    
+        public static Timer TimeSecond { get; set; }         
         public static Timer TimeMinute { get; set; }
         public static Timer TimeHour { get; set; }
         public static Timer TimeDay { get; set; }
 
         public static void Initialize()
         {
-            EventSink.ServerStarted += new ServerStartedEventHandler(OneTimeStarted);
+            EventSink.ServerStarted += OneTimeStarted;
         }
 
         private static void OneTimeStarted()
         {
             if (TimeTick == null)
             {
-                TimeTick = new OneTickTimer(false); //Debug by sending true, or turn off with false!
+                TimeTick = new OneTickTimer(); 
             }
 
             if (TimeMillisecond == null)
             {
-                TimeMillisecond = new OneMilliTimer(false); //Debug by sending true, or turn off with false!
+                TimeMillisecond = new OneMilliTimer(); 
             }
 
             if (TimeSecond == null)
             {
-                TimeSecond = new OneSecTimer(false); //Debug by sending true, or turn off with false!
+                TimeSecond = new OneSecTimer(); 
             }
 
             if (TimeMinute == null)

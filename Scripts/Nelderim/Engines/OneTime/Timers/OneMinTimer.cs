@@ -9,14 +9,14 @@ namespace Server.OneTime.Timers
 
         public OneMinTimer() : base(TimeSpan.FromMinutes(1), TimeSpan.FromMinutes(1))
         {
-            LastTime = DateTime.Now.Minute;
+            LastTime = DateTime.UtcNow.Minute;
         }
 
         protected override void OnTick()
         {
-            int dateTime = DateTime.Now.Minute;
+            int dateTime = DateTime.UtcNow.Minute;
 
-            if (LastTime != dateTime)
+            if (LastTime != dateTime && !OneTimerHelper.IsPaused)
             {
                 LastTime = dateTime;
 

@@ -10,10 +10,12 @@ namespace Server.OneTime.Events
         {
             if (time == 1)
             {
-                if(DayTimerTick != null)
+                if (DayTimerTick != null)
+                {
                     DayTimerTick.Invoke(o, EventArgs.Empty);
 
-                OneTimeEventHelper.SendIOneTime(6);
+                    OneTimeEventHelper.SendIOneTime(6);
+                }
             }
         }
     }

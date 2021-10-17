@@ -10,10 +10,12 @@ namespace Server.OneTime.Events
         {
             if (time == 1)
             {
-                if(MinTimerTick != null)
+                if (MinTimerTick != null)
+                {
                     MinTimerTick.Invoke(o, EventArgs.Empty);
 
-                OneTimeEventHelper.SendIOneTime(4);
+                    OneTimeEventHelper.SendIOneTime(4);
+                }
             }
         }
     }

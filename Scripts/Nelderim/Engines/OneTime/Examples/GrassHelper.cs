@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks; //Async will need this added
 using Server.OneTime.Events;
 
@@ -29,13 +30,21 @@ namespace Server.OneTime
                 if (GrassList.Count > 0)
                     GrassList.Clear();
 
-                foreach (Item item in World.Items.Values)
-                {
-                    if (item is NewStickyGrass)
-                    {
-                        GrassList.Add(item as NewStickyGrass);
-                    }
-                }
+                //Linq Example
+                var result = from c in World.Items.Values
+                             where c is NewStickyGrass
+                             select c as NewStickyGrass;
+
+                GrassList.AddRange(result);
+
+                //Older way to cycle out items to list
+                //foreach (Item item in World.Items.Values)
+                //{
+                //    if (item is NewStickyGrass)
+                //    {
+                //        GrassList.Add(item as NewStickyGrass);
+                //    }
+                //}
             }
 
             UpdateList();
