@@ -10,10 +10,12 @@ namespace Server.OneTime.Events
         {
             if (time == 1)
             {
-                if(TickTimerTick != null)
+                if (TickTimerTick != null)
+                {
                     TickTimerTick.Invoke(o, EventArgs.Empty);
 
-                OneTimeEventHelper.SendIOneTime(1);
+                    //OneTimeEventHelper.SendIOneTime(1); //CPU HOG <Left only for Reference>
+                }
             }
         }
     }

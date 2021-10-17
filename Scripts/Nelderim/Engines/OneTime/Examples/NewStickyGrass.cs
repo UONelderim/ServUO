@@ -92,7 +92,7 @@ namespace Server
 
         private bool IsPlayerClose()
         {
-            IPooledEnumerable Mobs = GetMobilesInRange(2);
+            IPooledEnumerable<Mobile> Mobs = GetMobilesInRange(2);
 
             bool IsPlayer = false;
 
@@ -102,18 +102,17 @@ namespace Server
                 {
                     if (mob is PlayerMobile)
                     {
-                        PlayerMobile pm = (PlayerMobile)mob;
                         bool GoodLoad = true;
 
-                        if (X == pm.X)
+                        if (X == mob.X)
                         {
-                            if (Y == pm.Y)
+                            if (Y == mob.Y)
                                 GoodLoad = false;
                         }
 
-                        if (X == pm.X + 2 || X == pm.X - 2)
+                        if (X == mob.X + 2 || X == mob.X - 2)
                         {
-                            if (Y == pm.Y + 2 || Y == pm.Y - 2)
+                            if (Y == mob.Y + 2 || Y == mob.Y - 2)
                             {
                                 GoodLoad = false;
                             }
