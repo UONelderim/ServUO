@@ -10,7 +10,9 @@ namespace Server.Mobiles
 		{
 			Name = "szafirowy smok";
 			BaseSoundID = 362;
-			Hue = 2124;
+
+			Hue = 2061;
+
 			SetStr(775, 840);
 			SetDex(101, 130);
 			SetInt(300, 350);
