@@ -36,7 +36,7 @@ namespace Server.Items
 
 		public void AddGold()
 		{
-			DropItem(new Gold((int)(Utility.RandomDouble() * 1000)));
+			DropItem(new Gold((int)(Utility.RandomDouble() * 100)));
 		}
 
 		public void AddItem()
@@ -104,13 +104,13 @@ namespace Server.Items
 
 		public void AddAttrib(Item item)
 		{
-			int props = 1 + (Utility.RandomMinMax(0, 3));
+			int props = 1 + (Utility.RandomMinMax(0, 2));
 
 			int luckChance;
 			if (m_From != null)
 				luckChance = m_From is PlayerMobile ? ((PlayerMobile)m_From).Luck : m_From.Luck;
 			else
-				luckChance = (int)(Utility.RandomDouble() * 10000);
+				luckChance = (int)(Utility.RandomDouble() * 100);
 
 
 			int min = 1;
