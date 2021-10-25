@@ -138,7 +138,7 @@ namespace Server.Items
 
 		public void ApplyAttrib(Item item)
 		{
-			int props = 1 + (Utility.RandomMinMax(0, 5));
+			int props = 1 + (Utility.RandomMinMax(0, 2));
 			//int luckChance = (int)(Utility.RandomDouble() * 10000);
 
 			int luckChance;
@@ -146,7 +146,7 @@ namespace Server.Items
 			if (m_From != null)
 				luckChance = m_From is PlayerMobile ? ((PlayerMobile)m_From).Luck : m_From.Luck;
 			else
-				luckChance = (int)(Utility.RandomDouble() * 10000);
+				luckChance = (int)(Utility.RandomDouble() * 100);
 
 			int min = 1;
 			int max = 100;
