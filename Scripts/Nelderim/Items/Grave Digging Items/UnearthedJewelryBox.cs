@@ -17,7 +17,7 @@ namespace Server.Items
 
 			for (int i = 0; i < num; i++)
 			{
-				switch (Utility.Random(4))
+				switch (Utility.Random(3))
 				{
 					case 0:
 						AddBracelet();
@@ -28,9 +28,9 @@ namespace Server.Items
 					case 2:
 						AddNecklace();
 						break;
-					case 3:
-						AddEarrings();
-						break;
+					// case 3:
+					//    AddEarrings();
+					//    break;
 				}
 			}
 		}

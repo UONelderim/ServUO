@@ -36,7 +36,7 @@ namespace Server.Items
 		[Constructable]
 		public GraveWestDeed()
 		{
-			Name = "gorb(zachod)";
+			Name = "grob(zachod)";
 		}
 
 		public GraveWestDeed(Serial serial)
