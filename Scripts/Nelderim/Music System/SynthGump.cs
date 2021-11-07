@@ -79,10 +79,10 @@ namespace Server.Gumps
 
             AddPage(0);
             AddBackground(31, 2, 300, 28, 9200);
-            AddLabel(40, 7, labelhue, "Song Name:");
+            AddLabel(40, 7, labelhue, "Nazwa piesni:");
             AddTextEntry(160, 7, 163, 20, 0, 0, m_Name);
             AddBackground(332, 2, 407, 28, 9200);
-            AddLabel(520, 7, labelhue, "The Synthesizer by Lokai");
+            AddLabel(520, 7, labelhue, "Pianino");
             AddBackground(114, 34, 626, 84, 9200);
             AddBackground(110, 62, 347, 56, 9250);
 			AddBackground(114, 123, 624, 28, 9200);
@@ -142,14 +142,14 @@ namespace Server.Gumps
             AddLabel(477, 84, labelhue, "P");
 
             if (music)
-                AddLabel(625, 44, labelhue, "Hide Music");
+                AddLabel(625, 44, labelhue, "Ukryj Muzyke");
             else
-                AddLabel(625, 44, labelhue, "Show Music");
+                AddLabel(625, 44, labelhue, "Pokaz Muzyke");
             AddButton(706, 46, 4033, 4033, (int)Buttons.ShowMusic, GumpButtonType.Reply, 0);
 
             AddBackground(30, 34, 80, 84, 9200);
-            AddLabel(40, 78, labelhue, "Show");
-            AddLabel(39, 94, labelhue, "Notes");
+            AddLabel(40, 78, labelhue, "Pokaz");
+            AddLabel(39, 94, labelhue, "Notatki");
 
             if (keys)
             {
@@ -176,13 +176,13 @@ namespace Server.Gumps
                 AddButton(75, 85, 2151, 2154, (int)Buttons.ShowKeys, GumpButtonType.Reply, 0);
             }
 			
-            AddLabel(40, 37, labelhue, "Play");
-            AddLabel(37, 53, labelhue, "Chords");
+            AddLabel(40, 37, labelhue, "Graj");
+            AddLabel(37, 53, labelhue, "Akordy");
 			
 			if (m_Chords)
 			{
 				AddImage(119, 123, 9910);
-				AddLabel(165, 125, labelhue, "Chords");
+				AddLabel(165, 125, labelhue, "Akordy");
 				AddImage(251, 123, 9904);
 				AddButton(75, 45, 2154, 2151, (int)Buttons.ShowChords, GumpButtonType.Reply, 0);
 			}
@@ -195,12 +195,12 @@ namespace Server.Gumps
             if (recording)
             {
                 AddButton(697, 76, 2643, 2643, (int)Buttons.StopRecording, GumpButtonType.Reply, 0);
-                AddLabel(524, 85, labelhue, "Recording ... Press to Stop.");
+                AddLabel(524, 85, labelhue, "Nagrywanie ... Nacisnij by Zatrzymac.");
             }
             else
             {
                 AddButton(697, 77, 2642, 2642, (int)Buttons.StartRecording, GumpButtonType.Reply, 0);
-                AddLabel(581, 85, labelhue, "Press to Record");
+                AddLabel(581, 85, labelhue, "Nacisnij by Nagrac");
             }
 
             if (recording || m_Song.Count > 1)
@@ -213,29 +213,29 @@ namespace Server.Gumps
                 }
                 else if (m_Song[0] == "veryslow")
                 {
-                    AddLabel(540, 44, labelhue, "Slow!");
+                    AddLabel(540, 44, labelhue, "wolno!");
                     AddButton(546, 34, 2084, 2084, (int)Buttons.Fast, GumpButtonType.Reply, 0);
                 }
-                else if (m_Song[0] == "slow")
+                else if (m_Song[0] == "wolno")
                 {
-                    AddLabel(540, 44, labelhue, "Slow");
+                    AddLabel(540, 44, labelhue, "Wolno");
                     AddButton(546, 34, 2084, 2084, (int)Buttons.Fast, GumpButtonType.Reply, 0);
                     AddButton(546, 63, 2085, 2085, (int)Buttons.Slow, GumpButtonType.Reply, 0);
                 }
-                else if (m_Song[0] == "fast")
+                else if (m_Song[0] == "szybko")
                 {
-                    AddLabel(540, 44, labelhue, "Fast");
+                    AddLabel(540, 44, labelhue, "Szybko");
                     AddButton(546, 34, 2084, 2084, (int)Buttons.Fast, GumpButtonType.Reply, 0);
                     AddButton(546, 63, 2085, 2085, (int)Buttons.Slow, GumpButtonType.Reply, 0);
                 }
                 else if (m_Song[0] == "veryfast")
                 {
-                    AddLabel(540, 44, labelhue, "Fast!");
+                    AddLabel(540, 44, labelhue, "Szybko!");
                     AddButton(546, 63, 2085, 2085, (int)Buttons.Slow, GumpButtonType.Reply, 0);
                 }
                 else
                 {
-                    AddLabel(540, 44, labelhue, "Norm");
+                    AddLabel(540, 44, labelhue, "Normalne");
                     AddButton(546, 34, 2084, 2084, (int)Buttons.Fast, GumpButtonType.Reply, 0);
                     AddButton(546, 63, 2085, 2085, (int)Buttons.Slow, GumpButtonType.Reply, 0);
                 }
@@ -243,11 +243,11 @@ namespace Server.Gumps
                 if (mixer[0])
                 {
                     AddBackground(30, 433, 710, 159, 9270);
-                    AddLabel(363, 443, labelhue, "MIXER");
+                    AddLabel(363, 443, labelhue, "Mikser");
                     AddButton(704, 447, 2224, 2224, (int)Buttons.PlayTracks, GumpButtonType.Reply, 0);
-                    AddLabel(558, 442, labelhue, "Play Selected Tracks");
+                    AddLabel(558, 442, labelhue, "Odtworz wybrane utwory");
                     AddButton(114, 448, 2223, 2223, (int)Buttons.ShowMixer, GumpButtonType.Reply, 0);
-                    AddLabel(44, 443, labelhue, "Hide Mixer");
+                    AddLabel(44, 443, labelhue, "Ukryj mikser");
                     AddButton(85, 470, 2225, 2225, (int)Buttons.Track1, GumpButtonType.Reply, 0);
                     AddButton(85, 499, 2226, 2226, (int)Buttons.Track2, GumpButtonType.Reply, 0);
                     AddButton(85, 528, 2227, 2227, (int)Buttons.Track3, GumpButtonType.Reply, 0);
@@ -274,7 +274,7 @@ namespace Server.Gumps
                     List<BaseInstrument> instruments = new List<BaseInstrument>();
                     if (pack == null || pack.Deleted || pack.Items.Count == 0)
                     {
-                        AddLabel(126, 469, labelhue, "Your pack is missing or empty!");
+                        AddLabel(126, 469, labelhue, "Twoj plecak jest pusty!");
                     }
                     else
                     {
@@ -298,7 +298,7 @@ namespace Server.Gumps
                                     {
                                         AddLabel(258, 470 + (x * 29), labelhue, findxm.Song);
                                     }
-                                    catch { AddLabel(258, 470 + (x * 29), labelhue, "Unable to read song."); }
+                                    catch { AddLabel(258, 470 + (x * 29), labelhue, "Nie moge odczytac tej piosenki."); }
                                 }
                             }
                             if (instruments.Count > 4)
@@ -313,14 +313,14 @@ namespace Server.Gumps
                                         {
                                             AddLabel(540, 470 + ((x - 4) * 29), labelhue, findxm.Song);
                                         }
-                                        catch { AddLabel(540, 470 + ((x - 4) * 29), labelhue, "Unable to read song."); }
+                                        catch { AddLabel(540, 470 + ((x - 4) * 29), labelhue, "Nie moge odczytac tej piosenki."); }
                                     }
                                 }
                             }
                         }
                         else
                         {
-                            AddLabel(126, 469, labelhue, "Your have no instruments in your pack!");
+                            AddLabel(126, 469, labelhue, "Nie masz w plecaku zadnych instrumentow!");
                         }
                     }
                 }
@@ -397,14 +397,14 @@ namespace Server.Gumps
             {
                 AddBackground(31, 123, 82, 28, 9200);
                 AddBackground(31, 154, 73, 274, 9200);
-                AddLabel(37, 128, labelhue, "File...");
+                AddLabel(37, 128, labelhue, "Plik...");
                 AddButton(87, 129, 5223, 5223, (int)Buttons.FileOptions, GumpButtonType.Reply, 0);
-                AddLabel(46, 167, labelhue, "Song...");
-                AddLabel(36, 194, labelhue, "Save");
+                AddLabel(46, 167, labelhue, "Piosenka...");
+                AddLabel(36, 194, labelhue, "Zapisz");
                 AddButton(72, 193, 4029, 4031, (int)Buttons.Save, GumpButtonType.Reply, 0);
-                AddLabel(36, 222, labelhue, "Load");
+                AddLabel(36, 222, labelhue, "Zaladuj");
                 AddButton(72, 221, 4029, 4031, (int)Buttons.Load, GumpButtonType.Reply, 0);
-                AddLabel(36, 249, labelhue, "Play");
+                AddLabel(36, 249, labelhue, "Graj");
                 AddButton(72, 248, 4029, 4031, (int)Buttons.Play, GumpButtonType.Reply, 0);
             }
             else
@@ -462,7 +462,7 @@ namespace Server.Gumps
                 List<XmlMusic> mxm = new List<XmlMusic>();
                 if (pack == null || pack.Deleted || pack.Items.Count == 0)
                 {
-                    from.SendMessage("Your pack is missing or empty!");
+                    from.SendMessage("Twoj plecak jest pusty!");
                 }
                 else
                 {
@@ -480,7 +480,7 @@ namespace Server.Gumps
                         {
                             if (!m_Mixer[x + 1])
                             {
-                                from.SendMessage("Skipping Track {0}", (int)(x + 1));
+                                from.SendMessage("Pomijam piosenke {0}", (int)(x + 1));
                                 continue;
                             }
                             findxm = (XmlMusic)XmlAttach.FindAttachment(instruments[x], typeof(XmlMusic));
@@ -539,7 +539,7 @@ namespace Server.Gumps
                             else
                             {
                                 m_Song = new List<string>();
-                                m_Song.Add("norm");
+                                m_Song.Add("normalne");
                                 from.SendGump(new SynthGump(m_From, m_Page, (int)inst, m_Music, m_Keys, true, m_FileOptions, m_Chords, m_Mixer, m_Song, m_Name, m_MusicTracks));
                             }
                             break;
@@ -554,7 +554,7 @@ namespace Server.Gumps
                                 string speed = tempSong[0];
                                 tempSong.RemoveAt(0);
                                 string[] newSong = tempSong.ToArray();
-                                Play.Play_OnCommand(new CommandEventArgs(from, "Play", speed, newSong));
+                                Play.Play_OnCommand(new CommandEventArgs(from, "Graj", speed, newSong));
                                 from.SendGump(new SynthGump(m_From, m_Page, (int)inst, m_Music, m_Keys, !m_Recording, m_FileOptions, m_Chords, m_Mixer, m_Song, m_Name, m_MusicTracks));
                             }
                             break;
@@ -566,7 +566,7 @@ namespace Server.Gumps
                             string speed = tempSong[0];
                             tempSong.RemoveAt(0);
                             string[] newSong = tempSong.ToArray();
-                            Play.Play_OnCommand(new CommandEventArgs(from, "Play", speed, newSong));
+                            Play.Play_OnCommand(new CommandEventArgs(from, "Graj", speed, newSong));
                             from.SendGump(new SynthGump(m_From, m_Page, (int)inst, m_Music, m_Keys, m_Recording, m_FileOptions, m_Chords, m_Mixer, m_Song, m_Name, m_MusicTracks));
                             break;
                         }
@@ -586,12 +586,12 @@ namespace Server.Gumps
                         {
                             if (m_Song.Count == 0)
                             {
-                                m_Song.Add("fast");
+                                m_Song.Add("szybko");
                             }
-                            else if (m_Song[0] == "fast") m_Song[0] = "veryfast";
-                            else if (m_Song[0] == "norm") m_Song[0] = "fast";
-                            else if (m_Song[0] == "slow") m_Song[0] = "norm";
-                            else if (m_Song[0] == "veryslow") m_Song[0] = "slow";
+                            else if (m_Song[0] == "szybko") m_Song[0] = "bardzo szybko";
+                            else if (m_Song[0] == "normalne") m_Song[0] = "szybko";
+                            else if (m_Song[0] == "wolno") m_Song[0] = "norm";
+                            else if (m_Song[0] == "bardzo wolno") m_Song[0] = "wolno";
                             from.SendGump(new SynthGump(m_From, m_Page, (int)inst, m_Music, m_Keys, m_Recording, m_FileOptions, m_Chords, m_Mixer, m_Song, m_Name, m_MusicTracks));
                             break;
                         }
@@ -599,12 +599,12 @@ namespace Server.Gumps
                         {
                             if (m_Song.Count == 0)
                             {
-                                m_Song.Add("slow");
+                                m_Song.Add("wolno");
                             }
-                            else if (m_Song[0] == "slow") m_Song[0] = "veryslow";
-                            else if (m_Song[0] == "norm") m_Song[0] = "slow";
-                            else if (m_Song[0] == "fast") m_Song[0] = "norm";
-                            else if (m_Song[0] == "veryfast") m_Song[0] = "fast";
+                            else if (m_Song[0] == "wolno") m_Song[0] = "bardzo wolno";
+                            else if (m_Song[0] == "normlane") m_Song[0] = "wolno";
+                            else if (m_Song[0] == "szybko") m_Song[0] = "normalne";
+                            else if (m_Song[0] == "bardzo szybko") m_Song[0] = "szybko";
                             from.SendGump(new SynthGump(m_From, m_Page, (int)inst, m_Music, m_Keys, m_Recording, m_FileOptions, m_Chords, m_Mixer, m_Song, m_Name, m_MusicTracks));
                             break;
                         }
@@ -615,7 +615,7 @@ namespace Server.Gumps
                             {
                                 if (m_Song.Count == 0)
                                 {
-                                    m_Song.Add("norm");
+                                    m_Song.Add("wolno");
                                 }
 								if (m_Chords && info.ButtonID < (int)Buttons.n13_c)
 								{
@@ -695,18 +695,18 @@ namespace Server.Gumps
         {
             if (success)
             {
-                from.SendMessage("Instrument successfully loaded in to this Track.");
+                from.SendMessage("Pomyslnie zaladowano instrument.");
             }
             else
             {
-                from.SendMessage("Unable to load instrument in to this Track.");
+                from.SendMessage("Nie mozna zaladowac instrumentu.");
             }
         }
 
         private void LoadTrack(Mobile from)
         {
             BaseInstrument.SetInstrument(from, null);
-            from.SendMessage("Target an instrument to load in to this Track.");
+            from.SendMessage("Na czym mam grac?");
             BaseInstrument.PickInstrument(from, new InstrumentPickedCallback(OnPickedInstrument));
         }
 
@@ -737,29 +737,29 @@ namespace Server.Gumps
             // Allows dynamic control through the CoreManagementConsole.
             if (from.AccessLevel < AccessLevel.Counselor)
             {
-                from.SendMessage("Playing music is currently disabled.");
+                from.SendMessage("Teraz tego nie zagrasz.");
                 return null;
             }
 
             if (notelist.Count == 0)
             {
-                from.SendMessage("Playlist empty.");
+                from.SendMessage("Lista odtwarzania jest pusta.");
                 return null;
             }
 
-            if (speed != null && speed == "fast")
+            if (speed != null && speed == "szybko")
             {
                 pauseValue /= 2;
             }
-            else if (speed != null && speed == "slow")
+            else if (speed != null && speed == "wolno")
             {
                 pauseValue *= 2;
             }
-            else if (speed != null && speed == "veryfast")
+            else if (speed != null && speed == "bardzo szybko")
             {
                 pauseValue /= 4;
             }
-            else if (speed != null && speed == "veryslow")
+            else if (speed != null && speed == "bardzo wolno")
             {
                 pauseValue *= 4;
             }
@@ -770,7 +770,7 @@ namespace Server.Gumps
 
                 if (NumOfNotes >= MaxQueueSize)
                 {
-                    from.SendMessage("Playlist stopped at {0}.", MaxQueueSize);
+                    from.SendMessage("Lista zatrzymana na {0}.", MaxQueueSize);
                     return PlayList;
                 }
 
@@ -798,7 +798,7 @@ namespace Server.Gumps
 
             if (NumOfNotes == 0)
             {
-                from.SendMessage("Playlist does not have any valid notes.");
+                from.SendMessage("Nie ma nut na liscie odtwarzania.");
                 return null;
             }
 
