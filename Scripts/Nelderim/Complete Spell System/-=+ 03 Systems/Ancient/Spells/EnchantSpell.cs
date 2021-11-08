@@ -49,7 +49,7 @@ namespace Server.ACC.CSS.Systems.Ancient
             if (!base.CheckCast())
                 return false;
 
-            return SpellHelper.CheckTravel(Caster, TravelCheckType.Mark);
+            return true;
         }
 
         public void Target(BaseRanged weapon)
