@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<export>
+	<title value="- straznik" />
+	<skills>
+		<skill index="1" name="Anatomy" base="120" />
+		<skill index="26" name="Resisting Spells" base="100" />
+		<skill index="27" name="Tactics" base="100" />
+		<skill index="31" name="Archery" base="120" />
+		<skill index="43" name="Wrestling" base="100" />
+	</skills>
+	<stats>
+		<stat name="str" value="300" />
+		<stat name="dex" value="500" />
+		<stat name="int" value="200" />
+	</stats>
+	<hits value="300" />
+	<damage value="30" />
+	<resistances physical="30" fire="30" cold="30" poison="30" energy="30" />
+	<layers count="10">
+		<layer index="1" item="Server.Items.Backpack" hue="0" loot="0">
+			<item type="Server.Items.Arrow" amount="200" hue="0" id="3903" loot="0" />
+		</layer>
+		<layer index="8" item="Server.Items.ChainCoif" hue="0" loot="0" />
+		<layer index="10" item="Server.Items.ChainChest" hue="0" loot="0" />
+		<layer index="11" item="Server.Items.Tunic" hue="397" loot="0" />
+		<layer index="12" item="Server.Items.PlateGorget" hue="0" loot="0" />
+		<layer index="16" item="Server.Items.ChainLegs" hue="0" loot="0" />
+		<layer index="19" item="Server.Items.Sandals" hue="0" loot="0" />
+		<layer index="20" item="Server.Items.CompositeBow" hue="0" loot="0" />
+	</layers>
+	<mount mounted="false" />
+</export>
