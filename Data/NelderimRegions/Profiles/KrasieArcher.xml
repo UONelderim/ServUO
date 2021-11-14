@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<export>
+	<title value="- kusznik" />
+	<skills>
+		<skill index="1" name="Anatomy" base="120" />
+		<skill index="26" name="Resisting Spells" base="100" />
+		<skill index="27" name="Tactics" base="100" />
+		<skill index="31" name="Archery" base="120" />
+		<skill index="43" name="Wrestling" base="100" />
+	</skills>
+	<stats>
+		<stat name="str" value="300" />
+		<stat name="dex" value="500" />
+		<stat name="int" value="200" />
+	</stats>
+	<hits value="300" />
+	<damage value="30" />
+	<resistances physical="30" fire="30" cold="30" poison="30" energy="30" />
+	<layers count="19">
+		<layer index="0" item="Server.Items.PlateArms" hue="2418" loot="0" />
+		<layer index="1" item="Server.Items.Backpack" hue="0" loot="0">
+			<item type="Server.Items.Bolt" amount="200" hue="0" id="7163" loot="0" />
+		</layer>
+		<layer index="3" item="Server.Items.Cloak" hue="1333" loot="0" />
+		<layer index="6" item="Server.Items.PlateGloves" hue="2418" loot="0" />
+		<layer index="8" item="Server.Items.NorseHelm" hue="2418" loot="0" />
+		<layer index="10" item="Server.Items.PlateChest" hue="2418" loot="0" />
+		<layer index="12" item="Server.Items.PlateGorget" hue="2418" loot="0" />
+		<layer index="16" item="Server.Items.PlateLegs" hue="2418" loot="0" />
+		<layer index="20" item="Server.Items.HeavyCrossbow" hue="0" loot="0" />
+	</layers>
+	<mount mounted="false" />
+</export>

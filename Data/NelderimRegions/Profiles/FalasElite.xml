@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<export>
+	<title value="- straznik" />
+	<skills>
+		<skill index="1" name="Anatomy" base="120" />
+		<skill index="5" name="Parrying" base="120" />
+		<skill index="26" name="Resisting Spells" base="120" />
+		<skill index="27" name="Tactics" base="120" />
+		<skill index="40" name="Swordsmanship" base="120" />
+		<skill index="41" name="Mace Fighting" base="120" />
+		<skill index="42" name="Fencing" base="120" />
+		<skill index="43" name="Wrestling" base="120" />
+	</skills>
+	<stats>
+		<stat name="str" value="600" />
+		<stat name="dex" value="450" />
+		<stat name="int" value="300" />
+	</stats>
+	<hits value="600" />
+	<damage value="40" />
+	<resistances physical="60" fire="60" cold="60" poison="60" energy="60" />
+	<layers count="12">
+		<layer index="3" item="Server.Items.Cloak" hue="397" loot="0" />
+		<layer index="6" item="Server.Items.PlateGloves" hue="2219" loot="0" />
+		<layer index="8" item="Server.Items.ChainCoif" hue="2219" loot="0" />
+		<layer index="10" item="Server.Items.ChainChest" hue="2219" loot="0" />
+		<layer index="11" item="Server.Items.Tunic" hue="194" loot="0" />
+		<layer index="12" item="Server.Items.PlateGorget" hue="0" loot="0" />
+		<layer index="13" item="Server.Items.ThinLongsword" hue="2219" loot="0" />
+		<layer index="16" item="Server.Items.ChainLegs" hue="2219" loot="0" />
+		<layer index="19" item="Server.Items.Sandals" hue="0" loot="0" />
+		<layer index="20" item="Server.Items.HeaterShield" hue="2219" loot="0" />
+	</layers>
+	<mount mounted="false" />
+</export>
