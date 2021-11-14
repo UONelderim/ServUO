@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<statistics>
+	<records>
+		<Record>
+			<start value="637428834000000000" />
+			<stop value="637428861386930757" />
+			<arena value="Jatka" />
+			<tournament value="Turniej otwarty - fundator Kapitan Vox Populi" />
+			<region value="Kryjowka_Przemytnikow" />
+			<class value="0" />
+			<reward value="Pierwszy Turniej Vox Populi" />
+			<place1 value="Brynjolf" />
+			<place2 value="Laitha" />
+			<place3 value="Shozann H'yugh K'toh" />
+			<place4 value="Mirayala Aarven" />
+		</Record>
+	</records>
+	<competitors>
+		<Competitor>
+			<serial value="71172" />
+			<status value="4" />
+			<place1 value="1" />
+			<place2 value="0" />
+			<place3 value="0" />
+		</Competitor>
+		<Competitor>
+			<serial value="176575" />
+			<status value="2" />
+			<place1 value="0" />
+			<place2 value="1" />
+			<place3 value="0" />
+		</Competitor>
+		<Competitor>
+			<serial value="2545" />
+			<status value="1" />
+			<place1 value="0" />
+			<place2 value="0" />
+			<place3 value="1" />
+		</Competitor>
+		<Competitor>
+			<serial value="57650" />
+			<status value="1" />
+			<place1 value="0" />
+			<place2 value="0" />
+			<place3 value="1" />
+		</Competitor>
+	</competitors>
+</statistics>
