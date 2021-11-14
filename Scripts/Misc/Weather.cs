@@ -140,13 +140,13 @@ namespace Server.Misc
             */
 
             // ice island
-            AddWeather(-15, 100, 5, new Rectangle2D(3850, 160, 390, 320), new Rectangle2D(3900, 480, 380, 180), new Rectangle2D(4160, 660, 150, 110));
+          //  AddWeather(-15, 100, 5, new Rectangle2D(3850, 160, 390, 320), new Rectangle2D(3900, 480, 380, 180), new Rectangle2D(4160, 660, 150, 110));
 
             // covetous entrance, around vesper and minoc
-            AddWeather(+15, 50, 5, new Rectangle2D(2425, 725, 250, 250));
+         //   AddWeather(+15, 50, 5, new Rectangle2D(2425, 725, 250, 250));
 
             // despise entrance, north of britain
-            AddWeather(+15, 50, 5, new Rectangle2D(1245, 1045, 250, 250));
+         //   AddWeather(+15, 50, 5, new Rectangle2D(1245, 1045, 250, 250));
 
             /* Dynamic weather:
             * 
