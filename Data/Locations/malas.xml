@@ -38,9 +38,36 @@
 				<child name="Tunnel" x="2352" y="1267" z="-110" />
 				<child name="Inside" x="381" y="133" z="33" />
 				<child name="Gauntlet" x="433" y="331" z="-2" />
-				<child name="Guardian's Room" x="365" y="15" z="-1"/>
-				<child name="Lamp Room" x="470" y="95" z="-1"/>
 			</parent>
+			<parent name="Lsniacy Wysiek">
+				<child name="Lsniacy Wysiek LV1" x="183" y="802" z="5" />
+				<child name="Lsniacy Wysiek LV2" x="246" y="883" z="-1" />
+				<child name="Lsniacy Wysiek Boss" x="315" y="999" z="-1" />
+			</parent>
+			<parent name="Krolowa Wrozek">
+				<child name="Krolowa Wrozek" x="58" y="811" z="-1"/>
+			</parent>
+			<parent name="Wielka Pokraczna Bestia"> 
+				<child name="Wielka Pokraczna Bestia LV2" x="67" y="1226" z="0" />
+				<child name="Wielka Pokraczna Bestia Boss" x="70" y="1123" z="1" />
+			</parent>
+			<parent name="Parox">
+				<child name="Parox" x="40" y="1328" z="0" />
+			</parent>
+			<parent name="Vox Populi">
+			<child name="Vox Populi" x="4046" y="1162" z="0" />
+			</parent>
+			</parent>
+			<parent name="Lokacje">
+			<parent name="Zoo Tas">
+				<child name="Zoo" x="567" y="1916" z="-95" />
+
+			</parent>
+			
+			
+			
+			
+			
 		</parent>
 		<parent name="Sites">
 			<parent name="Points of Interest">
