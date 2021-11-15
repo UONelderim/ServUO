@@ -39,6 +39,7 @@ namespace Server.Mobiles
             MinTameSkill = 93.9;
 
             Hue = 0x489;
+            AddItem( new LightSource() );
         }
 
         public FireBeetle(Serial serial)
