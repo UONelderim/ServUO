@@ -128,7 +128,7 @@ namespace Server.Spells.Necromancy
                 typeof(Drake), typeof(Wyvern), typeof(LesserHiryu), typeof(Hiryu)
             }, new SummonEntry[]
                {
-                   new SummonEntry(18000, typeof(SkeletalDragon)),
+                   new SummonEntry(15000, typeof(SkeletalDragon)),
                    new SummonEntry(10000, typeof(FleshGolem)),
                    new SummonEntry(5000, typeof(Lich)),
                    new SummonEntry(3000, typeof(SkeletalKnight), typeof(BoneKnight)),
