@@ -510,7 +510,7 @@ namespace Server.Items
         public Eggs(int amount)
             : base(0x9B5)
         {
-            Weight = 1.0;
+            Weight = 0.1;
             Stackable = true;
             Amount = amount;
         }
