@@ -137,7 +137,7 @@ namespace Nelderim.Towns
         {
             typeof( Amber ), typeof( Amethyst ) , typeof( Citrine ) ,
             typeof( Diamond ) , typeof( Emerald ) , typeof( Ruby ) , typeof( Sapphire ),
-            typeof( StarSapphire ), typeof( Tourmaline ), typeof( BaseJewel )
+            typeof( StarSapphire ), typeof( Tourmaline ), typeof( BaseJewel ), typeof( ShimmeringCrystals ), typeof ( CrystallineFragments ), typeof( ObsidianStone )
         };
 
         private static List<Type> m_ziola = new List<Type>
@@ -145,7 +145,7 @@ namespace Nelderim.Towns
             typeof( SpidersSilk ), typeof( SulfurousAsh ) , typeof( Nightshade ) ,
             typeof( MandrakeRoot ) , typeof( Ginseng ) , typeof( Garlic ) , typeof( Bloodmoss ),
             typeof( BlackPearl ), typeof( BatWing ), typeof( GraveDust ), typeof( DaemonBlood ),
-            typeof( NoxCrystal ), typeof( PigIron )
+            typeof( NoxCrystal ), typeof( PigIron ), typeof( SpringWater ), typeof( DestroyingAngel ), typeof( PetrafiedWood ), typeof( TaintedMushroom );, typeof( HornOfTheDreadhorn )
         };
         #endregion
 
