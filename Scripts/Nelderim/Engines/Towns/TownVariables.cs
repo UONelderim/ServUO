@@ -174,7 +174,7 @@ namespace Nelderim.Towns
 			typeof(SpringWater),
 			typeof(DestroyingAngel),
 			typeof(PetrafiedWood),
-			typeof(TaintedMushroom);,
+			typeof(TaintedMushroom),
 			typeof(HornOfTheDreadhorn)
 		};
 
