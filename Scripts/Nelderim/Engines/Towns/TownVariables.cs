@@ -145,7 +145,7 @@ namespace Nelderim.Towns
             typeof( SpidersSilk ), typeof( SulfurousAsh ) , typeof( Nightshade ) ,
             typeof( MandrakeRoot ) , typeof( Ginseng ) , typeof( Garlic ) , typeof( Bloodmoss ),
             typeof( BlackPearl ), typeof( BatWing ), typeof( GraveDust ), typeof( DaemonBlood ),
-            typeof( NoxCrystal ), typeof( PigIron ), typeof( SpringWater ), typeof( DestroyingAngel ), typeof( PetrafiedWood ), typeof( TaintedMushroom );, typeof( HornOfTheDreadhorn )
+            typeof( NoxCrystal ), typeof( PigIron ), typeof( SpringWater ), typeof( DestroyingAngel ), typeof( PetrafiedWood ), typeof( TaintedMushroom ), typeof( HornOfTheDreadhorn )
         };
         #endregion
 
