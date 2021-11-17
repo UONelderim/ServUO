@@ -1,3 +1,4 @@
+using Server.Gumps;
 using Server.Mobiles;
 using Server.Network;
 using Server.Targeting;
@@ -14,15 +15,70 @@ namespace Server.SkillHandlers
 
         public static TimeSpan OnUse(Mobile m)
         {
-            m.Target = new InternalTarget();
 
-            m.SendLocalizedMessage(500321); // Whom shall I examine?
+            if (m.HasGump(typeof(CreatureAnatomyGump)))
+            {
+                m.SendLocalizedMessage(500118); // You must wait a few moments to use another skill.
+            }
+	    else
+	    {
+		m.Target = new InternalTarget();
+            	m.SendLocalizedMessage(500321); // Whom shall I examine?
+
+	    }
 
             return TimeSpan.FromSeconds(1.0);
         }
 
         private class InternalTarget : Target
         {
+
+            private static void SendGump(Mobile from, BaseCreature c)
+            {
+                from.CheckTargetSkill(SkillName.Anatomy, c, 0.0, 100.0);
+
+                  if (from is PlayerMobile)
+                  {
+                      Timer.DelayCall(TimeSpan.FromSeconds(1), () => 
+			  {
+                              BaseGump.SendGump(new CreatureAnatomyGump((PlayerMobile)from, c));
+                          });
+		  }
+	    }
+
+            private static void SendPlayerGump(Mobile from, PlayerMobile p)
+            {
+                if (from.CheckTargetSkill(SkillName.Anatomy, p, 100.0, 120.0));
+                {
+                  if (from is PlayerMobile)
+                    {
+                      Timer.DelayCall(TimeSpan.FromSeconds(1), () => 
+			    {
+                              BaseGump.SendGump(new PlayerAnatomyGump((PlayerMobile)from, p));
+                    });
+                }
+		    }
+                else
+            {
+               
+               
+			    {
+                    BaseGump.SendGump(new PlayerLesserAnatomyGump((PlayerMobile)from, p));
+                }
+                
+		    }
+	    }
+
+            private static void Check(Mobile from, BaseCreature c, double min)
+            {
+                if (from.CheckTargetSkill(SkillName.Anatomy, c, min, 100.0))
+                    SendGump(from, c);
+                else
+                    from.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1042666, from.NetState); // You can not quite get a sense of their physical characteristics.
+            }
+
+
+/////////////////////////////////////////
             public InternalTarget()
                 : base(8, false, TargetFlags.None)
             {
@@ -46,37 +102,24 @@ namespace Server.SkillHandlers
                 {
                     Mobile targ = (Mobile)targeted;
 
-                    int marginOfError = Math.Max(0, 25 - (int)(from.Skills[SkillName.Anatomy].Value / 4));
-
-                    int str = targ.Str + Utility.RandomMinMax(-marginOfError, +marginOfError);
-                    int dex = targ.Dex + Utility.RandomMinMax(-marginOfError, +marginOfError);
-                    int stm = ((targ.Stam * 100) / Math.Max(targ.StamMax, 1)) + Utility.RandomMinMax(-marginOfError, +marginOfError);
-
-                    int strMod = str / 10;
-                    int dexMod = dex / 10;
-                    int stmMod = stm / 10;
-
-                    if (strMod < 0)
-                        strMod = 0;
-                    else if (strMod > 10)
-                        strMod = 10;
-
-                    if (dexMod < 0)
-                        dexMod = 0;
-                    else if (dexMod > 10)
-                        dexMod = 10;
-
-                    if (stmMod > 10)
-                        stmMod = 10;
-                    else if (stmMod < 0)
-                        stmMod = 0;
-
-                    if (from.CheckTargetSkill(SkillName.Anatomy, targ, 0, from.Skills[SkillName.Anatomy].Cap))
+		    if (from.CheckTargetSkill(SkillName.Anatomy, targ, 0, 100))
                     {
-                        targ.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1038045 + (strMod * 11) + dexMod, from.NetState); // That looks [strong] and [dexterous].
+			if(targeted is BaseCreature)
+			{
+				BaseCreature c = (BaseCreature)targeted;
 
-                        if (from.Skills[SkillName.Anatomy].Base >= 65.0)
-                            targ.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1038303 + stmMod, from.NetState); // That being is at [10,20,...] percent endurance.
+				if(!c.Body.IsAnimal && c.Tamable == false)
+					SendGump(from, c);
+				else
+					from.SendMessage("Examaning this creature requires Animal Lore.");
+			}
+			else if( targeted is PlayerMobile)
+			{
+				PlayerMobile p = (PlayerMobile)targeted;
+				SendPlayerGump(from, p);
+			}
+                    		//targ.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1042666, from.NetState); // You can not quite get a sense of their physical characteristics.
+
                     }
                     else
                     {
