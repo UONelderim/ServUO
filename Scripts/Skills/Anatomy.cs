@@ -40,34 +40,35 @@ namespace Server.SkillHandlers
                   if (from is PlayerMobile)
                   {
                       Timer.DelayCall(TimeSpan.FromSeconds(1), () => 
-			  {
+              {
                               BaseGump.SendGump(new CreatureAnatomyGump((PlayerMobile)from, c));
                           });
-		  }
-	    }
+            }
+        }
 
             private static void SendPlayerGump(Mobile from, PlayerMobile p)
-            {
-                if (from.CheckTargetSkill(SkillName.Anatomy, p, 100.0, 120.0));
                 {
-                  if (from is PlayerMobile)
+                    if (from.CheckTargetSkill(SkillName.Anatomy, p, 100.0, 120.0));
                     {
-                      Timer.DelayCall(TimeSpan.FromSeconds(1), () => 
-			    {
+                         if (from is PlayerMobile)
+                        {
+                            Timer.DelayCall(TimeSpan.FromSeconds(1), () => 
+                            {
                               BaseGump.SendGump(new PlayerAnatomyGump((PlayerMobile)from, p));
-                    });
-                }
-		    }
-                else
-            {
-               
-               
-			    {
+                            });
+                        }
+            
+                    else
+                    {
+
+
+                        {
                     BaseGump.SendGump(new PlayerLesserAnatomyGump((PlayerMobile)from, p));
+                        }
+
+                    }
                 }
-                
-		    }
-	    }
+        }
 
             private static void Check(Mobile from, BaseCreature c, double min)
             {
