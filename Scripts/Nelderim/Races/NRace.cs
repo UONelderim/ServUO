@@ -1,12 +1,17 @@
 using Server;
 using Server.Misc;
 using System;
+using System.Collections.Generic;
 
 namespace Nelderim.Races
 {
     public abstract class NRace : Race
     {
-        public static void Configure()
+	    new public static NRace[] Races { get; } = new NRace[0x100];
+
+	    new public static List<NRace> AllRaces { get; } = new List<NRace>();
+
+	    public static void Configure()
         {
             /* Here we configure all races. Some notes:
             * 
@@ -15,13 +20,21 @@ namespace Nelderim.Races
             * 3) Race 0xFF is reserved for core use.
             * 4) Changing or removing any predefined races may cause server instability.
             */
-            RaceDefinitions.RegisterRace( new Tamael( 1, 1 ) );
-            RaceDefinitions.RegisterRace( new Jarling( 2, 2 ) );
-            RaceDefinitions.RegisterRace( new Naur( 3, 3 ) );
-            RaceDefinitions.RegisterRace( new Elf( 4, 4 ) );
-            RaceDefinitions.RegisterRace( new Drow( 5, 5 ) );
-            RaceDefinitions.RegisterRace( new Krasnolud( 6, 6 ) );
+            RegisterNRace( new None( 0, 0 ) );
+            RegisterNRace( new Tamael( 1, 1 ) );
+            RegisterNRace( new Jarling( 2, 2 ) );
+            RegisterNRace( new Naur( 3, 3 ) );
+            RegisterNRace( new Elf( 4, 4 ) );
+            RegisterNRace( new Drow( 5, 5 ) );
+            RegisterNRace( new Krasnolud( 6, 6 ) );
         }
+
+	    private static void RegisterNRace(NRace race)
+	    {
+		    Races[race.RaceIndex] = race;
+		    AllRaces.Add(race);
+		    RaceDefinitions.RegisterRace(race);
+	    }
 
         public NRace( int raceID, int raceIndex, string name, string pluralName) : base(raceID + NRaceOffset, raceIndex + NRaceOffset, name, pluralName, 400, 401, 402, 403 )
         {
