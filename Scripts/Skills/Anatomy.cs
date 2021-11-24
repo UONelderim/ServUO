@@ -15,7 +15,8 @@ namespace Server.SkillHandlers
 
 		public static TimeSpan OnUse(Mobile m)
 		{
-			if (m.HasGump(typeof(CreatureAnatomyGump)))
+			if (m.HasGump(typeof(CreatureAnatomyGump)) ||
+			    m.HasGump(typeof(PlayerLesserAnatomyGump)) || m.HasGump(typeof(PlayerAnatomyGump)))
 			{
 				m.SendLocalizedMessage(500118); // You must wait a few moments to use another skill.
 			}
@@ -30,51 +31,6 @@ namespace Server.SkillHandlers
 
 		private class InternalTarget : Target
 		{
-			private static void SendGump(Mobile from, BaseCreature c)
-			{
-				from.CheckTargetSkill(SkillName.Anatomy, c, 0.0, 100.0);
-
-				if (from is PlayerMobile)
-				{
-					Timer.DelayCall(TimeSpan.FromSeconds(1), () =>
-					{
-						BaseGump.SendGump(new CreatureAnatomyGump((PlayerMobile)from, c));
-					});
-				}
-			}
-
-			private static void SendPlayerGump(Mobile from, PlayerMobile p)
-			{
-				if (from.CheckTargetSkill(SkillName.Anatomy, p, 100.0, 120.0)) ;
-				{
-					if (from is PlayerMobile)
-					{
-						Timer.DelayCall(TimeSpan.FromSeconds(1), () =>
-						{
-							BaseGump.SendGump(new PlayerAnatomyGump((PlayerMobile)from, p));
-						});
-					}
-
-					else
-					{
-						{
-							BaseGump.SendGump(new PlayerLesserAnatomyGump((PlayerMobile)from, p));
-						}
-					}
-				}
-			}
-
-			private static void Check(Mobile from, BaseCreature c, double min)
-			{
-				if (from.CheckTargetSkill(SkillName.Anatomy, c, min, 100.0))
-					SendGump(from, c);
-				else
-					from.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1042666,
-						from.NetState); // You can not quite get a sense of their physical characteristics.
-			}
-
-
-/////////////////////////////////////////
 			public InternalTarget()
 				: base(8, false, TargetFlags.None)
 			{
@@ -84,52 +40,50 @@ namespace Server.SkillHandlers
 			{
 				if (from == targeted)
 				{
-					from.LocalOverheadMessage(MessageType.Regular, 0x3B2,
-						500324); // You know yourself quite well enough already.
+					from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 500324); // You know yourself quite well enough already.
 				}
-				else if (targeted is TownCrier)
+				else if (targeted is TownCrier tc)
 				{
-					((TownCrier)targeted).PrivateOverheadMessage(MessageType.Regular, 0x3B2, 500322,
-						from.NetState); // This person looks fine to me, though he may have some news...
+					tc.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 500322, from.NetState); // This person looks fine to me, though he may have some news...
 				}
-				else if (targeted is BaseVendor && ((BaseVendor)targeted).IsInvulnerable)
+				else if (targeted is BaseVendor bv && bv.IsInvulnerable)
 				{
-					((BaseVendor)targeted).PrivateOverheadMessage(MessageType.Regular, 0x3B2, 500326,
-						from.NetState); // That can not be inspected.
+					bv.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 500326, from.NetState); // That can not be inspected.
 				}
-				else if (targeted is Mobile)
+				else if (targeted is Mobile m)
 				{
-					Mobile targ = (Mobile)targeted;
-
-					if (from.CheckTargetSkill(SkillName.Anatomy, targ, 0, 100))
+					if (targeted is BaseCreature bc && (bc.Body.IsAnimal || bc.Tamable))
 					{
-						if (targeted is BaseCreature)
-						{
-							BaseCreature c = (BaseCreature)targeted;
-
-							if (!c.Body.IsAnimal && c.Tamable == false)
-								SendGump(from, c);
-							else
-								from.SendMessage("Examaning this creature requires Animal Lore.");
-						}
-						else if (targeted is PlayerMobile)
-						{
-							PlayerMobile p = (PlayerMobile)targeted;
-							SendPlayerGump(from, p);
-						}
-
-						//targ.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1042666, from.NetState); // You can not quite get a sense of their physical characteristics.
+						from.SendMessage("Examaning this creature requires Animal Lore.");
+					}
+					else if (from.CheckTargetSkill(SkillName.Anatomy, m, 0, 100))
+					{
+						SendGump(from, m);
 					}
 					else
 					{
-						targ.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1042666,
-							from.NetState); // You can not quite get a sense of their physical characteristics.
+						m.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1042666, from.NetState); // You can not quite get a sense of their physical characteristics.
 					}
 				}
-				else if (targeted is Item)
+				else if (targeted is Item item )
 				{
-					((Item)targeted).SendLocalizedMessageTo(from, 500323, ""); // Only living things have anatomies!
+					item.SendLocalizedMessageTo(from, 500323, ""); // Only living things have anatomies!
 				}
+			}
+			
+			private static void SendGump(Mobile from, Mobile targeted)
+			{
+				if (from is PlayerMobile)
+					Timer.DelayCall(TimeSpan.FromSeconds(1), () =>
+					{
+						if(targeted is BaseCreature bc)
+							BaseGump.SendGump(new CreatureAnatomyGump((PlayerMobile)from, bc));
+						else if(targeted is PlayerMobile tpm )
+							if (from.Skills.Anatomy.Base >= 100.0)
+								BaseGump.SendGump(new PlayerAnatomyGump((PlayerMobile)from, tpm));
+							else
+								BaseGump.SendGump(new PlayerLesserAnatomyGump((PlayerMobile)from, tpm));
+					});
 			}
 		}
 	}

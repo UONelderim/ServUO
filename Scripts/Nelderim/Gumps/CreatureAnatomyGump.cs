@@ -1,14 +1,5 @@
-using Server.ContextMenus;
-using Server.Mobiles;
-using Server.Network;
-using Server.Misc;
 using Server.Gumps;
-using Server.Targeting;
-using Server.SkillHandlers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace Server.Mobiles
 {
@@ -16,7 +7,7 @@ namespace Server.Mobiles
     {
         private readonly int _Label = 0xF424E5;
 
-        public BaseCreature Creature { get; private set; }
+        public BaseCreature Creature { get; }
 
         public CreatureAnatomyGump(PlayerMobile pm, BaseCreature bc)
             : base(pm, 250, 50)
