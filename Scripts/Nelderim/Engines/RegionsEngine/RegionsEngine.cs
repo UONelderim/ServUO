@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Xml;
+using Nelderim.Races;
 using Server.Mobiles;
 using Server.Spells;
 using Server.Spells.Necromancy;
@@ -208,11 +209,11 @@ namespace Server.Nelderim
 
                             // Console.WriteLine( "Nietolerancja dla regionu {0}: ", newRegion.Name );
 
-                            int[] intolerance = new int[Race.AllRaces.Count];
+                            int[] intolerance = new int[NRace.AllRaces.Count];
 
                             for ( int i = 0; i < intolerance.Length; i++ )
                             {
-                                string attr = pop.GetAttribute( Race.AllRaces[i].Name );
+                                string attr = pop.GetAttribute( NRace.AllRaces[i].Name );
                                 intolerance[i] = XmlConvert.ToInt32( attr == "" ? "0" : attr );
                             }
 
@@ -235,12 +236,12 @@ namespace Server.Nelderim
                         {
                             XmlElement pop = nodes.Item( 0 ) as XmlElement;
 
-                            double[] population = new double[Race.AllRaces.Count];
+                            double[] population = new double[NRace.AllRaces.Count];
                             double sum = 0;
 
                             for ( int i = 0; i < population.Length; i++ )
                             {
-                                string attr = pop.GetAttribute( Race.AllRaces[i].Name );
+                                string attr = pop.GetAttribute( NRace.AllRaces[i].Name );
                                 population[i] = XmlConvert.ToDouble( attr == "" ? "0" : attr );
                                 sum += population[i];
                             }
@@ -269,14 +270,14 @@ namespace Server.Nelderim
                             double span = XmlConvert.ToDouble( guard.GetAttribute( "span" ) );
                             double female = XmlConvert.ToDouble( guard.GetAttribute( "female" ) );
                             string file = "Data/NelderimRegions/Profiles/" + guard.GetAttribute( "file" ) + ".xml";
-                            int[] guards = new int[Race.AllRaces.Count];
+                            int[] guards = new int[NRace.AllRaces.Count];
                             int sum = 0;
 
                             XmlElement r = guard.GetElementsByTagName( "races" ).Item( 0 ) as XmlElement;
 
                             for ( int i = 0; i < guards.Length; i++ )
                             {
-                                string attr = r.GetAttribute( Race.AllRaces[i].Name );
+                                string attr = r.GetAttribute( NRace.AllRaces[i].Name );
                                 guards[i] = XmlConvert.ToInt32( attr == "" ? "0" : attr );
                                 sum += guards[i];
                             }
@@ -349,9 +350,9 @@ namespace Server.Nelderim
                         xml.WriteStartElement( "races" );
 
 
-                        for ( int i = 0; i < Race.AllRaces.Count; i++ )
+                        for ( int i = 0; i < NRace.AllRaces.Count; i++ )
                         {
-                            xml.WriteAttributeString( Race.AllRaces[i].Name, reg.RegionPopulation.Proportions[i].ToString() );
+                            xml.WriteAttributeString( NRace.AllRaces[i].Name, reg.RegionPopulation.Proportions[i].ToString() );
                         }
 
                         xml.WriteEndElement(); // "races"
@@ -365,9 +366,9 @@ namespace Server.Nelderim
                     {
                         xml.WriteStartElement( "intolerance" );
 
-                        for ( int i = 0; i < Race.AllRaces.Count; i++ )
+                        for ( int i = 0; i < NRace.AllRaces.Count; i++ )
                         {
-                            xml.WriteAttributeString( Race.AllRaces[i].Name, reg.Intolerance[i].ToString() );
+                            xml.WriteAttributeString( NRace.AllRaces[i].Name, reg.Intolerance[i].ToString() );
                         }
 
                         xml.WriteEndElement(); // "intolerance"
@@ -403,9 +404,9 @@ namespace Server.Nelderim
 
                                 xml.WriteStartElement( "races" );
 
-                                for ( int j = 0; j < Race.AllRaces.Count; j++ )
+                                for ( int j = 0; j < NRace.AllRaces.Count; j++ )
                                 {
-                                    xml.WriteAttributeString( Race.Races[j].Name, g.Races[j].ToString() );
+                                    xml.WriteAttributeString( NRace.Races[j].Name, g.Races[j].ToString() );
                                 }
 
                                 xml.WriteEndElement(); // "races"
