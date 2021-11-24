@@ -317,7 +317,6 @@
             <rect x="956" y="1187" width="18" height="14"/>
             <rect x="1034" y="1187" width="57" height="42"/>
             <go location="(992,1136,2)" />
-            <music name="Citynightedit"/>
         </region>
         <region type="VillageRegion" name="Tafroel">
             <rect x="871" y="1412" width="25" height="35"/>
