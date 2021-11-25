@@ -16,7 +16,7 @@ namespace Server.SkillHandlers
 		public static TimeSpan OnUse(Mobile m)
 		{
 			if (m.HasGump(typeof(CreatureAnatomyGump)) ||
-			    m.HasGump(typeof(PlayerLesserAnatomyGump)) || m.HasGump(typeof(PlayerAnatomyGump)))
+				m.HasGump(typeof(PlayerLesserAnatomyGump)) || m.HasGump(typeof(PlayerAnatomyGump)))
 			{
 				m.SendLocalizedMessage(500118); // You must wait a few moments to use another skill.
 			}
@@ -65,20 +65,20 @@ namespace Server.SkillHandlers
 						m.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1042666, from.NetState); // You can not quite get a sense of their physical characteristics.
 					}
 				}
-				else if (targeted is Item item )
+				else if (targeted is Item item)
 				{
 					item.SendLocalizedMessageTo(from, 500323, ""); // Only living things have anatomies!
 				}
 			}
-			
+
 			private static void SendGump(Mobile from, Mobile targeted)
 			{
 				if (from is PlayerMobile)
 					Timer.DelayCall(TimeSpan.FromSeconds(1), () =>
 					{
-						if(targeted is BaseCreature bc)
+						if (targeted is BaseCreature bc)
 							BaseGump.SendGump(new CreatureAnatomyGump((PlayerMobile)from, bc));
-						else if(targeted is PlayerMobile tpm )
+						else if (targeted is PlayerMobile tpm)
 							if (from.Skills.Anatomy.Base >= 100.0)
 								BaseGump.SendGump(new PlayerAnatomyGump((PlayerMobile)from, tpm));
 							else
