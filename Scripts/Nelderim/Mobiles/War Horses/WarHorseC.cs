@@ -7,13 +7,16 @@ namespace Server.Mobiles
 		[Constructable]
 		public WarHorseC() : this( "kon bojowy" )
 		{
+			SetHits( 250 );
 		}
 
 		[Constructable]
 		public WarHorseC( string name ) : base( name, 0x79, 0x3EB0 )
 		{
-			SetResistance( ResistanceType.Poison, 35, 45 );
+			SetResistance( ResistanceType.Poison, 45, 55 );
 		}
+
+		public override PackInstinct PackInstinct{ get{ return PackInstinct.Equine; } }
 
 		public WarHorseC( Serial serial ) : base( serial )
 		{
