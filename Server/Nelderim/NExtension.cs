@@ -81,7 +81,7 @@ namespace Nelderim
 				int count = reader.ReadInt();
 				for ( int i = 0; i < count; i++ )
 				{
-					Serial serial = reader.ReadInt();
+					Serial serial = new Serial(reader.ReadInt());
 
 					T info = new T
 					{

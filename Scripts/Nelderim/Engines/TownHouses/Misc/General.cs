@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections;
+using System.Linq;
 using Server;
 using Server.Commands;
 using Server.Multis;
@@ -159,7 +160,7 @@ namespace Knives.TownHouses
 			if (houses == null) return;
 
 			foreach (BaseHouse house in houses) {
-				if (house.Region.GetMobiles().Contains(e.Mobile) && house is TownHouse && house.Owner == e.Mobile) {
+				if (house.Region.AllMobiles.Contains(e.Mobile) && house is TownHouse && house.Owner == e.Mobile) {
 					TownHouse tHouse = (TownHouse)house;
 					if (!TownHouseInfo(tHouse, e.Mobile)) {
 						e.Mobile.SendMessage("Ten dom nie jest wynajmowany");

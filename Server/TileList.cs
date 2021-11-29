@@ -50,17 +50,20 @@ namespace Server
 		/* Begin UltimaLive Mod */
 		public void Add(ushort id, sbyte z, short hue)
 		{
-			if ((m_Count + 1) > m_Tiles.Length)
+			if ((Count + 1) > m_Tiles.Length)
 			{
-				StaticTile[] old = m_Tiles;
+				var old = m_Tiles;
 				m_Tiles = new StaticTile[old.Length * 2];
-				for (int i = 0; i < old.Length; ++i)
+
+				for (var i = 0; i < old.Length; ++i)
+				{
 					m_Tiles[i] = old[i];
+				}
 			}
-			m_Tiles[m_Count].m_ID = id;
-			m_Tiles[m_Count].m_Z = z;
-			m_Tiles[m_Count].m_Hue = hue;
-			++m_Count;
+
+			m_Tiles[Count].m_ID = id;
+			m_Tiles[Count].m_Z = z;
+			++Count;
 		}
 		/* End UltimaLive Mod*/
 

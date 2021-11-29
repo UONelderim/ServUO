@@ -42,7 +42,7 @@ private DateTime m_Spoken;
 		{
 			SpeechHue = Utility.RandomDyedHue();
 			Title = "- rzezimieszek";
-			Hue = Utility.RandomSkinHue();
+			Hue = Race.RandomSkinHue();
 
 			if ( this.Female = Utility.RandomBool() )
 			{

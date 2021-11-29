@@ -13,8 +13,8 @@ namespace Server.Mobiles
 		[Constructable]
 		public VitVargLord() : base( AIType.AI_Melee, FightMode.Strongest, 12, 1, 0.2, 0.4 )
 		{
-			
-			Hue = Utility.RandomSkinHue();
+
+			Hue = Race.RandomSkinHue();
 
 			if ( this.Female = Utility.RandomBool() )
 			{

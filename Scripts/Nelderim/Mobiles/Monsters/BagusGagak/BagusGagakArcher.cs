@@ -14,7 +14,7 @@ namespace Server.Mobiles
 			SpeechHue = Utility.RandomDyedHue();
 			
 			Title = "- Gagak Lucznik";
-			Hue = Utility.RandomSkinHue();
+			Hue = Race.RandomSkinHue();
 
 			if ( this.Female = Utility.RandomBool() )
 			{
@@ -62,7 +62,7 @@ namespace Server.Mobiles
             SetWeaponAbility( WeaponAbility.ParalyzingBlow );
 
             Item hair = new Item( Utility.RandomList( 0x203C ) );
-            hair.Hue = Utility.RandomHairHue();
+            hair.Hue = Race.RandomHairHue();
 			hair.Layer = Layer.Hair; 
 			hair.Movable = false; 
 			AddItem( hair );

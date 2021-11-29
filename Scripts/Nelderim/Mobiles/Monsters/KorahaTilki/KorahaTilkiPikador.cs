@@ -14,7 +14,7 @@ namespace Server.Mobiles
 			SpeechHue = Utility.RandomDyedHue();
 			
 			Title = "- Tilki Pikador";
-			Hue = Utility.RandomSkinHue();
+			Hue = Race.RandomSkinHue();
 
 			if ( this.Female = Utility.RandomBool() )
 			{

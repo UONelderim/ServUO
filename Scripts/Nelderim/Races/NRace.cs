@@ -1,7 +1,7 @@
 using Server;
 using Server.Misc;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Nelderim.Races
 {
@@ -21,12 +21,12 @@ namespace Nelderim.Races
             * 4) Changing or removing any predefined races may cause server instability.
             */
             RegisterNRace( new None( 0, 0 ) );
-            RegisterNRace( new Tamael( 1, 1 ) );
-            RegisterNRace( new Jarling( 2, 2 ) );
-            RegisterNRace( new Naur( 3, 3 ) );
-            RegisterNRace( new Elf( 4, 4 ) );
-            RegisterNRace( new Drow( 5, 5 ) );
-            RegisterNRace( new Krasnolud( 6, 6 ) );
+            RegisterNRace( new NTamael( 1, 1 ) );
+            RegisterNRace( new NJarling( 2, 2 ) );
+            RegisterNRace( new NNaur( 3, 3 ) );
+            RegisterNRace( new NElf( 4, 4 ) );
+            RegisterNRace( new NDrow( 5, 5 ) );
+            RegisterNRace( new NKrasnolud( 6, 6 ) );
         }
 
 	    private static void RegisterNRace(NRace race)
@@ -36,127 +36,116 @@ namespace Nelderim.Races
 		    RaceDefinitions.RegisterRace(race);
 	    }
 
-        public NRace( int raceID, int raceIndex, string name, string pluralName) : base(raceID + NRaceOffset, raceIndex + NRaceOffset, name, pluralName, 400, 401, 402, 403 )
+        public NRace( int raceId, int raceIndex) : base(raceId + NRaceOffset, raceIndex + NRaceOffset )
         {
-        }
- 
-        public override FacialHairItemID[] FacialHairStyles => new FacialHairItemID[]
-        {
-            FacialHairItemID.None,
-            FacialHairItemID.LongBeard,
-            FacialHairItemID.ShortBeard,
-            FacialHairItemID.Goatee,
-            FacialHairItemID.Mustache,
-            FacialHairItemID.MediumShortBeard,
-            FacialHairItemID.MediumLongBeard,
-            FacialHairItemID.Vandyke
-        };
- 
-        public override HairItemID[] MaleHairStyles => new HairItemID[]
-        {
-            HairItemID.None,
-            HairItemID.Short,
-            HairItemID.Long,
-            HairItemID.PonyTail,
-            HairItemID.Mohawk,
-            HairItemID.Pageboy,
-            HairItemID.Buns,
-            HairItemID.Afro,
-            HairItemID.Receeding,
-            HairItemID.TwoPigTails,
-            HairItemID.Krisna
-        };
- 
-        public override HairItemID[] FemaleHairStyles => new HairItemID[]
-        {
-            HairItemID.None,
-            HairItemID.Short,
-            HairItemID.Long,
-            HairItemID.PonyTail,
-            HairItemID.Mohawk,
-            HairItemID.Pageboy,
-            HairItemID.Buns,
-            HairItemID.Afro,
-            HairItemID.Receeding,
-            HairItemID.TwoPigTails,
-            HairItemID.Krisna
-        };
-
-        public override bool ValidateHair( bool female, int itemID )
-        {
-            HairItemID[] list = female ? FemaleHairStyles : MaleHairStyles;
-            foreach(HairItemID hairItem in list )
-            {
-                if ( (int)hairItem == itemID ) return true;
-            }
-            return false;
         }
 
-        public override int RandomHair( bool female )
+        public override string Name
         {
-            if ( female ) return (int)Utility.RandomList( FemaleHairStyles );
-            return (int)Utility.RandomList( MaleHairStyles );
+	        get => GetName(Cases.Mianownik);
+	        set => throw new System.NotImplementedException();
         }
 
-        public override bool ValidateFacialHair( bool female, int itemID )
+        public override string PluralName
         {
-            if ( female ) return false;
-            foreach(FacialHairItemID hairItem in FacialHairStyles )
-            {
-                if ( (int)hairItem == itemID ) return true;
-            }
-            return false;
+	        get => GetPluralName(Cases.Mianownik);
+	        set => throw new System.NotImplementedException();
         }
 
-        public override int RandomFacialHair( bool female )
-        {
-            if ( female ) return 0;
-            return (int)Utility.RandomList( FacialHairStyles );
-        }
+        public override int MaleBody { get; set; } = 400;
+		public override int FemaleBody { get; set; } = 401;
 
-        public override bool ValidateFace( bool female, int itemID )
-        {
-            return Race.Human.ValidateFace( female, itemID );
-        }
+		public override int MaleGhostBody { get; set; } = 402;
+		public override int FemaleGhostBody { get; set; } = 403;
 
-        public override int RandomFace( bool female )
-        {
-            return Race.Human.RandomFace( female );
-        }
+		public override Expansion RequiredExpansion { get; set; } = Expansion.None;
 
-        public override bool ValidateEquipment( Item item )
-        {
-	        return true;
-        }
+		public override int[] ExclusiveEquipment { get; set; } = 
+		{
+		};
 
-        public override int ClipSkinHue( int hue )
-        {
-            return hue;
-        }
+		public override int[][] HairTable { get; set; } =
+		{
+			new[] // Female
+			{
+				Hair.Human.Bald,
+				Hair.Human.Short,
+				Hair.Human.Long,
+				Hair.Human.PonyTail,
+				Hair.Human.Mohawk,
+				Hair.Human.Pageboy,
+				Hair.Human.Buns,
+				Hair.Human.Afro,
+				Hair.Human.PigTails,
+				Hair.Human.Krisna,
+			},
+			new[] // Male
+			{
+				Hair.Human.Bald,
+				Hair.Human.Short,
+				Hair.Human.Long,
+				Hair.Human.PonyTail,
+				Hair.Human.Mohawk,
+				Hair.Human.Pageboy,
+				Hair.Human.Buns,
+				Hair.Human.Afro,
+				Hair.Human.Receeding,
+				Hair.Human.Krisna,
+			}
+		};
 
-        public override int RandomSkinHue()
-        {
-            return Utility.RandomList( SkinHues );
-        }
+		public override int[][] BeardTable { get; set; } =
+		{
+			new[] // Female
+			{
+				Beard.Human.Clean,
+			},
+			new[] // Male
+			{
+				Beard.Human.Clean,
+				Beard.Human.Long,
+				Beard.Human.Short,
+				Beard.Human.Goatee,
+				Beard.Human.Mustache,
+				Beard.Human.MidShort,
+				Beard.Human.MidLong,
+				Beard.Human.Vandyke,
+			}
+		};
 
-        public override int ClipHairHue( int hue )
-        {
-            return hue;
-        }
+		public override int[][] FaceTable { get; set; } =
+		{
+			new[] // Female
+			{
+				Face.Human.None,
+				Face.Human.Face1,
+				Face.Human.Face2,
+				Face.Human.Face3,
+				Face.Human.Face4,
+				Face.Human.Face5,
+				Face.Human.Face6,
+				Face.Human.Face7,
+				Face.Human.Face8,
+				Face.Human.Face9,
+				Face.Human.Face10,
+			},
+			new[] // Male
+			{
+				Face.Human.None,
+				Face.Human.Face1,
+				Face.Human.Face2,
+				Face.Human.Face3,
+				Face.Human.Face4,
+				Face.Human.Face5,
+				Face.Human.Face6,
+				Face.Human.Face7,
+				Face.Human.Face8,
+				Face.Human.Face9,
+				Face.Human.Face10,
+			}
+		};
 
-        public override int RandomHairHue()
-        {
-            return Utility.RandomList( HairHues );
-        }
-
-        public override int ClipFaceHue( int hue )
-        {
-            return hue;
-        }
-
-        public override int RandomFaceHue()
-        {
-            return Utility.RandomList( SkinHues );
-        }
+		public override int[] SkinHues { get; set; } = Enumerable.Range(1002, 57).ToArray();
+		public override int[] HairHues { get; set; } = Enumerable.Range(1102, 48).ToArray();
     }
 }

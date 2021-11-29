@@ -1,11 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Server.Multis;
 using Server.Targeting;
 using Server.Items;
 using Server.Mobiles;
 using Server.Gumps;
+using Server.Network;
 
 namespace Server.SkillHandlers
 {
@@ -268,52 +268,48 @@ namespace Server.SkillHandlers
         #region Nowa detekcja
         public static void Detection( Mobile from )
         {
-            Mobile src = from;
-
-            if ( Core.TickCount < src.NextSkillTime )
+            if ( Core.TickCount < from.NextSkillTime )
             {
-                src.SendSkillMessage();
+	            from.SendSkillMessage();
                 return;
             }
 
-            double srcSkill = src.Skills[SkillName.DetectHidden].Value;
+            double srcSkill = from.Skills[SkillName.DetectHidden].Value;
             int range = (int)(srcSkill / 13.0);
 
             bool detectedanyone = false;
 
             if ( range > 0 )
             {
-                ArrayList inRangeArray = new ArrayList();
+                var inRangeArray = new List<PlayerMobile>();
 
-                foreach ( Mobile trg in src.GetMobilesInRange( range ) )
+                foreach ( Mobile m in from.GetMobilesInRange( range ) )
                 {
-                    if ( trg is PlayerMobile )
+                    if ( m is PlayerMobile pm )
                     {
-                        PlayerMobile test = trg as PlayerMobile;
-
-                        if ( trg.Hidden && src != trg )
+                        if ( pm.Hidden && from != pm )
                         {
                             double ss = srcSkill + Utility.Random( 21 ) - 10;
-                            double ts = trg.Skills[SkillName.Hiding].Value + Utility.Random( 25 ) - 10;
-                            if ( (src.AccessLevel >= trg.AccessLevel) && (ss >= ts) )
+                            double ts = m.Skills[SkillName.Hiding].Value + Utility.Random( 25 ) - 10;
+                            if ( (from.AccessLevel >= m.AccessLevel) && (ss >= ts) )
                             {
                                 detectedanyone = true;
-                                Detecting( src, trg );
-                                inRangeArray.Add( trg );
+                                Detecting( from, m );
+                                inRangeArray.Add( pm );
                             }
                         }
                     }
                 }
 
                 if ( detectedanyone )
-                    src.SendMessage( "Wyczules kogos w poblizu!" );
+	                from.SendMessage( "Wyczules kogos w poblizu!" );
                 else
-                    src.SendMessage( "Nikogo nie wyczules w poblizu." );
+	                from.SendMessage( "Nikogo nie wyczules w poblizu." );
 
-                InternalTimer pause = new InternalTimer( src, inRangeArray );
+                InternalTimer pause = new InternalTimer( from, inRangeArray );
                 pause.Start();
 
-                src.NextSkillTime = Core.TickCount + 8000;
+                from.NextSkillTime = Core.TickCount + 8000;
             }
         }
 
@@ -326,11 +322,11 @@ namespace Server.SkillHandlers
 
             list.Add( from );
 
-            if ( Utility.InUpdateRange( from, targ ) )
+            if ( from.InUpdateRange( targ ) )
             {
                 if ( from.CanSee( targ ) )
                 {
-                    from.Send( new Network.MobileIncoming( from, targ ) );
+                    MobileIncoming.Send(from.NetState, targ);
                 }
             }
         }
@@ -338,9 +334,9 @@ namespace Server.SkillHandlers
         private class InternalTimer : Timer
         {
             private Mobile m_From;
-            private ArrayList m_InRange;
+            private List<PlayerMobile> m_InRange;
 
-            public InternalTimer( Mobile from, ArrayList inRange2 )
+            public InternalTimer( Mobile from, List<PlayerMobile> inRange2 )
                 : base( TimeSpan.FromSeconds( 15.0 ) )
             {
                 m_From = from;
@@ -349,17 +345,14 @@ namespace Server.SkillHandlers
 
             protected override void OnTick()
             {
-                foreach ( Mobile target in m_InRange )
+                foreach ( PlayerMobile target in m_InRange )
                 {
-                    Mobile TargetMobile = target;
-                    PlayerMobile TargetPlayerMobile = target as PlayerMobile;
+	                target.VisibilityList.Remove( m_From );
 
-                    TargetPlayerMobile.VisibilityList.Remove( m_From );
-
-                    if ( TargetMobile.Hidden && m_From != TargetPlayerMobile )
+                    if ( target.Hidden && m_From != target )
                     {
-                        if ( !m_From.CanSee( TargetPlayerMobile ) && Utility.InUpdateRange( m_From, TargetMobile ) )
-                            m_From.Send( TargetPlayerMobile.RemovePacket );
+                        if ( !m_From.CanSee( target ) && m_From.InUpdateRange( target ) )
+                            m_From.Send( target.RemovePacket );
                     }
                 }
                 m_InRange.Clear();

@@ -13,7 +13,7 @@ namespace Server.Mobiles
 		{ 
 
 			Title = "- mag";
-			Hue = Utility.RandomSkinHue();
+			Hue = Race.RandomSkinHue();
 
 			if ( this.Female = Utility.RandomBool() )
 			{
@@ -84,7 +84,7 @@ namespace Server.Mobiles
 			VirtualArmor = 26;
 
 			Item hair = new Item( Utility.RandomList( 0x203C ) );
-            hair.Hue = Utility.RandomHairHue();
+            hair.Hue = Race.RandomHairHue();
 			hair.Layer = Layer.Hair; 
 			hair.Movable = false; 
 			AddItem( hair );

@@ -734,7 +734,7 @@ namespace Server
 
         public static void SetSeason( Mobile m, SeasonList season )
         {
-            m.Send( new SeasonChange( (int)season ) );
+            SeasonChange.Send(m.NetState, true);
         }
 
         public static void SetGlobalSeason( SeasonList season )

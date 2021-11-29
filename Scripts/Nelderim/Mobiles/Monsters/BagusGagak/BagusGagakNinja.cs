@@ -15,7 +15,7 @@ namespace Server.Mobiles
 			SpeechHue = Utility.RandomDyedHue();
 			
 			Title = "- Gagak Skrytobojca";
-			Hue = Utility.RandomSkinHue();
+			Hue = Race.RandomSkinHue();
 
 			if ( this.Female = Utility.RandomBool() )
 			{

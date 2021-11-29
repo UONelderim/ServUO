@@ -37,7 +37,7 @@ namespace Arya.Auction
 		[CommandProperty( AccessLevel.GameMaster )]
 		public Map HomeMap{ get{ return m_HomeMap;}set{ m_HomeMap = value;}}
 
-		public override void OnAdded( object parent )
+		public override void OnAdded( IEntity parent )
 		{
 			base.OnAdded( parent );
 
@@ -60,7 +60,7 @@ namespace Arya.Auction
 			}
 		}
 
-		public override void OnRemoved( object parent )
+		public override void OnRemoved( IEntity parent )
 		{
 			base.OnRemoved( parent );
 

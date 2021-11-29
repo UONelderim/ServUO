@@ -91,9 +91,9 @@ namespace Server.ACC.CSS.Systems.Druid
 
 				NextActionTime = Core.TickCount;
 
-				Lift( item, item.Amount, out rejected, out reject );
+				
 
-				if ( rejected )
+				if ( !Lift( item, item.Amount ) )
 					continue;
 
 				Drop( this, Point3D.Zero );

@@ -238,7 +238,7 @@ namespace Nelderim.Towns
                         int x, y, z;
                         Towns ht;
                         int guardSerialInt;
-                        int guardSerial;
+                        Serial guardSerial;
                         bool isAlive;
                         DateTime ActivatedDate;
                         string postName;
@@ -255,7 +255,7 @@ namespace Nelderim.Towns
                             z = reader.ReadInt();
                             ht = (Towns)reader.ReadInt();
                             guardSerialInt = reader.ReadInt();
-                            guardSerial = (Serial)guardSerialInt;
+                            guardSerial = new Serial(guardSerialInt);
                             isAlive = guardSerial == 0 ? false : true;
                             ActivatedDate = reader.ReadDateTime();
                             postName = reader.ReadString();
@@ -303,7 +303,7 @@ namespace Nelderim.Towns
                     int citizenDatabaseSize = reader.ReadInt();
                     for (int i = 0; i < citizenDatabaseSize; i++)
                     {
-                        entrySerial = (Serial)reader.ReadInt();
+                        entrySerial = reader.ReadSerial();
                         Mobile mob = World.FindMobile(entrySerial);
 
                         entry = new TownCitizenship((Towns)reader.ReadInt());
@@ -416,7 +416,7 @@ namespace Nelderim.Towns
                         int x, y, z;
                         Towns ht;
                         int guardSerialInt;
-                        int guardSerial;
+                        Serial guardSerial;
                         bool isAlive;
                         DateTime ActivatedDate;
                         string postName;
@@ -433,7 +433,7 @@ namespace Nelderim.Towns
                             z = reader.ReadInt();
                             ht = (Towns)reader.ReadInt();
                             guardSerialInt = reader.ReadInt();
-                            guardSerial = (Serial)guardSerialInt;
+                            guardSerial = new Serial(guardSerialInt);
                             isAlive = guardSerial == 0 ? false : true;
                             ActivatedDate = reader.ReadDateTime();
                             postName = reader.ReadString();
@@ -481,7 +481,7 @@ namespace Nelderim.Towns
                     int citizenDatabaseSize = reader.ReadInt();
                     for (int i = 0; i < citizenDatabaseSize; i++)
                     {
-                        entrySerial = (Serial)reader.ReadInt();
+                        entrySerial = reader.ReadSerial();
                         Mobile mob = World.FindMobile(entrySerial);
 
                         entry = new TownCitizenship((Towns)reader.ReadInt());

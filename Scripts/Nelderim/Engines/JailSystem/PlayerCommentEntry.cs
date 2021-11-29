@@ -101,7 +101,7 @@ namespace Arya.Jail
 			catch {};
 			if ( serial != -1 )
 			{
-				comment.m_Player = World.FindMobile( (Serial) serial );
+				comment.m_Player = World.FindMobile( new Serial(serial) );
 			}
 
 			// Jail Time

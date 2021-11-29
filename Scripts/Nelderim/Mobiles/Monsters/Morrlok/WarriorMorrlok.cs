@@ -16,7 +16,7 @@ namespace Server.Mobiles
 			SpeechHue = Utility.RandomDyedHue();
 			
 			Title = "- wojownik";
-			Hue = Utility.RandomSkinHue();
+			Hue = Race.RandomSkinHue();
 
 			if ( this.Female = Utility.RandomBool() )
 			{

@@ -88,14 +88,9 @@ namespace Server.ACC.CSS.Systems.Ranger
                 if (!pack.CheckHold(this, item, false, true))
                     return;
 
-                bool rejected;
-                LRReason reject;
-
                 NextActionTime = Core.TickCount;
-
-                Lift(item, item.Amount, out rejected, out reject);
-
-                if (rejected)
+                
+                if (!Lift(item, item.Amount))
                     continue;
 
                 Drop(this, Point3D.Zero);

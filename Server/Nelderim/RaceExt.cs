@@ -4,31 +4,31 @@ namespace Server
     {
         public static readonly int NRaceOffset = 0x20;
 
-        public static Race NTamael => m_Races[NRaceOffset + 1];
-        public static Race NJarling => m_Races[NRaceOffset + 2];
-        public static Race NNaur => m_Races[NRaceOffset + 3];
-        public static Race NElf => m_Races[NRaceOffset + 4];
-        public static Race NDrow => m_Races[NRaceOffset + 5];
-        public static Race NKrasnolud => m_Races[NRaceOffset + 6];
+        public static Race NTamael => Races[NRaceOffset + 1];
+        public static Race NJarling => Races[NRaceOffset + 2];
+        public static Race NNaur => Races[NRaceOffset + 3];
+        public static Race NElf => Races[NRaceOffset + 4];
+        public static Race NDrow => Races[NRaceOffset + 5];
+        public static Race NKrasnolud => Races[NRaceOffset + 6];
 
-        protected virtual string[] Names => new string[0];
-        protected virtual string[] PluralNames => new string[0];
+        public virtual string[] Names { get; }
+        public virtual string[] PluralNames { get;}
+        
         public virtual int DescNumber => 1072202; // Description
-        public virtual int[] SkinHues => new int[0];
-        public virtual int[] HairHues => new int[0];
-        public virtual HairItemID[] MaleHairStyles => new HairItemID[0];
-        public virtual HairItemID[] FemaleHairStyles => new HairItemID[0];
-        public virtual FacialHairItemID[] FacialHairStyles => new FacialHairItemID[0];
 
         public string GetName( Cases c )
         {
-            return GetName( c, false );
+            return GetName( c, Names );
         }
 
-        public string GetName( Cases c, bool plural )
+        public string GetPluralName(Cases c)
         {
-            string[] list = plural ? PluralNames : Names;
-            if ( list.Length == 0 ) return m_Name;
+	        return GetName(c, PluralNames);
+        }
+
+        private string GetName( Cases c, string[] list )
+        {
+	        if ( list.Length == 0 ) return Name;
 
             int index = (int)c;
             if ( list[index] != null )
@@ -50,32 +50,6 @@ namespace Server
 
             return true;
         }
-    }
-    public enum HairItemID
-    {
-        None = 0,
-        Short = 0x203B,
-        Long = 0x203C,
-        PonyTail = 0x203D,
-        Mohawk = 0x2044,
-        Pageboy = 0x2045,
-        Buns = 0x2046,
-        Afro = 0x2047,
-        Receeding = 0x2048,
-        TwoPigTails = 0x2049,
-        Krisna = 0x204A
-    }
-
-    public enum FacialHairItemID
-    {
-        None = 0,
-        LongBeard = 0x203E,
-        ShortBeard = 0x203F,
-        Goatee = 0x2040,
-        Mustache = 0x2041,
-        MediumShortBeard = 0x204B,
-        MediumLongBeard = 0x204C,
-        Vandyke = 0x204D
     }
 
     public enum Cases

@@ -12,9 +12,9 @@ namespace Server.SicknessSys.Mobiles
 
             InitStats(31, 41, 51); 
 
-            SpeechHue = 53; 
+            SpeechHue = 53;
 
-            Hue = Utility.RandomSkinHue(); 
+            Hue = Race.RandomSkinHue();
 
             if (Female = Utility.RandomBool()) 
             { 

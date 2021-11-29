@@ -42,7 +42,7 @@ namespace Server.Mobiles
 
             SpeechHue = Utility.RandomDyedHue();
             Title = string.Empty;
-            Hue = Utility.RandomSkinHue();
+            Hue = Race.RandomSkinHue();
             
             switch(gender)
             {
@@ -56,7 +56,7 @@ namespace Server.Mobiles
                 this.Body = 0x191;
                 this.Name = NameList.RandomName( "female" );
                 Item hair = new Item( Utility.RandomList( 0x203B, 0x203C, 0x203D, 0x2045, 0x204A, 0x2046 , 0x2049 ) );
-                hair.Hue = Utility.RandomHairHue();
+                hair.Hue = Race.RandomHairHue();
                 hair.Layer = Layer.Hair;
                 hair.Movable = false;
                 AddItem( hair );
@@ -95,7 +95,7 @@ namespace Server.Mobiles
                 this.Body = 0x190;
                 this.Name = NameList.RandomName( "male" );
                 Item hair = new Item( Utility.RandomList( 0x203B, 0x203C, 0x203D, 0x2044, 0x2045, 0x2047, 0x2048 ) );
-                hair.Hue = Utility.RandomHairHue();
+                hair.Hue = Race.RandomHairHue();
                 hair.Layer = Layer.Hair;
                 hair.Movable = false;
                 AddItem( hair );

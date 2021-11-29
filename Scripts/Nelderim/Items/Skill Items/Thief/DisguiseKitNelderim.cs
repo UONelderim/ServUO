@@ -107,12 +107,12 @@ namespace Server.Items
         private static Race[] RacesList = new Race[] { Race.NTamael, Race.NJarling, Race.NNaur, Race.NElf, Race.NDrow, Race.NKrasnolud };
 
         public RaceDisguiseGump(Mobile from, Race race, DisguiseKitNelderim kit)
-            : this(from, race, kit, RandomName(from), from.Hue, from.HairHue, (HairItemID)from.HairItemID, (FacialHairItemID)from.FacialHairItemID)
+            : this(from, race, kit, RandomName(from), from.Hue, from.HairHue, from.HairItemID, from.FacialHairItemID)
         {
             m_Kit = kit;
         }
 
-        private RaceDisguiseGump(Mobile from, Race race, DisguiseKitNelderim kit, string name, int skinHue, int hairHue, HairItemID hairItemID, FacialHairItemID facialHairItemID)
+        private RaceDisguiseGump(Mobile from, Race race, DisguiseKitNelderim kit, string name, int skinHue, int hairHue, int hairItemID, int facialHairItemID)
             : base(from, race, skinHue, hairHue, hairItemID, facialHairItemID)
         {
             m_Kit = kit;
@@ -142,7 +142,7 @@ namespace Server.Items
                     AddButton(x, y + 2, 4005, 4007, 500 + i, GumpButtonType.Reply, 0);
                 else
                     AddButton(x, y + 2, 4017, 4019, 500 + i, GumpButtonType.Reply, 0);                
-                AddHtml(x + 35, y, 100, 28, RacesList[i].GetName(Cases.Mianownik, false), true, false);
+                AddHtml(x + 35, y, 100, 28, RacesList[i].GetName(Cases.Mianownik ), true, false);
                 y += 30;
             }
 

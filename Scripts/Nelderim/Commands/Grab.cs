@@ -406,12 +406,7 @@ public class Grab
                 return;
             }            
 
-            bool rejected;
-            LRReason reject;
-
-            m_From.Lift( item, item.Amount, out rejected, out reject );
-
-            if ( !rejected )
+            if (m_From.Lift( item, item.Amount) )
             {
                 m_From.Emote( 505574 );
                 m_From.Drop( m_From, Point3D.Zero );

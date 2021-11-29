@@ -902,7 +902,7 @@ namespace Server.Engines.XmlSpawner2
                 {
                     if(entry.Participant != from)
                     {
-                        from.Send( new MobileMoving( entry.Participant, Notoriety.Compute( from, entry.Participant ) ) );
+	                    MobileMoving.Send(from.NetState, entry.Participant);
                     }
                 }
             }
@@ -919,8 +919,8 @@ namespace Server.Engines.XmlSpawner2
                 {
                     if(entry.Participant != from)
                     {
-                        from.Send( new MobileMoving( entry.Participant, Notoriety.Compute( from, entry.Participant ) ) );
-                        entry.Participant.Send( new MobileMoving( from, Notoriety.Compute( entry.Participant, from ) ) );
+	                    MobileMoving.Send(from.NetState, entry.Participant);
+	                    MobileMoving.Send(entry.Participant.NetState, from);
                     }
                 }
             }

@@ -570,7 +570,7 @@ namespace Server.ACC.CM
 
                 try
                 {
-                    ctorArgs[0] = (Serial)serial;
+                    ctorArgs[0] = new Serial(serial);
                     m = (Module)(ctor.Invoke(ctorArgs));
                 }
                 catch

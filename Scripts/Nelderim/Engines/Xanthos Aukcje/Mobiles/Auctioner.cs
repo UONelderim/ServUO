@@ -8,6 +8,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Server;
 using Server.Items;
 using Server.Mobiles;
@@ -74,32 +75,13 @@ namespace Arya.Auction
 			{
 				AddItem( new Kilt( GetRandomHue() ) );
 				AddItem( new Shirt( GetRandomHue() ) );
-
-				switch( Utility.Random( 3 ) )
-				{
-					case 0: AddItem( new LongHair( GetHairHue() ) ); break;
-					case 1: AddItem( new PonyTail( GetHairHue() ) ); break;
-					case 2: AddItem( new BunsHair( GetHairHue() ) ); break;
-				}
-
-				GoldBracelet bracelet = new GoldBracelet();
-				bracelet.Hue = GetRandomHue();
-				AddItem( bracelet );
-
-				GoldNecklace neck = new GoldNecklace();
-				neck.Hue = GetRandomHue();
-				AddItem( neck );
+				AddItem( new GoldBracelet {Hue = GetRandomHue()} );
+				AddItem( new GoldNecklace {Hue = GetRandomHue()} );
 			}
 			else
 			{
 				AddItem( new FancyShirt( GetRandomHue() ) );
 				AddItem( new Doublet( GetRandomHue() ) );
-
-				switch( Utility.Random( 2 ) )
-				{
-					case 0: AddItem( new PonyTail( GetHairHue() ) ); break;
-					case 1: AddItem( new ShortHair( GetHairHue() ) ); break;
-				}
 			}
 		}
 
@@ -132,13 +114,14 @@ namespace Arya.Auction
 
 		public override void OnSpeech(SpeechEventArgs e)
 		{
-			if ( e.Speech.ToLower().IndexOf( "auction" ) > -1 )
+			
+			if (Regex.IsMatch(e.Speech, "aukcj", RegexOptions.IgnoreCase))
 			{
 				e.Handled = true;
 
 				if ( ! e.Mobile.CheckAlive() )
 				{
-					SayTo( e.Mobile, "Am I hearing voices?" );
+					SayTo( e.Mobile, "Czy ja slysze glosy?" );
 				}
 				else if ( AuctionSystem.Running )
 				{
@@ -146,12 +129,9 @@ namespace Arya.Auction
 				}
 				else
 				{
-					SayTo( e.Mobile, "Sorry, we're closed at this time. Please try again later." );
+					SayTo( e.Mobile, "Przykro mi, aktualnie nieczynne, sprobuj pozniej." );
 				}
 			}
-			else if ( e.Speech.ToLower().IndexOf( "version" ) > -1 )
-				SayTo( e.Mobile, "Auction version 2.1, by Xanthos and Arya" );
-
 			base.OnSpeech (e);
 		}
 	}

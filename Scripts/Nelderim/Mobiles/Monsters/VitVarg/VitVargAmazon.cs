@@ -15,7 +15,7 @@ namespace Server.Mobiles
 			SpeechHue = Utility.RandomDyedHue();
 			
 			Title = "- Varg Amazonka";
-			Hue = Utility.RandomSkinHue();
+			Hue = Race.RandomSkinHue();
 			Body = 0x191;
 			Female = true;
 			Name=NameList.RandomName( "female" );

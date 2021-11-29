@@ -5,18 +5,13 @@ namespace Server.Mobiles
 {
 	public class SBSmuggler : SBInfo
 	{
-		private List<GenericBuyInfo> m_BuyInfo = new InternalBuyInfo();
+		private List<IBuyItemInfo> m_BuyInfo = new InternalBuyInfo();
 		private IShopSellInfo m_SellInfo = new InternalSellInfo();
 
-		public SBSmuggler()
-		{
-			//Console.WriteLine("SBSmuggler()");
-		}
+		public override IShopSellInfo SellInfo => m_SellInfo;
+		public override List<IBuyItemInfo> BuyInfo => m_BuyInfo;
 
-		public override IShopSellInfo SellInfo { get { return m_SellInfo; } }
-		public override List<GenericBuyInfo> BuyInfo { get { return m_BuyInfo; } }
-
-		public class InternalBuyInfo : List<GenericBuyInfo>
+		private class InternalBuyInfo : List<IBuyItemInfo>
         {
 			public InternalBuyInfo()
 			{
@@ -75,7 +70,7 @@ namespace Server.Mobiles
 			}
 		}
 
-		public class InternalSellInfo : GenericSellInfo
+		private sealed class InternalSellInfo : GenericSellInfo
 		{
 			public InternalSellInfo()
 			{

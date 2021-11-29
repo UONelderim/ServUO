@@ -54,7 +54,7 @@ namespace Server.Items.Crops
 	} 
 	
 	// Klasa ogolnie reprezentujaca dowolny surowiec (systemu zielarstwa) zebrany juz do plecaka.
-	public class WeedCropZbieractwo : WeedCrop
+	public abstract class WeedCropZbieractwo : WeedCrop
 	{
 		public override string MsgCreatedZeroReagent		{ get{ return "Nie uzyskales wystarczajacej ilosci reagentu."; } }
 		public override string MsgFailedToCreateReagents	{ get{ return "Nie udalo ci sie uzyskac reagentow."; } }
@@ -66,12 +66,7 @@ namespace Server.Items.Crops
 			Amount = amount;
 			//Weight = 0.2;
 		}
-
-		[Constructable]
-		public WeedCropZbieractwo() : this( 1 )
-		{
-		}
-
+		
 		public WeedCropZbieractwo( Serial serial ) : base( serial )
 		{
 		}

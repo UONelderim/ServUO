@@ -472,7 +472,7 @@ namespace Arya.Jail
 			catch {};
 			if ( serial != -1 )
 			{
-				jail.m_Mobile = World.FindMobile( (Serial) serial );
+				jail.m_Mobile = World.FindMobile( new Serial(serial) );
 			}
 
 			// Jail Time
@@ -502,7 +502,7 @@ namespace Arya.Jail
 			catch {};
 			if ( serial != -1 )
 			{
-				jail.m_JailedBy = World.FindMobile( (Serial) JailedByserial );
+				jail.m_JailedBy = World.FindMobile( new Serial(JailedByserial) );
 			}
 			
 

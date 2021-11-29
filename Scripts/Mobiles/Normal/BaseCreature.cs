@@ -1363,10 +1363,10 @@ namespace Server.Mobiles
             
             // If you're a spider, drows are not enemies
             if (SlayerGroup.GetEntryByName(SlayerName.SpidersDeath).Slays(this) &&
-                (m.Race is Drow ||
+                (m.Race is NDrow ||
                  m is BaseCreature bc &&
                  bc.Controlled &&
-                 bc.ControlMaster?.Race is Drow) &&
+                 bc.ControlMaster?.Race is NDrow) &&
                 !this.IsChampionSpawn &&
                 !(this is NSzeol) &&
                 !(this is Mephitis)

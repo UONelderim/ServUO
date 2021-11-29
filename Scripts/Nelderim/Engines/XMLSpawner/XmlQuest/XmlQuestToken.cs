@@ -91,7 +91,7 @@ namespace Server.Items
             return false;
         }
 
-        public override void OnAdded(object target)
+        public override void OnAdded(IEntity target)
         {
             base.OnAdded(target);
 
@@ -151,8 +151,8 @@ namespace Server.Items
         {
             if (to == null) return;
 
-            to.Send(new ContainerDisplay(this));
-            to.Send(new ForcedContainerContent(to, this));
+            ContainerDisplay.Send(to.NetState, this);
+            Packet.Send(to.NetState, new ForcedContainerContent(to, this));
 
             List<Item> items = this.Items;
 
@@ -550,7 +550,7 @@ namespace Server.Items
                 }
         }
 
-        public override void OnAdded(object target)
+        public override void OnAdded(IEntity target)
         {
             base.OnAdded(target);
 

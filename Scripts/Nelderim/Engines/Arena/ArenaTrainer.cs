@@ -1487,7 +1487,7 @@ namespace Server.Mobiles
 				case 9:
 					{
 						m_TournamentFounderSerial = new Serial();
-						m_TournamentFounderSerial = reader.ReadInt();
+						m_TournamentFounderSerial = reader.ReadSerial();
 						
 						goto case 8;
 					}
