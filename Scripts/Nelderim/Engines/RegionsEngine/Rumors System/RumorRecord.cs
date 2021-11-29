@@ -148,7 +148,7 @@ namespace Server.Nelderim
 				serial = Convert.ToInt32( xNode.Attributes[ "RumorMobile" ].Value, 16 );
 				
 				if ( serial != -1 )
-					m_RumorMobile = World.FindMobile( (Serial) serial );
+					m_RumorMobile = World.FindMobile( new Serial(serial) );
 				else
 					m_RumorMobile = null;
 			}

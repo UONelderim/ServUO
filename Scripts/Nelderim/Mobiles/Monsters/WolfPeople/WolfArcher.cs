@@ -81,7 +81,7 @@ namespace Server.Mobiles
 
 
                 	Item hair = new Item( Utility.RandomList( 0x203C ) );
-               		hair.Hue = Utility.RandomHairHue();
+               		hair.Hue = Race.RandomHairHue();
 			hair.Layer = Layer.Hair; 
 			hair.Movable = false; 
 			AddItem( hair ); 

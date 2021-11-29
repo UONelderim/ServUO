@@ -3162,7 +3162,7 @@ namespace Server.Engines.XmlSpawner2
 
 							// notify the challenger and set up noto
 							SendText(m_From, 100263, m_Target.Name);   // "{0} accepted your challenge!"
-							m_From.Send( new MobileMoving( m_Target, Notoriety.Compute( m_From, m_Target ) ) );
+							MobileMoving.Send(m_From.NetState, m_Target);
 
 							// update the points gump if it is open
 							if(m_From.HasGump(typeof(PointsGump)))
@@ -3174,7 +3174,7 @@ namespace Server.Engines.XmlSpawner2
 
 							// notify the challenged and set up noto
 							SendText(m_Target, 100264, m_From.Name);  // "You have accepted the challenge from {0}!"
-							m_Target.Send( new MobileMoving( m_From, Notoriety.Compute( m_Target, m_From ) ) );
+							MobileMoving.Send(m_Target.NetState, m_From);
                             
 							// update the points gump if it is open
 							if(m_Target.HasGump(typeof(PointsGump)))

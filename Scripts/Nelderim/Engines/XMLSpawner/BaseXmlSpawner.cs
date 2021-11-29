@@ -1104,7 +1104,7 @@ namespace Server.Mobiles
                         valstr = value.Substring(2, ispace - 2);
                     }
 
-                    toSet = World.FindEntity(Convert.ToInt32(valstr, 16));
+                    toSet = World.FindEntity(new Serial(Convert.ToInt32(valstr, 16)));
 
                     // now check to make sure the object returned is consistent with the type
                     if (!((toSet is Mobile && IsMobile(type)) || (toSet is Item && IsItem(type))))
@@ -2162,7 +2162,7 @@ namespace Server.Mobiles
                                         }
                                         catch { }
                                         if (serial >= 0)
-                                            testitem = World.FindEntity(serial);
+                                            testitem = World.FindEntity(new Serial(serial));
                                     }
                                     else
                                     {
@@ -3340,7 +3340,7 @@ namespace Server.Mobiles
 
                                 if (effect >= 0 && hasloc && emap != Map.Internal)
                                 {
-                                    Effects.SendPacket(eloc1, emap, new HuedEffect(EffectType.Moving, -1, -1, effect, eloc1, eloc2, speed, duration, false, false, 0, 0));
+                                    Effects.SendPacket(eloc1, emap, new HuedEffect(EffectType.Moving, Serial.MinusOne, Serial.MinusOne, effect, eloc1, eloc2, speed, duration, false, false, 0, 0));
                                 }
                                 else
                                     if (effect >= 0 && refobject is IEntity && o is IEntity)
@@ -4196,7 +4196,7 @@ namespace Server.Mobiles
                                 }
                                 catch { }
                                 if (serial >= 0)
-                                    testitem = World.FindEntity(serial);
+                                    testitem = World.FindEntity(new Serial(serial));
                             }
                             else
                             {
@@ -7020,7 +7020,7 @@ namespace Server.Mobiles
 
                                         if (converterror) return false;
 
-                                        Item item = World.FindItem(serial);
+                                        Item item = World.FindItem(new Serial(serial));
                                         if (item != null)
                                         {
                                             pack.DropItem(item);
@@ -7658,7 +7658,7 @@ namespace Server.Mobiles
                 Packet p = null;
                 Point3D worldLoc = item.GetWorldLocation();
 
-                IPooledEnumerable eable = item.Map.GetClientsInRange(worldLoc, item.GetMaxUpdateRange());
+                IPooledEnumerable eable = item.Map.GetClientsInRange(worldLoc, Core.GlobalMaxUpdateRange);
 
                 foreach (NetState state in eable)
                 {
@@ -7714,7 +7714,7 @@ namespace Server.Mobiles
             public XmlPlayMusic(short number)
                 : base(0x6D, 3)
             {
-                UnderlyingStream.Write(number);
+                Stream.Write(number);
             }
         }
 
@@ -7948,7 +7948,7 @@ namespace Server.Mobiles
                                 {
 
                                     // stop any ongoing music
-                                    p.Send(PlayMusic.InvalidInstance);
+                                    p.Send(PlayMusic.Invalid);
                                     // and play the new music
                                     short musicnumber = -1;
                                     try
@@ -7958,9 +7958,10 @@ namespace Server.Mobiles
                                     catch { }
 
                                     if (musicnumber == -1)
-                                        p.Send(PlayMusic.GetInstance((MusicName)Enum.Parse(typeof(MusicName), musicstr[1], true)));
+	                                    PlayMusic.Send(p.NetState,
+		                                    (MusicName)Enum.Parse(typeof(MusicName), musicstr[1], true));
                                     else
-                                        p.Send(new XmlPlayMusic(musicnumber));
+	                                    p.Send(new XmlPlayMusic(musicnumber));
                                 }
                             }
                             rangelist.Free();
@@ -7971,7 +7972,7 @@ namespace Server.Mobiles
                         // just send it to the mob who triggered
                         // stop any ongoing music
 
-                        triggermob.Send(PlayMusic.InvalidInstance);
+                        triggermob.Send(PlayMusic.Invalid);
                         // and play the new music
                         //triggermob.Send(PlayMusic.GetInstance((MusicName)Enum.Parse(typeof(MusicName), musicstr[1], true)));
                         //m_mob_who_triggered.Region.Music = (MusicName)Enum.Parse(typeof(MusicName), musicstr[1]);
@@ -7984,9 +7985,9 @@ namespace Server.Mobiles
                         catch { }
 
                         if (musicnumber == -1)
-                            triggermob.Send(PlayMusic.GetInstance((MusicName)Enum.Parse(typeof(MusicName), musicstr[1], true)));
+	                        PlayMusic.Send(triggermob.NetState, (MusicName)Enum.Parse(typeof(MusicName), musicstr[1], true));
                         else
-                            triggermob.Send(new XmlPlayMusic(musicnumber));
+	                        triggermob.Send(new XmlPlayMusic(musicnumber));
                     }
                 }
             }
@@ -8546,7 +8547,7 @@ namespace Server.Mobiles
                                     }
                                     catch { }
                                     if (serial >= 0)
-                                        setitem = World.FindEntity(serial);
+                                        setitem = World.FindEntity(new Serial(serial));
                                 }
                                 else
                                 {
@@ -10058,7 +10059,7 @@ namespace Server.Mobiles
 
                                     if (effect >= 0 && emap != Map.Internal)
                                     {
-                                        Effects.SendPacket(eloc1, emap, new HuedEffect(EffectType.Moving, -1, -1, effect, eloc1, eloc2, speed, duration, false, false, 0, 0));
+                                        Effects.SendPacket(eloc1, emap, new HuedEffect(EffectType.Moving, Serial.MinusOne, Serial.MinusOne, effect, eloc1, eloc2, speed, duration, false, false, 0, 0));
                                     }
                                 }
                                 if (status_str != null)
@@ -10720,7 +10721,7 @@ namespace Server.Mobiles
 
                                     if (converterror) return false;
 
-                                    Item item = World.FindItem(serial);
+                                    Item item = World.FindItem(new Serial(serial));
                                     if (item != null)
                                     {
                                         AddSpawnItem(spawner, TheSpawn, item, location, map, triggermob, requiresurface, spawnpositioning, substitutedtypeName, out status_str);

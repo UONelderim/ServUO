@@ -422,7 +422,7 @@ namespace Server.Items.Crops
 
 
 	// WeedCrop: Zebrany plon - do obrobki.
-	public class WeedCrop : Item, ICarvable
+	public abstract class WeedCrop : Item, ICarvable
 	{
 		public virtual string MsgCreatedZeroReagent		{ get{ return "Nie uzyskales wystarczajacej ilosci produktu."; } }
 		public virtual string MsgFailedToCreateReagents	{ get{ return "Nie udalo ci sie uzyskac produktu."; } }

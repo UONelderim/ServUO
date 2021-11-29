@@ -80,7 +80,7 @@ namespace Server.Mobiles
 
             SpeechHue = Utility.RandomDyedHue();
 
-            Hue = Utility.RandomSkinHue();
+            Hue = Race.RandomSkinHue();
 
             switch ( gender )
             {

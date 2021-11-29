@@ -137,7 +137,7 @@ namespace Arya.Auction
 				}
 				else
 				{
-					m_Props = AuctionItem.GetItemProperties( item );
+					m_Props = GetItemProperties( item );
 				}
 			}
 
@@ -251,216 +251,65 @@ namespace Arya.Auction
 			{
 				return AuctionSystem.ST[ 78 ];
 			}
+			
+			#region AoS
+			ObjectPropertyList plist = new ObjectPropertyList( item );
+			item.GetProperties( plist );
 
-			if ( Core.AOS )
+			byte[] data = plist.Stream.ToArray();
+			ArrayList list = new ArrayList();
+
+			int index = 15; // First localization number index
+
+			while ( true )
 			{
-				#region AoS
-				ObjectPropertyList plist = new ObjectPropertyList( item );
-				item.GetProperties( plist );
-
-				byte[] data = plist.UnderlyingStream.UnderlyingStream.ToArray();
-				ArrayList list = new ArrayList();
-
-				int index = 15; // First localization number index
-
-				while ( true )
+				if ( index + 4 >= data.Length )
 				{
-					if ( index + 4 >= data.Length )
-					{
-						break;
-					}
-
-                    uint number = (uint) ( data[ index++ ] << 24 | data[ index++ ] << 16 | data[ index++ ] << 8 | data[ index++ ] );
-					ushort length = 0;
-
-					if ( index + 2 > data.Length )
-					{
-						break;
-					}
-
-					length = (ushort) ( data[ index++ ] << 8 | data[ index++ ] );
-
-					// Read the string
-					int end = index + length;
-
-					if ( end >= data.Length )
-					{
-						end = data.Length - 1;
-					}
-
-					System.Text.StringBuilder s = new System.Text.StringBuilder();
-					while ( index + 2 <= end + 1 )
-					{
-						short next = (short) ( data[ index++ ] | data[ index++ ] << 8 );
-
-						if ( next == 0 )
-							break;
-
-						s.Append( System.Text.Encoding.Unicode.GetString( BitConverter.GetBytes( next ) ) );
-					}
-
-					list.Add( ComputeProperty( (int) number, s.ToString() ) );
+					break;
 				}
 
-				System.Text.StringBuilder sb = new System.Text.StringBuilder();
-				sb.Append( "<basefont color=#FFFFFF><p>" );
+                uint number = (uint) ( data[ index++ ] << 24 | data[ index++ ] << 16 | data[ index++ ] << 8 | data[ index++ ] );
+				ushort length = 0;
 
-				foreach( string prop in list )
+				if ( index + 2 > data.Length )
 				{
-					sb.AppendFormat( "{0}<br>", prop );
+					break;
 				}
 
-				return sb.ToString();
-				#endregion
+				length = (ushort) ( data[ index++ ] << 8 | data[ index++ ] );
+
+				// Read the string
+				int end = index + length;
+
+				if ( end >= data.Length )
+				{
+					end = data.Length - 1;
+				}
+
+				StringBuilder s = new StringBuilder();
+				while ( index + 2 <= end + 1 )
+				{
+					short next = (short) ( data[ index++ ] | data[ index++ ] << 8 );
+
+					if ( next == 0 )
+						break;
+
+					s.Append( Encoding.Unicode.GetString( BitConverter.GetBytes( next ) ) );
+				}
+
+				list.Add( ComputeProperty( (int) number, s.ToString() ) );
 			}
-			else
+
+			StringBuilder sb = new StringBuilder();
+			sb.Append( "<basefont color=#FFFFFF><p>" );
+
+			foreach( string prop in list )
 			{
-				#region Non AoS
-				StringBuilder sb = new StringBuilder();
-				sb.Append( "<basefont color=#FFFFFF><p>" );
-
-				// Get the item name
-				if ( item.Name != null && item.Name.Length > 0 )
-				{
-					sb.AppendFormat( "{0}<br>", item.Name );
-				}
-				else
-				{
-					//sb.AppendFormat( "{0}<br>", Capitalize( m_StringList.Table[ item.LabelNumber ] as string ) );
-				}
-
-				// Amount
-				if ( item.Amount > 1 )
-				{
-					sb.AppendFormat( AuctionSystem.ST[ 152 ] , item.Amount.ToString("#,0" ) );
-				}
-
-				// Loot type
-				if ( item.LootType != LootType.Regular )
-				{
-					sb.AppendFormat( "{0}<br>", item.LootType.ToString() );
-				}
-
-				if ( item is IUsesRemaining )
-				{
-					sb.AppendFormat( AuctionSystem.ST[ 153 ] , ( item as IUsesRemaining ).UsesRemaining );
-				}
-
-				// Manage item types
-
-				if ( item is BaseWand )
-				{
-					#region Wands
-					BaseWand bw = item as BaseWand;
-					sb.AppendFormat( AuctionSystem.ST[ 154 ] , bw.Effect.ToString() );
-					sb.AppendFormat( AuctionSystem.ST[ 155 ] , bw.Charges );
-					#endregion
-				}
-				else if ( item is BaseArmor )
-				{
-					#region Armor
-					BaseArmor ba = item as BaseArmor;
-
-					if ( ba.PlayerConstructed )
-					{
-						if ( ba.Crafter != null )
-						{
-							sb.AppendFormat( AuctionSystem.ST[ 156 ] , ba.Crafter.Name );
-						}
-						sb.AppendFormat( AuctionSystem.ST[ 157 ] , ba.Resource.ToString() );
-					}
-
-					sb.AppendFormat( AuctionSystem.ST[ 158 ] , ba.Quality.ToString() );
-					sb.AppendFormat( AuctionSystem.ST[ 159 ] , ba.HitPoints, ba.MaxHitPoints );
-					#endregion
-				}
-				else if ( item is BaseWeapon )
-				{
-					#region Weapons
-					BaseWeapon bw = item as BaseWeapon;
-
-					if ( bw.PlayerConstructed )
-					{
-						if ( bw.Crafter != null )
-						{
-							sb.AppendFormat( AuctionSystem.ST[ 156 ] , bw.Crafter.Name );
-						}
-						sb.AppendFormat( AuctionSystem.ST[ 157 ] , bw.Resource.ToString() );
-					}
-
-					sb.AppendFormat( AuctionSystem.ST[ 158 ] , bw.Quality.ToString() );
-					sb.AppendFormat( AuctionSystem.ST[ 159 ], bw.HitPoints, bw.MaxHitPoints );
-
-					if ( bw.PoisonCharges > 0 )
-					{
-						sb.AppendFormat( AuctionSystem.ST[ 162 ] , bw.PoisonCharges, bw.Poison.ToString() );
-					}
-
-					if ( item is BaseRanged )
-					{
-						sb.AppendFormat( AuctionSystem.ST[ 163 ] , bw.MaxRange.ToString() );
-					}
-
-					if ( bw.Slayer != SlayerName.None )
-					{
-						sb.AppendFormat( AuctionSystem.ST[ 167 ] , bw.Slayer.ToString() );
-					}
-					#endregion
-				}
-				else if ( item is TreasureMap )
-				{
-					#region Treasure Map
-					TreasureMap tm = item as TreasureMap;
-					//sb.AppendFormat( AuctionSystem.ST[ 168 ] , tm.ChestMap );
-					#endregion
-				}
-				else if ( item is Spellbook )
-				{
-					#region Spellbook
-					Spellbook sp = item as Spellbook;
-					sb.AppendFormat( AuctionSystem.ST[ 169 ] , sp.SpellCount );
-					#endregion
-				}
-				else if ( item is PotionKeg )
-				{
-					#region Potion Keg
-					PotionKeg pk = item as PotionKeg;
-
-					int number;
-
-					if ( pk.Held <= 0 )
-						number = 502246; // The keg is empty.
-					else if ( pk.Held < 5 )
-						number = 502248; // The keg is nearly empty.
-					else if ( pk.Held < 20 )
-						number = 502249; // The keg is not very full.
-					else if ( pk.Held < 30 )
-						number = 502250; // The keg is about one quarter full.
-					else if ( pk.Held < 40 )
-						number = 502251; // The keg is about one third full.
-					else if ( pk.Held < 47 )
-						number = 502252; // The keg is almost half full.
-					else if ( pk.Held < 54 )
-						number = 502254; // The keg is approximately half full.
-					else if ( pk.Held < 70 )
-						number = 502253; // The keg is more than half full.
-					else if ( pk.Held < 80 )
-						number = 502255; // The keg is about three quarters full.
-					else if ( pk.Held < 96 )
-						number = 502256; // The keg is very full.
-					else if ( pk.Held < 100 )
-						number = 502257; // The liquid is almost to the top of the keg.
-					else
-						number = 502258; // The keg is completely full.
-
-					sb.AppendFormat( Capitalize( m_StringList[ number ] as string ) );
-					#endregion
-				}
-
-				return sb.ToString();
-
-				#endregion
+				sb.AppendFormat( "{0}<br>", prop );
 			}
+
+			return sb.ToString();
+			#endregion
 		}
 
 		/// <summary>

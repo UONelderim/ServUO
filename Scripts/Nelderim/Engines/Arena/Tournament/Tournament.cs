@@ -135,7 +135,7 @@ namespace Server.Engines.Tournament
             else
                 m_Confirmed = false;
 
-            m_Serial = reader.ReadInt();
+            m_Serial = reader.ReadSerial();
         }
 
         public void Serialize( GenericWriter writer )
@@ -154,7 +154,7 @@ namespace Server.Engines.Tournament
             else
                 m_Confirmed = false;
 
-            m_Serial = reader.ReadInt();
+            m_Serial = reader.ReadSerial();
         }
     }
 
@@ -284,7 +284,7 @@ namespace Server.Engines.Tournament
 
             if ( test )
             {
-                int serial = reader.ReadInt();
+                Serial serial = reader.ReadSerial();
                 m_BlueCorner = World.FindMobile( serial );
             }
             else
@@ -294,7 +294,7 @@ namespace Server.Engines.Tournament
 
             if ( test )
             {
-                int serial = reader.ReadInt();
+	            Serial serial = reader.ReadSerial();
                 m_RedCorner = World.FindMobile( serial );
             }
             else

@@ -10,15 +10,15 @@ namespace Server.Mobiles
     public class CraftSB : SBInfo
     {
         // Ponizsze obiekty mozna uzywac jako SBInfo w definicjach klas NPC:
-        public static SBInfo CraftSellWeaponsmith = CraftSB.CraftItemsExcluding( DefBlacksmithy.CraftSystem, new Type[] { typeof( BaseWeapon ), typeof( DragonBardingDeed ), typeof( Shuriken ) } );
-        public static SBInfo CraftSellBlacksmith = CraftSB.CraftItemsExcluding( DefBlacksmithy.CraftSystem, new Type[] { typeof( BaseArmor ), typeof( DragonBardingDeed ) } );
-        public static SBInfo CraftSellTinker = CraftSB.CraftItemsExcluding( DefTinkering.CraftSystem, new Type[] { typeof( BaseJewel ) } );
-        public static SBInfo CraftSellCarpenter = CraftSB.CraftItemsExcluding( DefCarpentry.CraftSystem, new Type[] { typeof( BaseInstrument ) } );
-        public static SBInfo CraftSellTailor = CraftSB.CraftItemsExcluding( DefTailoring.CraftSystem, new Type[] { typeof( BaseArmor ) } );
-        public static SBInfo CraftSellLeatherWorker = CraftSB.CraftItemsExcluding( DefTailoring.CraftSystem, new Type[] { typeof( BaseClothing ) } );
-        public static SBInfo CraftSellFletcher = CraftSB.CraftItemsIncluding( DefBowFletching.CraftSystem, new Type[] { typeof( BaseWeapon ) } );
+        public static SBInfo CraftSellWeaponsmith = CraftItemsExcluding( DefBlacksmithy.CraftSystem, new[] { typeof( BaseWeapon ), typeof( DragonBardingDeed ), typeof( Shuriken ) } );
+        public static SBInfo CraftSellBlacksmith = CraftItemsExcluding( DefBlacksmithy.CraftSystem, new[] { typeof( BaseArmor ), typeof( DragonBardingDeed ) } );
+        public static SBInfo CraftSellTinker = CraftItemsExcluding( DefTinkering.CraftSystem, new[] { typeof( BaseJewel ) } );
+        public static SBInfo CraftSellCarpenter = CraftItemsExcluding( DefCarpentry.CraftSystem, new[] { typeof( BaseInstrument ) } );
+        public static SBInfo CraftSellTailor = CraftItemsExcluding( DefTailoring.CraftSystem, new[] { typeof( BaseArmor ) } );
+        public static SBInfo CraftSellLeatherWorker = CraftItemsExcluding( DefTailoring.CraftSystem, new[] { typeof( BaseClothing ) } );
+        public static SBInfo CraftSellFletcher = CraftItemsIncluding( DefBowFletching.CraftSystem, new[] { typeof( BaseWeapon ) } );
 
-        private List<GenericBuyInfo> m_BuyInfo = new List<GenericBuyInfo>();
+        private List<IBuyItemInfo> m_BuyInfo = new List<IBuyItemInfo>();
         private GenericSellInfo m_SellInfo;
 
         private CraftSystem m_CraftSystem;
@@ -26,7 +26,7 @@ namespace Server.Mobiles
         private List<Type> m_Include;   // If the list is not empty, then NPC will only buy these items (m_Exclude becomes irrelevant)
 
         public override IShopSellInfo SellInfo => m_SellInfo;
-        public override List<GenericBuyInfo> BuyInfo => m_BuyInfo; 
+        public override List<IBuyItemInfo> BuyInfo => m_BuyInfo; 
 
         private CraftSB( CraftSystem system, Type[] exclude, Type[] include )
         {
@@ -102,7 +102,7 @@ namespace Server.Mobiles
                 unitPrice = 1.50;
             }
 
-            return (int)((double)amount * unitPrice);
+            return (int)(amount * unitPrice);
         }
 
         private void SellInit()

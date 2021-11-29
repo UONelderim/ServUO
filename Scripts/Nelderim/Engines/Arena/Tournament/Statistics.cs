@@ -475,7 +475,7 @@ namespace Server.Engines.Tournament
 			try
 			{
 				XmlElement xml = doc.GetElementsByTagName( "serial" ).Item(0) as XmlElement;
-				m_Serial = XmlConvert.ToInt32( xml.GetAttribute( "value" ) );
+				m_Serial = new Serial(XmlConvert.ToInt32( xml.GetAttribute( "value" ) ));
 				
 				xml = doc.GetElementsByTagName( "status" ).Item(0) as XmlElement;
 				m_Status = XmlConvert.ToInt32( xml.GetAttribute( "value" ) );

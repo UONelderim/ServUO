@@ -185,7 +185,7 @@ namespace Server.Items
 
 			int serial = pvSrc.ReadInt32();
 
-            Item bookitem = World.FindItem(serial);
+            Item bookitem = World.FindItem(new Serial(serial));
 
             // first try it as a normal basebook
             if (bookitem is BaseBook)

@@ -14,8 +14,7 @@ namespace Server.Mobiles
 			SpeechHue = Utility.RandomDyedHue();
 			
 			Title = "- Varg Berserker";
-			Hue = Utility.RandomSkinHue();
-			Hue = Utility.RandomSkinHue();
+			Hue = Race.RandomSkinHue();
 			
 			if ( this.Female = Utility.RandomBool() )
 			{

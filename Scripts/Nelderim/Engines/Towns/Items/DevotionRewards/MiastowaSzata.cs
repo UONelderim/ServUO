@@ -6,16 +6,6 @@ namespace Server.Items
 	[Flipable]
 	public class MiastowaSzata : BaseOuterTorso
 	{
-    	public override void OnAdded( object parent )
-		{
-			base.OnAdded( parent );
-		}
-
-		public override void OnRemoved(object parent)
-		{
-			base.OnRemoved( parent );
-		}
-
 		public override bool Dye( Mobile from, DyeTub sender )
 		{
 			from.SendLocalizedMessage( sender.FailMessage );

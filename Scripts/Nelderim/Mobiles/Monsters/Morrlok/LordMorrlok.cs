@@ -15,7 +15,7 @@ namespace Server.Mobiles
 		public LordMorrlok() : base( AIType.AI_Melee, FightMode.Strongest, 12, 1, 0.2, 0.4 )
 		{
 			
-			Hue = Utility.RandomSkinHue();
+			Hue = Race.RandomSkinHue();
 
 			if ( this.Female = Utility.RandomBool() )
 			{
@@ -110,8 +110,6 @@ namespace Server.Mobiles
 			mount.Rider = this;
 
 			VirtualArmor = 48;
-
-			Container pack = new Backpack();
 
             SetWeaponAbility( WeaponAbility.WhirlwindAttack );
 		}

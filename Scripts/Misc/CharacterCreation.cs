@@ -760,7 +760,7 @@ namespace Server.Misc
 			return item;
 		}
 
-		private static void AddSkillItems(SkillName skill, Mobile m)
+		public static void AddSkillItems(SkillName skill, Mobile m)
 		{
 			var elf = m.Race == Race.Elf;
 			var human = m.Race == Race.Human;

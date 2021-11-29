@@ -42,7 +42,7 @@ namespace Server.Mobiles
 
             SpeechHue = Utility.RandomDyedHue();
             Title = string.Empty;
-            Hue = Utility.RandomSkinHue();
+            Hue = Race.RandomSkinHue();
             
             switch(gender)
             {

@@ -16,7 +16,7 @@ namespace Server.Mobiles
 		{
 
 			Title = "- skrytobojca";
-			Hue = Utility.RandomSkinHue();
+			Hue = Race.RandomSkinHue();
 
 			if ( this.Female = Utility.RandomBool() )
 			{

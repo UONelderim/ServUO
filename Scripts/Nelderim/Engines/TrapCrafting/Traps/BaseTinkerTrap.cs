@@ -32,12 +32,7 @@ namespace Server.Items
         private Boolean tr_TrapArmed = false;
         private Mobile tr_Owner;
         #endregion
-
-        [Constructable]
-        public BaseTinkerTrap() : this(1)
-		{
-		}
-
+        
         [Constructable]
         public BaseTinkerTrap( string ArmedName, string UnarmedName, double ExpiresIn, int ArmingSkill, int DisarmingSkill, int KarmaLoss, bool AllowedInTown) : base(0x2AAA)
         {

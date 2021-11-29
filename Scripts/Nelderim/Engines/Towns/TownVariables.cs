@@ -717,7 +717,7 @@ namespace Nelderim.Towns
             m_homeTown = homeTown;
             m_postStatus = TownBuildingStatus.Dziala;
             m_guard = null;
-            m_guardSerial = 0;
+            m_guardSerial = Serial.Zero;
         }
     }
 

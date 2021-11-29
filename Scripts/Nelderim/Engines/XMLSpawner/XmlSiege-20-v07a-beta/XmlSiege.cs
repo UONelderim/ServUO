@@ -75,7 +75,7 @@ namespace Server.Engines.XmlSpawner2
 		public class MovingProjectileEffect : HuedEffect
 		{
 			public MovingProjectileEffect(IEntity from, IEntity to, int itemID, Point3D fromPoint, Point3D toPoint, int speed, int duration, bool fixedDirection, bool explode, int hue)
-				: base(EffectType.Moving, from.Serial, to == null ? (Serial)(-1) : to.Serial, itemID, fromPoint, toPoint, speed, duration, fixedDirection, explode, hue, 0)
+				: base(EffectType.Moving, from.Serial, to == null ? Server.Serial.MinusOne : to.Serial, itemID, fromPoint, toPoint, speed, duration, fixedDirection, explode, hue, 0)
 			{
 			}
 		}

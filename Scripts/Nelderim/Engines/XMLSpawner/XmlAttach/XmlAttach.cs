@@ -2268,7 +2268,7 @@ namespace Server.Engines.XmlSpawner2
                 }
                 else
                 {
-                    Serial s = value;
+                    Serial s = new Serial(value);
 
                     bool blockdefaultonuse = false;
 

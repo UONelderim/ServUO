@@ -32,11 +32,6 @@ namespace Server.SicknessSys.Items
             return base.OnEquip(from);
         }
 
-        public override void OnRemoved(object parent)
-        {
-            base.OnRemoved(parent);
-        }
-
         public override WeaponAbility PrimaryAbility => WeaponAbility.DualWield;
         public override WeaponAbility SecondaryAbility => WeaponAbility.TalonStrike;
         //public override int StrengthReq => 10;

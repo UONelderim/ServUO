@@ -14,8 +14,7 @@ namespace Server.Mobiles
 			SpeechHue = Utility.RandomDyedHue();
 			
 			Title = "- Nekahi Nadzorca";
-			Hue = Utility.RandomSkinHue();
-			Hue = Utility.RandomSkinHue();
+			Hue = Race.RandomSkinHue();
 			
 			if ( this.Female = Utility.RandomBool() )
 			{

@@ -353,9 +353,8 @@ namespace Server.Items
             // add the reward item back into the container list for display
             UnHideRewards();
 
-            to.Send(new ContainerDisplay(this));
-
-            to.Send(new ContainerContent(to, this));
+            ContainerDisplay.Send(to.NetState, this);
+            ContainerContent.Send(to.NetState, this);
 
             foreach(Item item in this.Items)
                 to.Send(item.OPLPacket);
@@ -384,11 +383,11 @@ namespace Server.Items
             }
         }
 
-        public override bool CheckHold(Mobile m, Item item, bool message, bool checkItems, int plusItems, int plusWeight)
+        public override bool CheckHold(Mobile m, Item item, bool message, bool checkItems, bool checkWeight, int plusItems, int plusWeight)
         {
             if (m.AccessLevel == AccessLevel.Player) return false;
 
-            return base.CheckHold(m, item, message, checkItems, plusItems, plusWeight);
+            return base.CheckHold(m, item, message, checkItems, checkWeight, plusItems, plusWeight);
         }
 
         public override bool TryDropItem(Mobile from, Item dropped, bool sendFullMessage)
@@ -478,7 +477,7 @@ namespace Server.Items
                 }
         }
 
-        public override void OnAdded(object target)
+        public override void OnAdded(IEntity target)
         {
             base.OnAdded(target);
 

@@ -94,7 +94,7 @@ namespace Server.Items.Crops
 	} 
 	
 	// Klasa ogolnie reprezentujaca plon z dowolnego ziela.
-	public class WeedCropZiolaUprawne : WeedCrop
+	public abstract class WeedCropZiolaUprawne : WeedCrop
 	{
 		public override string MsgCreatedZeroReagent		{ get{ return "Nie uzyskales wystarczajacej ilosci reagentu."; } }
 		public override string MsgFailedToCreateReagents	{ get{ return "Nie udalo ci sie uzyskac reagentow."; } }
@@ -106,12 +106,7 @@ namespace Server.Items.Crops
 			Amount = amount;
 			//Weight = 0.5;
 		}
-
-		[Constructable]
-		public WeedCropZiolaUprawne() : this( 1 )
-		{
-		}
-
+		
 		public WeedCropZiolaUprawne( Serial serial ) : base( serial )
 		{
 		}

@@ -616,7 +616,7 @@ namespace Server.Nelderim
             switch ( Utility.Random( 7 ) )
             {
                 case 0:
-                    source.Yell( 00505150, target.Race.GetName( Cases.Mianownik, true ) ); // Co za czasy! Wszedzie ~1_RACE~!
+                    source.Yell( 00505150, target.Race.GetPluralName( Cases.Mianownik ) ); // Co za czasy! Wszedzie ~1_RACE~!
                     break;
                 case 1:
                     source.Yell( 00505151, target.Race.GetName( Cases.Wolacz ) ); // Zejdz mi z drogi ~1_RACE~!
@@ -634,11 +634,11 @@ namespace Server.Nelderim
                     source.Yell( 00505149, target.Name ); // "~1_NAME~! Psie jeden! To nie jest miejsce dla takich jak TY!"
                     break;
                 default:
-                    source.Yell( 00505150, target.Race.GetName( Cases.Mianownik, true ) ); // Co za czasy! Wszedzie ~1_RACE~!    
+                    source.Yell( 00505150, target.Race.GetPluralName( Cases.Mianownik ) ); // Co za czasy! Wszedzie ~1_RACE~!    
                     break;
             }
 
-            target.SendLocalizedMessage( 00505148, target.Race.GetName( Cases.Dopelniacz, true ), 0x25 ); // Zdaje sie, ze w tej okolicy nie lubi sie ~1_RACE~!
+            target.SendLocalizedMessage( 00505148, target.Race.GetPluralName( Cases.Dopelniacz ), 0x25 ); // Zdaje sie, ze w tej okolicy nie lubi sie ~1_RACE~!
         }
 
         public static bool ActIntolerativeHarmful( Mobile source, Mobile target )

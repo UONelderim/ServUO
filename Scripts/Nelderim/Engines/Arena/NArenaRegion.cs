@@ -386,7 +386,7 @@ namespace Server.Regions
 					#endregion
 					#region Notoriety actualization
 					
-					foreach( Mobile mobile in GetPlayers() )
+					foreach( Mobile mobile in AllPlayers )
 					{
 						if ( mobile == m )
 							continue;
@@ -394,23 +394,20 @@ namespace Server.Regions
 						if ( IsFighter( mobile ) )
 						{
 							LookAgain( mobile );
-							
-							if ( m.NetState != null ) 
-								m.NetState.Send( new MobileMoving( mobile, Notoriety.Compute( m, mobile ) ) );
+
+							if (m.NetState != null)
+								MobileMoving.Send(m.NetState, mobile);
 						}
 					}
 					
-					foreach( Mobile mobile in GetMobiles() )
+					foreach( Mobile mobile in AllMobiles )
 					{
 						if ( mobile == m )
 							continue;
 						
-						if ( IsFighter( mobile ) )
+						if ( IsFighter( mobile ) && m.NetState != null )
 						{
-							NetState ns = m.NetState;
-							
-							if ( ns != null ) 
-								ns.Send( new MobileMoving( mobile, Notoriety.Compute( m, mobile ) ) );
+							MobileMoving.Send(m.NetState, mobile);
 						}
 					}
 					
@@ -462,16 +459,16 @@ namespace Server.Regions
 					
 					#region Notoriety actualization
 					
-					foreach( Mobile mobile in GetMobiles() )
+					foreach( Mobile mobile in AllMobiles )
 					{
 						if ( mobile == m )
 							continue;
 								
 						if ( IsFighter( mobile ) && m.NetState != null )
-							m.NetState.Send( new MobileMoving( mobile, Notoriety.Compute( m, mobile ) ) );
+							MobileMoving.Send(m.NetState, mobile);
 					}
 					
-					foreach( Mobile mobile in GetPlayers() )
+					foreach( Mobile mobile in AllPlayers )
 					{
 						if ( mobile == m )
 							continue;
@@ -481,10 +478,10 @@ namespace Server.Regions
 							LookAgain( mobile );
 							
 							if ( m.NetState != null )
-								m.NetState.Send( new MobileMoving( mobile, Notoriety.Compute( m, mobile ) ) );
-							
+								MobileMoving.Send(m.NetState, mobile);
+
 							if ( mobile.NetState != null )
-								mobile.NetState.Send( new MobileMoving( m, Notoriety.Compute( mobile, m ) ) );
+								MobileMoving.Send(mobile.NetState, m);
 						}
 					}
 					
@@ -752,7 +749,7 @@ namespace Server.Regions
 				{
 					m.Combatant = null;
 					m.Warmode = false;
-					Target.Cancel( m );
+					m.Target.Cancel( m );
 					
 					ClearAgressors( m );
 					RemoveFighter( m );
@@ -764,9 +761,9 @@ namespace Server.Regions
 					{
 						ArrayList toDelete = new ArrayList();
 						
-						foreach ( Mobile mob in GetMobiles() )
+						foreach ( Mobile mob in AllMobiles )
 						{
-							if ( NArenaRegion.IsControlled( mob, m ) || NArenaRegion.IsSummoned( mob, m ) )
+							if ( IsControlled( mob, m ) || IsSummoned( mob, m ) )
 							{
 								#region Dispell summonow
 								if ( NArenaRegion.IsSummon( mob ) ||NArenaRegion.IsControlledSummon( mob ) )
@@ -818,9 +815,9 @@ namespace Server.Regions
 							ArrayList move = new ArrayList();
 		
 							// nie powinno byc juz summonow, wiec je olewamy
-							foreach ( Mobile mob in GetMobiles() )
+							foreach ( Mobile mob in AllMobiles )
 							{
-								if ( NArenaRegion.IsControlled( mob, m ) )
+								if ( IsControlled( mob, m ) )
 									move.Add( mob );
 							}
 				
@@ -992,7 +989,7 @@ namespace Server.Regions
 			{
 				ArrayList rev = new ArrayList();
 			
-				foreach ( Mobile mobile in GetMobiles() )
+				foreach ( Mobile mobile in AllMobiles )
 				{
 					if ( mobile != m && IsFighter( mobile ) && mobile is Revenant && ( mobile as Revenant ).ConstantFocus == m )
 						rev.Add( mobile );
@@ -1156,12 +1153,12 @@ namespace Server.Regions
 		{
 			try
 			{
-				if ( message != null && GetMobileCount() > 0 )
+				if ( message != null && MobileCount > 0 )
 					m_Owner.Say( message );
 				
 				ArrayList toExtort = new ArrayList();
 				
-				foreach ( Mobile m in GetMobiles() )
+				foreach ( Mobile m in AllMobiles )
 				{
 					if ( !IsFighter( m ) && m.AccessLevel == AccessLevel.Player )
 						toExtort.Add( m );
@@ -1180,12 +1177,12 @@ namespace Server.Regions
 		{
 			try
 			{
-				if ( GetMobileCount() > 0 )
+				if ( MobileCount > 0 )
 					m_Owner.Say( message );
 				
 				ArrayList toExtort = new ArrayList();
 				
-				foreach ( Mobile m in GetMobiles() )
+				foreach ( Mobile m in AllMobiles )
 				{
 					if ( !IsFighter( m ) && m.AccessLevel == AccessLevel.Player )
 						toExtort.Add( m );
@@ -1370,7 +1367,7 @@ namespace Server.Regions
 					}
 					else
 					{
-						m.NetState.Send( new MobileIncoming( m, mob ) );
+						MobileIncoming.Send(m.NetState, mob);
 						m.NetState.Send( mob.OPLPacket );
 					}
 				}

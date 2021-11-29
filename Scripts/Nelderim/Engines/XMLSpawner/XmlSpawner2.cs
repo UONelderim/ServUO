@@ -485,12 +485,10 @@ namespace Server.Mobiles
                 // is this a region spawner?
                 if (m_Region != null)
                 {
-                    List<Mobile> players = m_Region.GetPlayers();
-
-                    if (players == null || players.Count == 0) return false;
+	                if (m_Region.PlayerCount == 0) return false;
 
                     // confirm that players with the proper access level are present
-                    foreach (Mobile m in players)
+                    foreach (Mobile m in m_Region.AllPlayers)
                     {
                         if (m != null && (m.AccessLevel <= SmartSpawnAccessLevel || !m.Hidden))
                         {
@@ -9762,7 +9760,7 @@ public static void _TraceEnd(int index)
 
                             if (sernum > -1)
                             {
-                                IEntity e = World.FindEntity(sernum);
+                                IEntity e = World.FindEntity(new Serial(sernum));
 
                                 if (e is WayPoint)
                                     waypoint = e as WayPoint;
@@ -12092,7 +12090,7 @@ public static void _TraceEnd(int index)
 
                             for (int x = 0; x < SpawnedCount; ++x)
                             {
-                                int serial = reader.ReadInt();
+                                Serial serial = reader.ReadSerial();
                                 if (serial < -1)
                                 {
                                     // minusone is reserved for unknown types by default

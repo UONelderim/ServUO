@@ -204,7 +204,7 @@ namespace Server.Items
             {
                 m_Pet.Delete();
                 m_Pet = null;
-                m_LastSerial = 0;
+                m_LastSerial = Serial.Zero;
             }
 
             if (newPet != null)
@@ -331,7 +331,7 @@ namespace Server.Items
             if (version >= 2)
             {
                 m_Deprecated = reader.ReadBool();
-                m_LastSerial = (Serial)reader.ReadInt();
+                m_LastSerial = reader.ReadSerial();
             }
         }
 
