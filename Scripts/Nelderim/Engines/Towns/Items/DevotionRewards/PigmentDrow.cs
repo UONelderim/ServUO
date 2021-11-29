@@ -11,7 +11,7 @@ namespace Server.Items
         }
         [Constructable]
         public PigmentDrow(int uses)
-            : base(PigmentTarget.Cloth, uses, 2909)
+            : base(PigmentTarget.Cloth, uses, 2882)
         {
             Name = "Pigment barw Podmroku";
         }
