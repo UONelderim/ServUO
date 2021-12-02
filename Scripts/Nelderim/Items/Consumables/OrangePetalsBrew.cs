@@ -8,7 +8,7 @@ namespace Server.Items
 {
 	public class OrangePetalsBrew : Item
 	{
-		public virtual TimeSpan Cooldown { get { return TimeSpan.FromMinutes(60.0); }  }
+		public virtual TimeSpan Cooldown { get { return TimeSpan.FromMinutes(15.0); }  }
 		
 
 		public override double DefaultWeight
