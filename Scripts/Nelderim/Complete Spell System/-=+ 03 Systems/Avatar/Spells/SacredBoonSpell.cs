@@ -60,7 +60,22 @@ namespace Server.ACC.CSS.Systems.Avatar
 			{
 				Caster.SendLocalizedMessage( 500237 ); // Target can not be seen.
 			}
-
+			else if ( m.Poisoned || Server.Items.MortalStrike.IsWounded( m ) )
+			{
+				Caster.LocalOverheadMessage( MessageType.Regular, 0x3B2, (Caster == m) ? 1005000 : 1010398 );
+			}
+			else if ( m.Hits >= m.HitsMax )
+			{
+				Caster.SendLocalizedMessage( 500955 ); // "Jego stan zdrowia jest idealny!"
+			}
+			else if ( m is BaseCreature && ((BaseCreature)m).IsAnimatedDead )
+			{
+				Caster.SendLocalizedMessage( 1061654 ); // "Ta istota nie jest zywa, nie mozesz jej leczyc."
+			}
+			else if ( m.IsDeadBondedPet )
+			{
+				Caster.SendLocalizedMessage( 1060177 ); // "Nie mozesz wyleczyc martwego stworzenia."
+			}
 			if ( m_Table.Contains( m ) )
 			{
 				Caster.LocalOverheadMessage( MessageType.Regular, 0x481, false, "Ten cel już korzysta z tego efektu." );
