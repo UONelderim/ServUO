@@ -215,29 +215,37 @@ namespace Server.Mobiles
 				double sum = 0;
 				Dictionary<WeaponAbility, double> abilities = new Dictionary<WeaponAbility, double>();
 
-				abilities[WeaponAbility.ArmorIgnore] = 0.4;
+				abilities[WeaponAbility.ArmorIgnore] = 0.65;
 				abilities[WeaponAbility.BleedAttack] = 0.7;
-				abilities[WeaponAbility.ConcussionBlow] = 0.4;
-				abilities[WeaponAbility.CrushingBlow] = 0.3;
+				abilities[WeaponAbility.ConcussionBlow] = 0.6;
+				abilities[WeaponAbility.CrushingBlow] = 0.6;
 				abilities[WeaponAbility.Disarm] = 0.3;
-				abilities[WeaponAbility.Dismount] = 0.3;
-				abilities[WeaponAbility.DoubleStrike] = 0.3;
-				abilities[WeaponAbility.InfectiousStrike] = 0.8;
-				abilities[WeaponAbility.MortalStrike] = 0.7;
+				abilities[WeaponAbility.Dismount] = 0.45;
+				abilities[WeaponAbility.DoubleStrike] = 0.6;
+				abilities[WeaponAbility.InfectiousStrike] = 0.7;
+				abilities[WeaponAbility.MortalStrike] = 0.75;
 				abilities[WeaponAbility.MovingShot] = 0.2;
-				abilities[WeaponAbility.ParalyzingBlow] = 0.3;
-				abilities[WeaponAbility.ShadowStrike] = 0.2;
-				abilities[WeaponAbility.WhirlwindAttack] = 0.3;
-				abilities[WeaponAbility.RidingSwipe] = 0.3;
-				abilities[WeaponAbility.FrenziedWhirlwind] = 0.3;
-				abilities[WeaponAbility.Block] = 0.1;
-				abilities[WeaponAbility.DefenseMastery] = 0.1;
-				abilities[WeaponAbility.NerveStrike] = 0.3;
-				abilities[WeaponAbility.TalonStrike] = 0.2;
-				abilities[WeaponAbility.Feint] = 0.1;
-				abilities[WeaponAbility.DualWield] = 0.2;
-				abilities[WeaponAbility.DoubleShot] = 0.3;
-				abilities[WeaponAbility.ArmorPierce] = 0.4;
+				abilities[WeaponAbility.ParalyzingBlow] = 0.45;
+				abilities[WeaponAbility.ShadowStrike] = 0.35;
+				abilities[WeaponAbility.WhirlwindAttack] = 0.45;
+				abilities[WeaponAbility.RidingSwipe] = 0.35;
+				abilities[WeaponAbility.FrenziedWhirlwind] = 0.55;
+				abilities[WeaponAbility.Block] = 0.4;
+				abilities[WeaponAbility.DefenseMastery] = 0.4;
+				abilities[WeaponAbility.NerveStrike] = 0.4;
+				abilities[WeaponAbility.TalonStrike] = 0.45;
+				abilities[WeaponAbility.Feint] = 0.45;
+				abilities[WeaponAbility.DualWield] = 0.35;
+				abilities[WeaponAbility.DoubleShot] = 0.35;
+				abilities[WeaponAbility.ArmorPierce] = 0.65;
+				abilities[WeaponAbility.ForceArrow] = 0.2;
+				abilities[WeaponAbility.LightningArrow] = 0.25;
+				abilities[WeaponAbility.PsychicAttack] = 0.3;
+				abilities[WeaponAbility.SerpentArrow] = 0.2;
+				abilities[WeaponAbility.ForceOfNature] = 0.55;
+				abilities[WeaponAbility.InfusedThrow] = 0.5;
+				abilities[WeaponAbility.MysticArc] = 0.45;
+				abilities[WeaponAbility.ColdWind] = 0.45;
 
 				if (_Profile != null && _Profile.WeaponAbilities != null)
 				{
