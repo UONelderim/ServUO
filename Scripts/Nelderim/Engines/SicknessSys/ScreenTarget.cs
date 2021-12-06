@@ -1,5 +1,3 @@
-using System.Drawing;
-using System.Runtime.InteropServices;
 using Server.Mobiles;
 using Server.SicknessSys.Mobiles;
 using Server.Targeting;
@@ -8,53 +6,6 @@ namespace Server.SicknessSys
 {
     public class ScreenTarget : Target
     {
-        [DllImport("user32.dll")]
-        static extern bool GetCursorPos(ref ScreenPoint pt);
-
-        internal struct ScreenPoint
-        {
-            public int X;
-            public int Y;
-        };
-
-        public static Point GetMousePosition()
-        {
-            ScreenPoint Mouse = new ScreenPoint();
-            GetCursorPos(ref Mouse);
-            return new Point(Mouse.X, Mouse.Y);
-        }
-
-        public static int GetScreenBound(string side, bool IsMargin)
-        {
-            System.Windows.Forms.Screen screen = System.Windows.Forms.Screen.PrimaryScreen;
-
-            int top = screen.Bounds.Top + (IsMargin? 10 : 0);
-            int bottom = screen.Bounds.Bottom - (IsMargin ? 10 : 0);
-            int left = screen.Bounds.Left + (IsMargin ? 10 : 0);
-            int right = screen.Bounds.Right - (IsMargin ? 10 : 0);
-
-            if (side.ToUpper() == "TOP")
-            {
-                return top;
-            }
-            else if (side.ToUpper() == "BOTTOM")
-            {
-                return bottom;
-            }
-            else if (side.ToUpper() == "LEFT")
-            {
-                return left;
-            }
-            else if (side.ToUpper() == "RIGHT")
-            {
-                return right;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-
         private readonly VirusCell Cell;
 
         public ScreenTarget(VirusCell cell) : base(100, true, TargetFlags.None)
@@ -164,22 +115,8 @@ namespace Server.SicknessSys
                 }
                 else
                 {
-                    Point point = GetMousePosition();
-
-                    if (GetScreenBound("Top", true) < point.Y &&
-                        GetScreenBound("Bottom", true) > point.Y &&
-                        GetScreenBound("Left", true) < point.X &&
-                        GetScreenBound("Right", true) > point.X)
-                    {
-                        Cell.GumpX = (point.X / 2) - 15;
-                        Cell.GumpY = (point.Y / 2) - 25;
-
-                        HealthStatus(from, Cell);
-                    }
-                    else
-                    {
-                        from.SendMessage("Bad location, please try again!");
-                    }
+                        Cell.GumpX = 50;
+                        Cell.GumpY = 50;
                 }
 
                 Cell.IsMovingGump = false;
