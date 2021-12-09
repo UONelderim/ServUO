@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
-using Server;
 using Server.Items;
-using Server.Gumps;
 using Server.Spells;
+using Server.ACC.CSS.Systems.Ancient;
 
 namespace Server.ACC.CSS.Systems.Undead
 {
@@ -99,7 +98,8 @@ namespace Server.ACC.CSS.Systems.Undead
                         Scroll.Consume();
                     Caster.PlaySound(0x379);
 
-                    Caster.BodyMod = Caster.Female ? 403 : 402;
+                    AncientSeanceSpell.SeanceSpellExt.Get(Caster).OldBody = Caster.BodyValue;
+                    Caster.BodyValue = Caster.Female ? 403 : 402;
 
                     Caster.SendMessage("Wkraczasz do królestwa zmarłych.");
                     BaseArmor.ValidateMobile(Caster);
@@ -158,7 +158,8 @@ namespace Server.ACC.CSS.Systems.Undead
             {
                 if (!m_Owner.CanBeginAction(typeof(UndeadSeanceSpell)))
                 {
-                    m_Owner.BodyMod = 0;
+                    m_Owner.BodyValue = AncientSeanceSpell.SeanceSpellExt.Get(m_Owner).OldBody;
+                    AncientSeanceSpell.SeanceSpellExt.Delete(m_Owner);
                     m_Owner.EndAction(typeof(UndeadSeanceSpell));
 
                     BaseArmor.ValidateMobile(m_Owner);
