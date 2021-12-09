@@ -6,7 +6,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 	public class AvatarBallSpell : AvatarSpell
 	{
 		private static SpellInfo m_Info = new SpellInfo(
-			"Kula Sniegu", "In Vas Frost",
+			"Witalność Armii", "Vitalium Engrevo Maxi",
 			//SpellCircle.First,
 			233,
 			9012
@@ -54,7 +54,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 
 				if (damage < 10) { damage = 10.0; }
 
-				m.FixedParticles(0xBB3, 0, 9502, 4019, 0x160, 0, EffectLayer.Head);
+				m.FixedParticles(0x11B6, 0, 9502, 4019, 1153, 0, EffectLayer.Head);
 
 				source.PlaySound(0x650);
 
