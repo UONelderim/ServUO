@@ -6,7 +6,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 	public class AvatarBallSpell : AvatarSpell
 	{
 		private static SpellInfo m_Info = new SpellInfo(
-			"Witalność Armii", "Vitalium Engrevo Maxi",
+			"Kula Sniezna", "In Vas Frost",
 			//SpellCircle.First,
 			233,
 			9012
