@@ -17,7 +17,7 @@ namespace Server.Mobiles.Swiateczne
 			Name = "Nivek";
 
 			Body = 400;
-			Hue = Tamael.Instance.RandomSkinHue();
+			Hue = Race.RandomSkinHue();
 
 			SetStr(800, 900);
 			SetDex(200, 220);
@@ -116,7 +116,7 @@ namespace Server.Mobiles.Swiateczne
 				for (int i = 0; i < m_Traps.Count; i++)
 				{
 					BaseTrap trap = m_Traps[i];
-					if (!trap.Deleted && !Utility.InRange(Location, trap.Location, TrapRange))
+					if (!trap.Deleted && !InRange(trap.Location, TrapRange))
 					{
 						trap.Delete();
 					}
@@ -143,6 +143,7 @@ namespace Server.Mobiles.Swiateczne
 					newTrap.MoveToWorld(newLocation, Map);
 					newTrap.ItemID = GetTrapItemId();
 					newTrap.Visible = true;
+					newTrap.Name = "Prowizoryczna pulapka";
 					Effects.SendMovingEffect(this, newTrap, newTrap.ItemID, 7, 0, false, false, 0, 0);
 					m_Traps.Add(newTrap);
 				}
