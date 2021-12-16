@@ -19,10 +19,10 @@ namespace Server.Mobiles.Swiateczne
 			Body = 400;
 			Hue = Race.RandomSkinHue();
 
-			SetStr(1100, 1200);
-			SetDex(80, 90);
-			SetInt(600, 650);
-			SetHits(15000);
+			SetStr(900, 1000);
+			SetDex(30, 60);
+			SetInt(400, 550);
+			SetHits(10000);
 			SetStam(205, 300);
 
 			SetDamage(19, 25);
@@ -122,7 +122,7 @@ namespace Server.Mobiles.Swiateczne
 
 						target.SendLocalizedMessage(1010572); // You have just been hit by a snowball!
 						Effects.SendMovingEffect(this, target, 0x36E4, 7, 0, false, true, 0x480, 0);
-						AOS.Damage(target, Utility.RandomMinMax(5, 10), 0, 0, 100, 0, 0);
+						AOS.Damage(target, Utility.RandomMinMax(2, 8), 0, 0, 100, 0, 0);
 					}
 			}
 		}
