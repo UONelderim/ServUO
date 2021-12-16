@@ -73,7 +73,7 @@ namespace Server.ACC.CSS.Systems.Cleric
 				m.Paralyzed = false;
 				m.CurePoison( Caster );
 
-				EvilOmenSpell.TryEndEffect( m );
+				EvilOmenSpell.CheckEffect( m );
 				StrangleSpell.RemoveCurse( m );
 				BloodOathSpell.RemoveCurse( m );
 				MindRotSpell.ClearMindRotScalar( m );

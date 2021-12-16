@@ -44,7 +44,7 @@ namespace Server.ACC.CSS.Systems.Undead
 			{
 				SpellHelper.Turn( Caster, m );
 
-				SpellHelper.CheckReflect( this, Caster, ref m );
+				SpellHelper.CheckReflect( 7, Caster, ref m );
 
 				CheckResisted( m ); // Check magic resist for skill, but do not use return value
 
@@ -61,7 +61,7 @@ namespace Server.ACC.CSS.Systems.Undead
 				if ( m_Table.Contains( m ) )
 					damage /= 10;
 				else
-					new InternalTimer( m, damage * 0.5 ).Start();
+					new InternalTimer( m, damage  ).Start();
 
 				SpellHelper.Damage( this, m, damage );
 			}

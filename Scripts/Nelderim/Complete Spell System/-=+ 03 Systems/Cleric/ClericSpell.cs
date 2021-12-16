@@ -14,6 +14,7 @@ namespace Server.ACC.CSS.Systems.Cleric
 		}
 
         public override SkillName CastSkill { get { return SkillName.Healing; } }
+		public override SkillName DamageSkill { get { return SkillName.Anatomy; } }
         public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds(3 * CastDelaySecondsPerTick); } }
         public override bool ClearHandsOnCast { get { return false; } }
 
@@ -91,7 +92,7 @@ namespace Server.ACC.CSS.Systems.Cleric
 		public override void DoFizzle()
 		{
 			Caster.PlaySound( 0x1D6 );
-			Caster.NextSpellTime = Core.TickCount;
+			Caster.NextSpellTime = DateTime.Now;
 		}
 
 		public override void DoHurtFizzle()

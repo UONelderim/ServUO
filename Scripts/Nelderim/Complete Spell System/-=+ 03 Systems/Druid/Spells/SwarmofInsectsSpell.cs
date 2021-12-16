@@ -46,7 +46,7 @@ namespace Server.ACC.CSS.Systems.Druid
 			{
 				SpellHelper.Turn( Caster, m );
 
-				SpellHelper.CheckReflect( this, Caster, ref m );
+				SpellHelper.CheckReflect( 7, Caster, ref m );
 
 				CheckResisted( m ); // Check magic resist for skill, but do not use return value
 
@@ -55,7 +55,7 @@ namespace Server.ACC.CSS.Systems.Druid
 				// m.FixedParticles( 0x91B, 1, 240, 9916, 0, 3, EffectLayer.Head );
 				m.PlaySound( 0x1E5 );
 
-				double damage = ((Caster.Skills[CastSkill].Value - m.Skills[SkillName.AnimalLore].Value) / 10) + 30;
+				double damage = ((Caster.Skills[CastSkill].Value - m.Skills[SkillName.Magery].Value) / 10) + 30;
 
 				if ( damage < 1 )
 					damage = 1;

@@ -61,7 +61,7 @@ namespace Server.ACC.CSS.Systems.Cleric
 				Caster.FixedParticles( 0x3709, 10, 30, 5052, 0x480, 0, EffectLayer.LeftFoot );
 				Caster.PlaySound( 0x208 );
 
-				DateTime Expire = DateTime.Now + TimeSpan.FromMinutes( Caster.Skills[SkillName.Healing].Value / 10.0 );
+				DateTime Expire = DateTime.Now + TimeSpan.FromMinutes( Caster.Skills[SkillName.Healing].Value / 50.0 );
 				new InternalTimer( Caster, Expire ).Start();
 
 			}

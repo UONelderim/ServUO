@@ -29,7 +29,7 @@ namespace Server.ACC.CSS.Systems.Bard
 
 		public override double CastDelay{ get{ return 2; } }
 		public override double RequiredSkill{ get{ return 35.0; } }
-		public override int RequiredMana{ get{ return 7; } }
+		public override int RequiredMana{ get{ return 14; } }
 
 		public override void OnCast()
 		{
@@ -49,12 +49,12 @@ namespace Server.ACC.CSS.Systems.Bard
 					{
 				SpellHelper.Turn( source, m );
 
-				SpellHelper.CheckReflect( this, ref source, ref m );
+				SpellHelper.CheckReflect( (int)this.Circle, ref source, ref m );
 
 				m.FixedParticles( 0x374A, 10, 30, 5013, 0x480, 2, EffectLayer.Waist );
 
-				int amount = (int)( Caster.Skills[SkillName.Provocation].Base * 0.17 );
-				TimeSpan duration = TimeSpan.FromSeconds( Caster.Skills[SkillName.Musicianship].Base * 0.15 );
+				int amount = (int)( Caster.Skills[CastSkill].Base * 0.17 );
+				TimeSpan duration = TimeSpan.FromSeconds( Caster.Skills[SkillName.Musicianship].Base * 0.18 );
 
 				m.SendMessage( "Twoja odporność na zimno spada." );
 				ResistanceMod mod1 = new ResistanceMod( ResistanceType.Cold, - amount );

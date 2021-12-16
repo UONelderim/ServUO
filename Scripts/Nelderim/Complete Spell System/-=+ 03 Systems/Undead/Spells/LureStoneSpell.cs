@@ -139,7 +139,7 @@ namespace Server.ACC.CSS.Systems.Undead
 					if ( m.InRange( this, 1000 ) )
 					{
 						double tamer = m_Owner.Skills[SkillName.SpiritSpeak].Value;
-						double bonus = m_Owner.Skills[SkillName.Necromancy].Value/100;
+						double bonus = m_Owner.Skills[SkillName.Necromancy].Value/10;
 
 						BaseCreature cret = m as BaseCreature;
 						if(cret!=null)

@@ -48,7 +48,7 @@ namespace Server.ACC.CSS.Systems.Ancient
                     Scroll.Consume();
                 SpellHelper.Turn(Caster, m);
 
-                SpellHelper.CheckReflect(this, Caster, ref m);
+                SpellHelper.CheckReflect((int)this.Circle, Caster, ref m);
 
                 if (m.Spell != null)
                     m.Spell.OnCasterHurt();

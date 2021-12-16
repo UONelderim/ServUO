@@ -19,10 +19,7 @@ namespace Server.ACC.CSS.Systems.Rogue
                                                         "Zaklęcie", "Spojrz w moje oczy!",
             //SpellCircle.Fourth,
                                                         218,
-                                                        9012,
-                                                        Reagent.BlackPearl,
-                                                        Reagent.Nightshade,
-                                                        Reagent.SpidersSilk
+                                                        9012
                                                        );
 
         public override SpellCircle Circle
@@ -30,9 +27,9 @@ namespace Server.ACC.CSS.Systems.Rogue
             get { return SpellCircle.Fourth; }
         }
 
-        public override double CastDelay { get { return 0; } }
-        public override double RequiredSkill { get { return 0; } }
-        public override int RequiredMana { get { return 0; } }
+        public override double CastDelay { get { return 2; } }
+        public override double RequiredSkill { get { return 80; } }
+        public override int RequiredMana { get { return 30; } }
 
         private Timer m_Timer;
 
@@ -167,7 +164,7 @@ namespace Server.ACC.CSS.Systems.Rogue
                             CopyFromLayer(m, dg, Layer.Waist);
                             CopyFromLayer(m, dg, Layer.InnerTorso);
                             CopyFromLayer(m, dg, Layer.Bracelet);
-                            CopyFromLayer(m, dg, Layer.Face);
+                            CopyFromLayer(m, dg, Layer.Unused_xF);
                             CopyFromLayer(m, dg, Layer.FacialHair);
                             CopyFromLayer(m, dg, Layer.MiddleTorso);
                             CopyFromLayer(m, dg, Layer.Earrings);
@@ -180,7 +177,7 @@ namespace Server.ACC.CSS.Systems.Rogue
                             dg.ControlSlots = 5;
                             dg.Controlled = true;
                             dg.ControlMaster = Caster;
-                            TimeSpan duration = TimeSpan.FromSeconds(Caster.Skills[SkillName.Stealing].Value * 1.2); // 120% of Stealing
+                            TimeSpan duration = TimeSpan.FromSeconds(Caster.Skills[SkillName.Ninjitsu].Value * 1.2); // 120% of Stealing
                             m_Timer = new InternalTimer(dg, duration);
                             m_Timer.Start();
                             dg.Map = m.Map;
@@ -259,7 +256,7 @@ namespace Server.ACC.CSS.Systems.Rogue
                             CopyFromLayer(m, dg, Layer.Waist);
                             CopyFromLayer(m, dg, Layer.InnerTorso);
                             CopyFromLayer(m, dg, Layer.Bracelet);
-                            CopyFromLayer(m, dg, Layer.Face);
+                            CopyFromLayer(m, dg, Layer.Unused_xF);
                             CopyFromLayer(m, dg, Layer.FacialHair);
                             CopyFromLayer(m, dg, Layer.MiddleTorso);
                             CopyFromLayer(m, dg, Layer.Earrings);
@@ -272,7 +269,7 @@ namespace Server.ACC.CSS.Systems.Rogue
                             dg.ControlSlots = 5;
                             dg.Controlled = true;
                             dg.ControlMaster = Caster;
-                            TimeSpan duration = TimeSpan.FromSeconds(Caster.Skills[SkillName.Stealing].Value * 1.2); // 120% of Stealing
+                            TimeSpan duration = TimeSpan.FromSeconds(Caster.Skills[SkillName.Ninjitsu].Value * 1.2); // 120% of Stealing
                             m_Timer = new InternalTimer(dg, duration);
                             dg.Map = m.Map;
                             dg.Location = m.Location;
@@ -340,7 +337,7 @@ namespace Server.ACC.CSS.Systems.Rogue
             DeleteFromLayer(from, Layer.Waist);
             DeleteFromLayer(from, Layer.InnerTorso);
             DeleteFromLayer(from, Layer.Bracelet);
-            DeleteFromLayer(from, Layer.Face);
+            DeleteFromLayer(from, Layer.Unused_xF);
             DeleteFromLayer(from, Layer.FacialHair);
             DeleteFromLayer(from, Layer.MiddleTorso);
             DeleteFromLayer(from, Layer.Earrings);

@@ -3,36 +3,13 @@ using System.Collections;
 using Server;
 using Server.Items;
 using Server.Mobiles;
-using static Server.Mobiles.DragonBreath;
 
 namespace Server.ACC.CSS.Systems.Ranger
 {
 	[CorpseName( "zwłoki wilka-wampira" )]
 	public class VampireWolfFamiliar : BaseFamiliar
 	{
-        public static void Initialize()
-        {
-            DragonBreathDefinition.Definitions.Add( new DragonBreathDefinition(
-                    0.16,
-                    1.0,
-                    1.3,
-                    1.0,
-                    0, 0, 0, 100, 0, 0, 0,
-                    30.0, 45.0,
-                    0x36D4,
-                    5,
-                    0,
-                    false,
-                    false,
-                    0x48,
-                    0,
-                    0x227,
-                    12,
-                    false,
-                    new Type[] { typeof( VampireWolfFamiliar ) } ) );
-        }
-
-        public VampireWolfFamiliar()
+		public VampireWolfFamiliar()
 		{
 			Name = "wilk-wampir";
 			Body = 98;
@@ -63,9 +40,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 			ControlSlots = 1;
 
 			AddItem( new LightSource() );
-
-            SetSpecialAbility( SpecialAbility.DragonBreath );
-        }
+		}
 
 		private DateTime m_NextFlare;
 
@@ -121,6 +96,10 @@ namespace Server.ACC.CSS.Systems.Ranger
 			}
 		}
 
+		public override bool HasBreath{ get{ return true; } } // fire breath enabled
+		public override int BreathFireDamage{ get{ return 0; } }
+		public override int BreathPoisonDamage{ get{ return 100; } }
+		public override int BreathEffectHue{ get{ return 0x48; } }
 		public override bool AutoDispel{ get{ return true; } }
 		public override Poison HitPoison{ get{ return Poison.Greater; } }
 

@@ -44,9 +44,12 @@ namespace Server.ACC.CSS.Systems.Undead
 			}
 			else if ( CheckBSequence( m ) )
 			{
+				
+				
 				SpellHelper.Turn( Caster, m );
-				SpellHelper.AddStatBonus( Caster, m, true, StatType.Str );
-				SpellHelper.AddStatBonus( Caster, m, false, StatType.Dex );
+                        SpellHelper.AddStatBonus(Caster, m, StatType.Str); SpellHelper.DisableSkillCheck = true;
+                        SpellHelper.AddStatBonus(Caster, m, StatType.Dex);
+                        SpellHelper.AddStatBonus(Caster, m, StatType.Int); SpellHelper.DisableSkillCheck = false;
 
 				m.PlaySound( 0x56D );
 				m.FixedParticles( 0x373A, 10, 15, 5018, EffectLayer.Waist );

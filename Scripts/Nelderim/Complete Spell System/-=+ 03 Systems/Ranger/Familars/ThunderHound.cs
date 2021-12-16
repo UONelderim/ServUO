@@ -3,36 +3,13 @@ using System.Collections;
 using Server;
 using Server.Items;
 using Server.Mobiles;
-using static Server.Mobiles.DragonBreath;
 
 namespace Server.ACC.CSS.Systems.Ranger
 {
 	[CorpseName( "zwłoki piorunującego wilka" )]
 	public class ThunderHoundFamiliar : BaseFamiliar
 	{
-        public static void Initialize()
-        {
-            DragonBreathDefinition.Definitions.Add( new DragonBreathDefinition(
-                    0.16,
-                    1.0,
-                    1.3,
-                    1.0,
-                    0, 0, 0, 0, 100, 0, 0,
-                    30.0, 45.0,
-                    0x1FB7,
-                    5,
-                    0,
-                    false,
-                    false,
-                    2410,
-                    0,
-                    0x227,
-                    12,
-                    false,
-                    new Type[] { typeof( ThunderHoundFamiliar ) } ) );
-        }
-
-        public ThunderHoundFamiliar()
+		public ThunderHoundFamiliar()
 		{
 			Name = "piorunujący wilk";
 			Body = 98;
@@ -63,9 +40,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 			ControlSlots = 1;
 
 			AddItem( new LightSource() );
-
-            SetSpecialAbility( SpecialAbility.DragonBreath );
-        }
+		}
 
 		private DateTime m_NextFlare;
 
@@ -120,6 +95,12 @@ namespace Server.ACC.CSS.Systems.Ranger
 				}
 			}
 		}
+
+		public override bool HasBreath{ get{ return true; } } // fire breath enabled
+		public override int BreathFireDamage{ get{ return 0; } }
+		public override int BreathEnergyDamage{ get{ return 100; } }
+		public override int BreathEffectItemID{ get{ return 0x1FB7; } }
+		public override int BreathEffectHue{ get{ return 2410; } }
 
 		public ThunderHoundFamiliar( Serial serial ) : base( serial )
 		{
