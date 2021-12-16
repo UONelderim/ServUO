@@ -33,43 +33,50 @@ namespace Server.ACC.CSS.Systems.Ancient
                         Scroll.Consume();
         }
 
-        public override bool CheckCast()
-        {
-            if (!base.CheckCast())
-                return false;
+      public override bool CheckCast()
+		{
+			if ( !base.CheckCast() )
+				return false;
 
-            if ((Caster.Followers + 1) > Caster.FollowersMax)
-            {
-                Caster.SendLocalizedMessage(1049645); // You have too many followers to summon that creature.
-                return false;
-            }
+			if ( (Caster.Followers + (Core.SE ? 2 : 1)) > Caster.FollowersMax )
+			{
+				Caster.SendLocalizedMessage( 1049645 ); // You have too many followers to summon that creature.
+				return false;
+			}
 
-            return true;
-        }
+			return true;
+		}
 
-        public override void OnCast()
-        {
-            if (CheckSequence())
-                Caster.Target = new InternalTarget(this);
-        }
+		public override void OnCast()
+		{
+			Caster.Target = new InternalTarget( this );
+		}
 
-        public void Target(IPoint3D p)
-        {
-            Map map = Caster.Map;
 
-            SpellHelper.GetSurfaceTop(ref p);
+public void Target( IPoint3D p )
+		{
+			Map map = Caster.Map;
 
-            if (map == null || !map.CanSpawnMobile(p.X, p.Y, p.Z))
-            {
-                Caster.SendLocalizedMessage(501942); // That location is blocked.
-            }
-            else if (SpellHelper.CheckTown(p, Caster) && CheckSequence())
-            {
-                BaseCreature.Summon(new DeathVortex(), false, Caster, new Point3D(p), 0x212, TimeSpan.FromSeconds(Utility.Random(80, 40)));
-            }
+			SpellHelper.GetSurfaceTop( ref p );
 
-            FinishSequence();
-        }
+			if ( map == null || !map.CanSpawnMobile( p.X, p.Y, p.Z ) )
+			{
+				Caster.SendLocalizedMessage( 501942 ); // That location is blocked.
+			}
+			else if ( SpellHelper.CheckTown( p, Caster ) && CheckSequence() )
+			{
+				TimeSpan duration;
+
+				if ( Core.AOS )
+					duration = TimeSpan.FromSeconds( 90.0 );
+				else
+					duration = TimeSpan.FromSeconds( Utility.Random( 80, 40 ) );
+
+				BaseCreature.Summon( new DeathVortex(), false, Caster, new Point3D( p ), 0x212, duration );
+			}
+
+			FinishSequence();
+		}
 
         private class InternalTarget : Target
         {

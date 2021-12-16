@@ -70,8 +70,8 @@ namespace Server.ACC.CSS.Systems.Druid
 			new DruidFamiliarEntry( typeof( PixieFamiliar ), "wróżka",  50.0,  50.0 ),
 			new DruidFamiliarEntry( typeof( EagleFamiliar ), "duchowy orzeł",  60.0,  60.0 ),
 			new DruidFamiliarEntry( typeof( QuagmireFamiliar ), "trzesawisko",  80.0,  80.0 ),
-			new DruidFamiliarEntry( typeof( SummonedTreefellow ), "drzewiec", 100.0, 100.0 ),
-			new DruidFamiliarEntry( typeof( DryadFamiliar ), "driada", 115.0, 115.0 )
+			new DruidFamiliarEntry( typeof( SummonedTreefellow ), "drzewiec", 90.0, 90.0 ),
+			new DruidFamiliarEntry( typeof( DryadFamiliar ), "driada", 100.0, 100.0 )
 
 		};
 
@@ -132,7 +132,7 @@ namespace Server.ACC.CSS.Systems.Druid
 			AddHtmlLocalized( 30, 26, 200, 20, 1060147, EnabledColor16, false, false ); // Chose thy familiar...
 
 			double lore = from.Skills[SkillName.Magery].Base;
-			double taming = from.Skills[SkillName.Herbalism].Base;
+			double taming = from.Skills[SkillName.Zielarstwo].Base;
 
 			for ( int i = 0; i < entries.Length; ++i )
 			{
@@ -160,7 +160,7 @@ namespace Server.ACC.CSS.Systems.Druid
 				DruidFamiliarEntry entry = m_Entries[index];
 
 				double lore = m_From.Skills[SkillName.Magery].Base;
-				double taming = m_From.Skills[SkillName.Herbalism].Base;
+				double taming = m_From.Skills[SkillName.Zielarstwo].Base;
 
 				BaseCreature check = (BaseCreature)DruidFamiliarSpell.Table[m_From];
 

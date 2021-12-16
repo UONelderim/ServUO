@@ -8,7 +8,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 {
     public abstract class AvatarSpell : CSpell
     {
-        public override SkillName CastSkill { get { return SkillName.Begging; } }
+        public override SkillName CastSkill { get { return SkillName.Meditation; } }
         public override SkillName DamageSkill { get { return SkillName.Anatomy; } }
 
         public abstract SpellCircle Circle { get; }
@@ -32,7 +32,7 @@ namespace Server.ACC.CSS.Systems.Avatar
             if (!base.CheckCast())
                 return false;
 
-            if (Caster.Skills[SkillName.Begging].Value < RequiredSkill)
+            if (Caster.Skills[SkillName.Meditation].Value < RequiredSkill)
             {
                 Caster.SendLocalizedMessage(1060172, RequiredSkill.ToString("F1")); // You must have at least ~1_SKILL_REQUIREMENT~ Chivalry to use this ability,
                 return false;
@@ -60,7 +60,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 
             int mana = ScaleMana(RequiredMana);
 
-            if (Caster.Skills[SkillName.Chivalry].Value < RequiredSkill)
+            if (Caster.Skills[SkillName.Meditation].Value < RequiredSkill)
             {
                 Caster.SendLocalizedMessage(1060172, RequiredSkill.ToString("F1")); // You must have at least ~1_SKILL_REQUIREMENT~ Chivalry to use this ability,
                 return false;
@@ -89,7 +89,7 @@ namespace Server.ACC.CSS.Systems.Avatar
         public override void DoFizzle()
         {
             Caster.PlaySound(0x1D6);
-            Caster.NextSpellTime = Core.TickCount;
+            Caster.NextSpellTime = DateTime.Now;
         }
 
         public override void DoHurtFizzle()
@@ -112,7 +112,7 @@ namespace Server.ACC.CSS.Systems.Avatar
             SendCastEffect();
         }
 
-        public override void SendCastEffect()
+        public virtual void SendCastEffect()
         {
             Caster.FixedEffect(0x37C4, 10, 42, 4, 3);
         }

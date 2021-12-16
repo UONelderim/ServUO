@@ -14,7 +14,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 		[Constructable]
 		public RogueFalseCoinScroll( int amount ) : base( typeof( RogueFalseCoinSpell ), 0xE39, amount )
 		{
-			Name = "Fałszywa moneta";
+			Name = "Falszywa moneta";
 			Hue = 0x20;
 		}
 

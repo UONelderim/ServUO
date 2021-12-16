@@ -92,7 +92,7 @@ namespace Server.ACC.CSS.Systems.Undead
                                 if (fleeChance > Utility.RandomDouble())
                                 {
                                     m.PlaySound(m.Female ? 814 : 1088);
-                                    m.ForceFleeUntil = DateTime.UtcNow + TimeSpan.FromSeconds( 15.0 );
+                                    m.BeginFlee(TimeSpan.FromSeconds(15.0));
                                 }
                             }
                         }

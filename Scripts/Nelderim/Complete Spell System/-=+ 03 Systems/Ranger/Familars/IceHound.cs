@@ -1,36 +1,14 @@
 using System;
 using System.Collections;
+using Server;
 using Server.Items;
 using Server.Mobiles;
-using static Server.Mobiles.DragonBreath;
 
 namespace Server.ACC.CSS.Systems.Ranger
 {
-    [CorpseName( "zwłoki lodowego wilka" )]
+	[CorpseName( "zwłoki lodowego wilka" )]
 	public class IceHoundFamiliar : BaseFamiliar
 	{
-        public static void Initialize()
-        {
-            DragonBreathDefinition.Definitions.Add( new DragonBreathDefinition(
-                    0.16,
-                    1.0,
-                    1.3,
-                    1.0,
-                    0, 0, 100, 0, 0, 0, 0,
-                    30.0, 45.0,
-                    0x37C4,
-                    5,
-                    0,
-                    false,
-                    false,
-                    0x480,
-                    0,
-                    0x227,
-                    12,
-                    false,
-                    new Type[] { typeof( IceHoundFamiliar ) } ) );
-        }
-
 		public IceHoundFamiliar()
 		{
 			Name = "lodowy wilk";
@@ -62,8 +40,6 @@ namespace Server.ACC.CSS.Systems.Ranger
 			ControlSlots = 1;
 
 			AddItem( new LightSource() );
-
-            SetSpecialAbility( SpecialAbility.DragonBreath );
 		}
 
 		private DateTime m_NextFlare;
@@ -119,6 +95,12 @@ namespace Server.ACC.CSS.Systems.Ranger
 				}
 			}
 		}
+
+		public override bool HasBreath{ get{ return true; } } // fire breath enabled
+		public override int BreathFireDamage{ get{ return 0; } }
+		public override int BreathColdDamage{ get{ return 100; } }
+		public override int BreathEffectItemID{ get{ return 0x37C4; } }
+		public override int BreathEffectHue{ get{ return 0x480; } }
 
 		public IceHoundFamiliar( Serial serial ) : base( serial )
 		{
