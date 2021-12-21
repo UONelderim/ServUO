@@ -63,6 +63,13 @@ namespace Server.Mobiles.Swiateczne
 		}
 		// public override Poison HitPoison { get { return Poison.Lethal; } }
 
+		public override void OnDeath(Container c)
+		{
+			base.OnDeath(c);
+
+			ArtifactHelper.ArtifactDistribution(this);
+		}
+
 		public MikolajBoss(Serial serial) : base(serial)
 		{
 		}
