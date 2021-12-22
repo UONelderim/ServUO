@@ -60,7 +60,7 @@ namespace Server.Items
 
 			//Elghin
 			m_CreatureInfo.Add(typeof(DalharukElghinn), new ArtInfo(10, ArtGroup.Elghin));
-			m_CreatureInfo.Add(typeof(MikolajBoss), new ArtInfo(5, ArtGroup.CustomChamp));
+			m_CreatureInfo.Add(typeof(KevinBoss), new ArtInfo(5, ArtGroup.Elghin));
 
 
 			//Bossy
@@ -106,7 +106,7 @@ namespace Server.Items
 			m_CreatureInfo.Add(typeof(Ilhenir), new ArtInfo(20, ArtGroup.CustomChamp));
 			m_CreatureInfo.Add(typeof(Twaulo), new ArtInfo(15, ArtGroup.CustomChamp));
 			m_CreatureInfo.Add(typeof(Pyre), new ArtInfo(30, ArtGroup.CustomChamp));
-			m_CreatureInfo.Add(typeof(KevinBoss), new ArtInfo(5, ArtGroup.CustomChamp));
+			m_CreatureInfo.Add(typeof(MikolajBoss), new ArtInfo(5, ArtGroup.CustomChamp));
 
 			//Fishing Bossy
 			m_CreatureInfo.Add(typeof(Leviathan), new ArtInfo(10, ArtGroup.Fishing));
