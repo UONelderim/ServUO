@@ -65,7 +65,7 @@ namespace UltimaLive
 
     public static void Initialize()
     {
-//      PacketHandlers.Register(0x3F, 0, true, new OnPacketReceive(UltimaLivePacketHandlers.ReceiveUltimaLiveCommand));
+      PacketHandlers.Register(0x3F, 0, true, new OnPacketReceive(UltimaLivePacketHandlers.ReceiveUltimaLiveCommand));
     }
 
     public static void ReceiveUltimaLiveCommand(NetState state, PacketReader pvSrc)
