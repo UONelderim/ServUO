@@ -95,13 +95,13 @@ namespace UltimaLive
 
     private static void EventSink_OnServerList(ServerListEventArgs args)
     {
-//      args.State.Send(new UltimaLive.Network.LoginComplete());
-//      args.State.Send(new UltimaLive.Network.MapDefinitions());
+      args.State.Send(new UltimaLive.Network.LoginComplete());
+      args.State.Send(new UltimaLive.Network.MapDefinitions());
     }
 
     private static void EventSink_Login(LoginEventArgs args)
     {
-//      args.Mobile.Send(new UltimaLive.Network.QueryClientHash(args.Mobile));
+      args.Mobile.Send(new UltimaLive.Network.QueryClientHash(args.Mobile));
     }
   }
 }
