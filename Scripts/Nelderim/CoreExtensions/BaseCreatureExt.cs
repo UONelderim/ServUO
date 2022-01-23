@@ -107,10 +107,10 @@ namespace Server.Mobiles
 				int min, max;
 
 				bw.GetBaseDamageRange(this, out min, out max);
-				int avgDamage = (int)(min + max) / 2;
-				double damage = (double)bw.ScaleDamageAOS((Mobile)this, avgDamage, false);
+				int avgDamage = (min + max) / 2;
+				double damage = bw.ScaleDamageAOS(this, avgDamage, false);
 
-				return (damage / bw.GetDelay((Mobile)this).TotalSeconds) * MeeleeSkillFactor;
+				return damage / bw.GetDelay(this).TotalSeconds * MeeleeSkillFactor;
 			}
 		}
 
@@ -118,25 +118,22 @@ namespace Server.Mobiles
 		{
 			get
 			{
-				double spellDamage = 0;
-				double castDelay = 0;
+				if (AIObject is MageAI ai)
+				{
+					int maxCircle = ai.GetMaxCircle();
+					double magery = Skills[SkillName.Magery].Value;
+					double evalInt = Skills[SkillName.EvalInt].Value;
+					double meditation = Skills[SkillName.Meditation].Value;
 
-				// if (AIObject is SpellCasterAI)
-				// {
-				// 	SpellCasterAI ai = (SpellCasterAI)AIObject;
-				// 	int maxCircle = ai.GetMaxCircle();
-				// 	Spell s = ai.GetRandomDamageSpell();
-				//
-				// 	if (s == null)
-				// 		return 0;
-				//
-				// 	int[] circleDmg = new int[] {1, 8, 11, 11, 20, 30, 38};
-				// 	spellDamage = (double)s.GetNewAosDamage(circleDmg[maxCircle - 1], 1, 5, false, null);
-				// 	castDelay = 0.25 + (maxCircle * 0.25);
-				// 	return spellDamage / castDelay;
-				// }
-				// else
-				// 	return 0;
+					double mageryValue = magery * 0.5 * (1 + maxCircle * 0.05);
+					
+					double evalIntBonus = mageryValue * evalInt * 0.005;
+					double meditBonus = mageryValue * meditation + 0.001;
+					double manaBonus = mageryValue * Math.Min(ManaMax, 500) * 0.001;
+
+					return mageryValue + evalIntBonus + meditBonus + manaBonus;
+				}
+				
 				return 0;
 			}
 		}
