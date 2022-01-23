@@ -128,7 +128,7 @@ namespace Server.Mobiles
 					double mageryValue = magery * 0.5 * (1 + maxCircle * 0.05);
 					
 					double evalIntBonus = mageryValue * evalInt * 0.005;
-					double meditBonus = mageryValue * meditation + 0.001;
+					double meditBonus = mageryValue * meditation * 0.001;
 					double manaBonus = mageryValue * Math.Min(ManaMax, 500) * 0.001;
 
 					return mageryValue + evalIntBonus + meditBonus + manaBonus;
