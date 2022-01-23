@@ -863,7 +863,7 @@ namespace Knives.TownHouses
 			Container bag = new Bag();
 			bag.Name = "Przedmioty z domu miejskiego";
 
-			foreach( KeyValuePair<Item, Mobile> kvp in c_House.LockDowns)
+			foreach( KeyValuePair<Item, Mobile> kvp in new Dictionary<Item, Mobile>(c_House.LockDowns))
 			{
 				Item item = kvp.Key;
 				item.IsLockedDown = false;
