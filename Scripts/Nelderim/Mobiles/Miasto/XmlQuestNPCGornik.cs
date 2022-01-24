@@ -153,11 +153,11 @@ namespace Server.Mobiles
                 Item shirt = null;
                 switch ( Utility.Random( 5 ) )
                 {
-                    case 0: shirt = new Doublet( GetRandomHue() ); break;
-                    case 1: shirt = new Surcoat( GetRandomHue() ); break;
-                    case 2: shirt = new Robe( GetRandomHue() ); break;
-                    case 3: shirt = new FancyShirt( GetRandomHue() ); break;
-                    case 4: shirt = new Shirt( GetRandomHue() ); break;
+                    
+                    case 0: shirt = new Surcoat( GetRandomHue() ); break;
+                    case 1: shirt = new Robe( GetRandomHue() ); break;
+                    case 2: shirt = new FancyShirt( GetRandomHue() ); break;
+                    case 3: shirt = new Shirt( GetRandomHue() ); break;
                 }
                 AddItem( shirt );
             }

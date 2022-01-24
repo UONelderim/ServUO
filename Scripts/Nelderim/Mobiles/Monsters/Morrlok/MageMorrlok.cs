@@ -37,10 +37,6 @@ namespace Server.Mobiles
 			Boot.Hue = 1109;
 			AddItem ( Boot );
 			
-			LongPants pant = new LongPants();
-			pant.Hue = 242;
-			AddItem ( pant );
-			
 			FancyShirt shirt = new FancyShirt();
 			shirt.Hue = 242;
 			AddItem ( shirt );
