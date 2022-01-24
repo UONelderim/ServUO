@@ -63,6 +63,7 @@ namespace Server
 
 			m_Tiles[Count].m_ID = id;
 			m_Tiles[Count].m_Z = z;
+			m_Tiles[Count].m_Hue = hue;
 			++Count;
 		}
 		/* End UltimaLive Mod*/
