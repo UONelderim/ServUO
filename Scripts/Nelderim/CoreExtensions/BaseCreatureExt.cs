@@ -8,7 +8,7 @@ namespace Server.Mobiles
 {
 	public partial class BaseCreature
 	{
-		public virtual void AnnounceRandomRumor( PriorityLevel level )
+		public void AnnounceRandomRumor( PriorityLevel level )
         {
             try
             {
@@ -49,7 +49,7 @@ namespace Server.Mobiles
 
         }
 
-        public virtual double GetRumorsActionPropability()
+        public double GetRumorsActionPropability()
         {
 	        try
             {
@@ -87,16 +87,16 @@ namespace Server.Mobiles
 		[CommandProperty(AccessLevel.Counselor)]
 		public virtual double SwitchTargetChance => 0.05;
 
-		private double m_Difficulty;
+		private double? m_Difficulty;
 
 		public double GetPoisonBonus(Poison p)
 		{
 			if (p == Poison.Lethal) return 1;
-			else if (p == Poison.Deadly) return 0.92;
-			else if (p == Poison.Greater) return 0.70;
-			else if (p == Poison.Regular) return 0.40;
-			else if (p == Poison.Lesser) return 0.30;
-			else return 0;
+			if (p == Poison.Deadly) return 0.92;
+			if (p == Poison.Greater) return 0.70;
+			if (p == Poison.Regular) return 0.40;
+			if (p == Poison.Lesser) return 0.30;
+			return 0;
 		}
 
 		public double MeleeDPS
@@ -107,10 +107,10 @@ namespace Server.Mobiles
 				int min, max;
 
 				bw.GetBaseDamageRange(this, out min, out max);
-				int avgDamage = (int)(min + max) / 2;
-				double damage = (double)bw.ScaleDamageAOS((Mobile)this, avgDamage, false);
+				int avgDamage = (min + max) / 2;
+				double damage = bw.ScaleDamageAOS(this, avgDamage, false);
 
-				return (damage / bw.GetDelay((Mobile)this).TotalSeconds) * MeeleeSkillFactor;
+				return damage / bw.GetDelay(this).TotalSeconds * MeeleeSkillFactor;
 			}
 		}
 
@@ -118,25 +118,22 @@ namespace Server.Mobiles
 		{
 			get
 			{
-				double spellDamage = 0;
-				double castDelay = 0;
+				if (AIObject is MageAI ai)
+				{
+					int maxCircle = ai.GetMaxCircle();
+					double magery = Skills[SkillName.Magery].Value;
+					double evalInt = Skills[SkillName.EvalInt].Value;
+					double meditation = Skills[SkillName.Meditation].Value;
 
-				// if (AIObject is SpellCasterAI)
-				// {
-				// 	SpellCasterAI ai = (SpellCasterAI)AIObject;
-				// 	int maxCircle = ai.GetMaxCircle();
-				// 	Spell s = ai.GetRandomDamageSpell();
-				//
-				// 	if (s == null)
-				// 		return 0;
-				//
-				// 	int[] circleDmg = new int[] {1, 8, 11, 11, 20, 30, 38};
-				// 	spellDamage = (double)s.GetNewAosDamage(circleDmg[maxCircle - 1], 1, 5, false, null);
-				// 	castDelay = 0.25 + (maxCircle * 0.25);
-				// 	return spellDamage / castDelay;
-				// }
-				// else
-				// 	return 0;
+					double mageryValue = magery * 0.5 * (1 + maxCircle * 0.05);
+					
+					double evalIntBonus = mageryValue * evalInt * 0.005;
+					double meditBonus = mageryValue * meditation * 0.001;
+					double manaBonus = mageryValue * Math.Min(ManaMax, 500) * 0.001;
+
+					return mageryValue + evalIntBonus + meditBonus + manaBonus;
+				}
+				
 				return 0;
 			}
 		}
@@ -157,10 +154,7 @@ namespace Server.Mobiles
 			}
 		}
 
-		public double Life
-		{
-			get { return ((double)HitsMax * AvgResFactor * MeeleeSkillFactor) / 100; }
-		}
+		public double Life => HitsMax * AvgResFactor * MeeleeSkillFactor / 100;
 
 		public Skill MaxMeleeSkill
 		{
@@ -168,7 +162,7 @@ namespace Server.Mobiles
 			{
 				SkillName[] meleeSkillNames = new SkillName[]
 				{
-					SkillName.Wrestling, SkillName.Macing, SkillName.Fencing, SkillName.Swords, SkillName.Archery,
+					SkillName.Wrestling, SkillName.Macing, SkillName.Fencing, SkillName.Swords, SkillName.Archery, SkillName.Throwing
 				};
 
 				Skill skillMax = Skills[meleeSkillNames[0]];
@@ -185,28 +179,13 @@ namespace Server.Mobiles
 			}
 		}
 
-		public double MeeleeSkillFactor
-		{
-			get { return Math.Max(0.5, MaxMeleeSkill.Value / 120); }
-		}
+		public double MeeleeSkillFactor => Math.Max(0.5, MaxMeleeSkill.Value / 120);
 
-		public double AvgRes
-		{
-			get
-			{
-				return (PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance) / 5;
-			}
-		}
+		public double AvgRes => (double)(PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance) / 5;
 
-		public double AvgResFactor
-		{
-			get { return AvgRes / 100; }
-		}
+		public double AvgResFactor => AvgRes / 100;
 
-		public double HitPoisonBonus
-		{
-			get { return GetPoisonBonus(HitPoison) * HitPoisonChance * MeeleeSkillFactor; }
-		}
+		public double HitPoisonBonus => GetPoisonBonus(HitPoison) * HitPoisonChance * MeeleeSkillFactor;
 
 		public double WeaponAbilitiesBonus
 		{
@@ -263,31 +242,23 @@ namespace Server.Mobiles
 			}
 		}
 
+		public double BaseDifficulty => DPS * Math.Max(0.01, Life);
+
 		public virtual double DifficultyScalar => 1.0;
-
-		public double BaseDifficulty
-		{
-			get { return DPS * Math.Max(0.01, Life); }
-		}
-
-		public void GenerateDifficulty()
-		{
-			double difficulty = BaseDifficulty * DifficultyScalar;
-
-			m_Difficulty = Math.Round(difficulty, 4) + 0.0001; // So it's never 0.0
-		}
+		
+		public double GenerateDifficulty() => Math.Round(BaseDifficulty * DifficultyScalar, 4);
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public double Difficulty
 		{
 			get
 			{
-				if (m_Difficulty == 0.0)
-					GenerateDifficulty();
-				return m_Difficulty;
+				if (!m_Difficulty.HasValue)
+					m_Difficulty = GenerateDifficulty();
+				return m_Difficulty.Value;
 			}
 		}
 
-		public virtual bool IgnoreHonor { get { return false; } }
+		public virtual bool IgnoreHonor => false;
 	}
 }

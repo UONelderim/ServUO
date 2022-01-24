@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Server;
 using Server.Multis;
 using Server.Items;
@@ -862,11 +863,12 @@ namespace Knives.TownHouses
 			Container bag = new Bag();
 			bag.Name = "Przedmioty z domu miejskiego";
 
-			foreach( Item item in new ArrayList( c_House.LockDowns ) )
+			foreach( KeyValuePair<Item, Mobile> kvp in new Dictionary<Item, Mobile>(c_House.LockDowns))
 			{
+				Item item = kvp.Key;
 				item.IsLockedDown = false;
 				item.Movable = true;
-				c_House.LockDowns.Remove( item );
+				c_House.LockDowns.Remove(kvp.Key);
 				bag.DropItem( item );
 			}
 

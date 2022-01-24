@@ -44,7 +44,7 @@ namespace Nelderim
 	{
 		public static LootPack Generate(BaseCreature bc, LootStage stage)
 		{
-			if (Config.Get("Nelderim.UseNelderimLoot", false))
+			if (Config.Get("NelderimLoot.Enabled", false))
 			{
 				if (bc.Controlled || bc.Summoned || bc.AI == AIType.AI_Animal)
 					return LootPack.Empty;
@@ -76,7 +76,7 @@ namespace Nelderim
 			int minGold = (int)Math.Ceiling(Math.Pow((bc.Difficulty * 630), 0.49));
 			int maxGold = (int)Math.Ceiling(minGold * 1.3);
 
-			int gold = Utility.RandomMinMax(minGold, maxGold);
+			int gold = (int) (Utility.RandomMinMax(minGold, maxGold) * Config.Get("NelderimLoot.GoldModifier", 1.0));
 
 			entries.Add(new LootPackEntry(true, true, LootPack.Gold, 100.0, gold));
 		}
@@ -132,14 +132,19 @@ namespace Nelderim
 		
 		public static void GenerateMagicItems(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			int itemsMin = (int)Math.Floor(Math.Pow(bc.Difficulty, 0.275));
-			int itemsMax = (int)Math.Max(1, itemsMin + Math.Ceiling((double)itemsMin / 3));
+			double countModifier = Config.Get("NelderimLoot.ItemsCountModifier", 1.0);
+			int itemsMin = (int)Math.Floor(Math.Pow(bc.Difficulty, 0.275) * countModifier);
+			int itemsMax = (int)Math.Max(1, itemsMin + Math.Ceiling((double)itemsMin / 3 * countModifier));
 			int itemsCount = Utility.RandomMinMax(itemsMin, itemsMax);
 
-			int minProps = (int)Utility.Clamp(Math.Log(bc.Difficulty * 0.1), 1, 5);
-			int maxProps = (int)Utility.Clamp(Math.Log(bc.Difficulty), 1, 5);
-			double minIntensity = Utility.Clamp( Math.Pow(bc.Difficulty, 0.6), 5, 30);
-			double maxIntensity = Utility.Clamp( Math.Pow(bc.Difficulty, 0.75) + 30, 50, 100);
+			double propsModifier = Config.Get("NelderimLoot.PropsCountModifier", 1.0);
+			int minProps = (int)Utility.Clamp(Math.Log(bc.Difficulty * 0.1) * propsModifier, 1, 5);
+			int maxProps = (int)Utility.Clamp(Math.Log(bc.Difficulty) * propsModifier, 1, 5);
+			
+			double minIntensityModifier = Config.Get("NelderimLoot.MinPropsIntensityModifier", 1.0);
+			double maxIntensityModifier = Config.Get("NelderimLoot.MaxPropsIntensityModifier", 1.0);
+			double minIntensity = Utility.Clamp( Math.Pow(bc.Difficulty, 0.6) * minIntensityModifier, 5, 30);
+			double maxIntensity = Utility.Clamp( (Math.Pow(bc.Difficulty, 0.75) + 30) * maxIntensityModifier, 50, 100);
 			int reduceStep = (int)(Math.Max(1, itemsCount * 0.2)); // Po kazdym 20% itemow oslabiamy loot
 			for ( int i = 0; i < itemsCount; i++ )
 			{

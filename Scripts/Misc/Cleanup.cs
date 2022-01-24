@@ -118,7 +118,8 @@ namespace Server.Misc
 
                 for (int i = 0; i < items.Count; ++i)
                 {
-                    Console.WriteLine(items[i].ToString());
+	                if (i % 1000 == 0) Console.WriteLine(i + "/" + items.Count);
+                    // Console.WriteLine(items[i].ToString());
                     items[i].Delete();
                 }
             }

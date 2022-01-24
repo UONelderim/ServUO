@@ -577,13 +577,13 @@ namespace Server
         #endregion
 
         #region Generic accessors
-        public static LootPack Poor => Config.Get("Nelderim.UseNelderimLoot", false) ? Empty : LootPoor;
-        public static LootPack Meager => Config.Get("Nelderim.UseNelderimLoot", false) ? Empty : LootMeager;
-        public static LootPack Average => Config.Get("Nelderim.UseNelderimLoot", false) ? Empty : LootAverage;
-        public static LootPack Rich => Config.Get("Nelderim.UseNelderimLoot", false) ? Empty : LootRich;
-        public static LootPack FilthyRich => Config.Get("Nelderim.UseNelderimLoot", false) ? Empty : LootFilthyRich;
-        public static LootPack UltraRich => Config.Get("Nelderim.UseNelderimLoot", false) ? Empty : LootUltraRich;
-        public static LootPack SuperBoss => Config.Get("Nelderim.UseNelderimLoot", false) ? Empty : LootSuperBoss;
+        public static LootPack Poor => Config.Get("NelderimLoot.Enabled", false) ? Empty : LootPoor;
+        public static LootPack Meager => Config.Get("NelderimLoot.Enabled", false) ? Empty : LootMeager;
+        public static LootPack Average => Config.Get("NelderimLoot.Enabled", false) ? Empty : LootAverage;
+        public static LootPack Rich => Config.Get("NelderimLoot.Enabled", false) ? Empty : LootRich;
+        public static LootPack FilthyRich => Config.Get("NelderimLoot.Enabled", false) ? Empty : LootFilthyRich;
+        public static LootPack UltraRich => Config.Get("NelderimLoot.Enabled", false) ? Empty : LootUltraRich;
+        public static LootPack SuperBoss => Config.Get("NelderimLoot.Enabled", false) ? Empty : LootSuperBoss;
         #endregion
 
         public static readonly LootPack LowScrolls = new LootPack(new[] { new LootPackEntry(false, true, LowScrollItems, 100.00, 1) });
@@ -811,7 +811,7 @@ namespace Server
 
         public static bool IsStygian(IEntity e)
         {
-	        if (!Config.Get("Nelderim.EnableSALoot", true))
+	        if (!Config.Get("NelderimLoot.SALootEnabled", true))
 		        return false;
             if (e == null)
                 return false;

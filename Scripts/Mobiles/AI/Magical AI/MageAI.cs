@@ -20,7 +20,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    public class MageAI : BaseAI
+    public partial class MageAI : BaseAI
     {
         public virtual SkillName CastSkill => SkillName.Magery;
         public virtual bool UsesMagery => true;
@@ -908,7 +908,7 @@ namespace Server.Mobiles
         /// <returns></returns>
         public virtual int GetMaxCircle()
         {
-            return (int)((m_Mobile.Skills[SkillName.Magery].Value + 20.0) / (100.0 / 7.0));
+            return Utility.Clamp((int)((m_Mobile.Skills[SkillName.Magery].Value + 20.0) / (100.0 / 7.0)),1,8);
         }
 
         private readonly int[] m_ManaTable = { 4, 6, 9, 11, 14, 20, 40, 50 };
