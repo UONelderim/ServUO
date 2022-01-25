@@ -159,7 +159,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 
         public override void SendInfoTo(NetState state, bool sendOplPacket)
         {
-            base.SendInfoTo(state, ObjectPropertyList.Enabled);
+            base.SendInfoTo(state);
 
             if (ItemID == 0x2006)
             {
@@ -176,7 +176,7 @@ namespace Server.ACC.CSS.Systems.Ancient
                 list.Add(1049644, String.Format("Sleeping {0}", Name));
         }
 
-        public override void OnSingleClick(Mobile from)
+        public override void OnAosSingleClick(Mobile from)
         {
             LabelTo(from, m_SleepingBodyName == null ? String.Format("Sleeping {0}", Name) : m_SleepingBodyName);
         }

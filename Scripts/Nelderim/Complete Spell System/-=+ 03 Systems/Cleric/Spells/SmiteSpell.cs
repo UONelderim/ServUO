@@ -50,7 +50,7 @@ namespace Server.ACC.CSS.Systems.Cleric
 
 				SpellHelper.Turn( Caster, m );
 
-				double damage = (Caster.Skills[SkillName.Healing].Value + (Caster.Skills[SkillName.Anatomy].Value)/10) * ClericDivineFocusSpell.GetScalar( Caster );
+				double damage = Caster.Skills[SkillName.Healing].Value * ClericDivineFocusSpell.GetScalar( Caster );
 
 				if ( Core.AOS )
 				{

@@ -139,7 +139,7 @@ namespace Server.ACC.CSS.Systems.Druid
 				{
 					if ( m.InRange( this, 600 ) )
 					{
-						double tamer = m_Owner.Skills[SkillName.Zielarstwo].Value;
+						double tamer = m_Owner.Skills[SkillName.Herbalism].Value;
 						double bonus = m_Owner.Skills[SkillName.Magery].Value/100;
 
 						BaseCreature cret = m as BaseCreature;

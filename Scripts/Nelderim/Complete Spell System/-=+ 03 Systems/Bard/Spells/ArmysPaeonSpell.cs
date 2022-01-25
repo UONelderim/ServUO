@@ -49,7 +49,7 @@ namespace Server.ACC.CSS.Systems.Bard
 				{
 					Mobile m = (Mobile)targets[i];
 
-					TimeSpan duration = TimeSpan.FromSeconds( Caster.Skills[CastSkill].Value * 0.6 );
+					TimeSpan duration = TimeSpan.FromSeconds( Caster.Skills[SkillName.Provocation].Value * 0.3 );
 					int rounds = (int)( Caster.Skills[SkillName.Musicianship].Value * .16 );
 
 					new ExpireTimer( m, 0, rounds, TimeSpan.FromSeconds( 2 ) ).Start();

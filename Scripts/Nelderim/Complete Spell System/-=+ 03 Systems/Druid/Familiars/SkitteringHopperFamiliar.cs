@@ -89,11 +89,11 @@ namespace Server.ACC.CSS.Systems.Druid
 				bool rejected;
 				LRReason reject;
 
-				NextActionTime = DateTime.Now;
+				NextActionTime = Core.TickCount;
 
-				Lift( item, item.Amount, out rejected, out reject );
+				
 
-				if ( rejected )
+				if ( !Lift( item, item.Amount ) )
 					continue;
 
 				Drop( this, Point3D.Zero );
@@ -120,15 +120,6 @@ namespace Server.ACC.CSS.Systems.Druid
 		}
 
 		#region Pack Animal Methods
-		public override bool OnBeforeDeath()
-		{
-			if ( !base.OnBeforeDeath() )
-				return false;
-
-			PackAnimal.CombineBackpacks( this );
-
-			return true;
-		}
 
 		public override DeathMoveResult GetInventoryMoveResultFor( Item item )
 		{

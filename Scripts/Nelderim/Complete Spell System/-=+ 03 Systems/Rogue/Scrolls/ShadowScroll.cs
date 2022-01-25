@@ -14,7 +14,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 		[Constructable]
 		public RogueShadowScroll( int amount ) : base( typeof( RogueShadowSpell ), 0xE39, amount )
 		{
-			Name = "Cien";
+			Name = "Cień";
 			Hue = 0x20;
 		}
 
