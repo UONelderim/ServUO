@@ -149,7 +149,7 @@ namespace Server.ACC.CSS.Systems.Ancient
                             CopyFromLayer(m, dg, Layer.Waist);
                             CopyFromLayer(m, dg, Layer.InnerTorso);
                             CopyFromLayer(m, dg, Layer.Bracelet);
-                            CopyFromLayer(m, dg, Layer.Unused_xF);
+                            CopyFromLayer(m, dg, Layer.Face);
                             CopyFromLayer(m, dg, Layer.FacialHair);
                             CopyFromLayer(m, dg, Layer.MiddleTorso);
                             CopyFromLayer(m, dg, Layer.Earrings);
@@ -209,7 +209,7 @@ namespace Server.ACC.CSS.Systems.Ancient
             DeleteFromLayer(from, Layer.Waist);
             DeleteFromLayer(from, Layer.InnerTorso);
             DeleteFromLayer(from, Layer.Bracelet);
-            DeleteFromLayer(from, Layer.Unused_xF);
+            DeleteFromLayer(from, Layer.Face);
             DeleteFromLayer(from, Layer.FacialHair);
             DeleteFromLayer(from, Layer.MiddleTorso);
             DeleteFromLayer(from, Layer.Earrings);

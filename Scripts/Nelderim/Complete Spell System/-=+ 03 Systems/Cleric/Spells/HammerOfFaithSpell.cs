@@ -60,15 +60,10 @@ namespace Server.ACC.CSS.Systems.Cleric
 			public override WeaponAbility PrimaryAbility{ get{ return WeaponAbility.WhirlwindAttack; } }
 			public override WeaponAbility SecondaryAbility{ get{ return WeaponAbility.CrushingBlow; } }
 
-			public override int AosStrengthReq{ get{ return 10; } }
-			public override int AosMinDamage{ get{ return 17; } }
-			public override int AosMaxDamage{ get{ return 18; } }
-			public override int AosSpeed{ get{ return 28; } }
-
-			public override int OldStrengthReq{ get{ return 40; } }
-			public override int OldMinDamage{ get{ return 8; } }
-			public override int OldMaxDamage{ get{ return 36; } }
-			public override int OldSpeed{ get{ return 31; } }
+			public override int StrengthReq{ get{ return 10; } }
+			public override int MinDamage{ get{ return 17; } }
+			public override int MaxDamage{ get{ return 18; } }
+			public override float Speed{ get{ return 3.25f; } }
 
 			public override int InitMinHits{ get{ return 255; } }
 			public override int InitMaxHits{ get{ return 255; } }
@@ -88,16 +83,16 @@ namespace Server.ACC.CSS.Systems.Cleric
 				WeaponAttributes.UseBestSkill = 1;
 				Name = "Topór Wiary";
 
-				double time = ( owner.Skills[SkillName.Anatomy].Value / 20.0 ) * ClericDivineFocusSpell.GetScalar( owner );
+				double time = ( owner.Skills[SkillName.Healing].Value / 20.0 ) * ClericDivineFocusSpell.GetScalar( owner );
 				m_Expire = DateTime.Now + TimeSpan.FromMinutes( (int)time );
 				m_Timer = new InternalTimer( this, m_Expire );
 
 				m_Timer.Start();
 			}
 
-			public override void GetDamageTypes( Mobile wielder, out int phys, out int fire, out int cold, out int pois, out int nrgy )
+			public override void GetDamageTypes( Mobile wielder, out int phys, out int fire, out int cold, out int pois, out int nrgy, out int chaos, out int direct )
 			{
-				fire = cold = pois = nrgy = 0;
+				fire = cold = pois = nrgy = chaos = direct = 0;
 				phys = 100;
 			}
 

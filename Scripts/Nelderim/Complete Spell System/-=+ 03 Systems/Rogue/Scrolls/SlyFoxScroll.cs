@@ -14,7 +14,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 		[Constructable]
 		public RogueSlyFoxScroll( int amount ) : base( typeof( RogueSlyFoxSpell ), 0xE39, amount )
 		{
-			Name = "Przebiegła forma";
+			Name = "Przebiegły lis";
 			Hue = 0x20;
 		}
 

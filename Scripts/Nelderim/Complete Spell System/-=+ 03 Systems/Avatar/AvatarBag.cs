@@ -11,13 +11,10 @@ namespace Server.ACC.CSS.Systems.Avatar
 		{
 			Hue = 1174;
 			PlaceItemIn( 30, 35, new AvatarHeavenlyLightScroll() );
-			PlaceItemIn( 30, 35, new AvatarEnemyOfOneScroll() );
 			PlaceItemIn( 50, 35, new AvatarHeavensGateScroll() );
 			PlaceItemIn( 70, 35, new AvatarMarkOfGodsScroll() );
 			PlaceItemIn( 50, 35, new AvatarRestorationScroll() );
 			PlaceItemIn( 70, 35, new AvatarSacredBoonScroll() );
-			PlaceItemIn( 70, 35, new AvatarAngelicFaithScroll() );
-			PlaceItemIn( 70, 35, new AvatarArmysPaeonScroll() );
 		}
 
 		public AvatarBag( Serial serial ) : base( serial )

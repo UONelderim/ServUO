@@ -76,9 +76,9 @@ namespace Server.ACC.CSS.Systems.Ranger
 					TimeSpan duration;
 
 					if ( Core.AOS )
-						duration = TimeSpan.FromSeconds( (2 * Caster.Skills.Tactics.Fixed) / 5 );
+						duration = TimeSpan.FromSeconds( (2 * Caster.Skills.AnimalLore.Fixed) / 5 );
 					else
-						duration = TimeSpan.FromSeconds( 4.0 * Caster.Skills[SkillName.Tactics].Value );
+						duration = TimeSpan.FromSeconds( 4.0 * Caster.Skills[SkillName.AnimalLore].Value );
 
 					SpellHelper.Summon( creature, Caster, 0x215, duration, false, false );
 				}

@@ -76,9 +76,9 @@ namespace Server.ACC.CSS.Systems.Ancient
                     {
                         Mobile targ = (Mobile)targets[i];
 
-                        SpellHelper.AddStatBonus(Caster, targ, StatType.Str); SpellHelper.DisableSkillCheck = true;
-                        SpellHelper.AddStatBonus(Caster, targ, StatType.Dex);
-                        SpellHelper.AddStatBonus(Caster, targ, StatType.Int); SpellHelper.DisableSkillCheck = false;
+                        SpellHelper.AddStatBonus(Caster, targ, true, StatType.Str);
+                        SpellHelper.AddStatBonus(Caster, targ, true, StatType.Dex);
+                        SpellHelper.AddStatBonus(Caster, targ, false, StatType.Int);
 
                         targ.FixedParticles(0x373A, 10, 15, 5018, EffectLayer.Waist);
                         targ.PlaySound(0x1EA);

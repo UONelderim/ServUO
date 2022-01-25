@@ -52,7 +52,7 @@ namespace Server.ACC.CSS.Systems.Ancient
             {
                 Caster.SendMessage("Twoje oczy pozostają mocno w ciele.");
             }
-            else if (DisguiseGump.IsDisguised(Caster))
+            else if (DisguiseTimers.IsDisguised(Caster))
             {
                 Caster.SendMessage("Twoje oczy pozostają mocno w ciele.");
             }
@@ -158,7 +158,7 @@ namespace Server.ACC.CSS.Systems.Ancient
                     CopyFromLayer(Caster, dg, Layer.Waist);
                     CopyFromLayer(Caster, dg, Layer.InnerTorso);
                     CopyFromLayer(Caster, dg, Layer.Bracelet);
-                    CopyFromLayer(Caster, dg, Layer.Unused_xF);
+                    CopyFromLayer(Caster, dg, Layer.Face);
                     CopyFromLayer(Caster, dg, Layer.FacialHair);
                     CopyFromLayer(Caster, dg, Layer.MiddleTorso);
                     CopyFromLayer(Caster, dg, Layer.Earrings);
@@ -226,7 +226,7 @@ namespace Server.ACC.CSS.Systems.Ancient
             DeleteFromLayer(from, Layer.Waist);
             DeleteFromLayer(from, Layer.InnerTorso);
             DeleteFromLayer(from, Layer.Bracelet);
-            DeleteFromLayer(from, Layer.Unused_xF);
+            DeleteFromLayer(from, Layer.Face);
             DeleteFromLayer(from, Layer.FacialHair);
             DeleteFromLayer(from, Layer.MiddleTorso);
             DeleteFromLayer(from, Layer.Earrings);

@@ -67,15 +67,10 @@ namespace Server.ACC.CSS.Systems.Ranger
 			public override WeaponAbility PrimaryAbility{ get{ return WeaponAbility.ParalyzingBlow; } }
 			public override WeaponAbility SecondaryAbility{ get{ return WeaponAbility.MortalStrike; } }
 
-			public override int AosStrengthReq{ get{ return 30; } }
-			public override int AosMinDamage{ get{ return 16; } }
-			public override int AosMaxDamage{ get{ return 18; } }
-			public override int AosSpeed{ get{ return 25; } }
-
-			public override int OldStrengthReq{ get{ return 20; } }
-			public override int OldMinDamage{ get{ return 9; } }
-			public override int OldMaxDamage{ get{ return 41; } }
-			public override int OldSpeed{ get{ return 20; } }
+			public override int StrengthReq{ get{ return 30; } }
+			public override int MinDamage{ get{ return 16; } }
+			public override int MaxDamage{ get{ return 18; } }
+			public override float Speed{ get{ return 4.25f; } }
 
 			public override int DefMaxRange{ get{ return 10; } }
 
@@ -106,9 +101,9 @@ namespace Server.ACC.CSS.Systems.Ranger
 				m_Timer.Start();
 			}
 
-			public override void GetDamageTypes( Mobile wielder, out int phys, out int fire, out int cold, out int pois, out int nrgy )
+			public override void GetDamageTypes( Mobile wielder, out int phys, out int fire, out int cold, out int pois, out int nrgy, out int chaos, out int direct )
 			{
-				phys = 0; fire = 0; cold = 100; pois = 0;
+				phys = 0; fire = 0; cold = 100; pois = chaos = direct = 0;
 				nrgy = 0;
 			}
 

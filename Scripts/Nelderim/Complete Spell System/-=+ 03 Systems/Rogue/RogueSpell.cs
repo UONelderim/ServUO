@@ -13,8 +13,8 @@ namespace Server.ACC.CSS.Systems.Rogue
 
         public abstract SpellCircle Circle { get; }
 
-        public override SkillName CastSkill { get { return SkillName.Hiding; } }
-        public override SkillName DamageSkill { get { return SkillName.Ninjitsu; } }
+        public override SkillName CastSkill { get { return SkillName.Provocation; } }
+        public override SkillName DamageSkill { get { return SkillName.Discordance; } }
         public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds(3 * CastDelaySecondsPerTick); } }
         public override bool ClearHandsOnCast { get { return false; } }
 

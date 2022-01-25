@@ -15,10 +15,12 @@ namespace Server.ACC.CSS.Systems.Rogue
     public class RogueFalseCoinSpell : RogueSpell
     {
         private static SpellInfo m_Info = new SpellInfo(
-                                                        "Fałszywa moneta", "*wyciaga maly woreczek monet*",
+                                                        "Fałszywa moneta", "*wyciąga mały woreczek monet",
             //SpellCircle.Fourth,
                                                         218,
-                                                        9002
+                                                        9002,
+                                                        Reagent.Nightshade,
+                                                        Reagent.SulfurousAsh
                                                        );
 
         public override SpellCircle Circle
@@ -26,9 +28,9 @@ namespace Server.ACC.CSS.Systems.Rogue
             get { return SpellCircle.Fourth; }
         }
 
-        public override double CastDelay { get { return 2; } }
-        public override double RequiredSkill { get { return 50; } }
-        public override int RequiredMana { get { return 10; } }
+        public override double CastDelay { get { return 0; } }
+        public override double RequiredSkill { get { return 0; } }
+        public override int RequiredMana { get { return 0; } }
 
         private FalseCoin m_Fake;
 
@@ -64,8 +66,8 @@ namespace Server.ACC.CSS.Systems.Rogue
                     if (this.Scroll != null)
                         Scroll.Consume();
                     FalseCoin fake = new FalseCoin();
-                    fake.m_Amount = gold.Amount;
-                    fake.Name = "" + gold.Amount + " złote monety";
+                    fake.m_Amount = gold.Amount * 5;
+                    fake.Name = "" + (gold.Amount * 5) + " złote monety";
                     m_Fake = fake;
                     Caster.AddToBackpack(fake);
                     Caster.PlaySound(0x2E6);
@@ -105,7 +107,7 @@ namespace Server.ACC.CSS.Systems.Rogue
                 }
                 else
                 {
-                    from.SendMessage("Tego nie skopiujesz."); // I cannot mark that object.
+                    from.SendMessage("That cannot be copied."); // I cannot mark that object.
                 }
             }
 

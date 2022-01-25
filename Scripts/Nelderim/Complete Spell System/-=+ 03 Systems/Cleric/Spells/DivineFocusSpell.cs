@@ -31,8 +31,8 @@ namespace Server.ACC.CSS.Systems.Cleric
 
 		public ClericDivineFocusSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
 		{
-			                    if (this.Scroll != null)
-                        Scroll.Consume();
+			if (this.Scroll != null)
+				Scroll.Consume();
 		}
 
 		public static double GetScalar( Mobile m )

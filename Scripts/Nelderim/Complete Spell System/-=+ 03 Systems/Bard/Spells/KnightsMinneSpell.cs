@@ -49,7 +49,7 @@ namespace Server.ACC.CSS.Systems.Bard
 					if ( m.BeginAction( typeof( BardKnightsMinneSpell ) ) )
 					{
 
-					TimeSpan duration = TimeSpan.FromSeconds( Caster.Skills[CastSkill].Value * 0.3 );
+					TimeSpan duration = TimeSpan.FromSeconds( Caster.Skills[SkillName.Provocation].Value * 0.3 );
 					int amount = (int)( Caster.Skills[SkillName.Musicianship].Value * .125);
 
 					m.SendMessage( "Twoja odporność fizyczna wzrasta." );

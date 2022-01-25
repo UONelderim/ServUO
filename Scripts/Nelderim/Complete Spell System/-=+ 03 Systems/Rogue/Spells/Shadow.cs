@@ -17,7 +17,10 @@ namespace Server.ACC.CSS.Systems.Rogue
                                                         "Cień", " ",
             //SpellCircle.Fourth,
                                                         212,
-                                                        9041
+                                                        9041,
+                                                        Reagent.SpidersSilk,
+                                                        Reagent.DaemonBlood,
+                                                        Reagent.BlackPearl
                                                        );
 
         public override SpellCircle Circle
@@ -25,9 +28,9 @@ namespace Server.ACC.CSS.Systems.Rogue
             get { return SpellCircle.Fourth; }
         }
 
-        public override double CastDelay { get { return 2; } }
-        public override double RequiredSkill { get { return 60; } }
-        public override int RequiredMana { get { return 15; } }
+        public override double CastDelay { get { return 0; } }
+        public override double RequiredSkill { get { return 0; } }
+        public override int RequiredMana { get { return 0; } }
 
         private static Dictionary<Mobile, SkillMod> m_Table = new Dictionary<Mobile, SkillMod>();
 
@@ -51,12 +54,11 @@ namespace Server.ACC.CSS.Systems.Rogue
 
         public override void OnCast()
         {
-            Caster.PlaySound( 22 );
             Caster.Hidden = true;
             if (Caster.CanBeginAction(typeof(RogueShadowSpell)))
             {
                 Caster.BeginAction(typeof(RogueShadowSpell));
-                DefaultSkillMod mod = new DefaultSkillMod(SkillName.Stealth, true, 5.0);
+                DefaultSkillMod mod = new DefaultSkillMod(SkillName.Stealth, true, 50.0);
                 m_Table.Add(Caster, mod);
                 Caster.AddSkillMod(mod);
 
@@ -65,7 +67,7 @@ namespace Server.ACC.CSS.Systems.Rogue
             else
                 Caster.SendMessage("Już się ukryłeś!");
         }
-    
+
         private class InternalTimer : Timer
         {
             private Mobile m_Owner;

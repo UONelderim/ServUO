@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Server;
 using Server.ContextMenus;
 using Server.Items;
 using Server.Gumps;
@@ -89,14 +88,9 @@ namespace Server.ACC.CSS.Systems.Ranger
                 if (!pack.CheckHold(this, item, false, true))
                     return;
 
-                bool rejected;
-                LRReason reject;
-
-                NextActionTime = DateTime.Now;
-
-                Lift(item, item.Amount, out rejected, out reject);
-
-                if (rejected)
+                NextActionTime = Core.TickCount;
+                
+                if (!Lift(item, item.Amount))
                     continue;
 
                 Drop(this, Point3D.Zero);
@@ -122,21 +116,12 @@ namespace Server.ACC.CSS.Systems.Ranger
                 EndRelease(from);
         }
 
-        #region Pack Animal Methods
-        public override bool OnBeforeDeath()
-        {
-            if (!base.OnBeforeDeath())
-                return false;
-
-            PackAnimal.CombineBackpacks(this);
-
-            return true;
-        }
-
         public override DeathMoveResult GetInventoryMoveResultFor(Item item)
         {
             return DeathMoveResult.MoveToCorpse;
         }
+
+        #region Pack Animal Methods
 
         public override bool IsSnoop(Mobile from)
         {
@@ -181,6 +166,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 
             PackAnimal.GetContextMenuEntries(this, from, list);
         }
+
         #endregion
 
         public PackRatFamiliar(Serial serial)
