@@ -1366,7 +1366,7 @@ namespace Server.Mobiles
 			#endregion
 			#region version 10
 			
-			//writer.Write( ( bool ) m_TournamentPassToIRCBot );
+			// writer.Write( ( bool ) m_TournamentPassToIRCBot );
 			
 			#endregion
 			#region version 9
@@ -1478,8 +1478,11 @@ namespace Server.Mobiles
 				#region Case 10
 				case 10:
 					{
-						/*m_TournamentPassToIRCBot = */reader.ReadBool();
-						
+						if (version == 11)
+						{
+							/*m_TournamentPassToIRCBot = */reader.ReadBool();
+						}
+
 						goto case 9;
 					}
 				#endregion
