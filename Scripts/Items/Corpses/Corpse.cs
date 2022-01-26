@@ -481,8 +481,8 @@ namespace Server.Items
 
             if (!owner.Player)
             {
-                c.AssignInstancedLoot();
-                c.HasAssignedInstancedLoot = true;
+                // c.AssignInstancedLoot();
+                // c.HasAssignedInstancedLoot = true;
             }
             else
             {
