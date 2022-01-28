@@ -114,7 +114,14 @@ namespace Server.Mobiles
 			}
 		}
 
-		public double MagicDPS //TODO
+		private static double _mdpsMageryScalar = 0.5;
+		private static double _mdpsEvalScalar = 0.003;
+		private static double _mdpsMeditScalar = 0.001;
+		private static double _mdpsManaScalar = 0.0002;
+		private static double _mdpsMaxCircleScalar = 0.05;
+		private static double _mdpsManaCap = 500;
+		
+		public double MagicDPS
 		{
 			get
 			{
@@ -125,11 +132,11 @@ namespace Server.Mobiles
 					double evalInt = Skills[SkillName.EvalInt].Value;
 					double meditation = Skills[SkillName.Meditation].Value;
 
-					double mageryValue = magery * 0.5 * (1 + maxCircle * 0.05);
+					double mageryValue = magery * _mdpsMageryScalar * (1 + maxCircle * _mdpsMaxCircleScalar);
 					
-					double evalIntBonus = mageryValue * evalInt * 0.005;
-					double meditBonus = mageryValue * meditation * 0.001;
-					double manaBonus = mageryValue * Math.Min(ManaMax, 500) * 0.001;
+					double evalIntBonus = mageryValue * evalInt * _mdpsEvalScalar;
+					double meditBonus = mageryValue * meditation * _mdpsMeditScalar;
+					double manaBonus = mageryValue * Math.Min(ManaMax, _mdpsManaCap) * _mdpsManaScalar;
 
 					return mageryValue + evalIntBonus + meditBonus + manaBonus;
 				}
@@ -149,6 +156,9 @@ namespace Server.Mobiles
 
 				if (WeaponAbilitiesBonus > 0)
 					dps += dps * WeaponAbilitiesBonus;
+
+				if (AreaEffectsBonus > 0)
+					dps += dps * AreaEffectsBonus;
 
 				return dps;
 			}
@@ -193,7 +203,6 @@ namespace Server.Mobiles
 			{
 				double sum = 0;
 				Dictionary<WeaponAbility, double> abilities = new Dictionary<WeaponAbility, double>();
-
 				abilities[WeaponAbility.ArmorIgnore] = 0.65;
 				abilities[WeaponAbility.BleedAttack] = 0.7;
 				abilities[WeaponAbility.ConcussionBlow] = 0.6;
@@ -242,6 +251,42 @@ namespace Server.Mobiles
 			}
 		}
 
+		public double AreaEffectsBonus
+		{
+			get
+			{
+				double sum = 0;
+				Dictionary<AreaEffect, double> areaEffects = new Dictionary<AreaEffect, double>();
+				areaEffects[AreaEffect.AuraOfEnergy] = 0.2;
+				areaEffects[AreaEffect.AuraOfNausea] = 0.4;
+				areaEffects[AreaEffect.EssenceOfDisease] = 0.2;
+				areaEffects[AreaEffect.EssenceOfEarth] = 0.2;
+				areaEffects[AreaEffect.ExplosiveGoo] = 0.2;
+				areaEffects[AreaEffect.PoisonBreath] = 0.05;
+				areaEffects[AreaEffect.AuraDamage] = 0;
+				
+				if (_Profile != null && _Profile.AreaEffects != null)
+				{
+					foreach (AreaEffect ae in _Profile.AreaEffects)
+					{
+						if (areaEffects.ContainsKey(ae))
+						{
+							double chance = areaEffects[ae] * ae.TriggerChance;
+							if (ae is PoisonBreath poisonBreath)
+								chance *= poisonBreath.GetPoison(this).Level; // 0.05 for level1, 0.2 for level4
+							else if (ae is AuraDamage)
+							{
+								var aura = AuraDamage.AuraDefinition.GetDefinition(this);
+								chance = (aura.Damage / aura.Cooldown.TotalSeconds) * 0.1;
+							}
+							sum += chance;
+						}
+					}
+				}
+				return sum * 0.5;
+			}
+		}
+
 		public double BaseDifficulty => DPS * Math.Max(0.01, Life);
 
 		public virtual double DifficultyScalar => 1.0;
@@ -260,5 +305,14 @@ namespace Server.Mobiles
 		}
 
 		public virtual bool IgnoreHonor => false;
+
+		// difficulty=1     fame=100
+		// difficulty=10    fame=400
+		// difficulty=100   fame=1600
+		// difficulty=1000  fame=6400
+		// difficulty=10000 fame=25600
+		public int NelderimFame => (int) (100 * Math.Pow(4, Math.Log(Difficulty)/Math.Log(10)));
+
+		public int NelderimKarma => NelderimFame * Math.Sign(Karma);
 	}
 }
