@@ -198,8 +198,7 @@ namespace Nelderim
 		{
 			new LootPackItem( typeof( BaseWeapon ), 20 ),
 			new LootPackItem( typeof( BaseRanged ), 4 ),
-			new LootPackItem( typeof( BaseArmor ), 57 ),
-			new LootPackItem( typeof( BaseHat ),    3 ),
+			new LootPackItem( typeof( BaseArmor ), 60 ),
 			new LootPackItem( typeof( BaseShield ), 7 ),
 			new LootPackItem( typeof( BaseJewel ), 20 )
 		};
