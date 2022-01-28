@@ -147,5 +147,10 @@ namespace Nelderim.Races
 
 		public override int[] SkinHues { get; set; } = Enumerable.Range(1002, 57).ToArray();
 		public override int[] HairHues { get; set; } = Enumerable.Range(1102, 48).ToArray();
+
+		public override bool ValidateEquipment(Mobile @from, Item equipment, bool message)
+		{
+			return false;
+		}
     }
 }
