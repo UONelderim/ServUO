@@ -43,7 +43,7 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(2); // version
+            writer.Write(3); // version
 
         //    writer.Write(_ElvesOnly);
         }
@@ -53,10 +53,10 @@ namespace Server.Items
             base.Deserialize(reader);
             int version = reader.ReadInt();
 
-         /*   if (version > 1)
+            if (version == 2)
             {
-                _ElvesOnly = reader.ReadBool();
-            }*/
+                /*_ElvesOnly = */reader.ReadBool();
+            }
         }
     }
 }

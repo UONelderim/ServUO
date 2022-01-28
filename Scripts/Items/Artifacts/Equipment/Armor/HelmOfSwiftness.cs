@@ -44,7 +44,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.WriteEncodedInt(1); // version
+            writer.WriteEncodedInt(0); // version
 
          //   writer.Write(_ElfOnly);
         }
@@ -55,15 +55,15 @@ namespace Server.Items
 
             int version = reader.ReadEncodedInt();
 
-         /*   switch (version)
+            switch (version)
             {
                 case 1:
-                    _ElfOnly = reader.ReadBool();
+                    /*_ElfOnly = */reader.ReadBool();
                     break;
                 case 0:
-                    _ElfOnly = true;
+                    // _ElfOnly = true;
                     break;
-            }*/
+            }
         }
     }
 }

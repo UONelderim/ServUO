@@ -782,7 +782,7 @@ namespace Server.Items
             SetSaveFlag(ref flags, SaveFlag.SetCold, m_SetColdBonus != 0);
             SetSaveFlag(ref flags, SaveFlag.SetPoison, m_SetPoisonBonus != 0);
             SetSaveFlag(ref flags, SaveFlag.SetEnergy, m_SetEnergyBonus != 0);
-          //  SetSaveFlag(ref flags, SaveFlag.ElvesOnly, _ElvesOnly);
+			// SetSaveFlag(ref flags, SaveFlag.ElvesOnly, _ElvesOnly);
             #endregion
 
             writer.WriteEncodedInt((int)flags);
@@ -940,8 +940,8 @@ namespace Server.Items
                         if (GetSaveFlag(flags, SaveFlag.SetEquipped))
                             m_SetEquipped = reader.ReadBool();
 
-                     //   if (GetSaveFlag(flags, SaveFlag.ElvesOnly))
-                     //       _ElvesOnly = reader.ReadBool();
+						if (GetSaveFlag(flags, SaveFlag.ElvesOnly))
+							/*_ElvesOnly = */reader.ReadBool();
                         #endregion
 
                         break;
