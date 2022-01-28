@@ -114,7 +114,14 @@ namespace Server.Mobiles
 			}
 		}
 
-		public double MagicDPS //TODO
+		private static double _mdpsMageryScalar = 0.5;
+		private static double _mdpsEvalScalar = 0.003;
+		private static double _mdpsMeditScalar = 0.001;
+		private static double _mdpsManaScalar = 0.0002;
+		private static double _mdpsMaxCircleScalar = 0.05;
+		private static double _mdpsManaCap = 500;
+		
+		public double MagicDPS
 		{
 			get
 			{
@@ -125,11 +132,11 @@ namespace Server.Mobiles
 					double evalInt = Skills[SkillName.EvalInt].Value;
 					double meditation = Skills[SkillName.Meditation].Value;
 
-					double mageryValue = magery * 0.5 * (1 + maxCircle * 0.05);
+					double mageryValue = magery * _mdpsMageryScalar * (1 + maxCircle * _mdpsMaxCircleScalar);
 					
-					double evalIntBonus = mageryValue * evalInt * 0.005;
-					double meditBonus = mageryValue * meditation * 0.001;
-					double manaBonus = mageryValue * Math.Min(ManaMax, 500) * 0.001;
+					double evalIntBonus = mageryValue * evalInt * _mdpsEvalScalar;
+					double meditBonus = mageryValue * meditation * _mdpsMeditScalar;
+					double manaBonus = mageryValue * Math.Min(ManaMax, _mdpsManaCap) * _mdpsManaScalar;
 
 					return mageryValue + evalIntBonus + meditBonus + manaBonus;
 				}
@@ -260,5 +267,12 @@ namespace Server.Mobiles
 		}
 
 		public virtual bool IgnoreHonor => false;
+
+		// difficulty=1     fame=100
+		// difficulty=10    fame=400
+		// difficulty=100   fame=1600
+		// difficulty=1000  fame=6400
+		// difficulty=10000 fame=25600$
+		public int NelderimFame => (int) (100 * Math.Pow(4, Math.Log(Difficulty)/Math.Log(10)));
 	}
 }
