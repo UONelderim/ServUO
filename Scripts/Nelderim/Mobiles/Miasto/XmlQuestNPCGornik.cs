@@ -204,11 +204,10 @@ namespace Server.Mobiles
                     AddItem( lantern );
                 }
                 Item torso = null;
-                switch ( Utility.Random( 3 ) )
+                switch ( Utility.Random( 2 ) )
                 {
                     case 0: torso = new HalfApron( GetRandomHue() ); break;
-                    case 1: torso = new LeatherNinjaBelt( GetRandomHue() ); break;
-                    case 2: torso = null; break;
+                    case 1: torso = null; break;
                 }
                 AddItem( torso );
 
