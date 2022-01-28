@@ -1131,11 +1131,11 @@ namespace Server.Items
                 {
                     BaseArmor armor = (BaseArmor)item;
 
-                /*    if (!RaceDefinitions.ValidateEquipment(m, item))
+                    if (!RaceDefinitions.ValidateEquipment(m, item))
                     {
                         m.AddToBackpack(armor);
                     }
-                    else*/ if (!armor.AllowMaleWearer && !m.Female && m.AccessLevel < AccessLevel.GameMaster)
+                    else if (!armor.AllowMaleWearer && !m.Female && m.AccessLevel < AccessLevel.GameMaster)
                     {
                         if (armor.AllowFemaleWearer)
                             m.SendLocalizedMessage(1010388); // Only females can wear this.
