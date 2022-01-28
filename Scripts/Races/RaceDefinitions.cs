@@ -46,16 +46,16 @@ namespace Server.Misc
 			if (item is IRacialEquipment re && re.RequiredRace != null)
 				return re.RequiredRace;
 
-			foreach (var race in Race.AllRaces)
+			/*foreach (var race in Race.AllRaces)
 			{
 				if (race.IsExclusiveEquipment(item))
 					return race;
-			}
+			}*/
 
 			return null;
 		}
 
-		public static void AddRaceProperty(Item item, ObjectPropertyList list)
+	/*	public static void AddRaceProperty(Item item, ObjectPropertyList list)
 		{
 			var race = GetRequiredRace(item);
 
@@ -67,7 +67,7 @@ namespace Server.Misc
 			{
 				list.Add(1111709); // Gargoyles Only
 			}
-		}
+		}*/
 
 		public static bool ValidateEquipment(Mobile from, Item equipment)
 		{

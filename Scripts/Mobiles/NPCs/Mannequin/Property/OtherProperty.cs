@@ -150,7 +150,7 @@ namespace Server.Mobiles.MannequinProperty
         }
     }
 
-    public class GargoyleProperty : ValuedProperty
+    /*public class GargoyleProperty : ValuedProperty
     {
         public override Catalog Catalog => Catalog.None;
         public override int LabelNumber => 1111709;  // Gargoyles Only
@@ -176,7 +176,7 @@ namespace Server.Mobiles.MannequinProperty
         {
             return RaceDefinitions.GetRequiredRace(item) == Race.Elf;
         }
-    }
+    }*/
 
     public class DamageModifierProperty : ValuedProperty
     {

@@ -742,14 +742,14 @@ namespace Server.Items
 
             int prop;
 
-            if (RaceDefinitions.GetRequiredRace(this) == Race.Elf)
+          /*  if (RaceDefinitions.GetRequiredRace(this) == Race.Elf)
             {
                 list.Add(1075086); // Elves Only
             }
             else if (RaceDefinitions.GetRequiredRace(this) == Race.Gargoyle)
             {
                 list.Add(1111709); // Gargoyles Only
-            }
+            }*/
 
             if ((prop = ArtifactRarity) > 0)
                 list.Add(1061078, prop.ToString()); // artifact rarity ~1_val~

@@ -1,9 +1,9 @@
 namespace Server.Items
 {
-    public class CrownOfArcaneTemperament : Circlet, IRacialEquipment
+    public class CrownOfArcaneTemperament : Circlet/*, IRacialEquipment*/
 	{
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Race RequiredRace => Race.Human;
+		//public Race RequiredRace => Race.Human;
 
 		public override bool IsArtifact => true;
 
