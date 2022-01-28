@@ -207,7 +207,7 @@ namespace Server.Mobiles
                 switch ( Utility.Random( 3 ) )
                 {
                     case 0: torso = new HalfApron( GetRandomHue() ); break;
-                    case 1: torso = new FullApron( GetRandomHue() ); break;
+                    case 1: torso = new LeatherNinjaBelt( GetRandomHue() ); break;
                     case 2: torso = null; break;
                 }
                 AddItem( torso );
