@@ -1,5 +1,4 @@
 using Server.Items;
-using Server.Spells;
 using System;
 using System.Collections.Generic;
 using Server.Nelderim;
@@ -23,7 +22,7 @@ namespace Server.Mobiles
                     sum += (int)r.Priority;
 
                 int index = Utility.Random( sum );
-                double chance = ( (double)sum ) / ( 4.0 * ( (int)level ) );
+                double chance = sum / ( 4.0 * (int)level );
                 
                 sum = 0;
                 RumorRecord rumor = null;
@@ -170,7 +169,7 @@ namespace Server.Mobiles
 		{
 			get
 			{
-				SkillName[] meleeSkillNames = new SkillName[]
+				SkillName[] meleeSkillNames =
 				{
 					SkillName.Wrestling, SkillName.Macing, SkillName.Fencing, SkillName.Swords, SkillName.Archery, SkillName.Throwing
 				};
@@ -313,6 +312,20 @@ namespace Server.Mobiles
 		// difficulty=10000 fame=25600
 		public int NelderimFame => (int) (100 * Math.Pow(4, Math.Log(Difficulty)/Math.Log(10)));
 
-		public int NelderimKarma => NelderimFame * Math.Sign(Karma);
+		public int NelderimKarma
+		{
+			get
+			{
+				switch (Math.Sign(base.Karma))
+				{
+					case -1: return -NelderimFame;
+					default: return NelderimFame;
+				}
+			}
+		}
+
+		public override int Fame => Config.Get("Nelderim.CustomFameKarma", false) ? NelderimFame : base.Fame;
+		
+		public override int Karma => Config.Get("Nelderim.CustomFameKarma", false) ? NelderimKarma : base.Karma;
 	}
 }

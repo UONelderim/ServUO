@@ -6719,7 +6719,7 @@ namespace Server
 		{ }
 
 		[CommandProperty(AccessLevel.Decorator)]
-		public int Fame
+		public virtual int Fame
 		{
 			get => m_Fame;
 			set
@@ -6745,7 +6745,7 @@ namespace Server
 		{ }
 
 		[CommandProperty(AccessLevel.Decorator)]
-		public int Karma
+		public virtual int Karma
 		{
 			get => m_Karma;
 			set
