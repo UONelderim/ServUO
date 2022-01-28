@@ -911,7 +911,7 @@ namespace Server.Gumps
 
             AddHtmlLocalized(10, 42, 150, 18, 1062459, 0x421F, false, false); // <CENTER>HAIR</CENTER>
 
-            if (vendor.Race == Race.Elf)
+          /*  if (vendor.Race == Race.Elf)
             {
                 // Remove Hair
                 AddButton(10, 70 + m_FemaleElfHairStyles.Length * 20, 0xFB1, 0xFB3, 2, GumpButtonType.Reply, 0);
@@ -1011,11 +1011,11 @@ namespace Server.Gumps
                 }
 
                 // Change race
-                AddHtmlLocalized(275, 292, 160, 18, 1072255, 0x421F, false, false); // Human
+            //    AddHtmlLocalized(275, 292, 160, 18, 1072255, 0x421F, false, false); // Human
 
                 AddButton(245, 310, 0xFA5, 0xFA7, 6, GumpButtonType.Reply, 0);
                 AddHtmlLocalized(275, 312, 160, 18, 1072256, 0x7FFF, false, false); // Elf
-            }
+            }*/
 
             AddButton(10, 340, 0xFA5, 0xFA7, 0, GumpButtonType.Reply, 0);
             AddHtmlLocalized(45, 342, 305, 18, 1060675, 0x7FFF, false, false); // CLOSE

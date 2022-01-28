@@ -1,24 +1,24 @@
 namespace Server.Items
 {
     [Flipable(0x1F03, 0x1F04)]
-    public class RobeOfTheEquinox : BaseOuterTorso, IRacialEquipment
+    public class RobeOfTheEquinox : BaseOuterTorso/*, IRacialEquipment*/
     {
         public override bool IsArtifact => true;
 
-        private bool _ElfOnly;
+      /*  private bool _ElfOnly;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public bool ElfOnly { get { return _ElfOnly; } set { _ElfOnly = value; InvalidateProperties(); } }
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Race RequiredRace => ElfOnly ? Race.Elf : Race.Human;
+		public Race RequiredRace => ElfOnly ? Race.Elf : Race.Human;*/
 
 		[Constructable]
         public RobeOfTheEquinox()
             : base(0x1F04, 0xD6)
         {
             Weight = 3.0;
-            _ElfOnly = true;
+        //    _ElfOnly = true;
             Attributes.Luck = 95;
         }
 
@@ -35,7 +35,7 @@ namespace Server.Items
 
             writer.WriteEncodedInt(1); // version
 
-            writer.Write(_ElfOnly);
+          //  writer.Write(_ElfOnly);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -44,7 +44,7 @@ namespace Server.Items
 
             int version = reader.ReadEncodedInt();
 
-            switch (version)
+          /*  switch (version)
             {
                 case 1:
                     _ElfOnly = reader.ReadBool();
@@ -52,7 +52,7 @@ namespace Server.Items
                 case 0:
                     _ElfOnly = true;
                     break;
-            }
+            }*/
         }
     }
 }

@@ -1,6 +1,6 @@
 namespace Server.Items
 {
-    public class AegisOfGrace : DragonHelm, IRacialEquipment
+    public class AegisOfGrace : DragonHelm/*, IRacialEquipment*/
     {
         public override int LabelNumber => 1075047;  // Aegis of Grace
         public override bool IsArtifact => true;
@@ -16,8 +16,8 @@ namespace Server.Items
         public override int InitMinHits => 255;
         public override int InitMaxHits => 255;
 
-		[CommandProperty(AccessLevel.GameMaster)]
-		public Race RequiredRace => Race.Human;
+	//	[CommandProperty(AccessLevel.GameMaster)]
+	//	public Race RequiredRace => Race.Human;
 
 		[Constructable]
         public AegisOfGrace()

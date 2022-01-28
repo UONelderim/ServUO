@@ -1,10 +1,10 @@
 namespace Server.Items
 {
     [Flipable(0x2FB9, 0x3173)]
-    public class CloakOfPower : BaseOuterTorso, IRacialEquipment
+    public class CloakOfPower : BaseOuterTorso/*, IRacialEquipment*/
 	{
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Race RequiredRace => Race.Human;
+	//	public Race RequiredRace => Race.Human;
 
 		public override bool IsArtifact => true;
 

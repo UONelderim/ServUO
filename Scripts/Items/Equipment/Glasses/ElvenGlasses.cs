@@ -3,18 +3,18 @@ using Server.Engines.Craft;
 namespace Server.Items
 {
     [Alterable(typeof(DefTinkering), typeof(GargishGlasses), true)]
-    public class ElvenGlasses : BaseArmor, IRepairable, IRacialEquipment
+    public class ElvenGlasses : BaseArmor, IRepairable/*, IRacialEquipment*/
     {
         public override int LabelNumber => 1032216;  // elven glasses
         public CraftSystem RepairSystem => DefTinkering.CraftSystem;
 
-        private bool _ElvesOnly;
+    /*    private bool _ElvesOnly;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public bool ElfOnly { get { return _ElvesOnly; } set { _ElvesOnly = value; } }
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Race RequiredRace => ElfOnly ? Race.Elf : Race.Human;
+		public Race RequiredRace => ElfOnly ? Race.Elf : Race.Human;*/
 
 		[Constructable]
         public ElvenGlasses()
@@ -45,7 +45,7 @@ namespace Server.Items
             base.Serialize(writer);
             writer.Write(2); // version
 
-            writer.Write(_ElvesOnly);
+        //    writer.Write(_ElvesOnly);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -53,10 +53,10 @@ namespace Server.Items
             base.Deserialize(reader);
             int version = reader.ReadInt();
 
-            if (version > 1)
+         /*   if (version > 1)
             {
                 _ElvesOnly = reader.ReadBool();
-            }
+            }*/
         }
     }
 }

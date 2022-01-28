@@ -14,12 +14,12 @@ namespace Server.Items
     }
 
     [Alterable(typeof(DefTailoring), typeof(GargishLeatherWingArmor), true)]
-    public partial class BaseQuiver : Container, ICraftable, ISetItem, IVvVItem, IOwnerRestricted, IRangeDamage, IArtifact, IRacialEquipment
+    public partial class BaseQuiver : Container, ICraftable, ISetItem, IVvVItem, IOwnerRestricted, IRangeDamage, IArtifact/*, IRacialEquipment*/
     {
         private bool _VvVItem;
         private Mobile _Owner;
         private string _OwnerName;
-        private bool _ElvesOnly;
+    //    private bool _ElvesOnly;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public bool IsVvVItem
@@ -41,15 +41,15 @@ namespace Server.Items
             set { _OwnerName = value; InvalidateProperties(); }
         }
 
-        [CommandProperty(AccessLevel.GameMaster)]
+     /*   [CommandProperty(AccessLevel.GameMaster)]
         public bool ElfOnly
         {
             get { return _ElvesOnly; }
             set { _ElvesOnly = value; }
-		}
+		}*/
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Race RequiredRace => ElfOnly ? Race.Elf : Race.Human;
+	//	public Race RequiredRace => ElfOnly ? Race.Elf : Race.Human;
 
 		public override int DefaultGumpID => 0x108;
 
@@ -782,7 +782,7 @@ namespace Server.Items
             SetSaveFlag(ref flags, SaveFlag.SetCold, m_SetColdBonus != 0);
             SetSaveFlag(ref flags, SaveFlag.SetPoison, m_SetPoisonBonus != 0);
             SetSaveFlag(ref flags, SaveFlag.SetEnergy, m_SetEnergyBonus != 0);
-            SetSaveFlag(ref flags, SaveFlag.ElvesOnly, _ElvesOnly);
+          //  SetSaveFlag(ref flags, SaveFlag.ElvesOnly, _ElvesOnly);
             #endregion
 
             writer.WriteEncodedInt((int)flags);
@@ -839,8 +839,8 @@ namespace Server.Items
             if (GetSaveFlag(flags, SaveFlag.SetEquipped))
                 writer.Write(m_SetEquipped);
 
-            if (GetSaveFlag(flags, SaveFlag.ElvesOnly))
-                writer.Write(_ElvesOnly);
+         //   if (GetSaveFlag(flags, SaveFlag.ElvesOnly))
+          //      writer.Write(_ElvesOnly);
             #endregion
         }
 
@@ -940,8 +940,8 @@ namespace Server.Items
                         if (GetSaveFlag(flags, SaveFlag.SetEquipped))
                             m_SetEquipped = reader.ReadBool();
 
-                        if (GetSaveFlag(flags, SaveFlag.ElvesOnly))
-                            _ElvesOnly = reader.ReadBool();
+                     //   if (GetSaveFlag(flags, SaveFlag.ElvesOnly))
+                     //       _ElvesOnly = reader.ReadBool();
                         #endregion
 
                         break;
