@@ -178,7 +178,7 @@ namespace Server.Misc
             int fame = beheld.Fame;
             int karma = beheld.Karma;
 
-            for (int i = 0; i < m_FameEntries.Length; ++i)
+           for (int i = 0; i < m_FameEntries.Length; ++i)
             {
                 FameEntry fe = m_FameEntries[i];
 
@@ -206,7 +206,7 @@ namespace Server.Misc
         {
             StringBuilder title = new StringBuilder();
 
-            if (beheld.ShowFameTitle && beheld is PlayerMobile && ((PlayerMobile)beheld).FameKarmaTitle != null)
+          /* if (beheld.ShowFameTitle && beheld is PlayerMobile && ((PlayerMobile)beheld).FameKarmaTitle != null)
             {
                 title.AppendFormat(((PlayerMobile)beheld).FameKarmaTitle, beheld.Name, beheld.Female ? "Lady" : "Lord");
             }
@@ -214,7 +214,7 @@ namespace Server.Misc
             {
                 title.Append(ComputeFameTitle(beheld));
             }
-            else
+            else*/
             {
                 title.Append(beheld.Name);
             }
