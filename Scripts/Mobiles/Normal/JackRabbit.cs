@@ -7,7 +7,7 @@ namespace Server.Mobiles
         public JackRabbit()
             : base(AIType.AI_Animal, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Name = "krolik jack";
+            Name = "krolik";
             Body = 0xCD;
             Hue = 0x1BB;
 

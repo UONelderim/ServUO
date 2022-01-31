@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a kepetch corpse")]
+    [CorpseName("zwloki skrytobojcy kepetch")]
     public class KepetchAmbusher : BaseCreature, ICarvable
     {
         public override bool CanStealth => true;  //Stays Hidden until Combatant in range.
@@ -12,7 +12,7 @@ namespace Server.Mobiles
         public KepetchAmbusher()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a kepetch ambusher";
+            Name = "kepetch skrytobojca";
             Body = 726;
             Hidden = true;
 

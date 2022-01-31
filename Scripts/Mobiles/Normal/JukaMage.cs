@@ -4,7 +4,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a juka corpse")]
+    [CorpseName("zwloki maga jukow")]
     public class JukaMage : BaseCreature
     {
         private DateTime m_NextAbilityTime;
@@ -13,7 +13,7 @@ namespace Server.Mobiles
         public JukaMage()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a juka mage";
+            Name = "mag juka";
             Body = 765;
 
             SetStr(201, 300);
