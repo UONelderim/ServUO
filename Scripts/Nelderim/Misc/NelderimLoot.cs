@@ -104,7 +104,7 @@ namespace Nelderim
 			int count = (int)Math.Floor(Math.Pow((1 + bc.Difficulty) * 39.0, 0.15));
 			double scrollChance = Math.Max(0.01, Math.Min(0.8, Math.Pow(bc.Difficulty * 0.5, 0.29) * 0.03));
 			
-			double[] chances = GetChances(Math.Min(1, Math.Pow(bc.Difficulty, 0.9) / 10000), 3.0, NL_scrolls.Length);
+			double[] chances = GetChances(Math.Min(1, Math.Pow(bc.Difficulty, 0.9) / 10000), 2.0, NL_scrolls.Length);
 
 			for ( int i = 0 ; i < count; i++) 
 			{
@@ -185,8 +185,8 @@ namespace Nelderim
 					chances[i] += chances[i - 1];
 					chances[i - 1] = 0;
 				}
-
-				sum += chances[ i ];
+				else
+					sum += chances[ i ];
 			}
 			
 			return chances;
