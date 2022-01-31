@@ -3,7 +3,7 @@ using Server.Network;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a kepetch corpse")]
+    [CorpseName("zwloki kepetcha")]
     public class Kepetch : BaseCreature, ICarvable
     {
         public bool GatheredFur { get; set; }
@@ -12,7 +12,7 @@ namespace Server.Mobiles
         public Kepetch()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a kepetch";
+            Name = "kepetch";
             Body = 726;
 
             SetStr(337, 380);

@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a juka corpse")]
+    [CorpseName("zwloki lorda juka")]
     public class JukaLord : BaseCreature
     {
         public override double HealChance => 1.0;
@@ -11,7 +11,7 @@ namespace Server.Mobiles
         public JukaLord()
             : base(AIType.AI_Archer, FightMode.Closest, 10, 3, 0.2, 0.4)
         {
-            Name = "a juka lord";
+            Name = "juka lord";
             Body = 766;
 
             SetStr(401, 500);
