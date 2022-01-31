@@ -1,4 +1,4 @@
-using Server.ContextMenus;
+/*using Server.ContextMenus;
 using Server.Engines.CannedEvil;
 using Server.Engines.CityLoyalty;
 using Server.Guilds;
@@ -1166,4 +1166,4 @@ namespace Server.Gumps
             return string.Format("<basefont color={0}>{1}", color, str);
         }
     }
-}
+}*/

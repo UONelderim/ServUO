@@ -160,10 +160,10 @@ namespace Server.Misc
                         KarmaEntry ke = karmaEntries[j];
                         StringBuilder title = new StringBuilder();
 
-                        if ((karma >= 0 && ke.m_Karma >= 0 && karma >= ke.m_Karma) || (karma < 0 && ke.m_Karma < 0 && karma < ke.m_Karma))
+                        /*if ((karma >= 0 && ke.m_Karma >= 0 && karma >= ke.m_Karma) || (karma < 0 && ke.m_Karma < 0 && karma < ke.m_Karma))
                         {
                             list.Add(title.AppendFormat(ke.m_Title, m.Name, m.Female ? "Lady" : "Lord").ToString());
-                        }
+                        }*/
                     }
                 }
             }
@@ -190,10 +190,10 @@ namespace Server.Misc
                     {
                         KarmaEntry ke = karmaEntries[j];
 
-                        if (karma <= ke.m_Karma || j == (karmaEntries.Length - 1))
+                    /*    if (karma <= ke.m_Karma || j == (karmaEntries.Length - 1))
                         {
                             return string.Format(ke.m_Title, beheld.Name, beheld.Female ? "Lady" : "Lord");
-                        }
+                        }*/
                     }
 
                     return string.Empty;

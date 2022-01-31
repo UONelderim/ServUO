@@ -2235,12 +2235,12 @@ namespace Server.Mobiles
                     }
                 }
 
-                list.Add(new TitlesMenuEntry(this));
+               /* list.Add(new TitlesMenuEntry(this));
 
                 if (Alive)
                 {
                     list.Add(new Engines.Points.LoyaltyRating(this));
-                }
+                }*/
 
                 list.Add(new OpenBackpackEntry(this));
 
