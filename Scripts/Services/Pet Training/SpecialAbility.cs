@@ -616,7 +616,7 @@ namespace Server.Mobiles
             }
         }
 
-        public int BreathComputeDamage(BaseCreature creature, DragonBreathDefinition def)
+        public static int BreathComputeDamage(BaseCreature creature, DragonBreathDefinition def)
         {
             int damage = (int)(creature.Hits * def.DamageScalar);
 
