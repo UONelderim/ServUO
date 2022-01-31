@@ -249,6 +249,72 @@ namespace Server.Mobiles
 				return sum * 0.5;
 			}
 		}
+		
+		public double SpecialAbilitiesBonus
+		{
+			get
+			{
+				double sum = 0;
+				Dictionary<SpecialAbility, double> abilities = new Dictionary<SpecialAbility, double>();
+				abilities[SpecialAbility.AngryFire] = 0.3;
+				abilities[SpecialAbility.ConductiveBlast] = 0.2;
+				abilities[SpecialAbility.DragonBreath] = 0;
+				abilities[SpecialAbility.GraspingClaw] = 0.2;
+				abilities[SpecialAbility.Inferno] = 0.2;
+				abilities[SpecialAbility.LightningForce] = 0.2;
+				abilities[SpecialAbility.ManaDrain] = 0.5;
+				abilities[SpecialAbility.RagingBreath] = 0.2;
+				abilities[SpecialAbility.Repel] = 0.3;
+				abilities[SpecialAbility.SearingWounds] = 0.25;
+				abilities[SpecialAbility.StealLife] = 0.25;
+				abilities[SpecialAbility.VenomousBite] = 0.3;
+				abilities[SpecialAbility.ViciousBite] = 0.35;
+				abilities[SpecialAbility.RuneCorruption] = 0.5;
+				abilities[SpecialAbility.LifeLeech] = 0.3;
+				abilities[SpecialAbility.StickySkin] = 0.15;
+				abilities[SpecialAbility.TailSwipe] = 0.2;
+				abilities[SpecialAbility.FlurryForce] = 0.25;
+				abilities[SpecialAbility.Rage] = 0.1;
+				abilities[SpecialAbility.Heal] = 0.15;
+				abilities[SpecialAbility.HowlOfCacophony] = 0.4;
+				abilities[SpecialAbility.Webbing] = 0.3;
+				abilities[SpecialAbility.Anemia] = 0.4;
+				abilities[SpecialAbility.BloodDisease] = 0.4;
+				abilities[SpecialAbility.PoisonSpit] = 0.25;
+				abilities[SpecialAbility.TrueFear] = 0.3;
+				abilities[SpecialAbility.ColossalBlow] = 0.15;
+				abilities[SpecialAbility.LifeDrain] = 0.25;
+				abilities[SpecialAbility.ColossalRage] = 0.2;
+
+				if (_Profile != null && _Profile.SpecialAbilities != null)
+				{
+					foreach (SpecialAbility ab in _Profile.SpecialAbilities)
+					{
+						
+						if (abilities.ContainsKey(ab))
+						{
+							if (ab is DragonBreath)
+								sum += ComputeDragonBreathBonus();
+							else
+							{
+								double chance = ab.TriggerChance;
+								sum += chance * abilities[ab];
+							}
+						}
+					}
+				}
+				return sum * 0.5;
+			}
+		}
+
+		public double ComputeDragonBreathBonus()
+		{
+			var chance = SpecialAbility.DragonBreath.TriggerChance;
+			var definition = DragonBreath.DragonBreathDefinition.GetDefinition(this);
+			var avgDelay = (definition.MinDelay + definition.MaxDelay) / 2; //Seconds
+			var dmg = DragonBreath.BreathComputeDamage(this, definition);
+			return chance * dmg / avgDelay;
+		}
 
 		public double AreaEffectsBonus
 		{

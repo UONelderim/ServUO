@@ -32,6 +32,8 @@ namespace Server.Commands
 							props.Add("className", className);
 							fillCommonProps(bc, props);
 							fillWeaponAbilities(bc, props);
+							fillSpecialAbilities(bc, props);
+							fillAreaEffects(bc, props);
 							fillSkills(bc, props);
 
 							// Zapis
@@ -62,13 +64,10 @@ namespace Server.Commands
 			props.Add("Life", bc.Life);
 			props.Add("Melee DPS", bc.MeleeDPS);
 			props.Add("Magic DPS", bc.MagicDPS);
-			// props.Add( "BreathDamage", bc.HasBreath ? (double)bc.BreathComputeDamage() / 12.5 : 0 );
-
 			props.Add("DamageMin", bc.DamageMin);
 			props.Add("DamageMax", bc.DamageMax);
 			props.Add("WeaponAbilitiesBonus", bc.WeaponAbilitiesBonus);
 			props.Add("HitPoisonBonus", bc.HitPoisonBonus);
-
 			props.Add("BardDiff", BaseInstrument.GetBaseDifficulty(bc));
 			props.Add("Str", bc.Str);
 			props.Add("Int", bc.Int);
@@ -90,30 +89,10 @@ namespace Server.Commands
 			props.Add("EnergyDamage", bc.EnergyDamage);
 			props.Add("RangePerception", bc.RangePerception);
 			props.Add("ActiveSpeed", bc.ActiveSpeed);
-			// props.Add( "CanHeal", bc.CanHeal ? 1 : 0 );
-			// props.Add( "HealScalar", bc.HealScalar );
-			// props.Add( "HealTrigger", bc.HealTrigger );
-			// props.Add( "HealDelay", bc.HealDelay );
-			// props.Add( "HealInterval", bc.HealInterval );
 			props.Add("BleedImmune", bc.BleedImmune ? 1 : 0);
 			props.Add("PoisonImmune", bc.PoisonImmune != null ? bc.PoisonImmune.Level : 0);
 			props.Add("HitPoison", bc.HitPoison != null ? bc.HitPoison.Level : 0);
 			props.Add("HitPoisonChance", bc.HitPoisonChance);
-			// props.Add( "CanAreaPoison", bc.CanAreaPoison ? 1 : 0 );
-			// props.Add( "HitAreaPoison", bc.HitAreaPoison != null ? bc.HitAreaPoison.Level : 0 );
-			// props.Add( "AreaPoisonRange", bc.AreaPoisonRange );
-			// props.Add( "AreaPosionChance", bc.AreaPosionChance );
-			// props.Add( "AreaPoisonDelay", (bc.AreaPoisonDelay).TotalSeconds );
-			// props.Add( "CanAreaDamage", bc.CanAreaDamage ? 1 : 0 );
-			// props.Add( "AreaDamageRange", bc.AreaDamageRange );
-			// props.Add( "AreaDamageScalar", bc.AreaDamageScalar );
-			// props.Add( "AreaDamageChance", bc.AreaDamageChance );
-			// props.Add( "AreaDamageDelay", (bc.AreaDamageDelay).TotalSeconds );
-			// props.Add( "AreaPhysicalDamage", bc.AreaPhysicalDamage );
-			// props.Add( "AreaFireDamage", bc.AreaFireDamage );
-			// props.Add( "AreaColdDamage", bc.AreaColdDamage );
-			// props.Add( "AreaPoisonDamage", bc.AreaPoisonDamage );
-			// props.Add( "AreaEnergyDamage", bc.AreaEnergyDamage );
 			props.Add("Unprovokable", bc.Unprovokable ? 1 : 0);
 			props.Add("Uncalmable", bc.Uncalmable ? 1 : 0);
 			props.Add("ReacquireDelay", bc.ReacquireDelay.TotalSeconds);
@@ -123,9 +102,26 @@ namespace Server.Commands
 		private static void fillWeaponAbilities(BaseCreature bc, Dictionary<string, object> props)
 		{
 			foreach (var wa in WeaponAbility.Abilities)
-				if(wa != null) props.Add("has " + wa.GetType().Name, bc.AbilityProfile?.HasAbility(wa) ?? false);
+				if(wa != null) props.Add("has " + wa.GetType().Name, bc.HasAbility(wa) );
 		}
-
+		
+		private static void fillSpecialAbilities(BaseCreature bc, Dictionary<string, object> props)
+		{
+			foreach (var sa in SpecialAbility.Abilities)
+				if(sa != null) props.Add("has " + sa.GetType().Name, bc.HasAbility(sa) );
+			props.Add("DragonBreathBonus", 
+				bc.AbilityProfile != null && 
+				bc.AbilityProfile.HasAbility(SpecialAbility.DragonBreath)
+					? bc.ComputeDragonBreathBonus()
+					: 0);
+		}
+		
+		private static void fillAreaEffects(BaseCreature bc, Dictionary<string, object> props)
+		{
+			foreach (var ae in AreaEffect.Effects)
+				if(ae != null) props.Add("has " + ae.GetType().Name, bc.HasAbility(ae));
+		}
+		
 		private static void fillSkills(BaseCreature bc, Dictionary<string, object> props)
 		{
 			SkillName[] skills =
