@@ -19,32 +19,32 @@ namespace Server.Gumps
             
             switch ( room )
             {
-				case RaceRoomType.HumanRoom:
+				case RaceRoomType.Czlowiek:
                 {
                     this.AddHtmlLocalized( 73, 58, 252, 257, Race.NTamael.DescNumber, true, true);
                         
                     break;
                 }				
-				case RaceRoomType.ElfRoom:
+				case RaceRoomType.Elf:
                 {
                     this.AddHtmlLocalized( 73, 58, 252, 257, Race.NElf.DescNumber, true, true);
                         
                     break;
                 }
-				case RaceRoomType.DrowRoom:
+				case RaceRoomType.Drow:
                 {
                     this.AddHtmlLocalized( 73, 58, 252, 257, Race.NDrow.DescNumber, true, true);
                         
                     break;
                 }
-				case RaceRoomType.KrasnoludRoom:
+				case RaceRoomType.Krasnolud:
                 {
                     this.AddHtmlLocalized( 73, 58, 252, 257, Race.NKrasnolud.DescNumber, true, true);
                         
                     break;
                 }
 				
-                case RaceRoomType.TeleportRoom:
+                case RaceRoomType.Teleport:
                 {
                     this.AddHtml( 73, 58, 252, 257, @"", true, true);
                     break;
