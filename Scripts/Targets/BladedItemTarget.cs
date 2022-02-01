@@ -8,158 +8,176 @@ using Server.Targeting;
 
 namespace Server.Targets
 {
-    public class BladedItemTarget : Target
-    {
-        private readonly Item m_Item;
-        public BladedItemTarget(Item item)
-            : base(2, false, TargetFlags.None)
-        {
-            m_Item = item;
-        }
+	public class BladedItemTarget : Target
+	{
+		private readonly Item m_Item;
 
-        protected override void OnTargetOutOfRange(Mobile from, object targeted)
-        {
-            if (targeted is UnholyBone && from.InRange(((UnholyBone)targeted), 12))
-            {
-                if (((UnholyBone)targeted).Carve(from, m_Item) && Siege.SiegeShard)
-                {
-                    Siege.CheckUsesRemaining(from, m_Item);
-                }
-            }
-            else
-                base.OnTargetOutOfRange(from, targeted);
-        }
+		public BladedItemTarget(Item item)
+			: base(2, false, TargetFlags.None)
+		{
+			m_Item = item;
+		}
 
-        protected override void OnTarget(Mobile from, object targeted)
-        {
-            if (m_Item.Deleted)
-                return;
+		protected override void OnTargetOutOfRange(Mobile from, object targeted)
+		{
+			if (targeted is UnholyBone && from.InRange(((UnholyBone)targeted), 12))
+			{
+				if (((UnholyBone)targeted).Carve(from, m_Item) && Siege.SiegeShard)
+				{
+					Siege.CheckUsesRemaining(from, m_Item);
+				}
+			}
+			else
+				base.OnTargetOutOfRange(from, targeted);
+		}
 
-            if (targeted is ICarvable)
-            {
-                if (targeted is Item)
-                {
-                    Item item = targeted as Item;
+		protected override void OnTarget(Mobile from, object targeted)
+		{
+			if (m_Item.Deleted)
+				return;
 
-                    if (item.IsLockedDown || (item.RootParent is Container && (!item.Movable || !((Container)item.RootParent).LiftOverride)))
-                    {
-                        from.SendLocalizedMessage(500494); // You can't use a bladed item on that!
-                        return;
-                    }
-                }
+			if (targeted is ICarvable)
+			{
+				if (targeted is Item)
+				{
+					Item item = targeted as Item;
 
-                if (((ICarvable)targeted).Carve(from, m_Item) && Siege.SiegeShard)
-                {
-                    Siege.CheckUsesRemaining(from, m_Item);
-                }
-            }
-            else if (targeted is SwampDragon && ((SwampDragon)targeted).HasBarding)
-            {
-                SwampDragon pet = (SwampDragon)targeted;
+					if (item.IsLockedDown || (item.RootParent is Container &&
+					                          (!item.Movable || !((Container)item.RootParent).LiftOverride)))
+					{
+						from.SendLocalizedMessage(500494); // You can't use a bladed item on that!
+						return;
+					}
+				}
 
-                if (!pet.Controlled || pet.ControlMaster != from)
-                    from.SendLocalizedMessage(1053022); // You cannot remove barding from a swamp dragon you do not own.
-                else
-                {
-                    pet.HasBarding = false;
+				if (((ICarvable)targeted).Carve(from, m_Item) && Siege.SiegeShard)
+				{
+					Siege.CheckUsesRemaining(from, m_Item);
+				}
+			}
+			else if (targeted is SwampDragon && ((SwampDragon)targeted).HasBarding)
+			{
+				SwampDragon pet = (SwampDragon)targeted;
 
-                    if (Siege.SiegeShard && m_Item is IUsesRemaining)
-                    {
-                        Siege.CheckUsesRemaining(from, m_Item);
-                    }
-                }
-            }
-            else
-            {
-                if (targeted is Mobile)
-                {
-                    ((Mobile)targeted).PrivateOverheadMessage(MessageType.Regular, 0x3B2, 500450, from.NetState); // You can only skin dead creatures.
-                    return;
-                }
-                else if (targeted is StaticTarget)
-                {
-                    int itemID = ((StaticTarget)targeted).ItemID;
+				if (!pet.Controlled || pet.ControlMaster != from)
+					from.SendLocalizedMessage(1053022); // You cannot remove barding from a swamp dragon you do not own.
+				else
+				{
+					pet.HasBarding = false;
 
-                    if (itemID == 0xD15 || itemID == 0xD16) // red mushroom
-                    {
-                        PlayerMobile player = from as PlayerMobile;
+					if (Siege.SiegeShard && m_Item is IUsesRemaining)
+					{
+						Siege.CheckUsesRemaining(from, m_Item);
+					}
+				}
+			}
+			else if (targeted is NBaseWarHorse wh && wh.HasBarding)
+			{
+				if (!wh.Controlled || wh.ControlMaster != from)
+					from.SendLocalizedMessage(1053022); // You cannot remove barding from a swamp dragon you do not own.
+				else
+				{
+					wh.HasBarding = false;
 
-                        if (player != null)
-                        {
-                            QuestSystem qs = player.Quest;
+					if (Siege.SiegeShard && m_Item is IUsesRemaining)
+					{
+						Siege.CheckUsesRemaining(from, m_Item);
+					}
+				}
+			}
+			else
+			{
+				if (targeted is Mobile)
+				{
+					((Mobile)targeted).PrivateOverheadMessage(MessageType.Regular, 0x3B2, 500450,
+						from.NetState); // You can only skin dead creatures.
+					return;
+				}
+				else if (targeted is StaticTarget)
+				{
+					int itemID = ((StaticTarget)targeted).ItemID;
 
-                            if (qs is WitchApprenticeQuest)
-                            {
-                                FindIngredientObjective obj = qs.FindObjective(typeof(FindIngredientObjective)) as FindIngredientObjective;
+					if (itemID == 0xD15 || itemID == 0xD16) // red mushroom
+					{
+						PlayerMobile player = from as PlayerMobile;
 
-                                if (obj != null && !obj.Completed && obj.Ingredient == Ingredient.RedMushrooms)
-                                {
-                                    player.SendLocalizedMessage(1055036); // You slice a red cap mushroom from its stem.
-                                    obj.Complete();
+						if (player != null)
+						{
+							QuestSystem qs = player.Quest;
 
-                                    if (Siege.SiegeShard && m_Item is IUsesRemaining)
-                                    {
-                                        Siege.CheckUsesRemaining(from, m_Item);
-                                    }
+							if (qs is WitchApprenticeQuest)
+							{
+								FindIngredientObjective obj =
+									qs.FindObjective(typeof(FindIngredientObjective)) as FindIngredientObjective;
 
-                                    return;
-                                }
-                            }
-                        }
-                    }
-                }
+								if (obj != null && !obj.Completed && obj.Ingredient == Ingredient.RedMushrooms)
+								{
+									player.SendLocalizedMessage(1055036); // You slice a red cap mushroom from its stem.
+									obj.Complete();
 
-                HarvestSystem system = Lumberjacking.System;
-                HarvestDefinition def = Lumberjacking.System.Definition;
+									if (Siege.SiegeShard && m_Item is IUsesRemaining)
+									{
+										Siege.CheckUsesRemaining(from, m_Item);
+									}
 
-                int tileID;
-                Map map;
-                Point3D loc;
+									return;
+								}
+							}
+						}
+					}
+				}
 
-                if (!system.GetHarvestDetails(from, m_Item, targeted, out tileID, out map, out loc))
-                {
-                    from.SendLocalizedMessage(500494); // You can't use a bladed item on that!
-                }
-                else if (!def.Validate(tileID))
-                {
-                    from.SendLocalizedMessage(500494); // You can't use a bladed item on that!
-                }
-                else
-                {
-                    HarvestBank bank = def.GetBank(map, loc.X, loc.Y);
+				HarvestSystem system = Lumberjacking.System;
+				HarvestDefinition def = Lumberjacking.System.Definition;
 
-                    if (bank == null)
-                        return;
+				int tileID;
+				Map map;
+				Point3D loc;
 
-                    if (bank.Current < 5)
-                    {
-                        from.SendLocalizedMessage(500493); // There's not enough wood here to harvest.
-                    }
-                    else
-                    {
-                        bank.Consume(5, from);
+				if (!system.GetHarvestDetails(from, m_Item, targeted, out tileID, out map, out loc))
+				{
+					from.SendLocalizedMessage(500494); // You can't use a bladed item on that!
+				}
+				else if (!def.Validate(tileID))
+				{
+					from.SendLocalizedMessage(500494); // You can't use a bladed item on that!
+				}
+				else
+				{
+					HarvestBank bank = def.GetBank(map, loc.X, loc.Y);
 
-                        Item item = new Kindling();
+					if (bank == null)
+						return;
 
-                        if (from.PlaceInBackpack(item))
-                        {
-                            from.SendLocalizedMessage(500491); // You put some kindling into your backpack.
-                            from.SendLocalizedMessage(500492); // An axe would probably get you more wood.
-                        }
-                        else
-                        {
-                            from.SendLocalizedMessage(500490); // You can't place any kindling into your backpack!
+					if (bank.Current < 5)
+					{
+						from.SendLocalizedMessage(500493); // There's not enough wood here to harvest.
+					}
+					else
+					{
+						bank.Consume(5, from);
 
-                            item.Delete();
-                        }
+						Item item = new Kindling();
 
-                        if (Siege.SiegeShard && m_Item is IUsesRemaining)
-                        {
-                            Siege.CheckUsesRemaining(from, m_Item);
-                        }
-                    }
-                }
-            }
-        }
-    }
+						if (from.PlaceInBackpack(item))
+						{
+							from.SendLocalizedMessage(500491); // You put some kindling into your backpack.
+							from.SendLocalizedMessage(500492); // An axe would probably get you more wood.
+						}
+						else
+						{
+							from.SendLocalizedMessage(500490); // You can't place any kindling into your backpack!
+
+							item.Delete();
+						}
+
+						if (Siege.SiegeShard && m_Item is IUsesRemaining)
+						{
+							Siege.CheckUsesRemaining(from, m_Item);
+						}
+					}
+				}
+			}
+		}
+	}
 }
