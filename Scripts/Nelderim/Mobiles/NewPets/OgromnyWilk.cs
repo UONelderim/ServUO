@@ -8,7 +8,8 @@ namespace Server.Mobiles
 	[CorpseName( "zwloki wilka" )]
 	public class OgromnyWilk : BaseCreature
 	{
-		public override double DifficultyScalar{ get{ return 1.15; } }
+		public override double DifficultyScalar => 1.15;
+
 		[Constructable]
 		public OgromnyWilk()
 			: base( AIType.AI_Melee, FightMode.Closest, 12, 1, 0.2, 0.4 )
@@ -49,11 +50,11 @@ namespace Server.Mobiles
 			Karma = -8500;
 			
 			Tamable = true;
-			ControlSlots = 3;
+			ControlSlots = 2;
 			MinTameSkill = 106.0;
-
-
-
+			
+			SetWeaponAbility(WeaponAbility.MortalStrike);
+			
 			switch( Utility.Random( 10 ) )
 			{
 				case 0: PackItem( new LeftArm() ); break;
@@ -74,10 +75,12 @@ namespace Server.Mobiles
 			AddLoot( LootPack.Average );
 			AddLoot( LootPack.Rich );
 		}
-		public override int Meat { get { return 3; } }
-		public override int Hides { get { return 6; } }
-		public override FoodType FavoriteFood { get { return FoodType.Meat; } }
+		public override int Meat => 3;
+		public override int Hides => 6;
+		public override FoodType FavoriteFood => FoodType.Meat;
 
+		public override PackInstinct PackInstinct => PackInstinct.Canine; 
+		
 		public override void OnGaveMeleeAttack( Mobile defender )
 		{
 			base.OnGaveMeleeAttack( defender );
