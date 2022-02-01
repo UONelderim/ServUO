@@ -50,9 +50,8 @@ namespace Server.Items
 
         [Constructable]
         public MiastowaSzataTasandora()
-            : base(1570)
+            : base(2894)
         {
-            Hue = 327;
         }
 
         public MiastowaSzataTasandora(Serial serial)
