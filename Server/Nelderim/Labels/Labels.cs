@@ -1,21 +1,32 @@
-using Server;
+using System;
 using System.Collections.Generic;
+using Server;
 
 namespace Nelderim
 {
-    public class Labels : NExtension<LabelsInfo>
-    {
-        public static void Cleanup()
-        {
-            List<Serial> toRemove = new List<Serial>();
-            foreach ( Serial serial in m_ExtensionInfo.Keys ) {	
-                if ( World.FindEntity( serial ) == null )
-                    toRemove.Add( serial );
-            }
-            foreach(Serial serial in toRemove )
-            {
-                m_ExtensionInfo.Remove( serial );
-            }
-        }
-    }
+	public class Labels : NExtension<LabelsInfo>
+	{
+		public static void Cleanup()
+		{
+			try
+			{
+				List<Serial> toRemove = new List<Serial>();
+				foreach (Serial serial in m_ExtensionInfo.Keys)
+				{
+					if (World.FindEntity(serial) == null)
+						toRemove.Add(serial);
+				}
+
+				foreach (Serial serial in toRemove)
+				{
+					m_ExtensionInfo.Remove(serial);
+				}
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Unable to perform Labels cleanup");
+				Console.WriteLine(e.Message);
+			}
+		}
+	}
 }
