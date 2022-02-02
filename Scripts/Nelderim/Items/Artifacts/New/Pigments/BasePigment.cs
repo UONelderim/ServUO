@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Server.ACC.CSS;
 
 namespace Server.Items
 {
@@ -45,6 +46,8 @@ namespace Server.Items
 						return 1064863; // Pigment do ksiag
 					case PigmentTarget.Cloth:
 						return 1064869; // Pigment do tkanin
+					default:
+						break;
 				}
 
 				return 1064860;
@@ -70,6 +73,15 @@ namespace Server.Items
 			Weight = 1.0;
 			m_Target = (PigmentTarget)target;
 			SetPigment(uses, level);
+		}
+
+		public BasePigment(PigmentTarget target, int uses, int hue)
+			: base(0xEFF)
+		{
+			Weight = 1.0;
+			m_Target = target;
+			m_UsesRemaining = uses;
+			Hue = hue;
 		}
 
 		// Czesc hue w hex czesc w int
@@ -213,7 +225,7 @@ namespace Server.Items
 					resourcesAccepted.Add(CraftResource.SpinedLeather);
 					resourcesAccepted.Add(CraftResource.HornedLeather);
 					resourcesAccepted.Add(CraftResource.BarbedLeather);
-					return IsInResourceList(resourcesAccepted, i);
+					return IsInResourceList(resourcesAccepted, i) || IsInType(t, typeof(BaseQuiver));
 				case PigmentTarget.Wood:
 					resourcesAccepted.Add(CraftResource.RegularWood);
 					resourcesAccepted.Add(CraftResource.OakWood);
@@ -224,7 +236,9 @@ namespace Server.Items
 					resourcesAccepted.Add(CraftResource.Frostwood);
 					return IsInResourceList(resourcesAccepted, i);
 				case PigmentTarget.Spellbook:
-					return IsInType(t, typeof(Spellbook));
+					return IsInType(t, typeof(Spellbook)) || IsInType(t, typeof(CSpellbook));
+				case PigmentTarget.Cloth:
+					return IsInType(t, typeof(BaseClothing));
 				default:
 					return false;
 			}

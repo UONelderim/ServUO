@@ -10,6 +10,7 @@ namespace Server.Items
 		public PrzekletyArcticDeathDealer()
 		{
 			Hue = 2700;
+			Weight = 10;
 			WeaponAttributes.HitHarm = 66;
 			LootType = LootType.Cursed;
 			Name = "Przeklety Pocalunek Lodu";
