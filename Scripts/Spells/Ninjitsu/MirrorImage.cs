@@ -170,6 +170,7 @@ namespace Server.Mobiles
 
 			Body = caster.Body;
 
+			Race = caster.Race;
 			Hue = caster.Hue;
 			Female = caster.Female;
 
