@@ -19,7 +19,7 @@ namespace Nelderim
 
 				foreach (Serial serial in toRemove)
 				{
-					m_ExtensionInfo.Remove(serial);
+					m_ExtensionInfo.TryRemove(serial, out _);
 				}
 			}
 			catch (Exception e)
