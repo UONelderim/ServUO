@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Server;
 using Server.Commands;
-using Server.Mobiles;
 using Server.Targeting;
 
 namespace Nelderim.Engines.ChaosChest
@@ -45,6 +44,7 @@ namespace Nelderim.Engines.ChaosChest
 		public static void Initialize()
 		{
 			CommandSystem.Register("CreateChaosChestQuest", AccessLevel.Counselor, CreateChaosChestQuest);
+			EventSink.CreatureDeath += OnDeath;
 		}
 
 		private static void CreateChaosChestQuest(CommandEventArgs e)
@@ -137,16 +137,17 @@ namespace Nelderim.Engines.ChaosChest
 			DropChanceOverride = reader.ReadDouble();
 		}
 
-		public static void OnBeforeDeath(BaseCreature baseCreature)
+		public static void OnDeath(CreatureDeathEventArgs e)
 		{
-			if (baseCreature != null && baseCreature.Region != null &&
-			    baseCreature.Region.Name != null &&
-			    REGION_MAP.ContainsKey(baseCreature.Region.Name) &&
-			    REGION_MAP[baseCreature.Region.Name].Equals(CURRENT_STAGE))
+			Mobile m = e.Creature;
+			if (m != null && m.Region != null &&
+			    m.Region.Name != null &&
+			    REGION_MAP.ContainsKey(m.Region.Name) &&
+			    REGION_MAP[m.Region.Name].Equals(CURRENT_STAGE))
 			{
 				if (Utility.RandomDouble() < DROP_CHANCE)
 				{
-					baseCreature.AddToBackpack(new ChaosKey(CURRENT_STAGE));
+					e.Corpse.DropItem(new ChaosKey(CURRENT_STAGE));
 				}
 			}
 		}
