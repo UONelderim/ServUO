@@ -119,6 +119,7 @@ namespace Server.Mobiles
 			base.OnDamagedBySpell(attacker);
 
 			DoCounter(attacker);
+			SpawnDemon(attacker);
 		}
 
 		public override void OnGotMeleeAttack(Mobile attacker)
@@ -126,6 +127,55 @@ namespace Server.Mobiles
 			base.OnGotMeleeAttack(attacker);
 
 			DoCounter(attacker);
+		}
+
+		public void SpawnDemon(Mobile target)
+		{
+			Map map = target.Map;
+
+			if (map == null)
+				return;
+
+			int demons = 0;
+
+			foreach (Mobile m in this.GetMobilesInRange(10))
+			{
+				if (m is BaseCreature)
+					++demons;
+			}
+
+			if (demons < 10)
+			{
+				Type[] demonTypes =
+				{
+					typeof(LesserArcaneDaemon), typeof(LesserDaemon), typeof(LesserChaosDaemon),
+					typeof(LesserHordeDaemon)
+				};
+				Type demonType = demonTypes[Utility.Random(demonTypes.Length)];
+
+				BaseCreature demon = Activator.CreateInstance(demonType) as BaseCreature;
+				demon.Summoned = true;
+				demon.Team = this.Team;
+
+				Point3D loc = target.Location;
+				bool validLocation = false;
+
+				for (int j = 0; !validLocation && j < 10; ++j)
+				{
+					int x = target.X + Utility.Random(3) - 1;
+					int y = target.Y + Utility.Random(3) - 1;
+					int z = map.GetAverageZ(x, y);
+
+					if (validLocation = map.CanFit(x, y, this.Z, 16, false, false))
+						loc = new Point3D(x, y, Z);
+					else if (validLocation = map.CanFit(x, y, z, 16, false, false))
+						loc = new Point3D(x, y, z);
+				}
+
+				demon.MoveToWorld(loc, map);
+
+				demon.Combatant = target;
+			}
 		}
 
 		private void DoCounter(Mobile attacker)
