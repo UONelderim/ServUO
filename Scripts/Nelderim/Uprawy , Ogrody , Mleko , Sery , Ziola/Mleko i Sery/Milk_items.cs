@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
 	public abstract class MilkBottle : Item
@@ -7,122 +5,121 @@ namespace Server.Items
 		private Mobile m_Poisoner;
 		private Poison m_Poison;
 		private int m_FillFactor;
-		
-		public virtual Item EmptyItem{ get { return null; } }
-		
-		[CommandProperty( AccessLevel.GameMaster )]
+
+		public virtual Item EmptyItem { get { return null; } }
+
+		[CommandProperty(AccessLevel.GameMaster)]
 		public Mobile Poisoner
 		{
 			get { return m_Poisoner; }
 			set { m_Poisoner = value; }
 		}
-		
-		[CommandProperty( AccessLevel.GameMaster )]
+
+		[CommandProperty(AccessLevel.GameMaster)]
 		public Poison Poison
 		{
 			get { return m_Poison; }
 			set { m_Poison = value; }
 		}
-		
-		[CommandProperty( AccessLevel.GameMaster )]
+
+		[CommandProperty(AccessLevel.GameMaster)]
 		public int FillFactor
 		{
 			get { return m_FillFactor; }
 			set { m_FillFactor = value; }
 		}
-		
-		public MilkBottle( int itemID ) : base( itemID )
+
+		public MilkBottle(int itemID) : base(itemID)
 		{
 			this.FillFactor = 4;
 		}
-		
-		public MilkBottle( Serial serial ) : base( serial )
+
+		public MilkBottle(Serial serial) : base(serial)
 		{
 		}
-		
-		public void Boire( Mobile from )
+
+		public void Boire(Mobile from)
 		{
-			if ( soif( from, m_FillFactor ) )
+			if (soif(from, m_FillFactor))
 			{
 				// Play a random "Boire" sound
-				from.PlaySound( Utility.Random( 0x30, 2 ) );
-				
-				if ( from.Body.IsHuman && !from.Mounted )
-					from.Animate( 34, 5, 1, true, false, 0 );
-				
-				if ( m_Poison != null )
-					from.ApplyPoison( m_Poisoner, m_Poison );
-				
+				from.PlaySound(Utility.Random(0x30, 2));
+
+				if (from.Body.IsHuman && !from.Mounted)
+					from.Animate(34, 5, 1, true, false, 0);
+
+				if (m_Poison != null)
+					from.ApplyPoison(m_Poisoner, m_Poison);
+
 				this.Consume();
-				
+
 				Item item = EmptyItem;
-				
-				if ( item != null )
-					from.AddToBackpack( item );
+
+				if (item != null)
+					from.AddToBackpack(item);
 			}
 		}
-		
-		static public bool soif( Mobile from, int fillFactor )
+
+		static public bool soif(Mobile from, int fillFactor)
 		{
-			if ( from.Thirst >= 20 )
+			if (from.Thirst >= 20)
 			{
-				from.SendMessage( "Nie mozesz juz nic wypic!" );
+				from.SendMessage("Nie mozesz juz nic wypic!");
 				return false;
 			}
-			
+
 			int iThirst = from.Thirst + fillFactor;
-			if ( iThirst >= 20 )
+			if (iThirst >= 20)
 			{
 				from.Thirst = 20;
-				from.SendMessage( "Jestes juz pelen!" );
+				from.SendMessage("Jestes juz pelen!");
 			}
 			else
 			{
 				from.Thirst = iThirst;
-				
-				if ( iThirst < 5 )
-					from.SendMessage( "Wypiles mleko ale wciaz jestes bardzo spragniony." );
-				else if ( iThirst < 10 )
-					from.SendMessage( "Wypiles mleko i poczules sie troche lepiej." );
-				else if ( iThirst < 15 )
-					from.SendMessage( "Po wypiciu mleka czujesz znacznie mniejsze pragnienie." );
+
+				if (iThirst < 5)
+					from.SendMessage("Wypiles mleko ale wciaz jestes bardzo spragniony.");
+				else if (iThirst < 10)
+					from.SendMessage("Wypiles mleko i poczules sie troche lepiej.");
+				else if (iThirst < 15)
+					from.SendMessage("Po wypiciu mleka czujesz znacznie mniejsze pragnienie.");
 				else
-					from.SendMessage( "Po wypiciu mleka czujesz sie pelen." );
+					from.SendMessage("Po wypiciu mleka czujesz sie pelen.");
 			}
-			
+
 			return true;
 		}
-		
-		
-		
-		public override void OnDoubleClick( Mobile from )
+
+
+		public override void OnDoubleClick(Mobile from)
 		{
-			if ( !Movable )
+			if (!Movable)
 				return;
-			
-			if ( from.InRange( this.GetWorldLocation(), 1 ) )
-				Boire( from );
+
+			if (from.InRange(this.GetWorldLocation(), 1))
+				Boire(from);
 		}
-		
-		public override void Serialize( GenericWriter writer )
+
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			
-			writer.Write( (int) 1 ); // version
-			
-			writer.Write( m_Poisoner );
-			
-			Poison.Serialize( m_Poison, writer );
-			writer.Write( m_FillFactor );
+			base.Serialize(writer);
+
+			writer.Write((int)1); // version
+
+			writer.Write(m_Poisoner);
+
+			Poison.Serialize(m_Poison, writer);
+			writer.Write(m_FillFactor);
 		}
-		
-		public override void Deserialize( GenericReader reader )
+
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
-			
+			base.Deserialize(reader);
+
 			int version = reader.ReadInt();
-			
-			switch ( version )
+
+			switch (version)
 			{
 				case 1:
 				{
@@ -132,100 +129,103 @@ namespace Server.Items
 				}
 				case 0:
 				{
-					m_Poison = Poison.Deserialize( reader );
+					m_Poison = Poison.Deserialize(reader);
 					m_FillFactor = reader.ReadInt();
 					break;
 				}
 			}
 		}
 	}
+
 	public class BottleCowMilk : MilkBottle
 	{
-		public override Item EmptyItem{ get { return new Bottle(); } }
-		
+		public override Item EmptyItem { get { return new Bottle(); } }
+
 		[Constructable]
-		public BottleCowMilk() : base( 0x0f09 )
+		public BottleCowMilk() : base(0x0f09)
 		{
 			this.Weight = 0.2;
 			this.FillFactor = 4;
-			this.Name ="Butelka krowiego mleka";
+			this.Name = "Butelka krowiego mleka";
 		}
-		
-		public BottleCowMilk( Serial serial ) : base( serial )
+
+		public BottleCowMilk(Serial serial) : base(serial)
 		{
 		}
-		
-		public override void Serialize( GenericWriter writer )
+
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+
+			writer.Write((int)0); // version
 		}
-		
-		public override void Deserialize( GenericReader reader )
+
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
-			
+			base.Deserialize(reader);
+
 			int version = reader.ReadInt();
 		}
 	}
+
 	public class BottleGoatMilk : MilkBottle
 	{
-		public override Item EmptyItem{ get { return new Bottle(); } }
-		
+		public override Item EmptyItem { get { return new Bottle(); } }
+
 		[Constructable]
-		public BottleGoatMilk() : base( 0x0f09 )
+		public BottleGoatMilk() : base(0x0f09)
 		{
 			this.Weight = 0.2;
 			this.FillFactor = 4;
-			this.Name ="Butelka koziego mleka";
+			this.Name = "Butelka koziego mleka";
 		}
-		
-		public BottleGoatMilk( Serial serial ) : base( serial )
+
+		public BottleGoatMilk(Serial serial) : base(serial)
 		{
 		}
-		
-		public override void Serialize( GenericWriter writer )
+
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+
+			writer.Write((int)0); // version
 		}
-		
-		public override void Deserialize( GenericReader reader )
+
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
-			
+			base.Deserialize(reader);
+
 			int version = reader.ReadInt();
 		}
 	}
+
 	public class BottleSheepMilk : MilkBottle
 	{
-		public override Item EmptyItem{ get { return new Bottle(); } }
-		
+		public override Item EmptyItem { get { return new Bottle(); } }
+
 		[Constructable]
-		public BottleSheepMilk() : base( 0x0f09 )
+		public BottleSheepMilk() : base(0x0f09)
 		{
 			this.Weight = 0.2;
 			this.FillFactor = 4;
-			this.Name ="Butelka owczego mleka";
+			this.Name = "Butelka owczego mleka";
 		}
-		
-		public BottleSheepMilk( Serial serial ) : base( serial )
+
+		public BottleSheepMilk(Serial serial) : base(serial)
 		{
 		}
-		
-		public override void Serialize( GenericWriter writer )
+
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+
+			writer.Write((int)0); // version
 		}
-		
-		public override void Deserialize( GenericReader reader )
+
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
-			
+			base.Deserialize(reader);
+
 			int version = reader.ReadInt();
 		}
 	}
@@ -234,36 +234,36 @@ namespace Server.Items
 /* ***************************** Cheese ******************************** */
 
 
-
 	// fromage de vache
-	
+
 	public class FromageDeVache : Food, ICarvable
 	{
-		public void Carve( Mobile from, Item item )
+		public bool Carve(Mobile from, Item item)
 		{
-			if ( !Movable )
-				return;
+			if (!Movable)
+				return false;
 
-			if ( this.Amount > 1 )  // workaround because I can't call scissorhelper twice?
+			if (this.Amount > 1) // workaround because I can't call scissorhelper twice?
 			{
-				from.SendMessage( "You can only cut up one wheel at a time." );
-				return;
+				from.SendMessage("You can only cut up one wheel at a time.");
+				return false;
 			}
 
-			base.ScissorHelper( from, new FromageDeVacheWedge(), 1 );
+			base.ScissorHelper(from, new FromageDeVacheWedge(), 1);
 
-			from.AddToBackpack( new FromageDeVacheWedgeSmall() );
+			from.AddToBackpack(new FromageDeVacheWedgeSmall());
 
-			from.SendMessage( "You cut a wedge out of the wheel." );
+			from.SendMessage("You cut a wedge out of the wheel.");
+			return true;
 		}
 
 		[Constructable]
-		public FromageDeVache() : this( 1 )
+		public FromageDeVache() : this(1)
 		{
 		}
 
 		[Constructable]
-		public FromageDeVache( int amount ) : base( amount, 0x97E )
+		public FromageDeVache(int amount) : base(amount, 0x97E)
 		{
 			this.Weight = 0.4;
 			this.FillFactor = 12;
@@ -275,71 +275,72 @@ namespace Server.Items
 		//{
 		//	return base.Dupe( new FromageDeVache(), amount );
 		//}
-		
-		public FromageDeVache( Serial serial ) : base( serial )
+
+		public FromageDeVache(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+
+			writer.Write((int)0); // version
 		}
-		
-		public override void Deserialize( GenericReader reader )
+
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
-			
+			base.Deserialize(reader);
+
 			int version = reader.ReadInt();
 		}
 	}
 
 	public class FromageDeVacheWedge : Food, ICarvable
 	{
-		public void Carve( Mobile from, Item item )
+		public bool Carve(Mobile from, Item item)
 		{
-			if ( !Movable )
-				return;
+			if (!Movable)
+				return false;
 
-			base.ScissorHelper( from, new FromageDeVacheWedgeSmall(), 3 );
-			from.SendMessage( "You cut the wheel into 3 wedges." );
+			base.ScissorHelper(from, new FromageDeVacheWedgeSmall(), 3);
+			from.SendMessage("You cut the wheel into 3 wedges.");
+			return true;
 		}
 
 		[Constructable]
-		public FromageDeVacheWedge() : this( 1 )
+		public FromageDeVacheWedge() : this(1)
 		{
 		}
 
 		[Constructable]
-		public FromageDeVacheWedge( int amount ) : base( amount, 0x97D )
+		public FromageDeVacheWedge(int amount) : base(amount, 0x97D)
 		{
 			this.Weight = 0.3;
 			this.FillFactor = 9;
 			this.Name = "Emmental (krowi ser)";
 			this.Hue = 0x481;
 		}
-		
+
 		//public override Item Dupe( int amount )
 		//{
 		//	return base.Dupe( new FromageDeVacheWedge(), amount );
 		//}
 
-		public FromageDeVacheWedge( Serial serial ) : base( serial )
+		public FromageDeVacheWedge(Serial serial) : base(serial)
 		{
 		}
-		
-		public override void Serialize( GenericWriter writer )
+
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+
+			writer.Write((int)0); // version
 		}
-		
-		public override void Deserialize( GenericReader reader )
+
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
-			
+			base.Deserialize(reader);
+
 			int version = reader.ReadInt();
 		}
 	}
@@ -347,150 +348,151 @@ namespace Server.Items
 	public class FromageDeVacheWedgeSmall : Food
 	{
 		[Constructable]
-		public FromageDeVacheWedgeSmall() : this( 1 )
+		public FromageDeVacheWedgeSmall() : this(1)
 		{
 		}
 
 		[Constructable]
-		public FromageDeVacheWedgeSmall( int amount ) : base( amount, 0x97C )
+		public FromageDeVacheWedgeSmall(int amount) : base(amount, 0x97C)
 		{
 			this.Weight = 0.1;
 			this.FillFactor = 3;
 			this.Name = "Emmental (krowi ser)";
 			this.Hue = 0x481;
 		}
-		
+
 		//public override Item Dupe( int amount )
 		//{
 		//	return base.Dupe( new FromageDeVacheWedgeSmall(), amount );
 		//}
 
-		public FromageDeVacheWedgeSmall( Serial serial ) : base( serial )
+		public FromageDeVacheWedgeSmall(Serial serial) : base(serial)
 		{
 		}
-		
-		public override void Serialize( GenericWriter writer )
+
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+
+			writer.Write((int)0); // version
 		}
-		
-		public override void Deserialize( GenericReader reader )
+
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
-			
+			base.Deserialize(reader);
+
 			int version = reader.ReadInt();
 		}
 	}
 
 
-
 	// fromage de Brebis
-	
+
 	public class FromageDeBrebis : Food, ICarvable
 	{
-		public void Carve( Mobile from, Item item )
+		public bool Carve(Mobile from, Item item)
 		{
-			if ( !Movable )
-				return;
+			if (!Movable)
+				return false;
 
-			if ( this.Amount > 1 )  // workaround because I can't call scissorhelper twice?
+			if (this.Amount > 1) // workaround because I can't call scissorhelper twice?
 			{
-				from.SendMessage( "You can only cut up one wheel at a time." );
-				return;
+				from.SendMessage("You can only cut up one wheel at a time.");
+				return false;
 			}
 
-			base.ScissorHelper( from, new FromageDeBrebisWedge(), 1 );
+			base.ScissorHelper(from, new FromageDeBrebisWedge(), 1);
 
-			from.AddToBackpack( new FromageDeBrebisWedgeSmall() );
+			from.AddToBackpack(new FromageDeBrebisWedgeSmall());
 
-			from.SendMessage( "You cut a wedge out of the wheel." );
+			from.SendMessage("You cut a wedge out of the wheel.");
+			return true;
 		}
 
 		[Constructable]
-		public FromageDeBrebis() : this( 1 )
+		public FromageDeBrebis() : this(1)
 		{
 		}
-		
+
 		[Constructable]
-		public FromageDeBrebis( int amount ) : base( amount, 0x97E )
+		public FromageDeBrebis(int amount) : base(amount, 0x97E)
 		{
 			this.Weight = 0.4;
 			this.FillFactor = 12;
 			this.Name = "Perail de Brebis (owczy ser)";
 			this.Hue = 0x481;
 		}
-		
-		public FromageDeBrebis( Serial serial ) : base( serial )
+
+		public FromageDeBrebis(Serial serial) : base(serial)
 		{
 		}
-		
+
 		//public override Item Dupe( int amount )
 		//{
 		//	return base.Dupe( new FromageDeBrebis(), amount );
 		//}
-		
-		public override void Serialize( GenericWriter writer )
+
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+
+			writer.Write((int)0); // version
 		}
-		
-		public override void Deserialize( GenericReader reader )
+
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
-			
+			base.Deserialize(reader);
+
 			int version = reader.ReadInt();
 		}
 	}
 
 	public class FromageDeBrebisWedge : Food, ICarvable
 	{
-		public void Carve( Mobile from, Item item )
+		public bool Carve(Mobile from, Item item)
 		{
-			if ( !Movable )
-				return;
+			if (!Movable)
+				return false;
 
-			base.ScissorHelper( from, new FromageDeBrebisWedgeSmall(), 3 );
-			from.SendMessage( "You cut the wheel into 3 wedges." );
+			base.ScissorHelper(from, new FromageDeBrebisWedgeSmall(), 3);
+			from.SendMessage("You cut the wheel into 3 wedges.");
+			return true;
 		}
 
 		[Constructable]
-		public FromageDeBrebisWedge() : this( 1 )
+		public FromageDeBrebisWedge() : this(1)
 		{
 		}
-		
+
 		[Constructable]
-		public FromageDeBrebisWedge( int amount ) : base( amount, 0x97D )
+		public FromageDeBrebisWedge(int amount) : base(amount, 0x97D)
 		{
 			this.Weight = 0.3;
 			this.FillFactor = 9;
 			this.Name = "Perail de Brebis (owczy ser)";
 			this.Hue = 0x481;
 		}
-		
-		public FromageDeBrebisWedge( Serial serial ) : base( serial )
+
+		public FromageDeBrebisWedge(Serial serial) : base(serial)
 		{
 		}
-		
+
 		//public override Item Dupe( int amount )
 		//{
 		//	return base.Dupe( new FromageDeBrebisWedge(), amount );
 		//}
-		
-		public override void Serialize( GenericWriter writer )
+
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+
+			writer.Write((int)0); // version
 		}
-		
-		public override void Deserialize( GenericReader reader )
+
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
-			
+			base.Deserialize(reader);
+
 			int version = reader.ReadInt();
 		}
 	}
@@ -498,150 +500,151 @@ namespace Server.Items
 	public class FromageDeBrebisWedgeSmall : Food
 	{
 		[Constructable]
-		public FromageDeBrebisWedgeSmall() : this( 1 )
+		public FromageDeBrebisWedgeSmall() : this(1)
 		{
 		}
-		
+
 		[Constructable]
-		public FromageDeBrebisWedgeSmall( int amount ) : base( amount, 0x97C )
+		public FromageDeBrebisWedgeSmall(int amount) : base(amount, 0x97C)
 		{
 			this.Weight = 0.1;
 			this.FillFactor = 3;
 			this.Name = "Perail de Brebis (owczy ser)";
 			this.Hue = 0x481;
 		}
-		
-		public FromageDeBrebisWedgeSmall( Serial serial ) : base( serial )
+
+		public FromageDeBrebisWedgeSmall(Serial serial) : base(serial)
 		{
 		}
-		
+
 		//public override Item Dupe( int amount )
 		//{
 		//	return base.Dupe( new FromageDeBrebisWedgeSmall(), amount );
 		//}
-		
-		public override void Serialize( GenericWriter writer )
+
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+
+			writer.Write((int)0); // version
 		}
-		
-		public override void Deserialize( GenericReader reader )
+
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
-			
+			base.Deserialize(reader);
+
 			int version = reader.ReadInt();
 		}
 	}
 
 
-
 	// fromage de Chevre
-	
+
 	public class FromageDeChevre : Food, ICarvable
 	{
-		public void Carve( Mobile from, Item item )
+		public bool Carve(Mobile from, Item item)
 		{
-			if ( !Movable )
-				return;
+			if (!Movable)
+				return false;
 
-			if ( this.Amount > 1 )  // workaround because I can't call scissorhelper twice?
+			if (this.Amount > 1) // workaround because I can't call scissorhelper twice?
 			{
-				from.SendMessage( "You can only cut up one wheel at a time." );
-				return;
+				from.SendMessage("You can only cut up one wheel at a time.");
+				return false;
 			}
 
-			base.ScissorHelper( from, new FromageDeChevreWedge(), 1 );
+			base.ScissorHelper(from, new FromageDeChevreWedge(), 1);
 
-			from.AddToBackpack( new FromageDeChevreWedgeSmall() );
+			from.AddToBackpack(new FromageDeChevreWedgeSmall());
 
-			from.SendMessage( "You cut a wedge out of the wheel." );
+			from.SendMessage("You cut a wedge out of the wheel.");
+			return true;
 		}
 
 		[Constructable]
-		public FromageDeChevre() : this( 1 )
+		public FromageDeChevre() : this(1)
 		{
 		}
-		
+
 		[Constructable]
-		public FromageDeChevre( int amount ) : base( amount, 0x97E )
+		public FromageDeChevre(int amount) : base(amount, 0x97E)
 		{
 			this.Weight = 0.4;
 			this.FillFactor = 12;
 			this.Name = "Chevreton du Bourbonnais (kozi ser)";
 			this.Hue = 0x481;
 		}
-		
-		public FromageDeChevre( Serial serial ) : base( serial )
+
+		public FromageDeChevre(Serial serial) : base(serial)
 		{
 		}
-		
+
 		//public override Item Dupe( int amount )
 		//{
 		//	return base.Dupe( new FromageDeChevre(), amount );
 		//}
-		
-		public override void Serialize( GenericWriter writer )
+
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+
+			writer.Write((int)0); // version
 		}
-		
-		public override void Deserialize( GenericReader reader )
+
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
-			
+			base.Deserialize(reader);
+
 			int version = reader.ReadInt();
 		}
 	}
 
 	public class FromageDeChevreWedge : Food, ICarvable
 	{
-		public void Carve( Mobile from, Item item )
+		public bool Carve(Mobile from, Item item)
 		{
-			if ( !Movable )
-				return;
+			if (!Movable)
+				return false;
 
-			base.ScissorHelper( from, new FromageDeChevreWedgeSmall(), 3 );
-			from.SendMessage( "You cut the wheel into 3 wedges." );
+			base.ScissorHelper(from, new FromageDeChevreWedgeSmall(), 3);
+			from.SendMessage("You cut the wheel into 3 wedges.");
+			return true;
 		}
 
 		[Constructable]
-		public FromageDeChevreWedge() : this( 1 )
+		public FromageDeChevreWedge() : this(1)
 		{
 		}
-		
+
 		[Constructable]
-		public FromageDeChevreWedge( int amount ) : base( amount, 0x97D )
+		public FromageDeChevreWedge(int amount) : base(amount, 0x97D)
 		{
 			this.Weight = 0.3;
 			this.FillFactor = 9;
 			this.Name = "Chevreton du Bourbonnais (kozi ser)";
 			this.Hue = 0x481;
 		}
-		
-		public FromageDeChevreWedge( Serial serial ) : base( serial )
+
+		public FromageDeChevreWedge(Serial serial) : base(serial)
 		{
 		}
-		
+
 		//public override Item Dupe( int amount )
 		//{
 		//	return base.Dupe( new FromageDeChevreWedge(), amount );
 		//}
-		
-		public override void Serialize( GenericWriter writer )
+
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+
+			writer.Write((int)0); // version
 		}
-		
-		public override void Deserialize( GenericReader reader )
+
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
-			
+			base.Deserialize(reader);
+
 			int version = reader.ReadInt();
 		}
 	}
@@ -649,41 +652,40 @@ namespace Server.Items
 	public class FromageDeChevreWedgeSmall : Food
 	{
 		[Constructable]
-		public FromageDeChevreWedgeSmall() : this( 1 )
+		public FromageDeChevreWedgeSmall() : this(1)
 		{
 		}
-		
+
 		[Constructable]
-		public FromageDeChevreWedgeSmall( int amount ) : base( amount, 0x97C )
+		public FromageDeChevreWedgeSmall(int amount) : base(amount, 0x97C)
 		{
 			this.Weight = 0.1;
 			this.FillFactor = 3;
 			this.Name = "Chevreton du Bourbonnais (kozi ser)";
 			this.Hue = 0x481;
 		}
-		
-		public FromageDeChevreWedgeSmall( Serial serial ) : base( serial )
+
+		public FromageDeChevreWedgeSmall(Serial serial) : base(serial)
 		{
 		}
-		
+
 		//public override Item Dupe( int amount )
 		//{
 		//	return base.Dupe( new FromageDeChevreWedgeSmall(), amount );
 		//}
-		
-		public override void Serialize( GenericWriter writer )
+
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+
+			writer.Write((int)0); // version
 		}
-		
-		public override void Deserialize( GenericReader reader )
+
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
-			
+			base.Deserialize(reader);
+
 			int version = reader.ReadInt();
 		}
 	}
-
 }

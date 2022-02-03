@@ -6,7 +6,15 @@ namespace Server.Items
 	public partial class FireHorn
 	{
 		[CommandProperty(AccessLevel.GameMaster)]
-		public int UsesRemaining { get { return FireHornExt.Get(this).UsesRemaining; } set { FireHornExt.Get(this).UsesRemaining = value; InvalidateProperties(); } }
+		public int UsesRemaining
+		{
+			get { return FireHornExt.Get(this).UsesRemaining; }
+			set
+			{
+				FireHornExt.Get(this).UsesRemaining = value;
+				InvalidateProperties();
+			}
+		}
 
 		public static int InitMaxUses = 120;
 		public static int InitMinUses = 80;
@@ -38,14 +46,15 @@ namespace Server.Items
 		private static void Cleanup()
 		{
 			List<Serial> toRemove = new List<Serial>();
-			foreach ( KeyValuePair<Serial, FireHornExtInfo> kvp in m_ExtensionInfo )
+			foreach (KeyValuePair<Serial, FireHornExtInfo> kvp in m_ExtensionInfo)
 			{
-				if ( World.FindItem(kvp.Key) == null )
+				if (World.FindItem(kvp.Key) == null)
 					toRemove.Add(kvp.Key);
 			}
-			foreach ( Serial serial in toRemove )
+
+			foreach (Serial serial in toRemove)
 			{
-				m_ExtensionInfo.Remove(serial);
+				m_ExtensionInfo.TryRemove(serial, out _);
 			}
 		}
 	}

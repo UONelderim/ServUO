@@ -6,16 +6,36 @@ namespace Server.Items
 	public partial class TrophyAddon
 	{
 		[CommandProperty(AccessLevel.GameMaster)]
-		public string AnimalName { get { return TaxidermyKitExt.Get(this).AnimalName; } set { TaxidermyKitExt.Get(this).AnimalName = value; InvalidateProperties(); } }
+		public string AnimalName
+		{
+			get { return TaxidermyKitExt.Get(this).AnimalName; }
+			set
+			{
+				TaxidermyKitExt.Get(this).AnimalName = value;
+				InvalidateProperties();
+			}
+		}
 	}
 
 	public partial class TrophyDeed
 	{
 		[CommandProperty(AccessLevel.GameMaster)]
-		public string AnimalName { get { return TaxidermyKitExt.Get(this).AnimalName; } set { TaxidermyKitExt.Get(this).AnimalName = value; InvalidateProperties(); } }
+		public string AnimalName
+		{
+			get { return TaxidermyKitExt.Get(this).AnimalName; }
+			set
+			{
+				TaxidermyKitExt.Get(this).AnimalName = value;
+				InvalidateProperties();
+			}
+		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public int HueVal { get { return TaxidermyKitExt.Get(this).HueVal; } set { TaxidermyKitExt.Get(this).HueVal = value; } }
+		public int HueVal
+		{
+			get { return TaxidermyKitExt.Get(this).HueVal; }
+			set { TaxidermyKitExt.Get(this).HueVal = value; }
+		}
 	}
 
 	class TaxidermyKitExt : NExtension<TaxidermyKitExtInfo>
@@ -37,14 +57,15 @@ namespace Server.Items
 		private static void Cleanup()
 		{
 			List<Serial> toRemove = new List<Serial>();
-			foreach ( KeyValuePair<Serial, TaxidermyKitExtInfo> kvp in m_ExtensionInfo )
+			foreach (KeyValuePair<Serial, TaxidermyKitExtInfo> kvp in m_ExtensionInfo)
 			{
-				if ( World.FindItem(kvp.Key) == null )
+				if (World.FindItem(kvp.Key) == null)
 					toRemove.Add(kvp.Key);
 			}
-			foreach ( Serial serial in toRemove )
+
+			foreach (Serial serial in toRemove)
 			{
-				m_ExtensionInfo.Remove(serial);
+				m_ExtensionInfo.TryRemove(serial, out _);
 			}
 		}
 	}

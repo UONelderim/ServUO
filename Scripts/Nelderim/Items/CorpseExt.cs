@@ -32,14 +32,15 @@ namespace Server.Items
 		private static void Cleanup()
 		{
 			List<Serial> toRemove = new List<Serial>();
-			foreach ( KeyValuePair<Serial, CorpseExtInfo> kvp in m_ExtensionInfo )
+			foreach (KeyValuePair<Serial, CorpseExtInfo> kvp in m_ExtensionInfo)
 			{
-				if ( World.FindItem(kvp.Key) == null )
+				if (World.FindItem(kvp.Key) == null)
 					toRemove.Add(kvp.Key);
 			}
-			foreach ( Serial serial in toRemove )
+
+			foreach (Serial serial in toRemove)
 			{
-				m_ExtensionInfo.Remove(serial);
+				m_ExtensionInfo.TryRemove(serial, out _);
 			}
 		}
 	}
