@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Nelderim;
-using Nelderim.Engines.ChaosChest;
 using Nelderim.Races;
 using Server.ContextMenus;
 using Server.Engines.PartySystem;
@@ -5681,7 +5680,6 @@ namespace Server.Mobiles
 			{
 				m_HasGeneratedLoot = true;
 				GenerateLoot(LootStage.Death);
-				ChaosChestQuest.OnBeforeDeath(this);
 			}
 
 			if (!NoKillAwards && Region.IsPartOf("Doom"))
