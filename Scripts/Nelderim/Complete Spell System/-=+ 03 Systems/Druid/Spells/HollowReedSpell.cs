@@ -45,11 +45,9 @@ namespace Server.ACC.CSS.Systems.Druid
 			else if (CheckBSequence(m))
 			{
 				SpellHelper.Turn(Caster, m);
-				SpellHelper.AddStatBonus(Caster, m, StatType.Str);
-				SpellHelper.DisableSkillCheck = true;
-				SpellHelper.AddStatBonus(Caster, m, StatType.Dex);
-				SpellHelper.AddStatBonus(Caster, m, StatType.Int);
-				SpellHelper.DisableSkillCheck = false;
+				SpellHelper.AddStatBonus(Caster, m, false, StatType.Str);
+				SpellHelper.AddStatBonus(Caster, m, true, StatType.Dex);
+				SpellHelper.AddStatBonus(Caster, m, true, StatType.Int);
 
 				m.PlaySound(0x15);
 				m.FixedParticles(0x373A, 10, 15, 5018, EffectLayer.Waist);
