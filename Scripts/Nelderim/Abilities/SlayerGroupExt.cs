@@ -12,12 +12,30 @@ namespace Server.Items
 			ref SlayerGroup eodon,
 			ref SlayerGroup eodonTribe, ref SlayerGroup dino, ref SlayerGroup myrmidex)
 		{
-			AddTypes(ref undead, typeof(SaragAwatar), typeof(NSarag));
+			AddSuperTypes(undead, typeof(SaragAwatar), typeof(NSarag));
+			AddSuperTypes(elemental, typeof(AgapiteColossus), typeof(BronzeColossus),
+				typeof(BronzeColossus), typeof(DullCopperColossus), typeof(GoldenColossus), typeof(ShadowIronColossus),
+				typeof(ValoriteColossus), typeof(VeriteColossus));
+			AddEntryTypes(elemental, SlayerName.EarthShatter, typeof(AgapiteColossus), typeof(BronzeColossus),
+				typeof(BronzeColossus), typeof(DullCopperColossus), typeof(GoldenColossus), typeof(ShadowIronColossus),
+				typeof(ValoriteColossus), typeof(VeriteColossus));
 		}
 
-		private static void AddTypes(ref SlayerGroup group, params Type[] types)
+		private static void AddSuperTypes(SlayerGroup group, params Type[] newTypes)
 		{
-			group.Super = new SlayerEntry(group.Super.Name, group.Super.Types.Concat(types).ToArray());
+			group.Super = new SlayerEntry(group.Super.Name, group.Super.Types.Concat(newTypes).ToArray());
+		}
+
+		private static void AddEntryTypes(SlayerGroup group, SlayerName slayerName, params Type[] newTypes)
+		{
+			for (int i = 0; i < group.Entries.Length; i++)
+			{
+				if (group.Entries[i].Name == slayerName)
+				{
+					var slayerEntry = group.Entries[i];
+					group.Entries[i] = new SlayerEntry(slayerEntry.Name, slayerEntry.Types.Concat(newTypes).ToArray());
+				}
+			}
 		}
 	}
 }
