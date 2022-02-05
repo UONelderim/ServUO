@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Server;
+using Server.Items;
 
 namespace Nelderim
 {
@@ -23,9 +24,10 @@ namespace Nelderim
 		{
 			bool created = !m_ExtensionInfo.ContainsKey(entity.Serial);
 			ItemHitPointsInfo info = NExtension<ItemHitPointsInfo>.Get(entity);
-			if (created && entity is IHitPoints entity2)
+			if (created && entity is IDurability durableItem)
 			{
-				info.HitPoints = info.MaxHitPoints = Utility.RandomMinMax(entity2.InitMinHits, entity2.InitMaxHits);
+				info.HitPoints = info.MaxHitPoints =
+					Utility.RandomMinMax(durableItem.InitMinHits, durableItem.InitMaxHits);
 			}
 
 			return info;
