@@ -1,160 +1,165 @@
+using System;
+using System.Collections.Generic;
 using Nelderim;
 using Nelderim.Gains;
 using Server.Commands;
 using Server.Items;
-using System;
-using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
-    public partial class PlayerMobile
-    {
-        // Gainy
-        private DateTime m_LastMacroCheck;
-        public DateTime LastMacroCheck
-        {
-            get => m_LastMacroCheck; 
-            set => m_LastMacroCheck = value; 
-        }
+	public partial class PlayerMobile
+	{
+		// Gainy
+		private DateTime m_LastMacroCheck;
 
-        [CommandProperty( AccessLevel.GameMaster )]
-        public DateTime LastPowerHour
-        {
-            get => Gains.Get( this ).LastPowerHour; 
-            set => Gains.Get( this ).LastPowerHour = value; 
-        }
+		public DateTime LastMacroCheck
+		{
+			get => m_LastMacroCheck;
+			set => m_LastMacroCheck = value;
+		}
 
-        [CommandProperty( AccessLevel.GameMaster )]
-        public bool AllowPowerHour
-        {
-            get => !HasPowerHour && (DateTime.Now.DayOfYear > LastPowerHour.DayOfYear || DateTime.Now.Year != LastPowerHour.Year); 
-        }
+		[CommandProperty(AccessLevel.GameMaster)]
+		public DateTime LastPowerHour
+		{
+			get => Gains.Get(this).LastPowerHour;
+			set => Gains.Get(this).LastPowerHour = value;
+		}
 
-        [CommandProperty( AccessLevel.Counselor )]
-        public bool HasPowerHour
-        {
-            get => DateTime.Now - LastPowerHour <= PowerHour.Duration; 
-        }
+		[CommandProperty(AccessLevel.GameMaster)]
+		public bool AllowPowerHour
+		{
+			get => !HasPowerHour && (DateTime.Now.DayOfYear > LastPowerHour.DayOfYear ||
+			                         DateTime.Now.Year != LastPowerHour.Year);
+		}
 
-        private bool m_GainsDebugEnabled;
+		[CommandProperty(AccessLevel.Counselor)]
+		public bool HasPowerHour
+		{
+			get => DateTime.Now - LastPowerHour <= PowerHour.Duration;
+		}
 
-        public bool GainsDebugEnabled
-        {
-            get { return m_GainsDebugEnabled; }
-            set { m_GainsDebugEnabled = value; }
-        }
+		private bool m_GainsDebugEnabled;
 
-        // SUS
-        private HashSet<Mobile> m_Seers;
+		public bool GainsDebugEnabled
+		{
+			get { return m_GainsDebugEnabled; }
+			set { m_GainsDebugEnabled = value; }
+		}
 
-        public void StartTracking( Mobile seer )
-        {
-            if ( m_Seers == null )
-                m_Seers = new HashSet<Mobile>();
+		// SUS
+		private HashSet<Mobile> m_Seers;
 
-            m_Seers.Add( seer );
-        }
+		public void StartTracking(Mobile seer)
+		{
+			if (m_Seers == null)
+				m_Seers = new HashSet<Mobile>();
 
-        public void StopTracking( Mobile seer )
-        {
-            if ( m_Seers != null )
-                m_Seers.Remove( seer );
-        }
+			m_Seers.Add(seer);
+		}
 
-        // Karta postaci
-        [CommandProperty( AccessLevel.Seer )]
-        public int QuestPoints
-        {
-            get => CharacterSheet.Get( this ).QuestPoints; 
-            set
-            {
-                CharacterSheet.Get( this ).QuestPoints = value;
-                LastQuestPointsTime = DateTime.Now;
-            }
-        }
+		public void StopTracking(Mobile seer)
+		{
+			if (m_Seers != null)
+				m_Seers.Remove(seer);
+		}
+
+		// Karta postaci
+		[CommandProperty(AccessLevel.Seer)]
+		public int QuestPoints
+		{
+			get => CharacterSheet.Get(this).QuestPoints;
+			set
+			{
+				CharacterSheet.Get(this).QuestPoints = value;
+				LastQuestPointsTime = DateTime.Now;
+			}
+		}
 
 
-        [CommandProperty( AccessLevel.Seer )]
-        public DateTime LastQuestPointsTime
-        {
-            get => CharacterSheet.Get( this ).LastQuestPointsTime; 
-            set => CharacterSheet.Get( this ).LastQuestPointsTime = value; 
-        }
+		[CommandProperty(AccessLevel.Seer)]
+		public DateTime LastQuestPointsTime
+		{
+			get => CharacterSheet.Get(this).LastQuestPointsTime;
+			set => CharacterSheet.Get(this).LastQuestPointsTime = value;
+		}
 
-        // Languages
-        [CommandProperty( AccessLevel.GameMaster )]
-        public Language LanguageSpeaking
-        {
-            get => Languages.Get( this ).LanguageSpeaking; 
-            set => Languages.Get( this ).LanguageSpeaking = value; 
-        }
+		// Languages
+		[CommandProperty(AccessLevel.GameMaster)]
+		public Language LanguageSpeaking
+		{
+			get => Languages.Get(this).LanguageSpeaking;
+			set => Languages.Get(this).LanguageSpeaking = value;
+		}
 
-        [CommandProperty( AccessLevel.GameMaster )]
-        public KnownLanguages LanguagesKnown
-        {
-            get => Languages.Get( this ).LanguagesKnown; 
-            set => Languages.Get( this ).LanguagesKnown = value; 
-        }
+		[CommandProperty(AccessLevel.GameMaster)]
+		public KnownLanguages LanguagesKnown
+		{
+			get => Languages.Get(this).LanguagesKnown;
+			set => Languages.Get(this).LanguagesKnown = value;
+		}
 
-        // Grab
-        private Container m_GrabContainer;
-        public Container GrabContainer
-        {
-            get { return m_GrabContainer; }
-            set { m_GrabContainer = value; }
-        }
+		// Grab
+		private Container m_GrabContainer;
 
-        // Possess
-        public Mobile m_PossessMob;
-        public Mobile m_PossessStorageMob;
+		public Container GrabContainer
+		{
+			get { return m_GrabContainer; }
+			set { m_GrabContainer = value; }
+		}
 
-        // Nelderim disguise kit
-        private Race m_RaceMod = null;
-        public Race RaceMod
-        {
-            get { return m_RaceMod; }
-            set { m_RaceMod = value; }
-        }
+		// Possess
+		public Mobile m_PossessMob;
+		public Mobile m_PossessStorageMob;
 
-        private int m_HueDisguise = -1;
-        public int HueDisguise
-        {
-            get
-            {
-                return m_HueDisguise;
-            }
-            set
-            {
-                m_HueDisguise = value;
-                Delta( MobileDelta.Hue );
-            }
-        }
+		// Nelderim disguise kit
+		private Race m_RaceMod = null;
 
-        // Traps
-        private int m_TrapsActive = 0;
+		public Race RaceMod
+		{
+			get { return m_RaceMod; }
+			set { m_RaceMod = value; }
+		}
 
-        [CommandProperty( AccessLevel.GameMaster )]
-        public int TrapsActive
-        {
-            get { return m_TrapsActive; }
-            set { m_TrapsActive = value; }
-        }
+		private int m_HueDisguise = -1;
 
-        // Nowy detect hidden
-        private DateTime m_NextPassiveDetectHiddenCheck;
-        private Timer m_PassiveDetectHiddenTimer;
+		public int HueDisguise
+		{
+			get
+			{
+				return m_HueDisguise;
+			}
+			set
+			{
+				m_HueDisguise = value;
+				Delta(MobileDelta.Hue);
+			}
+		}
 
-        public Timer PassiveDetectHiddenTimer
-        {
-            get { return m_PassiveDetectHiddenTimer; }
-            set { m_PassiveDetectHiddenTimer = value; }
-        }
+		// Traps
+		private int m_TrapsActive = 0;
 
-        public DateTime NextPassiveDetectHiddenCheck
-        {
-            get { return m_NextPassiveDetectHiddenCheck; }
-            set { m_NextPassiveDetectHiddenCheck = value; }
-        }
+		[CommandProperty(AccessLevel.GameMaster)]
+		public int TrapsActive
+		{
+			get { return m_TrapsActive; }
+			set { m_TrapsActive = value; }
+		}
+
+		// Nowy detect hidden
+		private DateTime m_NextPassiveDetectHiddenCheck;
+		private Timer m_PassiveDetectHiddenTimer;
+
+		public Timer PassiveDetectHiddenTimer
+		{
+			get { return m_PassiveDetectHiddenTimer; }
+			set { m_PassiveDetectHiddenTimer = value; }
+		}
+
+		public DateTime NextPassiveDetectHiddenCheck
+		{
+			get { return m_NextPassiveDetectHiddenCheck; }
+			set { m_NextPassiveDetectHiddenCheck = value; }
+		}
 
 		//Hunters Bulki
 
@@ -167,7 +172,7 @@ namespace Server.Mobiles
 			{
 				TimeSpan ts = m_NextHunterBulkOrder - DateTime.Now;
 
-				if ( ts < TimeSpan.Zero )
+				if (ts < TimeSpan.Zero)
 					ts = TimeSpan.Zero;
 
 				return ts;
@@ -178,15 +183,48 @@ namespace Server.Mobiles
 				catch { }
 			}
 		}
-		
+
 		// Nietolerancja
 		private bool m_IntolerateAction;
 
-		[CommandProperty( AccessLevel.GameMaster )]
+		[CommandProperty(AccessLevel.GameMaster)]
 		public bool Noticed
 		{
 			set { m_IntolerateAction = value; }
 			get { return m_IntolerateAction; }
+		}
+
+		private RessurectProtectionTimer m_ResTimer;
+
+		private class RessurectProtectionTimer : Timer
+		{
+			private PlayerMobile m_Player;
+
+			public RessurectProtectionTimer(PlayerMobile player) : base(TimeSpan.FromSeconds(5.0))
+			{
+				m_Player = player;
+			}
+
+			protected override void OnTick()
+			{
+				m_Player.Blessed = false;
+			}
+		}
+
+		private void StartResurrectTimer()
+		{
+			Blessed = true;
+			m_ResTimer = new RessurectProtectionTimer(this);
+			m_ResTimer.Start();
+		}
+
+		private void StopResurrectTimer()
+		{
+			if (m_ResTimer != null && m_ResTimer.Running)
+			{
+				Blessed = false;
+				m_ResTimer.Stop();
+			}
 		}
 	}
 }
