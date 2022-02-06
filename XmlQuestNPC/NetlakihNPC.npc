@@ -1,0 +1,70 @@
+<?xml version="1.0" standalone="yes"?>
+<XmlQuestNPC>
+  <NPC>
+    <Name>Netlakih</Name>
+    <Running>True</Running>
+    <ProximityRange>1</ProximityRange>
+    <ResetRange>16</ResetRange>
+    <NoTriggerOnCarried>Grobowy Pył/hue/55</NoTriggerOnCarried>
+    <AllowGhost>False</AllowGhost>
+    <SpeechPace>10</SpeechPace>
+    <ResetTime>1</ResetTime>
+    <ConfigFile>NetlakihNPC</ConfigFile>
+    <SpeechEntries>4</SpeechEntries>
+  </NPC>
+  <SpeechEntry>
+    <EntryNumber>10</EntryNumber>
+    <ID>10</ID>
+    <Text>Przynieś mi 10 sztuk grobowego pyłu.</Text>
+    <Condition>GETONCARRIED,Grobowy Pył,questholder,iscompleted=false &amp; GETONCARRIED,Grobowy Pył,questholder,visible=true</Condition>
+    <DependsOn>-1</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>20</EntryNumber>
+    <ID>20</ID>
+    <Text>Ah! nareszcie będe mógł kontynuować badania...</Text>
+    <Action>TAKE/Grobowy Pył ; GIVE/&lt;questholder/name/Grobowy Pył/hue/55/visible/false/repetable/false/objective1/COLLECT,Zakończono,1/Completed1/true&gt;</Action>
+    <Condition>GETONCARRIED,Grobowy Pył,questholder,iscompleted=true &amp; GETONCARRIED,Grobowy Pył,questholder,visible=true</Condition>
+    <DependsOn>-1</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Netlakih,4/ Jestem Netlakih, to moja wieża prowadze tu badania nad życiem wiecznym ta ziemia przesiąknieta śmiercią świetnie się do tego nadaje. A Ty mój przyjacielu dobrze się spisałeś, masz tu klucz do kufra wez z niego co potrzebujesz.</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>30</EntryNumber>
+    <ID>30</ID>
+    <Text>A teraz wracam do pracy, zostaw mnie.</Text>
+    <Action>GIVE/TajemniczyKlucz</Action>
+    <DependsOn>20</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>0</EntryNumber>
+    <ID>0</ID>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+</XmlQuestNPC>

@@ -1,0 +1,71 @@
+<?xml version="1.0" standalone="yes"?>
+<XmlQuestNPC>
+  <NPC>
+    <Name>Sauron - Berzerker</Name>
+    <Running>True</Running>
+    <ProximityRange>3</ProximityRange>
+    <ResetRange>16</ResetRange>
+    <NoTriggerOnCarried>proba berzerka 1 | ATTACHMENT,proba berzerka 1,XmlQuestAttachment</NoTriggerOnCarried>
+    <AllowGhost>False</AllowGhost>
+    <SpeechPace>10</SpeechPace>
+    <ResetTime>1</ResetTime>
+    <ConfigFile>quest\berzerkerquest2</ConfigFile>
+    <SpeechEntries>4</SpeechEntries>
+  </NPC>
+  <SpeechEntry>
+    <EntryNumber>10</EntryNumber>
+    <ID>10</ID>
+    <Text>*Argh! jesteś ponownie! Oooo ile nowych blizn na twym Ciele ! tylko pozazdrościć !*</Text>
+    <Condition>GETONTRIGMOB,skills.bushido.value&gt;51</Condition>
+    <DependsOn>-1</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Sauron,4/*Wchodzisz pewnym krokiem do pomieszczenia, podnoszac reke w gescie powitania do berserkera stojacego naprzeciw, poczym ten zbliza sie w twoja strone* Witaj {GETONTRIGMOB,name}! Slyszalem ze postanowiles dolaczyc do nas, jako ze twe dary nie przekonaly wszystkich o czystosci twoich zamiarow wyznaczono mnie abym poddal cie dodatkowej probie. Bez obaw nie bedzie to ciezkie zadanie, a i jesli Ci sie powiedzie to zyskasz powazanie wsrod twych nowych braci i siostr!;Zgadzam Się! Argh! mów o co chodzi!;tak</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>20</EntryNumber>
+    <ID>20</ID>
+    <Keywords>tak</Keywords>
+    <Action>GIVE/&lt;questholder/name/proba berzerka 1/notestring/Thorgrim nakazuje Ci odnalezc siedzibe trolli oraz ogrow i zgladzic jak najwiecej tych kreatur./objective1/KILL,ArcticOgreLord,10/objective2/KILL,frosttroll,40/repeatable/false</Action>
+    <DependsOn>10</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Sauron,4/Przejde odrazu do sedna sprawy, jak donosza nasi zwiadowcy na wschodzie i polnocy grasuja trole oraz ogry. Są one odporne na zimno przez co nazywamy je trolami oraz ogrami lodowymi, ow bydlaki nie daja nam spokojnie rabac drewna, jak tak dalej pojdzie wszyscy zamarzniemy. Niedawno Garbomir dostrzegl przyczyne ich agresywnego zachowania, okazuje sie ze te niokrzesane stworzenia tak sie rozplemily iz szukaja nowych terenow lowieckich i wyglada na to ze jesli szybko z tym czegos nie zrobimy to niebawem bedziemy mogli spotykac je na codzien nieopodal naszych domostw. Mysle ze juz wiesz jak bedzie przmialo twoje zadanie, mianowicie musisz ubic jak najwiecej tych kreatur aby odeszly i nie niepokoily naszych drwali. Powodzenia!</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>30</EntryNumber>
+    <ID>30</ID>
+    <Action>TAKE/proba berzerka 1 ; GIVE/worekberzerka2</Action>
+    <Condition>GETONCARRIED,proba berzerka 1,questholder,iscompleted=true</Condition>
+    <DependsOn>-1</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Sauron,4/Slyszalem od moich drwali ze trole juz ich nie niepokoja, zaprawde godnym jestes aby kroczyc wsrod naszych szeregow. Chwała Północnej Braci!</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>0</EntryNumber>
+    <ID>0</ID>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+</XmlQuestNPC>

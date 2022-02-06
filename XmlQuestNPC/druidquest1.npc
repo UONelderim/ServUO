@@ -1,0 +1,227 @@
+<?xml version="1.0" standalone="yes"?>
+<XmlQuestNPC>
+  <NPC>
+    <Name>Aqua - Druid</Name>
+    <Running>True</Running>
+    <ProximityRange>3</ProximityRange>
+    <ResetRange>16</ResetRange>
+    <NoTriggerOnCarried>Pierwsza proba druida | ATTACHMENT,Pierwsza proba druida,XmlQuestAttachment</NoTriggerOnCarried>
+    <AllowGhost>False</AllowGhost>
+    <SpeechPace>10</SpeechPace>
+    <ResetTime>1</ResetTime>
+    <ConfigFile>quest\druidquest</ConfigFile>
+    <SpeechEntries>15</SpeechEntries>
+  </NPC>
+  <SpeechEntry>
+    <EntryNumber>10</EntryNumber>
+    <ID>10</ID>
+    <Text>*Odchylajac galezie debu twoim oczom ukazuje sie wysoka postac w zielonej szacie z kapturem zbierajaca grzyby i ziola*</Text>
+    <Keywords>przyglada</Keywords>
+    <Condition>GETONTRIGMOB,skills.animallore.value&gt;51</Condition>
+    <DependsOn>-1</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Aqua,4/*Widzisz takze jak do ow postaci wolnym krokiem zbliza sie nadzwyczaj ogromny niedzwiedz. Chcac uchronic osobe w kapturze krzyczysz iz bestia zbliza sie w jej strone, z czego ta nic sobie nie robi, po 3 probach ostrzezenia dziwnego osobnika slyszysz donosny glos.* ;Wpadasz w oslupienie i sluchasz postaci;tak</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>20</EntryNumber>
+    <ID>20</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>10</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Aqua,4/Badz laskaw sciszyc ton mlodziencze, straszysz tym mojego kapana. *Powiedzial starzec w kapturze pokazujac dlonia niedzwiedzia* Podejdz no blizej i pokaz mi swe oblicze, niechno przeczytam z niego to z czym matka natura Ciebie do mnie sprowadza. *Podchodzisz do postaci wolnym krokiem* Achh tak! widze to te mozliwosci ta sila i lad ta harmonia. Mozesz zostac wielkim druidem, to dlatego wszechobecna moc natury Cie tu przywiodla. *Reagujesz zdziwieniem na slowa starca* ;Przysluchujesz sie dalej z zaciekawieniem postaci;tak;Odchodzisz gdyż postać chyba się myli;nie</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>40</EntryNumber>
+    <ID>40</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>20</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Aqua,4/No mlodziencze jestem Aqua - Druidka i sluga matki natury jesli zechcesz moge Cie nauczyc jak zyc w zgodzie z natura, ktora swym wiernym slugom oferuje swoja pomoc i sile. Niegdys my druidzi bylismy czescia jednej wielkiej calosci wraz z magami zywiolow i magami martwego porzadku, byly to czasy harmonii i ladu, az do chwili kiedy pojawili sie paladyni. Wymusili oni na nas podzial, aby walka z magami ktorzy im nie sprzyjali byla latwiejsza. Od tamtej chwili wszyscy druidzi sie rozproszyli i poczeli prowadzenie swych jakze dlugich zywotow z dala od istot ludzkich, w symbiozie z natura. Jesli bedziesz chcial moge nauczyc cie tej symbiozy, bedziesz mogl kozystac z sil natury aby chronic siebie i swych bliskich, przyjaciolmi beda ci zwierzeta ktore nigdy Cie nie zawioda. Czy jestes Ciekaw drogi Druida {GETONTRIGMOB,name} ?;Tak droga Pani;tak;Nie chyba nie o mnie chodzi;nie</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>30</EntryNumber>
+    <ID>30</ID>
+    <Text>To nie o ciebie jednak chodzilo....</Text>
+    <Keywords>nie</Keywords>
+    <DependsOn>20</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>0</EntryNumber>
+    <ID>0</ID>
+    <DependsOn />
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>50</EntryNumber>
+    <ID>50</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>40</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Aqua,4/A wiec dokonam rytualu na twym ciele i twej duszy abys stal sie jednym z nas. Wpierw duchy natury zadaja Ci 3 pytania na ktore bedziesz musial odpowiedziec w zgodzie ze swym sumieniem abym mogła ow rytual na tobie odprawic i moc natury zeslac na ciebie. Zaczynamy? ; Tak;tak;Nie;nie</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>60</EntryNumber>
+    <ID>60</ID>
+    <Text>Jednak nie jesteś jeszcze gotow...</Text>
+    <Keywords>nie</Keywords>
+    <DependsOn>50</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>70</EntryNumber>
+    <ID>70</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>50</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Aqua,4/*Pod wplywem rytualu doznajesz wizji* *Ukazuje Ci sie postac w ksztalcie drzewa, postac ow zadaje ci pytanie* Coz to jest: Chodzi pomiędzy istotami, Skrywa się za ich oczami, Słońce go odkrywa?;Morderca;nie;Chochlik;nie;Cien;tak</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>80</EntryNumber>
+    <ID>80</ID>
+    <Text>To zła odpowiedz.</Text>
+    <Keywords>nie</Keywords>
+    <DependsOn>70</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>90</EntryNumber>
+    <ID>90</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>70</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Aqua,4/*Ukazuje Ci sie wodospad , wodospad przemawia zadajac Ci pytanie* Gdy księżyc wstaje on powstaje, Gdy zachodzi on odchodzi. Krwi nie lubi, jadła nie chce, Wystraszony lub spokojny, O brzasku będziesz.;Wampir;nie;Wilkolak;nie;Sen;tak;Mara;nie</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>100</EntryNumber>
+    <ID>100</ID>
+    <Text>To była zla odpowiedź...</Text>
+    <Keywords>nie</Keywords>
+    <DependsOn>90</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>110</EntryNumber>
+    <ID>110</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>90</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Aqua,4/*Ukazuje Ci sie twarz wielkiego wilka, ktora zadaje Ci trzecie pytanie.* Sa nas tysiace, lecz liczy sie tylko jeden, Tego ze w ilosci sila jestem przykladem, Jesli kto mnie zdenerwuje wroze mu biede,Woda Cie nieszczesny przed mym gniewem nie  obroni, Ona cie przedemna jedynie uchroni. Kim jestem? ;Roj pszczol;tak;Powietrze;nie;Trucizna;nie;Smierc;nie</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>120</EntryNumber>
+    <ID>120</ID>
+    <Text>To była zla odpowiedź...</Text>
+    <Keywords>nie</Keywords>
+    <DependsOn>110</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>130</EntryNumber>
+    <ID>130</ID>
+    <Keywords>tak</Keywords>
+    <Action>GIVE/&lt;questholder/name/Pierwsza proba druida/repeatable/false/notestring/ Aqua by dokończyć rytuał potrzebuje następujących przedmiotów : 100 sztuk mandragory, 25 wilczych jagod, kij pasterski oraz 1000 sztuk złota/objective1/COLLECT,mandrakeroot,100/objective2/COLLECT,nightshade,25/objective3/COLLECT,shepherdscrook,1/objective4/COLLECT,gold,1000/repeatable/false</Action>
+    <DependsOn>110</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Aqua,4/Duchy natury zgodnie orzekły iż można Ci ufać i siły natury powierzyć Tobie. Dokończe rytuał kiedy przyniesiesz mi następujące rzeczy: 100 sztuk mandragory, 25 wilczych jagod, 1000 sztuk złota oraz sękaty kij. Czekam tu na ciebie aż wrócisz ze wszytkimi tymi przedmiotami.</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>140</EntryNumber>
+    <ID>140</ID>
+    <Action>TAKE/Pierwsza proba druida ; GIVE/worekdruida1</Action>
+    <Condition>GETONCARRIED,Pierwsza proba druida,questholder,iscompleted=true</Condition>
+    <DependsOn>-1</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Aqua,4/*Wizje odchodza, zostaje tylko starzec z kosturem* A wiec tego dokonales, przeszedles przez probe pomyslnie, od dzis jestes Druidem. Powodzenia! </Gump>
+  </SpeechEntry>
+</XmlQuestNPC>

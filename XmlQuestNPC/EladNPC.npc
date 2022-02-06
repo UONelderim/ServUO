@@ -1,0 +1,168 @@
+<?xml version="1.0" standalone="yes"?>
+<XmlQuestNPC>
+  <NPC>
+    <Name>Elad</Name>
+    <Running>True</Running>
+    <ProximityRange>3</ProximityRange>
+    <ResetRange>16</ResetRange>
+    <NoTriggerOnCarried>Pomoc Eladowi | ATTACHMENT,Pomoc Eladowi,xmlquestattachment </NoTriggerOnCarried>
+    <AllowGhost>False</AllowGhost>
+    <SpeechPace>10</SpeechPace>
+    <ResetTime>0,166666666666667</ResetTime>
+    <ConfigFile>EladNPC</ConfigFile>
+    <SpeechEntries>11</SpeechEntries>
+  </NPC>
+  <SpeechEntry>
+    <EntryNumber>10</EntryNumber>
+    <ID>10</ID>
+    <Text>Nie wiem kim jesteś ale, może zechcesz mi pomóc?</Text>
+    <DependsOn>-2</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>20</EntryNumber>
+    <ID>20</ID>
+    <Keywords>witaj</Keywords>
+    <DependsOn>10</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Elad,4/Przybyszu, zapodziałem gdzieś mój stary miecz. To cenna rodzinna pamiątka i jestem pewien ,że jest gdzieś w tym budynku. Odwdzięcze się jeśli go dla mnie odnajdziesz. Wiec jak będzie zechcesz go dla mnie poszukać?;TAK;agree;A CO DOSTANE?;question</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>30</EntryNumber>
+    <ID>30</ID>
+    <Keywords>agree</Keywords>
+    <DependsOn>20,50</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Elad,3/Dziękuje Ci! To wiele dla mnie znaczy , a teraz rozejrzyj się i gdy już go znajdziesz przynieś mi go szybko.</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>40</EntryNumber>
+    <ID>40</ID>
+    <Keywords>accept</Keywords>
+    <Action>GIVE/&lt;questholder/name/Pomoc Eladowi/repeatable/true/notestring/Elad Zbrojmistrz we wieży poprosił cię o odnalezienie swojego starego miecza./objective1/COLLECT,MieczElada,1/autoreward/false/rewardstring/@bag/ADD/&lt;KluczElada/hue/33/name/Klucz Elada&gt;</Action>
+    <DependsOn>30</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>50</EntryNumber>
+    <ID>50</ID>
+    <Keywords>question</Keywords>
+    <DependsOn>20</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Elad,4/Starość nie radość, ostatnio zgubiłem gdzieś mieszek złota - pomóż mi a odwdzięcze ci się jakoś chodz sam nie mam wiele. Wiec jak będzie?;Pomogę;agree;Nie Pomogę;decline</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>60</EntryNumber>
+    <ID>0</ID>
+    <Keywords>decline</Keywords>
+    <DependsOn>50</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Elad,4/Szkoda ,że nie masz czasu A więc bywaj! </Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>70</EntryNumber>
+    <ID>70</ID>
+    <Text>Jeszcze go nie znalazłeś?</Text>
+    <Condition>GETONCARRIED,Pomoc Eladowi,questholder,iscompleted=false &amp; GETONCARRIED,Pomoc Eladowi,questholder,visible=true</Condition>
+    <DependsOn>-1</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>80</EntryNumber>
+    <ID>80</ID>
+    <Text>Dzieki nieznajomy!</Text>
+    <Action>TAKE/Pomoc Eladowi ; GIVE/&lt;questholder/name/Pomoc Eladowi/hue/888/visible/false/repetable/false/objective1/COLLECT,MieczElada,1&gt;</Action>
+    <Condition>GETONCARRIED,Pomoc Eladowi,questholder,iscompleted=true &amp; GETONCARRIED,Pomoc Eladowi,questholder,visible=true</Condition>
+    <DependsOn>-1</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>90</EntryNumber>
+    <ID>90</ID>
+    <Text>A oto klucz, poszukaj w kufsze czegoś dla siebie...</Text>
+    <Action>GIVE/KluczElada ; GIVE/&lt;questholder/name/Pomoc Eladowi/hue/33/visible/false/repetable/false/objective1/COLLECT,Zakończono,1/Completed1/true&gt;</Action>
+    <Condition>GETONCARRIED,Pomoc Eladowi,questholder,hue=888</Condition>
+    <DependsOn>80</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>100</EntryNumber>
+    <ID>100</ID>
+    <Text>Bywaj!</Text>
+    <Action>TAKE/Pomoc Eladowi/hue/888</Action>
+    <Condition>GETONCARRIED,Pomoc Eladowi,questholder,hue=888</Condition>
+    <DependsOn>90</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>0</EntryNumber>
+    <ID>0</ID>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+</XmlQuestNPC>
