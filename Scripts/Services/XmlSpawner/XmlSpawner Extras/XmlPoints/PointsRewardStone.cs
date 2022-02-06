@@ -1,5 +1,3 @@
-
-
 /*
 ** PointsRewardStone
 ** ArteGordon
@@ -7,6 +5,8 @@
 **
 ** used to open the PointsRewardGump that allows players to purchase rewards with their XmlPoints pvp Credits.
 */
+
+using Server.Gumps;
 
 namespace Server.Items
 {

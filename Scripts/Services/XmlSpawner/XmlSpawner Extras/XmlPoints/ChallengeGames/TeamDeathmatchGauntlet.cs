@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Server.Engines.XmlSpawner2;
+using Server.Gumps;
 
 /*
 ** TeamDeathmatchGauntlet
