@@ -1,4 +1,3 @@
-using System;
 using Server.Network;
 
 namespace Server.Items
@@ -11,33 +10,34 @@ namespace Server.Items
 		}
 
 		[Constructable]
-		public Skull() : base( 0x1AE4 )
+		public Skull() : base(0x1AE4)
 		{
 			Weight = 1.0;
+			Stackable = true;
 		}
 
-		public Skull( Serial serial ) : base( serial )
+		public Skull(Serial serial) : base(serial)
 		{
 		}
 
-		public override void OnDoubleClick( Mobile from )
+		public override void OnDoubleClick(Mobile from)
 		{
-			if ( !from.InRange( this.GetWorldLocation(), 3 ))
-				from.LocalOverheadMessage( MessageType.Regular, 0x3B2, 1019045 ); // I can't reach that.
+			if (!from.InRange(this.GetWorldLocation(), 3))
+				from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 1019045); // I can't reach that.
 			else
-				from.SendAsciiMessage( "The skull of a skeleton." );
+				from.SendAsciiMessage("The skull of a skeleton.");
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 );
+			writer.Write((int)0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
