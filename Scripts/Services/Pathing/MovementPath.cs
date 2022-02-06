@@ -1,11 +1,10 @@
 #region References
-using System;
 
+using System;
 using Server.Commands;
 using Server.PathAlgorithms;
-using Server.PathAlgorithms.FastAStar;
-using Server.PathAlgorithms.SlowAStar;
 using Server.Targeting;
+
 #endregion
 
 namespace Server
@@ -23,7 +22,8 @@ namespace Server
 
 		public MovementPath(Mobile m, Point3D goal)
 			: this(m, goal, m.Map)
-		{ }
+		{
+		}
 
 		public MovementPath(IPoint3D p, Point3D goal, Map map)
 		{
@@ -78,7 +78,7 @@ namespace Server
 				// Path(from, p, FastAStarAlgorithm.Instance, "Fast", 0);
 				// Path(from, p, SlowAStarAlgorithm.Instance, "Slow", 2);
 				Path(from, p, NelderimAStarAlgorithm.Instance, "Nelderim", 2);
-				m_OverrideAlgorithm = null;
+				OverrideAlgorithm = null;
 			}
 		}
 
