@@ -13,6 +13,7 @@ namespace Server.Items
 		{
 			Weight = 2.0;
 			Name = "zestaw do tworzenia pułapek";
+			Hue = 2774;
 		}
 
 		[Constructable]

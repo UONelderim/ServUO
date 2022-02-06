@@ -11,11 +11,11 @@ namespace Server.Regions
 	public enum RaceRoomType
 	{
 		None,
-        HumanRoom,
-		ElfRoom,
-		KrasnoludRoom,
-		DrowRoom,
-		TeleportRoom
+        Czlowiek,
+		Elf,
+		Krasnolud,
+		Drow,
+		Teleport
 	}
 	
 	public class RaceRoomRegion : BaseRegion
@@ -24,16 +24,15 @@ namespace Server.Regions
 
 		public RaceRoomRegion( XmlElement xml, Map map, Region parent ) : base( xml, map, parent )
 		{
-            try
-            {
-                int roomType = XmlConvert.ToInt32( xml.GetAttribute( "roomtype" ) );
-
-                m_Room = (RaceRoomType)roomType;
-            }
-            catch ( Exception e )
-            {
-                Console.WriteLine( "RaceRoom roomType error: ", e.Message );
-            }
+	        if(Name.StartsWith("RaceRoom")){
+		        string raceRoomType = Name.Substring("RaceRoom".Length);
+		        if (!RaceRoomType.TryParse(raceRoomType, out m_Room)) 
+			        Console.WriteLine( "Invalid RaceRoomRegion type " + raceRoomType);
+	        }
+	        else
+	        {
+		        Console.WriteLine("Invlaid RaceRoom name for " + Name);
+	        }
 		}
 
 		public override bool OnCombatantChange( Mobile from, IDamageable Old, IDamageable New )
@@ -43,7 +42,7 @@ namespace Server.Regions
 				
 		public override void OnEnter( Mobile m )
 		{
-            if( m_Room != RaceRoomType.None && m_Room != RaceRoomType.TeleportRoom )
+            if( m_Room != RaceRoomType.None && m_Room != RaceRoomType.Teleport )
             {
                 m.SendGump( new RaceRoomGump( m , m_Room ) );
             }
@@ -52,10 +51,5 @@ namespace Server.Regions
 		public override void OnExit( Mobile m )
       	{
 		}
-		
-		//public override void AlterLightLevel( Mobile m, ref int global, ref int personal )
-		//{
-        //    global = 30;
-		//}
 	}
 }

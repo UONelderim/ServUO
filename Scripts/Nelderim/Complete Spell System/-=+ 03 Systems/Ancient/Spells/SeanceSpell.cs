@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using Nelderim;
 using Server;
 using Server.Items;
 using Server.Gumps;
@@ -27,10 +29,7 @@ namespace Server.ACC.CSS.Systems.Ancient
         {
             get { return SpellCircle.Fourth; }
         }
-
-        private int m_NewBody;
-        private int m_OldBody;
-
+        
         public AncientSeanceSpell(Mobile caster, Item scroll)
             : base(caster, scroll, m_Info)
         {
@@ -63,18 +62,7 @@ namespace Server.ACC.CSS.Systems.Ancient
                 Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
                 return false;
             }
-            else if (Caster.Female)
-            {
-                m_NewBody = 403;
 
-            }
-            else
-            {
-                m_NewBody = 402;
-
-
-            }
-            m_OldBody = Caster.Body;
             return true;
         }
 
@@ -109,25 +97,23 @@ namespace Server.ACC.CSS.Systems.Ancient
 
                 if (Caster.BeginAction(typeof(AncientSeanceSpell)))
                 {
-                    if (m_NewBody != 0)
-                    {
-                        if (this.Scroll != null)
-                            Scroll.Consume();
-                        Caster.PlaySound(0x379);
+                    if (this.Scroll != null)
+                        Scroll.Consume();
+                    Caster.PlaySound(0x379);
 
-                        Caster.BodyValue = m_NewBody;
+                    SeanceSpellExt.Get(Caster).OldBody = Caster.BodyValue;
+                    Caster.BodyValue = Caster.Female ? 403 : 402;
 
-                        Caster.SendMessage("Wkraczasz do królestwa zmarłych.");
-                        BaseArmor.ValidateMobile(Caster);
+                    Caster.SendMessage("Wkraczasz do królestwa zmarłych.");
+                    BaseArmor.ValidateMobile(Caster);
 
-                        StopTimer(Caster);
+                    StopTimer(Caster);
 
-                        Timer t = new InternalTimer(Caster, m_OldBody);
+                    Timer t = new InternalTimer(Caster);
 
-                        m_Timers[Caster] = t;
+                    m_Timers[Caster] = t;
 
-                        t.Start();
-                    }
+                    t.Start();
                 }
                 else
                 {
@@ -156,17 +142,15 @@ namespace Server.ACC.CSS.Systems.Ancient
         private class InternalTimer : Timer
         {
             private Mobile m_Owner;
-            private int m_OldBody;
 
-            public InternalTimer(Mobile owner, int body)
+            public InternalTimer(Mobile owner)
                 : base(TimeSpan.FromSeconds(0))
             {
                 m_Owner = owner;
-                m_OldBody = body;
 
                 int val = (int)owner.Skills[SkillName.Magery].Value;
 
-                if (val > 100)
+                if (val > 50)
                     val = 50;
 
                 Delay = TimeSpan.FromSeconds(val);
@@ -177,11 +161,62 @@ namespace Server.ACC.CSS.Systems.Ancient
             {
                 if (!m_Owner.CanBeginAction(typeof(AncientSeanceSpell)))
                 {
-                    m_Owner.BodyValue = m_OldBody;
+                    m_Owner.BodyValue = SeanceSpellExt.Get(m_Owner).OldBody;
+                    SeanceSpellExt.Delete(m_Owner);
                     m_Owner.EndAction(typeof(AncientSeanceSpell));
 
                     BaseArmor.ValidateMobile(m_Owner);
                 }
+            }
+        }
+        
+        public class SeanceSpellExt : NExtension<SeanceSpellExtInfo>
+        {
+            public static string ModuleName = "SeanceSpell";
+
+            public static void Initialize()
+            {
+                EventSink.WorldSave += new WorldSaveEventHandler( Save );
+                Load( ModuleName );
+                m_ExtensionInfo.Clear(); 
+            }
+
+            public static void Save( WorldSaveEventArgs args )
+            {
+                Cleanup();
+                Save( args, ModuleName );
+            }
+
+            private static void Cleanup()
+            {
+                List<Serial> toRemove = new List<Serial>();
+                foreach ( KeyValuePair<Serial, SeanceSpellExtInfo> kvp in m_ExtensionInfo )
+                {
+                    if ( World.FindEntity( kvp.Key ) == null )
+                        toRemove.Add( kvp.Key );
+                }
+                foreach ( Serial serial in toRemove )
+                {
+                    SeanceSpellExtInfo removed;
+                    m_ExtensionInfo.TryRemove( serial, out removed );
+                }
+            }
+        }
+
+        public class SeanceSpellExtInfo : NExtensionInfo
+        {
+            private int m_OldBody;
+            public int OldBody { get { return m_OldBody; } set { m_OldBody = value; } }
+            
+            public override void Deserialize( GenericReader reader )
+            {
+                m_OldBody = reader.ReadInt();
+                World.FindMobile(Serial).BodyValue = m_OldBody;
+            }
+
+            public override void Serialize( GenericWriter writer )
+            {
+                writer.Write( m_OldBody );
             }
         }
     }

@@ -70,8 +70,8 @@ namespace Server.ACC.CSS.Systems.Druid
 			new DruidFamiliarEntry( typeof( PixieFamiliar ), "wróżka",  50.0,  50.0 ),
 			new DruidFamiliarEntry( typeof( EagleFamiliar ), "duchowy orzeł",  60.0,  60.0 ),
 			new DruidFamiliarEntry( typeof( QuagmireFamiliar ), "trzesawisko",  80.0,  80.0 ),
-			new DruidFamiliarEntry( typeof( SummonedTreefellow ), "drzewiec", 100.0, 100.0 ),
-			new DruidFamiliarEntry( typeof( DryadFamiliar ), "driada", 115.0, 115.0 )
+			new DruidFamiliarEntry( typeof( SummonedTreefellow ), "drzewiec", 90.0, 90.0 ),
+			new DruidFamiliarEntry( typeof( DryadFamiliar ), "driada", 100.0, 100.0 )
 
 		};
 

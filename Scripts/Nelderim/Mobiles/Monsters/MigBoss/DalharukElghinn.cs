@@ -42,10 +42,11 @@ namespace Server.Mobiles
 
 			SetHits(22000);
 
-			SetDamage(25, 35);
+			SetDamage(18, 25);
 
 			SetDamageType(ResistanceType.Fire, 20);
 			SetDamageType(ResistanceType.Energy, 80);
+			SetDamageType(ResistanceType.Physical, 0);
 
 			SetResistance(ResistanceType.Physical, 80);
 			SetResistance(ResistanceType.Fire, 65);
@@ -53,7 +54,7 @@ namespace Server.Mobiles
 			SetResistance(ResistanceType.Poison, 50);
 			SetResistance(ResistanceType.Energy, 90);
 
-			SetSkill(SkillName.EvalInt, 160.1, 160.2);
+			SetSkill(SkillName.EvalInt, 110.1, 120.2);
 			SetSkill(SkillName.Magery, 155.1, 160.0);
 			SetSkill(SkillName.MagicResist, 110.1, 120.0);
 			SetSkill(SkillName.Tactics, 110.1, 120.0);
@@ -64,7 +65,7 @@ namespace Server.Mobiles
 			Fame = 25000;
 			Karma = -25000;
 
-			VirtualArmor = 70;
+			VirtualArmor = 65;
 
 			m_Change = DateTime.Now;
 			m_Stomp = DateTime.Now;
@@ -148,8 +149,7 @@ namespace Server.Mobiles
 			{
 				Type[] demonTypes =
 				{
-					typeof(LesserArcaneDaemon), typeof(LesserDaemon), typeof(LesserChaosDaemon),
-					typeof(LesserHordeDaemon)
+					typeof(DemonicznySluga), typeof(LesserDaemon), typeof(LesserMoloch), typeof(CommonHordeDaemon)
 				};
 				Type demonType = demonTypes[Utility.Random(demonTypes.Length)];
 
@@ -230,7 +230,7 @@ namespace Server.Mobiles
 
 					DoHarmful(m);
 
-					AOS.Damage(m, this, Utility.RandomMinMax(20, 25), true, 0, 0, 0, 100, 0);
+					AOS.Damage(m, this, Utility.RandomMinMax(10, 15), true, 0, 0, 0, 100, 0);
 
 					m.FixedParticles(0x36BD, 1, 10, 0x1F78, 0xA6, 0, (EffectLayer)255);
 					m.ApplyPoison(this, Poison.Lethal);

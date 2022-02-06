@@ -1,5 +1,7 @@
 #region References
+
 using System;
+
 #endregion
 
 namespace Server
@@ -20,7 +22,8 @@ namespace Server
 
 		public Point2D(IPoint2D p)
 			: this(p.X, p.Y)
-		{ }
+		{
+		}
 
 		[CommandProperty(AccessLevel.Counselor)]
 		public int X { get => m_X; set => m_X = value; }
@@ -229,11 +232,13 @@ namespace Server
 
 		public Point3D(IPoint3D p)
 			: this(p.X, p.Y, p.Z)
-		{ }
+		{
+		}
 
 		public Point3D(IPoint2D p, int z)
 			: this(p.X, p.Y, z)
-		{ }
+		{
+		}
 
 		[CommandProperty(AccessLevel.Counselor)]
 		public int X { get => m_X; set => m_X = value; }
@@ -368,8 +373,12 @@ namespace Server
 
 		public Rectangle2D(IPoint2D start, IPoint2D end)
 		{
-			m_Start = new Point2D(start);
-			m_End = new Point2D(end);
+			int startX = Math.Min(start.X, end.X);
+			int endX = Math.Max(start.X, end.X);
+			int startY = Math.Min(start.Y, end.Y);
+			int endY = Math.Max(start.Y, end.Y);
+			m_Start = new Point2D(startX, startY);
+			m_End = new Point2D(endX, endY);
 		}
 
 		public Rectangle2D(int x, int y, int width, int height)
@@ -434,7 +443,7 @@ namespace Server
 		public bool Contains(IPoint2D p)
 		{
 			return p.X >= m_Start.m_X && p.X < m_End.m_X
-				&& p.Y >= m_Start.m_Y && p.Y < m_End.m_Y;
+			                          && p.Y >= m_Start.m_Y && p.Y < m_End.m_Y;
 		}
 
 		public override string ToString()
@@ -465,8 +474,14 @@ namespace Server
 
 		public Rectangle3D(Point3D start, Point3D end)
 		{
-			m_Start = start;
-			m_End = end;
+			int startX = Math.Min(start.X, end.X);
+			int endX = Math.Max(start.X, end.X);
+			int startY = Math.Min(start.Y, end.Y);
+			int endY = Math.Max(start.Y, end.Y);
+			int startZ = Math.Min(start.Z, end.Z);
+			int endZ = Math.Max(start.Z, end.Z);
+			m_Start = new Point3D(startX, startY, startZ);
+			m_End = new Point3D(endX, endY, endZ);
 		}
 
 		public Rectangle3D(int x, int y, int z, int width, int height, int depth)
@@ -540,14 +555,14 @@ namespace Server
 		public bool Contains(IPoint2D p)
 		{
 			return p.X >= m_Start.m_X && p.X < m_End.m_X
-				&& p.Y >= m_Start.m_Y && p.Y < m_End.m_Y;
+			                          && p.Y >= m_Start.m_Y && p.Y < m_End.m_Y;
 		}
 
 		public bool Contains(IPoint3D p)
 		{
 			return p.X >= m_Start.m_X && p.X < m_End.m_X
-				&& p.Y >= m_Start.m_Y && p.Y < m_End.m_Y
-				&& p.Z >= m_Start.m_Z && p.Z < m_End.m_Z;
+			                          && p.Y >= m_Start.m_Y && p.Y < m_End.m_Y
+			                          && p.Z >= m_Start.m_Z && p.Z < m_End.m_Z;
 		}
 
 		public override string ToString()

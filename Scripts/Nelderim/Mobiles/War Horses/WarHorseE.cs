@@ -34,7 +34,7 @@ namespace Server.Mobiles
 
 			SetDamageType( ResistanceType.Physical, 100 );
 
-			SetResistance( ResistanceType.Physical, 35, 45 );
+			SetResistance( ResistanceType.Physical, 55, 65 );
 			SetResistance( ResistanceType.Fire, 30, 40 );
 			SetResistance( ResistanceType.Cold, 30, 40 );
 			SetResistance( ResistanceType.Poison, 30, 40 );
@@ -56,7 +56,7 @@ namespace Server.Mobiles
 		public override FoodType FavoriteFood{ get{ return FoodType.FruitsAndVegies | FoodType.GrainsAndHay; } }
 		
 		public override bool BardImmune{ get{ return false; } } 
-
+		public override PackInstinct PackInstinct{ get{ return PackInstinct.Equine; } }
 		public override double GetControlChance( Mobile m, bool useBaseSkill )
 		{
 			return 1.0;

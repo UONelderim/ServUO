@@ -24,6 +24,11 @@ namespace Server.ACC.CSS.Systems.Avatar
 			Register(typeof(AvatarArmysPaeonSpell), "Witalność Armii",
 				"Powoli regeneruje zdrowie kompanów. [Efekt obszarowy]", null, "Dziesiecina: 50; Mana: 15; Skill: 60",
 				2243, 3000, School.Avatar);
+			Register(typeof(AvatarBallSpell), "Kula Sniegu",
+				"Mnich Tworzy kule magicznego sniegu poprzez uderzenie w ziemie.", null,
+				"Dziesiecina: 100; Skill: 70; Mana: 45", 2245, 9300, School.Avatar);
+			Register(typeof(AvatarCurseRemovalSpell), "Reka Mnicha", "Usuwa wszelkie klatwy", null,
+				"Dziesiecina: 20; Mana: 8; Skill: 50", 2243, 3000, School.Avatar);
 		}
 	}
 }
