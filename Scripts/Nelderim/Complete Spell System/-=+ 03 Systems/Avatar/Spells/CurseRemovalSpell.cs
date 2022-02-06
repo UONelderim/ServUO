@@ -81,7 +81,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 
 					m.Paralyzed = false;
 
-					EvilOmenSpell.CheckEffect(m);
+					EvilOmenSpell.TryEndEffect(m);
 					StrangleSpell.RemoveCurse(m);
 					CorpseSkinSpell.RemoveCurse(m);
 					CurseSpell.RemoveEffect(m);

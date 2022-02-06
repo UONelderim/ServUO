@@ -17,7 +17,7 @@ namespace Server.Mobiles.Swiateczne
 			Name = "Jołakim";
 
 			Body = 400;
-			Hue = Tamael.Instance.RandomSkinHue();
+			Hue = Race.RandomSkinHue();
 
 			SetStr(1100, 1200);
 			SetDex(80, 90);
