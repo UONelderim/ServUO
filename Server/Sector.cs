@@ -1,9 +1,10 @@
 #region References
+
 using System;
 using System.Collections.Generic;
-
 using Server.Items;
 using Server.Network;
+
 #endregion
 
 namespace Server
@@ -278,6 +279,7 @@ namespace Server
 
 		private void UpdateMobileRegions()
 		{
+			m_UpdateBuffer = new HashSet<Mobile>();
 			if (m_Mobiles != null)
 			{
 				m_UpdateBuffer.UnionWith(m_Mobiles);
@@ -307,6 +309,7 @@ namespace Server
 		{
 			if (!Active && Owner != Map.Internal)
 			{
+				m_ActivationBuffer = new HashSet<IEntity>();
 				if (m_Items != null)
 				{
 					m_ActivationBuffer.UnionWith(m_Items);
@@ -334,6 +337,7 @@ namespace Server
 		{
 			if (Active)
 			{
+				m_ActivationBuffer = new HashSet<IEntity>();
 				if (m_Items != null)
 				{
 					m_ActivationBuffer.UnionWith(m_Items);
