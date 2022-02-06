@@ -66,12 +66,6 @@ namespace Server.Mobiles
 			base.OnCarve(from, corpse, with);
 		}
 
-		public override void AddWeaponAbilities()
-		{
-			WeaponAbilities.Add(WeaponAbility.Dismount, 0.4);
-			WeaponAbilities.Add(WeaponAbility.DefenseMastery, 0.4);
-		}
-
 		public override void GenerateLoot()
 		{
 			AddLoot(LootPack.Rich, 5);

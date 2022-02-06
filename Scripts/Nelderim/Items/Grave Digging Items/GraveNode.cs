@@ -1,5 +1,3 @@
-//Grave Digging by Massapequa
-
 using System;
 using System.Collections.Generic;
 using Server.Mobiles;
@@ -15,7 +13,6 @@ namespace Server.Items
 
 		public static List<GraveNode> Nodes = new List<GraveNode>();
 
-		private Mobile m_from;
 		private object m_target;
 		private bool Regs = true;
 
@@ -29,27 +26,15 @@ namespace Server.Items
 		[CommandProperty(AccessLevel.GameMaster)]
 		public int Hits
 		{
-			get
-			{
-				return m_Hits;
-			}
-			set
-			{
-				m_Hits = value;
-			}
+			get { return m_Hits; }
+			set { m_Hits = value; }
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public DateTime DecayTime
 		{
-			get
-			{
-				return m_DecayTime;
-			}
-			set
-			{
-				m_DecayTime = value;
-			}
+			get { return m_DecayTime; }
+			set { m_DecayTime = value; }
 		}
 
 		[Constructable]
@@ -63,13 +48,16 @@ namespace Server.Items
 			BeginDecay(m_DefaultDecayTime);
 		}
 
-
 		public void OnMine(Mobile from, Item tool)
 		{
-			m_from = from;
-
 			if (tool is IUsesRemaining && ((IUsesRemaining)tool).UsesRemaining < 1)
 				return;
+
+			if (!from.BeginAction(typeof(GraveNode)))
+			{
+				from.SendLocalizedMessage(1045157); //Musisz chwile poczekac, zeby moc zrobic cos innego
+				return;
+			}
 
 			Timer.DelayCall(TimeSpan.FromSeconds(1), new TimerStateCallback(DoMine), new object[] { from, tool });
 		}
@@ -80,8 +68,12 @@ namespace Server.Items
 			Mobile from = (Mobile)os[0];
 			Item tool = (Item)os[1];
 
+			if (from == null)
+				return;
 
-			if (from != null && from.CheckSkill(SkillName.Necromancy, 00.0, 100.0) && m_Hits > 0)
+			from.EndAction(typeof(GraveNode));
+
+			if (from.CheckSkill(SkillName.Necromancy, 00.0, 100.0) && m_Hits > 0)
 			{
 				from.Animate(11, 5, 1, true, false, 0);
 				from.PlaySound(Utility.RandomMinMax(0x125, 0x126));
@@ -94,51 +86,58 @@ namespace Server.Items
 				if (skill > 80 && Utility.RandomBool())
 					count++;
 
-				Item res = null;
-				string str = "";
+				Item item = null;
+				string msg = "";
 
 				if (Regs)
 				{
 					if (from.Skills[SkillName.Necromancy].Value > 75)
 					{
-						switch (Utility.Random(7))
+						switch (Utility.Random(11))
 						{
 							case 0:
-								res = new Bone(count);
-								if (count > 1)
-									str = " 2 bones ";
-								else
-									str = " a bone ";
+								item = new Bone();
+								msg = "kosc";
 								break;
 							case 1:
-								res = new FertileDirt(count);
-								str = " some fertile dirt ";
+								item = new Skull();
+								msg = "czaszka";
 								break;
 							case 2:
-								res = new GraveDust(count);
-								str = " some grave dust ";
+								item = new RibCage();
+								msg = "klatka piersiowa";
 								break;
 							case 3:
-								res = new NoxCrystal(count);
-								if (count > 1)
-									str = " 2 nox crystals ";
-								else
-									str = " a nox crystal ";
+								item = new Spine();
+								msg = "kregoslup";
 								break;
 							case 4:
-								res = new BatWing(count);
-								if (count > 1)
-									str = " 2 bat wings ";
-								else
-									str = " a bat wing ";
+								item = new Jawbone();
+								msg = "szczeka";
 								break;
 							case 5:
-								res = new DaemonBlood(count);
-								str = " some daemon blood ";
+								item = new Torso();
+								msg = "tulów";
 								break;
 							case 6:
-								res = new PigIron(count);
-								str = " some pig iron ";
+								item = new RightArm();
+								msg = "prawa reka";
+								break;
+							case 7:
+								item = new LeftArm();
+								msg = "lewa reka";
+								break;
+							case 8:
+								item = new RightLeg();
+								msg = "prawa noga";
+								break;
+							case 9:
+								item = new LeftLeg();
+								msg = "lewa noga";
+								break;
+							case 10:
+								item = new Bandage();
+								msg = "bandaz";
 								break;
 						}
 					}
@@ -146,20 +145,20 @@ namespace Server.Items
 					{
 						if (Utility.RandomDouble() > 0.5)
 						{
-							res = new FertileDirt(count);
-							str = " some fertile dirt ";
+							item = new Skull();
+							msg = "czaszka";
 						}
 						else
 						{
-							res = new Bone(count);
-							if (count > 1)
-								str = " 2 bones ";
-							else
-								str = " a bone ";
+							item = new Bone();
+							msg = "kosc";
 						}
 					}
 					else
-						res = new Bone(count);
+					{
+						item = new Bone();
+						msg = "kosc";
+					}
 				}
 				else if (!Regs)
 				{
@@ -167,49 +166,54 @@ namespace Server.Items
 					{
 						if (Utility.RandomDouble() > 0.5)
 						{
-							res = new FertileDirt(count);
-							str = " some fertile dirt ";
+							item = new Skull();
+							msg = "czaszka";
 						}
 						else
 						{
-							res = new Bone(count);
-							if (count > 1)
-								str = " 2 bones ";
-							else
-								str = " a bone ";
+							item = new Bone();
+							msg = "kosc";
 						}
 					}
 					else
 					{
-						res = new Bone(count);
-						if (count > 1)
-							str = " 2 bones ";
-						else
-							str = " a bone ";
+						item = new Bone();
+						msg = "kosc";
 					}
 				}
 
-				from.SendMessage("You dig up" + str + "from the grave.");
+				if (item != null && item.Stackable)
+					item.Amount = count;
 
-				if (pack == null || !pack.TryDropItem(from, res, false))
-					res.MoveToWorld(from.Location, from.Map);
+				if (count > 1)
+					msg = count + " " + msg;
+
+				from.SendMessage("Wykopales " + msg + " z grobu.");
+
+
+				if (pack == null || !pack.TryDropItem(from, item, false))
+					item.MoveToWorld(from.Location, from.Map);
 
 				Hits--;
 
 				CheckTool(tool);
 
 				if (Utility.RandomDouble() < 0.125)
-					GenerateLoot(from);
+				{
+					Item loot = GenerateLoot(from);
+					if (loot != null && pack == null || !pack.TryDropItem(from, loot, false))
+						loot.MoveToWorld(from.Location, from.Map);
+				}
 			}
 			else if (m_Hits <= 0)
 			{
-				from.SendMessage("There is nothing left to exhume here.");
+				from.SendMessage("Nie ma tu nic do wykopania.");
 			}
 			else
 			{
 				from.Animate(11, 5, 1, true, false, 0);
 				from.PlaySound(Utility.RandomMinMax(0x125, 0x126));
-				from.SendMessage("You dig for a while but fail to unearth anything useful.");
+				from.SendMessage("Kopiesz przez chwile, ale nie udaje Ci sie nic ciekawego wykopac.");
 			}
 		}
 
@@ -229,7 +233,7 @@ namespace Server.Items
 			}
 		}
 
-		public void GenerateLoot(Mobile from)
+		public Item GenerateLoot(Mobile from)
 		{
 			double skill = from.Skills[SkillName.Necromancy].Value;
 
@@ -237,137 +241,88 @@ namespace Server.Items
 			{
 				switch (Utility.Random(10))
 				{
+					default:
 					case 0:
 					case 1:
-					case 2:
-						AddHumanBones(from);
-						break;
-					case 3:
-						AddEquipment(from);
-						break;
-					case 4:
-						AddScroll(from, 8);
-						break;
-					case 5:
-						AddGraveItem(from);
-						break;
-					case 6:
-						AddMap(from, Utility.RandomMinMax(1, 6));
-						break;
-					case 7:
-						AddInstrument(from);
-						break;
-					case 8:
-						AddUnearthed(from);
-						break;
-					case 9:
-						AddCoffin(from);
-						break;
+					case 2: return HumanBones(from);
+					case 3: return Equipment(from);
+					case 4: return Scroll(from, 8);
+					case 5: return GraveItem(from);
+					case 6: return Map(from, Utility.RandomMinMax(1, 4));
+					case 7: return Instrument(from);
+					case 8: return Unearthed(from);
+					case 9: return Coffin(from);
 				}
 			}
 			else if (skill >= 70)
 			{
 				switch (Utility.Random(9))
 				{
+					default:
 					case 0:
 					case 1:
-					case 2:
-						AddHumanBones(from);
-						break;
-					case 3:
-						AddEquipment(from);
-						break;
-					case 4:
-						AddScroll(from, 7);
-						break;
+					case 2: return HumanBones(from);
+					case 3: return Equipment(from);
+					case 4: return Scroll(from, 7);
 					case 5:
-					case 6:
-						AddGraveItem(from);
-						break;
-					case 7:
-						AddMap(from, Utility.RandomMinMax(1, 3));
-						break;
-					case 8:
-						AddInstrument(from);
-						break;
+					case 6: return GraveItem(from);
+					case 7: return Map(from, Utility.RandomMinMax(1, 3));
+					case 8: return Instrument(from);
 				}
 			}
 			else if (skill >= 50)
 			{
 				switch (Utility.Random(9))
 				{
+					default:
 					case 0:
 					case 1:
-					case 2:
-						AddHumanBones(from);
-						break;
-					case 3:
-						AddEquipment(from);
-						break;
-					case 4:
-						AddScroll(from, 5);
-						break;
-					case 5:
-						AddGraveItem(from);
-						break;
-					case 6:
-						AddMap(from, 1);
-						break;
+					case 2: return HumanBones(from);
+					case 3: return Equipment(from);
+					case 4: return Scroll(from, 5);
+					case 5: return GraveItem(from);
+					case 6: return Map(from, 1);
 					case 7:
-					case 8:
-						AddHumanBones(from);
-						break;
+					case 8: return HumanBones(from);
 				}
 			}
 			else if (skill >= 30)
 			{
 				switch (Utility.Random(9))
 				{
+					default:
 					case 0:
 					case 1:
 					case 2:
-					case 3:
-						AddHumanBones(from);
-						break;
-					case 4:
-						AddScroll(from, 5);
-						break;
+					case 3: return HumanBones(from);
+					case 4: return Scroll(from, 5);
 					case 5:
-					case 6:
-						AddGraveItem(from);
-						break;
+					case 6: return GraveItem(from);
 					case 7:
-					case 8:
-						AddHumanBones(from);
-						break;
+					case 8: return HumanBones(from);
 				}
 			}
 			else
 			{
 				switch (Utility.Random(5))
 				{
+					default:
 					case 0:
 					case 1:
 					case 2:
-					case 3:
-						AddHumanBones(from);
-						break;
-					case 4:
-						AddScroll(from, 3);
-						break;
+					case 3: return HumanBones(from);
+					case 4: return Scroll(from, 3);
 				}
 			}
 		}
 
-		public void AddEquipment(Mobile from)
+		public Item Equipment(Mobile from)
 		{
 			double skill = from.Skills[SkillName.Necromancy].Value;
-			Container pack = from.Backpack;
 			Item item = Loot.RandomArmorOrShieldOrWeaponOrJewelry();
 
 			int props = (Utility.RandomMinMax(0, (int)(skill / 20)));
-			int luckChance =
-				from is PlayerMobile ? ((PlayerMobile)from).Luck : from.Luck; //(int)(Utility.RandomDouble() * 10000);
+			int luckChance = from is PlayerMobile ? ((PlayerMobile)from).Luck : from.Luck;
 			int min = 1;
 			int max = 100;
 
@@ -375,120 +330,80 @@ namespace Server.Items
 				BaseRunicTool.ApplyAttributesTo((BaseWeapon)item, false, luckChance, props, min, max);
 			else if (item is BaseArmor)
 				BaseRunicTool.ApplyAttributesTo((BaseArmor)item, false, luckChance, props, min, max);
-			else if (item is BaseRanged)
-				BaseRunicTool.ApplyAttributesTo((BaseRanged)item, false, luckChance, props, min, max);
-			else if (item is BaseShield)
-				BaseRunicTool.ApplyAttributesTo((BaseShield)item, false, luckChance, props, min, max);
 			else if (item is BaseJewel)
 				BaseRunicTool.ApplyAttributesTo((BaseJewel)item, false, luckChance, props, min, max);
 			else if (item is BaseHat)
 				BaseRunicTool.ApplyAttributesTo((BaseHat)item, false, luckChance, props, min, max);
 
-			pack.DropItem(item);
-			from.SendMessage("You unearth some equipment.");
+			from.SendMessage("Wykopales troche ciekawych przedmiotow.");
+			return item;
 		}
 
-		public void AddHumanBones(Mobile from)
+		public Item HumanBones(Mobile from)
 		{
-			Container pack = from.Backpack;
-			Item item = null;
-
+			from.SendMessage("Odkopales troche kosci.");
 			if (Utility.RandomDouble() > 0.125)
-				item = new HumanBones();
+				return new HumanBones();
 			else
-				item = new HumanSkull();
-
-			pack.DropItem(item);
-			from.SendMessage("You unearth some bones.");
+				return new HumanSkull();
 		}
 
-		public void AddGraveItem(Mobile from)
+		public Item GraveItem(Mobile from)
 		{
-			Container pack = from.Backpack;
-			pack.DropItem(new GraveDiggingItem());
-			from.SendMessage("You unearth an item.");
+			from.SendMessage("Wykopales troche ciekawych przedmiotow.");
+			return new GraveDiggingItem();
 		}
 
-		public void AddMap(Mobile from, int level)
+		public Item Map(Mobile from, int level)
 		{
-			Container pack = from.Backpack;
-			pack.DropItem(new TreasureMap(level, from.Map == Map.Felucca ? Map.Felucca : Map.Trammel));
-			from.SendMessage("You unearth a treasure map.");
+			from.SendMessage("Wykopales mape skarbu.");
+			return new TreasureMap(level, from.Map == Server.Map.Felucca ? Server.Map.Felucca : Server.Map.Felucca);
 		}
 
-		public void AddUnearthed(Mobile from)
+		public Item Unearthed(Mobile from)
 		{
-			Container pack = from.Backpack;
-			Item item = null;
-			string msg = "";
-
 			if (Utility.RandomDouble() > 0.66)
 			{
-				item = new UnearthedBones(from);
-				msg = "You exhume some remains.";
+				from.SendMessage("Wykopujesz zwloki.");
+				return new UnearthedBones(from);
 			}
 			else
 			{
-				item = new UnearthedJewelryBox(from);
-				msg = "You unearth a jewelry box.";
+				from.SendMessage("Wykopujesz skrzynie ze skarbami.");
+				return new UnearthedJewelryBox(from);
 			}
-
-			pack.DropItem(item);
-			from.SendMessage(msg);
 		}
 
-		public void AddCoffin(Mobile from)
+		public Item Coffin(Mobile from)
 		{
-			Container pack = from.Backpack;
-			Item item = null;
-
+			from.SendMessage("Cos ciekawego wylania sie z zniemi...");
 			switch (Utility.Random(5))
 			{
+				default:
 				case 0:
-					item = new CoffinWestDeed();
-					break;
-				case 1:
-					item = new CoffinNorthDeed();
-					break;
-				case 2:
-					item = new GraveWestDeed();
-					break;
-				case 3:
-					item = new GraveNorthDeed();
-					break;
-				case 4:
-					item = new GravestoneDeed();
-					break;
+				case 1: return new CoffinNorthDeed();
+				case 2: return new GraveWestDeed();
+				case 3: return new GraveNorthDeed();
+				case 4: return new GravestoneDeed();
 			}
-
-			pack.DropItem(item);
-			from.SendMessage("You unearth something interesting...");
 		}
 
-		public void AddScroll(Mobile from, int max)
+		public Item Scroll(Mobile from, int max)
 		{
-			Container pack = from.Backpack;
-			Item item = null;
+			from.SendMessage("Wykopales zwoj.");
 			switch (Utility.Random(2))
 			{
-				case 0:
-					item = Loot.RandomScroll(1, max, SpellbookType.Regular);
-					break;
-				case 1:
-					item = Loot.RandomScroll(1, max, SpellbookType.Necromancer);
-					break;
+				default:
+				case 0: return Loot.RandomScroll(1, max, SpellbookType.Regular);
+				case 1: return Loot.RandomScroll(1, max, SpellbookType.Necromancer);
 			}
-
-			pack.DropItem(item);
-			from.SendMessage("You unearth a scroll.");
 		}
 
 
-		public void AddInstrument(Mobile from)
+		public Item Instrument(Mobile from)
 		{
-			Container pack = from.Backpack;
-			pack.DropItem(Loot.RandomInstrument());
-			from.SendMessage("You unearth an instrument.");
+			from.SendMessage("Wykopales instrument.");
+			return Loot.RandomInstrument();
 		}
 
 		public void BeginDecay(TimeSpan delay)
@@ -516,7 +431,9 @@ namespace Server.Items
 			Nodes.Remove(this);
 		}
 
-		public GraveNode(Serial serial) : base(serial) { }
+		public GraveNode(Serial serial) : base(serial)
+		{
+		}
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -539,7 +456,8 @@ namespace Server.Items
 
 			list.ForEach(g =>
 			{
-				if (!g.Deleted && g.Map != null && g.Map != Map.Internal && g.m_DecayTimer == null)
+				if (!g.Deleted && ((Item)g).Map != null && ((Item)g).Map != Server.Map.Internal &&
+				    g.m_DecayTimer == null)
 				{
 					g.Delete();
 				}
