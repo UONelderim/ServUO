@@ -55,7 +55,7 @@ namespace Server.Mobiles
 			base.OnDeath( c );
 			
 			DullCopperGranite granite = new DullCopperGranite();
-   			granite.Amount = 10;
+   			granite.Amount = 1;
    			c.DropItem(granite);
 
 		}

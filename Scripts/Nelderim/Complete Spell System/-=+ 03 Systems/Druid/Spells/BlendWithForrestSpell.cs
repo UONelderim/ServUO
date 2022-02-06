@@ -56,7 +56,7 @@ namespace Server.ACC.CSS.Systems.Druid
 				//m.Paralyze( TimeSpan.FromSeconds( 20.0 ) );
 				m.FixedParticles( 0x375A, 2, 10, 5027, 0x3D, 2, EffectLayer.Waist );
 				m.Hidden = true;
-				m.Squelched = true;
+				
 
 				Point3D loc = new Point3D( m.X, m.Y, m.Z );
 				Item item = new InternalItem( loc, Caster.Map, Caster,m , speak );
@@ -77,7 +77,7 @@ namespace Server.ACC.CSS.Systems.Druid
 				Visible = false;
 				Movable = false;
 				m_Owner=m;
-				squeltched = talk;
+				
 
 				MoveToWorld( loc, map );
 
@@ -107,7 +107,7 @@ namespace Server.ACC.CSS.Systems.Druid
 
 				writer.Write( m_End - DateTime.Now );
 				writer.Write(m_Owner);
-				writer.Write(squeltched);
+				
 			}
 
 			public override void Deserialize( GenericReader reader )
@@ -116,11 +116,11 @@ namespace Server.ACC.CSS.Systems.Druid
 
 				int version = reader.ReadInt();
 				m_Owner = reader.ReadMobile();
-				squeltched=reader.ReadBool();
+				
 				if(m_Owner!=null)
 				{
 					m_Owner.Hidden=false;
-					m_Owner.Squelched=squeltched;
+					
 				}
 				this.Delete();
 			}
@@ -131,8 +131,7 @@ namespace Server.ACC.CSS.Systems.Druid
 
 				if ( m_Timer != null )
 					m_Timer.Stop();
-				if(m_Owner!=null)
-					m_Owner.Squelched=squeltched;
+
 			}
 
 			private class InternalTimer : Timer
@@ -145,13 +144,13 @@ namespace Server.ACC.CSS.Systems.Druid
 				{
 					m_Item = item;
 					m_Owner=caster;
-					speak=talk;
+
 				}
 
 				protected override void OnTick()
 				{
 					m_Item.Delete();
-					m_Owner.Squelched=speak;
+
 					m_Owner.Hidden=false;
 				}
 			}

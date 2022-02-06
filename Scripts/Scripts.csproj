@@ -355,5 +355,6 @@
         <Folder Include="Items\Artifacts\OriginalModified\WeaponArtifacts"/>
         <Folder Include="Items\Artifacts\Przeklete"/>
         <Folder Include="Items\Artifacts\Zimowe"/>
+        <Folder Include="Services\XmlSpawner"/>
     </ItemGroup>
 </Project>

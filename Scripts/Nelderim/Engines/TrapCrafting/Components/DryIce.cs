@@ -17,6 +17,7 @@ namespace Server.Items
 			Amount = amount;
 			Weight = 2.0;
             Name = "suchy lód";
+			Hue = 2120;
 		}
 
 		public DryIce( Serial serial ) : base( serial )

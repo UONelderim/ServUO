@@ -9,7 +9,7 @@ namespace Server.Mobiles
 	{
 
 		[Constructable]
-		public VitVargBerserker () : base( AIType.AI_Melee, FightMode.Weakest, 14, 2, 0.15, 0.3 )
+		public VitVargBerserker () : base( AIType.AI_Melee, FightMode.Weakest, 14, 1, 0.15, 0.3 )
 		{			
 			SpeechHue = Utility.RandomDyedHue();
 			

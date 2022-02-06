@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
-using Server;
 using Server.Items;
-using Server.Gumps;
 using Server.Spells;
+using Server.ACC.CSS.Systems.Ancient;
 
 namespace Server.ACC.CSS.Systems.Undead
 {
@@ -27,9 +26,6 @@ namespace Server.ACC.CSS.Systems.Undead
         {
             get { return SpellCircle.Fourth; }
         }
-
-        private int m_NewBody;
-        private int m_OldBody;
 
         public UndeadSeanceSpell(Mobile caster, Item scroll)
             : base(caster, scroll, m_Info)
@@ -63,18 +59,7 @@ namespace Server.ACC.CSS.Systems.Undead
                 Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
                 return false;
             }
-            else if (Caster.Female)
-            {
-                m_NewBody = 403;
 
-            }
-            else
-            {
-                m_NewBody = 402;
-
-
-            }
-            m_OldBody = Caster.Body;
             return true;
         }
 
@@ -109,25 +94,23 @@ namespace Server.ACC.CSS.Systems.Undead
 
                 if (Caster.BeginAction(typeof(UndeadSeanceSpell)))
                 {
-                    if (m_NewBody != 0)
-                    {
-                        if (this.Scroll != null)
-                            Scroll.Consume();
-                        Caster.PlaySound(0x379);
+                    if (this.Scroll != null)
+                        Scroll.Consume();
+                    Caster.PlaySound(0x379);
 
-                        Caster.BodyValue = m_NewBody;
+                    AncientSeanceSpell.SeanceSpellExt.Get(Caster).OldBody = Caster.BodyValue;
+                    Caster.BodyValue = Caster.Female ? 403 : 402;
 
-                        Caster.SendMessage("Wkraczasz do królestwa zmarłych.");
-                        BaseArmor.ValidateMobile(Caster);
+                    Caster.SendMessage("Wkraczasz do królestwa zmarłych.");
+                    BaseArmor.ValidateMobile(Caster);
 
-                        StopTimer(Caster);
+                    StopTimer(Caster);
 
-                        Timer t = new InternalTimer(Caster, m_OldBody);
+                    Timer t = new InternalTimer(Caster);
 
-                        m_Timers[Caster] = t;
+                    m_Timers[Caster] = t;
 
-                        t.Start();
-                    }
+                    t.Start();
                 }
                 else
                 {
@@ -156,17 +139,15 @@ namespace Server.ACC.CSS.Systems.Undead
         private class InternalTimer : Timer
         {
             private Mobile m_Owner;
-            private int m_OldBody;
 
-            public InternalTimer(Mobile owner, int body)
+            public InternalTimer(Mobile owner)
                 : base(TimeSpan.FromSeconds(0))
             {
                 m_Owner = owner;
-                m_OldBody = body;
 
                 int val = (int)owner.Skills[SkillName.Necromancy].Value;
 
-                if (val > 100)
+                if (val > 50)
                     val = 50;
 
                 Delay = TimeSpan.FromSeconds(val);
@@ -177,7 +158,8 @@ namespace Server.ACC.CSS.Systems.Undead
             {
                 if (!m_Owner.CanBeginAction(typeof(UndeadSeanceSpell)))
                 {
-                    m_Owner.BodyValue = m_OldBody;
+                    m_Owner.BodyValue = AncientSeanceSpell.SeanceSpellExt.Get(m_Owner).OldBody;
+                    AncientSeanceSpell.SeanceSpellExt.Delete(m_Owner);
                     m_Owner.EndAction(typeof(UndeadSeanceSpell));
 
                     BaseArmor.ValidateMobile(m_Owner);

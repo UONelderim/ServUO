@@ -115,10 +115,10 @@ namespace Server.Items
 			protected override void OnTick()
 			{
 				if (m_Mobile != null && !m_Mobile.Deleted && m_Mobile.Player && m_Mobile.Map != Map.Internal &&
-				    m_Ring != null && m_Ring.Parent.Equals(m_Mobile))
+				    m_Ring != null && m_Mobile.Equals(m_Ring.Parent))
 				{
-					m_Mobile.Hits--;
-					m_Mobile.Mana--;
+					m_Mobile.Hits -= 5;
+					m_Mobile.Mana -= 5;
 				}
 				else
 				{
