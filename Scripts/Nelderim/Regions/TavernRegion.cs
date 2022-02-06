@@ -17,7 +17,7 @@ namespace Server.Regions
 		public override void OnEnter(Mobile m)
 		{
 			if (this.Name != String.Empty)
-				m.SendMessage("Witam w karczmie {0}", PrettyName);
+				m.SendMessage("Witam w karczmie {0}", Name);
 
 			base.OnEnter(m);
 		}
