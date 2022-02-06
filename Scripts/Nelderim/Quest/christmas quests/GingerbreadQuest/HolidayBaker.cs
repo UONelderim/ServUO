@@ -1,92 +1,83 @@
 //Created by Milva
-using System;
-using System.Collections;
-using Server.Items;
-using Server.Targeting;
-using Server.Gumps;
-using Server.Misc;
-using Server.ContextMenus;
-using Server.Network;
-using Server.Spells;
-using Server.Accounting;
+
 using System.Collections.Generic;
+using Server.ContextMenus;
+using Server.Gumps;
+using Server.Items;
+using Server.Network;
 
 namespace Server.Mobiles
 {
-	[CorpseName( "Cialo piekarza" )]
+	[CorpseName("Cialo piekarza")]
 	public class HolidayBaker : Mobile
 	{
-        public virtual bool IsInvulnerable{ get{ return true; } }
-		
+		public virtual bool IsInvulnerable { get { return true; } }
+
 		[Constructable]
-		public HolidayBaker ()
+		public HolidayBaker()
 		{
 			Name = "Tilly";
-            Title = "- piekarz z Ferion";
+			Title = "- piekarz z Ferion";
 
-            Body = 401;
-            Hue = 1002;
+			Body = 401;
+			Hue = 1002;
 			CantWalk = true;
 			Blessed = true;
-			
-			
+
+
 			Item skirt;
 			skirt = new Skirt();
 			skirt.Hue = 1368;
-			AddItem( skirt );
-          
+			AddItem(skirt);
+
 
 			Item shirt;
 			shirt = new Shirt();
-            skirt.Hue = 1368;
-			AddItem( shirt );
-          
+			skirt.Hue = 1368;
+			AddItem(shirt);
+
 
 			Item shoes;
 			shoes = new Shoes();
 			shoes.Hue = 1368;
-			AddItem( shoes );
-            
+			AddItem(shoes);
+
 
 			Item JesterHat;
-            JesterHat = new JesterHat();
-            JesterHat.Hue = 1368;
-            AddItem(JesterHat);
-            
+			JesterHat = new JesterHat();
+			JesterHat.Hue = 1368;
+			AddItem(JesterHat);
 
-            Item FullApron;
-            FullApron = new FullApron();
-            FullApron .Hue = 1368;
-            AddItem(FullApron);
 
-            Item LongHair = new LongHair(8252);
-            LongHair.Movable = false;
-            LongHair.Hue = 1153;
-            AddItem(LongHair);
+			Item FullApron;
+			FullApron = new FullApron();
+			FullApron.Hue = 1368;
+			AddItem(FullApron);
 
-           
+			HairItemID = Hair.Human.Long;
+			HairHue = 1153;
 		}
 
-        public HolidayBaker(Serial serial)
-            : base(serial)
+		public HolidayBaker(Serial serial)
+			: base(serial)
 		{
 		}
 
-		public override void GetContextMenuEntries( Mobile from, List<ContextMenuEntry> list )
-	    { 
-	        base.GetContextMenuEntries( from, list );
-            list.Add(new HolidayBakerEntry(from, this)); 
-	    } 
-
-		public override void Serialize( GenericWriter writer )
+		public override void GetContextMenuEntries(Mobile from, List<ContextMenuEntry> list)
 		{
-			base.Serialize( writer );
-			writer.Write( (int) 0 );
+			base.GetContextMenuEntries(from, list);
+			list.Add(new HolidayBakerEntry(from, this));
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Deserialize( reader );
+			base.Serialize(writer);
+			writer.Write((int)0);
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 
@@ -95,8 +86,8 @@ namespace Server.Mobiles
 			private Mobile m_Mobile;
 			private Mobile m_Giver;
 
-            public HolidayBakerEntry(Mobile from, Mobile giver)
-                : base(6146, 3)
+			public HolidayBakerEntry(Mobile from, Mobile giver)
+				: base(6146, 3)
 			{
 				m_Mobile = from;
 				m_Giver = giver;
@@ -104,89 +95,83 @@ namespace Server.Mobiles
 
 			public override void OnClick()
 			{
-				if( !( m_Mobile is PlayerMobile ) )
+				if (!(m_Mobile is PlayerMobile))
 					return;
-				
-				PlayerMobile mobile = (PlayerMobile) m_Mobile;
 
-                if (!mobile.HasGump(typeof(Gingerbreadquestgump)))
+				PlayerMobile mobile = (PlayerMobile)m_Mobile;
+
+				if (!mobile.HasGump(typeof(Gingerbreadquestgump)))
 				{
-                    mobile.SendGump(new Gingerbreadquestgump(mobile));
-						
-				} 
+					mobile.SendGump(new Gingerbreadquestgump(mobile));
+				}
 			}
 		}
+
 //Use this section for single play quest
-	/*	public override bool OnDragDrop( Mobile from, Item dropped )
-		{
-            Mobile m = from;
-
-            PlayerMobile pm = from as PlayerMobile;
-            Account acct = (Account)from.Account;
-            bool GingerbreadDoughRecieved = Convert.ToBoolean(acct.GetTag("HolidayReward"));
-
-			if ( pm != null && dropped is GingerbreadDough)
-            {
-               
-
-				if (!GingerbreadDoughRecieved) //added account tag check
-                {
-					dropped.Delete(); //	
-                    pm.AddToBackpack(new SantaStatuette());
-					SendMessage( "Thank you for your help!" );
-                    acct.SetTag("HolidayReward", "true");
-					this.PrivateOverheadMessage( MessageType.Regular, 1153, false, "Thank you, this is exactly what I needed!", pm.NetState );
-                    pm.SendMessage("You have been awarded a christmas gift for your quest completion!");
-					return true;
-                }
-         		
+		/*	public override bool OnDragDrop( Mobile from, Item dropped )
+			{
+	            Mobile m = from;
+	
+	            PlayerMobile pm = from as PlayerMobile;
+	            Account acct = (Account)from.Account;
+	            bool GingerbreadDoughRecieved = Convert.ToBoolean(acct.GetTag("HolidayReward"));
+	
+				if ( pm != null && dropped is GingerbreadDough)
+	            {
+	               
+	
+					if (!GingerbreadDoughRecieved) //added account tag check
+	                {
+						dropped.Delete(); //	
+	                    pm.AddToBackpack(new SantaStatuette());
+						SendMessage( "Thank you for your help!" );
+	                    acct.SetTag("HolidayReward", "true");
+						this.PrivateOverheadMessage( MessageType.Regular, 1153, false, "Thank you, this is exactly what I needed!", pm.NetState );
+	                    pm.SendMessage("You have been awarded a christmas gift for your quest completion!");
+						return true;
+	                }
+			         
+					else
+			         {
+				         pm.SendMessage("You are so kind to have taken the time to help me obtain a Gingerbread Dough.");
+	                    dropped.Delete();
+						return true;
+					}
+		         }
 				else
-         		{
-         			pm.SendMessage("You are so kind to have taken the time to help me obtain a Gingerbread Dough.");
-                    dropped.Delete();
+		         {
+					this.PrivateOverheadMessage( MessageType.Regular, 1153, false, "I did not ask for this item.", pm.NetState );
+					return false;
+			     }
+			} */
+//Use this section for repeatable quest
+		public override bool OnDragDrop(Mobile from, Item dropped)
+		{
+			Mobile m = from;
+			PlayerMobile mobile = m as PlayerMobile;
+
+			if (mobile != null)
+			{
+				if (dropped is GingerbreadDough)
+				{
+					dropped.Delete();
+
+					mobile.AddToBackpack(new SantaStatuette());
+					SendMessage("Dziękuję Ci za pomoc dobry człowieku!");
+					this.PrivateOverheadMessage(MessageType.Regular, 1153, false,
+						"Dzięki Ci! To dokładnie to co było mi potrzebne!", mobile.NetState);
+					SayTo(from, "Otrzymujesz świąteczny prezent za swe wysiłki!");
+
 					return true;
 				}
-         	}
-			else
-         	{
-				this.PrivateOverheadMessage( MessageType.Regular, 1153, false, "I did not ask for this item.", pm.NetState );
-				return false;
-     		}
-		} */
-//Use this section for repeatable quest
-        public override bool OnDragDrop(Mobile from, Item dropped)
-        {
-            Mobile m = from;
-            PlayerMobile mobile = m as PlayerMobile;
 
-            if (mobile != null)
-            {
-                if (dropped is GingerbreadDough)
-                {
+				else
+				{
+					SayTo(from, "Nie, tego nie potrzebuję.");
+				}
+			}
 
-
-                    dropped.Delete();
-
-                    mobile.AddToBackpack(new SantaStatuette());
-                    SendMessage("Dziękuję Ci za pomoc dobry człowieku!");
-                    this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "Dzięki Ci! To dokładnie to co było mi potrzebne!", mobile.NetState);
-                    SayTo(from, "Otrzymujesz świąteczny prezent za swe wysiłki!");
-
-                    return true;
-
-                }
-
-                else
-                {
-                    SayTo(from, "Nie, tego nie potrzebuję.");
-                }
-            }
-            return false;
-
-
-        }
-
-
-
+			return false;
+		}
 	}
 }
