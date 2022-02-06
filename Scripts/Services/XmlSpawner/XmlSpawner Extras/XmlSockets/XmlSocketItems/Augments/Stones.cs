@@ -2149,7 +2149,7 @@ public class GlimmeringGneiss : BaseSocketAugmentation
 
 	public override string OnIdentify(Mobile from)
 	{
-		return "Armor, Jewelry: +5 Forensic Evaluation";
+		return "Armor, Jewelry: +5 Herbalism";
 	}
 
 	public override bool OnAugment(Mobile from, object target)
@@ -2162,7 +2162,7 @@ public class GlimmeringGneiss : BaseSocketAugmentation
 			{
 				if (a.SkillBonuses.GetBonus(i) == 0)
 				{
-					a.SkillBonuses.SetValues(i, SkillName.Forensics, 5.0);
+					a.SkillBonuses.SetValues(i, SkillName.Herbalism, 5.0);
 					break;
 				}
 			}
@@ -2177,7 +2177,7 @@ public class GlimmeringGneiss : BaseSocketAugmentation
 			{
 				if (a.SkillBonuses.GetBonus(i) == 0)
 				{
-					a.SkillBonuses.SetValues(i, SkillName.Forensics, 5.0);
+					a.SkillBonuses.SetValues(i, SkillName.Herbalism, 5.0);
 					break;
 				}
 			}

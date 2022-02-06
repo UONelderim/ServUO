@@ -146,7 +146,7 @@ namespace Server.Items
 		{
 			if (to == null) return;
 
-			to.Send(new ContainerDisplay(this, null));
+			ContainerDisplay.Send(to.NetState, this);
 			to.Send(new ForcedContainerContent(to, this));
 
 

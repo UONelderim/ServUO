@@ -349,10 +349,8 @@ namespace Server.Items
 			// add the reward item back into the container list for display
 			UnHideRewards();
 
-			to.Send(new ContainerDisplay(this, null));
-
-			to.Send(new ContainerContent(to, this, true));
-
+			ContainerDisplay.Send(to.NetState, this);
+			ContainerContent.Send(to.NetState, this);
 
 			List<Item> items = this.Items;
 
