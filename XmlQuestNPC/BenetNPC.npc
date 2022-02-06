@@ -1,0 +1,73 @@
+<?xml version="1.0" standalone="yes"?>
+<XmlQuestNPC>
+  <NPC>
+    <Name>Benet</Name>
+    <Running>True</Running>
+    <ProximityRange>3</ProximityRange>
+    <ResetRange>16</ResetRange>
+    <NoTriggerOnCarried>Grimmur Maga/hue/46</NoTriggerOnCarried>
+    <AllowGhost>False</AllowGhost>
+    <SpeechPace>10</SpeechPace>
+    <ResetTime>0,166666666666667</ResetTime>
+    <ConfigFile>BenetNPC</ConfigFile>
+    <SpeechEntries>4</SpeechEntries>
+  </NPC>
+  <SpeechEntry>
+    <EntryNumber>10</EntryNumber>
+    <ID>10</ID>
+    <Text>Przynieś mi potrzebne rzeczy pióro, czyste zwoje i złoto.</Text>
+    <Condition>GETONCARRIED,Grimmur Maga,questholder,iscompleted=false &amp; GETONCARRIED,Grimmur Maga,questholder,visible=true</Condition>
+    <DependsOn>-1</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>20</EntryNumber>
+    <ID>20</ID>
+    <Text>Ah! zapewne chcesz odebrać swój grimmur...</Text>
+    <Action>TAKE/Grimmur Maga ; GIVE/&lt;questholder/name/Grimmur Maga/hue/46/visible/false/repetable/false/objective1/COLLECT,Zakończono,1/Completed1/true&gt;</Action>
+    <Condition>GETONCARRIED,Grimmur Maga,questholder,iscompleted=true &amp; GETONCARRIED,Grimmur Maga,questholder,visible=true</Condition>
+    <DependsOn>-1</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Benet,4/ Mistrz Nubiz przekazał mi że przyjdziesz po grimmur, ukonczyłęm już prace. Prosze oto twój grimmur dbaj o niego! A jeśli chcesz specjalna oprawę poszukaj introligatora.</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>30</EntryNumber>
+    <ID>30</ID>
+    <Text>A teraz zostaw mnie.</Text>
+    <Action>GIVE/Grimmur</Action>
+    <DependsOn>20</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>40</EntryNumber>
+    <ID>40</ID>
+    <Text>Zostaw mnie jestem zajęty!</Text>
+    <Keywords>Witaj!</Keywords>
+    <DependsOn>-2</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+</XmlQuestNPC>

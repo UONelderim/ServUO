@@ -1,0 +1,153 @@
+<?xml version="1.0" standalone="yes"?>
+<XmlQuestNPC>
+  <NPC>
+    <Name>Thorgrim - Berzerker</Name>
+    <Running>True</Running>
+    <ProximityRange>10</ProximityRange>
+    <ResetRange>16</ResetRange>
+    <NoTriggerOnCarried>Pierwsza proba | ATTACHMENT,Pierwsza proba,XmlQuestAttachment</NoTriggerOnCarried>
+    <AllowGhost>False</AllowGhost>
+    <SpeechPace>10</SpeechPace>
+    <ResetTime>1</ResetTime>
+    <ConfigFile>quest\berzerkerquest1</ConfigFile>
+    <SpeechEntries>10</SpeechEntries>
+  </NPC>
+  <SpeechEntry>
+    <EntryNumber>10</EntryNumber>
+    <ID>10</ID>
+    <Text>*Wchodząc do pomiemszczenia dostrzegasz wielką niczym głaz i sprawiającą wrazenie równie twardej postac z ogromnym toporzyskiem przytwierdzinym do pleców*</Text>
+    <Keywords>przygladasz</Keywords>
+    <DependsOn>-1</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>20</EntryNumber>
+    <ID>20</ID>
+    <DependsOn>10</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Thorgrim,4/*Postac dostrzeglszy Cie kieruje sie w twoja strone,  po chwili lezysz juz na ziemi pod jej ciezarem, wtem slyszysz jej potezny jak bicie mlotem o skaly glos* Dostrzegam na twej twarzy znane mi rysy, czyzbys byl potomkiem zniewolonego niegdys ludu berserkerow? ;Tak, zgadza się!;tak;Nie, to pomyłka;nie</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>30</EntryNumber>
+    <ID>30</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>20</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Thorgrim,4/*Wojownik szybko wstaje i wyciaga dlon w gescie pomocy, zdradzajac przy tym swe imie* Witaj wiec zwa mnie Thorgrimem jestem tu od szkolenia mlodych wojownikow, zapewne z tym do mnie przychodzisz? ;Tak Thorgrimie;tak;Nie to pomyłka;nie</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>40</EntryNumber>
+    <ID>40</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>30</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Thorgrim,4/Jak kazdy berserker bedziesz musial przejsc probe, sprawdzi ona czy drzemiace w tobie poklady sily nie obroca sie przeciwko tobie, jesli przejdziesz ja pomyslnie znaczyc to bedzie ze nadajesz sie aby kroczyc w naszych szeregach. Zaczniemy od trzech pytań odnośnie nas Berzerków. Czy godzisz się na nie? ;Tak Thorgrimie;tak;Nie! nie będę odpowiadać;nie</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>50</EntryNumber>
+    <ID>50</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>40</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Thorgrim,4/*Stary Berzerker odwraca sie w twoja strone i rzecze poteznym niczym grom w jesienne noce glosem.*                    Teraz odpowiesz mi na trzy pytania abym mogl sprawdzic czys godzien wstapic w nasze szeregi. Oto pierwsze z nich a brzmi ono tak: Berzerkerzy są to potomkowie? ;Trolli i Ogrów;nie;Ludzi;nie;Orków;tak</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>60</EntryNumber>
+    <ID>60</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>50</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Thorgrim,4/Nasi przodkowie nauczyli sie stanu opanowania agresji od: ;Paladynów;nie;Orków;tak;Trolli i Ogrów;nie</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>70</EntryNumber>
+    <ID>70</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>60</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Thorgrim,4/Naszym najwiekszym sojusznikiem, ktorym zapewniamy sobie cieplo w zimne noce i dnie i chroni nas od wrogow jest: ;Topór;tak;Paladyni;nie;Ogień;nie</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>80</EntryNumber>
+    <ID>80</ID>
+    <Keywords>tak</Keywords>
+    <Action>GIVE/&lt;questholder/name/Pierwsza proba/repeatable/false/notestring/ Przynieś Thorgrimowi następujące rzeczy : 100 zwykłych skór, 100 niebieskich skór oraz 1000 sztuk złota/objective1/COLLECT,leather,100/objective2/COLLECT,spinedleather,100/objective3/COLLECT,GOLD,1000/repeatable/false</Action>
+    <DependsOn>70</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Thorgrim,4/Zatem skoro odpowiedziałeś na moje pytania gótów jesteś na kolejną próbę. Oto ona: Przyniesiesz 100 zwykłych skór, 100 niebieskich skór oraz 1000 sztuk złota jako datek dla naszych braci. Wróc kiedy już wszystko zdobędziesz. Powodzenia!</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>90</EntryNumber>
+    <ID>90</ID>
+    <Action>TAKE/Pierwsza proba ; GIVE/worekberzerka1</Action>
+    <Condition>GETONCARRIED,Pierwsza proba,questholder,iscompleted=true</Condition>
+    <DependsOn>-1</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Thorgrim,4/Jesteś. Widzę iż wykonałeś powierzone Ci zadanie. Zatem zgodnie z mogę Ci teraz powierzyć nasz skarb jakim jest ksiega z wszystkimi naszymi naukami. Ucz się jej i nieś chwałe naszym braciom i siostrom! Powodzenia Berzerku !</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>0</EntryNumber>
+    <ID>0</ID>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+</XmlQuestNPC>

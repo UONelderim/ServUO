@@ -1,0 +1,253 @@
+<?xml version="1.0" standalone="yes"?>
+<XmlQuestNPC>
+  <NPC>
+    <Name>Dymiroth - Czarnoksieznik</Name>
+    <Running>True</Running>
+    <ProximityRange>3</ProximityRange>
+    <ResetRange>16</ResetRange>
+    <TriggerOnCarried>Pierwsza proba | ATTACHMENT,Pierwsza proba,XmlQuestAttachment</TriggerOnCarried>
+    <NoTriggerOnCarried>Proba czarnoksieznika | ATTACHMENT,Proba czarnoksieznika,XmlQuestAttachment</NoTriggerOnCarried>
+    <AllowGhost>False</AllowGhost>
+    <SpeechPace>10</SpeechPace>
+    <ResetTime>0,5</ResetTime>
+    <ConfigFile>quest\czarnoksieznikquest1</ConfigFile>
+    <SpeechEntries>17</SpeechEntries>
+  </NPC>
+  <SpeechEntry>
+    <EntryNumber>10</EntryNumber>
+    <ID>10</ID>
+    <Text>*Twoim oczom ukazuje sie odwrocona tylem postac w czarnej niczym bezgwiezdna noc szacie, kiedy tylko chciales zrobic pierwszy krok w tyl aby sie wycofac ta przemowila*</Text>
+    <Keywords>przyglada</Keywords>
+    <DependsOn>-1</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Dymiroth,4/*Twoim oczom ukazuje sie odwrocona tylem postac w czarnej niczym bezgwiezdna noc szacie, kiedy tylko chciales zrobic pierwszy krok w tyl aby sie wycofac ta przemowila* Dokad to {GETONTRIGMOB,name}, czekalem na ciebie, nie jestes tu bez powodu. To ja cie tu wezwalem, aby oswiecic twa ciemna wiare w czystosc magi zywiolow! *Slyszac te slowa parsknales cicho smiechem* ;Parskasz smiechem;tak</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>0</EntryNumber>
+    <ID>0</ID>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>30</EntryNumber>
+    <ID>30</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>10</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Dymiroth,4/Nie ma sie z czego smiac, jesli mi zaufasz staniesz sie o wiele potezniejszym magiem niz jeste do tej pory, otworzy sie przed toba swiat jakiego nie znasz. *Zaciekawienie z twojej strony wzroslo kiedy uslyszales propozycje ow postaci* Zainteresowany nieprawdarz? *W tle slychac cichy meski smiech* *Po chwili namyslu postanowiles zadac pytanie* ;Jestes czarnoksiezniekiem, prawda? Czego doklanie chcesz?;tak</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>40</EntryNumber>
+    <ID>40</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>30</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Dymiroth,4/*Dostrzegles zdecydowane zadowolenie w glosie czarnoksieznika* Tak jestem, wiem takze ze przestrzegano Cie przed kontaktami z takimi jak ja, nie jest jednak prawda ze ja i mi podobni jestesmy bezdusznymi bestiami, my poprostu walczymy o to co sie nam nalezy z racji tego kim jestesmy! *Kierujesz drugie pytanie do czarnoksieznika* ;A Akademia Magii Zywiolow, dlaczego z nimi walczycie, dlaczego zabijacie innych magow?;tak</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>50</EntryNumber>
+    <ID>50</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>40</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Dymiroth,4/*Czarnoksieznik zamilkl na chwile, aby nastepnie podniesc ton i w zlosci krzyczec w twoja strone* Nie nazywaj ich magami! Ta banda obibokow i idiotow ktorzy zaprzedali swe moce paladynom nie ma prawa nazywac sie magami! Tylko my, my jestesmy godni tego miana a nie oni z tymi swoimi zakazami i nakazami. *Na twojej twarzy zawital usmiech* ;A wiec gdzie tu moja rola?;tak</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>60</EntryNumber>
+    <ID>60</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>50</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Dymiroth,4/*Postac w szacie wyraznie zmienila ton na bardziej przyjazny* Ty moj drogi bedziesz jednym z nas, jesli udowodnisz ze jestes godzien, my nie mamy zakazow i nakazow, twardych i glupich kodeksow, ktorych i tak nikt nie przestrzega i to my jestesmy przeszloscia, terazniejszoscia i przyszloscia magii. Dobrze. skoro widze iż chcesz się kierować tą ścieżka zadam ci teraz kilka pytań związanych z kręgami Magii a gdy na nie odpowiesz i wykonasz moje kolejne polecenia może przyjmę Cię do naszego wąskiego grona... Zaczynamy? ;Tak!;tak;Nie;rezygnuje</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>70</EntryNumber>
+    <ID>70</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>60</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Dymiroth,4/Ksiega magi podzielona jest na 8 kregow, podzialu tego dokonali wielcy medrcy, byl wsrod nich Druid Gafertan Kashartah, Arcymag Magii Zywiolow Flutgaf Warimbrith, Mistrz Magii Martwego Porzadku Xartaf Nekratsus oraz Mistrz nad mistrzami, pierwszy czarnoksieznik Seriusz Graph. To ten czwarty jest wzorem dla nas, czystej krwi mag, ktory byl przekonany o tym ze maga nie powinno ograniczac zupelnie nic i ze to nam nalezy sie wladza nad tym swiatem,  reszta zniedoleznialych starcow zignorowala slowa naszego protoplasty, sprzeciwil mu sie nawet Xartaf Nekratsus, ktory jak sie pozniej okazalo byl przekupiony przez paladynow i doprowadzil do upadku Magie Martwego Porzadku. Nasz mistrz jednak mial decydujace slowo w ksztaltowaniu czarow  VI,VII,VIII kregu,  i to o te czary bede Ciebie pytal. Gotów jesteś odpowiedzieć na me pytania? ;Tak Jestem!;tak;Nie wybacz ale jeszcze nie pora na to;nie</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>80</EntryNumber>
+    <ID>80</ID>
+    <Text>Zatem  wróć później...</Text>
+    <Keywords>nie</Keywords>
+    <DependsOn>70</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>90</EntryNumber>
+    <ID>90</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>70</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Dymiroth,4/Pytanie I Jest to czar VI kregu, do jego realizacji potrzebne sa 2 ziola jedno to wilcze jagody, drugie zas to czarna perla, czar ten rzucony w strone wroga rani go dotkliwie. Tym czarem jest: ;Eksplozja;nie;Ukrycie;nie;Kula błyskawicy;tak</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>100</EntryNumber>
+    <ID>100</ID>
+    <Text>To była zła odpowiedź... będziesz musiał spróbować jeszcze raz...</Text>
+    <Keywords>nie</Keywords>
+    <DependsOn>90</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>110</EntryNumber>
+    <ID>110</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>90</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Dymiroth,4/Pytanie II Jest to czar VII kregu Dzieki niemu mag potrafi zmienic swoje ksztalty. Tym czarem jest: ;Polimorfia;tak;Deszcz błyskawic;nie;Sciana energii;nie</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>120</EntryNumber>
+    <ID>120</ID>
+    <Text>To była zła odpowiedź... Musisz spróbować raz jeszcze....</Text>
+    <Keywords>nie</Keywords>
+    <DependsOn>110</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>130</EntryNumber>
+    <ID>130</ID>
+    <Keywords>tak</Keywords>
+    <DependsOn>110</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Dymiroth,4/Pytanie III Jest to czar VIII kregu, Przywoluje istote niezwylke potezna, umieszczeniu tego czaru w ksiedze magi zywiolow sprzeciwil sie Druid Gafertan Kashartah i Arcymag Magi Zywiolow Flutgaf Warimbrith pomysl ten poparl zas Mistrz Magii Martwego Porzadku Xartaf Nekratsus i pierwszy Czarnoksieznik Seriusz Graph. Istota ta nie jest stworzeniem jednego zywiolu i nie ma z 3 zywiolami za wiele wspolnego, jej natura jest sianie zniszczenia.Ta istota jest: ;Zywiolak ziemi;nie;Zywiolak powietrza;nie;Zywiolak ognia;nie;Demon;tak</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>140</EntryNumber>
+    <ID>140</ID>
+    <Text>To była zła odpowiedź... spróbuj ponownie....</Text>
+    <Keywords>nie</Keywords>
+    <DependsOn>130</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>150</EntryNumber>
+    <ID>150</ID>
+    <Keywords>tak</Keywords>
+    <Action>GIVE/&lt;questholder/name/Proba czarnoksieznika/repeatable/false/notestring/Przynies Czarnoksiężnikowi następujące przedmioty : Czapke maga, 10 zwoi  z zapisanym na nich zaklęciem trucizny, sztylet oraz 1000 sztuk złota/objective1/COLLECT,wizardshat,1/objective2/COLLECT,poisonscroll,10/objective3/COLLECT,dagger,1/objective4/COLLECT,gold,1000/repeatable/false</Action>
+    <DependsOn>130</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Dymiroth,4/Dobrze skoro odpowiedziałeś na wszystkie pytania pozostaje mi dokończyć rytuał. Aby go dokończyć musisz przynieść Mi następujące rzeczy: Czapke maga, 10 zwoi z zaklęciem zatrucia, sztylet oraz 1000 sztuk zlota.</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>160</EntryNumber>
+    <ID>160</ID>
+    <Action>TAKE/Proba czarnoksieznika ; GIVE/worekczarnoksieznika1</Action>
+    <Condition>GETONCARRIED,Proba czarnoksieznika,questholder,iscompleted=true</Condition>
+    <DependsOn>-1</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+    <Gump>GUMP,Dymiroth,4/No masz to czego mi trzeba. Zatem poczekaj chwile. *spostrzegasz iż Czarnoksiężnik wypowiada kilka rónych inkantacji nie znanych ci jeszcze zaklęć*</Gump>
+  </SpeechEntry>
+  <SpeechEntry>
+    <EntryNumber>170</EntryNumber>
+    <ID>170</ID>
+    <Action>TAKE/Proba czarnoksieznika ; GIVE/worekczarnoksieznika1</Action>
+    <DependsOn>160</DependsOn>
+    <Pause>1</Pause>
+    <PrePause>-1</PrePause>
+    <LockConversation>True</LockConversation>
+    <IgnoreCarried>False</IgnoreCarried>
+    <AllowNPCTrigger>False</AllowNPCTrigger>
+    <SpeechStyle>Regular</SpeechStyle>
+    <SpeechHue>-1</SpeechHue>
+  </SpeechEntry>
+</XmlQuestNPC>
