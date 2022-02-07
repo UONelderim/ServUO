@@ -7,7 +7,7 @@ namespace Server.Items
         public SpecialDyeTub()
         {
             LootType = LootType.Blessed;
-            Name = "sepcjalnafarba";
+            Name = "sepcjalna farba";
         }
 
         public SpecialDyeTub(Serial serial)
