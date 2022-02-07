@@ -388,7 +388,7 @@ namespace Server.Mobiles.MannequinProperty
         public override int SpriteH => 120;
     }
 
-    public class NightSightProperty : MagicalAttr
+ /*   public class NightSightProperty : MagicalAttr
     {
         public override Catalog Catalog => Catalog.Misc;
         public override bool IsBoolen => true;
@@ -398,7 +398,7 @@ namespace Server.Mobiles.MannequinProperty
         public override int Hue => 0x43FF;
         public override int SpriteW => 30;
         public override int SpriteH => 150;
-    }
+    }*/
 
     public class BrittleProperty : MagicalAttr
     {
