@@ -75,7 +75,7 @@ namespace Server.Mobiles
         }
     }
 
-    [CorpseName("a bird corpse")]
+    [CorpseName("zwloki tropikalnego ptaka")]
     public class TropicalBird : BaseCreature
     {
         [Constructable]
@@ -83,7 +83,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Animal, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
             Hue = Utility.RandomBirdHue();
-            Name = "a tropical bird";
+            Name = "tropikalny ptak";
 
             Body = 6;
             BaseSoundID = 0xBF;
