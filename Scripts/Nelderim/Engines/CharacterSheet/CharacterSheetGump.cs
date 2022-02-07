@@ -214,17 +214,14 @@ namespace Nelderim
 						case 2:
 						{
 							args[0] = CSPages.Cele;
-							// book = new XmlTextEntryBook(0, "Cele i dazenia", m_TargetPlayer.Name, 20, !gmRequested, new XmlTextEntryBookCallback(TextEntryChangedCallback), null);
-							book = new XmlTextEntryBook(0, "Cele i dazenia", m_TargetPlayer.Name, 20, !gmRequested);
+							book = new XmlTextEntryBook(0, "Cele i dazenia", m_TargetPlayer.Name, 20, !gmRequested, TextEntryChangedCallback, null);
 							book.FillTextEntryBook(m_CharacterSheetInfo.AppearanceAndCharacteristic);
 							break;
 						}
 						case 3:
 						{
 							args[0] = CSPages.Historia;
-							// book = new XmlTextEntryBook(0, "Historia i profesja", m_TargetPlayer.Name, 20, !gmRequested, new XmlTextEntryBookCallback(TextEntryChangedCallback), null);
-							book = new XmlTextEntryBook(0, "Historia i profesja", m_TargetPlayer.Name, 20,
-								!gmRequested);
+							book = new XmlTextEntryBook(0, "Historia i profesja", m_TargetPlayer.Name, 20, !gmRequested, TextEntryChangedCallback, null);
 							book.FillTextEntryBook(m_CharacterSheetInfo.HistoryAndProfession);
 							break;
 						}
@@ -232,7 +229,7 @@ namespace Nelderim
 					}
 
 					args[1] = m_TargetPlayer;
-					// book.m_args = args;
+					book.m_args = args;
 					book.Visible = false;
 					book.Movable = false;
 					book.MoveToWorld(
