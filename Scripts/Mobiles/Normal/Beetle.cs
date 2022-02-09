@@ -1,6 +1,10 @@
-using Server.ContextMenus;
-using Server.Items;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using Server;
+using Server.Items;
+using Server.Mobiles;
+using Server.ContextMenus;
 
 namespace Server.Mobiles
 {
@@ -88,6 +92,20 @@ namespace Server.Mobiles
         }
 
         public override FoodType FavoriteFood => FoodType.Meat;
+
+        		public override void GetProperties( ObjectPropertyList list ) // bedzie wyswietlac wage w zwierzach z paczka
+        {
+            base.GetProperties( list );
+
+            if (Backpack!= null) {
+                list.Add( 1072241, "{0}\t{1}\t{2}\t{3}", Backpack.TotalItems, Backpack.MaxItems, Backpack.TotalWeight, Backpack.MaxWeight ); // Contents: ~1_COUNT~/~2_MAXCOUNT~ items, ~3_WEIGHT~/~4_MAXWEIGHT~ stones
+            }
+		}
+
+		public override void OnWeightChange( int oldValue )
+		{
+			InvalidateProperties();
+		}
 
         public override bool CanAutoStable => (Backpack == null || Backpack.Items.Count == 0) && base.CanAutoStable;
 
