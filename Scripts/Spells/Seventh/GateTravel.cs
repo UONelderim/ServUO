@@ -205,7 +205,7 @@ namespace Server.Spells.Seventh
                 Map = map;
 
                 if (ShowFeluccaWarning && map == Map.Felucca)
-                    ItemID = 0xDDA;
+                    ItemID = 0x0F6C;
 
                 Dispellable = true;
 
