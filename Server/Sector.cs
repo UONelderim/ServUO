@@ -298,7 +298,6 @@ namespace Server
 
 		private void UpdateMobileRegions()
 		{
-			m_UpdateBuffer = new HashSet<Mobile>();
 			if (m_Mobiles != null)
 			{
 				foreach (var m in m_Mobiles)
@@ -322,7 +321,6 @@ namespace Server
 		{
 			if (!m_Active && Owner != Map.Internal)
 			{
-				m_ActivationBuffer = new HashSet<IEntity>();
 				if (m_Items != null)
 				{
 					foreach (var o in m_Items)
@@ -347,7 +345,6 @@ namespace Server
 		{
 			if (m_Active && Owner != Map.Internal)
 			{
-				m_ActivationBuffer = new HashSet<IEntity>();
 				if (m_Items != null)
 				{
 					foreach (var o in m_Items)
