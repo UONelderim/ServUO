@@ -47,6 +47,28 @@ namespace Server
 
 	public class Sector
 	{
+		private const int m_SliceCapacity = 1 << 8;
+
+		private static readonly Queue<Action> m_SliceQueue = new Queue<Action>();
+
+		internal static void Slice()
+		{
+			if (m_SliceQueue.Count == 0)
+			{
+				return;
+			}
+			
+			while (m_SliceQueue.Count > 0)
+			{
+				m_SliceQueue.Dequeue()();
+
+				if (m_SliceQueue.Count == m_SliceCapacity)
+				{
+					m_SliceQueue.TrimExcess();
+				}
+			}
+		}
+
 		private static void Add<T, L>(ref L list, T value) where L : class, ICollection<T>, new()
 		{
 			if (list == null)
@@ -74,9 +96,6 @@ namespace Server
 				}
 			}
 		}
-
-		private HashSet<IEntity> m_ActivationBuffer;
-		private HashSet<Mobile> m_UpdateBuffer;
 
 		private SortedSet<RegionRect> m_RegionRects;
 
@@ -282,17 +301,11 @@ namespace Server
 			m_UpdateBuffer = new HashSet<Mobile>();
 			if (m_Mobiles != null)
 			{
-				m_UpdateBuffer.UnionWith(m_Mobiles);
+				foreach (var m in m_Mobiles)
+				{
+					m_SliceQueue.Enqueue(m.UpdateRegion);
+				}
 			}
-
-			foreach (var m in m_UpdateBuffer)
-			{
-				m.UpdateRegion();
-			}
-
-			m_UpdateBuffer.Clear();
-			m_UpdateBuffer.TrimExcess();
-			m_UpdateBuffer = null;
 		}
 
 		public void OnMultiEnter(BaseMulti multi)
@@ -307,27 +320,24 @@ namespace Server
 
 		public void Activate()
 		{
-			if (!Active && Owner != Map.Internal)
+			if (!m_Active && Owner != Map.Internal)
 			{
 				m_ActivationBuffer = new HashSet<IEntity>();
 				if (m_Items != null)
 				{
-					m_ActivationBuffer.UnionWith(m_Items);
+					foreach (var o in m_Items)
+					{
+						m_SliceQueue.Enqueue(o.OnSectorActivate);
+					}
 				}
 
 				if (m_Mobiles != null)
 				{
-					m_ActivationBuffer.UnionWith(m_Mobiles);
+					foreach (var m in m_Mobiles)
+					{
+						m_SliceQueue.Enqueue(m.OnSectorActivate);
+					}
 				}
-
-				foreach (var e in m_ActivationBuffer)
-				{
-					e.OnSectorActivate();
-				}
-
-				m_ActivationBuffer.Clear();
-				m_ActivationBuffer.TrimExcess();
-				m_ActivationBuffer = null;
 
 				m_Active = true;
 			}
@@ -335,27 +345,24 @@ namespace Server
 
 		public void Deactivate()
 		{
-			if (Active)
+			if (m_Active && Owner != Map.Internal)
 			{
 				m_ActivationBuffer = new HashSet<IEntity>();
 				if (m_Items != null)
 				{
-					m_ActivationBuffer.UnionWith(m_Items);
+					foreach (var o in m_Items)
+					{
+						m_SliceQueue.Enqueue(o.OnSectorDeactivate);
+					}
 				}
 
 				if (m_Mobiles != null)
 				{
-					m_ActivationBuffer.UnionWith(m_Mobiles);
+					foreach (var m in m_Mobiles)
+					{
+						m_SliceQueue.Enqueue(m.OnSectorDeactivate);
+					}
 				}
-
-				foreach (var e in m_ActivationBuffer)
-				{
-					e.OnSectorDeactivate();
-				}
-
-				m_ActivationBuffer.Clear();
-				m_ActivationBuffer.TrimExcess();
-				m_ActivationBuffer = null;
 
 				m_Active = false;
 			}
