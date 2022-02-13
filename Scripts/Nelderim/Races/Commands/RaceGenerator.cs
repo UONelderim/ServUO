@@ -97,7 +97,7 @@ namespace Server
 					m.Race = RegionsEngine.GetRace(m.Region.Name);
 					m.Race.MakeRandomAppearance(m);
 
-					m.Name = NameList.RandomName(m.Race.Name + " " + (m.Female ? "female" : "male"));
+					m.Name = NameList.RandomName(m.Race.Name.ToLower() + "_" + (m.Female ? "female" : "male"));
 				}
 			}
 			catch (Exception e)

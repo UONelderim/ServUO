@@ -1,5 +1,7 @@
 // 05.05.11 :: troyan
 
+using Nelderim.Races;
+
 namespace Server.Nelderim
 {
 	public class Population
@@ -21,7 +23,7 @@ namespace Server.Nelderim
 				double cumsum = 0;
 				int index = 0;
 
-				for (int i = 0; i < Race.AllRaces.Count; i++)
+				for (int i = 0; i < NRace.AllRaces.Count; i++)
 				{
 					if ((cumsum += m_Proportions[i]) > rand)
 					{
@@ -30,7 +32,7 @@ namespace Server.Nelderim
 					}
 				}
 
-				return Race.AllRaces[index];
+				return NRace.AllRaces[index];
 			}
 		}
 
