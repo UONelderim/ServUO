@@ -769,7 +769,7 @@ namespace Server
 
 			var p = Packet.Acquire(new MessageLocalized(item.Serial, item.ItemID, type, hue, 3, number, item.Name, args));
 
-			var eable = item.Map.GetClientsInRange(item.Location, item.GetMaxUpdateRange());
+			var eable = item.Map.GetClientsInRange(item.Location, Core.GlobalMaxUpdateRange);
 
 			foreach (var state in eable.Where(state => state.Mobile.CanSee(item)))
 			{
@@ -801,7 +801,7 @@ namespace Server
 
 			p.Acquire();
 
-			var eable = item.Map.GetClientsInRange(item.Location, item.GetMaxUpdateRange());
+			var eable = item.Map.GetClientsInRange(item.Location, Core.GlobalMaxUpdateRange);
 
 			foreach (var state in eable.Where(state => state.Mobile.CanSee(item)))
 			{

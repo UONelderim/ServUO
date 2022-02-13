@@ -292,7 +292,7 @@ namespace VitaNex.Items
 						return;
 					}
 
-					IPooledEnumerable clients = GetClientsInRange(GetMaxUpdateRange());
+					IPooledEnumerable clients = GetClientsInRange(Core.GlobalMaxUpdateRange);
 
 					if (clients.OfType<NetState>().Any())
 					{

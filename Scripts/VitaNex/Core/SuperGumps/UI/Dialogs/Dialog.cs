@@ -199,7 +199,7 @@ namespace VitaNex.SuperGumps.UI
 					{
 						if (IconTooltip >= 0x40000000)
 						{
-							AddProperties(IconTooltip);
+							AddProperties(new Serial(IconTooltip));
 						}
 						else
 						{

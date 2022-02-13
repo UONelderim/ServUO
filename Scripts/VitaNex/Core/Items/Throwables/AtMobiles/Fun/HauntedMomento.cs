@@ -38,7 +38,6 @@ namespace VitaNex.Items
 		public override bool CanMoveOverObstacles { get { return true; } }
 		public override bool CanOpenDoors { get { return true; } }
 		public override bool CanTarget { get { return false; } }
-		public override bool CanDrop { get { return false; } }
 		public override bool Commandable { get { return false; } }
 		public override bool DeleteCorpseOnDeath { get { return true; } }
 		public override bool IsScaryToPets { get { return true; } }

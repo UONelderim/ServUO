@@ -42,19 +42,15 @@ namespace VitaNex.Modules.EquipmentSets
 		private static void CMConfig()
 		{
 			EquipItemRequestParent = PacketHandlers.GetHandler(0x13);
-			EquipItemRequestParent6017 = PacketHandlers.Get6017Handler(0x13);
 
 			DropItemRequestParent = PacketHandlers.GetHandler(0x08);
-			DropItemRequestParent6017 = PacketHandlers.Get6017Handler(0x08);
 
 			EquipItemParent = OutgoingPacketOverrides.GetHandler(0x2E);
 			EquipItemParent6017 = OutgoingPacketOverrides.GetHandler(0x2E);
 
 			PacketHandlers.Register(0x13, 10, true, EquipItemRequest);
-			PacketHandlers.Register6017(0x13, 10, true, EquipItemRequest6017);
 
 			PacketHandlers.Register(0x08, 14, true, DropItemRequest);
-			PacketHandlers.Register6017(0x08, 15, true, DropItemRequest6017);
 
 			OutgoingPacketOverrides.Register(0x2E, EquipItem);
 		}
@@ -93,19 +89,9 @@ namespace VitaNex.Modules.EquipmentSets
 				PacketHandlers.Register(0x13, 10, true, EquipItemRequestParent.OnReceive);
 			}
 
-			if (EquipItemRequestParent6017 != null && EquipItemRequestParent6017.OnReceive != null)
-			{
-				PacketHandlers.Register6017(0x13, 10, true, EquipItemRequestParent6017.OnReceive);
-			}
-
 			if (DropItemRequestParent != null && DropItemRequestParent.OnReceive != null)
 			{
 				PacketHandlers.Register(0x08, 14, true, DropItemRequestParent.OnReceive);
-			}
-
-			if (DropItemRequestParent6017 != null && DropItemRequestParent6017.OnReceive != null)
-			{
-				PacketHandlers.Register6017(0x08, 15, true, DropItemRequestParent6017.OnReceive);
 			}
 		}
 	}

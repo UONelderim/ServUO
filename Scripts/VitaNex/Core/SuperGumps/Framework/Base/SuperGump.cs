@@ -651,7 +651,7 @@ namespace VitaNex.SuperGumps
 				CanDispose = true;
 			}
 
-			IsOpen = User.SendGump(this, false);
+			IsOpen = User.SendGump(this);
 
 			Hidden = false;
 
@@ -747,7 +747,7 @@ namespace VitaNex.SuperGumps
 							   InternalCloseDupes(this);
 
 							   Initialized = true;
-							   IsOpen = User.SendGump(this, false);
+							   IsOpen = User.SendGump(this);
 							   Hidden = !IsOpen;
 
 							   if (IsOpen)
