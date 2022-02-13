@@ -26,8 +26,8 @@ namespace VitaNex.Mobiles
 	{
 		public IAdvancedVendor Vendor { get; private set; }
 
-		private readonly List<GenericBuyInfo> _BuyInfo;
-		public sealed override List<GenericBuyInfo> BuyInfo { get { return _BuyInfo; } }
+		private readonly List<IBuyItemInfo> _BuyInfo;
+		public sealed override List<IBuyItemInfo> BuyInfo { get { return _BuyInfo; } }
 
 		private readonly AdvancedSellInfo _SellInfo;
 		public sealed override IShopSellInfo SellInfo { get { return _SellInfo; } }
@@ -39,7 +39,7 @@ namespace VitaNex.Mobiles
 		{
 			Vendor = vendor;
 
-			_BuyInfo = new List<GenericBuyInfo>();
+			_BuyInfo = new List<IBuyItemInfo>();
 			_SellInfo = new AdvancedSellInfo(this);
 
 			InitBuyInfo();

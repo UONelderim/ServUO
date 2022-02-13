@@ -9,13 +9,15 @@
 //        #        The MIT License (MIT)          #
 #endregion
 
+using System.Linq;
+
 namespace Server
 {
 	public static class SectorExtUtility
 	{
 		public static bool Contains(this Sector s, Point3D p)
 		{
-			return s.RegionRects.Contains(p);
+			return s.RegionRects.Any(rect => rect.Contains(p));
 		}
 	}
 }

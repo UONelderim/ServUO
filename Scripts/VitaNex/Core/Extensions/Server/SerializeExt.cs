@@ -1291,7 +1291,7 @@ namespace Server
 
 		public static IEntity ReadEntity(this GenericReader reader)
 		{
-			Serial s = reader.ReadInt();
+			Serial s = reader.ReadSerial();
 
 			if (!s.IsValid)
 			{

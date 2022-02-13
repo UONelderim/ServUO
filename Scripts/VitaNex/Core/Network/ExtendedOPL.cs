@@ -125,12 +125,6 @@ namespace VitaNex.Network
 				ReqBatchOplParent.Ingame,
 				OnBatchQueryProperties);
 
-			PacketHandlers.Register6017(
-				ReqBatchOplParent.PacketID,
-				ReqBatchOplParent.Length,
-				ReqBatchOplParent.Ingame,
-				OnBatchQueryProperties);
-
 			OutParent0xD6 = OutgoingPacketOverrides.GetHandler(0xD6);
 			OutgoingPacketOverrides.Register(0xD6, OnEncode0xD6);
 
@@ -187,7 +181,7 @@ namespace VitaNex.Network
 
 			reader.Seek(5, SeekOrigin.Begin);
 
-			var serial = reader.ReadInt32();
+			var serial = reader.ReadSerial();
 
 			reader.Seek(pos, SeekOrigin.Begin);
 
@@ -219,7 +213,7 @@ namespace VitaNex.Network
 
 			for (var i = 0; i < count; ++i)
 			{
-				s = pvSrc.ReadInt32();
+				s = pvSrc.ReadSerial();
 
 				if (s.IsValid)
 				{
@@ -235,7 +229,7 @@ namespace VitaNex.Network
 				return;
 			}
 
-			var serial = (Serial)pvSrc.ReadInt32();
+			var serial = pvSrc.ReadSerial();
 
 			if (serial.IsValid)
 			{
@@ -266,7 +260,7 @@ namespace VitaNex.Network
 			{
 				var m = (Mobile)e;
 
-				if (Utility.InUpdateRange(viewer, m))
+				if (viewer.InUpdateRange(m))
 				{
 					SendPropertiesTo(viewer, m);
 				}
@@ -275,7 +269,7 @@ namespace VitaNex.Network
 			{
 				var item = (Item)e;
 
-				if (Utility.InUpdateRange(viewer, item.GetWorldLocation()))
+				if (viewer.InUpdateRange(item.GetWorldLocation()))
 				{
 					SendPropertiesTo(viewer, item);
 				}

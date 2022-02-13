@@ -36,7 +36,7 @@ namespace VitaNex.Modules.AutoPvP
 		{
 			if (BattleRegion != null)
 			{
-				foreach (var pm in BattleRegion.GetMobiles().OfType<PlayerMobile>().Where(IsOnline))
+				foreach (var pm in BattleRegion.AllMobiles.OfType<PlayerMobile>().Where(IsOnline))
 				{
 					yield return pm;
 				}
@@ -44,7 +44,7 @@ namespace VitaNex.Modules.AutoPvP
 
 			if (SpectateRegion != null)
 			{
-				foreach (var pm in SpectateRegion.GetMobiles().OfType<PlayerMobile>().Where(IsOnline))
+				foreach (var pm in SpectateRegion.AllMobiles.OfType<PlayerMobile>().Where(IsOnline))
 				{
 					yield return pm;
 				}

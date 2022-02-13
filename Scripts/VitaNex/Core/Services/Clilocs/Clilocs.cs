@@ -365,7 +365,7 @@ namespace VitaNex
 
 			try
 			{
-				var data = list.UnderlyingStream.UnderlyingStream.ToArray();
+				var data = list.Stream.ToArray();
 
 				var index = 15;
 
@@ -442,7 +442,7 @@ namespace VitaNex
 
 			try
 			{
-				var data = list.UnderlyingStream.UnderlyingStream.ToArray();
+				var data = list.Stream.ToArray();
 
 				var index = 15;
 
@@ -521,7 +521,7 @@ namespace VitaNex
 
 			try
 			{
-				var data = list.UnderlyingStream.UnderlyingStream.ToArray();
+				var data = list.Stream.ToArray();
 
 				var index = 15;
 
@@ -621,7 +621,7 @@ namespace VitaNex
 		{
 			try
 			{
-				var data = list.UnderlyingStream.UnderlyingStream.ToArray();
+				var data = list.Stream.ToArray();
 
 				var index = 15;
 

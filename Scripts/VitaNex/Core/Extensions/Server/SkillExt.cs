@@ -75,7 +75,7 @@ namespace Server
 		public static readonly SkillName[] KnowledgeSkills =
 		{
 			SkillName.Anatomy, SkillName.AnimalLore, SkillName.AnimalTaming, SkillName.ArmsLore, SkillName.Camping,
-			SkillName.Forensics, SkillName.Herding, SkillName.ItemID, SkillName.TasteID, SkillName.Tracking
+			SkillName.Herbalism, SkillName.Herding, SkillName.ItemID, SkillName.TasteID, SkillName.Tracking
 		};
 
 		public static readonly SkillName[] CraftSkills =

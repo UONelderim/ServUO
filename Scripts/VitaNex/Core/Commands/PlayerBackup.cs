@@ -110,7 +110,7 @@ namespace VitaNex.Commands
 
 			if (e.Arguments.Length > 0)
 			{
-				serial = e.GetInt32(0);
+				serial = e.GetSerial(0);
 			}
 
 			if (e.Arguments.Length > 1)
@@ -769,8 +769,8 @@ namespace VitaNex.Commands
 			out long length)
 		{
 			type = idx.ReadType();
-			serial = idx.ReadInt();
-			parent = idx.ReadInt();
+			serial = idx.ReadSerial();
+			parent = idx.ReadSerial();
 			index = idx.ReadLong();
 			length = idx.ReadLong();
 		}

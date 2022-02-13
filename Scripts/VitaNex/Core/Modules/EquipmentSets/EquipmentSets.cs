@@ -113,7 +113,7 @@ namespace VitaNex.Modules.EquipmentSets
 			var pos = reader.Seek(0, SeekOrigin.Current);
 			reader.Seek(1, SeekOrigin.Begin);
 
-			var item = World.FindItem(reader.ReadInt32());
+			var item = World.FindItem(reader.ReadSerial());
 
 			reader.Seek(pos, SeekOrigin.Begin);
 
@@ -130,33 +130,6 @@ namespace VitaNex.Modules.EquipmentSets
 			if (CMOptions.ModuleDebug)
 			{
 				CMOptions.ToConsole("EquipItem: {0} equiped {1}", state.Mobile, item);
-			}
-
-			Timer.DelayCall(Invalidate, state.Mobile);
-		}
-
-		private static void EquipItem6017(NetState state, PacketReader reader, ref byte[] buffer, ref int length)
-		{
-			var pos = reader.Seek(0, SeekOrigin.Current);
-			reader.Seek(1, SeekOrigin.Begin);
-
-			var item = World.FindItem(reader.ReadInt32());
-
-			reader.Seek(pos, SeekOrigin.Begin);
-
-			if (EquipItemParent6017 != null)
-			{
-				EquipItemParent6017(state, reader, ref buffer, ref length);
-			}
-
-			if (!CMOptions.ModuleEnabled || item == null || item.Deleted || !item.Layer.IsEquip())
-			{
-				return;
-			}
-
-			if (CMOptions.ModuleDebug)
-			{
-				CMOptions.ToConsole("EquipItem6017: {0} equiped {1}", state.Mobile, item);
 			}
 
 			Timer.DelayCall(Invalidate, state.Mobile);

@@ -381,7 +381,7 @@ namespace Server
 
 		public static bool Contains(this Sector s, Point3D p)
 		{
-			return s.RegionRects.Contains(p);
+			return s.RegionRects.Any(rect => rect.Contains(p));
 		}
 
 		public static bool Contains(this Region r, Point3D p)
