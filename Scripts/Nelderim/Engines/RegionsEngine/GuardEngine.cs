@@ -3,6 +3,7 @@ using Server.Mobiles;
 using System;
 using System.Collections;
 using System.Xml;
+using Nelderim.Races;
 
 namespace Server.Nelderim
 {
@@ -318,17 +319,17 @@ namespace Server.Nelderim
 			mob.Female = (Utility.RandomDouble() < m_Female) ? true : false;
 			mob.Body = (mob.Female) ? 401 : 400;
 
-			for (int i = 0; i < Race.AllRaces.Count; i++) {
+			for (int i = 0; i < NRace.AllRaces.Count; i++) {
 				if ((cumsum += m_Races[i]) > rand) {
 					index = i;
 					break;
 				}
 			}
 
-			Race guardRace = Race.AllRaces[index];
+			Race guardRace = NRace.AllRaces[index];
 			mob.Race = guardRace;
 			guardRace.MakeRandomAppearance(mob);
-			mob.Name = NameList.RandomName(guardRace.Name + " " + (mob.Female ? "female" : "male"));
+			mob.Name = NameList.RandomName(guardRace.Name.ToLower() + "_" + (mob.Female ? "female" : "male"));
 
 			mob.SpeechHue = Utility.RandomDyedHue();
 			mob.Title = m_Title;
