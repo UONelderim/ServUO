@@ -32,7 +32,7 @@ namespace Nelderim
 			MinProps = minProps;
 		}
 
-		public int MinProps { get; set; }
+		public int MinProps { get; }
 
 		public override int GetBonusProperties()
 		{
@@ -44,29 +44,28 @@ namespace Nelderim
 	{
 		public static LootPack Generate(BaseCreature bc, LootStage stage)
 		{
-			if (Config.Get("NelderimLoot.Enabled", false))
+			if (bc.Controlled || bc.Summoned || bc.AI == AIType.AI_Animal)
+				return LootPack.Empty;
+
+			var entries = new List<LootPackEntry>();
+
+			if (stage == LootStage.Spawning)
+				GenerateGold(bc, ref entries);
+			else
 			{
-				if (bc.Controlled || bc.Summoned || bc.AI == AIType.AI_Animal)
-					return LootPack.Empty;
-
-				var entries = new List<LootPackEntry>();
-
-				if (stage == LootStage.Spawning)
-					GenerateGold(bc, ref entries);
-				else
-				{
-					//GenerateSpellbooks( bc, ref entries );
-					GenerateRecallRunes(bc, ref entries);
-					GenerateGems(bc, ref entries);
-					GenerateScrolls(bc, ref entries);
-					GeneratePotions(bc, ref entries);
-					GenerateInstruments(bc, ref entries);
-					GenerateMagicItems(bc, ref entries);
-				}
-
-				if (entries.Count > 0)
-					return new LootPack(entries.ToArray());
+				//GenerateSpellbooks( bc, ref entries );
+				GenerateRecallRunes(bc, ref entries);
+				GenerateGems(bc, ref entries);
+				GenerateScrolls(bc, ref entries);
+				GeneratePotions(bc, ref entries);
+				GenerateInstruments(bc, ref entries);
+				GenerateMagicItems(bc, ref entries);
+				GenerateReagents(bc, ref entries);
+				GenerateArrows(bc, ref entries);
 			}
+
+			if (entries.Count > 0)
+				return new LootPack(entries.ToArray());
 
 			return LootPack.Empty;
 		}
@@ -76,9 +75,9 @@ namespace Nelderim
 			var minGold = (int)Math.Ceiling(Math.Pow(bc.Difficulty * 630, 0.49));
 			var maxGold = (int)Math.Ceiling(minGold * 1.3);
 
-			var gold = (int)(Utility.RandomMinMax(minGold, maxGold) * Config.Get("NelderimLoot.GoldModifier", 1.0));
+			var amount = (int)(Utility.RandomMinMax(minGold, maxGold) * Config.Get("NelderimLoot.GoldModifier", 1.0));
 
-			entries.Add(new LootPackEntry(true, true, LootPack.Gold, 100.0, gold));
+			entries.Add(new LootPackEntry(true, true, LootPack.Gold, 100.0, amount));
 		}
 
 		private static void GenerateRecallRunes(BaseCreature bc, ref List<LootPackEntry> entries)
@@ -86,17 +85,55 @@ namespace Nelderim
 			var count = (int)Math.Min(5, 1 + bc.Difficulty / 500);
 			var chance = Math.Pow(bc.Difficulty, 0.6) / 10;
 
-			for (var i = 0; i < count; i++)
-				entries.Add(new LootPackEntry(false, true, RecallRune, chance, 1));
+			entries.Add(new LootPackEntry(false, true, RecallRune, chance, count));
 		}
 
 		private static void GenerateGems(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			var count = (int)Math.Ceiling(Math.Pow(bc.Difficulty, 0.35));
+			var count = (int)Math.Ceiling(Math.Pow(bc.Difficulty, 0.35)) * 5;
 			var chance = Math.Max(0.01, Math.Min(1, 0.1 + Math.Pow(bc.Difficulty, 0.3) / 20)) * 100;
 
 			for (var i = 0; i < count; i++)
-				entries.Add(new LootPackEntry(false, true, LootPack.GemItems, chance, 1));
+				new LootPackEntry(false, true,
+					Utility.RandomDouble() > 0.01 ? LootPack.GemItems : LootPack.RareGemItems, chance, 1);
+
+		}
+
+		private static void GenerateReagents(BaseCreature bc, ref List<LootPackEntry> entries)
+		{
+			LootPackItem[] lootItems;
+			switch (bc.AI)
+			{
+				case AIType.AI_Mage: 
+					lootItems = LootPack.MageryRegItems;
+					break;
+				case AIType.AI_Necro:
+					lootItems = LootPack.NecroRegItems;
+					break;
+				case AIType.AI_NecroMage:
+					lootItems = Utility.RandomBool() ? LootPack.MageryRegItems : LootPack.NecroRegItems;
+					break;
+				case AIType.AI_Mystic:
+					lootItems = LootPack.MysticRegItems;
+					break;
+				default:
+					return;
+			}
+			
+			var count = (int)Math.Ceiling(Math.Pow(bc.Difficulty, 0.35)) * 5;
+			entries.Add(new LootPackEntry(false, true, lootItems, 100, count));
+		}
+
+		private static void GenerateArrows(BaseCreature bc, ref List<LootPackEntry> entries)
+		{
+			BaseRanged weapon = bc.FindItemOnLayer(Layer.TwoHanded) as BaseRanged;
+			if (weapon != null)
+			{
+				var count = (int)Math.Ceiling(Math.Pow(bc.Difficulty, 0.3)) * 20;
+
+				entries.Add(
+					new LootPackEntry(false, true, new[] { new LootPackItem(weapon.AmmoType, 100) }, 100, count));
+			}
 		}
 
 		private static void GenerateScrolls(BaseCreature bc, ref List<LootPackEntry> entries)
@@ -203,7 +240,7 @@ namespace Nelderim
 
 		public static readonly LootPackItem[] RecallRune = { new LootPackItem(typeof(RecallRune), 1) };
 
-		public static readonly LootPackItem[] NL_Scrolls1 =
+		public static readonly LootPackItem[] Scrolls1 =
 		{
 			new LootPackItem(typeof(ClumsyScroll), 1), new LootPackItem(typeof(CreateFoodScroll), 1),
 			new LootPackItem(typeof(FeeblemindScroll), 1), new LootPackItem(typeof(HealScroll), 1),
@@ -213,7 +250,7 @@ namespace Nelderim
 			new LootPackItem(typeof(AnimalFormScroll), 1)
 		};
 
-		public static readonly LootPackItem[] NL_Scrolls2 =
+		public static readonly LootPackItem[] Scrolls2 =
 		{
 			new LootPackItem(typeof(AgilityScroll), 1), new LootPackItem(typeof(CunningScroll), 1),
 			new LootPackItem(typeof(CureScroll), 1), new LootPackItem(typeof(HarmScroll), 1),
@@ -224,7 +261,7 @@ namespace Nelderim
 			new LootPackItem(typeof(BackstabScroll), 1)
 		};
 
-		public static readonly LootPackItem[] NL_Scrolls3 =
+		public static readonly LootPackItem[] Scrolls3 =
 		{
 			new LootPackItem(typeof(BlessScroll), 1), new LootPackItem(typeof(FireballScroll), 1),
 			new LootPackItem(typeof(MagicLockScroll), 1), new LootPackItem(typeof(PoisonScroll), 1),
@@ -236,7 +273,7 @@ namespace Nelderim
 			new LootPackItem(typeof(HonorableExecutionScroll), 1), new LootPackItem(typeof(SurpriseAttackScroll), 1)
 		};
 
-		public static readonly LootPackItem[] NL_Scrolls4 =
+		public static readonly LootPackItem[] Scrolls4 =
 		{
 			new LootPackItem(typeof(ArchCureScroll), 1), new LootPackItem(typeof(ArchProtectionScroll), 1),
 			new LootPackItem(typeof(CurseScroll), 1), new LootPackItem(typeof(FireFieldScroll), 1),
@@ -248,7 +285,7 @@ namespace Nelderim
 			new LootPackItem(typeof(MirrorImageScroll), 1)
 		};
 
-		public static readonly LootPackItem[] NL_Scrolls5 =
+		public static readonly LootPackItem[] Scrolls5 =
 		{
 			new LootPackItem(typeof(BladeSpiritsScroll), 1), new LootPackItem(typeof(DispelFieldScroll), 1),
 			new LootPackItem(typeof(IncognitoScroll), 1), new LootPackItem(typeof(MagicReflectScroll), 1),
@@ -259,7 +296,7 @@ namespace Nelderim
 			new LootPackItem(typeof(ShadowJumpScroll), 1)
 		};
 
-		public static readonly LootPackItem[] NL_Scrolls6 =
+		public static readonly LootPackItem[] Scrolls6 =
 		{
 			new LootPackItem(typeof(DispelScroll), 1), new LootPackItem(typeof(EnergyBoltScroll), 1),
 			new LootPackItem(typeof(ExplosionScroll), 1), new LootPackItem(typeof(InvisibilityScroll), 1),
@@ -270,7 +307,7 @@ namespace Nelderim
 			new LootPackItem(typeof(FocusAttackScroll), 1)
 		};
 
-		public static readonly LootPackItem[] NL_Scrolls7 =
+		public static readonly LootPackItem[] Scrolls7 =
 		{
 			new LootPackItem(typeof(ChainLightningScroll), 1), new LootPackItem(typeof(EnergyFieldScroll), 1),
 			new LootPackItem(typeof(FlamestrikeScroll), 1), new LootPackItem(typeof(GateTravelScroll), 1),
@@ -281,7 +318,7 @@ namespace Nelderim
 			new LootPackItem(typeof(KiAttackScroll), 1), new LootPackItem(typeof(DeathStrikeScroll), 1)
 		};
 
-		public static readonly LootPackItem[] NL_Scrolls8 =
+		public static readonly LootPackItem[] Scrolls8 =
 		{
 			new LootPackItem(typeof(EarthquakeScroll), 1), new LootPackItem(typeof(EnergyVortexScroll), 1),
 			new LootPackItem(typeof(ResurrectionScroll), 1), new LootPackItem(typeof(SummonAirElementalScroll), 1),
@@ -294,7 +331,7 @@ namespace Nelderim
 
 		private static readonly LootPackItem[][] NL_scrolls =
 		{
-			NL_Scrolls8, NL_Scrolls7, NL_Scrolls6, NL_Scrolls5, NL_Scrolls4, NL_Scrolls3, NL_Scrolls2, NL_Scrolls1
+			Scrolls8, Scrolls7, Scrolls6, Scrolls5, Scrolls4, Scrolls3, Scrolls2, Scrolls1
 		};
 
 		public static readonly LootPackItem[] AncientScrollItems =
