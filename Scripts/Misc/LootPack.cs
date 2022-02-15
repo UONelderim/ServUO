@@ -586,23 +586,23 @@ namespace Server
         public static LootPack SuperBoss => Config.Get("NelderimLoot.Enabled", false) ? Empty : LootSuperBoss;
         #endregion
 
-        public static readonly LootPack LowScrolls = new LootPack(new[] { new LootPackEntry(false, true, LowScrollItems, 100.00, 1) });
-        public static readonly LootPack MedScrolls = new LootPack(new[] { new LootPackEntry(false, true, MedScrollItems, 100.00, 1) });
-        public static readonly LootPack HighScrolls = new LootPack(new[] { new LootPackEntry(false, true, HighScrollItems, 100.00, 1) });
-        public static readonly LootPack MageryScrolls = new LootPack(new[] { new LootPackEntry(false, true, MageryScrollItems, 100.00, 1) });
-        public static readonly LootPack NecroScrolls = new LootPack(new[] { new LootPackEntry(false, true, NecroScrollItems, 100.00, 1) });
-        public static readonly LootPack ArcanistScrolls = new LootPack(new[] { new LootPackEntry(false, true, ArcanistScrollItems, 100.00, 1) });
-        public static readonly LootPack MysticScrolls = new LootPack(new[] { new LootPackEntry(false, true, MysticScrollItems, 100.00, 1) });
+        public static readonly LootPack LowScrolls = Config.Get("NelderimLoot.Enabled", false) ? Empty : new LootPack(new[] { new LootPackEntry(false, true, LowScrollItems, 100.00, 1) });
+        public static readonly LootPack MedScrolls =  Config.Get("NelderimLoot.Enabled", false) ? Empty : new LootPack(new[] { new LootPackEntry(false, true, MedScrollItems, 100.00, 1) });
+        public static readonly LootPack HighScrolls =  Config.Get("NelderimLoot.Enabled", false) ? Empty : new LootPack(new[] { new LootPackEntry(false, true, HighScrollItems, 100.00, 1) });
+        public static readonly LootPack MageryScrolls =  Config.Get("NelderimLoot.Enabled", false) ? Empty : new LootPack(new[] { new LootPackEntry(false, true, MageryScrollItems, 100.00, 1) });
+        public static readonly LootPack NecroScrolls =  Config.Get("NelderimLoot.Enabled", false) ? Empty : new LootPack(new[] { new LootPackEntry(false, true, NecroScrollItems, 100.00, 1) });
+        public static readonly LootPack ArcanistScrolls =  Config.Get("NelderimLoot.Enabled", false) ? Empty : new LootPack(new[] { new LootPackEntry(false, true, ArcanistScrollItems, 100.00, 1) });
+        public static readonly LootPack MysticScrolls =  Config.Get("NelderimLoot.Enabled", false) ? Empty : new LootPack(new[] { new LootPackEntry(false, true, MysticScrollItems, 100.00, 1) });
 
-        public static readonly LootPack MageryRegs = new LootPack(new[] { new LootPackEntry(false, true, MageryRegItems, 100.00, 1) });
-        public static readonly LootPack NecroRegs = new LootPack(new[] { new LootPackEntry(false, true, NecroRegItems, 100.00, 1) });
-        public static readonly LootPack MysticRegs = new LootPack(new[] { new LootPackEntry(false, true, MysticRegItems, 100.00, 1) });
+        public static readonly LootPack MageryRegs =  Config.Get("NelderimLoot.Enabled", false) ? Empty : new LootPack(new[] { new LootPackEntry(false, true, MageryRegItems, 100.00, 1) });
+        public static readonly LootPack NecroRegs =  Config.Get("NelderimLoot.Enabled", false) ? Empty : new LootPack(new[] { new LootPackEntry(false, true, NecroRegItems, 100.00, 1) });
+        public static readonly LootPack MysticRegs =  Config.Get("NelderimLoot.Enabled", false) ? Empty : new LootPack(new[] { new LootPackEntry(false, true, MysticRegItems, 100.00, 1) });
         public static readonly LootPack PeerlessResource = new LootPack(new[] { new LootPackEntry(false, true, PeerlessResourceItems, 100.00, 1) });
 
-        public static readonly LootPack Gems = new LootPack(new[] { new LootPackEntry(false, true, GemItems, 100.00, 1) });
-        public static readonly LootPack RareGems = new LootPack(new[] { new LootPackEntry(false, true, RareGemItems, 100.00, 1) });
+        public static readonly LootPack Gems =  Config.Get("NelderimLoot.Enabled", false) ? Empty : new LootPack(new[] { new LootPackEntry(false, true, GemItems, 100.00, 1) });
+        public static readonly LootPack RareGems =  Config.Get("NelderimLoot.Enabled", false) ? Empty : new LootPack(new[] { new LootPackEntry(false, true, RareGemItems, 100.00, 1) });
 
-        public static readonly LootPack Potions = new LootPack(new[] { new LootPackEntry(false, true, PotionItems, 100.00, 1) });
+        public static readonly LootPack Potions =  Config.Get("NelderimLoot.Enabled", false) ? Empty : new LootPack(new[] { new LootPackEntry(false, true, PotionItems, 100.00, 1) });
         public static readonly LootPack BodyParts = new LootPack(new[] { new LootPackEntry(false, true, LootBodyParts, 100.00, 1) });
         public static readonly LootPack Bones = new LootPack(new[] { new LootPackEntry(false, true, LootBones, 100.00, 1) });
         public static readonly LootPack BodyPartsAndBones = new LootPack(new[] { new LootPackEntry(false, true, LootBodyPartsAndBones, 100.00, 1) });

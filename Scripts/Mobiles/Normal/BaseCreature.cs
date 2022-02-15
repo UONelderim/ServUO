@@ -5229,9 +5229,10 @@ namespace Server.Mobiles
 					break;
 			}
 
-			AddLoot(NelderimLoot.Generate(this, stage));
-
-			GenerateLoot();
+			if (Config.Get("NelderimLoot.Enabled", false))
+				AddLoot(NelderimLoot.Generate(this, stage));
+			else
+				GenerateLoot();
 
 			if (m_Paragon)
 			{
