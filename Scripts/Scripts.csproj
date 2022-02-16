@@ -32,6 +32,9 @@
 
   <ItemGroup>
       <Reference Include="System.Web" />
+      <Reference Include="Ultima, Version=4.3.2.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\Ultima.dll</HintPath>
+      </Reference>
   </ItemGroup>
 
     <ItemGroup>
