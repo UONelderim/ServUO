@@ -238,95 +238,155 @@ namespace Nelderim
 			new LootPackItem(typeof(BaseJewel), 20)
 		};
 
-		public static readonly LootPackItem[] RecallRune = { new LootPackItem(typeof(RecallRune), 1) };
+		public static readonly LootPackItem[] RecallRune = { new LootPackItem(typeof(RecallRune)) };
+		
 
 		public static readonly LootPackItem[] Scrolls1 =
 		{
-			new LootPackItem(typeof(ClumsyScroll), 1), new LootPackItem(typeof(CreateFoodScroll), 1),
-			new LootPackItem(typeof(FeeblemindScroll), 1), new LootPackItem(typeof(HealScroll), 1),
-			new LootPackItem(typeof(MagicArrowScroll), 1), new LootPackItem(typeof(NightSightScroll), 1),
-			new LootPackItem(typeof(ReactiveArmorScroll), 1), new LootPackItem(typeof(WeakenScroll), 1),
-			new LootPackItem(typeof(CleanseByFireScroll), 1), new LootPackItem(typeof(CurseWeaponScroll), 1),
-			new LootPackItem(typeof(AnimalFormScroll), 1)
+			new LootPackItem(typeof(ClumsyScroll)), new LootPackItem(typeof(CreateFoodScroll)),
+			new LootPackItem(typeof(FeeblemindScroll)), new LootPackItem(typeof(HealScroll)),
+			new LootPackItem(typeof(MagicArrowScroll)), new LootPackItem(typeof(NightSightScroll)),
+			new LootPackItem(typeof(ReactiveArmorScroll)), new LootPackItem(typeof(WeakenScroll)),
+			//Chivalry
+			new LootPackItem(typeof(CloseWoundsScroll)), 
+			//Necromancy
+			new LootPackItem(typeof(CurseWeaponScroll)),
+			//Ninjitsu
+			new LootPackItem(typeof(AnimalFormScroll)),
+			//Spellweaving
+			new LootPackItem(typeof(ArcaneCircleScroll)), new LootPackItem(typeof(AttuneWeaponScroll)), 
+			new LootPackItem(typeof(GiftOfRenewalScroll)), new LootPackItem(typeof(NatureFuryScroll)), 
+			//Mysticism
+			new LootPackItem(typeof(HealingStoneScroll)), new LootPackItem(typeof(NetherBoltScroll)), 
 		};
 
 		public static readonly LootPackItem[] Scrolls2 =
 		{
-			new LootPackItem(typeof(AgilityScroll), 1), new LootPackItem(typeof(CunningScroll), 1),
-			new LootPackItem(typeof(CureScroll), 1), new LootPackItem(typeof(HarmScroll), 1),
-			new LootPackItem(typeof(MagicTrapScroll), 1), new LootPackItem(typeof(MagicUnTrapScroll), 1),
-			new LootPackItem(typeof(ProtectionScroll), 1), new LootPackItem(typeof(StrengthScroll), 1),
-			new LootPackItem(typeof(RemoveCurseScroll), 1), new LootPackItem(typeof(CorpseSkinScroll), 1),
-			new LootPackItem(typeof(WraithFormScroll), 1), new LootPackItem(typeof(EvilOmenScroll), 1),
-			new LootPackItem(typeof(BackstabScroll), 1)
+			new LootPackItem(typeof(AgilityScroll)), new LootPackItem(typeof(CunningScroll)),
+			new LootPackItem(typeof(CureScroll)), new LootPackItem(typeof(HarmScroll)),
+			new LootPackItem(typeof(MagicTrapScroll)), new LootPackItem(typeof(MagicUnTrapScroll)),
+			new LootPackItem(typeof(ProtectionScroll)), new LootPackItem(typeof(StrengthScroll)),
+			//Chivalry
+			new LootPackItem(typeof(RemoveCurseScroll)), new LootPackItem(typeof(CleanseByFireScroll)),
+			//Mysticism
+			new LootPackItem(typeof(EnchantScroll)), new LootPackItem(typeof(PurgeMagicScroll)), 
 		};
 
 		public static readonly LootPackItem[] Scrolls3 =
 		{
-			new LootPackItem(typeof(BlessScroll), 1), new LootPackItem(typeof(FireballScroll), 1),
-			new LootPackItem(typeof(MagicLockScroll), 1), new LootPackItem(typeof(PoisonScroll), 1),
-			new LootPackItem(typeof(TelekinisisScroll), 1), new LootPackItem(typeof(TeleportScroll), 1),
-			new LootPackItem(typeof(UnlockScroll), 1), new LootPackItem(typeof(WallOfStoneScroll), 1),
-			new LootPackItem(typeof(ConsecrateWeaponScroll), 1), new LootPackItem(typeof(CloseWoundsScroll), 1),
-			new LootPackItem(typeof(BloodOathScroll), 1), new LootPackItem(typeof(PainSpikeScroll), 1),
-			new LootPackItem(typeof(SummonFamiliarScroll), 1), new LootPackItem(typeof(ConfidenceScroll), 1),
-			new LootPackItem(typeof(HonorableExecutionScroll), 1), new LootPackItem(typeof(SurpriseAttackScroll), 1)
+			new LootPackItem(typeof(BlessScroll)), new LootPackItem(typeof(FireballScroll)),
+			new LootPackItem(typeof(MagicLockScroll)), new LootPackItem(typeof(PoisonScroll)),
+			new LootPackItem(typeof(TelekinisisScroll)), new LootPackItem(typeof(TeleportScroll)),
+			new LootPackItem(typeof(UnlockScroll)), new LootPackItem(typeof(WallOfStoneScroll)),
+			//Chivalry
+			new LootPackItem(typeof(ConsecrateWeaponScroll)), new LootPackItem(typeof(SacredJourneyScroll)),
+			//Necromancy
+			new LootPackItem(typeof(BloodOathScroll)), new LootPackItem(typeof(CorpseSkinScroll)),
+			new LootPackItem(typeof(EvilOmenScroll)), new LootPackItem(typeof(PainSpikeScroll)), 
+			new LootPackItem(typeof(WraithFormScroll)), 
+			//Ninjitsu
+			new LootPackItem(typeof(MirrorImageScroll)), 
+			//Spellweaving
+			new LootPackItem(typeof(ImmolatingWeaponScroll)), new LootPackItem(typeof(ThunderstormScroll)), 
+			//Mysticism
+			new LootPackItem(typeof(EagleStrikeScroll)), new LootPackItem(typeof(SleepScroll)), 
 		};
 
 		public static readonly LootPackItem[] Scrolls4 =
 		{
-			new LootPackItem(typeof(ArchCureScroll), 1), new LootPackItem(typeof(ArchProtectionScroll), 1),
-			new LootPackItem(typeof(CurseScroll), 1), new LootPackItem(typeof(FireFieldScroll), 1),
-			new LootPackItem(typeof(GreaterHealScroll), 1), new LootPackItem(typeof(LightningScroll), 1),
-			new LootPackItem(typeof(ManaDrainScroll), 1), new LootPackItem(typeof(RecallScroll), 1),
-			new LootPackItem(typeof(DivineFuryScroll), 1), new LootPackItem(typeof(SacredJourneyScroll), 1),
-			new LootPackItem(typeof(MindRotScroll), 1), new LootPackItem(typeof(HorrificBeastScroll), 1),
-			new LootPackItem(typeof(AnimateDeadScroll), 1), new LootPackItem(typeof(CounterAttackScroll), 1),
-			new LootPackItem(typeof(MirrorImageScroll), 1)
+			new LootPackItem(typeof(ArchCureScroll)), new LootPackItem(typeof(ArchProtectionScroll)),
+			new LootPackItem(typeof(CurseScroll)), new LootPackItem(typeof(FireFieldScroll)),
+			new LootPackItem(typeof(GreaterHealScroll)), new LootPackItem(typeof(LightningScroll)),
+			new LootPackItem(typeof(ManaDrainScroll)), new LootPackItem(typeof(RecallScroll)),
+			//Chivalry
+			new LootPackItem(typeof(DivineFuryScroll)),
+			//Necromancy
+			new LootPackItem(typeof(MindRotScroll)), new LootPackItem(typeof(SummonFamiliarScroll)),
+			//Bushido
+			new LootPackItem(typeof(HonorableExecutionScroll)), new LootPackItem(typeof(ConfidenceScroll)),
+			//Ninjitsu
+			new LootPackItem(typeof(FocusAttackScroll)), 
+			//Spellweaving
+			new LootPackItem(typeof(ArcaneEmpowermentScroll)), new LootPackItem(typeof(EtherealVoyageScroll)), 
+			new LootPackItem(typeof(ReaperFormScroll)),
+			//Mysticism
+			new LootPackItem(typeof(AnimatedWeaponScroll)), new LootPackItem(typeof(StoneFormScroll)), 
 		};
 
 		public static readonly LootPackItem[] Scrolls5 =
 		{
-			new LootPackItem(typeof(BladeSpiritsScroll), 1), new LootPackItem(typeof(DispelFieldScroll), 1),
-			new LootPackItem(typeof(IncognitoScroll), 1), new LootPackItem(typeof(MagicReflectScroll), 1),
-			new LootPackItem(typeof(MindBlastScroll), 1), new LootPackItem(typeof(ParalyzeScroll), 1),
-			new LootPackItem(typeof(PoisonFieldScroll), 1), new LootPackItem(typeof(SummonCreatureScroll), 1),
-			new LootPackItem(typeof(DispelEvilScroll), 1), new LootPackItem(typeof(WitherScroll), 1),
-			new LootPackItem(typeof(PoisonStrikeScroll), 1), new LootPackItem(typeof(LightningStrikeScroll), 1),
-			new LootPackItem(typeof(ShadowJumpScroll), 1)
+			new LootPackItem(typeof(BladeSpiritsScroll)), new LootPackItem(typeof(DispelFieldScroll)),
+			new LootPackItem(typeof(IncognitoScroll)), new LootPackItem(typeof(MagicReflectScroll)),
+			new LootPackItem(typeof(MindBlastScroll)), new LootPackItem(typeof(ParalyzeScroll)),
+			new LootPackItem(typeof(PoisonFieldScroll)), new LootPackItem(typeof(SummonCreatureScroll)),
+			//Chivalry
+			new LootPackItem(typeof(DispelEvilScroll)), new LootPackItem(typeof(EnemyOfOneScroll)),
+			//Necromancy
+			new LootPackItem(typeof(AnimateDeadScroll)), new LootPackItem(typeof(HorrificBeastScroll)),
+			//Bushido
+			new LootPackItem(typeof(CounterAttackScroll)),
+			//Ninjitsu
+			new LootPackItem(typeof(BackstabScroll)),
+			//Spellweaving
+			new LootPackItem(typeof(GiftOfLifeScroll)), new LootPackItem(typeof(SummonFeyScroll)), 
+			new LootPackItem(typeof(SummonFiendScroll)), 
+			//Mysticism
+			new LootPackItem(typeof(MassSleepScroll)), new LootPackItem(typeof(SpellTriggerScroll)), 
 		};
-
+			
 		public static readonly LootPackItem[] Scrolls6 =
 		{
-			new LootPackItem(typeof(DispelScroll), 1), new LootPackItem(typeof(EnergyBoltScroll), 1),
-			new LootPackItem(typeof(ExplosionScroll), 1), new LootPackItem(typeof(InvisibilityScroll), 1),
-			new LootPackItem(typeof(MarkScroll), 1), new LootPackItem(typeof(MassCurseScroll), 1),
-			new LootPackItem(typeof(ParalyzeFieldScroll), 1), new LootPackItem(typeof(RevealScroll), 1),
-			new LootPackItem(typeof(EnemyOfOneScroll), 1), new LootPackItem(typeof(StrangleScroll), 1),
-			new LootPackItem(typeof(LichFormScroll), 1), new LootPackItem(typeof(EvasionScroll), 1),
-			new LootPackItem(typeof(FocusAttackScroll), 1)
+			new LootPackItem(typeof(DispelScroll)), new LootPackItem(typeof(EnergyBoltScroll)),
+			new LootPackItem(typeof(ExplosionScroll)), new LootPackItem(typeof(InvisibilityScroll)),
+			new LootPackItem(typeof(MarkScroll)), new LootPackItem(typeof(MassCurseScroll)),
+			new LootPackItem(typeof(ParalyzeFieldScroll)), new LootPackItem(typeof(RevealScroll)),
+			//Chivalry
+			new LootPackItem(typeof(HolyLightScroll)), 
+			//Necromancy
+			new LootPackItem(typeof(WitherScroll)), new LootPackItem(typeof(StrangleScroll)), 
+			//Bushido
+			new LootPackItem(typeof(LightningStrikeScroll)), new LootPackItem(typeof(EvasionScroll)), 
+			//Ninjitsu
+			new LootPackItem(typeof(ShadowJumpScroll)), new LootPackItem(typeof(SurpriseAttackScroll)), 
+			//Spellweaving
+			new LootPackItem(typeof(DryadAllureScroll)), new LootPackItem(typeof(EssenceOfWindScroll)), 
+			//Mysticism
+			new LootPackItem(typeof(BombardScroll)), new LootPackItem(typeof(CleansingWindsScroll)), 
 		};
 
 		public static readonly LootPackItem[] Scrolls7 =
 		{
-			new LootPackItem(typeof(ChainLightningScroll), 1), new LootPackItem(typeof(EnergyFieldScroll), 1),
-			new LootPackItem(typeof(FlamestrikeScroll), 1), new LootPackItem(typeof(GateTravelScroll), 1),
-			new LootPackItem(typeof(ManaVampireScroll), 1), new LootPackItem(typeof(MassDispelScroll), 1),
-			new LootPackItem(typeof(MeteorSwarmScroll), 1), new LootPackItem(typeof(PolymorphScroll), 1),
-			new LootPackItem(typeof(HolyLightScroll), 1), new LootPackItem(typeof(ExorcismScroll), 1),
-			new LootPackItem(typeof(VengefulSpiritScroll), 1), new LootPackItem(typeof(MomentumStrikeScroll), 1),
-			new LootPackItem(typeof(KiAttackScroll), 1), new LootPackItem(typeof(DeathStrikeScroll), 1)
+			new LootPackItem(typeof(ChainLightningScroll)), new LootPackItem(typeof(EnergyFieldScroll)),
+			new LootPackItem(typeof(FlamestrikeScroll)), new LootPackItem(typeof(GateTravelScroll)),
+			new LootPackItem(typeof(ManaVampireScroll)), new LootPackItem(typeof(MassDispelScroll)),
+			new LootPackItem(typeof(MeteorSwarmScroll)), new LootPackItem(typeof(PolymorphScroll)),
+			//Chivalry
+			new LootPackItem(typeof(NobleSacrificeScroll)), 
+			//Necromancy
+			new LootPackItem(typeof(LichFormScroll)),
+			//Bushido
+			new LootPackItem(typeof(MomentumStrikeScroll)),
+			//Spellweaving
+			new LootPackItem(typeof(WildfireScroll)),
+			//Mysticism
+			new LootPackItem(typeof(HailStormScroll)), new LootPackItem(typeof(SpellPlagueScroll)),
 		};
 
 		public static readonly LootPackItem[] Scrolls8 =
 		{
-			new LootPackItem(typeof(EarthquakeScroll), 1), new LootPackItem(typeof(EnergyVortexScroll), 1),
-			new LootPackItem(typeof(ResurrectionScroll), 1), new LootPackItem(typeof(SummonAirElementalScroll), 1),
-			new LootPackItem(typeof(SummonDaemonScroll), 1),
-			new LootPackItem(typeof(SummonEarthElementalScroll), 1),
-			new LootPackItem(typeof(SummonFireElementalScroll), 1),
-			new LootPackItem(typeof(SummonWaterElementalScroll), 1),
-			new LootPackItem(typeof(NobleSacrificeScroll), 1), new LootPackItem(typeof(VampiricEmbraceScroll), 1)
+			new LootPackItem(typeof(EarthquakeScroll)), new LootPackItem(typeof(EnergyVortexScroll)),
+			new LootPackItem(typeof(ResurrectionScroll)), new LootPackItem(typeof(SummonAirElementalScroll)),
+			new LootPackItem(typeof(SummonDaemonScroll)), new LootPackItem(typeof(SummonEarthElementalScroll)),
+			new LootPackItem(typeof(SummonFireElementalScroll)), new LootPackItem(typeof(SummonWaterElementalScroll)),
+			//Necromancy
+			new LootPackItem(typeof(ExorcismScroll)), new LootPackItem(typeof(VengefulSpiritScroll)), 
+			new LootPackItem(typeof(VampiricEmbraceScroll)),
+			//Ninjitsu
+			new LootPackItem(typeof(KiAttackScroll)), new LootPackItem(typeof(DeathStrikeScroll)), 
+			//Spellweaving
+			new LootPackItem(typeof(WordOfDeathScroll)),
+			//Mysticism
+			new LootPackItem(typeof(NetherCycloneScroll)), new LootPackItem(typeof(RisingColossusScroll)), 
 		};
 
 		private static readonly LootPackItem[][] NL_scrolls =
@@ -336,99 +396,99 @@ namespace Nelderim
 
 		public static readonly LootPackItem[] AncientScrollItems =
 		{
-			new LootPackItem(typeof(AncientCauseFearScroll), 1), new LootPackItem(typeof(AncientCloneScroll), 1),
-			new LootPackItem(typeof(AncientDanceScroll), 1), new LootPackItem(typeof(AncientDeathVortexScroll), 1),
-			new LootPackItem(typeof(AncientDouseScroll), 1), new LootPackItem(typeof(AncientEnchantScroll), 1),
-			new LootPackItem(typeof(AncientFireRingScroll), 1),
-			new LootPackItem(typeof(AncientGreatDouseScroll), 1),
-			new LootPackItem(typeof(AncientGreatIgniteScroll), 1), new LootPackItem(typeof(AncientIgniteScroll), 1),
-			new LootPackItem(typeof(AncientMassMightScroll), 1), new LootPackItem(typeof(AncientPeerScroll), 1),
-			new LootPackItem(typeof(AncientSeanceScroll), 1), new LootPackItem(typeof(AncientSwarmScroll), 1),
-			new LootPackItem(typeof(AncientDeathVortexScroll), 1),
-			new LootPackItem(typeof(AncientDeathVortexScroll), 1)
+			new LootPackItem(typeof(AncientCauseFearScroll)), new LootPackItem(typeof(AncientCloneScroll)),
+			new LootPackItem(typeof(AncientDanceScroll)), new LootPackItem(typeof(AncientDeathVortexScroll)),
+			new LootPackItem(typeof(AncientDouseScroll)), new LootPackItem(typeof(AncientEnchantScroll)),
+			new LootPackItem(typeof(AncientFireRingScroll)),
+			new LootPackItem(typeof(AncientGreatDouseScroll)),
+			new LootPackItem(typeof(AncientGreatIgniteScroll)), new LootPackItem(typeof(AncientIgniteScroll)),
+			new LootPackItem(typeof(AncientMassMightScroll)), new LootPackItem(typeof(AncientPeerScroll)),
+			new LootPackItem(typeof(AncientSeanceScroll)), new LootPackItem(typeof(AncientSwarmScroll)),
+			new LootPackItem(typeof(AncientDeathVortexScroll)),
+			new LootPackItem(typeof(AncientDeathVortexScroll))
 		};
 
 		public static readonly LootPackItem[] AvatarScrollItems =
 		{
-			new LootPackItem(typeof(AvatarHeavenlyLightScroll), 1),
-			new LootPackItem(typeof(AvatarHeavensGateScroll), 1),
-			new LootPackItem(typeof(AvatarMarkOfGodsScroll), 1),
-			new LootPackItem(typeof(AvatarRestorationScroll), 1),
-			new LootPackItem(typeof(AvatarSacredBoonScroll), 1),
-			new LootPackItem(typeof(AvatarAngelicFaithScroll), 1),
-			new LootPackItem(typeof(AvatarArmysPaeonScroll), 1)
+			new LootPackItem(typeof(AvatarHeavenlyLightScroll)),
+			new LootPackItem(typeof(AvatarHeavensGateScroll)),
+			new LootPackItem(typeof(AvatarMarkOfGodsScroll)),
+			new LootPackItem(typeof(AvatarRestorationScroll)),
+			new LootPackItem(typeof(AvatarSacredBoonScroll)),
+			new LootPackItem(typeof(AvatarAngelicFaithScroll)),
+			new LootPackItem(typeof(AvatarArmysPaeonScroll))
 		};
 
 		public static readonly LootPackItem[] BardScrollItems =
 		{
-			new LootPackItem(typeof(BardArmysPaeonScroll), 1),
-			new LootPackItem(typeof(BardEnchantingEtudeScroll), 1),
-			new LootPackItem(typeof(BardEnergyCarolScroll), 1),
-			new LootPackItem(typeof(AncientDeathVortexScroll), 1),
-			new LootPackItem(typeof(BardEnergyThrenodyScroll), 1), new LootPackItem(typeof(BardFireCarolScroll), 1),
-			new LootPackItem(typeof(BardFireThrenodyScroll), 1), new LootPackItem(typeof(BardFoeRequiemScroll), 1),
-			new LootPackItem(typeof(BardIceCarolScroll), 1), new LootPackItem(typeof(BardIceThrenodyScroll), 1),
-			new LootPackItem(typeof(BardKnightsMinneScroll), 1), new LootPackItem(typeof(BardMagesBalladScroll), 1),
-			new LootPackItem(typeof(BardMagicFinaleScroll), 1), new LootPackItem(typeof(BardPoisonCarolScroll), 1),
-			new LootPackItem(typeof(BardPoisonThrenodyScroll), 1),
-			new LootPackItem(typeof(BardSheepfoeMamboScroll), 1), new LootPackItem(typeof(BardSinewyEtudeScroll), 1)
+			new LootPackItem(typeof(BardArmysPaeonScroll)),
+			new LootPackItem(typeof(BardEnchantingEtudeScroll)),
+			new LootPackItem(typeof(BardEnergyCarolScroll)),
+			new LootPackItem(typeof(AncientDeathVortexScroll)),
+			new LootPackItem(typeof(BardEnergyThrenodyScroll)), new LootPackItem(typeof(BardFireCarolScroll)),
+			new LootPackItem(typeof(BardFireThrenodyScroll)), new LootPackItem(typeof(BardFoeRequiemScroll)),
+			new LootPackItem(typeof(BardIceCarolScroll)), new LootPackItem(typeof(BardIceThrenodyScroll)),
+			new LootPackItem(typeof(BardKnightsMinneScroll)), new LootPackItem(typeof(BardMagesBalladScroll)),
+			new LootPackItem(typeof(BardMagicFinaleScroll)), new LootPackItem(typeof(BardPoisonCarolScroll)),
+			new LootPackItem(typeof(BardPoisonThrenodyScroll)),
+			new LootPackItem(typeof(BardSheepfoeMamboScroll)), new LootPackItem(typeof(BardSinewyEtudeScroll))
 		};
 
 		public static readonly LootPackItem[] ClericScrollItems =
 		{
-			new LootPackItem(typeof(ClericAngelicFaithScroll), 1),
-			new LootPackItem(typeof(ClericBanishEvilScroll), 1),
-			new LootPackItem(typeof(ClericDampenSpiritScroll), 1),
-			new LootPackItem(typeof(ClericDivineFocusScroll), 1), new LootPackItem(typeof(ClericPurgeScroll), 1),
-			new LootPackItem(typeof(ClericHammerOfFaithScroll), 1),
-			new LootPackItem(typeof(ClericRestorationScroll), 1),
-			new LootPackItem(typeof(ClericSacredBoonScroll), 1), new LootPackItem(typeof(ClericSacrificeScroll), 1),
-			new LootPackItem(typeof(ClericTouchOfLifeScroll), 1), new LootPackItem(typeof(ClericSmiteScroll), 1),
-			new LootPackItem(typeof(ClericTrialByFireScroll), 1)
+			new LootPackItem(typeof(ClericAngelicFaithScroll)),
+			new LootPackItem(typeof(ClericBanishEvilScroll)),
+			new LootPackItem(typeof(ClericDampenSpiritScroll)),
+			new LootPackItem(typeof(ClericDivineFocusScroll)), new LootPackItem(typeof(ClericPurgeScroll)),
+			new LootPackItem(typeof(ClericHammerOfFaithScroll)),
+			new LootPackItem(typeof(ClericRestorationScroll)),
+			new LootPackItem(typeof(ClericSacredBoonScroll)), new LootPackItem(typeof(ClericSacrificeScroll)),
+			new LootPackItem(typeof(ClericTouchOfLifeScroll)), new LootPackItem(typeof(ClericSmiteScroll)),
+			new LootPackItem(typeof(ClericTrialByFireScroll))
 		};
 
 		public static readonly LootPackItem[] DruidScrollItems =
 		{
-			new LootPackItem(typeof(DruidBlendWithForestScroll), 1),
-			new LootPackItem(typeof(DruidFamiliarScroll), 1),
-			new LootPackItem(typeof(DruidEnchantedGroveScroll), 1),
-			new LootPackItem(typeof(DruidGraspingRootsScroll), 1),
-			new LootPackItem(typeof(DruidHollowReedScroll), 1),
-			new LootPackItem(typeof(DruidLeafWhirlwindScroll), 1),
-			new LootPackItem(typeof(DruidLureStoneScroll), 1),
-			new LootPackItem(typeof(DruidMushroomGatewayScroll), 1),
-			new LootPackItem(typeof(DruidNaturesPassageScroll), 1),
-			new LootPackItem(typeof(DruidPackOfBeastScroll), 1),
-			new LootPackItem(typeof(DruidRestorativeSoilScroll), 1),
-			new LootPackItem(typeof(DruidShieldOfEarthScroll), 1),
-			new LootPackItem(typeof(DruidSpringOfLifeScroll), 1),
-			new LootPackItem(typeof(DruidStoneCircleScroll), 1),
-			new LootPackItem(typeof(DruidSwarmOfInsectsScroll), 1),
-			new LootPackItem(typeof(DruidVolcanicEruptionScroll), 1)
+			new LootPackItem(typeof(DruidBlendWithForestScroll)),
+			new LootPackItem(typeof(DruidFamiliarScroll)),
+			new LootPackItem(typeof(DruidEnchantedGroveScroll)),
+			new LootPackItem(typeof(DruidGraspingRootsScroll)),
+			new LootPackItem(typeof(DruidHollowReedScroll)),
+			new LootPackItem(typeof(DruidLeafWhirlwindScroll)),
+			new LootPackItem(typeof(DruidLureStoneScroll)),
+			new LootPackItem(typeof(DruidMushroomGatewayScroll)),
+			new LootPackItem(typeof(DruidNaturesPassageScroll)),
+			new LootPackItem(typeof(DruidPackOfBeastScroll)),
+			new LootPackItem(typeof(DruidRestorativeSoilScroll)),
+			new LootPackItem(typeof(DruidShieldOfEarthScroll)),
+			new LootPackItem(typeof(DruidSpringOfLifeScroll)),
+			new LootPackItem(typeof(DruidStoneCircleScroll)),
+			new LootPackItem(typeof(DruidSwarmOfInsectsScroll)),
+			new LootPackItem(typeof(DruidVolcanicEruptionScroll))
 		};
 
 		public static readonly LootPackItem[] RangerScrollItems =
 		{
-			new LootPackItem(typeof(RangerFireBowScroll), 1), new LootPackItem(typeof(RangerHuntersAimScroll), 1),
-			new LootPackItem(typeof(RangerIceBowScroll), 1), new LootPackItem(typeof(RangerLightningBowScroll), 1),
-			new LootPackItem(typeof(RangerNoxBowScroll), 1), new LootPackItem(typeof(RangerPhoenixFlightScroll), 1),
-			new LootPackItem(typeof(RangerFamiliarScroll), 1), new LootPackItem(typeof(RangerSummonMountScroll), 1)
+			new LootPackItem(typeof(RangerFireBowScroll)), new LootPackItem(typeof(RangerHuntersAimScroll)),
+			new LootPackItem(typeof(RangerIceBowScroll)), new LootPackItem(typeof(RangerLightningBowScroll)),
+			new LootPackItem(typeof(RangerNoxBowScroll)), new LootPackItem(typeof(RangerPhoenixFlightScroll)),
+			new LootPackItem(typeof(RangerFamiliarScroll)), new LootPackItem(typeof(RangerSummonMountScroll))
 		};
 
 		public static readonly LootPackItem[] UndeadScrollItems =
 		{
-			new LootPackItem(typeof(UndeadAngelicFaithScroll), 1),
-			new LootPackItem(typeof(UndeadCauseFearScroll), 1),
-			new LootPackItem(typeof(UndeadGraspingRootsScroll), 1),
-			new LootPackItem(typeof(UndeadHammerOfFaithScroll), 1),
-			new LootPackItem(typeof(UndeadHollowReedScroll), 1),
-			new LootPackItem(typeof(UndeadLeafWhirlwindScroll), 1),
-			new LootPackItem(typeof(UndeadLureStoneScroll), 1),
-			new LootPackItem(typeof(UndeadMushroomGatewayScroll), 1),
-			new LootPackItem(typeof(UndeadNaturesPassageScroll), 1),
-			new LootPackItem(typeof(UndeadSeanceScroll), 1),
-			new LootPackItem(typeof(UndeadSwarmOfInsectsScroll), 1),
-			new LootPackItem(typeof(UndeadVolcanicEruptionScroll), 1)
+			new LootPackItem(typeof(UndeadAngelicFaithScroll)),
+			new LootPackItem(typeof(UndeadCauseFearScroll)),
+			new LootPackItem(typeof(UndeadGraspingRootsScroll)),
+			new LootPackItem(typeof(UndeadHammerOfFaithScroll)),
+			new LootPackItem(typeof(UndeadHollowReedScroll)),
+			new LootPackItem(typeof(UndeadLeafWhirlwindScroll)),
+			new LootPackItem(typeof(UndeadLureStoneScroll)),
+			new LootPackItem(typeof(UndeadMushroomGatewayScroll)),
+			new LootPackItem(typeof(UndeadNaturesPassageScroll)),
+			new LootPackItem(typeof(UndeadSeanceScroll)),
+			new LootPackItem(typeof(UndeadSwarmOfInsectsScroll)),
+			new LootPackItem(typeof(UndeadVolcanicEruptionScroll))
 		};
 
 		#endregion

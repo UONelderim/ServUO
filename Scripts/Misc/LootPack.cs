@@ -1191,6 +1191,9 @@ namespace Server
             Type = type;
             Chance = chance;
         }
+
+        public LootPackItem(Type type) : this(type, 1)
+        {}
     }
 
     public class LootPackDice
