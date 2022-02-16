@@ -1,1004 +1,1570 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ServerRegions>
 	<Facet name="Felucca">
-		<region type="GuardedRegion" priority="50" name="Moongates">
-			<!-- britain -->
-			<rect x="1330" y="1991" width="13" height="13" />
-			<!-- jhelom -->
-			<rect x="1494" y="3767" width="12" height="11" />
-			<!-- minoc -->
-			<rect x="2694" y="685" width="15" height="16" />
-			<!-- trinsic -->
-			<rect x="1823" y="2943" width="11" height="11" />
-			<!-- yew -->
-			<rect x="761" y="741" width="19" height="21" />
-			<!-- skara brae -->
-			<rect x="638" y="2062" width="12" height="11" />
-			<!-- moonglow -->
-			<rect x="4459" y="1276" width="16" height="16" />
-			<!-- magincia -->
-			<rect x="3554" y="2132" width="18" height="18" />
+		<region type="GreenAcres" priority="100" name="GreenAcres">
+			<rect x="5597" y="0" width="169" height="66" />
 		</region>
-		<!--Mondain's Legacy-->
-		<region type="TownRegion" priority="50" name="Heartwood">
-			<rect x="6911" y="255" width="257" height="257" />
-			<go x="6984" y="337" z="0" />
-			<entrance x="535" y="995" />
-			<music name="ElfCity" />
+		<region type="TravelRegion" priority="0" name="ObszarPodrozy">
+			<rect x="0" y="770" width="1350" height="650" />
+			<rect x="0" y="1420" width="618" height="500" />
+			<rect x="618" y="1420" width="54" height="37" />
+			<rect x="770" y="1420" width="580" height="143" />
+			<rect x="706" y="1563" width="644" height="357" />
+			<rect x="706" y="1536" width="64" height="27" />
+			<rect x="720" y="1519" width="50" height="17" />
+			<rect x="618" y="1647" width="88" height="85" />
+			<rect x="676" y="1634" width="30" height="13" />
+			<rect x="695" y="1611" width="11" height="23" />
+			<rect x="701" y="1603" width="5" height="8" />
+			<rect x="682" y="1620" width="13" height="14" />
+			<rect x="618" y="1732" width="88" height="188" />
+			<rect x="0" y="1920" width="1350" height="950" />
+			<rect x="0" y="2870" width="940" height="1225" />
+			<rect x="1350" y="770" width="170" height="300" />
+			<rect x="1351" y="1070" width="169" height="120" />
+			<rect x="1520" y="873" width="125" height="317" />
+			<rect x="1435" y="1190" width="210" height="95" />
+			<rect x="1350" y="1285" width="295" height="635" />
+			<rect x="1350" y="1265" width="13" height="20" />
+			<rect x="1363" y="1278" width="14" height="7" />
+			<rect x="1750" y="0" width="600" height="430" />
+			<rect x="2004" y="430" width="346" height="340" />
+			<rect x="1750" y="658" width="254" height="112" />
+			<rect x="1750" y="770" width="600" height="515" />
+			<rect x="1645" y="1032" width="105" height="253" />
+			<rect x="1645" y="1285" width="705" height="250" />
+			<rect x="1645" y="1535" width="320" height="385" />
+			<rect x="2070" y="1535" width="280" height="385" />
+			<rect x="1965" y="1679" width="105" height="241" />
+			<rect x="1965" y="1669" width="8" height="10" />
+			<rect x="1350" y="1920" width="1000" height="770" />
+			<rect x="1350" y="2690" width="190" height="180" />
+			<rect x="1604" y="2690" width="746" height="180" />
+			<rect x="1540" y="2784" width="64" height="86" />
+			<rect x="1540" y="2761" width="15" height="23" />
+			<rect x="1555" y="2771" width="8" height="13" />
+			<rect x="1540" y="2734" width="5" height="24" />
+			<rect x="1540" y="2690" width="22" height="10" />
+			<rect x="1540" y="2700" width="8" height="3" />
+			<rect x="1579" y="2690" width="25" height="6" />
+			<rect x="1600" y="2716" width="4" height="14" />
+			<rect x="940" y="2936" width="410" height="1159" />
+			<rect x="1180" y="2870" width="170" height="66" />
+			<rect x="1350" y="2870" width="1000" height="490" />
+			<rect x="1350" y="3360" width="450" height="735" />
+			<rect x="1800" y="3360" width="550" height="200" />
+			<rect x="2044" y="3560" width="306" height="535" />
+			<rect x="1800" y="3830" width="244" height="265" />
+			<rect x="1919" y="3560" width="125" height="52" />
+			<rect x="1951" y="3612" width="93" height="13" />
+			<rect x="2006" y="3625" width="38" height="60" />
+			<rect x="1989" y="3648" width="17" height="8" />
+			<rect x="2350" y="0" width="1000" height="1500" />
+			<rect x="2350" y="1500" width="1000" height="400" />
+			<rect x="2350" y="1900" width="285" height="500" />
+			<rect x="2635" y="2025" width="170" height="375" />
+			<rect x="2805" y="1900" width="545" height="500" />
+			<rect x="2635" y="2005" width="30" height="20" />
+			<rect x="2780" y="1900" width="25" height="75" />
+			<rect x="2350" y="2400" width="1000" height="600" />
+			<rect x="2350" y="3000" width="1000" height="1095" />
+			<rect x="3350" y="0" width="1750" height="535" />
+			<rect x="3350" y="535" width="250" height="276" />
+			<rect x="3600" y="535" width="386" height="276" />
+			<rect x="3986" y="535" width="1114" height="276" />
+			<rect x="3350" y="811" width="388" height="368" />
+			<rect x="3738" y="811" width="318" height="368" />
+			<rect x="4056" y="811" width="312" height="254" />
+			<rect x="4056" y="1065" width="52" height="114" />
+			<rect x="4108" y="1065" width="13" height="110" />
+			<rect x="4121" y="1065" width="14" height="100" />
+			<rect x="4135" y="1065" width="15" height="90" />
+			<rect x="4150" y="1065" width="12" height="84" />
+			<rect x="4162" y="1065" width="12" height="74" />
+			<rect x="4368" y="811" width="235" height="254" />
+			<rect x="4603" y="811" width="497" height="254" />
+			<rect x="3350" y="1179" width="290" height="238" />
+			<rect x="3350" y="1417" width="290" height="300" />
+			<rect x="3640" y="1179" width="360" height="238" />
+			<rect x="3640" y="1417" width="315" height="182" />
+			<rect x="3640" y="1599" width="262" height="118" />
+			<rect x="3350" y="1717" width="552" height="212" />
+			<rect x="3350" y="1929" width="430" height="235" />
+			<rect x="3350" y="2164" width="430" height="194" />
+			<rect x="3780" y="1929" width="315" height="212" />
+			<rect x="3350" y="2358" width="430" height="248" />
+			<rect x="3350" y="2606" width="430" height="203" />
+			<rect x="3350" y="2809" width="430" height="191" />
+			<rect x="3992" y="2141" width="103" height="217" />
+			<rect x="3780" y="2358" width="315" height="151" />
+			<rect x="3919" y="2330" width="73" height="28" />
+			<rect x="3926" y="2312" width="66" height="18" />
+			<rect x="3946" y="2282" width="46" height="30" />
+			<rect x="3948" y="2215" width="44" height="67" />
+			<rect x="3967" y="2141" width="25" height="74" />
+			<rect x="3780" y="2509" width="315" height="300" />
+			<rect x="3780" y="2809" width="315" height="191" />
+			<rect x="4095" y="1929" width="1005" height="521" />
+			<rect x="4095" y="2450" width="1005" height="550" />
+			<rect x="4402" y="1065" width="698" height="864" />
+			<rect x="4382" y="1065" width="20" height="198" />
+			<rect x="4375" y="1065" width="7" height="57" />
+			<rect x="4371" y="1073" width="4" height="37" />
+			<rect x="4377" y="1200" width="5" height="39" />
+			<rect x="4378" y="1157" width="4" height="22" />
+			<rect x="4355" y="1609" width="47" height="73" />
+			<rect x="4259" y="1650" width="96" height="32" />
+			<rect x="4300" y="1646" width="36" height="4" />
+			<rect x="4259" y="1682" width="143" height="60" />
+			<rect x="3902" y="1599" width="53" height="84" />
+			<rect x="3902" y="1683" width="357" height="59" />
+			<rect x="3955" y="1641" width="222" height="42" />
+			<rect x="3955" y="1618" width="65" height="23" />
+			<rect x="3902" y="1742" width="500" height="187" />
+			<rect x="0" y="489" width="1735" height="284" />
+			<rect x="311" y="40" width="1428" height="441" />
+			<rect x="3" y="5" width="272" height="304" />
+			<rect x="0" y="309" width="143" height="144" />
+			<rect x="283" y="0" width="1456" height="33" />
+			<rect x="279" y="37" width="24" height="444" />
 		</region>
-		<region type="MondainRegion" priority="50" name="Sanctuary">
-			<rect x="6157" y="4" width="242" height="251" />
-			<go x="6173" y="23" z="0" />
-			<entrance x="764" y="1646" />
-			<music name="Dungeon9" />
+		<region type="RaceRoomRegion" priority="10" name="RaceRoomNone">
+			<rect x="5125" y="179" width="46" height="88" />
+			<rect x="5169" y="200" width="20" height="48" />
+			<go x="5176" y="231" z="0" />
+			<music name="Nujelm" />
+			<logoutDelay active="false" />
 		</region>
-		<region type="MondainRegion" priority="50" name="Painted Caves">
-			<rect x="6240" y="860" width="70" height="60" />
-			<go x="6308" y="892" z="-1" />
-			<entrance x="1716" y="892" />
-			<music name="Dungeon9" />
+		<region type="RaceRoomRegion" priority="20" name="RaceRoomCzlowiek">
+			<rect x="5136" y="220" width="16" height="21" />
+			<go x="5149" y="229" z="0" />
+			<logoutDelay active="false" />
 		</region>
-		<region type="MondainRegion" priority="50" name="Prism of Light">
-			<rect x="6400" y="0" width="221" height="255" />
-			<go x="6474" y="188" z="0" />
-			<entrance x="3784" y="1097" />
-			<music name="Dungeon9" />
-			<region type="CrystalField">
-				<rect x="6506" y="83" width="7" height="7" />
-				<zrange min="-4" />
-				<spawning>
-					<object id="1001" type="CrystalFieldTele" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="1" />
-				</spawning>
-			</region>
-			<region type="IcyRiver">
-				<rect x="6576" y="73" width="10" height="31" />
-				<rect x="6572" y="83" width="4" height="21" />
-				<rect x="6567" y="90" width="5" height="16" />
-				<rect x="6563" y="94" width="4" height="14" />
-				<rect x="6561" y="95" width="2" height="14" />
-				<rect x="6558" y="98" width="7" height="12" />
-				<rect x="6554" y="101" width="4" height="9" />
-				<zrange min="0" />
-			</region>
+		<region type="RaceRoomRegion" priority="20" name="RaceRoomElf">
+			<rect x="5161" y="203" width="15" height="21" />
+			<go x="5168" y="218" z="0" />
+			<logoutDelay active="false" />
 		</region>
-		<region type="MondainRegion" priority="50" name="Blighted Grove">
-			<rect x="6440" y="820" width="160" height="150" />
-			<go x="6478" y="863" z="11" />
-			<entrance x="587" y="1641" />
-			<music name="MelisandesLair" />
-			<region type="PoisonedTree">
-				<rect x="6570" y="860" width="30" height="30" />
-				<zrange min="0" />
-			</region>
+		<region type="RaceRoomRegion" priority="20" name="RaceRoomKrasnolud">
+			<rect x="5127" y="198" width="25" height="19" />
+			<go x="5148" y="210" z="0" />
+			<logoutDelay active="false" />
 		</region>
-		<region type="MondainRegion" priority="50" name="Palace of Paroxysmus">
-			<rect x="6191" y="311" width="370" height="360" />
-			<go x="6222" y="335" z="60" />
-			<entrance x="5574" y="3024" />
-			<music name="ParoxysmusLair" />
-			<region type="AcidRiver">
-				<rect x="6214" y="340" width="11" height="4" />
-				<rect x="6215" y="337" width="5" height="10" />
-				<rect x="6216" y="335" width="3" height="13" />
-				<rect x="6222" y="340" width="3" height="8" />
-				<rect x="6226" y="342" width="1" height="7" />
-				<rect x="6228" y="345" width="2" height="5" />
-				<rect x="6231" y="346" width="1" height="4" />
-				<rect x="6232" y="347" width="3" height="5" />
-				<rect x="6234" y="349" width="2" height="4" />
-				<rect x="6237" y="350" width="0" height="1" />
-				<rect x="6238" y="353" width="2" height="3" />
-				<rect x="6241" y="354" width="2" height="4" />
-				<rect x="6244" y="355" width="3" height="3" />
-				<rect x="6248" y="356" width="3" height="2" />
-				<rect x="6252" y="355" width="1" height="3" />
-				<rect x="6254" y="354" width="10" height="2" />
-				<rect x="6265" y="353" width="3" height="4" />
-				<rect x="6269" y="354" width="2" height="1" />
-				<rect x="6272" y="353" width="9" height="3" />
-				<rect x="6282" y="354" width="2" height="4" />
-				<rect x="6283" y="355" width="2" height="4" />
-				<rect x="6284" y="357" width="3" height="3" />
-				<rect x="6285" y="359" width="3" height="2" />
-				<rect x="6286" y="360" width="3" height="2" />
-				<rect x="6288" y="361" width="2" height="5" />
-				<rect x="6290" y="362" width="2" height="5" />
-				<rect x="6291" y="363" width="2" height="5" />
-				<rect x="6293" y="365" width="1" height="4" />
-				<rect x="6294" y="366" width="1" height="4" />
-				<rect x="6296" y="367" width="1" height="3" />
-				<rect x="6297" y="369" width="3" height="3" />
-				<rect x="6301" y="370" width="3" height="3" />
-				<rect x="6302" y="371" width="8" height="3" />
-				<rect x="6309" y="369" width="5" height="1" />
-				<rect x="6313" y="366" width="2" height="2" />
-				<rect x="6314" y="364" width="5" height="2" />
-				<rect x="6316" y="362" width="3" height="2" />
-				<rect x="6319" y="361" width="11" height="5" />
-				<rect x="6321" y="360" width="7" height="1" />
-				<rect x="6331" y="363" width="4" height="3" />
-				<rect x="6335" y="364" width="13" height="4" />
-				<rect x="6345" y="362" width="5" height="2" />
-				<rect x="6353" y="358" width="7" height="3" />
-				<rect x="6361" y="359" width="16" height="3" />
-				<rect x="6378" y="357" width="14" height="6" />
-				<rect x="6399" y="352" width="14" height="10" />
-				<rect x="6405" y="363" width="9" height="1" />
-				<rect x="6408" y="365" width="7" height="1" />
-				<rect x="6411" y="367" width="3" height="8" />
-				<rect x="6413" y="375" width="5" height="8" />
-				<rect x="6411" y="383" width="6" height="2" />
-				<rect x="6411" y="386" width="5" height="1" />
-				<rect x="6411" y="388" width="3" height="1" />
-				<rect x="6409" y="390" width="3" height="4" />
-				<rect x="6408" y="395" width="4" height="3" />
-				<rect x="6409" y="398" width="5" height="3" />
-				<rect x="6412" y="401" width="4" height="2" />
-				<rect x="6414" y="402" width="3" height="3" />
-				<rect x="6414" y="406" width="2" height="2" />
-				<rect x="6414" y="408" width="1" height="0" />
-				<rect x="6416" y="410" width="6" height="4" />
-				<rect x="6418" y="407" width="1" height="2" />
-				<rect x="6416" y="415" width="4" height="8" />
-				<rect x="6417" y="422" width="4" height="5" />
-				<rect x="6419" y="426" width="3" height="6" />
-				<rect x="6420" y="432" width="4" height="6" />
-				<rect x="6418" y="439" width="3" height="6" />
-				<rect x="6416" y="444" width="3" height="2" />
-				<rect x="6414" y="447" width="5" height="6" />
-				<rect x="6411" y="454" width="7" height="21" />
-				<rect x="6400" y="474" width="15" height="5" />
-				<rect x="6398" y="470" width="4" height="6" />
-				<rect x="6396" y="468" width="1" height="6" />
-				<rect x="6394" y="463" width="1" height="8" />
-				<rect x="6392" y="462" width="1" height="4" />
-				<rect x="6391" y="452" width="2" height="9" />
-				<rect x="6389" y="454" width="2" height="5" />
-				<rect x="6387" y="456" width="2" height="3" />
-				<rect x="6386" y="445" width="1" height="9" />
-				<rect x="6387" y="444" width="2" height="8" />
-				<rect x="6390" y="445" width="2" height="5" />
-				<rect x="6383" y="445" width="4" height="6" />
-				<rect x="6372" y="444" width="10" height="4" />
-				<rect x="6364" y="443" width="9" height="4" />
-				<rect x="6362" y="446" width="4" height="3" />
-				<rect x="6359" y="448" width="4" height="3" />
-				<rect x="6351" y="449" width="10" height="3" />
-				<rect x="6349" y="453" width="7" height="1" />
-				<rect x="6348" y="454" width="3" height="3" />
-				<rect x="6346" y="458" width="2" height="2" />
-				<rect x="6345" y="460" width="2" height="4" />
-				<rect x="6340" y="461" width="3" height="3" />
-				<rect x="6338" y="463" width="1" height="3" />
-				<rect x="6336" y="465" width="2" height="2" />
-				<rect x="6333" y="466" width="4" height="4" />
-				<rect x="6330" y="469" width="2" height="4" />
-				<rect x="6328" y="473" width="5" height="10" />
-				<rect x="6329" y="484" width="5" height="33" />
-				<rect x="6331" y="518" width="4" height="5" />
-				<rect x="6333" y="522" width="5" height="5" />
-				<rect x="6335" y="528" width="3" height="3" />
-				<rect x="6336" y="531" width="4" height="4" />
-				<rect x="6338" y="536" width="4" height="2" />
-				<rect x="6340" y="539" width="4" height="2" />
-				<rect x="6342" y="542" width="4" height="3" />
-				<rect x="6344" y="546" width="4" height="1" />
-				<rect x="6345" y="547" width="4" height="2" />
-				<rect x="6347" y="549" width="5" height="5" />
-				<rect x="6349" y="555" width="4" height="2" />
-				<rect x="6351" y="558" width="4" height="3" />
-				<rect x="6353" y="562" width="3" height="3" />
-				<rect x="6355" y="564" width="3" height="5" />
-				<rect x="6358" y="568" width="4" height="7" />
-				<rect x="6363" y="568" width="2" height="4" />
-				<rect x="6366" y="567" width="10" height="4" />
-				<rect x="6377" y="569" width="3" height="3" />
-				<rect x="6378" y="570" width="5" height="3" />
-				<rect x="6383" y="569" width="3" height="3" />
-				<rect x="6387" y="569" width="8" height="4" />
-				<rect x="6396" y="569" width="7" height="3" />
-				<rect x="6403" y="571" width="2" height="3" />
-				<rect x="6405" y="573" width="2" height="2" />
-				<rect x="6406" y="576" width="0" height="1" />
-				<rect x="6409" y="576" width="1" height="3" />
-				<rect x="6408" y="577" width="0" height="1" />
-				<rect x="6410" y="577" width="2" height="3" />
-				<rect x="6413" y="578" width="2" height="3" />
-				<rect x="6416" y="579" width="1" height="2" />
-				<rect x="6418" y="578" width="16" height="3" />
-				<rect x="6430" y="576" width="4" height="1" />
-				<rect x="6433" y="565" width="2" height="10" />
-				<rect x="6434" y="564" width="13" height="2" />
-				<rect x="6444" y="563" width="3" height="2" />
-				<rect x="6447" y="562" width="4" height="2" />
-				<rect x="6452" y="561" width="12" height="3" />
-				<rect x="6458" y="559" width="6" height="1" />
-				<rect x="6461" y="555" width="3" height="3" />
-				<rect x="6462" y="551" width="2" height="3" />
-				<rect x="6464" y="548" width="2" height="2" />
-				<rect x="6466" y="546" width="16" height="3" />
-				<rect x="6475" y="544" width="1" height="1" />
-				<rect x="6480" y="540" width="6" height="5" />
-				<rect x="6484" y="538" width="6" height="1" />
-				<rect x="6487" y="536" width="3" height="1" />
-				<rect x="6489" y="534" width="2" height="1" />
-				<rect x="6490" y="532" width="2" height="1" />
-				<rect x="6491" y="530" width="7" height="2" />
-				<rect x="6493" y="529" width="6" height="0" />
-				<rect x="6496" y="527" width="4" height="1" />
-				<rect x="6499" y="524" width="3" height="2" />
-				<rect x="6500" y="522" width="3" height="2" />
-				<rect x="6501" y="520" width="3" height="2" />
-				<rect x="6499" y="514" width="3" height="4" />
-				<rect x="6498" y="510" width="5" height="3" />
-				<rect x="6497" y="500" width="8" height="8" />
-				<rect x="6484" y="448" width="65" height="51" />
-				<rect x="6508" y="500" width="5" height="3" />
-				<rect x="6523" y="500" width="17" height="3" />
-				<rect x="6528" y="504" width="4" height="1" />
-				<zrange min="-50" />
-			</region>
-			<region type="TheLostCityEntry">
-				<rect x="6316" y="472" width="8" height="8" />
-				<rect x="6303" y="509" width="11" height="7" />
-			</region>
+		<region type="RaceRoomRegion" priority="20" name="RaceRoomDrow">
+			<rect x="5142" y="181" width="20" height="14" />
+			<go x="5156" y="192" z="0" />
+			<logoutDelay active="false" />
 		</region>
-		<region priority="50" name="Huntsman's Forest">
-			<rect x="1595" y="550" width="120" height="120" />
+		<region type="RaceRoomRegion" priority="20" name="RaceRoomTeleport">
+			<rect x="5148" y="244" width="16" height="18" />
+			<go x="5156" y="247" z="0" />
+			<logoutDelay active="false" />
 		</region>
-		<!--End-->
-		<region type="TownRegion" priority="50" name="Cove">
-			<rect x="2200" y="1110" width="50" height="50" />
-			<rect x="2200" y="1160" width="86" height="86" />
-			<go x="2275" y="1210" z="0" />
+		<region type="JailRegion" priority="90" name="Wiezienie">
+			<rect x="1965" y="1531" width="108" height="102" />
+			<rect x="1974" y="1632" width="50" height="50" />
+			<rect x="2023" y="1631" width="21" height="30" />
+			<rect x="5756" y="300" width="90" height="59" />
+		</region>
+		<region type="GeographicRegion" priority="10" name="Cesarstwo">
+			<rect x="316" y="1225" width="107" height="800" />
+			<rect x="423" y="1241" width="17" height="800" />
+			<rect x="440" y="1261" width="20" height="800" />
+			<rect x="460" y="1284" width="25" height="800" />
+			<rect x="485" y="1296" width="42" height="850" />
+			<rect x="527" y="1328" width="32" height="900" />
+			<rect x="559" y="1344" width="49" height="900" />
+			<rect x="608" y="1362" width="1550" height="1017" />
+			<rect x="200" y="1268" width="116" height="751" />
+			<rect x="100" y="1336" width="100" height="632" />
+			<rect x="63" y="1537" width="37" height="390" />
+			<rect x="807" y="1132" width="27" height="5" />
+			<rect x="807" y="1137" width="33" height="4" />
+			<rect x="800" y="1141" width="40" height="3" />
+			<rect x="794" y="1144" width="59" height="4" />
+			<rect x="783" y="1148" width="70" height="1" />
+			<rect x="868" y="1144" width="26" height="8" />
+			<rect x="783" y="1149" width="85" height="3" />
+			<rect x="769" y="1152" width="1200" height="210" />
+			<rect x="762" y="1157" width="7" height="205" />
+			<rect x="744" y="1170" width="18" height="192" />
+			<rect x="729" y="1172" width="15" height="190" />
+			<rect x="722" y="1328" width="7" height="34" />
+			<rect x="714" y="1177" width="15" height="34" />
+			<rect x="698" y="1184" width="16" height="27" />
+			<rect x="689" y="1211" width="40" height="14" />
+			<rect x="692" y="1225" width="37" height="16" />
+			<rect x="701" y="1261" width="29" height="23" />
+			<rect x="696" y="1241" width="33" height="20" />
+			<rect x="703" y="1284" width="26" height="12" />
+			<rect x="709" y="1296" width="20" height="32" />
+			<rect x="900" y="1147" width="60" height="5" />
+			<rect x="918" y="1144" width="42" height="3" />
+			<rect x="952" y="1120" width="8" height="12" />
+			<rect x="946" y="1132" width="14" height="5" />
+			<rect x="933" y="1137" width="27" height="7" />
+			<rect x="960" y="1043" width="900" height="109" />
+			<rect x="1140" y="935" width="678" height="108" />
+			<rect x="1282" y="896" width="500" height="39" />
+			<rect x="1332" y="876" width="440" height="20" />
+			<rect x="1372" y="816" width="380" height="60" />
+			<rect x="1432" y="776" width="290" height="40" />
+			<rect x="1487" y="762" width="150" height="14" />
+			<rect x="1527" y="732" width="72" height="30" />
+			<rect x="2158" y="1400" width="229" height="531" />
+			<rect x="2387" y="1462" width="151" height="224" />
+			<rect x="2387" y="1686" width="32" height="87" />
+			<rect x="2387" y="1773" width="95" height="154" />
+			<rect x="2158" y="1931" width="133" height="250" />
+			<rect x="2291" y="1931" width="24" height="31" />
+			<rect x="2315" y="1931" width="18" height="12" />
+			<rect x="2333" y="1931" width="10" height="5" />
+			<rect x="2158" y="2181" width="123" height="12" />
+			<rect x="2158" y="2193" width="116" height="5" />
+			<rect x="2158" y="2198" width="112" height="3" />
+			<rect x="2158" y="2201" width="101" height="54" />
+			<rect x="2158" y="2255" width="108" height="38" />
+			<rect x="2158" y="2293" width="90" height="10" />
+			<rect x="2158" y="2303" width="71" height="24" />
+			<rect x="2158" y="2327" width="62" height="18" />
+			<rect x="2158" y="2345" width="56" height="5" />
+			<rect x="2158" y="2350" width="50" height="15" />
+			<rect x="2158" y="2365" width="21" height="10" />
+			<rect x="2064" y="2379" width="81" height="8" />
+			<rect x="2064" y="2387" width="54" height="37" />
+			<rect x="2064" y="2424" width="30" height="23" />
+			<rect x="2064" y="2447" width="16" height="9" />
+			<rect x="640" y="2379" width="1378" height="128" />
+			<rect x="2018" y="2379" width="46" height="85" />
+			<rect x="702" y="2507" width="506" height="127" />
+			<rect x="793" y="2634" width="359" height="99" />
+			<rect x="907" y="2733" width="145" height="16" />
+			<rect x="1152" y="2634" width="16" height="88" />
+			<rect x="1168" y="2634" width="10" height="73" />
+			<rect x="1178" y="2634" width="7" height="63" />
+			<rect x="1185" y="2634" width="14" height="22" />
+			<rect x="1208" y="2507" width="37" height="96" />
+			<rect x="1245" y="2507" width="20" height="90" />
+			<rect x="1265" y="2507" width="353" height="23" />
+			<rect x="1265" y="2530" width="341" height="8" />
+			<rect x="1265" y="2538" width="330" height="7" />
+			<rect x="1265" y="2545" width="316" height="10" />
+			<rect x="1265" y="2555" width="305" height="8" />
+			<rect x="1468" y="2563" width="85" height="6" />
+			<rect x="1492" y="2569" width="28" height="7" />
+			<rect x="1265" y="2563" width="180" height="5" />
+			<rect x="1265" y="2568" width="167" height="8" />
+			<rect x="1345" y="2576" width="78" height="7" />
+			<rect x="1358" y="2583" width="56" height="9" />
+			<rect x="1374" y="2592" width="26" height="5" />
+			<rect x="1265" y="2576" width="25" height="11" />
+		</region>
+		<region type="CityRegion" name="Tasandora">
+			<rect x="1240" y="1778" width="350" height="37" />
+			<rect x="1255" y="1815" width="335" height="56" />
+			<rect x="1295" y="1749" width="295" height="29" />
+			<rect x="1232" y="1871" width="358" height="80" />
+			<rect x="1395" y="1720" width="195" height="29" />
+			<rect x="1477" y="1688" width="113" height="32" />
+			<rect x="1590" y="1702" width="82" height="230" />
+			<rect x="1672" y="1806" width="131" height="108" />
+			<rect x="1590" y="1932" width="75" height="19" />
+			<rect x="1253" y="1951" width="285" height="15" />
+			<rect x="1259" y="1966" width="271" height="21" />
+			<rect x="1283" y="2012" width="234" height="12" />
+			<rect x="1284" y="2024" width="82" height="39" />
+			<rect x="1402" y="2046" width="31" height="23" />
+			<rect x="1355" y="1733" width="1" height="1" />
+			<rect x="1714" y="1914" width="24" height="12" />
+			<rect x="1271" y="1987" width="253" height="25" />
+			<rect x="1581" y="1951" width="36" height="7" />
+			<rect x="1574" y="1679" width="15" height="9" />
+			<rect x="1366" y="2024" width="12" height="27" />
+			<rect x="1378" y="2024" width="56" height="22" />
+			<rect x="1434" y="2024" width="10" height="14" />
+			<rect x="1444" y="2024" width="67" height="11" />
+			<go x="1418" y="1872" z="32" />
+			<music name="Britain1" />
+		</region>
+		<region type="MiningRegion" priority="100" name="Tasandora_Kopalnia">
+			<rect x="5136" y="287" width="57" height="84" />
+			<rect x="5193" y="328" width="60" height="42" />
+			<rect x="5253" y="346" width="45" height="20" />
+			<go x="5174" y="363" z="1" />
+		</region>
+		<region type="CityRegion" name="Orod">
+			<rect x="535" y="2005" width="225" height="32" />
+			<rect x="556" y="2037" width="201" height="63" />
+			<rect x="567" y="1935" width="182" height="70" />
+			<rect x="664" y="1889" width="82" height="46" />
+			<rect x="738" y="1869" width="15" height="20" />
+			<rect x="753" y="1873" width="14" height="10" />
+			<rect x="786" y="1856" width="42" height="36" />
+			<rect x="767" y="1870" width="19" height="16" />
+			<go x="704" y="2046" z="0" />
 			<music name="Cove" />
 		</region>
-		<region type="TownRegion" priority="50" name="Britain">
-			<rect x="1416" y="1498" width="324" height="279" zmin="-10" />
-			<rect x="1385" y="1538" width="31" height="239" zmin="-10" />
-			<rect x="1416" y="1777" width="324" height="60" />
-			<rect x="1385" y="1777" width="31" height="130" />
-			<rect x="1093" y="1538" width="292" height="369" />
-			<go x="1495" y="1629" z="10" />
-			<music name="Britain1" />
-			<zrange min="0" />
-			<region priority="50" name="Blackthorn Castle">
-				<rect x="1500" y="1408" width="46" height="90" />
-				<go x="1523" y="1443" z="15" />
-				<entrance x="1523" y="1504" />
-				<music name="LBCastle" />
-			</region>
-			<region>
-				<rect x="1492" y="1602" width="8" height="19" />
-				<rect x="1500" y="1610" width="8" height="16" />
-				<rect x="1576" y="1584" width="24" height="16" />
-				<rect x="1456" y="1512" width="16" height="16" />
-				<rect x="1472" y="1512" width="8" height="8" />
-				<rect x="1486" y="1684" width="8" height="8" />
-				<rect x="1494" y="1676" width="8" height="24" />
-				<rect x="1424" y="1712" width="8" height="24" />
-				<rect x="1432" y="1712" width="8" height="12" />
-				<rect x="1608" y="1584" width="24" height="8" />
-				<rect x="1616" y="1576" width="8" height="8" />
-				<rect x="1544" y="1760" width="16" height="16" />
-				<rect x="1560" y="1760" width="8" height="8" />
-				<zrange min="0" />
-				<logoutDelay active="false" />
-			</region>
-			<region name="A Wheatfield in Britain 1">
-				<rect x="1120" y="1776" width="32" height="32" />
-				<go x="1135" y="1791" z="0" />
-				<spawning>
-					<object id="413" type="FarmableWheat" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="8" />
-				</spawning>
-			</region>
-			<region name="A Wheatfield in Britain 2">
-				<rect x="1184" y="1808" width="32" height="32" />
-				<go x="1199" y="1823" z="0" />
-				<spawning>
-					<object id="414" type="FarmableWheat" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="8" />
-				</spawning>
-			</region>
-			<region name="A Wheatfield in Britain 3">
-				<rect x="1216" y="1872" width="32" height="32" />
-				<go x="1231" y="1887" z="0" />
-				<spawning>
-					<object id="415" type="FarmableWheat" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="8" />
-				</spawning>
-			</region>
-			<region name="A Carrot Field in Britain 1">
-				<rect x="1208" y="1712" width="16" height="24" />
-				<go x="1215" y="1723" z="0" />
-				<spawning>
-					<object id="416" type="FarmableCarrot" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="8" />
-				</spawning>
-			</region>
-			<region name="An Onion Field in Britain 1">
-				<rect x="1224" y="1712" width="16" height="24" />
-				<go x="1231" y="1723" z="0" />
-				<spawning>
-					<object id="417" type="FarmableOnion" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="8" />
-				</spawning>
-			</region>
-			<region name="A Cabbage Field in Britain 1">
-				<rect x="1176" y="1672" width="16" height="23" />
-				<go x="1183" y="1683" z="0" />
-				<spawning>
-					<object id="418" type="FarmableCabbage" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="8" />
-				</spawning>
-			</region>
-			<region name="A Turnip Field in Britain 1">
-				<rect x="1192" y="1672" width="16" height="24" />
-				<go x="1199" y="1683" z="0" />
-				<spawning>
-					<object id="419" type="FarmableTurnip" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="8" />
-				</spawning>
-			</region>
-			<region name="A Wheatfield in Britain 4">
-				<rect x="1104" y="1608" width="32" height="32" />
-				<go x="1120" y="1624" z="0" />
-				<spawning>
-					<object id="420" type="FarmableWheat" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="8" />
-				</spawning>
-			</region>
-			<region name="A Wheatfield in Britain 5">
-				<rect x="1136" y="1560" width="32" height="32" />
-				<go x="1152" y="1576" z="0" />
-				<spawning>
-					<object id="421" type="FarmableWheat" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="8" />
-				</spawning>
-			</region>
-			<region name="A Turnip Field in Britain 2">
-				<rect x="1208" y="1592" width="16" height="24" />
-				<go x="1216" y="1604" z="0" />
-				<spawning>
-					<object id="422" type="FarmableTurnip" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="6" />
-				</spawning>
-			</region>
-			<region name="A Carrot Field in Britain 2">
-				<rect x="1224" y="1592" width="16" height="24" />
-				<go x="1232" y="1604" z="0" />
-				<spawning>
-					<object id="423" type="FarmableCarrot" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="6" />
-				</spawning>
-			</region>
+		<region type="MiningRegion" priority="100" name="Orod_Kopalnia">
+			<rect x="5950" y="1423" width="62" height="65" />
+			<rect x="5957" y="1402" width="46" height="21" />
+			<rect x="5995" y="1488" width="128" height="68" />
+			<rect x="6012" y="1448" width="54" height="40" />
+			<go x="6111" y="1501" z="0" />
 		</region>
-		<region type="NoHousingRegion" priority="50" name="Britain Graveyard">
-			<rect x="1333" y="1441" width="84" height="82" />
-			<go x="1384" y="1492" z="10" />
+		<region type="VillageRegion" name="Ferion">
+			<rect x="960" y="1058" width="58" height="53" />
+			<rect x="956" y="1111" width="136" height="76" />
+			<rect x="932" y="1141" width="24" height="58" />
+			<rect x="956" y="1187" width="18" height="14" />
+			<rect x="1034" y="1187" width="57" height="42" />
+			<go x="1009" y="1155" z="2" />
 		</region>
-		<region type="NoHousingRegion" priority="50" name="Jhelom Islands">
-			<rect x="1111" y="3567" width="33" height="21" />
-			<rect x="1078" y="3588" width="124" height="121" />
-			<rect x="1224" y="3592" width="309" height="473" />
-			<go x="1383" y="3815" z="0" />
-			<music name="Jhelom" />
-			<region type="TownRegion" name="Jhelom">
-				<rect x="1303" y="3670" width="189" height="225" />
-				<rect x="1338" y="3895" width="74" height="28" />
-				<rect x="1383" y="3951" width="109" height="94" />
-				<go x="1383" y="3815" z="0" />
-				<music name="Jhelom" />
-				<zrange min="-20" />
-				<region>
-					<rect x="1352" y="3800" width="16" height="32" />
-					<rect x="1368" y="3808" width="8" height="16" />
-					<rect x="1432" y="3768" width="32" height="8" />
-					<rect x="1440" y="3776" width="24" height="8" />
-					<zrange min="-20" />
-					<logoutDelay active="false" />
-				</region>
-			</region>
+		<region type="VillageRegion" name="Tafroel">
+			<rect x="871" y="1412" width="25" height="35" />
+			<rect x="896" y="1395" width="41" height="83" />
+			<rect x="937" y="1396" width="66" height="119" />
+			<rect x="1003" y="1463" width="33" height="56" />
+			<go x="959" y="1419" z="40" />
 		</region>
-		<region type="TownRegion" priority="50" name="Minoc">
-			<rect x="2411" y="366" width="135" height="241" />
-			<rect x="2548" y="495" width="72" height="55" />
-			<rect x="2564" y="585" width="3" height="42" />
-			<rect x="2567" y="585" width="61" height="61" />
-			<rect x="2499" y="627" width="68" height="63" />
-			<go x="2466" y="544" z="0" />
+		<region type="VillageRegion" priority="0" name="Ethrod">
+			<rect x="772" y="1456" width="106" height="100" />
+			<go x="811" y="1546" z="2" />
+		</region>
+		<region type="MiningRegion" priority="100" name="Ethrod_Kopalnia">
+			<rect x="5704" y="519" width="85" height="112" />
+			<go x="5779" y="564" z="29" />
+		</region>
+		<region type="VillageRegion" name="Talas">
+			<rect x="1111" y="1563" width="102" height="76" />
+		</region>
+		<region type="VillageRegion" name="Tingref">
+			<rect x="589" y="1804" width="30" height="31" />
+			<rect x="619" y="1787" width="31" height="81" />
+			<rect x="650" y="1758" width="128" height="37" />
+			<rect x="705" y="1725" width="64" height="33" />
+			<rect x="650" y="1795" width="137" height="40" />
+			<rect x="650" y="1835" width="95" height="33" />
+			<rect x="651" y="1868" width="86" height="18" />
+			<go x="695" y="1808" z="0" />
+		</region>
+		<region type="VillageRegion" name="Uk">
+			<rect x="212" y="1392" width="53" height="73" />
+			<rect x="265" y="1408" width="36" height="122" />
+			<rect x="172" y="1426" width="40" height="19" />
+			<rect x="192" y="1500" width="73" height="30" />
+			<rect x="199" y="1465" width="66" height="35" />
+			<rect x="240" y="1530" width="44" height="38" />
+			<go x="247" y="1498" z="0" />
+		</region>
+		<region type="DungeonRegion" name="Elbrind">
+			<rect x="1513" y="770" width="77" height="120" />
+			<rect x="1590" y="828" width="60" height="29" />
+			<rect x="1683" y="819" width="30" height="141" />
+			<rect x="1713" y="860" width="16" height="66" />
+			<rect x="1650" y="802" width="33" height="55" />
+			<rect x="1643" y="857" width="40" height="103" />
+			<rect x="1648" y="960" width="49" height="20" />
+			<rect x="1644" y="980" width="77" height="32" />
+			<rect x="1671" y="1012" width="41" height="29" />
+		</region>
+		<region type="VillageRegion" name="Ruth">
+			<rect x="1430" y="1291" width="135" height="106" />
+			<go x="1494" y="1362" z="2" />
+		</region>
+		<region name="Alcala">
+			<rect x="695" y="1420" width="55" height="47" />
+			<rect x="642" y="1467" width="123" height="36" />
+			<rect x="666" y="1454" width="29" height="13" />
+			<rect x="682" y="1443" width="13" height="11" />
+			<rect x="626" y="1544" width="75" height="64" />
+			<rect x="637" y="1503" width="63" height="41" />
+			<rect x="700" y="1503" width="30" height="17" />
+			<rect x="636" y="1608" width="37" height="40" />
+			<rect x="673" y="1608" width="23" height="7" />
+			<rect x="673" y="1615" width="16" height="6" />
+			<rect x="673" y="1621" width="6" height="14" />
+			<music name="Taiko" />
+		</region>
+		<region name="Belegost">
+			<rect x="877" y="2192" width="118" height="121" />
+			<rect x="995" y="2200" width="35" height="29" />
+			<rect x="995" y="2289" width="15" height="32" />
+			<rect x="894" y="2313" width="101" height="17" />
+			<go x="930" y="2256" z="0" />
+			<music name="ParoxysmusLair" />
+		</region>
+		<region type="VillageRegion" name="Hurengrav">
+			<rect x="971" y="2564" width="109" height="71" />
+			<rect x="1031" y="2635" width="32" height="34" />
+			<go x="1039" y="2588" z="0" />
+			<music name="ParoxysmusLair" />
+		</region>
+		<region priority="100" name="SwiatyniaHirneth">
+			<rect x="1381" y="2478" width="67" height="31" />
+			<rect x="1395" y="2509" width="50" height="16" />
+			<rect x="1393" y="2464" width="31" height="14" />
+		</region>
+		<region type="VillageRegion" name="Celendir">
+			<rect x="1974" y="1968" width="146" height="39" />
+			<rect x="2052" y="1924" width="70" height="44" />
+			<rect x="2037" y="2007" width="73" height="62" />
+			<rect x="1956" y="2007" width="81" height="67" />
+			<go x="2016" y="2035" z="0" />
+		</region>
+		<region type="GeographicRegion" priority="10" name="Geriador">
+			<rect x="165" y="311" width="61" height="31" />
+			<rect x="148" y="342" width="97" height="44" />
+			<rect x="138" y="386" width="135" height="40" />
+			<rect x="125" y="426" width="183" height="113" />
+			<rect x="129" y="539" width="238" height="111" />
+			<rect x="132" y="650" width="460" height="172" />
+			<rect x="145" y="822" width="447" height="113" />
+			<rect x="592" y="375" width="690" height="560" />
+			<rect x="190" y="935" width="950" height="108" />
+			<rect x="1282" y="476" width="205" height="300" />
+			<rect x="250" y="1043" width="710" height="64" />
+			<rect x="819" y="315" width="450" height="60" />
+			<rect x="1282" y="446" width="30" height="30" />
+			<rect x="1487" y="492" width="75" height="240" />
+			<rect x="1487" y="732" width="40" height="30" />
+			<rect x="1282" y="776" width="50" height="120" />
+			<rect x="1332" y="776" width="40" height="100" />
+			<rect x="1372" y="776" width="60" height="40" />
+			<rect x="320" y="1107" width="378" height="104" />
+			<rect x="698" y="1107" width="16" height="77" />
+			<rect x="714" y="1107" width="15" height="70" />
+			<rect x="729" y="1107" width="15" height="65" />
+			<rect x="319" y="1211" width="370" height="14" />
+			<rect x="423" y="1225" width="269" height="16" />
+			<rect x="440" y="1241" width="256" height="20" />
+			<rect x="460" y="1261" width="240" height="23" />
+			<rect x="485" y="1284" width="218" height="12" />
+			<rect x="527" y="1296" width="182" height="32" />
+			<rect x="559" y="1328" width="163" height="16" />
+			<rect x="608" y="1344" width="114" height="18" />
+			<rect x="744" y="1107" width="18" height="63" />
+			<rect x="762" y="1107" width="7" height="50" />
+			<rect x="769" y="1107" width="14" height="45" />
+			<rect x="783" y="1107" width="11" height="41" />
+			<rect x="794" y="1107" width="6" height="37" />
+			<rect x="800" y="1107" width="7" height="34" />
+			<rect x="807" y="1107" width="17" height="25" />
+			<rect x="824" y="1107" width="136" height="13" />
+			<rect x="824" y="1120" width="128" height="12" />
+			<rect x="834" y="1132" width="112" height="5" />
+			<rect x="840" y="1137" width="93" height="7" />
+			<rect x="853" y="1144" width="15" height="5" />
+			<rect x="894" y="1144" width="24" height="3" />
+			<rect x="894" y="1147" width="6" height="5" />
+		</region>
+		<region type="CityRegion" name="Garlan">
+			<rect x="897" y="538" width="141" height="74" />
+			<rect x="935" y="612" width="160" height="28" />
+			<rect x="948" y="640" width="142" height="46" />
+			<rect x="907" y="527" width="58" height="12" />
+			<rect x="917" y="519" width="58" height="8" />
+			<rect x="940" y="510" width="47" height="9" />
+			<rect x="952" y="504" width="39" height="6" />
+			<rect x="971" y="489" width="20" height="15" />
+			<rect x="963" y="499" width="8" height="5" />
+			<rect x="980" y="686" width="66" height="29" />
+			<rect x="1069" y="538" width="38" height="21" />
+			<rect x="1031" y="487" width="68" height="51" />
+			<rect x="997" y="506" width="33" height="32" />
+			<rect x="1046" y="686" width="27" height="11" />
+			<rect x="1038" y="538" width="31" height="31" />
+			<rect x="932" y="655" width="16" height="31" />
+			<go x="995" y="607" z="0" />
 			<music name="Minoc" />
-			<region>
-				<rect x="2457" y="397" width="40" height="8" />
-				<rect x="2465" y="405" width="8" height="8" />
-				<rect x="2481" y="405" width="8" height="8" />
-				<logoutDelay active="false" />
-			</region>
 		</region>
-		<region type="TownRegion" priority="50" name="Ocllo">
-			<rect x="3587" y="2456" width="119" height="99" />
-			<rect x="3706" y="2460" width="2" height="95" />
-			<rect x="3587" y="2555" width="106" height="73" />
-			<rect x="3590" y="2628" width="103" height="58" />
-			<rect x="3693" y="2555" width="61" height="144" />
-			<rect x="3754" y="2558" width="7" height="141" />
-			<rect x="3761" y="2555" width="7" height="144" zmax="50" />
-			<rect x="3695" y="2699" width="66" height="13" />
-			<go x="3650" y="2519" z="0" />
-			<music name="Ocllo" />
-			<region>
-				<rect x="3664" y="2608" width="16" height="16" />
-				<rect x="3664" y="2640" width="8" height="16" />
-				<rect x="3672" y="2648" width="8" height="8" />
-				<logoutDelay active="false" />
-			</region>
+		<region priority="100" name="Garlan_Kopalnia">
+			<rect x="5173" y="1132" width="51" height="30" />
+			<rect x="5193" y="1109" width="63" height="23" />
+			<rect x="5224" y="1132" width="24" height="10" />
+			<go x="5185" y="1157" z="0" />
 		</region>
-		<region type="TownRegion" priority="50" name="Trinsic">
-			<rect x="1856" y="2636" width="75" height="28" />
-			<rect x="1816" y="2664" width="283" height="231" />
-			<rect x="2099" y="2782" width="18" height="25" />
-			<rect x="1970" y="2895" width="47" height="32" />
-			<rect x="1796" y="2696" width="20" height="67" zmin="0" />
-			<rect x="1800" y="2796" width="16" height="52" zmin="0" />
-			<go x="1867" y="2780" z="0" />
-			<music name="Trinsic" />
-			<region>
-				<rect x="1834" y="2728" width="22" height="16" />
-				<rect x="2024" y="2784" width="16" height="20" />
-				<rect x="2026" y="2804" width="14" height="2" />
-				<rect x="2024" y="2806" width="16" height="7" />
-				<rect x="1923" y="2786" width="12" height="22" />
-				<rect x="1935" y="2786" width="7" height="14" />
-				<logoutDelay active="false" />
-			</region>
+		<region type="VillageRegion" name="SnieznaPrzystan">
+			<rect x="911" y="850" width="163" height="22" />
+			<rect x="875" y="872" width="216" height="10" />
+			<rect x="932" y="882" width="167" height="60" />
+			<rect x="892" y="882" width="40" height="26" />
+			<rect x="904" y="908" width="28" height="6" />
+			<rect x="913" y="914" width="19" height="5" />
+			<rect x="924" y="918" width="8" height="20" />
+			<rect x="932" y="942" width="134" height="13" />
+			<rect x="951" y="955" width="114" height="12" />
+			<go x="971" y="934" z="0" />
+			<music name="Minoc" />
 		</region>
-		<region type="TownRegion" priority="50" name="Vesper">
-			<rect x="2893" y="598" width="121" height="50" />
-			<rect x="2816" y="648" width="249" height="365" />
-			<rect x="2734" y="944" width="82" height="4" />
-			<rect x="2728" y="948" width="88" height="53" />
-			<go x="2899" y="676" z="0" />
-			<music name="Vesper" />
-			<region>
-				<rect x="2952" y="864" width="16" height="32" />
-				<rect x="2968" y="872" width="8" height="16" />
-				<rect x="2776" y="952" width="16" height="32" />
-				<rect x="2768" y="960" width="8" height="16" />
-				<rect x="2892" y="901" width="16" height="19" />
-				<rect x="2908" y="904" width="8" height="8" />
-				<logoutDelay active="false" />
-			</region>
+		<region name="CirithDur">
+			<rect x="847" y="420" width="18" height="25" />
+			<rect x="865" y="392" width="31" height="38" />
+			<rect x="896" y="392" width="67" height="13" />
+			<rect x="905" y="374" width="27" height="18" />
+			<rect x="954" y="405" width="9" height="16" />
+			<rect x="963" y="391" width="18" height="26" />
 		</region>
-		<region type="TownRegion" priority="50" name="Yew">
-			<rect x="92" y="656" width="349" height="225" />
-			<rect x="441" y="746" width="216" height="135" />
-			<rect x="258" y="881" width="399" height="380" />
-			<rect x="657" y="922" width="42" height="307" />
-			<rect x="657" y="806" width="17" height="28" />
-			<rect x="718" y="874" width="38" height="22" />
-			<go x="546" y="992" z="0" />
-			<music name="Yew" />
-			<zrange min="0" max="39" />
-			<region>
-				<rect x="600" y="808" width="24" height="24" />
-				<zrange min="0" max="39" />
-				<logoutDelay active="false" />
-			</region>
-			<region name="A Field of Sheep in Yew 1">
-				<rune name="A Field of Sheep in Yew" />
-				<rect x="664" y="928" width="22" height="22" />
-				<go x="675" y="939" z="0" />
-				<spawning>
-					<object id="301" type="Sheep" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="10" />
-				</spawning>
-			</region>
-			<region name="A Field of Sheep in Yew 2">
-				<rune name="A Field of Sheep in Yew" />
-				<rect x="664" y="1168" width="22" height="22" />
-				<go x="675" y="1179" z="0" />
-				<spawning>
-					<object id="302" type="Sheep" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="10" />
-				</spawning>
-			</region>
-			<region name="A Farm in Yew">
-				<rune name="A Farm in Yew" />
-				<rect x="560" y="1088" width="22" height="22" />
-				<go x="571" y="1099" z="0" />
-				<spawning>
-					<object id="303" type="Sheep" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="10" />
-				</spawning>
-			</region>
-			<region name="A Wheatfield in Yew 1">
-				<rune name="A Wheatfield in Yew" />
-				<rect x="560" y="1232" width="16" height="16" />
-				<go x="567" y="1239" z="0" />
-				<spawning>
-					<object id="304" type="FarmableWheat" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="5" />
-				</spawning>
-			</region>
-			<region name="A Wheatfield in Yew 2">
-				<rune name="A Wheatfield in Yew" />
-				<rect x="368" y="1176" width="14" height="32" />
-				<go x="375" y="1191" z="0" />
-				<spawning>
-					<object id="305" type="FarmableWheat" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="6" />
-				</spawning>
-			</region>
+		<region name="Saew_Ruiny">
+			<rect x="1419" y="692" width="62" height="49" />
+			<rect x="1469" y="707" width="31" height="48" />
+			<music name="MinocNegative" />
 		</region>
-		<region type="TownRegion" priority="50" name="Wind">
-			<rect x="5294" y="19" width="72" height="120" />
-			<rect x="5132" y="58" width="81" height="68" />
-			<rect x="5197" y="126" width="55" height="78" />
-			<rect x="5132" y="3" width="70" height="55" />
-			<rect x="5252" y="112" width="42" height="58" />
-			<rect x="5213" y="98" width="39" height="28" />
-			<rect x="5279" y="57" width="15" height="55" />
-			<rect x="5252" y="170" width="32" height="8" />
-			<rect x="5286" y="25" width="8" height="32" />
-			<rect x="5252" y="178" width="20" height="5" />
-			<rect x="5252" y="183" width="10" height="10" />
-			<go x="5223" y="190" z="5" />
-			<music name="Wind" />
-			<region>
-				<rect x="5159" y="15" width="25" height="9" />
-				<rect x="5159" y="24" width="9" height="16" />
-				<rect x="5175" y="24" width="9" height="8" />
-				<rect x="5212" y="159" width="9" height="24" />
-				<rect x="5221" y="171" width="7" height="12" />
-				<rect x="5206" y="164" width="6" height="15" />
-				<rect x="5303" y="28" width="16" height="14" />
-				<logoutDelay active="false" />
-			</region>
+		<region type="GeographicRegion" priority="10" name="Lotharn_Panstwo">
+			<rect x="1222" y="0" width="170" height="315" />
+			<rect x="1392" y="0" width="1126" height="142" />
+			<rect x="1269" y="315" width="123" height="60" />
+			<rect x="1282" y="375" width="30" height="71" />
+			<rect x="1312" y="375" width="80" height="101" />
+			<rect x="1392" y="142" width="500" height="300" />
+			<rect x="1392" y="442" width="170" height="34" />
+			<rect x="1487" y="476" width="75" height="16" />
+			<rect x="1562" y="442" width="330" height="290" />
+			<rect x="1599" y="732" width="153" height="30" />
+			<rect x="1637" y="762" width="115" height="14" />
+			<rect x="1722" y="776" width="30" height="40" />
+			<rect x="1752" y="732" width="140" height="100" />
+			<rect x="1892" y="142" width="316" height="764" />
+			<rect x="2208" y="142" width="210" height="802" />
+			<rect x="2418" y="142" width="100" height="582" />
 		</region>
-		<region type="TownRegion" priority="50" name="Serpent's Hold">
-			<rect x="2868" y="3324" width="205" height="195" />
-			<go x="3010" y="3371" z="15" />
-			<music name="Serpents" />
-			<zrange min="0" />
-			<region>
-				<rect x="2960" y="3400" width="16" height="16" />
-				<rect x="2968" y="3416" width="8" height="16" />
-				<rect x="3008" y="3450" width="14" height="14" />
-				<zrange min="0" />
-				<logoutDelay active="false" />
-			</region>
-		</region>
-		<region type="TownRegion" priority="50" name="Skara Brae">
-			<rect x="538" y="2107" width="150" height="190" />
-			<go x="632" y="2233" z="0" />
-			<music name="Skarabra" />
-			<region>
-				<rect x="600" y="2232" width="16" height="24" />
-				<rect x="592" y="2240" width="8" height="16" />
-				<rect x="616" y="2240" width="8" height="16" />
-				<rect x="552" y="2168" width="16" height="24" />
-				<rect x="568" y="2168" width="8" height="8" />
-				<logoutDelay active="false" />
-			</region>
-		</region>
-		<region type="TownRegion" priority="50" name="Nujel'm">
-			<rect x="3475" y="1000" width="360" height="435" />
-			<go x="3732" y="1279" z="0" />
-			<music name="Nujelm" />
-			<zrange min="0" />
-			<region>
-				<rect x="3736" y="1184" width="16" height="23" />
-				<rect x="3728" y="1192" width="8" height="15" />
-				<rect x="3728" y="1288" width="23" height="15" />
-				<rect x="3728" y="1303" width="16" height="9" />
-				<rect x="3728" y="1312" width="12" height="8" />
-				<rect x="3728" y="1320" width="16" height="23" />
-				<rect x="3744" y="1328" width="7" height="15" />
-				<rect x="3760" y="1216" width="12" height="24" />
-				<rect x="3772" y="1220" width="4" height="16" />
-				<rect x="3776" y="1224" width="8" height="8" />
-				<rect x="3728" y="1248" width="16" height="24" />
-				<rect x="3744" y="1264" width="8" height="8" />
-				<rect x="3744" y="1248" width="8" height="8" />
-				<zrange min="0" />
-				<logoutDelay active="false" />
-			</region>
-		</region>
-		<region type="TownRegion" priority="50" name="Moonglow">
-			<rect x="4535" y="844" width="20" height="3" />
-			<rect x="4530" y="847" width="31" height="61" />
-			<rect x="4521" y="914" width="56" height="49" />
-			<rect x="4278" y="915" width="54" height="19" />
-			<rect x="4283" y="944" width="53" height="73" />
-			<rect x="4377" y="1015" width="59" height="37" zmin="-10" />
-			<rect x="4367" y="1050" width="142" height="145" />
-			<rect x="4539" y="1036" width="27" height="18" />
-			<rect x="4517" y="1053" width="23" height="22" />
-			<rect x="4389" y="1198" width="47" height="39" />
-			<rect x="4466" y="1211" width="32" height="25" />
-			<rect x="4700" y="1108" width="17" height="18" />
-			<rect x="4656" y="1127" width="26" height="13" />
-			<rect x="4678" y="1162" width="25" height="25" />
-			<rect x="4613" y="1196" width="23" height="22" />
-			<rect x="4646" y="1212" width="14" height="17" />
-			<rect x="4677" y="1214" width="26" height="22" />
-			<rect x="4622" y="1316" width="22" height="24" />
-			<rect x="4487" y="1353" width="59" height="21" />
-			<rect x="4477" y="1374" width="69" height="35" />
-			<rect x="4659" y="1387" width="40" height="40" />
-			<rect x="4549" y="1482" width="29" height="27" />
-			<rect x="4405" y="1451" width="23" height="23" />
-			<rect x="4483" y="1468" width="21" height="13" />
-			<go x="4442" y="1172" z="0" />
-			<music name="Moonglow" />
-			<zrange min="0" />
-			<region>
-				<rect x="4384" y="1152" width="8" height="24" />
-				<rect x="4392" y="1160" width="16" height="8" />
-				<rect x="4400" y="1152" width="8" height="8" />
-				<rect x="4480" y="1056" width="8" height="16" />
-				<rect x="4488" y="1060" width="4" height="8" />
-				<rect x="4476" y="1060" width="4" height="8" />
-				<zrange min="0" />
-				<logoutDelay active="false" />
-			</region>
-		</region>
-		<region type="NewMaginciaRegion" priority="50" name="Magincia">
-			<rect x="3632" y="2032" width="50" height="70" />
-			<rect x="3624" y="2162" width="95" height="70" />
-			<rect x="3752" y="2046" width="52" height="48" />
-			<rect x="3680" y="2045" width="72" height="49" />
-			<rect x="3652" y="2094" width="160" height="180" />
-			<rect x="3649" y="2256" width="54" height="47" />
-			<go x="3714" y="2220" z="20" />
+		<region name="Lotharn">
+			<rect x="1854" y="446" width="41" height="31" />
+			<rect x="1822" y="476" width="102" height="175" />
+			<rect x="1843" y="450" width="11" height="26" />
+			<rect x="1827" y="456" width="16" height="21" />
+			<rect x="1811" y="468" width="17" height="9" />
+			<rect x="1803" y="475" width="20" height="30" />
+			<rect x="1807" y="505" width="15" height="5" />
+			<rect x="1813" y="510" width="10" height="6" />
+			<rect x="1818" y="516" width="5" height="38" />
+			<rect x="1895" y="453" width="8" height="24" />
+			<rect x="1903" y="463" width="8" height="14" />
+			<rect x="1911" y="471" width="9" height="6" />
+			<rect x="1923" y="487" width="7" height="111" />
+			<rect x="1929" y="502" width="7" height="96" />
+			<rect x="1935" y="517" width="7" height="81" />
+			<rect x="1941" y="532" width="9" height="66" />
+			<rect x="1949" y="542" width="32" height="56" />
+			<rect x="1979" y="554" width="13" height="44" />
+			<rect x="1992" y="566" width="7" height="32" />
+			<rect x="1924" y="598" width="26" height="43" />
+			<rect x="1950" y="598" width="37" height="28" />
+			<rect x="1810" y="543" width="13" height="106" />
+			<rect x="1799" y="552" width="12" height="90" />
+			<rect x="1783" y="558" width="17" height="70" />
+			<rect x="1771" y="569" width="13" height="63" />
+			<rect x="1760" y="584" width="12" height="45" />
+			<go x="1874" y="518" z="0" />
 			<music name="Magincia" />
-			<region>
-				<rect x="3687" y="2246" width="12" height="16" />
-				<logoutDelay active="false" />
-			</region>
 		</region>
-		<region type="TownRegion" priority="50" name="Buccaneer's Den">
-			<rect x="2612" y="2057" width="164" height="210" />
-			<rect x="2604" y="2065" width="8" height="189" zmin="0" />
-			<go x="2706" y="2163" z="0" />
-			<music name="Bucsden" />
-			<guards disabled="true" />
-			<region>
-				<rect x="2712" y="2080" width="16" height="16" />
-				<rect x="2712" y="2096" width="8" height="8" />
-				<rect x="2664" y="2232" width="24" height="8" />
-				<rect x="2672" y="2240" width="16" height="8" />
-				<logoutDelay active="false" />
-			</region>
+		<region type="GeographicRegion" priority="10" name="Falas">
+			<rect x="1618" y="2507" width="408" height="10" />
+			<rect x="1618" y="2517" width="411" height="13" />
+			<rect x="1606" y="2530" width="426" height="8" />
+			<rect x="1595" y="2538" width="440" height="7" />
+			<rect x="1581" y="2545" width="450" height="10" />
+			<rect x="1570" y="2555" width="461" height="8" />
+			<rect x="1553" y="2563" width="477" height="6" />
+			<rect x="1520" y="2569" width="505" height="7" />
+			<rect x="1423" y="2576" width="595" height="32" />
+			<rect x="1445" y="2563" width="23" height="5" />
+			<rect x="1432" y="2568" width="36" height="1" />
+			<rect x="1432" y="2569" width="60" height="7" />
+			<rect x="1208" y="2608" width="825" height="48" />
+			<rect x="2033" y="2654" width="133" height="43" />
+			<rect x="1290" y="2576" width="55" height="7" />
+			<rect x="1290" y="2583" width="68" height="25" />
+			<rect x="1374" y="2597" width="26" height="11" />
+			<rect x="1358" y="2592" width="16" height="16" />
+			<rect x="1400" y="2592" width="14" height="16" />
+			<rect x="1414" y="2583" width="9" height="25" />
+			<rect x="1265" y="2587" width="25" height="21" />
+			<rect x="1245" y="2597" width="20" height="11" />
+			<rect x="1208" y="2603" width="37" height="5" />
+			<rect x="1199" y="2634" width="9" height="22" />
+			<rect x="1185" y="2656" width="848" height="41" />
+			<rect x="1178" y="2697" width="976" height="236" />
+			<rect x="1168" y="2707" width="10" height="15" />
+			<rect x="1152" y="2722" width="26" height="11" />
+			<rect x="1052" y="2733" width="126" height="16" />
+			<rect x="980" y="2749" width="198" height="184" />
+			<rect x="788" y="2800" width="192" height="262" />
+			<rect x="980" y="2933" width="276" height="129" />
+			<rect x="1256" y="2933" width="1000" height="129" />
+			<rect x="2154" y="2697" width="30" height="236" />
+			<rect x="2184" y="2787" width="51" height="146" />
+			<rect x="1163" y="3062" width="1200" height="220" />
+			<rect x="1501" y="3282" width="921" height="226" />
+			<rect x="1532" y="3508" width="900" height="587" />
+			<music name="Zento" />
 		</region>
-		<region type="DungeonRegion" priority="50" name="Covetous">
-			<rect x="5376" y="1793" width="201" height="255" />
-			<rect x="5576" y="1791" width="57" height="257" />
-			<go x="5456" y="1862" z="0" />
-			<music name="Dungeon9" />
-			<entrance x="2499" y="916" />
-		</region>
-		<region type="DungeonRegion" priority="50" name="Deceit">
-			<rect x="5122" y="518" width="248" height="252" />
-			<go x="5187" y="635" z="0" />
-			<music name="Dungeon9" />
-			<entrance x="4111" y="429" />
-		</region>
-		<region type="DungeonRegion" priority="50" name="Despise">
-			<rect x="5377" y="516" width="254" height="506" />
-			<go x="5501" y="570" z="59" />
-			<music name="Dungeon9" />
-			<entrance x="1296" y="1082" />
-		</region>
-		<region type="DungeonRegion" priority="50" name="Destard">
-			<rect x="5120" y="770" width="251" height="258" />
-			<go x="5243" y="1004" z="0" />
-			<music name="Dungeon9" />
-			<entrance x="1176" y="2635" />
-		</region>
-		<region type="DungeonRegion" priority="50" name="Hythloth">
-			<rect x="5898" y="2" width="238" height="244" />
-			<go x="5905" y="22" z="44" />
-			<music name="Dungeon9" />
-			<entrance x="4722" y="3814" />
-		</region>
-		<region type="DungeonRegion" priority="50" name="Khaldun">
-			<rect x="5381" y="1284" width="247" height="225" />
-			<go x="5571" y="1302" z="0" />
-			<music name="Dungeon9" />
-			<entrance x="5882" y="3819" />
-		</region>
-		<region type="Jail" priority="50" name="Jail">
-			<rect x="5271" y="1159" width="41" height="33" />
-			<go x="5275" y="1163" z="0" />
-		</region>
-		<region type="GreenAcres" priority="1" name="Green Acres">
-			<rect x="5376" y="512" width="767" height="767" />
-			<go x="5445" y="1153" z="0" />
-		</region>
-		<region type="DungeonRegion" priority="50" name="Shame">
-			<rect x="5377" y="2" width="257" height="260" />
-			<rect x="5635" y="2" width="260" height="124" />
-			<go x="5395" y="126" z="0" />
-			<music name="Dungeon9" />
-			<entrance x="512" y="1559" />
-		</region>
-		<region type="DungeonRegion" priority="50" name="Wrong">
-			<rect x="5633" y="511" width="253" height="510" />
-			<go x="5825" y="599" z="0" />
-			<music name="Dungeon9" />
-			<entrance x="2042" y="226" />
-			<region type="WrongLevel3">
-				<rect x="5687" y="623" width="33" height="44" />
-				<region type="WrongJail">
-					<rect x="5700" y="636" width="7" height="7" />
-				</region>
-			</region>
-		</region>
-		<region priority="50" name="Cave 1">
-			<rect x="2373" y="900" width="22" height="28" />
-			<rect x="2395" y="903" width="14" height="16" />
-			<rect x="2373" y="928" width="10" height="9" />
-			<rect x="2359" y="927" width="14" height="18" />
-			<go x="2367" y="942" z="0" />
-		</region>
-		<region priority="50" name="Cave 2">
-			<rect x="1887" y="354" width="33" height="23" />
-			<go x="1903" y="365" z="0" />
-		</region>
-		<region priority="50" name="Cave 3">
-			<rect x="1925" y="307" width="18" height="18" />
-			<go x="1934" y="316" z="0" />
-		</region>
-		<region priority="50" name="Cave 4">
-			<rect x="2323" y="809" width="45" height="42" />
-			<go x="2345" y="830" z="0" />
-		</region>
-		<region priority="50" name="Britain Mine 1">
-			<rect x="1436" y="1215" width="29" height="37" />
-			<go x="1443" y="1228" z="0" />
-		</region>
-		<region priority="50" name="Britain Mine 2">
-			<rect x="1611" y="1175" width="51" height="29" />
-			<go x="1629" y="1189" z="0" />
-		</region>
-		<region priority="50" name="Minoc Cave 1">
-			<rect x="2406" y="168" width="22" height="16" />
-			<go x="2426" y="177" z="0" />
-		</region>
-		<region priority="50" name="Minoc Cave 2">
-			<rect x="2418" y="81" width="24" height="32" />
-			<go x="2440" y="94" z="0" />
-		</region>
-		<region priority="50" name="Minoc Cave 3">
-			<rect x="2447" y="39" width="42" height="28" />
-			<go x="2471" y="64" z="0" />
-		</region>
-		<region priority="50" name="Minoc Mine">
-			<rect x="2556" y="501" width="6" height="3" />
-			<rect x="2556" y="474" width="26" height="27" />
-			<go x="2558" y="499" z="0" />
-		</region>
-		<region priority="50" name="Avatar Isle Cave">
-			<rect x="4594" y="3807" width="23" height="17" />
-			<go x="4605" y="3815" z="0" />
-		</region>
-		<region priority="50" name="Ice Isle Cave 1">
-			<rect x="4018" y="421" width="49" height="49" />
-			<go x="4054" y="440" z="3" />
-		</region>
-		<region priority="50" name="Ice Isle Cave 2">
-			<rect x="4002" y="310" width="43" height="41" />
-			<rect x="4005" y="298" width="22" height="12" />
-			<go x="4030" y="325" z="0" />
-		</region>
-		<region priority="50" name="North Territory Cave">
-			<rect x="1973" y="251" width="21" height="23" />
-			<go x="1984" y="262" z="8" />
-		</region>
-		<region priority="50" name="Yew Cave">
-			<rect x="766" y="1683" width="12" height="14" />
-			<go x="773" y="1684" z="0" />
-		</region>
-		<region priority="50" name="North Territory Mine 1">
-			<rect x="1713" y="1055" width="40" height="25" />
-			<go x="1723" y="1065" z="0" />
-		</region>
-		<region priority="50" name="North Territory Mine 2">
-			<rect x="1604" y="958" width="46" height="51" />
-			<go x="1638" y="974" z="0" />
-		</region>
-		<region priority="50" name="Mt Kendall">
-			<rect x="2552" y="448" width="71" height="59" />
-			<rect x="2547" y="380" width="43" height="68" />
-			<rect x="2590" y="413" width="33" height="35" />
-			<go x="2593" y="477" z="60" />
-		</region>
-		<region priority="50" name="Covetous Mine">
-			<rect x="2429" y="866" width="19" height="45" />
-			<rect x="2448" y="879" width="27" height="28" />
-			<rect x="2456" y="907" width="19" height="34" />
-			<go x="2445" y="880" z="0" />
-		</region>
-		<region type="DungeonRegion" priority="50" name="Terathan Keep">
-			<rect x="5404" y="3099" width="77" height="68" />
-			<rect x="5120" y="1530" width="254" height="258" />
-			<go x="5451" y="3143" z="-60" />
-			<music name="Dungeon9" />
-			<entrance x="5426" y="3120" />
-		</region>
-		<region type="DungeonRegion" priority="50" name="Fire">
-			<rect x="5635" y="1285" width="245" height="235" />
-			<go x="5760" y="2908" z="15" />
-			<music name="Dungeon9" />
-			<entrance x="2922" y="3402" />
-		</region>
-		<region type="DungeonRegion" priority="50" name="Ice">
-			<rect x="5668" y="130" width="220" height="138" />
-			<rect x="5800" y="319" width="63" height="65" />
-			<rect x="5654" y="300" width="54" height="40" />
-			<go x="5210" y="2322" z="30" />
-			<music name="Dungeon9" />
-			<entrance x="1996" y="80" />
-		</region>
-		<region type="BlackthornDungeon" priority="50" name="BlackthornDungeon">
-			<rect x="6151" y="2301" width="413" height="539" />
-			<go x="6430" y="2678" z="0" />
-			<entrance x="6430" y="2678" />
-			<music name="Dungeon9" />
-		</region>
-		<region type="TownRegion" priority="50" name="Delucia">
-			<rect x="5123" y="3942" width="192" height="122" />
-			<rect x="5147" y="4064" width="125" height="20" />
-			<rect x="5235" y="3930" width="80" height="12" />
-			<go x="5228" y="3978" z="37" />
-			<region>
-				<rect x="5194" y="4053" width="10" height="20" />
-				<logoutDelay active="false" />
-			</region>
-		</region>
-		<region type="TownRegion" priority="50" name="Papua">
-			<rect x="5639" y="3095" width="192" height="223" />
-			<rect x="5831" y="3237" width="20" height="30" />
-			<go x="5769" y="3176" z="0" />
-			<region>
-				<rect x="5757" y="3150" width="24" height="24" />
-				<logoutDelay active="false" />
-			</region>
-		</region>
-		<region type="NoHousingRegion" priority="50" name="Wrong Entrance">
-			<rect x="1939" y="215" width="134" height="137" />
-			<go x="2043" y="236" z="13" />
-			<music name="Mountn_a" />
-		</region>
-		<region type="NoHousingRegion" priority="50" name="Covetous Entrance">
-			<rect x="2433" y="846" width="128" height="128" />
-			<go x="2499" y="918" z="0" />
+		<region type="CityRegion" name="Hernport">
+			<rect x="1813" y="3623" width="188" height="197" />
+			<rect x="1861" y="3573" width="35" height="50" />
+			<rect x="2001" y="3732" width="24" height="52" />
+			<go x="1908" y="3665" z="0" />
 			<music name="Vesper" />
 		</region>
-		<region type="NoHousingRegion" priority="50" name="Despise Entrance">
-			<rect x="1289" y="1064" width="32" height="37" />
-			<go x="1298" y="1081" z="0" />
+		<region type="VillageRegion" name="Tirassa">
+			<rect x="2025" y="2688" width="36" height="60" />
+			<rect x="2042" y="2669" width="62" height="19" />
+			<rect x="2058" y="2652" width="29" height="17" />
+			<rect x="2061" y="2688" width="43" height="29" />
+			<rect x="2061" y="2717" width="26" height="24" />
+			<go x="2026" y="2731" z="0" />
+			<music name="Cove" />
 		</region>
-		<region type="NoHousingRegion" priority="50" name="Despise Passage">
-			<rect x="1338" y="1060" width="51" height="62" />
-			<rect x="1354" y="1122" width="42" height="121" />
-			<rect x="1349" y="1122" width="5" height="102" />
-			<go x="1380" y="1114" z="0" />
+		<region type="VillageRegion" name="Nintayl">
+			<rect x="1861" y="3116" width="48" height="46" />
+			<rect x="1890" y="3162" width="66" height="33" />
+			<rect x="1909" y="3123" width="68" height="39" />
+			<go x="1892" y="3150" z="0" />
+			<music name="Zento" />
 		</region>
-		<region type="DungeonRegion" priority="50" name="Misc Dungeons">
-			<rect x="5886" y="1281" width="257" height="254" />
-			<go x="6032" y="1499" z="0" />
-			<music name="Dungeon9" />
-			<entrance x="1492" y="1641" />
+		<region name="Shamordar">
+			<rect x="1541" y="2693" width="21" height="21" />
+			<rect x="1537" y="2714" width="63" height="16" />
+			<rect x="1562" y="2705" width="41" height="9" />
+			<rect x="1562" y="2698" width="15" height="7" />
+			<rect x="1544" y="2730" width="55" height="22" />
+			<rect x="1599" y="2744" width="6" height="16" />
+			<rect x="1568" y="2752" width="31" height="27" />
+			<rect x="1557" y="2756" width="11" height="12" />
+			<music name="TokunoDungeon" />
 		</region>
-		<region type="DungeonRegion" priority="50" name="Orc Cave">
-			<rect x1="5281" y1="1283" x2="5373" y2="1386" />
-			<rect x1="5267" y1="1955" x2="5364" y2="2046" />
-			<rect x1="5127" y1="1941" x2="5164" y2="2024" />
-			<go x="5137" y="2015" z="0" />
-			<music name="Dungeon9" />
-			<entrance x="1014" y="1434" />
+		<region name="Lesniczowka">
+			<rect x="1520" y="3054" width="40" height="47" />
 		</region>
-		<!-- Farm fields outside towns -->
-		<region priority="50" name="A Cotton Field in Moonglow">
-			<rune name="A Cotton Field in Moonglow" />
-			<rect x="4557" y="1471" width="20" height="10" />
-			<go x="4567" y="1475" z="0" />
-			<spawning>
-				<object id="300" type="FarmableCotton" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="8" />
-			</spawning>
+		<region type="GeographicRegion" priority="10" name="Orda">
+			<rect x="2482" y="1886" width="97" height="41" />
+			<rect x="2387" y="1927" width="188" height="4" />
+			<rect x="2343" y="1931" width="231" height="5" />
+			<rect x="2333" y="1936" width="239" height="7" />
+			<rect x="2315" y="1943" width="257" height="19" />
+			<rect x="2291" y="1962" width="283" height="45" />
+			<rect x="2291" y="2007" width="295" height="133" />
+			<rect x="2291" y="2140" width="295" height="41" />
+			<rect x="2281" y="2181" width="101" height="12" />
+			<rect x="2274" y="2193" width="108" height="5" />
+			<rect x="2270" y="2198" width="112" height="3" />
+			<rect x="2259" y="2201" width="123" height="54" />
+			<rect x="2266" y="2255" width="116" height="38" />
+			<rect x="2248" y="2293" width="134" height="10" />
+			<rect x="2229" y="2303" width="153" height="24" />
+			<rect x="2220" y="2327" width="162" height="18" />
+			<rect x="2214" y="2345" width="168" height="5" />
+			<rect x="2208" y="2350" width="174" height="15" />
+			<rect x="2179" y="2365" width="203" height="10" />
+			<rect x="2158" y="2375" width="224" height="4" />
+			<rect x="2145" y="2379" width="237" height="8" />
+			<rect x="2118" y="2387" width="264" height="37" />
+			<rect x="2094" y="2424" width="288" height="23" />
+			<rect x="2080" y="2447" width="302" height="9" />
+			<rect x="2064" y="2456" width="318" height="8" />
+			<rect x="2020" y="2464" width="362" height="43" />
+			<rect x="2382" y="2182" width="865" height="880" />
+			<rect x="2586" y="2098" width="562" height="84" />
+			<rect x="2847" y="2072" width="97" height="26" />
+			<rect x="3247" y="2473" width="180" height="552" />
+			<rect x="2026" y="2507" width="356" height="10" />
+			<rect x="2029" y="2517" width="353" height="13" />
+			<rect x="2032" y="2530" width="350" height="8" />
+			<rect x="2035" y="2538" width="347" height="7" />
+			<rect x="2031" y="2545" width="351" height="18" />
+			<rect x="2030" y="2563" width="352" height="6" />
+			<rect x="2025" y="2569" width="357" height="7" />
+			<rect x="2018" y="2576" width="364" height="32" />
+			<rect x="2033" y="2608" width="349" height="46" />
+			<rect x="2166" y="2654" width="216" height="43" />
+			<rect x="2184" y="2697" width="198" height="90" />
+			<rect x="2235" y="2787" width="147" height="146" />
+			<rect x="2256" y="2933" width="126" height="129" />
+			<rect x="2363" y="3062" width="800" height="100" />
 		</region>
-		<region priority="50" name="A Wheatfield in Skara Brae 1">
-			<rune name="A Wheatfield in Skara Brae" />
-			<rect x="796" y="2152" width="36" height="24" />
-			<go x="813" y="2163" z="0" />
-			<spawning>
-				<object id="306" type="FarmableWheat" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="6" />
-			</spawning>
+		<region type="CityRegion" name="Naur">
+			<rect x="3050" y="2571" width="125" height="234" />
+			<rect x="3082" y="2543" width="100" height="30" />
+			<rect x="3175" y="2573" width="43" height="278" />
+			<rect x="3218" y="2574" width="129" height="182" />
+			<rect x="3218" y="2756" width="104" height="81" />
+			<music name="Bucsden" />
 		</region>
-		<region priority="50" name="A Carrot Field in Skara Brae">
-			<rect x="816" y="2251" width="16" height="8" />
-			<go x="823" y="2254" z="0" />
-			<spawning>
-				<object id="307" type="FarmableCarrot" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="6" />
-			</spawning>
+		<region type="VillageRegion" name="Oaza">
+			<rect x="2280" y="2534" width="75" height="55" />
+			<go x="2310" y="2563" z="0" />
+			<music name="Bucsden" />
 		</region>
-		<region priority="50" name="An Onion Field in Skara Brae">
-			<rect x="816" y="2261" width="16" height="8" />
-			<go x="823" y="2264" z="0" />
-			<spawning>
-				<object id="308" type="FarmableOnion" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="6" />
-			</spawning>
+		<region name="GrobowceNaurow">
+			<rect x="2433" y="2896" width="51" height="53" />
+			<rect x="2460" y="2869" width="43" height="57" />
+			<go x="2466" y="2917" z="5" />
+			<music name="Bucsden" />
 		</region>
-		<region priority="50" name="A Cabbage Field in Skara Brae 1">
-			<rect x="816" y="2271" width="16" height="8" />
-			<go x="823" y="2264" z="0" />
-			<spawning>
-				<object id="309" type="FarmableCabbage" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="6" />
-			</spawning>
+		<region name="Pedanin">
+			<rect x="3989" y="2154" width="58" height="84" />
 		</region>
-		<region priority="50" name="A Cabbage Field in Skara Brae 2">
-			<rect x="816" y="2281" width="16" height="8" />
-			<go x="823" y="2274" z="0" />
-			<spawning>
-				<object id="310" type="FarmableCabbage" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="6" />
-			</spawning>
+		<region type="GeographicRegion" priority="10" name="Pedanin_Panstwo">
+			<rect x="3281" y="1900" width="58" height="74" />
+			<rect x="3339" y="1906" width="15" height="68" />
+			<rect x="3239" y="1974" width="188" height="102" />
+			<rect x="3354" y="1940" width="73" height="34" />
+			<rect x="3268" y="2076" width="870" height="278" />
+			<rect x="3406" y="2354" width="770" height="208" />
+			<rect x="3588" y="2562" width="564" height="198" />
+			<rect x="3427" y="1980" width="100" height="96" />
+			<rect x="3527" y="2046" width="79" height="30" />
 		</region>
-		<region priority="50" name="A Wheatfield in Skara Brae 2">
-			<rect x="835" y="2344" width="16" height="16" />
-			<go x="843" y="2352" z="0" />
-			<spawning>
-				<object id="311" type="FarmableWheat" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="6" />
-			</spawning>
+		<region type="GeographicRegion" priority="10" name="ArnadIEdhil">
+			<rect x="3123" y="1731" width="800" height="160" />
+			<rect x="3201" y="1891" width="77" height="83" />
+			<rect x="3339" y="1891" width="562" height="15" />
+			<rect x="3354" y="1906" width="521" height="34" />
+			<rect x="3527" y="1940" width="134" height="65" />
+			<rect x="3427" y="1940" width="100" height="40" />
+			<rect x="3669" y="1940" width="150" height="50" />
+			<rect x="2912" y="1731" width="211" height="94" />
+			<rect x="3066" y="1825" width="57" height="37" />
+			<rect x="2960" y="1609" width="57" height="122" />
+			<rect x="3017" y="1620" width="52" height="111" />
+			<rect x="3017" y="1612" width="22" height="8" />
+			<rect x="3069" y="1620" width="25" height="111" />
+			<rect x="3146" y="1589" width="104" height="142" />
+			<rect x="3446" y="1387" width="105" height="344" />
+			<rect x="3551" y="1422" width="40" height="309" />
+			<rect x="3591" y="1420" width="99" height="311" />
+			<rect x="3690" y="1426" width="9" height="305" />
+			<rect x="3699" y="1434" width="16" height="297" />
+			<rect x="3715" y="1459" width="103" height="272" />
+			<rect x="3818" y="1554" width="108" height="177" />
+			<rect x="3360" y="1611" width="86" height="120" />
+			<rect x="3311" y="1649" width="49" height="82" />
+			<rect x="3250" y="1670" width="61" height="61" />
+			<rect x="3126" y="1599" width="20" height="132" />
+			<rect x="3094" y="1615" width="18" height="116" />
+			<rect x="3112" y="1609" width="14" height="122" />
+			<rect x="3250" y="1609" width="15" height="61" />
+			<rect x="3265" y="1641" width="10" height="29" />
+			<music name="ElfCity" />
 		</region>
-		<region priority="50" name="A Cotton Field in Skara Brae">
-			<rect x="816" y="2344" width="16" height="24" />
-			<go x="823" y="2355" z="0" />
-			<spawning>
-				<object id="312" type="FarmableCotton" minSpawnTime="PT10S" maxSpawnTime="PT30S" amount="6" />
-			</spawning>
+		<region type="CityRegion" name="Enedh-en-Glad">
+			<rect x="3508" y="1466" width="109" height="132" />
+			<rect x="3495" y="1489" width="13" height="35" />
+			<rect x="3460" y="1536" width="48" height="67" />
+			<rect x="3617" y="1422" width="54" height="130" />
+			<rect x="3671" y="1426" width="26" height="85" />
+			<rect x="3697" y="1432" width="16" height="33" />
+			<rect x="3697" y="1465" width="9" height="13" />
+			<rect x="3671" y="1511" width="23" height="11" />
+			<rect x="3671" y="1522" width="17" height="19" />
+			<rect x="3552" y="1598" width="37" height="9" />
+			<rect x="3498" y="1430" width="27" height="36" />
+			<rect x="3525" y="1446" width="92" height="20" />
+			<rect x="3697" y="1478" width="4" height="27" />
+			<go x="3611" y="1503" z="30" />
 		</region>
-		<region priority="50" name="Shrine of Compassion">
-			<rect x="1851" y="867" width="14" height="14" />
-			<go x="1856" y="872" z="-1" />
+		<region type="MiningRegion" priority="100" name="Enedh_Kopalnia">
+			<rect x="5818" y="1785" width="130" height="84" />
+			<go x="5843" y="1856" z="0" />
 		</region>
-		<region priority="50" name="Chaos Shrine">
-			<rect x="1456" y="840" width="4" height="7" />
-			<go x="1456" y="854" z="0" />
+		<region type="GeographicRegion" priority="10" name="Edhil_Panstwo">
+			<rect x="2418" y="917" width="386" height="33" />
+			<rect x="2500" y="950" width="600" height="296" />
+			<rect x="2532" y="1246" width="568" height="286" />
+			<rect x="3100" y="1014" width="144" height="518" />
+			<rect x="3244" y="1099" width="120" height="433" />
+			<rect x="3364" y="1121" width="88" height="411" />
+			<rect x="3452" y="1162" width="89" height="127" />
+			<rect x="3541" y="1165" width="60" height="51" />
+			<rect x="3452" y="1289" width="30" height="67" />
+			<rect x="3100" y="977" width="98" height="37" />
+			<rect x="3100" y="957" width="28" height="20" />
+			<rect x="3128" y="966" width="14" height="11" />
+			<rect x="2950" y="1589" width="196" height="10" />
+			<rect x="2953" y="1599" width="173" height="10" />
+			<rect x="3039" y="1609" width="55" height="11" />
+			<rect x="3094" y="1609" width="10" height="6" />
+			<rect x="3250" y="1571" width="158" height="38" />
+			<rect x="3265" y="1609" width="95" height="32" />
+			<rect x="3275" y="1641" width="36" height="29" />
+			<rect x="2895" y="1571" width="355" height="18" />
+			<rect x="2644" y="1532" width="800" height="39" />
 		</region>
-		<region priority="37" name="Shrine of Honesty">
-			<rect x="4209" y="560" width="7" height="8" />
-			<go x="4217" y="564" z="36" />
+		<region name="Edhil">
+			<rect x="2756" y="1156" width="211" height="164" />
 		</region>
-		<region priority="50" name="Shrine of Honor">
-			<rect x="1721" y="3525" width="8" height="6" />
-			<go x="1730" y="3528" z="3" />
+		<region type="GeographicRegion" priority="10" name="Imloth_Panstwo">
+			<rect x="2418" y="724" width="100" height="159" />
+			<rect x="2418" y="883" width="500" height="34" />
+			<rect x="2804" y="917" width="68" height="33" />
+			<rect x="2949" y="0" width="177" height="772" />
+			<rect x="2804" y="0" width="145" height="800" />
+			<rect x="2518" y="800" width="400" height="83" />
+			<rect x="2518" y="0" width="286" height="800" />
 		</region>
-		<region priority="50" name="Shrine of Humility">
-			<rect x="4270" y="3694" width="9" height="9" />
-			<go x="4276" y="3699" z="0" />
+		<region name="Imloth">
+			<rect x="2562" y="666" width="213" height="187" />
+			<go x="2694" y="795" z="0" />
 		</region>
-		<region priority="50" name="Shrine of Justice">
-			<rect x="1297" y="629" width="9" height="9" />
-			<go x="1301" y="639" z="16" />
+		<region name="Aegas">
+			<rect x="2900" y="765" width="260" height="54" />
+			<rect x="2948" y="819" width="232" height="67" />
+			<rect x="2965" y="886" width="136" height="33" />
+			<go x="3042" y="854" z="0" />
 		</region>
-		<region priority="50" name="Shrine of Sacrifice">
-			<rect x="3352" y="286" width="6" height="7" />
-			<go x="3355" y="299" z="9" />
+		<region type="VillageRegion" name="WioskaDrowow">
+			<rect x="5867" y="229" width="95" height="59" />
+			<rect x="5851" y="300" width="26" height="60" />
+			<rect x="5877" y="301" width="141" height="53" />
+			<rect x="5877" y="288" width="78" height="13" />
+			<rect x="5877" y="354" width="101" height="25" />
+			<go x="5912" y="334" z="2" />
+			<music name="Paws" />
 		</region>
-		<region priority="50" name="Shrine of Spirituality">
-			<rect x="1590" y="2485" width="10" height="11" />
-			<rect x="1599" y="2488" width="10" height="5" />
-			<go x="1589" y="2485" z="5" />
+		<region type="MiningRegion" priority="100" name="WioskaDrowow_Kopalnia">
+			<rect x="5845" y="518" width="76" height="97" />
+			<go x="5909" y="550" z="4" />
 		</region>
-		<region priority="37" name="Shrine of Valor">
-			<rect x="2488" y="3928" width="9" height="11" />
-			<go x="2496" y="3932" z="0" />
+		<region type="CityRegion" name="Twierdza">
+			<rect x="5459" y="1048" width="222" height="130" />
+			<rect x="2508" y="1751" width="88" height="113" />
+			<rect x="5674" y="2424" width="28" height="47" />
+			<go x="5556" y="1121" z="0" />
+			<music name="Paws" />
 		</region>
-		<region priority="50" name="South Britannian Sea">
-			<rect x="688" y="3700" width="1412" height="380" />
+		<region type="MiningRegion" priority="100" name="Twierdza_Kopalnia">
+			<rect x="5488" y="1188" width="130" height="110" />
+			<go x="5551" y="1217" z="0" />
 		</region>
-		<region type="MondainRegion" priority="50" name="Paroxysmus Exit">
-			<rect x="5620" y="3032" width="10" height="10" />
-			<go x="5623" y="3038" z="15" />
+		<region type="MiningRegion" priority="100" name="ZagubionaKopalnia">
+			<rect x="5139" y="395" width="86" height="49" />
+			<go x="5149" y="416" z="0" />
 		</region>
-		<region type="MondainRegion" priority="50" name="Sanctuary Entrance">
-			<rect x="759" y="1635" width="12" height="12" />
-			<go x="762" y="1645" z="0" />
+		<region type="VillageRegion" name="KryjowkaPrzemytnikow">
+			<rect x="2065" y="3361" width="32" height="34" />
+			<rect x="2097" y="3366" width="11" height="28" />
+			<rect x="2076" y="3358" width="21" height="3" />
+			<rect x="2049" y="3400" width="36" height="43" />
+			<rect x="2062" y="3394" width="22" height="7" />
+			<rect x="2085" y="3425" width="10" height="10" />
+			<go x="2092" y="3383" z="0" />
+			<music name="OldUlt04" />
+			<logoutDelay active="true" />
 		</region>
-		<region type="DungeonRegion" priority="50" name="Solen Hives">
-			<rect x="5640" y="1776" width="295" height="263" />
-			<go x="5774" y="1896" z="20" />
+		<region name="JaskiniaPrzemytnikow">
+			<rect x="2088" y="3435" width="33" height="15" />
+			<rect x="2121" y="3428" width="9" height="13" />
+			<rect x="2121" y="3441" width="6" height="8" />
+			<rect x="2099" y="3424" width="22" height="11" />
 		</region>
-		<region type="SeaMarketRegion" priority="50" name="Sea Market">
-			<rect x="4529" y="2296" width="45" height="112" />
-			<go x="4550" y="2317" z="-2" />
+		<region type="TavernRegion" priority="100" name="PodGlowaSmoka">
+			<rect x="1435" y="1881" width="17" height="12" />
+			<music name="Tavern01" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="TavernRegion" priority="100" name="CichySwit">
+			<rect x="1519" y="1781" width="17" height="10" />
+			<rect x="1522" y="1791" width="14" height="6" />
+			<music name="Tavern01" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="TavernRegion" priority="100" name="WesolaMlynareczka">
+			<rect x="1005" y="676" width="16" height="10" />
+			<music name="Tavern01" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="TavernRegion" priority="100" name="PodZdechlymPsem">
+			<rect x="699" y="1778" width="10" height="17" />
+			<rect x="709" y="1783" width="8" height="12" />
+			<music name="Tavern02" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="TavernRegion" priority="100" name="SrebrzystyDzban">
+			<rect x="725" y="2049" width="17" height="13" />
+			<music name="Tavern02" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="TavernRegion" priority="100" name="Bryza">
+			<rect x="1013" y="1133" width="21" height="12" />
+			<music name="Tavern01" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="TavernRegion" priority="100" name="PodLisciemKlonu">
+			<rect x="962" y="1423" width="16" height="12" />
+			<music name="Tavern01" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="TavernRegion" priority="100" name="Mordownia">
+			<rect x="1560" y="1727" width="8" height="13" />
+			<music name="Tavern03" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="TavernRegion" priority="100" name="BeczulkaRumu">
+			<zrange min="41" max="61" />
+			<rect x="1589" y="1848" width="14" height="22" />
+			<music name="Tavern01" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="TavernRegion" priority="100" name="PodJelenimRogiem">
+			<rect x="1983" y="2030" width="18" height="10" />
+			<music name="Tavern04" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="TavernRegion" priority="100" name="PodZelaznymMlotem">
+			<rect x="5506" y="1094" width="19" height="20" />
+			<go x="5516" y="1104" z="0" />
+			<music name="Tavern01" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="ParagonsRegion" priority="0" name="ParagonsFelucca">
+			<rect x="5609" y="366" width="143" height="137" />
+			<rect x="5600" y="519" width="95" height="92" />
+			<rect x="5313" y="1113" width="143" height="301" />
+			<rect x="5138" y="1181" width="175" height="266" />
+			<rect x="5283" y="1125" width="30" height="56" />
+			<rect x="5448" y="1721" width="33" height="32" />
+			<rect x="5557" y="1699" width="51" height="49" />
+			<rect x="5426" y="1844" width="78" height="64" />
+			<rect x="5343" y="1790" width="72" height="106" />
+			<rect x="5283" y="1591" width="40" height="87" />
+			<rect x="5259" y="790" width="63" height="129" />
+			<rect x="5596" y="949" width="140" height="76" />
+			<rect x="5483" y="266" width="74" height="101" />
+			<rect x="5570" y="653" width="175" height="184" />
+			<rect x="5774" y="656" width="186" height="333" />
+			<rect x="5397" y="1753" width="82" height="85" />
+			<rect x="5554" y="927" width="42" height="108" />
+			<rect x="5447" y="293" width="32" height="73" />
+			<rect x="5406" y="238" width="77" height="26" />
+			<rect x="5447" y="264" width="36" height="29" />
+			<rect x="5571" y="291" width="26" height="61" />
+			<rect x="5462" y="380" width="147" height="37" />
+			<rect x="5146" y="2144" width="334" height="151" />
+			<rect x="5417" y="2043" width="308" height="101" />
+			<rect x="5522" y="1930" width="203" height="113" />
+			<rect x="5480" y="2144" width="245" height="135" />
+			<rect x="5725" y="1944" width="111" height="76" />
+			<rect x="5836" y="1998" width="25" height="22" />
+			<rect x="5805" y="1929" width="18" height="15" />
+			<rect x="5725" y="2020" width="136" height="40" />
+			<rect x="5861" y="2025" width="14" height="35" />
+			<rect x="5725" y="2060" width="83" height="109" />
+			<rect x="5808" y="2114" width="20" height="55" />
+			<rect x="5828" y="2128" width="8" height="52" />
+			<rect x="5836" y="2136" width="5" height="41" />
+			<rect x="5841" y="2143" width="5" height="28" />
+			<rect x="5846" y="2146" width="7" height="20" />
+			<rect x="5725" y="2169" width="66" height="78" />
+			<rect x="5791" y="2195" width="7" height="36" />
+			<rect x="3605" y="1084" width="391" height="322" />
+			<rect x="3525" y="1292" width="80" height="96" />
+			<rect x="3551" y="1388" width="54" height="29" />
+			<rect x="3691" y="1406" width="305" height="20" />
+			<rect x="3704" y="1426" width="292" height="10" />
+			<rect x="3721" y="1436" width="101" height="11" />
+			<rect x="3854" y="1436" width="109" height="82" />
+			<rect x="3996" y="924" width="249" height="160" />
+			<rect x="4174" y="886" width="41" height="38" />
+			<rect x="3890" y="999" width="106" height="85" />
+			<rect x="3857" y="1027" width="33" height="57" />
+			<rect x="3996" y="1084" width="249" height="208" />
+			<rect x="4245" y="1041" width="160" height="251" />
+			<rect x="4225" y="1292" width="180" height="190" />
+		</region>
+		<region type="TavernRegion" priority="100" name="MalthenAmlug">
+			<rect x="3625" y="1497" width="14" height="7" />
+			<rect x="3626" y="1504" width="10" height="2" />
+			<rect x="3626" y="1495" width="11" height="2" />
+			<rect x="3628" y="1493" width="8" height="2" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="TavernRegion" priority="100" name="HarlElghinyrrokOrbb">
+			<rect x="2922" y="2659" width="10" height="13" />
+			<rect x="2932" y="2660" width="3" height="9" />
+			<logoutDelay active="false" />
+		</region>
+		<region priority="100" name="SwiatyniaStworzenia">
+			<rect x="1277" y="1825" width="35" height="35" />
+			<rect x="1255" y="1832" width="22" height="18" />
+		</region>
+		<region priority="100" name="SwiatyniaKonca">
+			<rect x="1248" y="1782" width="42" height="28" />
+			<rect x="1290" y="1789" width="2" height="14" />
+		</region>
+		<region priority="100" name="DrzewoZycia">
+			<rect x="1468" y="1816" width="19" height="16" />
+			<rect x="1441" y="1797" width="12" height="12" />
+			<go x="1484" y="1825" z="33" />
+		</region>
+		<region priority="100" name="SwiatyniaPana">
+			<rect x="1007" y="516" width="14" height="21" />
+		</region>
+		<region priority="100" name="SwiatyniaHurengrav">
+			<rect x="997" y="2711" width="16" height="14" />
+			<music name="MinocNegative" />
+		</region>
+		<region priority="100" name="DrzewoPoczatku">
+			<rect x="3501" y="1491" width="26" height="32" />
+			<go x="3519" y="1509" z="20" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="Tasandora_Kanaly">
+			<rect x="5389" y="529" width="103" height="127" />
+			<rect x="5366" y="656" width="46" height="87" />
+			<rect x="5389" y="404" width="64" height="125" />
+			<rect x="5453" y="421" width="136" height="84" />
+			<go x="5432" y="492" z="0" />
+			<music name="SerpentIsleCombat_U7" />
+		</region>
+		<region name="BaradDur">
+			<rect x="1365" y="1179" width="68" height="40" />
+			<rect x="1360" y="1219" width="73" height="53" />
+			<rect x="1394" y="1272" width="12" height="13" />
+			<go x="1399" y="1257" z="24" />
+			<music name="GrizzleDungeon" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="BaradDur_LVL1">
+			<rect x="5954" y="375" width="92" height="118" />
+			<rect x="5931" y="385" width="21" height="24" />
+			<go x="5992" y="478" z="4" />
+			<music name="SerpentIsleCombat_U7" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="BaradDur_LVL2">
+			<rect x="5618" y="417" width="132" height="81" />
+			<rect x="5661" y="373" width="87" height="43" />
+			<go x="5712" y="452" z="4" />
+			<music name="SerpentIsleCombat_U7" />
+		</region>
+		<region priority="20" name="Garth">
+			<rect x="940" y="2878" width="27" height="23" />
+			<rect x="968" y="2884" width="51" height="11" />
+			<rect x="1018" y="2873" width="158" height="55" />
+			<rect x="1063" y="2928" width="7" height="12" />
+			<go x="1165" y="2917" z="0" />
+			<music name="Death" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="Garth_LVL1">
+			<rect x="5148" y="943" width="257" height="98" />
+			<go x="5343" y="969" z="0" />
+			<music name="GrizzleDungeon" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="Garth_LVL2">
+			<rect x="5911" y="21" width="147" height="141" />
+			<rect x="5893" y="125" width="18" height="30" />
+			<rect x="6058" y="98" width="70" height="58" />
+			<rect x="5974" y="162" width="19" height="41" />
+			<rect x="5993" y="183" width="57" height="20" />
+			<rect x="6020" y="203" width="46" height="32" />
+			<rect x="6006" y="235" width="89" height="68" />
+			<rect x="6008" y="303" width="85" height="5" />
+			<rect x="6013" y="308" width="75" height="4" />
+			<rect x="6018" y="312" width="65" height="4" />
+			<go x="5985" y="43" z="4" />
+			<music name="GrizzleDungeon" />
+		</region>
+		<region type="DungeonRegion" name="KrysztalowaJaskinia">
+			<rect x="5609" y="85" width="114" height="101" />
+			<rect x="5723" y="94" width="146" height="47" />
+			<rect x="5803" y="57" width="66" height="37" />
+			<rect x="5723" y="82" width="78" height="12" />
+			<go x="5621" y="152" z="-1" />
+			<music name="Taiko" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="Tasandora_Krypty">
+			<rect x="5380" y="309" width="39" height="45" />
+			<go x="5401" y="331" z="0" />
+			<music name="Dungeon2" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="Wulkan_LVL1">
+			<rect x="5965" y="516" width="103" height="93" />
+			<go x="6023" y="584" z="4" />
+			<music name="Dungeon2" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="Wulkan_LVL2">
+			<rect x="5145" y="1270" width="170" height="164" />
+			<rect x="5141" y="1434" width="90" height="73" />
+			<rect x="5158" y="1204" width="69" height="66" />
+			<rect x="5290" y="1227" width="18" height="43" />
+			<rect x="5227" y="1188" width="36" height="82" />
+			<rect x="5263" y="1205" width="9" height="65" />
+			<rect x="5272" y="1217" width="18" height="53" />
+			<go x="5186" y="1500" z="0" />
+			<music name="Dungeon2" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="Wulkan_LVL3">
+			<rect x="5292" y="1140" width="153" height="62" />
+			<rect x="5301" y="1119" width="57" height="21" />
+			<rect x="5299" y="1202" width="130" height="11" />
+			<rect x="5307" y="1213" width="137" height="9" />
+			<rect x="5314" y="1222" width="133" height="25" />
+			<rect x="5318" y="1247" width="119" height="18" />
+			<rect x="5327" y="1265" width="118" height="50" />
+			<rect x="5329" y="1315" width="130" height="18" />
+			<rect x="5329" y="1333" width="120" height="37" />
+			<rect x="5334" y="1370" width="56" height="39" />
+			<go x="5368" y="1403" z="0" />
+			<music name="Dungeon2" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="Wulkan_LVL4">
+			<rect x="5601" y="522" width="91" height="86" />
+			<go x="5680" y="564" z="4" />
+			<music name="Dungeon2" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="Hurengrav_LVL1">
+			<rect x="5259" y="797" width="100" height="118" />
+			<go x="5349" y="847" z="32" />
+			<music name="Humanoids_U9" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="KrolewskieKrypty">
+			<rect x="5393" y="769" width="154" height="143" />
+			<go x="5475" y="897" z="0" />
+			<music name="GreatEarthSerpents" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="LochyOphidian">
+			<rect x="5576" y="654" width="161" height="179" />
+			<go x="5679" y="668" z="0" />
+			<music name="Humanoids_U9" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="ZwiednietaRoza">
+			<rect x="5781" y="661" width="177" height="331" />
+			<go x="5789" y="922" z="4" />
+			<music name="GreatEarthSerpents" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="SwiatyniaKonca_Krypty">
+			<rect x="5280" y="1449" width="51" height="66" />
+			<rect x="5332" y="1437" width="85" height="107" />
+			<go x="5405" y="1475" z="0" />
+			<music name="Humanoids_U9" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="Twierdza_Dungeon">
+			<rect x="5466" y="1320" width="168" height="169" />
+			<music name="GreatEarthSerpents" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="Drowy_Dungeon">
+			<rect x="5849" y="1260" width="179" height="140" />
+			<rect x="5849" y="1400" width="100" height="38" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="CzerwoneOrki">
+			<rect x="5507" y="920" width="46" height="97" />
+			<rect x="5488" y="971" width="19" height="43" />
+			<rect x="5553" y="934" width="40" height="87" />
+			<rect x="5593" y="949" width="38" height="62" />
+			<rect x="5631" y="959" width="97" height="58" />
+			<go x="5555" y="974" z="0" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="SolenLair">
+			<rect x="5644" y="926" width="35" height="23" />
+			<rect x="5566" y="862" width="60" height="34" />
+			<rect x="5608" y="896" width="52" height="30" />
+			<go x="5613" y="892" z="0" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="TylReviaren">
+			<rect x="5132" y="1700" width="195" height="170" />
+			<go x="5232" y="1786" z="0" />
+			<music name="DreadHornArea" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="CzarneMrowki">
+			<rect x="5380" y="1656" width="126" height="44" />
+			<rect x="5459" y="1651" width="16" height="5" />
+			<rect x="5375" y="1700" width="123" height="5" />
+			<rect x="5371" y="1705" width="129" height="6" />
+			<rect x="5369" y="1711" width="130" height="4" />
+			<rect x="5370" y="1715" width="122" height="10" />
+			<rect x="5367" y="1725" width="59" height="9" />
+			<rect x="5351" y="1751" width="21" height="28" />
+			<rect x="5447" y="1725" width="32" height="26" />
+			<rect x="5362" y="1747" width="39" height="2" />
+			<rect x="5362" y="1749" width="28" height="2" />
+			<rect x="5364" y="1744" width="41" height="3" />
+			<rect x="5367" y="1741" width="41" height="3" />
+			<rect x="5367" y="1734" width="44" height="7" />
+			<rect x="5411" y="1734" width="5" height="5" />
+			<go x="5362" y="1761" z="0" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="LoenTorech_LVL1">
+			<rect x="5496" y="1772" width="106" height="48" />
+			<rect x="5527" y="1820" width="87" height="88" />
+			<go x="5578" y="1898" z="0" />
+			<music name="Death" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="LoenTorech_LVL2">
+			<rect x="5371" y="1848" width="41" height="35" />
+			<rect x="5349" y="1798" width="22" height="80" />
+			<rect x="5398" y="1752" width="47" height="4" />
+			<rect x="5405" y="1749" width="34" height="3" />
+			<rect x="5412" y="1747" width="17" height="2" />
+			<rect x="5371" y="1786" width="115" height="62" />
+			<rect x="5392" y="1756" width="77" height="30" />
+			<go x="5476" y="1798" z="0" />
+			<music name="Death" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="LoenTorech_LVL3">
+			<rect x="5428" y="1850" width="70" height="53" />
+			<music name="Death" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="HallTorech_LVL1">
+			<rect x="5701" y="1818" width="107" height="62" />
+			<rect x="5722" y="1880" width="31" height="19" />
+			<rect x="5725" y="1802" width="17" height="16" />
+			<rect x="5764" y="1785" width="15" height="33" />
+			<go x="5731" y="1891" z="0" />
+			<music name="Death" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="HallTorech_LVL2">
+			<rect x="5720" y="1756" width="38" height="36" />
+			<rect x="5642" y="1689" width="78" height="116" />
+			<rect x="5613" y="1739" width="29" height="54" />
+			<rect x="5621" y="1801" width="21" height="19" />
+			<rect x="5642" y="1805" width="52" height="87" />
+			<go x="5657" y="1792" z="0" />
+			<music name="Death" />
+		</region>
+		<region type="DungeonRegion" priority="25" name="HallTorech_LVL3">
+			<rect x="5733" y="1692" width="58" height="59" />
+			<music name="Death" />
+		</region>
+		<region type="Undershadow" priority="25" name="Podmrok_A">
+			<rect x="5128" y="2294" width="1007" height="833" />
+			<rect x="5299" y="3127" width="59" height="23" />
+			<rect x="5625" y="3127" width="126" height="50" />
+			<rect x="5889" y="3127" width="27" height="7" />
+			<rect x="5562" y="2283" width="99" height="11" />
+			<rect x="5720" y="2249" width="143" height="45" />
+			<rect x="5886" y="2255" width="67" height="39" />
+			<go x="5636" y="2771" z="30" />
+		</region>
+		<region priority="100" name="SwiatyniaLoethe">
+			<rect x="5306" y="334" width="51" height="84" />
+		</region>
+		<region priority="20" name="Labirynt">
+			<rect x="2670" y="1899" width="97" height="124" />
+			<rect x="2628" y="1911" width="42" height="86" />
+			<rect x="2767" y="1980" width="27" height="22" />
+			<go x="2785" y="1987" z="2" />
+			<music name="GrizzleDungeon" />
+		</region>
+		<region priority="100" name="StarRoom">
+			<rect x="5464" y="677" width="93" height="73" />
+			<go x="5507" y="715" z="0" />
+		</region>
+		<region type="TavernRegion" priority="100" name="PodWesolymUrwiglowa">
+			<rect x="2079" y="3362" width="17" height="16" />
+			<logoutDelay active="false" />
+		</region>
+		<region name="JaskiniaDrowow">
+			<rect x="5225" y="389" width="38" height="38" />
+		</region>
+		<region type="VillageRegion" name="Thila">
+			<rect x="2900" y="2642" width="28" height="70" />
+			<rect x="2928" y="2620" width="84" height="112" />
+			<go x="2962" y="2676" z="0" />
+			<music name="GrizzleDungeon" />
+		</region>
+		<region type="TavernRegion" priority="100" name="Inik">
+			<zrange min="21" max="61" />
+			<rect x="2963" y="2635" width="10" height="11" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="TavernRegion" priority="100" name="PlaklaNiar">
+			<rect x="2283" y="2539" width="12" height="11" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="TavernRegion" priority="100" name="JarlOden">
+			<zrange min="24" max="64" />
+			<rect x="996" y="881" width="22" height="14" />
+		</region>
+		<region type="Undershadow" priority="25" name="Podmrok_C">
+			<rect x="5123" y="3177" width="1021" height="919" />
+			<rect x="5366" y="3150" width="51" height="27" />
+			<rect x="5774" y="3164" width="46" height="13" />
+			<rect x="5921" y="3132" width="220" height="45" />
+			<rect x="5888" y="3146" width="33" height="31" />
+		</region>
+		<region type="CityRegion" name="MiastoDrowow">
+			<rect x="5142" y="1899" width="272" height="240" />
+		</region>
+		<region priority="100" name="SwiatyniaLoethe_2">
+			<rect x="5365" y="1926" width="21" height="37" />
+		</region>
+		<region type="TavernRegion" priority="100" name="KarczmaDrowow">
+			<rect x="5291" y="1980" width="14" height="29" />
+			<logoutDelay active="false" />
+		</region>
+		<region type="DungeonRegion" priority="0" name="LezeOgnistychSmokow_LVL1">
+			<rect x="5615" y="1931" width="91" height="117" />
+			<rect x="5706" y="1933" width="32" height="71" />
+			<go x="5723" y="1994" z="0" />
+		</region>
+		<region type="DungeonRegion" priority="0" name="LezeOgnistychSmokow_LVL2">
+			<rect x="5616" y="2056" width="84" height="48" />
+			<rect x="5595" y="2104" width="117" height="27" />
+			<rect x="5585" y="2131" width="129" height="19" />
+			<rect x="5591" y="2150" width="134" height="14" />
+			<rect x="5585" y="2164" width="125" height="8" />
+			<rect x="5579" y="2172" width="135" height="10" />
+			<rect x="5587" y="2182" width="132" height="8" />
+			<rect x="5596" y="2190" width="124" height="11" />
+			<rect x="5603" y="2201" width="113" height="6" />
+			<rect x="5613" y="2207" width="80" height="18" />
+			<rect x="5637" y="2225" width="40" height="7" />
+			<rect x="5659" y="2232" width="17" height="12" />
+			<rect x="5705" y="2207" width="12" height="12" />
+			<go x="5665" y="2066" z="0" />
+		</region>
+		<region type="DungeonRegion" priority="0" name="LezeOgnistychSmokow_LVL3">
+			<rect x="5489" y="2137" width="72" height="139" />
+			<rect x="5561" y="2218" width="43" height="61" />
+			<rect x="5604" y="2243" width="35" height="35" />
+			<rect x="5449" y="1925" width="144" height="102" />
+			<rect x="5440" y="2027" width="163" height="32" />
+			<rect x="5428" y="2059" width="175" height="16" />
+			<rect x="5427" y="2075" width="172" height="9" />
+			<rect x="5426" y="2084" width="162" height="9" />
+			<rect x="5419" y="2093" width="152" height="44" />
+			<rect x="5448" y="2137" width="24" height="3" />
+			<go x="5622" y="2257" z="0" />
+		</region>
+		<region type="Undershadow" priority="100" name="GlebokiPodmrok">
+			<rect x="5836" y="1913" width="267" height="71" />
+			<rect x="5851" y="1984" width="252" height="15" />
+			<rect x="5864" y="1999" width="253" height="15" />
+			<rect x="5866" y="2014" width="252" height="7" />
+			<rect x="5880" y="2021" width="240" height="225" />
+			<rect x="5810" y="2062" width="70" height="49" />
+			<rect x="5829" y="2111" width="51" height="13" />
+			<rect x="5837" y="2124" width="43" height="6" />
+			<rect x="5846" y="2130" width="34" height="5" />
+			<rect x="5850" y="2135" width="30" height="4" />
+			<rect x="5853" y="2139" width="27" height="4" />
+			<rect x="5856" y="2143" width="24" height="3" />
+			<rect x="5860" y="2146" width="20" height="95" />
+			<rect x="5845" y="2168" width="15" height="69" />
+			<rect x="5839" y="2178" width="6" height="59" />
+			<rect x="5793" y="2179" width="46" height="13" />
+			<rect x="5793" y="2172" width="20" height="7" />
+			<rect x="5799" y="2192" width="40" height="45" />
+			<go x="5895" y="1950" z="0" />
+		</region>
+		<region type="DungeonRegion" priority="0" name="Saew">
+			<rect x="5232" y="1534" width="77" height="31" />
+			<rect x="5156" y="1538" width="73" height="142" />
+			<rect x="5229" y="1613" width="15" height="67" />
+			<rect x="5287" y="1591" width="61" height="84" />
+			<rect x="5350" y="1663" width="14" height="54" />
+			<rect x="5364" y="1681" width="10" height="7" />
+			<rect x="5364" y="1693" width="6" height="12" />
+			<go x="5337" y="1631" z="0" />
+		</region>
+		<region type="DungeonRegion" priority="0" name="LezeLodowychSmokow_LVL1">
+			<rect x="5732" y="2081" width="57" height="163" />
+			<rect x="5789" y="2194" width="8" height="50" />
+			<rect x="5789" y="2079" width="20" height="85" />
+			<rect x="5809" y="2114" width="5" height="52" />
+			<rect x="5814" y="2123" width="14" height="46" />
+			<rect x="5828" y="2128" width="6" height="50" />
+			<rect x="5834" y="2134" width="8" height="44" />
+			<rect x="5842" y="2143" width="4" height="26" />
+			<rect x="5846" y="2146" width="6" height="18" />
+			<go x="5774" y="2238" z="0" />
+		</region>
+		<region type="DungeonRegion" priority="0" name="LezeLodowychSmokow_LVL2">
+			<rect x="5725" y="2030" width="85" height="42" />
+			<rect x="5810" y="2022" width="64" height="37" />
+			<rect x="5819" y="1986" width="27" height="36" />
+			<rect x="5846" y="2012" width="16" height="10" />
+			<go x="5766" y="2057" z="0" />
+		</region>
+		<region type="DungeonRegion" priority="0" name="LezeLodowychSmokow_LVL3">
+			<rect x="5727" y="2005" width="26" height="19" />
+			<rect x="5753" y="1977" width="55" height="49" />
+			<rect x="5757" y="1888" width="73" height="89" />
+			<rect x="5817" y="1977" width="10" height="2" />
+			<go x="5821" y="1970" z="0" />
+		</region>
+		<region name="Tasandora_Cmentarz">
+			<rect x="1298" y="2099" width="65" height="60" />
+			<go x="1317" y="2104" z="0" />
+		</region>
+		<region name="Orod_Cmentarz">
+			<rect x="475" y="1856" width="18" height="15" />
+			<rect x="465" y="1871" width="29" height="22" />
+			<go x="486" y="1878" z="2" />
+		</region>
+		<region name="Celendir_Cmentarz">
+			<rect x="2156" y="2076" width="22" height="24" />
+		</region>
+		<region name="Ferion_Cmentarz">
+			<rect x="1116" y="1260" width="36" height="34" />
+			<rect x="1106" y="1265" width="10" height="36" />
+			<rect x="1116" y="1294" width="21" height="7" />
+			<rect x="1093" y="1275" width="13" height="26" />
+			<rect x="1100" y="1271" width="6" height="4" />
+			<rect x="1089" y="1288" width="4" height="13" />
+			<go x="1110" y="1269" z="40" />
+		</region>
+		<region name="Garlan_Cmentarz">
+			<rect x="847" y="705" width="17" height="10" />
+		</region>
+		<region type="DungeonRegion" name="Tilki">
+			<rect x="3779" y="2154" width="137" height="113" />
+			<rect x="3916" y="2140" width="54" height="70" />
+			<rect x="3916" y="2210" width="42" height="29" />
+			<rect x="3916" y="2239" width="35" height="28" />
+			<rect x="3812" y="2267" width="109" height="79" />
+			<rect x="3921" y="2267" width="24" height="49" />
+			<go x="3934" y="2292" z="5" />
+		</region>
+		<region type="DungeonRegion" name="JezioroLawy">
+			<rect x="3939" y="1516" width="88" height="100" />
+			<rect x="4027" y="1516" width="158" height="120" />
+			<rect x="4185" y="1516" width="45" height="125" />
+			<rect x="4190" y="1641" width="28" height="16" />
+			<rect x="3964" y="1417" width="426" height="99" />
+			<rect x="4230" y="1516" width="157" height="98" />
+			<rect x="4387" y="1546" width="22" height="65" />
+			<rect x="4409" y="1595" width="7" height="12" />
+			<rect x="4220" y="1641" width="79" height="9" />
+			<rect x="4299" y="1614" width="57" height="31" />
+			<rect x="4230" y="1614" width="69" height="27" />
+			<rect x="3993" y="1315" width="397" height="102" />
+			<rect x="4010" y="1276" width="380" height="39" />
+			<rect x="4067" y="1218" width="306" height="58" />
+			<rect x="4192" y="1081" width="117" height="137" />
+			<rect x="4185" y="1090" width="7" height="128" />
+			<rect x="4178" y="1120" width="7" height="98" />
+			<rect x="4171" y="1132" width="7" height="86" />
+			<rect x="4158" y="1145" width="13" height="73" />
+			<rect x="4139" y="1154" width="19" height="64" />
+			<rect x="4126" y="1165" width="13" height="53" />
+			<rect x="4112" y="1177" width="14" height="41" />
+			<rect x="4099" y="1185" width="13" height="33" />
+			<rect x="4086" y="1192" width="13" height="26" />
+			<rect x="4075" y="1203" width="11" height="15" />
+			<rect x="4266" y="1057" width="43" height="24" />
+			<rect x="4309" y="1048" width="63" height="125" />
+			<rect x="4372" y="1048" width="2" height="26" />
+			<rect x="4374" y="1048" width="2" height="21" />
+			<rect x="4376" y="1048" width="2" height="17" />
+			<rect x="4378" y="1048" width="2" height="14" />
+			<rect x="4380" y="1048" width="2" height="11" />
+			<rect x="4382" y="1048" width="2" height="9" />
+			<rect x="4384" y="1048" width="2" height="8" />
+			<rect x="4386" y="1048" width="3" height="5" />
+			<rect x="4309" y="1173" width="64" height="45" />
+			<rect x="4372" y="1104" width="6" height="69" />
+			<rect x="4378" y="1129" width="5" height="29" />
+			<rect x="4373" y="1173" width="6" height="37" />
+			<rect x="4379" y="1179" width="2" height="19" />
+			<go x="4103" y="1244" z="0" />
+		</region>
+		<region type="HousingRegion" name="Tasandora_Housing">
+			<rect x="1362" y="2089" width="51" height="77" />
+			<rect x="1279" y="2065" width="82" height="33" />
+			<rect x="1363" y="2049" width="42" height="36" />
+			<rect x="1423" y="2101" width="64" height="45" />
+			<rect x="1432" y="2049" width="42" height="14" />
+			<rect x="1435" y="2036" width="39" height="12" />
+			<rect x="1497" y="2040" width="12" height="44" />
+			<rect x="1513" y="2021" width="148" height="56" />
+			<rect x="1527" y="1961" width="149" height="59" />
+			<rect x="1272" y="2100" width="25" height="56" />
+			<rect x="1673" y="1929" width="46" height="29" />
+			<rect x="1680" y="1963" width="44" height="62" />
+			<rect x="1728" y="1996" width="81" height="96" />
+			<rect x="1537" y="2080" width="188" height="75" />
+			<rect x="1664" y="2028" width="59" height="48" />
+			<rect x="1735" y="1955" width="77" height="40" />
+			<rect x="1215" y="1700" width="67" height="60" />
+			<rect x="1134" y="1667" width="77" height="111" />
+			<rect x="1072" y="1867" width="76" height="68" />
+			<rect x="1423" y="2069" width="12" height="25" />
+			<rect x="1462" y="2073" width="25" height="23" />
+			<rect x="1487" y="2146" width="46" height="16" />
+			<rect x="1729" y="2112" width="54" height="46" />
+			<rect x="1729" y="2094" width="57" height="12" />
+			<rect x="1355" y="2173" width="64" height="22" />
+			<go x="1420" y="2137" z="0" />
+		</region>
+		<region type="HousingRegion" name="Garlan_Housing">
+			<rect x="810" y="623" width="125" height="151" />
+			<rect x="941" y="715" width="104" height="66" />
+			<rect x="938" y="689" width="25" height="24" />
+			<rect x="1047" y="727" width="45" height="47" />
+			<rect x="1141" y="564" width="66" height="153" />
+			<rect x="1095" y="724" width="52" height="52" />
+			<rect x="1148" y="719" width="57" height="48" />
+			<rect x="1100" y="655" width="38" height="65" />
+			<rect x="1130" y="380" width="92" height="85" />
+			<rect x="1137" y="471" width="80" height="83" />
+			<rect x="1125" y="352" width="87" height="23" />
+			<go x="923" y="669" z="0" />
+		</region>
+		<region type="HousingRegion" name="Twierdza_Housing">
+			<rect x="2339" y="1777" width="92" height="77" />
+			<rect x="2341" y="1857" width="95" height="53" />
+			<rect x="2462" y="1868" width="104" height="83" />
+			<rect x="2334" y="1659" width="72" height="102" />
+			<rect x="2338" y="1940" width="107" height="59" />
+			<rect x="2480" y="1954" width="113" height="60" />
+			<rect x="2353" y="1573" width="121" height="82" />
+			<go x="2935" y="1871" z="0" />
+		</region>
+		<region type="HousingRegion" name="WioskaDrowow_Housing">
+			<rect x="5912" y="2762" width="61" height="30" />
+			<rect x="5977" y="2749" width="40" height="39" />
+			<rect x="5948" y="2707" width="72" height="38" />
+			<rect x="6026" y="2724" width="38" height="75" />
+			<rect x="5914" y="2794" width="58" height="60" />
+			<go x="5938" y="2766" z="0" />
+		</region>
+		<region type="DungeonRegion" name="Piramida">
+			<rect x="5129" y="3" width="135" height="113" />
+			<rect x="5555" y="387" width="60" height="24" />
+			<rect x="5573" y="287" width="30" height="64" />
+			<rect x="5264" y="26" width="17" height="8" />
+			<go x="5201" y="103" z="4" />
+		</region>
+		<region type="DungeonRegion" name="BialyWilk">
+			<rect x="5278" y="0" width="135" height="15" />
+			<rect x="5285" y="15" width="128" height="26" />
+			<rect x="5274" y="41" width="93" height="28" />
+			<go x="5309" y="55" z="0" />
+		</region>
+		<region type="DungeonRegion" name="UlnhyrOrben">
+			<rect x="5625" y="201" width="86" height="59" />
+			<rect x="5792" y="240" width="65" height="27" />
+			<rect x="5736" y="150" width="118" height="90" />
+			<rect x="5854" y="166" width="33" height="55" />
+			<rect x="5628" y="296" width="127" height="48" />
+			<go x="5682" y="232" z="1" />
+			<music name="MelisandesLair" />
+		</region>
+		<region type="DungeonRegion" name="KryptyNaurow">
+			<rect x="5405" y="234" width="133" height="70" />
+			<rect x="5450" y="304" width="84" height="67" />
+			<rect x="5461" y="379" width="78" height="30" />
+			<rect x="5534" y="357" width="24" height="9" />
+			<go x="5462" y="360" z="36" />
+		</region>
+		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL1">
+			<rect x="5766" y="382" width="78" height="92" />
+			<rect x="5847" y="434" width="10" height="11" />
+			<rect x="5836" y="370" width="8" height="12" />
+			<rect x="5844" y="370" width="16" height="64" />
+			<rect x="5860" y="377" width="18" height="57" />
+			<rect x="5878" y="393" width="47" height="35" />
+			<go x="5917" y="410" z="4" />
+		</region>
+		<region type="DungeonRegion" name="KrysztaloweSmoki">
+			<rect x="5147" y="2142" width="331" height="152" />
+			<go x="5281" y="2171" z="0" />
+		</region>
+		<region type="DungeonRegion" name="Demonowo">
+			<rect x="5121" y="453" width="225" height="300" />
+			<rect x="5985" y="676" width="73" height="48" />
+			<go x="5266" y="719" z="0" />
+		</region>
+		<region priority="99" name="ArtTrader">
+			<rect x="1506" y="1501" width="27" height="21" />
+			<go x="1527" y="1515" z="0" />
 		</region>
 	</Facet>
 </ServerRegions>
