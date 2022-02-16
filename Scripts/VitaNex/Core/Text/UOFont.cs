@@ -416,7 +416,9 @@ namespace VitaNex.Text
 
 	public sealed class UOFont
 	{
-		public const PixelFormat PixelFormat = System.Drawing.Imaging.PixelFormat.Format16bppArgb1555;
+		// different PixelFormat for unix is a workaround as the original one is not implemented in libgdiplus for mono
+		// It should work for Unix, but graphical glitches are expected :)
+		public static readonly PixelFormat PixelFormat = Core.Unix ? PixelFormat.Format32bppArgb : PixelFormat.Format16bppArgb1555;
 
 		public static Size DefaultCharSize = new Size(8, 10);
 

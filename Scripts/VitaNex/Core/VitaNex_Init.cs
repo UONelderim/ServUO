@@ -155,14 +155,14 @@ namespace VitaNex
 				return root;
 			}
 
-#if !MONO
 			// Convert absolute path to relative path
+			if (!Core.Unix)
+			{
+				var corePath = IOUtility.GetSafeDirectoryPath(Core.BaseDirectory);
+				var rootPath = IOUtility.GetSafeDirectoryPath(root.FullName.Replace(corePath, String.Empty));
 
-			var corePath = IOUtility.GetSafeDirectoryPath(Core.BaseDirectory);
-			var rootPath = IOUtility.GetSafeDirectoryPath(root.FullName.Replace(corePath, String.Empty));
-
-			root = new DirectoryInfo(rootPath);
-#endif
+				root = new DirectoryInfo(rootPath);
+			}
 
 			return root;
 		}
