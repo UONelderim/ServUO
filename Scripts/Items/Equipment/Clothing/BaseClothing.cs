@@ -75,6 +75,7 @@ namespace Server.Items
         private SAAbsorptionAttributes m_SAAbsorptionAttributes;
         private NegativeAttributes m_NegativeAttributes;
         private AosWeaponAttributes m_AosWeaponAttributes;
+        public int AllResistances { get { return PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance; } }
 
         private int m_TimesImbued;
         private bool m_IsImbued;
@@ -947,6 +948,11 @@ namespace Server.Items
                 m_AosSkillBonuses.GetProperties(list);
 
             int prop;
+
+            base.AddResistanceProperties( list );
+
+            if (AllResistances != 0)
+                list.Add(1060526, AllResistances.ToString()); // suma odpornosci ~1_val~%
 
             if ((prop = ArtifactRarity) > 0)
                 list.Add(1061078, prop.ToString()); // artifact rarity ~1_val~
