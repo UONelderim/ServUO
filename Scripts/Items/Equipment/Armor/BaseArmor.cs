@@ -123,7 +123,7 @@ namespace Server.Items
         public virtual bool UseIntOrDexProperty => false;
 
         public virtual int IntOrDexPropertyValue => 0;
-
+         public int AllResistances { get { return PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance; } }
         public override void OnAfterDuped(Item newItem)
         {
             BaseArmor armor = newItem as BaseArmor;
@@ -2248,6 +2248,11 @@ namespace Server.Items
 
             if ((prop = ArtifactRarity) > 0)
                 list.Add(1061078, prop.ToString()); // artifact rarity ~1_val~
+
+            base.AddResistanceProperties( list );
+
+            if (AllResistances != 0)
+                list.Add(1060526, AllResistances.ToString()); // suma odpornosci ~1_val~%
 
             if ((prop = m_AosWeaponAttributes.HitColdArea) != 0)
                 list.Add(1060416, prop.ToString()); // hit cold area ~1_val~%
