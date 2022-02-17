@@ -2,7 +2,7 @@ namespace Server.Mobiles
 {
     public class MageGuildmaster : BaseGuildmaster
     {
-        public override bool ConvertsMageArmor => true;
+      //  public override bool ConvertsMageArmor => true;
 
         [Constructable]
         public MageGuildmaster()
