@@ -1,3 +1,5 @@
+#region References
+
 using System;
 using System.Collections.Generic;
 using Server.Items;
@@ -7,11 +9,13 @@ using Server.Spells.Fourth;
 using Server.Spells.Necromancy;
 using Server.Targeting;
 
+#endregion
+
 namespace Server.ACC.CSS.Systems.Avatar
 {
 	public class AvatarCurseRemovalSpell : AvatarSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Reka Mnicha", "Haures Manibus Omnus",
 			227,
 			9031
@@ -164,7 +168,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 
 		private class InternalTarget : Target
 		{
-			private AvatarCurseRemovalSpell m_Owner;
+			private readonly AvatarCurseRemovalSpell m_Owner;
 
 			public InternalTarget(AvatarCurseRemovalSpell owner) : base(Core.ML ? 10 : 12, false,
 				TargetFlags.Beneficial)

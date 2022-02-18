@@ -1,10 +1,8 @@
-using System;
-
 namespace Server.Items
 {
 	[Furniture]
 	[Flipable(0xEBB, 0xEBC)]
-    public class TallMusicStandRC : ResouceCraftable
+	public class TallMusicStandRC : ResouceCraftable
 	{
 		[Constructable]
 		public TallMusicStandRC() : base(0xEBB)
@@ -20,7 +18,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -29,14 +27,14 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 
-			if ( Weight == 8.0 )
+			if (Weight == 8.0)
 				Weight = 10.0;
 		}
 	}
 
 	[Furniture]
-	[Flipable(0xEB6,0xEB8)]
-    public class ShortMusicStandRC : ResouceCraftable
+	[Flipable(0xEB6, 0xEB8)]
+	public class ShortMusicStandRC : ResouceCraftable
 	{
 		[Constructable]
 		public ShortMusicStandRC() : base(0xEB6)
@@ -52,7 +50,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -61,7 +59,7 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 
-			if ( Weight == 6.0 )
+			if (Weight == 6.0)
 				Weight = 10.0;
 		}
 	}

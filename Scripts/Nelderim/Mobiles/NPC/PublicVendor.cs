@@ -1,11 +1,16 @@
-﻿using System;
+﻿#region References
+
+using System;
 using Server.Items;
+
+#endregion
 
 namespace Server.Mobiles
 {
 	public class PublicVendor : RentedVendor
 	{
-		public PublicVendor(Mobile owner, VendorRentalDuration duration, int rentalPrice, int renewalPrice, bool landlordRenew) : base(owner, null, duration, rentalPrice, landlordRenew, 0)
+		public PublicVendor(Mobile owner, VendorRentalDuration duration, int rentalPrice, int renewalPrice,
+			bool landlordRenew) : base(owner, null, duration, rentalPrice, landlordRenew, 0)
 		{
 			Title = "- kupiec";
 			RenewalPrice = renewalPrice;
@@ -29,7 +34,8 @@ namespace Server.Mobiles
 					m_RentalExpireTime = DateTime.Parse(value);
 				}
 				catch
-				{ }
+				{
+				}
 			}
 		}
 

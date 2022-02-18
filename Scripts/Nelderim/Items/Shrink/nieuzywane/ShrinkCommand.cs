@@ -15,7 +15,7 @@
 //        {
 //            CommandSystem.Register( "Shrink", AccessLevel.GameMaster, new CommandEventHandler( Shrink_OnCommand ) );
 //        }   
-     
+
 //        [Usage( "Shrink" )]
 //        [Description( "Shrinks a targeted Mobile" )]
 
@@ -38,3 +38,5 @@
 //        }
 //    }
 //}
+
+

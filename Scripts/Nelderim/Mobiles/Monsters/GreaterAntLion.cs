@@ -1,4 +1,8 @@
-﻿using Server.Items;
+﻿#region References
+
+using Server.Items;
+
+#endregion
 
 namespace Server.Mobiles
 {
@@ -41,12 +45,20 @@ namespace Server.Mobiles
 
 			PackItem(new FertileDirt(Utility.RandomMinMax(1, 4)));
 
-			switch ( Utility.Random(4) )
+			switch (Utility.Random(4))
 			{
-				case 0: PackItem(new DullCopperOre(Utility.RandomMinMax(3, 8))); break;
-				case 1: PackItem(new ShadowIronOre(Utility.RandomMinMax(3, 8))); break;
-				case 2: PackItem(new CopperOre(Utility.RandomMinMax(3, 8))); break;
-				case 3: PackItem(new BronzeOre(Utility.RandomMinMax(3, 8))); break;
+				case 0:
+					PackItem(new DullCopperOre(Utility.RandomMinMax(3, 8)));
+					break;
+				case 1:
+					PackItem(new ShadowIronOre(Utility.RandomMinMax(3, 8)));
+					break;
+				case 2:
+					PackItem(new CopperOre(Utility.RandomMinMax(3, 8)));
+					break;
+				case 3:
+					PackItem(new BronzeOre(Utility.RandomMinMax(3, 8)));
+					break;
 			}
 
 			// TODO: skeleton
@@ -91,7 +103,7 @@ namespace Server.Mobiles
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)

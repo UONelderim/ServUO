@@ -1,82 +1,84 @@
+#region References
+
 using System;
 using System.Collections;
-using Server.Network;
-using Server.Items;
-using Server.Targeting;
 using Server.Spells;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Undead
 {
 	public class UndeadSwarmOfInsectsSpell : UndeadSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
-		                                                "Chmara Insektów", "Ess Laah Ohm En Sec Tia",
-		                                                //SpellCircle.Seventh,
-		                                                263,
-		                                                9032,
-		                                                false,
-		                                                Reagent.Garlic,
-		                                                Reagent.Nightshade,
-		                                                CReagent.DestroyingAngel
-		                                               );
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Chmara Insektów", "Ess Laah Ohm En Sec Tia",
+			//SpellCircle.Seventh,
+			263,
+			9032,
+			false,
+			Reagent.Garlic,
+			Reagent.Nightshade,
+			CReagent.DestroyingAngel
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Seventh; }
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Seventh; }
+		}
 
-		public override double CastDelay{ get{ return 2.0; } }
-		public override double RequiredSkill{ get{ return 85.0; } }
-		public override int RequiredMana{ get{ return 10; } }
+		public override double CastDelay { get { return 2.0; } }
+		public override double RequiredSkill { get { return 85.0; } }
+		public override int RequiredMana { get { return 10; } }
 
-		public UndeadSwarmOfInsectsSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
+		public UndeadSwarmOfInsectsSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
 		}
 
 		public override void OnCast()
 		{
-			Caster.Target = new InternalTarget( this );
+			Caster.Target = new InternalTarget(this);
 		}
 
-		public void Target( Mobile m )
+		public void Target(Mobile m)
 		{
-			if ( CheckHSequence( m ) )
+			if (CheckHSequence(m))
 			{
-				SpellHelper.Turn( Caster, m );
+				SpellHelper.Turn(Caster, m);
 
-				SpellHelper.CheckReflect( this, Caster, ref m );
+				SpellHelper.CheckReflect(this, Caster, ref m);
 
-				CheckResisted( m ); // Check magic resist for skill, but do not use return value
+				CheckResisted(m); // Check magic resist for skill, but do not use return value
 
-				m.FixedParticles( 0x91B, 1, 240, 9916, 38, 3, EffectLayer.Head );
+				m.FixedParticles(0x91B, 1, 240, 9916, 38, 3, EffectLayer.Head);
 
 				// m.FixedParticles( 0x91B, 1, 240, 9916, 0, 3, EffectLayer.Head );
-				m.PlaySound( 0x1E5 );
+				m.PlaySound(0x1E5);
 
 				double damage = ((Caster.Skills[CastSkill].Value - m.Skills[SkillName.SpiritSpeak].Value) / 10) + 30;
 
-				if ( damage < 1 )
+				if (damage < 1)
 					damage = 1;
 
-				if ( m_Table.Contains( m ) )
+				if (m_Table.Contains(m))
 					damage /= 10;
 				else
-					new InternalTimer( m, damage  ).Start();
+					new InternalTimer(m, damage).Start();
 
-				SpellHelper.Damage( this, m, damage );
+				SpellHelper.Damage(this, m, damage);
 			}
 
 			FinishSequence();
 		}
 
-		private static Hashtable m_Table = new Hashtable();
+		private static readonly Hashtable m_Table = new Hashtable();
 
 		private class InternalTimer : Timer
 		{
-			private Mobile m_Mobile;
-			private int m_ToRestore;
+			private readonly Mobile m_Mobile;
+			private readonly int m_ToRestore;
 
-			public InternalTimer( Mobile m, double toRestore ) : base( TimeSpan.FromSeconds( 20.0 ) )
+			public InternalTimer(Mobile m, double toRestore) : base(TimeSpan.FromSeconds(20.0))
 			{
 				Priority = TimerPriority.OneSecond;
 
@@ -88,29 +90,29 @@ namespace Server.ACC.CSS.Systems.Undead
 
 			protected override void OnTick()
 			{
-				m_Table.Remove( m_Mobile );
+				m_Table.Remove(m_Mobile);
 
-				if ( m_Mobile.Alive )
+				if (m_Mobile.Alive)
 					m_Mobile.Hits += m_ToRestore;
 			}
 		}
 
 		private class InternalTarget : Target
 		{
-			private UndeadSwarmOfInsectsSpell m_Owner;
+			private readonly UndeadSwarmOfInsectsSpell m_Owner;
 
-			public InternalTarget( UndeadSwarmOfInsectsSpell owner ) : base( 12, false, TargetFlags.Harmful )
+			public InternalTarget(UndeadSwarmOfInsectsSpell owner) : base(12, false, TargetFlags.Harmful)
 			{
 				m_Owner = owner;
 			}
 
-			protected override void OnTarget( Mobile from, object o )
+			protected override void OnTarget(Mobile from, object o)
 			{
-				if ( o is Mobile )
-					m_Owner.Target( (Mobile) o );
+				if (o is Mobile)
+					m_Owner.Target((Mobile)o);
 			}
 
-			protected override void OnTargetFinish( Mobile from )
+			protected override void OnTargetFinish(Mobile from)
 			{
 				m_Owner.FinishSequence();
 			}

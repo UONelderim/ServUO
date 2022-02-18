@@ -1,11 +1,14 @@
-﻿using System;
+﻿#region References
+
+using System;
 using System.Collections.Generic;
 using Server.Items;
 using Server.Spells;
 
+#endregion
+
 namespace Server.Mobiles
 {
-
 	[CorpseName("zgliszcza feniksa")]
 	public class Feniks : BaseCreature
 	{
@@ -52,13 +55,14 @@ namespace Server.Mobiles
 			SetWeaponAbility(WeaponAbility.BleedAttack);
 			SetSpecialAbility(SpecialAbility.DragonBreath);
 		}
+
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)
 		{
-			if ( !IsBonded && !corpse.Carved && !IsChampionSpawn )
+			if (!IsBonded && !corpse.Carved && !IsChampionSpawn)
 			{
-				if ( Utility.RandomDouble() < 0.08 )
+				if (Utility.RandomDouble() < 0.08)
 					corpse.DropItem(new DragonsHeart());
-				if ( Utility.RandomDouble() < 0.20 )
+				if (Utility.RandomDouble() < 0.20)
 					corpse.DropItem(new DragonsBlood());
 			}
 
@@ -88,7 +92,7 @@ namespace Server.Mobiles
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)1); // version
+			writer.Write(1); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -102,7 +106,8 @@ namespace Server.Mobiles
 
 		private class AoeTimer : Timer
 		{
-			Feniks m_from;
+			readonly Feniks m_from;
+
 			public AoeTimer(Feniks from) : base(TimeSpan.Zero, TimeSpan.FromSeconds(2))
 			{
 				m_from = from;
@@ -111,25 +116,26 @@ namespace Server.Mobiles
 
 			protected override void OnTick()
 			{
-				if ( m_from == null || m_from.Deleted )
+				if (m_from == null || m_from.Deleted)
 					Stop();
 
 				List<Mobile> targets = new List<Mobile>();
 
-				if ( m_from.Map != null && m_from.Map != Map.Internal )
-					foreach ( Mobile m in m_from.GetMobilesInRange(2) )
-						if ( m_from != m && SpellHelper.ValidIndirectTarget(m_from, m) && m_from.CanBeHarmful(m, false) && (!Core.AOS || m_from.InLOS(m)) )
-							if ( m_from.Controlled || m.Player || m is BaseCreature && ((BaseCreature)m).Controlled )
+				if (m_from.Map != null && m_from.Map != Map.Internal)
+					foreach (Mobile m in m_from.GetMobilesInRange(2))
+						if (m_from != m && SpellHelper.ValidIndirectTarget(m_from, m) &&
+						    m_from.CanBeHarmful(m, false) && (!Core.AOS || m_from.InLOS(m)))
+							if (m_from.Controlled || m.Player || m is BaseCreature && ((BaseCreature)m).Controlled)
 								targets.Add(m);
 
-				for ( int i = 0; i < targets.Count; ++i )
+				for (int i = 0; i < targets.Count; ++i)
 				{
 					Mobile m = targets[i];
 
 					int firedmg = Utility.RandomMinMax(5, 15);
 					AOS.Damage(m, m_from, firedmg, true, 0, 100, 0, 0, 0);
 
-					if ( m.Player )
+					if (m.Player)
 						m.SendLocalizedMessage(1008112, m_from.Name); // : The intense heat is damaging you!
 				}
 			}

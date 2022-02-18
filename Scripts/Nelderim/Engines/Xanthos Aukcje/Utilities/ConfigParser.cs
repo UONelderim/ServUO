@@ -1,4 +1,5 @@
 #region AuthorHeader
+
 //
 //	ConfigParser version 1.2 - utilities version 2.0, by Xanthos
 //
@@ -9,472 +10,460 @@
 //	If the config file does not exist or cannot be read it will simply output an error to the
 //	console and continue.  In other words - it's ok not to provide a config file.
 //
+
 #endregion AuthorHeader
+
 #undef HALT_ON_ERRORS
+
+#region References
+
 using System;
-using Server;
-using System.IO;  
-using System.Xml;
-using System.Text;
 using System.Collections;
 using System.Collections.Specialized;
+using System.IO;
+using System.Xml;
+using Server;
+
+#endregion
 
 namespace Xanthos.Utilities
 {
 	public class ConfigParser
 	{
-		public static Element GetConfig( string filename, string tag )
+		public static Element GetConfig(string filename, string tag)
 		{
-			Element element = GetConfig( filename );
+			Element element = GetConfig(filename);
 
-			if ( element != null )
-				element = GetConfig( element, tag );
+			if (element != null)
+				element = GetConfig(element, tag);
 
 			return element;
 		}
 
-		public static Element GetConfig( string filename )
+		public static Element GetConfig(string filename)
 		{
 			XmlTextReader reader = null;
 			Element element = null;
 			DOMParser parser;
 
-			try 
+			try
 			{
-				Console.WriteLine( "System: Wczytywanie konfiguracji Xanthos Aukcje...Gotowe" );
-				reader = new XmlTextReader( filename );
+				Console.WriteLine("System: Wczytywanie konfiguracji Xanthos Aukcje...Gotowe");
+				reader = new XmlTextReader(filename);
 				parser = new DOMParser();
-				element = parser.Parse( reader );
+				element = parser.Parse(reader);
 			}
-			catch ( Exception exc )
+			catch (Exception exc)
 			{
 				// Fail gracefully only on errors reading the file
-				if ( !( exc is System.IO.IOException ))
+				if (!(exc is IOException))
 					throw exc;
 
-				Console.WriteLine( "System: Blad przy wczytywaniu Xanthos.Utilities.ConfigParser." );
+				Console.WriteLine("System: Blad przy wczytywaniu Xanthos.Utilities.ConfigParser.");
 			}
 
-			if ( null != reader )
+			if (null != reader)
 				reader.Close();
 
 			return element;
 		}
 
-		public static Element GetConfig( Element element, string tag )
+		public static Element GetConfig(Element element, string tag)
 		{
-			if ( element.ChildElements.Count > 0 ) 
+			if (element.ChildElements.Count > 0)
 			{
-				foreach( Element child in element.ChildElements ) 
+				foreach (Element child in element.ChildElements)
 				{
-					if ( child.TagName == tag )
+					if (child.TagName == tag)
 						return child;
 				}
 			}
+
 			return null;
 		}
 	}
 
 	public class DOMParser
 	{
-		private Stack m_Elements;
+		private readonly Stack m_Elements;
 		private Element m_CurrentElement;
 		private Element m_RootElement;
 
-		public DOMParser() 
+		public DOMParser()
 		{
 			m_Elements = new Stack();
 			m_CurrentElement = null;
 			m_RootElement = null;
 		}
 
-		public Element Parse( XmlTextReader reader ) 
+		public Element Parse(XmlTextReader reader)
 		{
 			Element element = null;
 
-			while ( !reader.EOF )
+			while (!reader.EOF)
 			{
-				reader.Read();            
-				switch ( reader.NodeType )
+				reader.Read();
+				switch (reader.NodeType)
 				{
-					case XmlNodeType.Element :					
-						element = new Element( reader.LocalName );
-						m_CurrentElement = element;                  
-						if ( m_Elements.Count == 0 ) 
+					case XmlNodeType.Element:
+						element = new Element(reader.LocalName);
+						m_CurrentElement = element;
+						if (m_Elements.Count == 0)
 						{
 							m_RootElement = element;
-							m_Elements.Push( element );
+							m_Elements.Push(element);
 						}
-						else 
-						{                  
-							Element parent = (Element)m_Elements.Peek();
-							parent.ChildElements.Add( element );
-
-							if ( reader.IsEmptyElement )
-								break;
-							else 
-								m_Elements.Push( element );
-						}
-						if ( reader.HasAttributes ) 
+						else
 						{
-							while( reader.MoveToNextAttribute() ) 
+							Element parent = (Element)m_Elements.Peek();
+							parent.ChildElements.Add(element);
+
+							if (reader.IsEmptyElement)
+								break;
+							m_Elements.Push(element);
+						}
+
+						if (reader.HasAttributes)
+						{
+							while (reader.MoveToNextAttribute())
 							{
-								m_CurrentElement.setAttribute( reader.Name, reader.Value );
+								m_CurrentElement.setAttribute(reader.Name, reader.Value);
 							}
 						}
+
 						break;
-					case XmlNodeType.Attribute :
-						element.setAttribute( reader.Name, reader.Value );
+					case XmlNodeType.Attribute:
+						element.setAttribute(reader.Name, reader.Value);
 						break;
-					case XmlNodeType.EndElement :
+					case XmlNodeType.EndElement:
 						m_Elements.Pop();
 						break;
-					case XmlNodeType.Text :
+					case XmlNodeType.Text:
 						m_CurrentElement.Text = reader.Value;
 						break;
-					case XmlNodeType.CDATA :
+					case XmlNodeType.CDATA:
 						m_CurrentElement.Text = reader.Value;
-						break;
-					default :
-						// ignore
 						break;
 				}
 			}
+
 			return m_RootElement;
 		}
 	}
 
-	public class Elements : CollectionBase 
+	public class Elements : CollectionBase
 	{
-		public Elements() 
+		public void Add(Element element)
 		{
+			List.Add(element);
 		}
 
-		public void Add( Element element ) 
-		{
-			List.Add( element );
-		}
-
-		public Element this[ int index ]
+		public Element this[int index]
 		{
 			get { return (Element)List[index]; }
 		}
 	}
 
-	public class Element 
+	public class Element
 	{
-		private String m_TagName;
-		private String m_Text;
-		private StringDictionary m_Attributes;
-		private Elements m_ChildElements;
-
-		public Element( String tagName ) 
+		public Element(string tagName)
 		{
-			m_TagName = tagName;
-			m_Attributes = new StringDictionary();
-			m_ChildElements = new Elements();
-			m_Text = "";
+			TagName = tagName;
+			Attributes = new StringDictionary();
+			ChildElements = new Elements();
+			Text = "";
 		}
 
-		public String TagName 
+		public string TagName { get; set; }
+
+		public string Text { get; set; }
+
+		public Elements ChildElements { get; }
+
+		public StringDictionary Attributes { get; }
+
+		public string Attribute(string name)
 		{
-			get { return m_TagName; }
-			set { m_TagName = value; }
+			return Attributes[name];
 		}
 
-		public string Text 
+		public void setAttribute(string name, string value)
 		{
-			get { return m_Text; }
-			set { m_Text = value; }
-		}
-
-		public Elements ChildElements 
-		{
-			get { return m_ChildElements; }
-		}
-
-		public StringDictionary Attributes 
-		{
-			get { return m_Attributes; }
-		}
-
-		public String Attribute( String name ) 
-		{
-			return (String)m_Attributes[name];
-		}
-
-		public void setAttribute( String name, String value ) 
-		{
-			m_Attributes.Add( name, value );
+			Attributes.Add(name, value);
 		}
 
 		#region Xml to data type conversions
 
-		public bool GetBoolValue( out bool val )
+		public bool GetBoolValue(out bool val)
 		{
 			val = false;
 
 			try
 			{
-				if ( null != m_Text && "" != m_Text )
+				if (null != Text && "" != Text)
 				{
-					val = bool.Parse( m_Text );
+					val = Boolean.Parse(Text);
 					return true;
 				}
 			}
-			catch ( Exception exc ) { HandleError( exc ); }
+			catch (Exception exc) { HandleError(exc); }
 
 			return false;
 		}
 
-		public bool GetDoubleValue( out double val )
+		public bool GetDoubleValue(out double val)
 		{
 			val = 0;
 
 			try
 			{
-				if ( null != m_Text && "" != m_Text )
+				if (null != Text && "" != Text)
 				{
-					val = double.Parse( m_Text );
+					val = Double.Parse(Text);
 					return true;
 				}
 			}
-			catch ( Exception exc ) { HandleError( exc ); }
+			catch (Exception exc) { HandleError(exc); }
 
 			return false;
 		}
 
-		public bool GetIntValue( out int val )
+		public bool GetIntValue(out int val)
 		{
 			val = 0;
 
 			try
 			{
-				if ( null != m_Text && "" != m_Text )
+				if (null != Text && "" != Text)
 				{
-					val = Int32.Parse( m_Text );
+					val = Int32.Parse(Text);
 					return true;
 				}
 			}
-			catch ( Exception exc ) { HandleError( exc ); }
+			catch (Exception exc) { HandleError(exc); }
 
 			return false;
 		}
 
-		public bool GetAccessLevelValue( out AccessLevel val )
+		public bool GetAccessLevelValue(out AccessLevel val)
 		{
 			val = AccessLevel.Player;
 			try
 			{
-				val = (AccessLevel)AccessLevel.Parse( typeof(Server.AccessLevel), m_Text, true );
+				val = (AccessLevel)Enum.Parse(typeof(AccessLevel), Text, true);
 			}
-			catch ( Exception exc ) { HandleError( exc ); }
+			catch (Exception exc) { HandleError(exc); }
 
 			return true;
 		}
 
-		public bool GetMapValue( out Map val )
+		public bool GetMapValue(out Map val)
 		{
 			val = null;
 			try
 			{
-				val = Map.Parse( m_Text );
-			
-				if ( null == val )
-					throw new ArgumentException( "Map expected" );
+				val = Map.Parse(Text);
+
+				if (null == val)
+					throw new ArgumentException("Map expected");
 			}
-			catch ( Exception exc ) { HandleError( exc ); }
+			catch (Exception exc) { HandleError(exc); }
 
 			return true;
 		}
 
-		public bool GetTypeValue( out Type val )
+		public bool GetTypeValue(out Type val)
 		{
 			val = null;
 			try
 			{
-				val = Type.GetType( m_Text );
-			
-				if ( null == val )
-					throw new ArgumentException( "Type expected" );
+				val = Type.GetType(Text);
+
+				if (null == val)
+					throw new ArgumentException("Type expected");
 			}
-			catch ( Exception exc ) { HandleError( exc ); }
+			catch (Exception exc) { HandleError(exc); }
 
 			return true;
 		}
 
-		public bool GetPoint3DValue( out Point3D val )
+		public bool GetPoint3DValue(out Point3D val)
 		{
 			val = new Point3D();
 			int elementsExpected = 3;
 
 			try
 			{
-				if ( null == ChildElements )
+				if (null == ChildElements)
 					return false;
 
-				if ( elementsExpected != ChildElements.Count )
-					throw new System.IndexOutOfRangeException( elementsExpected + " elements were expected" );
+				if (elementsExpected != ChildElements.Count)
+					throw new IndexOutOfRangeException(elementsExpected + " elements were expected");
 
 				int temp;
-			
-				if ( ChildElements[ 0 ].GetIntValue( out temp ))
+
+				if (ChildElements[0].GetIntValue(out temp))
 					val.X = temp;
 				else
-					throw new System.ArrayTypeMismatchException( "Int expected" );
+					throw new ArrayTypeMismatchException("Int expected");
 
-				if ( ChildElements[ 1 ].GetIntValue( out temp ))
+				if (ChildElements[1].GetIntValue(out temp))
 					val.Y = temp;
 				else
-					throw new System.ArrayTypeMismatchException( "Int expected" );
+					throw new ArrayTypeMismatchException("Int expected");
 
-				if ( ChildElements[ 2 ].GetIntValue( out temp ))
+				if (ChildElements[2].GetIntValue(out temp))
 					val.Z = temp;
 				else
-					throw new System.ArrayTypeMismatchException( "Int expected" );
+					throw new ArrayTypeMismatchException("Int expected");
 			}
-			catch ( Exception exc ) { HandleError( exc ); }
+			catch (Exception exc) { HandleError(exc); }
 
 			return true;
 		}
 
-		
-		public bool GetArray( out bool[] val )
+
+		public bool GetArray(out bool[] val)
 		{
-			return GetArray( 0, out val );
+			return GetArray(0, out val);
 		}
 
-		public bool GetArray( int elementsExpected, out bool[] val )
+		public bool GetArray(int elementsExpected, out bool[] val)
 		{
 			val = null;
 
-			if ( null == ChildElements )
+			if (null == ChildElements)
 				return false;
 
 			try
 			{
-				if ( elementsExpected > 0 && elementsExpected != ChildElements.Count )
-					throw new System.IndexOutOfRangeException( elementsExpected + " elements were expected" );
+				if (elementsExpected > 0 && elementsExpected != ChildElements.Count)
+					throw new IndexOutOfRangeException(elementsExpected + " elements were expected");
 
-				bool[] array = new bool[ ChildElements.Count ];
+				bool[] array = new bool[ChildElements.Count];
 				bool temp;
-			
-				for ( int i = 0; i < ChildElements.Count; i++ )
+
+				for (int i = 0; i < ChildElements.Count; i++)
 				{
-					if ( ChildElements[ i ].GetBoolValue( out temp ))
-						array[ i ] = temp;
+					if (ChildElements[i].GetBoolValue(out temp))
+						array[i] = temp;
 					else
-						throw new System.ArrayTypeMismatchException( "Bool expected" );
+						throw new ArrayTypeMismatchException("Bool expected");
 				}
+
 				val = array;
 			}
-			catch ( Exception exc ) { HandleError( exc ); }
+			catch (Exception exc) { HandleError(exc); }
 
 			return true;
 		}
 
-		public bool GetArray( out int[] val )
+		public bool GetArray(out int[] val)
 		{
-			return GetArray( 0, out val );
+			return GetArray(0, out val);
 		}
 
-		public bool GetArray( int elementsExpected, out int[] val )
+		public bool GetArray(int elementsExpected, out int[] val)
 		{
 			val = null;
-			
-			if ( null == ChildElements )
+
+			if (null == ChildElements)
 				return false;
 
 			try
 			{
-				if ( elementsExpected > 0 && elementsExpected != ChildElements.Count )
-					throw new System.IndexOutOfRangeException( elementsExpected + " elements were expected" );
+				if (elementsExpected > 0 && elementsExpected != ChildElements.Count)
+					throw new IndexOutOfRangeException(elementsExpected + " elements were expected");
 
-				int[] array = new int[ ChildElements.Count ];
+				int[] array = new int[ChildElements.Count];
 				int temp;
-			
-				for ( int i = 0; i < ChildElements.Count; i++ )
+
+				for (int i = 0; i < ChildElements.Count; i++)
 				{
-					if ( ChildElements[ i ].GetIntValue( out temp ))
-						array[ i ] = temp;
+					if (ChildElements[i].GetIntValue(out temp))
+						array[i] = temp;
 					else
-						throw new System.ArrayTypeMismatchException( "Int expected" );
+						throw new ArrayTypeMismatchException("Int expected");
 				}
+
 				val = array;
 			}
-			catch ( Exception exc ) { HandleError( exc ); }
+			catch (Exception exc) { HandleError(exc); }
 
 			return true;
 		}
 
-		public bool GetArray( out Type[] val )
+		public bool GetArray(out Type[] val)
 		{
-			return GetArray( 0, out val );
+			return GetArray(0, out val);
 		}
 
-		public bool GetArray( int elementsExpected, out Type[] val )
+		public bool GetArray(int elementsExpected, out Type[] val)
 		{
 			val = null;
-			
-			if ( null == ChildElements )
+
+			if (null == ChildElements)
 				return false;
 
 			try
 			{
-				if ( elementsExpected > 0 && elementsExpected != ChildElements.Count )
-					throw new System.IndexOutOfRangeException( elementsExpected + " elements were expected" );
+				if (elementsExpected > 0 && elementsExpected != ChildElements.Count)
+					throw new IndexOutOfRangeException(elementsExpected + " elements were expected");
 
-				Type[] array = new Type[ ChildElements.Count ];
-			
-				for ( int i = 0; i < ChildElements.Count; i++ )
+				Type[] array = new Type[ChildElements.Count];
+
+				for (int i = 0; i < ChildElements.Count; i++)
 				{
-					array[ i ] = Type.GetType( ChildElements[ i ].Text );
+					array[i] = Type.GetType(ChildElements[i].Text);
 				}
+
 				val = array;
 			}
-			catch ( Exception exc ) { HandleError( exc ); }
+			catch (Exception exc) { HandleError(exc); }
 
 			return true;
 		}
 
-		public bool GetArray( out string[] val )
+		public bool GetArray(out string[] val)
 		{
-			return GetArray( 0, out val );
+			return GetArray(0, out val);
 		}
 
-		public bool GetArray( int elementsExpected, out string[] val )
+		public bool GetArray(int elementsExpected, out string[] val)
 		{
-				val = null;
-			
-			if ( null == ChildElements )
+			val = null;
+
+			if (null == ChildElements)
 				return false;
 
 			try
 			{
-				if ( elementsExpected > 0 && elementsExpected != ChildElements.Count )
-					throw new System.IndexOutOfRangeException( elementsExpected + " elements were expected" );
+				if (elementsExpected > 0 && elementsExpected != ChildElements.Count)
+					throw new IndexOutOfRangeException(elementsExpected + " elements were expected");
 
-				string[] array = new string[ ChildElements.Count ];
-			
-				for ( int i = 0; i < ChildElements.Count; i++ )
+				string[] array = new string[ChildElements.Count];
+
+				for (int i = 0; i < ChildElements.Count; i++)
 				{
-					if ( null != ChildElements[ i ].Text )
-						array[ i ] = ChildElements[ i ].Text;
+					if (null != ChildElements[i].Text)
+						array[i] = ChildElements[i].Text;
 					else
-						throw new System.ArrayTypeMismatchException( "String expected" );
+						throw new ArrayTypeMismatchException("String expected");
 				}
+
 				val = array;
 			}
-			catch ( Exception exc ) { HandleError( exc ); }
+			catch (Exception exc) { HandleError(exc); }
 
 			return true;
 		}
 
 		#endregion
 
-		private void HandleError( Exception exc )
+		private void HandleError(Exception exc)
 		{
-			Console.WriteLine( "\nXanthos.Utilities.ConfigParser error:\n{0}\nElement: <{1}>{2}</{1}>\n", exc.Message, TagName, Text );
+			Console.WriteLine("\nXanthos.Utilities.ConfigParser error:\n{0}\nElement: <{1}>{2}</{1}>\n", exc.Message,
+				TagName, Text);
 #if HALT_ON_ERRORS
 			throw exc;
 #endif

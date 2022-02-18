@@ -1,82 +1,86 @@
+#region References
+
 using System;
-using System.Collections;
-using Server.Targeting;
-using Server.Network;
-using Server.Mobiles;
 using Server.Items;
 using Server.Spells;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ranger
 {
 	public class RangerNoxBowSpell : RangerSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
-		                                                "Wężowy Łuk", "Agnu Kshapsa Cu",
-		                                                //SpellCircle.Fifth,
-		                                                212,
-		                                                9041,
-		                                                CReagent.Kindling,
-		                                                Reagent.Nightshade
-		                                               );
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Wężowy Łuk", "Agnu Kshapsa Cu",
+			//SpellCircle.Fifth,
+			212,
+			9041,
+			CReagent.Kindling,
+			Reagent.Nightshade
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Fifth; }
-        }
-
-		public override double CastDelay{ get{ return 7.0; } }
-		public override double RequiredSkill{ get{ return 95.0; } }
-		public override int RequiredMana{ get{ return 30; } }
-
-		public RangerNoxBowSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
+		public override SpellCircle Circle
 		{
-			                    if (this.Scroll != null)
-                        Scroll.Consume();
+			get { return SpellCircle.Fifth; }
+		}
+
+		public override double CastDelay { get { return 7.0; } }
+		public override double RequiredSkill { get { return 95.0; } }
+		public override int RequiredMana { get { return 30; } }
+
+		public RangerNoxBowSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
+		{
+			if (this.Scroll != null)
+				Scroll.Consume();
 		}
 
 		public override void OnCast()
 		{
-			if ( CheckSequence() )
+			if (CheckSequence())
 			{
-				Item weap = new RangerNoxBow( Caster );
+				Item weap = new RangerNoxBow(Caster);
 
-				Caster.AddToBackpack( weap );
-				Caster.SendMessage( "Tworzysz magiczny łuk w plecaku." );
+				Caster.AddToBackpack(weap);
+				Caster.SendMessage("Tworzysz magiczny łuk w plecaku.");
 
-				Caster.PlaySound( 481 );
+				Caster.PlaySound(481);
 
-				Effects.SendLocationParticles( EffectItem.Create( Caster.Location, Caster.Map, EffectItem.DefaultDuration ), 0x376A, 1, 29, 1278, 2, 9962, 0 );
-				Effects.SendLocationParticles( EffectItem.Create( new Point3D( Caster.X, Caster.Y, Caster.Z - 7 ), Caster.Map, EffectItem.DefaultDuration ), 0x37C4, 1, 29, 1278, 2, 9502, 0 );
+				Effects.SendLocationParticles(
+					EffectItem.Create(Caster.Location, Caster.Map, EffectItem.DefaultDuration), 0x376A, 1, 29, 1278, 2,
+					9962, 0);
+				Effects.SendLocationParticles(
+					EffectItem.Create(new Point3D(Caster.X, Caster.Y, Caster.Z - 7), Caster.Map,
+						EffectItem.DefaultDuration), 0x37C4, 1, 29, 1278, 2, 9502, 0);
 			}
 		}
 
-		[FlipableAttribute( 0x13B2, 0x13B1 )]
+		[FlipableAttribute(0x13B2, 0x13B1)]
 		public class RangerNoxBow : BaseRanged
 		{
 			private Mobile m_Owner;
 			private DateTime m_Expire;
 			private Timer m_Timer;
 
-			public override int EffectID{ get{ return 0xF42; } }
-			public override Type AmmoType{ get{ return typeof( Arrow ); } }
-			public override Item Ammo{ get{ return new Arrow(); } }
+			public override int EffectID { get { return 0xF42; } }
+			public override Type AmmoType { get { return typeof(Arrow); } }
+			public override Item Ammo { get { return new Arrow(); } }
 
-			public override WeaponAbility PrimaryAbility{ get{ return WeaponAbility.InfectiousStrike; } }
-			public override WeaponAbility SecondaryAbility{ get{ return WeaponAbility.MortalStrike; } }
+			public override WeaponAbility PrimaryAbility { get { return WeaponAbility.InfectiousStrike; } }
+			public override WeaponAbility SecondaryAbility { get { return WeaponAbility.MortalStrike; } }
 
-			public override int StrengthReq{ get{ return 30; } }
-			public override int MinDamage{ get{ return 16; } }
-			public override int MaxDamage{ get{ return 18; } }
-			public override float Speed{ get{ return 4.25f; } }
-			public override int DefMaxRange{ get{ return 10; } }
+			public override int StrengthReq { get { return 30; } }
+			public override int MinDamage { get { return 16; } }
+			public override int MaxDamage { get { return 18; } }
+			public override float Speed { get { return 4.25f; } }
+			public override int DefMaxRange { get { return 10; } }
 
-			public override int InitMinHits{ get{ return 31; } }
-			public override int InitMaxHits{ get{ return 60; } }
+			public override int InitMinHits { get { return 31; } }
+			public override int InitMaxHits { get { return 60; } }
 
-			public override WeaponAnimation DefAnimation{ get{ return WeaponAnimation.ShootBow; } }
+			public override WeaponAnimation DefAnimation { get { return WeaponAnimation.ShootBow; } }
 
 			[Constructable]
-			public RangerNoxBow( Mobile owner ) : base( 0x13B2 )
+			public RangerNoxBow(Mobile owner) : base(0x13B2)
 
 			{
 				WeaponAttributes.HitPoisonArea = 50;
@@ -90,40 +94,44 @@ namespace Server.ACC.CSS.Systems.Ranger
 				BlessedFor = owner;
 				Name = "Łuk Wężowy";
 
-				double time = ( owner.Skills[SkillName.Archery].Value / 20.0 ) * RangerHuntersAimSpell.GetScalar( owner );
-				m_Expire = DateTime.Now + TimeSpan.FromMinutes( (int)time );
-				m_Timer = new InternalTimer( this, m_Expire );
+				double time = (owner.Skills[SkillName.Archery].Value / 20.0) * RangerHuntersAimSpell.GetScalar(owner);
+				m_Expire = DateTime.Now + TimeSpan.FromMinutes((int)time);
+				m_Timer = new InternalTimer(this, m_Expire);
 
 				m_Timer.Start();
 			}
 
-			public override void OnHit( Mobile attacker, IDamageable damageable, double damageBonus )
+			public override void OnHit(Mobile attacker, IDamageable damageable, double damageBonus)
 			{
-                Mobile defender = damageable as Mobile;
+				Mobile defender = damageable as Mobile;
 
-				if ( defender != null && 0.1 > Utility.RandomDouble() )
-					defender.ApplyPoison( defender, Poison.Lesser );
+				if (defender != null && 0.1 > Utility.RandomDouble())
+					defender.ApplyPoison(defender, Poison.Lesser);
 
-				base.OnHit( attacker, defender, damageBonus );
+				base.OnHit(attacker, defender, damageBonus);
 			}
 
-			public override void GetDamageTypes( Mobile wielder, out int phys, out int fire, out int cold, out int pois, out int nrgy, out int chaos, out int direct )
+			public override void GetDamageTypes(Mobile wielder, out int phys, out int fire, out int cold, out int pois,
+				out int nrgy, out int chaos, out int direct)
 			{
-				phys = 0; fire = 0; cold = 0; pois = chaos = direct = 100;
+				phys = 0;
+				fire = 0;
+				cold = 0;
+				pois = chaos = direct = 100;
 				nrgy = 0;
 			}
 
 			public override void OnDelete()
 			{
-				if ( m_Timer != null )
+				if (m_Timer != null)
 					m_Timer.Stop();
 
 				base.OnDelete();
 			}
 
-			public override bool CanEquip( Mobile m )
+			public override bool CanEquip(Mobile m)
 			{
-				if ( m != m_Owner )
+				if (m != m_Owner)
 					return false;
 
 				return true;
@@ -131,47 +139,48 @@ namespace Server.ACC.CSS.Systems.Ranger
 
 			public void Remove()
 			{
-				m_Owner.SendMessage( "Twój łuk rozpuszcza się." );
+				m_Owner.SendMessage("Twój łuk rozpuszcza się.");
 				Delete();
 			}
 
-			public RangerNoxBow( Serial serial ) : base( serial )
+			public RangerNoxBow(Serial serial) : base(serial)
 			{
 			}
-			public override void AddNameProperties( ObjectPropertyList list )
+
+			public override void AddNameProperties(ObjectPropertyList list)
 			{
-				base.AddNameProperties( list );
-				list.Add( 1049644, "Tymaczosowo wzmocniony czarami" );
+				base.AddNameProperties(list);
+				list.Add(1049644, "Tymaczosowo wzmocniony czarami");
 			}
 
-			public override void Serialize( GenericWriter writer )
+			public override void Serialize(GenericWriter writer)
 			{
-				base.Serialize( writer );
+				base.Serialize(writer);
 
-				writer.Write( (int) 0 ); // version
-				writer.Write( m_Owner );
-				writer.Write( m_Expire );
+				writer.Write(0); // version
+				writer.Write(m_Owner);
+				writer.Write(m_Expire);
 			}
 
-			public override void Deserialize( GenericReader reader )
+			public override void Deserialize(GenericReader reader)
 			{
-				base.Deserialize( reader );
+				base.Deserialize(reader);
 
 				int version = reader.ReadInt();
 				m_Owner = reader.ReadMobile();
 				m_Expire = reader.ReadDeltaTime();
 
-				m_Timer = new InternalTimer( this, m_Expire );
+				m_Timer = new InternalTimer(this, m_Expire);
 				m_Timer.Start();
 			}
 		}
 
 		private class InternalTimer : Timer
 		{
-			private RangerNoxBow m_Bow;
-			private DateTime m_Expire;
+			private readonly RangerNoxBow m_Bow;
+			private readonly DateTime m_Expire;
 
-			public InternalTimer( RangerNoxBow bow, DateTime expire ) : base( TimeSpan.Zero, TimeSpan.FromSeconds( 0.1 ) )
+			public InternalTimer(RangerNoxBow bow, DateTime expire) : base(TimeSpan.Zero, TimeSpan.FromSeconds(0.1))
 			{
 				m_Bow = bow;
 				m_Expire = expire;
@@ -179,7 +188,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 
 			protected override void OnTick()
 			{
-				if ( DateTime.Now >= m_Expire )
+				if (DateTime.Now >= m_Expire)
 				{
 					m_Bow.Remove();
 					Stop();

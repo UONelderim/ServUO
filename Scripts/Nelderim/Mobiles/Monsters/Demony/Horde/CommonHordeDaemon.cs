@@ -1,71 +1,72 @@
-using System;
-using System.Collections;
+#region References
+
 using Server.Items;
-using Server.Targeting;
+
+#endregion
 
 namespace Server.Mobiles
 {
-	[CorpseName( "zwloki demona hordy" )]
+	[CorpseName("zwloki demona hordy")]
 	public class CommonHordeDaemon : BaseCreature
 	{
 		[Constructable]
-		public CommonHordeDaemon () : base( AIType.AI_Melee, FightMode.Closest, 12, 1, 0.2, 0.4 )
+		public CommonHordeDaemon() : base(AIType.AI_Melee, FightMode.Closest, 12, 1, 0.2, 0.4)
 		{
 			Name = "demon hordy";
 			Body = 795;
 			BaseSoundID = 357;
 
-			SetStr( 316, 340 );
-			SetDex( 131, 160 );
-			SetInt( 111, 125 );
+			SetStr(316, 340);
+			SetDex(131, 160);
+			SetInt(111, 125);
 
-			SetHits( 510, 524 );
+			SetHits(510, 524);
 
-			SetDamage( 10, 20 );
+			SetDamage(10, 20);
 
-			SetDamageType( ResistanceType.Physical, 100 );
+			SetDamageType(ResistanceType.Physical, 100);
 
-			SetResistance( ResistanceType.Physical, 35, 45 );
-			SetResistance( ResistanceType.Fire, 35, 45 );
-			SetResistance( ResistanceType.Cold, 35, 45 );
-			SetResistance( ResistanceType.Poison, 35, 45 );
-			SetResistance( ResistanceType.Energy, 35, 45 );
+			SetResistance(ResistanceType.Physical, 35, 45);
+			SetResistance(ResistanceType.Fire, 35, 45);
+			SetResistance(ResistanceType.Cold, 35, 45);
+			SetResistance(ResistanceType.Poison, 35, 45);
+			SetResistance(ResistanceType.Energy, 35, 45);
 
-			SetSkill( SkillName.MagicResist, 40.0 );
-			SetSkill( SkillName.Tactics, 60.1, 75.0 );
-			SetSkill( SkillName.Wrestling, 65.1, 70.0 );
+			SetSkill(SkillName.MagicResist, 40.0);
+			SetSkill(SkillName.Tactics, 60.1, 75.0);
+			SetSkill(SkillName.Wrestling, 65.1, 70.0);
 
 			Fame = 3500;
 			Karma = -3500;
 
 			VirtualArmor = 38;
 
-			AddItem( new LightSource() );
-
+			AddItem(new LightSource());
 		}
 
-        public override void OnCarve(Mobile from, Corpse corpse, Item with)
-        {
-            if (!IsBonded && !corpse.Carved && !IsChampionSpawn)
-            {
-                if (Utility.RandomDouble() < 0.05)
-                    corpse.DropItem(new Bloodspawn());
-                if (Utility.RandomDouble() < 0.15)
-                    corpse.DropItem(new DaemonBone());
-            }
-            base.OnCarve(from, corpse, with);
-        }
+		public override void OnCarve(Mobile from, Corpse corpse, Item with)
+		{
+			if (!IsBonded && !corpse.Carved && !IsChampionSpawn)
+			{
+				if (Utility.RandomDouble() < 0.05)
+					corpse.DropItem(new Bloodspawn());
+				if (Utility.RandomDouble() < 0.15)
+					corpse.DropItem(new DaemonBone());
+			}
+
+			base.OnCarve(from, corpse, with);
+		}
 
 		public override void GenerateLoot()
 		{
-			AddLoot( LootPack.FilthyRich );
+			AddLoot(LootPack.FilthyRich);
 		}
 
-        public override double AttackMasterChance { get { return 0.15; } }
+		public override double AttackMasterChance { get { return 0.15; } }
 		public override double SwitchTargetChance { get { return 0.15; } }
-		public override bool CanRummageCorpses{ get{ return true; } }
-		public override Poison PoisonImmune{ get{ return Poison.Regular; } }
-        public override bool BardImmune { get { return false; } }
+		public override bool CanRummageCorpses { get { return true; } }
+		public override Poison PoisonImmune { get { return Poison.Regular; } }
+		public override bool BardImmune { get { return false; } }
 
 		public override int GetIdleSound()
 		{
@@ -92,19 +93,19 @@ namespace Server.Mobiles
 			return 194;
 		}
 
-		public CommonHordeDaemon( Serial serial ) : base( serial )
+		public CommonHordeDaemon(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( (int) 0 );
+			base.Serialize(writer);
+			writer.Write(0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

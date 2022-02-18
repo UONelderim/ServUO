@@ -1,223 +1,231 @@
+#region References
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using Nelderim;
-using Server;
 using Server.Items;
-using Server.Gumps;
 using Server.Spells;
+using Server.Spells.Fifth;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ancient
 {
-    public class AncientSeanceSpell : AncientSpell
-    {
-        public override double CastDelay { get { return 4.5; } }
-        public override double RequiredSkill { get { return 89.0; } }
-        public override int RequiredMana { get { return 50; } }
-        private static SpellInfo m_Info = new SpellInfo(
-                                                        "Seans", "Kal Wis Corp",
-                                                        221,
-                                                        9002,
-                                                        Reagent.Bloodmoss,
-                                                        Reagent.SpidersSilk,
-                                                        Reagent.MandrakeRoot,
-                                                        Reagent.Nightshade,
-                                                        Reagent.SulfurousAsh
-                                                       );
+	public class AncientSeanceSpell : AncientSpell
+	{
+		public override double CastDelay { get { return 4.5; } }
+		public override double RequiredSkill { get { return 89.0; } }
+		public override int RequiredMana { get { return 50; } }
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Fourth; }
-        }
-        
-        public AncientSeanceSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-        }
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Seans", "Kal Wis Corp",
+			221,
+			9002,
+			Reagent.Bloodmoss,
+			Reagent.SpidersSilk,
+			Reagent.MandrakeRoot,
+			Reagent.Nightshade,
+			Reagent.SulfurousAsh
+		);
 
-        public override bool CheckCast()
-        {
-            if (Caster.Mounted)
-            {
-                Caster.SendLocalizedMessage(1042561); //Please dismount first.
-                return false;
-            }
-            else if (TransformationSpellHelper.UnderTransformation(Caster))
-            {
-                Caster.SendMessage("Nie możesz wejść do królestwa zmarłych w tej formie.");
-                return false;
-            }
-            else if (DisguiseTimers.IsDisguised(Caster))
-            {
-                Caster.SendMessage("Nie możesz wejść do krainy zmarłych będąc ukrytym.");
-                return false;
-            }
-            else if (Caster.BodyMod == 183 || Caster.BodyMod == 184)
-            {
-                Caster.SendMessage("Nie możesz wejść do krainy umarłych bez usunięcia farby.");
-                return false;
-            }
-            else if (!Caster.CanBeginAction(typeof(AncientSeanceSpell)))
-            {
-                Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
-                return false;
-            }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Fourth; }
+		}
 
-            return true;
-        }
+		public AncientSeanceSpell(Mobile caster, Item scroll)
+			: base(caster, scroll, m_Info)
+		{
+		}
 
-        public override void OnCast()
-        {
-            if (!CheckSequence())
-            {
-                return;
-            }
-            else if (!Caster.CanBeginAction(typeof(AncientSeanceSpell)))
-            {
-                Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
-            }
-            else if (TransformationSpellHelper.UnderTransformation(Caster))
-            {
-                Caster.SendMessage("Nie możesz wejść do królestwa zmarłych w tej formie.");
-            }
-            else if (DisguiseTimers.IsDisguised(Caster))
-            {
-                Caster.SendMessage("Nie możesz wejść do krainy zmarłych będąc ukrytym.");
-            }
-            else if (Caster.BodyMod == 183 || Caster.BodyMod == 184)
-            {
-                Caster.SendMessage("Nie możesz wejść do krainy umarłych bez usunięcia farby.");
-            }
-            else if (!Caster.CanBeginAction(typeof(Server.Spells.Fifth.IncognitoSpell)) || Caster.IsBodyMod)
-            {
-                DoFizzle();
-            }
-            else if (CheckSequence())
-            {
+		public override bool CheckCast()
+		{
+			if (Caster.Mounted)
+			{
+				Caster.SendLocalizedMessage(1042561); //Please dismount first.
+				return false;
+			}
 
-                if (Caster.BeginAction(typeof(AncientSeanceSpell)))
-                {
-                    if (this.Scroll != null)
-                        Scroll.Consume();
-                    Caster.PlaySound(0x379);
+			if (TransformationSpellHelper.UnderTransformation(Caster))
+			{
+				Caster.SendMessage("Nie możesz wejść do królestwa zmarłych w tej formie.");
+				return false;
+			}
 
-                    SeanceSpellExt.Get(Caster).OldBody = Caster.BodyValue;
-                    Caster.BodyValue = Caster.Female ? 403 : 402;
+			if (DisguiseTimers.IsDisguised(Caster))
+			{
+				Caster.SendMessage("Nie możesz wejść do krainy zmarłych będąc ukrytym.");
+				return false;
+			}
 
-                    Caster.SendMessage("Wkraczasz do królestwa zmarłych.");
-                    BaseArmor.ValidateMobile(Caster);
+			if (Caster.BodyMod == 183 || Caster.BodyMod == 184)
+			{
+				Caster.SendMessage("Nie możesz wejść do krainy umarłych bez usunięcia farby.");
+				return false;
+			}
 
-                    StopTimer(Caster);
+			if (!Caster.CanBeginAction(typeof(AncientSeanceSpell)))
+			{
+				Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
+				return false;
+			}
 
-                    Timer t = new InternalTimer(Caster);
+			return true;
+		}
 
-                    m_Timers[Caster] = t;
+		public override void OnCast()
+		{
+			if (!CheckSequence())
+			{
+				return;
+			}
 
-                    t.Start();
-                }
-                else
-                {
-                    Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
-                }
-            }
+			if (!Caster.CanBeginAction(typeof(AncientSeanceSpell)))
+			{
+				Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
+			}
+			else if (TransformationSpellHelper.UnderTransformation(Caster))
+			{
+				Caster.SendMessage("Nie możesz wejść do królestwa zmarłych w tej formie.");
+			}
+			else if (DisguiseTimers.IsDisguised(Caster))
+			{
+				Caster.SendMessage("Nie możesz wejść do krainy zmarłych będąc ukrytym.");
+			}
+			else if (Caster.BodyMod == 183 || Caster.BodyMod == 184)
+			{
+				Caster.SendMessage("Nie możesz wejść do krainy umarłych bez usunięcia farby.");
+			}
+			else if (!Caster.CanBeginAction(typeof(IncognitoSpell)) || Caster.IsBodyMod)
+			{
+				DoFizzle();
+			}
+			else if (CheckSequence())
+			{
+				if (Caster.BeginAction(typeof(AncientSeanceSpell)))
+				{
+					if (this.Scroll != null)
+						Scroll.Consume();
+					Caster.PlaySound(0x379);
 
-            FinishSequence();
-        }
+					SeanceSpellExt.Get(Caster).OldBody = Caster.BodyValue;
+					Caster.BodyValue = Caster.Female ? 403 : 402;
 
-        private static Hashtable m_Timers = new Hashtable();
+					Caster.SendMessage("Wkraczasz do królestwa zmarłych.");
+					BaseArmor.ValidateMobile(Caster);
 
-        public static bool StopTimer(Mobile m)
-        {
-            Timer t = (Timer)m_Timers[m];
+					StopTimer(Caster);
 
-            if (t != null)
-            {
-                t.Stop();
-                m_Timers.Remove(m);
-            }
+					Timer t = new InternalTimer(Caster);
 
-            return (t != null);
-        }
+					m_Timers[Caster] = t;
 
-        private class InternalTimer : Timer
-        {
-            private Mobile m_Owner;
+					t.Start();
+				}
+				else
+				{
+					Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
+				}
+			}
 
-            public InternalTimer(Mobile owner)
-                : base(TimeSpan.FromSeconds(0))
-            {
-                m_Owner = owner;
+			FinishSequence();
+		}
 
-                int val = (int)owner.Skills[SkillName.Magery].Value;
+		private static readonly Hashtable m_Timers = new Hashtable();
 
-                if (val > 50)
-                    val = 50;
+		public static bool StopTimer(Mobile m)
+		{
+			Timer t = (Timer)m_Timers[m];
 
-                Delay = TimeSpan.FromSeconds(val);
-                Priority = TimerPriority.TwoFiftyMS;
-            }
+			if (t != null)
+			{
+				t.Stop();
+				m_Timers.Remove(m);
+			}
 
-            protected override void OnTick()
-            {
-                if (!m_Owner.CanBeginAction(typeof(AncientSeanceSpell)))
-                {
-                    m_Owner.BodyValue = SeanceSpellExt.Get(m_Owner).OldBody;
-                    SeanceSpellExt.Delete(m_Owner);
-                    m_Owner.EndAction(typeof(AncientSeanceSpell));
+			return (t != null);
+		}
 
-                    BaseArmor.ValidateMobile(m_Owner);
-                }
-            }
-        }
-        
-        public class SeanceSpellExt : NExtension<SeanceSpellExtInfo>
-        {
-            public static string ModuleName = "SeanceSpell";
+		private class InternalTimer : Timer
+		{
+			private readonly Mobile m_Owner;
 
-            public static void Initialize()
-            {
-                EventSink.WorldSave += new WorldSaveEventHandler( Save );
-                Load( ModuleName );
-                m_ExtensionInfo.Clear(); 
-            }
+			public InternalTimer(Mobile owner)
+				: base(TimeSpan.FromSeconds(0))
+			{
+				m_Owner = owner;
 
-            public static void Save( WorldSaveEventArgs args )
-            {
-                Cleanup();
-                Save( args, ModuleName );
-            }
+				int val = (int)owner.Skills[SkillName.Magery].Value;
 
-            private static void Cleanup()
-            {
-                List<Serial> toRemove = new List<Serial>();
-                foreach ( KeyValuePair<Serial, SeanceSpellExtInfo> kvp in m_ExtensionInfo )
-                {
-                    if ( World.FindEntity( kvp.Key ) == null )
-                        toRemove.Add( kvp.Key );
-                }
-                foreach ( Serial serial in toRemove )
-                {
-                    SeanceSpellExtInfo removed;
-                    m_ExtensionInfo.TryRemove( serial, out removed );
-                }
-            }
-        }
+				if (val > 50)
+					val = 50;
 
-        public class SeanceSpellExtInfo : NExtensionInfo
-        {
-            private int m_OldBody;
-            public int OldBody { get { return m_OldBody; } set { m_OldBody = value; } }
-            
-            public override void Deserialize( GenericReader reader )
-            {
-                m_OldBody = reader.ReadInt();
-                World.FindMobile(Serial).BodyValue = m_OldBody;
-            }
+				Delay = TimeSpan.FromSeconds(val);
+				Priority = TimerPriority.TwoFiftyMS;
+			}
 
-            public override void Serialize( GenericWriter writer )
-            {
-                writer.Write( m_OldBody );
-            }
-        }
-    }
+			protected override void OnTick()
+			{
+				if (!m_Owner.CanBeginAction(typeof(AncientSeanceSpell)))
+				{
+					m_Owner.BodyValue = SeanceSpellExt.Get(m_Owner).OldBody;
+					SeanceSpellExt.Delete(m_Owner);
+					m_Owner.EndAction(typeof(AncientSeanceSpell));
+
+					BaseArmor.ValidateMobile(m_Owner);
+				}
+			}
+		}
+
+		public class SeanceSpellExt : NExtension<SeanceSpellExtInfo>
+		{
+			public static string ModuleName = "SeanceSpell";
+
+			public static void Initialize()
+			{
+				EventSink.WorldSave += Save;
+				Load(ModuleName);
+				m_ExtensionInfo.Clear();
+			}
+
+			public static void Save(WorldSaveEventArgs args)
+			{
+				Cleanup();
+				Save(args, ModuleName);
+			}
+
+			private static void Cleanup()
+			{
+				List<Serial> toRemove = new List<Serial>();
+				foreach (KeyValuePair<Serial, SeanceSpellExtInfo> kvp in m_ExtensionInfo)
+				{
+					if (World.FindEntity(kvp.Key) == null)
+						toRemove.Add(kvp.Key);
+				}
+
+				foreach (Serial serial in toRemove)
+				{
+					SeanceSpellExtInfo removed;
+					m_ExtensionInfo.TryRemove(serial, out removed);
+				}
+			}
+		}
+
+		public class SeanceSpellExtInfo : NExtensionInfo
+		{
+			public int OldBody { get; set; }
+
+			public override void Deserialize(GenericReader reader)
+			{
+				OldBody = reader.ReadInt();
+				World.FindMobile(Serial).BodyValue = OldBody;
+			}
+
+			public override void Serialize(GenericWriter writer)
+			{
+				writer.Write(OldBody);
+			}
+		}
+	}
 }

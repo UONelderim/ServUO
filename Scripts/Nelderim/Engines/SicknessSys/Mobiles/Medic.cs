@@ -1,158 +1,162 @@
+#region References
+
 using Server.Items;
 using Server.Mobiles;
 
+#endregion
+
 namespace Server.SicknessSys.Mobiles
-{ 
-    public class Medic : BaseCreature 
-    { 
-        [Constructable] 
-        public Medic() : base(AIType.AI_Healer, FightMode.None, 10, 1, 0.2, 0.4)
-        {
-            Title = "the medic";
+{
+	public class Medic : BaseCreature
+	{
+		[Constructable]
+		public Medic() : base(AIType.AI_Healer, FightMode.None, 10, 1, 0.2, 0.4)
+		{
+			Title = "the medic";
 
-            InitStats(31, 41, 51); 
+			InitStats(31, 41, 51);
 
-            SpeechHue = 53;
+			SpeechHue = 53;
 
-            Hue = Race.RandomSkinHue();
+			Hue = Race.RandomSkinHue();
 
-            if (Female = Utility.RandomBool()) 
-            { 
-                Body = 0x191; 
-                Name = NameList.RandomName("female");
-            }
-            else 
-            { 
-                Body = 0x190; 
-                Name = NameList.RandomName("male");
-            }
+			if (Female = Utility.RandomBool())
+			{
+				Body = 0x191;
+				Name = NameList.RandomName("female");
+			}
+			else
+			{
+				Body = 0x190;
+				Name = NameList.RandomName("male");
+			}
 
-            AddItem(new LongPants(Utility.RandomNeutralHue()));
-            AddItem(new Robe(Utility.RandomDyedHue()));
-            AddItem(new Cap(Utility.RandomDyedHue()));
+			AddItem(new LongPants(Utility.RandomNeutralHue()));
+			AddItem(new Robe(Utility.RandomDyedHue()));
+			AddItem(new Cap(Utility.RandomDyedHue()));
 
-            AddItem(new ThighBoots(Utility.RandomNeutralHue()));
+			AddItem(new ThighBoots(Utility.RandomNeutralHue()));
 
-            Utility.AssignRandomHair(this);
+			Utility.AssignRandomHair(this);
 
-            Container pack = new Backpack(); 
+			Container pack = new Backpack();
 
-            pack.DropItem(new Gold(10, 50)); 
+			pack.DropItem(new Gold(10, 50));
 
-            pack.Movable = false; 
+			pack.Movable = false;
 
-            AddItem(pack);
+			AddItem(pack);
 
-            ThinkDelay = 0;
-        }
+			ThinkDelay = 0;
+		}
 
-        public Medic(Serial serial) : base(serial)
-        { 
-        }
+		public Medic(Serial serial) : base(serial)
+		{
+		}
 
-        public override void OnDoubleClick(Mobile from)
-        {
-            if (from is PlayerMobile)
-            {
-                PlayerMobile pm = from as PlayerMobile;
+		public override void OnDoubleClick(Mobile from)
+		{
+			if (from is PlayerMobile)
+			{
+				PlayerMobile pm = from as PlayerMobile;
 
-                Item cell = pm.Backpack.FindItemByType(typeof(VirusCell));
-                Item illcure = pm.Backpack.FindItemByType(typeof(IllnessCure));
+				Item cell = pm.Backpack.FindItemByType(typeof(VirusCell));
+				Item illcure = pm.Backpack.FindItemByType(typeof(IllnessCure));
 
-                if (cell != null && illcure == null)
-                {
-                    VirusCell Cell = cell as VirusCell;
+				if (cell != null && illcure == null)
+				{
+					VirusCell Cell = cell as VirusCell;
 
-                    //if (SicknessHelper.IsSpecialVirus(Cell)) //Uncomment to stop Vampire/Werewolf auto cure!
-                    //{
-                    //    SpeechHue = 53;
+					//if (SicknessHelper.IsSpecialVirus(Cell)) //Uncomment to stop Vampire/Werewolf auto cure!
+					//{
+					//    SpeechHue = 53;
 
-                    //    SayTo(pm, "That virus is beyond my skills to cure, " + pm.Name);
-                    //}
-                    //else
-                    //{
-                        IllnessCure cure = new IllnessCure(Cell);
+					//    SayTo(pm, "That virus is beyond my skills to cure, " + pm.Name);
+					//}
+					//else
+					//{
+					IllnessCure cure = new IllnessCure(Cell);
 
-                        pm.AddToBackpack(cure);
+					pm.AddToBackpack(cure);
 
-                        SpeechHue = 53;
+					SpeechHue = 53;
 
-                        SayTo(pm, "Get well soon, " + pm.Name);
+					SayTo(pm, "Get well soon, " + pm.Name);
 
-                        SicknessAnimate.RunMedicGiveCureAnimation(pm, this);
-                    //}
-                }
-                else
-                {
-                    SpeechHue = 38;
+					SicknessAnimate.RunMedicGiveCureAnimation(pm, this);
+					//}
+				}
+				else
+				{
+					SpeechHue = 38;
 
-                    if (illcure == null)
-                        SayTo(pm, pm.Name + ", You do not look sick to me!");
-                    else
-                        SayTo(pm, pm.Name + ", I gave you a potion, check your backpack!");
+					if (illcure == null)
+						SayTo(pm, pm.Name + ", You do not look sick to me!");
+					else
+						SayTo(pm, pm.Name + ", I gave you a potion, check your backpack!");
 
-                    base.OnDoubleClick(from);
-                }
-            }  
-        }
+					base.OnDoubleClick(from);
+				}
+			}
+		}
 
-        private int ThinkDelay { get; set; }
+		private int ThinkDelay { get; set; }
 
-        public override void OnThink()
-        {
-            if (ThinkDelay < 1)
-            {
-                ThinkDelay = 25;
+		public override void OnThink()
+		{
+			if (ThinkDelay < 1)
+			{
+				ThinkDelay = 25;
 
-                foreach (Mobile mobile in GetMobilesInRange(3))
-                {
-                    if (mobile is PlayerMobile)
-                    {
-                        PlayerMobile pm = mobile as PlayerMobile;
+				foreach (Mobile mobile in GetMobilesInRange(3))
+				{
+					if (mobile is PlayerMobile)
+					{
+						PlayerMobile pm = mobile as PlayerMobile;
 
-                        Item cell = pm.Backpack.FindItemByType(typeof(VirusCell));
+						Item cell = pm.Backpack.FindItemByType(typeof(VirusCell));
 
-                        if (cell != null)
-                        {
-                            SpeechHue = 53;
+						if (cell != null)
+						{
+							SpeechHue = 53;
 
-                            SayTo(pm, pm.Name + ", are you sick? Double click me for a cure!");
+							SayTo(pm, pm.Name + ", are you sick? Double click me for a cure!");
 
-                            SicknessAnimate.RunMedicAnimation(pm, this);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                ThinkDelay--;
+							SicknessAnimate.RunMedicAnimation(pm, this);
+						}
+					}
+				}
+			}
+			else
+			{
+				ThinkDelay--;
 
-                base.OnThink();
-            }
-        }
+				base.OnThink();
+			}
+		}
 
-        public override bool ClickTitle
-        {
-            get
-            {
-                return false;
-            }
-        }
+		public override bool ClickTitle
+		{
+			get
+			{
+				return false;
+			}
+		}
 
-        public override void Serialize(GenericWriter writer) 
-        { 
-            base.Serialize(writer); 
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            writer.Write((int)0); // version 
-        }
+			writer.Write(0); // version 
+		}
 
-        public override void Deserialize(GenericReader reader) 
-        { 
-            base.Deserialize(reader); 
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+			int version = reader.ReadInt();
 
-            ThinkDelay = 0;
-        }
-    }
+			ThinkDelay = 0;
+		}
+	}
 }

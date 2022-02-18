@@ -1,66 +1,73 @@
 #region AuthorHeader
+
 //
 //	Auction version 2.1, by Xanthos and Arya
 //
 //  Based on original ideas and code by Arya
 //
+
 #endregion AuthorHeader
+
+#region References
+
 using System;
 using System.Collections;
-using System.Reflection;
 using Server;
+using Xanthos.Utilities;
+
+#endregion
 
 namespace Arya.Auction
 {
 	/// <summary>
-	/// Provides search methods for the auction system
+	///     Provides search methods for the auction system
 	/// </summary>
 	public class AuctionSearch
 	{
 		/// <summary>
-		/// Merges search results
+		///     Merges search results
 		/// </summary>
-		public static ArrayList Merge( ArrayList first, ArrayList second )
+		public static ArrayList Merge(ArrayList first, ArrayList second)
 		{
-			ArrayList	result = new ArrayList( first );
+			ArrayList result = new ArrayList(first);
 
-			foreach( AuctionItem item in second )
+			foreach (AuctionItem item in second)
 			{
-				if ( ! result.Contains( item ) )
-					result.Add( item );
+				if (!result.Contains(item))
+					result.Add(item);
 			}
 
 			return result;
 		}
 
 		/// <summary>
-		/// Performs a text search
+		///     Performs a text search
 		/// </summary>
 		/// <param name="items">The items to search</param>
 		/// <param name="text">The text search, names should be whitespace separated</param>
-		public static ArrayList	SearchForText( ArrayList items, string text )
+		public static ArrayList SearchForText(ArrayList items, string text)
 		{
-			string[] split = text.Split( ' ' );
+			string[] split = text.Split(' ');
 			ArrayList result = new ArrayList();
 
-			foreach( string s in split )
+			foreach (string s in split)
 			{
-				result = Merge( result, TextSearch( items, s ) );
+				result = Merge(result, TextSearch(items, s));
 			}
 
 			return result;
 		}
 
 		/// <summary>
-		/// Performs a text search
+		///     Performs a text search
 		/// </summary>
 		/// <param name="list">The AuctionItem objects to search</param>
 		/// <param name="name">The text to search for</param>
-		private static ArrayList TextSearch( ArrayList list, string name )
+		private static ArrayList TextSearch(ArrayList list, string name)
 		{
 			ArrayList results = new ArrayList();
 
-			if ( list == null || name == null )
+			if (list == null || name == null)
 			{
 				return results;
 			}
@@ -73,33 +80,34 @@ namespace Arya.Auction
 
 				ie = list.GetEnumerator();
 
-				while ( ie.MoveNext() )
+				while (ie.MoveNext())
 				{
 					AuctionItem item = ie.Current as AuctionItem;
 
-					if ( item != null )
+					if (item != null)
 					{
-						if ( item.ItemName.ToLower().IndexOf( name ) > -1 )
+						if (item.ItemName.ToLower().IndexOf(name) > -1)
 						{
-							results.Add( item );
+							results.Add(item);
 						}
-						else if ( item.Description.ToLower().IndexOf( name ) > -1 )
+						else if (item.Description.ToLower().IndexOf(name) > -1)
 						{
-							results.Add( item );
+							results.Add(item);
 						}
 						else
 						{
 							// Search individual items
-							foreach( AuctionItem.ItemInfo info in item.Items )
+							foreach (AuctionItem.ItemInfo info in item.Items)
 							{
-								if ( info.Name.ToLower().IndexOf( name ) > -1 )
+								if (info.Name.ToLower().IndexOf(name) > -1)
 								{
-									results.Add( item );
+									results.Add(item);
 									break;
 								}
-								else if ( info.Properties.ToLower().IndexOf( name ) > .1 )
+
+								if (info.Properties.ToLower().IndexOf(name) > .1)
 								{
-									results.Add( item );
+									results.Add(item);
 									break;
 								}
 							}
@@ -107,12 +115,12 @@ namespace Arya.Auction
 					}
 				}
 			}
-			catch {}
+			catch { }
 			finally
 			{
 				IDisposable d = ie as IDisposable;
 
-				if ( d != null )
+				if (d != null)
 					d.Dispose();
 			}
 
@@ -120,15 +128,15 @@ namespace Arya.Auction
 		}
 
 		/// <summary>
-		/// Performs a search for types being auctioned
+		///     Performs a search for types being auctioned
 		/// </summary>
 		/// <param name="list">The items to search</param>
 		/// <param name="types">The list of types to find matches for</param>
-		public static ArrayList ForTypes ( ArrayList list, ArrayList types )
+		public static ArrayList ForTypes(ArrayList list, ArrayList types)
 		{
 			ArrayList results = new ArrayList();
 
-			if ( list == null || types == null )
+			if (list == null || types == null)
 				return results;
 
 			IEnumerator ie = null;
@@ -137,29 +145,29 @@ namespace Arya.Auction
 			{
 				ie = list.GetEnumerator();
 
-				while ( ie.MoveNext() )
+				while (ie.MoveNext())
 				{
 					AuctionItem item = ie.Current as AuctionItem;
 
-					if ( item == null )
+					if (item == null)
 						continue;
 
-					foreach( Type t in types )
+					foreach (Type t in types)
 					{
-						if ( MatchesType( item, t ) )
+						if (MatchesType(item, t))
 						{
-							results.Add( item );
+							results.Add(item);
 							break;
 						}
 					}
 				}
 			}
-			catch {}
+			catch { }
 			finally
 			{
 				IDisposable d = ie as IDisposable;
 
-				if ( d != null )
+				if (d != null)
 					d.Dispose();
 			}
 
@@ -167,18 +175,18 @@ namespace Arya.Auction
 		}
 
 		/// <summary>
-		/// Verifies if a specified type is a match to the items sold through an auction
+		///     Verifies if a specified type is a match to the items sold through an auction
 		/// </summary>
 		/// <param name="item">The AuctionItem being evaluated</param>
 		/// <param name="type">The type looking to match</param>
 		/// <returns>True if there's a match</returns>
-		private static bool MatchesType( AuctionItem item, Type type )
+		private static bool MatchesType(AuctionItem item, Type type)
 		{
-			foreach( AuctionItem.ItemInfo info in item.Items )
+			foreach (AuctionItem.ItemInfo info in item.Items)
 			{
-				if ( info.Item != null )
+				if (info.Item != null)
 				{
-					if ( type.IsAssignableFrom( info.Item.GetType() ) )
+					if (type.IsAssignableFrom(info.Item.GetType()))
 					{
 						return true;
 					}
@@ -189,23 +197,23 @@ namespace Arya.Auction
 		}
 
 		/// <summary>
-		/// Performs a search for Artifacts by evaluating the ArtifactRarity property
+		///     Performs a search for Artifacts by evaluating the ArtifactRarity property
 		/// </summary>
 		/// <param name="items">The list of items to search</param>
 		/// <returns>An ArrayList of results</returns>
-		public static ArrayList ForArtifacts( ArrayList items )
+		public static ArrayList ForArtifacts(ArrayList items)
 		{
 			ArrayList results = new ArrayList();
 
-			foreach( AuctionItem auction in items )
+			foreach (AuctionItem auction in items)
 			{
-				foreach( AuctionItem.ItemInfo info in auction.Items )
+				foreach (AuctionItem.ItemInfo info in auction.Items)
 				{
 					Item item = info.Item;
 
-					if ( Xanthos.Utilities.Misc.IsArtifact( item ))
+					if (Misc.IsArtifact(item))
 					{
-						results.Add( auction );
+						results.Add(auction);
 						break;
 					}
 				}
@@ -216,26 +224,26 @@ namespace Arya.Auction
 
 
 		/// <summary>
-		/// Searches a list of auctions for ICommodities
+		///     Searches a list of auctions for ICommodities
 		/// </summary>
 		/// <param name="items">The list to search</param>
 		/// <returns>An ArrayList of results</returns>
-		public static ArrayList ForCommodities( ArrayList items )
+		public static ArrayList ForCommodities(ArrayList items)
 		{
 			ArrayList results = new ArrayList();
 
-			foreach( AuctionItem auction in items )
+			foreach (AuctionItem auction in items)
 			{
-				foreach( AuctionItem.ItemInfo info in auction.Items )
+				foreach (AuctionItem.ItemInfo info in auction.Items)
 				{
-					if ( info.Item == null )
+					if (info.Item == null)
 						continue;
 
 					Type t = info.Item.GetType();
 
-					if ( t.GetInterface( "ICommodity" ) != null )
+					if (t.GetInterface("ICommodity") != null)
 					{
-						results.Add( auction );
+						results.Add(auction);
 						break;
 					}
 				}

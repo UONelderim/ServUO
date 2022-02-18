@@ -1,7 +1,4 @@
-﻿using System;
-using Server;
-
-namespace Server.Items
+﻿namespace Server.Items
 {
 	public class GuantletsOfAnger : PlateGloves //TODO Do wyjebania
 	{
@@ -34,7 +31,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)

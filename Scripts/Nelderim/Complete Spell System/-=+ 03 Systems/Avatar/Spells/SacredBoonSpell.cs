@@ -1,15 +1,20 @@
+#region References
+
 using System;
 using System.Collections;
+using Server.Items;
 using Server.Mobiles;
 using Server.Network;
 using Server.Spells;
 using Server.Targeting;
 
+#endregion
+
 namespace Server.ACC.CSS.Systems.Avatar
 {
 	public class AvatarSacredBoonSpell : AvatarSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Święty znak", "Vir Consolatio",
 			//SpellCircle.Fourth,
 			212,
@@ -21,7 +26,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 			get { return SpellCircle.Fourth; }
 		}
 
-		private static Hashtable m_Table = new Hashtable();
+		private static readonly Hashtable m_Table = new Hashtable();
 
 		public override int RequiredTithing { get { return 15; } }
 		public override double RequiredSkill { get { return 25.0; } }
@@ -66,7 +71,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 			{
 				Caster.LocalOverheadMessage(MessageType.Regular, 0x481, false, "Ten cel już korzysta z tego efektu.");
 			}
-			else if (m.Poisoned || Server.Items.MortalStrike.IsWounded(m))
+			else if (m.Poisoned || MortalStrike.IsWounded(m))
 			{
 				Caster.LocalOverheadMessage(MessageType.Regular, 0x3B2, (Caster == m) ? 1005000 : 1010398);
 			}
@@ -82,7 +87,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 			{
 				Caster.SendLocalizedMessage(1060177); // "Nie mozesz wyleczyc martwego stworzenia."
 			}
-			else if (m.Poisoned || Server.Items.MortalStrike.IsWounded(m))
+			else if (m.Poisoned || MortalStrike.IsWounded(m))
 			{
 				Caster.LocalOverheadMessage(MessageType.Regular, 0x3B2, (Caster == m) ? 1005000 : 1010398);
 			}
@@ -105,7 +110,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 
 		private class InternalTarget : Target
 		{
-			private AvatarSacredBoonSpell m_Owner;
+			private readonly AvatarSacredBoonSpell m_Owner;
 
 			public InternalTarget(AvatarSacredBoonSpell owner) : base(12, false, TargetFlags.Beneficial)
 			{
@@ -128,9 +133,10 @@ namespace Server.ACC.CSS.Systems.Avatar
 
 		private class InternalTimer : Timer
 		{
-			private Mobile dest, source;
+			private readonly Mobile dest;
+			private readonly Mobile source;
 			private DateTime NextTick;
-			private DateTime Expire;
+			private readonly DateTime Expire;
 
 			public InternalTimer(Mobile m, Mobile from) : base(TimeSpan.FromSeconds(0.1), TimeSpan.FromSeconds(0.1))
 			{

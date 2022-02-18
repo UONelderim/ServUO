@@ -1,13 +1,17 @@
+#region References
+
 using System;
 using System.Collections.Generic;
 using Server.Mobiles;
 using Server.Spells;
 
+#endregion
+
 namespace Server.ACC.CSS.Systems.Bard
 {
 	public class BardMagesBalladSpell : BardSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Pieśń Do Magów", "Mentus",
 			//SpellCircle.First,
 			212, 9041
@@ -61,10 +65,10 @@ namespace Server.ACC.CSS.Systems.Bard
 
 		private class ExpireTimer : Timer
 		{
-			private Mobile m_Mobile;
-			private int m_MaxTicks;
+			private readonly Mobile m_Mobile;
+			private readonly int m_MaxTicks;
 			private int m_Ticks;
-			private int m_ManaRegen;
+			private readonly int m_ManaRegen;
 
 
 			public ExpireTimer(Mobile m, int ticks, int manaRegen, TimeSpan delay, TimeSpan interval) : base(delay,

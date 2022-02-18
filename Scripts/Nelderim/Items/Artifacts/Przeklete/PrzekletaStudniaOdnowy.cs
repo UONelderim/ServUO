@@ -1,13 +1,9 @@
-using System;
-using Server;
-
 namespace Server.Items
 {
 	public class PrzekletaStudniaOdnowy : GoldRing
 	{
-        
-        public override int InitMinHits { get { return 45; } }
-        public override int InitMaxHits { get { return 45; } }
+		public override int InitMinHits { get { return 45; } }
+		public override int InitMaxHits { get { return 45; } }
 
 		[Constructable]
 		public PrzekletaStudniaOdnowy()
@@ -21,23 +17,22 @@ namespace Server.Items
 			//Server.Engines.XmlSpawner2.XmlAttach.AttachTo(this, new Server.Engines.XmlSpawner2.TemporaryQuestObject("CursedArtifact", 20160));
 		}
 
-		public PrzekletaStudniaOdnowy( Serial serial ) : base( serial )
+		public PrzekletaStudniaOdnowy(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 );
+			writer.Write(0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
-
 		}
 	}
 }

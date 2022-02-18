@@ -1,102 +1,104 @@
-using System;
-using Server.Targeting;
-using Server.Network;
-using Server.Items;
+#region References
+
 using Server.Spells;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ancient
 {
-    public class AncientDouseSpell : AncientSpell
-    {
-        private static SpellInfo m_Info = new SpellInfo(
-                                                        "Wygaszenie", "An Flam",
-                                                        212,
-                                                        9001,
-                                                        Reagent.Bloodmoss
-                                                       );
+	public class AncientDouseSpell : AncientSpell
+	{
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Wygaszenie", "An Flam",
+			212,
+			9001,
+			Reagent.Bloodmoss
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.First; }
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.First; }
+		}
 
-        public override double CastDelay { get { return 1.0; } }
-        public override double RequiredSkill { get { return 0.0; } }
-        public override int RequiredMana { get { return 5; } }
+		public override double CastDelay { get { return 1.0; } }
+		public override double RequiredSkill { get { return 0.0; } }
+		public override int RequiredMana { get { return 5; } }
 
-        public AncientDouseSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-                                if (this.Scroll != null)
-                        Scroll.Consume();
-        }
+		public AncientDouseSpell(Mobile caster, Item scroll)
+			: base(caster, scroll, m_Info)
+		{
+			if (this.Scroll != null)
+				Scroll.Consume();
+		}
 
-        public override void OnCast()
-        {
-            if (CheckSequence())
-            {
-                Caster.Target = new InternalTarget(this);
-                Caster.SendMessage("Wskaż pożar, który chcesz ugasić?");
-            }
-        }
+		public override void OnCast()
+		{
+			if (CheckSequence())
+			{
+				Caster.Target = new InternalTarget(this);
+				Caster.SendMessage("Wskaż pożar, który chcesz ugasić?");
+			}
+		}
 
-        public void Target(NaturalFire item)
-        {
-            if (!Caster.CanSee(item))
-            {
-                Caster.SendLocalizedMessage(500237); // Target can not be seen.
-            }
+		public void Target(NaturalFire item)
+		{
+			if (!Caster.CanSee(item))
+			{
+				Caster.SendLocalizedMessage(500237); // Target can not be seen.
+			}
 
-            else if (CheckSequence())
-            {
-                SpellHelper.Turn(Caster, item);
+			else if (CheckSequence())
+			{
+				SpellHelper.Turn(Caster, item);
 
-                Point3D loc = item.GetWorldLocation();
-
-
-                Effects.PlaySound(loc, item.Map, 0x11);
-                IEntity to = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z), Caster.Map);
-                IEntity from = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z + 50), Caster.Map);
-                Effects.SendMovingParticles(from, to, 0x376A, 1, 0, false, false, 33, 3, 1263, 1, 0, EffectLayer.Head, 0x100);
+				Point3D loc = item.GetWorldLocation();
 
 
-                item.Delete();
-                Caster.SendMessage("Udało Ci się ugasić pożar!");
-            }
+				Effects.PlaySound(loc, item.Map, 0x11);
+				IEntity to = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z), Caster.Map);
+				IEntity from = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z + 50), Caster.Map);
+				Effects.SendMovingParticles(from, to, 0x376A, 1, 0, false, false, 33, 3, 1263, 1, 0, EffectLayer.Head,
+					0x100);
 
-            FinishSequence();
-        }
 
-        private class InternalTarget : Target
-        {
-            private AncientDouseSpell m_Owner;
+				item.Delete();
+				Caster.SendMessage("Udało Ci się ugasić pożar!");
+			}
 
-            public InternalTarget(AncientDouseSpell owner)
-                : base(12, false, TargetFlags.None)
-            {
-                m_Owner = owner;
-            }
+			FinishSequence();
+		}
 
-            protected override void OnTarget(Mobile from, object o)
-            {
-                if (o is NaturalFire)
-                {
-                    m_Owner.Target((NaturalFire)o);
-                }
-                else if (o is GreaterNaturalFire)
-                {
-                    from.SendMessage("Twój czar jest zbyt słaby!");
-                }
-                else
-                {
-                    from.SendMessage("Może spróbuj ugasic swoje pragnienie?!");
-                }
-            }
+		private class InternalTarget : Target
+		{
+			private readonly AncientDouseSpell m_Owner;
 
-            protected override void OnTargetFinish(Mobile from)
-            {
-                m_Owner.FinishSequence();
-            }
-        }
-    }
+			public InternalTarget(AncientDouseSpell owner)
+				: base(12, false, TargetFlags.None)
+			{
+				m_Owner = owner;
+			}
+
+			protected override void OnTarget(Mobile from, object o)
+			{
+				if (o is NaturalFire)
+				{
+					m_Owner.Target((NaturalFire)o);
+				}
+				else if (o is GreaterNaturalFire)
+				{
+					from.SendMessage("Twój czar jest zbyt słaby!");
+				}
+				else
+				{
+					from.SendMessage("Może spróbuj ugasic swoje pragnienie?!");
+				}
+			}
+
+			protected override void OnTargetFinish(Mobile from)
+			{
+				m_Owner.FinishSequence();
+			}
+		}
+	}
 }

@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿#region References
+
+using System.Collections.Generic;
 using Nelderim;
+
+#endregion
 
 namespace Server.Items
 {
@@ -33,7 +37,7 @@ namespace Server.Items
 
 		public static void Initialize()
 		{
-			EventSink.WorldSave += new WorldSaveEventHandler(Save);
+			EventSink.WorldSave += Save;
 			Load(ModuleName);
 		}
 
@@ -61,22 +65,21 @@ namespace Server.Items
 
 	class FireHornExtInfo : NExtensionInfo
 	{
-		private int m_UsesRemaining;
-		public int UsesRemaining { get { return m_UsesRemaining; } set { m_UsesRemaining = value; } }
+		public int UsesRemaining { get; set; }
 
 		public FireHornExtInfo()
 		{
-			m_UsesRemaining = Utility.RandomMinMax(FireHorn.InitMinUses, FireHorn.InitMaxUses);
+			UsesRemaining = Utility.RandomMinMax(FireHorn.InitMinUses, FireHorn.InitMaxUses);
 		}
 
 		public override void Deserialize(GenericReader reader)
 		{
-			m_UsesRemaining = reader.ReadInt();
+			UsesRemaining = reader.ReadInt();
 		}
 
 		public override void Serialize(GenericWriter writer)
 		{
-			writer.Write(m_UsesRemaining);
+			writer.Write(UsesRemaining);
 		}
 	}
 }

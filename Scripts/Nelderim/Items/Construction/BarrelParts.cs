@@ -1,8 +1,6 @@
-using System;
-
 namespace Server.Items
 {
-    public class BarrelLidRC : ResouceCraftable
+	public class BarrelLidRC : ResouceCraftable
 	{
 		[Constructable]
 		public BarrelLidRC() : base(0x1DB8)
@@ -18,7 +16,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -30,7 +28,7 @@ namespace Server.Items
 	}
 
 	[FlipableAttribute(0x1EB1, 0x1EB2, 0x1EB3, 0x1EB4)]
-    public class BarrelStavesRC : ResouceCraftable
+	public class BarrelStavesRC : ResouceCraftable
 	{
 		[Constructable]
 		public BarrelStavesRC() : base(0x1EB1)
@@ -46,7 +44,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -56,5 +54,4 @@ namespace Server.Items
 			int version = reader.ReadInt();
 		}
 	}
-
 }

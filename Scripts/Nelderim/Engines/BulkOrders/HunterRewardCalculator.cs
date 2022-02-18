@@ -1,6 +1,10 @@
+#region References
+
 using System;
 using System.Collections.Generic;
 using Server.Items;
+
+#endregion
 
 namespace Server.Engines.BulkOrders
 {
@@ -26,14 +30,14 @@ namespace Server.Engines.BulkOrders
 
 		#region Constructors
 
-		private static readonly ConstructCallback Pigments = new ConstructCallback(CreatePigments);
-		private static readonly ConstructCallback TransPowders = new ConstructCallback(CreateTransPowders);
-		private static readonly ConstructCallback DurabilityPowder = new ConstructCallback(CreateDurabilityPowder);
-		private static readonly ConstructCallback DecoMinor = new ConstructCallback(CreateDecoMinor);
-		private static readonly ConstructCallback Talismans = new ConstructCallback(CreateTalismans);
-		private static readonly ConstructCallback PetResurrectPotion = new ConstructCallback(CreatePetResurrectPotion);
-		private static readonly ConstructCallback DecoMajor = new ConstructCallback(CreateDecoMajor);
-		private static readonly ConstructCallback Artifacts = new ConstructCallback(CreateArtifacts);
+		private static readonly ConstructCallback Pigments = CreatePigments;
+		private static readonly ConstructCallback TransPowders = CreateTransPowders;
+		private static readonly ConstructCallback DurabilityPowder = CreateDurabilityPowder;
+		private static readonly ConstructCallback DecoMinor = CreateDecoMinor;
+		private static readonly ConstructCallback Talismans = CreateTalismans;
+		private static readonly ConstructCallback PetResurrectPotion = CreatePetResurrectPotion;
+		private static readonly ConstructCallback DecoMajor = CreateDecoMajor;
+		private static readonly ConstructCallback Artifacts = CreateArtifacts;
 
 		private static Item CreatePigments(int type)
 		{
@@ -454,7 +458,7 @@ namespace Server.Engines.BulkOrders
 			return 0;
 		}
 
-		private static int[] GoldPerCreature = new int[] { 30, 100, 300 };
+		private static readonly int[] GoldPerCreature = { 30, 100, 300 };
 
 		public int ComputeGold(int creatureAmount, int level)
 		{
@@ -529,7 +533,7 @@ namespace Server.Engines.BulkOrders
 			// Konstrukcja new RewardItem( ilosc procent ze zostanie wybrany, grupa)
 			// Konstrukcja new RewardItem( ilosc procent ze zostanie wybrany, grupa, typ) // typ moze byc uzyty np przy rozroznieniu poziomu talizmanow czy losowania artefaktow
 			// Pierwszy zawsze musi byc ten z najwiekszym prawdopodobnienstwem, reszta bez znaczenia
-			Groups = new RewardGroup[]
+			Groups = new[]
 			{
 				new RewardGroup(0, new RewardItem(60, DecoMinor), new RewardItem(20, Pigments, 0),
 					new RewardItem(20, TransPowders, 10)),

@@ -1,14 +1,18 @@
+#region References
+
 using System;
 using System.Collections;
 using Server.Items;
 using Server.Spells;
 using Server.Targeting;
 
+#endregion
+
 namespace Server.ACC.CSS.Systems.Rogue
 {
 	public class RogueFalseCoinSpell : RogueSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Fałszywa moneta", "*wyciaga maly woreczek monet*",
 			//SpellCircle.Fourth,
 			218,
@@ -83,7 +87,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 
 		private class InternalTarget : Target
 		{
-			private RogueFalseCoinSpell m_Owner;
+			private readonly RogueFalseCoinSpell m_Owner;
 
 			public InternalTarget(RogueFalseCoinSpell owner)
 				: base(12, false, TargetFlags.None)
@@ -109,7 +113,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 			}
 		}
 
-		private static Hashtable m_Timers = new Hashtable();
+		private static readonly Hashtable m_Timers = new Hashtable();
 
 		public static bool StopTimer(Mobile m)
 		{
@@ -126,8 +130,8 @@ namespace Server.ACC.CSS.Systems.Rogue
 
 		private class InternalTimer : Timer
 		{
-			private Mobile m_Owner;
-			private FalseCoin m_Weapon;
+			private readonly Mobile m_Owner;
+			private readonly FalseCoin m_Weapon;
 
 
 			public InternalTimer(Mobile owner, FalseCoin weapon)

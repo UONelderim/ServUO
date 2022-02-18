@@ -1,36 +1,32 @@
-using System;
-using Server;
-using Server.Items;
-
 namespace Server.ACC.CSS.Systems.Druid
 {
 	public class DruidRestorativeSoilScroll : CSpellScroll
 	{
 		[Constructable]
-		public DruidRestorativeSoilScroll() : this( 1 )
+		public DruidRestorativeSoilScroll() : this(1)
 		{
 		}
 
 		[Constructable]
-		public DruidRestorativeSoilScroll( int amount ) : base( typeof( DruidRestorativeSoilSpell ), 0xE39, amount )
+		public DruidRestorativeSoilScroll(int amount) : base(typeof(DruidRestorativeSoilSpell), 0xE39, amount)
 		{
 			Name = "Lecznicza Ziemia";
 			Hue = 0x58B;
 		}
 
-		public DruidRestorativeSoilScroll( Serial serial ) : base( serial )
+		public DruidRestorativeSoilScroll(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

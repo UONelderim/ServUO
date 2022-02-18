@@ -1,18 +1,22 @@
+#region References
+
 using System;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Druid
 {
 	public class DruidSpellbookGump : CSpellbookGump
 	{
-		public override string TextHue  { get{ return "006600"; } }
-		public override int    BGImage  { get{ return 2203; } }
-		public override int    SpellBtn { get{ return 2224; } } //95?
-		public override int    SpellBtnP{ get{ return 2224; } } //97?
-		public override string Label1   { get{ return "Magia"; } }
-		public override string Label2   { get{ return "Natury"; } }
-		public override Type   GumpType { get{ return typeof( DruidSpellbookGump ); } }
+		public override string TextHue { get { return "006600"; } }
+		public override int BGImage { get { return 2203; } }
+		public override int SpellBtn { get { return 2224; } } //95?
+		public override int SpellBtnP { get { return 2224; } } //97?
+		public override string Label1 { get { return "Magia"; } }
+		public override string Label2 { get { return "Natury"; } }
+		public override Type GumpType { get { return typeof(DruidSpellbookGump); } }
 
-		public DruidSpellbookGump( CSpellbook book ) : base( book )
+		public DruidSpellbookGump(CSpellbook book) : base(book)
 		{
 		}
 

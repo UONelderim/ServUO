@@ -1,22 +1,21 @@
+#region References
+
 using System;
-using System.Collections;
-using Server;
-using Server.Items;
-using Server.Mobiles;
-using Server.Network;
+
+#endregion
 
 namespace Server.Items
 {
 	public class RatNest : MonsterNest
 	{
 		[Constructable]
-		public RatNest() : base()
+		public RatNest()
 		{
 			Name = "Gniazdo szczurów";
 			Hue = 0;
 			MaxCount = 25;
 			RangeHome = 20;
-			RespawnTime = TimeSpan.FromSeconds( 2.0 );
+			RespawnTime = TimeSpan.FromSeconds(2.0);
 			HitsMax = 1600;
 			Hits = 1600;
 			NestSpawnType = "Ogromny Szczur";
@@ -26,24 +25,24 @@ namespace Server.Items
 
 		public override void AddLoot()
 		{
-			MonsterNestLoot loot = new MonsterNestLoot( 7100, 0, this.LootLevel, "Zniszczone gniazdo" );
-			loot.MoveToWorld( this.Location, this.Map );
+			MonsterNestLoot loot = new MonsterNestLoot(7100, 0, this.LootLevel, "Zniszczone gniazdo");
+			loot.MoveToWorld(this.Location, this.Map);
 		}
 
-		public RatNest( Serial serial ) : base( serial )
+		public RatNest(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 );
+			writer.Write(0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

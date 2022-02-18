@@ -1,46 +1,48 @@
+#region References
+
 using System;
-using Server;
-using Server.Items;
+
+#endregion
 
 namespace Server.Items
 {
 	public class Bloodspawn : BaseReagent, ICommodity
 	{
-        TextDefinition ICommodity.Description
-        {
-            get
-            {
-                return new TextDefinition( LabelNumber, String.Format( "{0} serce demona", Amount ) );
-            }
-        }
+		TextDefinition ICommodity.Description
+		{
+			get
+			{
+				return new TextDefinition(LabelNumber, String.Format("{0} serce demona", Amount));
+			}
+		}
 
-        bool ICommodity.IsDeedable { get { return false; } }
+		bool ICommodity.IsDeedable { get { return false; } }
 
-        [Constructable]
-        public Bloodspawn() : this( 1 )
+		[Constructable]
+		public Bloodspawn() : this(1)
 		{
 		}
 
 		[Constructable]
-        public Bloodspawn( int amount ) : base( 3964, amount )
+		public Bloodspawn(int amount) : base(3964, amount)
 		{
 			Name = "Serce demona";
 		}
 
-        public Bloodspawn( Serial serial ) : base( serial )
+		public Bloodspawn(Serial serial) : base(serial)
 		{
 		}
 
-        public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

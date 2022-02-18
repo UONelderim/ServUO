@@ -1,122 +1,130 @@
-﻿using System;
+﻿#region References
+
+using System;
 using Server.Network;
+
+#endregion
 
 namespace Server.Gumps
 {
-    public class GeneralConfirmGump
-    {
-        protected Gump _gump;
+	public class GeneralConfirmGump
+	{
+		protected Gump _gump;
 
-        public event Action<NetState, RelayInfo> OnContinue;
-        public event Action<NetState, RelayInfo> OnCancel;
-        public event Action<NetState, RelayInfo> OnGumpClosed;
+		public event Action<NetState, RelayInfo> OnContinue;
+		public event Action<NetState, RelayInfo> OnCancel;
+		public event Action<NetState, RelayInfo> OnGumpClosed;
 
-        protected string _text;
-        public virtual string Text
-        {
-            get { return _text; }
-            set { _text = value; CreateGump(); }
-        }
+		protected string _text;
 
-        protected Point2D _size;
-        public virtual Point2D Size
-        {
-            get { return _size; }
-            set
-            {
-                if(270 > value.X || 120 > value.Y)
-                    throw new ArgumentException(String.Format("Minimalny rozmiar GeneralConfirmGump to (270, 60), a zostal podany ({0}, {1})", value.X, value.Y));
-                else
-                {
-                    _size = value;
-                    CreateGump();
-                }
-            }
-        }
+		public virtual string Text
+		{
+			get { return _text; }
+			set
+			{
+				_text = value;
+				CreateGump();
+			}
+		}
 
-        protected void Continue( Network.NetState sender, RelayInfo info )
-        {
-            if(OnContinue != null)
-                OnContinue(sender, info);
-        }
+		protected Point2D _size;
 
-        protected void Cancel( Network.NetState sender, RelayInfo info )
-        {
-            if(OnCancel != null)
-                OnCancel(sender, info);
-        }
+		public virtual Point2D Size
+		{
+			get { return _size; }
+			set
+			{
+				if (270 > value.X || 120 > value.Y)
+					throw new ArgumentException(String.Format(
+						"Minimalny rozmiar GeneralConfirmGump to (270, 60), a zostal podany ({0}, {1})", value.X,
+						value.Y));
+				_size = value;
+				CreateGump();
+			}
+		}
 
-        protected void GumpClosed( NetState sender, RelayInfo info )
-        {
-            if(OnGumpClosed != null)
-                OnGumpClosed(sender, info);
-        }
+		protected void Continue(NetState sender, RelayInfo info)
+		{
+			if (OnContinue != null)
+				OnContinue(sender, info);
+		}
 
-        public GeneralConfirmGump( Action<NetState, RelayInfo> onContinue = null, Action<NetState, RelayInfo> onCancel = null, Action<NetState, RelayInfo> onGumpClosed = null )
-        {
-            OnContinue += onContinue;
-            OnCancel += onCancel;
-            OnGumpClosed += onGumpClosed;
+		protected void Cancel(NetState sender, RelayInfo info)
+		{
+			if (OnCancel != null)
+				OnCancel(sender, info);
+		}
 
-            _gump = new InternalGeneralConfirmGump(_size.X, _size.Y, this);
-            Size = new Point2D(270, 120);
-        }
+		protected void GumpClosed(NetState sender, RelayInfo info)
+		{
+			if (OnGumpClosed != null)
+				OnGumpClosed(sender, info);
+		}
 
-        protected virtual void CreateGump()
-        {
-            _gump.Entries.Clear();
+		public GeneralConfirmGump(Action<NetState, RelayInfo> onContinue = null,
+			Action<NetState, RelayInfo> onCancel = null, Action<NetState, RelayInfo> onGumpClosed = null)
+		{
+			OnContinue += onContinue;
+			OnCancel += onCancel;
+			OnGumpClosed += onGumpClosed;
 
-            _gump.AddPage(0);
+			_gump = new InternalGeneralConfirmGump(_size.X, _size.Y, this);
+			Size = new Point2D(270, 120);
+		}
 
-            _gump.X = this.Size.X;
-            _gump.Y = this.Size.Y;
+		protected virtual void CreateGump()
+		{
+			_gump.Entries.Clear();
 
-            const int margin = 10;
+			_gump.AddPage(0);
 
-            _gump.AddBackground(0, 0, _gump.X, _gump.Y, 5054);
-            _gump.AddBackground(margin, margin, _gump.X - 2 * margin, _gump.Y - 2 * margin, 3000);
+			_gump.X = this.Size.X;
+			_gump.Y = this.Size.Y;
 
-            Point2D htmlLoc = new Point2D(20, 15);
-            Point2D htmlSize = new Point2D(_gump.X - 40, _gump.Y - 60);
+			const int margin = 10;
 
-            _gump.AddHtml(htmlLoc.X, htmlLoc.Y, htmlSize.X, htmlSize.Y, this.Text, true, true);
+			_gump.AddBackground(0, 0, _gump.X, _gump.Y, 5054);
+			_gump.AddBackground(margin, margin, _gump.X - 2 * margin, _gump.Y - 2 * margin, 3000);
 
-            int buttonsY = _gump.Y - 40;
-            _gump.AddButton(20, buttonsY, 4005, 4007, 2, GumpButtonType.Reply, 0);
-            _gump.AddHtmlLocalized(55, buttonsY, 75, 20, 1011011, false, false); // CONTINUE
+			Point2D htmlLoc = new Point2D(20, 15);
+			Point2D htmlSize = new Point2D(_gump.X - 40, _gump.Y - 60);
 
-            _gump.AddButton(135, buttonsY, 4005, 4007, 1, GumpButtonType.Reply, 0);
-            _gump.AddHtmlLocalized(170, buttonsY, 75, 20, 1011012, false, false); // CANCEL
-        }
+			_gump.AddHtml(htmlLoc.X, htmlLoc.Y, htmlSize.X, htmlSize.Y, this.Text, true, true);
 
-        public static implicit operator Gump( GeneralConfirmGump gump )
-        {
-            gump.CreateGump();
+			int buttonsY = _gump.Y - 40;
+			_gump.AddButton(20, buttonsY, 4005, 4007, 2, GumpButtonType.Reply, 0);
+			_gump.AddHtmlLocalized(55, buttonsY, 75, 20, 1011011, false, false); // CONTINUE
 
-            return gump._gump;
-        }
+			_gump.AddButton(135, buttonsY, 4005, 4007, 1, GumpButtonType.Reply, 0);
+			_gump.AddHtmlLocalized(170, buttonsY, 75, 20, 1011012, false, false); // CANCEL
+		}
 
-        private class InternalGeneralConfirmGump : Gump
-        {
-            private GeneralConfirmGump _parent;
+		public static implicit operator Gump(GeneralConfirmGump gump)
+		{
+			gump.CreateGump();
 
-            public override void OnResponse( Network.NetState sender, RelayInfo info )
-            {
-                if(info.ButtonID == 2)
-                    _parent.Continue(sender, info);
-                else if(info.ButtonID == 1)
-                    _parent.Cancel(sender, info);
-                else
-                    _parent.GumpClosed(sender, info);
-            }
+			return gump._gump;
+		}
 
-            public InternalGeneralConfirmGump( int x, int y, GeneralConfirmGump parent )
-                : base(x, y)
-            {
-                _parent = parent;
-            }
-        }
-    }
+		private class InternalGeneralConfirmGump : Gump
+		{
+			private readonly GeneralConfirmGump _parent;
 
+			public override void OnResponse(NetState sender, RelayInfo info)
+			{
+				if (info.ButtonID == 2)
+					_parent.Continue(sender, info);
+				else if (info.ButtonID == 1)
+					_parent.Cancel(sender, info);
+				else
+					_parent.GumpClosed(sender, info);
+			}
 
+			public InternalGeneralConfirmGump(int x, int y, GeneralConfirmGump parent)
+				: base(x, y)
+			{
+				_parent = parent;
+			}
+		}
+	}
 }

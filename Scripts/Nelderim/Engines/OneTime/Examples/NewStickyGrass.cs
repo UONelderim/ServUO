@@ -1,153 +1,162 @@
+#region References
+
 using Server.Mobiles;
+
+#endregion
 
 namespace Server
 {
-    class NewStickyGrass : Item
-    {
-        private int Time = Utility.Random(1, 3);
+	class NewStickyGrass : Item
+	{
+		private int Time = Utility.Random(1, 3);
 
-        private int Count { get; set; }
-        private int OrgZ { get; set; }
+		private int Count { get; set; }
+		private int OrgZ { get; set; }
 
-        [Constructable]
-        public NewStickyGrass() : base()
-        {
-            Count = 0;
-            OrgZ = 999;
+		[Constructable]
+		public NewStickyGrass()
+		{
+			Count = 0;
+			OrgZ = 999;
 
-            Visible = false;
+			Visible = false;
 
-            switch (Utility.Random(2))
-            {
-                case 0: ItemID = 3378; break;
-                case 1: ItemID = 3379; break;
-            }
-        }
+			switch (Utility.Random(2))
+			{
+				case 0:
+					ItemID = 3378;
+					break;
+				case 1:
+					ItemID = 3379;
+					break;
+			}
+		}
 
-        public NewStickyGrass(Serial serial) : base(serial)
-        {
-            Count = 0;
+		public NewStickyGrass(Serial serial) : base(serial)
+		{
+			Count = 0;
 
-            Visible = false;
-        }
+			Visible = false;
+		}
 
-        public void TimerTick()
-        {
-            if (OrgZ == 999)
-            {
-                OrgZ = Z;
-            }
+		public void TimerTick()
+		{
+			if (OrgZ == 999)
+			{
+				OrgZ = Z;
+			}
 
-            RunCheck();
-        }
+			RunCheck();
+		}
 
-        private void RunCheck()
-        {
-            if (Count >= Time)
-            {
-                bool IsPlayer = IsPlayerClose();
+		private void RunCheck()
+		{
+			if (Count >= Time)
+			{
+				bool IsPlayer = IsPlayerClose();
 
-                if (IsPlayer)
-                {
-                    Visible = true;
+				if (IsPlayer)
+				{
+					Visible = true;
 
-                    if (ItemID == 3378)
-                        ItemID = 3379;
-                    else
-                        ItemID = 3378;
+					if (ItemID == 3378)
+						ItemID = 3379;
+					else
+						ItemID = 3378;
 
-                    int Grab = Utility.Random(1, 5);
+					int Grab = Utility.Random(1, 5);
 
-                    if (Grab == 1)
-                    {
-                        if (Z > OrgZ)
-                        {
-                            Z--;
-                            Hue = 0;
-                            Visible = false;
-                        }
-                        else
-                        {
-                            Z++;
-                            Hue = 67;
-                        }
-                    }
-                }
-                else
-                {
-                    if (Z > OrgZ)
-                    {
-                        Z--;
-                    }
+					if (Grab == 1)
+					{
+						if (Z > OrgZ)
+						{
+							Z--;
+							Hue = 0;
+							Visible = false;
+						}
+						else
+						{
+							Z++;
+							Hue = 67;
+						}
+					}
+				}
+				else
+				{
+					if (Z > OrgZ)
+					{
+						Z--;
+					}
 
-                    Hue = 0;
-                    Visible = false;
-                }
+					Hue = 0;
+					Visible = false;
+				}
 
-                Count = 0;
-            }
+				Count = 0;
+			}
 
-            Count++;
-        }
+			Count++;
+		}
 
-        private bool IsPlayerClose()
-        {
-            IPooledEnumerable<Mobile> Mobs = GetMobilesInRange(2);
+		private bool IsPlayerClose()
+		{
+			IPooledEnumerable<Mobile> Mobs = GetMobilesInRange(2);
 
-            bool IsPlayer = false;
+			bool IsPlayer = false;
 
-            if (Mobs != null)
-            {
-                foreach (var mob in Mobs)
-                {
-                    if (mob is PlayerMobile)
-                    {
-                        bool GoodLoad = true;
+			if (Mobs != null)
+			{
+				foreach (var mob in Mobs)
+				{
+					if (mob is PlayerMobile)
+					{
+						bool GoodLoad = true;
 
-                        if (X == mob.X)
-                        {
-                            if (Y == mob.Y)
-                                GoodLoad = false;
-                        }
+						if (X == mob.X)
+						{
+							if (Y == mob.Y)
+								GoodLoad = false;
+						}
 
-                        if (X == mob.X + 2 || X == mob.X - 2)
-                        {
-                            if (Y == mob.Y + 2 || Y == mob.Y - 2)
-                            {
-                                GoodLoad = false;
-                            }
-                        }
+						if (X == mob.X + 2 || X == mob.X - 2)
+						{
+							if (Y == mob.Y + 2 || Y == mob.Y - 2)
+							{
+								GoodLoad = false;
+							}
+						}
 
-                        if (GoodLoad)
-                            IsPlayer = true;
-                    }
-                }
-                Mobs.Free();
-            }
+						if (GoodLoad)
+							IsPlayer = true;
+					}
+				}
 
-            return IsPlayer;
-        }
+				Mobs.Free();
+			}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+			return IsPlayer;
+		}
 
-            writer.Write((int)0);
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            writer.Write(Time);
+			writer.Write(0);
 
-            writer.Write(OrgZ);
-        }
+			writer.Write(Time);
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+			writer.Write(OrgZ);
+		}
 
-            int version = reader.ReadInt();
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-            Time = reader.ReadInt();
+			int version = reader.ReadInt();
 
-            OrgZ = reader.ReadInt();
-        }
-    }
+			Time = reader.ReadInt();
+
+			OrgZ = reader.ReadInt();
+		}
+	}
 }

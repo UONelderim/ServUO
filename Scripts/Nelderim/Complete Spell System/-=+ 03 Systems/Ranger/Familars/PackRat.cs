@@ -1,191 +1,194 @@
+#region References
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using Server.ContextMenus;
-using Server.Items;
 using Server.Gumps;
+using Server.Items;
 using Server.Mobiles;
-using Server.Network;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ranger
 {
-    [CorpseName("zwłoki szczura")]
-    public class PackRatFamiliar : BaseFamiliar
-    {
-        public PackRatFamiliar()
-        {
-            Name = "szczur z plecakiem";
-            Body = 0xD7;
-            BaseSoundID = 0x188;
+	[CorpseName("zwłoki szczura")]
+	public class PackRatFamiliar : BaseFamiliar
+	{
+		public PackRatFamiliar()
+		{
+			Name = "szczur z plecakiem";
+			Body = 0xD7;
+			BaseSoundID = 0x188;
 
-            SetStr(32, 74);
-            SetDex(46, 65);
-            SetInt(16, 30);
+			SetStr(32, 74);
+			SetDex(46, 65);
+			SetInt(16, 30);
 
-            SetHits(26, 39);
-            SetMana(0);
+			SetHits(26, 39);
+			SetMana(0);
 
-            SetDamage(4, 8);
+			SetDamage(4, 8);
 
-            SetDamageType(ResistanceType.Physical, 100);
+			SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 15, 20);
-            SetResistance(ResistanceType.Fire, 5, 10);
-            SetResistance(ResistanceType.Poison, 25, 35);
+			SetResistance(ResistanceType.Physical, 15, 20);
+			SetResistance(ResistanceType.Fire, 5, 10);
+			SetResistance(ResistanceType.Poison, 25, 35);
 
-            SetSkill(SkillName.MagicResist, 25.1, 30.0);
-            SetSkill(SkillName.Tactics, 29.3, 44.0);
-            SetSkill(SkillName.Wrestling, 29.3, 44.0);
+			SetSkill(SkillName.MagicResist, 25.1, 30.0);
+			SetSkill(SkillName.Tactics, 29.3, 44.0);
+			SetSkill(SkillName.Wrestling, 29.3, 44.0);
 
-            Fame = 300;
-            Karma = -300;
+			Fame = 300;
+			Karma = -300;
 
-            VirtualArmor = 18;
+			VirtualArmor = 18;
 
-            ControlSlots = 1;
+			ControlSlots = 1;
 
-            Container pack = Backpack;
+			Container pack = Backpack;
 
-            if (pack != null)
-                pack.Delete();
+			if (pack != null)
+				pack.Delete();
 
-            pack = new StrongBackpack();
-            pack.Movable = false;
+			pack = new StrongBackpack();
+			pack.Movable = false;
 
-            AddItem(pack);
-        }
+			AddItem(pack);
+		}
 
-        private DateTime m_NextPickup;
+		private DateTime m_NextPickup;
 
-        public override void OnThink()
-        {
-            base.OnThink();
+		public override void OnThink()
+		{
+			base.OnThink();
 
-            if (DateTime.Now < m_NextPickup)
-                return;
+			if (DateTime.Now < m_NextPickup)
+				return;
 
-            m_NextPickup = DateTime.Now + TimeSpan.FromSeconds(Utility.RandomMinMax(5, 10));
+			m_NextPickup = DateTime.Now + TimeSpan.FromSeconds(Utility.RandomMinMax(5, 10));
 
-            Container pack = this.Backpack;
+			Container pack = this.Backpack;
 
-            if (pack == null)
-                return;
+			if (pack == null)
+				return;
 
-            ArrayList list = new ArrayList();
+			ArrayList list = new ArrayList();
 
-            foreach (Item item in this.GetItemsInRange(2))
-            {
-                if (item.Movable && item.Stackable)
-                    list.Add(item);
-            }
+			foreach (Item item in this.GetItemsInRange(2))
+			{
+				if (item.Movable && item.Stackable)
+					list.Add(item);
+			}
 
-            int pickedUp = 0;
+			int pickedUp = 0;
 
-            for (int i = 0; i < list.Count; ++i)
-            {
-                Item item = (Item)list[i];
+			for (int i = 0; i < list.Count; ++i)
+			{
+				Item item = (Item)list[i];
 
-                if (!pack.CheckHold(this, item, false, true))
-                    return;
+				if (!pack.CheckHold(this, item, false, true))
+					return;
 
-                NextActionTime = Core.TickCount;
-                
-                if (!Lift(item, item.Amount))
-                    continue;
+				NextActionTime = Core.TickCount;
 
-                Drop(this, Point3D.Zero);
+				if (!Lift(item, item.Amount))
+					continue;
 
-                if (++pickedUp == 3)
-                    break;
-            }
-        }
+				Drop(this, Point3D.Zero);
 
-        private void ConfirmRelease_Callback(Mobile from, bool okay, object state)
-        {
-            if (okay)
-                EndRelease(from);
-        }
+				if (++pickedUp == 3)
+					break;
+			}
+		}
 
-        public override void BeginRelease(Mobile from)
-        {
-            Container pack = this.Backpack;
+		private void ConfirmRelease_Callback(Mobile from, bool okay, object state)
+		{
+			if (okay)
+				EndRelease(from);
+		}
 
-            if (pack != null && pack.Items.Count > 0)
-                from.SendGump(new WarningGump(1060635, 30720, 1061672, 32512, 420, 280, new WarningGumpCallback(ConfirmRelease_Callback), null));
-            else
-                EndRelease(from);
-        }
+		public override void BeginRelease(Mobile from)
+		{
+			Container pack = this.Backpack;
 
-        public override DeathMoveResult GetInventoryMoveResultFor(Item item)
-        {
-            return DeathMoveResult.MoveToCorpse;
-        }
+			if (pack != null && pack.Items.Count > 0)
+				from.SendGump(new WarningGump(1060635, 30720, 1061672, 32512, 420, 280, ConfirmRelease_Callback, null));
+			else
+				EndRelease(from);
+		}
 
-        #region Pack Animal Methods
+		public override DeathMoveResult GetInventoryMoveResultFor(Item item)
+		{
+			return DeathMoveResult.MoveToCorpse;
+		}
 
-        public override bool IsSnoop(Mobile from)
-        {
-            if (PackAnimal.CheckAccess(this, from))
-                return false;
+		#region Pack Animal Methods
 
-            return base.IsSnoop(from);
-        }
+		public override bool IsSnoop(Mobile from)
+		{
+			if (PackAnimal.CheckAccess(this, from))
+				return false;
 
-        public override bool OnDragDrop(Mobile from, Item item)
-        {
-            if (CheckFeed(from, item))
-                return true;
+			return base.IsSnoop(from);
+		}
 
-            if (PackAnimal.CheckAccess(this, from))
-            {
-                AddToBackpack(item);
-                return true;
-            }
+		public override bool OnDragDrop(Mobile from, Item item)
+		{
+			if (CheckFeed(from, item))
+				return true;
 
-            return base.OnDragDrop(from, item);
-        }
+			if (PackAnimal.CheckAccess(this, from))
+			{
+				AddToBackpack(item);
+				return true;
+			}
 
-        public override bool CheckNonlocalDrop(Mobile from, Item item, Item target)
-        {
-            return PackAnimal.CheckAccess(this, from);
-        }
+			return base.OnDragDrop(from, item);
+		}
 
-        public override bool CheckNonlocalLift(Mobile from, Item item)
-        {
-            return PackAnimal.CheckAccess(this, from);
-        }
+		public override bool CheckNonlocalDrop(Mobile from, Item item, Item target)
+		{
+			return PackAnimal.CheckAccess(this, from);
+		}
 
-        public override void OnDoubleClick(Mobile from)
-        {
-            PackAnimal.TryPackOpen(this, from);
-        }
+		public override bool CheckNonlocalLift(Mobile from, Item item)
+		{
+			return PackAnimal.CheckAccess(this, from);
+		}
 
-        public override void GetContextMenuEntries(Mobile from, List<ContextMenuEntry> list)
-        {
-            base.GetContextMenuEntries(from, list);
+		public override void OnDoubleClick(Mobile from)
+		{
+			PackAnimal.TryPackOpen(this, from);
+		}
 
-            PackAnimal.GetContextMenuEntries(this, from, list);
-        }
+		public override void GetContextMenuEntries(Mobile from, List<ContextMenuEntry> list)
+		{
+			base.GetContextMenuEntries(from, list);
 
-        #endregion
+			PackAnimal.GetContextMenuEntries(this, from, list);
+		}
 
-        public PackRatFamiliar(Serial serial)
-            : base(serial)
-        {
-        }
+		#endregion
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public PackRatFamiliar(Serial serial)
+			: base(serial)
+		{
+		}
 
-            writer.Write((int)0);
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+			writer.Write(0);
+		}
 
-            int version = reader.ReadInt();
-        }
-    }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+
+			int version = reader.ReadInt();
+		}
+	}
 }

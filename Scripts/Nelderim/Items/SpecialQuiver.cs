@@ -5,7 +5,7 @@
 		public override int LabelNumber { get { return 1032657; } } // elven quiver
 
 		[Constructable]
-		public SpecialQuiver() : base()
+		public SpecialQuiver()
 		{
 			Hue = 0x4E7; // zmienic
 		}

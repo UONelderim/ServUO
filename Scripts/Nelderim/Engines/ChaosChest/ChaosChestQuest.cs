@@ -1,8 +1,12 @@
-﻿using System;
+﻿#region References
+
+using System;
 using System.Collections.Generic;
 using Server;
 using Server.Commands;
 using Server.Targeting;
+
+#endregion
 
 namespace Nelderim.Engines.ChaosChest
 {
@@ -13,7 +17,7 @@ namespace Nelderim.Engines.ChaosChest
 		private static ChaosSigilType CURRENT_STAGE_OVERRIDE;
 		private static ChaosChestQuest instance;
 
-		private static Dictionary<string, ChaosSigilType> REGION_MAP = new Dictionary<string, ChaosSigilType>
+		private static readonly Dictionary<string, ChaosSigilType> REGION_MAP = new Dictionary<string, ChaosSigilType>
 		{
 			{ "TylReviaren", ChaosSigilType.Natury },
 			{ "Melisande", ChaosSigilType.Natury },
@@ -123,7 +127,7 @@ namespace Nelderim.Engines.ChaosChest
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 			writer.Write((int)CurrentStageOverride);
 			writer.Write(DROP_CHANCE_OVERRIDE);
 		}

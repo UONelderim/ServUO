@@ -1,12 +1,16 @@
+#region References
+
 using System;
 using Server.Mobiles;
 using Server.Spells;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ranger
 {
 	public class RangerSummonMountSpell : RangerSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Przyzwanie Wierzcha", "*Gwizdze*",
 			//SpellCircle.Fifth,
 			266,
@@ -31,7 +35,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 				Scroll.Consume();
 		}
 
-		private static Type[] m_Types = new Type[]
+		private static readonly Type[] m_Types =
 		{
 			typeof(ForestOstard), typeof(DesertOstard), typeof(Ridgeback), typeof(ForestOstard), typeof(Horse),
 			typeof(DesertOstard), typeof(Horse), typeof(Ridgeback),

@@ -1,15 +1,17 @@
-using System;
-using Server;
+#region References
+
 using Server.Engines.Craft;
+
+#endregion
 
 namespace Server.Items
 {
 	public class TrapCraftingKit : BaseTool
 	{
-		public override CraftSystem CraftSystem{ get{ return DefTrapCrafting.CraftSystem; } }
+		public override CraftSystem CraftSystem { get { return DefTrapCrafting.CraftSystem; } }
 
 		[Constructable]
-		public TrapCraftingKit() : base( 0x1EB8 )
+		public TrapCraftingKit() : base(0x1EB8)
 		{
 			Weight = 2.0;
 			Name = "zestaw do tworzenia pułapek";
@@ -17,25 +19,25 @@ namespace Server.Items
 		}
 
 		[Constructable]
-		public TrapCraftingKit( int uses ) : base( uses, 0x1EBA )
+		public TrapCraftingKit(int uses) : base(uses, 0x1EBA)
 		{
 			Weight = 2.0;
 		}
 
-		public TrapCraftingKit( Serial serial ) : base( serial )
+		public TrapCraftingKit(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿#region References
+
+using System.Collections.Generic;
 using Nelderim;
+
+#endregion
 
 namespace Server.Items
 {
@@ -44,7 +48,7 @@ namespace Server.Items
 
 		public static void Initialize()
 		{
-			EventSink.WorldSave += new WorldSaveEventHandler(Save);
+			EventSink.WorldSave += Save;
 			Load(ModuleName);
 		}
 
@@ -72,22 +76,20 @@ namespace Server.Items
 
 	class TaxidermyKitExtInfo : NExtensionInfo
 	{
-		private string m_AnimalName;
-		private int m_HueVal;
+		public string AnimalName { get; set; }
 
-		public string AnimalName { get { return m_AnimalName; } set { m_AnimalName = value; } }
-		public int HueVal { get { return m_HueVal; } set { m_HueVal = value; } }
+		public int HueVal { get; set; }
 
 		public override void Deserialize(GenericReader reader)
 		{
-			m_AnimalName = reader.ReadString();
-			m_HueVal = reader.ReadInt();
+			AnimalName = reader.ReadString();
+			HueVal = reader.ReadInt();
 		}
 
 		public override void Serialize(GenericWriter writer)
 		{
-			writer.Write(m_AnimalName);
-			writer.Write(m_HueVal);
+			writer.Write(AnimalName);
+			writer.Write(HueVal);
 		}
 	}
 }

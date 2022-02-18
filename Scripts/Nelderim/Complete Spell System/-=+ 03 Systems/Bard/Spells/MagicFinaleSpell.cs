@@ -1,55 +1,57 @@
-using System;
+#region References
+
 using System.Collections;
-using Server;
-using Server.Mobiles;
-using Server.Network;
 using Server.Items;
+using Server.Mobiles;
 using Server.Spells;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Bard
 {
 	public class BardMagicFinaleSpell : BardSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
-		                                                "Magiczny Finał", "Dispersus",
-		                                                //SpellCircle.First,
-		                                                212,9041
-		                                               );
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Magiczny Finał", "Dispersus",
+			//SpellCircle.First,
+			212, 9041
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.First; }
-        }
-
-		public override double CastDelay{ get{ return 3; } }
-		public override double RequiredSkill{ get{ return 80.0; } }
-		public override int RequiredMana{ get{ return 15; } }
-
-		public BardMagicFinaleSpell( Mobile caster, Item scroll) : base( caster, scroll, m_Info )
+		public override SpellCircle Circle
 		{
-			                    if (this.Scroll != null)
-                        Scroll.Consume();
+			get { return SpellCircle.First; }
+		}
+
+		public override double CastDelay { get { return 3; } }
+		public override double RequiredSkill { get { return 80.0; } }
+		public override int RequiredMana { get { return 15; } }
+
+		public BardMagicFinaleSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
+		{
+			if (this.Scroll != null)
+				Scroll.Consume();
 		}
 
 		public override void OnCast()
 		{
-			if( CheckSequence() )
+			if (CheckSequence())
 			{
 				ArrayList targets = new ArrayList();
 
-				foreach ( Mobile m in Caster.GetMobilesInRange( 4 ) )
+				foreach (Mobile m in Caster.GetMobilesInRange(4))
 				{
-					if ( m is BaseCreature && ((BaseCreature)m).Summoned )
-						targets.Add( m );
+					if (m is BaseCreature && ((BaseCreature)m).Summoned)
+						targets.Add(m);
 				}
 
-				Caster.FixedParticles( 0x3709, 1, 30, 9965, 5, 7, EffectLayer.Waist );
+				Caster.FixedParticles(0x3709, 1, 30, 9965, 5, 7, EffectLayer.Waist);
 
-				for ( int i = 0; i < targets.Count; ++i )
+				for (int i = 0; i < targets.Count; ++i)
 				{
 					Mobile m = (Mobile)targets[i];
 
-					Effects.SendLocationParticles( EffectItem.Create( m.Location, m.Map, EffectItem.DefaultDuration ), 0x3728, 8, 20, 5042 );
+					Effects.SendLocationParticles(EffectItem.Create(m.Location, m.Map, EffectItem.DefaultDuration),
+						0x3728, 8, 20, 5042);
 
 					m.Delete();
 				}
@@ -59,4 +61,3 @@ namespace Server.ACC.CSS.Systems.Bard
 		}
 	}
 }
-

@@ -1,36 +1,32 @@
-using System;
-using Server;
-using Server.Items;
-
 namespace Server.ACC.CSS.Systems.Cleric
 {
 	public class ClericTrialByFireScroll : CSpellScroll
 	{
 		[Constructable]
-		public ClericTrialByFireScroll() : this( 1 )
+		public ClericTrialByFireScroll() : this(1)
 		{
 		}
 
 		[Constructable]
-		public ClericTrialByFireScroll( int amount ) : base( typeof( ClericTrialByFireSpell ), 0xE39, amount )
+		public ClericTrialByFireScroll(int amount) : base(typeof(ClericTrialByFireSpell), 0xE39, amount)
 		{
 			Name = "Próba Ognia";
 			Hue = 0x1F0;
 		}
 
-		public ClericTrialByFireScroll( Serial serial ) : base( serial )
+		public ClericTrialByFireScroll(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

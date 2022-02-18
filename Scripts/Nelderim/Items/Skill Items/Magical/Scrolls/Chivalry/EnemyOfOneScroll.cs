@@ -1,36 +1,32 @@
-using System;
-using Server;
-using Server.Items;
-
 namespace Server.Items
 {
 	public class EnemyOfOneScroll : ChivalrySpellScroll
 	{
 		[Constructable]
-		public EnemyOfOneScroll() : this( 1 )
+		public EnemyOfOneScroll() : this(1)
 		{
 		}
 
 		[Constructable]
-        public EnemyOfOneScroll(int amount) : base(205, 0x1F6D, amount)
+		public EnemyOfOneScroll(int amount) : base(205, 0x1F6D, amount)
 		{
-            Name = "Obsesja";
+			Name = "Obsesja";
 		}
 
-        public EnemyOfOneScroll(Serial serial) : base(serial)
+		public EnemyOfOneScroll(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

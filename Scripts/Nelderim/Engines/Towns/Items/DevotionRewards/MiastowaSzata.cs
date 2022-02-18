@@ -1,14 +1,17 @@
-using System;
+#region References
+
 using Nelderim.Towns;
+
+#endregion
 
 namespace Server.Items
 {
 	[Flipable]
 	public class MiastowaSzata : BaseOuterTorso
 	{
-		public override bool Dye( Mobile from, DyeTub sender )
+		public override bool Dye(Mobile from, DyeTub sender)
 		{
-			from.SendLocalizedMessage( sender.FailMessage );
+			from.SendLocalizedMessage(sender.FailMessage);
 			return false;
 		}
 
@@ -16,431 +19,415 @@ namespace Server.Items
 		{
 		}
 
-		public MiastowaSzata( int hue) : base( 0x1F03, hue )
+		public MiastowaSzata(int hue) : base(0x1F03, hue)
 		{
 			Weight = 3.0;
 			LootType = LootType.Blessed;
 		}
 
-        public MiastowaSzata(Serial serial)
-            : base(serial)
+		public MiastowaSzata(Serial serial)
+			: base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
 	}
 
-    [Flipable]
-    public class MiastowaSzataTasandora : MiastowaSzata
-    {
-        public override int BaseColdResistance { get { return 1; } }
-        public override int LabelNumber { get { return 1063965; } } // Szata miasta Bedwyrgard
+	[Flipable]
+	public class MiastowaSzataTasandora : MiastowaSzata
+	{
+		public override int BaseColdResistance { get { return 1; } }
+		public override int LabelNumber { get { return 1063965; } } // Szata miasta Bedwyrgard
 
-        [Constructable]
-        public MiastowaSzataTasandora()
-            : base(2894)
-        {
-        }
+		[Constructable]
+		public MiastowaSzataTasandora()
+			: base(2894)
+		{
+		}
 
-        public MiastowaSzataTasandora(Serial serial)
-            : base(serial)
-        {
-        }
+		public MiastowaSzataTasandora(Serial serial)
+			: base(serial)
+		{
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            writer.Write((int)0); // version
-        }
+			writer.Write(0); // version
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-            int version = reader.ReadInt();
-        }
+			int version = reader.ReadInt();
+		}
 
-        public override bool CanEquip(Mobile m)
-        {
-            if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Tasandora))
-            {
-                return true;
-            }
-            else
-	        {
-                m.SendLocalizedMessage(1063970);
-                return false;
-	        }
-        }
-    }
+		public override bool CanEquip(Mobile m)
+		{
+			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Tasandora))
+			{
+				return true;
+			}
 
-    [Flipable]
-    public class MiastowaSzataTwierdza : MiastowaSzata
-    {
-        public override int BaseEnergyResistance { get { return 1; } }
-        public override int LabelNumber { get { return 1063966; } } // Szata miasta Malluan
+			m.SendLocalizedMessage(1063970);
+			return false;
+		}
+	}
 
-        [Constructable]
-        public MiastowaSzataTwierdza()
-            : base(2942)
-        {
-            Hue = 1333;
-        }
+	[Flipable]
+	public class MiastowaSzataTwierdza : MiastowaSzata
+	{
+		public override int BaseEnergyResistance { get { return 1; } }
+		public override int LabelNumber { get { return 1063966; } } // Szata miasta Malluan
 
-        public MiastowaSzataTwierdza(Serial serial)
-            : base(serial)
-        {
-        }
+		[Constructable]
+		public MiastowaSzataTwierdza()
+			: base(2942)
+		{
+			Hue = 1333;
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public MiastowaSzataTwierdza(Serial serial)
+			: base(serial)
+		{
+		}
 
-            writer.Write((int)0); // version
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+			writer.Write(0); // version
+		}
 
-            int version = reader.ReadInt();
-        }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-        public override bool CanEquip(Mobile m)
-        {
-            if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Twierdza))
-            {
-                return true;
-            }
-            else
-            {
-                m.SendLocalizedMessage(1063970);
-                return false;
-            }
-        }
-    }
+			int version = reader.ReadInt();
+		}
 
-    [Flipable]
-    public class MiastowaSzataWioskaDrowow : MiastowaSzata
-    {
-        public override int BaseFireResistance { get { return 1; } }
-        //public override int LabelNumber { get { return 1063967; } } // Szata miasta Nehkrumorgh
+		public override bool CanEquip(Mobile m)
+		{
+			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Twierdza))
+			{
+				return true;
+			}
 
-        [Constructable]
-        public MiastowaSzataWioskaDrowow()
-            : base(1908)
-        {
-            Name = "Szata Podmroku";
-        }
+			m.SendLocalizedMessage(1063970);
+			return false;
+		}
+	}
 
-        public MiastowaSzataWioskaDrowow(Serial serial)
-            : base(serial)
-        {
-        }
+	[Flipable]
+	public class MiastowaSzataWioskaDrowow : MiastowaSzata
+	{
+		public override int BaseFireResistance { get { return 1; } }
+		//public override int LabelNumber { get { return 1063967; } } // Szata miasta Nehkrumorgh
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		[Constructable]
+		public MiastowaSzataWioskaDrowow()
+			: base(1908)
+		{
+			Name = "Szata Podmroku";
+		}
 
-            writer.Write((int)0); // version
-        }
+		public MiastowaSzataWioskaDrowow(Serial serial)
+			: base(serial)
+		{
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            int version = reader.ReadInt();
-        }
+			writer.Write(0); // version
+		}
 
-        public override bool CanEquip(Mobile m)
-        {
-            if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Wioska_Drowow))
-            {
-                return true;
-            }
-            else
-            {
-                m.SendLocalizedMessage(1063970);
-                return false;
-            }
-        }
-    }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-    [Flipable]
-    public class MiastowaSzataGarlan : MiastowaSzata
-    {
-        public override int BasePoisonResistance { get { return 1; } }
-        public override int LabelNumber { get { return 1063968; } } // Szata miasta Magizhaar
+			int version = reader.ReadInt();
+		}
 
-        [Constructable]
-        public MiastowaSzataGarlan()
-            : base(2315)
-        {
-            Hue = 1253;
-        }
+		public override bool CanEquip(Mobile m)
+		{
+			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Wioska_Drowow))
+			{
+				return true;
+			}
 
-        public MiastowaSzataGarlan(Serial serial)
-            : base(serial)
-        {
-        }
+			m.SendLocalizedMessage(1063970);
+			return false;
+		}
+	}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+	[Flipable]
+	public class MiastowaSzataGarlan : MiastowaSzata
+	{
+		public override int BasePoisonResistance { get { return 1; } }
+		public override int LabelNumber { get { return 1063968; } } // Szata miasta Magizhaar
 
-            writer.Write((int)0); // version
-        }
+		[Constructable]
+		public MiastowaSzataGarlan()
+			: base(2315)
+		{
+			Hue = 1253;
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public MiastowaSzataGarlan(Serial serial)
+			: base(serial)
+		{
+		}
 
-            int version = reader.ReadInt();
-        }
-        public override bool CanEquip(Mobile m)
-        {
-            if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Garlan))
-            {
-                return true;
-            }
-            else
-            {
-                m.SendLocalizedMessage(1063970);
-                return false;
-            }
-        }
-    }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-	[Flipable( 0x2684, 0x2683 )]
+			writer.Write(0); // version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+
+			int version = reader.ReadInt();
+		}
+
+		public override bool CanEquip(Mobile m)
+		{
+			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Garlan))
+			{
+				return true;
+			}
+
+			m.SendLocalizedMessage(1063970);
+			return false;
+		}
+	}
+
+	[Flipable(0x2684, 0x2683)]
 	public class MiastowaSzataZKapturem : BaseOuterTorso
 	{
-		public MiastowaSzataZKapturem( int hue ) : base( 0x2684, hue )
+		public MiastowaSzataZKapturem(int hue) : base(0x2684, hue)
 		{
 			LootType = LootType.Blessed;
 			Weight = 4.0;
 		}
 
-		public override bool Dye( Mobile from, DyeTub sender )
+		public override bool Dye(Mobile from, DyeTub sender)
 		{
-			from.SendLocalizedMessage( sender.FailMessage );
+			from.SendLocalizedMessage(sender.FailMessage);
 			return false;
 		}
 
-        public MiastowaSzataZKapturem(Serial serial)
-            : base(serial)
+		public MiastowaSzataZKapturem(Serial serial)
+			: base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
 	}
 
-    [Flipable(0x2684, 0x2683)]
-    public class MiastowaSzataZKapturemTasandora : MiastowaSzataZKapturem
-    {
-        public override int BaseColdResistance { get { return 2; } }
-        public override int LabelNumber { get { return 1063965; } } // Szata miasta Bedwyrgard
+	[Flipable(0x2684, 0x2683)]
+	public class MiastowaSzataZKapturemTasandora : MiastowaSzataZKapturem
+	{
+		public override int BaseColdResistance { get { return 2; } }
+		public override int LabelNumber { get { return 1063965; } } // Szata miasta Bedwyrgard
 
-        [Constructable]
-        public MiastowaSzataZKapturemTasandora()
-            : base(1570)
-        {
-            Hue = 327;
-        }
+		[Constructable]
+		public MiastowaSzataZKapturemTasandora()
+			: base(1570)
+		{
+			Hue = 327;
+		}
 
-        public MiastowaSzataZKapturemTasandora(Serial serial)
-            : base(serial)
-        {
-        }
+		public MiastowaSzataZKapturemTasandora(Serial serial)
+			: base(serial)
+		{
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            writer.Write((int)0); // version
-        }
+			writer.Write(0); // version
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-            int version = reader.ReadInt();
-        }
+			int version = reader.ReadInt();
+		}
 
-        public override bool CanEquip(Mobile m)
-        {
-            if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Tasandora))
-            {
-                return true;
-            }
-            else
-            {
-                m.SendLocalizedMessage(1063970);
-                return false;
-            }
-        }
-    }
+		public override bool CanEquip(Mobile m)
+		{
+			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Tasandora))
+			{
+				return true;
+			}
 
-    [Flipable(0x2684, 0x2683)]
-    public class MiastowaSzataZKapturemTwierdza : MiastowaSzataZKapturem
-    {
-        public override int BaseEnergyResistance { get { return 2; } }
-        public override int LabelNumber { get { return 1063966; } } // Szata miasta Malluan
+			m.SendLocalizedMessage(1063970);
+			return false;
+		}
+	}
 
-        [Constructable]
-        public MiastowaSzataZKapturemTwierdza()
-            : base(2942)
-        {
-            Hue = 1333;
-        }
+	[Flipable(0x2684, 0x2683)]
+	public class MiastowaSzataZKapturemTwierdza : MiastowaSzataZKapturem
+	{
+		public override int BaseEnergyResistance { get { return 2; } }
+		public override int LabelNumber { get { return 1063966; } } // Szata miasta Malluan
 
-        public MiastowaSzataZKapturemTwierdza(Serial serial)
-            : base(serial)
-        {
-        }
+		[Constructable]
+		public MiastowaSzataZKapturemTwierdza()
+			: base(2942)
+		{
+			Hue = 1333;
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public MiastowaSzataZKapturemTwierdza(Serial serial)
+			: base(serial)
+		{
+		}
 
-            writer.Write((int)0); // version
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+			writer.Write(0); // version
+		}
 
-            int version = reader.ReadInt();
-        }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-        public override bool CanEquip(Mobile m)
-        {
-            if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Twierdza))
-            {
-                return true;
-            }
-            else
-            {
-                m.SendLocalizedMessage(1063970);
-                return false;
-            }
-        }
-    }
+			int version = reader.ReadInt();
+		}
 
-    [Flipable(0x2684, 0x2683)]
-    public class MiastowaSzataZKapturemWioskaDrowow : MiastowaSzataZKapturem
-    {
-        public override int BaseFireResistance { get { return 2; } }
-        public override int LabelNumber { get { return 1063967; } } // Szata miasta Nehkrumorgh
+		public override bool CanEquip(Mobile m)
+		{
+			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Twierdza))
+			{
+				return true;
+			}
 
-        [Constructable]
-        public MiastowaSzataZKapturemWioskaDrowow()
-            : base(1908)
-        {
-            Name = "Szata Podmroku";
-        }
+			m.SendLocalizedMessage(1063970);
+			return false;
+		}
+	}
 
-        public MiastowaSzataZKapturemWioskaDrowow(Serial serial)
-            : base(serial)
-        {
-        }
+	[Flipable(0x2684, 0x2683)]
+	public class MiastowaSzataZKapturemWioskaDrowow : MiastowaSzataZKapturem
+	{
+		public override int BaseFireResistance { get { return 2; } }
+		public override int LabelNumber { get { return 1063967; } } // Szata miasta Nehkrumorgh
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		[Constructable]
+		public MiastowaSzataZKapturemWioskaDrowow()
+			: base(1908)
+		{
+			Name = "Szata Podmroku";
+		}
 
-            writer.Write((int)0); // version
-        }
+		public MiastowaSzataZKapturemWioskaDrowow(Serial serial)
+			: base(serial)
+		{
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            int version = reader.ReadInt();
-        }
+			writer.Write(0); // version
+		}
 
-        public override bool CanEquip(Mobile m)
-        {
-            if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Wioska_Drowow))
-            {
-                return true;
-            }
-            else
-            {
-                m.SendLocalizedMessage(1063970);
-                return false;
-            }
-        }
-    }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-    [Flipable(0x2684, 0x2683)]
-    public class MiastowaSzataZKapturemGarlan : MiastowaSzataZKapturem
-    {
-        public override int BasePoisonResistance { get { return 2; } }
-        public override int LabelNumber { get { return 1063968; } } // Szata miasta Magizhaar
+			int version = reader.ReadInt();
+		}
 
-        [Constructable]
-        public MiastowaSzataZKapturemGarlan()
-            : base(2315)
-        {
-            Hue = 1253;
-        }
+		public override bool CanEquip(Mobile m)
+		{
+			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Wioska_Drowow))
+			{
+				return true;
+			}
 
-        public MiastowaSzataZKapturemGarlan(Serial serial)
-            : base(serial)
-        {
-        }
+			m.SendLocalizedMessage(1063970);
+			return false;
+		}
+	}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+	[Flipable(0x2684, 0x2683)]
+	public class MiastowaSzataZKapturemGarlan : MiastowaSzataZKapturem
+	{
+		public override int BasePoisonResistance { get { return 2; } }
+		public override int LabelNumber { get { return 1063968; } } // Szata miasta Magizhaar
 
-            writer.Write((int)0); // version
-        }
+		[Constructable]
+		public MiastowaSzataZKapturemGarlan()
+			: base(2315)
+		{
+			Hue = 1253;
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public MiastowaSzataZKapturemGarlan(Serial serial)
+			: base(serial)
+		{
+		}
 
-            int version = reader.ReadInt();
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-        public override bool CanEquip(Mobile m)
-        {
-            if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Garlan))
-            {
-                return true;
-            }
-            else
-            {
-                m.SendLocalizedMessage(1063970);
-                return false;
-            }
-        }
-    }
+			writer.Write(0); // version
+		}
 
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+
+			int version = reader.ReadInt();
+		}
+
+		public override bool CanEquip(Mobile m)
+		{
+			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Garlan))
+			{
+				return true;
+			}
+
+			m.SendLocalizedMessage(1063970);
+			return false;
+		}
+	}
 }

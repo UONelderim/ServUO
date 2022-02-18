@@ -6,132 +6,148 @@
  * 
  * 
  */
- using System; 
- using Server;
+
+#region References
+
+using System;
+
+#endregion
 
 namespace Server.Items
 {
-	
-	[FlipableAttribute( 0x2FC4, 0x317A )]
-	public class SantasElfBoots : BaseShoes//, IArcaneEquip
+	[FlipableAttribute(0x2FC4, 0x317A)]
+	public class SantasElfBoots : BaseShoes //, IArcaneEquip
 	{
 		#region Arcane Impl
+
 		private int m_MaxArcaneCharges, m_CurArcaneCharges;
 
-		[CommandProperty( AccessLevel.GameMaster )]
+		[CommandProperty(AccessLevel.GameMaster)]
 		public int MaxArcaneCharges
 		{
-			get{ return m_MaxArcaneCharges; }
-			set{ m_MaxArcaneCharges = value; InvalidateProperties(); Update(); }
+			get { return m_MaxArcaneCharges; }
+			set
+			{
+				m_MaxArcaneCharges = value;
+				InvalidateProperties();
+				Update();
+			}
 		}
 
-		[CommandProperty( AccessLevel.GameMaster )]
+		[CommandProperty(AccessLevel.GameMaster)]
 		public int CurArcaneCharges
 		{
-			get{ return m_CurArcaneCharges; }
-			set{ m_CurArcaneCharges = value; InvalidateProperties(); Update(); }
+			get { return m_CurArcaneCharges; }
+			set
+			{
+				m_CurArcaneCharges = value;
+				InvalidateProperties();
+				Update();
+			}
 		}
 
-		[CommandProperty( AccessLevel.GameMaster )]
+		[CommandProperty(AccessLevel.GameMaster)]
 		public bool IsArcane
 		{
-			get{ return ( m_MaxArcaneCharges > 0 && m_CurArcaneCharges >= 0 ); }
+			get { return (m_MaxArcaneCharges > 0 && m_CurArcaneCharges >= 0); }
 		}
 
-		public override void OnSingleClick( Mobile from )
+		public override void OnSingleClick(Mobile from)
 		{
-			base.OnSingleClick( from );
+			base.OnSingleClick(from);
 
-			if ( IsArcane )
-				LabelTo( from, 1061837, String.Format( "{0}\t{1}", m_CurArcaneCharges, m_MaxArcaneCharges ) );
+			if (IsArcane)
+				LabelTo(from, 1061837, String.Format("{0}\t{1}", m_CurArcaneCharges, m_MaxArcaneCharges));
 		}
 
 		public void Update()
 		{
-			if ( IsArcane )
+			if (IsArcane)
 				ItemID = 0x317A;
-			else if ( ItemID == 0x317A )
+			else if (ItemID == 0x317A)
 				ItemID = 0x2FCA;
 
-			if ( IsArcane && CurArcaneCharges == 0 )
+			if (IsArcane && CurArcaneCharges == 0)
 				Hue = 0;
 		}
 
-		public override void GetProperties( ObjectPropertyList list )
+		public override void GetProperties(ObjectPropertyList list)
 		{
-			base.GetProperties( list );
+			base.GetProperties(list);
 
-			if ( IsArcane )
-				list.Add( 1061837, "{0}\t{1}", m_CurArcaneCharges, m_MaxArcaneCharges ); // arcane charges: ~1_val~ / ~2_val~
+			if (IsArcane)
+				list.Add(1061837, "{0}\t{1}", m_CurArcaneCharges,
+					m_MaxArcaneCharges); // arcane charges: ~1_val~ / ~2_val~
 		}
 
 		public void Flip()
 		{
-			if ( ItemID == 0x2FCA )
+			if (ItemID == 0x2FCA)
 				ItemID = 0x317A;
-			else if ( ItemID == 0x317A )
+			else if (ItemID == 0x317A)
 				ItemID = 0x2FCA;
 		}
+
 		#endregion
 
-		public override CraftResource DefaultResource{ get{ return CraftResource.RegularLeather; } }
+		public override CraftResource DefaultResource { get { return CraftResource.RegularLeather; } }
 
 		[Constructable]
-		public SantasElfBoots() : this( 0 )
+		public SantasElfBoots() : this(0)
 		{
 		}
 
 		[Constructable]
-		public SantasElfBoots( int hue ) : base( 0x2FCA, hue )
+		public SantasElfBoots(int hue) : base(0x2FCA, hue)
 		{
-            Name = "Buty elfow pana";
+			Name = "Buty elfow pana";
 			Weight = 4.0;
-			
-			MaxArcaneCharges= 25;
+
+			MaxArcaneCharges = 25;
 			CurArcaneCharges = 25;
-			
+
 			Attributes.NightSight = 1;
 			Attributes.BonusDex = 3;
 		}
 
-		public SantasElfBoots( Serial serial ) : base( serial )
+		public SantasElfBoots(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 1 ); // version
+			writer.Write(1); // version
 
-			if ( IsArcane )
+			if (IsArcane)
 			{
-				writer.Write( true );
-				writer.Write( (int) m_CurArcaneCharges );
-				writer.Write( (int) m_MaxArcaneCharges );
+				writer.Write(true);
+				writer.Write(m_CurArcaneCharges);
+				writer.Write(m_MaxArcaneCharges);
 			}
 			else
 			{
-				writer.Write( false );
+				writer.Write(false);
 			}
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 
-			switch ( version )
+			switch (version)
 			{
 				case 1:
 				{
-					if ( reader.ReadBool() )
+					if (reader.ReadBool())
 					{
 						m_CurArcaneCharges = reader.ReadInt();
 						m_MaxArcaneCharges = reader.ReadInt();
 
-						if ( Hue == 2118 )
+						if (Hue == 2118)
 							Hue = ArcaneGem.DefaultArcaneHue;
 					}
 

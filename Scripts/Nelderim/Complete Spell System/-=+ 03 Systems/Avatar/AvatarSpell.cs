@@ -1,5 +1,9 @@
+#region References
+
 using System;
 using Server.Spells;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Avatar
 {
@@ -36,14 +40,16 @@ namespace Server.ACC.CSS.Systems.Avatar
 						.ToString("F1")); // You must have at least ~1_SKILL_REQUIREMENT~ Chivalry to use this ability,
 				return false;
 			}
-			else if (Caster.TithingPoints < RequiredTithing)
+
+			if (Caster.TithingPoints < RequiredTithing)
 			{
 				Caster.SendLocalizedMessage(1060173,
 					RequiredTithing
 						.ToString()); // You must have at least ~1_TITHE_REQUIREMENT~ Tithing Points to use this ability,
 				return false;
 			}
-			else if (Caster.Mana < ScaleMana(RequiredMana))
+
+			if (Caster.Mana < ScaleMana(RequiredMana))
 			{
 				Caster.SendLocalizedMessage(1060174,
 					RequiredMana.ToString()); // You must have at least ~1_MANA_REQUIREMENT~ Mana to use this ability.
@@ -69,14 +75,16 @@ namespace Server.ACC.CSS.Systems.Avatar
 						.ToString("F1")); // You must have at least ~1_SKILL_REQUIREMENT~ Chivalry to use this ability,
 				return false;
 			}
-			else if (Caster.TithingPoints < requiredTithing)
+
+			if (Caster.TithingPoints < requiredTithing)
 			{
 				Caster.SendLocalizedMessage(1060173,
 					RequiredTithing
 						.ToString()); // You must have at least ~1_TITHE_REQUIREMENT~ Tithing Points to use this ability,
 				return false;
 			}
-			else if (Caster.Mana < mana)
+
+			if (Caster.Mana < mana)
 			{
 				Caster.SendLocalizedMessage(1060174,
 					RequiredMana.ToString()); // You must have at least ~1_MANA_REQUIREMENT~ Mana to use this ability.

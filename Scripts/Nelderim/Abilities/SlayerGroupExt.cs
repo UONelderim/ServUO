@@ -1,6 +1,10 @@
-﻿using System;
+﻿#region References
+
+using System;
 using System.Linq;
 using Server.Mobiles;
+
+#endregion
 
 namespace Server.Items
 {

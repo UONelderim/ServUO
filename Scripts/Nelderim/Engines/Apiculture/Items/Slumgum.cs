@@ -1,16 +1,14 @@
-using System;
-
 namespace Server.Items
 {
 	public class Slumgum : Item
 	{
 		[Constructable]
-		public Slumgum() : this( 1 )
+		public Slumgum() : this(1)
 		{
 		}
 
 		[Constructable]
-		public Slumgum( int amount ) : base( 5927 )
+		public Slumgum(int amount) : base(5927)
 		{
 			Weight = 1.0;
 			Stackable = true;
@@ -19,20 +17,20 @@ namespace Server.Items
 			Name = "Pastura";
 		}
 
-		public Slumgum( Serial serial ) : base( serial )
+		public Slumgum(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 );
+			writer.Write(0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

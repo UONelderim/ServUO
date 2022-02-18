@@ -1,6 +1,10 @@
+#region References
+
 using System;
 using System.Collections.Generic;
 using Server.Network;
+
+#endregion
 
 namespace Server.Gumps
 {

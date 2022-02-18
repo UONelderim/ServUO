@@ -1,130 +1,135 @@
+#region References
+
 using Server.Mobiles;
+
+#endregion
 
 namespace Server.SicknessSys.Mobiles
 {
-    class SuperSpreader : BaseCreature
-    {
-        private IllnessType Illness { get; set; }
-        private int InfectedCount;
+	class SuperSpreader : BaseCreature
+	{
+		private IllnessType Illness { get; set; }
+		private int InfectedCount;
 
-        [Constructable]
-        public SuperSpreader(bool IsDecided = false, int illness = 0) : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
-        {
-            int getIllness = Utility.Random(1, 3);
+		[Constructable]
+		public SuperSpreader(bool IsDecided = false, int illness = 0) : base(AIType.AI_Melee, FightMode.Aggressor, 10,
+			1, 0.2, 0.4)
+		{
+			int getIllness = Utility.Random(1, 3);
 
-            if (IsDecided)
-            {
-                if (illness > 0 && illness < 4)
-                    getIllness = illness;
-                else
-                    getIllness = 2;
-            }
+			if (IsDecided)
+			{
+				if (illness > 0 && illness < 4)
+					getIllness = illness;
+				else
+					getIllness = 2;
+			}
 
-            if (getIllness > 3 || getIllness < 1)
-                getIllness = 2;
+			if (getIllness > 3 || getIllness < 1)
+				getIllness = 2;
 
-            Illness = (IllnessType)getIllness;
+			Illness = (IllnessType)getIllness;
 
-            Name = "a " + Illness.ToString() + " super spreader";
+			Name = "a " + Illness + " super spreader";
 
-            Body = 238;
+			Body = 238;
 
-            InitStats(10, 10, 10);
+			InitStats(10, 10, 10);
 
-            SetHits(10);
-            SetDamage(0);
-            
-            Blessed = true;
-            Hidden = true;
-            CantWalk = true;
+			SetHits(10);
+			SetDamage(0);
 
-            InfectedCount = 0;
-        }
+			Blessed = true;
+			Hidden = true;
+			CantWalk = true;
 
-        public override void OnMovement(Mobile m, Point3D oldLocation)
-        {
-            StayHidden();
+			InfectedCount = 0;
+		}
 
-            base.OnMovement(m, oldLocation);
-        }
+		public override void OnMovement(Mobile m, Point3D oldLocation)
+		{
+			StayHidden();
 
-        public override void OnAfterMove(Point3D oldLocation)
-        {
-            StayHidden();
+			base.OnMovement(m, oldLocation);
+		}
 
-            base.OnAfterMove(oldLocation);
-        }
+		public override void OnAfterMove(Point3D oldLocation)
+		{
+			StayHidden();
 
-        public override void OnThink()
-        {
-            StayHidden();
+			base.OnAfterMove(oldLocation);
+		}
 
-            foreach (Mobile mobile in GetMobilesInRange(3))
-            {
-                if (mobile is PlayerMobile)
-                {
-                    PlayerMobile pm = mobile as PlayerMobile;
+		public override void OnThink()
+		{
+			StayHidden();
 
-                    Item HasVirus = pm.Backpack.FindItemByType(typeof(VirusCell));
+			foreach (Mobile mobile in GetMobilesInRange(3))
+			{
+				if (mobile is PlayerMobile)
+				{
+					PlayerMobile pm = mobile as PlayerMobile;
 
-                    if (HasVirus == null)
-                    {
-                        int Chance = SicknessHelper.GetSickChance(pm, 0);
+					Item HasVirus = pm.Backpack.FindItemByType(typeof(VirusCell));
 
-                        if (Chance != 0)
-                        {
-                            int rndInfect = Utility.RandomMinMax(1, 10);
+					if (HasVirus == null)
+					{
+						int Chance = SicknessHelper.GetSickChance(pm, 0);
 
-                            if (Chance == 100)
-                            {
-                                SicknessInfect.Infect(pm, Illness);
-                                InfectedCount++;
-                            }
-                            else
-                            {
-                                if (rndInfect <= Chance)
-                                {
-                                    SicknessInfect.Infect(pm, Illness);
-                                    InfectedCount++;
-                                }
-                            }
-                        }
-                    }
+						if (Chance != 0)
+						{
+							int rndInfect = Utility.RandomMinMax(1, 10);
 
-                    if (InfectedCount > 10)
-                    {
-                        Delete();
-                    }
-                }
-            }
+							if (Chance == 100)
+							{
+								SicknessInfect.Infect(pm, Illness);
+								InfectedCount++;
+							}
+							else
+							{
+								if (rndInfect <= Chance)
+								{
+									SicknessInfect.Infect(pm, Illness);
+									InfectedCount++;
+								}
+							}
+						}
+					}
 
-            base.OnThink();
-        }
+					if (InfectedCount > 10)
+					{
+						Delete();
+					}
+				}
+			}
 
-        public SuperSpreader(Serial serial) : base(serial)
-        {
-        }
+			base.OnThink();
+		}
 
-        private void StayHidden()
-        {
-            if (!Hidden)
-                Hidden = true;
-        }
+		public SuperSpreader(Serial serial) : base(serial)
+		{
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-            writer.Write((int)0);
+		private void StayHidden()
+		{
+			if (!Hidden)
+				Hidden = true;
+		}
 
-            writer.Write((int)Illness);
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+			writer.Write(0);
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-            int version = reader.ReadInt();
+			writer.Write((int)Illness);
+		}
 
-            Illness = (IllnessType)reader.ReadInt();
-        }
-    }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+			int version = reader.ReadInt();
+
+			Illness = (IllnessType)reader.ReadInt();
+		}
+	}
 }

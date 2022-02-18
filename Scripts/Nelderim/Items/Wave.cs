@@ -1,6 +1,9 @@
+#region References
+
 using System;
 using System.Collections.Generic;
-using Server;
+
+#endregion
 
 namespace Server.Items
 {
@@ -15,11 +18,11 @@ namespace Server.Items
 		public Wave(Direction direction, bool small) : base(0x1FB7)
 		{
 			Movable = false;
-			switch(direction)
+			switch (direction)
 			{
 				case Direction.North:
 				{
-					if(small)
+					if (small)
 						ItemID = 0x1FA3;
 					else
 						ItemID = 0x1FB7;
@@ -27,7 +30,7 @@ namespace Server.Items
 				}
 				case Direction.South:
 				{
-					if(small)
+					if (small)
 						ItemID = 0x1FB2;
 					else
 						ItemID = 0x1FC6;
@@ -35,7 +38,7 @@ namespace Server.Items
 				}
 				case Direction.East:
 				{
-					if(small)
+					if (small)
 						ItemID = 0x1FAD;
 					else
 						ItemID = 0x1FC1;
@@ -43,7 +46,7 @@ namespace Server.Items
 				}
 				case Direction.West:
 				{
-					if(small)
+					if (small)
 						ItemID = 0x1FA8;
 					else
 						ItemID = 0x1FBC;
@@ -55,6 +58,7 @@ namespace Server.Items
 					break;
 				}
 			}
+
 			WaveTimer.WaveList.Add(this);
 		}
 
@@ -71,7 +75,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -84,23 +88,23 @@ namespace Server.Items
 		}
 	}
 
-	public class WaveTimer : Timer 
+	public class WaveTimer : Timer
 	{
 		public const bool Enabled = true;
 		public static List<Wave> WaveList = new List<Wave>();
 
-		public static void Initialize() 
+		public static void Initialize()
 		{
 			if (Enabled)
 				new WaveTimer().Start();
 		}
 
-		public WaveTimer() : base(TimeSpan.FromSeconds( 3.0 ), TimeSpan.FromSeconds( 3.0 )) 
+		public WaveTimer() : base(TimeSpan.FromSeconds(3.0), TimeSpan.FromSeconds(3.0))
 		{
 			Priority = TimerPriority.OneSecond;
 		}
 
-		protected override void OnTick() 
+		protected override void OnTick()
 		{
 			foreach (Wave wave in WaveList)
 				wave.OnTick();

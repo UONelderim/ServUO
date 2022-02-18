@@ -1,5 +1,8 @@
+#region References
+
 using System;
-using Server;
+
+#endregion
 
 namespace Server.ACC.CM
 {
@@ -12,34 +15,33 @@ namespace Server.ACC.CM
 		 * and add/subtract from it what is on the Module mod.
 		 * if( negatively ) means you want to remove stuff.
 		 */
-		public abstract void Append( Module mod, bool negatively );
+		public abstract void Append(Module mod, bool negatively);
 
 		public abstract string Name();
 
 		internal int m_TypeRef;
-		private Serial m_Owner;
-		public  Serial Owner{ get{ return m_Owner; } }
+		public Serial Owner { get; }
 
-		public Module( Serial ser )
+		public Module(Serial ser)
 		{
-			m_Owner = ser;
+			Owner = ser;
 
 			Type type = this.GetType();
-			m_TypeRef = CentralMemory.m_Types.IndexOf( type );
+			m_TypeRef = CentralMemory.m_Types.IndexOf(type);
 
-            if (m_TypeRef == -1)
-            {
-                CentralMemory.m_Types.Add(type);
-                m_TypeRef = CentralMemory.m_Types.Count - 1;
-            }
+			if (m_TypeRef == -1)
+			{
+				CentralMemory.m_Types.Add(type);
+				m_TypeRef = CentralMemory.m_Types.Count - 1;
+			}
 		}
 
-		public virtual void Serialize( GenericWriter writer )
+		public virtual void Serialize(GenericWriter writer)
 		{
-			writer.Write( (int)0 ); //version
+			writer.Write(0); //version
 		}
 
-		public virtual void Deserialize( GenericReader reader )
+		public virtual void Deserialize(GenericReader reader)
 		{
 			int version = reader.ReadInt();
 		}

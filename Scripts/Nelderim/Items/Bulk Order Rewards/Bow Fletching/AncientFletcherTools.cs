@@ -1,6 +1,8 @@
-﻿using System;
-using Server;
+﻿#region References
+
 using Server.Engines.Craft;
+
+#endregion
 
 namespace Server.Items
 {
@@ -11,32 +13,42 @@ namespace Server.Items
 		private SkillMod m_SkillMod;
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public int Bonus {
-			get {
+		public int Bonus
+		{
+			get
+			{
 				return m_Bonus;
 			}
-			set {
+			set
+			{
 				m_Bonus = value;
 				InvalidateProperties();
 
-				if (m_Bonus == 0) {
+				if (m_Bonus == 0)
+				{
 					if (m_SkillMod != null)
 						m_SkillMod.Remove();
 
 					m_SkillMod = null;
-				} else if (m_SkillMod == null && Parent is Mobile) {
+				}
+				else if (m_SkillMod == null && Parent is Mobile)
+				{
 					m_SkillMod = new DefaultSkillMod(SkillName.Fletching, true, m_Bonus);
 					((Mobile)Parent).AddSkillMod(m_SkillMod);
-				} else if (m_SkillMod != null) {
+				}
+				else if (m_SkillMod != null)
+				{
 					m_SkillMod.Value = m_Bonus;
 				}
 			}
 		}
 
-		public override void OnAdded(IEntity parent) {
+		public override void OnAdded(IEntity parent)
+		{
 			base.OnAdded(parent);
 
-			if (m_Bonus != 0 && parent is Mobile) {
+			if (m_Bonus != 0 && parent is Mobile)
+			{
 				if (m_SkillMod != null)
 					m_SkillMod.Remove();
 
@@ -45,7 +57,8 @@ namespace Server.Items
 			}
 		}
 
-		public override void OnRemoved(IEntity parent) {
+		public override void OnRemoved(IEntity parent)
+		{
 			base.OnRemoved(parent);
 
 			if (m_SkillMod != null)
@@ -58,48 +71,57 @@ namespace Server.Items
 		public override int LabelNumber { get { return 1049802; } } // starozytne narzedzia lukmistrza
 
 		[Constructable]
-		public AncientFletcherTools(int bonus) : this(bonus, 600) {
+		public AncientFletcherTools(int bonus) : this(bonus, 600)
+		{
 		}
 
 		[Constructable]
-		public AncientFletcherTools(int bonus, int uses) : base(uses, 0x13f7) {
+		public AncientFletcherTools(int bonus, int uses) : base(uses, 0x13f7)
+		{
 			m_Bonus = bonus;
 			Weight = 8.0;
 			Layer = Layer.OneHanded;
 			Hue = 0x482;
 		}
 
-		public override void GetProperties(ObjectPropertyList list) {
+		public override void GetProperties(ObjectPropertyList list)
+		{
 			base.GetProperties(list);
 
 			if (m_Bonus != 0)
 				list.Add(1060451, "#1042355\t{0}", m_Bonus.ToString()); // ~1_skillname~ +~2_val~
 		}
 
-		public AncientFletcherTools(Serial serial) : base(serial) {
+		public AncientFletcherTools(Serial serial) : base(serial)
+		{
 		}
 
-		public override void Serialize(GenericWriter writer) {
+		public override void Serialize(GenericWriter writer)
+		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 
-			writer.Write((int)m_Bonus);
+			writer.Write(m_Bonus);
 		}
 
-		public override void Deserialize(GenericReader reader) {
+		public override void Deserialize(GenericReader reader)
+		{
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 
-			switch (version) {
-				case 0: {
-						m_Bonus = reader.ReadInt();
-						break;
-					}
+			switch (version)
+			{
+				case 0:
+				{
+					m_Bonus = reader.ReadInt();
+					break;
+				}
 			}
 
-			if (m_Bonus != 0 && Parent is Mobile) {
+			if (m_Bonus != 0 && Parent is Mobile)
+			{
 				if (m_SkillMod != null)
 					m_SkillMod.Remove();
 

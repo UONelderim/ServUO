@@ -2,15 +2,17 @@
 // Name: EGiveReward
 // Desc: Written by Eclipse
 //******************************************************
+
+#region References
+
 using System;
 using System.Collections;
-using Server;
-using Server.Items;
-using Server.Misc;
-using Server.Network;
-using Server.Mobiles;
 using Server.Accounting;
 using Server.Commands;
+using Server.Items;
+using Server.Network;
+
+#endregion
 
 namespace Server.Gumps
 {
@@ -18,14 +20,14 @@ namespace Server.Gumps
 	{
 		public static void Initialize()
 		{
-			CommandSystem.Register( "EGiveReward", AccessLevel.Administrator, new CommandEventHandler( EGiveReward_OnCommand ) );
+			CommandSystem.Register("EGiveReward", AccessLevel.Administrator, EGiveReward_OnCommand);
 		}
 
-		[Usage( "EGiveReward" )]
-		[Description( "" )]
-		private static void EGiveReward_OnCommand( CommandEventArgs e )
+		[Usage("EGiveReward")]
+		[Description("")]
+		private static void EGiveReward_OnCommand(CommandEventArgs e)
 		{
-			e.Mobile.SendGump( new GiveRewardGump() );
+			e.Mobile.SendGump(new GiveRewardGump());
 		}
 
 		public class RewardEntry
@@ -40,18 +42,19 @@ namespace Server.Gumps
 			}
 		}
 
-		public override string GumpName{ get{ return "Give Reward"; } }
-		public override Version VerNum{ get{ return new Version(1,0,2); } }
-		public override bool UseButton1{ get{ return true; } }
+		public override string GumpName { get { return "Give Reward"; } }
+		public override Version VerNum { get { return new Version(1, 0, 2); } }
+		public override bool UseButton1 { get { return true; } }
 		private bool m_bUseRandom;
 		private int m_iRandomNum = 1;
 		private int m_iRandomRangeMax = 7;
 
-		public GiveRewardGump() : this( new ArrayList(), 0, false, 0, 0 )
+		public GiveRewardGump() : this(new ArrayList(), 0, false, 0, 0)
 		{
 		}
 
-		public GiveRewardGump(ArrayList alList, int loc, bool bUseRandom, int iRandomNum, int iRandomRangeMax) : base(alList, loc, "")
+		public GiveRewardGump(ArrayList alList, int loc, bool bUseRandom, int iRandomNum, int iRandomRangeMax) : base(
+			alList, loc, "")
 		{
 			m_bUseRandom = bUseRandom;
 			m_iRandomNum = iRandomNum;
@@ -88,25 +91,25 @@ namespace Server.Gumps
 
 			this.AddBackground(634, 370, 48, 28, 9350);
 			this.AddTextEntry(637, 374, 35, 20, 0, 17, m_iRandomRangeMax.ToString());
-
 		}
 
 		public override string OnPopulateStringList(object obj, int loc)
 		{
-			if(obj is RewardEntry)
-				return string.Format( "Type: {0} Amount: {1}<BR>", ((RewardEntry)obj).m_type.Name, ((RewardEntry)obj).m_amount.ToString() );
+			if (obj is RewardEntry)
+				return String.Format("Type: {0} Amount: {1}<BR>", ((RewardEntry)obj).m_type.Name,
+					((RewardEntry)obj).m_amount.ToString());
 			return "";
 		}
 
 		private void GiveRewards()
 		{
-			foreach ( Account a in Accounts.GetAccounts() )
+			foreach (Account a in Accounts.GetAccounts())
 			{
-				for (int i=0 ;i<5 ;i++ )
+				for (int i = 0; i < 5; i++)
 				{
-					if( a[i] != null && a[i].BankBox != null)
+					if (a[i] != null && a[i].BankBox != null)
 					{
-						a[i].BankBox.DropItem( CreateRewardContainer() );
+						a[i].BankBox.DropItem(CreateRewardContainer());
 						break;
 					}
 				}
@@ -117,40 +120,41 @@ namespace Server.Gumps
 		{
 			Container rewardCont = new GiftBox();
 
-			if(m_bUseRandom)
+			if (m_bUseRandom)
 			{
-				for(int i=0;i<m_iRandomNum;i++)
+				for (int i = 0; i < m_iRandomNum; i++)
 				{
 					int iArrayLoc = m_iRandomRangeMax;
-					if(m_iRandomRangeMax > m_alList.Count)
+					if (m_iRandomRangeMax > m_alList.Count)
 						m_iRandomRangeMax = m_alList.Count;
-					AddRewardToContainer( rewardCont, (RewardEntry) m_alList[Utility.Random(m_iRandomRangeMax)] );
+					AddRewardToContainer(rewardCont, (RewardEntry)m_alList[Utility.Random(m_iRandomRangeMax)]);
 				}
 
-				for(int i=m_iRandomRangeMax;i<m_alList.Count;i++)
-					AddRewardToContainer( rewardCont, (RewardEntry) m_alList[i] );
+				for (int i = m_iRandomRangeMax; i < m_alList.Count; i++)
+					AddRewardToContainer(rewardCont, (RewardEntry)m_alList[i]);
 			}
 			else
 			{
-				foreach( RewardEntry entry in m_alList )
-					AddRewardToContainer( rewardCont, entry );
+				foreach (RewardEntry entry in m_alList)
+					AddRewardToContainer(rewardCont, entry);
 			}
+
 			return rewardCont;
 		}
 
-		private void AddRewardToContainer( Container cont, RewardEntry entry )
+		private void AddRewardToContainer(Container cont, RewardEntry entry)
 		{
-			object obj = Activator.CreateInstance( entry.m_type );
-			if(obj != null && obj is Item && cont != null)
+			object obj = Activator.CreateInstance(entry.m_type);
+			if (obj != null && obj is Item && cont != null)
 			{
-				if( ((Item)obj).Stackable && entry.m_amount > 1 )
+				if (((Item)obj).Stackable && entry.m_amount > 1)
 					((Item)obj).Amount = entry.m_amount;
 
-				cont.DropItem( ((Item)obj) );
+				cont.DropItem(((Item)obj));
 			}
 		}
 
-		public override void OnButton1Click( Mobile from, int pos )
+		public override void OnButton1Click(Mobile from, int pos)
 		{
 			m_alList.RemoveAt(pos);
 		}
@@ -160,13 +164,13 @@ namespace Server.Gumps
 			from.SendGump(new GiveRewardGump(m_alList, loc, m_bUseRandom, m_iRandomNum, m_iRandomRangeMax));
 		}
 
-		public override void OnResponse( NetState state, RelayInfo info )
+		public override void OnResponse(NetState state, RelayInfo info)
 		{
-			m_bUseRandom = info.IsSwitched( 15 );
+			m_bUseRandom = info.IsSwitched(15);
 
 			try
 			{
-				m_iRandomNum = int.Parse( ((TextRelay)info.GetTextEntry( 16 )).Text );
+				m_iRandomNum = Int32.Parse(info.GetTextEntry(16).Text);
 			}
 			catch
 			{
@@ -175,7 +179,7 @@ namespace Server.Gumps
 
 			try
 			{
-				m_iRandomRangeMax = int.Parse( ((TextRelay)info.GetTextEntry( 17 )).Text );
+				m_iRandomRangeMax = Int32.Parse(info.GetTextEntry(17).Text);
 			}
 			catch
 			{
@@ -183,15 +187,16 @@ namespace Server.Gumps
 			}
 
 
-			switch ( info.ButtonID )
+			switch (info.ButtonID)
 			{
 				case 14:
-					if(state.Mobile.Backpack != null)
+					if (state.Mobile.Backpack != null)
 					{
 						state.Mobile.SendMessage("Adding reward to your backpack...");
-						state.Mobile.Backpack.DropItem( CreateRewardContainer() );
+						state.Mobile.Backpack.DropItem(CreateRewardContainer());
 						state.Mobile.SendMessage("Done...");
 					}
+
 					break;
 				case 12:
 					state.Mobile.SendMessage("Giving out rewards...");
@@ -199,23 +204,23 @@ namespace Server.Gumps
 					state.Mobile.SendMessage("Done...");
 					break;
 				case 10:
-					Type RewardType = ScriptCompiler.FindTypeByName( ((TextRelay)info.GetTextEntry( 11 )).Text );
+					Type RewardType = ScriptCompiler.FindTypeByName(info.GetTextEntry(11).Text);
 
 					int RewardAmount = 1;
 
 					try
 					{
-						RewardAmount = int.Parse( ((TextRelay)info.GetTextEntry( 13 )).Text );
+						RewardAmount = Int32.Parse(info.GetTextEntry(13).Text);
 					}
-					catch{}
+					catch { }
 
-					if(RewardType != null && RewardType.IsSubclassOf( typeof(Item) ) )
-						m_alList.Add(new RewardEntry(RewardType,RewardAmount));
+					if (RewardType != null && RewardType.IsSubclassOf(typeof(Item)))
+						m_alList.Add(new RewardEntry(RewardType, RewardAmount));
 					else
 						state.Mobile.SendMessage("That is not an Item.");
 					break;
 				default:
-					base.OnResponse( state, info );
+					base.OnResponse(state, info);
 					return;
 			}
 

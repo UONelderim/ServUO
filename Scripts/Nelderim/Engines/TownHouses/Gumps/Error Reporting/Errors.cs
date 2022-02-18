@@ -1,70 +1,71 @@
+#region References
+
 using System;
 using System.Collections;
 using Server;
 using Server.Commands;
 using Server.Network;
 
+#endregion
+
 namespace Knives.TownHouses
 {
 	public class Errors
 	{
-		private static ArrayList s_ErrorLog = new ArrayList();
-		private static ArrayList s_Checked = new ArrayList();
-
-		public static ArrayList ErrorLog{ get{ return s_ErrorLog; } }
-		public static ArrayList Checked{ get{ return s_Checked; } }
+		public static ArrayList ErrorLog { get; } = new ArrayList();
+		public static ArrayList Checked { get; } = new ArrayList();
 
 		public static void Initialize()
 		{
-            CommandSystem.Register("TownHouseErrors", AccessLevel.Counselor, new CommandEventHandler(OnErrors));
-			CommandSystem.Register("therrors", AccessLevel.Counselor, new CommandEventHandler(OnErrors));
+			CommandSystem.Register("TownHouseErrors", AccessLevel.Counselor, OnErrors);
+			CommandSystem.Register("therrors", AccessLevel.Counselor, OnErrors);
 
-            EventSink.Login += new LoginEventHandler( OnLogin );
+			EventSink.Login += OnLogin;
 		}
 
-		private static void OnErrors(CommandEventArgs e )
+		private static void OnErrors(CommandEventArgs e)
 		{
-			if ( e.ArgString == null || e.ArgString == "" )
-				new ErrorsGump( e.Mobile );
+			if (e.ArgString == null || e.ArgString == "")
+				new ErrorsGump(e.Mobile);
 			else
-				Report( e.ArgString + " - " + e.Mobile.Name );
+				Report(e.ArgString + " - " + e.Mobile.Name);
 		}
 
-		private static void OnLogin( LoginEventArgs e )
+		private static void OnLogin(LoginEventArgs e)
 		{
-			if ( e.Mobile.AccessLevel != AccessLevel.Player
-			&& s_ErrorLog.Count != 0
-			&& !s_Checked.Contains( e.Mobile ) )
-				new ErrorsNotifyGump( e.Mobile );
+			if (e.Mobile.AccessLevel != AccessLevel.Player
+			    && ErrorLog.Count != 0
+			    && !Checked.Contains(e.Mobile))
+				new ErrorsNotifyGump(e.Mobile);
 		}
 
-		public static void Report( string error )
+		public static void Report(string error)
 		{
-			s_ErrorLog.Add( String.Format( "<B>{0}</B><BR>{1}<BR>", DateTime.Now, error ) );
+			ErrorLog.Add(String.Format("<B>{0}</B><BR>{1}<BR>", DateTime.Now, error));
 
-			s_Checked.Clear();
+			Checked.Clear();
 
 			Notify();
 		}
 
 		private static void Notify()
 		{
-			foreach( NetState state in NetState.Instances )
+			foreach (NetState state in NetState.Instances)
 			{
-				if ( state.Mobile == null )
+				if (state.Mobile == null)
 					continue;
 
-				if ( state.Mobile.AccessLevel != AccessLevel.Player )
-					Notify( state.Mobile );
+				if (state.Mobile.AccessLevel != AccessLevel.Player)
+					Notify(state.Mobile);
 			}
 		}
 
-		public static void Notify( Mobile m )
+		public static void Notify(Mobile m)
 		{
-			if ( m.HasGump( typeof( ErrorsGump ) ) )
-				new ErrorsGump( m );
+			if (m.HasGump(typeof(ErrorsGump)))
+				new ErrorsGump(m);
 			else
-				new ErrorsNotifyGump( m );
+				new ErrorsNotifyGump(m);
 		}
 	}
 }

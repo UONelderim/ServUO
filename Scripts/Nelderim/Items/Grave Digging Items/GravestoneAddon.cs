@@ -1,7 +1,11 @@
+#region References
+
 using Server.Gumps;
 using Server.Multis;
 using Server.Network;
 using Server.Targeting;
+
+#endregion
 
 namespace Server.Items
 {

@@ -1,39 +1,38 @@
-
 namespace Server.Mobiles
 {
-[CorpseName( "zwloki konia bojowego" )]
+	[CorpseName("zwloki konia bojowego")]
 	public class WarHorseB : NBaseWarHorse
 	{
 		[Constructable]
-		public WarHorseB() : this( "kon bojowy" )
+		public WarHorseB() : this("kon bojowy")
 		{
-			SetHits( 250 );
+			SetHits(250);
 		}
 
 		[Constructable]
-		public WarHorseB( string name ) : base( name, 0x77, 0x3EB1 )
+		public WarHorseB(string name) : base(name, 0x77, 0x3EB1)
 		{
-			SetResistance( ResistanceType.Cold, 55, 65 );
+			SetResistance(ResistanceType.Cold, 55, 65);
 		}
 
-		public override PackInstinct PackInstinct{ get{ return PackInstinct.Equine; } }
+		public override PackInstinct PackInstinct { get { return PackInstinct.Equine; } }
 
-		public WarHorseB( Serial serial ) : base( serial )
+		public WarHorseB(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 1 ); // version
+			writer.Write(1); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
-			if ( !m_isVersion0 )
+			if (!m_isVersion0)
 			{
 				int version = reader.ReadInt();
 			}

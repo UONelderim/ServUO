@@ -1,21 +1,20 @@
+#region References
+
 using System;
-using System.Collections;
-using Server;
-using Server.Items;
-using Server.Mobiles;
-using Server.Network;
+
+#endregion
 
 namespace Server.Items
 {
 	public class DreadSpiderNest : MonsterNest
 	{
 		[Constructable]
-		public DreadSpiderNest() : base()
+		public DreadSpiderNest()
 		{
 			Name = "Gniazdo Pająków";
 			Hue = 0;
 			MaxCount = 5;
-			RespawnTime = TimeSpan.FromSeconds( 30.0 );
+			RespawnTime = TimeSpan.FromSeconds(30.0);
 			HitsMax = 2000;
 			Hits = 2000;
 			NestSpawnType = "Pająki";
@@ -25,24 +24,24 @@ namespace Server.Items
 
 		public override void AddLoot()
 		{
-			MonsterNestLoot loot = new MonsterNestLoot( 4313, 0, this.LootLevel, "Jaja pająków" );
-			loot.MoveToWorld( this.Location, this.Map );
+			MonsterNestLoot loot = new MonsterNestLoot(4313, 0, this.LootLevel, "Jaja pająków");
+			loot.MoveToWorld(this.Location, this.Map);
 		}
 
-		public DreadSpiderNest( Serial serial ) : base( serial )
+		public DreadSpiderNest(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 );
+			writer.Write(0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

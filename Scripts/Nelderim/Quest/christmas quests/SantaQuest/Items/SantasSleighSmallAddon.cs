@@ -5,16 +5,11 @@
 // (Yet Another Arya Addon Generator) //
 //                                    //
 ////////////////////////////////////////
-using System;
-using Server;
-using Server.Items;
 
 namespace Server.Items
 {
 	public class SantasSleighSmallAddon : BaseAddon
 	{
-         
-            
 		public override BaseAddonDeed Deed
 		{
 			get
@@ -23,53 +18,52 @@ namespace Server.Items
 			}
 		}
 
-		[ Constructable ]
+		[Constructable]
 		public SantasSleighSmallAddon()
 		{
-
-
-
-			AddComplexComponent( (BaseAddon) this, 14984, 0, 0, 0, 0, -1, "Sanie Pana", 1);// 1
-			AddComplexComponent( (BaseAddon) this, 14983, 0, 1, 0, 0, -1, "Sanie Pana", 1);// 2
-
+			AddComplexComponent(this, 14984, 0, 0, 0, 0, -1, "Sanie Pana", 1); // 1
+			AddComplexComponent(this, 14983, 0, 1, 0, 0, -1, "Sanie Pana", 1); // 2
 		}
 
-		public SantasSleighSmallAddon( Serial serial ) : base( serial )
+		public SantasSleighSmallAddon(Serial serial) : base(serial)
 		{
 		}
 
-        private static void AddComplexComponent(BaseAddon addon, int item, int xoffset, int yoffset, int zoffset, int hue, int lightsource)
-        {
-            AddComplexComponent(addon, item, xoffset, yoffset, zoffset, hue, lightsource, null, 1);
-        }
-
-        private static void AddComplexComponent(BaseAddon addon, int item, int xoffset, int yoffset, int zoffset, int hue, int lightsource, string name, int amount)
-        {
-            AddonComponent ac;
-            ac = new AddonComponent(item);
-            if (name != null && name.Length > 0)
-                ac.Name = name;
-            if (hue != 0)
-                ac.Hue = hue;
-            if (amount > 1)
-            {
-                ac.Stackable = true;
-                ac.Amount = amount;
-            }
-            if (lightsource != -1)
-                ac.Light = (LightType) lightsource;
-            addon.AddComponent(ac, xoffset, yoffset, zoffset);
-        }
-
-		public override void Serialize( GenericWriter writer )
+		private static void AddComplexComponent(BaseAddon addon, int item, int xoffset, int yoffset, int zoffset,
+			int hue, int lightsource)
 		{
-			base.Serialize( writer );
-			writer.Write( 0 ); // Version
+			AddComplexComponent(addon, item, xoffset, yoffset, zoffset, hue, lightsource, null, 1);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		private static void AddComplexComponent(BaseAddon addon, int item, int xoffset, int yoffset, int zoffset,
+			int hue, int lightsource, string name, int amount)
 		{
-			base.Deserialize( reader );
+			AddonComponent ac;
+			ac = new AddonComponent(item);
+			if (name != null && name.Length > 0)
+				ac.Name = name;
+			if (hue != 0)
+				ac.Hue = hue;
+			if (amount > 1)
+			{
+				ac.Stackable = true;
+				ac.Amount = amount;
+			}
+
+			if (lightsource != -1)
+				ac.Light = (LightType)lightsource;
+			addon.AddComponent(ac, xoffset, yoffset, zoffset);
+		}
+
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+			writer.Write(0); // Version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}
@@ -90,19 +84,19 @@ namespace Server.Items
 			Name = "Male Sanie Pana";
 		}
 
-		public SantasSleighSmallAddonDeed( Serial serial ) : base( serial )
+		public SantasSleighSmallAddonDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( 0 ); // Version
+			base.Serialize(writer);
+			writer.Write(0); // Version
 		}
 
-		public override void	Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

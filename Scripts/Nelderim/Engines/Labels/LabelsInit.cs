@@ -1,23 +1,25 @@
-﻿using Server;
-using Server.Commands;
-using Server.Nelderim;
+﻿#region References
+
+using Server;
+
+#endregion
 
 namespace Nelderim
 {
-    class LabelsInit
-    {
-        public static string ModuleName = "Labels";
+	class LabelsInit
+	{
+		public static string ModuleName = "Labels";
 
-        public static void Initialize()
-        {
-            EventSink.WorldSave += new WorldSaveEventHandler( Save ) ;
-            Labels.Load( ModuleName );
-        }
+		public static void Initialize()
+		{
+			EventSink.WorldSave += Save;
+			Labels.Load(ModuleName);
+		}
 
-        public static void Save( WorldSaveEventArgs args )
-        {
-            Labels.Cleanup();
-            Labels.Save( args, ModuleName );
-        }
-    }
+		public static void Save(WorldSaveEventArgs args)
+		{
+			Labels.Cleanup();
+			Labels.Save(args, ModuleName);
+		}
+	}
 }

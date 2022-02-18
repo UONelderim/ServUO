@@ -1,4 +1,8 @@
+#region References
+
 using Server.Items;
+
+#endregion
 
 namespace Server.Mobiles
 {
@@ -6,7 +10,7 @@ namespace Server.Mobiles
 	public class SapphireDrake : Drake
 	{
 		[Constructable]
-		public SapphireDrake() : base()
+		public SapphireDrake()
 		{
 			Name = "mlody szafirowy smok";
 			BaseSoundID = 362;
@@ -81,7 +85,7 @@ namespace Server.Mobiles
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)

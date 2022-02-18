@@ -1,10 +1,8 @@
-using System;
-
 namespace Server.Items
 {
 	[Furniture]
 	[Flipable(0xF65, 0xF67, 0xF69)]
-    public class EasleRC : ResouceCraftable
+	public class EasleRC : ResouceCraftable
 	{
 		[Constructable]
 		public EasleRC() : base(0xF65)
@@ -20,7 +18,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -29,7 +27,7 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 
-			if ( Weight == 10.0 )
+			if (Weight == 10.0)
 				Weight = 25.0;
 		}
 	}

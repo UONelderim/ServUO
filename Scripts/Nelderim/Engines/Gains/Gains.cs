@@ -1,24 +1,24 @@
-﻿using Server;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Nelderim;
+﻿#region References
+
+using Server;
+
+#endregion
 
 namespace Nelderim.Gains
 {
-    class Gains : NExtension<GainsInfo>
-    {
+	class Gains : NExtension<GainsInfo>
+	{
 		public static string ModuleName = "Gains";
 
 		public static void Initialize()
 		{
-			EventSink.WorldSave += new WorldSaveEventHandler( Save );
-			Load( ModuleName );
+			EventSink.WorldSave += Save;
+			Load(ModuleName);
 		}
 
-		public static void Save( WorldSaveEventArgs args )
+		public static void Save(WorldSaveEventArgs args)
 		{
-			Save( args, ModuleName );
+			Save(args, ModuleName);
 		}
 	}
 }

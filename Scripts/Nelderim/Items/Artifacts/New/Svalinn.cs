@@ -1,44 +1,41 @@
-﻿using System;
-using Server;
-
-namespace Server.Items
+﻿namespace Server.Items
 {
-    public class Svalinn : Buckler
-    {
-        public override int LabelNumber { get { return 1065851; } } // Svalinn
-        public override int InitMinHits { get { return 50; } }
-        public override int InitMaxHits { get { return 50; } }
+	public class Svalinn : Buckler
+	{
+		public override int LabelNumber { get { return 1065851; } } // Svalinn
+		public override int InitMinHits { get { return 50; } }
+		public override int InitMaxHits { get { return 50; } }
 
-        [Constructable]
-        public Svalinn()
-        {
-            Hue = 0x558; // dark green
+		[Constructable]
+		public Svalinn()
+		{
+			Hue = 0x558; // dark green
 
-            Attributes.SpellChanneling = 1;
-            Attributes.CastRecovery = 2;
-            Attributes.AttackChance = 10;
-        }
+			Attributes.SpellChanneling = 1;
+			Attributes.CastRecovery = 2;
+			Attributes.AttackChance = 10;
+		}
 
-        public Svalinn(Serial serial)
-            : base(serial)
-        {
-        }
+		public Svalinn(Serial serial)
+			: base(serial)
+		{
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            writer.Write((int)0);
-        }
+			writer.Write(0);
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+			int version = reader.ReadInt();
 
-            if (Attributes.NightSight == 0)
-                Attributes.NightSight = 1;
-        }
-    }
+			if (Attributes.NightSight == 0)
+				Attributes.NightSight = 1;
+		}
+	}
 }

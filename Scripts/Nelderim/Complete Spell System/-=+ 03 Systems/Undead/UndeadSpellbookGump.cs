@@ -1,18 +1,22 @@
+#region References
+
 using System;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Undead
 {
 	public class UndeadSpellbookGump : CSpellbookGump
 	{
-		public override string TextHue  { get{ return "006600"; } }
-		public override int    BGImage  { get{ return 2203; } }
-		public override int    SpellBtn { get{ return 2362; } } //95?
-		public override int    SpellBtnP{ get{ return 2361; } } //97?
-		public override string Label1   { get{ return "Wiedza o "; } }
-		public override string Label2   { get{ return "Okultyzmie"; } }
-		public override Type   GumpType { get{ return typeof( UndeadSpellbookGump ); } }
+		public override string TextHue { get { return "006600"; } }
+		public override int BGImage { get { return 2203; } }
+		public override int SpellBtn { get { return 2362; } } //95?
+		public override int SpellBtnP { get { return 2361; } } //97?
+		public override string Label1 { get { return "Wiedza o "; } }
+		public override string Label2 { get { return "Okultyzmie"; } }
+		public override Type GumpType { get { return typeof(UndeadSpellbookGump); } }
 
-		public UndeadSpellbookGump( CSpellbook book ) : base( book )
+		public UndeadSpellbookGump(CSpellbook book) : base(book)
 		{
 		}
 

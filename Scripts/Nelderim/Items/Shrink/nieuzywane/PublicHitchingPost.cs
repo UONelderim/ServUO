@@ -11,7 +11,7 @@
 //    public class HitchingPost : AddonComponent
 //    {
 //    private static bool ShrinkEnabled = true; // 07.10.29 :: emfor
-	
+
 //        #region Constructors
 //        [Constructable]
 //        public HitchingPost() : this( 0x14E7 )
@@ -22,12 +22,12 @@
 //        public HitchingPost( int itemID ) : base( itemID )
 //        {
 //        }
-		
+
 //        public HitchingPost( Serial serial ) : base( serial )
 //        {
 //        }
 //        #endregion
-    
+
 //    // 07.10.29 :: emfor :: start
 //        public override void OnDoubleClick( Mobile from )
 //        {
@@ -58,7 +58,7 @@
 //            {
 //                m_Post=(HitchingPost)i;
 //            }
-			
+
 //            protected override void OnTarget( Mobile from, object targ )
 //            {
 //                if ( !(m_Post.Deleted) )
@@ -69,9 +69,9 @@
 //                return;
 //            }
 //        }
-        
+
 //        #region Serialization
-		
+
 //        public override void Serialize( GenericWriter writer )
 //        {
 //            base.Serialize( writer );
@@ -85,7 +85,7 @@
 
 //            int version = reader.ReadInt();
 //        } 
-		
+
 //        #endregion
 //    }
 
@@ -214,3 +214,5 @@
 //    }
 
 //}
+
+

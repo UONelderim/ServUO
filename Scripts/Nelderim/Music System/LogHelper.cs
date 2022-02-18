@@ -1,40 +1,30 @@
+#region References
+
 using System;
-using System.IO;
 using System.Collections;
-using Server;
-using Server.Items;
-using Server.Mobiles;
+using System.IO;
 using Server.Accounting;
+using Server.Mobiles;
+
+#endregion
 
 namespace Server.Scripts.Commands
 {
 	public class LogHelper
 	{
 		private ArrayList m_LogFile;
-		private string m_LogFilename;
-		private int m_MaxOutput = 25;   // only display first 25 lines
-		private int m_Count;
-		private static ArrayList m_OpenLogs = new ArrayList();
-		public static ArrayList OpenLogs { get { return m_OpenLogs; } }
+		private readonly string m_LogFilename;
+		private int m_MaxOutput = 25; // only display first 25 lines
+		public static ArrayList OpenLogs { get; } = new ArrayList();
 
-		public int Count
-		{
-			get
-			{
-				return m_Count;
-			}
-			set
-			{
-				m_Count = value;
-			}
-		}
+		public int Count { get; set; }
 
-		private bool m_Overwrite;
-		private bool m_SingleLine;
+		private readonly bool m_Overwrite;
+		private readonly bool m_SingleLine;
 		private DateTime m_StartTime;
 		private bool m_Finished;
 
-		private Mobile m_Person;
+		private readonly Mobile m_Person;
 
 
 		// Construct with : LogHelper(string filename (, Mobile mobile ) (, bool overwrite) )
@@ -102,7 +92,8 @@ namespace Server.Scripts.Commands
 			Start();
 		}
 
-		private static int m_LogExceptionCount = 0;
+		private static int m_LogExceptionCount;
+
 		public static void LogException(Exception ex)
 		{
 			if (m_LogExceptionCount++ > 100)
@@ -172,7 +163,7 @@ namespace Server.Scripts.Commands
 		{
 			LogHelper Logger = new LogHelper("Cheater.log", false);
 			Logger.Log(LogType.Mobile, from, text);
-			if (accomplice == true)
+			if (accomplice)
 			{
 				IPooledEnumerable eable = from.GetMobilesInRange(24);
 				foreach (Mobile m in eable)
@@ -180,8 +171,10 @@ namespace Server.Scripts.Commands
 					if (m is PlayerMobile && m != from)
 						Logger.Log(LogType.Mobile, m, "Possible accomplice.");
 				}
+
 				eable.Free();
 			}
+
 			Logger.Finish();
 		}
 
@@ -193,22 +186,23 @@ namespace Server.Scripts.Commands
 
 		public static void Initialize()
 		{
-			EventSink.Crashed += new CrashedEventHandler(EventSink_Crashed); ;
-			EventSink.Shutdown += new ShutdownEventHandler(EventSink_Shutdown);
+			EventSink.Crashed += EventSink_Crashed;
+			;
+			EventSink.Shutdown += EventSink_Shutdown;
 		}
 
 		// Record start time and init counter + list
 		private void Start()
 		{
 			m_StartTime = DateTime.Now;
-			m_Count = 0;
+			Count = 0;
 			m_Finished = false;
 			m_LogFile = new ArrayList();
 
 			if (!m_SingleLine)
-				m_LogFile.Add(string.Format("Log start : {0}", m_StartTime));
+				m_LogFile.Add(String.Format("Log start : {0}", m_StartTime));
 
-			m_OpenLogs.Add(this);
+			OpenLogs.Add(this);
 		}
 
 		// Log all the data and close the file
@@ -220,7 +214,8 @@ namespace Server.Scripts.Commands
 				TimeSpan ts = DateTime.Now - m_StartTime;
 
 				if (!m_SingleLine)
-					m_LogFile.Add(string.Format("Completed in {0} seconds, {1} entr{2} logged", ts.TotalSeconds, m_Count, m_Count == 1 ? "y" : "ies"));
+					m_LogFile.Add(String.Format("Completed in {0} seconds, {1} entr{2} logged", ts.TotalSeconds, Count,
+						Count == 1 ? "y" : "ies"));
 
 				// Report
 
@@ -239,7 +234,6 @@ namespace Server.Scripts.Commands
 				// Loop through the list stored and log
 				for (int i = 0; i < m_LogFile.Count; i++)
 				{
-
 					if (LogFile != null)
 						LogFile.WriteLine(m_LogFile[i]);
 
@@ -267,8 +261,8 @@ namespace Server.Scripts.Commands
 				if (LogFile != null)
 					LogFile.Close();
 
-				if (m_OpenLogs.Contains(this))
-					m_OpenLogs.Remove(this);
+				if (OpenLogs.Contains(this))
+					OpenLogs.Remove(this);
 			}
 		}
 
@@ -294,7 +288,6 @@ namespace Server.Scripts.Commands
 
 			if (logtype == LogType.Mixed)
 			{
-
 				// Work out most appropriate in absence of specific
 
 				if (data is Mobile)
@@ -303,24 +296,22 @@ namespace Server.Scripts.Commands
 					logtype = LogType.Item;
 				else
 					logtype = LogType.Text;
-
 			}
 
 			switch (logtype)
 			{
-
 				case LogType.Mobile:
 
 					Mobile mob = (Mobile)data;
-					LogLine = string.Format("{0}:Loc({1},{2},{3}):{4}:Mob({5})({6}):{7}:{8}:{9}",
-								mob.GetType().Name,
-								mob.Location.X, mob.Location.Y, mob.Location.Z,
-								mob.Map,
-								mob.Name,
-								mob.Serial,
-								mob.Region.Name,
-								mob.Account,
-								additional);
+					LogLine = String.Format("{0}:Loc({1},{2},{3}):{4}:Mob({5})({6}):{7}:{8}:{9}",
+						mob.GetType().Name,
+						mob.Location.X, mob.Location.Y, mob.Location.Z,
+						mob.Map,
+						mob.Name,
+						mob.Serial,
+						mob.Region.Name,
+						mob.Account,
+						additional);
 
 					break;
 
@@ -332,7 +323,7 @@ namespace Server.Scripts.Commands
 
 					if (root is Mobile)
 						// Item loc, map, root type, root name
-						LogLine = string.Format("{0}:Loc{1}:{2}:{3}({4}):Mob({5})({6}):{7}",
+						LogLine = String.Format("{0}:Loc{1}:{2}:{3}({4}):Mob({5})({6}):{7}",
 							item.GetType().Name,
 							item.GetWorldLocation(),
 							item.Map,
@@ -344,7 +335,7 @@ namespace Server.Scripts.Commands
 						);
 					else
 						// Item loc, map
-						LogLine = string.Format("{0}:Loc{1}:{2}:{3}({4}):{5}",
+						LogLine = String.Format("{0}:Loc{1}:{2}:{3}({4}):{5}",
 							item.GetType().Name,
 							item.GetWorldLocation(),
 							item.Map,
@@ -370,15 +361,14 @@ namespace Server.Scripts.Commands
 			}
 
 			m_LogFile.Add(LogLine);
-			m_Count++;
-
+			Count++;
 		}
 
 		private static void EventSink_Crashed(CrashedEventArgs e)
 		{
-			for (int ix = 0; ix < LogHelper.OpenLogs.Count; ix++)
+			for (int ix = 0; ix < OpenLogs.Count; ix++)
 			{
-				LogHelper lh = LogHelper.OpenLogs[ix] as LogHelper;
+				LogHelper lh = OpenLogs[ix] as LogHelper;
 				if (lh != null)
 					lh.Finish();
 			}
@@ -386,9 +376,9 @@ namespace Server.Scripts.Commands
 
 		private static void EventSink_Shutdown(ShutdownEventArgs e)
 		{
-			for (int ix = 0; ix < LogHelper.OpenLogs.Count; ix++)
+			for (int ix = 0; ix < OpenLogs.Count; ix++)
 			{
-				LogHelper lh = LogHelper.OpenLogs[ix] as LogHelper;
+				LogHelper lh = OpenLogs[ix] as LogHelper;
 				if (lh != null)
 					lh.Finish();
 			}
@@ -403,5 +393,4 @@ namespace Server.Scripts.Commands
 		Text,
 		ItemSerial
 	}
-
 }

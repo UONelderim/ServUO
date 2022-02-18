@@ -1,6 +1,8 @@
-using System;
-using Server;
+#region References
+
 using Server.Network;
+
+#endregion
 
 namespace Server.Items
 {
@@ -8,69 +10,74 @@ namespace Server.Items
 	{
 		private int m_UsesRemaining;
 
-		[CommandProperty( AccessLevel.GameMaster )]
+		[CommandProperty(AccessLevel.GameMaster)]
 		public int UsesRemaining
 		{
 			get { return m_UsesRemaining; }
-			set { m_UsesRemaining = value; InvalidateProperties(); }
+			set
+			{
+				m_UsesRemaining = value;
+				InvalidateProperties();
+			}
 		}
 
 		[Constructable]
-		public HiveTool() : this( 50 )
+		public HiveTool() : this(50)
 		{
 		}
-		
+
 		[Constructable]
-		public HiveTool( int uses ) : base( 2549 )
+		public HiveTool(int uses) : base(2549)
 		{
 			m_UsesRemaining = uses;
 			Name = "Narzedzie bartnicze";
 		}
 
-		public HiveTool( Serial serial ) : base( serial )
+		public HiveTool(Serial serial) : base(serial)
 		{
 		}
 
-		public override void GetProperties( ObjectPropertyList list )
+		public override void GetProperties(ObjectPropertyList list)
 		{
-			base.GetProperties( list );
+			base.GetProperties(list);
 
-			list.Add( 1060584, m_UsesRemaining.ToString() ); // uses remaining: ~1_val~
+			list.Add(1060584, m_UsesRemaining.ToString()); // uses remaining: ~1_val~
 		}
 
-		public virtual void DisplayDurabilityTo( Mobile m )
+		public virtual void DisplayDurabilityTo(Mobile m)
 		{
-			LabelToAffix( m, 1017323, AffixType.Append, ": " + m_UsesRemaining.ToString() ); // Durability
+			LabelToAffix(m, 1017323, AffixType.Append, ": " + m_UsesRemaining); // Durability
 		}
 
-		public override void OnAosSingleClick( Mobile from )
+		public override void OnAosSingleClick(Mobile from)
 		{
-			DisplayDurabilityTo( from );
+			DisplayDurabilityTo(from);
 
-			base.OnAosSingleClick( from );
+			base.OnAosSingleClick(from);
 		}
 
 		public override void OnDoubleClick(Mobile from)
 		{
-			from.PrivateOverheadMessage( 0, 1154, false,  "To narzedzie uzywane jest do wydobycia zasobow z ula.", from.NetState );				
+			from.PrivateOverheadMessage(0, 1154, false, "To narzedzie uzywane jest do wydobycia zasobow z ula.",
+				from.NetState);
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 
-			writer.Write( (int) m_UsesRemaining );
+			writer.Write(m_UsesRemaining);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 
-			switch ( version )
+			switch (version)
 			{
 				case 0:
 				{
