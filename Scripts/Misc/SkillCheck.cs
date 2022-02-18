@@ -255,7 +255,9 @@ namespace Server.Misc
 
             // Pets get a 100% bonus
             if (from is BaseCreature && ((BaseCreature)from).Controlled)
-                gc += gc * 1.00;
+                gc += gc;
+
+            gc *= NRegionalModifier(from);
 
             if (gc > 1.00)
                 gc = 1.00;

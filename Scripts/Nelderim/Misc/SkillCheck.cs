@@ -1,66 +1,108 @@
+using Server.Engines.ArenaSystem;
+using Server.Multis;
+using Server.Regions;
 
 namespace Server.Misc
 {
-    public partial class SkillCheck
-    {
-        public static double[,] SkillGains = new double[,]
-        { 
-         /*                       { SkillGain,  STR,    DEX,    INT     }, */
-         /* [0]  Alchemy */       { 1.5,        0,      1.0,    1.0     }, 
-         /* [1]  Anatomy */       { 1.75,       2.0,    0,      2.0     }, 
-         /* [2]  AnimalLore */    { 1.75,       2.0,    0,      2.4     }, 
-         /* [3]  ItemID */        { 3,          0,      0,      2       }, 
-         /* [4]  ArmsLore */      { 1,          2.0,    0,      1.8     }, 
-         /* [5]  Parry */         { 1.0,        1.5,    1.0,    0       }, 
-         /* [6]  Begging */       { 10.0,       0,      1.0,    1.0     }, 
-         /* [7]  Blacksmith */    { 2.5,        3.0,    1.5,    0       }, 
-         /* [8]  Fletching */     { 2.5,        1.5,    3.0,    0       }, 
-         /* [9]  Peacemaking */   { 10.0,       0,      1.0,    1.5    }, 
-         /* [10] Camping */       { 1.0,        0.1,    0.5,    0.2  }, 
-         /* [11] Carpentry */     { 2.5,        0,      1.5,   1.0     }, 
-         /* [12] Cartography */   { 2.5,        0,      1,    2,      },
-         /* [13] Cooking */       { 2.0,        0,      6,      4       }, 
-         /* [14] DetectHidden */  { 10.0,       0,      1.6,    1     }, 
-         /* [15] Discordance */   { 1.5,        0,      0.5,   1.5    }, 
-         /* [16] EvalInt */       { 1.0,        2,      0,      6       }, 
-         /* [17] Healing */       { 5.0,        0,      1.2,    2       },
-         /* [18] Fishing */       { 8.5,        4,      6,    0       }, 
-         /* [19] Zielarstwo */    { 3.5,        0,      1,    2     }, 
-         /* [20] Herding */       { 1.0,        0,      0,      6       }, 
-         /* [21] Hiding */        { 5.0,        0,      5,      2       },
-         /* [22] Provocation */   { 11.5,       0,      1,    2    }, 
-         /* [23] Inscribe */      { 1.5,       0,      1,    3     }, 
-         /* [24] Lockpicking */   { 1,          0,      2,   1     }, 
-         /* [25] Magery */        { 2.5,        2,      0,      6       }, 
-         /* [26] MagicResist */   { 1.5,        4,      0,      4     }, 
-         /* [27] Tactics */       { 3.0,        4,    2,      0       }, 
-         /* [28] Snooping */      { 1.0,        0,      4,      2       }, 
-         /* [29] Musicianship */  { 1.5,        0,      2,      1     }, 
-         /* [30] Poisoning */     { 4.0,       0,      2,      1.5    },
-         /* [31] Archery */       { 2.6,        2,      4,      0       }, 
-         /* [32] SpiritSpeak */   { 5.75,       0.5,   0,      4       }, 
-         /* [33] Stealing */      { 10.5,       0,      5,   1.5    }, 
-         /* [34] Tailoring */     { 2.5,        0,      3.5,   0.5    }, 
-         /* [35] AnimalTaming */  { 10.5,       4,      0,      2       }, 
-         /* [36] TasteID */       { 1.5,        0,      10,      0       }, 
-         /* [37] Tinkering */     { 1.5,        0,      3,    1     }, 
-         /* [38] Tracking */      { 10.5,       0,      3.5,   3    }, 
-         /* [39] Veterinary */    { 2.5,        0,      4,      3     }, 
-         /* [40] Swords */        { 2.25,       6,      4,      0       }, 
-         /* [41] Macing */        { 2.35,       6,      4,      0       }, 
-         /* [42] Fencing */       { 2.15,       6,      4,      0       }, 
-         /* [43] Wrestling */     { 2.5,        6,      4,      0       }, 
-         /* [44] Lumberjacking */ { 5.0,        6,      2,      0       }, 
-         /* [45] Mining */        { 5.0,        6.5,      2,      0       }, 
-         /* [46] Meditation */    { 4.0,        0.5,   0,      6       }, 
-         /* [47] Stealth */       { 6.5,        0,      6,      2       }, 
-         /* [48] RemoveTrap */    { 8.5,        0,      4,      4       }, 
-         /* [49] Necromancy */    { 2.5,        2,    1,    6       }, 
-         /* [50] Focus */         { 0,          0,      4,      1.5    }, 
-         /* [51] Chivalry */      { 2.5,        2,      0,      1.5    }, 
-         /* [52] Bushido */       { 2.5,        2,      0,      1.5    }, 
-         /* [53] Ninjitsu */      { 2.5,        2,      0,      1.5    }, 
-         /* [54] Spellweaving */  { 2.0,        1.5,   0,      4       }
-        };
-    }
+	public partial class SkillCheck
+	{
+		public static double[,] SkillGains =
+		{ //{ Gain, STR,  DEX,  INT  },
+			{ 1.50, 0.00, 1.00, 1.00 }, // [0]  Alchemy      
+			{ 1.75, 2.00, 0.00, 2.00 }, // [1]  Anatomy      
+			{ 1.75, 2.00, 0.00, 2.40 }, // [2]  AnimalLore   
+			{ 3.00, 0.00, 0.00, 2.00 }, // [3]  ItemID       
+			{ 1.00, 2.00, 0.00, 1.80 }, // [4]  ArmsLore     
+			{ 1.00, 1.50, 1.00, 0.00 }, // [5]  Parry        
+			{ 10.0, 0.00, 1.00, 1.00 }, // [6]  Begging      
+			{ 2.50, 3.00, 1.50, 0.00 }, // [7]  Blacksmith   
+			{ 2.50, 1.50, 3.00, 0.00 }, // [8]  Fletching    
+			{ 10.0, 0.00, 1.00, 1.50 }, // [9]  Peacemaking  
+			{ 1.00, 0.10, 0.50, 0.20 }, // [10] Camping      
+			{ 2.50, 0.00, 1.50, 1.00 }, // [11] Carpentry    
+			{ 2.50, 0.00, 1.00, 2.00 }, // [12] Cartography  
+			{ 2.00, 0.00, 6.00, 4.00 }, // [13] Cooking      
+			{ 10.0, 0.00, 1.60, 1.00 }, // [14] DetectHidden 
+			{ 1.50, 0.00, 0.50, 1.50 }, // [15] Discordance  
+			{ 1.00, 2.00, 0.00, 6.00 }, // [16] EvalInt      
+			{ 5.00, 0.00, 1.20, 2.00 }, // [17] Healing      
+			{ 8.50, 4.00, 6.00, 0.00 }, // [18] Fishing      
+			{ 3.50, 0.00, 1.00, 2.00 }, // [19] Herbalism   
+			{ 1.00, 0.00, 0.00, 6.00 }, // [20] Herding      
+			{ 5.00, 0.00, 5.00, 2.00 }, // [21] Hiding       
+			{ 11.5, 0.00, 1.00, 2.00 }, // [22] Provocation  
+			{ 1.50, 0.00, 1.00, 3.00 }, // [23] Inscribe     
+			{ 1.00, 0.00, 2.00, 1.00 }, // [24] Lockpicking  
+			{ 2.50, 2.00, 0.00, 6.00 }, // [25] Magery       
+			{ 1.50, 4.00, 0.00, 4.00 }, // [26] MagicResist  
+			{ 3.00, 4.00, 2.00, 0.00 }, // [27] Tactics      
+			{ 1.00, 0.00, 4.00, 2.00 }, // [28] Snooping     
+			{ 1.50, 0.00, 2.00, 1.00 }, // [29] Musicianship 
+			{ 4.00, 0.00, 2.00, 1.50 }, // [30] Poisoning    
+			{ 2.60, 2.00, 4.00, 0.00 }, // [31] Archery      
+			{ 5.75, 0.50, 0.00, 4.00 }, // [32] SpiritSpeak  
+			{ 10.5, 0.00, 5.00, 1.50 }, // [33] Stealing     
+			{ 2.50, 0.00, 3.50, 0.50 }, // [34] Tailoring    
+			{ 10.5, 4.00, 0.00, 2.00 }, // [35] AnimalTaming 
+			{ 1.50, 0.00, 10.0, 0.00 }, // [36] TasteID      
+			{ 1.50, 0.00, 3.00, 1.00 }, // [37] Tinkering    
+			{ 10.5, 0.00, 3.50, 3.00 }, // [38] Tracking     
+			{ 2.50, 0.00, 4.00, 3.00 }, // [39] Veterinary   
+			{ 2.25, 6.00, 4.00, 0.00 }, // [40] Swords       
+			{ 2.35, 6.00, 4.00, 0.00 }, // [41] Macing       
+			{ 2.15, 6.00, 4.00, 0.00 }, // [42] Fencing      
+			{ 2.50, 6.00, 4.00, 0.00 }, // [43] Wrestling    
+			{ 5.00, 6.00, 2.00, 0.00 }, // [44] Lumberjacking
+			{ 5.00, 6.50, 2.00, 0.00 }, // [45] Mining       
+			{ 4.00, 0.50, 0.00, 6.00 }, // [46] Meditation   
+			{ 6.50, 0.00, 6.00, 2.00 }, // [47] Stealth      
+			{ 8.50, 0.00, 4.00, 4.00 }, // [48] RemoveTrap   
+			{ 2.50, 2.00, 1.00, 6.00 }, // [49] Necromancy   
+			{ 0.00, 0.00, 4.00, 1.50 }, // [50] Focus        
+			{ 2.50, 2.00, 0.00, 1.50 }, // [51] Chivalry     
+			{ 2.50, 2.00, 0.00, 1.50 }, // [52] Bushido      
+			{ 2.50, 2.00, 0.00, 1.50 }, // [53] Ninjitsu     
+			{ 2.00, 1.50, 0.00, 4.00 }, // [54] Spellweaving
+			{ 2.00, 0.00, 0.00, 0.00 }, // [55] Mysticism
+			{ 2.00, 0.00, 0.00, 0.00 }, // [56] Imbuing
+			{ 2.00, 0.00, 0.00, 0.00 }, // [57] Throwing
+		};
+		
+		private static double m_BoatGain = 0.1; 
+		private static double m_HouseGain = 0.2;
+		private static double m_MineGain = 0.25;
+		private static double m_InnGain = 0.5;
+		private static double m_CityGain = 0.7;
+		private static double m_ArenaGain = 0.8;
+		private static double m_VillageGain = 0.9;
+		private static double m_DungeonGain = 1.25;
+
+		public static double NRegionalModifier(Mobile m)
+		{
+			if (m == null || m.Map == null || m.Map == Map.Internal)
+				return 1.0;
+			
+			if ( BaseBoat.FindBoatAt( m ) != null )
+				return m_BoatGain;
+
+			Region region = m.Region;
+			
+			if ( region is HouseRegion )
+				return m_HouseGain;
+			if ( region is MiningRegion )
+				return m_MineGain;
+			if ( region is TavernRegion )
+				return m_InnGain;
+			if ( region is CityRegion )
+				return m_CityGain;
+			if ( region is ArenaRegion )
+				return m_ArenaGain;
+			if ( region is VillageRegion  )
+				return m_VillageGain;
+			if ( region is DungeonRegion )
+				return m_DungeonGain;
+			
+			return 1.0;
+		}
+	}
 }
