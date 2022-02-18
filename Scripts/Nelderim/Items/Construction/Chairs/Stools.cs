@@ -1,13 +1,10 @@
-using System;
-using Server.Engines.Craft;
-
 namespace Server.Items
 {
 	[Furniture]
-    public class StoolRC : ResouceCraftable
+	public class StoolRC : ResouceCraftable
 	{
 		[Constructable]
-		public StoolRC() : base( 0xA2A )
+		public StoolRC() : base(0xA2A)
 		{
 			Weight = 10.0;
 		}
@@ -20,7 +17,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -29,16 +26,16 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 
-			if ( Weight == 6.0 )
+			if (Weight == 6.0)
 				Weight = 10.0;
 		}
 	}
 
 	[Furniture]
-    public class FootStoolRC : ResouceCraftable
-    {
+	public class FootStoolRC : ResouceCraftable
+	{
 		[Constructable]
-		public FootStoolRC() : base( 0xB5E )
+		public FootStoolRC() : base(0xB5E)
 		{
 			Weight = 6.0;
 		}
@@ -51,7 +48,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -60,7 +57,7 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 
-			if ( Weight == 6.0 )
+			if (Weight == 6.0)
 				Weight = 10.0;
 		}
 	}

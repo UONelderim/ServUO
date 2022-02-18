@@ -1,106 +1,111 @@
+#region References
+
 using System;
 using System.Collections.Generic;
-using Server.Network;
 using Server.Items;
-using Server.Targeting;
 using Server.Mobiles;
 using Server.Spells;
 
+#endregion
+
 namespace Server.ACC.CSS.Systems.Undead
 {
-    public class UndeadCauseFearSpell : UndeadSpell
- {
-            public override double RequiredSkill { get { return 80.0; } }
-        public override int RequiredMana { get { return 25; } }
-   
-        private static SpellInfo m_Info = new SpellInfo("Strach", "Uus Vas Corp",
-		                                                //SpellCircle.Fifth,
-                                                        269,
-		                                                9020,
-                                                        Reagent.Garlic,
-                                                        Reagent.Nightshade,
-                                                        Reagent.MandrakeRoot
-                                                       );
+	public class UndeadCauseFearSpell : UndeadSpell
+	{
+		public override double RequiredSkill { get { return 80.0; } }
+		public override int RequiredMana { get { return 25; } }
 
-        public override Server.Spells.SpellCircle Circle
-        {
-            get { return SpellCircle.Sixth; }
-        }
+		private static readonly SpellInfo m_Info = new SpellInfo("Strach", "Uus Vas Corp",
+			//SpellCircle.Fifth,
+			269,
+			9020,
+			Reagent.Garlic,
+			Reagent.Nightshade,
+			Reagent.MandrakeRoot
+		);
 
-        public UndeadCauseFearSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Sixth; }
+		}
 
-        public override void OnCast()
-        {
-            if (CheckSequence())
-            {
-                List<Mobile> targets = new List<Mobile>();
+		public UndeadCauseFearSpell(Mobile caster, Item scroll)
+			: base(caster, scroll, m_Info)
+		{
+		}
 
-                foreach (Mobile m in Caster.GetMobilesInRange(8))
-                {
-                    if (Caster != m && SpellHelper.ValidIndirectTarget(Caster, m) && Caster.CanBeHarmful(m, false))
-                        targets.Add(m);
-                }
+		public override void OnCast()
+		{
+			if (CheckSequence())
+			{
+				List<Mobile> targets = new List<Mobile>();
 
-                Caster.PlaySound(0x245);
-                Caster.PlaySound(0x3EA);
-                Caster.FixedParticles(0x2109, 1, 25, 9922, 14, 3, EffectLayer.Head);
-                IEntity from = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z), Caster.Map);
-                IEntity to = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z + 32), Caster.Map);
-                Effects.SendMovingParticles(from, to, 0x3192, 1, 0, false, false, 33, 3, 9501, 1, 0, EffectLayer.Head, 0x100);
+				foreach (Mobile m in Caster.GetMobilesInRange(8))
+				{
+					if (Caster != m && SpellHelper.ValidIndirectTarget(Caster, m) && Caster.CanBeHarmful(m, false))
+						targets.Add(m);
+				}
+
+				Caster.PlaySound(0x245);
+				Caster.PlaySound(0x3EA);
+				Caster.FixedParticles(0x2109, 1, 25, 9922, 14, 3, EffectLayer.Head);
+				IEntity from = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z), Caster.Map);
+				IEntity to = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z + 32), Caster.Map);
+				Effects.SendMovingParticles(from, to, 0x3192, 1, 0, false, false, 33, 3, 9501, 1, 0, EffectLayer.Head,
+					0x100);
 
 
-                int dispelSkill = Caster.Int;
+				int dispelSkill = Caster.Int;
 
-                double mag = Caster.Skills.Magery.Value;
+				double mag = Caster.Skills.Magery.Value;
 
-                for (int i = 0; i < targets.Count; ++i)
-                {
-                    if (targets[i] is BaseCreature)
-                    {
-                        BaseCreature m = targets[i] as BaseCreature;
+				for (int i = 0; i < targets.Count; ++i)
+				{
+					if (targets[i] is BaseCreature)
+					{
+						BaseCreature m = targets[i] as BaseCreature;
 
-                        if (m != null)
-                        {
-                            bool dispellable = m.Summoned && !m.IsAnimatedDead;
+						if (m != null)
+						{
+							bool dispellable = m.Summoned && !m.IsAnimatedDead;
 
-                            if (dispellable)
-                            {
-                                double dispelChance = (50.0 + ((100 * (mag - m.DispelDifficulty)) / (m.DispelFocus * 2))) / 100;
-                                dispelChance *= dispelSkill / 100.0;
+							if (dispellable)
+							{
+								double dispelChance =
+									(50.0 + ((100 * (mag - m.DispelDifficulty)) / (m.DispelFocus * 2))) / 100;
+								dispelChance *= dispelSkill / 100.0;
 
-                                if (dispelChance > Utility.RandomDouble())
-                                {
-                                    Effects.SendLocationParticles(EffectItem.Create(m.Location, m.Map, EffectItem.DefaultDuration), 0x3728, 8, 20, 5042);
-                                    Effects.PlaySound(m, m.Map, 0x201);
+								if (dispelChance > Utility.RandomDouble())
+								{
+									Effects.SendLocationParticles(
+										EffectItem.Create(m.Location, m.Map, EffectItem.DefaultDuration), 0x3728, 8, 20,
+										5042);
+									Effects.PlaySound(m, m.Map, 0x201);
 
-                                    m.Delete();
-                                    continue;
-                                }
-                            }
+									m.Delete();
+									continue;
+								}
+							}
 
-                            bool evil = !m.Controlled && !m.Blessed;
+							bool evil = !m.Controlled && !m.Blessed;
 
-                            if (evil)
-                            {
+							if (evil)
+							{
+								double fleeChance = (100 - Math.Sqrt(m.Fame / 2)) * mag * dispelSkill;
+								fleeChance /= 1000000;
 
-                                double fleeChance = (100 - Math.Sqrt(m.Fame / 2)) * mag * dispelSkill;
-                                fleeChance /= 1000000;
+								if (fleeChance > Utility.RandomDouble())
+								{
+									m.PlaySound(m.Female ? 814 : 1088);
+									m.ForceFleeUntil = DateTime.UtcNow + TimeSpan.FromSeconds(15.0);
+								}
+							}
+						}
+					}
+				}
+			}
 
-                                if (fleeChance > Utility.RandomDouble())
-                                {
-                                    m.PlaySound(m.Female ? 814 : 1088);
-                                    m.ForceFleeUntil = DateTime.UtcNow + TimeSpan.FromSeconds( 15.0 );
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            FinishSequence();
-        }
-    }
+			FinishSequence();
+		}
+	}
 }

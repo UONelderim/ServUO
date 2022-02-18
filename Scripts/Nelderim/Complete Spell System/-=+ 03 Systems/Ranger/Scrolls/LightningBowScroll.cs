@@ -1,36 +1,32 @@
-using System;
-using Server;
-using Server.Items;
-
 namespace Server.ACC.CSS.Systems.Ranger
 {
 	public class RangerLightningBowScroll : CSpellScroll
 	{
 		[Constructable]
-		public RangerLightningBowScroll() : this( 1 )
+		public RangerLightningBowScroll() : this(1)
 		{
 		}
 
 		[Constructable]
-		public RangerLightningBowScroll( int amount ) : base( typeof( RangerLightningBowSpell ), 3828, amount )
+		public RangerLightningBowScroll(int amount) : base(typeof(RangerLightningBowSpell), 3828, amount)
 		{
 			Name = "Piorunujący Łuk";
 			Hue = 2001;
 		}
 
-		public RangerLightningBowScroll( Serial serial ) : base( serial )
+		public RangerLightningBowScroll(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

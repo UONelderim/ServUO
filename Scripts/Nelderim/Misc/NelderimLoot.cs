@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region References
+
+using System;
 using System.Collections.Generic;
 using Server;
 using Server.ACC.CSS.Systems.Ancient;
@@ -10,6 +12,8 @@ using Server.ACC.CSS.Systems.Ranger;
 using Server.ACC.CSS.Systems.Undead;
 using Server.Items;
 using Server.Mobiles;
+
+#endregion
 
 namespace Nelderim
 {
@@ -96,7 +100,6 @@ namespace Nelderim
 			for (var i = 0; i < count; i++)
 				new LootPackEntry(false, true,
 					Utility.RandomDouble() > 0.01 ? LootPack.GemItems : LootPack.RareGemItems, chance, 1);
-
 		}
 
 		private static void GenerateReagents(BaseCreature bc, ref List<LootPackEntry> entries)
@@ -104,7 +107,7 @@ namespace Nelderim
 			LootPackItem[] lootItems;
 			switch (bc.AI)
 			{
-				case AIType.AI_Mage: 
+				case AIType.AI_Mage:
 					lootItems = LootPack.MageryRegItems;
 					break;
 				case AIType.AI_Necro:
@@ -119,7 +122,7 @@ namespace Nelderim
 				default:
 					return;
 			}
-			
+
 			var count = (int)Math.Ceiling(Math.Pow(bc.Difficulty, 0.35)) * 5;
 			entries.Add(new LootPackEntry(false, true, lootItems, 100, count));
 		}
@@ -239,7 +242,7 @@ namespace Nelderim
 		};
 
 		public static readonly LootPackItem[] RecallRune = { new LootPackItem(typeof(RecallRune)) };
-		
+
 
 		public static readonly LootPackItem[] Scrolls1 =
 		{
@@ -248,16 +251,16 @@ namespace Nelderim
 			new LootPackItem(typeof(MagicArrowScroll)), new LootPackItem(typeof(NightSightScroll)),
 			new LootPackItem(typeof(ReactiveArmorScroll)), new LootPackItem(typeof(WeakenScroll)),
 			//Chivalry
-			new LootPackItem(typeof(CloseWoundsScroll)), 
+			new LootPackItem(typeof(CloseWoundsScroll)),
 			//Necromancy
 			new LootPackItem(typeof(CurseWeaponScroll)),
 			//Ninjitsu
 			new LootPackItem(typeof(AnimalFormScroll)),
 			//Spellweaving
-			new LootPackItem(typeof(ArcaneCircleScroll)), new LootPackItem(typeof(AttuneWeaponScroll)), 
-			new LootPackItem(typeof(GiftOfRenewalScroll)), new LootPackItem(typeof(NatureFuryScroll)), 
+			new LootPackItem(typeof(ArcaneCircleScroll)), new LootPackItem(typeof(AttuneWeaponScroll)),
+			new LootPackItem(typeof(GiftOfRenewalScroll)), new LootPackItem(typeof(NatureFuryScroll)),
 			//Mysticism
-			new LootPackItem(typeof(HealingStoneScroll)), new LootPackItem(typeof(NetherBoltScroll)), 
+			new LootPackItem(typeof(HealingStoneScroll)), new LootPackItem(typeof(NetherBoltScroll)),
 		};
 
 		public static readonly LootPackItem[] Scrolls2 =
@@ -269,7 +272,7 @@ namespace Nelderim
 			//Chivalry
 			new LootPackItem(typeof(RemoveCurseScroll)), new LootPackItem(typeof(CleanseByFireScroll)),
 			//Mysticism
-			new LootPackItem(typeof(EnchantScroll)), new LootPackItem(typeof(PurgeMagicScroll)), 
+			new LootPackItem(typeof(EnchantScroll)), new LootPackItem(typeof(PurgeMagicScroll)),
 		};
 
 		public static readonly LootPackItem[] Scrolls3 =
@@ -282,14 +285,14 @@ namespace Nelderim
 			new LootPackItem(typeof(ConsecrateWeaponScroll)), new LootPackItem(typeof(SacredJourneyScroll)),
 			//Necromancy
 			new LootPackItem(typeof(BloodOathScroll)), new LootPackItem(typeof(CorpseSkinScroll)),
-			new LootPackItem(typeof(EvilOmenScroll)), new LootPackItem(typeof(PainSpikeScroll)), 
-			new LootPackItem(typeof(WraithFormScroll)), 
+			new LootPackItem(typeof(EvilOmenScroll)), new LootPackItem(typeof(PainSpikeScroll)),
+			new LootPackItem(typeof(WraithFormScroll)),
 			//Ninjitsu
-			new LootPackItem(typeof(MirrorImageScroll)), 
+			new LootPackItem(typeof(MirrorImageScroll)),
 			//Spellweaving
-			new LootPackItem(typeof(ImmolatingWeaponScroll)), new LootPackItem(typeof(ThunderstormScroll)), 
+			new LootPackItem(typeof(ImmolatingWeaponScroll)), new LootPackItem(typeof(ThunderstormScroll)),
 			//Mysticism
-			new LootPackItem(typeof(EagleStrikeScroll)), new LootPackItem(typeof(SleepScroll)), 
+			new LootPackItem(typeof(EagleStrikeScroll)), new LootPackItem(typeof(SleepScroll)),
 		};
 
 		public static readonly LootPackItem[] Scrolls4 =
@@ -305,12 +308,12 @@ namespace Nelderim
 			//Bushido
 			new LootPackItem(typeof(HonorableExecutionScroll)), new LootPackItem(typeof(ConfidenceScroll)),
 			//Ninjitsu
-			new LootPackItem(typeof(FocusAttackScroll)), 
+			new LootPackItem(typeof(FocusAttackScroll)),
 			//Spellweaving
-			new LootPackItem(typeof(ArcaneEmpowermentScroll)), new LootPackItem(typeof(EtherealVoyageScroll)), 
+			new LootPackItem(typeof(ArcaneEmpowermentScroll)), new LootPackItem(typeof(EtherealVoyageScroll)),
 			new LootPackItem(typeof(ReaperFormScroll)),
 			//Mysticism
-			new LootPackItem(typeof(AnimatedWeaponScroll)), new LootPackItem(typeof(StoneFormScroll)), 
+			new LootPackItem(typeof(AnimatedWeaponScroll)), new LootPackItem(typeof(StoneFormScroll)),
 		};
 
 		public static readonly LootPackItem[] Scrolls5 =
@@ -328,12 +331,12 @@ namespace Nelderim
 			//Ninjitsu
 			new LootPackItem(typeof(BackstabScroll)),
 			//Spellweaving
-			new LootPackItem(typeof(GiftOfLifeScroll)), new LootPackItem(typeof(SummonFeyScroll)), 
-			new LootPackItem(typeof(SummonFiendScroll)), 
+			new LootPackItem(typeof(GiftOfLifeScroll)), new LootPackItem(typeof(SummonFeyScroll)),
+			new LootPackItem(typeof(SummonFiendScroll)),
 			//Mysticism
-			new LootPackItem(typeof(MassSleepScroll)), new LootPackItem(typeof(SpellTriggerScroll)), 
+			new LootPackItem(typeof(MassSleepScroll)), new LootPackItem(typeof(SpellTriggerScroll)),
 		};
-			
+
 		public static readonly LootPackItem[] Scrolls6 =
 		{
 			new LootPackItem(typeof(DispelScroll)), new LootPackItem(typeof(EnergyBoltScroll)),
@@ -341,17 +344,17 @@ namespace Nelderim
 			new LootPackItem(typeof(MarkScroll)), new LootPackItem(typeof(MassCurseScroll)),
 			new LootPackItem(typeof(ParalyzeFieldScroll)), new LootPackItem(typeof(RevealScroll)),
 			//Chivalry
-			new LootPackItem(typeof(HolyLightScroll)), 
+			new LootPackItem(typeof(HolyLightScroll)),
 			//Necromancy
-			new LootPackItem(typeof(WitherScroll)), new LootPackItem(typeof(StrangleScroll)), 
+			new LootPackItem(typeof(WitherScroll)), new LootPackItem(typeof(StrangleScroll)),
 			//Bushido
-			new LootPackItem(typeof(LightningStrikeScroll)), new LootPackItem(typeof(EvasionScroll)), 
+			new LootPackItem(typeof(LightningStrikeScroll)), new LootPackItem(typeof(EvasionScroll)),
 			//Ninjitsu
-			new LootPackItem(typeof(ShadowJumpScroll)), new LootPackItem(typeof(SurpriseAttackScroll)), 
+			new LootPackItem(typeof(ShadowJumpScroll)), new LootPackItem(typeof(SurpriseAttackScroll)),
 			//Spellweaving
-			new LootPackItem(typeof(DryadAllureScroll)), new LootPackItem(typeof(EssenceOfWindScroll)), 
+			new LootPackItem(typeof(DryadAllureScroll)), new LootPackItem(typeof(EssenceOfWindScroll)),
 			//Mysticism
-			new LootPackItem(typeof(BombardScroll)), new LootPackItem(typeof(CleansingWindsScroll)), 
+			new LootPackItem(typeof(BombardScroll)), new LootPackItem(typeof(CleansingWindsScroll)),
 		};
 
 		public static readonly LootPackItem[] Scrolls7 =
@@ -361,7 +364,7 @@ namespace Nelderim
 			new LootPackItem(typeof(ManaVampireScroll)), new LootPackItem(typeof(MassDispelScroll)),
 			new LootPackItem(typeof(MeteorSwarmScroll)), new LootPackItem(typeof(PolymorphScroll)),
 			//Chivalry
-			new LootPackItem(typeof(NobleSacrificeScroll)), 
+			new LootPackItem(typeof(NobleSacrificeScroll)),
 			//Necromancy
 			new LootPackItem(typeof(LichFormScroll)),
 			//Bushido
@@ -379,14 +382,14 @@ namespace Nelderim
 			new LootPackItem(typeof(SummonDaemonScroll)), new LootPackItem(typeof(SummonEarthElementalScroll)),
 			new LootPackItem(typeof(SummonFireElementalScroll)), new LootPackItem(typeof(SummonWaterElementalScroll)),
 			//Necromancy
-			new LootPackItem(typeof(ExorcismScroll)), new LootPackItem(typeof(VengefulSpiritScroll)), 
+			new LootPackItem(typeof(ExorcismScroll)), new LootPackItem(typeof(VengefulSpiritScroll)),
 			new LootPackItem(typeof(VampiricEmbraceScroll)),
 			//Ninjitsu
-			new LootPackItem(typeof(KiAttackScroll)), new LootPackItem(typeof(DeathStrikeScroll)), 
+			new LootPackItem(typeof(KiAttackScroll)), new LootPackItem(typeof(DeathStrikeScroll)),
 			//Spellweaving
 			new LootPackItem(typeof(WordOfDeathScroll)),
 			//Mysticism
-			new LootPackItem(typeof(NetherCycloneScroll)), new LootPackItem(typeof(RisingColossusScroll)), 
+			new LootPackItem(typeof(NetherCycloneScroll)), new LootPackItem(typeof(RisingColossusScroll)),
 		};
 
 		private static readonly LootPackItem[][] NL_scrolls =
@@ -399,71 +402,54 @@ namespace Nelderim
 			new LootPackItem(typeof(AncientCauseFearScroll)), new LootPackItem(typeof(AncientCloneScroll)),
 			new LootPackItem(typeof(AncientDanceScroll)), new LootPackItem(typeof(AncientDeathVortexScroll)),
 			new LootPackItem(typeof(AncientDouseScroll)), new LootPackItem(typeof(AncientEnchantScroll)),
-			new LootPackItem(typeof(AncientFireRingScroll)),
-			new LootPackItem(typeof(AncientGreatDouseScroll)),
+			new LootPackItem(typeof(AncientFireRingScroll)), new LootPackItem(typeof(AncientGreatDouseScroll)),
 			new LootPackItem(typeof(AncientGreatIgniteScroll)), new LootPackItem(typeof(AncientIgniteScroll)),
 			new LootPackItem(typeof(AncientMassMightScroll)), new LootPackItem(typeof(AncientPeerScroll)),
 			new LootPackItem(typeof(AncientSeanceScroll)), new LootPackItem(typeof(AncientSwarmScroll)),
-			new LootPackItem(typeof(AncientDeathVortexScroll)),
-			new LootPackItem(typeof(AncientDeathVortexScroll))
+			new LootPackItem(typeof(AncientDeathVortexScroll)), new LootPackItem(typeof(AncientDeathVortexScroll))
 		};
 
 		public static readonly LootPackItem[] AvatarScrollItems =
 		{
-			new LootPackItem(typeof(AvatarHeavenlyLightScroll)),
-			new LootPackItem(typeof(AvatarHeavensGateScroll)),
-			new LootPackItem(typeof(AvatarMarkOfGodsScroll)),
-			new LootPackItem(typeof(AvatarRestorationScroll)),
-			new LootPackItem(typeof(AvatarSacredBoonScroll)),
-			new LootPackItem(typeof(AvatarAngelicFaithScroll)),
+			new LootPackItem(typeof(AvatarHeavenlyLightScroll)), new LootPackItem(typeof(AvatarHeavensGateScroll)),
+			new LootPackItem(typeof(AvatarMarkOfGodsScroll)), new LootPackItem(typeof(AvatarRestorationScroll)),
+			new LootPackItem(typeof(AvatarSacredBoonScroll)), new LootPackItem(typeof(AvatarAngelicFaithScroll)),
 			new LootPackItem(typeof(AvatarArmysPaeonScroll))
 		};
 
 		public static readonly LootPackItem[] BardScrollItems =
 		{
-			new LootPackItem(typeof(BardArmysPaeonScroll)),
-			new LootPackItem(typeof(BardEnchantingEtudeScroll)),
-			new LootPackItem(typeof(BardEnergyCarolScroll)),
-			new LootPackItem(typeof(AncientDeathVortexScroll)),
+			new LootPackItem(typeof(BardArmysPaeonScroll)), new LootPackItem(typeof(BardEnchantingEtudeScroll)),
+			new LootPackItem(typeof(BardEnergyCarolScroll)), new LootPackItem(typeof(AncientDeathVortexScroll)),
 			new LootPackItem(typeof(BardEnergyThrenodyScroll)), new LootPackItem(typeof(BardFireCarolScroll)),
 			new LootPackItem(typeof(BardFireThrenodyScroll)), new LootPackItem(typeof(BardFoeRequiemScroll)),
 			new LootPackItem(typeof(BardIceCarolScroll)), new LootPackItem(typeof(BardIceThrenodyScroll)),
 			new LootPackItem(typeof(BardKnightsMinneScroll)), new LootPackItem(typeof(BardMagesBalladScroll)),
 			new LootPackItem(typeof(BardMagicFinaleScroll)), new LootPackItem(typeof(BardPoisonCarolScroll)),
-			new LootPackItem(typeof(BardPoisonThrenodyScroll)),
-			new LootPackItem(typeof(BardSheepfoeMamboScroll)), new LootPackItem(typeof(BardSinewyEtudeScroll))
+			new LootPackItem(typeof(BardPoisonThrenodyScroll)), new LootPackItem(typeof(BardSheepfoeMamboScroll)),
+			new LootPackItem(typeof(BardSinewyEtudeScroll))
 		};
 
 		public static readonly LootPackItem[] ClericScrollItems =
 		{
-			new LootPackItem(typeof(ClericAngelicFaithScroll)),
-			new LootPackItem(typeof(ClericBanishEvilScroll)),
-			new LootPackItem(typeof(ClericDampenSpiritScroll)),
-			new LootPackItem(typeof(ClericDivineFocusScroll)), new LootPackItem(typeof(ClericPurgeScroll)),
-			new LootPackItem(typeof(ClericHammerOfFaithScroll)),
-			new LootPackItem(typeof(ClericRestorationScroll)),
-			new LootPackItem(typeof(ClericSacredBoonScroll)), new LootPackItem(typeof(ClericSacrificeScroll)),
-			new LootPackItem(typeof(ClericTouchOfLifeScroll)), new LootPackItem(typeof(ClericSmiteScroll)),
-			new LootPackItem(typeof(ClericTrialByFireScroll))
+			new LootPackItem(typeof(ClericAngelicFaithScroll)), new LootPackItem(typeof(ClericBanishEvilScroll)),
+			new LootPackItem(typeof(ClericDampenSpiritScroll)), new LootPackItem(typeof(ClericDivineFocusScroll)),
+			new LootPackItem(typeof(ClericPurgeScroll)), new LootPackItem(typeof(ClericHammerOfFaithScroll)),
+			new LootPackItem(typeof(ClericRestorationScroll)), new LootPackItem(typeof(ClericSacredBoonScroll)),
+			new LootPackItem(typeof(ClericSacrificeScroll)), new LootPackItem(typeof(ClericTouchOfLifeScroll)),
+			new LootPackItem(typeof(ClericSmiteScroll)), new LootPackItem(typeof(ClericTrialByFireScroll))
 		};
 
 		public static readonly LootPackItem[] DruidScrollItems =
 		{
-			new LootPackItem(typeof(DruidBlendWithForestScroll)),
-			new LootPackItem(typeof(DruidFamiliarScroll)),
-			new LootPackItem(typeof(DruidEnchantedGroveScroll)),
-			new LootPackItem(typeof(DruidGraspingRootsScroll)),
-			new LootPackItem(typeof(DruidHollowReedScroll)),
-			new LootPackItem(typeof(DruidLeafWhirlwindScroll)),
-			new LootPackItem(typeof(DruidLureStoneScroll)),
-			new LootPackItem(typeof(DruidMushroomGatewayScroll)),
-			new LootPackItem(typeof(DruidNaturesPassageScroll)),
-			new LootPackItem(typeof(DruidPackOfBeastScroll)),
+			new LootPackItem(typeof(DruidBlendWithForestScroll)), new LootPackItem(typeof(DruidFamiliarScroll)),
+			new LootPackItem(typeof(DruidEnchantedGroveScroll)), new LootPackItem(typeof(DruidGraspingRootsScroll)),
+			new LootPackItem(typeof(DruidHollowReedScroll)), new LootPackItem(typeof(DruidLeafWhirlwindScroll)),
+			new LootPackItem(typeof(DruidLureStoneScroll)), new LootPackItem(typeof(DruidMushroomGatewayScroll)),
+			new LootPackItem(typeof(DruidNaturesPassageScroll)), new LootPackItem(typeof(DruidPackOfBeastScroll)),
 			new LootPackItem(typeof(DruidRestorativeSoilScroll)),
-			new LootPackItem(typeof(DruidShieldOfEarthScroll)),
-			new LootPackItem(typeof(DruidSpringOfLifeScroll)),
-			new LootPackItem(typeof(DruidStoneCircleScroll)),
-			new LootPackItem(typeof(DruidSwarmOfInsectsScroll)),
+			new LootPackItem(typeof(DruidShieldOfEarthScroll)), new LootPackItem(typeof(DruidSpringOfLifeScroll)),
+			new LootPackItem(typeof(DruidStoneCircleScroll)), new LootPackItem(typeof(DruidSwarmOfInsectsScroll)),
 			new LootPackItem(typeof(DruidVolcanicEruptionScroll))
 		};
 
@@ -477,16 +463,12 @@ namespace Nelderim
 
 		public static readonly LootPackItem[] UndeadScrollItems =
 		{
-			new LootPackItem(typeof(UndeadAngelicFaithScroll)),
-			new LootPackItem(typeof(UndeadCauseFearScroll)),
+			new LootPackItem(typeof(UndeadAngelicFaithScroll)), new LootPackItem(typeof(UndeadCauseFearScroll)),
 			new LootPackItem(typeof(UndeadGraspingRootsScroll)),
-			new LootPackItem(typeof(UndeadHammerOfFaithScroll)),
-			new LootPackItem(typeof(UndeadHollowReedScroll)),
-			new LootPackItem(typeof(UndeadLeafWhirlwindScroll)),
-			new LootPackItem(typeof(UndeadLureStoneScroll)),
+			new LootPackItem(typeof(UndeadHammerOfFaithScroll)), new LootPackItem(typeof(UndeadHollowReedScroll)),
+			new LootPackItem(typeof(UndeadLeafWhirlwindScroll)), new LootPackItem(typeof(UndeadLureStoneScroll)),
 			new LootPackItem(typeof(UndeadMushroomGatewayScroll)),
-			new LootPackItem(typeof(UndeadNaturesPassageScroll)),
-			new LootPackItem(typeof(UndeadSeanceScroll)),
+			new LootPackItem(typeof(UndeadNaturesPassageScroll)), new LootPackItem(typeof(UndeadSeanceScroll)),
 			new LootPackItem(typeof(UndeadSwarmOfInsectsScroll)),
 			new LootPackItem(typeof(UndeadVolcanicEruptionScroll))
 		};

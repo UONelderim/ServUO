@@ -1,7 +1,9 @@
-﻿using System;
+﻿#region References
+
 using Server.Items;
-using Server.Mobiles;
 using static Server.Mobiles.DragonBreath;
+
+#endregion
 
 namespace Server.Mobiles
 {
@@ -12,23 +14,23 @@ namespace Server.Mobiles
 		public static void Initialize()
 		{
 			DragonBreathDefinition.Definitions.Add(new DragonBreathDefinition(
-					0.16,
-					1.0,
-					1.3,
-					1.0,
-					0, 0, 100, 0, 0, 0, 0,
-					30.0, 45.0,
-					0x37C4,
-					5,
-					0,
-					false,
-					false,
-					196,
-					0,
-					0x227,
-					12,
-					false,
-					new Type[] { typeof(IceLizard) }));
+				0.16,
+				1.0,
+				1.3,
+				1.0,
+				0, 0, 100, 0, 0, 0, 0,
+				30.0, 45.0,
+				0x37C4,
+				5,
+				0,
+				false,
+				false,
+				196,
+				0,
+				0x227,
+				12,
+				false,
+				new[] { typeof(IceLizard) }));
 		}
 
 		[Constructable]
@@ -91,7 +93,7 @@ namespace Server.Mobiles
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)

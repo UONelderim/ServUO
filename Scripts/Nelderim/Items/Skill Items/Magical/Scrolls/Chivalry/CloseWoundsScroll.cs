@@ -1,36 +1,32 @@
-using System;
-using Server;
-using Server.Items;
-
 namespace Server.Items
 {
 	public class CloseWoundsScroll : ChivalrySpellScroll
 	{
 		[Constructable]
-		public CloseWoundsScroll() : this( 1 )
+		public CloseWoundsScroll() : this(1)
 		{
 		}
 
 		[Constructable]
-        public CloseWoundsScroll(int amount) : base(201, 0x1F6E, amount)
+		public CloseWoundsScroll(int amount) : base(201, 0x1F6E, amount)
 		{
-            Name = "Usmierzenie bolu";
+			Name = "Usmierzenie bolu";
 		}
 
-        public CloseWoundsScroll(Serial serial) : base(serial)
+		public CloseWoundsScroll(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

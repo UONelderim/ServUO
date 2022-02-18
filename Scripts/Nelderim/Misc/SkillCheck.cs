@@ -1,13 +1,18 @@
+#region References
+
 using Server.Engines.ArenaSystem;
 using Server.Multis;
 using Server.Regions;
+
+#endregion
 
 namespace Server.Misc
 {
 	public partial class SkillCheck
 	{
 		public static double[,] SkillGains =
-		{ //{ Gain, STR,  DEX,  INT  },
+		{
+			//{ Gain, STR,  DEX,  INT  },
 			{ 1.50, 0.00, 1.00, 1.00 }, // [0]  Alchemy      
 			{ 1.75, 2.00, 0.00, 2.00 }, // [1]  Anatomy      
 			{ 1.75, 2.00, 0.00, 2.40 }, // [2]  AnimalLore   
@@ -67,41 +72,41 @@ namespace Server.Misc
 			{ 2.00, 0.00, 0.00, 0.00 }, // [56] Imbuing
 			{ 2.00, 0.00, 0.00, 0.00 }, // [57] Throwing
 		};
-		
-		private static double m_BoatGain = 0.1; 
-		private static double m_HouseGain = 0.2;
-		private static double m_MineGain = 0.25;
-		private static double m_InnGain = 0.5;
-		private static double m_CityGain = 0.7;
-		private static double m_ArenaGain = 0.8;
-		private static double m_VillageGain = 0.9;
-		private static double m_DungeonGain = 1.25;
+
+		private static readonly double m_BoatGain = 0.1;
+		private static readonly double m_HouseGain = 0.2;
+		private static readonly double m_MineGain = 0.25;
+		private static readonly double m_InnGain = 0.5;
+		private static readonly double m_CityGain = 0.7;
+		private static readonly double m_ArenaGain = 0.8;
+		private static readonly double m_VillageGain = 0.9;
+		private static readonly double m_DungeonGain = 1.25;
 
 		public static double NRegionalModifier(Mobile m)
 		{
 			if (m == null || m.Map == null || m.Map == Map.Internal)
 				return 1.0;
-			
-			if ( BaseBoat.FindBoatAt( m ) != null )
+
+			if (BaseBoat.FindBoatAt(m) != null)
 				return m_BoatGain;
 
 			Region region = m.Region;
-			
-			if ( region is HouseRegion )
+
+			if (region is HouseRegion)
 				return m_HouseGain;
-			if ( region is MiningRegion )
+			if (region is MiningRegion)
 				return m_MineGain;
-			if ( region is TavernRegion )
+			if (region is TavernRegion)
 				return m_InnGain;
-			if ( region is CityRegion )
+			if (region is CityRegion)
 				return m_CityGain;
-			if ( region is ArenaRegion )
+			if (region is ArenaRegion)
 				return m_ArenaGain;
-			if ( region is VillageRegion  )
+			if (region is VillageRegion)
 				return m_VillageGain;
-			if ( region is DungeonRegion )
+			if (region is DungeonRegion)
 				return m_DungeonGain;
-			
+
 			return 1.0;
 		}
 	}

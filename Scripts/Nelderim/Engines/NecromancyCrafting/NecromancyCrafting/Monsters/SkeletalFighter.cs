@@ -1,61 +1,63 @@
-using System;
+#region References
+
 using Server.Items;
-using Server.Network;
+
+#endregion
 
 namespace Server.Mobiles
 {
-	[CorpseName( "resztki szkieleta" )]
+	[CorpseName("resztki szkieleta")]
 	public class SkeletalFighter : BaseCreature
 	{
 		private bool m_Stunning;
 
-		public override bool IsScaredOfScaryThings{ get{ return false; } }
+		public override bool IsScaredOfScaryThings { get { return false; } }
 		//public override bool IsScaryToPets{ get{ return true; } }
 
-		public override bool IsBondable{ get{ return false; } }
+		public override bool IsBondable { get { return false; } }
 
 		[Constructable]
-		public SkeletalFighter() : this( false, 1.0 )
+		public SkeletalFighter() : this(false, 1.0)
 		{
 		}
 
 		[Constructable]
-		public SkeletalFighter( bool summoned, double scalar ) : base( AIType.AI_Melee, FightMode.Closest, 10, 1, 0.4, 0.8 )
+		public SkeletalFighter(bool summoned, double scalar) : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.4, 0.8)
 		{
 			Name = "szkielet";
-			Body = Utility.RandomList( 50, 56 );
+			Body = Utility.RandomList(50, 56);
 			BaseSoundID = 0x48D;
 
-			SetStr( (int)(56*scalar), (int)(80*scalar) );
-			SetDex( (int)(56*scalar), (int)(75*scalar) );
-			SetInt( (int)(16*scalar), (int)(40*scalar) );
+			SetStr((int)(56 * scalar), (int)(80 * scalar));
+			SetDex((int)(56 * scalar), (int)(75 * scalar));
+			SetInt((int)(16 * scalar), (int)(40 * scalar));
 
-			SetHits( (int)(34*scalar), (int)(48*scalar) );
+			SetHits((int)(34 * scalar), (int)(48 * scalar));
 
-			SetDamage( (int)(3*scalar), (int)(7*scalar) );
+			SetDamage((int)(3 * scalar), (int)(7 * scalar));
 
-			SetDamageType( ResistanceType.Physical, 100 );
+			SetDamageType(ResistanceType.Physical, 100);
 
-			SetResistance( ResistanceType.Physical, (int)(15*scalar), (int)(20*scalar) );
-			SetResistance( ResistanceType.Fire, (int)(5*scalar), (int)(10*scalar) );
-			SetResistance( ResistanceType.Cold, (int)(25*scalar), (int)(40*scalar) );
-			SetResistance( ResistanceType.Poison, (int)(25*scalar), (int)(35*scalar) );
-			SetResistance( ResistanceType.Energy, (int)(5*scalar), (int)(15*scalar) );
+			SetResistance(ResistanceType.Physical, (int)(15 * scalar), (int)(20 * scalar));
+			SetResistance(ResistanceType.Fire, (int)(5 * scalar), (int)(10 * scalar));
+			SetResistance(ResistanceType.Cold, (int)(25 * scalar), (int)(40 * scalar));
+			SetResistance(ResistanceType.Poison, (int)(25 * scalar), (int)(35 * scalar));
+			SetResistance(ResistanceType.Energy, (int)(5 * scalar), (int)(15 * scalar));
 
-			if ( summoned )
-				SetResistance( ResistanceType.Fire, (int)(5*scalar), (int)(10*scalar) );
+			if (summoned)
+				SetResistance(ResistanceType.Fire, (int)(5 * scalar), (int)(10 * scalar));
 			else
-				SetResistance( ResistanceType.Fire, (int)(5*scalar), (int)(10*scalar) );
+				SetResistance(ResistanceType.Fire, (int)(5 * scalar), (int)(10 * scalar));
 
-			SetResistance( ResistanceType.Cold, (int)(25*scalar), (int)(40*scalar) );
-			SetResistance( ResistanceType.Poison, (int)(25*scalar), (int)(35*scalar) );
-			SetResistance( ResistanceType.Energy, (int)(5*scalar), (int)(15*scalar) );
+			SetResistance(ResistanceType.Cold, (int)(25 * scalar), (int)(40 * scalar));
+			SetResistance(ResistanceType.Poison, (int)(25 * scalar), (int)(35 * scalar));
+			SetResistance(ResistanceType.Energy, (int)(5 * scalar), (int)(15 * scalar));
 
-			SetSkill( SkillName.MagicResist, (45.1*scalar), (60.0*scalar) );
-			SetSkill( SkillName.Tactics, (45.1*scalar), (60.0*scalar) );
-			SetSkill( SkillName.Wrestling, (45.1*scalar), (55.0*scalar) );
+			SetSkill(SkillName.MagicResist, (45.1 * scalar), (60.0 * scalar));
+			SetSkill(SkillName.Tactics, (45.1 * scalar), (60.0 * scalar));
+			SetSkill(SkillName.Wrestling, (45.1 * scalar), (55.0 * scalar));
 
-			if ( summoned )
+			if (summoned)
 			{
 				Fame = 10;
 				Karma = -10;
@@ -66,27 +68,27 @@ namespace Server.Mobiles
 				Karma = -450;
 			}
 
-			if ( !summoned )
+			if (!summoned)
 			{
-				PackItem( new Bones( Utility.RandomMinMax( 1, 5 ) ) );
+				PackItem(new Bones(Utility.RandomMinMax(1, 5)));
 
-				if ( 0.1 > Utility.RandomDouble() )
-					PackItem( new VileCrystal() );
+				if (0.1 > Utility.RandomDouble())
+					PackItem(new VileCrystal());
 
-				if ( 0.15 > Utility.RandomDouble() )
-					PackItem( new Skull() );
+				if (0.15 > Utility.RandomDouble())
+					PackItem(new Skull());
 
-				if ( 0.2 > Utility.RandomDouble() )
-					PackItem( new RibCage() );
+				if (0.2 > Utility.RandomDouble())
+					PackItem(new RibCage());
 
-				if ( 0.25 > Utility.RandomDouble() )
-					PackItem( new Spine() );
+				if (0.25 > Utility.RandomDouble())
+					PackItem(new Spine());
 			}
 
 			ControlSlots = 2;
 		}
 
-		public override bool DeleteOnRelease{ get{ return true; } }
+		public override bool DeleteOnRelease { get { return true; } }
 
 		public override int GetAngerSound()
 		{
@@ -95,7 +97,7 @@ namespace Server.Mobiles
 
 		public override int GetIdleSound()
 		{
-			if ( !Controlled )
+			if (!Controlled)
 				return 542;
 
 			return base.GetIdleSound();
@@ -103,7 +105,7 @@ namespace Server.Mobiles
 
 		public override int GetDeathSound()
 		{
-			if ( !Controlled )
+			if (!Controlled)
 				return 545;
 
 			return base.GetDeathSound();
@@ -116,27 +118,27 @@ namespace Server.Mobiles
 
 		public override int GetHurtSound()
 		{
-			if ( Controlled )
+			if (Controlled)
 				return 320;
 
 			return base.GetHurtSound();
 		}
 
-		public override bool AutoDispel{ get{ return !Controlled; } }
-		public override bool BleedImmune{ get{ return true; } }
+		public override bool AutoDispel { get { return !Controlled; } }
+		public override bool BleedImmune { get { return true; } }
 
-		public override void OnDamage( int amount, Mobile from, bool willKill )
+		public override void OnDamage(int amount, Mobile from, bool willKill)
 		{
-			if ( Controlled || Summoned )
+			if (Controlled || Summoned)
 			{
-				Mobile master = ( this.ControlMaster );
+				Mobile master = (this.ControlMaster);
 
-				if ( master == null )
+				if (master == null)
 					master = this.SummonMaster;
 
-				if ( master != null && master.Player && master.Map == this.Map && master.InRange( Location, 20 ) )
+				if (master != null && master.Player && master.Map == this.Map && master.InRange(Location, 20))
 				{
-					if ( master.Mana >= amount )
+					if (master.Mana >= amount)
 					{
 						master.Mana -= amount;
 					}
@@ -144,30 +146,30 @@ namespace Server.Mobiles
 					{
 						amount -= master.Mana;
 						master.Mana = 0;
-						master.Damage( amount );
+						master.Damage(amount);
 					}
 				}
 			}
 
-			base.OnDamage( amount, from, willKill );
+			base.OnDamage(amount, from, willKill);
 		}
 
-		public override bool BardImmune{ get{ return !Core.AOS || Controlled; } }
-		public override Poison PoisonImmune{ get{ return Poison.Lesser; } }
+		public override bool BardImmune { get { return !Core.AOS || Controlled; } }
+		public override Poison PoisonImmune { get { return Poison.Lesser; } }
 
-		public SkeletalFighter( Serial serial ) : base( serial )
+		public SkeletalFighter(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( (int) 0 );
+			base.Serialize(writer);
+			writer.Write(0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

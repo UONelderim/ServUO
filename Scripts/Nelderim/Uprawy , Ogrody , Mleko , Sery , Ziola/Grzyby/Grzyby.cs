@@ -1,45 +1,38 @@
-using System;
-using Server;
-using Server.Network;
-using Server.Mobiles;
-
 namespace Server.Items
 {
-
-        public class Muchomor1 : Item
+	public class Muchomor1 : Item
 	{
 		[Constructable]
-		public Muchomor1() : base( 0x0D16 )
+		public Muchomor1() : base(0x0D16)
 		{
 			this.Movable = false;
-		        this.Name = "Muchomor";
-                        this.Weight = 1.0;
-                        this.Hue = 25;	
+			this.Name = "Muchomor";
+			this.Weight = 1.0;
+			this.Hue = 25;
 		}
 
-                public override void AddNameProperty( ObjectPropertyList list )
-		{ 
-		base.AddNameProperty( list );
-		list.Add( "Lekko trujacy" );	
-                }
+		public override void AddNameProperty(ObjectPropertyList list)
+		{
+			base.AddNameProperty(list);
+			list.Add("Lekko trujacy");
+		}
 
-                public override void OnDoubleClick(Mobile from) 
-		{ 
-			if ( from == null || !from.Alive || from.Mounted ) return;
-                                
-                                if ( from.InRange( this.GetWorldLocation(), 1 ) ) 
-				{ 
-					
-				from.Direction = from.GetDirectionTo( this );
-				from.Animate( 32, 5, 1, true, false, 0 ); // Bow
+		public override void OnDoubleClick(Mobile from)
+		{
+			if (from == null || !from.Alive || from.Mounted) return;
 
-				from.SendMessage("Zebrales muchomora."); 
-				this.Delete(); 
+			if (from.InRange(this.GetWorldLocation(), 1))
+			{
+				from.Direction = from.GetDirectionTo(this);
+				from.Animate(32, 5, 1, true, false, 0); // Bow
 
-				from.AddToBackpack( new MuchomorA() );
-				}	
-                }
-         
+				from.SendMessage("Zebrales muchomora.");
+				this.Delete();
+
+				from.AddToBackpack(new MuchomorA());
+			}
+		}
+
 		public Muchomor1(Serial serial) : base(serial)
 		{
 		}
@@ -48,7 +41,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -59,40 +52,39 @@ namespace Server.Items
 		}
 	}
 
-        public class Muchomor2 : Item
+	public class Muchomor2 : Item
 	{
 		[Constructable]
-		public Muchomor2() : base( 0x0D16 )
+		public Muchomor2() : base(0x0D16)
 		{
 			this.Movable = false;
-		        this.Name = "Muchomor";
-                        this.Weight = 1.0;	
-                        this.Hue = 20;
+			this.Name = "Muchomor";
+			this.Weight = 1.0;
+			this.Hue = 20;
 		}
 
-                public override void AddNameProperty( ObjectPropertyList list )
-		{ 
-		base.AddNameProperty( list );
-		list.Add( "Przecietnie trujacy" );	
-                }
+		public override void AddNameProperty(ObjectPropertyList list)
+		{
+			base.AddNameProperty(list);
+			list.Add("Przecietnie trujacy");
+		}
 
-                public override void OnDoubleClick(Mobile from) 
-		{ 
-			if ( from == null || !from.Alive || from.Mounted ) return;
-                                
-                                if ( from.InRange( this.GetWorldLocation(), 1 ) ) 
-				{ 
-					
-				from.Direction = from.GetDirectionTo( this );
-				from.Animate( 32, 5, 1, true, false, 0 ); // Bow
+		public override void OnDoubleClick(Mobile from)
+		{
+			if (from == null || !from.Alive || from.Mounted) return;
 
-				from.SendMessage("Zebrales przecietnie trujacego muchomora."); 
-				this.Delete(); 
+			if (from.InRange(this.GetWorldLocation(), 1))
+			{
+				from.Direction = from.GetDirectionTo(this);
+				from.Animate(32, 5, 1, true, false, 0); // Bow
 
-				from.AddToBackpack( new MuchomorB() );
-				}	
-                }
-          
+				from.SendMessage("Zebrales przecietnie trujacego muchomora.");
+				this.Delete();
+
+				from.AddToBackpack(new MuchomorB());
+			}
+		}
+
 		public Muchomor2(Serial serial) : base(serial)
 		{
 		}
@@ -101,7 +93,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -112,39 +104,38 @@ namespace Server.Items
 		}
 	}
 
-        public class Muchomor3 : Item
+	public class Muchomor3 : Item
 	{
-                [Constructable]
-		public Muchomor3() : base( 0x0D16 )
+		[Constructable]
+		public Muchomor3() : base(0x0D16)
 		{
 			this.Movable = false;
-		        this.Name = "Muchomor";
-                        this.Weight = 1.0;
-                        this.Hue = 18;
+			this.Name = "Muchomor";
+			this.Weight = 1.0;
+			this.Hue = 18;
 		}
 
-                public override void AddNameProperty( ObjectPropertyList list )
-		{ 
-		base.AddNameProperty( list );
-		list.Add( "Silnie trujacy" );	
-                }
+		public override void AddNameProperty(ObjectPropertyList list)
+		{
+			base.AddNameProperty(list);
+			list.Add("Silnie trujacy");
+		}
 
-                public override void OnDoubleClick(Mobile from) 
-		{ 
-			if ( from == null || !from.Alive || from.Mounted ) return;
-                                
-                                if ( from.InRange( this.GetWorldLocation(), 1 ) ) 
-				{ 
-					
-				from.Direction = from.GetDirectionTo( this );
-				from.Animate( 32, 5, 1, true, false, 0 ); // Bow
+		public override void OnDoubleClick(Mobile from)
+		{
+			if (from == null || !from.Alive || from.Mounted) return;
 
-				from.SendMessage("Zebrales silnie trujacego muchomora."); 
-				this.Delete(); 
+			if (from.InRange(this.GetWorldLocation(), 1))
+			{
+				from.Direction = from.GetDirectionTo(this);
+				from.Animate(32, 5, 1, true, false, 0); // Bow
 
-				from.AddToBackpack( new MuchomorC() );
-				}	
-                }
+				from.SendMessage("Zebrales silnie trujacego muchomora.");
+				this.Delete();
+
+				from.AddToBackpack(new MuchomorC());
+			}
+		}
 
 		public Muchomor3(Serial serial) : base(serial)
 		{
@@ -154,7 +145,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -165,39 +156,38 @@ namespace Server.Items
 		}
 	}
 
-        public class Muchomor4 : Item
+	public class Muchomor4 : Item
 	{
-                [Constructable]
-		public Muchomor4() : base( 0x0D16 )
+		[Constructable]
+		public Muchomor4() : base(0x0D16)
 		{
 			this.Movable = false;
-		        this.Name = "Muchomor";
-                        this.Weight = 1.0;
-                        this.Hue = 15;
+			this.Name = "Muchomor";
+			this.Weight = 1.0;
+			this.Hue = 15;
 		}
 
-                public override void AddNameProperty( ObjectPropertyList list )
-		{ 
-		base.AddNameProperty( list );
-		list.Add( "Smiertelnie trujacy" );	
-                }
+		public override void AddNameProperty(ObjectPropertyList list)
+		{
+			base.AddNameProperty(list);
+			list.Add("Smiertelnie trujacy");
+		}
 
-                public override void OnDoubleClick(Mobile from) 
-		{ 
-			if ( from == null || !from.Alive || from.Mounted ) return;
-                                
-                                if ( from.InRange( this.GetWorldLocation(), 1 ) ) 
-				{ 
-					
-				from.Direction = from.GetDirectionTo( this );
-				from.Animate( 32, 5, 1, true, false, 0 ); // Bow
+		public override void OnDoubleClick(Mobile from)
+		{
+			if (from == null || !from.Alive || from.Mounted) return;
 
-				from.SendMessage("Zebrales smiertelnie trujacego muchomora."); 
-				this.Delete(); 
+			if (from.InRange(this.GetWorldLocation(), 1))
+			{
+				from.Direction = from.GetDirectionTo(this);
+				from.Animate(32, 5, 1, true, false, 0); // Bow
 
-				from.AddToBackpack( new MuchomorD() );
-				}	
-                }
+				from.SendMessage("Zebrales smiertelnie trujacego muchomora.");
+				this.Delete();
+
+				from.AddToBackpack(new MuchomorD());
+			}
+		}
 
 		public Muchomor4(Serial serial) : base(serial)
 		{
@@ -207,7 +197,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -219,178 +209,179 @@ namespace Server.Items
 	}
 
 
-        public class MuchomorA : Food
+	public class MuchomorA : Food
 	{
 		[Constructable]
-		public MuchomorA() : this( 1 )
+		public MuchomorA() : this(1)
 		{
 		}
 
 		[Constructable]
-		public MuchomorA( int amount ) : base( 0x0D16 )
+		public MuchomorA(int amount) : base(0x0D16)
 		{
 			this.Name = "Muchomor";
-                        this.Weight = 1.0;
+			this.Weight = 1.0;
 			this.FillFactor = 1;
-		        this.Poison = Poison.Lesser;
-                        this.Hue = 25;
-                        this.Amount = amount;
-                        this.Stackable = true;
-                }
+			this.Poison = Poison.Lesser;
+			this.Hue = 25;
+			this.Amount = amount;
+			this.Stackable = true;
+		}
 
-                public override void AddNameProperty( ObjectPropertyList list )
-		{ 
-		base.AddNameProperty( list );
-		list.Add( "Lekko trujacy" );	
-                }
-  
-                public MuchomorA( Serial serial ) : base( serial )
+		public override void AddNameProperty(ObjectPropertyList list)
+		{
+			base.AddNameProperty(list);
+			list.Add("Lekko trujacy");
+		}
+
+		public MuchomorA(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
 	}
 
 
-        public class MuchomorB : Food
+	public class MuchomorB : Food
 	{
 		[Constructable]
-		public MuchomorB() : this( 1 )
+		public MuchomorB() : this(1)
 		{
 		}
 
 		[Constructable]
-		public MuchomorB( int amount ) : base( 0x0D16 )
-		{
-                        this.Name = "Muchomor";
-                        this.Weight = 1.0;
-			this.FillFactor = 1;  
-		        this.Poison = Poison.Regular;
-                        this.Hue = 20;
-                        this.Amount = amount;
-                        this.Stackable = true;  
-                }
-
-                public override void AddNameProperty( ObjectPropertyList list )
-		{ 
-		base.AddNameProperty( list );
-		list.Add( "Przecietnie trujacy" );
-                }
-
-		public MuchomorB( Serial serial ) : base( serial )
-		{
-		}
-		public override void Serialize( GenericWriter writer )
-		{
-			base.Serialize( writer );
-
-			writer.Write( (int) 0 ); // version
-		}
-
-		public override void Deserialize( GenericReader reader )
-		{
-			base.Deserialize( reader );
-
-			int version = reader.ReadInt();
-		}
-	}
-
-
-        public class MuchomorC : Food
-	{
-		[Constructable]
-		public MuchomorC() : this( 1 )
-		{
-		}
-
-		[Constructable]
-		public MuchomorC( int amount ) : base( 0x0D16 )
+		public MuchomorB(int amount) : base(0x0D16)
 		{
 			this.Name = "Muchomor";
-                        this.Weight = 1.0;
-			this.FillFactor = 1;  
-		        this.Poison = Poison.Greater;
-                        this.Hue = 18;
-                        this.Amount = amount;
-                        this.Stackable = true;
-                }
-
-                public override void AddNameProperty( ObjectPropertyList list )
-		{ 
-                
-		base.AddNameProperty( list );
-		list.Add( "Silnie trujacy" );
-                }
-
-		public MuchomorC( Serial serial ) : base( serial )
-		{
-		}
-		public override void Serialize( GenericWriter writer )
-		{
-			base.Serialize( writer );
-
-			writer.Write( (int) 0 ); // version
+			this.Weight = 1.0;
+			this.FillFactor = 1;
+			this.Poison = Poison.Regular;
+			this.Hue = 20;
+			this.Amount = amount;
+			this.Stackable = true;
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void AddNameProperty(ObjectPropertyList list)
 		{
-			base.Deserialize( reader );
+			base.AddNameProperty(list);
+			list.Add("Przecietnie trujacy");
+		}
+
+		public MuchomorB(Serial serial) : base(serial)
+		{
+		}
+
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+
+			writer.Write(0); // version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
 	}
 
-        public class MuchomorD : Food
+
+	public class MuchomorC : Food
 	{
 		[Constructable]
-		public MuchomorD() : this( 1 )
+		public MuchomorC() : this(1)
 		{
 		}
 
 		[Constructable]
-		public MuchomorD( int amount ) : base( 0x0D16 )
+		public MuchomorC(int amount) : base(0x0D16)
 		{
 			this.Name = "Muchomor";
-                        this.Weight = 1.0;
-			this.FillFactor = 1;  
-		        this.Poison = Poison.Deadly;
-                        this.Hue = 15;
-                        this.Amount = amount;
-                        this.Stackable = true;   
-                }
-
-                public override void AddNameProperty( ObjectPropertyList list )
-		{ 
-                
-		base.AddNameProperty( list );
-		list.Add( "Smiertelnie trujacy" );
-                }
-
-		public MuchomorD( Serial serial ) : base( serial )
-		{
-		}
-		public override void Serialize( GenericWriter writer )
-		{
-			base.Serialize( writer );
-
-			writer.Write( (int) 0 ); // version
+			this.Weight = 1.0;
+			this.FillFactor = 1;
+			this.Poison = Poison.Greater;
+			this.Hue = 18;
+			this.Amount = amount;
+			this.Stackable = true;
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void AddNameProperty(ObjectPropertyList list)
 		{
-			base.Deserialize( reader );
+			base.AddNameProperty(list);
+			list.Add("Silnie trujacy");
+		}
+
+		public MuchomorC(Serial serial) : base(serial)
+		{
+		}
+
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+
+			writer.Write(0); // version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class MuchomorD : Food
+	{
+		[Constructable]
+		public MuchomorD() : this(1)
+		{
+		}
+
+		[Constructable]
+		public MuchomorD(int amount) : base(0x0D16)
+		{
+			this.Name = "Muchomor";
+			this.Weight = 1.0;
+			this.FillFactor = 1;
+			this.Poison = Poison.Deadly;
+			this.Hue = 15;
+			this.Amount = amount;
+			this.Stackable = true;
+		}
+
+		public override void AddNameProperty(ObjectPropertyList list)
+		{
+			base.AddNameProperty(list);
+			list.Add("Smiertelnie trujacy");
+		}
+
+		public MuchomorD(Serial serial) : base(serial)
+		{
+		}
+
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+
+			writer.Write(0); // version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

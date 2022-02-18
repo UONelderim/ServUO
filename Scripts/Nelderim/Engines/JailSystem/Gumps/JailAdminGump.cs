@@ -1,13 +1,17 @@
+#region References
+
 using System;
 using System.Collections;
-
 using Server;
 using Server.Gumps;
+using Server.Network;
+
+#endregion
 
 namespace Arya.Jail
 {
 	/// <summary>
-	/// Gump used to view/purge jail history
+	///     Gump used to view/purge jail history
 	/// </summary>
 	public class JailAdminGump : Gump
 	{
@@ -20,22 +24,22 @@ namespace Arya.Jail
 		private bool m_Old;
 		private int m_Months;
 
-		public JailAdminGump( Mobile user ) : this( user, false, true, false, 12 )
+		public JailAdminGump(Mobile user) : this(user, false, true, false, 12)
 		{
 		}
 
-		public JailAdminGump( Mobile user, bool banned, bool deleted, bool old, int months ) : base( 100, 100 )
+		public JailAdminGump(Mobile user, bool banned, bool deleted, bool old, int months) : base(100, 100)
 		{
-			user.CloseGump( typeof( JailAdminGump ) );
+			user.CloseGump(typeof(JailAdminGump));
 			MakeGump();
 		}
 
 		private void MakeGump()
 		{
-			this.Closable=true;
-			this.Disposable=true;
-			this.Dragable=true;
-			this.Resizable=false;
+			this.Closable = true;
+			this.Disposable = true;
+			this.Dragable = true;
+			this.Resizable = false;
 
 			this.AddPage(0);
 			this.AddBackground(0, 0, 240, 375, 9250);
@@ -63,7 +67,7 @@ namespace Arya.Jail
 			// Search for accounts: Button 3
 			this.AddLabel(60, 140, LabelHue, @"For Accounts");
 			this.AddButton(25, 140, 4005, 4006, 3, GumpButtonType.Reply, 0);
-			
+
 			this.AddAlphaRegion(15, 170, 210, 155);
 			this.AddLabel(20, 175, LabelHue, @"Purge History");
 
@@ -99,16 +103,16 @@ namespace Arya.Jail
 			this.AddButton(185, 335, 4017, 4018, 0, GumpButtonType.Reply, 0);
 		}
 
-		public override void OnResponse(Server.Network.NetState sender, RelayInfo info)
+		public override void OnResponse(NetState sender, RelayInfo info)
 		{
 			// Get information first
 			m_Banned = false;
 			m_Deleted = false;
 			m_Old = false;
 
-			foreach( int flag in info.Switches )
+			foreach (int flag in info.Switches)
 			{
-				switch ( flag )
+				switch (flag)
 				{
 					case 0: // Banned
 						m_Banned = true;
@@ -125,99 +129,105 @@ namespace Arya.Jail
 			uint months = 0;
 			try
 			{
-				months = uint.Parse( info.TextEntries[ 1 ].Text );
+				months = UInt32.Parse(info.TextEntries[1].Text);
 			}
-			catch{}
+			catch { }
 			finally
 			{
-				if ( months > 0 )
+				if (months > 0)
 				{
-					m_Months = (int) months;
+					m_Months = (int)months;
 				}
 			}
 
 			string lookup = null;
 
-			if ( info.TextEntries[ 0 ].Text != null )
+			if (info.TextEntries[0].Text != null)
 			{
-				lookup = info.TextEntries[ 0 ].Text;
+				lookup = info.TextEntries[0].Text;
 			}
 
-			switch ( info.ButtonID )
+			switch (info.ButtonID)
 			{
 				case 1: // View History
 
 					ArrayList history = JailSystem.GetFullHistory();
 
-					if ( history.Count > 0 )
+					if (history.Count > 0)
 					{
-						sender.Mobile.SendGump( new JailListingGump( sender.Mobile, JailSystem.GetFullHistory(), new JailGumpCallback( JailAdminGumpCallback ) ) );
+						sender.Mobile.SendGump(new JailListingGump(sender.Mobile, JailSystem.GetFullHistory(),
+							JailAdminGumpCallback));
 					}
 					else
 					{
-						sender.Mobile.SendMessage( "The history is empty" );
-						sender.Mobile.SendGump( new JailAdminGump( sender.Mobile, m_Banned, m_Deleted, m_Old, m_Months ) );
+						sender.Mobile.SendMessage("The history is empty");
+						sender.Mobile.SendGump(new JailAdminGump(sender.Mobile, m_Banned, m_Deleted, m_Old, m_Months));
 					}
+
 					break;
 
 				case 2: // Search for players
 				case 3: // Search for accounts
 
-					if ( lookup != null && lookup.Length > 0 )
+					if (lookup != null && lookup.Length > 0)
 					{
 						ArrayList matches = null;
-						
-						if ( info.ButtonID == 2 )
+
+						if (info.ButtonID == 2)
 						{
-							matches = JailSystem.SearchForPlayers( lookup );
+							matches = JailSystem.SearchForPlayers(lookup);
 						}
 						else
 						{
-							matches = JailSystem.SearchForAccounts( lookup );
+							matches = JailSystem.SearchForAccounts(lookup);
 						}
 
-						if ( matches != null && matches.Count > 0 )
+						if (matches != null && matches.Count > 0)
 						{
-							sender.Mobile.SendGump( new JailSearchGump( matches, sender.Mobile, new JailGumpCallback( JailAdminGumpCallback ) ) );
+							sender.Mobile.SendGump(new JailSearchGump(matches, sender.Mobile, JailAdminGumpCallback));
 						}
 						else
 						{
-							sender.Mobile.SendMessage( "No matches found" );
-							sender.Mobile.SendGump( new JailAdminGump( sender.Mobile, m_Banned, m_Deleted, m_Old, m_Months ) );
+							sender.Mobile.SendMessage("No matches found");
+							sender.Mobile.SendGump(new JailAdminGump(sender.Mobile, m_Banned, m_Deleted, m_Old,
+								m_Months));
 						}
 					}
 					else
 					{
-						sender.Mobile.SendMessage( "Invalid search" );
-						sender.Mobile.SendGump( new JailAdminGump( sender.Mobile, m_Banned, m_Deleted, m_Old, m_Months ) );
+						sender.Mobile.SendMessage("Invalid search");
+						sender.Mobile.SendGump(new JailAdminGump(sender.Mobile, m_Banned, m_Deleted, m_Old, m_Months));
 					}
+
 					break;
 
 				case 4: // Purge
 
-					if ( ! ( m_Deleted || m_Banned || m_Old ) )
+					if (!(m_Deleted || m_Banned || m_Old))
 					{
-						sender.Mobile.SendMessage( "Invalid purge options. Please correct and try again." );
-						sender.Mobile.SendGump( new JailAdminGump( sender.Mobile, m_Banned, m_Deleted, m_Old, m_Months ) );
+						sender.Mobile.SendMessage("Invalid purge options. Please correct and try again.");
+						sender.Mobile.SendGump(new JailAdminGump(sender.Mobile, m_Banned, m_Deleted, m_Old, m_Months));
 					}
 					else
 					{
-						JailPurge purge = new JailPurge( m_Banned, m_Deleted, m_Old, m_Months );
-						JailSystem.PurgeHistory( sender.Mobile, purge );
-						sender.Mobile.SendGump( new JailAdminGump( sender.Mobile ) );
+						JailPurge purge = new JailPurge(m_Banned, m_Deleted, m_Old, m_Months);
+						JailSystem.PurgeHistory(sender.Mobile, purge);
+						sender.Mobile.SendGump(new JailAdminGump(sender.Mobile));
 					}
+
 					break;
 
 				case 5: // View Jail
 
-					sender.Mobile.SendGump( new JailListingGump( sender.Mobile, JailSystem.Jailings, new JailGumpCallback( JailAdminGumpCallback ) ) );
+					sender.Mobile.SendGump(new JailListingGump(sender.Mobile, JailSystem.Jailings,
+						JailAdminGumpCallback));
 					break;
 			}
 		}
 
-		private static void JailAdminGumpCallback( Mobile user )
+		private static void JailAdminGumpCallback(Mobile user)
 		{
-			user.SendGump( new JailAdminGump( user ) );
+			user.SendGump(new JailAdminGump(user));
 		}
 	}
 }

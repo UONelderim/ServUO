@@ -1,6 +1,10 @@
+#region References
+
 using Server.Items;
 using Server.Mobiles;
 using Server.Services.Virtues;
+
+#endregion
 
 namespace Server.Engines.HunterKiller
 {
@@ -192,7 +196,7 @@ namespace Server.Engines.HunterKiller
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)

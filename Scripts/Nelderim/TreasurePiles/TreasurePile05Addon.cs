@@ -4,9 +4,6 @@
 // AddonGenerator script by Arya
 //
 /////////////////////////////////////////////////
-using System;
-using Server;
-using Server.Items;
 
 namespace Server.Items
 {
@@ -20,52 +17,51 @@ namespace Server.Items
 			}
 		}
 
-		[ Constructable ]
+		[Constructable]
 		public TreasurePile05Addon()
 		{
 			AddonComponent ac = null;
-			ac = new AddonComponent( 7017 );
-			AddComponent( ac, 0, -1, 0 );
-			ac = new AddonComponent( 7016 );
-			AddComponent( ac, -1, -1, 0 );
-			ac = new AddonComponent( 7015 );
-			AddComponent( ac, -1, 0, 0 );
-			ac = new AddonComponent( 7014 );
-			AddComponent( ac, -2, 0, 0 );
-			ac = new AddonComponent( 7013 );
-			AddComponent( ac, -2, -1, 0 );
-			ac = new AddonComponent( 7012 );
-			AddComponent( ac, -2, 1, 0 );
-			ac = new AddonComponent( 7011 );
-			AddComponent( ac, -1, 1, 0 );
-			ac = new AddonComponent( 7010 );
-			AddComponent( ac, 0, 1, 0 );
-			ac = new AddonComponent( 7009 );
-			AddComponent( ac, 0, 0, 0 );
-			ac = new AddonComponent( 7018 );
-			AddComponent( ac, 1, -1, 0 );
-			ac = new AddonComponent( 7019 );
-			AddComponent( ac, 2, -1, 0 );
-			ac = new AddonComponent( 7008 );
-			AddComponent( ac, 1, 0, 0 );
-			ac = new AddonComponent( 7007 );
-			AddComponent( ac, 2, 0, 0 );
-
+			ac = new AddonComponent(7017);
+			AddComponent(ac, 0, -1, 0);
+			ac = new AddonComponent(7016);
+			AddComponent(ac, -1, -1, 0);
+			ac = new AddonComponent(7015);
+			AddComponent(ac, -1, 0, 0);
+			ac = new AddonComponent(7014);
+			AddComponent(ac, -2, 0, 0);
+			ac = new AddonComponent(7013);
+			AddComponent(ac, -2, -1, 0);
+			ac = new AddonComponent(7012);
+			AddComponent(ac, -2, 1, 0);
+			ac = new AddonComponent(7011);
+			AddComponent(ac, -1, 1, 0);
+			ac = new AddonComponent(7010);
+			AddComponent(ac, 0, 1, 0);
+			ac = new AddonComponent(7009);
+			AddComponent(ac, 0, 0, 0);
+			ac = new AddonComponent(7018);
+			AddComponent(ac, 1, -1, 0);
+			ac = new AddonComponent(7019);
+			AddComponent(ac, 2, -1, 0);
+			ac = new AddonComponent(7008);
+			AddComponent(ac, 1, 0, 0);
+			ac = new AddonComponent(7007);
+			AddComponent(ac, 2, 0, 0);
 		}
 
-		public TreasurePile05Addon( Serial serial ) : base( serial )
+		public TreasurePile05Addon(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( 0 ); // Version
+			base.Serialize(writer);
+			writer.Write(0); // Version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}
@@ -86,19 +82,19 @@ namespace Server.Items
 			Name = "TreasurePile05";
 		}
 
-		public TreasurePile05AddonDeed( Serial serial ) : base( serial )
+		public TreasurePile05AddonDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( 0 ); // Version
+			base.Serialize(writer);
+			writer.Write(0); // Version
 		}
 
-		public override void	Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

@@ -1,38 +1,36 @@
-using System;
-
 namespace Server.ACC.CSS.Systems.Ancient
 {
-    public class AncientDeathVortexScroll : CSpellScroll
-    {
-        [Constructable]
-        public AncientDeathVortexScroll()
-            : this(1)
-        {
-        }
+	public class AncientDeathVortexScroll : CSpellScroll
+	{
+		[Constructable]
+		public AncientDeathVortexScroll()
+			: this(1)
+		{
+		}
 
-        [Constructable]
-        public AncientDeathVortexScroll(int amount)
-            : base(typeof(AncientDeathVortexSpell), 0x1F66, amount)
-        {
-            Name = "Zwój Wiru Śmierci";
-            Hue = 1355;
-        }
+		[Constructable]
+		public AncientDeathVortexScroll(int amount)
+			: base(typeof(AncientDeathVortexSpell), 0x1F66, amount)
+		{
+			Name = "Zwój Wiru Śmierci";
+			Hue = 1355;
+		}
 
-        public AncientDeathVortexScroll(Serial serial)
-            : base(serial)
-        {
-        }
+		public AncientDeathVortexScroll(Serial serial)
+			: base(serial)
+		{
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-            writer.Write((int)0); // version
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+			writer.Write(0); // version
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-            int version = reader.ReadInt();
-        }
-    }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+			int version = reader.ReadInt();
+		}
+	}
 }

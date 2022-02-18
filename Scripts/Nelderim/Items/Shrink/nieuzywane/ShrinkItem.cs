@@ -41,20 +41,20 @@
 //            get { return m_Stabled; } 
 //            set { m_Stabled = value; } 
 //        }
-		
+
 //        public int Hours
 //        {
 //            get
 //            {
 //                if ( m_StabledFrom == DateTime.MaxValue )
 //                    return -1;
-				
+
 //                TimeSpan span = DateTime.Now - m_StabledFrom;
-						
+
 //                return span > TimeSpan.FromHours( 24 ) ? 25 : span.Hours;
 //            }
 //        }
-		
+
 //        public bool Ageless
 //        {
 //            get
@@ -74,7 +74,7 @@
 //                }
 //            }
 //        }
-		
+
 //        public ShrinkItem( Serial serial ) : base( serial )
 //        {
 //        }
@@ -83,16 +83,16 @@
 //        {
 //            m_toDeletePet = true;
 //            m_Creature = bc;
-			
+
 //            if ( !( bc.Body==400 || bc.Body==401 ) )
 //            {			
 //                Hue = bc.Hue;
 //            }
-			
+
 //            Name = bc.Name;
 //            Weight = 1;
 //            ItemID = ShrinkTable.Lookup( bc );
-			
+
 //            m_Creature.Loyalty--;
 //            m_StabledFrom = DateTime.Now;
 //        }
@@ -136,7 +136,7 @@
 //            {
 //                IPooledEnumerable eable = from.GetItemsInRange( 2 );
 //                bool thereis = false; 
-				
+
 //                foreach( Item item in eable )
 //                {
 //                    if ( item is HitchingPost )
@@ -145,7 +145,7 @@
 //                        break;
 //                    }
 //                }
-				
+
 //                if ( thereis && m_Creature.OnUnshrink( from ) )
 //                {
 //                    if ( m_Stabled && Hours <= 24 )
@@ -162,59 +162,59 @@
 //                    }
 //                    */
 //                    bool alreadyOwned = m_Creature.Owners.Contains( from );
-				    	
+
 //                    if ( !alreadyOwned )
 //                        m_Creature.Owners.Add( from );
-					
+
 //                    m_Creature.SetControlMaster( from );
-						
+
 //                    if ( m_FirstOwner != null && m_FirstOwner != from )
 //                    {
 //                        m_Creature.IsBonded = false;
 //                    }
-					
+
 //                    m_toDeletePet = false;
-	
+
 //                    m_Creature.Location = from.Location;
 //                    m_Creature.Map=from.Map;
 //                    m_Creature.ControlTarget = from;
 //                    m_Creature.ControlOrder = OrderType.Follow;
-					
+
 //                    if ( m_Creature.Summoned )
 //                        m_Creature.SummonMaster = from;
-	
+
 //                    if ( m_StabledFrom == DateTime.MaxValue )
 //                        m_Creature.Loyalty--;
 //                    else if ( !m_Stabled && Hours > 0 )
 //                    {
 //                        int hours = Hours;
-						
+
 //                        // Console.WriteLine( hours );
 //                        // Console.WriteLine( m_Creature.Loyalty );
-						
+
 //                        /*while ( hours-- > 0 && m_Creature.Loyalty-- != Loyalty.None )
 //                        {
 //                            // Console.WriteLine( hours );
 //                            // Console.WriteLine( m_Creature.Loyalty );
 //                        }*/
 //                    }
-					
+
 //                    if ( m_Stabled )
 //                    {
 //                        from.SendLocalizedMessage( 505689, ( 5 + Hours * 5 ).ToString() ); // Wloczega pobral od Ciebie ~1_GOLD~ centarow za pilnowanie zwierzecia.
 //                        from.PlaySound( 0x32 );
 //                    }	
-					
+
 //                    if ( from.AccessLevelMixed > AccessLevel.Player )
 //                        m_Creature.Cheater_Name = from.Name;
-					
+
 //                    this.Delete();
 //                }
 //                else
 //                    from.SendLocalizedMessage( 505664 ); // Powiekszyc zwierze mozesz tylko w poblizu palika.
 //            }
 //        }
-		
+
 //        public override void OnDelete()
 //        {
 //            try 
@@ -231,20 +231,20 @@
 
 //            base.OnDelete();
 //        }
-		
+
 //        #region Serialization
-		
+
 //        public override void Serialize( GenericWriter writer )
 //        {
 //            base.Serialize( writer );
 
 //            writer.Write( (int) 2 ); // version
-			
+
 //            writer.Write( m_FirstOwner );
 
 //            writer.Write( ( DateTime ) m_StabledFrom );
 //            writer.Write( ( bool ) m_Stabled );
-		
+
 //            writer.Write( m_Creature );
 //            writer.Write( m_toDeletePet );
 //        }
@@ -260,7 +260,7 @@
 //              case 2:
 //              {
 //          m_FirstOwner = reader.ReadMobile();
-          
+
 //          goto case 1;
 //        }
 //                case 1:
@@ -278,13 +278,13 @@
 //                    break;
 //                }
 //            }
-			
+
 //            if ( version < 1 )
 //            {
 //                m_StabledFrom = DateTime.MaxValue;
 //                m_Stabled = false;
 //            }
-						
+
 //            if ( m_Creature != null )
 //            {
 //                if ( ( m_StabledFrom != DateTime.MaxValue && DateTime.Now > m_StabledFrom + TimeSpan.FromDays( 28 ) ) || Damaged )
@@ -298,9 +298,9 @@
 //                }
 //            }
 //        }
-		
+
 //        #endregion
-	
+
 //        public override void OnSingleClick( Mobile from )
 //        {
 //            if ( Damaged )
@@ -339,7 +339,7 @@
 //        public override void AddNameProperties( ObjectPropertyList list )
 //        {
 //            base.AddNameProperties( list );
-			
+
 //            if ( Damaged )
 //                list.Add( 505675 ); // [ uszkodzony ]
 //            else
@@ -372,14 +372,14 @@
 //                }
 //            }
 //        }			
-	
+
 //        public override void GetContextMenuEntries( Mobile from,List<ContextMenuEntry> list )
 //        {
 //            base.GetContextMenuEntries( from, list );
 
 //            if ( IsChildOf( from.Backpack ) && m_StabledFrom != DateTime.MaxValue && !m_Stabled && Hours < 1 )
 //                list.Add( new StableEntry( this, from ) );
-			
+
 //            list.Add( new HelpEntry( from ) );
 //        }
 
@@ -387,7 +387,7 @@
 //        {
 //            private ShrinkItem m_Item;
 //            private Mobile m_From;
-				
+
 //            public StableEntry( ShrinkItem item, Mobile from ) : base( 50020, 1 )
 //            {
 //                m_Item = item;
@@ -401,11 +401,11 @@
 //                m_Item.InvalidateProperties();
 //            }
 //        }
-	
+
 //        private class HelpEntry : ContextMenuEntry
 //        {
 //            private Mobile m_From;
-				
+
 //            public HelpEntry( Mobile from ) : base( 50021 )
 //            {
 //                m_From = from;
@@ -416,22 +416,22 @@
 //                m_From.CloseGump( typeof( ShrinkItem.HelpEntry.InternalGump ) );
 //                m_From.SendGump( new InternalGump( m_From ) );
 //            }
-			
+
 //            public class InternalGump : Gump
 //            {
 //                private Mobile m_Mobile;
-				
+
 //                public InternalGump( Mobile mobile ) : base( 25, 50 )
 //                {
 //                    m_Mobile = mobile;
-					
+
 //                    AddPage( 0 );
-	
+
 //                    AddBackground( 25, 10, 420, 200, 5054 );
-	
+
 //                    AddImageTiled( 33, 20, 401, 181, 2624 );
 //                    AddAlphaRegion( 33, 20, 401, 181 );
-	
+
 //                    AddHtmlLocalized( 40, 48, 387, 100, 505687, true, true ); /* <B>System Palikow Nelderim<B><BR><BR>
 //                                                                               * Do konca stycznia 2006 roku na serwerze dzialal system palikow do pomniejszania zwierzat zaczerpniety z forum RunUO. Pozwalal on na pomniejszanie, <I>de facto</I> stable'owanie, dowolnej ilosci zwierzat za darmo. W oczywisty sposob stalo to w sprzecznosci z ograniczona liczba platnych miejsc w stajni i systemem bondowania.<BR>
 //                                                                               * Z tego powodu z poczatkiem lutego na serwer wszedl zupelnie nowy, jedynie pozornie podobny, system palikow do pomnijszania zwierzat. Nizej opisane zostana jego szczegoly.<BR><BR>
@@ -444,21 +444,23 @@
 //                                                                               * * jesli chce sie tego uniknac, nalezy z menu kontekstowego oplacic wloczege (5 centarow za kazda godzine pilnowania); oplata pobierana jest przy odbieraniu zwierzecia;<BR><BR>
 //                                                                               * <B>Migracja<B><BR><BR>
 //                                                                               * Do odwolania na serwerze moga rownolegle istniec figurki starego typu - oznaczone jako <I>[ figurka starego typu ]</I>. Te mozna na starych zasadach trzymac dowolnie dlugo (do odwolania).<BR><BR>
-//                                                                               * <B>ZASTRZE¿ENIE<B><BR><BR>
+//                                                                               * <B>ZASTRZEÂ¿ENIE<B><BR><BR>
 //                                                                               * <I>Zastrzegamy sobie mozliwosc calkowitego wycofania sie z systemu figurek w imie zgodnosci mechaniki z OSI.</I>
 //                                                                               * */
-	
+
 //                    AddButton( 190, 172, 4005, 4007, 0, GumpButtonType.Reply, 0 );
 //                    AddHtmlLocalized( 230, 172, 120, 20, 505686, 0xFFFFFF, false, false ); // Zamknij
-	
+
 //                    AddHtmlLocalized( 40, 20, 380, 20, 505688, 0xFFFFFF, false, false ); // Informacje o systemie zmniejszania zwierzat
 //                }
-	
+
 //                public override void OnResponse( NetState state, RelayInfo info )
 //                {
 //                }
 //            }
-	
+
 //        }
 //    }
 //}
+
+

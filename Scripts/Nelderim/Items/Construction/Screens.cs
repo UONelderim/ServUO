@@ -1,11 +1,14 @@
-using System;
+#region References
+
 using Server.Engines.Craft;
+
+#endregion
 
 namespace Server.Items
 {
 	[Furniture]
-	[Flipable( 0x24D0, 0x24D1, 0x24D2, 0x24D3, 0x24D4 )]
-    public class BambooScreenRC : ResouceCraftable
+	[Flipable(0x24D0, 0x24D1, 0x24D2, 0x24D3, 0x24D4)]
+	public class BambooScreenRC : ResouceCraftable
 	{
 		[Constructable]
 		public BambooScreenRC() : base(0x24D0)
@@ -21,7 +24,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -29,13 +32,12 @@ namespace Server.Items
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
-
 		}
 	}
 
 	[Furniture]
-	[Flipable( 0x24CB, 0x24CC, 0x24CD, 0x24CE, 0x24CF )]
-    public class ShojiScreenRC : ResouceCraftable, ICraftable
+	[Flipable(0x24CB, 0x24CC, 0x24CD, 0x24CE, 0x24CF)]
+	public class ShojiScreenRC : ResouceCraftable, ICraftable
 	{
 		[Constructable]
 		public ShojiScreenRC() : base(0x24CB)
@@ -51,7 +53,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -59,8 +61,6 @@ namespace Server.Items
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
-
 		}
 	}
-
 }

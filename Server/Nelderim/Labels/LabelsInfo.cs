@@ -1,42 +1,44 @@
-using Server;
+#region References
+
 using System;
+using Server;
+
+#endregion
 
 namespace Nelderim
 {
-    public class LabelsInfo : NExtensionInfo
-    {
-        private string[] m_Labels;
-        private string m_ModifiedBy;
-        private DateTime m_ModifiedDate;
+	public class LabelsInfo : NExtensionInfo
+	{
+		public LabelsInfo()
+		{
+			Labels = new string[5];
+		}
 
-        public LabelsInfo()
-        {
-            m_Labels = new string[5];
-        }
+		public string[] Labels { get; set; }
 
-        public string[] Labels { get { return m_Labels; } set { m_Labels = value; } }
-        public string ModifiedBy { get { return m_ModifiedBy; } set { m_ModifiedBy = value; } }
-        public DateTime ModifiedDate { get { return m_ModifiedDate; } set { m_ModifiedDate = value; } }
+		public string ModifiedBy { get; set; }
 
-        public override void Deserialize( GenericReader reader )
-        {
-            int labels_count = reader.ReadInt();
-            m_Labels = new string[labels_count];
-            for ( int j = 0; j < labels_count; j++ )
-                m_Labels[j] = reader.ReadString();
+		public DateTime ModifiedDate { get; set; }
 
-            m_ModifiedBy = reader.ReadString();
-            m_ModifiedDate = reader.ReadDateTime();
-        }
+		public override void Deserialize(GenericReader reader)
+		{
+			int labels_count = reader.ReadInt();
+			Labels = new string[labels_count];
+			for (int j = 0; j < labels_count; j++)
+				Labels[j] = reader.ReadString();
 
-        public override void Serialize( GenericWriter writer )
-        {
-            writer.Write( m_Labels.Length );
-            foreach ( string label in m_Labels )
-                writer.Write( label );
+			ModifiedBy = reader.ReadString();
+			ModifiedDate = reader.ReadDateTime();
+		}
 
-            writer.Write( m_ModifiedBy );
-            writer.Write( m_ModifiedDate );
-        }
-    }
+		public override void Serialize(GenericWriter writer)
+		{
+			writer.Write(Labels.Length);
+			foreach (string label in Labels)
+				writer.Write(label);
+
+			writer.Write(ModifiedBy);
+			writer.Write(ModifiedDate);
+		}
+	}
 }

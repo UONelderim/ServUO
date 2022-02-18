@@ -1,32 +1,37 @@
-﻿using System;
+﻿#region References
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+
+#endregion
 
 namespace Server.Engines.BulkOrders
 {
 	public partial class SmallBulkEntry
 	{
-		private static Dictionary<Type, int> m_HunterLevelCache = new Dictionary<Type, int>();
+		private static readonly Dictionary<Type, int> m_HunterLevelCache = new Dictionary<Type, int>();
 
 		public static int GetHunterBulkLevel(SmallBOD bod)
 		{
 			int result;
-			if ( bod != null && bod is SmallHunterBOD && m_HunterLevelCache.TryGetValue(bod.Type, out result) )
+			if (bod != null && bod is SmallHunterBOD && m_HunterLevelCache.TryGetValue(bod.Type, out result))
 				return result;
 			Console.WriteLine("!!!WARNING!!!");
-			Console.WriteLine($"Not found HunterBulkLevel for {bod?.ToString()}!!!");
+			Console.WriteLine($"Not found HunterBulkLevel for {bod}!!!");
 			return 1;
 		}
 
 		public static int GetHunterBulkLevel(LargeBOD bod)
 		{
 			int result;
-			if ( bod != null && bod is LargeHunterBOD && bod.Entries != null && bod.Entries.Length > 0 && bod.Entries[0] != null && bod.Entries[0].Details != null )
-				if ( m_HunterLevelCache.TryGetValue(bod.Entries[0].Details.Type, out result) )
+			if (bod != null && bod is LargeHunterBOD && bod.Entries != null && bod.Entries.Length > 0 &&
+			    bod.Entries[0] != null && bod.Entries[0].Details != null)
+				if (m_HunterLevelCache.TryGetValue(bod.Entries[0].Details.Type, out result))
 					return result;
 			Console.WriteLine("!!!WARNING!!!");
-			Console.WriteLine($"Not found HunterBulkLevel for {bod?.ToString()}!!!");
+			Console.WriteLine($"Not found HunterBulkLevel for {bod}!!!");
 			return 1;
 		}
 
@@ -55,17 +60,17 @@ namespace Server.Engines.BulkOrders
 
 		public static SmallBulkEntry[] GetHunterEntries(string type, string name)
 		{
-			if ( m_Cache == null )
+			if (m_Cache == null)
 				m_Cache = new Hashtable();
 
 			Hashtable table = (Hashtable)m_Cache[type];
 
-			if ( table == null )
+			if (table == null)
 				m_Cache[type] = table = new Hashtable();
 
 			SmallBulkEntry[] entries = (SmallBulkEntry[])table[name];
 
-			if ( entries == null )
+			if (entries == null)
 			{
 				table[name] = entries = LoadHunterEntries(type, name);
 			}
@@ -84,32 +89,33 @@ namespace Server.Engines.BulkOrders
 
 			ArrayList list = new ArrayList();
 
-			if ( File.Exists(path) )
+			if (File.Exists(path))
 			{
-				using ( StreamReader ip = new StreamReader(path) )
+				using (StreamReader ip = new StreamReader(path))
 				{
 					string line;
 
-					while ( (line = ip.ReadLine()) != null )
+					while ((line = ip.ReadLine()) != null)
 					{
-						if ( line.Length == 0 || line.StartsWith("#") )
+						if (line.Length == 0 || line.StartsWith("#"))
 							continue;
 						try
 						{
 							string[] split = line.Split('\t');
 
-							if ( split.Length == 3 )
+							if (split.Length == 3)
 							{
 								Type type = ScriptCompiler.FindTypeByName(split[0]);
 
-								if ( type != null )
+								if (type != null)
 								{
 									var level = Utility.ToInt32(split[2]);
 
-									if ( m_HunterLevelCache.ContainsKey(type) )
+									if (m_HunterLevelCache.ContainsKey(type))
 									{
-										if ( m_HunterLevelCache[type] != level )
-											throw new InvalidDataException("Niejednolita konfiguracja HunterBulk dla typu : " + type);
+										if (m_HunterLevelCache[type] != level)
+											throw new InvalidDataException(
+												"Niejednolita konfiguracja HunterBulk dla typu : " + type);
 									}
 									else
 										m_HunterLevelCache.Add(type, level);
@@ -118,7 +124,7 @@ namespace Server.Engines.BulkOrders
 								}
 							}
 						}
-						catch(Exception e)
+						catch (Exception e)
 						{
 							Console.WriteLine(e.ToString());
 						}
@@ -264,26 +270,26 @@ namespace Server.Engines.BulkOrders
 
 		public static SmallBulkEntry[] GetHunterEntries(string type, string name)
 		{
-			if ( m_Cache == null )
+			if (m_Cache == null)
 			{
 				m_Cache = new Hashtable();
 			}
 
 			Hashtable table = (Hashtable)m_Cache[type]; // lista zlecen dla danego typu rzemiosla
 
-			if ( table == null )
+			if (table == null)
 				m_Cache[type] = table = new Hashtable();
 
 			SmallBulkEntry[] entries = (SmallBulkEntry[])table[name];
 
-			if ( entries == null )
+			if (entries == null)
 			{
-				if ( !Directory.Exists("Logs") )
+				if (!Directory.Exists("Logs"))
 					Directory.CreateDirectory("Logs");
 
 				string directory = "Logs/HunterBulkOrders";
 
-				if ( !Directory.Exists(directory) )
+				if (!Directory.Exists(directory))
 					Directory.CreateDirectory(directory);
 
 				StreamWriter m_Output = null;

@@ -1,14 +1,15 @@
-using System;
-using Server.Network;
-using Server;
-using Server.Targeting;
+#region References
+
 using Server.Mobiles;
+using Server.Network;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.Items
 {
 	public class PetResurrectPotion : BasePotion
 	{
-
 		[Constructable]
 		public PetResurrectPotion()
 			: base(0xF0B, PotionEffect.PetResurrect)
@@ -28,7 +29,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -54,7 +55,7 @@ namespace Server.Items
 
 	public class PetResTarget : Target
 	{
-		private PetResurrectPotion m_Potion;
+		private readonly PetResurrectPotion m_Potion;
 
 		public PetResTarget(PetResurrectPotion pot)
 			: base(12, false, TargetFlags.None)
@@ -72,7 +73,7 @@ namespace Server.Items
 
 			BaseCreature pet = targeted as BaseCreature;
 
-			if (pet==null || pet.Deleted || !pet.IsBonded || !pet.IsDeadPet)
+			if (pet == null || pet.Deleted || !pet.IsBonded || !pet.IsDeadPet)
 			{
 				from.SendMessage("Mozesz wskrzesic jedynie wierne stworzenie, ktore poleglo!");
 			}
@@ -86,10 +87,11 @@ namespace Server.Items
 
 				m_Potion.Consume();
 				from.AddToBackpack(new Bottle());
-			} else {
+			}
+			else
+			{
 				from.SendLocalizedMessage(1049670);
 			}
 		}
 	}
 }
-

@@ -1,3 +1,5 @@
+#region References
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,6 +7,8 @@ using Server.Items;
 using Server.Spells;
 using Server.Spells.Sixth;
 using Server.Targeting;
+
+#endregion
 
 namespace Server.Mobiles
 {
@@ -102,7 +106,7 @@ namespace Server.Mobiles
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -264,10 +268,10 @@ namespace Server.Mobiles
 				if (target != null)
 					target.Invoke(this, this);
 
-				Timer.DelayCall(TimeSpan.FromSeconds(2), new TimerCallback(Teleport));
+				Timer.DelayCall(TimeSpan.FromSeconds(2), Teleport);
 			}
 
-			return base.Damage(amount, @from);
+			return base.Damage(amount, from);
 		}
 
 		private DateTime m_Change;
@@ -288,7 +292,7 @@ namespace Server.Mobiles
 					y *= -1;
 
 				Point3D p = new Point3D(X + x, Y + y, 0);
-				IPoint3D po = new LandTarget(p, Map) as IPoint3D;
+				IPoint3D po = new LandTarget(p, Map);
 
 				if (po == null)
 					continue;
@@ -364,17 +368,17 @@ namespace Server.Mobiles
 			if (best != null)
 			{
 				// teleport
-				best.Location = BasePeerless.GetSpawnPosition(Location, Map, 1);
+				best.Location = GetSpawnPosition(Location, Map, 1);
 				best.FixedParticles(0x376A, 9, 32, 0x13AF, EffectLayer.Waist);
 				best.PlaySound(0x1FE);
 
-				Timer.DelayCall(TimeSpan.FromSeconds(1), new TimerCallback(delegate()
+				Timer.DelayCall(TimeSpan.FromSeconds(1), delegate
 				{
 					// poison
 					best.ApplyPoison(this, HitPoison);
 					best.FixedParticles(0x374A, 10, 15, 5021, EffectLayer.Waist);
 					best.PlaySound(0x474);
-				}));
+				});
 
 				m_Change = DateTime.Now + TimeSpan.FromSeconds(Utility.RandomMinMax(5, 10));
 			}
@@ -394,7 +398,7 @@ namespace Server.Mobiles
 			// earthquake
 			PlaySound(0x2F3);
 
-			Timer.DelayCall(TimeSpan.FromSeconds(30), new TimerCallback(delegate { StopAffecting(); }));
+			Timer.DelayCall(TimeSpan.FromSeconds(30), delegate { StopAffecting(); });
 
 			m_Stomp = DateTime.Now + TimeSpan.FromSeconds(Utility.RandomMinMax(40, 50));
 		}

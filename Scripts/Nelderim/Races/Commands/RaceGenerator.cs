@@ -1,7 +1,11 @@
+#region References
+
 using System;
 using Server.Commands;
 using Server.Nelderim;
 using Server.Targeting;
+
+#endregion
 
 namespace Server
 {
@@ -9,7 +13,7 @@ namespace Server
 	{
 		public static void Initialize()
 		{
-			CommandSystem.Register("Rasa", AccessLevel.GameMaster, new CommandEventHandler(Appearance_OnCommand));
+			CommandSystem.Register("Rasa", AccessLevel.GameMaster, Appearance_OnCommand);
 		}
 
 		[Usage("Rasa {<Rasa: none - 0 | Tamael - 1 | Jarling - 2 | Krasnolud - 3 | Elf - 4 | Drow - 5 | Naur - 6>}")]
@@ -59,7 +63,7 @@ namespace Server
 
 		private class AppearanceTarget : Target
 		{
-			private Race m_Race;
+			private readonly Race m_Race;
 
 			public AppearanceTarget(Race race) : base(-1, false, TargetFlags.None)
 			{
@@ -102,7 +106,7 @@ namespace Server
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("RaceGenerator.Init error: " + e.ToString());
+				Console.WriteLine("RaceGenerator.Init error: " + e);
 			}
 		}
 		// zombie

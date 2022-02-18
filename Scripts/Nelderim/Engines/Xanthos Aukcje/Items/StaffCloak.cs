@@ -1,7 +1,10 @@
-using System;
+#region References
+
 using Server;
 using Server.Items;
 using Server.Mobiles;
+
+#endregion
 
 /*
 ** Allows staff to quickly switch between player and their assigned staff levels by equipping or removing the cloak
@@ -14,10 +17,8 @@ namespace Arya.Auction
 	public class StaffCloak : Cloak
 	{
 		private AccessLevel m_StaffLevel;
-		private Point3D m_HomeLoc;
-		private Map m_HomeMap;
 
-		[CommandProperty( AccessLevel.Administrator )]
+		[CommandProperty(AccessLevel.Administrator)]
 		public AccessLevel StaffLevel
 		{
 			get
@@ -31,20 +32,20 @@ namespace Arya.Auction
 			}
 		}
 
-		[CommandProperty( AccessLevel.GameMaster )]
-		public Point3D HomeLoc{ get{ return m_HomeLoc;}set{ m_HomeLoc = value;}}
+		[CommandProperty(AccessLevel.GameMaster)]
+		public Point3D HomeLoc { get; set; }
 
-		[CommandProperty( AccessLevel.GameMaster )]
-		public Map HomeMap{ get{ return m_HomeMap;}set{ m_HomeMap = value;}}
+		[CommandProperty(AccessLevel.GameMaster)]
+		public Map HomeMap { get; set; }
 
-		public override void OnAdded( IEntity parent )
+		public override void OnAdded(IEntity parent)
 		{
-			base.OnAdded( parent );
+			base.OnAdded(parent);
 
 			// delete this if someone without the necessary access level picks it up or tries to equip it
-			if ( RootParent is PlayerMobile && ( (PlayerMobile)RootParent ).AccessLevel == AccessLevel.Player )
+			if (RootParent is PlayerMobile && ((PlayerMobile)RootParent).AccessLevel == AccessLevel.Player)
 			{
-				((PlayerMobile)RootParent).Emote( "*Picks up Staff Cloak and watches it go poof*" );
+				((PlayerMobile)RootParent).Emote("*Picks up Staff Cloak and watches it go poof*");
 				Delete();
 				return;
 			}
@@ -52,7 +53,7 @@ namespace Arya.Auction
 			Mobile mobile = parent as Mobile;
 
 			// when equipped, change access level to player
-			if ( null != mobile )
+			if (null != mobile)
 			{
 				StaffLevel = mobile.AccessLevel;
 				mobile.AccessLevel = AccessLevel.Player;
@@ -60,14 +61,14 @@ namespace Arya.Auction
 			}
 		}
 
-		public override void OnRemoved( IEntity parent )
+		public override void OnRemoved(IEntity parent)
 		{
-			base.OnRemoved( parent );
+			base.OnRemoved(parent);
 
 			Mobile mobile = parent as Mobile;
 
 			// restore access level to the specified level
-			if ( null != mobile && !Deleted )
+			if (null != mobile && !Deleted)
 			{
 				mobile.AccessLevel = StaffLevel;
 				StaffLevel = AccessLevel.Player;
@@ -75,16 +76,16 @@ namespace Arya.Auction
 			}
 		}
 
-		public override void OnDoubleClick( Mobile from )
+		public override void OnDoubleClick(Mobile from)
 		{
-			if( HomeMap != Map.Internal && HomeMap != null && from.AccessLevel > AccessLevel.Player )
+			if (HomeMap != Map.Internal && HomeMap != null && from.AccessLevel > AccessLevel.Player)
 			{
-				from.MoveToWorld( HomeLoc, HomeMap );
+				from.MoveToWorld(HomeLoc, HomeMap);
 			}
 		}
 
 		[Constructable]
-		public StaffCloak() : base()
+		public StaffCloak()
 		{
 			StaffLevel = AccessLevel.Player;
 			LootType = LootType.Blessed;
@@ -92,49 +93,49 @@ namespace Arya.Auction
 			Weight = 0;
 		}
 
-		public StaffCloak( Serial serial ) : base( serial )
+		public StaffCloak(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
 			// version
-			writer.Write( (int) 0 );
+			writer.Write(0);
 			// version 0
-			writer.Write( (int) m_StaffLevel );
-			writer.Write( m_HomeLoc );
+			writer.Write((int)m_StaffLevel);
+			writer.Write(HomeLoc);
 			string mapname = null;
-			if(m_HomeMap != null)
+			if (HomeMap != null)
 			{
-				mapname = m_HomeMap.Name;
+				mapname = HomeMap.Name;
 			}
-			writer.Write( mapname );
+
+			writer.Write(mapname);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 
-			switch(version)
+			switch (version)
 			{
 				case 0:
 					m_StaffLevel = (AccessLevel)reader.ReadInt();
-					m_HomeLoc = reader.ReadPoint3D();
+					HomeLoc = reader.ReadPoint3D();
 					string mapName = reader.ReadString();
 
 					try
 					{
-						m_HomeMap = Map.Parse( mapName );
+						HomeMap = Map.Parse(mapName);
 					}
-					catch{}
+					catch { }
 
 					break;
 			}
-
 		}
 	}
 }

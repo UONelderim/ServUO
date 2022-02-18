@@ -1,5 +1,10 @@
+#region References
+
 using System;
 using System.Collections;
+using Server.Engines.Plants;
+
+#endregion
 
 namespace Server.Mobiles
 {
@@ -45,7 +50,7 @@ namespace Server.Mobiles
 
 
 			if (Utility.RandomDouble() < .25)
-				PackItem(Engines.Plants.Seed.RandomBonsaiSeed());
+				PackItem(Seed.RandomBonsaiSeed());
 		}
 
 		public override void GenerateLoot()
@@ -89,12 +94,12 @@ namespace Server.Mobiles
 			}
 		}
 
-		private static Hashtable m_Table = new Hashtable();
+		private static readonly Hashtable m_Table = new Hashtable();
 
 		private class ExpireTimer : Timer
 		{
-			private Mobile m_Mobile;
-			private Mobile m_From;
+			private readonly Mobile m_Mobile;
+			private readonly Mobile m_From;
 			private int m_Count;
 
 			public ExpireTimer(Mobile m, Mobile from) : base(TimeSpan.FromSeconds(1.0), TimeSpan.FromSeconds(1.0))
@@ -162,7 +167,7 @@ namespace Server.Mobiles
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)1);
+			writer.Write(1);
 		}
 
 		public override void Deserialize(GenericReader reader)

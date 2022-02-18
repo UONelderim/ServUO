@@ -1,13 +1,17 @@
+#region References
+
 using System;
 using System.Collections;
 using Server.Mobiles;
 using Server.Spells;
 
+#endregion
+
 namespace Server.ACC.CSS.Systems.Bard
 {
 	public class BardArmysPaeonSpell : BardSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Śpiew Armii", "Paeonus",
 			//SpellCircle.First,
 			212,
@@ -59,9 +63,9 @@ namespace Server.ACC.CSS.Systems.Bard
 
 		private class ExpireTimer : Timer
 		{
-			private Mobile m_Mobile;
+			private readonly Mobile m_Mobile;
 			private int m_Round;
-			private int m_Totalrounds;
+			private readonly int m_Totalrounds;
 
 			public ExpireTimer(Mobile m, int round, int totalrounds, TimeSpan delay) : base(delay)
 			{

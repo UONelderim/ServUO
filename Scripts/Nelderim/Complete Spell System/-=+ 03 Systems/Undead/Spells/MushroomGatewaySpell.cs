@@ -1,120 +1,125 @@
+#region References
+
 using System;
-using Server.Network;
-using Server.Multis;
 using Server.Items;
-using Server.Targeting;
 using Server.Misc;
-using Server.Regions;
+using Server.Network;
 using Server.Spells;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Undead
 {
 	public class UndeadMushroomGatewaySpell : UndeadSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
-		                                                "Limbo", "P'oor Vauk Sepa Ohm",
-		                                                //SpellCircle.Seventh,
-		                                                263,
-		                                                9032,
-		                                                Reagent.BlackPearl,
-		                                                Reagent.MandrakeRoot,
-		                                                CReagent.SpringWater
-		                                               );
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Limbo", "P'oor Vauk Sepa Ohm",
+			//SpellCircle.Seventh,
+			263,
+			9032,
+			Reagent.BlackPearl,
+			Reagent.MandrakeRoot,
+			CReagent.SpringWater
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Seventh; }
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Seventh; }
+		}
 
-		public override double CastDelay{ get{ return 3.0; } }
-		public override double RequiredSkill{ get{ return 70.0; } }
-		public override int RequiredMana{ get{ return 40; } }
+		public override double CastDelay { get { return 3.0; } }
+		public override double RequiredSkill { get { return 70.0; } }
+		public override int RequiredMana { get { return 40; } }
 
-		private RunebookEntry m_Entry;
+		private readonly RunebookEntry m_Entry;
 
-		public UndeadMushroomGatewaySpell( Mobile caster, Item scroll ) : this( caster, scroll, null )
+		public UndeadMushroomGatewaySpell(Mobile caster, Item scroll) : this(caster, scroll, null)
 		{
 		}
 
-		public UndeadMushroomGatewaySpell( Mobile caster, Item scroll, RunebookEntry entry ) : base( caster, scroll, m_Info )
+		public UndeadMushroomGatewaySpell(Mobile caster, Item scroll, RunebookEntry entry) : base(caster, scroll,
+			m_Info)
 		{
 			m_Entry = entry;
 		}
 
 		public override void OnCast()
 		{
-			if ( m_Entry == null )
-				Caster.Target = new InternalTarget( this );
+			if (m_Entry == null)
+				Caster.Target = new InternalTarget(this);
 			else
-				Effect( m_Entry.Location, m_Entry.Map, true );
+				Effect(m_Entry.Location, m_Entry.Map, true);
 		}
 
 		public override bool CheckCast()
 		{
-			if ( Caster.Criminal )
+			if (Caster.Criminal)
 			{
-				Caster.SendLocalizedMessage( 1005561, "", 0x22 ); // Thou'rt a criminal and cannot escape so easily.
-				return false;
-			}
-			else if ( SpellHelper.CheckCombat( Caster ) )
-			{
-				Caster.SendLocalizedMessage( 1005564, "", 0x22 ); // Wouldst thou flee during the heat of battle??
+				Caster.SendLocalizedMessage(1005561, "", 0x22); // Thou'rt a criminal and cannot escape so easily.
 				return false;
 			}
 
-			return SpellHelper.CheckTravel( Caster, TravelCheckType.GateFrom );
+			if (SpellHelper.CheckCombat(Caster))
+			{
+				Caster.SendLocalizedMessage(1005564, "", 0x22); // Wouldst thou flee during the heat of battle??
+				return false;
+			}
+
+			return SpellHelper.CheckTravel(Caster, TravelCheckType.GateFrom);
 		}
 
-		public void Effect( Point3D loc, Map map, bool checkMulti )
+		public void Effect(Point3D loc, Map map, bool checkMulti)
 		{
-			if ( map == null || (!Core.AOS && Caster.Map != map) )
+			if (map == null || (!Core.AOS && Caster.Map != map))
 			{
-				Caster.SendLocalizedMessage( 1005570 ); // You can not gate to another facet.
+				Caster.SendLocalizedMessage(1005570); // You can not gate to another facet.
 			}
-			else if ( !SpellHelper.CheckTravel( Caster, TravelCheckType.GateFrom ) )
-			{
-			}
-			else if ( !SpellHelper.CheckTravel( Caster,  map, loc, TravelCheckType.GateTo ) )
+			else if (!SpellHelper.CheckTravel(Caster, TravelCheckType.GateFrom))
 			{
 			}
-			else if ( Caster.Kills >= 5 && map != Map.Felucca )
+			else if (!SpellHelper.CheckTravel(Caster, map, loc, TravelCheckType.GateTo))
 			{
-				Caster.SendLocalizedMessage( 1019004 ); // You are not allowed to travel there.
 			}
-			else if ( Caster.Criminal )
+			else if (Caster.Kills >= 5 && map != Map.Felucca)
 			{
-				Caster.SendLocalizedMessage( 1005561, "", 0x22 ); // Thou'rt a criminal and cannot escape so easily.
+				Caster.SendLocalizedMessage(1019004); // You are not allowed to travel there.
 			}
-			else if ( SpellHelper.CheckCombat( Caster ) )
+			else if (Caster.Criminal)
 			{
-				Caster.SendLocalizedMessage( 1005564, "", 0x22 ); // Wouldst thou flee during the heat of battle??
+				Caster.SendLocalizedMessage(1005561, "", 0x22); // Thou'rt a criminal and cannot escape so easily.
 			}
-			else if ( !map.CanSpawnMobile( loc.X, loc.Y, loc.Z ) )
+			else if (SpellHelper.CheckCombat(Caster))
 			{
-				Caster.SendLocalizedMessage( 501942 ); // That location is blocked.
+				Caster.SendLocalizedMessage(1005564, "", 0x22); // Wouldst thou flee during the heat of battle??
 			}
-			else if ( (checkMulti && SpellHelper.CheckMulti( loc, map )) )
+			else if (!map.CanSpawnMobile(loc.X, loc.Y, loc.Z))
 			{
-				Caster.SendLocalizedMessage( 501942 ); // That location is blocked.
+				Caster.SendLocalizedMessage(501942); // That location is blocked.
 			}
-			else if ( CheckSequence() )
+			else if ((checkMulti && SpellHelper.CheckMulti(loc, map)))
 			{
-				Caster.SendMessage( "Otwierasz portal w nieznane miejsce!" ); // You open a magical gate to another location
+				Caster.SendLocalizedMessage(501942); // That location is blocked.
+			}
+			else if (CheckSequence())
+			{
+				Caster.SendMessage(
+					"Otwierasz portal w nieznane miejsce!"); // You open a magical gate to another location
 
-				Effects.PlaySound( Caster.Location, Caster.Map, 543 );
+				Effects.PlaySound(Caster.Location, Caster.Map, 543);
 				int mushx;
 				int mushy;
 				int mushz;
 
 
-				InternalItem firstGatea = new InternalItem( loc, map );
-				mushx=Caster.X;
-				mushy=Caster.Y;
-				mushz=Caster.Z;
-				firstGatea.ItemID=14217;
-				firstGatea.ItemID=14284;
-				Point3D mushxyz = new Point3D(mushx,mushy,mushz);
-				firstGatea.MoveToWorld( mushxyz, Caster.Map );
+				InternalItem firstGatea = new InternalItem(loc, map);
+				mushx = Caster.X;
+				mushy = Caster.Y;
+				mushz = Caster.Z;
+				firstGatea.ItemID = 14217;
+				firstGatea.ItemID = 14284;
+				Point3D mushxyz = new Point3D(mushx, mushy, mushz);
+				firstGatea.MoveToWorld(mushxyz, Caster.Map);
 				/*InternalItem firstGateb = new InternalItem( loc, map );
 				mushx=Caster.X;
 				mushy=Caster.Y;
@@ -159,17 +164,17 @@ namespace Server.ACC.CSS.Systems.Undead
 				Point3D mushxyzf = new Point3D(mushx,mushy,mushz);
 				firstGateg.MoveToWorld( mushxyzf, Caster.Map );*/
 
-				Effects.PlaySound( loc, map, 543 );
+				Effects.PlaySound(loc, map, 543);
 
-				InternalItem secondGatea = new InternalItem( Caster.Location, Caster.Map );
-				mushx=loc.X;
-				mushy=loc.Y;
-				mushz=loc.Z;
-				secondGatea.ItemID=14217;
-				secondGatea.ItemID=14284;
+				InternalItem secondGatea = new InternalItem(Caster.Location, Caster.Map);
+				mushx = loc.X;
+				mushy = loc.Y;
+				mushz = loc.Z;
+				secondGatea.ItemID = 14217;
+				secondGatea.ItemID = 14284;
 
-				Point3D mushaxyz = new Point3D(mushx,mushy,mushz);
-				secondGatea.MoveToWorld( mushaxyz, map);
+				Point3D mushaxyz = new Point3D(mushx, mushy, mushz);
+				secondGatea.MoveToWorld(mushaxyz, map);
 				/*InternalItem secondGateb = new InternalItem( Caster.Location, Caster.Map );
 				mushx=loc.X;
 				mushy=loc.Y;
@@ -220,41 +225,41 @@ namespace Server.ACC.CSS.Systems.Undead
 		[DispellableField]
 		private class InternalItem : Moongate
 		{
-			public override bool ShowFeluccaWarning{ get{ return Core.AOS; } }
+			public override bool ShowFeluccaWarning { get { return Core.AOS; } }
 
-			public InternalItem( Point3D target, Map map ) : base( target, map )
+			public InternalItem(Point3D target, Map map) : base(target, map)
 			{
 				Map = map;
 
-				if ( ShowFeluccaWarning && map == Map.Felucca )
+				if (ShowFeluccaWarning && map == Map.Felucca)
 					ItemID = 0xDDA;
 
 				Dispellable = true;
 
-				InternalTimer t = new InternalTimer( this );
+				InternalTimer t = new InternalTimer(this);
 				t.Start();
 			}
 
-			public InternalItem( Serial serial ) : base( serial )
+			public InternalItem(Serial serial) : base(serial)
 			{
 			}
 
-			public override void Serialize( GenericWriter writer )
+			public override void Serialize(GenericWriter writer)
 			{
-				base.Serialize( writer );
+				base.Serialize(writer);
 			}
 
-			public override void Deserialize( GenericReader reader )
+			public override void Deserialize(GenericReader reader)
 			{
-				base.Deserialize( reader );
+				base.Deserialize(reader);
 				Delete();
 			}
 
 			private class InternalTimer : Timer
 			{
-				private Item m_Item;
+				private readonly Item m_Item;
 
-				public InternalTimer( Item item ) : base( TimeSpan.FromSeconds( 30.0 ) )
+				public InternalTimer(Item item) : base(TimeSpan.FromSeconds(30.0))
 				{
 					m_Item = item;
 				}
@@ -268,42 +273,43 @@ namespace Server.ACC.CSS.Systems.Undead
 
 		private class InternalTarget : Target
 		{
-			private UndeadMushroomGatewaySpell m_Owner;
+			private readonly UndeadMushroomGatewaySpell m_Owner;
 
-			public InternalTarget( UndeadMushroomGatewaySpell owner ) : base( 12, false, TargetFlags.None )
+			public InternalTarget(UndeadMushroomGatewaySpell owner) : base(12, false, TargetFlags.None)
 			{
 				m_Owner = owner;
 
-				owner.Caster.LocalOverheadMessage( MessageType.Regular, 0x3B2, 501029 ); // Select Marked item.
+				owner.Caster.LocalOverheadMessage(MessageType.Regular, 0x3B2, 501029); // Select Marked item.
 			}
 
-			protected override void OnTarget( Mobile from, object o )
+			protected override void OnTarget(Mobile from, object o)
 			{
-				if ( o is RecallRune )
+				if (o is RecallRune)
 				{
 					RecallRune rune = (RecallRune)o;
 
-					if ( rune.Marked )
-						m_Owner.Effect( rune.Target, rune.TargetMap, true );
+					if (rune.Marked)
+						m_Owner.Effect(rune.Target, rune.TargetMap, true);
 					else
-						from.SendLocalizedMessage( 501803 ); // That rune is not yet marked.
+						from.SendLocalizedMessage(501803); // That rune is not yet marked.
 				}
-				else if ( o is Runebook )
+				else if (o is Runebook)
 				{
 					RunebookEntry e = ((Runebook)o).Default;
 
-					if ( e != null )
-						m_Owner.Effect( e.Location, e.Map, true );
+					if (e != null)
+						m_Owner.Effect(e.Location, e.Map, true);
 					else
-						from.SendLocalizedMessage( 502354 ); // Target is not marked.
+						from.SendLocalizedMessage(502354); // Target is not marked.
 				}
 				else
 				{
-					from.Send( new MessageLocalized( from.Serial, from.Body, MessageType.Regular, 0x3B2, 3, 501030, from.Name, "" ) ); // I can not gate travel from that object.
+					from.Send(new MessageLocalized(from.Serial, from.Body, MessageType.Regular, 0x3B2, 3, 501030,
+						from.Name, "")); // I can not gate travel from that object.
 				}
 			}
 
-			protected override void OnTargetFinish( Mobile from )
+			protected override void OnTargetFinish(Mobile from)
 			{
 				m_Owner.FinishSequence();
 			}

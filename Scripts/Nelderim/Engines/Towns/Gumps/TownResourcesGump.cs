@@ -1,3 +1,5 @@
+#region References
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,12 +12,14 @@ using Server.Mobiles;
 using Server.Network;
 using Server.Targeting;
 
+#endregion
+
 namespace Server.Gumps
 {
 	public class TownResourcesGump : Gump
 	{
-		private DuszaMiasta m_Town;
-		private TownResourcesGumpPage m_Page;
+		private readonly DuszaMiasta m_Town;
+		private readonly TownResourcesGumpPage m_Page;
 
 		#region Hues
 
@@ -36,7 +40,7 @@ namespace Server.Gumps
 
 		public void AddPageButton(int x, int y, int buttonID, int number, TownResourcesGumpPage page)
 		{
-			AddPageButtonCustomButton(x, y, buttonID, number, page, 4005, 4006, 4007);
+			AddPageButtonCustomButton(x, y, buttonID, number, page);
 		}
 
 		public void AddPageButtonCustomButton(int x, int y, int buttonID, int number, TownResourcesGumpPage page,
@@ -135,8 +139,7 @@ namespace Server.Gumps
 		{
 			if (from.Account.AccessLevel >= AccessLevel.GameMaster)
 				return true;
-			else
-				return from.InRange(town.GetWorldLocation(), 2); // Distance <= 2
+			return from.InRange(town.GetWorldLocation(), 2); // Distance <= 2
 		}
 
 		private bool CheckVisibility(DuszaMiasta town, Mobile from)
@@ -150,35 +153,43 @@ namespace Server.Gumps
 			{
 				return 163;
 			}
-			else if (relations >= 70 && relations < 100)
+
+			if (relations >= 70 && relations < 100)
 			{
 				return 169;
 			}
-			else if (relations >= 40 && relations < 70)
+
+			if (relations >= 40 && relations < 70)
 			{
 				return 188;
 			}
-			else if (relations >= 10 && relations < 40)
+
+			if (relations >= 10 && relations < 40)
 			{
 				return 193;
 			}
-			else if (relations == 0)
+
+			if (relations == 0)
 			{
 				return LabelHue;
 			}
-			else if (relations <= -10 && relations > -40)
+
+			if (relations <= -10 && relations > -40)
 			{
 				return 55;
 			}
-			else if (relations <= -30 && relations > -70)
+
+			if (relations <= -30 && relations > -70)
 			{
 				return 153;
 			}
-			else if (relations <= -60 && relations > -100)
+
+			if (relations <= -60 && relations > -100)
 			{
 				return 148;
 			}
-			else if (relations == -100)
+
+			if (relations == -100)
 			{
 				return 138;
 			}
@@ -228,8 +239,6 @@ namespace Server.Gumps
 					id = 0x13B5;
 					break;
 				case TownResourceType.Invalid:
-					break;
-				default:
 					break;
 			}
 
@@ -341,19 +350,19 @@ namespace Server.Gumps
 						// Umiescic info o podatkach i ich zmianie
 						AddHtmlLocalized(20, 140, 300, 20, 1063937, LabelColor, false,
 							false); // Podatki dla mieszkancow tego miasta
-						AddLabel(350, 140, LabelHue, string.Format("{0}%", townInfo.TaxesForThisTown));
+						AddLabel(350, 140, LabelHue, String.Format("{0}%", townInfo.TaxesForThisTown));
 						AddHtmlLocalized(20, 160, 300, 20, 1063938, LabelColor, false,
 							false); // Podatki dla mieszkancow innych miast
-						AddLabel(350, 160, LabelHue, string.Format("{0}%", townInfo.TaxesForOtherTowns));
+						AddLabel(350, 160, LabelHue, String.Format("{0}%", townInfo.TaxesForOtherTowns));
 						AddHtmlLocalized(20, 180, 350, 20, 1063939, LabelColor, false,
 							false); // Podatki dla nie bedacych obywatelami zadnego miasta
-						AddLabel(350, 180, LabelHue, string.Format("{0}%", townInfo.TaxesForNoTown));
+						AddLabel(350, 180, LabelHue, String.Format("{0}%", townInfo.TaxesForNoTown));
 
 						if (from.Account.AccessLevel >= AccessLevel.GameMaster ||
 						    TownDatabase.IsCitizenOfGivenTown(from, m_Town.Town))
 						{
 							AddLabel(20, 200, LabelHue,
-								string.Format("Stosunek oficjeli miasta {0} do innych miast:", m_Town.Town.ToString()));
+								String.Format("Stosunek oficjeli miasta {0} do innych miast:", m_Town.Town.ToString()));
 							int yLabRel = 220;
 							foreach (TownRelation tr in townInfo.TownRelations)
 							{
@@ -510,7 +519,7 @@ namespace Server.Gumps
 							if (from.Account.AccessLevel >= AccessLevel.Seer)
 							{
 								AddPageButtonCustomButton(10, 320, GetButtonID(4, 8), 1063778,
-									TownResourcesGumpPage.Citizens, 4005, 4005, 4007); // Nadaj przedstawicielstwo
+									TownResourcesGumpPage.Citizens, 4005, 4005); // Nadaj przedstawicielstwo
 								AddPageButtonCustomButton(210, 320, GetButtonID(4, 9), 1063779,
 									TownResourcesGumpPage.Citizens, 4002, 4002, 4004); // Zabierz przedstawicielstwo
 							}
@@ -529,7 +538,7 @@ namespace Server.Gumps
 							    TownDatabase.GetCurrentTownConselourStatus(from) == TownCounsellor.Diplomacy)
 							{
 								AddPageButtonCustomButton(10, 360, GetButtonID(4, 11), 1063781,
-									TownResourcesGumpPage.Citizens, 4005, 4005, 4007); // Nadaj obywatelstwo
+									TownResourcesGumpPage.Citizens, 4005, 4005); // Nadaj obywatelstwo
 								AddPageButtonCustomButton(210, 360, GetButtonID(4, 12), 1063782,
 									TownResourcesGumpPage.Citizens, 4002, 4002, 4004); // Zabierz obywatelstwo
 							}
@@ -586,7 +595,7 @@ namespace Server.Gumps
 							if (m_cits.Count > perPage && (subpageindex + 1) * perPage < m_cits.Count)
 							{
 								AddPageButtonCustomButton(245, 360, GetButtonID(40, subpageindex + 1), 1063784,
-									TownResourcesGumpPage.Citizens, 4005, 4005, 4007); // Nastepna strona
+									TownResourcesGumpPage.Citizens, 4005, 4005); // Nastepna strona
 							}
 
 							AddPageButton(10, 360, GetButtonID(4, 112), 1063783,
@@ -652,12 +661,12 @@ namespace Server.Gumps
 							if ((int)TownResourceType.Bronie != subpageindex)
 							{
 								AddPageButtonCustomButton(245, 360, GetButtonID(41, subpageindex + 1), 1063786,
-									TownResourcesGumpPage.Citizens, 4005, 4005, 4007); // Nastepny surowiec
+									TownResourcesGumpPage.Citizens, 4005, 4005); // Nastepny surowiec
 							}
 							else
 							{
 								AddPageButtonCustomButton(245, 360, GetButtonID(41, (int)TownResourceType.Zloto),
-									1063786, TownResourcesGumpPage.Citizens, 4005, 4005, 4007); // Nastepny surowiec
+									1063786, TownResourcesGumpPage.Citizens, 4005, 4005); // Nastepny surowiec
 							}
 
 							AddPageButton(10, 360, GetButtonID(4, 212), 1063783,
@@ -677,7 +686,7 @@ namespace Server.Gumps
 							Dictionary<Mobile, DateTime> m_cits_by_date =
 								TownDatabase.GetCitizensByJoinDate(m_Town.Town);
 							var dateItems = from pair in m_cits_by_date
-								orderby pair.Value ascending
+								orderby pair.Value
 								select pair;
 							// Wyswietlenie listy nazw i rang
 							minIndex = subpageindex * perPage;
@@ -720,7 +729,7 @@ namespace Server.Gumps
 							if (m_cits_by_date.Count > perPage && (subpageindex + 1) * perPage < m_cits_by_date.Count)
 							{
 								AddPageButtonCustomButton(245, 360, GetButtonID(54, subpageindex + 1), 1063784,
-									TownResourcesGumpPage.Citizens, 4005, 4005, 4007); // Nastepna strona
+									TownResourcesGumpPage.Citizens, 4005, 4005); // Nastepna strona
 							}
 
 							// Przyciski
@@ -793,7 +802,7 @@ namespace Server.Gumps
 							if (m_cons.Count > perPage && (subpageindex + 1) * perPage < m_cons.Count)
 							{
 								AddPageButtonCustomButton(245, 360, GetButtonID(40, subpageindex + 1), 1063784,
-									TownResourcesGumpPage.Citizens, 4005, 4005, 4007); // Nastepna strona
+									TownResourcesGumpPage.Citizens, 4005, 4005); // Nastepna strona
 							}
 
 							AddPageButton(10, 360, GetButtonID(4, 112), 1063783,
@@ -810,7 +819,7 @@ namespace Server.Gumps
 							TownCounsellor citConsStat = TownDatabase.GetCurrentTownConselourStatus(from);
 
 							AddHtmlLocalized(10, 120, 240, 20, 1063812, LabelColor, false, false); // Obywatel
-							AddLabel(30, 140, LabelHue, from.Name.ToString());
+							AddLabel(30, 140, LabelHue, from.Name);
 							AddHtmlLocalized(10, 160, 240, 20, 1063791, LabelColor, false, false); // Data przystapienia
 							AddLabel(30, 180, LabelHue, TownDatabase.GetJoinDate(from).ToString());
 							AddHtmlLocalized(10, 200, 240, 20, 1063790, LabelColor, false, false); // Ranga
@@ -856,10 +865,10 @@ namespace Server.Gumps
 							}
 
 							AddLabel(10, 310, LabelHue,
-								string.Format("Zuzyte poswiecenie - {0}",
+								String.Format("Zuzyte poswiecenie - {0}",
 									TownDatabase.GetCitinzeship(from).SpentDevotion));
 							AddLabel(10, 330, LabelHue,
-								string.Format("Dostepne poswiecenie - {0}",
+								String.Format("Dostepne poswiecenie - {0}",
 									TownDatabase.GetCitinzeship(from).GetCurrentDevotion()));
 
 							AddHtmlLocalized(200, 120, 240, 20, 1063764, SelectedColor, false, false); // Nazwa surowca
@@ -965,7 +974,7 @@ namespace Server.Gumps
 							    (subpageindex + 1) * perPage < m_cits_to_remove.Count)
 							{
 								AddPageButtonCustomButton(245, 360, GetButtonID(40, subpageindex + 1), 1063784,
-									TownResourcesGumpPage.Citizens, 4005, 4005, 4007); // Nastepna strona
+									TownResourcesGumpPage.Citizens, 4005, 4005); // Nastepna strona
 							}
 
 							AddPageButton(10, 360, GetButtonID(4, 112), 1063783,
@@ -973,8 +982,6 @@ namespace Server.Gumps
 
 							#endregion
 
-							break;
-						default:
 							break;
 					}
 
@@ -1027,7 +1034,7 @@ namespace Server.Gumps
 					if (m_buildings.Count > perBuildPage && (pageBuild + 1) * perBuildPage < (m_buildings.Count + 1))
 					{
 						AddPageButtonCustomButton(200, 360, GetButtonID(42, pageBuild + 1), 1063784,
-							TownResourcesGumpPage.TownDevelopment, 4005, 4005, 4007); // Nastepna strona
+							TownResourcesGumpPage.TownDevelopment, 4005, 4005); // Nastepna strona
 					}
 
 					#endregion
@@ -1079,7 +1086,7 @@ namespace Server.Gumps
 					if (m_buildings.Count > perBuildPage && (pageBuild + 1) * perBuildPage < (m_buildings.Count + 1))
 					{
 						AddPageButtonCustomButton(200, 360, GetButtonID(50, pageBuild + 1), 1063784,
-							TownResourcesGumpPage.TownDevelopment, 4005, 4005, 4007); // Nastepna strona
+							TownResourcesGumpPage.TownDevelopment, 4005, 4005); // Nastepna strona
 					}
 
 					#endregion
@@ -1131,7 +1138,7 @@ namespace Server.Gumps
 					if (m_buildings.Count > perBuildPage && (pageBuild + 1) * perBuildPage < (m_buildings.Count + 1))
 					{
 						AddPageButtonCustomButton(200, 360, GetButtonID(51, pageBuild + 1), 1063784,
-							TownResourcesGumpPage.TownDevelopment, 4005, 4005, 4007); // Nastepna strona
+							TownResourcesGumpPage.TownDevelopment, 4005, 4005); // Nastepna strona
 					}
 
 					#endregion
@@ -1183,7 +1190,7 @@ namespace Server.Gumps
 					if (m_buildings.Count > perBuildPage && (pageBuild + 1) * perBuildPage < (m_buildings.Count + 1))
 					{
 						AddPageButtonCustomButton(200, 360, GetButtonID(52, pageBuild + 1), 1063784,
-							TownResourcesGumpPage.TownDevelopment, 4005, 4005, 4007); // Nastepna strona
+							TownResourcesGumpPage.TownDevelopment, 4005, 4005); // Nastepna strona
 					}
 
 					#endregion
@@ -1286,59 +1293,59 @@ namespace Server.Gumps
 										AddHtmlLocalized(20, 120, 300, 20, 1063937, LabelColor, false,
 											false); // Podatki dla mieszkancow tego miasta
 										AddButtonWithLabeled(20, 140, GetButtonID(7, 105), "-5%",
-											thisT == -5 ? false : true, 50, 30);
+											thisT == -5 ? false : true, 50);
 										AddButtonWithLabeled(120, 140, GetButtonID(7, 103), "-3%",
-											thisT == -3 ? false : true, 50, 30);
+											thisT == -3 ? false : true, 50);
 										AddButtonWithLabeled(220, 140, GetButtonID(7, 101), "-1%",
-											thisT == -1 ? false : true, 50, 30);
+											thisT == -1 ? false : true, 50);
 										AddButtonWithLabeled(320, 140, GetButtonID(7, 10), "0%",
-											thisT == 0 ? false : true, 50, 30);
+											thisT == 0 ? false : true, 50);
 										AddButtonWithLabeled(20, 170, GetButtonID(7, 55), "5%",
-											thisT == 5 ? false : true, 50, 30);
+											thisT == 5 ? false : true, 50);
 										AddButtonWithLabeled(120, 170, GetButtonID(7, 60), "10%",
-											thisT == 10 ? false : true, 50, 30);
+											thisT == 10 ? false : true, 50);
 										AddButtonWithLabeled(220, 170, GetButtonID(7, 70), "20%",
-											thisT == 20 ? false : true, 50, 30);
+											thisT == 20 ? false : true, 50);
 										AddButtonWithLabeled(320, 170, GetButtonID(7, 80), "30%",
-											thisT == 30 ? false : true, 50, 30);
+											thisT == 30 ? false : true, 50);
 
 										AddHtmlLocalized(20, 200, 300, 20, 1063938, LabelColor, false,
 											false); // Podatki dla mieszkancow innych miast
 										AddButtonWithLabeled(20, 220, GetButtonID(8, 105), "-5%",
-											otherT == -5 ? false : true, 50, 30);
+											otherT == -5 ? false : true, 50);
 										AddButtonWithLabeled(120, 220, GetButtonID(8, 103), "-3%",
-											otherT == -3 ? false : true, 50, 30);
+											otherT == -3 ? false : true, 50);
 										AddButtonWithLabeled(220, 220, GetButtonID(8, 101), "-1%",
-											otherT == -1 ? false : true, 50, 30);
+											otherT == -1 ? false : true, 50);
 										AddButtonWithLabeled(320, 220, GetButtonID(8, 10), "0%",
-											otherT == 0 ? false : true, 50, 30);
+											otherT == 0 ? false : true, 50);
 										AddButtonWithLabeled(20, 250, GetButtonID(8, 55), "5%",
-											otherT == 5 ? false : true, 50, 30);
+											otherT == 5 ? false : true, 50);
 										AddButtonWithLabeled(120, 250, GetButtonID(8, 60), "10%",
-											otherT == 10 ? false : true, 50, 30);
+											otherT == 10 ? false : true, 50);
 										AddButtonWithLabeled(220, 250, GetButtonID(8, 70), "20%",
-											otherT == 20 ? false : true, 50, 30);
+											otherT == 20 ? false : true, 50);
 										AddButtonWithLabeled(320, 250, GetButtonID(8, 80), "30%",
-											otherT == 30 ? false : true, 50, 30);
+											otherT == 30 ? false : true, 50);
 
 										AddHtmlLocalized(20, 280, 350, 20, 1063939, LabelColor, false,
 											false); // Podatki dla nie bedacych obywatelami zadnego miasta
 										AddButtonWithLabeled(20, 300, GetButtonID(9, 105), "-5%",
-											noT == -5 ? false : true, 50, 30);
+											noT == -5 ? false : true, 50);
 										AddButtonWithLabeled(120, 300, GetButtonID(9, 103), "-3%",
-											noT == -3 ? false : true, 50, 30);
+											noT == -3 ? false : true, 50);
 										AddButtonWithLabeled(220, 300, GetButtonID(9, 101), "-1%",
-											noT == -1 ? false : true, 50, 30);
+											noT == -1 ? false : true, 50);
 										AddButtonWithLabeled(320, 300, GetButtonID(9, 10), "0%",
-											noT == 0 ? false : true, 50, 30);
+											noT == 0 ? false : true, 50);
 										AddButtonWithLabeled(20, 330, GetButtonID(9, 55), "5%", noT == 5 ? false : true,
-											50, 30);
+											50);
 										AddButtonWithLabeled(120, 330, GetButtonID(9, 60), "10%",
-											noT == 10 ? false : true, 50, 30);
+											noT == 10 ? false : true, 50);
 										AddButtonWithLabeled(220, 330, GetButtonID(9, 70), "20%",
-											noT == 20 ? false : true, 50, 30);
+											noT == 20 ? false : true, 50);
 										AddButtonWithLabeled(320, 330, GetButtonID(9, 80), "30%",
-											noT == 30 ? false : true, 50, 30);
+											noT == 30 ? false : true, 50);
 									}
 									else
 									{
@@ -1348,7 +1355,7 @@ namespace Server.Gumps
 								}
 								else
 								{
-									AddHtml(10, 120, 335, 25, string.Format("Potrzebny ratusz, by wplywac na podatki"),
+									AddHtml(10, 120, 335, 25, "Potrzebny ratusz, by wplywac na podatki",
 										true, false);
 								}
 							}
@@ -1411,29 +1418,29 @@ namespace Server.Gumps
 								else
 								{
 									AddHtml(10, 200, 335, 25,
-										string.Format("Potrzebny port, by prowadzic handel zagraniczny"), true, false);
+										"Potrzebny port, by prowadzic handel zagraniczny", true, false);
 								}
 							}
 
 							// Mnoznik cen budynkow
 							AddHtml(10, 240, 335, 25,
-								string.Format("Mnoznik cen budynkow wynosi {0} %.",
+								String.Format("Mnoznik cen budynkow wynosi {0} %.",
 									(TownDatabase.ChargeMultipier() * 100).ToString()), true, false);
 							// Pobieranie oplat za budynki
 							if (!TownDatabase.ChargeForBuildings())
 							{
 								AddHtml(10, 120, 335, 25,
-									string.Format("Budynki nie wymagaja dziennego oplacania za prace."), true, false);
+									"Budynki nie wymagaja dziennego oplacania za prace.", true, false);
 							}
 							else
 							{
 								// Ilosc dni jaki pozwoli na oplacenie wszystkich budynkow, bez koniecznosci zawieszania
 								AddHtml(10, 120, 335, 25,
-									string.Format("Skarbiec pozwala na oplacenie za {0} cykli.",
+									String.Format("Skarbiec pozwala na oplacenie za {0} cykli.",
 										TownAnnouncer.FullyPaidCycles(town.Town)), true, false);
 								// Surowiec ktory jako pierwszy sie wyczerpie
 								AddHtml(10, 160, 335, 25,
-									string.Format("Pierwszy surowiec, ktory sie wyczerpie to {0}.",
+									String.Format("Pierwszy surowiec, ktory sie wyczerpie to {0}.",
 										TownAnnouncer.FirstResourceToDrain(town.Town).ToString()), true, false);
 							}
 
@@ -1459,7 +1466,7 @@ namespace Server.Gumps
 								else
 								{
 									AddHtml(10, 120, 335, 25,
-										string.Format("Potrzebna ambasada, by wyslac surowce do innego miasta"), true,
+										"Potrzebna ambasada, by wyslac surowce do innego miasta", true,
 										false);
 								}
 							}
@@ -1479,7 +1486,7 @@ namespace Server.Gumps
 								else
 								{
 									AddHtml(10, 150, 360, 50,
-										string.Format("Potrzebna torturownia, by zmieniac relacje z innymi miastami"),
+										"Potrzebna torturownia, by zmieniac relacje z innymi miastami",
 										true, false);
 								}
 							}
@@ -1500,8 +1507,7 @@ namespace Server.Gumps
 								else
 								{
 									AddHtml(10, 200, 360, 50,
-										string.Format(
-											"Potrzebna ambasada i torturownia, by miec dostep szpiegowskich informacji"),
+										"Potrzebna ambasada i torturownia, by miec dostep szpiegowskich informacji",
 										true, false);
 								}
 							}
@@ -1526,8 +1532,7 @@ namespace Server.Gumps
 							else
 							{
 								AddHtml(20, 120, 360, 50,
-									string.Format(
-										"Potrzebny warsztat krawiecki lub kowalski, zeby moc otrzymac miastowa szate"),
+									"Potrzebny warsztat krawiecki lub kowalski, zeby moc otrzymac miastowa szate",
 									true, false);
 							}
 
@@ -1546,8 +1551,7 @@ namespace Server.Gumps
 							else
 							{
 								AddHtml(20, 160, 360, 50,
-									string.Format(
-										"Potrzebny warsztat krawiecki lub kowalski i maga, zeby moc otrzymac miastowa szate z kapturem"),
+									"Potrzebny warsztat krawiecki lub kowalski i maga, zeby moc otrzymac miastowa szate z kapturem",
 									true, false);
 							}
 
@@ -1562,7 +1566,7 @@ namespace Server.Gumps
 							else
 							{
 								AddHtml(20, 200, 360, 50,
-									string.Format("Potrzebny warsztat majstra, zeby moc otrzymac maly herb"), true,
+									"Potrzebny warsztat majstra, zeby moc otrzymac maly herb", true,
 									false);
 							}
 
@@ -1579,8 +1583,7 @@ namespace Server.Gumps
 							else
 							{
 								AddHtml(20, 240, 360, 50,
-									string.Format(
-										"Potrzebny warsztat majstra i kowalski, zeby moc otrzymac sredni herb"), true,
+									"Potrzebny warsztat majstra i kowalski, zeby moc otrzymac sredni herb", true,
 									false);
 							}
 
@@ -1599,15 +1602,12 @@ namespace Server.Gumps
 							else
 							{
 								AddHtml(20, 280, 360, 50,
-									string.Format(
-										"Potrzebny warsztat majstra i kowalski i ratusz, zeby moc otrzymac duzy herb"),
+									"Potrzebny warsztat majstra i kowalski i ratusz, zeby moc otrzymac duzy herb",
 									true, false);
 							}
 
 							#endregion
 
-							break;
-						default:
 							break;
 					}
 
@@ -1714,8 +1714,6 @@ namespace Server.Gumps
 							}
 
 							break;
-						default:
-							break;
 					}
 
 
@@ -1799,7 +1797,7 @@ namespace Server.Gumps
 						case 0:
 							// Przekaz surowce
 							from.BeginTarget(4, false, TargetFlags.None,
-								new TargetCallback(TransferResources_OnTarget));
+								TransferResources_OnTarget);
 							break;
 						case 1:
 							from.SendGump(
@@ -1808,12 +1806,12 @@ namespace Server.Gumps
 						case 2:
 							// Przekaz wiele surowcow
 							from.BeginTarget(4, false, TargetFlags.None,
-								new TargetCallback(TransferManyResources_OnTarget));
+								TransferManyResources_OnTarget);
 							break;
 						case 3:
 							// Przekaz surowce z pojemnika
 							from.BeginTarget(4, false, TargetFlags.None,
-								new TargetCallback(TransferResourcesInBag_OnTarget));
+								TransferResourcesInBag_OnTarget);
 							break;
 						default: return;
 					}
@@ -1890,7 +1888,7 @@ namespace Server.Gumps
 							subpage = TownResourcesGumpSubpages.CitizenDetails;
 							break;
 						case 8: // Nadaj przywodctwo
-							from.BeginTarget(15, false, TargetFlags.None, new TargetCallback(GiveLeadership_OnTarget));
+							from.BeginTarget(15, false, TargetFlags.None, GiveLeadership_OnTarget);
 							sendGump = false;
 							break;
 						case 9: // Zabierz przywodctwo
@@ -1919,7 +1917,7 @@ namespace Server.Gumps
 
 							break;
 						case 11: // Nadaj obywatelstwo
-							from.BeginTarget(15, false, TargetFlags.None, new TargetCallback(GiveCitizenship_OnTarget));
+							from.BeginTarget(15, false, TargetFlags.None, GiveCitizenship_OnTarget);
 							sendGump = false;
 							break;
 						case 12:
@@ -1927,27 +1925,27 @@ namespace Server.Gumps
 							break;
 						case 20: // Mianuj glownym kanclerzem
 							from.BeginTarget(15, false, TargetFlags.None,
-								new TargetCallback(MakePrimeConselour_OnTarget));
+								MakePrimeConselour_OnTarget);
 							sendGump = false;
 							break;
 						case 21: // Mianuj kanclerzem dyplomacji
 							from.BeginTarget(15, false, TargetFlags.None,
-								new TargetCallback(MakeDiplomacyConselour_OnTarget));
+								MakeDiplomacyConselour_OnTarget);
 							sendGump = false;
 							break;
 						case 22: // Mianuj kanclerzem ekonomii
 							from.BeginTarget(15, false, TargetFlags.None,
-								new TargetCallback(MakeEconomyConselour_OnTarget));
+								MakeEconomyConselour_OnTarget);
 							sendGump = false;
 							break;
 						case 23: // Mianuj kanclerzem armii
 							from.BeginTarget(15, false, TargetFlags.None,
-								new TargetCallback(MakeArmyConselour_OnTarget));
+								MakeArmyConselour_OnTarget);
 							sendGump = false;
 							break;
 						case 24: // Mianuj kanclerzem budownictwa
 							from.BeginTarget(15, false, TargetFlags.None,
-								new TargetCallback(MakeArchitectureConselour_OnTarget));
+								MakeArchitectureConselour_OnTarget);
 							sendGump = false;
 							break;
 						case 112: goto case 212;
@@ -1967,7 +1965,7 @@ namespace Server.Gumps
 				// TownDevelopment buttons                                                         
 				case 5:
 				{
-					from.SendGump(new TownResourcesGump(TownResourcesGumpPage.Citizens, from, m_Town, 0));
+					from.SendGump(new TownResourcesGump(TownResourcesGumpPage.Citizens, from, m_Town));
 					break;
 				}
 				// Maintance buttons
@@ -2194,7 +2192,7 @@ namespace Server.Gumps
 						TownDatabase.ChangeBuildingStatus(m_Town.Town, ((TownBuildingName)index),
 							TownBuildingStatus.Budowanie);
 						CommandHandlers.BroadcastMessage(AccessLevel.Counselor, 300,
-							string.Format("Miasto {0} rozpoczyna budowe budynku {1} bez kosztow - zlecono przez {2}",
+							String.Format("Miasto {0} rozpoczyna budowe budynku {1} bez kosztow - zlecono przez {2}",
 								m_Town.Town.ToString(), ((TownBuildingName)index).ToString(), from.Name));
 					}
 					else
@@ -2216,7 +2214,7 @@ namespace Server.Gumps
 								TownDatabase.AddTownLog(m_Town.Town, TownLogTypes.BUDYNEK_ZLECONO_BUDOWE, "", index, 0,
 									0);
 								CommandHandlers.BroadcastMessage(AccessLevel.Counselor, 400,
-									string.Format("Miasto {0} rozpoczyna budowe budynku {1}", m_Town.Town.ToString(),
+									String.Format("Miasto {0} rozpoczyna budowe budynku {1}", m_Town.Town.ToString(),
 										((TownBuildingName)index).ToString(), from.Name));
 							}
 							else
@@ -2251,7 +2249,7 @@ namespace Server.Gumps
 					from.SendGump(new TownResourcesGump(TownResourcesGumpPage.Building, from, m_Town,
 						TownResourcesGumpSubpages.None, index));
 					CommandHandlers.BroadcastMessage(AccessLevel.Counselor, 250,
-						string.Format("Miasto {0} konczy budowe budynku {1} - przez {2}", m_Town.Town.ToString(),
+						String.Format("Miasto {0} konczy budowe budynku {1} - przez {2}", m_Town.Town.ToString(),
 							((TownBuildingName)index).ToString(), from.Name));
 					TownDatabase.AddTownLog(m_Town.Town, TownLogTypes.BUDYNEK_ZAKONCZONO_BUDOWE, "", index, 0, 0);
 
@@ -2267,7 +2265,7 @@ namespace Server.Gumps
 					from.SendGump(new TownResourcesGump(TownResourcesGumpPage.Building, from, m_Town,
 						TownResourcesGumpSubpages.None, index));
 					CommandHandlers.BroadcastMessage(AccessLevel.Counselor, 250,
-						string.Format("W miescie {0} zniszczono budynek {1} - przez {2}", m_Town.Town.ToString(),
+						String.Format("W miescie {0} zniszczono budynek {1} - przez {2}", m_Town.Town.ToString(),
 							((TownBuildingName)index).ToString(), from.Name));
 					TownDatabase.AddTownLog(m_Town.Town, TownLogTypes.BUDYNEK_ZNISZCZONO, "", index, 0, 0);
 
@@ -2283,7 +2281,7 @@ namespace Server.Gumps
 					from.SendGump(new TownResourcesGump(TownResourcesGumpPage.Building, from, m_Town,
 						TownResourcesGumpSubpages.None, index));
 					CommandHandlers.BroadcastMessage(AccessLevel.Counselor, 250,
-						string.Format("W miescie {0} zawieszono budynek {1} - przez {2}", m_Town.Town.ToString(),
+						String.Format("W miescie {0} zawieszono budynek {1} - przez {2}", m_Town.Town.ToString(),
 							((TownBuildingName)index).ToString(), from.Name));
 					TownDatabase.AddTownLog(m_Town.Town, TownLogTypes.BUDYNEK_ZAWIESZONO_DZIALANIE, "", index, 0, 0);
 
@@ -2306,7 +2304,7 @@ namespace Server.Gumps
 						from.SendGump(new TownResourcesGump(TownResourcesGumpPage.Building, from, m_Town,
 							TownResourcesGumpSubpages.None, index));
 						CommandHandlers.BroadcastMessage(AccessLevel.Counselor, 250,
-							string.Format("W miescie {0} wznowiono dzialanie budynku {1} - przez {2}",
+							String.Format("W miescie {0} wznowiono dzialanie budynku {1} - przez {2}",
 								m_Town.Town.ToString(), ((TownBuildingName)index).ToString(), from.Name));
 					}
 					else
@@ -2472,8 +2470,6 @@ namespace Server.Gumps
 							}
 
 							break;
-						default:
-							break;
 					}
 
 					from.SendGump(new TownResourcesGump(TownResourcesGumpPage.Maintance, from, m_Town,
@@ -2624,7 +2620,7 @@ namespace Server.Gumps
 
 			from.SendLocalizedMessage(
 				1063953); // Wybierz kolejny surowiec do przekazania, lub nacisnij ESCAPE zeby przerwac.
-			from.BeginTarget(4, false, TargetFlags.None, new TargetCallback(TransferManyResources_OnTarget));
+			from.BeginTarget(4, false, TargetFlags.None, TransferManyResources_OnTarget);
 		}
 
 		private bool CheckItemInBag(Mobile from, TownManager townToTransfer, Item itemFromBag)
@@ -2646,11 +2642,9 @@ namespace Server.Gumps
 					from.SendLocalizedMessage(1063775); // Surowiec zostal przekazany miastu
 					return true;
 				}
-				else
-				{
-					from.SendLocalizedMessage(
-						1063774); // Skarbiec nie posiada odpowiednio duzo miejsca, by pomiescic wskazany surowiec
-				}
+
+				from.SendLocalizedMessage(
+					1063774); // Skarbiec nie posiada odpowiednio duzo miejsca, by pomiescic wskazany surowiec
 			}
 			else
 			{
@@ -3030,7 +3024,7 @@ namespace Server.Gumps
 
 	public class TownRename : Gump
 	{
-		DuszaMiasta m_town;
+		readonly DuszaMiasta m_town;
 		private const int LabelColor = 0x7FFF;
 		private const int SelectedColor = 0x421F;
 
@@ -3073,10 +3067,10 @@ namespace Server.Gumps
 
 	public class TownPrompt : Gump
 	{
-		Mobile tmpMobileToRemove;
+		readonly Mobile tmpMobileToRemove;
 		private const int LabelColor = 0x7FFF;
 		private const int SelectedColor = 0x421F;
-		private int m_quest = 0;
+		private readonly int m_quest;
 
 		public void AddTownButton(int x, int y, Towns townSelected)
 		{
@@ -3096,57 +3090,57 @@ namespace Server.Gumps
 			switch (m_quest)
 			{
 				case 0: // Nadanie obywatelstwo
-					AddHtmlLocalized(10, 10, 250, 250, 1063799, string.Format("{0}", town.ToString()), LabelColor,
+					AddHtmlLocalized(10, 10, 250, 250, 1063799, String.Format("{0}", town.ToString()), LabelColor,
 						false, false); // Czy przyjmujesz obywatelstwo miasta ~1_val~?
 					break;
 				case 1: // Porzuc obywatelstwo
 					// Send GUMP to ask if player wants it
 					AddHtmlLocalized(10, 10, 250, 250, 1063802,
-						string.Format("{0}", TownDatabase.IsCitizenOfWhichTown(from).ToString()), LabelColor, false,
+						String.Format("{0}", TownDatabase.IsCitizenOfWhichTown(from).ToString()), LabelColor, false,
 						false); // Na pewno chcesz porzucic obywatelstwo w miescie ~1_val~? Spowoduje to strate calego poswiecenia jakiego dokonales na rzecz miasta.
 					break;
 				case 2: // Nadaj przedstawicielstwo
 					// Send GUMP to ask if player wants it
-					AddHtmlLocalized(10, 10, 250, 250, 1063801, string.Format("{0}", town.ToString()), LabelColor,
+					AddHtmlLocalized(10, 10, 250, 250, 1063801, String.Format("{0}", town.ToString()), LabelColor,
 						false, false); // Czy przyjmujesz przywodctwo w miescie ~1_val~?
 					break;
 				case 3: // Zabierz przedstawicielstwo
 					Mobile tmpMobile;
 					tmpMobile = TownDatabase.CitizenMobileFromTownWithStatus(town, TownStatus.Leader);
 					// Send GUMP to ask if player wants it
-					AddHtmlLocalized(10, 10, 250, 250, 1063808, string.Format("{0}", tmpMobile.Name), LabelColor, false,
+					AddHtmlLocalized(10, 10, 250, 250, 1063808, String.Format("{0}", tmpMobile.Name), LabelColor, false,
 						false); // Czy na pewnoe chcesz pozbawic ~1_val~ przedstawicielstwa?
 					break;
 				case 4: // Zabierz obywatelstwo
 					SortedList<string, Mobile> m_cits_to_remove = TownDatabase.GetMobilesByName(town);
 					tmpMobileToRemove = m_cits_to_remove.Values[IndexOfRemove];
 					// Send GUMP to ask if player wants it
-					AddHtmlLocalized(10, 10, 250, 250, 1063809, string.Format("{0}", tmpMobileToRemove.Name),
+					AddHtmlLocalized(10, 10, 250, 250, 1063809, String.Format("{0}", tmpMobileToRemove.Name),
 						LabelColor, false, false); // Czy na pewnoe chcesz pozbawic ~1_val~ obywatelstwa?
 					break;
 				case 5: // Mianuj glownym kanclerzem
 					// Send GUMP to ask if player wants it
-					AddHtmlLocalized(10, 10, 250, 250, 1063876, string.Format("{0}", town.ToString()), LabelColor,
+					AddHtmlLocalized(10, 10, 250, 250, 1063876, String.Format("{0}", town.ToString()), LabelColor,
 						false, false); // Czy przyjmujesz tytul glownego kanclerza w miescie ~1_val~?
 					break;
 				case 6: // Mianuj kanclerzem dyplomacji
 					// Send GUMP to ask if player wants it
-					AddHtmlLocalized(10, 10, 250, 250, 1063877, string.Format("{0}", town.ToString()), LabelColor,
+					AddHtmlLocalized(10, 10, 250, 250, 1063877, String.Format("{0}", town.ToString()), LabelColor,
 						false, false); // Czy przyjmujesz tytul kanclerza dypolomacji w miescie ~1_val~?
 					break;
 				case 7: // Mianuj kanclerzem ekonomii
 					// Send GUMP to ask if player wants it
-					AddHtmlLocalized(10, 10, 250, 250, 1063878, string.Format("{0}", town.ToString()), LabelColor,
+					AddHtmlLocalized(10, 10, 250, 250, 1063878, String.Format("{0}", town.ToString()), LabelColor,
 						false, false); // Czy przyjmujesz tytul kanclerza ekonomii w miescie ~1_val~?
 					break;
 				case 8: // Mianuj kanclerzem armii
 					// Send GUMP to ask if player wants it
-					AddHtmlLocalized(10, 10, 250, 250, 1063879, string.Format("{0}", town.ToString()), LabelColor,
+					AddHtmlLocalized(10, 10, 250, 250, 1063879, String.Format("{0}", town.ToString()), LabelColor,
 						false, false); // Czy przyjmujesz tytul kanclerza armii w miescie ~1_val~?
 					break;
 				case 9: // Mianuj kanclerzem budownictwa
 					// Send GUMP to ask if player wants it
-					AddHtmlLocalized(10, 10, 250, 250, 1063880, string.Format("{0}", town.ToString()), LabelColor,
+					AddHtmlLocalized(10, 10, 250, 250, 1063880, String.Format("{0}", town.ToString()), LabelColor,
 						false, false); // Czy przyjmujesz tytul kanclerza budownictwa w miescie ~1_val~?
 					break;
 				case 10: // Zabierz tytul kanclerza
@@ -3154,10 +3148,8 @@ namespace Server.Gumps
 						TownDatabase.GetCitizensByNameWithStatusAsList(town, TownStatus.Counsellor);
 					tmpMobileToRemove = m_cons_to_remove[IndexOfRemove];
 					// Send GUMP to ask if player wants it
-					AddHtmlLocalized(10, 10, 250, 250, 1063882, string.Format("{0}", tmpMobileToRemove.Name),
+					AddHtmlLocalized(10, 10, 250, 250, 1063882, String.Format("{0}", tmpMobileToRemove.Name),
 						LabelColor, false, false); // Czy na pewnoe chcesz pozbawic ~1_val~ statusu kanclerza?
-					break;
-				default:
 					break;
 			}
 
@@ -3216,7 +3208,7 @@ namespace Server.Gumps
 						TownDatabase.AddTownLog((Towns)val, TownLogTypes.OBYWATELSTWO_ZAKONCZONO, from.Name, 0, 0, 0);
 						TownDatabase.LeaveCurrentTown(tmpMobileToRemove);
 						tmpMobileToRemove.SendAsciiMessage(
-							string.Format("Zostales pozbawiony obywatelstwa w miescie {0}.", ((Towns)val).ToString()));
+							String.Format("Zostales pozbawiony obywatelstwa w miescie {0}.", ((Towns)val).ToString()));
 					}
 
 					break;
@@ -3273,12 +3265,10 @@ namespace Server.Gumps
 						TownDatabase.ChangeCurrentTownStatus(tmpMobileToRemove, TownStatus.Citizen);
 						TownDatabase.ChangeCurrentConselourStatus(tmpMobileToRemove, TownCounsellor.None);
 						TownDatabase.InformLeader((Towns)val,
-							string.Format("{0} zostal pozbiawony statusu kanclerza dyplomacji w miescie {1}.",
+							String.Format("{0} zostal pozbiawony statusu kanclerza dyplomacji w miescie {1}.",
 								tmpMobileToRemove.Name, ((Towns)val).ToString()));
 					}
 
-					break;
-				default:
 					break;
 			}
 		}

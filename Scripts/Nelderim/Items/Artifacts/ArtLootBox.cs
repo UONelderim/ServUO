@@ -1,5 +1,9 @@
+#region References
+
 using System;
 using Server.Items;
+
+#endregion
 
 namespace Server
 {
@@ -41,9 +45,9 @@ namespace Server
 		}
 
 		[Constructable]
-		public ArtLootBox(String type) : base(0x2DF3)
+		public ArtLootBox(string type) : base(0x2DF3)
 		{
-			if (!ArtLootType.TryParse(type, out m_LootType))
+			if (!Enum.TryParse(type, out m_LootType))
 				m_LootType = ArtLootType.Paragon;
 			SetName();
 		}
@@ -102,7 +106,7 @@ namespace Server
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)

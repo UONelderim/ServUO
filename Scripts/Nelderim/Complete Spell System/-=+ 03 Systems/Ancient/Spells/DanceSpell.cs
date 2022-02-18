@@ -1,119 +1,122 @@
+#region References
+
 using System;
 using System.Collections;
-using Server.Misc;
-using Server.Targeting;
-using Server.Network;
-using Server.Mobiles;
 using Server.Spells;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ancient
 {
-    public class AncientDanceSpell : AncientSpell
-    {
-        public override double RequiredSkill { get { return 70.0; } }
-        public override int RequiredMana { get { return 40; } }
-        private static SpellInfo m_Info = new SpellInfo(
-                                                        "Taniec", "Por Xen",
-                                                        218,
-                                                        9031,
-                                                        Reagent.Garlic,
-                                                        Reagent.Bloodmoss,
-                                                        Reagent.MandrakeRoot
-                                                       );
+	public class AncientDanceSpell : AncientSpell
+	{
+		public override double RequiredSkill { get { return 70.0; } }
+		public override int RequiredMana { get { return 40; } }
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Fifth; }
-        }
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Taniec", "Por Xen",
+			218,
+			9031,
+			Reagent.Garlic,
+			Reagent.Bloodmoss,
+			Reagent.MandrakeRoot
+		);
 
-        public AncientDanceSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Fifth; }
+		}
 
-        public override void OnCast()
-        {
-            if (CheckSequence())
-                Caster.Target = new InternalTarget(this);
-        }
+		public AncientDanceSpell(Mobile caster, Item scroll)
+			: base(caster, scroll, m_Info)
+		{
+		}
 
-        public void Target(IPoint3D p)
-        {
-            if (!Caster.CanSee(p))
-            {
-                Caster.SendLocalizedMessage(500237); // Target can not be seen.
-            }
-            else
-            {
-                if (this.Scroll != null)
-                    Scroll.Consume();
-                SpellHelper.Turn(Caster, p);
+		public override void OnCast()
+		{
+			if (CheckSequence())
+				Caster.Target = new InternalTarget(this);
+		}
 
-                SpellHelper.GetSurfaceTop(ref p);
+		public void Target(IPoint3D p)
+		{
+			if (!Caster.CanSee(p))
+			{
+				Caster.SendLocalizedMessage(500237); // Target can not be seen.
+			}
+			else
+			{
+				if (this.Scroll != null)
+					Scroll.Consume();
+				SpellHelper.Turn(Caster, p);
 
-                ArrayList targets = new ArrayList();
+				SpellHelper.GetSurfaceTop(ref p);
 
-                Map map = Caster.Map;
+				ArrayList targets = new ArrayList();
 
-                if (map != null)
-                {
-                    IPooledEnumerable eable = map.GetMobilesInRange(new Point3D(p), 3);
+				Map map = Caster.Map;
 
-                    foreach (Mobile m in eable)
-                    {
-                        if (Core.AOS && m == Caster)
-                            continue;
+				if (map != null)
+				{
+					IPooledEnumerable eable = map.GetMobilesInRange(new Point3D(p), 3);
 
-                        if (SpellHelper.ValidIndirectTarget(Caster, m) && Caster.CanSee(m))
-                            targets.Add(m);
-                    }
+					foreach (Mobile m in eable)
+					{
+						if (Core.AOS && m == Caster)
+							continue;
 
-                    eable.Free();
-                }
+						if (SpellHelper.ValidIndirectTarget(Caster, m) && Caster.CanSee(m))
+							targets.Add(m);
+					}
 
-                for (int i = 0; i < targets.Count; ++i)
-                {
-                    Mobile m = (Mobile)targets[i];
-                    if (Caster.CanBeHarmful(m, false))
-                    {
-                        Caster.DoHarmful(m);
-                        m.Stam = 0;
-                    }
-                    m.Freeze(TimeSpan.FromSeconds(4)); //freeze for animation
+					eable.Free();
+				}
 
-                    m.Animate(111, 5, 1, true, false, 0); // Do a little dance...
+				for (int i = 0; i < targets.Count; ++i)
+				{
+					Mobile m = (Mobile)targets[i];
+					if (Caster.CanBeHarmful(m, false))
+					{
+						Caster.DoHarmful(m);
+						m.Stam = 0;
+					}
+
+					m.Freeze(TimeSpan.FromSeconds(4)); //freeze for animation
+
+					m.Animate(111, 5, 1, true, false, 0); // Do a little dance...
 
 
-                    m.FixedParticles(0x374A, 10, 15, 5028, EffectLayer.CenterFeet);
-                    m.PlaySound(0x1FB);
-                }
-            }
+					m.FixedParticles(0x374A, 10, 15, 5028, EffectLayer.CenterFeet);
+					m.PlaySound(0x1FB);
+				}
+			}
 
-            FinishSequence();
-        }
+			FinishSequence();
+		}
 
-        private class InternalTarget : Target
-        {
-            private AncientDanceSpell m_Owner;
+		private class InternalTarget : Target
+		{
+			private readonly AncientDanceSpell m_Owner;
 
-            public InternalTarget(AncientDanceSpell owner)
-                : base(12, true, TargetFlags.None)
-            {
-                m_Owner = owner;
-            }
+			public InternalTarget(AncientDanceSpell owner)
+				: base(12, true, TargetFlags.None)
+			{
+				m_Owner = owner;
+			}
 
-            protected override void OnTarget(Mobile from, object o)
-            {
-                IPoint3D p = o as IPoint3D;
+			protected override void OnTarget(Mobile from, object o)
+			{
+				IPoint3D p = o as IPoint3D;
 
-                if (p != null)
-                    m_Owner.Target(p);
-            }
+				if (p != null)
+					m_Owner.Target(p);
+			}
 
-            protected override void OnTargetFinish(Mobile from)
-            {
-                m_Owner.FinishSequence();
-            }
-        }
-    }
+			protected override void OnTargetFinish(Mobile from)
+			{
+				m_Owner.FinishSequence();
+			}
+		}
+	}
 }

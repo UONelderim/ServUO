@@ -1,11 +1,15 @@
+#region References
+
 using Server.Spells;
 using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Avatar
 {
 	public class AvatarBallSpell : AvatarSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Kula Sniezna", "In Vas Frost",
 			//SpellCircle.First,
 			233,
@@ -67,7 +71,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 
 		private class InternalTarget : Target
 		{
-			private AvatarBallSpell m_Owner;
+			private readonly AvatarBallSpell m_Owner;
 
 			public InternalTarget(AvatarBallSpell owner) : base(Core.ML ? 10 : 12, false, TargetFlags.Harmful)
 			{

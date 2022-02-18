@@ -1,18 +1,23 @@
-﻿using System;
+﻿#region References
+
+using System;
 using Server.Network;
+
+#endregion
 
 namespace Server.Gumps
 {
 	public class ArtChooseGump : Gump
 	{
-		public static void Initialize() {
+		public static void Initialize()
+		{
 		}
 
 
-		private Type[] m_ArtList;
-		private string[] m_ArtName;
-		private Item m_Scroll;
-		private int m_Page;
+		private readonly Type[] m_ArtList;
+		private readonly string[] m_ArtName;
+		private readonly Item m_Scroll;
+		private readonly int m_Page;
 
 		public static readonly int GumpOffsetX = PropsConfig.GumpOffsetX;
 		public static readonly int GumpOffsetY = PropsConfig.GumpOffsetY;
@@ -23,11 +28,15 @@ namespace Server.Gumps
 		public const int GumpWidth = 300;
 		public const int TitleHeight = 20;
 		public const int TitleWidth = 280;
+
 		public readonly int GumpBaseHeight = 30 + TitleHeight + EntryHeight;
+
 		//public const int MainHeight = 310;
 		public const int ButtonWidth = 30;
 
-		public ArtChooseGump(Mobile owner, Type[] list, string[] names, Item scroll, int page) : base(GumpOffsetX, GumpOffsetY) {
+		public ArtChooseGump(Mobile owner, Type[] list, string[] names, Item scroll, int page) : base(GumpOffsetX,
+			GumpOffsetY)
+		{
 			owner.CloseGump(typeof(ArtChooseGump));
 			m_ArtList = list;
 			m_ArtName = names;
@@ -37,25 +46,34 @@ namespace Server.Gumps
 			Draw();
 		}
 
-		public ArtChooseGump(Mobile owner, Type[] list, string[] names, Item scroll) : this(owner, list, names, scroll, 0) {
+		public ArtChooseGump(Mobile owner, Type[] list, string[] names, Item scroll) : this(owner, list, names, scroll,
+			0)
+		{
 		}
 
-		public void Draw() {
+		public void Draw()
+		{
 			int from = m_Page * 10;
 			bool NextPage, PrevPage;
 
 			if (m_ArtList.Length <= 10 && from == 0)
 				NextPage = PrevPage = false;
-			else if (m_ArtList.Length > 10 && from == 0) {
+			else if (m_ArtList.Length > 10 && from == 0)
+			{
 				PrevPage = false;
 				NextPage = true;
-			} else if (from > 0 && (m_ArtList.Length - from) > 10) {
+			}
+			else if (from > 0 && (m_ArtList.Length - from) > 10)
+			{
 				NextPage = true;
 				PrevPage = true;
-			} else if (from > 0 && (m_ArtList.Length - from) <= 10) {
+			}
+			else if (from > 0 && (m_ArtList.Length - from) <= 10)
+			{
 				NextPage = false;
 				PrevPage = true;
-			} else
+			}
+			else
 				NextPage = PrevPage = false;
 
 
@@ -74,40 +92,48 @@ namespace Server.Gumps
 			AddAlphaRegion(x, y, TitleWidth, GumpHeight - GumpBaseHeight);
 
 			//Itemy
-			for (int i = from; i < from + 10 && i < m_ArtList.Length; i++) {
+			for (int i = from; i < from + 10 && i < m_ArtList.Length; i++)
+			{
 				AddButton(x + 5, y + 5, 4005, 4006, i + 3, GumpButtonType.Reply, 0);
 				AddLabel(x + 5 + ButtonWidth, y + 5, 1952, m_ArtName[i]);
 				y += EntryHeight;
 			}
 
 			int PosY = 35 + TitleHeight + 10 * EntryHeight;
-			if (PrevPage) {
+			if (PrevPage)
+			{
 				AddButton(x, PosY, 4014, 4015, 1, GumpButtonType.Reply, 0);
 				AddLabel(x + ButtonWidth, PosY, 1952, "POPRZEDNIE");
 			}
-			if (NextPage) {
+
+			if (NextPage)
+			{
 				AddButton(x + 105, PosY, 4005, 4006, 2, GumpButtonType.Reply, 0);
 				AddLabel(x + 105 + ButtonWidth, PosY, 1952, "NASTEPNE");
 			}
 
 			AddButton(x + 205, PosY, 4017, 4018, 0, GumpButtonType.Reply, 0);
 			AddLabel(x + 205 + ButtonWidth, PosY, 1952, "ANULUJ");
-
-
 		}
 
-		public override void OnResponse(NetState state, RelayInfo info) {
+		public override void OnResponse(NetState state, RelayInfo info)
+		{
 			Mobile from = state.Mobile;
 
 			if (info.ButtonID <= 0)
 				return;
-			else if (info.ButtonID == 1) {
+			if (info.ButtonID == 1)
+			{
 				state.Mobile.CloseGump(typeof(ArtChooseGump));
 				state.Mobile.SendGump(new ArtChooseGump(state.Mobile, m_ArtList, m_ArtName, m_Scroll, m_Page - 1));
-			} else if (info.ButtonID == 2) {
+			}
+			else if (info.ButtonID == 2)
+			{
 				state.Mobile.CloseGump(typeof(ArtChooseGump));
 				state.Mobile.SendGump(new ArtChooseGump(state.Mobile, m_ArtList, m_ArtName, m_Scroll, m_Page + 1));
-			} else {
+			}
+			else
+			{
 				int i = info.ButtonID - 3;
 
 				Item art = (Item)Activator.CreateInstance(m_ArtList[i]);
@@ -119,10 +145,6 @@ namespace Server.Gumps
 
 				m_Scroll.Delete();
 			}
-
 		}
-
-
-
 	}
 }

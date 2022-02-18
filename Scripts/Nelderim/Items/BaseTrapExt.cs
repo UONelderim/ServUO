@@ -1,6 +1,10 @@
+#region References
+
 using System.Collections.Generic;
 using Nelderim;
 using Server.Spells;
+
+#endregion
 
 namespace Server.Items
 {
@@ -59,12 +63,10 @@ namespace Server.Items
 
 				return true;
 			}
-			else
-			{
-				from.SendMessage("Nie posiadasz wystarczajacych umiejetnosci na rozbrojenie tej pulapki.");
 
-				return false;
-			}
+			@from.SendMessage("Nie posiadasz wystarczajacych umiejetnosci na rozbrojenie tej pulapki.");
+
+			return false;
 		}
 	}
 
@@ -74,7 +76,7 @@ namespace Server.Items
 
 		public static void Initialize()
 		{
-			EventSink.WorldSave += new WorldSaveEventHandler(Save);
+			EventSink.WorldSave += Save;
 			Load(ModuleName);
 		}
 

@@ -6,53 +6,48 @@
  * Santas Gift
  * 
  */
-using System;
 
-namespace Server.Items 
-{ 
-      public class SantasGift2009 : Item 
-      { 
+namespace Server.Items
+{
+	public class SantasGift2009 : Item
+	{
+		[Constructable]
+		public SantasGift2009() : base(0x20D4)
+		{
+			Stackable = false;
+			Weight = 3.0;
+			Name = "A Gift For Santa";
+			Hue = 1151;
+			LootType = LootType.Blessed;
+		}
 
-             [Constructable] 
-             public SantasGift2009() : base( 0x20D4 ) 
-             { 
-		     Stackable = false; 
-		     Weight = 3.0; 
-		     Name = "A Gift For Santa";
-	         Hue = 1151; 
-		     LootType = LootType.Blessed;
-             }
+		public SantasGift2009(Serial serial) : base(serial)
+		{
+		}
 
-             public SantasGift2009( Serial serial ) : base( serial ) 
-             { 
-             } 
+		public override void GetProperties(ObjectPropertyList list)
+		{
+			base.GetProperties(list);
+			list.Add(1060662, "From \t Santa's Reindeer");
+		}
 
-	         public override void GetProperties( ObjectPropertyList list )
-	         {
-	  	    base.GetProperties( list );
-	  	    list.Add( 1060662, "From \t Santa's Reindeer" );
+		public override void OnDoubleClick(Mobile from)
+		{
+			Effects.PlaySound(from, from.Map, 0x83);
+		}
 
-    	     }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-             public override void OnDoubleClick( Mobile from ) 
-             { 
-             	Effects.PlaySound( from, from.Map, 0x83 );
-             }
+			writer.Write(0);
+		}
 
-	         public override void Serialize( GenericWriter writer ) 
-	         {
-	            base.Serialize( writer ); 
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-	            writer.Write( (int) 0 ); 
-	            
-	         }
-	
-	         public override void Deserialize( GenericReader reader ) 
-	         {
-	            base.Deserialize( reader ); 
-
-	            int version = reader.ReadInt(); 
-	         }
-      } 
-}     
-
+			int version = reader.ReadInt();
+		}
+	}
+}

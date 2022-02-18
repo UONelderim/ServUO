@@ -1,11 +1,15 @@
+#region References
+
 using Server.Spells;
 using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Druid
 {
 	public class DruidHollowReedSpell : DruidSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Siła Natury", "En Crur Aeta Sec En Ess ",
 			//SpellCircle.Second,
 			203,
@@ -58,7 +62,7 @@ namespace Server.ACC.CSS.Systems.Druid
 
 		private class InternalTarget : Target
 		{
-			private DruidHollowReedSpell m_Owner;
+			private readonly DruidHollowReedSpell m_Owner;
 
 			public InternalTarget(DruidHollowReedSpell owner) : base(12, false, TargetFlags.Beneficial)
 			{

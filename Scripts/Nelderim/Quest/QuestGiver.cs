@@ -1,9 +1,13 @@
+#region References
+
 using System.Collections.Generic;
 using Server.Commands;
 using Server.ContextMenus;
 using Server.Gumps;
 using Server.Items;
 using Server.Network;
+
+#endregion
 
 namespace Server.Mobiles
 {
@@ -43,7 +47,7 @@ namespace Server.Mobiles
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -54,7 +58,7 @@ namespace Server.Mobiles
 
 		public class QuestGiverEntry : ContextMenuEntry
 		{
-			private Mobile m_Mobile;
+			private readonly Mobile m_Mobile;
 			private Mobile m_Giver;
 
 			public QuestGiverEntry(Mobile from, Mobile giver) : base(6146, 3)
@@ -135,48 +139,55 @@ namespace Server.Mobiles
 						"Kiedy skonczysz, zwroc mi pergamin z misja... by otrzymac swoja nagrode.", mobile.NetState);
 					return true;
 				}
-				else if (dropped is Gold && dropped.Amount == 10)
+
+				if (dropped is Gold && dropped.Amount == 10)
 				{
 					mobile.AddToBackpack(new QuestScroll(2));
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false,
 						"Kiedy skonczysz, zwroc mi pergamin z misja... by otrzymac swoja nagrode.", mobile.NetState);
 					return true;
 				}
-				else if (dropped is Gold && dropped.Amount == 15)
+
+				if (dropped is Gold && dropped.Amount == 15)
 				{
 					mobile.AddToBackpack(new QuestScroll(3));
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false,
 						"Kiedy skonczysz, zwroc mi pergamin z misja... by otrzymac swoja nagrode.", mobile.NetState);
 					return true;
 				}
-				else if (dropped is Gold && dropped.Amount == 20)
+
+				if (dropped is Gold && dropped.Amount == 20)
 				{
 					mobile.AddToBackpack(new QuestScroll(4));
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false,
 						"Kiedy skonczysz, zwroc mi pergamin z misja... by otrzymac swoja nagrode.", mobile.NetState);
 					return true;
 				}
-				else if (dropped is Gold && dropped.Amount == 25)
+
+				if (dropped is Gold && dropped.Amount == 25)
 				{
 					mobile.AddToBackpack(new QuestScroll(5));
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false,
 						"Kiedy skonczysz, zwroc mi pergamin z misja... by otrzymac swoja nagrode.", mobile.NetState);
 					return true;
 				}
-				else if (dropped is Gold && dropped.Amount == 30)
+
+				if (dropped is Gold && dropped.Amount == 30)
 				{
 					mobile.AddToBackpack(new QuestScroll(6));
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false,
 						"Kiedy skonczysz, zwroc mi pergamin z misja... by otrzymac swoja nagrode.", mobile.NetState);
 					return true;
 				}
-				else if (dropped is Gold)
+
+				if (dropped is Gold)
 				{
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "To nie jest kwota, ktorej szukam.",
 						mobile.NetState);
 					return false;
 				}
-				else if (dropped is QuestScroll)
+
+				if (dropped is QuestScroll)
 				{
 					QuestScroll m_Quest = (QuestScroll)dropped;
 
@@ -265,13 +276,11 @@ namespace Server.Mobiles
 
 					return true;
 				}
-				else
-				{
-					mobile.AddToBackpack(dropped);
-					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "Tego nie potrzebuje...",
-						mobile.NetState);
-					return true;
-				}
+
+				mobile.AddToBackpack(dropped);
+				this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "Tego nie potrzebuje...",
+					mobile.NetState);
+				return true;
 			}
 
 			return false;
@@ -286,7 +295,7 @@ namespace Server.Gumps
 		public static void Initialize()
 		{
 			CommandSystem.Register("QuestGiver_gump", AccessLevel.GameMaster,
-				new CommandEventHandler(QuestGiver_gump_OnCommand));
+				QuestGiver_gump_OnCommand);
 		}
 
 		private static void QuestGiver_gump_OnCommand(CommandEventArgs e)

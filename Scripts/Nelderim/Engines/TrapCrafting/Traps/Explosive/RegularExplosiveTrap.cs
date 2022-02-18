@@ -2,60 +2,65 @@
 // ** Basic Trap Framework (BTF)
 // ** Author: Lichbane
 //
-using System;
+
+#region References
+
 using Server.Mobiles;
+
+#endregion
 
 namespace Server.Items
 {
-    public class ExplosiveRegularTrap : BaseTinkerTrap
-    {
-        private static string m_ArmedName = "uzbrojona wybuchowa pułapkap";
-        private static string m_UnarmedName = "nueuzbrojona  wybuchowa pułapka";
-        private static double m_ExpiresIn = 120.0;
-        private static int m_ArmingSkill = 25;
-        private static int m_DisarmingSkill = 50;
-        private static int m_KarmaLoss = 50;
-        private static bool m_AllowedInTown = false;
+	public class ExplosiveRegularTrap : BaseTinkerTrap
+	{
+		private static readonly string m_ArmedName = "uzbrojona wybuchowa pułapkap";
+		private static readonly string m_UnarmedName = "nueuzbrojona  wybuchowa pułapka";
+		private static readonly double m_ExpiresIn = 120.0;
+		private static readonly int m_ArmingSkill = 25;
+		private static readonly int m_DisarmingSkill = 50;
+		private static readonly int m_KarmaLoss = 50;
+		private static readonly bool m_AllowedInTown = false;
 
-        [Constructable]
-        public ExplosiveRegularTrap()
-            : base(m_ArmedName, m_UnarmedName, m_ExpiresIn, m_ArmingSkill, m_DisarmingSkill, m_KarmaLoss, m_AllowedInTown)
-        {
-        }
+		[Constructable]
+		public ExplosiveRegularTrap()
+			: base(m_ArmedName, m_UnarmedName, m_ExpiresIn, m_ArmingSkill, m_DisarmingSkill, m_KarmaLoss,
+				m_AllowedInTown)
+		{
+		}
 
-        public override void TrapEffect(Mobile from)
-        {
-            from.PlaySound(0x4A);  // click sound
+		public override void TrapEffect(Mobile from)
+		{
+			from.PlaySound(0x4A); // click sound
 
-            from.FixedParticles(0x36BD, 20, 10, 5044, EffectLayer.Head);
-            from.PlaySound(0x307);
+			from.FixedParticles(0x36BD, 20, 10, 5044, EffectLayer.Head);
+			from.PlaySound(0x307);
 
-            int damage = Utility.RandomMinMax(30, 50);
-            AOS.Damage(from, from, damage, 100, 100, 0, 0, 0);
+			int damage = Utility.RandomMinMax(30, 50);
+			AOS.Damage(from, from, damage, 100, 100, 0, 0, 0);
 
-            bool m_TrapsLimit = Trapcrafting.Config.TrapsLimit;
-            if ((m_TrapsLimit) && (((PlayerMobile)this.Owner).TrapsActive > 0))
-                ((PlayerMobile)this.Owner).TrapsActive -= 1;
+			bool m_TrapsLimit = Trapcrafting.Config.TrapsLimit;
+			if ((m_TrapsLimit) && (((PlayerMobile)this.Owner).TrapsActive > 0))
+				((PlayerMobile)this.Owner).TrapsActive -= 1;
 
-            this.Delete();
-        }
+			this.Delete();
+		}
 
-        public ExplosiveRegularTrap(Serial serial) : base(serial)
-        {
-        }
+		public ExplosiveRegularTrap(Serial serial) : base(serial)
+		{
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            writer.Write((int)0); // version
-        }
+			writer.Write(0); // version
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-            int version = reader.ReadInt();
-        }
-    }
+			int version = reader.ReadInt();
+		}
+	}
 }

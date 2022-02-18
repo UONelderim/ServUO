@@ -1,17 +1,20 @@
-using System;
+#region References
 
+using System;
 using Server;
+
+#endregion
 
 namespace Arya.Jail
 {
 	/// <summary>
-	/// Holds the timer that manages the auto release of jailings
+	///     Holds the timer that manages the auto release of jailings
 	/// </summary>
-	public class JailScheduler : Server.Timer
+	public class JailScheduler : Timer
 	{
 		private static JailScheduler m_Timer;
 
-		private JailScheduler() : base( TimeSpan.FromMinutes( 1 ), TimeSpan.FromMinutes( 1 ) )
+		private JailScheduler() : base(TimeSpan.FromMinutes(1), TimeSpan.FromMinutes(1))
 		{
 			Priority = TimerPriority.OneMinute;
 		}

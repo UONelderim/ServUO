@@ -1,47 +1,49 @@
-using System;
-using Server;
+#region References
+
 using Server.Items;
-using Server.Mobiles;
+
+#endregion
 
 namespace Server.Mobiles
 {
-	[CorpseName( "zwloki bagiennego koszmara" )]
+	[CorpseName("zwloki bagiennego koszmara")]
 	public class BagiennyKoszmar : BaseMount
 	{
 		[Constructable]
-		public BagiennyKoszmar() : this( "bagienny koszmar" )
+		public BagiennyKoszmar() : this("bagienny koszmar")
 		{
 		}
 
 		[Constructable]
-		public BagiennyKoszmar( string name ) : base( name, 0x74, 0x3EA7, AIType.AI_Mage, FightMode.Closest, 12, 1, 0.2, 0.4 )
+		public BagiennyKoszmar(string name) : base(name, 0x74, 0x3EA7, AIType.AI_Mage, FightMode.Closest, 12, 1, 0.2,
+			0.4)
 		{
 			BaseSoundID = 0xA8;
 
-			SetStr( 496, 525 );
-			SetDex( 86, 105 );
-			SetInt( 86, 125 );
+			SetStr(496, 525);
+			SetDex(86, 105);
+			SetInt(86, 125);
 
-			SetHits( 298, 315 );
+			SetHits(298, 315);
 
-			SetDamage( 16, 22 );
+			SetDamage(16, 22);
 
-			SetDamageType( ResistanceType.Physical, 40 );
-			SetDamageType( ResistanceType.Poison, 40 );
-			SetDamageType( ResistanceType.Energy, 20 );
+			SetDamageType(ResistanceType.Physical, 40);
+			SetDamageType(ResistanceType.Poison, 40);
+			SetDamageType(ResistanceType.Energy, 20);
 
-			SetResistance( ResistanceType.Physical, 55, 65 );
-			SetResistance( ResistanceType.Fire, 30, 40 );
-			SetResistance( ResistanceType.Cold, 30, 40 );
-			SetResistance( ResistanceType.Poison, 60, 70 );
-			SetResistance( ResistanceType.Energy, 20, 30 );
+			SetResistance(ResistanceType.Physical, 55, 65);
+			SetResistance(ResistanceType.Fire, 30, 40);
+			SetResistance(ResistanceType.Cold, 30, 40);
+			SetResistance(ResistanceType.Poison, 60, 70);
+			SetResistance(ResistanceType.Energy, 20, 30);
 
-			SetSkill( SkillName.EvalInt, 10.4, 50.0 );
-			SetSkill( SkillName.Magery, 10.4, 50.0 );
-			SetSkill( SkillName.MagicResist, 85.3, 100.0 );
-			SetSkill( SkillName.Tactics, 97.6, 100.0 );
-			SetSkill( SkillName.Wrestling, 80.5, 92.5 );
-			SetSkill( SkillName.Poisoning, 50.0, 90.0 );
+			SetSkill(SkillName.EvalInt, 10.4, 50.0);
+			SetSkill(SkillName.Magery, 10.4, 50.0);
+			SetSkill(SkillName.MagicResist, 85.3, 100.0);
+			SetSkill(SkillName.Tactics, 97.6, 100.0);
+			SetSkill(SkillName.Wrestling, 80.5, 92.5);
+			SetSkill(SkillName.Poisoning, 50.0, 90.0);
 
 			Fame = 14000;
 			Karma = -14000;
@@ -52,7 +54,7 @@ namespace Server.Mobiles
 			ControlSlots = 2;
 			MinTameSkill = 96.1;
 
-			switch ( Utility.Random( 3 ) )
+			switch (Utility.Random(3))
 			{
 				case 0:
 				{
@@ -77,62 +79,63 @@ namespace Server.Mobiles
 				}
 			}
 
-			PackItem( new SulfurousAsh( Utility.RandomMinMax( 3, 5 ) ) );
+			PackItem(new SulfurousAsh(Utility.RandomMinMax(3, 5)));
 
-            SetSpecialAbility( SpecialAbility.DragonBreath );
+			SetSpecialAbility(SpecialAbility.DragonBreath);
 		}
 
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)
 		{
-            if (!IsBonded && !corpse.Carved && !IsChampionSpawn)
-            {
-                if (Utility.RandomDouble() < 0.10)
-                    corpse.DropItem(new BowstringNightmare());
-            }
+			if (!IsBonded && !corpse.Carved && !IsChampionSpawn)
+			{
+				if (Utility.RandomDouble() < 0.10)
+					corpse.DropItem(new BowstringNightmare());
+			}
+
 			base.OnCarve(from, corpse, with);
 		}
 
 		public override void GenerateLoot()
 		{
-			AddLoot( LootPack.Rich );
-			AddLoot( LootPack.Average );
-			AddLoot( LootPack.LowScrolls );
-			AddLoot( LootPack.Potions );
+			AddLoot(LootPack.Rich);
+			AddLoot(LootPack.Average);
+			AddLoot(LootPack.LowScrolls);
+			AddLoot(LootPack.Potions);
 		}
 
 		public override int GetAngerSound()
 		{
-			if ( !Controlled )
+			if (!Controlled)
 				return 0x16A;
 
 			return base.GetAngerSound();
 		}
 
-		public override Poison HitPoison{ get{ return Poison.Greater; } }
-		public override int Meat{ get{ return 3; } }
-		public override int Hides{ get{ return 5; } }
-		public override HideType HideType{ get{ return HideType.Barbed; } }
-		public override FoodType FavoriteFood{ get{ return FoodType.Meat; } }
+		public override Poison HitPoison { get { return Poison.Greater; } }
+		public override int Meat { get { return 3; } }
+		public override int Hides { get { return 5; } }
+		public override HideType HideType { get { return HideType.Barbed; } }
+		public override FoodType FavoriteFood { get { return FoodType.Meat; } }
 		public override bool CanAngerOnTame { get { return true; } }
 
-		public BagiennyKoszmar( Serial serial ) : base( serial )
+		public BagiennyKoszmar(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 
-			if ( BaseSoundID == 0x16A )
+			if (BaseSoundID == 0x16A)
 				BaseSoundID = 0xA8;
 		}
 	}

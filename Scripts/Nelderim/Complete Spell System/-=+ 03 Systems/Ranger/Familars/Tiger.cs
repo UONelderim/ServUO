@@ -1,10 +1,12 @@
-using Server;
-using Server.Items;
+#region References
+
 using Server.Mobiles;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ranger
 {
-	[CorpseName( "zwłoki tygrysa szablozębnego" )]
+	[CorpseName("zwłoki tygrysa szablozębnego")]
 	public class TigerFamiliar : BaseFamiliar
 	{
 		public TigerFamiliar()
@@ -14,46 +16,45 @@ namespace Server.ACC.CSS.Systems.Ranger
 			Hue = 2213;
 			BaseSoundID = 229;
 
-			SetStr( 120, 135 );
-			SetDex( 110 );
-			SetInt( 60 );
+			SetStr(120, 135);
+			SetDex(110);
+			SetInt(60);
 
-			SetHits( 100, 120 );
-			SetStam( 70 );
-			SetMana( 0 );
+			SetHits(100, 120);
+			SetStam(70);
+			SetMana(0);
 
-			SetDamage( 20, 35 );
+			SetDamage(20, 35);
 
-			SetDamageType( ResistanceType.Physical, 100 );
+			SetDamageType(ResistanceType.Physical, 100);
 
-			SetResistance( ResistanceType.Physical, 50 );
-			SetResistance( ResistanceType.Fire, 50 );
-			SetResistance( ResistanceType.Cold, 50 );
-			SetResistance( ResistanceType.Poison, 50 );
-			SetResistance( ResistanceType.Energy, 50 );
+			SetResistance(ResistanceType.Physical, 50);
+			SetResistance(ResistanceType.Fire, 50);
+			SetResistance(ResistanceType.Cold, 50);
+			SetResistance(ResistanceType.Poison, 50);
+			SetResistance(ResistanceType.Energy, 50);
 
-			SetSkill( SkillName.Wrestling, 100.0 );
-			SetSkill( SkillName.Tactics, 100.0 );
+			SetSkill(SkillName.Wrestling, 100.0);
+			SetSkill(SkillName.Tactics, 100.0);
 
 			ControlSlots = 1;
-
 		}
 
 
-		public TigerFamiliar( Serial serial ) : base( serial )
+		public TigerFamiliar(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 );
+			writer.Write(0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

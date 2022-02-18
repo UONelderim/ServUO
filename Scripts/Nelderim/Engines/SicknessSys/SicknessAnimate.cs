@@ -1,218 +1,220 @@
+#region References
+
 using Server.Mobiles;
-using System.Threading;
+
+#endregion
 
 namespace Server.SicknessSys
 {
-    static class SicknessAnimate
-    {
+	static class SicknessAnimate
+	{
+		//Main Animations
+		public static void RunInfectedAnimation(PlayerMobile pm)
+		{
+			pm.FixedEffect(0x2336, 2, 20);
 
-        //Main Animations
-        public static void RunInfectedAnimation(PlayerMobile pm)
-        {
-            pm.FixedEffect(0x2336, 2, 20);
+			pm.Animate(6, 5, 1, true, false, 0);
+			pm.PlaySound(pm.Female ? 0x31F : 0x42F);
+		}
 
-            pm.Animate(6, 5, 1, true, false, 0);
-            pm.PlaySound(pm.Female ? 0x31F : 0x42F);
-        }
+		public static void RunCureAnimation(PlayerMobile pm)
+		{
+			Effects.SendLocationEffect(new Point3D(pm.X, pm.Y, pm.Z + 1), pm.Map, 0x376A, 15, 0, 0); //0x47D );
+			Effects.SendLocationEffect(new Point3D(pm.X, pm.Y, pm.Z + 1), pm.Map, 0x375A, 15, 0, 0);
+			pm.Say("*feeling good*");
 
-        public static void RunCureAnimation(PlayerMobile pm)
-        {
-            Effects.SendLocationEffect(new Point3D(pm.X, pm.Y, pm.Z + 1), pm.Map, 0x376A, 15, 0, 0); //0x47D );
-            Effects.SendLocationEffect(new Point3D(pm.X, pm.Y, pm.Z + 1), pm.Map, 0x375A, 15, 0, 0);
-            pm.Say("*feeling good*");
+			pm.Animate(34, 5, 1, true, false, 0);
+			pm.PlaySound(0x1E0);
+		}
 
-            pm.Animate(34, 5, 1, true, false, 0);
-            pm.PlaySound(0x1E0);
-        }
+		public static void RunMutateAnimation(PlayerMobile pm)
+		{
+			Effects.SendLocationEffect(new Point3D(pm.X, pm.Y, pm.Z), pm.Map, 0x3728, 15, 0, 0);
 
-        public static void RunMutateAnimation(PlayerMobile pm)
-        {
-            Effects.SendLocationEffect(new Point3D(pm.X, pm.Y, pm.Z), pm.Map, 0x3728, 15, 0, 0);
+			pm.Animate(20, 5, 1, true, false, 0);
+			pm.PlaySound(pm.Female ? 0x31B : 0x42B);
+		}
 
-            pm.Animate(20, 5, 1, true, false, 0);
-            pm.PlaySound(pm.Female ? 0x31B : 0x42B);
-        }
+		//Standard Symptom Animations
+		public static void RunBlowNoseAnimation(PlayerMobile pm)
+		{
+			pm.FixedEffect(0x2336, 2, 20);
+			pm.Animate(34, 5, 1, true, false, 0);
+			pm.PlaySound(pm.Female ? 0x30D : 0x41C);
+		}
 
-        //Standard Symptom Animations
-        public static void RunBlowNoseAnimation(PlayerMobile pm)
-        {
-            pm.FixedEffect(0x2336, 2, 20);
-            pm.Animate(34, 5, 1, true, false, 0);
-            pm.PlaySound(pm.Female ? 0x30D : 0x41C);
-        }
+		public static void RunClearThroatAnimation(PlayerMobile pm)
+		{
+			pm.FixedEffect(0x2336, 2, 20);
+			pm.Animate(34, 5, 1, true, false, 0);
+			pm.PlaySound(pm.Female ? 0x310 : 0x41F);
+		}
 
-        public static void RunClearThroatAnimation(PlayerMobile pm)
-        {
-            pm.FixedEffect(0x2336, 2, 20);
-            pm.Animate(34, 5, 1, true, false, 0);
-            pm.PlaySound(pm.Female ? 0x310 : 0x41F);
-        }
+		public static void RunCoughAnimation(PlayerMobile pm)
+		{
+			pm.FixedEffect(0x2336, 2, 20);
+			pm.Animate(34, 5, 1, true, false, 0);
+			pm.PlaySound(pm.Female ? 0x311 : 0x420);
+		}
 
-        public static void RunCoughAnimation(PlayerMobile pm)
-        {
-            pm.FixedEffect(0x2336, 2, 20);
-            pm.Animate(34, 5, 1, true, false, 0);
-            pm.PlaySound(pm.Female ? 0x311 : 0x420);
-        }
+		public static void RunGaspAnimation(PlayerMobile pm)
+		{
+			pm.FixedEffect(0x2336, 2, 20);
+			pm.Animate(33, 5, 1, true, false, 0);
+			pm.PlaySound(pm.Female ? 0x319 : 0x429);
+		}
 
-        public static void RunGaspAnimation(PlayerMobile pm)
-        {
-            pm.FixedEffect(0x2336, 2, 20);
-            pm.Animate(33, 5, 1, true, false, 0);
-            pm.PlaySound(pm.Female ? 0x319 : 0x429);
-        }
+		public static void RunGroanAnimation(PlayerMobile pm)
+		{
+			pm.FixedEffect(0x2336, 2, 20);
+			pm.Animate(6, 5, 1, true, false, 0);
+			pm.PlaySound(pm.Female ? 0x31B : 0x42B);
+		}
 
-        public static void RunGroanAnimation(PlayerMobile pm)
-        {
-            pm.FixedEffect(0x2336, 2, 20);
-            pm.Animate(6, 5, 1, true, false, 0);
-            pm.PlaySound(pm.Female ? 0x31B : 0x42B);
-        }
+		public static void RunPukeAnimation(PlayerMobile pm)
+		{
+			pm.FixedEffect(0x2336, 2, 20);
+			pm.Animate(32, 5, 1, true, false, 0);
+			pm.PlaySound(pm.Female ? 0x32D : 0x43F);
+		}
 
-        public static void RunPukeAnimation(PlayerMobile pm)
-        {
-            pm.FixedEffect(0x2336, 2, 20);
-            pm.Animate(32, 5, 1, true, false, 0);
-            pm.PlaySound(pm.Female ? 0x32D : 0x43F);
-        }
+		public static void RunSighAnimation(PlayerMobile pm)
+		{
+			pm.FixedEffect(0x2336, 2, 20);
+			pm.Animate(5, 5, 1, true, false, 0);
+			pm.PlaySound(pm.Female ? 0x330 : 0x442);
+		}
 
-        public static void RunSighAnimation(PlayerMobile pm)
-        {
-            pm.FixedEffect(0x2336, 2, 20);
-            pm.Animate(5, 5, 1, true, false, 0);
-            pm.PlaySound(pm.Female ? 0x330 : 0x442);
-        }
+		public static void RunSneezeAnimation(PlayerMobile pm)
+		{
+			pm.FixedEffect(0x2336, 2, 20);
+			pm.Animate(34, 5, 1, true, false, 0);
+			pm.PlaySound(pm.Female ? 0x331 : 0x443);
+		}
 
-        public static void RunSneezeAnimation(PlayerMobile pm)
-        {
-            pm.FixedEffect(0x2336, 2, 20);
-            pm.Animate(34, 5, 1, true, false, 0);
-            pm.PlaySound(pm.Female ? 0x331 : 0x443);
-        }
+		public static void RunSiffAnimation(PlayerMobile pm)
+		{
+			pm.FixedEffect(0x2336, 2, 20);
+			pm.Animate(34, 5, 1, true, false, 0);
+			pm.PlaySound(pm.Female ? 0x332 : 0x444);
+		}
 
-        public static void RunSiffAnimation(PlayerMobile pm)
-        {
-            pm.FixedEffect(0x2336, 2, 20);
-            pm.Animate(34, 5, 1, true, false, 0);
-            pm.PlaySound(pm.Female ? 0x332 : 0x444);
-        }
+		//Medic Animation
+		public static void RunMedicAnimation(PlayerMobile pm, Mobile m)
+		{
+			TurnToMobile(pm, m);
 
-        //Medic Animation
-        public static void RunMedicAnimation(PlayerMobile pm, Mobile m)
-        {
-            TurnToMobile(pm, m);
+			m.Animate(34, 5, 1, true, false, 0);
+			m.PlaySound(m.Female ? 0x335 : 0x447);
+		}
 
-            m.Animate(34, 5, 1, true, false, 0);
-            m.PlaySound(m.Female ? 0x335 : 0x447);
-        }
+		public static void RunMedicGiveCureAnimation(PlayerMobile pm, Mobile m)
+		{
+			TurnToMobile(pm, m);
 
-        public static void RunMedicGiveCureAnimation(PlayerMobile pm, Mobile m)
-        {
-            TurnToMobile(pm, m);
+			m.Animate(34, 5, 1, true, false, 0);
+			m.Say("*In Alah KaZappa Vas*");
 
-            m.Animate(34, 5, 1, true, false, 0);
-            m.Say("*In Alah KaZappa Vas*");
+			pm.SendMessage(53, pm.Name + ", a cure potion has magically appeared in your backpack!");
 
-            pm.SendMessage(53, pm.Name + ", a cure potion has magically appeared in your backpack!");
+			Effects.SendLocationParticles(pm, 0x376A, 9, 32, 5022);
+			Effects.PlaySound(pm.Location, pm.Map, 0x1F5);
+		}
 
-            Effects.SendLocationParticles(pm, 0x376A, 9, 32, 5022);
-            Effects.PlaySound(pm.Location, pm.Map, 0x1F5);
-        }
+		//Special Virus Weakness Animations
+		public static void RunScreamAnimation(PlayerMobile pm)
+		{
+			Effects.SendLocationEffect(new Point3D(pm.X, pm.Y, pm.Z + 1), pm.Map, 0x3709, 15, 0, 0);
 
-        //Special Virus Weakness Animations
-        public static void RunScreamAnimation(PlayerMobile pm)
-        {
-            Effects.SendLocationEffect(new Point3D(pm.X, pm.Y, pm.Z + 1), pm.Map, 0x3709, 15, 0, 0);
+			pm.Animate(16, 5, 1, true, false, 0);
+			pm.PlaySound(pm.Female ? 0x31FE : 0x440);
+		}
 
-            pm.Animate(16, 5, 1, true, false, 0);
-            pm.PlaySound(pm.Female ? 0x31FE : 0x440);
-        }
+		public static void RunGrowlAnimation(PlayerMobile pm)
+		{
+			Effects.SendBoltEffect(pm, true, 1177);
+			pm.SendMessage("You are near silver, leave now or die!");
 
-        public static void RunGrowlAnimation(PlayerMobile pm)
-        {
-            Effects.SendBoltEffect(pm, true, 1177);
-            pm.SendMessage("You are near silver, leave now or die!");
+			pm.Animate(30, 5, 1, true, false, 0);
+			pm.PlaySound(pm.Female ? 0x31C : 0x42C);
+		}
 
-            pm.Animate(30, 5, 1, true, false, 0);
-            pm.PlaySound(pm.Female ? 0x31C : 0x42C);
-        }
+		//Vampire Skills
+		public static void RunBloodDrainAnimation(PlayerMobile pm)
+		{
+			TurnToMobile(pm, pm.Combatant as Mobile);
 
-        //Vampire Skills
-        public static void RunBloodDrainAnimation(PlayerMobile pm)
-        {
-            TurnToMobile(pm, pm.Combatant as Mobile);
+			pm.Say("*Blood Drain*");
+			pm.PlaySound(0x030);
 
-            pm.Say("*Blood Drain*");
-            pm.PlaySound(0x030);
+			pm.Combatant.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
+			pm.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
+		}
 
-            pm.Combatant.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
-            pm.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
-        }
+		public static void RunBloodBurnAnimation(PlayerMobile pm)
+		{
+			TurnToMobile(pm, pm.Combatant as Mobile);
 
-        public static void RunBloodBurnAnimation(PlayerMobile pm)
-        {
-            TurnToMobile(pm, pm.Combatant as Mobile);
+			pm.Say("*Blood Burn*");
+			pm.PlaySound(0x114);
 
-            pm.Say("*Blood Burn*");
-            pm.PlaySound(0x114);
+			pm.Combatant.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
+			pm.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
+		}
 
-            pm.Combatant.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
-            pm.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
-        }
+		public static void RunBloodBathAnimation(PlayerMobile pm)
+		{
+			pm.Say("*Blood Bath*");
 
-        public static void RunBloodBathAnimation(PlayerMobile pm)
-        {
-            pm.Say("*Blood Bath*");
+			pm.FixedParticles(0x3728, 1, 13, 5042, EffectLayer.Waist);
 
-            pm.FixedParticles(0x3728, 1, 13, 5042, EffectLayer.Waist);
+			pm.Animate(33, 5, 1, true, false, 0);
 
-            pm.Animate(33, 5, 1, true, false, 0);
+			pm.PlaySound(0x118);
+		}
 
-            pm.PlaySound(0x118);
-        }
+		//Lycanthropia
+		public static void RunRageFeedAnimation(PlayerMobile pm)
+		{
+			TurnToMobile(pm, pm.Combatant as Mobile);
 
-        //Lycanthropia
-        public static void RunRageFeedAnimation(PlayerMobile pm)
-        {
-            TurnToMobile(pm, pm.Combatant as Mobile);
+			pm.Say("*Rage Feed*");
+			pm.PlaySound(0x03A);
 
-            pm.Say("*Rage Feed*");
-            pm.PlaySound(0x03A);
+			pm.Combatant.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
+			pm.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
+		}
 
-            pm.Combatant.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
-            pm.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
-        }
+		public static void RunRageStrikeAnimation(PlayerMobile pm)
+		{
+			TurnToMobile(pm, pm.Combatant as Mobile);
 
-        public static void RunRageStrikeAnimation(PlayerMobile pm)
-        {
-            TurnToMobile(pm, pm.Combatant as Mobile);
+			pm.Say("*Rage Strike*");
+			pm.PlaySound(0x13C);
 
-            pm.Say("*Rage Strike*");
-            pm.PlaySound(0x13C);
+			pm.Combatant.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
+			pm.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
+		}
 
-            pm.Combatant.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
-            pm.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
-        }
+		public static void RunRagePushAnimation(PlayerMobile pm)
+		{
+			pm.Say("*Rage Push*");
 
-        public static void RunRagePushAnimation(PlayerMobile pm)
-        {
-            pm.Say("*Rage Push*");
+			pm.FixedParticles(0x3728, 1, 13, 5042, EffectLayer.Waist);
 
-            pm.FixedParticles(0x3728, 1, 13, 5042, EffectLayer.Waist);
+			pm.Animate(33, 5, 1, true, false, 0);
 
-            pm.Animate(33, 5, 1, true, false, 0);
+			pm.PlaySound(0x229);
+		}
 
-            pm.PlaySound(0x229);
-        }
+		//Helper Methods
+		private static void TurnToMobile(PlayerMobile pm, Mobile m)
+		{
+			Direction direction1 = m.GetDirectionTo(pm.Location);
+			Direction direction2 = pm.GetDirectionTo(m.Location);
 
-        //Helper Methods
-        private static void TurnToMobile(PlayerMobile pm, Mobile m)
-        {
-            Direction direction1 = m.GetDirectionTo(pm.Location);
-            Direction direction2 = pm.GetDirectionTo(m.Location);
-            
-            m.Direction = direction1;
-            pm.Direction = direction2;
-        }
-    }
+			m.Direction = direction1;
+			pm.Direction = direction2;
+		}
+	}
 }

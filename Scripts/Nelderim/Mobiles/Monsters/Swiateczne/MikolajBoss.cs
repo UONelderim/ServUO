@@ -1,7 +1,11 @@
-﻿using System;
+﻿#region References
+
+using System;
 using System.Collections.Generic;
 using Server.Items;
 using Server.Network;
+
+#endregion
 
 namespace Server.Mobiles.Swiateczne
 {

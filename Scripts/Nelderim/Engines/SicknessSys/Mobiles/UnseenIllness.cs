@@ -1,145 +1,154 @@
+#region References
+
 using Server.Mobiles;
+
+#endregion
 
 namespace Server.SicknessSys.Mobiles
 {
-    public class UnseenIllness : BaseCreature
-    {
-        private IllnessType Illness { get; set; }
+	public class UnseenIllness : BaseCreature
+	{
+		private IllnessType Illness { get; set; }
 
-        [Constructable]
-        public UnseenIllness(bool IsDecided = false, int illness = 0) : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
-        {
-            int getIllness = Utility.Random(1, 3);
+		[Constructable]
+		public UnseenIllness(bool IsDecided = false, int illness = 0) : base(AIType.AI_Melee, FightMode.Aggressor, 10,
+			1, 0.2, 0.4)
+		{
+			int getIllness = Utility.Random(1, 3);
 
-            if (IsDecided)
-            {
-                if (illness > 0 && illness < 4)
-                    getIllness = illness;
-                else
-                    getIllness = 2;
-            }
+			if (IsDecided)
+			{
+				if (illness > 0 && illness < 4)
+					getIllness = illness;
+				else
+					getIllness = 2;
+			}
 
-            if (getIllness > 3 || getIllness < 1)
-                getIllness = 2;
+			if (getIllness > 3 || getIllness < 1)
+				getIllness = 2;
 
-            Illness = (IllnessType)getIllness;
+			Illness = (IllnessType)getIllness;
 
-            Name = "a " + Illness.ToString();
-            
-            Body = SwapBody(58); //Cold body type default
-            
-            InitStats(10, 10, 10);
+			Name = "a " + Illness;
 
-            SetHits(10);
-            SetDamage(0);
+			Body = SwapBody(58); //Cold body type default
 
-            Blessed = true;
-            Hidden = true;
-        }
+			InitStats(10, 10, 10);
 
-        public UnseenIllness(Serial serial) : base(serial)
-        {
-        }
+			SetHits(10);
+			SetDamage(0);
 
-        public override void OnMovement(Mobile m, Point3D oldLocation)
-        {
-            StayHidden();
+			Blessed = true;
+			Hidden = true;
+		}
 
-            base.OnMovement(m, oldLocation);
-        }
+		public UnseenIllness(Serial serial) : base(serial)
+		{
+		}
 
-        public override void OnAfterMove(Point3D oldLocation)
-        {
-            StayHidden();
+		public override void OnMovement(Mobile m, Point3D oldLocation)
+		{
+			StayHidden();
 
-            base.OnAfterMove(oldLocation);
-        }
+			base.OnMovement(m, oldLocation);
+		}
 
-        public override void OnThink()
-        {
-            StayHidden();
+		public override void OnAfterMove(Point3D oldLocation)
+		{
+			StayHidden();
 
-            foreach (Mobile mobile in GetMobilesInRange(2))
-            {
-                if (mobile is PlayerMobile)
-                {
-                    PlayerMobile pm = mobile as PlayerMobile;
+			base.OnAfterMove(oldLocation);
+		}
 
-                    Item HasVirus = pm.Backpack.FindItemByType(typeof(VirusCell));
+		public override void OnThink()
+		{
+			StayHidden();
 
-                    bool GaveIllness = false;
+			foreach (Mobile mobile in GetMobilesInRange(2))
+			{
+				if (mobile is PlayerMobile)
+				{
+					PlayerMobile pm = mobile as PlayerMobile;
 
-                    if (HasVirus == null)
-                    {
-                        int Chance = SicknessHelper.GetSickChance(pm, 0);
+					Item HasVirus = pm.Backpack.FindItemByType(typeof(VirusCell));
 
-                        if (Chance != 0)
-                        {
-                            int rndInfect = Utility.RandomMinMax(1, 100);
+					bool GaveIllness = false;
 
-                            if (Chance == 100)
-                            {
-                                SicknessInfect.Infect(pm, Illness);
-                                GaveIllness = true;
-                            }
-                            else
-                            {
-                                if (rndInfect <= Chance)
-                                {
-                                    SicknessInfect.Infect(pm, Illness);
-                                    GaveIllness = true;
-                                }
-                            }
-                        }
-                    }
+					if (HasVirus == null)
+					{
+						int Chance = SicknessHelper.GetSickChance(pm, 0);
 
-                    if (GaveIllness)
-                    {
-                        Delete();
-                    }
-                }
-            }
-            
-            base.OnThink();
-        }
+						if (Chance != 0)
+						{
+							int rndInfect = Utility.RandomMinMax(1, 100);
 
-        private int SwapBody(int body)
-        {
-            switch(Illness)
-            {
-                case IllnessType.Cold : body = 58;
-                    break;
-                case IllnessType.Flu: body = 51;
-                    break;
-                case IllnessType.Virus: body = 775;
-                    break;
-                default: body = 58;
-                    break;
-            }
+							if (Chance == 100)
+							{
+								SicknessInfect.Infect(pm, Illness);
+								GaveIllness = true;
+							}
+							else
+							{
+								if (rndInfect <= Chance)
+								{
+									SicknessInfect.Infect(pm, Illness);
+									GaveIllness = true;
+								}
+							}
+						}
+					}
 
-            return body;
-        }
+					if (GaveIllness)
+					{
+						Delete();
+					}
+				}
+			}
 
-        private void StayHidden()
-        {
-            if (!Hidden)
-                Hidden = true;
-        }
+			base.OnThink();
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-            writer.Write((int)0);
+		private int SwapBody(int body)
+		{
+			switch (Illness)
+			{
+				case IllnessType.Cold:
+					body = 58;
+					break;
+				case IllnessType.Flu:
+					body = 51;
+					break;
+				case IllnessType.Virus:
+					body = 775;
+					break;
+				default:
+					body = 58;
+					break;
+			}
 
-            writer.Write((int)Illness);
-        }
+			return body;
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-            int version = reader.ReadInt();
+		private void StayHidden()
+		{
+			if (!Hidden)
+				Hidden = true;
+		}
 
-            Illness = (IllnessType)reader.ReadInt();
-        }
-    }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+			writer.Write(0);
+
+			writer.Write((int)Illness);
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+			int version = reader.ReadInt();
+
+			Illness = (IllnessType)reader.ReadInt();
+		}
+	}
 }

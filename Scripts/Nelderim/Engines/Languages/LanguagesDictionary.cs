@@ -1,20 +1,24 @@
+#region References
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
+#endregion
+
 namespace Nelderim
 {
 	public class LanguagesDictionary
 	{
-		public static Dictionary<String, String> Jarlowy = new Dictionary<String, String>();
-		public static Dictionary<String, String> Krasnoludzki = new Dictionary<String, String>();
-		public static Dictionary<String, String> Elficki = new Dictionary<String, String>();
-		public static Dictionary<String, String> Drowi = new Dictionary<String, String>();
-		public static Dictionary<String, String> Orkowy = new Dictionary<String, String>();
-		public static List<String> Demoniczny = new List<string>();
-		public static List<String> Nieumarlych = new List<string>();
-		public static List<String> Belkot = new List<string>();
+		public static Dictionary<string, string> Jarlowy = new Dictionary<string, string>();
+		public static Dictionary<string, string> Krasnoludzki = new Dictionary<string, string>();
+		public static Dictionary<string, string> Elficki = new Dictionary<string, string>();
+		public static Dictionary<string, string> Drowi = new Dictionary<string, string>();
+		public static Dictionary<string, string> Orkowy = new Dictionary<string, string>();
+		public static List<string> Demoniczny = new List<string>();
+		public static List<string> Nieumarlych = new List<string>();
+		public static List<string> Belkot = new List<string>();
 
 		public static void Initialize()
 		{
@@ -28,14 +32,14 @@ namespace Nelderim
 			FillList("Belkot", Belkot);
 		}
 
-		private static void FillDictionary(String filename, Dictionary<String, String> dict)
+		private static void FillDictionary(string filename, Dictionary<string, string> dict)
 		{
 			ArrayList list = new ArrayList();
 			try
 			{
 				using (StreamReader sr = new StreamReader(String.Format("Data\\Languages\\{0}.txt", filename)))
 				{
-					String line;
+					string line;
 					while ((line = sr.ReadLine()) != null)
 					{
 						list.Add(line);
@@ -48,21 +52,21 @@ namespace Nelderim
 				Console.WriteLine(e.Message);
 			}
 
-			foreach (String line in list)
+			foreach (string line in list)
 			{
-				String[] parts = line.Split('=');
+				string[] parts = line.Split('=');
 				if (parts.Length != 2) continue;
 				dict[parts[0].ToLower()] = parts[1].ToLower();
 			}
 		}
 
-		private static void FillList(String filename, List<String> list)
+		private static void FillList(string filename, List<string> list)
 		{
 			try
 			{
 				using (StreamReader sr = new StreamReader(String.Format("Data\\Languages\\{0}.txt", filename)))
 				{
-					String line;
+					string line;
 					while ((line = sr.ReadLine()) != null)
 					{
 						if (line.Trim().Length != 0)

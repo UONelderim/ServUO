@@ -1,43 +1,45 @@
+#region References
+
 using System;
-using Server.Targeting;
-using Server.Network;
 using Server.Misc;
-using Server.Items;
 using Server.Mobiles;
 using Server.Spells;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Druid
 {
 	public class DruidLureStoneSpell : DruidSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
-		                                                "Ciekawy Kamień", "En Kes Ohm Crur",
-		                                                //SpellCircle.Second,
-		                                                269,
-		                                                9020,
-		                                                false,
-		                                                Reagent.BlackPearl,
-		                                                CReagent.SpringWater
-		                                               );
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Ciekawy Kamień", "En Kes Ohm Crur",
+			//SpellCircle.Second,
+			269,
+			9020,
+			false,
+			Reagent.BlackPearl,
+			CReagent.SpringWater
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Second; }
-        }
-
-		public DruidLureStoneSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
+		public override SpellCircle Circle
 		{
-			                    if (this.Scroll != null)
-                        Scroll.Consume();
+			get { return SpellCircle.Second; }
 		}
 
-		public override double CastDelay{ get{ return 1.0; } }
-		public override double RequiredSkill{ get{ return 15.0; } }
-		public override int RequiredMana{ get{ return 80; } }
+		public DruidLureStoneSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
+		{
+			if (this.Scroll != null)
+				Scroll.Consume();
+		}
+
+		public override double CastDelay { get { return 1.0; } }
+		public override double RequiredSkill { get { return 15.0; } }
+		public override int RequiredMana { get { return 80; } }
 
 		public override bool CheckCast()
 		{
-			if ( !base.CheckCast() )
+			if (!base.CheckCast())
 				return false;
 
 			return true;
@@ -45,114 +47,118 @@ namespace Server.ACC.CSS.Systems.Druid
 
 		public override void OnCast()
 		{
-			Caster.Target = new InternalTarget( this );
+			Caster.Target = new InternalTarget(this);
 		}
 
-		public void Target( IPoint3D p )
+		public void Target(IPoint3D p)
 		{
-			if ( !Caster.CanSee( p ) )
+			if (!Caster.CanSee(p))
 			{
-				Caster.SendLocalizedMessage( 500237 ); // Target can not be seen.
+				Caster.SendLocalizedMessage(500237); // Target can not be seen.
 			}
-			else if ( SpellHelper.CheckTown( p, Caster ) && CheckSequence() )
+			else if (SpellHelper.CheckTown(p, Caster) && CheckSequence())
 			{
-				SpellHelper.Turn( Caster, p );
+				SpellHelper.Turn(Caster, p);
 
-				SpellHelper.GetSurfaceTop( ref p );
+				SpellHelper.GetSurfaceTop(ref p);
 
-				Effects.PlaySound( p, Caster.Map, 0x243 );
+				Effects.PlaySound(p, Caster.Map, 0x243);
 
 				int stonex;
 				int stoney;
 				int stonez;
 
-				Point3D loc = new Point3D( p.X, p.Y, p.Z );
-				Item item = new InternalItema( loc, Caster.Map, Caster );
-				stonex=p.X;
-				stoney=p.Y-1;
-				stonez=p.Z;
-				Point3D loca = new Point3D( stonex, stoney, stonez );
-				Item itema = new InternalItemb( loca, Caster.Map, Caster );
+				Point3D loc = new Point3D(p.X, p.Y, p.Z);
+				Item item = new InternalItema(loc, Caster.Map, Caster);
+				stonex = p.X;
+				stoney = p.Y - 1;
+				stonez = p.Z;
+				Point3D loca = new Point3D(stonex, stoney, stonez);
+				Item itema = new InternalItemb(loca, Caster.Map, Caster);
 			}
 
 			FinishSequence();
 		}
+
 		[DispellableField]
 		private class InternalItema : Item
 		{
 			private Timer m_Timer;
 			private DateTime m_End;
-			private Mobile m_Owner;
+			private readonly Mobile m_Owner;
 
-			public override bool BlocksFit{ get{ return true; } }
+			public override bool BlocksFit { get { return true; } }
 
-			public InternalItema( Point3D loc, Map map, Mobile caster ) : base( 0x1355 )
+			public InternalItema(Point3D loc, Map map, Mobile caster) : base(0x1355)
 			{
-				m_Owner=caster;
+				m_Owner = caster;
 				Visible = false;
 				Movable = false;
-				Name="Ciekawy Kamień";
-				MoveToWorld( loc, map );
+				Name = "Ciekawy Kamień";
+				MoveToWorld(loc, map);
 
-				if ( caster.InLOS( this ) )
+				if (caster.InLOS(this))
 					Visible = true;
 				else
 					Delete();
 
-				if ( Deleted )
+				if (Deleted)
 					return;
 
-				m_Timer = new InternalTimer( this, TimeSpan.FromSeconds( 20.0 ) );
+				m_Timer = new InternalTimer(this, TimeSpan.FromSeconds(20.0));
 				m_Timer.Start();
 
-				m_End = DateTime.Now + TimeSpan.FromSeconds( 20.0 );
+				m_End = DateTime.Now + TimeSpan.FromSeconds(20.0);
 			}
 
-			public InternalItema( Serial serial ) : base( serial )
+			public InternalItema(Serial serial) : base(serial)
 			{
 			}
 
-			public override bool HandlesOnMovement{ get{ return true;} }
-			public override void Serialize( GenericWriter writer )
+			public override bool HandlesOnMovement { get { return true; } }
+
+			public override void Serialize(GenericWriter writer)
 			{
-				base.Serialize( writer );
-				writer.Write( (int) 1 ); // version
-				writer.Write( m_End - DateTime.Now );
+				base.Serialize(writer);
+				writer.Write(1); // version
+				writer.Write(m_End - DateTime.Now);
 			}
 
-			public override void Deserialize( GenericReader reader )
+			public override void Deserialize(GenericReader reader)
 			{
-				base.Deserialize( reader );
+				base.Deserialize(reader);
 				int version = reader.ReadInt();
 
 				TimeSpan duration = reader.ReadTimeSpan();
 
-				m_Timer = new InternalTimer( this, duration );
+				m_Timer = new InternalTimer(this, duration);
 				m_Timer.Start();
 
 				m_End = DateTime.Now + duration;
 			}
 
-			public override void OnMovement(Mobile m, Point3D oldLocation )
+			public override void OnMovement(Mobile m, Point3D oldLocation)
 			{
-				if(m_Owner!=null)
+				if (m_Owner != null)
 				{
-					if ( m.InRange( this, 600 ) )
+					if (m.InRange(this, 600))
 					{
 						double tamer = m_Owner.Skills[SkillName.Herbalism].Value;
-						double bonus = m_Owner.Skills[SkillName.Magery].Value/100;
+						double bonus = m_Owner.Skills[SkillName.Magery].Value / 100;
 
 						BaseCreature cret = m as BaseCreature;
-						if(cret!=null)
-							if(tamer>=99.9&&(cret.Combatant==null||!cret.Combatant.Alive||cret.Combatant.Deleted))
-						{
-							cret.TargetLocation = new Point2D( this.X,this.Y );
-						}
-						else if(cret.Tamable&&(cret.Combatant==null||!cret.Combatant.Alive||cret.Combatant.Deleted))
-						{
-							if(cret.MinTameSkill<=(tamer+bonus)+0.1)
-								cret.TargetLocation = new Point2D( this.X,this.Y );
-						}
+						if (cret != null)
+							if (tamer >= 99.9 && (cret.Combatant == null || !cret.Combatant.Alive ||
+							                      cret.Combatant.Deleted))
+							{
+								cret.TargetLocation = new Point2D(this.X, this.Y);
+							}
+							else if (cret.Tamable && (cret.Combatant == null || !cret.Combatant.Alive ||
+							                          cret.Combatant.Deleted))
+							{
+								if (cret.MinTameSkill <= (tamer + bonus) + 0.1)
+									cret.TargetLocation = new Point2D(this.X, this.Y);
+							}
 					}
 				}
 			}
@@ -161,15 +167,15 @@ namespace Server.ACC.CSS.Systems.Druid
 			{
 				base.OnAfterDelete();
 
-				if ( m_Timer != null )
+				if (m_Timer != null)
 					m_Timer.Stop();
 			}
 
 			private class InternalTimer : Timer
 			{
-				private InternalItema m_Item;
+				private readonly InternalItema m_Item;
 
-				public InternalTimer( InternalItema item, TimeSpan duration ) : base( duration )
+				public InternalTimer(InternalItema item, TimeSpan duration) : base(duration)
 				{
 					m_Item = item;
 				}
@@ -187,47 +193,47 @@ namespace Server.ACC.CSS.Systems.Druid
 			private Timer m_Timer;
 			private DateTime m_End;
 
-			public override bool BlocksFit{ get{ return true; } }
+			public override bool BlocksFit { get { return true; } }
 
-			public InternalItemb( Point3D loc, Map map, Mobile caster ) : base( 0x1356 )
+			public InternalItemb(Point3D loc, Map map, Mobile caster) : base(0x1356)
 			{
 				Visible = false;
 				Movable = false;
 
-				MoveToWorld( loc, map );
+				MoveToWorld(loc, map);
 
-				if ( caster.InLOS( this ) )
+				if (caster.InLOS(this))
 					Visible = true;
 				else
 					Delete();
 
-				if ( Deleted )
+				if (Deleted)
 					return;
 
-				m_Timer = new InternalTimer( this, TimeSpan.FromSeconds( 30.0 ) );
+				m_Timer = new InternalTimer(this, TimeSpan.FromSeconds(30.0));
 				m_Timer.Start();
 
-				m_End = DateTime.Now + TimeSpan.FromSeconds( 30.0 );
+				m_End = DateTime.Now + TimeSpan.FromSeconds(30.0);
 			}
 
-			public InternalItemb( Serial serial ) : base( serial )
+			public InternalItemb(Serial serial) : base(serial)
 			{
 			}
 
-			public override void Serialize( GenericWriter writer )
+			public override void Serialize(GenericWriter writer)
 			{
-				base.Serialize( writer );
-				writer.Write( (int) 1 ); // version
-				writer.Write( m_End - DateTime.Now );
+				base.Serialize(writer);
+				writer.Write(1); // version
+				writer.Write(m_End - DateTime.Now);
 			}
 
-			public override void Deserialize( GenericReader reader )
+			public override void Deserialize(GenericReader reader)
 			{
-				base.Deserialize( reader );
+				base.Deserialize(reader);
 				int version = reader.ReadInt();
 				TimeSpan duration = reader.ReadTimeSpan();
 
-				m_Timer = new InternalTimer( this, duration );
+				m_Timer = new InternalTimer(this, duration);
 				m_Timer.Start();
 
 				m_End = DateTime.Now + duration;
@@ -237,15 +243,15 @@ namespace Server.ACC.CSS.Systems.Druid
 			{
 				base.OnAfterDelete();
 
-				if ( m_Timer != null )
+				if (m_Timer != null)
 					m_Timer.Stop();
 			}
 
 			private class InternalTimer : Timer
 			{
-				private InternalItemb m_Item;
+				private readonly InternalItemb m_Item;
 
-				public InternalTimer( InternalItemb item, TimeSpan duration ) : base( duration )
+				public InternalTimer(InternalItemb item, TimeSpan duration) : base(duration)
 				{
 					m_Item = item;
 				}
@@ -259,20 +265,20 @@ namespace Server.ACC.CSS.Systems.Druid
 
 		private class InternalTarget : Target
 		{
-			private DruidLureStoneSpell m_Owner;
+			private readonly DruidLureStoneSpell m_Owner;
 
-			public InternalTarget( DruidLureStoneSpell owner ) : base( 12, true, TargetFlags.None )
+			public InternalTarget(DruidLureStoneSpell owner) : base(12, true, TargetFlags.None)
 			{
 				m_Owner = owner;
 			}
 
-			protected override void OnTarget( Mobile from, object o )
+			protected override void OnTarget(Mobile from, object o)
 			{
-				if ( o is IPoint3D )
-					m_Owner.Target( (IPoint3D)o );
+				if (o is IPoint3D)
+					m_Owner.Target((IPoint3D)o);
 			}
 
-			protected override void OnTargetFinish( Mobile from )
+			protected override void OnTargetFinish(Mobile from)
 			{
 				m_Owner.FinishSequence();
 			}

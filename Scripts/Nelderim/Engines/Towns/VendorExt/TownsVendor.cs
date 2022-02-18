@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿#region References
+
+using System.Collections.Generic;
 using Server;
+
+#endregion
 
 namespace Nelderim.Towns
 {
@@ -9,7 +13,7 @@ namespace Nelderim.Towns
 
 		public static void Initialize()
 		{
-			EventSink.WorldSave += new WorldSaveEventHandler(Save);
+			EventSink.WorldSave += Save;
 			Load(ModuleName);
 		}
 

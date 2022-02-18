@@ -1,5 +1,9 @@
+#region References
+
 using System.Text.RegularExpressions;
 using static System.Text.RegularExpressions.RegexOptions;
+
+#endregion
 
 namespace Server
 {
@@ -26,22 +30,21 @@ namespace Server
 			if (xSource < xDest)
 			{
 				if (ySource < yDest) return Direction.Down;
-				else if (ySource > yDest) return Direction.Right;
-				else return Direction.East;
+				if (ySource > yDest) return Direction.Right;
+				return Direction.East;
 			}
-			else if (xSource > xDest)
+
+			if (xSource > xDest)
 			{
 				if (ySource < yDest) return Direction.Left;
-				else if (ySource > yDest) return Direction.Up;
-				else return Direction.West;
+				if (ySource > yDest) return Direction.Up;
+				return Direction.West;
 			}
-			else
-			{
-				//xSource == xDest
-				if (ySource < yDest) return Direction.South;
-				else if (ySource > yDest) return Direction.North;
-				else return Direction.North; //Source == Dest
-			}
+
+			//xSource == xDest
+			if (ySource < yDest) return Direction.South;
+			if (ySource > yDest) return Direction.North;
+			return Direction.North; //Source == Dest
 		}
 
 		public static string SplitCamelCase(string input)

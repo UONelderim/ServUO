@@ -1,8 +1,9 @@
-using System;
-using Server;
-using Server.Targeting;
+#region References
+
 using Server.Engines.Craft;
-using Server.Network;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.Items
 {
@@ -11,9 +12,14 @@ namespace Server.Items
 		private int m_UsesRemaining;
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public int UsesRemaining {
+		public int UsesRemaining
+		{
 			get { return m_UsesRemaining; }
-			set { m_UsesRemaining = value; InvalidateProperties(); }
+			set
+			{
+				m_UsesRemaining = value;
+				InvalidateProperties();
+			}
 		}
 
 		public bool ShowUsesRemaining { get { return true; } set { } }
@@ -21,41 +27,49 @@ namespace Server.Items
 		//public override int LabelNumber { get { return 1049082; } } // powder of temperament
 
 		[Constructable]
-		public PowderForMetal() : this(5) {
+		public PowderForMetal() : this(5)
+		{
 		}
 
 		[Constructable]
-		public PowderForMetal(int charges) : base(4102) {
+		public PowderForMetal(int charges) : base(4102)
+		{
 			Name = "Proszek wzmocnienia metalu";
 			Weight = 1.0;
 			Hue = 2419;
 			UsesRemaining = charges;
 		}
 
-		public PowderForMetal(Serial serial) : base(serial) {
+		public PowderForMetal(Serial serial) : base(serial)
+		{
 		}
 
-		public override void Serialize(GenericWriter writer) {
+		public override void Serialize(GenericWriter writer)
+		{
 			base.Serialize(writer);
 
-			writer.Write((int)0);
-			writer.Write((int)m_UsesRemaining);
+			writer.Write(0);
+			writer.Write(m_UsesRemaining);
 		}
 
-		public override void Deserialize(GenericReader reader) {
+		public override void Deserialize(GenericReader reader)
+		{
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 
-			switch (version) {
-				case 0: {
-						m_UsesRemaining = reader.ReadInt();
-						break;
-					}
+			switch (version)
+			{
+				case 0:
+				{
+					m_UsesRemaining = reader.ReadInt();
+					break;
+				}
 			}
 		}
 
-		public override void GetProperties(ObjectPropertyList list) {
+		public override void GetProperties(ObjectPropertyList list)
+		{
 			base.GetProperties(list);
 
 			list.Add(1060584, m_UsesRemaining.ToString()); // uses remaining: ~1_val~
@@ -71,7 +85,8 @@ namespace Server.Items
 		//	base.OnSingleClick(from);
 		//}
 
-		public override void OnDoubleClick(Mobile from) {
+		public override void OnDoubleClick(Mobile from)
+		{
 			if (IsChildOf(from.Backpack))
 				from.Target = new InternalTarget(this);
 			else
@@ -80,28 +95,34 @@ namespace Server.Items
 
 		private class InternalTarget : Target
 		{
-			private PowderForMetal m_Powder;
+			private readonly PowderForMetal m_Powder;
 
-			public InternalTarget(PowderForMetal powder) : base(2, false, TargetFlags.None) {
+			public InternalTarget(PowderForMetal powder) : base(2, false, TargetFlags.None)
+			{
 				m_Powder = powder;
 			}
 
-			protected override void OnTarget(Mobile from, object targeted) {
-				if (m_Powder.Deleted || m_Powder.UsesRemaining <= 0) {
+			protected override void OnTarget(Mobile from, object targeted)
+			{
+				if (m_Powder.Deleted || m_Powder.UsesRemaining <= 0)
+				{
 					from.SendLocalizedMessage(1049086); // You have used up your powder of temperament.
 					return;
 				}
 
-				if (targeted is BaseArmor && (DefBlacksmithy.CraftSystem.CraftItems.SearchForSubclass( targeted.GetType() ) != null) ) {
+				if (targeted is BaseArmor &&
+				    (DefBlacksmithy.CraftSystem.CraftItems.SearchForSubclass(targeted.GetType()) != null))
+				{
 					BaseArmor ar = (BaseArmor)targeted;
 
-					if ( !ar.CanFortify )
+					if (!ar.CanFortify)
 					{
-						from.SendLocalizedMessage( 1049083 ); // You cannot use the powder on that item.
+						from.SendLocalizedMessage(1049083); // You cannot use the powder on that item.
 						return;
 					}
 
-					if (ar.IsChildOf(from.Backpack) && m_Powder.IsChildOf(from.Backpack)) {
+					if (ar.IsChildOf(from.Backpack) && m_Powder.IsChildOf(from.Backpack))
+					{
 						int origMaxHP = ar.MaxHitPoints;
 						int origCurHP = ar.HitPoints;
 
@@ -109,7 +130,8 @@ namespace Server.Items
 
 						ar.UnscaleDurability();
 
-						if (ar.MaxHitPoints < initMaxHP) {
+						if (ar.MaxHitPoints < initMaxHP)
+						{
 							int bonus = initMaxHP - ar.MaxHitPoints;
 
 							if (bonus > 5)
@@ -123,37 +145,49 @@ namespace Server.Items
 							if (ar.MaxHitPoints > 255) ar.MaxHitPoints = 255;
 							if (ar.HitPoints > 255) ar.HitPoints = 255;
 
-							if (ar.MaxHitPoints > origMaxHP) {
+							if (ar.MaxHitPoints > origMaxHP)
+							{
 								from.SendLocalizedMessage(1049084); // You successfully use the powder on the item.
 
 								--m_Powder.UsesRemaining;
 
-								if (m_Powder.UsesRemaining <= 0) {
+								if (m_Powder.UsesRemaining <= 0)
+								{
 									from.SendLocalizedMessage(1049086); // You have used up your powder of temperament.
 									m_Powder.Delete();
 								}
-							} else {
+							}
+							else
+							{
 								ar.MaxHitPoints = origMaxHP;
 								ar.HitPoints = origCurHP;
 								from.SendLocalizedMessage(1049085); // The item cannot be improved any further.
 							}
-						} else {
+						}
+						else
+						{
 							from.SendLocalizedMessage(1049085); // The item cannot be improved any further.
 							ar.ScaleDurability();
 						}
-					} else {
+					}
+					else
+					{
 						from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
 					}
-				} else if (targeted is BaseWeapon && (DefBlacksmithy.CraftSystem.CraftItems.SearchForSubclass( targeted.GetType() ) != null) ) {
+				}
+				else if (targeted is BaseWeapon &&
+				         (DefBlacksmithy.CraftSystem.CraftItems.SearchForSubclass(targeted.GetType()) != null))
+				{
 					BaseWeapon wep = (BaseWeapon)targeted;
 
-					if ( !wep.CanFortify )
+					if (!wep.CanFortify)
 					{
-						from.SendLocalizedMessage( 1049083 ); // You cannot use the powder on that item.
+						from.SendLocalizedMessage(1049083); // You cannot use the powder on that item.
 						return;
 					}
 
-					if (wep.IsChildOf(from.Backpack) && m_Powder.IsChildOf(from.Backpack)) {
+					if (wep.IsChildOf(from.Backpack) && m_Powder.IsChildOf(from.Backpack))
+					{
 						int origMaxHP = wep.MaxHitPoints;
 						int origCurHP = wep.HitPoints;
 
@@ -161,7 +195,8 @@ namespace Server.Items
 
 						wep.UnscaleDurability();
 
-						if (wep.MaxHitPoints < initMaxHP) {
+						if (wep.MaxHitPoints < initMaxHP)
+						{
 							int bonus = initMaxHP - wep.MaxHitPoints;
 
 							if (bonus > 5)
@@ -175,28 +210,38 @@ namespace Server.Items
 							if (wep.MaxHitPoints > 255) wep.MaxHitPoints = 255;
 							if (wep.HitPoints > 255) wep.HitPoints = 255;
 
-							if (wep.MaxHitPoints > origMaxHP) {
+							if (wep.MaxHitPoints > origMaxHP)
+							{
 								from.SendLocalizedMessage(1049084); // You successfully use the powder on the item.
 
 								--m_Powder.UsesRemaining;
 
-								if (m_Powder.UsesRemaining <= 0) {
+								if (m_Powder.UsesRemaining <= 0)
+								{
 									from.SendLocalizedMessage(1049086); // You have used up your powder of temperament.
 									m_Powder.Delete();
 								}
-							} else {
+							}
+							else
+							{
 								wep.MaxHitPoints = origMaxHP;
 								wep.HitPoints = origCurHP;
 								from.SendLocalizedMessage(1049085); // The item cannot be improved any further.
 							}
-						} else {
+						}
+						else
+						{
 							from.SendLocalizedMessage(1049085); // The item cannot be improved any further.
 							wep.ScaleDurability();
 						}
-					} else {
+					}
+					else
+					{
 						from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
 					}
-				} else {
+				}
+				else
+				{
 					from.SendLocalizedMessage(1049083); // You cannot use the powder on that item.
 				}
 			}

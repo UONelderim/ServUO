@@ -1,5 +1,7 @@
 // Check PackUpHouse() for that crash on item delete.  It causes a crash in RemoveMulti (Core)
 
+#region References
+
 using System;
 using System.Collections;
 using System.Linq;
@@ -7,65 +9,67 @@ using Server;
 using Server.Commands;
 using Server.Multis;
 
+#endregion
+
 namespace Knives.TownHouses
 {
 	public class General
 	{
-		public static string Version{ get { return "2.01"; } }
+		public static string Version { get { return "2.01"; } }
 
 		// This setting determines the suggested gold value for a single square of a home
 		//  which then derives price, lockdowns and secures.
-		public static int SuggestionFactor { get{ return 600; } }
+		public static int SuggestionFactor { get { return 600; } }
 
 		// This setting determines if players need License in order to rent out their property
-		public static bool RequireRenterLicense{ get{ return true; } }
+		public static bool RequireRenterLicense { get { return true; } }
 
 		public static void Configure()
 		{
-			EventSink.WorldSave += new WorldSaveEventHandler( OnSave );
+			EventSink.WorldSave += OnSave;
 		}
 
 		public static void Initialize()
 		{
-			EventSink.Login += new LoginEventHandler( OnLogin );
-			EventSink.Speech += new SpeechEventHandler( HandleSpeech );
-			EventSink.ServerStarted += new ServerStartedEventHandler( OnStarted );
-			CommandSystem.Register("wynajem", AccessLevel.Player, new CommandEventHandler(Wynajem_OnCommand));
+			EventSink.Login += OnLogin;
+			EventSink.Speech += HandleSpeech;
+			EventSink.ServerStarted += OnStarted;
+			CommandSystem.Register("wynajem", AccessLevel.Player, Wynajem_OnCommand);
 		}
 
 		private static void OnStarted()
 		{
-            foreach (TownHouse house in TownHouse.AllTownHouses)
-            {
-                house.InitSectorDefinition();
-                house.ForSaleSign.UpdateRegion();
-            }
-        }
+			foreach (TownHouse house in TownHouse.AllTownHouses)
+			{
+				house.InitSectorDefinition();
+				house.ForSaleSign.UpdateRegion();
+			}
+		}
 
-		public static void OnSave( WorldSaveEventArgs e )
+		public static void OnSave(WorldSaveEventArgs e)
 		{
-			foreach( TownHouseSign sign in new ArrayList( TownHouseSign.AllSigns ) )
+			foreach (TownHouseSign sign in new ArrayList(TownHouseSign.AllSigns))
 				sign.ValidateOwnership();
 
-			foreach( TownHouse house in new ArrayList( TownHouse.AllTownHouses ) )
-				if ( house.Deleted )
+			foreach (TownHouse house in new ArrayList(TownHouse.AllTownHouses))
+				if (house.Deleted)
 				{
-					TownHouse.AllTownHouses.Remove( house );
-					continue;
+					TownHouse.AllTownHouses.Remove(house);
 				}
 		}
 
-		private static void OnLogin( LoginEventArgs e )
+		private static void OnLogin(LoginEventArgs e)
 		{
 			foreach (BaseHouse house in BaseHouse.GetHouses(e.Mobile))
-				if (house is TownHouse) {
+				if (house is TownHouse)
+				{
 					TownHouse th = (TownHouse)house;
 					th.ForSaleSign.CheckDemolishTimer();
 					TownHouseInfo(th, e.Mobile);
 				}
 		}
 
-		private static void HandleSpeech( SpeechEventArgs e )
+		private static void HandleSpeech(SpeechEventArgs e)
 		{
 			//
 			// Wylaczona obsluga komend glosowych
@@ -106,44 +110,44 @@ namespace Knives.TownHouses
 			//}
 		}
 
-		private static bool CanRent( Mobile m, BaseHouse house, bool say )
+		private static bool CanRent(Mobile m, BaseHouse house, bool say)
 		{
-			if ( house is TownHouse && ((TownHouse)house).ForSaleSign.PriceType != "Sale" )
+			if (house is TownHouse && ((TownHouse)house).ForSaleSign.PriceType != "Sale")
 			{
-				if ( say )
-					m.SendMessage( "You must own your property to rent it." );
+				if (say)
+					m.SendMessage("You must own your property to rent it.");
 
 				return false;
 			}
 
-			if ( RequireRenterLicense )
+			if (RequireRenterLicense)
 			{
-				RentalLicense lic = m.Backpack.FindItemByType( typeof( RentalLicense ) ) as RentalLicense;
+				RentalLicense lic = m.Backpack.FindItemByType(typeof(RentalLicense)) as RentalLicense;
 
-				if ( lic != null && lic.Owner == null )
+				if (lic != null && lic.Owner == null)
 					lic.Owner = m;
 
-				if ( lic == null || lic.Owner != m )
+				if (lic == null || lic.Owner != m)
 				{
-					if ( say )
-						m.SendMessage( "You must have a renter's license to rent your property." );
+					if (say)
+						m.SendMessage("You must have a renter's license to rent your property.");
 
 					return false;
 				}
 			}
 
-			if ( EntireHouseContracted( house ) )
+			if (EntireHouseContracted(house))
 			{
-				if ( say )
-					m.SendMessage( "This entire house already has a rental contract." );
+				if (say)
+					m.SendMessage("This entire house already has a rental contract.");
 
 				return false;
 			}
 
-			if ( RemainingSecures( house ) < 0 || RemainingLocks( house ) < 0 )
+			if (RemainingSecures(house) < 0 || RemainingLocks(house) < 0)
 			{
-				if ( say )
-					m.SendMessage( "You don't have the storage available to rent property." );
+				if (say)
+					m.SendMessage("You don't have the storage available to rent property.");
 
 				return false;
 			}
@@ -151,27 +155,32 @@ namespace Knives.TownHouses
 			return true;
 		}
 
-		private static void Wynajem_OnCommand(CommandEventArgs e) {
-
+		private static void Wynajem_OnCommand(CommandEventArgs e)
+		{
 			if (!e.Mobile.CheckAlive()) return;
 
 			ArrayList houses = new ArrayList(BaseHouse.GetHouses(e.Mobile));
 
 			if (houses == null) return;
 
-			foreach (BaseHouse house in houses) {
-				if (house.Region.AllMobiles.Contains(e.Mobile) && house is TownHouse && house.Owner == e.Mobile) {
+			foreach (BaseHouse house in houses)
+			{
+				if (house.Region.AllMobiles.Contains(e.Mobile) && house is TownHouse && house.Owner == e.Mobile)
+				{
 					TownHouse tHouse = (TownHouse)house;
-					if (!TownHouseInfo(tHouse, e.Mobile)) {
+					if (!TownHouseInfo(tHouse, e.Mobile))
+					{
 						e.Mobile.SendMessage("Ten dom nie jest wynajmowany");
 					}
 				}
 			}
 		}
 
-		private static bool TownHouseInfo(TownHouse th, Mobile m) {
+		private static bool TownHouseInfo(TownHouse th, Mobile m)
+		{
 			TownHouseSign thSign = th.ForSaleSign;
-			if (thSign.RentByTime != TimeSpan.Zero) {
+			if (thSign.RentByTime != TimeSpan.Zero)
+			{
 				m.SendMessage("Twoj dom {0}", thSign.Name);
 				m.SendMessage("Cykl wynajmu konczy sie za {0} dni, {1}:{2}:{3}.",
 					(thSign.RentTime - DateTime.Now).Days,
@@ -182,75 +191,80 @@ namespace Knives.TownHouses
 				m.SendMessage("Cykl wynajmu kosztuje {0} sztuk zlota.", thSign.Price);
 				return true;
 			}
+
 			return false;
 		}
 
 		#region Rental Info
 
-		public static bool EntireHouseContracted( BaseHouse house )
+		public static bool EntireHouseContracted(BaseHouse house)
 		{
-			foreach( Item item in TownHouseSign.AllSigns )
-				if ( item is RentalContract && house == ((RentalContract)item).ParentHouse )
-					if ( ((RentalContract)item).EntireHouse )
+			foreach (Item item in TownHouseSign.AllSigns)
+				if (item is RentalContract && house == ((RentalContract)item).ParentHouse)
+					if (((RentalContract)item).EntireHouse)
 						return true;
 
 			return false;
 		}
 
-		public static bool HasContract( BaseHouse house )
+		public static bool HasContract(BaseHouse house)
 		{
-			foreach( Item item in TownHouseSign.AllSigns )
-				if ( item is RentalContract && house == ((RentalContract)item).ParentHouse )
+			foreach (Item item in TownHouseSign.AllSigns)
+				if (item is RentalContract && house == ((RentalContract)item).ParentHouse)
 					return true;
 
 			return false;
 		}
 
-		public static bool HasOtherContract( BaseHouse house, RentalContract contract )
+		public static bool HasOtherContract(BaseHouse house, RentalContract contract)
 		{
-			foreach( Item item in TownHouseSign.AllSigns )
-				if ( item is RentalContract && item != contract && house == ((RentalContract)item).ParentHouse )
+			foreach (Item item in TownHouseSign.AllSigns)
+				if (item is RentalContract && item != contract && house == ((RentalContract)item).ParentHouse)
 					return true;
 
 			return false;
 		}
 
-		public static int RemainingSecures( BaseHouse house )
-		{ 
-			if ( house == null )
+		public static int RemainingSecures(BaseHouse house)
+		{
+			if (house == null)
 				return 0;
 
 			int a, b, c, d;
 
-			return (Core.AOS ? house.GetAosMaxSecures() - house.GetAosCurSecures( out a, out b, out c, out d ) : house.MaxSecures - house.SecureCount) - AllRentalSecures( house );
+			return (Core.AOS
+				? house.GetAosMaxSecures() - house.GetAosCurSecures(out a, out b, out c, out d)
+				: house.MaxSecures - house.SecureCount) - AllRentalSecures(house);
 		}
 
-		public static int RemainingLocks( BaseHouse house )
-		{ 
-			if ( house == null )
+		public static int RemainingLocks(BaseHouse house)
+		{
+			if (house == null)
 				return 0;
 
-			return (Core.AOS ? house.GetAosMaxLockdowns() - house.GetAosCurLockdowns() : house.MaxLockDowns - house.LockDownCount) - AllRentalLocks( house );
+			return (Core.AOS
+				? house.GetAosMaxLockdowns() - house.GetAosCurLockdowns()
+				: house.MaxLockDowns - house.LockDownCount) - AllRentalLocks(house);
 		}
 
-		public static int AllRentalSecures( BaseHouse house )
+		public static int AllRentalSecures(BaseHouse house)
 		{
 			int count = 0;
 
-			foreach( TownHouseSign sign in TownHouseSign.AllSigns )
-				if ( sign is RentalContract && ((RentalContract)sign).ParentHouse == house )
-					count+=sign.Secures;
+			foreach (TownHouseSign sign in TownHouseSign.AllSigns)
+				if (sign is RentalContract && ((RentalContract)sign).ParentHouse == house)
+					count += sign.Secures;
 
 			return count;
 		}
 
-		public static int AllRentalLocks( BaseHouse house )
+		public static int AllRentalLocks(BaseHouse house)
 		{
 			int count = 0;
 
-			foreach( TownHouseSign sign in TownHouseSign.AllSigns )
-				if ( sign is RentalContract && ((RentalContract)sign).ParentHouse == house )
-					count+=sign.Locks;
+			foreach (TownHouseSign sign in TownHouseSign.AllSigns)
+				if (sign is RentalContract && ((RentalContract)sign).ParentHouse == house)
+					count += sign.Locks;
 
 			return count;
 		}

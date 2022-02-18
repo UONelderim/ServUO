@@ -1,51 +1,34 @@
+#region References
+
 using System;
-using System.IO;
-using System.Media;
-using System.Collections;
-using System.Collections.Generic;
-using Server;
 using Server.Items;
-using Server.Network;
-using Server.Commands;
-using Server.Commands.Generic;
 using Server.Mobiles;
-using Server.Targets;
-using Server.Targeting;
+using Server.Network;
+
+#endregion
 
 namespace Server.Gumps
 {
-    	public class GumpSelUOE : Gump
-    	{
-        	private Mobile mob_m;
+	public class GumpSelUOE : Gump
+	{
+		public Mobile m_Mob { get; set; }
 
-		public Mobile m_Mob
-		{ 
-			get{ return mob_m; } 
-			set{ mob_m = value; } 
-		}
+		public Item i_Tool { get; set; }
 
-        	private Item tool_i;
-	
-		public Item i_Tool
-		{ 
-			get{ return tool_i; } 
-			set{ tool_i = value; } 
-		}
-
-        	public GumpSelUOE( Mobile m, int p ) : base( 0, 0 )
-        	{
+		public GumpSelUOE(Mobile m, int p) : base(0, 0)
+		{
 			PlayerMobile pm = m as PlayerMobile;
 
 			if (pm == null || pm.Backpack == null)
-    				return;
+				return;
 
-            		m_Mob = pm;
-			
-			Item check = pm.Backpack.FindItemByType(typeof(UOETool) );
+			m_Mob = pm;
 
-			if ( check == null )
+			Item check = pm.Backpack.FindItemByType(typeof(UOETool));
+
+			if (check == null)
 			{
-				pm.SendMessage( pm.Name + ", Contact Draco, System Error : Check Failed {0}/{1}", check );
+				pm.SendMessage(pm.Name + ", Contact Draco, System Error : Check Failed {0}/{1}", check);
 
 				return;
 			}
@@ -54,10 +37,10 @@ namespace Server.Gumps
 
 			i_Tool = dd;
 
-            		this.Closable=false;
-			this.Disposable=false;
-			this.Dragable=false;
-			this.Resizable=false;
+			this.Closable = false;
+			this.Disposable = false;
+			this.Dragable = false;
+			this.Resizable = false;
 
 			this.X = dd.x_Sel;
 			this.Y = dd.y_Sel;
@@ -80,85 +63,85 @@ namespace Server.Gumps
 
 			AddLabel(235, 5, dd.c_Font, @"Set");
 			AddButton(239, 26, 2117, 2118, 3, GumpButtonType.Reply, 0);
-        	}
-		
+		}
+
 		public override void OnResponse(NetState ns, RelayInfo info)
-        	{
+		{
 			Mobile mob_m = ns.Mobile;
 
 			PlayerMobile pm = mob_m as PlayerMobile;
 
 			UOETool dd = i_Tool as UOETool;
 
-			if ( pm == null || dd == null )
+			if (pm == null || dd == null)
 				return;
 
 			int si;
 
 			TextRelay entry1 = info.GetTextEntry(1);
 			string text1 = (entry1 == null ? "" : entry1.Text.Trim());
-			bool r1 = Int32.TryParse( text1, out si );
-			if ( r1 != false ){dd.GmpX = si;}
+			bool r1 = Int32.TryParse(text1, out si);
+			if (r1) { dd.GmpX = si; }
 
 			TextRelay entry2 = info.GetTextEntry(2);
 			string text2 = (entry2 == null ? "" : entry2.Text.Trim());
-			bool r2 = Int32.TryParse( text2, out si );
-			if ( r2 != false ){dd.GmpY = si;}
+			bool r2 = Int32.TryParse(text2, out si);
+			if (r2) { dd.GmpY = si; }
 
-			switch(info.ButtonID)
-            		{
-                		case 0:
+			switch (info.ButtonID)
+			{
+				case 0:
 				{
-					pm.SendMessage( pm.Name + ", Thanks for using the UO Editor!" );
+					pm.SendMessage(pm.Name + ", Thanks for using the UO Editor!");
 
-            				dd.SendSYSBCK( pm, dd );
+					dd.SendSYSBCK(pm, dd);
 
 					break;
 				}
-                		case 1:
+				case 1:
 				{
 					dd.CntGN--;
 
-					dd.GumpNameUOE( pm, dd );
+					dd.GumpNameUOE(pm, dd);
 
 					break;
 				}
-                		case 2:
+				case 2:
 				{
 					dd.CntGN++;
 
-					dd.GumpNameUOE( pm, dd );
+					dd.GumpNameUOE(pm, dd);
 
 					break;
 				}
-                		case 3:
+				case 3:
 				{
-					if ( dd.GmpX < 0 || dd.GmpX > 2000 )
+					if (dd.GmpX < 0 || dd.GmpX > 2000)
 					{
-						pm.SendMessage( pm.Name + ", You entered in an improper X Value!");
-						
-            					dd.SendSYSBCK( pm, dd );
+						pm.SendMessage(pm.Name + ", You entered in an improper X Value!");
+
+						dd.SendSYSBCK(pm, dd);
 
 						break;
 					}
 
-					if ( dd.GmpY < 0 || dd.GmpY > 1100 )
+					if (dd.GmpY < 0 || dd.GmpY > 1100)
 					{
-						pm.SendMessage( pm.Name + ", You entered in an improper Y Value!");
-						
-            					dd.SendSYSBCK( pm, dd );
+						pm.SendMessage(pm.Name + ", You entered in an improper Y Value!");
+
+						dd.SendSYSBCK(pm, dd);
 
 						break;
 					}
 
-					if ( dd.SndOn == true )
+					if (dd.SndOn)
 						pm.PlaySound(dd.Snd5);
 
-					dd.SetGumpNameUOE( pm, dd );
+					dd.SetGumpNameUOE(pm, dd);
 
 					break;
 				}
 			}
-        	}
-    	}
+		}
+	}
 }

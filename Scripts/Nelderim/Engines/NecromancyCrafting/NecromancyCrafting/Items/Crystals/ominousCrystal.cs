@@ -1,11 +1,12 @@
-using System;
-using Server;
+#region References
+
 using Server.Mobiles;
-using Server.Spells;
+
+#endregion
 
 namespace Server.Items
 {
-	public class   ominousCrystal : Item
+	public class ominousCrystal : Item
 	{
 		public override string DefaultName
 		{
@@ -13,91 +14,81 @@ namespace Server.Items
 		}
 
 		[Constructable]
-		public  ominousCrystal() : base( 0x1F19 )
+		public ominousCrystal() : base(0x1F19)
 		{
 			Weight = 1.0;
 			Hue = 0x7F8;
 		}
 
-		public  ominousCrystal( Serial serial ) : base( serial )
+		public ominousCrystal(Serial serial) : base(serial)
 		{
 		}
 
-		public override void OnDoubleClick( Mobile from )
+		public override void OnDoubleClick(Mobile from)
 		{
-			if ( !IsChildOf( from.Backpack ) )
+			if (!IsChildOf(from.Backpack))
 			{
-				from.SendLocalizedMessage( 1042001 ); // That must be in your pack for you to use it.
+				from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
 				return;
 			}
 
 			double NecroSkill = from.Skills[SkillName.Necromancy].Value;
 
-			if ( NecroSkill < 90.0 )
+			if (NecroSkill < 90.0)
 			{
-				from.SendMessage( "You must have at least 90.0 skill in necromancy to construct a bone claw." );
+				from.SendMessage("You must have at least 90.0 skill in necromancy to construct a bone claw.");
 				return;
 			}
 
 			double scalar;
 
-			if ( NecroSkill >= 100.0 )
+			if (NecroSkill >= 100.0)
 				scalar = 1.5;
-			else if ( NecroSkill >= 90.0 )
+			else if (NecroSkill >= 90.0)
 				scalar = 1.3;
-			else if ( NecroSkill >= 80.0 )
+			else if (NecroSkill >= 80.0)
 				scalar = 1.1;
-			else if ( NecroSkill >= 70.0 )
+			else if (NecroSkill >= 70.0)
 				scalar = 1.0;
 			else
 				scalar = 1.0;
 
 			Container pack = from.Backpack;
 
-			if ( pack == null )
+			if (pack == null)
 				return;
 
 			int res = pack.ConsumeTotal(
-				new Type[]
-				{
-					typeof( SkelBod ),
-					typeof( SkelLegs ),
-					typeof( Mind )
-				},
-				new int[]
-				{
-					1,
-					1,
-					1
-				} );
+				new[] { typeof(SkelBod), typeof(SkelLegs), typeof(Mind) },
+				new[] { 1, 1, 1 });
 
-			switch ( res )
+			switch (res)
 			{
 				case 0:
 				{
-					from.SendMessage( "You must have a skeleton torso to construct the bone claw." );
+					from.SendMessage("You must have a skeleton torso to construct the bone claw.");
 					break;
 				}
 				case 1:
 				{
-					from.SendMessage( "You must have a pair of skeleton legs to construct the bone claw." );
+					from.SendMessage("You must have a pair of skeleton legs to construct the bone claw.");
 					break;
 				}
 				case 2:
 				{
-					from.SendMessage( "A brain is needed to move something of this size." );
+					from.SendMessage("A brain is needed to move something of this size.");
 					break;
 				}
 				default:
 				{
-					BoneClaw g = new BoneClaw( true, scalar );
+					BoneClaw g = new BoneClaw(true, scalar);
 
-					if ( g.SetControlMaster( from ) )
+					if (g.SetControlMaster(from))
 					{
 						Delete();
 
-						g.MoveToWorld( from.Location, from.Map );
-						from.PlaySound( 0x241 );
+						g.MoveToWorld(from.Location, from.Map);
+						from.PlaySound(0x241);
 					}
 
 					break;
@@ -105,16 +96,16 @@ namespace Server.Items
 			}
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 );
+			writer.Write(0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

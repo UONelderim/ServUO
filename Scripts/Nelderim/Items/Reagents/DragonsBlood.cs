@@ -1,46 +1,48 @@
+#region References
+
 using System;
-using Server;
-using Server.Items;
+
+#endregion
 
 namespace Server.Items
 {
 	public class DragonsBlood : BaseReagent, ICommodity
 	{
-        TextDefinition ICommodity.Description
-        {
-            get
-            {
-                return new TextDefinition( LabelNumber, String.Format( "{0} krew smoka", Amount ) );
-            }
-        }
+		TextDefinition ICommodity.Description
+		{
+			get
+			{
+				return new TextDefinition(LabelNumber, String.Format("{0} krew smoka", Amount));
+			}
+		}
 
-        bool ICommodity.IsDeedable { get { return false; } }
+		bool ICommodity.IsDeedable { get { return false; } }
 
 		[Constructable]
-        public DragonsBlood() : this( 1 )
+		public DragonsBlood() : this(1)
 		{
 		}
 
 		[Constructable]
-        public DragonsBlood( int amount ) : base( 3970, amount )
+		public DragonsBlood(int amount) : base(3970, amount)
 		{
-            Name = "Krew smoka";
+			Name = "Krew smoka";
 		}
 
-        public DragonsBlood( Serial serial ) : base( serial )
+		public DragonsBlood(Serial serial) : base(serial)
 		{
 		}
 
-        public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

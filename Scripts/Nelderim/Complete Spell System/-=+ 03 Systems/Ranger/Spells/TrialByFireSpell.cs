@@ -1,12 +1,16 @@
+#region References
+
 using System;
 using Server.Items;
 using Server.Spells;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ranger
 {
 	public class RangerTrialByFireSpell : RangerSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Magiczne ziola", "*wyciaga woreczek magiczych ziol i zaczyna je rzuc",
 			//SpellCircle.Third,
 			212,
@@ -25,7 +29,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 
 		public static void Initialize()
 		{
-			RangerPlayerEvent.HitByWeapon += new RangerPlayerEvent.OnWeaponHit(InternalCallback);
+			RangerPlayerEvent.HitByWeapon += InternalCallback;
 		}
 
 		public RangerTrialByFireSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
@@ -96,8 +100,8 @@ namespace Server.ACC.CSS.Systems.Ranger
 
 		private class InternalTimer : Timer
 		{
-			private Mobile Source;
-			private DateTime Expire;
+			private readonly Mobile Source;
+			private readonly DateTime Expire;
 
 			public InternalTimer(Mobile from, DateTime end) : base(TimeSpan.Zero, TimeSpan.FromSeconds(0.1))
 			{

@@ -1,6 +1,10 @@
+#region References
+
 using System;
 using Server.Items;
 using Server.Mobiles;
+
+#endregion
 
 namespace Server.Engines.Craft
 {
@@ -44,9 +48,9 @@ namespace Server.Engines.Craft
 
 			if (tool == null || tool.Deleted || tool.UsesRemaining < 0)
 				return 1044038; // You have worn out your tool!
-			else if (!(from is PlayerMobile && from.Skills[SkillName.Necromancy].Base >= 20.0))
+			if (!(from is PlayerMobile && from.Skills[SkillName.Necromancy].Base >= 20.0))
 				return 1044153; // You don't have the required skill
-			else if (!tool.CheckAccessible(from, ref num))
+			if (!tool.CheckAccessible(from, ref num))
 				return num; // The tool must be on your person to use.
 
 			return 0;
@@ -65,7 +69,7 @@ namespace Server.Engines.Craft
 		// Delay to synchronize the sound with the hit on the anvil
 		private class InternalTimer : Timer
 		{
-			private Mobile m_From;
+			private readonly Mobile m_From;
 
 			public InternalTimer(Mobile from) : base(TimeSpan.FromSeconds(0.7))
 			{
@@ -89,21 +93,17 @@ namespace Server.Engines.Craft
 				from.PlaySound(65); // rune breaking
 				if (lostMaterial)
 					return 1044043; // You failed to create the item, and some of your materials are lost.
-				else
-					return 1044157; // You failed to create the item, but no materials were lost.
+				return 1044157; // You failed to create the item, but no materials were lost.
 			}
-			else
-			{
-				from.PlaySound(65); // rune breaking
-				if (quality == 0)
-					return 502785; // You were barely able to make this item.  It's quality is below average.
-				else if (makersMark && quality == 2)
-					return 1044156; // You create an exceptional quality item and affix your maker's mark.
-				else if (quality == 2)
-					return 1044155; // You create an exceptional quality item.
-				else
-					return 1044154; // You create the item.
-			}
+
+			from.PlaySound(65); // rune breaking
+			if (quality == 0)
+				return 502785; // You were barely able to make this item.  It's quality is below average.
+			if (makersMark && quality == 2)
+				return 1044156; // You create an exceptional quality item and affix your maker's mark.
+			if (quality == 2)
+				return 1044155; // You create an exceptional quality item.
+			return 1044154; // You create the item.
 		}
 
 		public override void InitCraftList()

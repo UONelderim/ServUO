@@ -1,82 +1,76 @@
 #region AuthorHeader
+
 //
 //	Auction version 2.1, by Xanthos and Arya
 //
 //  Based on original ideas and code by Arya
 //
-#endregion AuthorHeader
-using System;
 
+#endregion AuthorHeader
+
+#region References
+
+using System;
+using System.IO;
 using Server;
+using Server.Accounting;
+using Server.Mobiles;
+
+#endregion
 
 namespace Arya.Auction
 {
 	/// <summary>
-	/// Defines a bid entry
+	///     Defines a bid entry
 	/// </summary>
 	public class Bid
 	{
-		private Mobile m_Mobile;
-		private int m_Amount;
-		private DateTime m_Time;
-
-		[ CommandProperty( AccessLevel.Administrator ) ]
+		[CommandProperty(AccessLevel.Administrator)]
 		/// <summary>
 		/// Gets the mobile who placed the bid
 		/// </summary>
-		public Mobile Mobile
-		{
-			get { return m_Mobile; }
-		}
+		public Mobile Mobile { get; private set; }
 
-		[ CommandProperty( AccessLevel.Administrator ) ]
+		[CommandProperty(AccessLevel.Administrator)]
 		/// <summary>
 		/// Gets the value of the bid
 		/// </summary>
-		public int Amount
-		{
-			get { return m_Amount; }
-		}
+		public int Amount { get; private set; }
 
-		[ CommandProperty( AccessLevel.Administrator ) ]
+		[CommandProperty(AccessLevel.Administrator)]
 		/// <summary>
 		/// Gets the time the bid has been placed at
 		/// </summary>
-		public DateTime Time
-		{
-			get { return m_Time; }
-		}
+		public DateTime Time { get; private set; }
 
 		/// <summary>
-		/// Creates a new bid
+		///     Creates a new bid
 		/// </summary>
 		/// <param name="m">The Mobile placing the bid</param>
 		/// <param name="amount">The amount of the bid</param>
-		public Bid( Mobile m, int amount )
+		public Bid(Mobile m, int amount)
 		{
-			m_Time = DateTime.UtcNow;
-			m_Mobile = m;
-			m_Amount = amount;
+			Time = DateTime.UtcNow;
+			Mobile = m;
+			Amount = amount;
 		}
 
 		/// <summary>
-		/// Creates a new bid. Checks if the mobile has enough money to bid
-		/// and if so removes the money from the player
+		///     Creates a new bid. Checks if the mobile has enough money to bid
+		///     and if so removes the money from the player
 		/// </summary>
 		/// <param name="from">The mobile bidding</param>
 		/// <param name="amount">The amount bid</param>
 		/// <returns>A bid object if the mobile has enough money</returns>
-		public static Bid CreateBid( Mobile from, int amount )
+		public static Bid CreateBid(Mobile from, int amount)
 		{
-			if ( Server.Mobiles.Banker.Withdraw( from, amount ) )
+			if (Banker.Withdraw(from, amount))
 			{
-				return new Bid( from, amount );
+				return new Bid(from, amount);
 			}
-			else
-			{
-				from.SendMessage( 0x40, AuctionSystem.ST[ 199 ] );
-				return null;
-			}
+
+			@from.SendMessage(0x40, AuctionSystem.ST[199]);
+			return null;
 		}
 
 		private Bid()
@@ -85,26 +79,26 @@ namespace Arya.Auction
 
 		#region Serialization
 
-		public void Serialize( GenericWriter writer )
+		public void Serialize(GenericWriter writer)
 		{
 			// Version 1
 			// Version 0
-			writer.Write( m_Mobile );
-			writer.Write( m_Amount );
-			writer.Write( m_Time );
+			writer.Write(Mobile);
+			writer.Write(Amount);
+			writer.Write(Time);
 		}
 
-		public static Bid Deserialize( GenericReader reader, int version )
+		public static Bid Deserialize(GenericReader reader, int version)
 		{
 			Bid bid = new Bid();
 
-			switch ( version )
+			switch (version)
 			{
 				case 1:
 				case 0:
-					bid.m_Mobile = reader.ReadMobile();
-					bid.m_Amount = reader.ReadInt();
-					bid.m_Time = reader.ReadDateTime();
+					bid.Mobile = reader.ReadMobile();
+					bid.Amount = reader.ReadInt();
+					bid.Time = reader.ReadDateTime();
 					break;
 			}
 
@@ -114,58 +108,59 @@ namespace Arya.Auction
 		#endregion
 
 		/// <summary>
-		/// Returns the bid money to the highest bidder because they have been outbid
+		///     Returns the bid money to the highest bidder because they have been outbid
 		/// </summary>
 		/// <param name="auction">The auction the bid belongs to</param>
-		public void Outbid( AuctionItem auction )
+		public void Outbid(AuctionItem auction)
 		{
-			if ( m_Mobile == null || m_Mobile.Account == null )
+			if (Mobile == null || Mobile.Account == null)
 				return;
 
-			AuctionCheck check = new AuctionGoldCheck( auction, AuctionResult.Outbid );
-			if ( ! this.m_Mobile.Backpack.TryDropItem( m_Mobile, check, false ) )
+			AuctionCheck check = new AuctionGoldCheck(auction, AuctionResult.Outbid);
+			if (!this.Mobile.Backpack.TryDropItem(Mobile, check, false))
 			{
-				m_Mobile.BankBox.DropItem( check );
+				Mobile.BankBox.DropItem(check);
 			}
 
 			// Send notice
-			AuctionMessaging.SendOutbidMessage( auction, m_Amount, m_Mobile );
+			AuctionMessaging.SendOutbidMessage(auction, Amount, Mobile);
 		}
 
 		/// <summary>
-		/// Returns the bid money to the bidder because the auction has been canceled
+		///     Returns the bid money to the bidder because the auction has been canceled
 		/// </summary>
 		/// <param name="auction">The auction the bid belongs to</param>
-		public void AuctionCanceled( AuctionItem auction )
+		public void AuctionCanceled(AuctionItem auction)
 		{
-			if ( m_Mobile == null )
+			if (Mobile == null)
 				return;
 
-			AuctionCheck check = new AuctionGoldCheck( auction, AuctionResult.SystemStopped );
+			AuctionCheck check = new AuctionGoldCheck(auction, AuctionResult.SystemStopped);
 
-			if ( m_Mobile.Backpack == null || ! m_Mobile.Backpack.TryDropItem( m_Mobile, check, false ) )
+			if (Mobile.Backpack == null || !Mobile.Backpack.TryDropItem(Mobile, check, false))
 			{
-				if ( m_Mobile.BankBox != null )
-					m_Mobile.BankBox.DropItem( check );
+				if (Mobile.BankBox != null)
+					Mobile.BankBox.DropItem(check);
 				else
 					check.Delete();
 			}
 		}
 
 		/// <summary>
-		/// Outputs bid information
+		///     Outputs bid information
 		/// </summary>
 		/// <param name="writer"></param>
-		public void Profile( System.IO.StreamWriter writer )
+		public void Profile(StreamWriter writer)
 		{
 			string owner = null;
 
-			if ( m_Mobile != null && m_Mobile.Account != null )
-				owner = string.Format( "{0} [ Account : {1} - Serial {2} ]", m_Mobile.Name, ( m_Mobile.Account as Server.Accounting.Account ).Username, m_Mobile.Serial );
+			if (Mobile != null && Mobile.Account != null)
+				owner = String.Format("{0} [ Account : {1} - Serial {2} ]", Mobile.Name,
+					(Mobile.Account as Account).Username, Mobile.Serial);
 			else
 				owner = "None";
 
-			writer.WriteLine( "- {0}\t{1}", m_Amount, owner );
+			writer.WriteLine("- {0}\t{1}", Amount, owner);
 		}
 	}
 }

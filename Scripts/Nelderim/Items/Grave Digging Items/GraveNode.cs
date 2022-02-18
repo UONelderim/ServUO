@@ -1,6 +1,10 @@
+#region References
+
 using System;
 using System.Collections.Generic;
 using Server.Mobiles;
+
+#endregion
 
 namespace Server.Items
 {
@@ -14,28 +18,17 @@ namespace Server.Items
 		public static List<GraveNode> Nodes = new List<GraveNode>();
 
 		private object m_target;
-		private bool Regs = true;
+		private readonly bool Regs = true;
 
-		private int m_Hits;
-
-		private TimeSpan m_DefaultDecayTime = TimeSpan.FromMinutes(20.0);
+		private readonly TimeSpan m_DefaultDecayTime = TimeSpan.FromMinutes(20.0);
 
 		private Timer m_DecayTimer;
-		private DateTime m_DecayTime;
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public int Hits
-		{
-			get { return m_Hits; }
-			set { m_Hits = value; }
-		}
+		public int Hits { get; set; }
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public DateTime DecayTime
-		{
-			get { return m_DecayTime; }
-			set { m_DecayTime = value; }
-		}
+		public DateTime DecayTime { get; set; }
 
 		[Constructable]
 		public GraveNode() : base(0xE2E)
@@ -43,7 +36,7 @@ namespace Server.Items
 			Name = "Grobowiec";
 			Visible = false;
 			Movable = false;
-			m_Hits = 40;
+			Hits = 40;
 
 			BeginDecay(m_DefaultDecayTime);
 		}
@@ -73,7 +66,7 @@ namespace Server.Items
 
 			from.EndAction(typeof(GraveNode));
 
-			if (from.CheckSkill(SkillName.Necromancy, 00.0, 100.0) && m_Hits > 0)
+			if (from.CheckSkill(SkillName.Necromancy, 00.0, 100.0) && Hits > 0)
 			{
 				from.Animate(11, 5, 1, true, false, 0);
 				from.PlaySound(Utility.RandomMinMax(0x125, 0x126));
@@ -205,7 +198,7 @@ namespace Server.Items
 						loot.MoveToWorld(from.Location, from.Map);
 				}
 			}
-			else if (m_Hits <= 0)
+			else if (Hits <= 0)
 			{
 				from.SendMessage("Nie ma tu nic do wykopania.");
 			}
@@ -254,7 +247,8 @@ namespace Server.Items
 					case 9: return Coffin(from);
 				}
 			}
-			else if (skill >= 70)
+
+			if (skill >= 70)
 			{
 				switch (Utility.Random(9))
 				{
@@ -270,7 +264,8 @@ namespace Server.Items
 					case 8: return Instrument(from);
 				}
 			}
-			else if (skill >= 50)
+
+			if (skill >= 50)
 			{
 				switch (Utility.Random(9))
 				{
@@ -286,7 +281,8 @@ namespace Server.Items
 					case 8: return HumanBones(from);
 				}
 			}
-			else if (skill >= 30)
+
+			if (skill >= 30)
 			{
 				switch (Utility.Random(9))
 				{
@@ -302,17 +298,15 @@ namespace Server.Items
 					case 8: return HumanBones(from);
 				}
 			}
-			else
+
+			switch (Utility.Random(5))
 			{
-				switch (Utility.Random(5))
-				{
-					default:
-					case 0:
-					case 1:
-					case 2:
-					case 3: return HumanBones(from);
-					case 4: return Scroll(from, 3);
-				}
+				default:
+				case 0:
+				case 1:
+				case 2:
+				case 3: return HumanBones(@from);
+				case 4: return Scroll(@from, 3);
 			}
 		}
 
@@ -344,8 +338,7 @@ namespace Server.Items
 			from.SendMessage("Odkopales troche kosci.");
 			if (Utility.RandomDouble() > 0.125)
 				return new HumanBones();
-			else
-				return new HumanSkull();
+			return new HumanSkull();
 		}
 
 		public Item GraveItem(Mobile from)
@@ -367,11 +360,9 @@ namespace Server.Items
 				from.SendMessage("Wykopujesz zwloki.");
 				return new UnearthedBones(from);
 			}
-			else
-			{
-				from.SendMessage("Wykopujesz skrzynie ze skarbami.");
-				return new UnearthedJewelryBox(from);
-			}
+
+			from.SendMessage("Wykopujesz skrzynie ze skarbami.");
+			return new UnearthedJewelryBox(from);
 		}
 
 		public Item Coffin(Mobile from)
@@ -413,7 +404,7 @@ namespace Server.Items
 				m_DecayTimer.Stop();
 			}
 
-			m_DecayTime = DateTime.UtcNow + delay;
+			DecayTime = DateTime.UtcNow + delay;
 
 			m_DecayTimer = new InternalTimer(this, delay);
 			m_DecayTimer.Start();
@@ -439,14 +430,14 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 			writer.Write(0);
-			writer.Write(m_Hits);
+			writer.Write(Hits);
 		}
 
 		public override void Deserialize(GenericReader reader)
 		{
 			base.Deserialize(reader);
 			int version = reader.ReadInt();
-			m_Hits = reader.ReadInt();
+			Hits = reader.ReadInt();
 			Nodes.Add(this);
 		}
 

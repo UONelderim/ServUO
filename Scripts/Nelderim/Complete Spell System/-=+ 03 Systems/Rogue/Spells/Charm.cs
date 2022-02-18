@@ -1,3 +1,5 @@
+#region References
+
 using System;
 using System.Reflection;
 using Server.Commands;
@@ -5,11 +7,13 @@ using Server.Mobiles;
 using Server.Spells;
 using Server.Targeting;
 
+#endregion
+
 namespace Server.ACC.CSS.Systems.Rogue
 {
 	public class RogueCharmSpell : RogueSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Zaklęcie", "Spojrz w moje oczy!",
 			//SpellCircle.Fourth,
 			218,
@@ -307,7 +311,6 @@ namespace Server.ACC.CSS.Systems.Rogue
 					catch
 					{
 						from.SendMessage("oj oj oj... coś poszło nie tak");
-						return;
 					}
 				}
 			}
@@ -348,7 +351,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 
 		private class InternalTimer : Timer
 		{
-			private CharmedMobile m_Item;
+			private readonly CharmedMobile m_Item;
 
 			public InternalTimer(CharmedMobile item, TimeSpan duration)
 				: base(duration)
@@ -365,7 +368,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 
 		public class InternalTarget : Target
 		{
-			private RogueCharmSpell m_Owner;
+			private readonly RogueCharmSpell m_Owner;
 
 			public InternalTarget(RogueCharmSpell owner)
 				: base(12, false, TargetFlags.Harmful)

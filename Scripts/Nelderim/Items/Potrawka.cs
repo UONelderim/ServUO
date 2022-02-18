@@ -1,4 +1,9 @@
-﻿using System;
+﻿#region References
+
+using System;
+using Server.Spells;
+
+#endregion
 
 namespace Server.Items
 {
@@ -25,10 +30,10 @@ namespace Server.Items
 
 		public virtual bool Apply(Mobile from)
 		{
-			bool applied = Spells.SpellHelper.AddStatOffset(from, Type, Bonus, TimeSpan.FromMinutes(10.0));
+			bool applied = SpellHelper.AddStatOffset(from, Type, Bonus, TimeSpan.FromMinutes(10.0));
 
 
-			if ( !applied )
+			if (!applied)
 				from.SendLocalizedMessage(502173); // You are already under a similar effect.
 
 			return applied;
@@ -36,11 +41,11 @@ namespace Server.Items
 
 		public override void OnDoubleClick(Mobile from)
 		{
-			if ( !IsChildOf(from.Backpack) )
+			if (!IsChildOf(from.Backpack))
 			{
 				from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
 			}
-			else if ( Apply(from) )
+			else if (Apply(from))
 			{
 				from.FixedEffect(0x375A, 10, 15);
 				from.PlaySound(0x1E7);
@@ -52,7 +57,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -85,7 +90,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -95,6 +100,7 @@ namespace Server.Items
 			int version = reader.ReadInt();
 		}
 	}
+
 	public class PysznaPotrawka : BasePotrawka
 	{
 		public override int Bonus { get { return 5; } }
@@ -117,7 +123,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -127,6 +133,7 @@ namespace Server.Items
 			int version = reader.ReadInt();
 		}
 	}
+
 	public class PotrawkaBle : BasePotrawka
 	{
 		public override int Bonus { get { return 5; } }
@@ -149,7 +156,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -159,5 +166,4 @@ namespace Server.Items
 			int version = reader.ReadInt();
 		}
 	}
-
 }

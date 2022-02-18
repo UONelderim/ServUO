@@ -1,3 +1,5 @@
+#region References
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,15 +9,14 @@ using Server.Mobiles;
 using Server.Network;
 using Server.Targeting;
 
+#endregion
+
 namespace Server.Items
 {
 	public class RewardScroll : Item
 	{
-		private double m_Value;
 		private int m_Class;
-		private int m_Repeat;
 		private int m_TotalGold;
-		private ArrayList m_Given;
 
 		private static List<NReward> m_Rewards;
 
@@ -45,7 +46,7 @@ namespace Server.Items
 
 		public static void Initialize()
 		{
-			CommandSystem.Register("Reward", AccessLevel.Counselor, new CommandEventHandler(Reward_OnCommand));
+			CommandSystem.Register("Reward", AccessLevel.Counselor, Reward_OnCommand);
 			BuildRewardsList();
 		}
 
@@ -84,17 +85,17 @@ namespace Server.Items
 			LootType = LootType.Blessed;
 			m_Class = Utility.Clamp(rewardClass, 1, 16);
 
-			m_Value = (int)(250 * Math.Pow(2, 16 - m_Class));
-			m_Given = new ArrayList();
+			Value = (int)(250 * Math.Pow(2, 16 - m_Class));
+			GivenRewards = new ArrayList();
 			if (repeat == 0)
 			{
 				if (m_Class >= 1 && m_Class <= 9)
-					m_Repeat = 6;
+					Repeat = 6;
 				else
-					m_Repeat = 1;
+					Repeat = 1;
 			}
 			else
-				m_Repeat = repeat;
+				Repeat = repeat;
 
 			base.Hue = m_Class <= 2 ? 1935 : m_Class <= 6 ? 0x8a5 : m_Class <= 11 ? 2401 : 0x972;
 		}
@@ -107,11 +108,11 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 
-			writer.Write((int)m_Repeat);
-			writer.Write((int)m_Class);
-			writer.Write((int)m_Value);
+			writer.Write(Repeat);
+			writer.Write(m_Class);
+			writer.Write((int)Value);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -124,22 +125,16 @@ namespace Server.Items
 			{
 				case 0:
 				{
-					m_Repeat = reader.ReadInt();
+					Repeat = reader.ReadInt();
 					m_Class = reader.ReadInt();
-					m_Value = reader.ReadInt();
+					Value = reader.ReadInt();
 					break;
 				}
 			}
 		}
 
 		[CommandProperty(AccessLevel.Counselor)]
-		public double Value
-		{
-			get
-			{
-				return m_Value;
-			}
-		}
+		public double Value { get; private set; }
 
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
 		public int Class
@@ -151,34 +146,22 @@ namespace Server.Items
 			set
 			{
 				m_Class = Utility.Clamp(value, 1, 16);
-				m_Value = (int)(250 * Math.Pow(2, 16 - m_Class));
+				Value = (int)(250 * Math.Pow(2, 16 - m_Class));
 				Hue = m_Class == 1 ? 1935 : m_Class <= 6 ? 0x8a5 : m_Class <= 11 ? 2401 : 0x972;
 				Delta(ItemDelta.Properties);
 			}
 		}
 
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
-		public int Repeat
-		{
-			get
-			{
-				return m_Repeat;
-			}
-		}
+		public int Repeat { get; private set; }
 
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
-		public ArrayList GivenRewards
-		{
-			get
-			{
-				return m_Given;
-			}
-		}
+		public ArrayList GivenRewards { get; private set; }
 
 		public override void AddNameProperty(ObjectPropertyList list)
 		{
 			list.Add(505595, m_Class.ToString()); // zwoj nagrody klasy ~1_VALUE~
-			list.Add(505903, m_Repeat.ToString()); // Mozliwe jest ~1_VALUE~ losowac nagrod.
+			list.Add(505903, Repeat.ToString()); // Mozliwe jest ~1_VALUE~ losowac nagrod.
 		}
 
 		public override void OnAosSingleClick(Mobile from)
@@ -197,13 +180,13 @@ namespace Server.Items
 			{
 				if (firstStage)
 				{
-					from.CloseGump(typeof(RewardScroll.InternalGump));
+					from.CloseGump(typeof(InternalGump));
 					from.SendGump(new InternalGump(from, this));
 				}
 				else
 				{
 					string log = from.AccessLevel + " " + CommandLogging.Format(from) + " used Reward Scroll " +
-					             CommandLogging.Format(this) + " of value " + m_Value + " [RewardScroll]";
+					             CommandLogging.Format(this) + " of value " + Value + " [RewardScroll]";
 					CommandLogging.WriteLine(from, log);
 					CommandLogging.WriteLine(from, "[RewardScroll] LabelOfCreator = " + ModifiedBy);
 
@@ -215,24 +198,24 @@ namespace Server.Items
 
 						if (m_TotalGold < 5000)
 						{
-							money = (Item)new Items.Gold(m_TotalGold);
+							money = new Gold(m_TotalGold);
 							m_TotalGold = 0;
 						}
 						else if (m_TotalGold < 500000)
 						{
-							money = (BankCheck)new BankCheck(m_TotalGold);
+							money = new BankCheck(m_TotalGold);
 							m_TotalGold = 0;
 						}
 						else
 						{
-							money = (BankCheck)new BankCheck(500000);
+							money = new BankCheck(500000);
 							m_TotalGold -= 500000;
 						}
 
 						money.ModifiedBy = (string)CommandLogging.Format(from);
-						if (m_Given == null)
-							m_Given = new ArrayList();
-						m_Given.Add(money);
+						if (GivenRewards == null)
+							GivenRewards = new ArrayList();
+						GivenRewards.Add(money);
 						from.Backpack.DropItem(money);
 					}
 
@@ -242,9 +225,9 @@ namespace Server.Items
 					from.FixedParticles(0x373A, 10, 15, 5012, EffectLayer.Waist);
 					from.PlaySound(0x1E0);
 
-					if (m_Repeat > 1)
+					if (Repeat > 1)
 					{
-						from.SendGump(new RewardScroll.InternalRepeatGump(this, m_Given));
+						from.SendGump(new InternalRepeatGump(this, GivenRewards));
 					}
 					else
 						Delete();
@@ -264,19 +247,19 @@ namespace Server.Items
 		private void Generate(Mobile from)
 		{
 			int TotalRewardValue = 0;
-			double InternalValue = m_Value;
+			double InternalValue = Value;
 
 			int totalValue = 0;
 			ArrayList rewards = new ArrayList();
 
 			// generujemy liste dostepnych prezentow, znaczy takich, ktorych wartosc nie przekracza dostepnego zlota
-			for (int i = 0; i < m_Rewards.Count && (m_Rewards[i] as NReward).Value <= m_Value; i++)
+			for (int i = 0; i < m_Rewards.Count && m_Rewards[i].Value <= Value; i++)
 			{
 				rewards.Add(m_Rewards[i]);
-				totalValue += (m_Rewards[i] as NReward).Value;
+				totalValue += m_Rewards[i].Value;
 			}
 
-			while (m_Value > 0)
+			while (Value > 0)
 			{
 				// losujemy nagrode
 				int rnd = Utility.Random(totalValue);
@@ -295,7 +278,7 @@ namespace Server.Items
 				// jesli tak, to przydzielamy
 				// jak nie to dalej
 
-				if (reward != null && Utility.RandomDouble() < 50.0 / (double)reward.Value)
+				if (reward != null && Utility.RandomDouble() < 50.0 / reward.Value)
 				{
 					TotalRewardValue += reward.Value;
 
@@ -303,14 +286,14 @@ namespace Server.Items
 
 					rewardItem.ModifiedBy = this.ModifiedBy;
 					rewardItem.Label3 = "generated from " + CommandLogging.Format(this);
-					if (m_Given == null)
-						m_Given = new ArrayList();
-					m_Given.Add(rewardItem);
+					if (GivenRewards == null)
+						GivenRewards = new ArrayList();
+					GivenRewards.Add(rewardItem);
 					from.Backpack.DropItem(rewardItem);
 				}
 
 
-				m_Value -= 50;
+				Value -= 50;
 			}
 
 			// nowa korekcja wartosci		
@@ -336,8 +319,8 @@ namespace Server.Items
 
 		public class InternalGump : Gump
 		{
-			private Mobile m_Mobile;
-			private RewardScroll m_Scroll;
+			private readonly Mobile m_Mobile;
+			private readonly RewardScroll m_Scroll;
 
 			public InternalGump(Mobile mobile, RewardScroll scroll) : base(25, 50)
 			{
@@ -388,10 +371,10 @@ namespace Server.Items
 
 		public class InternalRepeatGump : Gump
 		{
-			private RewardScroll m_Scroll;
-			private int m_Class;
-			private int m_Repeat;
-			private ArrayList m_Given;
+			private readonly RewardScroll m_Scroll;
+			private readonly int m_Class;
+			private readonly int m_Repeat;
+			private readonly ArrayList m_Given;
 
 			public InternalRepeatGump(RewardScroll scroll, ArrayList items) : base(25, 50)
 			{
@@ -472,7 +455,7 @@ namespace Server.Items
 
 		public class InternalTarget : Target
 		{
-			int m_Class;
+			readonly int m_Class;
 
 			public InternalTarget(int sc) : base(-1, false, TargetFlags.None)
 			{
@@ -497,7 +480,7 @@ namespace Server.Items
 						log += " gave RewardScroll of class [" + m_Class + "] to " + CommandLogging.Format(targeted);
 						log += " [RewardScroll]";
 						CommandLogging.WriteLine(from, log);
-						CommandLogging.WriteLine(pm as Mobile, log);
+						CommandLogging.WriteLine(pm, log);
 					}
 					else
 						from.SendLocalizedMessage(505601);

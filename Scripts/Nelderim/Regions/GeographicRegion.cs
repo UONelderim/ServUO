@@ -1,4 +1,8 @@
-﻿using System.Xml;
+﻿#region References
+
+using System.Xml;
+
+#endregion
 
 namespace Server.Regions
 {

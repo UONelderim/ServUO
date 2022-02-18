@@ -1,20 +1,21 @@
 //
 // Hunter Killer Gang v1.0b
-// jm (aka x-ray aka âåäüÌÛØ) 
+// jm (aka x-ray aka Ã¢Ã¥Ã¤Ã¼ÃŒÃ›Ã˜) 
 // jm99[at]mail333.com
 //
 // Some code fixes from MarkC777 and KillerBeeZ,  
 // thanks guys !
 //
 
+#region References
+
 using System;
-using System.IO;
 using System.Collections;
-using Server;
-using Server.Items;
-using Server.Regions;
-using Server.Mobiles;
 using Server.Gumps;
+using Server.Items;
+using Server.Mobiles;
+
+#endregion
 
 namespace Server.Engines.HunterKiller
 {
@@ -30,85 +31,52 @@ namespace Server.Engines.HunterKiller
 	{
 		private Mobile Leader;
 		private ArrayList Killers;
-		private int maxRange		= 200;
-		private HKState state		= HKState.Waiting;
-		private Mobile target		= null;
-		private WayPoint waypoint	= null;
 		private Timer timer;
-		private DateTime nextActionTime;
 		private DateTime nextRefreshTime;
 
 		[Constructable]
-		public HKGangSpawn() : base( 0x1f13 )
+		public HKGangSpawn() : base(0x1f13)
 		{
 			Visible = false;
 			Movable = false;
 
 			Name = "Rzezimieszkowie z Vox Populi";
 
-			Timer.DelayCall( TimeSpan.Zero, new TimerCallback( AddComponents ) );
+			Timer.DelayCall(TimeSpan.Zero, AddComponents);
 		}
 
-		[CommandProperty( AccessLevel.GameMaster )]
-		public int MaxRange
-		{
-			get
-			{
-				return maxRange;
-			}
-			set
-			{
-				maxRange = value;
-			}
-		}
+		[CommandProperty(AccessLevel.GameMaster)]
+		public int MaxRange { get; set; } = 200;
 
-		[CommandProperty( AccessLevel.GameMaster )]
-		public HKState State
-		{
-			get
-			{
-				return state;
-			}
-		}
+		[CommandProperty(AccessLevel.GameMaster)]
+		public HKState State { get; private set; } = HKState.Waiting;
 
-		[CommandProperty( AccessLevel.GameMaster )]
-		public DateTime NextAction
-		{
-			get
-			{
-				return nextActionTime;
-			}
-		}
+		[CommandProperty(AccessLevel.GameMaster)]
+		public DateTime NextAction { get; private set; }
 
-		[CommandProperty( AccessLevel.GameMaster )]
-		public Mobile Target
-		{
-			get
-			{
-				return target;
-			}
-		}
+		[CommandProperty(AccessLevel.GameMaster)]
+		public Mobile Target { get; private set; }
 
-		[CommandProperty( AccessLevel.GameMaster )]
-		public WayPoint Waypoint
-		{
-			get
-			{
-				return waypoint;
-			}
-		}
+		[CommandProperty(AccessLevel.GameMaster)]
+		public WayPoint Waypoint { get; private set; }
 
-		public HKGangSpawn( Serial serial ) : base( serial )
+		public HKGangSpawn(Serial serial) : base(serial)
 		{
 		}
 
 		public void AddRandomMobile()
 		{
-			switch ( Utility.Random( 3 )) 
+			switch (Utility.Random(3))
 			{
-			case 0:	AddMobile( false, new HKArcher() ); break; 
-			case 1:	AddMobile( false, new HKMage() ); break; 
-			case 2:	AddMobile( false, new HKWarrior() ); break; 
+				case 0:
+					AddMobile(false, new HKArcher());
+					break;
+				case 1:
+					AddMobile(false, new HKMage());
+					break;
+				case 2:
+					AddMobile(false, new HKWarrior());
+					break;
 			}
 		}
 
@@ -118,33 +86,33 @@ namespace Server.Engines.HunterKiller
 
 			Killers = new ArrayList();
 
-			AddMobile( true,  new HKLeader()  );
-			AddMobile( false, new HKWarrior() );
+			AddMobile(true, new HKLeader());
+			AddMobile(false, new HKWarrior());
 
 			AddRandomMobile();
 			AddRandomMobile();
 
-			timer = new SliceTimer( this );
+			timer = new SliceTimer(this);
 
 			timer.Start();
 		}
 
-		public void AddMobile( bool isLeader, Mobile m )
+		public void AddMobile(bool isLeader, Mobile m)
 		{
 			if (isLeader)
 				Leader = m;
 			else
-				Killers.Add( m );			
+				Killers.Add(m);
 
-			Point3D loc = new Point3D( X , Y , Z );
+			Point3D loc = new Point3D(X, Y, Z);
 
 			BaseCreature bc = m as BaseCreature;
 
-			if ( bc != null )
+			if (bc != null)
 			{
-				bc.RangeHome = 4; 
+				bc.RangeHome = 4;
 
-				bc.Home = loc; 
+				bc.Home = loc;
 			}
 
 			m.Location = loc;
@@ -153,56 +121,56 @@ namespace Server.Engines.HunterKiller
 
 		public void ClearWaypoint()
 		{
-			if (waypoint != null)
+			if (Waypoint != null)
 			{
 				if (Leader != null && !Leader.Deleted && Leader.Alive) ((HKLeader)Leader).CurrentWayPoint = null;
 
-				foreach( Mobile m in Killers )
-				{	
-					if(!m.Deleted && m.Alive)
+				foreach (Mobile m in Killers)
+				{
+					if (!m.Deleted && m.Alive)
 					{
 						((HKMobile)m).CurrentWayPoint = null;
 					}
-				}			
+				}
 
-				waypoint.Delete();
+				Waypoint.Delete();
 
-				waypoint = null;
+				Waypoint = null;
 			}
 		}
 
 		public void AssignWaypoint()
 		{
-			((HKLeader)Leader).CurrentWayPoint = waypoint;
+			((HKLeader)Leader).CurrentWayPoint = Waypoint;
 
-			foreach( Mobile m in Killers )
-			{	
-				if(!m.Deleted && m.Alive)
+			foreach (Mobile m in Killers)
+			{
+				if (!m.Deleted && m.Alive)
 				{
-					((HKMobile)m).CurrentWayPoint = waypoint;
+					((HKMobile)m).CurrentWayPoint = Waypoint;
 				}
-			}				
+			}
 		}
 
 		public void RefreshWaypoint(bool speak)
 		{
-			if (Leader != null && !Leader.Deleted && Leader.Alive) 
+			if (Leader != null && !Leader.Deleted && Leader.Alive)
 			{
 				ClearWaypoint();
 
 				if (speak) ((HKLeader)Leader).Speak(0);
 
-				if (Leader.GetDistanceToSqrt( target ) > maxRange || Map != target.Map)
+				if (Leader.GetDistanceToSqrt(Target) > MaxRange || Map != Target.Map)
 				{
 					StateReturning();
 
 					return;
 				}
 
-				waypoint = new WayPoint();
+				Waypoint = new WayPoint();
 
-				waypoint.Location = target.Location;
-				waypoint.Map = Map;
+				Waypoint.Location = Target.Location;
+				Waypoint.Map = Map;
 
 				AssignWaypoint();
 			}
@@ -220,21 +188,21 @@ namespace Server.Engines.HunterKiller
 
 			ArrayList list = new ArrayList();
 
-			foreach ( Mobile m in this.GetMobilesInRange( maxRange ) )
+			foreach (Mobile m in this.GetMobilesInRange(MaxRange))
 			{
-				if( m != null && m.Player && !m.Deleted && m.Alive && !m.Hidden && m.AccessLevel == AccessLevel.Player )
+				if (m != null && m.Player && !m.Deleted && m.Alive && !m.Hidden && m.AccessLevel == AccessLevel.Player)
 				{
-					list.Add( m );
+					list.Add(m);
 				}
 			}
 
 			if (list.Count == 0) return;
 
-			target = (Mobile)list[ Utility.Random( 0, list.Count ) ];
+			Target = (Mobile)list[Utility.Random(0, list.Count)];
 
-			state = HKState.Pursuit;
+			State = HKState.Pursuit;
 
-			nextActionTime = DateTime.Now + TimeSpan.FromMinutes( 15 );
+			NextAction = DateTime.Now + TimeSpan.FromMinutes(15);
 
 			RefreshWaypoint(true);
 
@@ -245,33 +213,33 @@ namespace Server.Engines.HunterKiller
 		{
 			((HKLeader)Leader).Home = loc;
 
-			foreach( Mobile m in Killers )
-			{	
-				if(!m.Deleted && m.Alive)
+			foreach (Mobile m in Killers)
+			{
+				if (!m.Deleted && m.Alive)
 				{
 					((HKMobile)m).Home = loc;
 				}
-			}				
+			}
 		}
 
 		public void SetHome2This()
 		{
-			foreach( Mobile m in Killers )
-			{	
-				if(!m.Deleted && m.Alive)
+			foreach (Mobile m in Killers)
+			{
+				if (!m.Deleted && m.Alive)
 				{
 					((HKMobile)m).Home = m.Location;
 				}
-			}				
+			}
 		}
 
 		public bool CheckTarget()
 		{
-			if (target != null && !target.Deleted)
+			if (Target != null && !Target.Deleted)
 			{
-				if (!target.Alive)
+				if (!Target.Alive)
 				{
-					if (Leader != null && !Leader.Deleted && Leader.Alive) 
+					if (Leader != null && !Leader.Deleted && Leader.Alive)
 					{
 						ClearWaypoint();
 
@@ -279,18 +247,18 @@ namespace Server.Engines.HunterKiller
 
 						((HKLeader)Leader).Speak(1);
 
-						state = HKState.Ambush;
+						State = HKState.Ambush;
 
-						nextActionTime = DateTime.Now + TimeSpan.FromMinutes( 8 );
+						NextAction = DateTime.Now + TimeSpan.FromMinutes(8);
 
 //						System.Console.WriteLine("DEBUG: Target dead, Ambush");
 					}
 					else
 					{
 //						System.Console.WriteLine("DEBUG: Leader dead");
-						
+
 						StateWaiting();
-					}					
+					}
 
 					return true;
 				}
@@ -303,20 +271,20 @@ namespace Server.Engines.HunterKiller
 
 		public void StateReturning()
 		{
-			state = HKState.Returning;
+			State = HKState.Returning;
 
 			ClearWaypoint();
 
-			SetHome( new Point3D(X, Y, Z) );
+			SetHome(new Point3D(X, Y, Z));
 
-			nextActionTime = DateTime.Now + TimeSpan.FromMinutes( 10 );			
+			NextAction = DateTime.Now + TimeSpan.FromMinutes(10);
 
 //			System.Console.WriteLine("DEBUG: Returning");
 		}
 
 		public void StateWaiting()
 		{
-			state = HKState.Waiting;
+			State = HKState.Waiting;
 
 			ClearWaypoint();
 
@@ -331,13 +299,13 @@ namespace Server.Engines.HunterKiller
 
 			if (Leader != null && !Leader.Deleted && Leader.Alive) count++;
 
-			foreach( Mobile m in Killers )
-			{	
-				if(!m.Deleted && m.Alive)
+			foreach (Mobile m in Killers)
+			{
+				if (!m.Deleted && m.Alive)
 				{
 					count++;
 				}
-			}			
+			}
 
 			return count;
 		}
@@ -357,69 +325,69 @@ namespace Server.Engines.HunterKiller
 				return;
 			}
 
-			switch(state)
+			switch (State)
 			{
-			case HKState.Waiting:
+				case HKState.Waiting:
 
-				if ( 0.05 < Utility.RandomDouble() ) return;
+					if (0.05 < Utility.RandomDouble()) return;
 
-				FindTarget();
+					FindTarget();
 
-				break;
+					break;
 
-			case HKState.Pursuit:
+				case HKState.Pursuit:
 
-				if ( DateTime.Now >= nextActionTime)
-				{
-					if (Leader != null && !Leader.Deleted && Leader.Alive)
+					if (DateTime.Now >= NextAction)
 					{
-						StateReturning();
+						if (Leader != null && !Leader.Deleted && Leader.Alive)
+						{
+							StateReturning();
+						}
+						else
+						{
+							StateWaiting();
+						}
+
+						return;
 					}
-					else
+
+					if (CheckTarget()) break;
+
+					if (DateTime.Now >= nextRefreshTime)
+					{
+						RefreshWaypoint(false);
+
+						nextRefreshTime = DateTime.Now + TimeSpan.FromSeconds(10);
+					}
+
+					break;
+
+				case HKState.Ambush:
+
+					if (DateTime.Now >= NextAction)
+					{
+						if (Leader != null && !Leader.Deleted && Leader.Alive)
+						{
+							((HKLeader)Leader).Speak(2);
+
+							StateReturning();
+						}
+						else
+						{
+							StateWaiting();
+						}
+					}
+
+					break;
+
+				case HKState.Returning:
+
+					if (DateTime.Now >= NextAction)
 					{
 						StateWaiting();
 					}
 
-					return;
-				}
-
-				if ( CheckTarget() ) break;
-
-				if ( DateTime.Now >= nextRefreshTime )
-				{
-					RefreshWaypoint(false);
-
-					nextRefreshTime = DateTime.Now + TimeSpan.FromSeconds( 10 );
-				}
-
-				break;
-
-			case HKState.Ambush:
-
-				if ( DateTime.Now >= nextActionTime )
-				{
-					if (Leader != null && !Leader.Deleted && Leader.Alive) 
-					{
-						((HKLeader)Leader).Speak(2);
-
-						StateReturning();
-					}
-					else
-					{
-						StateWaiting();
-					}
-				}
-			
-				break;
-
-			case HKState.Returning:
-
-				if ( DateTime.Now >= nextActionTime )
-				{
-					StateWaiting();
-				}
-
-				break;
+					break;
 			}
 		}
 
@@ -431,51 +399,51 @@ namespace Server.Engines.HunterKiller
 
 			if (Killers != null)
 			{
-				foreach( Mobile m in Killers )
-				{	
-					if(!m.Deleted)
+				foreach (Mobile m in Killers)
+				{
+					if (!m.Deleted)
 					{
 						m.Delete();
 					}
-				}		
+				}
 			}
 
 			if (timer != null) timer.Stop();
 		}
 
-		public override void OnDoubleClick( Mobile from )
+		public override void OnDoubleClick(Mobile from)
 		{
-			from.SendGump( new PropertiesGump( from, this ) );
+			from.SendGump(new PropertiesGump(from, this));
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
-			writer.Write( Leader );
-			writer.WriteMobileList( Killers , true);
-			writer.Write( (int) state );
-			writer.Write( target );
-			writer.Write( waypoint );
-			writer.WriteDeltaTime( nextActionTime );
-			writer.WriteDeltaTime( nextRefreshTime );
+			writer.Write(0); // version
+			writer.Write(Leader);
+			writer.WriteMobileList(Killers, true);
+			writer.Write((int)State);
+			writer.Write(Target);
+			writer.Write(Waypoint);
+			writer.WriteDeltaTime(NextAction);
+			writer.WriteDeltaTime(nextRefreshTime);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 			Leader = reader.ReadMobile();
 			Killers = reader.ReadMobileList();
-			state = (HKState)reader.ReadInt();
-			target = reader.ReadMobile();
-			waypoint = reader.ReadItem() as WayPoint;
-			nextActionTime = reader.ReadDeltaTime();
+			State = (HKState)reader.ReadInt();
+			Target = reader.ReadMobile();
+			Waypoint = reader.ReadItem() as WayPoint;
+			NextAction = reader.ReadDeltaTime();
 			nextRefreshTime = reader.ReadDeltaTime();
 
-			timer = new SliceTimer( this );
+			timer = new SliceTimer(this);
 
 			timer.Start();
 		}

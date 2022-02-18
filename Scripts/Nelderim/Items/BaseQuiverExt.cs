@@ -1,5 +1,9 @@
-﻿using Nelderim;
+﻿#region References
+
+using Nelderim;
 using Server.Network;
+
+#endregion
 
 namespace Server.Items
 {

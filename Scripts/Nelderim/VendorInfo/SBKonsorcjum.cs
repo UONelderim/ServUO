@@ -1,16 +1,18 @@
-﻿using System.Collections.Generic;
+﻿#region References
+
+using System.Collections.Generic;
 using Nelderim.Engines.ChaosChest;
 using Server.Items;
+
+#endregion
 
 namespace Server.Mobiles
 {
 	public class SBKonsorcjum : SBInfo
 	{
-		private List<IBuyItemInfo> m_BuyInfo = new InternalBuyInfo();
-		private IShopSellInfo m_SellInfo = new GenericSellInfo();
+		public override IShopSellInfo SellInfo { get; } = new GenericSellInfo();
 
-		public override IShopSellInfo SellInfo => m_SellInfo;
-		public override List<IBuyItemInfo> BuyInfo => m_BuyInfo;
+		public override List<IBuyItemInfo> BuyInfo { get; } = new InternalBuyInfo();
 
 		private class InternalBuyInfo : List<IBuyItemInfo>
 		{
