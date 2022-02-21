@@ -12,7 +12,7 @@ namespace Server.Mobiles
         public BaseGuildmaster(string title)
             : base(title)
         {
-            Title = string.Format("the {0} {1}", title, Female ? "mistrzyni gildii" : "mistrz gildii");
+            Title = string.Format("{0} {1}", title, Female ? "mistrzyni gildii" : "mistrz gildii");
         }
 
         public BaseGuildmaster(Serial serial)
