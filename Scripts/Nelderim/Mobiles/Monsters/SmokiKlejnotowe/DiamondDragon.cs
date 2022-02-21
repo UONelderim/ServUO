@@ -1,4 +1,8 @@
+#region References
+
 using Server.Items;
+
+#endregion
 
 namespace Server.Mobiles
 {
@@ -6,7 +10,7 @@ namespace Server.Mobiles
 	public class DiamondDragon : Dragon
 	{
 		[Constructable]
-		public DiamondDragon() : base()
+		public DiamondDragon()
 		{
 			Name = "diamentowy smok";
 			BaseSoundID = 362;
@@ -90,7 +94,7 @@ namespace Server.Mobiles
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)1);
+			writer.Write(1);
 		}
 
 		public override void Deserialize(GenericReader reader)

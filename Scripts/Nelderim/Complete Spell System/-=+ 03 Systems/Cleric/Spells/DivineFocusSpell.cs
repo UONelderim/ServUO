@@ -1,45 +1,45 @@
+#region References
+
 using System;
 using System.Collections;
-using Server.Targeting;
-using Server.Network;
-using Server.Mobiles;
-using Server.Items;
 using Server.Spells;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Cleric
 {
 	public class ClericDivineFocusSpell : ClericSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
-		                                                "Boskie Skupienie", "Divinium Cogitatus",
-		                                                //SpellCircle.First,
-		                                                212,
-		                                                9041
-		                                               );
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Boskie Skupienie", "Divinium Cogitatus",
+			//SpellCircle.First,
+			212,
+			9041
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.First; }
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.First; }
+		}
 
-		public override int RequiredTithing{ get{ return 15; } }
-		public override double RequiredSkill{ get{ return 35.0; } }
+		public override int RequiredTithing { get { return 15; } }
+		public override double RequiredSkill { get { return 35.0; } }
 
-		public override int RequiredMana{ get{ return 4; } }
+		public override int RequiredMana { get { return 4; } }
 
-		private static Hashtable m_Table = new Hashtable();
+		private static readonly Hashtable m_Table = new Hashtable();
 
-		public ClericDivineFocusSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
+		public ClericDivineFocusSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
 			if (this.Scroll != null)
 				Scroll.Consume();
 		}
 
-		public static double GetScalar( Mobile m )
+		public static double GetScalar(Mobile m)
 		{
 			double val = 1.0;
 
-			if ( !m.CanBeginAction( typeof( ClericDivineFocusSpell ) ) )
+			if (!m.CanBeginAction(typeof(ClericDivineFocusSpell)))
 				val = 1.5;
 
 			return val;
@@ -47,13 +47,14 @@ namespace Server.ACC.CSS.Systems.Cleric
 
 		public override bool CheckCast()
 		{
-			if ( !base.CheckCast() )
+			if (!base.CheckCast())
 			{
 				return false;
 			}
-			if ( !Caster.CanBeginAction( typeof( ClericDivineFocusSpell ) ) )
+
+			if (!Caster.CanBeginAction(typeof(ClericDivineFocusSpell)))
 			{
-				Caster.SendMessage( "Ten czar już działa!" );
+				Caster.SendMessage("Ten czar już działa!");
 				return false;
 			}
 
@@ -62,41 +63,41 @@ namespace Server.ACC.CSS.Systems.Cleric
 
 		public override void OnCast()
 		{
-			if ( !Caster.CanBeginAction( typeof( ClericDivineFocusSpell ) ) )
+			if (!Caster.CanBeginAction(typeof(ClericDivineFocusSpell)))
 			{
-				Caster.SendMessage( "Ten czar już działa!" );
+				Caster.SendMessage("Ten czar już działa!");
 				return;
 			}
 
-			if ( CheckSequence() )
+			if (CheckSequence())
 			{
-				Caster.BeginAction( typeof( ClericDivineFocusSpell ) );
+				Caster.BeginAction(typeof(ClericDivineFocusSpell));
 
-				Timer t = new InternalTimer( Caster );
+				Timer t = new InternalTimer(Caster);
 				m_Table[Caster] = t;
 				t.Start();
 
-				Caster.FixedParticles( 0x375A, 1, 15, 0x480, 1, 4, EffectLayer.Waist );
+				Caster.FixedParticles(0x375A, 1, 15, 0x480, 1, 4, EffectLayer.Waist);
 			}
 		}
 
 
 		private class InternalTimer : Timer
 		{
-			private Mobile m_Owner;
+			private readonly Mobile m_Owner;
 
-			public InternalTimer( Mobile owner ) : base( TimeSpan.Zero, TimeSpan.FromSeconds( 1.5 ) )
+			public InternalTimer(Mobile owner) : base(TimeSpan.Zero, TimeSpan.FromSeconds(1.5))
 			{
 				m_Owner = owner;
 			}
 
 			protected override void OnTick()
 			{
-				if ( !m_Owner.CheckAlive() || m_Owner.Mana < 3 )
+				if (!m_Owner.CheckAlive() || m_Owner.Mana < 3)
 				{
-					m_Owner.EndAction( typeof( ClericDivineFocusSpell ) );
-					m_Table.Remove( m_Owner );
-					m_Owner.SendMessage( "Twój umysł słabnie! Nie jesteś w stanie pozostać skupionym." );
+					m_Owner.EndAction(typeof(ClericDivineFocusSpell));
+					m_Table.Remove(m_Owner);
+					m_Owner.SendMessage("Twój umysł słabnie! Nie jesteś w stanie pozostać skupionym.");
 					Stop();
 				}
 				else

@@ -1,32 +1,30 @@
-using Server.Gumps;
-
 namespace Server.Items
 {
 	public class DrowArtifact : RaceChoiceItem
 	{
-	    public DrowArtifact( Serial serial ) : base( serial )
-        {
-        }
+		public DrowArtifact(Serial serial) : base(serial)
+		{
+		}
 
-        [Constructable]
-        public DrowArtifact() : base( 0x1401 )
-        {
-            Name = "Artefakt Drowow";
+		[Constructable]
+		public DrowArtifact() : base(0x1401)
+		{
+			Name = "Artefakt Drowow";
 			Hue = 1946;
-            m_Race = Race.NDrow;
+			m_Race = Race.NDrow;
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-            writer.Write( (int)0 );
+			base.Serialize(writer);
+			writer.Write(0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
-    }
+	}
 }

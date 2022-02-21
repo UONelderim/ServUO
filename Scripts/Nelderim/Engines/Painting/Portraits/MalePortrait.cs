@@ -1,3 +1,9 @@
+#region References
+
+using System;
+
+#endregion
+
 namespace Server.Items
 {
 	[FlipableAttribute(0xEA2, 0xEA1)]
@@ -8,11 +14,11 @@ namespace Server.Items
 		{
 			if (artistName == subject)
 			{
-				Name = string.Format("Autoportret {0}", artistName, subject);
+				Name = String.Format("Autoportret {0}", artistName, subject);
 			}
 			else
 			{
-				Name = string.Format("Portret {0} namalowany przez {1}", artistName, subject);
+				Name = String.Format("Portret {0} namalowany przez {1}", artistName, subject);
 
 				Weight = 3.0;
 				Hue = 0;
@@ -27,7 +33,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)

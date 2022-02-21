@@ -1,13 +1,15 @@
-using System;
-using System.Collections;
+#region References
 
 using Server;
 using Server.Gumps;
+using Server.Network;
+
+#endregion
 
 namespace Arya.Jail
 {
 	/// <summary>
-	/// This gump displays a jailing entry
+	///     This gump displays a jailing entry
 	/// </summary>
 	public class JailCommentGump : Gump
 	{
@@ -15,12 +17,12 @@ namespace Arya.Jail
 		private const int GreenHue = 64;
 		private const int RedHue = 32;
 
-		private Mobile m_Player;
-		private Mobile m_Admin;
+		private readonly Mobile m_Player;
+		private readonly Mobile m_Admin;
 
-		public JailCommentGump( Mobile player , Mobile admin ) : base( 50, 50 )
+		public JailCommentGump(Mobile player, Mobile admin) : base(50, 50)
 		{
-			admin.CloseGump( typeof( JailCommentGump ) );
+			admin.CloseGump(typeof(JailCommentGump));
 
 			m_Player = player;
 			m_Admin = admin;
@@ -30,10 +32,10 @@ namespace Arya.Jail
 
 		private void MakeGump()
 		{
-			this.Closable=true;
-			this.Disposable=true;
-			this.Dragable=true;
-			this.Resizable=false;
+			this.Closable = true;
+			this.Disposable = true;
+			this.Dragable = true;
+			this.Resizable = false;
 
 			this.AddPage(0);
 
@@ -46,19 +48,19 @@ namespace Arya.Jail
 			// Player
 			this.AddLabel(290, 20, LabelHue, @"Player:");
 			this.AddButton(269, 20, 5601, 5605, 1, GumpButtonType.Reply, 0);
-			this.AddLabel(350, 20, GreenHue, m_Player.Name );
-			
+			this.AddLabel(350, 20, GreenHue, m_Player.Name);
+
 			// Comments
-			
-			string html = JailSystem.CheckComments( m_Player );
-			
-			
+
+			string html = JailSystem.CheckComments(m_Player);
+
+
 			this.AddLabel(20, 40, LabelHue, @"Comments:");
 			this.AddImageTiled(19, 59, 562, 152, 3604);
 			this.AddAlphaRegion(20, 60, 560, 150);
-			this.AddHtml( 20, 60, 560, 150, html, false, true);
-			
-			
+			this.AddHtml(20, 60, 560, 150, html, false, true);
+
+
 			// New comment: Text 2
 			this.AddLabel(290, 210, LabelHue, @"New comment");
 			this.AddImageTiled(289, 229, 292, 102, 5154);
@@ -74,46 +76,41 @@ namespace Arya.Jail
 			this.AddLabel(490, 360, LabelHue, @"Close");
 		}
 
-		public override void OnResponse(Server.Network.NetState sender, RelayInfo info)
+		public override void OnResponse(NetState sender, RelayInfo info)
 		{
-			
-			switch ( info.ButtonID )
+			switch (info.ButtonID)
 			{
 				case 1: // Display player props
 
-					m_Admin.SendGump( new JailCommentGump( m_Player , m_Admin ) );
-					
-					if ( m_Player != null )
+					m_Admin.SendGump(new JailCommentGump(m_Player, m_Admin));
+
+					if (m_Player != null)
 					{
-						m_Admin.SendGump( new PropertiesGump( m_Admin, m_Player ) );
+						m_Admin.SendGump(new PropertiesGump(m_Admin, m_Player));
 					}
+
 					break;
 
 				case 2: // Add comment
-					
-					
-					TextRelay te1 = info.GetTextEntry( 1 );
+
+
+					TextRelay te1 = info.GetTextEntry(1);
 					string comment = te1.Text;
 
-					if ( comment != null && comment.Length > 0 )
+					if (comment != null && comment.Length > 0)
 					{
-						
-						PlayerCommentEntry entry = new PlayerCommentEntry( m_Player , comment );
-						JailSystem.JailComments.Add( entry );
+						PlayerCommentEntry entry = new PlayerCommentEntry(m_Player, comment);
+						JailSystem.JailComments.Add(entry);
 					}
 					else
 					{
-						m_Admin.SendMessage( "Can't add an empty comment" );
+						m_Admin.SendMessage("Can't add an empty comment");
 					}
-					
-					
-					m_Admin.SendGump( new JailCommentGump( m_Player , m_Admin ) );
+
+
+					m_Admin.SendGump(new JailCommentGump(m_Player, m_Admin));
 					break;
-
-				
 			}
-			
 		}
-
 	}
 }

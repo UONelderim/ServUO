@@ -1,7 +1,12 @@
+#region References
+
 using Server.Gumps;
 using Server.Items;
 using Server.Multis;
 using Server.Network;
+using Server.Spells;
+
+#endregion
 
 namespace Server.Items
 {
@@ -23,14 +28,14 @@ namespace Server.Items
 		public override void OnDoubleClick(Mobile from)
 		{
 			if (IsChildOf(from.Backpack))
-				BoundingBoxPicker.Begin(from, new BoundingBoxCallback(BoundingBox_Callback), null);
+				BoundingBoxPicker.Begin(from, BoundingBox_Callback, null);
 			else
 				from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
 		}
 
 		private void BoundingBox_Callback(Mobile from, Map map, Point3D start, Point3D end, object state)
 		{
-			IPoint3D p = start as IPoint3D;
+			IPoint3D p = start;
 
 			if (p == null || map == null)
 				return;
@@ -49,7 +54,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -67,11 +72,11 @@ namespace Server.Gumps
 	{
 		private const int EntryCount = 3;
 
-		private BaseAddonDeed m_Deed;
+		private readonly BaseAddonDeed m_Deed;
 		private IPoint3D m_P3D;
-		private Map m_Map;
-		private int m_Width;
-		private int m_Height;
+		private readonly Map m_Map;
+		private readonly int m_Width;
+		private readonly int m_Height;
 
 		public GardenGroundGump(BaseAddonDeed deed, IPoint3D p, Map map, int width, int height) : base(30, 30)
 		{
@@ -138,7 +143,7 @@ namespace Server.Gumps
 			{
 				BaseAddon addon = new GardenGroundAddon(info.ButtonID - 1, m_Width, m_Height);
 
-				Spells.SpellHelper.GetSurfaceTop(ref m_P3D);
+				SpellHelper.GetSurfaceTop(ref m_P3D);
 
 				BaseHouse h = null;
 

@@ -1,101 +1,103 @@
+#region References
+
 using System;
 using System.Collections;
-using Server;
-using Server.Items;
 using Server.Mobiles;
-using Server.Network;
+
+#endregion
 
 namespace Server.Items
 {
 	public class MonsterNestLoot : Item
 	{
 		private int m_LootLevel;
+
 		[Constructable]
-		public MonsterNestLoot(int itemid, int hue, int lootlevel, string name) : base()
+		public MonsterNestLoot(int itemid, int hue, int lootlevel, string name)
 		{
-			Name = name + " gotowe do ograbienia ".ToString();
+			Name = name + " gotowe do ograbienia ";
 			Hue = hue;
 			ItemID = itemid;
 			Movable = false;
 			m_LootLevel = lootlevel;
 		}
 
-		public override void OnDoubleClick( Mobile from )
+		public override void OnDoubleClick(Mobile from)
 		{
 			ArrayList alist = new ArrayList();
-			IPooledEnumerable eable = this.Map.GetMobilesInRange( this.Location, 20 );
-			foreach( Mobile m in eable )
-				alist.Add( m );
+			IPooledEnumerable eable = this.Map.GetMobilesInRange(this.Location, 20);
+			foreach (Mobile m in eable)
+				alist.Add(m);
 			eable.Free();
-			if ( alist.Count > 0 )
+			if (alist.Count > 0)
 			{
-				for( int i = 0; i < alist.Count; i++ )
+				for (int i = 0; i < alist.Count; i++)
 				{
 					Mobile m = (Mobile)alist[i];
-					if ( m is PlayerMobile )
-						AddLoot( m );
+					if (m is PlayerMobile)
+						AddLoot(m);
 				}
 			}
 
 			this.Delete();
 		}
 
-		public void AddLoot( Mobile m )
+		public void AddLoot(Mobile m)
 		{
-			int chance = Utility.Random( 5, 20 ) * m_LootLevel;
-			if ( chance < 10 )
-				m.AddToBackpack( new Gold( Utility.Random( 5, 10 )));
-			else if ( chance < 20 )
-				m.AddToBackpack( new Gold( Utility.Random( 10, 20 )));
-			else if ( chance < 30 )
+			int chance = Utility.Random(5, 20) * m_LootLevel;
+			if (chance < 10)
+				m.AddToBackpack(new Gold(Utility.Random(5, 10)));
+			else if (chance < 20)
+				m.AddToBackpack(new Gold(Utility.Random(10, 20)));
+			else if (chance < 30)
 			{
-				m.AddToBackpack( new BankCheck( Utility.Random( 20, 30 )));
+				m.AddToBackpack(new BankCheck(Utility.Random(20, 30)));
 			}
-			else if ( chance < 40 )
+			else if (chance < 40)
 			{
-				m.AddToBackpack( new BankCheck( Utility.Random( 30, 40 )));
+				m.AddToBackpack(new BankCheck(Utility.Random(30, 40)));
 			}
-			else if ( chance < 50 )
+			else if (chance < 50)
 			{
-				m.AddToBackpack( new BankCheck( Utility.Random( 40, 50 )));
+				m.AddToBackpack(new BankCheck(Utility.Random(40, 50)));
 			}
-			else if ( chance < 60 )
+			else if (chance < 60)
 			{
-				m.AddToBackpack( new BankCheck( Utility.Random( 50, 60 )));
+				m.AddToBackpack(new BankCheck(Utility.Random(50, 60)));
 			}
-			else if ( chance < 70 )
+			else if (chance < 70)
 			{
-				m.AddToBackpack( new BankCheck( Utility.Random( 60, 70 )));
+				m.AddToBackpack(new BankCheck(Utility.Random(60, 70)));
 			}
-			else if ( chance < 80 )
+			else if (chance < 80)
 			{
-				m.AddToBackpack( new BankCheck( Utility.Random( 70, 80 )));
+				m.AddToBackpack(new BankCheck(Utility.Random(70, 80)));
 			}
-			else if ( chance < 90 )
+			else if (chance < 90)
 			{
-				m.AddToBackpack( new BankCheck( Utility.Random( 80, 90 )));
+				m.AddToBackpack(new BankCheck(Utility.Random(80, 90)));
 			}
 			else
 			{
-				m.AddToBackpack( new BankCheck( Utility.Random( 70, 100 )));
+				m.AddToBackpack(new BankCheck(Utility.Random(70, 100)));
 			}
 		}
 
-		public MonsterNestLoot( Serial serial ) : base( serial )
+		public MonsterNestLoot(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 );
-			writer.Write( (int) m_LootLevel );
+			writer.Write(0);
+			writer.Write(m_LootLevel);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 			m_LootLevel = reader.ReadInt();
@@ -103,41 +105,46 @@ namespace Server.Items
 
 		private class RegenTimer : Timer
 		{
-			private MonsterNest nest;
-			public RegenTimer( MonsterNest n ) : base( TimeSpan.FromSeconds( 30.0 ))
+			private readonly MonsterNest nest;
+
+			public RegenTimer(MonsterNest n) : base(TimeSpan.FromSeconds(30.0))
 			{
 				nest = n;
 			}
+
 			protected override void OnTick()
 			{
-				if ( nest != null && !nest.Deleted )
+				if (nest != null && !nest.Deleted)
 				{
-					if ( nest.Hits < 0 )
+					if (nest.Hits < 0)
 					{
 						nest.Destroy();
 						return;
 					}
+
 					nest.Hits += nest.HitsMax / 10;
-					if ( nest.Hits > nest.HitsMax )
+					if (nest.Hits > nest.HitsMax)
 						nest.Hits = nest.HitsMax;
-					new RegenTimer( nest ).Start();
+					new RegenTimer(nest).Start();
 				}
 			}
 		}
 
 		private class SpawnTimer : Timer
 		{
-			private MonsterNest nest;
-			public SpawnTimer( MonsterNest n ) : base( n.RespawnTime )
+			private readonly MonsterNest nest;
+
+			public SpawnTimer(MonsterNest n) : base(n.RespawnTime)
 			{
-				nest= n;
+				nest = n;
 			}
+
 			protected override void OnTick()
 			{
-				if ( nest != null && !nest.Deleted )
+				if (nest != null && !nest.Deleted)
 				{
 					nest.DoSpawn();
-					new SpawnTimer( nest ).Start();
+					new SpawnTimer(nest).Start();
 				}
 			}
 		}

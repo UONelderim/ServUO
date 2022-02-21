@@ -1,12 +1,16 @@
+#region References
+
 using System;
 using Server.Items;
 using Server.Spells;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Cleric
 {
 	public class ClericTrialByFireSpell : ClericSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Próba Ognia", "Temptatio Exsuscito",
 			//SpellCircle.Third,
 			212,
@@ -24,7 +28,7 @@ namespace Server.ACC.CSS.Systems.Cleric
 
 		public static void Initialize()
 		{
-			PlayerEvent.HitByWeapon += new PlayerEvent.OnWeaponHit(InternalCallback);
+			PlayerEvent.HitByWeapon += InternalCallback;
 		}
 
 		public ClericTrialByFireSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
@@ -95,8 +99,8 @@ namespace Server.ACC.CSS.Systems.Cleric
 
 		private class InternalTimer : Timer
 		{
-			private Mobile Source;
-			private DateTime Expire;
+			private readonly Mobile Source;
+			private readonly DateTime Expire;
 
 			public InternalTimer(Mobile from, DateTime end) : base(TimeSpan.Zero, TimeSpan.FromSeconds(0.1))
 			{

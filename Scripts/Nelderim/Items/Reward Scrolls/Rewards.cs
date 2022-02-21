@@ -1,16 +1,19 @@
+#region References
+
 using System;
 using System.Collections;
+
+#endregion
 
 namespace Server.Items
 {
 	public abstract class NReward : IComparable
 	{
-		private int m_Value;
-		public int Value { get { return m_Value; } }
+		public int Value { get; }
 
 		public NReward(int value)
 		{
-			m_Value = value;
+			Value = value;
 		}
 
 		public int CompareTo(object o)
@@ -37,7 +40,7 @@ namespace Server.Items
 
 	public class PowerScrollReward : NReward
 	{
-		private int m_PSClass;
+		private readonly int m_PSClass;
 
 		public PowerScrollReward(int PSclass, int value) : base(value)
 		{
@@ -117,7 +120,7 @@ namespace Server.Items
 
 	public class DedicatedPowerScrollReward : NReward
 	{
-		private int m_PSClass;
+		private readonly int m_PSClass;
 
 		public DedicatedPowerScrollReward(int PSclass, int value) : base(value)
 		{
@@ -154,7 +157,7 @@ namespace Server.Items
 
 	public class MinorArtifactScrollReward : NReward
 	{
-		private bool m_Chosen;
+		private readonly bool m_Chosen;
 
 		public MinorArtifactScrollReward(bool chosen, int value) : base(value)
 		{
@@ -171,7 +174,7 @@ namespace Server.Items
 
 	public class MajorArtifactScrollReward : NReward
 	{
-		private bool m_Chosen;
+		private readonly bool m_Chosen;
 
 		public MajorArtifactScrollReward(bool chosen, int value) : base(value)
 		{

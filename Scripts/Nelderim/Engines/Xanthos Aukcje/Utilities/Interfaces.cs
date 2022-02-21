@@ -1,13 +1,18 @@
 #region AuthorHeader
+
 //
 //	Interfaces version 1.0 - utilities version 2.0, by Xanthos
 //
 //
+
 #endregion AuthorHeader
+
+#region References
+
 using System;
-using Server;
 using Server.Mobiles;
-using Xanthos.Interfaces;
+
+#endregion
 
 namespace Xanthos.Interfaces
 {
@@ -27,7 +32,7 @@ namespace Xanthos.Interfaces
 
 	public interface IShrinkItem
 	{
-		BaseCreature ShrunkenPet{ get; }
+		BaseCreature ShrunkenPet { get; }
 	}
 
 	//
@@ -44,7 +49,7 @@ namespace Xanthos.Interfaces
 		Type GetEvoDustType();
 		int Ep { get; }
 		int Stage { get; }
-		void OnShrink( IShrinkItem shrinkItem );
+		void OnShrink(IShrinkItem shrinkItem);
 	}
 
 	//
@@ -54,5 +59,4 @@ namespace Xanthos.Interfaces
 	public interface IEvoGuardian
 	{
 	}
-
 }

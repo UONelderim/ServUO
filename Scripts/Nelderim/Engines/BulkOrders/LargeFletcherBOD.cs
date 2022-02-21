@@ -1,8 +1,13 @@
+#region References
+
+using System;
 using System.Collections.Generic;
+
+#endregion
 
 namespace Server.Engines.BulkOrders
 {
-	[TypeAlias( "Scripts.Engines.BulkOrders.LargeFletcherBOD" )]
+	[TypeAlias("Scripts.Engines.BulkOrders.LargeFletcherBOD")]
 	public class LargeFletcherBOD : LargeBOD //TO BE REMOVED AFTER MIGRATION
 	{
 		private BulkMaterialType m_Material2;
@@ -23,18 +28,19 @@ namespace Server.Engines.BulkOrders
 		{
 			LargeBulkEntry[] entries = new LargeBulkEntry[0];
 			bool useMaterials = Utility.RandomBool();
-			
-			int amountMax = Utility.RandomList( 10, 15, 20, 20 );
-			bool reqExceptional = ( 0.825 > Utility.RandomDouble() );
+
+			int amountMax = Utility.RandomList(10, 15, 20, 20);
+			bool reqExceptional = (0.825 > Utility.RandomDouble());
 
 			BulkMaterialType material;
 
-			if ( useMaterials )
-				material = SmallBOD.GetRandomMaterial(BulkMaterialType.OakWood, SmallFletcherBOD.m_BowFletchingMaterialChances);
+			if (useMaterials)
+				material = SmallBOD.GetRandomMaterial(BulkMaterialType.OakWood,
+					SmallFletcherBOD.m_BowFletchingMaterialChances);
 			else
 				material = BulkMaterialType.None;
 
-			
+
 			Hue = 1425;
 			AmountMax = amountMax;
 			Entries = entries;
@@ -42,7 +48,7 @@ namespace Server.Engines.BulkOrders
 			Material = material;
 		}
 
-		public LargeFletcherBOD( int amountMax, bool reqExceptional, BulkMaterialType mat, LargeBulkEntry[] entries )
+		public LargeFletcherBOD(int amountMax, bool reqExceptional, BulkMaterialType mat, LargeBulkEntry[] entries)
 		{
 			Hue = 1425;
 			AmountMax = amountMax;
@@ -51,7 +57,7 @@ namespace Server.Engines.BulkOrders
 			Material = mat;
 		}
 
-		public override List<Item> ComputeRewards( bool full )
+		public override List<Item> ComputeRewards(bool full)
 		{
 			List<Item> list = new List<Item>();
 
@@ -86,24 +92,24 @@ namespace Server.Engines.BulkOrders
 			return list;
 		}
 
-		public LargeFletcherBOD( Serial serial ) : base( serial )
+		public LargeFletcherBOD(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 1 ); // version
+			writer.Write(1); // version
 			writer.Write((int)m_Material2);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
-			switch ( version )
+			switch (version)
 			{
 				case 1:
 					m_Material2 = (BulkMaterialType)reader.ReadInt();
@@ -113,12 +119,12 @@ namespace Server.Engines.BulkOrders
 
 		public override int ComputeGold()
 		{
-			throw new System.NotImplementedException();
+			throw new NotImplementedException();
 		}
 
 		public override int ComputeFame()
 		{
-			throw new System.NotImplementedException();
+			throw new NotImplementedException();
 		}
 	}
 }

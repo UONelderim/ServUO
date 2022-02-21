@@ -1,65 +1,66 @@
+#region References
+
 using System;
-using Server.Targeting;
-using Server.Network;
-using Server.Misc;
-using Server.Items;
 using Server.Spells;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Druid
 {
 	public class DruidBlendWithForestSpell : DruidSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
-		                                                "Jedność Z Lasem", "Kes Ohm",
-		                                                //SpellCircle.Sixth,
-		                                                206,
-		                                                9002,
-		                                                false,
-		                                                Reagent.Bloodmoss,
-		                                                Reagent.Nightshade
-		                                               );
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Jedność Z Lasem", "Kes Ohm",
+			//SpellCircle.Sixth,
+			206,
+			9002,
+			false,
+			Reagent.Bloodmoss,
+			Reagent.Nightshade
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Sixth; }
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Sixth; }
+		}
 
-		public override double CastDelay{ get{ return 2.0; } }
-		public override double RequiredSkill{ get{ return 75.0; } }
-		public override int RequiredMana{ get{ return 60; } }
+		public override double CastDelay { get { return 2.0; } }
+		public override double RequiredSkill { get { return 75.0; } }
+		public override int RequiredMana { get { return 60; } }
 		private bool speak;
 
-		public DruidBlendWithForestSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
+		public DruidBlendWithForestSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
-			                    if (this.Scroll != null)
-                        Scroll.Consume();
+			if (this.Scroll != null)
+				Scroll.Consume();
 		}
 
 		public override void OnCast()
 		{
-			Caster.Target = new InternalTarget( this );
+			Caster.Target = new InternalTarget(this);
 		}
 
-		public void Target( Mobile m )
+		public void Target(Mobile m)
 		{
-			if ( !Caster.CanSee( m ) )
+			if (!Caster.CanSee(m))
 			{
-				Caster.SendLocalizedMessage( 500237 ); // Target can not be seen.
+				Caster.SendLocalizedMessage(500237); // Target can not be seen.
 			}
-			else if ( CheckHSequence( m ) )
+			else if (CheckHSequence(m))
 			{
-				SpellHelper.Turn( Caster, m );
+				SpellHelper.Turn(Caster, m);
 
-				speak=m.Squelched;
+				speak = m.Squelched;
 
-				m.PlaySound( 0x19 );
+				m.PlaySound(0x19);
 				//m.Paralyze( TimeSpan.FromSeconds( 20.0 ) );
-				m.FixedParticles( 0x375A, 2, 10, 5027, 0x3D, 2, EffectLayer.Waist );
+				m.FixedParticles(0x375A, 2, 10, 5027, 0x3D, 2, EffectLayer.Waist);
 				m.Hidden = true;
-				
 
-				Point3D loc = new Point3D( m.X, m.Y, m.Z );
-				Item item = new InternalItem( loc, Caster.Map, Caster,m , speak );
+
+				Point3D loc = new Point3D(m.X, m.Y, m.Z);
+				Item item = new InternalItem(loc, Caster.Map, Caster, m, speak);
 			}
 
 			FinishSequence();
@@ -67,61 +68,60 @@ namespace Server.ACC.CSS.Systems.Druid
 
 		private class InternalItem : Item
 		{
-			private Timer m_Timer;
-			private DateTime m_End;
+			private readonly Timer m_Timer;
+			private readonly DateTime m_End;
 			private Mobile m_Owner;
 			private bool squeltched;
 
-			public InternalItem( Point3D loc, Map map, Mobile caster, Mobile m, bool talk ) : base( 0xC9E )
+			public InternalItem(Point3D loc, Map map, Mobile caster, Mobile m, bool talk) : base(0xC9E)
 			{
 				Visible = false;
 				Movable = false;
-				m_Owner=m;
-				
+				m_Owner = m;
 
-				MoveToWorld( loc, map );
 
-				if ( caster.InLOS( this ) )
+				MoveToWorld(loc, map);
+
+				if (caster.InLOS(this))
 					Visible = true;
 				else
 					Delete();
 
-				if ( Deleted )
+				if (Deleted)
 					return;
 
-				m_Timer = new InternalTimer( this, TimeSpan.FromSeconds( 20.0 ), m_Owner, squeltched );
+				m_Timer = new InternalTimer(this, TimeSpan.FromSeconds(20.0), m_Owner, squeltched);
 				m_Timer.Start();
 
-				m_End = DateTime.Now + TimeSpan.FromSeconds( 80.0 );
+				m_End = DateTime.Now + TimeSpan.FromSeconds(80.0);
 			}
 
-			public InternalItem( Serial serial ) : base( serial )
+			public InternalItem(Serial serial) : base(serial)
 			{
 			}
 
-			public override void Serialize( GenericWriter writer )
+			public override void Serialize(GenericWriter writer)
 			{
-				base.Serialize( writer );
+				base.Serialize(writer);
 
-				writer.Write( (int) 1 ); // version
+				writer.Write(1); // version
 
-				writer.Write( m_End - DateTime.Now );
+				writer.Write(m_End - DateTime.Now);
 				writer.Write(m_Owner);
-				
 			}
 
-			public override void Deserialize( GenericReader reader )
+			public override void Deserialize(GenericReader reader)
 			{
-				base.Deserialize( reader );
+				base.Deserialize(reader);
 
 				int version = reader.ReadInt();
 				m_Owner = reader.ReadMobile();
-				
-				if(m_Owner!=null)
+
+				if (m_Owner != null)
 				{
-					m_Owner.Hidden=false;
-					
+					m_Owner.Hidden = false;
 				}
+
 				this.Delete();
 			}
 
@@ -129,49 +129,47 @@ namespace Server.ACC.CSS.Systems.Druid
 			{
 				base.OnAfterDelete();
 
-				if ( m_Timer != null )
+				if (m_Timer != null)
 					m_Timer.Stop();
-
 			}
 
 			private class InternalTimer : Timer
 			{
-				private InternalItem m_Item;
-				private Mobile m_Owner;
+				private readonly InternalItem m_Item;
+				private readonly Mobile m_Owner;
 				private bool speak;
 
-				public InternalTimer( InternalItem item, TimeSpan duration, Mobile caster, bool talk ) : base( duration )
+				public InternalTimer(InternalItem item, TimeSpan duration, Mobile caster, bool talk) : base(duration)
 				{
 					m_Item = item;
-					m_Owner=caster;
-
+					m_Owner = caster;
 				}
 
 				protected override void OnTick()
 				{
 					m_Item.Delete();
 
-					m_Owner.Hidden=false;
+					m_Owner.Hidden = false;
 				}
 			}
 		}
 
 		private class InternalTarget : Target
 		{
-			private DruidBlendWithForestSpell m_Owner;
+			private readonly DruidBlendWithForestSpell m_Owner;
 
-			public InternalTarget( DruidBlendWithForestSpell owner ) : base( 12, true, TargetFlags.None )
+			public InternalTarget(DruidBlendWithForestSpell owner) : base(12, true, TargetFlags.None)
 			{
 				m_Owner = owner;
 			}
 
-			protected override void OnTarget( Mobile from, object o )
+			protected override void OnTarget(Mobile from, object o)
 			{
-				if ( o is Mobile )
-					m_Owner.Target( (Mobile)o );
+				if (o is Mobile)
+					m_Owner.Target((Mobile)o);
 			}
 
-			protected override void OnTargetFinish( Mobile from )
+			protected override void OnTargetFinish(Mobile from)
 			{
 				m_Owner.FinishSequence();
 			}

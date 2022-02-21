@@ -1,239 +1,250 @@
-using Server.SicknessSys.Items;
-
 namespace Server.SicknessSys.Illnesses
 {
-    static class IllnessMutationLists
-    {
-        public static void SetMutation(VirusCell cell)
-        {
-            IllnessType illness = cell.Illness;
+	static class IllnessMutationLists
+	{
+		public static void SetMutation(VirusCell cell)
+		{
+			IllnessType illness = cell.Illness;
 
-            switch (illness)
-            {
-                case IllnessType.Cold:
+			switch (illness)
+			{
+				case IllnessType.Cold:
 
-                    if (cell.Stage == 1)
-                    {
-                        cell.PM.Hue = 5;
-                    }
-                    if (cell.Stage == 2 && cell.PM.Hue != 10)
-                    {
-                        cell.PM.Hue = 10;
+					if (cell.Stage == 1)
+					{
+						cell.PM.Hue = 5;
+					}
 
-                        SicknessAnimate.RunInfectedAnimation(cell.PM);
-                    }
-                    if (cell.Stage == 3 && cell.PM.Hue != 15)
-                    {
-                        cell.PM.Hue = 15;
+					if (cell.Stage == 2 && cell.PM.Hue != 10)
+					{
+						cell.PM.Hue = 10;
 
-                        SicknessAnimate.RunInfectedAnimation(cell.PM);
-                    }
-                    break;
+						SicknessAnimate.RunInfectedAnimation(cell.PM);
+					}
 
-                case IllnessType.Flu:
+					if (cell.Stage == 3 && cell.PM.Hue != 15)
+					{
+						cell.PM.Hue = 15;
 
-                    if (cell.Stage == 1)
-                    {
-                        cell.PM.Hue = 60;
-                    }
-                    if (cell.Stage == 2 && cell.PM.Hue != 65)
-                    {
-                        cell.PM.Hue = 65;
+						SicknessAnimate.RunInfectedAnimation(cell.PM);
+					}
 
-                        SicknessAnimate.RunInfectedAnimation(cell.PM);
-                    }
-                    if (cell.Stage == 3 && cell.PM.Hue != 70)
-                    {
-                        cell.PM.Hue = 70;
+					break;
 
-                        SicknessAnimate.RunInfectedAnimation(cell.PM);
-                    }
-                    break;
+				case IllnessType.Flu:
 
-                case IllnessType.Virus:
+					if (cell.Stage == 1)
+					{
+						cell.PM.Hue = 60;
+					}
 
-                    if (cell.Stage == 1)
-                    {
-                        cell.PM.Hue = 145;
-                    }
-                    if (cell.Stage == 2 && cell.PM.Hue != 150)
-                    {
-                        cell.PM.Hue = 150;
+					if (cell.Stage == 2 && cell.PM.Hue != 65)
+					{
+						cell.PM.Hue = 65;
 
-                        SicknessAnimate.RunInfectedAnimation(cell.PM);
-                    }
-                    if (cell.Stage == 3 && cell.PM.Hue != 155)
-                    {
-                        cell.PM.Hue = 155;
+						SicknessAnimate.RunInfectedAnimation(cell.PM);
+					}
 
-                        SicknessAnimate.RunInfectedAnimation(cell.PM);
-                    }
-                    break;
+					if (cell.Stage == 3 && cell.PM.Hue != 70)
+					{
+						cell.PM.Hue = 70;
 
-                case IllnessType.Vampirism:
-                    
-                    if (SicknessHelper.IsNight(cell.PM))
-                    {
-                        if (cell.PM.Hue == 1154 || cell.PM.Hue == 1153 || cell.PM.Hue == 1150)
-                        {
-                            if (cell.Level > 99 && cell.PM.Hue != 1175)
-                            {
-                                cell.PM.Hue = 1175;
-                                cell.PM.HairHue = 1153;
-                                cell.PM.FacialHairHue = 1153;
+						SicknessAnimate.RunInfectedAnimation(cell.PM);
+					}
 
-                                SicknessAnimate.RunMutateAnimation(cell.PM);
-                            }
-                            else
-                            {
-                                //do nothing for the day? Will decide later on feedback!
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (cell.PM.Hue == 1154 || cell.PM.Hue == 1153 || cell.PM.Hue == 1150 || cell.PM.Hue == 1175 || cell.PM.Hue == cell.DefaultBodyHue)
-                        {
-                            if (cell.Stage == 1 && cell.PM.Hue != 1154)
-                            {
-                                cell.PM.Hue = 1154;
-                                cell.PM.HairHue = 1194;
-                                cell.PM.FacialHairHue = 1194;
+					break;
 
-                                SicknessAnimate.RunMutateAnimation(cell.PM);
-                            }
-                            if (cell.Stage == 2 && cell.PM.Hue != 1150)
-                            {
-                                cell.PM.Hue = 1150;
-                                cell.PM.HairHue = 1172;
-                                cell.PM.FacialHairHue = 1172;
+				case IllnessType.Virus:
 
-                                SicknessAnimate.RunMutateAnimation(cell.PM);
-                            }
-                            if (cell.Stage == 3 && cell.PM.Hue != 1153)
-                            {
-                                cell.PM.Hue = 1153;
-                                cell.PM.HairHue = 1157;
-                                cell.PM.FacialHairHue = 1157;
+					if (cell.Stage == 1)
+					{
+						cell.PM.Hue = 145;
+					}
 
-                                SicknessAnimate.RunMutateAnimation(cell.PM);
-                            }
-                        }
-                    }
-                    break;
+					if (cell.Stage == 2 && cell.PM.Hue != 150)
+					{
+						cell.PM.Hue = 150;
 
-                case IllnessType.Lycanthropia:
+						SicknessAnimate.RunInfectedAnimation(cell.PM);
+					}
 
-                    //Item toDisarm1 = cell.PM.FindItemOnLayer(Layer.OneHanded);
-                    //Item toDisarm2 = cell.PM.FindItemOnLayer(Layer.TwoHanded);
-                    
-                    if (!SicknessHelper.IsNight(cell.PM) || cell.Level > 99 && !SicknessHelper.IsDark(cell.PM))
-                    {
-                        if (cell.PM.BodyValue != cell.DefaultBody)
-                        {
-                            //    if (toDisarm2 is WereClaws)
-                            //    {
-                            //        cell.PM.Backpack.DropItem(toDisarm2);
-                            //    }
+					if (cell.Stage == 3 && cell.PM.Hue != 155)
+					{
+						cell.PM.Hue = 155;
 
-                            if (cell.PM.Hue == 1049 || cell.PM.Hue == 1050 || cell.PM.Hue == 1051 || cell.PM.Hue == 1175)
-                            {
-                                SicknessAnimate.RunMutateAnimation(cell.PM);
+						SicknessAnimate.RunInfectedAnimation(cell.PM);
+					}
 
-                                cell.PM.BodyValue = cell.DefaultBody;
-                                cell.PM.Hue = cell.DefaultBodyHue;
-                            }
-                        }
-                    }
-                    else if (cell.PM.BodyValue == cell.DefaultBody)
-                    {
-                        //WereClaws wc = cell.PM.Backpack.FindItemByType(typeof(WereClaws)) as WereClaws;
+					break;
 
-                        //if (toDisarm1 != null || toDisarm2 != null)
-                        //{
-                        //    if (toDisarm2 is WereClaws)
-                        //    {
-                        //        //do nothing, already equipped
-                        //    }
-                        //    else
-                        //    {
-                        //        if (toDisarm1 != null)
-                        //            cell.PM.Backpack.DropItem(toDisarm1);
-                        //        if (toDisarm2 != null)
-                        //            cell.PM.Backpack.DropItem(toDisarm2);
+				case IllnessType.Vampirism:
 
-                        //        if (wc != null)
-                        //            cell.PM.EquipItem(wc);
-                        //        else
-                        //        {
-                        //            cell.PM.AddToBackpack(new WereClaws(cell.PM));
+					if (SicknessHelper.IsNight(cell.PM))
+					{
+						if (cell.PM.Hue == 1154 || cell.PM.Hue == 1153 || cell.PM.Hue == 1150)
+						{
+							if (cell.Level > 99 && cell.PM.Hue != 1175)
+							{
+								cell.PM.Hue = 1175;
+								cell.PM.HairHue = 1153;
+								cell.PM.FacialHairHue = 1153;
 
-                        //            wc = cell.PM.Backpack.FindItemByType(typeof(WereClaws)) as WereClaws;
+								SicknessAnimate.RunMutateAnimation(cell.PM);
+							}
+						}
+					}
+					else
+					{
+						if (cell.PM.Hue == 1154 || cell.PM.Hue == 1153 || cell.PM.Hue == 1150 || cell.PM.Hue == 1175 ||
+						    cell.PM.Hue == cell.DefaultBodyHue)
+						{
+							if (cell.Stage == 1 && cell.PM.Hue != 1154)
+							{
+								cell.PM.Hue = 1154;
+								cell.PM.HairHue = 1194;
+								cell.PM.FacialHairHue = 1194;
 
-                        //            cell.PM.EquipItem(wc);
-                        //        }
-                        //    }
-                        //}
-                        //else
-                        //{
-                        //    if (wc != null)
-                        //        cell.PM.EquipItem(wc);
-                        //    else
-                        //    {
-                        //        cell.PM.AddToBackpack(new WereClaws(cell.PM));
+								SicknessAnimate.RunMutateAnimation(cell.PM);
+							}
 
-                        //        wc = cell.PM.Backpack.FindItemByType(typeof(WereClaws)) as WereClaws;
+							if (cell.Stage == 2 && cell.PM.Hue != 1150)
+							{
+								cell.PM.Hue = 1150;
+								cell.PM.HairHue = 1172;
+								cell.PM.FacialHairHue = 1172;
 
-                        //        cell.PM.EquipItem(wc);
-                        //    }
-                        //}
+								SicknessAnimate.RunMutateAnimation(cell.PM);
+							}
 
-                        SicknessAnimate.RunMutateAnimation(cell.PM);
+							if (cell.Stage == 3 && cell.PM.Hue != 1153)
+							{
+								cell.PM.Hue = 1153;
+								cell.PM.HairHue = 1157;
+								cell.PM.FacialHairHue = 1157;
 
-                        if (cell.Stage == 1)
-                        {
-                            cell.PM.BodyValue = 23;
-                            cell.PM.Hue = 1049;
-                        }
-                        if (cell.Stage == 2)
-                        {
-                            cell.PM.BodyValue = 98;
-                            cell.PM.Hue = 1050;
-                        }
-                        if (cell.Stage == 3)
-                        {
-                            if (cell.Level >= 100)
-                            {
-                                cell.PM.BodyValue = 250;
-                                cell.PM.Hue = 1175;
-                            }
-                            else
-                            {
-                                cell.PM.BodyValue = 246;
-                                cell.PM.Hue = 1051;
-                            }
-                        }
-                    }
-                    else if (SicknessHelper.IsNight(cell.PM))
-                    {
-                        int HowlingChance = Utility.RandomMinMax(1, 100);
+								SicknessAnimate.RunMutateAnimation(cell.PM);
+							}
+						}
+					}
 
-                        if (HowlingChance > 99)
-                        {
-                            cell.PM.PlaySound(0x0E6);
-                        }
-                    }
-                    break;
+					break;
 
-                default:
+				case IllnessType.Lycanthropia:
 
-                    cell.PM.Body = cell.DefaultBody;
-                    cell.PM.Hue = cell.DefaultBodyHue;
-                    cell.PM.HairHue = cell.DefaultHairHue;
-                    cell.PM.FacialHairHue = cell.DefaultFacialHue;
+					//Item toDisarm1 = cell.PM.FindItemOnLayer(Layer.OneHanded);
+					//Item toDisarm2 = cell.PM.FindItemOnLayer(Layer.TwoHanded);
 
-                    break;
-            }
-        }
-    }
+					if (!SicknessHelper.IsNight(cell.PM) || cell.Level > 99 && !SicknessHelper.IsDark(cell.PM))
+					{
+						if (cell.PM.BodyValue != cell.DefaultBody)
+						{
+							//    if (toDisarm2 is WereClaws)
+							//    {
+							//        cell.PM.Backpack.DropItem(toDisarm2);
+							//    }
+
+							if (cell.PM.Hue == 1049 || cell.PM.Hue == 1050 || cell.PM.Hue == 1051 ||
+							    cell.PM.Hue == 1175)
+							{
+								SicknessAnimate.RunMutateAnimation(cell.PM);
+
+								cell.PM.BodyValue = cell.DefaultBody;
+								cell.PM.Hue = cell.DefaultBodyHue;
+							}
+						}
+					}
+					else if (cell.PM.BodyValue == cell.DefaultBody)
+					{
+						//WereClaws wc = cell.PM.Backpack.FindItemByType(typeof(WereClaws)) as WereClaws;
+
+						//if (toDisarm1 != null || toDisarm2 != null)
+						//{
+						//    if (toDisarm2 is WereClaws)
+						//    {
+						//        //do nothing, already equipped
+						//    }
+						//    else
+						//    {
+						//        if (toDisarm1 != null)
+						//            cell.PM.Backpack.DropItem(toDisarm1);
+						//        if (toDisarm2 != null)
+						//            cell.PM.Backpack.DropItem(toDisarm2);
+
+						//        if (wc != null)
+						//            cell.PM.EquipItem(wc);
+						//        else
+						//        {
+						//            cell.PM.AddToBackpack(new WereClaws(cell.PM));
+
+						//            wc = cell.PM.Backpack.FindItemByType(typeof(WereClaws)) as WereClaws;
+
+						//            cell.PM.EquipItem(wc);
+						//        }
+						//    }
+						//}
+						//else
+						//{
+						//    if (wc != null)
+						//        cell.PM.EquipItem(wc);
+						//    else
+						//    {
+						//        cell.PM.AddToBackpack(new WereClaws(cell.PM));
+
+						//        wc = cell.PM.Backpack.FindItemByType(typeof(WereClaws)) as WereClaws;
+
+						//        cell.PM.EquipItem(wc);
+						//    }
+						//}
+
+						SicknessAnimate.RunMutateAnimation(cell.PM);
+
+						if (cell.Stage == 1)
+						{
+							cell.PM.BodyValue = 23;
+							cell.PM.Hue = 1049;
+						}
+
+						if (cell.Stage == 2)
+						{
+							cell.PM.BodyValue = 98;
+							cell.PM.Hue = 1050;
+						}
+
+						if (cell.Stage == 3)
+						{
+							if (cell.Level >= 100)
+							{
+								cell.PM.BodyValue = 250;
+								cell.PM.Hue = 1175;
+							}
+							else
+							{
+								cell.PM.BodyValue = 246;
+								cell.PM.Hue = 1051;
+							}
+						}
+					}
+					else if (SicknessHelper.IsNight(cell.PM))
+					{
+						int HowlingChance = Utility.RandomMinMax(1, 100);
+
+						if (HowlingChance > 99)
+						{
+							cell.PM.PlaySound(0x0E6);
+						}
+					}
+
+					break;
+
+				default:
+
+					cell.PM.Body = cell.DefaultBody;
+					cell.PM.Hue = cell.DefaultBodyHue;
+					cell.PM.HairHue = cell.DefaultHairHue;
+					cell.PM.FacialHairHue = cell.DefaultFacialHue;
+
+					break;
+			}
+		}
+	}
 }

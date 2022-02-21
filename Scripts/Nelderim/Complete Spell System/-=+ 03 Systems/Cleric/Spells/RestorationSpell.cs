@@ -1,85 +1,86 @@
-using System;
-using System.Collections;
-using Server.Targeting;
-using Server.Network;
-using Server.Mobiles;
+#region References
+
 using Server.Gumps;
+using Server.Network;
 using Server.Spells;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Cleric
 {
 	public class ClericRestorationSpell : ClericSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
-		                                                "Odrodzenie", "Reductio Aetas",
-		                                                //SpellCircle.Eighth,
-		                                                212,
-		                                                9041
-		                                               );
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Odrodzenie", "Reductio Aetas",
+			//SpellCircle.Eighth,
+			212,
+			9041
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Eighth; }
-        }
-
-		public override int RequiredTithing{ get{ return 40; } }
-		public override double RequiredSkill{ get{ return 100.0; } }
-
-		public override int RequiredMana{ get{ return 50; } }
-
-		public ClericRestorationSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
+		public override SpellCircle Circle
 		{
-			                    if (this.Scroll != null)
-                        Scroll.Consume();
+			get { return SpellCircle.Eighth; }
+		}
+
+		public override int RequiredTithing { get { return 40; } }
+		public override double RequiredSkill { get { return 100.0; } }
+
+		public override int RequiredMana { get { return 50; } }
+
+		public ClericRestorationSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
+		{
+			if (this.Scroll != null)
+				Scroll.Consume();
 		}
 
 		public override void OnCast()
 		{
-			Caster.Target = new InternalTarget( this );
+			Caster.Target = new InternalTarget(this);
 		}
 
-		public void Target( Mobile m )
+		public void Target(Mobile m)
 		{
-			if ( !Caster.CanSee( m ) )
+			if (!Caster.CanSee(m))
 			{
-				Caster.SendLocalizedMessage( 500237 ); // Target can not be seen.
+				Caster.SendLocalizedMessage(500237); // Target can not be seen.
 			}
-			else if ( m == Caster )
+			else if (m == Caster)
 			{
-				Caster.SendLocalizedMessage( 501039 ); // Thou can not resurrect thyself.
+				Caster.SendLocalizedMessage(501039); // Thou can not resurrect thyself.
 			}
-			else if ( !Caster.Alive )
+			else if (!Caster.Alive)
 			{
-				Caster.SendLocalizedMessage( 501040 ); // The resurrecter must be alive.
+				Caster.SendLocalizedMessage(501040); // The resurrecter must be alive.
 			}
-			else if ( m.Alive )
+			else if (m.Alive)
 			{
-				Caster.SendLocalizedMessage( 501041 ); // Target is not dead.
+				Caster.SendLocalizedMessage(501041); // Target is not dead.
 			}
-			else if ( !Caster.InRange( m, 1 ) )
+			else if (!Caster.InRange(m, 1))
 			{
-				Caster.SendLocalizedMessage( 501042 ); // Target is not close enough.
+				Caster.SendLocalizedMessage(501042); // Target is not close enough.
 			}
-			else if ( !m.Player )
+			else if (!m.Player)
 			{
-				Caster.SendLocalizedMessage( 501043 ); // Target is not a being.
+				Caster.SendLocalizedMessage(501043); // Target is not a being.
 			}
-			else if ( m.Map == null || !m.Map.CanFit( m.Location, 16, false, false ) )
+			else if (m.Map == null || !m.Map.CanFit(m.Location, 16, false, false))
 			{
-				Caster.SendLocalizedMessage( 501042 ); // Target can not be resurrected at that location.
-				m.SendLocalizedMessage( 502391 ); // Thou can not be resurrected there!
+				Caster.SendLocalizedMessage(501042); // Target can not be resurrected at that location.
+				m.SendLocalizedMessage(502391); // Thou can not be resurrected there!
 			}
-			else if ( CheckBSequence( m, true ) )
+			else if (CheckBSequence(m, true))
 			{
-				SpellHelper.Turn( Caster, m );
+				SpellHelper.Turn(Caster, m);
 
-				m.PlaySound( 0x214 );
-				m.FixedParticles( 0x376A, 1, 62, 0x480, 3, 3, EffectLayer.Waist );
-				m.FixedParticles( 0x3779, 1, 46, 9502, 5, 3, EffectLayer.Waist );
+				m.PlaySound(0x214);
+				m.FixedParticles(0x376A, 1, 62, 0x480, 3, 3, EffectLayer.Waist);
+				m.FixedParticles(0x3779, 1, 46, 9502, 5, 3, EffectLayer.Waist);
 
-				m.CloseGump( typeof( ResurrectGump ) );
-				m.CloseGump( typeof( RestoreGump ) );
-				m.SendGump( new RestoreGump( Caster ) );
+				m.CloseGump(typeof(ResurrectGump));
+				m.CloseGump(typeof(RestoreGump));
+				m.SendGump(new RestoreGump(Caster));
 			}
 
 			FinishSequence();
@@ -87,22 +88,22 @@ namespace Server.ACC.CSS.Systems.Cleric
 
 		private class InternalTarget : Target
 		{
-			private ClericRestorationSpell m_Owner;
+			private readonly ClericRestorationSpell m_Owner;
 
-			public InternalTarget( ClericRestorationSpell owner ) : base( 12, false, TargetFlags.Beneficial )
+			public InternalTarget(ClericRestorationSpell owner) : base(12, false, TargetFlags.Beneficial)
 			{
 				m_Owner = owner;
 			}
 
-			protected override void OnTarget( Mobile from, object o )
+			protected override void OnTarget(Mobile from, object o)
 			{
-				if ( o is Mobile )
+				if (o is Mobile)
 				{
-					m_Owner.Target( (Mobile)o );
+					m_Owner.Target((Mobile)o);
 				}
 			}
 
-			protected override void OnTargetFinish( Mobile from )
+			protected override void OnTargetFinish(Mobile from)
 			{
 				m_Owner.FinishSequence();
 			}
@@ -112,43 +113,43 @@ namespace Server.ACC.CSS.Systems.Cleric
 		{
 			private Mobile m_Healer;
 
-			public RestoreGump( Mobile healer ) : base( 100, 0 )
+			public RestoreGump(Mobile healer) : base(100, 0)
 			{
 				m_Healer = healer;
 
-				AddPage( 0 );
+				AddPage(0);
 
-				AddBackground( 0, 0, 400, 350, 2600 );
+				AddBackground(0, 0, 400, 350, 2600);
 
-				AddHtmlLocalized( 0, 20, 400, 35, 1011022, false, false ); // <center>Resurrection</center>
+				AddHtmlLocalized(0, 20, 400, 35, 1011022, false, false); // <center>Resurrection</center>
 
-				AddHtmlLocalized( 50, 55, 300, 140, 1011025, true, true );
+				AddHtmlLocalized(50, 55, 300, 140, 1011025, true, true);
 
-				AddButton( 200, 227, 4005, 4007, 0, GumpButtonType.Reply, 0 );
-				AddHtmlLocalized( 235, 230, 110, 35, 1011012, false, false ); // CANCEL
+				AddButton(200, 227, 4005, 4007, 0, GumpButtonType.Reply, 0);
+				AddHtmlLocalized(235, 230, 110, 35, 1011012, false, false); // CANCEL
 
-				AddButton( 65, 227, 4005, 4007, 1, GumpButtonType.Reply, 0 );
-				AddHtmlLocalized( 100, 230, 110, 35, 1011011, false, false ); // CONTINUE
+				AddButton(65, 227, 4005, 4007, 1, GumpButtonType.Reply, 0);
+				AddHtmlLocalized(100, 230, 110, 35, 1011011, false, false); // CONTINUE
 			}
 
-			public override void OnResponse( NetState state, RelayInfo info )
+			public override void OnResponse(NetState state, RelayInfo info)
 			{
 				Mobile from = state.Mobile;
 
-				from.CloseGump( typeof( RestoreGump ) );
-				from.CloseGump( typeof( ResurrectGump ) );
+				from.CloseGump(typeof(RestoreGump));
+				from.CloseGump(typeof(ResurrectGump));
 
-				if ( info.ButtonID == 1 )
+				if (info.ButtonID == 1)
 				{
-					if ( from.Map == null || !from.Map.CanFit( from.Location, 16, false, false ) )
+					if (from.Map == null || !from.Map.CanFit(from.Location, 16, false, false))
 					{
-						from.SendLocalizedMessage( 502391 ); // Thou can not be resurrected there!
+						from.SendLocalizedMessage(502391); // Thou can not be resurrected there!
 						return;
 					}
 
-					from.PlaySound( 0x214 );
-					from.FixedParticles( 0x376A, 1, 62, 0x480, 3, 3, EffectLayer.Waist );
-					from.FixedParticles( 0x3779, 1, 46, 9502, 5, 3, EffectLayer.Waist );
+					from.PlaySound(0x214);
+					from.FixedParticles(0x376A, 1, 62, 0x480, 3, 3, EffectLayer.Waist);
+					from.FixedParticles(0x3779, 1, 46, 9502, 5, 3, EffectLayer.Waist);
 
 					from.Resurrect();
 

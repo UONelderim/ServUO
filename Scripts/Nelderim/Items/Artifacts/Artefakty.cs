@@ -1,8 +1,12 @@
-﻿using System;
+﻿#region References
+
+using System;
 using System.Collections.Generic;
 using Server.Engines.BulkOrders;
 using Server.Mobiles;
 using Server.Mobiles.Swiateczne;
+
+#endregion
 
 namespace Server.Items
 {
@@ -24,27 +28,18 @@ namespace Server.Items
 	{
 		public class ArtInfo
 		{
-			private double m_Chance;
-			private ArtGroup m_Group;
+			public double PercentChance { get; }
 
-			public double PercentChance
-			{
-				get { return m_Chance; }
-			}
-
-			public ArtGroup Group
-			{
-				get { return m_Group; }
-			}
+			public ArtGroup Group { get; }
 
 			public ArtInfo(double percent, ArtGroup gr)
 			{
-				m_Chance = percent;
-				m_Group = gr;
+				PercentChance = percent;
+				Group = gr;
 			}
 		}
 
-		private static Dictionary<Type, ArtInfo> m_CreatureInfo = new Dictionary<Type, ArtInfo>();
+		private static readonly Dictionary<Type, ArtInfo> m_CreatureInfo = new Dictionary<Type, ArtInfo>();
 
 		static ArtifactMonster()
 		{
@@ -121,10 +116,8 @@ namespace Server.Items
 			{
 				return m_CreatureInfo[creatureType].PercentChance / 100.0;
 			}
-			else
-			{
-				return 0;
-			}
+
+			return 0;
 		}
 
 		public static ArtGroup GetGroupFor(BaseCreature creature)
@@ -133,8 +126,7 @@ namespace Server.Items
 
 			if (m_CreatureInfo.ContainsKey(creatureType))
 				return m_CreatureInfo[creatureType].Group;
-			else
-				return ArtGroup.None;
+			return ArtGroup.None;
 		}
 	}
 
@@ -142,7 +134,80 @@ namespace Server.Items
 	{
 		#region Lista_artefaktow_Doom
 
-		private static Type[] m_DoomArtifacts = new Type[]
+		#endregion
+
+		#region Lista_artefaktow_Elghin
+
+		#endregion
+
+		#region Lista_artefaktow_Boss
+
+		#endregion
+
+		#region Lista_artefaktow_Mini_Boss
+
+		#endregion
+
+		#region Lista_artefaktow_Custom_Champ
+
+		private static readonly Type[] m_CustomChampArtifacts =
+		{
+			typeof(PrzekletaMaskaSmierci), typeof(PrzekletaStudniaOdnowy), typeof(PrzekleteOrleSkrzydla),
+			typeof(PrzekletePogrobowce), typeof(PrzekleteWidlyMroku), typeof(PrzekletyKilofZRuinTwierdzy),
+			typeof(PrzekletyMieczeAmrIbnLuhajj), typeof(PrzekletySoulSeeker), typeof(PrzekleteSongWovenMantle),
+			typeof(PrzekletaMaskaSmierci), typeof(PrzekletaArcaneShield), typeof(PrzekletaIolosLute),
+			typeof(PrzekletaRetorta), typeof(PrzekletaSamaritanRobe), typeof(PrzekletaVioletCourage),
+			typeof(PrzekleteFeyLeggings), typeof(PrzekleteGauntletsOfNobility), typeof(PrzekletyArcticDeathDealer),
+			typeof(PrzekletyFleshRipper), typeof(PrzekletyQuell),
+		};
+
+		#endregion
+
+		#region Lista_artefaktow_Fishing
+
+		#endregion
+
+		#region Lista_artefaktow_Kartografia
+
+		private static readonly Type[] m_HunterArtifacts =
+		{
+			typeof(Raikiri), //Type1
+			typeof(PeasantsBokuto), typeof(PixieSwatter), typeof(Frostbringer), typeof(SzyjaGeriadoru),
+			typeof(BlazenskieSzczescie), typeof(KulawyMagik), typeof(KilofZRuinTwierdzy),
+			typeof(SkalpelDoktoraBrandona), typeof(JaszczurzySzal), typeof(OblivionsNeedle), typeof(Bonesmasher),
+			typeof(ColdForgedBlade), typeof(DaimyosHelm), typeof(LegsOfStability), typeof(AegisOfGrace),
+			typeof(AncientFarmersKasa), typeof(StudniaOdnowy), typeof(Tyrfing), //Type 2
+			typeof(Arteria), typeof(ArcticDeathDealer), typeof(CavortingClub), typeof(Quernbiter),
+			typeof(PromienSlonca), typeof(SwordsOfProsperity), typeof(TeczowaNarzuta), typeof(SmoczeKosci),
+			typeof(RekawiceFredericka), typeof(OdbijajacyStrzaly), typeof(HuntersHeaddress), typeof(BurglarsBandana),
+			typeof(SpodnieOswiecenia), typeof(KiltZycia), typeof(ArkanaZywiolow), typeof(OstrzeCienia),
+			typeof(TalonBite), typeof(SilvanisFeywoodBow), typeof(BrambleCoat), typeof(OrcChieftainHelm),
+			typeof(ShroudOfDeciet), typeof(CaptainJohnsHat), typeof(EssenceOfBattle), typeof(HebanowyPlomien), //Type 3
+			typeof(PomstaGrima), typeof(MaskaSmierci), typeof(SmoczyNos), typeof(StudniaOdnowy), typeof(Aegis),
+			typeof(HanzosBow), typeof(MagicznySaif), typeof(StrzalaAbarisa), typeof(FangOfRactus),
+			typeof(RighteousAnger), typeof(Stormgrip), typeof(LeggingsOfEmbers), typeof(SmoczeJelita),
+			typeof(SongWovenMantle), typeof(StitchersMittens), typeof(FeyLeggings), typeof(DjinnisRing),
+			typeof(PendantOfTheMagi)
+		};
+
+		#endregion
+
+		public static void Configure()
+		{
+			List<Type> allArtifacts = new List<Type>();
+			allArtifacts.AddRange(BossArtifacts);
+			allArtifacts.AddRange(MinibossArtifacts);
+			allArtifacts.AddRange(ParagonArtifacts);
+			allArtifacts.AddRange(DoomArtifacts);
+			allArtifacts.AddRange(m_HunterArtifacts);
+			allArtifacts.AddRange(CartographyArtifacts);
+			allArtifacts.AddRange(FishingBossArtifacts);
+			AllArtifacts = allArtifacts.ToArray();
+		}
+
+		public static Type[] AllArtifacts { get; private set; }
+
+		public static Type[] DoomArtifacts { get; } =
 		{
 			typeof(Aegis), typeof(HolySword), typeof(CrownOfTalKeesh), typeof(ShadowDancerLeggings),
 			typeof(SpiritOfTheTotem), typeof(HatOfTheMagi), typeof(LeggingsOfBane), typeof(TheTaskmaster),
@@ -156,11 +221,7 @@ namespace Server.Items
 			typeof(TunicOfFire),
 		};
 
-		#endregion
-
-		#region Lista_artefaktow_Elghin
-
-		private static Type[] m_ElghinArtifacts = new Type[]
+		public static Type[] ElghinArtifacts { get; } =
 		{
 			typeof(AtrybutMysliwego), typeof(Belthor), typeof(FartuchMajstraZTasandory), typeof(HelmMagaBojowego),
 			typeof(KoszulaZPajeczychNici), typeof(LuskiStarozytnegoSmoka), typeof(MaskaZabojcy),
@@ -168,11 +229,7 @@ namespace Server.Items
 			typeof(TunikaNamiestnikaSnieznejPrzystani), typeof(WisiorMagowBialejWiezy),
 		};
 
-		#endregion
-
-		#region Lista_artefaktow_Boss
-
-		private static Type[] m_BossArtifacts = new Type[]
+		public static Type[] BossArtifacts { get; } =
 		{
 			// Lato
 			/* typeof( Aegis ),
@@ -277,11 +334,7 @@ namespace Server.Items
 			typeof(DelikatnyDiamentowyNaszyjnikIgisZGarlan),
 		};
 
-		#endregion
-
-		#region Lista_artefaktow_Mini_Boss
-
-		private static Type[] m_MinibossArtifacts = new Type[]
+		public static Type[] MinibossArtifacts { get; } =
 		{
 			//Lato
 			/*typeof(GniewOceanu),
@@ -353,26 +406,17 @@ namespace Server.Items
 			typeof(JaszczurzySzal),
 		};
 
-		#endregion
-
-		#region Lista_artefaktow_Custom_Champ
-
-		private static Type[] m_CustomChampArtifacts = new Type[]
+		public static Type[] ParagonArtifacts { get; } =
 		{
-			typeof(PrzekletaMaskaSmierci), typeof(PrzekletaStudniaOdnowy), typeof(PrzekleteOrleSkrzydla),
-			typeof(PrzekletePogrobowce), typeof(PrzekleteWidlyMroku), typeof(PrzekletyKilofZRuinTwierdzy),
-			typeof(PrzekletyMieczeAmrIbnLuhajj), typeof(PrzekletySoulSeeker), typeof(PrzekleteSongWovenMantle),
-			typeof(PrzekletaMaskaSmierci), typeof(PrzekletaArcaneShield), typeof(PrzekletaIolosLute),
-			typeof(PrzekletaRetorta), typeof(PrzekletaSamaritanRobe), typeof(PrzekletaVioletCourage),
-			typeof(PrzekleteFeyLeggings), typeof(PrzekleteGauntletsOfNobility), typeof(PrzekletyArcticDeathDealer),
-			typeof(PrzekletyFleshRipper), typeof(PrzekletyQuell),
+			typeof(GoldBricks), typeof(AlchemistsBauble), typeof(ArcticDeathDealer), typeof(BlazeOfDeath),
+			typeof(BowOfTheJukaKing), typeof(BurglarsBandana), typeof(CavortingClub), typeof(EnchantedTitanLegBone),
+			typeof(GwennosHarp), typeof(IolosLute), typeof(LunaLance), typeof(NightsKiss),
+			typeof(NoxRangersHeavyCrossbow), typeof(OrcishVisage), typeof(PolarBearMask),
+			typeof(ShieldOfInvulnerability), typeof(StaffOfPower), typeof(VioletCourage), typeof(HeartOfTheLion),
+			typeof(WrathOfTheDryad), typeof(PixieSwatter), typeof(GlovesOfThePugilist),
 		};
 
-		#endregion
-
-		#region Lista_artefaktow_Fishing
-
-		private static Type[] m_FishingArtifacts = new Type[]
+		public static Type[] FishingBossArtifacts { get; } =
 		{
 			typeof(CaptainQuacklebushsCutlass), typeof(NightsKiss), typeof(StraznikPolnocy), typeof(BlazeOfDeath),
 			typeof(BowOfTheJukaKing), typeof(SpellWovenBritches), typeof(LegendaGenerala), typeof(BraceletOfHealth),
@@ -387,11 +431,7 @@ namespace Server.Items
 			typeof(PadsOfTheCuSidhe), typeof(StudniaOdnowy),
 		};
 
-		#endregion
-
-		#region Lista_artefaktow_Kartografia
-
-		private static Type[] m_CartographyArtifacts = new Type[]
+		public static Type[] CartographyArtifacts { get; } =
 		{
 			/* //Jesien
 			 typeof(Retorta),
@@ -458,97 +498,6 @@ namespace Server.Items
 			typeof(LegendaKapitana), typeof(IolosLute), typeof(StaffOfPower), typeof(KasraShamshir),
 		};
 
-		private static Type[] m_ParagonArtifacts = new Type[]
-		{
-			typeof(GoldBricks), typeof(AlchemistsBauble), typeof(ArcticDeathDealer), typeof(BlazeOfDeath),
-			typeof(BowOfTheJukaKing), typeof(BurglarsBandana), typeof(CavortingClub), typeof(EnchantedTitanLegBone),
-			typeof(GwennosHarp), typeof(IolosLute), typeof(LunaLance), typeof(NightsKiss),
-			typeof(NoxRangersHeavyCrossbow), typeof(OrcishVisage), typeof(PolarBearMask),
-			typeof(ShieldOfInvulnerability), typeof(StaffOfPower), typeof(VioletCourage), typeof(HeartOfTheLion),
-			typeof(WrathOfTheDryad), typeof(PixieSwatter), typeof(GlovesOfThePugilist),
-		};
-
-		private static Type[] m_HunterArtifacts = new Type[]
-		{
-			typeof(Raikiri), //Type1
-			typeof(PeasantsBokuto), typeof(PixieSwatter), typeof(Frostbringer), typeof(SzyjaGeriadoru),
-			typeof(BlazenskieSzczescie), typeof(KulawyMagik), typeof(KilofZRuinTwierdzy),
-			typeof(SkalpelDoktoraBrandona), typeof(JaszczurzySzal), typeof(OblivionsNeedle), typeof(Bonesmasher),
-			typeof(ColdForgedBlade), typeof(DaimyosHelm), typeof(LegsOfStability), typeof(AegisOfGrace),
-			typeof(AncientFarmersKasa), typeof(StudniaOdnowy), typeof(Tyrfing), //Type 2
-			typeof(Arteria), typeof(ArcticDeathDealer), typeof(CavortingClub), typeof(Quernbiter),
-			typeof(PromienSlonca), typeof(SwordsOfProsperity), typeof(TeczowaNarzuta), typeof(SmoczeKosci),
-			typeof(RekawiceFredericka), typeof(OdbijajacyStrzaly), typeof(HuntersHeaddress), typeof(BurglarsBandana),
-			typeof(SpodnieOswiecenia), typeof(KiltZycia), typeof(ArkanaZywiolow), typeof(OstrzeCienia),
-			typeof(TalonBite), typeof(SilvanisFeywoodBow), typeof(BrambleCoat), typeof(OrcChieftainHelm),
-			typeof(ShroudOfDeciet), typeof(CaptainJohnsHat), typeof(EssenceOfBattle), typeof(HebanowyPlomien), //Type 3
-			typeof(PomstaGrima), typeof(MaskaSmierci), typeof(SmoczyNos), typeof(StudniaOdnowy), typeof(Aegis),
-			typeof(HanzosBow), typeof(MagicznySaif), typeof(StrzalaAbarisa), typeof(FangOfRactus),
-			typeof(RighteousAnger), typeof(Stormgrip), typeof(LeggingsOfEmbers), typeof(SmoczeJelita),
-			typeof(SongWovenMantle), typeof(StitchersMittens), typeof(FeyLeggings), typeof(DjinnisRing),
-			typeof(PendantOfTheMagi)
-		};
-
-		#endregion
-
-		public static void Configure()
-		{
-			List<Type> allArtifacts = new List<Type>();
-			allArtifacts.AddRange(m_BossArtifacts);
-			allArtifacts.AddRange(m_MinibossArtifacts);
-			allArtifacts.AddRange(m_ParagonArtifacts);
-			allArtifacts.AddRange(m_DoomArtifacts);
-			allArtifacts.AddRange(m_HunterArtifacts);
-			allArtifacts.AddRange(m_CartographyArtifacts);
-			allArtifacts.AddRange(m_FishingArtifacts);
-			m_AllArtifacts = allArtifacts.ToArray();
-		}
-
-		private static Type[] m_AllArtifacts;
-
-		public static Type[] AllArtifacts
-		{
-			get
-			{
-				return m_AllArtifacts;
-			}
-		}
-
-		public static Type[] DoomArtifacts
-		{
-			get { return m_DoomArtifacts; }
-		}
-
-		public static Type[] ElghinArtifacts
-		{
-			get { return m_ElghinArtifacts; }
-		}
-
-		public static Type[] BossArtifacts
-		{
-			get { return m_BossArtifacts; }
-		}
-
-		public static Type[] MinibossArtifacts
-		{
-			get { return m_MinibossArtifacts; }
-		}
-
-		public static Type[] ParagonArtifacts
-		{
-			get { return m_ParagonArtifacts; }
-		}
-
-		public static Type[] FishingBossArtifacts
-		{
-			get { return m_FishingArtifacts; }
-		}
-
-		public static Type[] CartographyArtifacts
-		{
-			get { return m_CartographyArtifacts; }
-		}
-
 		public static Item CreateRandomArtifact()
 		{
 			switch (Utility.Random(7))
@@ -566,16 +515,16 @@ namespace Server.Items
 
 		public static Item CreateRandomDoomArtifact()
 		{
-			int random = Utility.Random(m_DoomArtifacts.Length);
-			Type type = m_DoomArtifacts[random];
+			int random = Utility.Random(DoomArtifacts.Length);
+			Type type = DoomArtifacts[random];
 
 			return Loot.Construct(type);
 		}
 
 		public static Item CreateRandomElghinArtifact()
 		{
-			int random = Utility.Random(m_ElghinArtifacts.Length);
-			Type type = m_ElghinArtifacts[random];
+			int random = Utility.Random(ElghinArtifacts.Length);
+			Type type = ElghinArtifacts[random];
 
 			return Loot.Construct(type);
 		}
@@ -583,32 +532,32 @@ namespace Server.Items
 
 		public static Item CreateRandomBossArtifact()
 		{
-			int random = Utility.Random(m_BossArtifacts.Length);
-			Type type = m_BossArtifacts[random];
+			int random = Utility.Random(BossArtifacts.Length);
+			Type type = BossArtifacts[random];
 
 			return Loot.Construct(type);
 		}
 
 		public static Item CreateRandomMinibossArtifact()
 		{
-			int random = Utility.Random(m_MinibossArtifacts.Length);
-			Type type = m_MinibossArtifacts[random];
+			int random = Utility.Random(MinibossArtifacts.Length);
+			Type type = MinibossArtifacts[random];
 
 			return Loot.Construct(type);
 		}
 
 		public static Item CreateRandomFishingArtifact()
 		{
-			int random = Utility.Random(m_FishingArtifacts.Length);
-			Type type = m_FishingArtifacts[random];
+			int random = Utility.Random(FishingBossArtifacts.Length);
+			Type type = FishingBossArtifacts[random];
 
 			return Loot.Construct(type);
 		}
 
 		public static Item CreateRandomParagonArtifact()
 		{
-			int random = Utility.Random(m_ParagonArtifacts.Length);
-			Type type = m_ParagonArtifacts[random];
+			int random = Utility.Random(ParagonArtifacts.Length);
+			Type type = ParagonArtifacts[random];
 
 			return Loot.Construct(type);
 		}
@@ -628,8 +577,8 @@ namespace Server.Items
 
 		public static Item CreateRandomCartographyArtifact()
 		{
-			int random = Utility.Random(m_CartographyArtifacts.Length);
-			Type type = m_CartographyArtifacts[random];
+			int random = Utility.Random(CartographyArtifacts.Length);
+			Type type = CartographyArtifacts[random];
 
 			return Loot.Construct(type);
 		}

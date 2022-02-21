@@ -1,64 +1,60 @@
-using System;
+#region References
+
 using Server;
+
+#endregion
 
 namespace Knives.TownHouses
 {
 	public class DecoreItemInfo
 	{
-		private string c_TypeString;
-		private string c_Name;
-		private int c_ItemID;
-		private int c_Hue;
-		private Point3D c_Location;
-		private Map c_Map;
-
-		public string TypeString{ get{ return c_TypeString; } }
-		public string Name{ get{ return c_Name; } }
-		public int ItemID{ get{ return c_ItemID; } }
-		public int Hue{ get{ return c_Hue; } }
-		public Point3D Location{ get{ return c_Location; } }
-		public Map Map{ get{ return c_Map; } }
+		public string TypeString { get; private set; }
+		public string Name { get; private set; }
+		public int ItemID { get; private set; }
+		public int Hue { get; private set; }
+		public Point3D Location { get; private set; }
+		public Map Map { get; private set; }
 
 		public DecoreItemInfo()
 		{
 		}
 
-		public DecoreItemInfo( string typestring, string name, int itemid, int hue, Point3D loc, Map map )
+		public DecoreItemInfo(string typestring, string name, int itemid, int hue, Point3D loc, Map map)
 		{
-			c_TypeString = typestring;
-			c_ItemID = itemid;
-			c_Location = loc;
-			c_Map = map;
+			TypeString = typestring;
+			ItemID = itemid;
+			Location = loc;
+			Map = map;
 		}
 
-		public void Save( GenericWriter writer )
+		public void Save(GenericWriter writer)
 		{
-			writer.Write( (int)1 ); // Version
+			writer.Write(1); // Version
 
 			// Version 1
-			writer.Write( c_Hue );
-			writer.Write( c_Name );
+			writer.Write(Hue);
+			writer.Write(Name);
 
-			writer.Write( c_TypeString );
-			writer.Write( c_ItemID );
-			writer.Write( c_Location );
-			writer.Write( c_Map );
+			writer.Write(TypeString);
+			writer.Write(ItemID);
+			writer.Write(Location);
+			writer.Write(Map);
 		}
 
-		public void Load( GenericReader reader )
+		public void Load(GenericReader reader)
 		{
 			int version = reader.ReadInt();
 
-			if ( version >= 1 )
+			if (version >= 1)
 			{
-				c_Hue = reader.ReadInt();
-				c_Name = reader.ReadString();
+				Hue = reader.ReadInt();
+				Name = reader.ReadString();
 			}
 
-			c_TypeString = reader.ReadString();
-			c_ItemID = reader.ReadInt();
-			c_Location = reader.ReadPoint3D();
-			c_Map = reader.ReadMap();
+			TypeString = reader.ReadString();
+			ItemID = reader.ReadInt();
+			Location = reader.ReadPoint3D();
+			Map = reader.ReadMap();
 		}
 	}
 }

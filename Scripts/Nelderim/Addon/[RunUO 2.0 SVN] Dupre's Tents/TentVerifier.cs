@@ -3,20 +3,13 @@
 //==============================================//
 // Created by Dupre								//
 //==============================================//
-using System; 
-using Server; 
-using Server.Items;
-using System.Collections;
-using Server.Multis;
-using Server.Mobiles;
-using Server.Network;
 
 namespace Server.Items
-{   
+{
 	public class TentVerifier : Item
 	{
 		[Constructable]
-		public TentVerifier() : base( )
+		public TentVerifier()
 		{
 			ItemID = 6256;
 			Stackable = false;
@@ -26,21 +19,21 @@ namespace Server.Items
 			Visible = false;
 			LootType = LootType.Blessed;
 		}
-		
-		public TentVerifier( Serial serial ) : base( serial )
+
+		public TentVerifier(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 
@@ -51,7 +44,6 @@ namespace Server.Items
 			Movable = false;
 			Visible = false;
 			LootType = LootType.Blessed;
-
 		}
 	}
 }

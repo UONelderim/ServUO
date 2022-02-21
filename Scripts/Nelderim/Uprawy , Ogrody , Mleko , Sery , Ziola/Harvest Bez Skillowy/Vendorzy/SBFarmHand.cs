@@ -1,20 +1,17 @@
+#region References
+
 using System.Collections.Generic;
 using Server.Items;
 using Server.Items.Crops;
+
+#endregion
 
 namespace Server.Mobiles
 {
 	public class SBFarmHand : SBInfo
 	{
-		private List<IBuyItemInfo> m_BuyInfo = new InternalBuyInfo();
-		private IShopSellInfo m_SellInfo = new InternalSellInfo();
-
-		public SBFarmHand()
-		{
-		}
-
-		public override IShopSellInfo SellInfo { get { return m_SellInfo; } }
-		public override List<IBuyItemInfo> BuyInfo { get { return m_BuyInfo; } }
+		public override IShopSellInfo SellInfo { get; } = new InternalSellInfo();
+		public override List<IBuyItemInfo> BuyInfo { get; } = new InternalBuyInfo();
 
 		public class InternalBuyInfo : List<IBuyItemInfo>
 		{

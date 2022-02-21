@@ -1,52 +1,45 @@
-using System;
-using System.Collections;
-using Server.Items;
-using Server.Targeting;
-using Server.Misc;
+#region References
+
 using Server.Mobiles;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Rogue
 {
-	[CorpseName( "niezidentyfikowane zwłoki" )]
+	[CorpseName("niezidentyfikowane zwłoki")]
 	public class CharmedMobile : BaseCreature
 	{
-		private BaseCreature m_Owner;
-
-		[CommandProperty( AccessLevel.GameMaster )]
-		public BaseCreature Owner
-		{
-			get{ return m_Owner; }
-			set{ m_Owner= value; }
-		}
+		[CommandProperty(AccessLevel.GameMaster)]
+		public BaseCreature Owner { get; set; }
 
 		[Constructable]
-		public CharmedMobile( BaseCreature owner ) : base( AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4 )
+		public CharmedMobile(BaseCreature owner) : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
 		{
-			m_Owner = owner;
+			Owner = owner;
 			Body = 777;
 			Title = " mistyczny pasterz";
 		}
 
-		[CommandProperty( AccessLevel.GameMaster )]
-		public override bool ClickTitle{ get{ return false; } }
+		[CommandProperty(AccessLevel.GameMaster)]
+		public override bool ClickTitle { get { return false; } }
 
-		public CharmedMobile( Serial serial ) : base( serial )
+		public CharmedMobile(Serial serial) : base(serial)
 		{
 		}
 
-		public override void GetProperties( ObjectPropertyList list )
+		public override void GetProperties(ObjectPropertyList list)
 		{
-			list.Add( 1042971,this.Name );
-			list.Add( 1049644,"zaklęty" );
+			list.Add(1042971, this.Name);
+			list.Add(1049644, "zaklęty");
 		}
 
 		public override bool OnBeforeDeath()
 		{
-			if( m_Owner != null )
+			if (Owner != null)
 			{
-				m_Owner.MoveToWorld( this.Location, this.Map );
-				m_Owner.Blessed = false;
-				m_Owner.RevealingAction();
+				Owner.MoveToWorld(this.Location, this.Map);
+				Owner.Blessed = false;
+				Owner.RevealingAction();
 			}
 
 			Delete();
@@ -55,28 +48,28 @@ namespace Server.ACC.CSS.Systems.Rogue
 
 		public override void OnAfterDelete()
 		{
-			if( m_Owner != null )
+			if (Owner != null)
 			{
-				m_Owner.MoveToWorld( this.Location, this.Map );
-				m_Owner.Blessed = false;
-				m_Owner.RevealingAction();
+				Owner.MoveToWorld(this.Location, this.Map);
+				Owner.Blessed = false;
+				Owner.RevealingAction();
 			}
 
 			base.OnAfterDelete();
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( (int) 0 );
-			writer.Write( m_Owner);
+			base.Serialize(writer);
+			writer.Write(0);
+			writer.Write(Owner);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
-			m_Owner = reader.ReadMobile() as BaseCreature;
+			Owner = reader.ReadMobile() as BaseCreature;
 
 			Delete();
 		}

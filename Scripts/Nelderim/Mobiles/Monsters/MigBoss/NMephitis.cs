@@ -1,234 +1,250 @@
+#region References
+
 using System;
 using System.Collections;
-using Server.Items;
 using Server.Engines.CannedEvil;
+using Server.Items;
+
+#endregion
 
 namespace Server.Mobiles
 {
-    public class NMephitis : BaseChampion
-    {
-        public override ChampionSkullType SkullType { get { return ChampionSkullType.Venom; } }
+	public class NMephitis : BaseChampion
+	{
+		public override ChampionSkullType SkullType { get { return ChampionSkullType.Venom; } }
 
-        public override Type[] UniqueList { get { return new Type[] { typeof( Calm ) }; } }
-        public override Type[] SharedList { get { return new Type[] { typeof( OblivionsNeedle ), typeof( ANecromancerShroud ), typeof( EmbroideredOakLeafCloak ), typeof( TheMostKnowledgePerson ) }; } }
-        public override Type[] DecorativeList { get { return new Type[] { typeof( Web ), typeof( MonsterStatuette ) }; } }
-        public override MonsterStatuetteType[] StatueTypes { get { return new MonsterStatuetteType[] { MonsterStatuetteType.Spider }; } }
+		public override Type[] UniqueList { get { return new[] { typeof(Calm) }; } }
 
-        private const double ChanceToThrowWeb = 0.25; // 25% chance for throwing web
+		public override Type[] SharedList
+		{
+			get
+			{
+				return new[]
+				{
+					typeof(OblivionsNeedle), typeof(ANecromancerShroud), typeof(EmbroideredOakLeafCloak),
+					typeof(TheMostKnowledgePerson)
+				};
+			}
+		}
 
-        public static Hashtable m_Table = new Hashtable();
+		public override Type[] DecorativeList { get { return new[] { typeof(Web), typeof(MonsterStatuette) }; } }
+		public override MonsterStatuetteType[] StatueTypes { get { return new[] { MonsterStatuetteType.Spider }; } }
 
-        public static bool UnderWebEffect( Mobile m )
-        {
-            return m_Table.Contains( m );
-        }
+		private const double ChanceToThrowWeb = 0.25; // 25% chance for throwing web
 
-        [Constructable]
-        public NMephitis() : base( AIType.AI_Melee )
-        {
-            Body = 173;
-            Name = "Mephitis";
+		public static Hashtable m_Table = new Hashtable();
 
-            BaseSoundID = 0x183;
+		public static bool UnderWebEffect(Mobile m)
+		{
+			return m_Table.Contains(m);
+		}
 
-            SetStr( 505, 1000 );
-            SetDex( 102, 300 );
-            SetInt( 402, 600 );
+		[Constructable]
+		public NMephitis() : base(AIType.AI_Melee)
+		{
+			Body = 173;
+			Name = "Mephitis";
 
-            SetHits( 3000 );
-            SetStam( 105, 600 );
+			BaseSoundID = 0x183;
 
-            SetDamage( 21, 33 );
+			SetStr(505, 1000);
+			SetDex(102, 300);
+			SetInt(402, 600);
 
-            SetDamageType( ResistanceType.Physical, 50 );
-            SetDamageType( ResistanceType.Poison, 50 );
+			SetHits(3000);
+			SetStam(105, 600);
 
-            SetResistance( ResistanceType.Physical, 75, 80 );
-            SetResistance( ResistanceType.Fire, 60, 70 );
-            SetResistance( ResistanceType.Cold, 60, 70 );
-            SetResistance( ResistanceType.Poison, 100 );
-            SetResistance( ResistanceType.Energy, 60, 70 );
+			SetDamage(21, 33);
 
-            SetSkill( SkillName.MagicResist, 70.7, 140.0 );
-            SetSkill( SkillName.Tactics, 97.6, 100.0 );
-            SetSkill( SkillName.Wrestling, 97.6, 100.0 );
+			SetDamageType(ResistanceType.Physical, 50);
+			SetDamageType(ResistanceType.Poison, 50);
 
-            Fame = 22500;
-            Karma = -22500;
+			SetResistance(ResistanceType.Physical, 75, 80);
+			SetResistance(ResistanceType.Fire, 60, 70);
+			SetResistance(ResistanceType.Cold, 60, 70);
+			SetResistance(ResistanceType.Poison, 100);
+			SetResistance(ResistanceType.Energy, 60, 70);
 
-            VirtualArmor = 80;
-            //PSDropCount = 3;
-            //TotalGoldDrop = 25000;
-        }
+			SetSkill(SkillName.MagicResist, 70.7, 140.0);
+			SetSkill(SkillName.Tactics, 97.6, 100.0);
+			SetSkill(SkillName.Wrestling, 97.6, 100.0);
 
-        public override void GenerateLoot()
-        {
-            AddLoot( LootPack.UltraRich, 3 );
-        }
+			Fame = 22500;
+			Karma = -22500;
 
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
-        public override Poison HitPoison { get { return Poison.Lethal; } }
+			VirtualArmor = 80;
+			//PSDropCount = 3;
+			//TotalGoldDrop = 25000;
+		}
 
-        public override void OnGotMeleeAttack( Mobile attacker )
-        {
-            base.OnGotMeleeAttack( attacker );
+		public override void GenerateLoot()
+		{
+			AddLoot(LootPack.UltraRich, 3);
+		}
 
-            Mobile person = attacker;
+		public override Poison PoisonImmune { get { return Poison.Lethal; } }
+		public override Poison HitPoison { get { return Poison.Lethal; } }
 
-            if ( attacker is BaseCreature )
-            {
-                if ( ((BaseCreature)attacker).Summoned )
-                {
-                    person = ((BaseCreature)attacker).SummonMaster;
-                }
-            }
+		public override void OnGotMeleeAttack(Mobile attacker)
+		{
+			base.OnGotMeleeAttack(attacker);
 
-            if ( person == null )
-                return;
+			Mobile person = attacker;
 
-            if ( ChanceToThrowWeb >= Utility.RandomDouble() && (person is PlayerMobile) && !UnderWebEffect( person ) )
-            {
-                Direction = GetDirectionTo( person );
-                MovingEffect( person, 0xF7E, 10, 1, true, false, 0x496, 0 );
+			if (attacker is BaseCreature)
+			{
+				if (((BaseCreature)attacker).Summoned)
+				{
+					person = ((BaseCreature)attacker).SummonMaster;
+				}
+			}
 
-                MephitisCocoon mCocoon = new MephitisCocoon( (PlayerMobile)person );
-                m_Table[person] = true;
+			if (person == null)
+				return;
 
-                mCocoon.MoveToWorld( person.Location, person.Map );
-                mCocoon.Movable = false;
-            }
-        }
+			if (ChanceToThrowWeb >= Utility.RandomDouble() && (person is PlayerMobile) && !UnderWebEffect(person))
+			{
+				Direction = GetDirectionTo(person);
+				MovingEffect(person, 0xF7E, 10, 1, true, false, 0x496, 0);
 
-        public NMephitis( Serial serial ) : base( serial )
-        {
-        }
+				MephitisCocoon mCocoon = new MephitisCocoon((PlayerMobile)person);
+				m_Table[person] = true;
 
-        public override void Serialize( GenericWriter writer )
-        {
-            base.Serialize( writer );
+				mCocoon.MoveToWorld(person.Location, person.Map);
+				mCocoon.Movable = false;
+			}
+		}
 
-            writer.Write( (int)0 ); // version
-        }
+		public NMephitis(Serial serial) : base(serial)
+		{
+		}
 
-        public override void Deserialize( GenericReader reader )
-        {
-            base.Deserialize( reader );
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            int version = reader.ReadInt();
-        }
-        //protected override PowerScroll CreateRandomPowerScroll()
-        //{
-        //    int level;
-        //    double random = Utility.RandomDouble();
+			writer.Write(0); // version
+		}
 
-        //    if ( 0.05 >= random )
-        //        level = 20; // 5%
-        //    else if ( 0.20 >= random )
-        //        level = 15; // 15%
-        //    else if ( 0.50 >= random )
-        //        level = 10; // 30%
-        //    else
-        //        level = 5; // 50%
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-        //    return PowerScroll.CreateRandomNoCraft( level, level );
-        //}
-        public class MephitisCocoon : Item
-        {
-            DelayTimer m_Timer;
+			int version = reader.ReadInt();
+		}
+		//protected override PowerScroll CreateRandomPowerScroll()
+		//{
+		//    int level;
+		//    double random = Utility.RandomDouble();
 
-            public MephitisCocoon( PlayerMobile target ) : base( 0x10da )
-            {
-                Weight = 1.0;
-                int nCocoonID = (int)(3 * Utility.RandomDouble());
-                ItemID = 4314 + nCocoonID; // is this correct itemid?
+		//    if ( 0.05 >= random )
+		//        level = 20; // 5%
+		//    else if ( 0.20 >= random )
+		//        level = 15; // 15%
+		//    else if ( 0.50 >= random )
+		//        level = 10; // 30%
+		//    else
+		//        level = 5; // 50%
 
-                int oldBodyValue = target.BodyMod;
+		//    return PowerScroll.CreateRandomNoCraft( level, level );
+		//}
+		public class MephitisCocoon : Item
+		{
+			readonly DelayTimer m_Timer;
 
-                target.Frozen = true;
-                //target.BodyMod = target.Female ? 0x191 : 0x190;
-                target.BodyMod = 0x0;
-                target.Hidden = true;
+			public MephitisCocoon(PlayerMobile target) : base(0x10da)
+			{
+				Weight = 1.0;
+				int nCocoonID = (int)(3 * Utility.RandomDouble());
+				ItemID = 4314 + nCocoonID; // is this correct itemid?
 
-                target.SendLocalizedMessage( 1042555 ); // You become entangled in the spider web.
+				int oldBodyValue = target.BodyMod;
 
-                m_Timer = new DelayTimer( this, target, oldBodyValue );
-                m_Timer.Start();
-            }
+				target.Frozen = true;
+				//target.BodyMod = target.Female ? 0x191 : 0x190;
+				target.BodyMod = 0x0;
+				target.Hidden = true;
 
-            public MephitisCocoon( Serial serial ) : base( serial )
-            {
-            }
+				target.SendLocalizedMessage(1042555); // You become entangled in the spider web.
 
-            public override void Serialize( GenericWriter writer )
-            {
-                base.Serialize( writer );
+				m_Timer = new DelayTimer(this, target, oldBodyValue);
+				m_Timer.Start();
+			}
 
-                writer.Write( (int)0 ); // version
-            }
+			public MephitisCocoon(Serial serial) : base(serial)
+			{
+			}
 
-            public override void Deserialize( GenericReader reader )
-            {
-                base.Deserialize( reader );
+			public override void Serialize(GenericWriter writer)
+			{
+				base.Serialize(writer);
 
-                int version = reader.ReadInt();
-            }
-        }
+				writer.Write(0); // version
+			}
 
-        private class DelayTimer : Timer
-        {
-            private PlayerMobile m_Target;
-            private MephitisCocoon m_Cocoon;
-            private int m_OldBodyValue;
+			public override void Deserialize(GenericReader reader)
+			{
+				base.Deserialize(reader);
 
-            private int m_Ticks;
+				int version = reader.ReadInt();
+			}
+		}
 
-            public DelayTimer( MephitisCocoon mCocoon, PlayerMobile target, int bodyvalue ) : base( TimeSpan.FromSeconds( 1.0 ), TimeSpan.FromSeconds( 1.0 ) )
-            {
-                m_Target = target;
-                m_Cocoon = mCocoon;
-                m_OldBodyValue = bodyvalue;
+		private class DelayTimer : Timer
+		{
+			private readonly PlayerMobile m_Target;
+			private readonly MephitisCocoon m_Cocoon;
+			private readonly int m_OldBodyValue;
 
-                m_Ticks = 0;
-            }
+			private int m_Ticks;
 
-            protected override void OnTick()
-            {
-                m_Ticks++;
+			public DelayTimer(MephitisCocoon mCocoon, PlayerMobile target, int bodyvalue) : base(
+				TimeSpan.FromSeconds(1.0), TimeSpan.FromSeconds(1.0))
+			{
+				m_Target = target;
+				m_Cocoon = mCocoon;
+				m_OldBodyValue = bodyvalue;
 
-                if ( !m_Target.Alive )
-                {
-                    FreeMobile( true );
-                    return;
-                }
+				m_Ticks = 0;
+			}
 
-                if ( m_Ticks != 6 )
-                    return;
+			protected override void OnTick()
+			{
+				m_Ticks++;
 
-                FreeMobile( true );
-            }
+				if (!m_Target.Alive)
+				{
+					FreeMobile(true);
+					return;
+				}
 
-            public void FreeMobile( bool Recycle )
-            {
-                if ( !m_Target.Deleted )
-                {
-                    m_Target.Frozen = false;
-                    m_Target.SendLocalizedMessage( 1042532 ); // You free yourself from the web!
+				if (m_Ticks != 6)
+					return;
 
-                    NMephitis.m_Table.Remove( m_Target );
+				FreeMobile(true);
+			}
 
-                    if ( m_Target.Alive )
-                    {
-                        m_Target.BodyMod = m_OldBodyValue;
-                        m_Target.Hidden = false;
-                    }
-                }
+			public void FreeMobile(bool Recycle)
+			{
+				if (!m_Target.Deleted)
+				{
+					m_Target.Frozen = false;
+					m_Target.SendLocalizedMessage(1042532); // You free yourself from the web!
 
-                if ( Recycle )
-                    m_Cocoon.Delete();
+					m_Table.Remove(m_Target);
 
-                this.Stop();
-            }
-        }
+					if (m_Target.Alive)
+					{
+						m_Target.BodyMod = m_OldBodyValue;
+						m_Target.Hidden = false;
+					}
+				}
 
-    }
+				if (Recycle)
+					m_Cocoon.Delete();
+
+				this.Stop();
+			}
+		}
+	}
 }

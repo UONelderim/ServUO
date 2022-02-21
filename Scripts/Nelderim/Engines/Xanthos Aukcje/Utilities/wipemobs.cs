@@ -1,17 +1,24 @@
 #region AuthorHeader
+
 //
 //	wipemobs version 1.1 - utilities version 2.0, by Xanthos
 //
 //
-#endregion AuthorHeader      
+
+#endregion AuthorHeader
+
+#region References
+
 using System;
 using System.Collections;
 using Server;
-using Server.Gumps;
-using Server.Network;
-using Server.Mobiles;
 using Server.Accounting;
 using Server.Commands;
+using Server.Gumps;
+using Server.Mobiles;
+using Server.Network;
+
+#endregion
 
 namespace Xanthos.Utilities
 {
@@ -21,20 +28,23 @@ namespace Xanthos.Utilities
 
 		public static void Initialize()
 		{
-			CommandHandlers.Register( kCommandName, AccessLevel.Administrator, new CommandEventHandler( WipeMobs_OnCommand ) );
+			CommandHandlers.Register(kCommandName, AccessLevel.Administrator, WipeMobs_OnCommand);
 		}
+
 		public static string m_args;
-		[Usage( kCommandName + " <mobname>" )]
-		[Description( "Finds and wipes mobiles by name" )]
-		private static void WipeMobs_OnCommand( CommandEventArgs e )
+
+		[Usage(kCommandName + " <mobname>")]
+		[Description("Finds and wipes mobiles by name")]
+		private static void WipeMobs_OnCommand(CommandEventArgs e)
 		{
 			m_args = e.ArgString;
 
-			if ( 1 != e.Length )
-				Misc.SendCommandDetails( e.Mobile, kCommandName );
+			if (1 != e.Length)
+				Misc.SendCommandDetails(e.Mobile, kCommandName);
 			else
-				e.Mobile.SendGump( new WipeMobsGump( e.Mobile, e.ArgString ) );
+				e.Mobile.SendGump(new WipeMobsGump(e.Mobile, e.ArgString));
 		}
+
 		public const int GumpOffsetX = 30;
 		public const int GumpOffsetY = 30;
 
@@ -77,7 +87,9 @@ namespace Xanthos.Utilities
 		public const int EntryHeight = 20;
 		public const int BorderSize = 10;
 
-		private static bool PrevLabel = false, NextLabel = false, WipeLabel = true;
+		private static readonly bool PrevLabel = false;
+		private static readonly bool NextLabel = false;
+		private static readonly bool WipeLabel = true;
 
 		private const int PrevLabelOffsetX = PrevWidth + 1;
 		private const int PrevLabelOffsetY = 0;
@@ -98,54 +110,56 @@ namespace Xanthos.Utilities
 		private const int BackHeight = BorderSize + TotalHeight + BorderSize;
 
 		private Mobile m_Owner;
-		private ArrayList m_Names;
+		private readonly ArrayList m_Names;
 		private int m_Page;
-		public WipeMobsGump( Mobile owner, string args ) : this( owner, BuildList( owner, args ), 0 )
+
+		public WipeMobsGump(Mobile owner, string args) : this(owner, BuildList(owner, args), 0)
 		{
 		}
 
-		public WipeMobsGump( Mobile owner, ArrayList list, int page ) : base( GumpOffsetX, GumpOffsetY )
+		public WipeMobsGump(Mobile owner, ArrayList list, int page) : base(GumpOffsetX, GumpOffsetY)
 		{
-			owner.CloseGump( typeof( WipeMobsGump ) );
+			owner.CloseGump(typeof(WipeMobsGump));
 
 			m_Owner = owner;
 			m_Names = list;
 
-			Initialize( page );
+			Initialize(page);
 		}
 
-		public static ArrayList BuildList( Mobile owner, string args )
+		public static ArrayList BuildList(Mobile owner, string args)
 		{
 			ArrayList list = new ArrayList();
-			foreach ( Mobile i in World.Mobiles.Values )
+			foreach (Mobile i in World.Mobiles.Values)
 			{
 				if (args.Length == 0)
 					break;
-				else if (i.Name == null)
+				if (i.Name == null)
 					continue;
-				else if (i.Name.ToLower().IndexOf( args.ToLower() ) >= 0)
+				if (i.Name.ToLower().IndexOf(args.ToLower()) >= 0)
 					list.Add(i);
 			}
+
 			return list;
 		}
 
-		public void Initialize( int page )
+		public void Initialize(int page)
 		{
 			m_Page = page;
 
 			int count = m_Names.Count - (page * EntryCount);
 
-			if ( count < 0 )
+			if (count < 0)
 				count = 0;
-			else if ( count > EntryCount )
+			else if (count > EntryCount)
 				count = EntryCount;
 
 			int totalHeight = OffsetSize + ((EntryHeight + OffsetSize) * (count + 2));
 
-			AddPage( 0 );
+			AddPage(0);
 
-			AddBackground( 0, 0, BackWidth, BorderSize + totalHeight + BorderSize, BackGumpID );
-			AddImageTiled( BorderSize, BorderSize, TotalWidth, totalHeight, OffsetGumpID );
+			AddBackground(0, 0, BackWidth, BorderSize + totalHeight + BorderSize, BackGumpID);
+			AddImageTiled(BorderSize, BorderSize, TotalWidth, totalHeight, OffsetGumpID);
 
 			int x = BorderSize + OffsetSize;
 			int y = BorderSize + OffsetSize;
@@ -153,75 +167,83 @@ namespace Xanthos.Utilities
 			//int emptyWidth = TotalWidth - PrevWidth - NextWidth - (OffsetSize * 4);
 			int emptyWidth = EntryWidth;
 
-			AddImageTiled( x, y, emptyWidth, EntryHeight, EntryGumpID );
+			AddImageTiled(x, y, emptyWidth, EntryHeight, EntryGumpID);
 
-			AddLabel( x + TextOffsetX, y, TextHue, string.Format( "Page {0} of {1} ({2}) - Matches for: {3}", page+1, (m_Names.Count + EntryCount - 1) / EntryCount, m_Names.Count, m_args) );
+			AddLabel(x + TextOffsetX, y, TextHue,
+				String.Format("Page {0} of {1} ({2}) - Matches for: {3}", page + 1,
+					(m_Names.Count + EntryCount - 1) / EntryCount, m_Names.Count, m_args));
 
 			x += emptyWidth + OffsetSize;
 
-			AddImageTiled( x, y, PrevWidth, EntryHeight, HeaderGumpID );
+			AddImageTiled(x, y, PrevWidth, EntryHeight, HeaderGumpID);
 
-			if ( page > 0 )
+			if (page > 0)
 			{
-				AddButton( x + PrevOffsetX, y + PrevOffsetY, PrevButtonID1, PrevButtonID2, 1, GumpButtonType.Reply, 0 );
+				AddButton(x + PrevOffsetX, y + PrevOffsetY, PrevButtonID1, PrevButtonID2, 1, GumpButtonType.Reply, 0);
 
-				if ( PrevLabel )
-					AddLabel( x + PrevLabelOffsetX, y + PrevLabelOffsetY, TextHue, "Previous" );
+				if (PrevLabel)
+					AddLabel(x + PrevLabelOffsetX, y + PrevLabelOffsetY, TextHue, "Previous");
 			}
 
 			x += PrevWidth + OffsetSize;
 
-			AddImageTiled( x, y, NextWidth, EntryHeight, HeaderGumpID );
+			AddImageTiled(x, y, NextWidth, EntryHeight, HeaderGumpID);
 
-			if ( (page + 1) * EntryCount < m_Names.Count )
+			if ((page + 1) * EntryCount < m_Names.Count)
 			{
-				AddButton( x + NextOffsetX, y + NextOffsetY, NextButtonID1, NextButtonID2, 2, GumpButtonType.Reply, 1 );
+				AddButton(x + NextOffsetX, y + NextOffsetY, NextButtonID1, NextButtonID2, 2, GumpButtonType.Reply, 1);
 
-				if ( NextLabel )
-					AddLabel( x + NextLabelOffsetX, y + NextLabelOffsetY, TextHue, "Next" );
+				if (NextLabel)
+					AddLabel(x + NextLabelOffsetX, y + NextLabelOffsetY, TextHue, "Next");
 			}
 
-			for ( int i = 0, index = page * EntryCount; i < EntryCount && index < m_Names.Count; ++i, ++index )
+			for (int i = 0, index = page * EntryCount; i < EntryCount && index < m_Names.Count; ++i, ++index)
 			{
 				x = BorderSize + OffsetSize;
 				y += EntryHeight + OffsetSize;
 
 				Mobile item = (Mobile)m_Names[index];
 
-				AddImageTiled( x, y, EntryWidth, EntryHeight, EntryGumpID );
-				AddLabelCropped( x + TextOffsetX, y, EntryWidth - TextOffsetX, EntryHeight, 0x58 /*hue*/,
-					item.Deleted ? "(deleted)" : (string.Format("{0} : {1} : {2} {3}", item.Name, item is PlayerMobile? ((Account)item.Account).Username : "Null", item.Map, item.Location)) );
+				AddImageTiled(x, y, EntryWidth, EntryHeight, EntryGumpID);
+				AddLabelCropped(x + TextOffsetX, y, EntryWidth - TextOffsetX, EntryHeight, 0x58 /*hue*/,
+					item.Deleted
+						? "(deleted)"
+						: (String.Format("{0} : {1} : {2} {3}", item.Name,
+							item is PlayerMobile ? ((Account)item.Account).Username : "Null", item.Map,
+							item.Location)));
 
-				if ( !item.Deleted )
+				if (!item.Deleted)
 				{
 					x += EntryWidth + OffsetSize;
-					AddImageTiled( x, y, ButtonWidth, EntryHeight, ButtonGumpID );
-					AddButton( x + DeleteOffsetX, y + DeleteOffsetY, DeleteButtonID1, DeleteButtonID2, i + 4, GumpButtonType.Reply, 0 );
+					AddImageTiled(x, y, ButtonWidth, EntryHeight, ButtonGumpID);
+					AddButton(x + DeleteOffsetX, y + DeleteOffsetY, DeleteButtonID1, DeleteButtonID2, i + 4,
+						GumpButtonType.Reply, 0);
 
 					x += ButtonWidth + OffsetSize;
-					AddImageTiled( x, y, ButtonWidth, EntryHeight, ButtonGumpID );
-					AddButton( x + GoOffsetX, y + GoOffsetY, GoButtonID1, GoButtonID2, i + 1004, GumpButtonType.Reply, 0 );
+					AddImageTiled(x, y, ButtonWidth, EntryHeight, ButtonGumpID);
+					AddButton(x + GoOffsetX, y + GoOffsetY, GoButtonID1, GoButtonID2, i + 1004, GumpButtonType.Reply,
+						0);
 				}
 			}
 
 			x = BorderSize + OffsetSize;
 			y += EntryHeight + OffsetSize;
 
-			AddImageTiled( x, y, TotalWidth, EntryHeight, EntryGumpID );
+			AddImageTiled(x, y, TotalWidth, EntryHeight, EntryGumpID);
 
-			AddImageTiled( x, y, WipeWidth, EntryHeight, HeaderGumpID );
+			AddImageTiled(x, y, WipeWidth, EntryHeight, HeaderGumpID);
 
-			AddButton( x + WipeOffsetX, y + WipeOffsetY, WipeButtonID1, WipeButtonID2, 3, GumpButtonType.Reply, 1 );
+			AddButton(x + WipeOffsetX, y + WipeOffsetY, WipeButtonID1, WipeButtonID2, 3, GumpButtonType.Reply, 1);
 
-			if ( WipeLabel )
-				AddLabel( x + WipeLabelOffsetX, y + WipeLabelOffsetY, TextHue, "Wipe All Listed" );
+			if (WipeLabel)
+				AddLabel(x + WipeLabelOffsetX, y + WipeLabelOffsetY, TextHue, "Wipe All Listed");
 		}
 
-		public override void OnResponse( NetState state, RelayInfo info )
+		public override void OnResponse(NetState state, RelayInfo info)
 		{
 			Mobile from = state.Mobile;
 
-			switch ( info.ButtonID )
+			switch (info.ButtonID)
 			{
 				case 0: // Closed
 				{
@@ -229,21 +251,21 @@ namespace Xanthos.Utilities
 				}
 				case 1: // Previous
 				{
-					if ( m_Page > 0 )
-						from.SendGump( new WipeMobsGump( from, m_Names, m_Page - 1 ) );
+					if (m_Page > 0)
+						from.SendGump(new WipeMobsGump(from, m_Names, m_Page - 1));
 
 					break;
 				}
 				case 2: // Next
 				{
-					if ( (m_Page + 1) * EntryCount < m_Names.Count )
-						from.SendGump( new WipeMobsGump( from, m_Names, m_Page + 1 ) );
+					if ((m_Page + 1) * EntryCount < m_Names.Count)
+						from.SendGump(new WipeMobsGump(from, m_Names, m_Page + 1));
 
 					break;
 				}
 				case 3: // Wipe All Listed
 				{
-					from.SendGump( new WipeAllGump(from, m_Names) );
+					from.SendGump(new WipeAllGump(from, m_Names));
 					break;
 				}
 				default:
@@ -253,23 +275,23 @@ namespace Xanthos.Utilities
 					if (!deleting)
 						index -= 1000;
 
-					if ( index >= 0 && index < m_Names.Count )
+					if (index >= 0 && index < m_Names.Count)
 					{
 						Mobile s = (Mobile)m_Names[index];
 
-						if ( s.Deleted )
+						if (s.Deleted)
 						{
-							from.SendMessage( "That Mobile no longer exists." );
-							from.SendGump( new WipeMobsGump( from, m_Names, m_Page ) );
+							from.SendMessage("That Mobile no longer exists.");
+							from.SendGump(new WipeMobsGump(from, m_Names, m_Page));
 						}
 						else
 						{
 							if (deleting)
-								from.SendGump( new DeleteGump(from, m_Names, index) );
+								from.SendGump(new DeleteGump(from, m_Names, index));
 							else
 							{
-								from.SendMessage( "Going to {0}.", s.Name );
-								if ( s.Map == Map.Internal )
+								from.SendMessage("Going to {0}.", s.Name);
+								if (s.Map == Map.Internal)
 								{
 									from.Map = s.LogoutMap;
 								}
@@ -277,8 +299,9 @@ namespace Xanthos.Utilities
 								{
 									from.Map = s.Map;
 								}
-								from.SetLocation( s.Location, true );
-								from.SendGump( new WipeMobsGump( from, m_Names, m_Page ) );
+
+								from.SetLocation(s.Location, true);
+								from.SendGump(new WipeMobsGump(from, m_Names, m_Page));
 							}
 						}
 					}
@@ -290,76 +313,78 @@ namespace Xanthos.Utilities
 
 		private class DeleteGump : Gump
 		{
-			private Mobile m_From;
-			private ArrayList m_Names;
-			private int m_Index;
+			private readonly Mobile m_From;
+			private readonly ArrayList m_Names;
+			private readonly int m_Index;
 
-			public DeleteGump( Mobile from, ArrayList spawners, int index ) : base( 50, 50 )
+			public DeleteGump(Mobile from, ArrayList spawners, int index) : base(50, 50)
 			{
 				m_From = from;
 				m_Names = spawners;
 				m_Index = index;
 
-				AddPage( 0 );
+				AddPage(0);
 
-				AddBackground( 0, 0, 270, 120, 5054 );
-				AddBackground( 10, 10, 250, 100, 3000 );
+				AddBackground(0, 0, 270, 120, 5054);
+				AddBackground(10, 10, 250, 100, 3000);
 
-				AddHtml( 20, 15, 230, 60, "Are you sure you wish to delete this Mobile?", true, true );
+				AddHtml(20, 15, 230, 60, "Are you sure you wish to delete this Mobile?", true, true);
 
-				AddButton( 20, 80, 4005, 4007, 2, GumpButtonType.Reply, 0 );
-				AddHtmlLocalized( 55, 80, 75, 20, 1011011, false, false ); // CONTINUE
+				AddButton(20, 80, 4005, 4007, 2, GumpButtonType.Reply, 0);
+				AddHtmlLocalized(55, 80, 75, 20, 1011011, false, false); // CONTINUE
 
-				AddButton( 135, 80, 4005, 4007, 1, GumpButtonType.Reply, 0 );
-				AddHtmlLocalized( 170, 80, 75, 20, 1011012, false, false ); // CANCEL
+				AddButton(135, 80, 4005, 4007, 1, GumpButtonType.Reply, 0);
+				AddHtmlLocalized(170, 80, 75, 20, 1011012, false, false); // CANCEL
 			}
 
-			public override void OnResponse( Server.Network.NetState sender, RelayInfo info )
+			public override void OnResponse(NetState sender, RelayInfo info)
 			{
-				if ( info.ButtonID == 2 )
+				if (info.ButtonID == 2)
 				{
 					((Mobile)m_Names[m_Index]).Delete();
 					m_Names.RemoveAt(m_Index);
-					m_From.SendLocalizedMessage( 1010303 ); // deleted object
+					m_From.SendLocalizedMessage(1010303); // deleted object
 				}
-				m_From.SendGump( new WipeMobsGump( m_From, m_Names, 0 ) );
+
+				m_From.SendGump(new WipeMobsGump(m_From, m_Names, 0));
 			}
 		}
 
 		private class WipeAllGump : Gump
 		{
-			private Mobile m_From;
-			private ArrayList m_Names;
+			private readonly Mobile m_From;
+			private readonly ArrayList m_Names;
 
-			public WipeAllGump( Mobile from, ArrayList spawners ) : base( 50, 50 )
+			public WipeAllGump(Mobile from, ArrayList spawners) : base(50, 50)
 			{
 				m_From = from;
 				m_Names = spawners;
 
-				AddPage( 0 );
+				AddPage(0);
 
-				AddBackground( 0, 0, 270, 120, 5054 );
-				AddBackground( 10, 10, 250, 100, 3000 );
+				AddBackground(0, 0, 270, 120, 5054);
+				AddBackground(10, 10, 250, 100, 3000);
 
-				AddHtml( 20, 15, 230, 60, "Are you sure you wish to delete all " + m_Names.Count + " of the listed Mobiles?", true, true );
+				AddHtml(20, 15, 230, 60,
+					"Are you sure you wish to delete all " + m_Names.Count + " of the listed Mobiles?", true, true);
 
-				AddButton( 20, 80, 4005, 4007, 2, GumpButtonType.Reply, 0 );
-				AddHtmlLocalized( 55, 80, 75, 20, 1011011, false, false ); // CONTINUE
+				AddButton(20, 80, 4005, 4007, 2, GumpButtonType.Reply, 0);
+				AddHtmlLocalized(55, 80, 75, 20, 1011011, false, false); // CONTINUE
 
-				AddButton( 135, 80, 4005, 4007, 1, GumpButtonType.Reply, 0 );
-				AddHtmlLocalized( 170, 80, 75, 20, 1011012, false, false ); // CANCEL
+				AddButton(135, 80, 4005, 4007, 1, GumpButtonType.Reply, 0);
+				AddHtmlLocalized(170, 80, 75, 20, 1011012, false, false); // CANCEL
 			}
 
-			public override void OnResponse( Server.Network.NetState sender, RelayInfo info )
+			public override void OnResponse(NetState sender, RelayInfo info)
 			{
-				if ( info.ButtonID == 2 )
+				if (info.ButtonID == 2)
 				{
 					foreach (Mobile item in m_Names)
 					{
 						item.Delete();
 					}
 
-					m_From.SendMessage( "Deleted {0} Mobiles.", m_Names.Count );
+					m_From.SendMessage("Deleted {0} Mobiles.", m_Names.Count);
 				}
 			}
 		}

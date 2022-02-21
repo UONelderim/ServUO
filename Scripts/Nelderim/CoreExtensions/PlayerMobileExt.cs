@@ -1,3 +1,5 @@
+#region References
+
 using System;
 using System.Collections.Generic;
 using Nelderim;
@@ -5,18 +7,15 @@ using Nelderim.Gains;
 using Server.Commands;
 using Server.Items;
 
+#endregion
+
 namespace Server.Mobiles
 {
 	public partial class PlayerMobile
 	{
 		// Gainy
-		private DateTime m_LastMacroCheck;
 
-		public DateTime LastMacroCheck
-		{
-			get => m_LastMacroCheck;
-			set => m_LastMacroCheck = value;
-		}
+		public DateTime LastMacroCheck { get; set; }
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public DateTime LastPowerHour
@@ -38,13 +37,7 @@ namespace Server.Mobiles
 			get => DateTime.Now - LastPowerHour <= PowerHour.Duration;
 		}
 
-		private bool m_GainsDebugEnabled;
-
-		public bool GainsDebugEnabled
-		{
-			get { return m_GainsDebugEnabled; }
-			set { m_GainsDebugEnabled = value; }
-		}
+		public bool GainsDebugEnabled { get; set; }
 
 		// SUS
 		private HashSet<Mobile> m_Seers;
@@ -99,26 +92,16 @@ namespace Server.Mobiles
 		}
 
 		// Grab
-		private Container m_GrabContainer;
 
-		public Container GrabContainer
-		{
-			get { return m_GrabContainer; }
-			set { m_GrabContainer = value; }
-		}
+		public Container GrabContainer { get; set; }
 
 		// Possess
 		public Mobile m_PossessMob;
 		public Mobile m_PossessStorageMob;
 
 		// Nelderim disguise kit
-		private Race m_RaceMod = null;
 
-		public Race RaceMod
-		{
-			get { return m_RaceMod; }
-			set { m_RaceMod = value; }
-		}
+		public Race RaceMod { get; set; } = null;
 
 		private int m_HueDisguise = -1;
 
@@ -136,30 +119,15 @@ namespace Server.Mobiles
 		}
 
 		// Traps
-		private int m_TrapsActive = 0;
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public int TrapsActive
-		{
-			get { return m_TrapsActive; }
-			set { m_TrapsActive = value; }
-		}
+		public int TrapsActive { get; set; } = 0;
 
 		// Nowy detect hidden
-		private DateTime m_NextPassiveDetectHiddenCheck;
-		private Timer m_PassiveDetectHiddenTimer;
 
-		public Timer PassiveDetectHiddenTimer
-		{
-			get { return m_PassiveDetectHiddenTimer; }
-			set { m_PassiveDetectHiddenTimer = value; }
-		}
+		public Timer PassiveDetectHiddenTimer { get; set; }
 
-		public DateTime NextPassiveDetectHiddenCheck
-		{
-			get { return m_NextPassiveDetectHiddenCheck; }
-			set { m_NextPassiveDetectHiddenCheck = value; }
-		}
+		public DateTime NextPassiveDetectHiddenCheck { get; set; }
 
 		//Hunters Bulki
 
@@ -185,20 +153,15 @@ namespace Server.Mobiles
 		}
 
 		// Nietolerancja
-		private bool m_IntolerateAction;
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public bool Noticed
-		{
-			set { m_IntolerateAction = value; }
-			get { return m_IntolerateAction; }
-		}
+		public bool Noticed { set; get; }
 
 		private RessurectProtectionTimer m_ResTimer;
 
 		private class RessurectProtectionTimer : Timer
 		{
-			private PlayerMobile m_Player;
+			private readonly PlayerMobile m_Player;
 
 			public RessurectProtectionTimer(PlayerMobile player) : base(TimeSpan.FromSeconds(5.0))
 			{

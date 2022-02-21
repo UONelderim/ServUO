@@ -1,6 +1,8 @@
-﻿using System;
-using Server;
+﻿#region References
+
 using Server.Items;
+
+#endregion
 
 namespace Server.Mobiles
 {
@@ -52,19 +54,21 @@ namespace Server.Mobiles
 
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)
 		{
-			if ( !IsBonded && !corpse.Carved && !IsChampionSpawn )
+			if (!IsBonded && !corpse.Carved && !IsChampionSpawn)
 			{
-				if ( Utility.RandomDouble() < 0.30 )
+				if (Utility.RandomDouble() < 0.30)
 					corpse.DropItem(new DragonsBlood());
 			}
 
 			base.OnCarve(from, corpse, with);
 		}
+
 		public override bool OnBeforeDeath()
 		{
 			AddLoot(LootPack.ClericScrolls);
 			return base.OnBeforeDeath();
 		}
+
 		public override void OnDeath(Container c)
 		{
 			base.OnDeath(c);
@@ -95,7 +99,7 @@ namespace Server.Mobiles
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)

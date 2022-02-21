@@ -1,4 +1,8 @@
+#region References
+
 using System;
+
+#endregion
 
 namespace Server.Items.Crops
 {
@@ -48,7 +52,7 @@ namespace Server.Items.Crops
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -102,7 +106,7 @@ namespace Server.Items.Crops
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)

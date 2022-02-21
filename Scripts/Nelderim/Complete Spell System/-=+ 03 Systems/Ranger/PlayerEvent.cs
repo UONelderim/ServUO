@@ -1,4 +1,8 @@
+#region References
+
 using Server.Items;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ranger
 {

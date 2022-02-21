@@ -23,7 +23,7 @@
 //            from.SendMessage( t.ToString() ); 
 
 //            int error = 505673;
-			
+
 //            if ( from == targ )
 //                error = 505665; // Nie mozesz uwiazac sie u palika!
 //            else if ( !( targ is BaseCreature ) )
@@ -31,10 +31,10 @@
 //            else
 //            {
 //                BaseCreature bc = ( BaseCreature ) targ;
-				
+
 //                IPooledEnumerable eable = from.GetItemsInRange( 2 );
 //                bool thereis = false;  
-				
+
 //                foreach( Item item in eable )
 //                {
 //                    if ( item is HitchingPost )
@@ -43,9 +43,9 @@
 //                        break;
 //                    }
 //                }
-				
+
 //                #region Shrink Restrictions
-				
+
 //                if ( !restricted || from.AccessLevel > AccessLevel.Counselor )
 //                {
 //                    //Don't check anything if not a restricted Shrink
@@ -82,7 +82,7 @@
 //                {
 //                    error = 505672; // "Nie mozesz zmniejszyc rannego stworzenia.";
 //                }
-				
+
 //                #endregion
 
 //                ShrinkItem shrunkenPet = new ShrinkItem( bc );
@@ -90,7 +90,7 @@
 //                shrunkenPet.LootType = LootType.Blessed;   // 06.11.21 :: emfor
 //                shrunkenPet.FirstOwner = from;  // 07.04.07 :: emfor
 
-				
+
 //                if ( !restricted )
 //                    shrunkenPet.Ageless = true;
 
@@ -98,15 +98,15 @@
 //                {
 //                    shrunkenPet.Label1 = String.Format( "Ten przedmiot zostal utworzony przez GMa {0}", from.Name );
 //                }
-				
+
 //                shrunkenPet.LabelOfCreator = ( string ) CommandLogging.Format( from );
-				
+
 //                if ( error == 505673 )
 //                {
 //                    if ( from != null )
 //                    {
 //                        from.SendLocalizedMessage( error );
-						
+
 //                        if ( !from.AddToBackpack ( shrunkenPet ) )
 //                        {
 //                            shrunkenPet.MoveToWorld( new Point3D( from.X, from.Y, from.Z ), from.Map );
@@ -119,7 +119,7 @@
 //                    }
 
 //                    bc.Controlled = true;	//To make it so It won't still be a part of a spawner. 
-					
+
 //                    SendAway( bc );
 
 //                    return true;
@@ -127,7 +127,7 @@
 //            }
 
 //            from.SendLocalizedMessage( error );
-			
+
 //            return false;
 //        }
 
@@ -154,3 +154,5 @@
 //        }
 //    }
 //}
+
+

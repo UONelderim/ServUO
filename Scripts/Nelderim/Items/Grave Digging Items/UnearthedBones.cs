@@ -1,10 +1,14 @@
+#region References
+
 using Server.Mobiles;
+
+#endregion
 
 namespace Server.Items
 {
 	public class UnearthedBones : Container
 	{
-		Mobile m_From = null;
+		readonly Mobile m_From;
 		public override bool IsDecoContainer { get { return false; } }
 
 		[Constructable]

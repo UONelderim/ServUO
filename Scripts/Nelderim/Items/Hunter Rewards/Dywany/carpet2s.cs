@@ -4,9 +4,6 @@
 // AddonGenerator script by Arya
 //
 /////////////////////////////////////////////////
-using System;
-using Server;
-using Server.Items;
 
 namespace Server.Items
 {
@@ -20,46 +17,45 @@ namespace Server.Items
 			}
 		}
 
-		[ Constructable ]
+		[Constructable]
 		public carpet2s()
 		{
 			AddonComponent ac = null;
-			ac = new AddonComponent( 2762 );
-			AddComponent( ac, -1, -1, 0 );
-			ac = new AddonComponent( 2765 );
-			AddComponent( ac, -1, 0, 0 );
-			ac = new AddonComponent( 2763 );
-			AddComponent( ac, -1, 1, 0 );
-			
-			ac = new AddonComponent( 2766 );
-			AddComponent( ac, 0, -1, 0 );
-			ac = new AddonComponent( 2760 );
-			AddComponent( ac, 0, 0, 0 );
-			ac = new AddonComponent( 2768 );
-			AddComponent( ac, 0, 1, 0 );
-			
-			ac = new AddonComponent( 2764 );
-			AddComponent( ac, 1, -1, 0 );
-			ac = new AddonComponent( 2767 );
-			AddComponent( ac, 1, 0, 0 );
-			ac = new AddonComponent( 2761 );
-			AddComponent( ac, 1, 1, 0 );
-			
+			ac = new AddonComponent(2762);
+			AddComponent(ac, -1, -1, 0);
+			ac = new AddonComponent(2765);
+			AddComponent(ac, -1, 0, 0);
+			ac = new AddonComponent(2763);
+			AddComponent(ac, -1, 1, 0);
+
+			ac = new AddonComponent(2766);
+			AddComponent(ac, 0, -1, 0);
+			ac = new AddonComponent(2760);
+			AddComponent(ac, 0, 0, 0);
+			ac = new AddonComponent(2768);
+			AddComponent(ac, 0, 1, 0);
+
+			ac = new AddonComponent(2764);
+			AddComponent(ac, 1, -1, 0);
+			ac = new AddonComponent(2767);
+			AddComponent(ac, 1, 0, 0);
+			ac = new AddonComponent(2761);
+			AddComponent(ac, 1, 1, 0);
 		}
 
-		public carpet2s( Serial serial ) : base( serial )
+		public carpet2s(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( 0 ); // Version
+			base.Serialize(writer);
+			writer.Write(0); // Version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}
@@ -80,19 +76,19 @@ namespace Server.Items
 			Name = "Maly czerwony dywan";
 		}
 
-		public carpet2sDeed( Serial serial ) : base( serial )
+		public carpet2sDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( 0 ); // Version
+			base.Serialize(writer);
+			writer.Write(0); // Version
 		}
 
-		public override void	Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

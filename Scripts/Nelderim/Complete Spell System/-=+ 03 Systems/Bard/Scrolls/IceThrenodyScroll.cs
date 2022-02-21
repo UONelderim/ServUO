@@ -1,36 +1,32 @@
-using System;
-using Server;
-using Server.Items;
-
 namespace Server.ACC.CSS.Systems.Bard
 {
 	public class BardIceThrenodyScroll : CSpellScroll
 	{
 		[Constructable]
-		public BardIceThrenodyScroll() : this( 1 )
+		public BardIceThrenodyScroll() : this(1)
 		{
 		}
 
 		[Constructable]
-		public BardIceThrenodyScroll( int amount ) : base( typeof( BardIceThrenodySpell ), 0x14ED, amount )
+		public BardIceThrenodyScroll(int amount) : base(typeof(BardIceThrenodySpell), 0x14ED, amount)
 		{
 			Name = "Lodowy Tren";
 			Hue = 0x96;
 		}
 
-		public BardIceThrenodyScroll( Serial serial ) : base( serial )
+		public BardIceThrenodyScroll(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

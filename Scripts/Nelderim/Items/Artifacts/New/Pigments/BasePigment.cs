@@ -1,6 +1,11 @@
+#region References
+
 using System;
 using System.Collections.Generic;
 using Server.ACC.CSS;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.Items
 {
@@ -46,8 +51,6 @@ namespace Server.Items
 						return 1064863; // Pigment do ksiag
 					case PigmentTarget.Cloth:
 						return 1064869; // Pigment do tkanin
-					default:
-						break;
 				}
 
 				return 1064860;
@@ -162,7 +165,7 @@ namespace Server.Items
 			if (IsAccessibleTo(from) && from.InRange(GetWorldLocation(), 3))
 			{
 				from.SendLocalizedMessage(1064864); // Wybierz przedmiot do zafarbowania.
-				from.BeginTarget(3, false, Server.Targeting.TargetFlags.None, new TargetStateCallback(InternalCallback),
+				from.BeginTarget(3, false, TargetFlags.None, new TargetStateCallback(InternalCallback),
 					this);
 			}
 			else
@@ -250,15 +253,14 @@ namespace Server.Items
 			if (IsInType(t, typeof(BaseWeapon)))
 				return (resourcesAccepted.Contains(((BaseWeapon)i).Resource) ||
 				        resourcesAccepted.Contains(((BaseWeapon)i).Resource2));
-			else if (IsInType(t, typeof(BaseArmor)))
+			if (IsInType(t, typeof(BaseArmor)))
 				return (resourcesAccepted.Contains(((BaseArmor)i).Resource) ||
 				        resourcesAccepted.Contains(((BaseArmor)i).Resource2));
-			else if (IsInType(t, typeof(BaseClothing)))
+			if (IsInType(t, typeof(BaseClothing)))
 				return (resourcesAccepted.Contains(((BaseClothing)i).Resource));
-			else if (IsInType(t, typeof(BaseJewel)))
+			if (IsInType(t, typeof(BaseJewel)))
 				return (resourcesAccepted.Contains(((BaseJewel)i).Resource));
-			else
-				return false;
+			return false;
 		}
 
 		private static bool IsInTypeList(Type t, List<Type> listOfTypes)
@@ -285,7 +287,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0);
+			writer.Write(0);
 
 			writer.WriteEncodedInt((int)m_Target);
 			writer.WriteEncodedInt(m_UsesRemaining);

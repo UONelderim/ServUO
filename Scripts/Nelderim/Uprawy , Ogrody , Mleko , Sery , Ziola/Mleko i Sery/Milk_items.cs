@@ -2,32 +2,16 @@ namespace Server.Items
 {
 	public abstract class MilkBottle : Item
 	{
-		private Mobile m_Poisoner;
-		private Poison m_Poison;
-		private int m_FillFactor;
-
 		public virtual Item EmptyItem { get { return null; } }
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Mobile Poisoner
-		{
-			get { return m_Poisoner; }
-			set { m_Poisoner = value; }
-		}
+		public Mobile Poisoner { get; set; }
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Poison Poison
-		{
-			get { return m_Poison; }
-			set { m_Poison = value; }
-		}
+		public Poison Poison { get; set; }
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public int FillFactor
-		{
-			get { return m_FillFactor; }
-			set { m_FillFactor = value; }
-		}
+		public int FillFactor { get; set; }
 
 		public MilkBottle(int itemID) : base(itemID)
 		{
@@ -40,7 +24,7 @@ namespace Server.Items
 
 		public void Boire(Mobile from)
 		{
-			if (soif(from, m_FillFactor))
+			if (soif(from, FillFactor))
 			{
 				// Play a random "Boire" sound
 				from.PlaySound(Utility.Random(0x30, 2));
@@ -48,8 +32,8 @@ namespace Server.Items
 				if (from.Body.IsHuman && !from.Mounted)
 					from.Animate(34, 5, 1, true, false, 0);
 
-				if (m_Poison != null)
-					from.ApplyPoison(m_Poisoner, m_Poison);
+				if (Poison != null)
+					from.ApplyPoison(Poisoner, Poison);
 
 				this.Consume();
 
@@ -105,12 +89,12 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)1); // version
+			writer.Write(1); // version
 
-			writer.Write(m_Poisoner);
+			writer.Write(Poisoner);
 
-			Poison.Serialize(m_Poison, writer);
-			writer.Write(m_FillFactor);
+			Poison.Serialize(Poison, writer);
+			writer.Write(FillFactor);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -123,14 +107,14 @@ namespace Server.Items
 			{
 				case 1:
 				{
-					m_Poisoner = reader.ReadMobile();
+					Poisoner = reader.ReadMobile();
 
 					goto case 0;
 				}
 				case 0:
 				{
-					m_Poison = Poison.Deserialize(reader);
-					m_FillFactor = reader.ReadInt();
+					Poison = Poison.Deserialize(reader);
+					FillFactor = reader.ReadInt();
 					break;
 				}
 			}
@@ -157,7 +141,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -188,7 +172,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -219,7 +203,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -284,7 +268,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -334,7 +318,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -374,7 +358,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -436,7 +420,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -486,7 +470,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -526,7 +510,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -588,7 +572,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -638,7 +622,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -678,7 +662,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)

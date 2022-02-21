@@ -1,43 +1,40 @@
-using System; 
-using Server.Items;
-
 namespace Server.Items
-{ 
-   public class BandageDeed : Item 
-   { 
-      [Constructable] 
-      public BandageDeed() : base( 0xED4 ) 
-      { 
-         Movable = true; 
-         Hue = 1266; 
-         Name = "zwoj bandazy";
-         ItemID = 5360; 
-      } 
+{
+	public class BandageDeed : Item
+	{
+		[Constructable]
+		public BandageDeed() : base(0xED4)
+		{
+			Movable = true;
+			Hue = 1266;
+			Name = "zwoj bandazy";
+			ItemID = 5360;
+		}
 
-      public override void OnDoubleClick( Mobile from ) 
-      { 
-         Bandage bandage = new Bandage( 250 ); 
+		public override void OnDoubleClick(Mobile from)
+		{
+			Bandage bandage = new Bandage(250);
 
-         if ( !from.AddToBackpack( bandage ) ) 
-            bandage.Delete(); 
-      } 
+			if (!from.AddToBackpack(bandage))
+				bandage.Delete();
+		}
 
-      public BandageDeed( Serial serial ) : base( serial ) 
-      { 
-      } 
+		public BandageDeed(Serial serial) : base(serial)
+		{
+		}
 
-      public override void Serialize( GenericWriter writer ) 
-      { 
-         base.Serialize( writer ); 
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-         writer.Write( (int) 0 ); // version 
-      } 
+			writer.Write(0); // version 
+		}
 
-      public override void Deserialize( GenericReader reader ) 
-      { 
-         base.Deserialize( reader ); 
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-         int version = reader.ReadInt(); 
-      } 
-   } 
-} 
+			int version = reader.ReadInt();
+		}
+	}
+}

@@ -1,8 +1,8 @@
+#region References
+
 using Server;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Nelderim;
+
+#endregion
 
 namespace Nelderim
 {
@@ -12,13 +12,13 @@ namespace Nelderim
 
 		public static void Initialize()
 		{
-			EventSink.WorldSave += new WorldSaveEventHandler( Save );
-			Load( ModuleName );
+			EventSink.WorldSave += Save;
+			Load(ModuleName);
 		}
 
-		public static void Save( WorldSaveEventArgs args )
+		public static void Save(WorldSaveEventArgs args)
 		{
-			Save( args, ModuleName );
+			Save(args, ModuleName);
 		}
 	}
 }

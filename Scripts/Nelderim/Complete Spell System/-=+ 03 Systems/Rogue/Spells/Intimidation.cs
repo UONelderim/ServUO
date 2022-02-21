@@ -1,12 +1,16 @@
+#region References
+
 using System;
 using Server.Spells;
 using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Rogue
 {
 	public class RogueIntimidationSpell : RogueSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Zastraszenie", " *wpatruje sie gniewnie w cel* ",
 			//SpellCircle.Fourth,
 			212,
@@ -66,7 +70,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 
 		private class InternalTarget : Target
 		{
-			private RogueIntimidationSpell m_Owner;
+			private readonly RogueIntimidationSpell m_Owner;
 
 			public InternalTarget(RogueIntimidationSpell owner) : base(12, false, TargetFlags.Harmful)
 			{

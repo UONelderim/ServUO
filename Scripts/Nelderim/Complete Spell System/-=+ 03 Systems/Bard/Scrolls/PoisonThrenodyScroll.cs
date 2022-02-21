@@ -1,36 +1,32 @@
-using System;
-using Server;
-using Server.Items;
-
 namespace Server.ACC.CSS.Systems.Bard
 {
 	public class BardPoisonThrenodyScroll : CSpellScroll
 	{
 		[Constructable]
-		public BardPoisonThrenodyScroll() : this( 1 )
+		public BardPoisonThrenodyScroll() : this(1)
 		{
 		}
 
 		[Constructable]
-		public BardPoisonThrenodyScroll( int amount ) : base( typeof( BardPoisonThrenodySpell ), 0x14ED, amount )
+		public BardPoisonThrenodyScroll(int amount) : base(typeof(BardPoisonThrenodySpell), 0x14ED, amount)
 		{
 			Name = "Tren Jadu";
 			Hue = 0x96;
 		}
 
-		public BardPoisonThrenodyScroll( Serial serial ) : base( serial )
+		public BardPoisonThrenodyScroll(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

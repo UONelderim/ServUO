@@ -9,7 +9,8 @@
 		}
 
 		[Constructable]
-		public SkoczekLesny(string name) : base(name, 0xDB, 0x3EA5, AIType.AI_Animal, FightMode.Aggressor, 12, 1, 0.2, 0.4)
+		public SkoczekLesny(string name) : base(name, 0xDB, 0x3EA5, AIType.AI_Animal, FightMode.Aggressor, 12, 1, 0.2,
+			0.4)
 		{
 			Hue = Utility.RandomSlimeHue() | 0x8000;
 
@@ -60,7 +61,7 @@
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)

@@ -1,13 +1,17 @@
+#region References
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Server.Items;
 
+#endregion
+
 namespace Server.Mobiles.Swiateczne
 {
 	public class KevinBoss : BaseCreature
 	{
-		private List<BaseTrap> m_Traps;
+		private readonly List<BaseTrap> m_Traps;
 		private const int MaxTraps = 20;
 		private const int TrapRange = 8;
 
@@ -97,13 +101,13 @@ namespace Server.Mobiles.Swiateczne
 			base.OnThink();
 		}
 
-		private static Type[] TrapTypes =
+		private static readonly Type[] TrapTypes =
 		{
 			typeof(FireColumnTrap), typeof(FlameSpurtTrap), typeof(GasTrap), typeof(GiantSpikeTrap),
 			typeof(MushroomTrap), typeof(SawTrap), typeof(SpikeTrap), typeof(StoneFaceTrap)
 		};
 
-		private int[] TrapItemIds = { 0x1022, 0x1023, 0x1059, 0x105A, 0x119C, 0x11A2, 0x171D, 0x171E, };
+		private readonly int[] TrapItemIds = { 0x1022, 0x1023, 0x1059, 0x105A, 0x119C, 0x11A2, 0x171D, 0x171E, };
 
 		private BaseTrap GetRandomTrap()
 		{

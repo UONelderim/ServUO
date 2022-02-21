@@ -1,27 +1,33 @@
 #region AuthorHeader
+
 //
 //	Auction version 2.1, by Xanthos and Arya
 //
 //  Based on original ideas and code by Arya
 //
-#endregion AuthorHeader
-using System;
-using System.Collections;
 
+#endregion AuthorHeader
+
+#region References
+
+using System;
 using Server;
 using Server.Gumps;
+using Server.Network;
 using Xanthos.Utilities;
+
+#endregion
 
 namespace Arya.Auction
 {
 	/// <summary>
-	/// The admin gump for the auction system
+	///     The admin gump for the auction system
 	/// </summary>
 	public class AuctionAdminGump : Gump
 	{
-		public AuctionAdminGump( Mobile m ) : base ( 100, 100 )
+		public AuctionAdminGump(Mobile m) : base(100, 100)
 		{
-			m.CloseGump( typeof( AuctionAdminGump ) );
+			m.CloseGump(typeof(AuctionAdminGump));
 			MakeGump();
 		}
 
@@ -38,8 +44,11 @@ namespace Arya.Auction
 			AddLabel(36, 5, Misc.kRedHue, @"Auction System Administration");
 			AddImageTiled(16, 30, 238, 1, 9274);
 
-			AddLabel(15, 65, Misc.kLabelHue, string.Format( @"Deadline: {0} at {1}", AuctionScheduler.Deadline.ToShortDateString(), AuctionScheduler.Deadline.ToShortTimeString() ) );
-			AddLabel(15, 40, Misc.kGreenHue, string.Format( @"{0} Auctions, {1} Pending", AuctionSystem.Auctions.Count, AuctionSystem.Pending.Count ) );
+			AddLabel(15, 65, Misc.kLabelHue,
+				String.Format(@"Deadline: {0} at {1}", AuctionScheduler.Deadline.ToShortDateString(),
+					AuctionScheduler.Deadline.ToShortTimeString()));
+			AddLabel(15, 40, Misc.kGreenHue,
+				String.Format(@"{0} Auctions, {1} Pending", AuctionSystem.Auctions.Count, AuctionSystem.Pending.Count));
 
 			// B 1 : Validate
 			AddButton(15, 100, 4005, 4006, 1, GumpButtonType.Reply, 0);
@@ -62,37 +71,37 @@ namespace Arya.Auction
 			AddLabel(55, 230, Misc.kLabelHue, @"Exit");
 		}
 
-		public override void OnResponse(Server.Network.NetState sender, RelayInfo info)
+		public override void OnResponse(NetState sender, RelayInfo info)
 		{
-			switch ( info.ButtonID )
+			switch (info.ButtonID)
 			{
 				case 1: // Validate
 
 					AuctionSystem.VerifyAuctions();
 					AuctionSystem.VerifyPendencies();
 
-					sender.Mobile.SendGump( new AuctionAdminGump( sender.Mobile ) );
+					sender.Mobile.SendGump(new AuctionAdminGump(sender.Mobile));
 					break;
 
 				case 2: // Profile
 
 					AuctionSystem.ProfileAuctions();
 
-					sender.Mobile.SendGump( new AuctionAdminGump( sender.Mobile ) );
+					sender.Mobile.SendGump(new AuctionAdminGump(sender.Mobile));
 					break;
 
 				case 3: // Disable
 
 					AuctionSystem.Disable();
-					sender.Mobile.SendMessage( AuctionConfig.MessageHue, "The system has been stopped. It will be restored with the next reboot." );
+					sender.Mobile.SendMessage(AuctionConfig.MessageHue,
+						"The system has been stopped. It will be restored with the next reboot.");
 					break;
 
 				case 4: // Delete
 
-					sender.Mobile.SendGump( new DeleteAuctionGump( sender.Mobile ) );
+					sender.Mobile.SendGump(new DeleteAuctionGump(sender.Mobile));
 					break;
 			}
 		}
-
 	}
 }

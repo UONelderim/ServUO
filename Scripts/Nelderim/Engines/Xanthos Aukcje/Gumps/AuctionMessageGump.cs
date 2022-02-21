@@ -1,37 +1,43 @@
 #region AuthorHeader
+
 //
 //	Auction version 2.1, by Xanthos and Arya
 //
 //  Based on original ideas and code by Arya
 //
-#endregion AuthorHeader
-using System;
-using System.Collections;
 
+#endregion AuthorHeader
+
+#region References
+
+using System;
 using Server;
 using Server.Gumps;
+using Server.Network;
 using Xanthos.Utilities;
+
+#endregion
 
 namespace Arya.Auction
 {
 	/// <summary>
-	/// Summary description for AuctionMessageGump.
+	///     Summary description for AuctionMessageGump.
 	/// </summary>
 	public class AuctionMessageGump : Gump
 	{
 		/// <summary>
-		/// Sets the message displayed by the gump in the details area
+		///     Sets the message displayed by the gump in the details area
 		/// </summary>
 		public string Message
 		{
 			set
 			{
-				m_HtmlMessage = string.Format( "<basefont color=#111111>{0}", value );
+				m_HtmlMessage = String.Format("<basefont color=#111111>{0}", value);
 			}
 		}
 
 		/// <summary>
-		/// Sets the text associated with the OK button
+		///     Sets the text associated with the OK button
 		/// </summary>
 		public string OkText
 		{
@@ -39,7 +45,7 @@ namespace Arya.Auction
 		}
 
 		/// <summary>
-		/// Sets the text associated with the Cancel button
+		///     Sets the text associated with the Cancel button
 		/// </summary>
 		public string CancelText
 		{
@@ -47,8 +53,8 @@ namespace Arya.Auction
 		}
 
 		/// <summary>
-		/// Specifies whether this gump carries just information. If true, the gump will only have an OK button.
-		/// If false the gump will have both OK and Cancel buttons.
+		///     Specifies whether this gump carries just information. If true, the gump will only have an OK button.
+		///     If false the gump will have both OK and Cancel buttons.
 		/// </summary>
 		public bool InformationMode
 		{
@@ -56,13 +62,13 @@ namespace Arya.Auction
 		}
 
 		/// <summary>
-		/// Gets or sets the auction referenced by this message
+		///     Gets or sets the auction referenced by this message
 		/// </summary>
 		public AuctionItem Auction
 		{
 			get
 			{
-				return AuctionSystem.Find( m_ID );
+				return AuctionSystem.Find(m_ID);
 			}
 			set
 			{
@@ -71,7 +77,7 @@ namespace Arya.Auction
 		}
 
 		/// <summary>
-		/// Specifies if this message is targeted at the auction owner, rather than at bidder
+		///     Specifies if this message is targeted at the auction owner, rather than at bidder
 		/// </summary>
 		public bool OwnerTarget
 		{
@@ -79,7 +85,7 @@ namespace Arya.Auction
 		}
 
 		/// <summary>
-		/// Specifies whether this message should validate the answer with the auction
+		///     Specifies whether this message should validate the answer with the auction
 		/// </summary>
 		public bool VerifyAuction
 		{
@@ -87,7 +93,7 @@ namespace Arya.Auction
 		}
 
 		/// <summary>
-		/// Specifies whether to show the expiration notice at the bottom of the message
+		///     Specifies whether to show the expiration notice at the bottom of the message
 		/// </summary>
 		public bool ShowExpiration
 		{
@@ -103,7 +109,8 @@ namespace Arya.Auction
 		private bool m_VerifyAuction;
 		private bool m_ShowExpiration = true;
 
-		public AuctionMessageGump( AuctionItem auction, bool informationMode, bool ownerTarget, bool verifyAuction ) : base( 50, 50 )
+		public AuctionMessageGump(AuctionItem auction, bool informationMode, bool ownerTarget, bool verifyAuction) :
+			base(50, 50)
 		{
 			Auction = auction;
 			m_InformationMode = informationMode;
@@ -111,10 +118,10 @@ namespace Arya.Auction
 			m_VerifyAuction = verifyAuction;
 		}
 
-		public void SendTo( Mobile m )
+		public void SendTo(Mobile m)
 		{
 			MakeGump();
-			m.SendGump( this );
+			m.SendGump(this);
 		}
 
 		private void MakeGump()
@@ -134,37 +141,37 @@ namespace Arya.Auction
 			AddImage(0, 290, 9386);
 			AddImageTiled(114, 290, 353, 140, 9387);
 			AddImage(450, 290, 9388);
-			AddLabel(200, 38, 76, AuctionSystem.ST[ 25 ] );
+			AddLabel(200, 38, 76, AuctionSystem.ST[25]);
 			AddImageTiled(65, 65, 438, 11, 2091);
 
-			AddLabel(65, 85, 0, AuctionSystem.ST[ 26 ] );
+			AddLabel(65, 85, 0, AuctionSystem.ST[26]);
 
 			AuctionItem auction = Auction;
 
 			// BUTTON 0: View auction details
-			if ( auction != null )
+			if (auction != null)
 			{
-				AddLabel(125, 85, Misc.kRedHue, auction.ItemName );
+				AddLabel(125, 85, Misc.kRedHue, auction.ItemName);
 
 				AddButton(65, 112, 9762, 9763, 0, GumpButtonType.Reply, 0);
-				AddLabel(85, 110, Misc.kLabelHue, AuctionSystem.ST[ 27 ] );
-			}				
+				AddLabel(85, 110, Misc.kLabelHue, AuctionSystem.ST[27]);
+			}
 			else
 			{
-				AddLabel( 125, 85, Misc.kRedHue, AuctionSystem.ST[ 28 ] );
+				AddLabel(125, 85, Misc.kRedHue, AuctionSystem.ST[28]);
 			}
-			
-			AddHtml( 75, 170, 413, 120, m_HtmlMessage, (bool)true, (bool)false);
-			AddLabel(75, 150, Misc.kLabelHue, AuctionSystem.ST[ 29 ] );
+
+			AddHtml(75, 170, 413, 120, m_HtmlMessage, true, false);
+			AddLabel(75, 150, Misc.kLabelHue, AuctionSystem.ST[29]);
 
 			// BUTTON 1: OK
 			// BUTTON 2: CANCEL
 
-			if ( m_InformationMode )
+			if (m_InformationMode)
 			{
 				// Information mode: show only OK button at bottom with the OK text
-				AddButton( 45, 345, 1147, 1149, 1, GumpButtonType.Reply, 0 );
-				AddLabel( 125, 355, Misc.kLabelHue, m_OkText );
+				AddButton(45, 345, 1147, 1149, 1, GumpButtonType.Reply, 0);
+				AddLabel(125, 355, Misc.kLabelHue, m_OkText);
 			}
 			else
 			{
@@ -174,64 +181,65 @@ namespace Arya.Auction
 				AddLabel(125, 355, Misc.kLabelHue, m_CancelText);
 			}
 
-			if ( m_ShowExpiration && auction != null )
+			if (m_ShowExpiration && auction != null)
 			{
-				AddLabel( 55, 405, Misc.kRedHue, 
-					string.Format( AuctionSystem.ST[ 30 ] ,
-					auction.PendingTimeLeft.Days, auction.PendingTimeLeft.Hours ) );
+				AddLabel(55, 405, Misc.kRedHue,
+					String.Format(AuctionSystem.ST[30],
+						auction.PendingTimeLeft.Days, auction.PendingTimeLeft.Hours));
 			}
 		}
 
-		private void ResendMessage( Mobile m )
+		private void ResendMessage(Mobile m)
 		{
-			m.SendGump( this );
+			m.SendGump(this);
 		}
 
-		public override void OnResponse(Server.Network.NetState sender, RelayInfo info)
+		public override void OnResponse(NetState sender, RelayInfo info)
 		{
-			if ( ! AuctionSystem.Running )
+			if (!AuctionSystem.Running)
 			{
-				sender.Mobile.SendMessage( AuctionConfig.MessageHue, AuctionSystem.ST[ 15 ] );
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[15]);
 				return;
 			}
 
 			AuctionItem auction = Auction;
 
-			if ( auction == null )
+			if (auction == null)
 			{
-				sender.Mobile.SendMessage( AuctionConfig.MessageHue, AuctionSystem.ST[ 31 ] );
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[31]);
 				return;
 			}
 
-			switch ( info.ButtonID )
+			switch (info.ButtonID)
 			{
 				case 0: // View auction details
 
-					if ( m_InformationMode && ! m_VerifyAuction )
+					if (m_InformationMode && !m_VerifyAuction)
 						// This is an outbid message, no need to return after visiting the auction
-						sender.Mobile.SendGump( new AuctionViewGump( sender.Mobile, Auction ) );
+						sender.Mobile.SendGump(new AuctionViewGump(sender.Mobile, Auction));
 					else
-						sender.Mobile.SendGump( new AuctionViewGump( sender.Mobile, Auction, new AuctionGumpCallback( ResendMessage ) ) );
+						sender.Mobile.SendGump(new AuctionViewGump(sender.Mobile, Auction, ResendMessage));
 					break;
 
 				case 1: // OK
 
-					if ( m_InformationMode )
+					if (m_InformationMode)
 					{
-						if ( m_VerifyAuction )
+						if (m_VerifyAuction)
 						{
-							auction.ConfirmInformationMessage( m_OwnerTarget );
+							auction.ConfirmInformationMessage(m_OwnerTarget);
 						}
 					}
 					else
 					{
-						auction.ConfirmResponseMessage( m_OwnerTarget, true );
+						auction.ConfirmResponseMessage(m_OwnerTarget, true);
 					}
+
 					break;
 
 				case 2: // Cancel
 
-					auction.ConfirmResponseMessage( m_OwnerTarget, false );
+					auction.ConfirmResponseMessage(m_OwnerTarget, false);
 					break;
 			}
 		}

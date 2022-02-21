@@ -1,51 +1,34 @@
-using System;
-using System.IO;
-using System.Media;
-using System.Collections;
-using System.Collections.Generic;
-using Server;
+#region References
+
 using Server.Items;
-using Server.Network;
-using Server.Commands;
-using Server.Commands.Generic;
 using Server.Mobiles;
+using Server.Network;
 using Server.Targets;
-using Server.Targeting;
+
+#endregion
 
 namespace Server.Gumps
 {
 	public class InfoUOE : Gump
 	{
-        	private Mobile mob_m;
+		public Mobile m_Mob { get; set; }
 
-		public Mobile m_Mob
-		{ 
-			get{ return mob_m; } 
-			set{ mob_m = value; } 
-		}
+		public Item i_Tool { get; set; }
 
-        	private Item tool_i;
-	
-		public Item i_Tool
-		{ 
-			get{ return tool_i; } 
-			set{ tool_i = value; } 
-		}
-
-		public InfoUOE( Mobile m, int p ) : base( 0, 0 )
+		public InfoUOE(Mobile m, int p) : base(0, 0)
 		{
 			PlayerMobile pm = m as PlayerMobile;
 
 			if (pm == null || pm.Backpack == null)
-    				return;
+				return;
 
-            		m_Mob = pm;
-			
-			Item check = pm.Backpack.FindItemByType(typeof(UOETool) );
+			m_Mob = pm;
 
-			if ( check == null )
+			Item check = pm.Backpack.FindItemByType(typeof(UOETool));
+
+			if (check == null)
 			{
-				pm.SendMessage( pm.Name + ", Contact Draco, System Error : Check Failed {0}/{1}", check );
+				pm.SendMessage(pm.Name + ", Contact Draco, System Error : Check Failed {0}/{1}", check);
 
 				return;
 			}
@@ -54,10 +37,10 @@ namespace Server.Gumps
 
 			i_Tool = dd;
 
-			this.Closable=false;
-			this.Disposable=false;
-			this.Dragable=false;
-			this.Resizable=false;
+			this.Closable = false;
+			this.Disposable = false;
+			this.Dragable = false;
+			this.Resizable = false;
 
 			this.X = dd.x_Info;
 			this.Y = dd.y_Info;
@@ -77,47 +60,47 @@ namespace Server.Gumps
 			this.AddLabel(160, 25, dd.c_Font, @"Y : " + dd.TempY);
 			this.AddLabel(225, 25, dd.c_Font, @"Z : " + dd.TempZ);
 
-			if ( dd.StcT == true )
+			if (dd.StcT)
 				this.AddLabel(70, 45, dd.c_Font, @"Hue : " + dd.TempH);
 
 			this.AddButton(216, 45, 240, 239, 2, GumpButtonType.Reply, 0);
 		}
 
-        	public override void OnResponse(NetState ns, RelayInfo info)
-        	{
+		public override void OnResponse(NetState ns, RelayInfo info)
+		{
 			Mobile mob_m = ns.Mobile;
 
 			PlayerMobile pm = mob_m as PlayerMobile;
 
 			UOETool dd = i_Tool as UOETool;
 
-			if ( pm == null || dd == null )
-				return;  
+			if (pm == null || dd == null)
+				return;
 
-      			switch(info.ButtonID)
-            		{
-                		case 0:
+			switch (info.ButtonID)
+			{
+				case 0:
 				{
-					pm.SendMessage( pm.Name + ", Thanks for using the UO Editor!" );
+					pm.SendMessage(pm.Name + ", Thanks for using the UO Editor!");
 
-            				dd.SendSYSBCK( pm, dd );
+					dd.SendSYSBCK(pm, dd);
 
 					break;
 				}
-                		case 1:
+				case 1:
 				{
 					pm.Target = new UOETarget();
 
-					dd.SendSYSBCK( pm, dd );
+					dd.SendSYSBCK(pm, dd);
 
-					if ( dd.SndOn == true )
+					if (dd.SndOn)
 						pm.PlaySound(dd.Snd5);
 
-					break;	
+					break;
 				}
-                		case 2:
+				case 2:
 				{
-					if ( dd.StcT == true )
+					if (dd.StcT)
 					{
 						dd.StcID = dd.TempID;
 						dd.StcX = dd.TempX;
@@ -126,7 +109,7 @@ namespace Server.Gumps
 						dd.Hue_S = dd.TempH;
 					}
 
-					if ( dd.LndT == true )
+					if (dd.LndT)
 					{
 						dd.LndID = dd.TempID;
 						dd.LndX = dd.TempX;
@@ -134,12 +117,12 @@ namespace Server.Gumps
 						dd.LndZ = dd.TempZ;
 					}
 
-					dd.SendSYSBCK( pm, dd );
+					dd.SendSYSBCK(pm, dd);
 
-					if ( dd.SndOn == true )
+					if (dd.SndOn)
 						pm.PlaySound(dd.Snd5);
 
-					break;	
+					break;
 				}
 			}
 		}

@@ -1,17 +1,15 @@
+#region References
+
 using Server.Network;
+
+#endregion
 
 namespace Server.Items
 {
 	public class Wrzutnia : Container
 	{
-		private string m_Label3Filter;
-
 		[CommandProperty(AccessLevel.GameMaster)]
-		public string Label3Filter
-		{
-			get { return m_Label3Filter; }
-			set { m_Label3Filter = value; }
-		}
+		public string Label3Filter { get; set; }
 
 		[Constructable]
 		public Wrzutnia(int itemID) : base(itemID)
@@ -26,7 +24,7 @@ namespace Server.Items
 			return false;
 		}
 
-		public override bool CheckItemUse(Mobile @from, Item item)
+		public override bool CheckItemUse(Mobile from, Item item)
 		{
 			if (from.AccessLevel > AccessLevel.Player)
 				return true;
@@ -36,7 +34,7 @@ namespace Server.Items
 		public override bool CheckHold(Mobile m, Item item, bool message, bool checkItems, bool checkWeight,
 			int plusItems, int plusWeight)
 		{
-			if (m_Label3Filter != null && m_Label3Filter != item.Label3)
+			if (Label3Filter != null && Label3Filter != item.Label3)
 			{
 				if (message)
 					m.SendMessage("Nie mozesz tego wrzucic");
@@ -54,9 +52,9 @@ namespace Server.Items
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)0);
+			writer.Write(0);
 
-			writer.Write(m_Label3Filter);
+			writer.Write(Label3Filter);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -64,7 +62,7 @@ namespace Server.Items
 			base.Deserialize(reader);
 			int version = reader.ReadInt();
 
-			m_Label3Filter = reader.ReadString();
+			Label3Filter = reader.ReadString();
 		}
 	}
 }

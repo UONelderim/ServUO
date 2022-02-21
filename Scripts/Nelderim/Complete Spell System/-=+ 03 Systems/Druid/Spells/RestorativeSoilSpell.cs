@@ -1,191 +1,196 @@
+#region References
+
 using System;
-using Server.Targeting;
-using Server.Network;
-using Server.Misc;
-using Server.Items;
-using Server.Mobiles;
 using Server.Gumps;
+using Server.Misc;
+using Server.Mobiles;
 using Server.Spells;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Druid
 {
-    public class DruidRestorativeSoilSpell : DruidSpell
-    {
-        private static SpellInfo m_Info = new SpellInfo(
-                                                        "Lecznicza Ziemia", "Ohm Sepa Ante",
-            //SpellCircle.Eighth,
-                                                        269,
-                                                        9020,
-                                                        Reagent.Garlic,
-                                                        Reagent.Ginseng,
-                                                        CReagent.SpringWater
-                                                       );
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Eighth; }
-        }
+	public class DruidRestorativeSoilSpell : DruidSpell
+	{
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Lecznicza Ziemia", "Ohm Sepa Ante",
+			//SpellCircle.Eighth,
+			269,
+			9020,
+			Reagent.Garlic,
+			Reagent.Ginseng,
+			CReagent.SpringWater
+		);
+
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Eighth; }
+		}
 
 
-        public override double CastDelay { get { return 2.0; } }
-        public override double RequiredSkill { get { return 89.0; } }
-        public override int RequiredMana { get { return 60; } }
+		public override double CastDelay { get { return 2.0; } }
+		public override double RequiredSkill { get { return 89.0; } }
+		public override int RequiredMana { get { return 60; } }
 
-        public DruidRestorativeSoilSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-                                if (this.Scroll != null)
-                        Scroll.Consume();
-        }
-        
-        public override bool CheckCast()
-        {
-            if (!base.CheckCast())
-                return false;
+		public DruidRestorativeSoilSpell(Mobile caster, Item scroll)
+			: base(caster, scroll, m_Info)
+		{
+			if (this.Scroll != null)
+				Scroll.Consume();
+		}
 
-            return true;
-        }
+		public override bool CheckCast()
+		{
+			if (!base.CheckCast())
+				return false;
 
-        public override void OnCast()
-        {
-            Caster.Target = new InternalTarget(this);
-        }
+			return true;
+		}
 
-        public void Target(IPoint3D p)
-        {
-            if (!Caster.CanSee(p))
-            {
-                Caster.SendLocalizedMessage(500237); // Target can not be seen.
-            }
-            else if (CheckSequence())
-            {
-                SpellHelper.Turn(Caster, p);
+		public override void OnCast()
+		{
+			Caster.Target = new InternalTarget(this);
+		}
 
-                SpellHelper.GetSurfaceTop(ref p);
+		public void Target(IPoint3D p)
+		{
+			if (!Caster.CanSee(p))
+			{
+				Caster.SendLocalizedMessage(500237); // Target can not be seen.
+			}
+			else if (CheckSequence())
+			{
+				SpellHelper.Turn(Caster, p);
 
-                Effects.PlaySound(p, Caster.Map, 0x382);
+				SpellHelper.GetSurfaceTop(ref p);
 
-                Point3D loc = new Point3D(p.X, p.Y, p.Z);
-                Item item = new InternalItem(loc, Caster.Map, Caster);
-            }
+				Effects.PlaySound(p, Caster.Map, 0x382);
 
-            FinishSequence();
-        }
+				Point3D loc = new Point3D(p.X, p.Y, p.Z);
+				Item item = new InternalItem(loc, Caster.Map, Caster);
+			}
 
-        [DispellableField]
-        private class InternalItem : Item
-        {
-            private Timer m_Timer;
-            private DateTime m_End;
-            private Mobile m_Owner;
+			FinishSequence();
+		}
 
-            public override bool BlocksFit { get { return true; } }
+		[DispellableField]
+		private class InternalItem : Item
+		{
+			private Timer m_Timer;
+			private DateTime m_End;
+			private Mobile m_Owner;
 
-            public InternalItem(Point3D loc, Map map, Mobile caster)
-                : base(0x913)
-            {
-                m_Owner = caster;
-                Visible = false;
-                Movable = false;
-                Name = "lecznicza ziemia";
-                MoveToWorld(loc, map);
+			public override bool BlocksFit { get { return true; } }
 
-                if (caster.InLOS(this))
-                    Visible = true;
-                else
-                    Delete();
+			public InternalItem(Point3D loc, Map map, Mobile caster)
+				: base(0x913)
+			{
+				m_Owner = caster;
+				Visible = false;
+				Movable = false;
+				Name = "lecznicza ziemia";
+				MoveToWorld(loc, map);
 
-                if (Deleted)
-                    return;
+				if (caster.InLOS(this))
+					Visible = true;
+				else
+					Delete();
 
-                m_Timer = new InternalTimer(this, TimeSpan.FromSeconds(30.0));
-                m_Timer.Start();
+				if (Deleted)
+					return;
 
-                m_End = DateTime.Now + TimeSpan.FromSeconds(30.0);
-            }
+				m_Timer = new InternalTimer(this, TimeSpan.FromSeconds(30.0));
+				m_Timer.Start();
 
-            public InternalItem(Serial serial)
-                : base(serial)
-            {
-            }
+				m_End = DateTime.Now + TimeSpan.FromSeconds(30.0);
+			}
 
-            public override bool HandlesOnMovement { get { return true; } }
-            public override void Serialize(GenericWriter writer)
-            {
-                base.Serialize(writer);
-                writer.Write((int)1); // version
-                writer.Write(m_End - DateTime.Now);
-            }
+			public InternalItem(Serial serial)
+				: base(serial)
+			{
+			}
 
-            public override void Deserialize(GenericReader reader)
-            {
-                base.Deserialize(reader);
-                int version = reader.ReadInt();
-                TimeSpan duration = reader.ReadTimeSpan();
+			public override bool HandlesOnMovement { get { return true; } }
 
-                m_Timer = new InternalTimer(this, duration);
-                m_Timer.Start();
+			public override void Serialize(GenericWriter writer)
+			{
+				base.Serialize(writer);
+				writer.Write(1); // version
+				writer.Write(m_End - DateTime.Now);
+			}
 
-                m_End = DateTime.Now + duration;
-            }
+			public override void Deserialize(GenericReader reader)
+			{
+				base.Deserialize(reader);
+				int version = reader.ReadInt();
+				TimeSpan duration = reader.ReadTimeSpan();
 
-            public override bool OnMoveOver(Mobile m)
-            {
-                if (m is PlayerMobile && !m.Alive)
-                {
-                    m.SendGump(new ResurrectGump(m));
+				m_Timer = new InternalTimer(this, duration);
+				m_Timer.Start();
 
-                    m.SendMessage("Moc leczniczej ziemi ożywa Cię!");
-                }
-                else
-                    m.PlaySound(0x339);
-                return true;
-            }
+				m_End = DateTime.Now + duration;
+			}
 
-            public override void OnAfterDelete()
-            {
-                base.OnAfterDelete();
+			public override bool OnMoveOver(Mobile m)
+			{
+				if (m is PlayerMobile && !m.Alive)
+				{
+					m.SendGump(new ResurrectGump(m));
 
-                if (m_Timer != null)
-                    m_Timer.Stop();
-            }
+					m.SendMessage("Moc leczniczej ziemi ożywa Cię!");
+				}
+				else
+					m.PlaySound(0x339);
 
-            private class InternalTimer : Timer
-            {
-                private InternalItem m_Item;
+				return true;
+			}
 
-                public InternalTimer(InternalItem item, TimeSpan duration)
-                    : base(duration)
-                {
-                    m_Item = item;
-                }
+			public override void OnAfterDelete()
+			{
+				base.OnAfterDelete();
 
-                protected override void OnTick()
-                {
-                    m_Item.Delete();
-                }
-            }
-        }
+				if (m_Timer != null)
+					m_Timer.Stop();
+			}
 
-        private class InternalTarget : Target
-        {
-            private DruidRestorativeSoilSpell m_Owner;
+			private class InternalTimer : Timer
+			{
+				private readonly InternalItem m_Item;
 
-            public InternalTarget(DruidRestorativeSoilSpell owner)
-                : base(12, true, TargetFlags.None)
-            {
-                m_Owner = owner;
-            }
+				public InternalTimer(InternalItem item, TimeSpan duration)
+					: base(duration)
+				{
+					m_Item = item;
+				}
 
-            protected override void OnTarget(Mobile from, object o)
-            {
-                if (o is IPoint3D)
-                    m_Owner.Target((IPoint3D)o);
-            }
+				protected override void OnTick()
+				{
+					m_Item.Delete();
+				}
+			}
+		}
 
-            protected override void OnTargetFinish(Mobile from)
-            {
-                m_Owner.FinishSequence();
-            }
-        }
-    }
+		private class InternalTarget : Target
+		{
+			private readonly DruidRestorativeSoilSpell m_Owner;
+
+			public InternalTarget(DruidRestorativeSoilSpell owner)
+				: base(12, true, TargetFlags.None)
+			{
+				m_Owner = owner;
+			}
+
+			protected override void OnTarget(Mobile from, object o)
+			{
+				if (o is IPoint3D)
+					m_Owner.Target((IPoint3D)o);
+			}
+
+			protected override void OnTargetFinish(Mobile from)
+			{
+				m_Owner.FinishSequence();
+			}
+		}
+	}
 }

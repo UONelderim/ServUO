@@ -1,116 +1,117 @@
-using System;
+#region References
+
 using System.Collections;
-using Server.Network;
-using Server.Items;
-using Server.Targeting;
 using Server.Spells;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ancient
 {
-    public class AncientMassMightSpell : AncientSpell
-    {
-        public override double RequiredSkill { get { return 70.0; } }
-        public override int RequiredMana { get { return 60; } }
-        private static SpellInfo m_Info = new SpellInfo(
-                                                        "Masowa potęga", "Rel Sanctum Angst Ver Nergo",
-                                                        215,
-                                                        9061,
-                                                        Reagent.BlackPearl,
-                                                        Reagent.MandrakeRoot,
-                                                        Reagent.Ginseng
-                                                       );
+	public class AncientMassMightSpell : AncientSpell
+	{
+		public override double RequiredSkill { get { return 70.0; } }
+		public override int RequiredMana { get { return 60; } }
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Seventh; }
-        }
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Masowa potęga", "Rel Sanctum Angst Ver Nergo",
+			215,
+			9061,
+			Reagent.BlackPearl,
+			Reagent.MandrakeRoot,
+			Reagent.Ginseng
+		);
 
-        public AncientMassMightSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Seventh; }
+		}
 
-        public override void OnCast()
-        {
-            if (CheckSequence())
-                Caster.Target = new InternalTarget(this);
-        }
+		public AncientMassMightSpell(Mobile caster, Item scroll)
+			: base(caster, scroll, m_Info)
+		{
+		}
 
-        public void Target(IPoint3D p)
-        {
-            if (!Caster.CanSee(p))
-            {
-                Caster.SendLocalizedMessage(500237); // Target can not be seen.
-            }
-            else if (CheckSequence())
-            {
-                if (this.Scroll != null)
-                    Scroll.Consume();
-                SpellHelper.Turn(Caster, p);
+		public override void OnCast()
+		{
+			if (CheckSequence())
+				Caster.Target = new InternalTarget(this);
+		}
 
-                SpellHelper.GetSurfaceTop(ref p);
+		public void Target(IPoint3D p)
+		{
+			if (!Caster.CanSee(p))
+			{
+				Caster.SendLocalizedMessage(500237); // Target can not be seen.
+			}
+			else if (CheckSequence())
+			{
+				if (this.Scroll != null)
+					Scroll.Consume();
+				SpellHelper.Turn(Caster, p);
 
-                ArrayList targets = new ArrayList();
+				SpellHelper.GetSurfaceTop(ref p);
 
-                Map map = Caster.Map;
+				ArrayList targets = new ArrayList();
 
-                if (map != null)
-                {
-                    IPooledEnumerable eable = map.GetMobilesInRange(new Point3D(p), 3);
+				Map map = Caster.Map;
 
-                    foreach (Mobile m in eable)
-                    {
-                        if (Caster.CanBeBeneficial(m, false))
-                            targets.Add(m);
-                    }
+				if (map != null)
+				{
+					IPooledEnumerable eable = map.GetMobilesInRange(new Point3D(p), 3);
 
-                    eable.Free();
-                }
+					foreach (Mobile m in eable)
+					{
+						if (Caster.CanBeBeneficial(m, false))
+							targets.Add(m);
+					}
 
-                Effects.PlaySound(p, Caster.Map, 0x299);
+					eable.Free();
+				}
 
-                if (targets.Count > 0)
-                {
+				Effects.PlaySound(p, Caster.Map, 0x299);
 
-                    for (int i = 0; i < targets.Count; ++i)
-                    {
-                        Mobile targ = (Mobile)targets[i];
+				if (targets.Count > 0)
+				{
+					for (int i = 0; i < targets.Count; ++i)
+					{
+						Mobile targ = (Mobile)targets[i];
 
-                        SpellHelper.AddStatBonus(Caster, targ, true, StatType.Str);
-                        SpellHelper.AddStatBonus(Caster, targ, true, StatType.Dex);
-                        SpellHelper.AddStatBonus(Caster, targ, false, StatType.Int);
+						SpellHelper.AddStatBonus(Caster, targ, true, StatType.Str);
+						SpellHelper.AddStatBonus(Caster, targ, true, StatType.Dex);
+						SpellHelper.AddStatBonus(Caster, targ, false, StatType.Int);
 
-                        targ.FixedParticles(0x373A, 10, 15, 5018, EffectLayer.Waist);
-                        targ.PlaySound(0x1EA);
-                    }
-                }
-            }
+						targ.FixedParticles(0x373A, 10, 15, 5018, EffectLayer.Waist);
+						targ.PlaySound(0x1EA);
+					}
+				}
+			}
 
-            FinishSequence();
-        }
+			FinishSequence();
+		}
 
-        private class InternalTarget : Target
-        {
-            private AncientMassMightSpell m_Owner;
+		private class InternalTarget : Target
+		{
+			private readonly AncientMassMightSpell m_Owner;
 
-            public InternalTarget(AncientMassMightSpell owner)
-                : base(12, true, TargetFlags.None)
-            {
-                m_Owner = owner;
-            }
+			public InternalTarget(AncientMassMightSpell owner)
+				: base(12, true, TargetFlags.None)
+			{
+				m_Owner = owner;
+			}
 
-            protected override void OnTarget(Mobile from, object o)
-            {
-                IPoint3D p = o as IPoint3D;
+			protected override void OnTarget(Mobile from, object o)
+			{
+				IPoint3D p = o as IPoint3D;
 
-                if (p != null)
-                    m_Owner.Target(p);
-            }
+				if (p != null)
+					m_Owner.Target(p);
+			}
 
-            protected override void OnTargetFinish(Mobile from)
-            {
-                m_Owner.FinishSequence();
-            }
-        }
-    }
+			protected override void OnTargetFinish(Mobile from)
+			{
+				m_Owner.FinishSequence();
+			}
+		}
+	}
 }

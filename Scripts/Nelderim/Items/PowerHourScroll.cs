@@ -1,11 +1,16 @@
-﻿using System;
+﻿#region References
+
+using System;
 using Server.Mobiles;
+
+#endregion
 
 namespace Server.Items
 {
 	public class PowerHourScroll : Item
 	{
 		public override int LabelNumber { get { return 1064800; } } // Zwoj PowerHour
+
 		[Constructable]
 		public PowerHourScroll() : base(0x14F0)
 		{
@@ -22,12 +27,12 @@ namespace Server.Items
 		{
 			PlayerMobile pm = (PlayerMobile)from;
 
-			if ( pm.HasPowerHour )
+			if (pm.HasPowerHour)
 			{
 				// Player is currently on PowerHour
 				pm.SendLocalizedMessage(1064802); // Jestes w trakcie PowerHour!
 			}
-			else if ( pm.AllowPowerHour )
+			else if (pm.AllowPowerHour)
 			{
 				// Player hasnt used PowerHour
 				pm.SendLocalizedMessage(1064801); // Nie zuzyto jeszcze PowerHour tego dnia!
@@ -36,8 +41,9 @@ namespace Server.Items
 			{
 				// Reset PowerHour
 				pm.LastPowerHour = DateTime.Now.AddDays(-1);
-				pm.SendLocalizedMessage(1064803); // Zuzycie PowerHour zostalo zresetowane, mozesz uruchomic je ponownie.
-												  // Remove scroll
+				pm.SendLocalizedMessage(
+					1064803); // Zuzycie PowerHour zostalo zresetowane, mozesz uruchomic je ponownie.
+				// Remove scroll
 				Delete();
 			}
 		}
@@ -46,7 +52,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -55,12 +61,12 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 
-			switch ( version )
+			switch (version)
 			{
 				case 0:
-					{
-						break;
-					}
+				{
+					break;
+				}
 			}
 		}
 	}

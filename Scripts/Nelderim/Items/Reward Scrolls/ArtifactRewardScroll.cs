@@ -1,79 +1,100 @@
+#region References
+
 using System;
 using Server.Gumps;
-using Server.Network;
 using Server.Mobiles;
+using Server.Network;
+
+#endregion
 
 namespace Server.Items
 {
-
 	public abstract class ArtifactRewardScroll : Item
 	{
 		public bool m_Chosen;
 
-		public ArtifactRewardScroll(bool chosen) : base(0x14F0) {
+		public ArtifactRewardScroll(bool chosen) : base(0x14F0)
+		{
 			base.Weight = 0.1;
 			LootType = LootType.Blessed;
 			m_Chosen = chosen;
 		}
 
-		public ArtifactRewardScroll(Serial serial) : base(serial) {
+		public ArtifactRewardScroll(Serial serial) : base(serial)
+		{
 		}
 
 
-		public virtual Type[] Artifacts {
-			get {
+		public virtual Type[] Artifacts
+		{
+			get
+			{
 				return new Type[] { };
 			}
 		}
-		public virtual string[] ArtifactsNames {
-			get {
+
+		public virtual string[] ArtifactsNames
+		{
+			get
+			{
 				return new string[] { };
 			}
 		}
 
-		public virtual string RewardScrollInfo {
-			get {
+		public virtual string RewardScrollInfo
+		{
+			get
+			{
 				return "";
 			}
 		}
 
-		public virtual string RewardInfo {
-			get {
+		public virtual string RewardInfo
+		{
+			get
+			{
 				return "";
 			}
 		}
 
-		public override void AddNameProperty(ObjectPropertyList list) {
+		public override void AddNameProperty(ObjectPropertyList list)
+		{
 			list.Add(RewardScrollInfo + " " + (m_Chosen ? "(wybierany)" : "(losowy)"));
-
 		}
 
-		public override void OnAosSingleClick(Mobile from) {
+		public override void OnAosSingleClick(Mobile from)
+		{
 			base.LabelTo(from, RewardScrollInfo + " " + (m_Chosen ? "(wybierany)" : "(losowy)"));
 		}
 
 
-		public override void OnDoubleClick(Mobile from) {
+		public override void OnDoubleClick(Mobile from)
+		{
 			if (Deleted || !(from is PlayerMobile) || !from.Alive)
 				return;
 
-			if (IsChildOf(from.Backpack)) {
+			if (IsChildOf(from.Backpack))
+			{
 				if (m_Chosen)
 					from.SendGump(new ArtChooseGump(from, Artifacts, ArtifactsNames, this));
 				else
 					Use(from, true);
-
-			} else {
+			}
+			else
+			{
 				from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
 			}
 		}
 
-		public void Use(Mobile from, bool firstStage) {
-
-			if (firstStage) {
-				from.CloseGump(typeof(ArtifactRewardScroll.InternalGump));
+		public void Use(Mobile from, bool firstStage)
+		{
+			if (firstStage)
+			{
+				from.CloseGump(typeof(InternalGump));
 				from.SendGump(new InternalGump(from, this));
-			} else {
+			}
+			else
+			{
 				int reward = Utility.Random(Artifacts.Length);
 				Item art = (Item)Activator.CreateInstance(Artifacts[reward]);
 				from.Backpack.DropItem(art);
@@ -89,10 +110,11 @@ namespace Server.Items
 
 		public class InternalGump : Gump
 		{
-			private Mobile m_Mobile;
-			private ArtifactRewardScroll m_Scroll;
+			private readonly Mobile m_Mobile;
+			private readonly ArtifactRewardScroll m_Scroll;
 
-			public InternalGump(Mobile mobile, ArtifactRewardScroll scroll) : base(25, 50) {
+			public InternalGump(Mobile mobile, ArtifactRewardScroll scroll) : base(25, 50)
+			{
 				m_Mobile = mobile;
 				m_Scroll = scroll;
 
@@ -103,7 +125,9 @@ namespace Server.Items
 				AddImageTiled(33, 20, 401, 181, 2624);
 				AddAlphaRegion(33, 20, 401, 181);
 
-				AddHtml(40, 48, 387, 100, String.Format("<basefont color=#FFFFFF>Uzywajac tego zwoju, otrzymasz losowy {0}.</basefont>", m_Scroll.RewardInfo), true, true);
+				AddHtml(40, 48, 387, 100,
+					String.Format("<basefont color=#FFFFFF>Uzywajac tego zwoju, otrzymasz losowy {0}.</basefont>",
+						m_Scroll.RewardInfo), true, true);
 
 				AddHtmlLocalized(125, 148, 200, 20, 1049478, 0xFFFFFF, false, false); // Do you wish to use this scroll?
 
@@ -113,24 +137,27 @@ namespace Server.Items
 				AddButton(275, 172, 4005, 4007, 0, GumpButtonType.Reply, 0);
 				AddHtmlLocalized(310, 172, 120, 20, 1046363, 0xFFFFFF, false, false); // No
 
-				AddHtml(40, 20, 260, 20, String.Format("<basefont color=#FFFFFF>{0}:</basefont>", m_Scroll.RewardScrollInfo), false, false);
-
+				AddHtml(40, 20, 260, 20,
+					String.Format("<basefont color=#FFFFFF>{0}:</basefont>", m_Scroll.RewardScrollInfo), false, false);
 			}
 
-			public override void OnResponse(NetState state, RelayInfo info) {
+			public override void OnResponse(NetState state, RelayInfo info)
+			{
 				if (info.ButtonID == 1)
 					m_Scroll.Use(m_Mobile, false);
 			}
 		}
 
-		public override void Serialize(GenericWriter writer) {
+		public override void Serialize(GenericWriter writer)
+		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 			writer.Write(m_Chosen);
 		}
 
-		public override void Deserialize(GenericReader reader) {
+		public override void Deserialize(GenericReader reader)
+		{
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();

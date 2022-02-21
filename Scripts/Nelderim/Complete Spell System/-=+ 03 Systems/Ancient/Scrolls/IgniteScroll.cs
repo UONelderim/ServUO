@@ -1,38 +1,36 @@
-using System;
-
 namespace Server.ACC.CSS.Systems.Ancient
 {
-    public class AncientIgniteScroll : CSpellScroll
-    {
-        [Constructable]
-        public AncientIgniteScroll()
-            : this(1)
-        {
-        }
+	public class AncientIgniteScroll : CSpellScroll
+	{
+		[Constructable]
+		public AncientIgniteScroll()
+			: this(1)
+		{
+		}
 
-        [Constructable]
-        public AncientIgniteScroll(int amount)
-            : base(typeof(AncientIgniteSpell), 0x1F32, amount)
-        {
-            Name = "Zwój podpalenia";
-            Hue = 1355;
-        }
+		[Constructable]
+		public AncientIgniteScroll(int amount)
+			: base(typeof(AncientIgniteSpell), 0x1F32, amount)
+		{
+			Name = "Zwój podpalenia";
+			Hue = 1355;
+		}
 
-        public AncientIgniteScroll(Serial serial)
-            : base(serial)
-        {
-        }
+		public AncientIgniteScroll(Serial serial)
+			: base(serial)
+		{
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-            writer.Write((int)0); // version
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+			writer.Write(0); // version
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-            int version = reader.ReadInt();
-        }
-    }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+			int version = reader.ReadInt();
+		}
+	}
 }

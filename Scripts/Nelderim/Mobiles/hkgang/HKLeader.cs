@@ -1,6 +1,10 @@
+#region References
+
 using System;
 using Server.Items;
 using Server.Mobiles;
+
+#endregion
 
 namespace Server.Engines.HunterKiller
 {
@@ -51,7 +55,7 @@ namespace Server.Engines.HunterKiller
 
 		public void Speak(int s)
 		{
-			string[] toSay = new string[]
+			string[] toSay =
 			{
 				"Dalej, rozlejmy trochę krwi !", "Musimy poczekac, jak wroca...", "Wystarczy! Wracajmy !"
 			};
@@ -119,7 +123,7 @@ namespace Server.Engines.HunterKiller
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)

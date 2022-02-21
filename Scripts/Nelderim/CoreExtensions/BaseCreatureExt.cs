@@ -1,85 +1,87 @@
-using Server.Items;
+#region References
+
 using System;
 using System.Collections.Generic;
+using Server.Items;
 using Server.Nelderim;
+
+#endregion
 
 namespace Server.Mobiles
 {
 	public partial class BaseCreature
 	{
-		public void AnnounceRandomRumor( PriorityLevel level )
-        {
-            try
-            {
-                List<RumorRecord> RumorsList = RumorsSystem.GetRumors( this, level );
-
-                if ( RumorsList == null || RumorsList.Count == 0 )
-                    return;
-                
-                int sum = 0;
-
-                foreach ( RumorRecord r in RumorsList )
-                    sum += (int)r.Priority;
-
-                int index = Utility.Random( sum );
-                double chance = sum / ( 4.0 * (int)level );
-                
-                sum = 0;
-                RumorRecord rumor = null;
-
-                foreach ( RumorRecord r in RumorsList )
-                {
-                    sum += (int)r.Priority;
-
-                    if ( sum > index )
-                    {
-                        rumor = r;
-                        break;
-                    }
-                }
-
-                if ( Utility.RandomDouble() < chance )
-                    Say( rumor.Coppice );
-            }
-            catch ( Exception exc )
-            {
-                Console.WriteLine( exc.ToString() );
-            }
-
-        }
-
-        public double GetRumorsActionPropability()
-        {
-	        try
-            {
-                List<RumorRecord> RumorsList = RumorsSystem.GetRumors( this, PriorityLevel.Low );
-
-                if ( RumorsList == null || RumorsList.Count == 0 )
-                    return 0;
-
-                int sum = 0;
-
-                foreach ( RumorRecord r in RumorsList )
-                    sum += (int)r.Priority;
-
-                double chance = sum / 320.0;
-
-                return Math.Max(1.0, chance);
-
-            }
-            catch ( Exception exc )
-            {
-                Console.WriteLine( exc.ToString() );
-            }
-
-            return 0.00;
-        }
-		
-		public bool Activation( Mobile target )
+		public void AnnounceRandomRumor(PriorityLevel level)
 		{
-			return ( Utility.RandomDouble() < Math.Pow( this.GetDistanceToSqrt( target ), -2 ) );
+			try
+			{
+				List<RumorRecord> RumorsList = RumorsSystem.GetRumors(this, level);
+
+				if (RumorsList == null || RumorsList.Count == 0)
+					return;
+
+				int sum = 0;
+
+				foreach (RumorRecord r in RumorsList)
+					sum += (int)r.Priority;
+
+				int index = Utility.Random(sum);
+				double chance = sum / (4.0 * (int)level);
+
+				sum = 0;
+				RumorRecord rumor = null;
+
+				foreach (RumorRecord r in RumorsList)
+				{
+					sum += (int)r.Priority;
+
+					if (sum > index)
+					{
+						rumor = r;
+						break;
+					}
+				}
+
+				if (Utility.RandomDouble() < chance)
+					Say(rumor.Coppice);
+			}
+			catch (Exception exc)
+			{
+				Console.WriteLine(exc.ToString());
+			}
 		}
-		
+
+		public double GetRumorsActionPropability()
+		{
+			try
+			{
+				List<RumorRecord> RumorsList = RumorsSystem.GetRumors(this, PriorityLevel.Low);
+
+				if (RumorsList == null || RumorsList.Count == 0)
+					return 0;
+
+				int sum = 0;
+
+				foreach (RumorRecord r in RumorsList)
+					sum += (int)r.Priority;
+
+				double chance = sum / 320.0;
+
+				return Math.Max(1.0, chance);
+			}
+			catch (Exception exc)
+			{
+				Console.WriteLine(exc.ToString());
+			}
+
+			return 0.00;
+		}
+
+		public bool Activation(Mobile target)
+		{
+			return (Utility.RandomDouble() < Math.Pow(this.GetDistanceToSqrt(target), -2));
+		}
+
 		[CommandProperty(AccessLevel.Counselor)]
 		public virtual double AttackMasterChance => 0.05;
 
@@ -113,13 +115,13 @@ namespace Server.Mobiles
 			}
 		}
 
-		private static double _mdpsMageryScalar = 0.5;
-		private static double _mdpsEvalScalar = 0.003;
-		private static double _mdpsMeditScalar = 0.001;
-		private static double _mdpsManaScalar = 0.0002;
-		private static double _mdpsMaxCircleScalar = 0.05;
-		private static double _mdpsManaCap = 500;
-		
+		private static readonly double _mdpsMageryScalar = 0.5;
+		private static readonly double _mdpsEvalScalar = 0.003;
+		private static readonly double _mdpsMeditScalar = 0.001;
+		private static readonly double _mdpsManaScalar = 0.0002;
+		private static readonly double _mdpsMaxCircleScalar = 0.05;
+		private static readonly double _mdpsManaCap = 500;
+
 		public double MagicDPS
 		{
 			get
@@ -132,14 +134,14 @@ namespace Server.Mobiles
 					double meditation = Skills[SkillName.Meditation].Value;
 
 					double mageryValue = magery * _mdpsMageryScalar * (1 + maxCircle * _mdpsMaxCircleScalar);
-					
+
 					double evalIntBonus = mageryValue * evalInt * _mdpsEvalScalar;
 					double meditBonus = mageryValue * meditation * _mdpsMeditScalar;
 					double manaBonus = mageryValue * Math.Min(ManaMax, _mdpsManaCap) * _mdpsManaScalar;
 
 					return mageryValue + evalIntBonus + meditBonus + manaBonus;
 				}
-				
+
 				return 0;
 			}
 		}
@@ -171,7 +173,8 @@ namespace Server.Mobiles
 			{
 				SkillName[] meleeSkillNames =
 				{
-					SkillName.Wrestling, SkillName.Macing, SkillName.Fencing, SkillName.Swords, SkillName.Archery, SkillName.Throwing
+					SkillName.Wrestling, SkillName.Macing, SkillName.Fencing, SkillName.Swords, SkillName.Archery,
+					SkillName.Throwing
 				};
 
 				Skill skillMax = Skills[meleeSkillNames[0]];
@@ -190,7 +193,8 @@ namespace Server.Mobiles
 
 		public double MeeleeSkillFactor => Math.Max(0.5, MaxMeleeSkill.Value / 120);
 
-		public double AvgRes => (double)(PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance) / 5;
+		public double AvgRes =>
+			(double)(PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance) / 5;
 
 		public double AvgResFactor => AvgRes / 100;
 
@@ -249,7 +253,7 @@ namespace Server.Mobiles
 				return sum * 0.5;
 			}
 		}
-		
+
 		public double SpecialAbilitiesBonus
 		{
 			get
@@ -290,7 +294,6 @@ namespace Server.Mobiles
 				{
 					foreach (SpecialAbility ab in _Profile.SpecialAbilities)
 					{
-						
 						if (abilities.ContainsKey(ab))
 						{
 							if (ab is DragonBreath)
@@ -303,6 +306,7 @@ namespace Server.Mobiles
 						}
 					}
 				}
+
 				return sum * 0.5;
 			}
 		}
@@ -329,7 +333,7 @@ namespace Server.Mobiles
 				areaEffects[AreaEffect.ExplosiveGoo] = 0.2;
 				areaEffects[AreaEffect.PoisonBreath] = 0.05;
 				areaEffects[AreaEffect.AuraDamage] = 0;
-				
+
 				if (_Profile != null && _Profile.AreaEffects != null)
 				{
 					foreach (AreaEffect ae in _Profile.AreaEffects)
@@ -344,10 +348,12 @@ namespace Server.Mobiles
 								var aura = AuraDamage.AuraDefinition.GetDefinition(this);
 								chance = (aura.Damage / aura.Cooldown.TotalSeconds) * 0.1;
 							}
+
 							sum += chance;
 						}
 					}
 				}
+
 				return sum * 0.5;
 			}
 		}
@@ -355,7 +361,7 @@ namespace Server.Mobiles
 		public double BaseDifficulty => DPS * Math.Max(0.01, Life);
 
 		public virtual double DifficultyScalar => 1.0;
-		
+
 		public double GenerateDifficulty() => Math.Round(BaseDifficulty * DifficultyScalar, 4);
 
 		[CommandProperty(AccessLevel.GameMaster)]
@@ -376,7 +382,7 @@ namespace Server.Mobiles
 		// difficulty=100   fame=1600
 		// difficulty=1000  fame=6400
 		// difficulty=10000 fame=25600
-		public int NelderimFame => (int) (100 * Math.Pow(4, Math.Log(Difficulty)/Math.Log(10)));
+		public int NelderimFame => (int)(100 * Math.Pow(4, Math.Log(Difficulty) / Math.Log(10)));
 
 		public int NelderimKarma
 		{
@@ -391,7 +397,7 @@ namespace Server.Mobiles
 		}
 
 		public override int Fame => Config.Get("Nelderim.CustomFameKarma", false) ? NelderimFame : base.Fame;
-		
+
 		public override int Karma => Config.Get("Nelderim.CustomFameKarma", false) ? NelderimKarma : base.Karma;
 	}
 }

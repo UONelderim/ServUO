@@ -1,11 +1,12 @@
-using System;
-using Server;
+#region References
+
 using Server.Mobiles;
-using Server.Spells;
+
+#endregion
 
 namespace Server.Items
 {
-	public class   taintedCrystal : Item
+	public class taintedCrystal : Item
 	{
 		public override string DefaultName
 		{
@@ -13,84 +14,76 @@ namespace Server.Items
 		}
 
 		[Constructable]
-		public  taintedCrystal() : base( 0x1F19 )
+		public taintedCrystal() : base(0x1F19)
 		{
 			Weight = 1.0;
 			Hue = 0x503;
 		}
 
-		public  taintedCrystal( Serial serial ) : base( serial )
+		public taintedCrystal(Serial serial) : base(serial)
 		{
 		}
 
-		public override void OnDoubleClick( Mobile from )
+		public override void OnDoubleClick(Mobile from)
 		{
-			if ( !IsChildOf( from.Backpack ) )
+			if (!IsChildOf(from.Backpack))
 			{
-				from.SendLocalizedMessage( 1042001 ); // That must be in your pack for you to use it.
+				from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
 				return;
 			}
 
 			double NecroSkill = from.Skills[SkillName.Necromancy].Value;
 
-			if ( NecroSkill < 20.0 )
+			if (NecroSkill < 20.0)
 			{
-				from.SendMessage( "Musisz miec przynajmniej 20 umiejetnosci nekromacji, by stworzyc zombie." );
+				from.SendMessage("Musisz miec przynajmniej 20 umiejetnosci nekromacji, by stworzyc zombie.");
 				return;
 			}
 
 			double scalar;
 
-			if ( NecroSkill >= 100.0 )
+			if (NecroSkill >= 100.0)
 				scalar = 1.5;
-			else if ( NecroSkill >= 90.0 )
+			else if (NecroSkill >= 90.0)
 				scalar = 1.3;
-			else if ( NecroSkill >= 80.0 )
+			else if (NecroSkill >= 80.0)
 				scalar = 1.1;
-			else if ( NecroSkill >= 70.0 )
+			else if (NecroSkill >= 70.0)
 				scalar = 1.0;
 			else
 				scalar = 1.0;
 
 			Container pack = from.Backpack;
 
-			if ( pack == null )
+			if (pack == null)
 				return;
 
 			int res = pack.ConsumeTotal(
-				new Type[]
-				{
-					typeof( RottingBod ),
-					typeof( RottingLegs )
-				},
-				new int[]
-				{
-					1,
-					1
-				} );
+				new[] { typeof(RottingBod), typeof(RottingLegs) },
+				new[] { 1, 1 });
 
-			switch ( res )
+			switch (res)
 			{
 				case 0:
 				{
-					from.SendMessage( "Musisz miec gnijący tułów." );
+					from.SendMessage("Musisz miec gnijący tułów.");
 					break;
 				}
 				case 1:
 				{
-					from.SendMessage( "Musisz miec gnijące nogi." );
+					from.SendMessage("Musisz miec gnijące nogi.");
 					break;
 				}
 				default:
 				{
-					ZombieMinion g = new ZombieMinion( true, scalar );
+					ZombieMinion g = new ZombieMinion(true, scalar);
 
-					if ( g.SetControlMaster( from ) )
+					if (g.SetControlMaster(from))
 					{
 						Delete();
 
-						g.MoveToWorld( from.Location, from.Map );
-						from.PlaySound( 0x241 );
+						g.MoveToWorld(from.Location, from.Map);
+						from.PlaySound(0x241);
 					}
 
 					break;
@@ -98,16 +91,16 @@ namespace Server.Items
 			}
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 );
+			writer.Write(0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

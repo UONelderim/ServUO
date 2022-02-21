@@ -1,190 +1,218 @@
+#region References
+
 using System;
 using System.Collections;
 using System.Linq;
-using Server.Network;
 using Nelderim.Towns;
+using Server.Network;
+
+#endregion
 
 namespace Server.Gumps
 {
-    public class TownDatabaseGump : Gump
-    {
-        enum TownDatabaseGumpPage 
-        {
-            Glowna,
-            Budowa,
-            Obywatele,
-            StatystykiObywatele,
-            StatystykiBudynki,
-            Zamknij,
-            PrzegladWladzMiasta,
-        }
-
-        public void AddButtonWithLabeled(int x, int y, int page)
-        {
-            AddButton(x, y, 4006, 4007, page, GumpButtonType.Reply, 0);
-            AddHtml(x + 40, y, 150, 30, ((TownDatabaseGumpPage)page).ToString(), false, false);
-        }
-
-        public TownDatabaseGump(Mobile from, int page = 0) : base(50, 40)
+	public class TownDatabaseGump : Gump
+	{
+		enum TownDatabaseGumpPage
 		{
-            AddBackground(0, 0, 600, 400, 5054);
-            TownDatabaseGumpPage pageE = (TownDatabaseGumpPage)page;
-            AddHtml(250, 0, 100, 30, "Nelderim Towns", true, false);
-            if (TownDatabase.GetTownsNames() != null)
-            {
-                switch (pageE)
-                {
-                    case TownDatabaseGumpPage.Glowna:
-                        AddButtonWithLabeled(10, 30, (int)TownDatabaseGumpPage.Budowa);
-                        AddButtonWithLabeled(10, 50, (int)TownDatabaseGumpPage.Obywatele);
-                        AddButtonWithLabeled(10, 70, (int)TownDatabaseGumpPage.StatystykiObywatele);
-                        AddButtonWithLabeled(10, 90, (int)TownDatabaseGumpPage.StatystykiBudynki);
-                        AddButtonWithLabeled(10, 110, (int)TownDatabaseGumpPage.PrzegladWladzMiasta);
-                        AddButtonWithLabeled(400, 370, (int)TownDatabaseGumpPage.Zamknij);
-                        break;
-                    case TownDatabaseGumpPage.Budowa:
-                        int yBudowa = 30;
-                        foreach (Towns tm in TownDatabase.GetTownsNames())
-                        {
-                            if (tm != Towns.None)
-                            {
-                                foreach (TownBuilding tb in TownDatabase.GetTown(tm).Buildings)
-                                {
-                                    if (tb.Status == TownBuildingStatus.Budowanie)
-                                    {
-                                        AddHtml(10, yBudowa, 500, 30, string.Format("{0} - {1}", tm.ToString(), tb.BuildingType.ToString()), true, false);
-                                        yBudowa += 30;
-                                    }
-                                }
-                            }
-                        }
-                        AddButtonWithLabeled(10, 370, (int)TownDatabaseGumpPage.Glowna);
-                        AddButtonWithLabeled(400, 370, (int)TownDatabaseGumpPage.Zamknij);
-                        break;
-                    case TownDatabaseGumpPage.Obywatele:
-                        string ObywateleToShow = "| Serial | Miasto | Imie | Status |";
-                        IDictionaryEnumerator citNum = TownDatabase.GetCitizens().GetEnumerator();
-                        while (citNum.MoveNext())
-                        {
-                            Mobile mob = World.FindMobile((Serial)citNum.Key);
-                            if (mob != null)
-                            {
-                                if (mob.Player)
-                                {
-                                    ObywateleToShow = string.Format("{0}\n| {1} | {2} | {3} | {4} |",
-                                    ObywateleToShow,
-                                    citNum.Key.ToString(),
-                                    ((TownCitizenship)citNum.Value).CurrentTown.ToString(),
-                                    mob.Name,
-                                    ((TownCitizenship)citNum.Value).CurrentTownStatus.ToString());
-                                }
-                                else
-                                {
-                                    Console.WriteLine(string.Format("{0} is not player, will be deleted on restart", mob.Name));
-                                }
-                            }
-                            
-                        }
+			Glowna,
+			Budowa,
+			Obywatele,
+			StatystykiObywatele,
+			StatystykiBudynki,
+			Zamknij,
+			PrzegladWladzMiasta,
+		}
 
-                        AddHtml(10, 30, 580, 300, ObywateleToShow, true, true);
+		public void AddButtonWithLabeled(int x, int y, int page)
+		{
+			AddButton(x, y, 4006, 4007, page, GumpButtonType.Reply, 0);
+			AddHtml(x + 40, y, 150, 30, ((TownDatabaseGumpPage)page).ToString(), false, false);
+		}
 
-                        AddButtonWithLabeled(10, 370, (int)TownDatabaseGumpPage.Glowna);
-                        AddButtonWithLabeled(400, 370, (int)TownDatabaseGumpPage.Zamknij);
-                        break;
-                    case TownDatabaseGumpPage.PrzegladWladzMiasta:
-                        string ObywateleToShowz = "| Serial | Miasto | Imie | Status |";
-                        IDictionaryEnumerator citNumz = TownDatabase.GetCitizens().GetEnumerator();
-                        while (citNumz.MoveNext())
-                        {
-                            if (TownDatabase.GetCitizenCurrentStatus((Serial)citNumz.Key) != TownStatus.Citizen)
-                            {
-                                Mobile mob = World.FindMobile((Serial)citNumz.Key);
+		public TownDatabaseGump(Mobile from, int page = 0) : base(50, 40)
+		{
+			AddBackground(0, 0, 600, 400, 5054);
+			TownDatabaseGumpPage pageE = (TownDatabaseGumpPage)page;
+			AddHtml(250, 0, 100, 30, "Nelderim Towns", true, false);
+			if (TownDatabase.GetTownsNames() != null)
+			{
+				switch (pageE)
+				{
+					case TownDatabaseGumpPage.Glowna:
+						AddButtonWithLabeled(10, 30, (int)TownDatabaseGumpPage.Budowa);
+						AddButtonWithLabeled(10, 50, (int)TownDatabaseGumpPage.Obywatele);
+						AddButtonWithLabeled(10, 70, (int)TownDatabaseGumpPage.StatystykiObywatele);
+						AddButtonWithLabeled(10, 90, (int)TownDatabaseGumpPage.StatystykiBudynki);
+						AddButtonWithLabeled(10, 110, (int)TownDatabaseGumpPage.PrzegladWladzMiasta);
+						AddButtonWithLabeled(400, 370, (int)TownDatabaseGumpPage.Zamknij);
+						break;
+					case TownDatabaseGumpPage.Budowa:
+						int yBudowa = 30;
+						foreach (Towns tm in TownDatabase.GetTownsNames())
+						{
+							if (tm != Towns.None)
+							{
+								foreach (TownBuilding tb in TownDatabase.GetTown(tm).Buildings)
+								{
+									if (tb.Status == TownBuildingStatus.Budowanie)
+									{
+										AddHtml(10, yBudowa, 500, 30,
+											String.Format("{0} - {1}", tm.ToString(), tb.BuildingType.ToString()), true,
+											false);
+										yBudowa += 30;
+									}
+								}
+							}
+						}
 
-                                if (mob != null)
-                                {
-                                    if (mob.Player)
-                                    {
-                                        ObywateleToShowz = string.Format("{0}\n| {1} | {2} | {3} | {4} |",
-                                        ObywateleToShowz,
-                                        citNumz.Key.ToString(),
-                                        ((TownCitizenship)citNumz.Value).CurrentTown.ToString(),
-                                        mob.Name,
-                                        ((TownCitizenship)citNumz.Value).CurrentTownStatus.ToString());
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine(string.Format("{0} is not player, will be deleted on restart", mob.Name));
-                                    }
-                                }
-                            }
-                        }
+						AddButtonWithLabeled(10, 370, (int)TownDatabaseGumpPage.Glowna);
+						AddButtonWithLabeled(400, 370, (int)TownDatabaseGumpPage.Zamknij);
+						break;
+					case TownDatabaseGumpPage.Obywatele:
+						string ObywateleToShow = "| Serial | Miasto | Imie | Status |";
+						IDictionaryEnumerator citNum = TownDatabase.GetCitizens().GetEnumerator();
+						while (citNum.MoveNext())
+						{
+							Mobile mob = World.FindMobile((Serial)citNum.Key);
+							if (mob != null)
+							{
+								if (mob.Player)
+								{
+									ObywateleToShow = String.Format("{0}\n| {1} | {2} | {3} | {4} |",
+										ObywateleToShow,
+										citNum.Key,
+										((TownCitizenship)citNum.Value).CurrentTown.ToString(),
+										mob.Name,
+										((TownCitizenship)citNum.Value).CurrentTownStatus.ToString());
+								}
+								else
+								{
+									Console.WriteLine("{0} is not player, will be deleted on restart", mob.Name);
+								}
+							}
+						}
 
-                        AddHtml(10, 30, 580, 300, ObywateleToShowz, true, true);
+						AddHtml(10, 30, 580, 300, ObywateleToShow, true, true);
 
-                        AddButtonWithLabeled(10, 370, (int)TownDatabaseGumpPage.Glowna);
-                        AddButtonWithLabeled(400, 370, (int)TownDatabaseGumpPage.Zamknij);
-                        break;
-                    case TownDatabaseGumpPage.StatystykiObywatele:
-                        AddHtml(10, 30, 100, 30, "Miasto", true, false);
-                        AddHtml(150, 30, 100, 30, "Obywatele", true, false);
-                        AddHtml(250, 30, 100, 30, "Przywodcy", true, false);
-                        AddHtml(350, 30, 100, 30, "Kanclerze", true, false);
-                        int yStatystykiObywatele = 60;
-                        foreach (Towns tm in TownDatabase.GetTownsNames())
-                        {
-                            if (tm != Towns.None)
-                            {
-                                AddHtml(10, yStatystykiObywatele, 100, 30, tm.ToString(), true, false);
-                                AddHtml(200, yStatystykiObywatele, 30, 30, TownDatabase.GetAmountOfCitizensWithGivenStatus(tm, TownStatus.Citizen).ToString(), false, false);
-                                AddHtml(300, yStatystykiObywatele, 30, 30, TownDatabase.GetAmountOfCitizensWithGivenStatus(tm, TownStatus.Leader).ToString(), false, false);
-                                AddHtml(400, yStatystykiObywatele, 30, 30, TownDatabase.GetAmountOfCitizensWithGivenStatus(tm, TownStatus.Counsellor).ToString(), false, false);
-                                yStatystykiObywatele += 30;
-                            }
-                        }
-                        AddButtonWithLabeled(10, 370, (int)TownDatabaseGumpPage.Glowna);
-                        AddButtonWithLabeled(400, 370, (int)TownDatabaseGumpPage.Zamknij);
-                        break;
-                    case TownDatabaseGumpPage.StatystykiBudynki:
-                        AddHtml(10, 30, 100, 30, "Miasto", true, false);
-                        AddHtml(150, 30, 100, 30, "Dostepny", true, false);
-                        AddHtml(250, 30, 100, 30, "Budowanie", true, false);
-                        AddHtml(350, 30, 100, 30, "Dziala", true, false);
-                        AddHtml(450, 30, 100, 30, "Zawieszony", true, false);
-                        int yStatystykiBudynki = 60;
-                        foreach (Towns tm in TownDatabase.GetTownsNames())
-                        {
-                            if (tm != Towns.None)
-                            {
-                                AddHtml(10, yStatystykiBudynki, 100, 30, tm.ToString(), true, false);
-                                AddHtml(200, yStatystykiBudynki, 30, 30, (TownDatabase.GetTown(tm).Buildings.Count(obj => obj.Status == TownBuildingStatus.Dostepny)).ToString(), false, false);
-                                AddHtml(300, yStatystykiBudynki, 30, 30, (TownDatabase.GetTown(tm).Buildings.Count(obj => obj.Status == TownBuildingStatus.Budowanie)).ToString(), false, false);
-                                AddHtml(400, yStatystykiBudynki, 30, 30, (TownDatabase.GetTown(tm).Buildings.Count(obj => obj.Status == TownBuildingStatus.Dziala)).ToString(), false, false);
-                                AddHtml(500, yStatystykiBudynki, 30, 30, (TownDatabase.GetTown(tm).Buildings.Count(obj => obj.Status == TownBuildingStatus.Zawieszony)).ToString(), false, false);
-                                yStatystykiBudynki += 30;
-                            }
-                        }
-                        AddButtonWithLabeled(10, 370, (int)TownDatabaseGumpPage.Glowna);
-                        AddButtonWithLabeled(400, 370, (int)TownDatabaseGumpPage.Zamknij);
-                        break;
-                    default:
-                        return;
-                }
-            }
-            else
-            {
-                AddHtml(50, 50, 500, 300, string.Format("Brak istniejacych miast w bazie, nalezy wpierw stworzyc dusze miasta i przypisac do miast, przez klikniecie zmien przynaleznosc duszy do miasta i wyborze miasta"), true, false);
-            }
-        }
+						AddButtonWithLabeled(10, 370, (int)TownDatabaseGumpPage.Glowna);
+						AddButtonWithLabeled(400, 370, (int)TownDatabaseGumpPage.Zamknij);
+						break;
+					case TownDatabaseGumpPage.PrzegladWladzMiasta:
+						string ObywateleToShowz = "| Serial | Miasto | Imie | Status |";
+						IDictionaryEnumerator citNumz = TownDatabase.GetCitizens().GetEnumerator();
+						while (citNumz.MoveNext())
+						{
+							if (TownDatabase.GetCitizenCurrentStatus((Serial)citNumz.Key) != TownStatus.Citizen)
+							{
+								Mobile mob = World.FindMobile((Serial)citNumz.Key);
 
-        public override void OnResponse(NetState sender, RelayInfo info)
-        {
-            Mobile from = sender.Mobile;
+								if (mob != null)
+								{
+									if (mob.Player)
+									{
+										ObywateleToShowz = String.Format("{0}\n| {1} | {2} | {3} | {4} |",
+											ObywateleToShowz,
+											citNumz.Key,
+											((TownCitizenship)citNumz.Value).CurrentTown.ToString(),
+											mob.Name,
+											((TownCitizenship)citNumz.Value).CurrentTownStatus.ToString());
+									}
+									else
+									{
+										Console.WriteLine("{0} is not player, will be deleted on restart", mob.Name);
+									}
+								}
+							}
+						}
 
-            int val = info.ButtonID;
-            if ((TownDatabaseGumpPage)val == TownDatabaseGumpPage.Zamknij)
-                return;
+						AddHtml(10, 30, 580, 300, ObywateleToShowz, true, true);
 
-            from.SendGump(new TownDatabaseGump(from, val));
-        }
-    }
+						AddButtonWithLabeled(10, 370, (int)TownDatabaseGumpPage.Glowna);
+						AddButtonWithLabeled(400, 370, (int)TownDatabaseGumpPage.Zamknij);
+						break;
+					case TownDatabaseGumpPage.StatystykiObywatele:
+						AddHtml(10, 30, 100, 30, "Miasto", true, false);
+						AddHtml(150, 30, 100, 30, "Obywatele", true, false);
+						AddHtml(250, 30, 100, 30, "Przywodcy", true, false);
+						AddHtml(350, 30, 100, 30, "Kanclerze", true, false);
+						int yStatystykiObywatele = 60;
+						foreach (Towns tm in TownDatabase.GetTownsNames())
+						{
+							if (tm != Towns.None)
+							{
+								AddHtml(10, yStatystykiObywatele, 100, 30, tm.ToString(), true, false);
+								AddHtml(200, yStatystykiObywatele, 30, 30,
+									TownDatabase.GetAmountOfCitizensWithGivenStatus(tm, TownStatus.Citizen).ToString(),
+									false, false);
+								AddHtml(300, yStatystykiObywatele, 30, 30,
+									TownDatabase.GetAmountOfCitizensWithGivenStatus(tm, TownStatus.Leader).ToString(),
+									false, false);
+								AddHtml(400, yStatystykiObywatele, 30, 30,
+									TownDatabase.GetAmountOfCitizensWithGivenStatus(tm, TownStatus.Counsellor)
+										.ToString(), false, false);
+								yStatystykiObywatele += 30;
+							}
+						}
+
+						AddButtonWithLabeled(10, 370, (int)TownDatabaseGumpPage.Glowna);
+						AddButtonWithLabeled(400, 370, (int)TownDatabaseGumpPage.Zamknij);
+						break;
+					case TownDatabaseGumpPage.StatystykiBudynki:
+						AddHtml(10, 30, 100, 30, "Miasto", true, false);
+						AddHtml(150, 30, 100, 30, "Dostepny", true, false);
+						AddHtml(250, 30, 100, 30, "Budowanie", true, false);
+						AddHtml(350, 30, 100, 30, "Dziala", true, false);
+						AddHtml(450, 30, 100, 30, "Zawieszony", true, false);
+						int yStatystykiBudynki = 60;
+						foreach (Towns tm in TownDatabase.GetTownsNames())
+						{
+							if (tm != Towns.None)
+							{
+								AddHtml(10, yStatystykiBudynki, 100, 30, tm.ToString(), true, false);
+								AddHtml(200, yStatystykiBudynki, 30, 30,
+									(TownDatabase.GetTown(tm).Buildings
+										.Count(obj => obj.Status == TownBuildingStatus.Dostepny)).ToString(), false,
+									false);
+								AddHtml(300, yStatystykiBudynki, 30, 30,
+									(TownDatabase.GetTown(tm).Buildings
+										.Count(obj => obj.Status == TownBuildingStatus.Budowanie)).ToString(), false,
+									false);
+								AddHtml(400, yStatystykiBudynki, 30, 30,
+									(TownDatabase.GetTown(tm).Buildings
+										.Count(obj => obj.Status == TownBuildingStatus.Dziala)).ToString(), false,
+									false);
+								AddHtml(500, yStatystykiBudynki, 30, 30,
+									(TownDatabase.GetTown(tm).Buildings
+										.Count(obj => obj.Status == TownBuildingStatus.Zawieszony)).ToString(), false,
+									false);
+								yStatystykiBudynki += 30;
+							}
+						}
+
+						AddButtonWithLabeled(10, 370, (int)TownDatabaseGumpPage.Glowna);
+						AddButtonWithLabeled(400, 370, (int)TownDatabaseGumpPage.Zamknij);
+						break;
+					default:
+						return;
+				}
+			}
+			else
+			{
+				AddHtml(50, 50, 500, 300,
+					"Brak istniejacych miast w bazie, nalezy wpierw stworzyc dusze miasta i przypisac do miast, przez klikniecie zmien przynaleznosc duszy do miasta i wyborze miasta",
+					true, false);
+			}
+		}
+
+		public override void OnResponse(NetState sender, RelayInfo info)
+		{
+			Mobile from = sender.Mobile;
+
+			int val = info.ButtonID;
+			if ((TownDatabaseGumpPage)val == TownDatabaseGumpPage.Zamknij)
+				return;
+
+			from.SendGump(new TownDatabaseGump(from, val));
+		}
+	}
 }

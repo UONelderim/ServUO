@@ -1,44 +1,40 @@
-﻿using System;
-using Server;
-
-namespace Server.Items
+﻿namespace Server.Items
 {
-    public class Tyrfing : Kryss
-    {
-        public override int LabelNumber { get { return 1065797; } } // Tyrfing
-        public override int InitMinHits { get { return 60; } }
-        public override int InitMaxHits { get { return 60; } }
+	public class Tyrfing : Kryss
+	{
+		public override int LabelNumber { get { return 1065797; } } // Tyrfing
+		public override int InitMinHits { get { return 60; } }
+		public override int InitMaxHits { get { return 60; } }
 
-        [Constructable]
-        public Tyrfing()
-        {
-            Hue = 1272;
-            Attributes.AttackChance = 20;
-            Attributes.WeaponSpeed = 30;
-            WeaponAttributes.HitMagicArrow = 35;
-            Attributes.WeaponDamage = 25;
-        }
+		[Constructable]
+		public Tyrfing()
+		{
+			Hue = 1272;
+			Attributes.AttackChance = 20;
+			Attributes.WeaponSpeed = 30;
+			WeaponAttributes.HitMagicArrow = 35;
+			Attributes.WeaponDamage = 25;
+		}
 
-        public Tyrfing(Serial serial)
-            : base(serial)
-        {
-        }
+		public Tyrfing(Serial serial)
+			: base(serial)
+		{
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-            writer.Write((int)0);
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+			writer.Write(0);
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+			int version = reader.ReadInt();
 
-            if (Attributes.WeaponDamage != 25)
-                Attributes.WeaponDamage = 25;
-
-        }
-    }
+			if (Attributes.WeaponDamage != 25)
+				Attributes.WeaponDamage = 25;
+		}
+	}
 }

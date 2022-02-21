@@ -20,59 +20,54 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
+#region References
+
 using System.IO;
 using Server;
-using Server.Network;
-using Server.Targeting;
-using Server.Gumps;
-using Server.Commands;
-using Server.Commands.Generic;
-using Server.Mobiles;
-using Server.Items;
+
+#endregion
 
 namespace UltimaLive
 {
-  public class UltimaLiveSettings
-  {
-    public const string UNIQUE_SHARD_IDENTIFIER = "Nelderim1"; //Must be 28 characters or less
+	public class UltimaLiveSettings
+	{
+		public const string UNIQUE_SHARD_IDENTIFIER = "Nelderim1"; //Must be 28 characters or less
 
-    public const string ULTIMA_LIVE_ROOT_FOLDER_NAME = "UltimaLive";
-    public const string ULTIMA_LIVE_MAP_CHANGES_FOLDER_NAME = "ClientFiles";
-    public const string ULTIMA_LIVE_LUMBER_HARVEST_FOLDER_NAME = "LumberHarvest";
-    public const string ULTIMA_LIVE_CLIENT_EXPORT_FOLDER_NAME = "ClientExport";
-    public static string UltimaLiveClientExportPath
-    {
-      get
-      {
-        return Path.Combine(UltimaLiveRootPath, ULTIMA_LIVE_CLIENT_EXPORT_FOLDER_NAME);
-      }
-    }
+		public const string ULTIMA_LIVE_ROOT_FOLDER_NAME = "UltimaLive";
+		public const string ULTIMA_LIVE_MAP_CHANGES_FOLDER_NAME = "ClientFiles";
+		public const string ULTIMA_LIVE_LUMBER_HARVEST_FOLDER_NAME = "LumberHarvest";
+		public const string ULTIMA_LIVE_CLIENT_EXPORT_FOLDER_NAME = "ClientExport";
 
-    public static string UltimaLiveMapChangesSavePath
-    {
-      get
-      {
-        return Path.Combine(UltimaLiveRootPath, ULTIMA_LIVE_MAP_CHANGES_FOLDER_NAME);
-      }
-    }
+		public static string UltimaLiveClientExportPath
+		{
+			get
+			{
+				return Path.Combine(UltimaLiveRootPath, ULTIMA_LIVE_CLIENT_EXPORT_FOLDER_NAME);
+			}
+		}
 
-    public static string UltimaLiveRootPath
-    {
-      get
-      {
-        return Path.Combine(Core.BaseDirectory, ULTIMA_LIVE_ROOT_FOLDER_NAME);
-      }
-    }
+		public static string UltimaLiveMapChangesSavePath
+		{
+			get
+			{
+				return Path.Combine(UltimaLiveRootPath, ULTIMA_LIVE_MAP_CHANGES_FOLDER_NAME);
+			}
+		}
 
-    public static string LumberHarvestFallenTreeSaveLocation
-    {
-      get
-      {
-        return Path.Combine(UltimaLiveRootPath, ULTIMA_LIVE_LUMBER_HARVEST_FOLDER_NAME);
-      }
-    }
-  }
+		public static string UltimaLiveRootPath
+		{
+			get
+			{
+				return Path.Combine(Core.BaseDirectory, ULTIMA_LIVE_ROOT_FOLDER_NAME);
+			}
+		}
+
+		public static string LumberHarvestFallenTreeSaveLocation
+		{
+			get
+			{
+				return Path.Combine(UltimaLiveRootPath, ULTIMA_LIVE_LUMBER_HARVEST_FOLDER_NAME);
+			}
+		}
+	}
 }

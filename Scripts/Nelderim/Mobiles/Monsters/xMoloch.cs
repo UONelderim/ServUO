@@ -1,35 +1,38 @@
-using System;
+#region References
+
 using Server.Items;
+
+#endregion
 
 namespace Server.Mobiles
 {
-	[CorpseName( "zwloki dziwnego demona zaglady" )]
+	[CorpseName("zwloki dziwnego demona zaglady")]
 	public class xMoloch : BaseCreature
 	{
 		[Constructable]
-		public xMoloch() : base( AIType.AI_Melee, FightMode.Closest, 12, 1, 0.2, 0.4 )
+		public xMoloch() : base(AIType.AI_Melee, FightMode.Closest, 12, 1, 0.2, 0.4)
 		{
 			Name = "dziwny demon zaglady";
 			Body = 0x311;
 			BaseSoundID = 0x300;
 
-			SetStr( 331, 360 );
-			SetDex( 66, 85 );
-			SetInt( 41, 65 );
+			SetStr(331, 360);
+			SetDex(66, 85);
+			SetInt(41, 65);
 
-			SetHits( 171, 200 );
+			SetHits(171, 200);
 
-			SetDamage( 15, 23 );
+			SetDamage(15, 23);
 
-			SetResistance( ResistanceType.Physical, 60, 70 );
-			SetResistance( ResistanceType.Fire, 60, 70 );
-			SetResistance( ResistanceType.Cold, 40, 50 );
-			SetResistance( ResistanceType.Poison, 20, 30 );
-			SetResistance( ResistanceType.Energy, 20, 30 );
+			SetResistance(ResistanceType.Physical, 60, 70);
+			SetResistance(ResistanceType.Fire, 60, 70);
+			SetResistance(ResistanceType.Cold, 40, 50);
+			SetResistance(ResistanceType.Poison, 20, 30);
+			SetResistance(ResistanceType.Energy, 20, 30);
 
-			SetSkill( SkillName.MagicResist, 65.1, 75.0 );
-			SetSkill( SkillName.Tactics, 75.1, 90.0 );
-			SetSkill( SkillName.Wrestling, 70.1, 90.0 );
+			SetSkill(SkillName.MagicResist, 65.1, 75.0);
+			SetSkill(SkillName.Tactics, 75.1, 90.0);
+			SetSkill(SkillName.Wrestling, 70.1, 90.0);
 
 			Fame = 7500;
 			Karma = -7500;
@@ -41,24 +44,24 @@ namespace Server.Mobiles
 
 		public override void GenerateLoot()
 		{
-			AddLoot( LootPack.Rich );
+			AddLoot(LootPack.Rich);
 		}
 
-		public override Poison PoisonImmune{ get{ return Poison.Regular; } }
+		public override Poison PoisonImmune { get { return Poison.Regular; } }
 
-		public xMoloch( Serial serial ) : base( serial )
+		public xMoloch(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( (int) 0 );
+			base.Serialize(writer);
+			writer.Write(0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

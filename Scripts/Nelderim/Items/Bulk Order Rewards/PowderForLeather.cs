@@ -1,70 +1,75 @@
-using System;
-using Server;
-using Server.Targeting;
+#region References
+
 using Server.Engines.Craft;
-using Server.Network;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.Items
 {
-    public class PowderForLeather : Item
-    {
-        private int m_UsesRemaining;
+	public class PowderForLeather : Item
+	{
+		private int m_UsesRemaining;
 
-        [CommandProperty(AccessLevel.GameMaster)]
-        public int UsesRemaining
-        {
-            get { return m_UsesRemaining; }
-            set { m_UsesRemaining = value; InvalidateProperties(); }
-        }
+		[CommandProperty(AccessLevel.GameMaster)]
+		public int UsesRemaining
+		{
+			get { return m_UsesRemaining; }
+			set
+			{
+				m_UsesRemaining = value;
+				InvalidateProperties();
+			}
+		}
 
-        [Constructable]
-        public PowderForLeather() : this(5) { }
+		[Constructable]
+		public PowderForLeather() : this(5) { }
 
-        [Constructable]
-        public PowderForLeather(int uses) : base(4102)
-        {
-            Name = "Proszek wzmocnienia do wyrobow krawieckich";
-            Weight = 1.0;
-            Hue = 244;
-            UsesRemaining = uses;
-        }
+		[Constructable]
+		public PowderForLeather(int uses) : base(4102)
+		{
+			Name = "Proszek wzmocnienia do wyrobow krawieckich";
+			Weight = 1.0;
+			Hue = 244;
+			UsesRemaining = uses;
+		}
 
-        public PowderForLeather(Serial serial) : base(serial)
-        {
-        }
+		public PowderForLeather(Serial serial) : base(serial)
+		{
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            writer.Write((int)0);
-            writer.Write((int)m_UsesRemaining);
-        }
+			writer.Write(0);
+			writer.Write(m_UsesRemaining);
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+			int version = reader.ReadInt();
 
-            switch (version)
-            {
-                case 0:
-                    {
-                        m_UsesRemaining = reader.ReadInt();
-                        break;
-                    }
-            }
-        }
+			switch (version)
+			{
+				case 0:
+				{
+					m_UsesRemaining = reader.ReadInt();
+					break;
+				}
+			}
+		}
 
-        public override void GetProperties(ObjectPropertyList list)
-        {
-            base.GetProperties(list);
+		public override void GetProperties(ObjectPropertyList list)
+		{
+			base.GetProperties(list);
 
-            list.Add(1060584, m_UsesRemaining.ToString()); // uses remaining: ~1_val~
-        }
+			list.Add(1060584, m_UsesRemaining.ToString()); // uses remaining: ~1_val~
+		}
 
-        /*
+		/*
 				public virtual void DisplayDurabilityTo( Mobile m )
 				{
 					LabelToAffix( m, 1017323, AffixType.Append, ": " + m_UsesRemaining.ToString() ); // Durability
@@ -78,163 +83,166 @@ namespace Server.Items
 				}
 		*/
 
-        public override void OnDoubleClick(Mobile from)
-        {
-            if (IsChildOf(from.Backpack))
-                from.Target = new InternalTarget(this);
-            else
-                from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
-        }
+		public override void OnDoubleClick(Mobile from)
+		{
+			if (IsChildOf(from.Backpack))
+				from.Target = new InternalTarget(this);
+			else
+				from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
+		}
 
-        private class InternalTarget : Target
-        {
-            private PowderForLeather m_Powder;
+		private class InternalTarget : Target
+		{
+			private readonly PowderForLeather m_Powder;
 
-            public InternalTarget(PowderForLeather powder) : base(2, false, TargetFlags.None)
-            {
-                m_Powder = powder;
-            }
+			public InternalTarget(PowderForLeather powder) : base(2, false, TargetFlags.None)
+			{
+				m_Powder = powder;
+			}
 
-            protected override void OnTarget(Mobile from, object targeted)
-            {
-                if (m_Powder.Deleted)
-                {
-                    from.SendLocalizedMessage(1049086); // You have used up your powder of temperament.
-                    return;
-                }
-                if (targeted is BaseClothing && (DefTailoring.CraftSystem.CraftItems.SearchForSubclass(targeted.GetType()) != null))
-                {
-                    BaseClothing item = (BaseClothing)targeted;
+			protected override void OnTarget(Mobile from, object targeted)
+			{
+				if (m_Powder.Deleted)
+				{
+					from.SendLocalizedMessage(1049086); // You have used up your powder of temperament.
+					return;
+				}
 
-                    if (!item.CanFortify)
-                    {
-                        from.SendLocalizedMessage(1049083); // You cannot use the powder on that item.
-                        return;
-                    }
+				if (targeted is BaseClothing &&
+				    (DefTailoring.CraftSystem.CraftItems.SearchForSubclass(targeted.GetType()) != null))
+				{
+					BaseClothing item = (BaseClothing)targeted;
 
-                    if (item.IsChildOf(from.Backpack) && m_Powder.IsChildOf(from.Backpack))
-                    {
-                        int origMaxHP = item.MaxHitPoints;
-                        int origCurHP = item.HitPoints;
+					if (!item.CanFortify)
+					{
+						from.SendLocalizedMessage(1049083); // You cannot use the powder on that item.
+						return;
+					}
 
-                        int initMaxHP = Core.AOS ? 255 : item.InitMaxHits;
+					if (item.IsChildOf(from.Backpack) && m_Powder.IsChildOf(from.Backpack))
+					{
+						int origMaxHP = item.MaxHitPoints;
+						int origCurHP = item.HitPoints;
 
-                        item.UnscaleDurability();
+						int initMaxHP = Core.AOS ? 255 : item.InitMaxHits;
 
-                        if (item.MaxHitPoints < initMaxHP)
-                        {
-                            int bonus = initMaxHP - item.MaxHitPoints;
+						item.UnscaleDurability();
 
-                            if (bonus > 5)
-                                bonus = 5;
+						if (item.MaxHitPoints < initMaxHP)
+						{
+							int bonus = initMaxHP - item.MaxHitPoints;
 
-                            item.MaxHitPoints += bonus;
-                            item.HitPoints += bonus;
+							if (bonus > 5)
+								bonus = 5;
 
-                            item.ScaleDurability();
+							item.MaxHitPoints += bonus;
+							item.HitPoints += bonus;
 
-                            if (item.MaxHitPoints > 255) item.MaxHitPoints = 255;
-                            if (item.HitPoints > 255) item.HitPoints = 255;
+							item.ScaleDurability();
 
-                            if (item.MaxHitPoints > origMaxHP)
-                            {
-                                from.SendLocalizedMessage(1049084); // You successfully use the powder on the item.
+							if (item.MaxHitPoints > 255) item.MaxHitPoints = 255;
+							if (item.HitPoints > 255) item.HitPoints = 255;
 
-                                --m_Powder.UsesRemaining;
+							if (item.MaxHitPoints > origMaxHP)
+							{
+								from.SendLocalizedMessage(1049084); // You successfully use the powder on the item.
 
-                                if (m_Powder.UsesRemaining <= 0)
-                                {
-                                    from.SendLocalizedMessage(1049086); // You have used up your powder of temperament.
-                                    m_Powder.Delete();
-                                }
-                            }
-                            else
-                            {
-                                item.MaxHitPoints = origMaxHP;
-                                item.HitPoints = origCurHP;
-                                from.SendLocalizedMessage(1049085); // The item cannot be improved any further.
-                            }
-                        }
-                        else
-                        {
-                            from.SendLocalizedMessage(1049085); // The item cannot be improved any further.
-                            item.ScaleDurability();
-                        }
-                    }
-                    else
-                    {
-                        from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
-                    }
-                }
-                else if (targeted is BaseArmor && (DefTailoring.CraftSystem.CraftItems.SearchForSubclass(targeted.GetType()) != null))
-                {
-                    BaseArmor item = (BaseArmor)targeted;
+								--m_Powder.UsesRemaining;
 
-                    if (!item.CanFortify)
-                    {
-                        from.SendLocalizedMessage(1049083); // You cannot use the powder on that item.
-                        return;
-                    }
+								if (m_Powder.UsesRemaining <= 0)
+								{
+									from.SendLocalizedMessage(1049086); // You have used up your powder of temperament.
+									m_Powder.Delete();
+								}
+							}
+							else
+							{
+								item.MaxHitPoints = origMaxHP;
+								item.HitPoints = origCurHP;
+								from.SendLocalizedMessage(1049085); // The item cannot be improved any further.
+							}
+						}
+						else
+						{
+							from.SendLocalizedMessage(1049085); // The item cannot be improved any further.
+							item.ScaleDurability();
+						}
+					}
+					else
+					{
+						from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
+					}
+				}
+				else if (targeted is BaseArmor &&
+				         (DefTailoring.CraftSystem.CraftItems.SearchForSubclass(targeted.GetType()) != null))
+				{
+					BaseArmor item = (BaseArmor)targeted;
 
-                    if (item.IsChildOf(from.Backpack) && m_Powder.IsChildOf(from.Backpack))
-                    {
-                        int origMaxHP = item.MaxHitPoints;
-                        int origCurHP = item.HitPoints;
+					if (!item.CanFortify)
+					{
+						from.SendLocalizedMessage(1049083); // You cannot use the powder on that item.
+						return;
+					}
 
-                        int initMaxHP = Core.AOS ? 255 : item.InitMaxHits;
+					if (item.IsChildOf(from.Backpack) && m_Powder.IsChildOf(from.Backpack))
+					{
+						int origMaxHP = item.MaxHitPoints;
+						int origCurHP = item.HitPoints;
 
-                        item.UnscaleDurability();
+						int initMaxHP = Core.AOS ? 255 : item.InitMaxHits;
 
-                        if (item.MaxHitPoints < initMaxHP)
-                        {
-                            int bonus = initMaxHP - item.MaxHitPoints;
+						item.UnscaleDurability();
 
-                            if (bonus > 5)
-                                bonus = 5;
+						if (item.MaxHitPoints < initMaxHP)
+						{
+							int bonus = initMaxHP - item.MaxHitPoints;
 
-                            item.MaxHitPoints += bonus;
-                            item.HitPoints += bonus;
+							if (bonus > 5)
+								bonus = 5;
 
-                            item.ScaleDurability();
+							item.MaxHitPoints += bonus;
+							item.HitPoints += bonus;
 
-                            if (item.MaxHitPoints > 255) item.MaxHitPoints = 255;
-                            if (item.HitPoints > 255) item.HitPoints = 255;
+							item.ScaleDurability();
 
-                            if (item.MaxHitPoints > origMaxHP)
-                            {
-                                from.SendLocalizedMessage(1049084); // You successfully use the powder on the item.
+							if (item.MaxHitPoints > 255) item.MaxHitPoints = 255;
+							if (item.HitPoints > 255) item.HitPoints = 255;
 
-                                --m_Powder.UsesRemaining;
+							if (item.MaxHitPoints > origMaxHP)
+							{
+								from.SendLocalizedMessage(1049084); // You successfully use the powder on the item.
 
-                                if (m_Powder.UsesRemaining <= 0)
-                                {
-                                    from.SendLocalizedMessage(1049086); // You have used up your powder of temperament.
-                                    m_Powder.Delete();
-                                }
-                            }
-                            else
-                            {
-                                item.MaxHitPoints = origMaxHP;
-                                item.HitPoints = origCurHP;
-                                from.SendLocalizedMessage(1049085); // The item cannot be improved any further.
-                            }
-                        }
-                        else
-                        {
-                            from.SendLocalizedMessage(1049085); // The item cannot be improved any further.
-                            item.ScaleDurability();
-                        }
-                    }
-                    else
-                    {
-                        from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
-                    }
-                }
-                else
-                {
-                    from.SendLocalizedMessage(1049083); // You cannot use the powder on that item.
-                }
-            }
-        }
-    }
+								--m_Powder.UsesRemaining;
+
+								if (m_Powder.UsesRemaining <= 0)
+								{
+									from.SendLocalizedMessage(1049086); // You have used up your powder of temperament.
+									m_Powder.Delete();
+								}
+							}
+							else
+							{
+								item.MaxHitPoints = origMaxHP;
+								item.HitPoints = origCurHP;
+								from.SendLocalizedMessage(1049085); // The item cannot be improved any further.
+							}
+						}
+						else
+						{
+							from.SendLocalizedMessage(1049085); // The item cannot be improved any further.
+							item.ScaleDurability();
+						}
+					}
+					else
+					{
+						from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
+					}
+				}
+				else
+				{
+					from.SendLocalizedMessage(1049083); // You cannot use the powder on that item.
+				}
+			}
+		}
+	}
 }

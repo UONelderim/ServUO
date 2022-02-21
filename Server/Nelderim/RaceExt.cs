@@ -1,65 +1,65 @@
 namespace Server
 {
-    public partial class Race
-    {
-        public static readonly int NRaceOffset = 0x20;
+	public partial class Race
+	{
+		public static readonly int NRaceOffset = 0x20;
 
-        public static Race NTamael => Races[NRaceOffset + 1];
-        public static Race NJarling => Races[NRaceOffset + 2];
-        public static Race NNaur => Races[NRaceOffset + 3];
-        public static Race NElf => Races[NRaceOffset + 4];
-        public static Race NDrow => Races[NRaceOffset + 5];
-        public static Race NKrasnolud => Races[NRaceOffset + 6];
+		public static Race NTamael => Races[NRaceOffset + 1];
+		public static Race NJarling => Races[NRaceOffset + 2];
+		public static Race NNaur => Races[NRaceOffset + 3];
+		public static Race NElf => Races[NRaceOffset + 4];
+		public static Race NDrow => Races[NRaceOffset + 5];
+		public static Race NKrasnolud => Races[NRaceOffset + 6];
 
-        public virtual string[] Names { get; }
-        public virtual string[] PluralNames { get;}
-        
-        public virtual int DescNumber => 1072202; // Description
+		public virtual string[] Names { get; }
+		public virtual string[] PluralNames { get; }
 
-        public string GetName( Cases c )
-        {
-            return GetName( c, Names );
-        }
+		public virtual int DescNumber => 1072202; // Description
 
-        public string GetPluralName(Cases c)
-        {
-	        return GetName(c, PluralNames);
-        }
+		public string GetName(Cases c)
+		{
+			return GetName(c, Names);
+		}
 
-        private string GetName( Cases c, string[] list )
-        {
-	        if ( list.Length == 0 ) return Name;
+		public string GetPluralName(Cases c)
+		{
+			return GetName(c, PluralNames);
+		}
 
-            int index = (int)c;
-            if ( list[index] != null )
-                return list[index];
+		private string GetName(Cases c, string[] list)
+		{
+			if (list.Length == 0) return Name;
 
-            return "~ERROR~";
-        }
+			int index = (int)c;
+			if (list[index] != null)
+				return list[index];
 
-        public virtual bool MakeRandomAppearance( Mobile m )
-        {
-            if ( !(m.BodyValue == 400 || m.BodyValue == 401) )
-                return false;
+			return "~ERROR~";
+		}
 
-            m.HairItemID = RandomHair( m.Female );
-            m.FacialHairItemID = RandomFacialHair( m.Female );
-            m.HairHue = ClipHairHue( RandomHairHue() );
-            m.FacialHairHue = m.HairHue;
-            m.Hue = ClipSkinHue( RandomSkinHue() );
+		public virtual bool MakeRandomAppearance(Mobile m)
+		{
+			if (!(m.BodyValue == 400 || m.BodyValue == 401))
+				return false;
 
-            return true;
-        }
-    }
+			m.HairItemID = RandomHair(m.Female);
+			m.FacialHairItemID = RandomFacialHair(m.Female);
+			m.HairHue = ClipHairHue(RandomHairHue());
+			m.FacialHairHue = m.HairHue;
+			m.Hue = ClipSkinHue(RandomSkinHue());
 
-    public enum Cases
-    {
-        Mianownik,
-        Dopelniacz,
-        Celownik,
-        Biernik,
-        Narzednik,
-        Miejscownik,
-        Wolacz
-    }
+			return true;
+		}
+	}
+
+	public enum Cases
+	{
+		Mianownik,
+		Dopelniacz,
+		Celownik,
+		Biernik,
+		Narzednik,
+		Miejscownik,
+		Wolacz
+	}
 }

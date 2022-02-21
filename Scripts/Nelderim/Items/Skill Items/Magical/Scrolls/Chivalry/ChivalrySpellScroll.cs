@@ -1,30 +1,28 @@
-using System;
-
 namespace Server.Items
 {
-    public abstract class ChivalrySpellScroll : SpellScroll
+	public abstract class ChivalrySpellScroll : SpellScroll
 	{
-        public ChivalrySpellScroll(int spellID, int itemID, int amount) : base(spellID, itemID, amount)
+		public ChivalrySpellScroll(int spellID, int itemID, int amount) : base(spellID, itemID, amount)
 		{
-            Hue = 1150;
+			Hue = 1150;
 		}
 
-        public ChivalrySpellScroll(Serial serial) : base(serial)
+		public ChivalrySpellScroll(Serial serial) : base(serial)
 		{
 		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            writer.Write((int)0); // version
-        }
+			writer.Write(0); // version
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-            int version = reader.ReadInt();
-        }
+			int version = reader.ReadInt();
+		}
 	}
 }

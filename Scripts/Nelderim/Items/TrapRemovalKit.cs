@@ -1,124 +1,119 @@
-using System;
-using Server;
+#region References
+
 using Server.Targeting;
+
+#endregion
 
 namespace Server.Items
 {
 	public class TrapRemovalKit : Item
-    {
-        private int m_Charges;
-
-		[CommandProperty( AccessLevel.GameMaster )]
-		public int Charges
-		{
-			get{ return m_Charges; }
-			set{ m_Charges = value; }
-		}
+	{
+		[CommandProperty(AccessLevel.GameMaster)]
+		public int Charges { get; set; }
 
 		[Constructable]
-		public TrapRemovalKit() : base( 7867 )
+		public TrapRemovalKit() : base(7867)
 		{
-            m_Charges = 15;
+			Charges = 15;
 		}
 
-        public override int LabelNumber{ get{ return 1041508; } }
+		public override int LabelNumber { get { return 1041508; } }
 
-		public override void GetProperties( ObjectPropertyList list )
+		public override void GetProperties(ObjectPropertyList list)
 		{
-			base.GetProperties( list );
+			base.GetProperties(list);
 
-			list.Add( 1060584, m_Charges.ToString() ); // uses remaining: ~1_val~
+			list.Add(1060584, Charges.ToString()); // uses remaining: ~1_val~
 		}
 
-		public TrapRemovalKit( Serial serial ) : base( serial )
+		public TrapRemovalKit(Serial serial) : base(serial)
 		{
-
 		}
 
-        public override void OnDoubleClick( Mobile from )
+		public override void OnDoubleClick(Mobile from)
 		{
-			if ( from.InRange( GetWorldLocation(), 2 ) )
+			if (from.InRange(GetWorldLocation(), 2))
 			{
 				from.RevealingAction();
 
-                from.SendMessage( "Wskaz pulapke, ktora chcesz rozbroic." );
+				from.SendMessage("Wskaz pulapke, ktora chcesz rozbroic.");
 
-				from.Target = new InternalTarget( this );
+				from.Target = new InternalTarget(this);
 			}
 			else
 			{
-				from.SendLocalizedMessage( 500295 ); // You are too far away to do that.
+				from.SendLocalizedMessage(500295); // You are too far away to do that.
 			}
 		}
 
-        public void ConsumeCharge( Mobile consumer )
+		public void ConsumeCharge(Mobile consumer)
 		{
-			--m_Charges;
+			--Charges;
 
-			if ( m_Charges <= 0 )
+			if (Charges <= 0)
 			{
 				Delete();
 
-				if ( consumer != null )
-					consumer.SendLocalizedMessage( 1042531 ); // You have used all of the parts in your trap removal kit.
+				if (consumer != null)
+					consumer.SendLocalizedMessage(1042531); // You have used all of the parts in your trap removal kit.
 			}
-            else
-                InvalidateProperties();
+			else
+				InvalidateProperties();
 		}
 
-        private class InternalTarget : Target
+		private class InternalTarget : Target
 		{
-			private TrapRemovalKit m_Kit;
+			private readonly TrapRemovalKit m_Kit;
 
-			public InternalTarget( TrapRemovalKit kit ) : base( 7, false, TargetFlags.None )
+			public InternalTarget(TrapRemovalKit kit) : base(7, false, TargetFlags.None)
 			{
-                m_Kit = kit;
+				m_Kit = kit;
 			}
 
-			protected override void OnTarget( Mobile from, object targeted )
+			protected override void OnTarget(Mobile from, object targeted)
 			{
-				if ( m_Kit.Deleted )
+				if (m_Kit.Deleted)
 					return;
 
-				if ( targeted is BaseTrap )
+				if (targeted is BaseTrap)
 				{
-					if ( from.InRange( m_Kit.GetWorldLocation(), 7 ) )
+					if (from.InRange(m_Kit.GetWorldLocation(), 7))
 					{
-                        BaseTrap trap = (BaseTrap)targeted;
-                        trap.Untrap( from, m_Kit, false );
+						BaseTrap trap = (BaseTrap)targeted;
+						trap.Untrap(from, m_Kit, false);
 					}
 					else
 					{
-						from.SendLocalizedMessage( 500295 ); // You are too far away to do that.
+						from.SendLocalizedMessage(500295); // You are too far away to do that.
 					}
 				}
 				else
 				{
-                    from.SendMessage( "To nie jest pulapka!" );
+					from.SendMessage("To nie jest pulapka!");
 				}
 			}
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 
-			writer.WriteEncodedInt( (int) m_Charges );
+			writer.WriteEncodedInt(Charges);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 
-			switch ( version )
+			switch (version)
 			{
 				case 0:
 				{
-					m_Charges = reader.ReadEncodedInt();
+					Charges = reader.ReadEncodedInt();
 					break;
 				}
 			}

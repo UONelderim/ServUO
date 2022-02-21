@@ -1,9 +1,14 @@
+#region References
+
 using System;
 using Nelderim.Towns;
 using Server;
 using Server.Gumps;
 using Server.Items;
 using Server.Mobiles;
+using Server.Network;
+
+#endregion
 
 namespace Nelderim
 {
@@ -17,7 +22,8 @@ namespace Nelderim
 
 	public class CharacterSheetGump : Gump
 	{
-		private PlayerMobile m_FromPlayer, m_TargetPlayer;
+		private readonly PlayerMobile m_FromPlayer;
+		private readonly PlayerMobile m_TargetPlayer;
 		private const int White = 0xFFFFFF;
 		private const int Red = 0xC93A3A;
 
@@ -91,18 +97,18 @@ namespace Nelderim
 				case CSPages.General:
 				{
 					AddImageTiled(10, 120, 190, 75, 9354);
-					AddLabel(15, 120, 200, string.Format("Nazwa: {0}", m_Target.Name));
+					AddLabel(15, 120, 200, String.Format("Nazwa: {0}", m_Target.Name));
 					AddLabel(15, 140, 200,
-						string.Format("Miasto: {0}",
+						String.Format("Miasto: {0}",
 							TownDatabase.GetCitizenCurrentCity(m_Target) == Towns.Towns.None
 								? "brak"
 								: TownDatabase.GetCitizenCurrentCity(m_Target).ToString()));
 
 					AddImageTiled(205, 120, 115, 75, 9354);
-					AddLabel(210, 130, 200, string.Format("Herb: "));
+					AddLabel(210, 130, 200, "Herb: ");
 					if (m_CharacterSheetInfo.Crest == 0)
 					{
-						AddLabel(250, 130, 200, string.Format("BRAK"));
+						AddLabel(250, 130, 200, "BRAK");
 					}
 					else
 					{
@@ -117,19 +123,17 @@ namespace Nelderim
 							/* case CrestSizeE.Large:
 							     AddImage(250, 125, m_CharacterSheetInfo.Crest);
 							     break;*/
-							default:
-								break;
 						}
 					}
 
 					AddImageTiled(10, 220, 310, 85, 9354);
-					AddLabel(15, 220, 200, string.Format("Czy chcesz uczestniczyc w eventach?"));
+					AddLabel(15, 220, 200, "Czy chcesz uczestniczyc w eventach?");
 					AddRadioButton(15, 240, GetButtonID(1, 1, gmRequested), "Tak",
 						m_CharacterSheetInfo.AttendenceInEvents);
 					AddRadioButton(93, 240, GetButtonID(1, 2, gmRequested), "Nie",
 						!m_CharacterSheetInfo.AttendenceInEvents);
 
-					AddLabel(15, 260, 200, string.Format("Preferowany czas eventow: "));
+					AddLabel(15, 260, 200, "Preferowany czas eventow: ");
 					AddRadioButton(15, 280, GetButtonID(1, 3, gmRequested), "30min",
 						m_CharacterSheetInfo.EventFrequencyAttendence == EventFrequency.F30M);
 					AddRadioButton(93, 280, GetButtonID(1, 4, gmRequested), "60min",
@@ -141,14 +145,14 @@ namespace Nelderim
 
 
 					AddImageTiled(10, 355, 310, 90, 9354);
-					AddLabel(110, 355, 200, string.Format("Punkty fabularne"));
+					AddLabel(110, 355, 200, "Punkty fabularne");
 
 
 					AddImage(135, 385, 51);
-					AddLabel(160, 398, 200, string.Format("{0}", m_CharacterSheetInfo.QuestPoints.ToString()));
+					AddLabel(160, 398, 200, String.Format("{0}", m_CharacterSheetInfo.QuestPoints.ToString()));
 
 					AddLabel(5, 325, 200,
-						string.Format("Czas przydzielenia punktow {0}", m_CharacterSheetInfo.LastQuestPointsTime));
+						String.Format("Czas przydzielenia punktow {0}", m_CharacterSheetInfo.LastQuestPointsTime));
 
 					if (m_From.AccessLevel >= AccessLevel.Counselor)
 					{
@@ -192,7 +196,7 @@ namespace Nelderim
 			}
 		}
 
-		public override void OnResponse(Server.Network.NetState sender, RelayInfo info)
+		public override void OnResponse(NetState sender, RelayInfo info)
 		{
 			int type, index, buttonId = info.ButtonID;
 			bool gmRequested;
@@ -214,14 +218,16 @@ namespace Nelderim
 						case 2:
 						{
 							args[0] = CSPages.Cele;
-							book = new XmlTextEntryBook(0, "Cele i dazenia", m_TargetPlayer.Name, 20, !gmRequested, TextEntryChangedCallback, null);
+							book = new XmlTextEntryBook(0, "Cele i dazenia", m_TargetPlayer.Name, 20, !gmRequested,
+								TextEntryChangedCallback, null);
 							book.FillTextEntryBook(m_CharacterSheetInfo.AppearanceAndCharacteristic);
 							break;
 						}
 						case 3:
 						{
 							args[0] = CSPages.Historia;
-							book = new XmlTextEntryBook(0, "Historia i profesja", m_TargetPlayer.Name, 20, !gmRequested, TextEntryChangedCallback, null);
+							book = new XmlTextEntryBook(0, "Historia i profesja", m_TargetPlayer.Name, 20, !gmRequested,
+								TextEntryChangedCallback, null);
 							book.FillTextEntryBook(m_CharacterSheetInfo.HistoryAndProfession);
 							break;
 						}
@@ -263,7 +269,6 @@ namespace Nelderim
 						case 6:
 							m_CharacterSheetInfo.EventFrequencyAttendence = EventFrequency.FLonger;
 							break;
-						default: break;
 					}
 
 					m_FromPlayer.SendGump(new CharacterSheetGump(m_FromPlayer, m_TargetPlayer, CSPages.General,

@@ -1,5 +1,9 @@
+#region References
+
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using System.Xml;
 using Nelderim.Races;
 using Server.Commands;
@@ -9,18 +13,15 @@ using Server.Spells.Chivalry;
 using Server.Spells.Eighth;
 using Server.Spells.Necromancy;
 
+#endregion
+
 namespace Server.Nelderim
 {
 	public class RegionsEngine
 	{
 		#region pola
 
-		private static List<RegionsEngineRegion> m_NelderimRegions;
-
-		public static List<RegionsEngineRegion> NelderimRegions
-		{
-			get { return m_NelderimRegions; }
-		}
+		public static List<RegionsEngineRegion> NelderimRegions { get; private set; }
 
 		#endregion
 
@@ -28,7 +29,7 @@ namespace Server.Nelderim
 
 		public RegionsEngine()
 		{
-			m_NelderimRegions = new List<RegionsEngineRegion>();
+			NelderimRegions = new List<RegionsEngineRegion>();
 			Load();
 		}
 
@@ -36,8 +37,8 @@ namespace Server.Nelderim
 		{
 			new RegionsEngine();
 			new RumorsSystem();
-			CommandSystem.Register("RELoad", AccessLevel.Administrator, new CommandEventHandler(RELoad_OnCommand));
-			CommandSystem.Register("RESave", AccessLevel.Administrator, new CommandEventHandler(RESave_OnCommand));
+			CommandSystem.Register("RELoad", AccessLevel.Administrator, RELoad_OnCommand);
+			CommandSystem.Register("RESave", AccessLevel.Administrator, RESave_OnCommand);
 			RumorsSystem.Load();
 		}
 
@@ -51,7 +52,7 @@ namespace Server.Nelderim
 		[Description("Wgrywa informacje o regionach (RegionsEngine).")]
 		public static void RELoad_OnCommand(CommandEventArgs e)
 		{
-			m_NelderimRegions = new List<RegionsEngineRegion>();
+			NelderimRegions = new List<RegionsEngineRegion>();
 			e.Mobile.SendMessage("Wczytuje regiony Nelderim...");
 
 			if (Load())
@@ -78,7 +79,7 @@ namespace Server.Nelderim
 
 			try
 			{
-				if (!System.IO.File.Exists("Data/NelderimRegions/NelderimRegions.xml"))
+				if (!File.Exists("Data/NelderimRegions/NelderimRegions.xml"))
 				{
 					Console.WriteLine("Error: NelderimRegions.xml does not exist");
 					return false;
@@ -308,7 +309,7 @@ namespace Server.Nelderim
 
 					#endregion
 
-					m_NelderimRegions.Add(newRegion);
+					NelderimRegions.Add(newRegion);
 				}
 			}
 			catch (Exception e)
@@ -329,7 +330,7 @@ namespace Server.Nelderim
 			try
 			{
 				XmlTextWriter xml = new XmlTextWriter("Data/NelderimRegions/NelderimRegions.xml",
-					System.Text.Encoding.UTF8);
+					Encoding.UTF8);
 				xml.Indentation = 1;
 				xml.IndentChar = '\t';
 				xml.Formatting = Formatting.Indented;
@@ -337,7 +338,7 @@ namespace Server.Nelderim
 				xml.WriteStartDocument(true);
 				xml.WriteStartElement("NelderimRegions");
 
-				foreach (RegionsEngineRegion reg in m_NelderimRegions)
+				foreach (RegionsEngineRegion reg in NelderimRegions)
 				{
 					xml.WriteStartElement("region");
 					xml.WriteAttributeString("name", reg.Name);
@@ -543,12 +544,12 @@ namespace Server.Nelderim
 
 			try
 			{
-				for (int i = 0, count = m_NelderimRegions.Count; i < count; i++)
-					if (((RegionsEngineRegion)m_NelderimRegions[i]).Name == regionName)
-						reg = (RegionsEngineRegion)m_NelderimRegions[i];
+				for (int i = 0, count = NelderimRegions.Count; i < count; i++)
+					if (NelderimRegions[i].Name == regionName)
+						reg = NelderimRegions[i];
 
 				if (reg == null)
-					reg = (RegionsEngineRegion)m_NelderimRegions[0];
+					reg = NelderimRegions[0];
 
 				//Console.WriteLine( "Znajdujemy -> " + reg.Name );
 			}
@@ -598,7 +599,7 @@ namespace Server.Nelderim
 		{
 			int typ = (int)guard.Type;
 			GuardEngine guards = null;
-			RegionsEngineRegion region = GetRegion(((Mobile)guard).Region.Name);
+			RegionsEngineRegion region = GetRegion(guard.Region.Name);
 
 			while ((guards = region.Guards[typ]) == null)
 				region = GetRegion(region.Parent);
@@ -779,7 +780,7 @@ namespace Server.Nelderim
 					while (region.Intolerance == null)
 						region = GetRegion(region.Parent);
 
-					double intolerance = (double)region.Intolerance[target.Race.RaceIndex];
+					double intolerance = region.Intolerance[target.Race.RaceIndex];
 
 					if (intolerance <= 29)
 					{
@@ -850,7 +851,6 @@ namespace Server.Nelderim
 			catch (Exception exc)
 			{
 				Console.WriteLine(exc.ToString());
-				return;
 			}
 		}
 

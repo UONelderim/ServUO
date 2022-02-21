@@ -1,3 +1,5 @@
+#region References
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +8,8 @@ using Server;
 using Server.Mobiles;
 using Server.Network;
 
+#endregion
+
 namespace Nelderim
 {
 	public class Translate
@@ -13,7 +17,7 @@ namespace Nelderim
 		public static void Initialize()
 		{
 			// Register our speech handler
-			EventSink.Speech += new SpeechEventHandler(EventSink_Speech);
+			EventSink.Speech += EventSink_Speech;
 		}
 
 		private static void EventSink_Speech(SpeechEventArgs args)
@@ -41,7 +45,7 @@ namespace Nelderim
 
 			foreach (Mobile m in from.Map.GetMobilesInRange(from.Location, tileLength))
 			{
-				String mySpeechTranslated = "";
+				string mySpeechTranslated = "";
 				if (m.Player)
 				{
 					PlayerMobile pm = m as PlayerMobile;
@@ -90,16 +94,16 @@ namespace Nelderim
 			}
 		}
 
-		private static Random random = new Random();
+		private static readonly Random random = new Random();
 
-		public static String RandomWord(int length)
+		public static string RandomWord(int length)
 		{
 			const string chars = "abcdefghijklmnopqrstuvwxyz";
 			return new string(Enumerable.Repeat(chars, length)
 				.Select(s => s[random.Next(s.Length)]).ToArray());
 		}
 
-		public static String TranslateUsingDict(String speech, Dictionary<String, String> dict)
+		public static string TranslateUsingDict(string speech, Dictionary<string, string> dict)
 		{
 			string translatedWord;
 			StringBuilder sb = new StringBuilder(speech.Length);
@@ -136,7 +140,7 @@ namespace Nelderim
 			;
 		}
 
-		public static String TranslateUsingWordsList(String speech, List<String> list)
+		public static string TranslateUsingWordsList(string speech, List<string> list)
 		{
 			string translatedWord;
 			StringBuilder sb = new StringBuilder(speech.Length);
@@ -168,7 +172,7 @@ namespace Nelderim
 			;
 		}
 
-		public static String TranslateUsingSentencesList(List<String> list)
+		public static string TranslateUsingSentencesList(List<string> list)
 		{
 			return list[random.Next(list.Count)];
 		}

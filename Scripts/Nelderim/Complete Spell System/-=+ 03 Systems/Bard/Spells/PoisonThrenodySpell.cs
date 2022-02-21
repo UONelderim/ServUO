@@ -1,12 +1,16 @@
+#region References
+
 using System;
 using Server.Spells;
 using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Bard
 {
 	public class BardPoisonThrenodySpell : BardSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Tren Jadu", "Infectus",
 			//SpellCircle.First,
 			212, 9041
@@ -69,8 +73,8 @@ namespace Server.ACC.CSS.Systems.Bard
 
 		private class ExpireTimer : Timer
 		{
-			private Mobile m_Mobile;
-			private ResistanceMod m_Mods;
+			private readonly Mobile m_Mobile;
+			private readonly ResistanceMod m_Mods;
 
 			public ExpireTimer(Mobile m, ResistanceMod mod, TimeSpan delay) : base(delay)
 			{
@@ -97,7 +101,7 @@ namespace Server.ACC.CSS.Systems.Bard
 
 		private class InternalTarget : Target
 		{
-			private BardPoisonThrenodySpell m_Owner;
+			private readonly BardPoisonThrenodySpell m_Owner;
 
 			public InternalTarget(BardPoisonThrenodySpell owner) : base(12, false, TargetFlags.Harmful)
 			{

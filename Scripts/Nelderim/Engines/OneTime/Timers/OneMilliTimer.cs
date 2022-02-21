@@ -1,27 +1,31 @@
+#region References
+
 using System;
 using Server.OneTime.Events;
 
+#endregion
+
 namespace Server.OneTime.Timers
 {
-    class OneMilliTimer : Timer
-    {
-        private int LastTime { get; set; }
+	class OneMilliTimer : Timer
+	{
+		private int LastTime { get; set; }
 
-        public OneMilliTimer() : base(TimeSpan.FromMilliseconds(1), TimeSpan.FromMilliseconds(1))
-        {
-            LastTime = DateTime.UtcNow.Millisecond;
-        }
+		public OneMilliTimer() : base(TimeSpan.FromMilliseconds(1), TimeSpan.FromMilliseconds(1))
+		{
+			LastTime = DateTime.UtcNow.Millisecond;
+		}
 
-        protected override void OnTick()
-        {
-            int dateTime = DateTime.UtcNow.Millisecond;
+		protected override void OnTick()
+		{
+			int dateTime = DateTime.UtcNow.Millisecond;
 
-            if (LastTime != dateTime && !OneTimerHelper.IsPaused)
-            {
-                LastTime = dateTime;
+			if (LastTime != dateTime && !OneTimerHelper.IsPaused)
+			{
+				LastTime = dateTime;
 
-                OneTimeMilliEvent.SendTick(this, 1);
-            }
-        }
-    }
+				OneTimeMilliEvent.SendTick(this, 1);
+			}
+		}
+	}
 }

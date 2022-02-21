@@ -1,4 +1,8 @@
-﻿using Server.Items;
+﻿#region References
+
+using Server.Items;
+
+#endregion
 
 namespace Server.Mobiles
 {
@@ -14,7 +18,7 @@ namespace Server.Mobiles
 
 			Hue = Race.RandomSkinHue();
 
-			if ( Female = Utility.RandomBool() )
+			if (Female = Utility.RandomBool())
 			{
 				Body = 0x191;
 				Name = NameList.RandomName("female");
@@ -62,7 +66,6 @@ namespace Server.Mobiles
 			Skills[SkillName.Archery].Base = 120.0;
 			Skills[SkillName.MagicResist].Base = 120.0;
 			Skills[SkillName.DetectHidden].Base = 100.0;
-
 		}
 
 		public Guardian(Serial serial) : base(serial)
@@ -73,7 +76,7 @@ namespace Server.Mobiles
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version 
+			writer.Write(0); // version 
 		}
 
 		public override void Deserialize(GenericReader reader)

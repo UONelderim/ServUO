@@ -1,9 +1,7 @@
-using System;
-
 namespace Server.Items
 {
 	[FlipableAttribute(0xec6, 0xec7)]
-    public class DressformRC : ResouceCraftable
+	public class DressformRC : ResouceCraftable
 	{
 		[Constructable]
 		public DressformRC() : base(0xec6)
@@ -19,7 +17,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)

@@ -1,7 +1,3 @@
-using System;
-using Server;
-using Server.Items;
-
 namespace Server.Items
 {
 	public class SredniOgrodAddon : BaseAddon
@@ -14,37 +10,36 @@ namespace Server.Items
 			}
 		}
 
-		[ Constructable ]
+		[Constructable]
 		public SredniOgrodAddon()
 		{
-      AddComponent( new AddonComponent( 13001 ), 1, 0, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, 0, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, 1, 0 );
-      AddComponent( new AddonComponent( 13001 ), 1, 1, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, -1, 0 );
-      AddComponent( new AddonComponent( 13001 ), 1, -1, 0 );
-      AddComponent( new AddonComponent( 13001 ), -1, 0, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, 0, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, 1, 0 );
-      AddComponent( new AddonComponent( 13001 ), -1, 1, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, -1, 0 );
-      AddComponent( new AddonComponent( 13001 ), -1, -1, 0 );
-
+			AddComponent(new AddonComponent(13001), 1, 0, 0);
+			AddComponent(new AddonComponent(13001), 0, 0, 0);
+			AddComponent(new AddonComponent(13001), 0, 1, 0);
+			AddComponent(new AddonComponent(13001), 1, 1, 0);
+			AddComponent(new AddonComponent(13001), 0, -1, 0);
+			AddComponent(new AddonComponent(13001), 1, -1, 0);
+			AddComponent(new AddonComponent(13001), -1, 0, 0);
+			AddComponent(new AddonComponent(13001), 0, 0, 0);
+			AddComponent(new AddonComponent(13001), 0, 1, 0);
+			AddComponent(new AddonComponent(13001), -1, 1, 0);
+			AddComponent(new AddonComponent(13001), 0, -1, 0);
+			AddComponent(new AddonComponent(13001), -1, -1, 0);
 		}
 
-		public SredniOgrodAddon( Serial serial ) : base( serial )
+		public SredniOgrodAddon(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( 0 ); // Version
+			base.Serialize(writer);
+			writer.Write(0); // Version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}
@@ -65,19 +60,19 @@ namespace Server.Items
 			Name = "Sredni Ogrod";
 		}
 
-		public SredniOgrodAddonDeed( Serial serial ) : base( serial )
+		public SredniOgrodAddonDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( 0 ); // Version
+			base.Serialize(writer);
+			writer.Write(0); // Version
 		}
 
-		public override void	Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

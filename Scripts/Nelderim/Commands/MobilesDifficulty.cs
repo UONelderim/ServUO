@@ -1,3 +1,5 @@
+#region References
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -5,6 +7,8 @@ using System.Linq;
 using System.Reflection;
 using Server.Items;
 using Server.Mobiles;
+
+#endregion
 
 namespace Server.Commands
 {
@@ -25,27 +29,28 @@ namespace Server.Commands
 				foreach (var className in GetAllClasses())
 				{
 					var bc = (BaseCreature)Activator.CreateInstance(ScriptCompiler.FindTypeByName(className, false));
-						if (bc.AI != AIType.AI_Animal && bc.AI != AIType.AI_Vendor)
+					if (bc.AI != AIType.AI_Animal && bc.AI != AIType.AI_Vendor)
+					{
+						bc.GenerateDifficulty();
+						var props = new Dictionary<string, object>();
+						props.Add("className", className);
+						fillCommonProps(bc, props);
+						fillWeaponAbilities(bc, props);
+						fillSpecialAbilities(bc, props);
+						fillAreaEffects(bc, props);
+						fillSkills(bc, props);
+
+						// Zapis
+						if (header)
 						{
-							bc.GenerateDifficulty();
-							var props = new Dictionary<string, object>();
-							props.Add("className", className);
-							fillCommonProps(bc, props);
-							fillWeaponAbilities(bc, props);
-							fillSpecialAbilities(bc, props);
-							fillAreaEffects(bc, props);
-							fillSkills(bc, props);
-
-							// Zapis
-							if (header)
-							{
-								writer.WriteLine(String.Join("\t", props.Keys));
-								header = false;
-							}
-
-							writer.WriteLine(String.Join("\t", props.Values.Select(val => val?.ToString())));
+							writer.WriteLine(String.Join("\t", props.Keys));
+							header = false;
 						}
+
+						writer.WriteLine(String.Join("\t", props.Values.Select(val => val?.ToString())));
+					}
 				}
+
 				e.Mobile.SendMessage(0x400, "Plik zostal zapisany do: {0}", fileName);
 			}
 		}
@@ -102,37 +107,38 @@ namespace Server.Commands
 		private static void fillWeaponAbilities(BaseCreature bc, Dictionary<string, object> props)
 		{
 			foreach (var wa in WeaponAbility.Abilities)
-				if(wa != null) props.Add("has " + wa.GetType().Name, bc.HasAbility(wa) );
+				if (wa != null)
+					props.Add("has " + wa.GetType().Name, bc.HasAbility(wa));
 		}
-		
+
 		private static void fillSpecialAbilities(BaseCreature bc, Dictionary<string, object> props)
 		{
 			foreach (var sa in SpecialAbility.Abilities)
-				if(sa != null) props.Add("has " + sa.GetType().Name, bc.HasAbility(sa) );
-			props.Add("DragonBreathBonus", 
-				bc.AbilityProfile != null && 
+				if (sa != null)
+					props.Add("has " + sa.GetType().Name, bc.HasAbility(sa));
+			props.Add("DragonBreathBonus",
+				bc.AbilityProfile != null &&
 				bc.AbilityProfile.HasAbility(SpecialAbility.DragonBreath)
 					? bc.ComputeDragonBreathBonus()
 					: 0);
 		}
-		
+
 		private static void fillAreaEffects(BaseCreature bc, Dictionary<string, object> props)
 		{
 			foreach (var ae in AreaEffect.Effects)
-				if(ae != null) props.Add("has " + ae.GetType().Name, bc.HasAbility(ae));
+				if (ae != null)
+					props.Add("has " + ae.GetType().Name, bc.HasAbility(ae));
 		}
-		
+
 		private static void fillSkills(BaseCreature bc, Dictionary<string, object> props)
 		{
 			SkillName[] skills =
 			{
-				SkillName.Anatomy, SkillName.Parry, SkillName.DetectHidden, SkillName.EvalInt,
-				SkillName.Healing, SkillName.Hiding, SkillName.Inscribe, SkillName.Magery,
-				SkillName.MagicResist, SkillName.Tactics, SkillName.Poisoning, SkillName.Archery,
-				SkillName.SpiritSpeak, SkillName.Swords, SkillName.Macing, SkillName.Fencing,
-				SkillName.Wrestling, SkillName.Lumberjacking, SkillName.Meditation,
-				SkillName.Necromancy, SkillName.Focus, SkillName.Chivalry, SkillName.Bushido,
-				SkillName.Ninjitsu
+				SkillName.Anatomy, SkillName.Parry, SkillName.DetectHidden, SkillName.EvalInt, SkillName.Healing,
+				SkillName.Hiding, SkillName.Inscribe, SkillName.Magery, SkillName.MagicResist, SkillName.Tactics,
+				SkillName.Poisoning, SkillName.Archery, SkillName.SpiritSpeak, SkillName.Swords, SkillName.Macing,
+				SkillName.Fencing, SkillName.Wrestling, SkillName.Lumberjacking, SkillName.Meditation,
+				SkillName.Necromancy, SkillName.Focus, SkillName.Chivalry, SkillName.Bushido, SkillName.Ninjitsu
 			};
 
 			for (var i = 0; i < skills.Length; i++)
@@ -145,7 +151,8 @@ namespace Server.Commands
 		static List<string> GetAllClasses()
 		{
 			return Assembly.GetAssembly(typeof(BaseCreature)).GetTypes()
-				.Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(BaseCreature)) && myType.GetConstructor(Type.EmptyTypes) != null).Select(type => type.Name).ToList();
+				.Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(BaseCreature)) &&
+				                 myType.GetConstructor(Type.EmptyTypes) != null).Select(type => type.Name).ToList();
 		}
 	}
 }

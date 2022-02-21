@@ -1,12 +1,16 @@
+#region References
+
 using Server.Items;
 using Server.Spells;
 using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ranger
 {
 	public class RangerThrowSwordSpell : RangerSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Rzut mieczem", "*wyciaga sztylet zza pazuchy i ciska nim w cel",
 			//SpellCircle.Fourth,
 			212,
@@ -110,7 +114,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 
 		private class InternalTarget : Target
 		{
-			private RangerThrowSwordSpell m_Owner;
+			private readonly RangerThrowSwordSpell m_Owner;
 
 			public InternalTarget(RangerThrowSwordSpell owner) : base(Core.ML ? 10 : 12, false, TargetFlags.Harmful)
 			{

@@ -1,4 +1,8 @@
+#region References
+
 using static Server.Map;
+
+#endregion
 
 namespace Server.Items
 {

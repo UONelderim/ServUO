@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections;
+﻿#region References
+
+using System;
 using System.Collections.Generic;
 using Server.Engines.BulkOrders;
+
+#endregion
 
 namespace Server.Mobiles
 {
 	public class Hunter : BaseVendor
 	{
 		public override bool CanTeach { get { return false; } }
-		private List<SBInfo> m_SBInfos = new List<SBInfo>();
-		protected override List<SBInfo> SBInfos { get { return m_SBInfos; } }
+		protected override List<SBInfo> SBInfos { get; } = new List<SBInfo>();
 
 		public override NpcGuild NpcGuild { get { return NpcGuild.RangersGuild; } }
 		public override bool IsActiveBuyer { get { return false; } }
@@ -36,14 +38,15 @@ namespace Server.Mobiles
 
 		public override Item CreateBulkOrder(Mobile from, bool fromContextMenu)
 		{
-			if ( !IsAssignedBuildingWorking() )
+			if (!IsAssignedBuildingWorking())
 			{
 				return null;
 			}
 
 			PlayerMobile pm = from as PlayerMobile;
 
-			if ( pm != null && pm.NextHunterBulkOrder == TimeSpan.Zero && (fromContextMenu || 0.2 > Utility.RandomDouble()) )
+			if (pm != null && pm.NextHunterBulkOrder == TimeSpan.Zero &&
+			    (fromContextMenu || 0.2 > Utility.RandomDouble()))
 			{
 				double theirSkill = pm.Skills[SkillName.Magery].Base;
 				theirSkill = Math.Max(theirSkill, pm.Skills[SkillName.Necromancy].Base);
@@ -55,20 +58,20 @@ namespace Server.Mobiles
 
 				double largeprop = 0.0;
 
-				if ( theirSkill >= 105.1 )
+				if (theirSkill >= 105.1)
 				{
 					pm.NextHunterBulkOrder = TimeSpan.FromMinutes(60);
-					largeprop = 0.18;   // (2+8+8)
+					largeprop = 0.18; // (2+8+8)
 				}
-				else if ( theirSkill >= 90.1 )
+				else if (theirSkill >= 90.1)
 				{
 					pm.NextHunterBulkOrder = TimeSpan.FromMinutes(30);
-					largeprop = 0.15;   // (5+10+0)
+					largeprop = 0.15; // (5+10+0)
 				}
-				else if ( theirSkill >= 70.1 )
+				else if (theirSkill >= 70.1)
 				{
 					pm.NextHunterBulkOrder = TimeSpan.FromMinutes(20);
-					largeprop = 0.1;    // (10+0+0)
+					largeprop = 0.1; // (10+0+0)
 				}
 				else
 				{
@@ -76,7 +79,7 @@ namespace Server.Mobiles
 					largeprop = 0.0;
 				}
 
-				if ( theirSkill >= 70.1 && largeprop > Utility.RandomDouble() )
+				if (theirSkill >= 70.1 && largeprop > Utility.RandomDouble())
 					return new LargeHunterBOD(theirSkill);
 
 				return SmallHunterBOD.CreateRandomFor(from, theirSkill);
@@ -87,7 +90,7 @@ namespace Server.Mobiles
 
 		public override bool IsValidBulkOrder(Item item)
 		{
-			if ( !IsAssignedBuildingWorking() )
+			if (!IsAssignedBuildingWorking())
 			{
 				return false;
 			}
@@ -97,27 +100,28 @@ namespace Server.Mobiles
 
 		public override bool SupportsBulkOrders(Mobile from)
 		{
-			if ( from is PlayerMobile )
+			if (from is PlayerMobile)
 			{
 				PlayerMobile pm = from as PlayerMobile;
-				if ( pm.Skills[SkillName.Magery].Base > 0 ||
-					pm.Skills[SkillName.Necromancy].Base > 0 ||
-					pm.Skills[SkillName.Fencing].Base > 0 ||
-					pm.Skills[SkillName.Swords].Base > 0 ||
-					pm.Skills[SkillName.Archery].Base > 0 ||
-					pm.Skills[SkillName.Macing].Base > 0 ||
-					pm.Skills[SkillName.AnimalTaming].Base > 0
-				  )
+				if (pm.Skills[SkillName.Magery].Base > 0 ||
+				    pm.Skills[SkillName.Necromancy].Base > 0 ||
+				    pm.Skills[SkillName.Fencing].Base > 0 ||
+				    pm.Skills[SkillName.Swords].Base > 0 ||
+				    pm.Skills[SkillName.Archery].Base > 0 ||
+				    pm.Skills[SkillName.Macing].Base > 0 ||
+				    pm.Skills[SkillName.AnimalTaming].Base > 0
+				   )
 				{
 					return true;
 				}
 			}
+
 			return false;
 		}
 
 		public override TimeSpan GetNextBulkOrder(Mobile from)
 		{
-			if ( from is PlayerMobile )
+			if (from is PlayerMobile)
 				return ((PlayerMobile)from).NextHunterBulkOrder;
 
 			return TimeSpan.Zero;
@@ -125,7 +129,7 @@ namespace Server.Mobiles
 
 		public override void OnSuccessfulBulkOrderReceive(Mobile from)
 		{
-			if ( from is PlayerMobile )
+			if (from is PlayerMobile)
 				((PlayerMobile)from).NextHunterBulkOrder = TimeSpan.Zero;
 		}
 
@@ -139,7 +143,7 @@ namespace Server.Mobiles
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
