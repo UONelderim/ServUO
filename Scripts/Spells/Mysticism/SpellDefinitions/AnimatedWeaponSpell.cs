@@ -9,7 +9,7 @@ namespace Server.Spells.Mysticism
         public override SpellCircle Circle => SpellCircle.Fourth;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Żywy Oręż", "In Jux Por Ylem",
+                "Zywy Orez", "In Jux Por Ylem",
                 230,
                 9022,
                 Reagent.BlackPearl,
