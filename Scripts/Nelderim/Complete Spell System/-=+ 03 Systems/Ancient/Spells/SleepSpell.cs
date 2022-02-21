@@ -1,150 +1,157 @@
+#region References
+
 using System;
 using System.Collections;
-using Server;
-using Server.Targeting;
 using Server.Items;
 using Server.Spells;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ancient
 {
-    public class AncientSleepSpell : AncientSpell
-    {
-        private SleepingBody m_Body;
+	public class AncientSleepSpell : AncientSpell
+	{
+		private SleepingBody m_Body;
 
-        private static SpellInfo m_Info = new SpellInfo(
-                                                        "Sleep", "In Zu",
-                                                        206,
-                                                        9002,
-                                                        Reagent.SpidersSilk,
-                                                        Reagent.BlackPearl,
-                                                        Reagent.Nightshade
-                                                       );
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Sleep", "In Zu",
+			206,
+			9002,
+			Reagent.SpidersSilk,
+			Reagent.BlackPearl,
+			Reagent.Nightshade
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Third; }
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Third; }
+		}
 
-        public AncientSleepSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-        }
+		public AncientSleepSpell(Mobile caster, Item scroll)
+			: base(caster, scroll, m_Info)
+		{
+		}
 
-        public override void OnCast()
-        {
-            if (CheckSequence())
-                Caster.Target = new InternalTarget(this);
-        }
+		public override void OnCast()
+		{
+			if (CheckSequence())
+				Caster.Target = new InternalTarget(this);
+		}
 
-        public void Target(Mobile m)
-        {
-            if (!Caster.CanSee(m))
-            {
-                Caster.SendLocalizedMessage(500237); // Target can not be seen.
-            }
-            else
-            {
-                SpellHelper.Turn(Caster, m);
-                if (this.Scroll != null)
-                    Scroll.Consume();
-                Effects.SendLocationParticles(EffectItem.Create(new Point3D(m.X, m.Y, m.Z + 16), Caster.Map, EffectItem.DefaultDuration), 0x376A, 10, 15, 5045);
-                m.PlaySound(0x3C4);
+		public void Target(Mobile m)
+		{
+			if (!Caster.CanSee(m))
+			{
+				Caster.SendLocalizedMessage(500237); // Target can not be seen.
+			}
+			else
+			{
+				SpellHelper.Turn(Caster, m);
+				if (this.Scroll != null)
+					Scroll.Consume();
+				Effects.SendLocationParticles(
+					EffectItem.Create(new Point3D(m.X, m.Y, m.Z + 16), Caster.Map, EffectItem.DefaultDuration), 0x376A,
+					10, 15, 5045);
+				m.PlaySound(0x3C4);
 
-                m.Hidden = true;
-                m.Frozen = true;
-                m.Squelched = true;
+				m.Hidden = true;
+				m.Frozen = true;
+				m.Squelched = true;
 
-                ArrayList sleepequip = new ArrayList();
+				ArrayList sleepequip = new ArrayList();
 
-                Item hat = m.FindItemOnLayer(Layer.Helm);
-                if (hat != null)
-                {
-                    sleepequip.Add(hat);
-                }
-                SleepingBody body = new SleepingBody(m, false);
-                body.Map = m.Map;
-                body.Location = m.Location;
-                m_Body = body;
-                m.Z -= 100;
+				Item hat = m.FindItemOnLayer(Layer.Helm);
+				if (hat != null)
+				{
+					sleepequip.Add(hat);
+				}
 
-                m.SendMessage("You fall asleep");
+				SleepingBody body = new SleepingBody(m, false);
+				body.Map = m.Map;
+				body.Location = m.Location;
+				m_Body = body;
+				m.Z -= 100;
 
-                RemoveTimer(m);
+				m.SendMessage("You fall asleep");
 
-                TimeSpan duration = TimeSpan.FromSeconds(Caster.Skills[SkillName.Magery].Value * 1.2); // 120% of magery
+				RemoveTimer(m);
 
-                Timer t = new InternalTimer(m, duration, m_Body);
+				TimeSpan duration = TimeSpan.FromSeconds(Caster.Skills[SkillName.Magery].Value * 1.2); // 120% of magery
 
-                m_Table[m] = t;
+				Timer t = new InternalTimer(m, duration, m_Body);
 
-                t.Start();
-            }
-        }
+				m_Table[m] = t;
 
-        private static Hashtable m_Table = new Hashtable();
+				t.Start();
+			}
+		}
 
-        public static void RemoveTimer(Mobile m)
-        {
-            Timer t = (Timer)m_Table[m];
+		private static readonly Hashtable m_Table = new Hashtable();
 
-            if (t != null)
-            {
-                t.Stop();
-                m_Table.Remove(m);
-            }
-        }
+		public static void RemoveTimer(Mobile m)
+		{
+			Timer t = (Timer)m_Table[m];
 
-        private class InternalTimer : Timer
-        {
-            private Mobile m_Mobile;
-            private Item m_Body;
+			if (t != null)
+			{
+				t.Stop();
+				m_Table.Remove(m);
+			}
+		}
 
-            public InternalTimer(Mobile m, TimeSpan duration, Item body)
-                : base(duration)
-            {
-                m_Mobile = m;
-                m_Body = body;
-            }
+		private class InternalTimer : Timer
+		{
+			private readonly Mobile m_Mobile;
+			private readonly Item m_Body;
 
-            protected override void OnTick()
-            {
-                m_Mobile.RevealingAction();
-                m_Mobile.Frozen = false;
-                m_Mobile.Squelched = false;
+			public InternalTimer(Mobile m, TimeSpan duration, Item body)
+				: base(duration)
+			{
+				m_Mobile = m;
+				m_Body = body;
+			}
 
-                if (m_Body != null)
-                {
-                    m_Body.Delete();
-                    m_Mobile.SendMessage("You wake up!");
-                    m_Mobile.Z = m_Body.Z;
-                    m_Mobile.Animate(21, 6, 1, false, false, 0);
-                }
-                RemoveTimer(m_Mobile);
-            }
-        }
+			protected override void OnTick()
+			{
+				m_Mobile.RevealingAction();
+				m_Mobile.Frozen = false;
+				m_Mobile.Squelched = false;
 
-        public class InternalTarget : Target
-        {
-            private AncientSleepSpell m_Owner;
+				if (m_Body != null)
+				{
+					m_Body.Delete();
+					m_Mobile.SendMessage("You wake up!");
+					m_Mobile.Z = m_Body.Z;
+					m_Mobile.Animate(21, 6, 1, false, false, 0);
+				}
 
-            public InternalTarget(AncientSleepSpell owner)
-                : base(12, false, TargetFlags.Beneficial)
-            {
-                m_Owner = owner;
-            }
+				RemoveTimer(m_Mobile);
+			}
+		}
 
-            protected override void OnTarget(Mobile from, object o)
-            {
-                if (o is Mobile)
-                {
-                    m_Owner.Target((Mobile)o);
-                }
-            }
+		public class InternalTarget : Target
+		{
+			private readonly AncientSleepSpell m_Owner;
 
-            protected override void OnTargetFinish(Mobile from)
-            {
-                m_Owner.FinishSequence();
-            }
-        }
-    }
+			public InternalTarget(AncientSleepSpell owner)
+				: base(12, false, TargetFlags.Beneficial)
+			{
+				m_Owner = owner;
+			}
+
+			protected override void OnTarget(Mobile from, object o)
+			{
+				if (o is Mobile)
+				{
+					m_Owner.Target((Mobile)o);
+				}
+			}
+
+			protected override void OnTargetFinish(Mobile from)
+			{
+				m_Owner.FinishSequence();
+			}
+		}
+	}
 }

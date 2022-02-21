@@ -1,10 +1,8 @@
-using System;
-
 namespace Server.Items
 {
 	[Furniture]
-	[Flipable(0xB4A,0xB49, 0xB4B, 0xB4C)]
-    public class WritingTableRC : ResouceCraftable
+	[Flipable(0xB4A, 0xB49, 0xB4B, 0xB4C)]
+	public class WritingTableRC : ResouceCraftable
 	{
 		[Constructable]
 		public WritingTableRC() : base(0xB4A)
@@ -20,7 +18,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -29,7 +27,7 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 
-			if ( Weight == 4.0 )
+			if (Weight == 4.0)
 				Weight = 1.0;
 		}
 	}

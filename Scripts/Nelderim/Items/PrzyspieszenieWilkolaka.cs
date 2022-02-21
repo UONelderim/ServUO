@@ -1,7 +1,11 @@
+#region References
+
 using System;
 using Server.Mobiles;
 using Server.Network;
 using Server.Spells.Ninjitsu;
+
+#endregion
 
 namespace Server.Items
 {
@@ -9,8 +13,8 @@ namespace Server.Items
 	{
 		public static void Initialize()
 		{
-			EventSink.Login += new LoginEventHandler(OnLogin);
-			EventSink.Logout += new LogoutEventHandler(OnLogout);
+			EventSink.Login += OnLogin;
+			EventSink.Logout += OnLogout;
 		}
 
 		private static void OnLogin(LoginEventArgs e)
@@ -91,7 +95,7 @@ namespace Server.Items
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)1); // version 
+			writer.Write(1); // version 
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -102,8 +106,8 @@ namespace Server.Items
 
 		private class InternalTimer : Timer
 		{
-			private Mobile m_Mobile;
-			private PrzyspieszenieWilkolaka m_Ring;
+			private readonly Mobile m_Mobile;
+			private readonly PrzyspieszenieWilkolaka m_Ring;
 
 			public InternalTimer(Mobile m, PrzyspieszenieWilkolaka ring) : base(TimeSpan.Zero, TimeSpan.FromSeconds(3))
 			{

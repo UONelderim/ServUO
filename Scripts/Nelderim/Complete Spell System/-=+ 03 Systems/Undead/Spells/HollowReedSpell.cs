@@ -1,11 +1,15 @@
+#region References
+
 using Server.Spells;
 using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Undead
 {
 	public class UndeadHollowReedSpell : UndeadSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Hedonizm", "En Nargh Aeta Sec En Ess ",
 			//SpellCircle.Second,
 			203,
@@ -56,7 +60,7 @@ namespace Server.ACC.CSS.Systems.Undead
 
 		private class InternalTarget : Target
 		{
-			private UndeadHollowReedSpell m_Owner;
+			private readonly UndeadHollowReedSpell m_Owner;
 
 			public InternalTarget(UndeadHollowReedSpell owner) : base(12, false, TargetFlags.Beneficial)
 			{

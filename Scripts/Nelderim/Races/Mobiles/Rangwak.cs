@@ -1,19 +1,18 @@
-using System;
+#region References
+
 using Server.Items;
-using Server;
-using Server.Misc;
+
+#endregion
 
 namespace Server.Mobiles
 {
 	public class Rangwak : BaseCreature
 	{
-
-
 		[Constructable]
-		public Rangwak() : base( AIType.AI_Mage, FightMode.None, 12, 5, 0.2, 0.4  )
+		public Rangwak() : base(AIType.AI_Mage, FightMode.None, 12, 5, 0.2, 0.4)
 		{
-            Race = Race.NTamael;
-            Female = true;
+			Race = Race.NTamael;
+			Female = true;
 			Name = "Rangwak";
 			//Title = "- Wojownik";
 			Body = 0x190;
@@ -22,67 +21,67 @@ namespace Server.Mobiles
 			HairHue = 916;
 			FacialHairItemID = 0x204C;
 			FacialHairHue = 916;
-							
+
 			Str = 100;
 			Dex = 100;
 			Int = 200;
 			Hits = 300;
 
-			SetSkill( SkillName.Magery, 120.0 );
-			SetSkill( SkillName.EvalInt, 120.0 );
-			SetSkill( SkillName.MagicResist, 100.0 );
-			SetSkill( SkillName.Meditation, 120.0 );
-			SetSkill( SkillName.Necromancy, 100.0 );
-			SetSkill( SkillName.SpiritSpeak, 100.0 );
-			SetSkill( SkillName.Wrestling, 100.0 );
+			SetSkill(SkillName.Magery, 120.0);
+			SetSkill(SkillName.EvalInt, 120.0);
+			SetSkill(SkillName.MagicResist, 100.0);
+			SetSkill(SkillName.Meditation, 120.0);
+			SetSkill(SkillName.Necromancy, 100.0);
+			SetSkill(SkillName.SpiritSpeak, 100.0);
+			SetSkill(SkillName.Wrestling, 100.0);
 
-			
-			Shirt chest = new Shirt ();
+
+			Shirt chest = new Shirt();
 			chest.Hue = 216;
-			EquipItem ( chest );
+			EquipItem(chest);
 
-			LongPants legs = new LongPants ();
+			LongPants legs = new LongPants();
 			legs.Hue = 216;
-			EquipItem ( legs );
-			
-			WizardsHat band = new WizardsHat ();
+			EquipItem(legs);
+
+			WizardsHat band = new WizardsHat();
 			band.Hue = 500;
-			AddItem( band ); 
-			
-			Sandals Boot = new Sandals ();
+			AddItem(band);
+
+			Sandals Boot = new Sandals();
 			Boot.Hue = 1337;
-			AddItem ( Boot );
-			
+			AddItem(Boot);
+
 			Cloak Cloa = new Cloak();
 			Cloa.Hue = 842;
-			AddItem ( Cloa );
+			AddItem(Cloa);
 
 			QuarterStaff staff = new QuarterStaff();
 			staff.Attributes.SpellChanneling = 1;
-			AddItem(staff);			
-			
+			AddItem(staff);
+
 			Container pack = new Backpack();
 
 			pack.Movable = false;
 
-			AddItem( pack );
+			AddItem(pack);
 		}
 
 
-		public Rangwak( Serial serial )
-			: base( serial )
+		public Rangwak(Serial serial)
+			: base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( (int) 0 );
+			base.Serialize(writer);
+			writer.Write(0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

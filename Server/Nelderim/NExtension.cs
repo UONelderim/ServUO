@@ -1,7 +1,11 @@
+#region References
+
 using System;
 using System.Collections.Concurrent;
 using System.IO;
 using Server;
+
+#endregion
 
 namespace Nelderim
 {
@@ -40,8 +44,8 @@ namespace Nelderim
 				{
 					BinaryFileWriter writer = new BinaryFileWriter(m_FileStream, true);
 
-					writer.Write((int)0); //version
-					writer.Write((int)m_ExtensionInfo.Count);
+					writer.Write(0); //version
+					writer.Write(m_ExtensionInfo.Count);
 					foreach (T info in m_ExtensionInfo.Values)
 					{
 						writer.Write(info.Serial);
@@ -61,7 +65,7 @@ namespace Nelderim
 		public static void Load(string moduleName)
 		{
 			if (!File.Exists(@"Saves/Nelderim/" + moduleName + ".sav"))
-				moduleName = char.ToLower(moduleName[0]) + moduleName.Substring(1); // 1st letter lowercase
+				moduleName = Char.ToLower(moduleName[0]) + moduleName.Substring(1); // 1st letter lowercase
 			if (!File.Exists(@"Saves/Nelderim/" + moduleName + ".sav"))
 				return;
 

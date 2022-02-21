@@ -1,54 +1,55 @@
+#region References
+
 using System;
-using Server.Targeting;
-using Server.Network;
-using Server.Misc;
-using Server.Items;
 using Server.Spells;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Druid
 {
 	public class DruidGraspingRootsSpell : DruidSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
-		                                                "Szalone Korzenie", "En Ohm Sepa Tia Kes",
-		                                                //SpellCircle.Fifth,
-		                                                218,
-		                                                9012,
-		                                                false,
-		                                                CReagent.SpringWater,
-		                                                Reagent.Bloodmoss,
-		                                                Reagent.SpidersSilk
-		                                               );
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Szalone Korzenie", "En Ohm Sepa Tia Kes",
+			//SpellCircle.Fifth,
+			218,
+			9012,
+			false,
+			CReagent.SpringWater,
+			Reagent.Bloodmoss,
+			Reagent.SpidersSilk
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Fifth; }
-        }
-
-		public override double CastDelay{ get{ return 1.5; } }
-		public override double RequiredSkill{ get{ return 40.0; } }
-		public override int RequiredMana{ get{ return 40; } }
-
-		public DruidGraspingRootsSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
+		public override SpellCircle Circle
 		{
-			                    if (this.Scroll != null)
-                        Scroll.Consume();
+			get { return SpellCircle.Fifth; }
+		}
+
+		public override double CastDelay { get { return 1.5; } }
+		public override double RequiredSkill { get { return 40.0; } }
+		public override int RequiredMana { get { return 40; } }
+
+		public DruidGraspingRootsSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
+		{
+			if (this.Scroll != null)
+				Scroll.Consume();
 		}
 
 		public override void OnCast()
 		{
-			Caster.Target = new InternalTarget( this );
+			Caster.Target = new InternalTarget(this);
 		}
 
-		public void Target( Mobile m )
+		public void Target(Mobile m)
 		{
-			if ( !Caster.CanSee( m ) )
+			if (!Caster.CanSee(m))
 			{
-				Caster.SendLocalizedMessage( 500237 ); // Target can not be seen.
+				Caster.SendLocalizedMessage(500237); // Target can not be seen.
 			}
-			else if ( CheckHSequence( m ) )
+			else if (CheckHSequence(m))
 			{
-				SpellHelper.Turn( Caster, m );
+				SpellHelper.Turn(Caster, m);
 
 				double duration;
 
@@ -56,24 +57,24 @@ namespace Server.ACC.CSS.Systems.Druid
 				duration = 7.0 + (Caster.Skills[DamageSkill].Value * 0.2);
 
 				// Resist if Str + Dex / 2 is greater than CastSkill eg. AnimalLore seems to work??
-				if ( ( Caster.Skills[CastSkill].Value ) < ( ( m.Str + m.Dex ) * 0.5 ) )
+				if ((Caster.Skills[CastSkill].Value) < ((m.Str + m.Dex) * 0.5))
 					duration *= 0.5;
 
 				// no less than 0 seconds no more than 9 seconds
-				if ( duration < 0.0 )
+				if (duration < 0.0)
 					duration = 0.0;
-				if ( duration > 4.0 )
+				if (duration > 4.0)
 					duration = 4.0;
 
-				m.PlaySound( 0x2A1 );
+				m.PlaySound(0x2A1);
 
-				m.Paralyze( TimeSpan.FromSeconds( duration ) );
-				m.FixedParticles( 0x375A, 2, 10, 5027, 0x3D, 2, EffectLayer.Waist );
+				m.Paralyze(TimeSpan.FromSeconds(duration));
+				m.FixedParticles(0x375A, 2, 10, 5027, 0x3D, 2, EffectLayer.Waist);
 
 				{
-					Point3D loc = new Point3D( m.X, m.Y, m.Z );
+					Point3D loc = new Point3D(m.X, m.Y, m.Z);
 
-					Item item = new InternalItem( loc, Caster.Map, Caster );
+					Item item = new InternalItem(loc, Caster.Map, Caster);
 				}
 			}
 
@@ -85,45 +86,45 @@ namespace Server.ACC.CSS.Systems.Druid
 			private Timer m_Timer;
 			private DateTime m_End;
 
-			public InternalItem( Point3D loc, Map map, Mobile caster ) : base( 0xC5F )
+			public InternalItem(Point3D loc, Map map, Mobile caster) : base(0xC5F)
 			{
 				Visible = false;
 				Movable = false;
 
-				MoveToWorld( loc, map );
+				MoveToWorld(loc, map);
 
-				if ( caster.InLOS( this ) )
+				if (caster.InLOS(this))
 					Visible = true;
 				else
 					Delete();
 
-				if ( Deleted )
+				if (Deleted)
 					return;
 
-				m_Timer = new InternalTimer( this, TimeSpan.FromSeconds( 30.0 ) );
+				m_Timer = new InternalTimer(this, TimeSpan.FromSeconds(30.0));
 				m_Timer.Start();
 
-				m_End = DateTime.Now + TimeSpan.FromSeconds( 30.0 );
+				m_End = DateTime.Now + TimeSpan.FromSeconds(30.0);
 			}
 
-			public InternalItem( Serial serial ) : base( serial )
+			public InternalItem(Serial serial) : base(serial)
 			{
 			}
 
-			public override void Serialize( GenericWriter writer )
+			public override void Serialize(GenericWriter writer)
 			{
-				base.Serialize( writer );
-				writer.Write( (int) 1 ); // version
-				writer.Write( m_End - DateTime.Now );
+				base.Serialize(writer);
+				writer.Write(1); // version
+				writer.Write(m_End - DateTime.Now);
 			}
 
-			public override void Deserialize( GenericReader reader )
+			public override void Deserialize(GenericReader reader)
 			{
-				base.Deserialize( reader );
+				base.Deserialize(reader);
 				int version = reader.ReadInt();
 				TimeSpan duration = reader.ReadTimeSpan();
 
-				m_Timer = new InternalTimer( this, duration );
+				m_Timer = new InternalTimer(this, duration);
 				m_Timer.Start();
 
 				m_End = DateTime.Now + duration;
@@ -133,15 +134,15 @@ namespace Server.ACC.CSS.Systems.Druid
 			{
 				base.OnAfterDelete();
 
-				if ( m_Timer != null )
+				if (m_Timer != null)
 					m_Timer.Stop();
 			}
 
 			private class InternalTimer : Timer
 			{
-				private InternalItem m_Item;
+				private readonly InternalItem m_Item;
 
-				public InternalTimer( InternalItem item, TimeSpan duration ) : base( duration )
+				public InternalTimer(InternalItem item, TimeSpan duration) : base(duration)
 				{
 					m_Item = item;
 				}
@@ -155,20 +156,20 @@ namespace Server.ACC.CSS.Systems.Druid
 
 		private class InternalTarget : Target
 		{
-			private DruidGraspingRootsSpell m_Owner;
+			private readonly DruidGraspingRootsSpell m_Owner;
 
-			public InternalTarget( DruidGraspingRootsSpell owner ) : base( 12, true, TargetFlags.None )
+			public InternalTarget(DruidGraspingRootsSpell owner) : base(12, true, TargetFlags.None)
 			{
 				m_Owner = owner;
 			}
 
-			protected override void OnTarget( Mobile from, object o )
+			protected override void OnTarget(Mobile from, object o)
 			{
-				if ( o is Mobile )
-					m_Owner.Target( (Mobile)o );
+				if (o is Mobile)
+					m_Owner.Target((Mobile)o);
 			}
 
-			protected override void OnTargetFinish( Mobile from )
+			protected override void OnTargetFinish(Mobile from)
 			{
 				m_Owner.FinishSequence();
 			}

@@ -1,10 +1,13 @@
-﻿using System;
-using Server.Network;
-using Server;
-using Server.Targets;
-using Server.Targeting;
-using Server.Spells;
+﻿#region References
+
+using System;
 using Server.Mobiles;
+using Server.Network;
+using Server.Spells;
+using Server.Targeting;
+
+#endregion
+
 namespace Server.Items
 {
 	public abstract class BaseElementalPotion : BasePotion
@@ -16,7 +19,6 @@ namespace Server.Items
 		public BaseElementalPotion(PotionEffect effect)
 			: base(0xF0B, effect)
 		{
-
 		}
 
 		public BaseElementalPotion(Serial serial)
@@ -28,7 +30,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -45,6 +47,7 @@ namespace Server.Items
 				m.SendMessage("Nie mozesz rzucic mikstury bedac sparalizowanym!");
 				return;
 			}
+
 			if (m.InRange(this.GetWorldLocation(), 1))
 			{
 				m.Target = new PotionThrowTarget(this, CreatureType, LandTiles, ItemIDs);
@@ -60,10 +63,10 @@ namespace Server.Items
 
 	public class PotionThrowTarget : Target
 	{
-		private BaseElementalPotion m_Potion;
-		private Type m_CreatureType;
-		private int[] m_LandTiles;
-		private int[] m_ItemIDs;
+		private readonly BaseElementalPotion m_Potion;
+		private readonly Type m_CreatureType;
+		private readonly int[] m_LandTiles;
+		private readonly int[] m_ItemIDs;
 
 		public PotionThrowTarget(BaseElementalPotion potion, Type creatureType, int[] landTiles, int[] itemIDs)
 			: base(12, true, TargetFlags.None)
@@ -76,10 +79,11 @@ namespace Server.Items
 
 		private class ThrowTimer : Timer
 		{
-			private Mobile m_From;
-			private Type m_CreatureType;
+			private readonly Mobile m_From;
+			private readonly Type m_CreatureType;
 
-			public ThrowTimer(Mobile from, Type creatureType) : base( TimeSpan.FromSeconds(1.5), TimeSpan.FromSeconds(6), 1 )
+			public ThrowTimer(Mobile from, Type creatureType) : base(TimeSpan.FromSeconds(1.5), TimeSpan.FromSeconds(6),
+				1)
 			{
 				m_From = from;
 				m_CreatureType = creatureType;
@@ -103,7 +107,7 @@ namespace Server.Items
 				to = (Mobile)p;
 			else
 				to = new Entity(Serial.Zero, new Point3D(p), map);
-			
+
 			if (targeted is BaseCreature || targeted is PlayerMobile)
 			{
 				from.SendMessage("Lepiej nie rzucac tym w zywe istoty!");
@@ -148,8 +152,6 @@ namespace Server.Items
 			}
 
 			from.SendMessage("We wskazanym miejscu brakuje odpowiednich substancji...");
-			return;
-
 		}
 	}
 }

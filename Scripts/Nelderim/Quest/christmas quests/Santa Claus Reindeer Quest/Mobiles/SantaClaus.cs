@@ -7,12 +7,16 @@
  * Santa Claus
  */
 
+#region References
+
 using System.Collections.Generic;
 using Server.ContextMenus;
 using Server.Gumps;
 using Server.Items;
 using Server.Network;
 using Server.Targeting;
+
+#endregion
 
 namespace Server.Mobiles
 {
@@ -53,7 +57,7 @@ namespace Server.Mobiles
 
 		private class PetSaleTarget : Target
 		{
-			private SantaClaus m_Trainer;
+			private readonly SantaClaus m_Trainer;
 
 			public PetSaleTarget(SantaClaus trainer) : base(12, false, TargetFlags.None)
 			{
@@ -201,7 +205,7 @@ namespace Server.Mobiles
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version 
+			writer.Write(0); // version 
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -220,7 +224,7 @@ namespace Server.Mobiles
 
 		public class SantaClausEntry : ContextMenuEntry
 		{
-			private Mobile m_Mobile;
+			private readonly Mobile m_Mobile;
 			private Mobile m_Giver;
 
 			public SantaClausEntry(Mobile from, Mobile giver) : base(6146, 3)
@@ -272,11 +276,9 @@ namespace Server.Mobiles
 						return;
 					}
 
-					else if (sg != null)
+					if (sg != null)
 					{
 						Say("Swietnie! Czy to prezent dla mnie!?");
-
-						return;
 					}
 				}
 			}
@@ -309,16 +311,15 @@ namespace Server.Mobiles
 					mobile.SendGump(new SantaClausFinishGump(mobile));
 					return true;
 				}
-				else if (dropped is SantasGift2011)
+
+				if (dropped is SantasGift2011)
 				{
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, 1054071, mobile.NetState);
 					return false;
 				}
-				else
-				{
-					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "Tego nie potrzebuje",
-						mobile.NetState);
-				}
+
+				this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "Tego nie potrzebuje",
+					mobile.NetState);
 			}
 
 			return false;

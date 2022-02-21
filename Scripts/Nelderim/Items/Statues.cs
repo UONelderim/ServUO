@@ -19,7 +19,7 @@
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -29,6 +29,7 @@
 			int version = reader.ReadInt();
 		}
 	}
+
 	public class WojownikStatua : Item
 	{
 		[Constructable]
@@ -48,7 +49,7 @@
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -58,6 +59,7 @@
 			int version = reader.ReadInt();
 		}
 	}
+
 	public class KamiennaWaza : Item
 	{
 		[Constructable]
@@ -77,7 +79,7 @@
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -87,6 +89,7 @@
 			int version = reader.ReadInt();
 		}
 	}
+
 	public class Nagrobek : Item
 	{
 		[Constructable]
@@ -106,7 +109,7 @@
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)

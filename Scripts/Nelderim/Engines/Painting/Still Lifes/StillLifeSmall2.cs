@@ -1,3 +1,9 @@
+#region References
+
+using System;
+
+#endregion
+
 namespace Server.Items
 {
 	[FlipableAttribute(0x240F, 0x2410)]
@@ -14,7 +20,7 @@ namespace Server.Items
 		[Constructable]
 		public StillLifeSmall2(string artistName, string subject) : base(0x240F)
 		{
-			Name = string.Format("Malowidlo {0} stworzone przez {1}", subject, artistName);
+			Name = String.Format("Malowidlo {0} stworzone przez {1}", subject, artistName);
 			Weight = 3.0;
 			Hue = 0;
 		}
@@ -27,7 +33,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)

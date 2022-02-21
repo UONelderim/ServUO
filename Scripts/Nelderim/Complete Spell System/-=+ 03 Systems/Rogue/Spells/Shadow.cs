@@ -1,12 +1,16 @@
+#region References
+
 using System;
 using System.Collections.Generic;
 using Server.Spells;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Rogue
 {
 	public class RogueShadowSpell : RogueSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Cień", " ",
 			//SpellCircle.Fourth,
 			212,
@@ -22,7 +26,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 		public override double RequiredSkill { get { return 60; } }
 		public override int RequiredMana { get { return 15; } }
 
-		private static Dictionary<Mobile, SkillMod> m_Table = new Dictionary<Mobile, SkillMod>();
+		private static readonly Dictionary<Mobile, SkillMod> m_Table = new Dictionary<Mobile, SkillMod>();
 
 		public RogueShadowSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)
@@ -61,8 +65,8 @@ namespace Server.ACC.CSS.Systems.Rogue
 
 		private class InternalTimer : Timer
 		{
-			private Mobile m_Owner;
-			private DateTime m_ExpiresAt;
+			private readonly Mobile m_Owner;
+			private readonly DateTime m_ExpiresAt;
 
 			public InternalTimer(Mobile owner, DateTime expiresAt)
 				: base(TimeSpan.Zero, TimeSpan.FromSeconds(15))
@@ -75,7 +79,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 			{
 				if (DateTime.Now >= m_ExpiresAt)
 				{
-					RogueShadowSpell.Remove(m_Owner);
+					Remove(m_Owner);
 					Stop();
 				}
 			}

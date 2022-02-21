@@ -1,41 +1,38 @@
-using System;
-using Server;
-
 namespace Server.Items
 {
-    public class Soul : Item
-    {
-        [Constructable]
-		public Soul() : this( 1 )
+	public class Soul : Item
+	{
+		[Constructable]
+		public Soul() : this(1)
 		{
 		}
 
 		[Constructable]
-		public Soul( int amount ) : base( 0x2100 )
+		public Soul(int amount) : base(0x2100)
 		{
-            Name = "dusza";
+			Name = "dusza";
 			Stackable = false;
-            Hue = 1367;
+			Hue = 1367;
 			Amount = amount;
 		}
 
-        public Soul(Serial serial)
-            : base(serial)
+		public Soul(Serial serial)
+			: base(serial)
 		{
-		}		
-
-		public override void Serialize( GenericWriter writer )
-		{
-			base.Serialize( writer );
-
-			writer.Write( (int) 0 ); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Deserialize( reader );
+			base.Serialize(writer);
+
+			writer.Write(0); // version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
-    }
+	}
 }

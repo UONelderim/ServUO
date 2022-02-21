@@ -1,7 +1,12 @@
+#region References
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Server.Engines.Plants;
 using Server.Items;
+
+#endregion
 
 namespace Server.Mobiles
 {
@@ -46,7 +51,7 @@ namespace Server.Mobiles
 
 
 			if (Utility.RandomDouble() < .25)
-				PackItem(Engines.Plants.Seed.RandomBonsaiSeed());
+				PackItem(Seed.RandomBonsaiSeed());
 
 			switch (Utility.Random(10))
 			{
@@ -181,12 +186,12 @@ namespace Server.Mobiles
 			}
 		}
 
-		private static Hashtable m_Table = new Hashtable();
+		private static readonly Hashtable m_Table = new Hashtable();
 
 		private class ExpireTimer : Timer
 		{
-			private Mobile m_Mobile;
-			private List<ResistanceMod> m_Mods;
+			private readonly Mobile m_Mobile;
+			private readonly List<ResistanceMod> m_Mods;
 
 			public ExpireTimer(Mobile m, List<ResistanceMod> mods, TimeSpan delay) : base(delay)
 			{
@@ -218,7 +223,7 @@ namespace Server.Mobiles
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)1);
+			writer.Write(1);
 		}
 
 		public override void Deserialize(GenericReader reader)

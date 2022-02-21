@@ -1,15 +1,16 @@
+#region References
+
 using System;
-using System.Collections;
-using Server;
-using Server.Items;
+
+#endregion
 
 namespace Server.Engines.HunterKiller
 {
 	public class SliceTimer : Timer
 	{
-		private HKGangSpawn spawn;
+		private readonly HKGangSpawn spawn;
 
-		public SliceTimer( HKGangSpawn hkspawn ) : base( TimeSpan.FromSeconds( 1.0 ),  TimeSpan.FromSeconds( 1.0 ) )
+		public SliceTimer(HKGangSpawn hkspawn) : base(TimeSpan.FromSeconds(1.0), TimeSpan.FromSeconds(1.0))
 		{
 			spawn = hkspawn;
 

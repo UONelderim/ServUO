@@ -1,6 +1,10 @@
-﻿using System;
+﻿#region References
+
+using System;
 using System.Collections.Generic;
 using Server;
+
+#endregion
 
 namespace Nelderim.Engines.ChaosChest
 {
@@ -21,8 +25,6 @@ namespace Nelderim.Engines.ChaosChest
 	[PropertyObject]
 	public class ChaosSigils
 	{
-		private ChaosSigilType m_flags;
-
 		[CommandProperty(AccessLevel.GameMaster)]
 		public bool Natury
 		{
@@ -74,21 +76,18 @@ namespace Nelderim.Engines.ChaosChest
 
 		public bool Get(ChaosSigilType chaosSigilType)
 		{
-			return m_flags.HasFlag(chaosSigilType);
+			return Value.HasFlag(chaosSigilType);
 		}
 
 		public void Set(ChaosSigilType chaosSigilType, bool value)
 		{
 			if (value)
-				m_flags |= chaosSigilType;
+				Value |= chaosSigilType;
 			else
-				m_flags &= ~chaosSigilType;
+				Value &= ~chaosSigilType;
 		}
 
-		public ChaosSigilType Value
-		{
-			get { return m_flags; }
-		}
+		public ChaosSigilType Value { get; private set; }
 
 		public ChaosSigils() : this(0)
 		{
@@ -96,7 +95,7 @@ namespace Nelderim.Engines.ChaosChest
 
 		public ChaosSigils(ChaosSigilType flags)
 		{
-			m_flags = flags;
+			Value = flags;
 		}
 
 		public List<ChaosSigilType> List

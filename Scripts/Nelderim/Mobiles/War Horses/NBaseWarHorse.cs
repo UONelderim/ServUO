@@ -1,4 +1,8 @@
+#region References
+
 using Server.Items;
+
+#endregion
 
 namespace Server.Mobiles
 {
@@ -180,12 +184,12 @@ namespace Server.Mobiles
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)1); // version
+			writer.Write(1); // version
 
-			writer.Write((bool)m_BardingExceptional);
-			writer.Write((Mobile)m_BardingCrafter);
-			writer.Write((bool)m_HasBarding);
-			writer.Write((int)m_BardingHP);
+			writer.Write(m_BardingExceptional);
+			writer.Write(m_BardingCrafter);
+			writer.Write(m_HasBarding);
+			writer.Write(m_BardingHP);
 			writer.Write((int)m_BardingResource);
 		}
 

@@ -1,22 +1,26 @@
+#region References
+
 using System;
+
+#endregion
 
 namespace Server.OneTime.Events
 {
-    public static class OneTimeMilliEvent
-    {
-        public static event EventHandler MilliTimerTick;
+	public static class OneTimeMilliEvent
+	{
+		public static event EventHandler MilliTimerTick;
 
-        public static void SendTick(object o, int time)
-        {
-            if (time == 1)
-            {
-                if (MilliTimerTick != null)
-                {
-                    MilliTimerTick.Invoke(o, EventArgs.Empty);
+		public static void SendTick(object o, int time)
+		{
+			if (time == 1)
+			{
+				if (MilliTimerTick != null)
+				{
+					MilliTimerTick.Invoke(o, EventArgs.Empty);
 
-                    //OneTimeEventHelper.SendIOneTime(2); //CPU HOG <Left only for Reference>
-                }
-            }
-        }
-    }
+					//OneTimeEventHelper.SendIOneTime(2); //CPU HOG <Left only for Reference>
+				}
+			}
+		}
+	}
 }

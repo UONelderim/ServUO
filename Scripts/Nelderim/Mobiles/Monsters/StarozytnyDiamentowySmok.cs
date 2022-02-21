@@ -1,6 +1,8 @@
-﻿using System;
-using Server;
+﻿#region References
+
 using Server.Items;
+
+#endregion
 
 namespace Server.Mobiles
 {
@@ -64,23 +66,26 @@ namespace Server.Mobiles
 
 			SetWeaponAbility(WeaponAbility.MortalStrike);
 		}
+
 		public override void OnDeath(Container c)
 		{
 			base.OnDeath(c);
 
 			ArtifactHelper.ArtifactDistribution(this);
 		}
+
 		public override void GenerateLoot()
 		{
 			AddLoot(LootPack.SuperBoss);
 		}
+
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)
 		{
-			if ( !IsBonded && !corpse.Carved && !IsChampionSpawn )
+			if (!IsBonded && !corpse.Carved && !IsChampionSpawn)
 			{
-				if ( Utility.RandomDouble() < 0.15 )
+				if (Utility.RandomDouble() < 0.15)
 					corpse.DropItem(new BlueDragonsHeart());
-				if ( Utility.RandomDouble() < 0.30 )
+				if (Utility.RandomDouble() < 0.30)
 					corpse.DropItem(new DragonsBlood());
 			}
 
@@ -95,7 +100,7 @@ namespace Server.Mobiles
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -105,4 +110,3 @@ namespace Server.Mobiles
 		}
 	}
 }
-

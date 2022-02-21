@@ -1,20 +1,24 @@
-﻿using System;
+﻿#region References
+
+using System;
+
+#endregion
 
 namespace Server.Targeting
 {
-    public class GeneralTarget : Target
-    {
-        private Action<Mobile, object> _onTarget;
+	public class GeneralTarget : Target
+	{
+		private readonly Action<Mobile, object> _onTarget;
 
-        protected override void OnTarget( Mobile from, object targeted )
-        {
-            _onTarget(from, targeted);
-        }
+		protected override void OnTarget(Mobile from, object targeted)
+		{
+			_onTarget(from, targeted);
+		}
 
-        public GeneralTarget( int range, bool allowGround, TargetFlags flags, Action<Mobile, object> onTarget )
-            : base(range, allowGround, flags)
-        {
-            _onTarget = onTarget;
-        }
-    }
+		public GeneralTarget(int range, bool allowGround, TargetFlags flags, Action<Mobile, object> onTarget)
+			: base(range, allowGround, flags)
+		{
+			_onTarget = onTarget;
+		}
+	}
 }

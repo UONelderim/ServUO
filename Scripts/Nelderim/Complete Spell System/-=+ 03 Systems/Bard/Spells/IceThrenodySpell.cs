@@ -1,12 +1,16 @@
+#region References
+
 using System;
 using Server.Spells;
 using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Bard
 {
 	public class BardIceThrenodySpell : BardSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Lodowy Tren", "Chillinum",
 			//SpellCircle.First,
 			212, 9041
@@ -67,8 +71,8 @@ namespace Server.ACC.CSS.Systems.Bard
 
 		private class ExpireTimer : Timer
 		{
-			private Mobile m_Mobile;
-			private ResistanceMod m_Mods;
+			private readonly Mobile m_Mobile;
+			private readonly ResistanceMod m_Mods;
 
 			public ExpireTimer(Mobile m, ResistanceMod mod, TimeSpan delay) : base(delay)
 			{
@@ -95,7 +99,7 @@ namespace Server.ACC.CSS.Systems.Bard
 
 		private class InternalTarget : Target
 		{
-			private BardIceThrenodySpell m_Owner;
+			private readonly BardIceThrenodySpell m_Owner;
 
 			public InternalTarget(BardIceThrenodySpell owner) : base(12, false, TargetFlags.Harmful)
 			{

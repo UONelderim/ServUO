@@ -1,63 +1,66 @@
-using System;
+#region References
+
 using Server.Items;
-using Server.Spells;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Undead
 {
 	public class UndeadSpellbook : CSpellbook
 	{
-		public override School School{ get{ return School.Undead; } }
+		public override School School { get { return School.Undead; } }
 
 		[Constructable]
-		public UndeadSpellbook() : this( (ulong)0, CSSettings.FullSpellbooks )
+		public UndeadSpellbook() : this(0, CSSettings.FullSpellbooks)
 		{
 		}
 
 		[Constructable]
-		public UndeadSpellbook( bool full ) : this( (ulong)0, full )
+		public UndeadSpellbook(bool full) : this(0, full)
 		{
 		}
 
 		[Constructable]
-		public UndeadSpellbook( ulong content, bool full ) : base( content, 0xEFA, full )
+		public UndeadSpellbook(ulong content, bool full) : base(content, 0xEFA, full)
 		{
 			Hue = 38;
 			Name = "Księga Okultyzmu";
 		}
 
-		public override void OnDoubleClick( Mobile from )
+		public override void OnDoubleClick(Mobile from)
 		{
-			if ( from.AccessLevel == AccessLevel.Player )
+			if (from.AccessLevel == AccessLevel.Player)
 			{
 				Container pack = from.Backpack;
-				if( !(Parent == from || (pack != null && Parent == pack)) )
+				if (!(Parent == from || (pack != null && Parent == pack)))
 				{
-					from.SendMessage( "Ta książka musi znajdować się w głównym plecaku, by można jej uzywać." );
+					from.SendMessage("Ta książka musi znajdować się w głównym plecaku, by można jej uzywać.");
 					return;
 				}
-				else if( SpellRestrictions.UseRestrictions && !SpellRestrictions.CheckRestrictions( from, this.School ) )
+
+				if (SpellRestrictions.UseRestrictions && !SpellRestrictions.CheckRestrictions(@from, this.School))
 				{
 					return;
 				}
 			}
 
-			from.CloseGump( typeof( UndeadSpellbookGump ) );
-			from.SendGump( new UndeadSpellbookGump( this ) );
+			from.CloseGump(typeof(UndeadSpellbookGump));
+			from.SendGump(new UndeadSpellbookGump(this));
 		}
 
-		public UndeadSpellbook( Serial serial ) : base( serial )
+		public UndeadSpellbook(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

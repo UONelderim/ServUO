@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
 	public class NSerceDelotha : Item
@@ -7,29 +5,29 @@ namespace Server.Items
 		//private static TimeSpan m_DDT = TimeSpan.FromMinutes( 1440.0 ); // czas rozpadu w minutach
 
 		[Constructable]
-		public NSerceDelotha() : base( 0x1CED )
+		public NSerceDelotha() : base(0x1CED)
 		{
 			//Timer.DelayCall( m_DDT, new TimerCallback( Delete) ); 
-			Name= "Spowite Mrokiem Serce Wielkiego Ksiecia Demonow Delotha";
+			Name = "Spowite Mrokiem Serce Wielkiego Ksiecia Demonow Delotha";
 			Weight = 1.0;
 			Hue = 0x455;
 			LootType = LootType.Cursed;
 		}
 
-		public NSerceDelotha( Serial serial ) : base( serial )
+		public NSerceDelotha(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

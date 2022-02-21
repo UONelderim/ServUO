@@ -1,17 +1,13 @@
-using System;
-using Server;
-using Server.Items;
-
 namespace Server.Items
 {
 	public class BoilingCauldronEastAddon : BaseAddon
 	{
-        private static int[,] m_AddOnSimpleComponents = new int[,] {
-			  {2416, 0, 0, 8}, {2421, 0, 0, 0}// 1	2	
+		private static readonly int[,] m_AddOnSimpleComponents =
+		{
+			{ 2416, 0, 0, 8 }, { 2421, 0, 0, 0 } // 1	2	
 		};
 
- 
-            
+
 		public override BaseAddonDeed Deed
 		{
 			get
@@ -20,54 +16,56 @@ namespace Server.Items
 			}
 		}
 
-		[ Constructable ]
+		[Constructable]
 		public BoilingCauldronEastAddon()
 		{
+			for (int i = 0; i < m_AddOnSimpleComponents.Length / 4; i++)
+				AddComponent(new AddonComponent(m_AddOnSimpleComponents[i, 0]), m_AddOnSimpleComponents[i, 1],
+					m_AddOnSimpleComponents[i, 2], m_AddOnSimpleComponents[i, 3]);
 
-            for (int i = 0; i < m_AddOnSimpleComponents.Length / 4; i++)
-                AddComponent( new AddonComponent( m_AddOnSimpleComponents[i,0] ), m_AddOnSimpleComponents[i,1], m_AddOnSimpleComponents[i,2], m_AddOnSimpleComponents[i,3] );
 
-
-			AddComplexComponent( (BaseAddon) this, 4012, 0, 0, 0, 0, 0, "", 1);// 3
-
+			AddComplexComponent(this, 4012, 0, 0, 0, 0, 0, "", 1); // 3
 		}
 
-		public BoilingCauldronEastAddon( Serial serial ) : base( serial )
+		public BoilingCauldronEastAddon(Serial serial) : base(serial)
 		{
 		}
 
-        private static void AddComplexComponent(BaseAddon addon, int item, int xoffset, int yoffset, int zoffset, int hue, int lightsource)
-        {
-            AddComplexComponent(addon, item, xoffset, yoffset, zoffset, hue, lightsource, null, 1);
-        }
-
-        private static void AddComplexComponent(BaseAddon addon, int item, int xoffset, int yoffset, int zoffset, int hue, int lightsource, string name, int amount)
-        {
-            AddonComponent ac;
-            ac = new AddonComponent(item);
-            if (name != null && name.Length > 0)
-                ac.Name = name;
-            if (hue != 0)
-                ac.Hue = hue;
-            if (amount > 1)
-            {
-                ac.Stackable = true;
-                ac.Amount = amount;
-            }
-            if (lightsource != -1)
-                ac.Light = (LightType) lightsource;
-            addon.AddComponent(ac, xoffset, yoffset, zoffset);
-        }
-
-		public override void Serialize( GenericWriter writer )
+		private static void AddComplexComponent(BaseAddon addon, int item, int xoffset, int yoffset, int zoffset,
+			int hue, int lightsource)
 		{
-			base.Serialize( writer );
-			writer.Write( 0 ); // Version
+			AddComplexComponent(addon, item, xoffset, yoffset, zoffset, hue, lightsource, null, 1);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		private static void AddComplexComponent(BaseAddon addon, int item, int xoffset, int yoffset, int zoffset,
+			int hue, int lightsource, string name, int amount)
 		{
-			base.Deserialize( reader );
+			AddonComponent ac;
+			ac = new AddonComponent(item);
+			if (name != null && name.Length > 0)
+				ac.Name = name;
+			if (hue != 0)
+				ac.Hue = hue;
+			if (amount > 1)
+			{
+				ac.Stackable = true;
+				ac.Amount = amount;
+			}
+
+			if (lightsource != -1)
+				ac.Light = (LightType)lightsource;
+			addon.AddComponent(ac, xoffset, yoffset, zoffset);
+		}
+
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+			writer.Write(0); // Version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}
@@ -88,19 +86,19 @@ namespace Server.Items
 			Name = "Kociołek (E)";
 		}
 
-		public BoilingCauldronEastAddonDeed( Serial serial ) : base( serial )
+		public BoilingCauldronEastAddonDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( 0 ); // Version
+			base.Serialize(writer);
+			writer.Write(0); // Version
 		}
 
-		public override void	Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

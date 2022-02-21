@@ -20,35 +20,33 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
 
-using System;
+#region References
+
 using Server;
 using Server.Mobiles;
-using Server.Network;
+using UltimaLive.Network;
+
+#endregion
 
 namespace UltimaLive
 {
-    public class MovementQuery : UltimaLiveQuery
-    {
+	public class MovementQuery : UltimaLiveQuery
+	{
+		public static void Initialize()
+		{
+			PlayerMobile.BlockQuery = new MovementQuery();
+		}
 
-        public static void Initialize()
-        {
-            PlayerMobile.BlockQuery = new MovementQuery();
-        }
+		public int QueryMobile(Mobile m, int previousMapBlock)
+		{
+			int blocknum = (((m.Location.X >> 3) * m.Map.Tiles.BlockHeight) + (m.Location.Y >> 3));
 
-        public MovementQuery()
-        {
-        }
+			if (blocknum != previousMapBlock)
+			{
+				m.Send(new QueryClientHash(m));
+			}
 
-        public int QueryMobile(Mobile m, int previousMapBlock)
-        {
-            int blocknum = (((m.Location.X >> 3) * m.Map.Tiles.BlockHeight) + (m.Location.Y >> 3));
-
-            if (blocknum != previousMapBlock)
-            {
-              m.Send(new UltimaLive.Network.QueryClientHash(m));
-            }
-
-            return blocknum;
-        }
-    }
+			return blocknum;
+		}
+	}
 }

@@ -1,357 +1,347 @@
+#region References
+
 using System;
 using System.Collections;
 using System.IO;
-using Server;
-using Server.Engines.PartySystem;
-using Server.Misc;
-using Server.Guilds;
-using Server.Mobiles;
-using Server.Network;
-using Server.ContextMenus;
 using Server.Items;
+using Server.Network;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ancient
 {
-    public class SleepingBody : Container
-    {
-        private Mobile m_Owner;
-        private string m_SleepingBodyName;	// Value of the SleepingNameAttribute attached to the owner when he died -or- null if the owner had no SleepingBodyNameAttribute; use "the remains of ~name~"
-        private bool m_Blessed;
+	public class SleepingBody : Container
+	{
+		private string
+			m_SleepingBodyName; // Value of the SleepingNameAttribute attached to the owner when he died -or- null if the owner had no SleepingBodyNameAttribute; use "the remains of ~name~"
 
-        private ArrayList m_EquipItems;		// List of items equiped when the owner died. Ingame, these items display /on/ the SleepingBody, not just inside
-        private bool m_spell;
-        private DateTime m_NextSnoreTrigger;
+		private ArrayList
+			m_EquipItems; // List of items equiped when the owner died. Ingame, these items display /on/ the SleepingBody, not just inside
 
-        [CommandProperty(AccessLevel.GameMaster)]
-        public Mobile Owner
-        {
-            get { return m_Owner; }
-        }
+		private bool m_spell;
+		private DateTime m_NextSnoreTrigger;
 
-        public ArrayList EquipItems
-        {
-            get { return m_EquipItems; }
-        }
+		[CommandProperty(AccessLevel.GameMaster)]
+		public Mobile Owner { get; private set; }
 
-        [CommandProperty(AccessLevel.GameMaster)]
-        public bool Invuln
-        {
-            get { return m_Blessed; }
-        }
+		public ArrayList EquipItems
+		{
+			get { return m_EquipItems; }
+		}
 
-        [Constructable]
-        public SleepingBody(Mobile owner, bool blessed)
-            : this(owner, blessed, true)
-        {
-        }
+		[CommandProperty(AccessLevel.GameMaster)]
+		public bool Invuln { get; private set; }
 
-        [Constructable]
-        public SleepingBody(Mobile owner, bool blessed, bool isSpell)
-            : base(0x2006)
-        {
-            Stackable = true; // To supress console warnings, stackable must be true
-            Amount = owner.Body; // protocol defines that for itemid 0x2006, amount=body
-            Stackable = false;
-            m_Blessed = blessed;
-            Movable = false;
+		[Constructable]
+		public SleepingBody(Mobile owner, bool blessed)
+			: this(owner, blessed, true)
+		{
+		}
 
-            m_Owner = owner;
-            Name = m_Owner.Name;
-            m_SleepingBodyName = GetBodyName(owner);
-            Hue = m_Owner.Hue;
-            Direction = m_Owner.Direction;
-            m_spell = isSpell;
+		[Constructable]
+		public SleepingBody(Mobile owner, bool blessed, bool isSpell)
+			: base(0x2006)
+		{
+			Stackable = true; // To supress console warnings, stackable must be true
+			Amount = owner.Body; // protocol defines that for itemid 0x2006, amount=body
+			Stackable = false;
+			Invuln = blessed;
+			Movable = false;
 
-            m_EquipItems = new ArrayList();
-            AddFromLayer(m_Owner, Layer.FirstValid, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.TwoHanded, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.Shoes, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.Pants, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.Shirt, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.Helm, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.Gloves, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.Ring, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.Neck, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.Hair, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.Waist, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.InnerTorso, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.Bracelet, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.FacialHair, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.MiddleTorso, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.Earrings, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.Arms, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.Cloak, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.OuterTorso, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.OuterLegs, ref m_EquipItems);
-            AddFromLayer(m_Owner, Layer.LastUserValid, ref m_EquipItems);
-        }
+			Owner = owner;
+			Name = Owner.Name;
+			m_SleepingBodyName = GetBodyName(owner);
+			Hue = Owner.Hue;
+			Direction = Owner.Direction;
+			m_spell = isSpell;
 
-        private void AddFromLayer(Mobile from, Layer layer, ref ArrayList list)
-        {
-            if (list == null)
-                list = new ArrayList();
+			m_EquipItems = new ArrayList();
+			AddFromLayer(Owner, Layer.FirstValid, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.TwoHanded, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.Shoes, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.Pants, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.Shirt, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.Helm, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.Gloves, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.Ring, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.Neck, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.Hair, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.Waist, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.InnerTorso, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.Bracelet, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.FacialHair, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.MiddleTorso, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.Earrings, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.Arms, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.Cloak, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.OuterTorso, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.OuterLegs, ref m_EquipItems);
+			AddFromLayer(Owner, Layer.LastUserValid, ref m_EquipItems);
+		}
 
-            Item worn = from.FindItemOnLayer(layer);
-            if (worn != null)
-            {
-                Item item = new Item();
-                item.ItemID = worn.ItemID;
-                item.Hue = worn.Hue;
-                item.Layer = layer;
-                DropItem(item);
-                list.Add(item);
-            }
-        }
+		private void AddFromLayer(Mobile from, Layer layer, ref ArrayList list)
+		{
+			if (list == null)
+				list = new ArrayList();
 
-        public override void OnDoubleClick(Mobile from)
-        {
-            from.SendLocalizedMessage(1001018); // You cannot perform negative acts on your target.
-        }
+			Item worn = from.FindItemOnLayer(layer);
+			if (worn != null)
+			{
+				Item item = new Item();
+				item.ItemID = worn.ItemID;
+				item.Hue = worn.Hue;
+				item.Layer = layer;
+				DropItem(item);
+				list.Add(item);
+			}
+		}
 
-        public override bool HandlesOnMovement { get { return true; } } // Tell the core that we implement OnMovement
+		public override void OnDoubleClick(Mobile from)
+		{
+			from.SendLocalizedMessage(1001018); // You cannot perform negative acts on your target.
+		}
 
-        public override bool OnDragDropInto(Mobile from, Item item, Point3D p)
-        {
-            from.SendLocalizedMessage(1005468, "", 0x8A5); // Me Sleepy.
+		public override bool HandlesOnMovement { get { return true; } } // Tell the core that we implement OnMovement
 
-            return false;
-        }
+		public override bool OnDragDropInto(Mobile from, Item item, Point3D p)
+		{
+			from.SendLocalizedMessage(1005468, "", 0x8A5); // Me Sleepy.
 
-        public override bool OnDragDrop(Mobile from, Item dropped)
-        {
-            from.SendLocalizedMessage(1005468, "", 0x8A5); // Me Sleepy.
+			return false;
+		}
 
-            return false;
-        }
+		public override bool OnDragDrop(Mobile from, Item dropped)
+		{
+			from.SendLocalizedMessage(1005468, "", 0x8A5); // Me Sleepy.
 
-        public override bool CheckContentDisplay(Mobile from)
-        {
-            return false;
-        }
+			return false;
+		}
 
-        public override bool DisplaysContent { get { return false; } }
+		public override bool CheckContentDisplay(Mobile from)
+		{
+			return false;
+		}
 
-        public override void OnAfterDelete()
-        {
-            if (m_Owner != null)
-            {
-                m_Owner.Z = this.Z;
-                m_Owner.Blessed = this.m_Blessed;
-            }
+		public override bool DisplaysContent { get { return false; } }
 
-            for (int i = 0; i < m_EquipItems.Count; i++)
-            {
-                object o = m_EquipItems[i];
-                if (o != null && o is Item)
-                {
-                    Item item = (Item)o;
-                    item.Delete();
-                }
-            }
+		public override void OnAfterDelete()
+		{
+			if (Owner != null)
+			{
+				Owner.Z = this.Z;
+				Owner.Blessed = this.Invuln;
+			}
 
-            base.OnAfterDelete();
-        }
+			for (int i = 0; i < m_EquipItems.Count; i++)
+			{
+				object o = m_EquipItems[i];
+				if (o != null && o is Item)
+				{
+					Item item = (Item)o;
+					item.Delete();
+				}
+			}
 
-        public SleepingBody(Serial serial)
-            : base(serial)
-        {
-        }
+			base.OnAfterDelete();
+		}
 
-        public override void SendInfoTo(NetState state, bool sendOplPacket)
-        {
-            base.SendInfoTo(state);
+		public SleepingBody(Serial serial)
+			: base(serial)
+		{
+		}
 
-            if (ItemID == 0x2006)
-            {
-                state.Send(new SleepingBodyContent(state.Mobile, this));
-                state.Send(new SleepingBodyEquip(state.Mobile, this));
-            }
-        }
+		public override void SendInfoTo(NetState state, bool sendOplPacket)
+		{
+			base.SendInfoTo(state);
 
-        public override void AddNameProperty(ObjectPropertyList list)
-        {
-            if (m_SleepingBodyName != null)
-                list.Add(m_SleepingBodyName);
-            else
-                list.Add(1049644, String.Format("Sleeping {0}", Name));
-        }
+			if (ItemID == 0x2006)
+			{
+				state.Send(new SleepingBodyContent(state.Mobile, this));
+				state.Send(new SleepingBodyEquip(state.Mobile, this));
+			}
+		}
 
-        public override void OnAosSingleClick(Mobile from)
-        {
-            LabelTo(from, m_SleepingBodyName == null ? String.Format("Sleeping {0}", Name) : m_SleepingBodyName);
-        }
+		public override void AddNameProperty(ObjectPropertyList list)
+		{
+			if (m_SleepingBodyName != null)
+				list.Add(m_SleepingBodyName);
+			else
+				list.Add(1049644, String.Format("Sleeping {0}", Name));
+		}
 
-        public static string GetBodyName(Mobile m)
-        {
-            Type t = m.GetType();
+		public override void OnAosSingleClick(Mobile from)
+		{
+			LabelTo(from, m_SleepingBodyName == null ? String.Format("Sleeping {0}", Name) : m_SleepingBodyName);
+		}
 
-            object[] attrs = t.GetCustomAttributes(typeof(SleepingNameAttribute), true);
+		public static string GetBodyName(Mobile m)
+		{
+			Type t = m.GetType();
 
-            if (attrs != null && attrs.Length > 0)
-            {
-                SleepingNameAttribute attr = attrs[0] as SleepingNameAttribute;
+			object[] attrs = t.GetCustomAttributes(typeof(SleepingNameAttribute), true);
 
-                if (attr != null)
-                    return attr.Name;
-            }
+			if (attrs != null && attrs.Length > 0)
+			{
+				SleepingNameAttribute attr = attrs[0] as SleepingNameAttribute;
 
-            return m.Name;
-        }
+				if (attr != null)
+					return attr.Name;
+			}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+			return m.Name;
+		}
 
-            writer.Write((int)1);
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            writer.Write(m_spell); // version 1
+			writer.Write(1);
 
-            writer.Write(m_Owner); // version 0
-            writer.Write(m_SleepingBodyName);
-            writer.Write(m_Blessed);
+			writer.Write(m_spell); // version 1
 
-            writer.WriteItemList(m_EquipItems, true);
-        }
+			writer.Write(Owner); // version 0
+			writer.Write(m_SleepingBodyName);
+			writer.Write(Invuln);
 
-        public override void Deserialize(GenericReader reader)
-        {
-            m_spell = true;
-            base.Deserialize(reader);
+			writer.WriteItemList(m_EquipItems, true);
+		}
 
-            int version = reader.ReadInt();
-            switch (version)
-            {
-                case 1:
-                    {
-                        m_spell = reader.ReadBool();
-                        goto case 0;
-                    }
-                case 0:
-                    {
-                        m_Owner = reader.ReadMobile();
-                        m_SleepingBodyName = reader.ReadString();
-                        m_Blessed = reader.ReadBool();
+		public override void Deserialize(GenericReader reader)
+		{
+			m_spell = true;
+			base.Deserialize(reader);
 
-                        m_EquipItems = reader.ReadItemList();
-                        break;
-                    }
-            }
-            m_NextSnoreTrigger = DateTime.Now;
+			int version = reader.ReadInt();
+			switch (version)
+			{
+				case 1:
+				{
+					m_spell = reader.ReadBool();
+					goto case 0;
+				}
+				case 0:
+				{
+					Owner = reader.ReadMobile();
+					m_SleepingBodyName = reader.ReadString();
+					Invuln = reader.ReadBool();
 
-            // Delete on Server restart if spell action
-            if (m_spell)
-                this.Delete();
-        }
-        public bool CheckRange(Point3D loc, Point3D oldLoc, int range)
-        {
-            return CheckRange(loc, range) && !CheckRange(oldLoc, range);
-        }
+					m_EquipItems = reader.ReadItemList();
+					break;
+				}
+			}
 
-        public bool CheckRange(Point3D loc, int range)
-        {
-            return ((this.Z + 8) >= loc.Z && (loc.Z + 16) > this.Z)
-                && Utility.InRange(GetWorldLocation(), loc, range);
-        }
+			m_NextSnoreTrigger = DateTime.Now;
 
-        public override void OnMovement(Mobile m, Point3D oldLocation)
-        {
-            base.OnMovement(m, oldLocation);
+			// Delete on Server restart if spell action
+			if (m_spell)
+				this.Delete();
+		}
 
-            if (m.Location == oldLocation)
-                return;
+		public bool CheckRange(Point3D loc, Point3D oldLoc, int range)
+		{
+			return CheckRange(loc, range) && !CheckRange(oldLoc, range);
+		}
 
-            if (CheckRange(m.Location, oldLocation, 5) && DateTime.Now >= m_NextSnoreTrigger)
-            {
-                m_NextSnoreTrigger = DateTime.Now + TimeSpan.FromSeconds(Utility.Random(5, 10));
+		public bool CheckRange(Point3D loc, int range)
+		{
+			return ((this.Z + 8) >= loc.Z && (loc.Z + 16) > this.Z)
+			       && Utility.InRange(GetWorldLocation(), loc, range);
+		}
 
-                if (this != null && this.Owner != null)
-                {
-                    this.PublicOverheadMessage(0, Owner.SpeechHue, false, "zZz");
-                    Owner.PlaySound(Owner.Female ? 819 : 1093);
-                }
-            }
-        }
-    }
+		public override void OnMovement(Mobile m, Point3D oldLocation)
+		{
+			base.OnMovement(m, oldLocation);
 
-    public sealed class SleepingBodyEquip : Packet
-    {
-        public SleepingBodyEquip(Mobile beholder, SleepingBody beheld)
-            : base(0x89)
-        {
-            ArrayList list = beheld.EquipItems;
+			if (m.Location == oldLocation)
+				return;
 
-            EnsureCapacity(8 + (list.Count * 5));
+			if (CheckRange(m.Location, oldLocation, 5) && DateTime.Now >= m_NextSnoreTrigger)
+			{
+				m_NextSnoreTrigger = DateTime.Now + TimeSpan.FromSeconds(Utility.Random(5, 10));
 
-            m_Stream.Write((int)beheld.Serial);
+				if (this != null && this.Owner != null)
+				{
+					this.PublicOverheadMessage(0, Owner.SpeechHue, false, "zZz");
+					Owner.PlaySound(Owner.Female ? 819 : 1093);
+				}
+			}
+		}
+	}
 
-            for (int i = 0; i < list.Count; ++i)
-            {
-                Item item = (Item)list[i];
+	public sealed class SleepingBodyEquip : Packet
+	{
+		public SleepingBodyEquip(Mobile beholder, SleepingBody beheld)
+			: base(0x89)
+		{
+			ArrayList list = beheld.EquipItems;
 
-                if (!item.Deleted && beholder.CanSee(item) && item.Parent == beheld)
-                {
-                    m_Stream.Write((byte)(item.Layer + 1));
-                    m_Stream.Write((int)item.Serial);
-                }
-            }
+			EnsureCapacity(8 + (list.Count * 5));
 
-            m_Stream.Write((byte)Layer.Invalid);
-        }
-    }
+			m_Stream.Write(beheld.Serial);
 
-    public sealed class SleepingBodyContent : Packet
-    {
-        public SleepingBodyContent(Mobile beholder, SleepingBody beheld)
-            : base(0x3C)
-        {
-            ArrayList items = beheld.EquipItems;
-            int count = items.Count;
+			for (int i = 0; i < list.Count; ++i)
+			{
+				Item item = (Item)list[i];
 
-            EnsureCapacity(5 + (count * 19));
+				if (!item.Deleted && beholder.CanSee(item) && item.Parent == beheld)
+				{
+					m_Stream.Write((byte)(item.Layer + 1));
+					m_Stream.Write(item.Serial);
+				}
+			}
 
-            long pos = m_Stream.Position;
+			m_Stream.Write((byte)Layer.Invalid);
+		}
+	}
 
-            int written = 0;
+	public sealed class SleepingBodyContent : Packet
+	{
+		public SleepingBodyContent(Mobile beholder, SleepingBody beheld)
+			: base(0x3C)
+		{
+			ArrayList items = beheld.EquipItems;
+			int count = items.Count;
 
-            m_Stream.Write((ushort)0);
+			EnsureCapacity(5 + (count * 19));
 
-            for (int i = 0; i < count; ++i)
-            {
-                Item child = (Item)items[i];
+			long pos = m_Stream.Position;
 
-                if (!child.Deleted && child.Parent == beheld && beholder.CanSee(child))
-                {
-                    m_Stream.Write((int)child.Serial);
-                    m_Stream.Write((ushort)child.ItemID);
-                    m_Stream.Write((byte)0); // signed, itemID offset
-                    m_Stream.Write((ushort)child.Amount);
-                    m_Stream.Write((short)child.X);
-                    m_Stream.Write((short)child.Y);
-                    m_Stream.Write((int)beheld.Serial);
-                    m_Stream.Write((ushort)child.Hue);
+			int written = 0;
 
-                    ++written;
-                }
-            }
+			m_Stream.Write((ushort)0);
 
-            m_Stream.Seek(pos, SeekOrigin.Begin);
-            m_Stream.Write((ushort)written);
-        }
-    }
+			for (int i = 0; i < count; ++i)
+			{
+				Item child = (Item)items[i];
 
-    [AttributeUsage(AttributeTargets.Class)]
-    public class SleepingNameAttribute : Attribute
-    {
-        private string m_Name;
+				if (!child.Deleted && child.Parent == beheld && beholder.CanSee(child))
+				{
+					m_Stream.Write(child.Serial);
+					m_Stream.Write((ushort)child.ItemID);
+					m_Stream.Write((byte)0); // signed, itemID offset
+					m_Stream.Write((ushort)child.Amount);
+					m_Stream.Write((short)child.X);
+					m_Stream.Write((short)child.Y);
+					m_Stream.Write(beheld.Serial);
+					m_Stream.Write((ushort)child.Hue);
 
-        public string Name
-        {
-            get { return m_Name; }
-        }
+					++written;
+				}
+			}
 
-        public SleepingNameAttribute(string name)
-        {
-            m_Name = name;
-        }
-    }
+			m_Stream.Seek(pos, SeekOrigin.Begin);
+			m_Stream.Write((ushort)written);
+		}
+	}
+
+	[AttributeUsage(AttributeTargets.Class)]
+	public class SleepingNameAttribute : Attribute
+	{
+		public string Name { get; }
+
+		public SleepingNameAttribute(string name)
+		{
+			Name = name;
+		}
+	}
 }

@@ -1,8 +1,12 @@
-﻿using System;
+﻿#region References
+
+using System;
 using System.Collections.Generic;
 using Server;
 using Server.Items;
 using Server.Targeting;
+
+#endregion
 
 namespace Nelderim.Engines.ChaosChest
 {
@@ -10,7 +14,7 @@ namespace Nelderim.Engines.ChaosChest
 	{
 		private ChaosSigilType m_ChaosSigilType;
 
-		private static Dictionary<ChaosSigilType, int> hues = new Dictionary<ChaosSigilType, int>()
+		private static readonly Dictionary<ChaosSigilType, int> hues = new Dictionary<ChaosSigilType, int>
 		{
 			{ ChaosSigilType.Natury, 2909 },
 			{ ChaosSigilType.Morlokow, 2673 },
@@ -70,7 +74,7 @@ namespace Nelderim.Engines.ChaosChest
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 			writer.Write((int)m_ChaosSigilType);
 		}
 
@@ -84,7 +88,7 @@ namespace Nelderim.Engines.ChaosChest
 
 		private class UnlockTarget : Target
 		{
-			private ChaosKey m_ChaosKey;
+			private readonly ChaosKey m_ChaosKey;
 
 			public UnlockTarget(ChaosKey key) : base(3, false, TargetFlags.None)
 			{

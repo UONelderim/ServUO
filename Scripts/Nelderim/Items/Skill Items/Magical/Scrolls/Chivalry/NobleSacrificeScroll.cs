@@ -1,36 +1,32 @@
-using System;
-using Server;
-using Server.Items;
-
 namespace Server.Items
 {
 	public class NobleSacrificeScroll : ChivalrySpellScroll
 	{
 		[Constructable]
-		public NobleSacrificeScroll() : this( 1 )
+		public NobleSacrificeScroll() : this(1)
 		{
 		}
 
 		[Constructable]
-        public NobleSacrificeScroll(int amount) : base(207, 0x1F6D, amount)
+		public NobleSacrificeScroll(int amount) : base(207, 0x1F6D, amount)
 		{
-            Name = "Ostateczny wysilek";
+			Name = "Ostateczny wysilek";
 		}
 
-        public NobleSacrificeScroll(Serial serial) : base(serial)
+		public NobleSacrificeScroll(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

@@ -1,12 +1,16 @@
+#region References
+
 using System;
 using System.Collections;
 using Server.Spells;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Avatar
 {
 	public class AvatarAngelicFaithSpell : AvatarSpell, ITransformationSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Awatar Pradawnego Mnicha", "En Terum",
 			212,
 			9041
@@ -22,7 +26,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 
 		public override int RequiredMana { get { return 50; } }
 
-		private static Hashtable m_Table = new Hashtable();
+		private static readonly Hashtable m_Table = new Hashtable();
 
 		public AvatarAngelicFaithSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
@@ -58,7 +62,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 
 		public void DoEffect(Mobile m)
 		{
-			object[] mods = new object[]
+			object[] mods =
 			{
 				new StatMod(StatType.Str, "[Avatar] Str Offset", 10, TimeSpan.Zero),
 				new StatMod(StatType.Dex, "[Avatar] Dex Offset", 10, TimeSpan.Zero),

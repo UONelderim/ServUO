@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿#region References
+
+using System.Collections.Generic;
 using Nelderim;
+
+#endregion
 
 namespace Server.Items
 {
@@ -19,7 +23,7 @@ namespace Server.Items
 
 		public static void Initialize()
 		{
-			EventSink.WorldSave += new WorldSaveEventHandler(Save);
+			EventSink.WorldSave += Save;
 			Load(ModuleName);
 		}
 
@@ -47,22 +51,21 @@ namespace Server.Items
 
 	class CorpseExtInfo : NExtensionInfo
 	{
-		private double m_CampingCarved;
-		public double CampingCarved { get { return m_CampingCarved; } set { m_CampingCarved = value; } }
+		public double CampingCarved { get; set; }
 
 		public CorpseExtInfo()
 		{
-			m_CampingCarved = -1.0;
+			CampingCarved = -1.0;
 		}
 
 		public override void Deserialize(GenericReader reader)
 		{
-			m_CampingCarved = reader.ReadDouble();
+			CampingCarved = reader.ReadDouble();
 		}
 
 		public override void Serialize(GenericWriter writer)
 		{
-			writer.Write(m_CampingCarved);
+			writer.Write(CampingCarved);
 		}
 	}
 }

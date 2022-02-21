@@ -1,105 +1,110 @@
+#region References
+
 using System;
 using Server.Mobiles;
-using Server.Network;
-using Server.Targeting;
 using Server.Spells;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ancient
 {
-    public class AncientDeathVortexSpell : AncientSpell
-    {
-        public override double RequiredSkill { get { return 80.0; } }
-        public override int RequiredMana { get { return 50; } }
-        private static SpellInfo m_Info = new SpellInfo(
-                                                        "Wir Śmierci", "Vas Corp Hur",
-                                                        260,
-                                                        9032,
-                                                        false,
-                                                        Reagent.Bloodmoss,
-                                                        Reagent.SulfurousAsh,
-                                                        Reagent.MandrakeRoot,
-                                                        Reagent.Nightshade
-                                                       );
+	public class AncientDeathVortexSpell : AncientSpell
+	{
+		public override double RequiredSkill { get { return 80.0; } }
+		public override int RequiredMana { get { return 50; } }
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Eighth; }
-        }
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Wir Śmierci", "Vas Corp Hur",
+			260,
+			9032,
+			false,
+			Reagent.Bloodmoss,
+			Reagent.SulfurousAsh,
+			Reagent.MandrakeRoot,
+			Reagent.Nightshade
+		);
 
-        public AncientDeathVortexSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-                                if (this.Scroll != null)
-                        Scroll.Consume();
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Eighth; }
+		}
 
-        public override bool CheckCast()
-        {
-            if (!base.CheckCast())
-                return false;
+		public AncientDeathVortexSpell(Mobile caster, Item scroll)
+			: base(caster, scroll, m_Info)
+		{
+			if (this.Scroll != null)
+				Scroll.Consume();
+		}
 
-            if ((Caster.Followers + 1) > Caster.FollowersMax)
-            {
-                Caster.SendLocalizedMessage(1049645); // You have too many followers to summon that creature.
-                return false;
-            }
+		public override bool CheckCast()
+		{
+			if (!base.CheckCast())
+				return false;
 
-            return true;
-        }
+			if ((Caster.Followers + 1) > Caster.FollowersMax)
+			{
+				Caster.SendLocalizedMessage(1049645); // You have too many followers to summon that creature.
+				return false;
+			}
 
-        public override void OnCast()
-        {
-            if (CheckSequence())
-                Caster.Target = new InternalTarget(this);
-        }
+			return true;
+		}
 
-        public void Target(IPoint3D p)
-        {
-            Map map = Caster.Map;
+		public override void OnCast()
+		{
+			if (CheckSequence())
+				Caster.Target = new InternalTarget(this);
+		}
 
-            SpellHelper.GetSurfaceTop(ref p);
+		public void Target(IPoint3D p)
+		{
+			Map map = Caster.Map;
 
-            if (map == null || !map.CanSpawnMobile(p.X, p.Y, p.Z))
-            {
-                Caster.SendLocalizedMessage(501942); // That location is blocked.
-            }
-            else if (SpellHelper.CheckTown(p, Caster) && CheckSequence())
-            {
-                BaseCreature.Summon(new DeathVortex(), false, Caster, new Point3D(p), 0x212, TimeSpan.FromSeconds(Utility.Random(80, 40)));
-            }
+			SpellHelper.GetSurfaceTop(ref p);
 
-            FinishSequence();
-        }
+			if (map == null || !map.CanSpawnMobile(p.X, p.Y, p.Z))
+			{
+				Caster.SendLocalizedMessage(501942); // That location is blocked.
+			}
+			else if (SpellHelper.CheckTown(p, Caster) && CheckSequence())
+			{
+				BaseCreature.Summon(new DeathVortex(), false, Caster, new Point3D(p), 0x212,
+					TimeSpan.FromSeconds(Utility.Random(80, 40)));
+			}
 
-        private class InternalTarget : Target
-        {
-            private AncientDeathVortexSpell m_Owner;
+			FinishSequence();
+		}
 
-            public InternalTarget(AncientDeathVortexSpell owner)
-                : base(12, true, TargetFlags.None)
-            {
-                m_Owner = owner;
-            }
+		private class InternalTarget : Target
+		{
+			private AncientDeathVortexSpell m_Owner;
 
-            protected override void OnTarget(Mobile from, object o)
-            {
-                if (o is IPoint3D)
-                    m_Owner.Target((IPoint3D)o);
-            }
+			public InternalTarget(AncientDeathVortexSpell owner)
+				: base(12, true, TargetFlags.None)
+			{
+				m_Owner = owner;
+			}
 
-            protected override void OnTargetOutOfLOS(Mobile from, object o)
-            {
-                from.SendLocalizedMessage(501943); // Target cannot be seen. Try again.
-                from.Target = new InternalTarget(m_Owner);
-                from.Target.BeginTimeout(from, TimeoutTime - DateTime.Now);
-                m_Owner = null;
-            }
+			protected override void OnTarget(Mobile from, object o)
+			{
+				if (o is IPoint3D)
+					m_Owner.Target((IPoint3D)o);
+			}
 
-            protected override void OnTargetFinish(Mobile from)
-            {
-                if (m_Owner != null)
-                    m_Owner.FinishSequence();
-            }
-        }
-    }
+			protected override void OnTargetOutOfLOS(Mobile from, object o)
+			{
+				from.SendLocalizedMessage(501943); // Target cannot be seen. Try again.
+				from.Target = new InternalTarget(m_Owner);
+				from.Target.BeginTimeout(from, TimeoutTime - DateTime.Now);
+				m_Owner = null;
+			}
+
+			protected override void OnTargetFinish(Mobile from)
+			{
+				if (m_Owner != null)
+					m_Owner.FinishSequence();
+			}
+		}
+	}
 }

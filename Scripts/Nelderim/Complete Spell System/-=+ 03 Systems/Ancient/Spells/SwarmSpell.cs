@@ -1,240 +1,249 @@
+#region References
+
 using System;
 using System.Collections;
-using Server.Network;
-using Server.Items;
-using Server.Targeting;
 using Server.Spells;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ancient
 {
-    public class AncientSwarmSpell : AncientSpell
-    {
-        private static SpellInfo m_Info = new SpellInfo(
-                                                        "Rój", "Kal Bet Xen",
-                                                        203,
-                                                        9051,
-                                                        Reagent.Nightshade,
-                                                        Reagent.MandrakeRoot,
-                                                        Reagent.Bloodmoss
-                                                       );
+	public class AncientSwarmSpell : AncientSpell
+	{
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Rój", "Kal Bet Xen",
+			203,
+			9051,
+			Reagent.Nightshade,
+			Reagent.MandrakeRoot,
+			Reagent.Bloodmoss
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Third; }
-        }
-        public override double CastDelay { get { return 3.0; } }
-        public override double RequiredSkill { get { return 50.0; } }
-        public override int RequiredMana { get { return 45; } }
-        public AncientSwarmSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Third; }
+		}
 
-        public override void OnCast()
-        {
-            if (CheckSequence())
-                Caster.Target = new InternalTarget(this);
-        }
+		public override double CastDelay { get { return 3.0; } }
+		public override double RequiredSkill { get { return 50.0; } }
+		public override int RequiredMana { get { return 45; } }
 
-        public void Target(Mobile m)
-        {
-            if (!Caster.CanSee(m))
-            {
-                Caster.SendLocalizedMessage(500237); // Target can not be seen.
-            }
-            else if (CheckHSequence(m))
-            {
-                if (this.Scroll != null)
-                    Scroll.Consume();
-                SpellHelper.Turn(Caster, m);
+		public AncientSwarmSpell(Mobile caster, Item scroll)
+			: base(caster, scroll, m_Info)
+		{
+		}
 
-                SpellHelper.CheckReflect(this, Caster, ref m);
+		public override void OnCast()
+		{
+			if (CheckSequence())
+				Caster.Target = new InternalTarget(this);
+		}
 
-                if (m.Spell != null)
-                    m.Spell.OnCasterHurt();
+		public void Target(Mobile m)
+		{
+			if (!Caster.CanSee(m))
+			{
+				Caster.SendLocalizedMessage(500237); // Target can not be seen.
+			}
+			else if (CheckHSequence(m))
+			{
+				if (this.Scroll != null)
+					Scroll.Consume();
+				SpellHelper.Turn(Caster, m);
 
-                m.Paralyzed = false;
+				SpellHelper.CheckReflect(this, Caster, ref m);
 
-                if (CheckResisted(m))
-                {
-                    m.SendLocalizedMessage(501783); // You feel yourself resisting magical energy.
-                }
-                else
-                {
-                    if (!m_Table.Contains(m))
-                    {
-                        Timer t = new InternalTimer(m, Caster);
-                        t.Start();
+				if (m.Spell != null)
+					m.Spell.OnCasterHurt();
 
-                        m_Table[m] = t;
-                    }
+				m.Paralyzed = false;
 
-                    m.SendMessage("Rój insektów zaatakował Cię i zaczyna żądlić!");
-                    m.FixedParticles(0x91B, 1, 240, 9916, 1159, 3, EffectLayer.Head);
-                    m.PlaySound(0x230);
-                }
-            }
+				if (CheckResisted(m))
+				{
+					m.SendLocalizedMessage(501783); // You feel yourself resisting magical energy.
+				}
+				else
+				{
+					if (!m_Table.Contains(m))
+					{
+						Timer t = new InternalTimer(m, Caster);
+						t.Start();
 
-            FinishSequence();
-        }
+						m_Table[m] = t;
+					}
 
-        public virtual bool CheckResisted(Mobile target)
-        {
-            double n = GetResistPercent(target, Circle);
+					m.SendMessage("Rój insektów zaatakował Cię i zaczyna żądlić!");
+					m.FixedParticles(0x91B, 1, 240, 9916, 1159, 3, EffectLayer.Head);
+					m.PlaySound(0x230);
+				}
+			}
 
-            n /= 100.0;
+			FinishSequence();
+		}
 
-            if (n <= 0.0)
-                return false;
+		public virtual bool CheckResisted(Mobile target)
+		{
+			double n = GetResistPercent(target, Circle);
 
-            if (n >= 1.0)
-                return true;
+			n /= 100.0;
 
-            int maxSkill = (1 + (int)Circle) * 10;
-            maxSkill += (1 + ((int)Circle / 6)) * 25;
+			if (n <= 0.0)
+				return false;
 
-            if (target.Skills[SkillName.MagicResist].Value < maxSkill)
-                target.CheckSkill(SkillName.MagicResist, 0.0, 120.0);
+			if (n >= 1.0)
+				return true;
 
-            return (n >= Utility.RandomDouble());
-        }
+			int maxSkill = (1 + (int)Circle) * 10;
+			maxSkill += (1 + ((int)Circle / 6)) * 25;
 
-        public virtual double GetResistPercent(Mobile target, SpellCircle circle)
-        {
-            double firstPercent = target.Skills[SkillName.MagicResist].Value / 5.0;
-            double secondPercent = target.Skills[SkillName.MagicResist].Value - (((Caster.Skills[CastSkill].Value - 20.0) / 5.0) + (1 + (int)circle) * 5.0);
+			if (target.Skills[SkillName.MagicResist].Value < maxSkill)
+				target.CheckSkill(SkillName.MagicResist, 0.0, 120.0);
 
-            return (firstPercent > secondPercent ? firstPercent : secondPercent) / 2.0; // Seems should be about half of what stratics says.
-        }
+			return (n >= Utility.RandomDouble());
+		}
 
-        private static Hashtable m_Table = new Hashtable();
+		public virtual double GetResistPercent(Mobile target, SpellCircle circle)
+		{
+			double firstPercent = target.Skills[SkillName.MagicResist].Value / 5.0;
+			double secondPercent = target.Skills[SkillName.MagicResist].Value -
+			                       (((Caster.Skills[CastSkill].Value - 20.0) / 5.0) + (1 + (int)circle) * 5.0);
 
-        public static void RemoveCurse(Mobile m)
-        {
-            Timer t = (Timer)m_Table[m];
+			return (firstPercent > secondPercent ? firstPercent : secondPercent) /
+			       2.0; // Seems should be about half of what stratics says.
+		}
 
-            if (t == null)
-                return;
+		private static readonly Hashtable m_Table = new Hashtable();
 
-            t.Stop();
-            m.SendMessage("Insekty przestały Cię żądlić.");
+		public static void RemoveCurse(Mobile m)
+		{
+			Timer t = (Timer)m_Table[m];
 
-            m_Table.Remove(m);
-        }
+			if (t == null)
+				return;
 
-        private class InternalTimer : Timer
-        {
-            private Mobile m_Target, m_From;
-            private double m_MinBaseDamage, m_MaxBaseDamage;
+			t.Stop();
+			m.SendMessage("Insekty przestały Cię żądlić.");
 
-            private DateTime m_NextHit;
-            private int m_HitDelay;
+			m_Table.Remove(m);
+		}
 
-            private int m_Count, m_MaxCount;
+		private class InternalTimer : Timer
+		{
+			private readonly Mobile m_Target;
+			private readonly Mobile m_From;
+			private readonly double m_MinBaseDamage;
+			private readonly double m_MaxBaseDamage;
 
-            public InternalTimer(Mobile target, Mobile from)
-                : base(TimeSpan.FromSeconds(0.1), TimeSpan.FromSeconds(0.1))
-            {
-                Priority = TimerPriority.FiftyMS;
+			private DateTime m_NextHit;
+			private int m_HitDelay;
 
-                m_Target = target;
-                m_From = from;
+			private int m_Count;
+			private readonly int m_MaxCount;
 
-                double timeLevel = from.Skills[SkillName.EvalInt].Value / 10;
+			public InternalTimer(Mobile target, Mobile from)
+				: base(TimeSpan.FromSeconds(0.1), TimeSpan.FromSeconds(0.1))
+			{
+				Priority = TimerPriority.FiftyMS;
 
-                m_MinBaseDamage = timeLevel - 2;
-                m_MaxBaseDamage = timeLevel + 1;
+				m_Target = target;
+				m_From = from;
 
-                m_HitDelay = 5;
-                m_NextHit = DateTime.Now + TimeSpan.FromSeconds(m_HitDelay);
+				double timeLevel = from.Skills[SkillName.EvalInt].Value / 10;
 
-                m_Count = (int)timeLevel;
+				m_MinBaseDamage = timeLevel - 2;
+				m_MaxBaseDamage = timeLevel + 1;
 
-                if (m_Count < 4)
-                    m_Count = 4;
+				m_HitDelay = 5;
+				m_NextHit = DateTime.Now + TimeSpan.FromSeconds(m_HitDelay);
 
-                m_MaxCount = m_Count;
-            }
+				m_Count = (int)timeLevel;
 
-            protected override void OnTick()
-            {
-                if (!m_Target.Alive)
-                {
-                    m_Table.Remove(m_Target);
-                    Stop();
-                }
+				if (m_Count < 4)
+					m_Count = 4;
 
-                if (!m_Target.Alive || DateTime.Now < m_NextHit)
-                    return;
+				m_MaxCount = m_Count;
+			}
 
-                --m_Count;
+			protected override void OnTick()
+			{
+				if (!m_Target.Alive)
+				{
+					m_Table.Remove(m_Target);
+					Stop();
+				}
 
-                if (m_HitDelay > 1)
-                {
-                    m_Target.FixedParticles(0x91B, 1, 240, 9916, 1159, 3, EffectLayer.Head);
-                    m_Target.PlaySound(0x230);
-                    if (m_MaxCount < 5)
-                    {
-                        --m_HitDelay;
-                    }
-                    else
-                    {
-                        int delay = (int)(Math.Ceiling((1.0 + (5 * m_Count)) / m_MaxCount));
+				if (!m_Target.Alive || DateTime.Now < m_NextHit)
+					return;
 
-                        if (delay <= 5)
-                            m_HitDelay = delay;
-                        else
-                            m_HitDelay = 5;
-                    }
-                }
+				--m_Count;
 
-                if (m_Count == 0)
-                {
-                    m_Target.SendMessage("Rój przestał Cię żądlić.");
-                    m_Table.Remove(m_Target);
-                    Stop();
-                }
-                else
-                {
-                    m_NextHit = DateTime.Now + TimeSpan.FromSeconds(m_HitDelay);
+				if (m_HitDelay > 1)
+				{
+					m_Target.FixedParticles(0x91B, 1, 240, 9916, 1159, 3, EffectLayer.Head);
+					m_Target.PlaySound(0x230);
+					if (m_MaxCount < 5)
+					{
+						--m_HitDelay;
+					}
+					else
+					{
+						int delay = (int)(Math.Ceiling((1.0 + (5 * m_Count)) / m_MaxCount));
 
-                    double damage = m_MinBaseDamage + (Utility.RandomDouble() * (m_MaxBaseDamage - m_MinBaseDamage));
+						if (delay <= 5)
+							m_HitDelay = delay;
+						else
+							m_HitDelay = 5;
+					}
+				}
 
-                    damage *= (3 - (((double)m_Target.Stam / m_Target.StamMax) * 2));
+				if (m_Count == 0)
+				{
+					m_Target.SendMessage("Rój przestał Cię żądlić.");
+					m_Table.Remove(m_Target);
+					Stop();
+				}
+				else
+				{
+					m_NextHit = DateTime.Now + TimeSpan.FromSeconds(m_HitDelay);
 
-                    if (damage < 1)
-                        damage = 1;
+					double damage = m_MinBaseDamage + (Utility.RandomDouble() * (m_MaxBaseDamage - m_MinBaseDamage));
 
-                    if (!m_Target.Player)
-                        damage *= 0.1;
+					damage *= (3 - (((double)m_Target.Stam / m_Target.StamMax) * 2));
 
-                    AOS.Damage(m_Target, m_From, (int)damage, 0, 0, 0, 100, 0);
-                }
-            }
-        }
+					if (damage < 1)
+						damage = 1;
 
-        private class InternalTarget : Target
-        {
-            private AncientSwarmSpell m_Owner;
+					if (!m_Target.Player)
+						damage *= 0.1;
 
-            public InternalTarget(AncientSwarmSpell owner)
-                : base(12, false, TargetFlags.Harmful)
-            {
-                m_Owner = owner;
-            }
+					AOS.Damage(m_Target, m_From, (int)damage, 0, 0, 0, 100, 0);
+				}
+			}
+		}
 
-            protected override void OnTarget(Mobile from, object o)
-            {
-                if (o is Mobile)
-                {
-                    m_Owner.Target((Mobile)o);
-                }
-            }
+		private class InternalTarget : Target
+		{
+			private readonly AncientSwarmSpell m_Owner;
 
-            protected override void OnTargetFinish(Mobile from)
-            {
-                m_Owner.FinishSequence();
-            }
-        }
-    }
+			public InternalTarget(AncientSwarmSpell owner)
+				: base(12, false, TargetFlags.Harmful)
+			{
+				m_Owner = owner;
+			}
+
+			protected override void OnTarget(Mobile from, object o)
+			{
+				if (o is Mobile)
+				{
+					m_Owner.Target((Mobile)o);
+				}
+			}
+
+			protected override void OnTargetFinish(Mobile from)
+			{
+				m_Owner.FinishSequence();
+			}
+		}
+	}
 }

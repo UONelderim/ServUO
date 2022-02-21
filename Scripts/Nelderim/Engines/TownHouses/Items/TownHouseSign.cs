@@ -1,10 +1,16 @@
+#region References
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using Server;
+using Server.Gumps;
 using Server.Items;
 using Server.Mobiles;
 using Server.Multis;
+using Server.Network;
+
+#endregion
 
 namespace Knives.TownHouses
 {
@@ -23,8 +29,7 @@ namespace Knives.TownHouses
 	[Flipable(0xC0B, 0xC0C)]
 	public class TownHouseSign : Item
 	{
-		private static ArrayList s_TownHouseSigns = new ArrayList();
-		public static ArrayList AllSigns { get { return s_TownHouseSigns; } }
+		public static ArrayList AllSigns { get; } = new ArrayList();
 
 		private Point3D c_BanLoc, c_SignLoc;
 
@@ -40,7 +45,6 @@ namespace Knives.TownHouses
 
 		private bool c_YoungOnly,
 			c_RecurRent,
-			c_Relock,
 			c_KeepItems,
 			c_LeaveItems,
 			c_RentToOwn,
@@ -51,10 +55,8 @@ namespace Knives.TownHouses
 
 		private string c_Skill;
 		private double c_SkillReq;
-		private ArrayList c_Blocks, c_DecoreItemInfos, c_PreviewItems;
-		private TownHouse c_House;
-		private Timer c_DemolishTimer, c_RentTimer, c_PreviewTimer;
-		private DateTime c_DemolishTime, c_RentTime;
+		private ArrayList c_DecoreItemInfos, c_PreviewItems;
+		private Timer c_RentTimer, c_PreviewTimer;
 		private TimeSpan c_RentByTime, c_OriginalRentTime;
 		private Intu c_Murderers;
 
@@ -66,7 +68,7 @@ namespace Knives.TownHouses
 				c_BanLoc = value;
 				InvalidateProperties();
 				if (Owned)
-					c_House.Region.GoLocation = value;
+					House.Region.GoLocation = value;
 			}
 		}
 
@@ -80,8 +82,8 @@ namespace Knives.TownHouses
 
 				if (Owned)
 				{
-					c_House.Sign.Location = value;
-					c_House.Hanger.Location = value;
+					House.Sign.Location = value;
+					House.Hanger.Location = value;
 				}
 			}
 		}
@@ -94,7 +96,7 @@ namespace Knives.TownHouses
 				c_Locks = value;
 				InvalidateProperties();
 				if (Owned)
-					c_House.MaxLockDowns = value;
+					House.MaxLockDowns = value;
 			}
 		}
 
@@ -106,7 +108,7 @@ namespace Knives.TownHouses
 				c_Secures = value;
 				InvalidateProperties();
 				if (Owned)
-					c_House.MaxSecures = value;
+					House.MaxSecures = value;
 			}
 		}
 
@@ -191,7 +193,7 @@ namespace Knives.TownHouses
 			}
 		}
 
-		public DateTime RentTime { get { return c_RentTime; } }
+		public DateTime RentTime { get; private set; }
 
 		public TimeSpan RentByTime
 		{
@@ -261,7 +263,7 @@ namespace Knives.TownHouses
 			}
 		}
 
-		public ArrayList Blocks { get { return c_Blocks; } set { c_Blocks = value; } }
+		public ArrayList Blocks { get; set; }
 
 		public string Skill
 		{
@@ -305,7 +307,7 @@ namespace Knives.TownHouses
 			}
 		}
 
-		public bool Relock { get { return c_Relock; } set { c_Relock = value; } }
+		public bool Relock { get; set; }
 
 		public int ItemsPrice
 		{
@@ -317,15 +319,16 @@ namespace Knives.TownHouses
 			}
 		}
 
-		public TownHouse House { get { return c_House; } set { c_House = value; } }
-		public Timer DemolishTimer { get { return c_DemolishTimer; } }
-		public DateTime DemolishTime { get { return c_DemolishTime; } }
+		public TownHouse House { get; set; }
 
-		public bool Owned { get { return c_House != null && !c_House.Deleted; } }
+		public Timer DemolishTimer { get; private set; }
+		public DateTime DemolishTime { get; private set; }
+
+		public bool Owned { get { return House != null && !House.Deleted; } }
 		public int Floors { get { return (c_MaxZ - c_MinZ) / 20 + 1; } }
 
 		public bool BlocksReady { get { return Blocks.Count != 0; } }
-		public bool FloorsReady { get { return (BlocksReady && MinZ != short.MinValue); } }
+		public bool FloorsReady { get { return (BlocksReady && MinZ != Int16.MinValue); } }
 		public bool SignReady { get { return (FloorsReady && SignLoc != Point3D.Zero); } }
 		public bool BanReady { get { return (SignReady && BanLoc != Point3D.Zero); } }
 		public bool LocSecReady { get { return (BanReady && Locks != 0 && Secures != 0); } }
@@ -376,25 +379,25 @@ namespace Knives.TownHouses
 			c_BanLoc = Point3D.Zero;
 			c_SignLoc = Point3D.Zero;
 			c_Skill = "";
-			c_Blocks = new ArrayList();
+			Blocks = new ArrayList();
 			c_DecoreItemInfos = new ArrayList();
 			c_PreviewItems = new ArrayList();
-			c_DemolishTime = DateTime.Now;
-			c_RentTime = DateTime.Now;
+			DemolishTime = DateTime.Now;
+			RentTime = DateTime.Now;
 			c_RentByTime = TimeSpan.Zero;
 			c_RecurRent = true;
 
-			c_MinZ = short.MinValue;
-			c_MaxZ = short.MaxValue;
+			c_MinZ = Int16.MinValue;
+			c_MaxZ = Int16.MaxValue;
 
-			s_TownHouseSigns.Add(this);
+			AllSigns.Add(this);
 		}
 
 		private void SearchForHouse()
 		{
 			foreach (TownHouse house in TownHouse.AllTownHouses)
 				if (house.ForSaleSign == this)
-					c_House = house;
+					House = house;
 		}
 
 		public void UpdateBlocks()
@@ -402,12 +405,12 @@ namespace Knives.TownHouses
 			if (!Owned)
 				return;
 
-			if (c_Blocks.Count == 0)
+			if (Blocks.Count == 0)
 				UnconvertDoors();
 
 			UpdateRegion();
 			ConvertItems(false);
-			c_House.InitSectorDefinition();
+			House.InitSectorDefinition();
 		}
 
 		public void UpdateRegion()
@@ -439,7 +442,7 @@ namespace Knives.TownHouses
 			Point2D point = Point2D.Zero;
 			ArrayList blocks = new ArrayList();
 
-			foreach (Rectangle2D rect in c_Blocks)
+			foreach (Rectangle2D rect in Blocks)
 				for (int x = rect.Start.X; x < rect.End.X; ++x)
 				for (int y = rect.Start.Y; y < rect.End.Y; ++y)
 				{
@@ -469,7 +472,7 @@ namespace Knives.TownHouses
 				c_PreviewItems.Add(item);
 			}
 
-			c_PreviewTimer = Timer.DelayCall(TimeSpan.FromSeconds(100), new TimerCallback(ClearPreview));
+			c_PreviewTimer = Timer.DelayCall(TimeSpan.FromSeconds(100), ClearPreview);
 		}
 
 		public void ShowSignPreview()
@@ -496,7 +499,7 @@ namespace Knives.TownHouses
 
 			c_PreviewItems.Add(sign);
 
-			c_PreviewTimer = Timer.DelayCall(TimeSpan.FromSeconds(100), new TimerCallback(ClearPreview));
+			c_PreviewTimer = Timer.DelayCall(TimeSpan.FromSeconds(100), ClearPreview);
 		}
 
 		public void ShowBanPreview()
@@ -511,7 +514,7 @@ namespace Knives.TownHouses
 
 			c_PreviewItems.Add(ban);
 
-			c_PreviewTimer = Timer.DelayCall(TimeSpan.FromSeconds(100), new TimerCallback(ClearPreview));
+			c_PreviewTimer = Timer.DelayCall(TimeSpan.FromSeconds(100), ClearPreview);
 		}
 
 		public void ShowFloorsPreview(Mobile m)
@@ -536,7 +539,7 @@ namespace Knives.TownHouses
 
 			c_PreviewItems.Add(item);
 
-			c_PreviewTimer = Timer.DelayCall(TimeSpan.FromSeconds(100), new TimerCallback(ClearPreview));
+			c_PreviewTimer = Timer.DelayCall(TimeSpan.FromSeconds(100), ClearPreview);
 		}
 
 		public void ClearPreview()
@@ -579,7 +582,7 @@ namespace Knives.TownHouses
 				if (c_Free)
 					price = 0;
 
-				if (m.AccessLevel == AccessLevel.Player && !Server.Mobiles.Banker.Withdraw(m, price))
+				if (m.AccessLevel == AccessLevel.Player && !Banker.Withdraw(m, price))
 				{
 					m.SendMessage("Nie masz tyle pieniedzy w banku, aby wynajac ten dom.");
 					return;
@@ -591,12 +594,12 @@ namespace Knives.TownHouses
 
 				Visible = false;
 
-				int minX = ((Rectangle2D)c_Blocks[0]).Start.X;
-				int minY = ((Rectangle2D)c_Blocks[0]).Start.Y;
-				int maxX = ((Rectangle2D)c_Blocks[0]).End.X;
-				int maxY = ((Rectangle2D)c_Blocks[0]).End.Y;
+				int minX = ((Rectangle2D)Blocks[0]).Start.X;
+				int minY = ((Rectangle2D)Blocks[0]).Start.Y;
+				int maxX = ((Rectangle2D)Blocks[0]).End.X;
+				int maxY = ((Rectangle2D)Blocks[0]).End.Y;
 
-				foreach (Rectangle2D rect in c_Blocks)
+				foreach (Rectangle2D rect in Blocks)
 				{
 					if (rect.Start.X < minX)
 						minX = rect.Start.X;
@@ -610,33 +613,33 @@ namespace Knives.TownHouses
 
 				bool northSouth = (ItemID == (int)SignIDs.TownHouseSignNS);
 
-				c_House = new TownHouse(m, this, c_Locks, c_Secures);
+				House = new TownHouse(m, this, c_Locks, c_Secures);
 				int signId = (int)(northSouth ? SignIDs.HouseSignNS : SignIDs.HouseSignWE);
-				c_House.ChangeSignType(signId);
+				House.ChangeSignType(signId);
 
-				c_House.Components.Resize(maxX - minX, maxY - minY);
-				c_House.Components.Add(0x520, c_House.Components.Width - 1, c_House.Components.Height - 1, -5);
+				House.Components.Resize(maxX - minX, maxY - minY);
+				House.Components.Add(0x520, House.Components.Width - 1, House.Components.Height - 1, -5);
 
-				c_House.Location = new Point3D(minX, minY, Map.GetAverageZ(minX, minY));
-				c_House.Map = Map;
-				c_House.Region.GoLocation = c_BanLoc;
-				c_House.Sign.Location = c_SignLoc;
+				House.Location = new Point3D(minX, minY, Map.GetAverageZ(minX, minY));
+				House.Map = Map;
+				House.Region.GoLocation = c_BanLoc;
+				House.Sign.Location = c_SignLoc;
 
 				int hangerId = (int)(northSouth ? SignIDs.SignHangerNS : SignIDs.SignHangerWE);
-				c_House.Hanger = new Item(hangerId);
-				c_House.Hanger.Location = c_SignLoc;
-				c_House.Hanger.Map = Map;
-				c_House.Hanger.Movable = false;
+				House.Hanger = new Item(hangerId);
+				House.Hanger.Location = c_SignLoc;
+				House.Hanger.Map = Map;
+				House.Hanger.Movable = false;
 
 				if (c_ForcePublic)
-					c_House.Public = true;
+					House.Public = true;
 
-				c_House.Price = (RentByTime == TimeSpan.FromDays(0) ? c_Price : 1);
+				House.Price = (RentByTime == TimeSpan.FromDays(0) ? c_Price : 1);
 
 				UpdateRegion();
 
-				if (c_House.Price == 0)
-					c_House.Price = 1;
+				if (House.Price == 0)
+					House.Price = 1;
 
 				if (c_RentByTime != TimeSpan.Zero)
 					BeginRentTimer(c_RentByTime);
@@ -651,7 +654,7 @@ namespace Knives.TownHouses
 			}
 			catch (Exception e)
 			{
-				Errors.Report(String.Format("Wystapil blad. Skontaktuj sie z administracja."));
+				Errors.Report("Wystapil blad. Skontaktuj sie z administracja.");
 				Console.WriteLine(e.Message);
 				Console.WriteLine(e.Source);
 				Console.WriteLine(e.StackTrace);
@@ -660,7 +663,7 @@ namespace Knives.TownHouses
 
 		private void HideOtherSigns()
 		{
-			foreach (Item item in c_House.Sign.GetItemsInRange(0))
+			foreach (Item item in House.Sign.GetItemsInRange(0))
 				if (!(item is HouseSign))
 					if (item.ItemID == 0xB95
 					    || item.ItemID == 0xB96
@@ -672,13 +675,13 @@ namespace Knives.TownHouses
 
 		public virtual void ConvertItems(bool keep)
 		{
-			if (c_House == null)
+			if (House == null)
 				return;
 
 			ArrayList items = new ArrayList();
-			foreach (Rectangle2D rect in c_Blocks)
+			foreach (Rectangle2D rect in Blocks)
 			foreach (Item item in Map.GetItemsInBounds(rect))
-				if (c_House.Region.Contains(item.Location) && item.RootParent == null && !items.Contains(item))
+				if (House.Region.Contains(item.Location) && item.RootParent == null && !items.Contains(item))
 					items.Add(item);
 
 			foreach (Item item in new ArrayList(items))
@@ -687,7 +690,7 @@ namespace Knives.TownHouses
 				    || item is BaseMulti
 				    || item is BaseAddon
 				    || item is AddonComponent
-				    || item == c_House.Hanger
+				    || item == House.Hanger
 				    || !item.Visible
 				    || item.IsLockedDown
 				    || item.IsSecure
@@ -707,7 +710,7 @@ namespace Knives.TownHouses
 					else
 					{
 						item.Movable = true;
-						c_House.LockDown(c_House.Owner, item, false);
+						House.LockDown(House.Owner, item, false);
 					}
 				}
 			}
@@ -718,17 +721,17 @@ namespace Knives.TownHouses
 			if (!Owned)
 				return;
 
-			if (door is Server.Gumps.ISecurable)
+			if (door is ISecurable)
 			{
 				door.Locked = false;
-				c_House.Doors.Add(door);
+				House.Doors.Add(door);
 				return;
 			}
 
 			door.Open = false;
 
 			GenericHouseDoor newdoor =
-				new GenericHouseDoor((DoorFacing)0, door.ClosedID, door.OpenedSound, door.ClosedSound);
+				new GenericHouseDoor(0, door.ClosedID, door.OpenedSound, door.ClosedSound);
 			newdoor.Offset = door.Offset;
 			newdoor.ClosedID = door.ClosedID;
 			newdoor.OpenedID = door.OpenedID;
@@ -744,24 +747,24 @@ namespace Knives.TownHouses
 					newdoor.Link = (BaseDoor)inneritem;
 				}
 
-			c_House.Doors.Add(newdoor);
+			House.Doors.Add(newdoor);
 		}
 
 		public virtual void UnconvertDoors()
 		{
-			if (c_House == null)
+			if (House == null)
 				return;
 
 			BaseDoor newdoor = null;
 
-			foreach (BaseDoor door in new ArrayList(c_House.Doors))
+			foreach (BaseDoor door in new ArrayList(House.Doors))
 			{
 				door.Open = false;
 
-				if (c_Relock)
+				if (Relock)
 					door.Locked = true;
 
-				newdoor = new StrongWoodDoor((DoorFacing)0);
+				newdoor = new StrongWoodDoor(0);
 				newdoor.ItemID = door.ItemID;
 				newdoor.ClosedID = door.ClosedID;
 				newdoor.OpenedID = door.OpenedID;
@@ -780,7 +783,7 @@ namespace Knives.TownHouses
 						newdoor.Link = (BaseDoor)inneritem;
 					}
 
-				c_House.Doors.Remove(door);
+				House.Doors.Remove(door);
 			}
 		}
 
@@ -821,7 +824,7 @@ namespace Knives.TownHouses
 			ClearRentTimer();
 			PackUpItems();
 			RecreateItems();
-			c_House = null;
+			House = null;
 			Visible = true;
 
 			if (c_RentToOwn)
@@ -833,16 +836,16 @@ namespace Knives.TownHouses
 			if (!Owned)
 				return;
 
-			if (c_House.Owner == null)
+			if (House.Owner == null)
 			{
-				c_House.Delete();
+				House.Delete();
 				return;
 			}
 
-			if (c_House.Owner.AccessLevel != AccessLevel.Player)
+			if (House.Owner.AccessLevel != AccessLevel.Player)
 				return;
 
-			if (!CanBuyHouse(c_House.Owner) && c_DemolishTimer == null)
+			if (!CanBuyHouse(House.Owner) && DemolishTimer == null)
 				BeginDemolishTimer();
 			else
 				ClearDemolishTimer();
@@ -857,7 +860,7 @@ namespace Knives.TownHouses
 			Point3D point = Point3D.Zero;
 			ArrayList blocks = new ArrayList();
 
-			foreach (Rectangle2D rect in c_Blocks)
+			foreach (Rectangle2D rect in Blocks)
 				for (int x = rect.Start.X; x < rect.End.X; ++x)
 				for (int y = rect.Start.Y; y < rect.End.Y; ++y)
 				for (int z = 0; z < floors; z++)
@@ -872,8 +875,8 @@ namespace Knives.TownHouses
 
 		private void StartTimers()
 		{
-			if (c_DemolishTime > DateTime.Now)
-				BeginDemolishTimer(c_DemolishTime - DateTime.Now);
+			if (DemolishTime > DateTime.Now)
+				BeginDemolishTimer(DemolishTime - DateTime.Now);
 			else if (c_RentByTime != TimeSpan.Zero && c_RentTimer == null)
 				BeginRentTimer(c_RentByTime);
 		}
@@ -882,20 +885,20 @@ namespace Knives.TownHouses
 
 		public void ClearDemolishTimer()
 		{
-			if (c_DemolishTimer == null)
+			if (DemolishTimer == null)
 				return;
 
-			c_DemolishTimer.Stop();
-			c_DemolishTimer = null;
-			c_DemolishTime = DateTime.Now;
+			DemolishTimer.Stop();
+			DemolishTimer = null;
+			DemolishTime = DateTime.Now;
 
-			if (!c_House.Deleted && Owned)
-				c_House.Owner.SendMessage("Wyburzanie anulowane.");
+			if (!House.Deleted && Owned)
+				House.Owner.SendMessage("Wyburzanie anulowane.");
 		}
 
 		public void CheckDemolishTimer()
 		{
-			if (c_DemolishTimer == null || !Owned)
+			if (DemolishTimer == null || !Owned)
 				return;
 
 			DemolishAlert();
@@ -911,61 +914,61 @@ namespace Knives.TownHouses
 			if (!Owned)
 				return;
 
-			c_DemolishTime = DateTime.Now + time;
-			c_DemolishTimer = Timer.DelayCall(time, new TimerCallback(PackUpHouse));
+			DemolishTime = DateTime.Now + time;
+			DemolishTimer = Timer.DelayCall(time, PackUpHouse);
 
 			DemolishAlert();
 		}
 
 		protected virtual void DemolishAlert()
 		{
-			c_House.Owner.SendMessage("Juz nie spelniasz wymagan na ten dom, zostaniesz eksmitowany za {0}h:{1}m:{2}s.",
-				(c_DemolishTime - DateTime.Now).Hours, (c_DemolishTime - DateTime.Now).Minutes,
-				(c_DemolishTime - DateTime.Now).Seconds);
+			House.Owner.SendMessage("Juz nie spelniasz wymagan na ten dom, zostaniesz eksmitowany za {0}h:{1}m:{2}s.",
+				(DemolishTime - DateTime.Now).Hours, (DemolishTime - DateTime.Now).Minutes,
+				(DemolishTime - DateTime.Now).Seconds);
 		}
 
 		protected void PackUpHouse()
 		{
-			if (!Owned || c_House.Deleted)
+			if (!Owned || House.Deleted)
 				return;
 
 			PackUpItems();
 
-			c_House.Owner.BankBox.DropItem(new BankCheck(c_House.Price));
+			House.Owner.BankBox.DropItem(new BankCheck(House.Price));
 
-			c_House.Delete();
+			House.Delete();
 		}
 
 		protected void PackUpItems()
 		{
-			if (c_House == null)
+			if (House == null)
 				return;
 
 
 			Container bag = new Bag();
 			bag.Name = "Przedmioty z domu miejskiego";
 
-			foreach (KeyValuePair<Item, Mobile> kvp in new Dictionary<Item, Mobile>(c_House.LockDowns))
+			foreach (KeyValuePair<Item, Mobile> kvp in new Dictionary<Item, Mobile>(House.LockDowns))
 			{
 				Item item = kvp.Key;
 				item.IsLockedDown = false;
 				item.Movable = true;
-				c_House.LockDowns.Remove(kvp.Key);
+				House.LockDowns.Remove(kvp.Key);
 				bag.DropItem(item);
 			}
 
-			foreach (SecureInfo info in new ArrayList(c_House.Secures))
+			foreach (SecureInfo info in new ArrayList(House.Secures))
 			{
 				info.Item.IsLockedDown = false;
 				info.Item.IsSecure = false;
 				info.Item.Movable = true;
 				info.Item.SetLastMoved();
-				c_House.Secures.Remove(info);
+				House.Secures.Remove(info);
 				bag.DropItem(info.Item);
 			}
 
 			ArrayList unlockedItemsToPack = new ArrayList();
-			foreach (Rectangle2D rect in c_Blocks)
+			foreach (Rectangle2D rect in Blocks)
 			foreach (Item item in Map.GetItemsInBounds(rect))
 			{
 				if (item is BaseAddon)
@@ -984,8 +987,8 @@ namespace Knives.TownHouses
 				    || item.IsLockedDown
 				    || item.IsSecure
 				    || !item.Movable
-				    || item.Map != c_House.Map
-				    || !c_House.Region.Contains(item.Location))
+				    || item.Map != House.Map
+				    || !House.Region.Contains(item.Location))
 					continue;
 
 
@@ -1003,7 +1006,7 @@ namespace Knives.TownHouses
 				return;
 			}
 
-			c_House.Owner.BankBox.DropItem(bag);
+			House.Owner.BankBox.DropItem(bag);
 		}
 
 		#endregion
@@ -1018,7 +1021,7 @@ namespace Knives.TownHouses
 				c_RentTimer = null;
 			}
 
-			c_RentTime = DateTime.Now;
+			RentTime = DateTime.Now;
 		}
 
 		private void BeginRentTimer()
@@ -1031,8 +1034,8 @@ namespace Knives.TownHouses
 			if (!Owned)
 				return;
 
-			c_RentTimer = Timer.DelayCall(time, new TimerCallback(RentDue));
-			c_RentTime = DateTime.Now + time;
+			c_RentTimer = Timer.DelayCall(time, RentDue);
+			RentTime = DateTime.Now + time;
 		}
 
 		public void CheckRentTimer()
@@ -1040,33 +1043,33 @@ namespace Knives.TownHouses
 			if (c_RentTimer == null || !Owned)
 				return;
 
-			c_House.Owner.SendMessage("Cykl wynajmu konczy sie za {0} dni, {1}h:{2}m:{3}s.",
-				(c_RentTime - DateTime.Now).Days, (c_RentTime - DateTime.Now).Hours,
-				(c_RentTime - DateTime.Now).Minutes, (c_RentTime - DateTime.Now).Seconds);
+			House.Owner.SendMessage("Cykl wynajmu konczy sie za {0} dni, {1}h:{2}m:{3}s.",
+				(RentTime - DateTime.Now).Days, (RentTime - DateTime.Now).Hours,
+				(RentTime - DateTime.Now).Minutes, (RentTime - DateTime.Now).Seconds);
 		}
 
 		private void RentDue()
 		{
-			if (!Owned || c_House.Owner == null)
+			if (!Owned || House.Owner == null)
 				return;
 
 			if (!c_RecurRent)
 			{
-				c_House.Owner.SendMessage("Twoj kontrakt wynajmu minal, wiec bank zajal twoj dom miejski.");
+				House.Owner.SendMessage("Twoj kontrakt wynajmu minal, wiec bank zajal twoj dom miejski.");
 				PackUpHouse();
 				return;
 			}
 
-			if (!c_Free && c_House.Owner.AccessLevel == AccessLevel.Player &&
-			    !Server.Mobiles.Banker.Withdraw(c_House.Owner, c_Price))
+			if (!c_Free && House.Owner.AccessLevel == AccessLevel.Player &&
+			    !Banker.Withdraw(House.Owner, c_Price))
 			{
-				c_House.Owner.SendMessage("Nie stac cie na wynajem, wiec bank zajal twoj dom miejski.");
+				House.Owner.SendMessage("Nie stac cie na wynajem, wiec bank zajal twoj dom miejski.");
 				PackUpHouse();
 				return;
 			}
 
 			if (!c_Free)
-				c_House.Owner.SendMessage("Bank pobral {0} sztuk zlota za wynajem domu miejskiego.", c_Price);
+				House.Owner.SendMessage("Bank pobral {0} sztuk zlota za wynajem domu miejskiego.", c_Price);
 
 			OnRentPaid();
 
@@ -1079,24 +1082,24 @@ namespace Knives.TownHouses
 				if (c_RentByTime == TimeSpan.FromDays(1) && c_RTOPayments >= 60)
 				{
 					complete = true;
-					c_House.Price = c_Price * 60;
+					House.Price = c_Price * 60;
 				}
 
 				if (c_RentByTime == TimeSpan.FromDays(7) && c_RTOPayments >= 9)
 				{
 					complete = true;
-					c_House.Price = c_Price * 9;
+					House.Price = c_Price * 9;
 				}
 
 				if (c_RentByTime == TimeSpan.FromDays(30) && c_RTOPayments >= 2)
 				{
 					complete = true;
-					c_House.Price = c_Price * 2;
+					House.Price = c_Price * 2;
 				}
 
 				if (complete)
 				{
-					c_House.Owner.SendMessage("Od teraz wynajmujesz ten dom.");
+					House.Owner.SendMessage("Od teraz wynajmujesz ten dom.");
 					c_RentByTime = TimeSpan.FromDays(0);
 					return;
 				}
@@ -1185,14 +1188,14 @@ namespace Knives.TownHouses
 
 		public override void Delete()
 		{
-			if (c_House == null || c_House.Deleted)
+			if (House == null || House.Deleted)
 				base.Delete();
 			else
-				PublicOverheadMessage(Server.Network.MessageType.Regular, 0x0, true,
+				PublicOverheadMessage(MessageType.Regular, 0x0, true,
 					"Nie mozesz tego usunac, dopoki dom ma wlasciciela.");
 
 			if (this.Deleted)
-				s_TownHouseSigns.Remove(this);
+				AllSigns.Remove(this);
 		}
 
 		public override void GetProperties(ObjectPropertyList list)
@@ -1273,13 +1276,13 @@ namespace Knives.TownHouses
 			foreach (DecoreItemInfo info in c_DecoreItemInfos)
 				info.Save(writer);
 
-			writer.Write(c_Relock);
+			writer.Write(Relock);
 
 			// Version 4
 			writer.Write(c_RecurRent);
 			writer.Write(c_RentByTime);
-			writer.Write(c_RentTime);
-			writer.Write(c_DemolishTime);
+			writer.Write(RentTime);
+			writer.Write(DemolishTime);
 			writer.Write(c_YoungOnly);
 			writer.Write(c_MinTotalSkill);
 			writer.Write(c_MaxTotalSkill);
@@ -1289,7 +1292,7 @@ namespace Knives.TownHouses
 			writer.Write(c_MaxZ);
 
 			// Version 2
-			writer.Write(c_House);
+			writer.Write(House);
 
 			// Version 1
 			writer.Write(c_Price);
@@ -1299,8 +1302,8 @@ namespace Knives.TownHouses
 			writer.Write(c_SignLoc);
 			writer.Write(c_Skill);
 			writer.Write(c_SkillReq);
-			writer.Write(c_Blocks.Count);
-			foreach (Rectangle2D rect in c_Blocks)
+			writer.Write(Blocks.Count);
+			foreach (Rectangle2D rect in Blocks)
 				writer.Write(rect);
 		}
 
@@ -1355,15 +1358,15 @@ namespace Knives.TownHouses
 					c_DecoreItemInfos.Add(info);
 				}
 
-				c_Relock = reader.ReadBool();
+				Relock = reader.ReadBool();
 			}
 
 			if (version >= 4)
 			{
 				c_RecurRent = reader.ReadBool();
 				c_RentByTime = reader.ReadTimeSpan();
-				c_RentTime = reader.ReadDateTime();
-				c_DemolishTime = reader.ReadDateTime();
+				RentTime = reader.ReadDateTime();
+				DemolishTime = reader.ReadDateTime();
 				c_YoungOnly = reader.ReadBool();
 				c_MinTotalSkill = reader.ReadInt();
 				c_MaxTotalSkill = reader.ReadInt();
@@ -1376,7 +1379,7 @@ namespace Knives.TownHouses
 			}
 
 			if (version >= 2)
-				c_House = (TownHouse)reader.ReadItem();
+				House = (TownHouse)reader.ReadItem();
 
 			c_Price = reader.ReadInt();
 			c_Locks = reader.ReadInt();
@@ -1386,19 +1389,19 @@ namespace Knives.TownHouses
 			c_Skill = reader.ReadString();
 			c_SkillReq = reader.ReadDouble();
 
-			c_Blocks = new ArrayList();
+			Blocks = new ArrayList();
 			int count = reader.ReadInt();
 			for (int i = 0; i < count; ++i)
-				c_Blocks.Add(reader.ReadRect2D());
+				Blocks.Add(reader.ReadRect2D());
 
-			if (c_RentTime > DateTime.Now)
-				BeginRentTimer(c_RentTime - DateTime.Now);
+			if (RentTime > DateTime.Now)
+				BeginRentTimer(RentTime - DateTime.Now);
 
-			Timer.DelayCall(TimeSpan.Zero, new TimerCallback(StartTimers));
+			Timer.DelayCall(TimeSpan.Zero, StartTimers);
 
 			ClearPreview();
 
-			s_TownHouseSigns.Add(this);
+			AllSigns.Add(this);
 		}
 	}
 }

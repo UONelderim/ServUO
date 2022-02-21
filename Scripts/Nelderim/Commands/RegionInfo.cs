@@ -5,7 +5,7 @@ namespace Server.Commands
 		public static void Initialize()
 		{
 			CommandSystem.Register("regionInfo", AccessLevel.Administrator,
-				new CommandEventHandler(RegionInfo_OnCommand));
+				RegionInfo_OnCommand);
 		}
 
 		public static void RegionInfo_OnCommand(CommandEventArgs e)

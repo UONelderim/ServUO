@@ -9,12 +9,17 @@
 
 #define RunUo2_0
 
+#region References
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Server.Items;
 using Server.Mobiles;
 using Server.Network;
 using Server.Targeting;
+
+#endregion
 
 namespace Server.Gumps
 {
@@ -39,7 +44,7 @@ namespace Server.Gumps
 		public Mobile caller;
 		private PaintBrush paintbrush;
 
-		List<PaintingConsumer> PaintConsumers = new List<PaintingConsumer>();
+		readonly List<PaintingConsumer> PaintConsumers = new List<PaintingConsumer>();
 
 		public PaintingGump(Mobile from) : this()
 		{
@@ -295,7 +300,6 @@ namespace Server.Gumps
 				else
 				{
 					from.SendMessage("Glupcze, tego nie namalujesz!");
-					return;
 				}
 			}
 
@@ -349,7 +353,7 @@ namespace Server.Gumps
 				if (targeted is Item)
 				{
 					Item subject = targeted as Item;
-					if (string.IsNullOrEmpty(subject.Name))
+					if (String.IsNullOrEmpty(subject.Name))
 					{
 						string[] baseSubject = subject.GetType().ToString().Split('.');
 						CreatePainting(from, baseSubject[baseSubject.Length - 1]);
@@ -362,7 +366,7 @@ namespace Server.Gumps
 				else if (targeted is Mobile)
 				{
 					Mobile subject = targeted as Mobile;
-					if (string.IsNullOrEmpty(subject.Name))
+					if (String.IsNullOrEmpty(subject.Name))
 					{
 						string[] baseSubject = subject.GetType().ToString().Split('.');
 						CreatePainting(from, baseSubject[baseSubject.Length - 1]);
@@ -375,7 +379,6 @@ namespace Server.Gumps
 				else
 				{
 					from.SendMessage("Glupcze, tego nie namalujesz!!");
-					return;
 				}
 			}
 
@@ -435,7 +438,7 @@ namespace Server.Gumps
 				if (targeted is Item)
 				{
 					Item subject = targeted as Item;
-					if (string.IsNullOrEmpty(subject.Name))
+					if (String.IsNullOrEmpty(subject.Name))
 					{
 						string[] baseSubject = subject.GetType().ToString().Split('.');
 						CreatePainting(from, baseSubject[baseSubject.Length - 1]);
@@ -448,7 +451,7 @@ namespace Server.Gumps
 				else if (targeted is Mobile)
 				{
 					Mobile subject = targeted as Mobile;
-					if (string.IsNullOrEmpty(subject.Name))
+					if (String.IsNullOrEmpty(subject.Name))
 					{
 						string[] baseSubject = subject.GetType().ToString().Split('.');
 						CreatePainting(from, baseSubject[baseSubject.Length - 1]);
@@ -461,7 +464,6 @@ namespace Server.Gumps
 				else
 				{
 					from.SendMessage("Glupcze, tego nie namalujesz!!");
-					return;
 				}
 			}
 

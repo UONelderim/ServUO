@@ -1,7 +1,3 @@
-using System;
-using Server;
-using Server.Items;
-
 namespace Server.Items
 {
 	public class WielkiOgrodAddon : BaseAddon
@@ -14,57 +10,54 @@ namespace Server.Items
 			}
 		}
 
-		[ Constructable ]
+		[Constructable]
 		public WielkiOgrodAddon()
 		{
-      AddComponent( new AddonComponent( 13001 ), 1, 0, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, 0, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, 1, 0 );
-      AddComponent( new AddonComponent( 13001 ), 1, 1, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, -1, 0 );
-      AddComponent( new AddonComponent( 13001 ), 1, -1, 0 );
-            AddComponent( new AddonComponent( 13001 ), 0, 2, 0 );
-      AddComponent( new AddonComponent( 13001 ), 1, 2, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, -2, 0 );
-      AddComponent( new AddonComponent( 13001 ), 1, -2, 0 );
-            AddComponent( new AddonComponent( 13001 ), -1, 0, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, 0, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, 1, 0 );
-      AddComponent( new AddonComponent( 13001 ), -1, 1, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, -1, 0 );
-      AddComponent( new AddonComponent( 13001 ), -1, -1, 0 );
-            AddComponent( new AddonComponent( 13001 ), 0, 2, 0 );
-      AddComponent( new AddonComponent( 13001 ), -1, 2, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, -2, 0 );
-      AddComponent( new AddonComponent( 13001 ), -1, -2, 0 );
-                  AddComponent( new AddonComponent( 13001 ), -2, 0, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, 0, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, 1, 0 );
-      AddComponent( new AddonComponent( 13001 ), -2, 1, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, -1, 0 );
-      AddComponent( new AddonComponent( 13001 ), -2, -1, 0 );
-            AddComponent( new AddonComponent( 13001 ), 0, 2, 0 );
-      AddComponent( new AddonComponent( 13001 ), -2, 2, 0 );
-      AddComponent( new AddonComponent( 13001 ), 0, -2, 0 );
-      AddComponent( new AddonComponent( 13001 ), -2, -2, 0 );
-
-
-
+			AddComponent(new AddonComponent(13001), 1, 0, 0);
+			AddComponent(new AddonComponent(13001), 0, 0, 0);
+			AddComponent(new AddonComponent(13001), 0, 1, 0);
+			AddComponent(new AddonComponent(13001), 1, 1, 0);
+			AddComponent(new AddonComponent(13001), 0, -1, 0);
+			AddComponent(new AddonComponent(13001), 1, -1, 0);
+			AddComponent(new AddonComponent(13001), 0, 2, 0);
+			AddComponent(new AddonComponent(13001), 1, 2, 0);
+			AddComponent(new AddonComponent(13001), 0, -2, 0);
+			AddComponent(new AddonComponent(13001), 1, -2, 0);
+			AddComponent(new AddonComponent(13001), -1, 0, 0);
+			AddComponent(new AddonComponent(13001), 0, 0, 0);
+			AddComponent(new AddonComponent(13001), 0, 1, 0);
+			AddComponent(new AddonComponent(13001), -1, 1, 0);
+			AddComponent(new AddonComponent(13001), 0, -1, 0);
+			AddComponent(new AddonComponent(13001), -1, -1, 0);
+			AddComponent(new AddonComponent(13001), 0, 2, 0);
+			AddComponent(new AddonComponent(13001), -1, 2, 0);
+			AddComponent(new AddonComponent(13001), 0, -2, 0);
+			AddComponent(new AddonComponent(13001), -1, -2, 0);
+			AddComponent(new AddonComponent(13001), -2, 0, 0);
+			AddComponent(new AddonComponent(13001), 0, 0, 0);
+			AddComponent(new AddonComponent(13001), 0, 1, 0);
+			AddComponent(new AddonComponent(13001), -2, 1, 0);
+			AddComponent(new AddonComponent(13001), 0, -1, 0);
+			AddComponent(new AddonComponent(13001), -2, -1, 0);
+			AddComponent(new AddonComponent(13001), 0, 2, 0);
+			AddComponent(new AddonComponent(13001), -2, 2, 0);
+			AddComponent(new AddonComponent(13001), 0, -2, 0);
+			AddComponent(new AddonComponent(13001), -2, -2, 0);
 		}
 
-		public WielkiOgrodAddon( Serial serial ) : base( serial )
+		public WielkiOgrodAddon(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( 0 ); // Version
+			base.Serialize(writer);
+			writer.Write(0); // Version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}
@@ -85,19 +78,19 @@ namespace Server.Items
 			Name = "Wielki Ogrod";
 		}
 
-		public WielkiOgrodAddonDeed( Serial serial ) : base( serial )
+		public WielkiOgrodAddonDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( 0 ); // Version
+			base.Serialize(writer);
+			writer.Write(0); // Version
 		}
 
-		public override void	Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

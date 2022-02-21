@@ -32,19 +32,18 @@
 
 		public override int GetDropSound()
 		{
-			if ( Amount <= 1 )
+			if (Amount <= 1)
 				return 0x2E4;
-			else if ( Amount <= 5 )
+			if (Amount <= 5)
 				return 0x2E5;
-			else
-				return 0x2E6;
+			return 0x2E6;
 		}
 
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)

@@ -1,11 +1,15 @@
+#region References
+
 using Server.Mobiles;
+
+#endregion
 
 namespace Server.Items
 {
 	[Flipable(0x9AA, 0xE7D)]
 	public class UnearthedJewelryBox : LockableContainer
 	{
-		Mobile m_From = null;
+		readonly Mobile m_From;
 
 		[Constructable]
 		public UnearthedJewelryBox()

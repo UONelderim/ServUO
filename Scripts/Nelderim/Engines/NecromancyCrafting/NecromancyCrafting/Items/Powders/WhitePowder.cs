@@ -1,41 +1,38 @@
-using System;
-using Server;
-
 namespace Server.Items
 {
-    public class WhitePowder : Item
-    {
-        [Constructable]
-		public WhitePowder() : this( 1 )
+	public class WhitePowder : Item
+	{
+		[Constructable]
+		public WhitePowder() : this(1)
 		{
 		}
 
 		[Constructable]
-		public WhitePowder( int amount ) : base( 0xF8F )
+		public WhitePowder(int amount) : base(0xF8F)
 		{
-            Name = "White Powder";
+			Name = "White Powder";
 			Stackable = true;
-            Hue = 0x7F8;
+			Hue = 0x7F8;
 			Amount = amount;
 		}
 
-        public WhitePowder(Serial serial)
-            : base(serial)
+		public WhitePowder(Serial serial)
+			: base(serial)
 		{
-		}		
-
-		public override void Serialize( GenericWriter writer )
-		{
-			base.Serialize( writer );
-
-			writer.Write( (int) 0 ); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Deserialize( reader );
+			base.Serialize(writer);
+
+			writer.Write(0); // version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
-    }
+	}
 }

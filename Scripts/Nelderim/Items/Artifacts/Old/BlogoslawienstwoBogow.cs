@@ -1,13 +1,10 @@
-using System;
-using Server;
-
 namespace Server.Items
 {
 	public class BlogoslawienstwoBogow : GoldBracelet
 	{
-        public override int LabelNumber { get { return 1065806; } } // Blogoslawienstwo Bogow
-        public override int InitMinHits { get { return 45; } }
-        public override int InitMaxHits { get { return 45; } }
+		public override int LabelNumber { get { return 1065806; } } // Blogoslawienstwo Bogow
+		public override int InitMinHits { get { return 45; } }
+		public override int InitMaxHits { get { return 45; } }
 
 		[Constructable]
 		public BlogoslawienstwoBogow()
@@ -20,20 +17,20 @@ namespace Server.Items
 			Resistances.Energy = 5;
 		}
 
-		public BlogoslawienstwoBogow( Serial serial ) : base( serial )
+		public BlogoslawienstwoBogow(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 );
+			writer.Write(0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

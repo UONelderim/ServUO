@@ -1,7 +1,8 @@
+#region References
+
 using System;
-using Server.Mobiles;
-using Server.Items;
-using Server.Network;
+
+#endregion
 
 namespace Server.ACC.CSS
 {
@@ -11,7 +12,7 @@ namespace Server.ACC.CSS
 		public static bool UseDefaultSkills = true;
 
 		//Return true if they cast.
-		public static bool CheckSkill( Mobile from, Type type )
+		public static bool CheckSkill(Mobile from, Type type)
 		{
 			return true;
 		}

@@ -1,6 +1,8 @@
-using System;
+#region References
+
 using Server;
-using Server.Items;
+
+#endregion
 
 namespace Knives.TownHouses
 {
@@ -8,42 +10,50 @@ namespace Knives.TownHouses
 	{
 		private Mobile c_Owner;
 
-		public Mobile Owner{ get{ return c_Owner; } set{ c_Owner = value; InvalidateProperties(); } }
+		public Mobile Owner
+		{
+			get { return c_Owner; }
+			set
+			{
+				c_Owner = value;
+				InvalidateProperties();
+			}
+		}
 
-		public RentalLicense() : base( 0x14F0 )
+		public RentalLicense() : base(0x14F0)
 		{
 		}
 
-		public override void GetProperties( ObjectPropertyList list )
+		public override void GetProperties(ObjectPropertyList list)
 		{
-			if ( c_Owner != null )
-				list.Add( "a renter's license belonging to " + c_Owner.Name );
+			if (c_Owner != null)
+				list.Add("a renter's license belonging to " + c_Owner.Name);
 			else
-				list.Add( "a renter's license" );
+				list.Add("a renter's license");
 		}
 
-		public override void OnDoubleClick( Mobile m )
+		public override void OnDoubleClick(Mobile m)
 		{
-			if ( c_Owner == null )
+			if (c_Owner == null)
 				c_Owner = m;
 		}
 
-		public RentalLicense( Serial serial ) : base( serial )
+		public RentalLicense(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 
-			writer.Write( c_Owner );
+			writer.Write(c_Owner);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 

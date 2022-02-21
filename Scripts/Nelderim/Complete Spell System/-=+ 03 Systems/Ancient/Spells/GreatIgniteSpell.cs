@@ -1,93 +1,92 @@
-using System;
-using Server.Targeting;
-using Server.Network;
-using Server.Misc;
-using Server.Items;
-using System.Collections;
-using Server.Mobiles;
+#region References
+
 using Server.Spells;
+using Server.Targeting;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ancient
 {
-    public class AncientGreatIgniteSpell : AncientSpell
-    {
-        public override double CastDelay { get { return 2.5; } }
-        public override double RequiredSkill { get { return 50.0; } }
-        public override int RequiredMana { get { return 40; } }
-        private static SpellInfo m_Info = new SpellInfo(
-                                                        "Większe Podpalenie", "Vas In Flam",
-                                                        233,
-                                                        9012,
-                                                        false,
-                                                        Reagent.SulfurousAsh,
-                                                        Reagent.SpidersSilk
-                                                       );
+	public class AncientGreatIgniteSpell : AncientSpell
+	{
+		public override double CastDelay { get { return 2.5; } }
+		public override double RequiredSkill { get { return 50.0; } }
+		public override int RequiredMana { get { return 40; } }
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.First; }
-        }
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Większe Podpalenie", "Vas In Flam",
+			233,
+			9012,
+			false,
+			Reagent.SulfurousAsh,
+			Reagent.SpidersSilk
+		);
 
-        public AncientGreatIgniteSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-                                if (this.Scroll != null)
-                        Scroll.Consume();
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.First; }
+		}
 
-        public override void OnCast()
-        {
-            if (CheckSequence())
-                Caster.Target = new InternalTarget(this);
-        }
+		public AncientGreatIgniteSpell(Mobile caster, Item scroll)
+			: base(caster, scroll, m_Info)
+		{
+			if (this.Scroll != null)
+				Scroll.Consume();
+		}
 
-        private class InternalTarget : Target
-        {
-            private AncientGreatIgniteSpell m_Owner;
+		public override void OnCast()
+		{
+			if (CheckSequence())
+				Caster.Target = new InternalTarget(this);
+		}
 
-            public InternalTarget(AncientGreatIgniteSpell owner)
-                : base(12, true, TargetFlags.None)
-            {
-                m_Owner = owner;
-            }
+		private class InternalTarget : Target
+		{
+			private readonly AncientGreatIgniteSpell m_Owner;
 
-            protected override void OnTarget(Mobile from, object o)
-            {
-                if (o is IPoint3D)
-                    m_Owner.Target((IPoint3D)o);
-            }
+			public InternalTarget(AncientGreatIgniteSpell owner)
+				: base(12, true, TargetFlags.None)
+			{
+				m_Owner = owner;
+			}
 
-            protected override void OnTargetFinish(Mobile from)
-            {
-                m_Owner.FinishSequence();
-            }
-        }
+			protected override void OnTarget(Mobile from, object o)
+			{
+				if (o is IPoint3D)
+					m_Owner.Target((IPoint3D)o);
+			}
 
-        public void Target(IPoint3D p)
-        {
-            if (!Caster.CanSee(p))
-            {
-                Caster.SendLocalizedMessage(500237); // Target can not be seen.
-            }
-            else if (SpellHelper.CheckTown(p, Caster) && CheckSequence())
-            {
+			protected override void OnTargetFinish(Mobile from)
+			{
+				m_Owner.FinishSequence();
+			}
+		}
 
-                SpellHelper.Turn(Caster, p);
+		public void Target(IPoint3D p)
+		{
+			if (!Caster.CanSee(p))
+			{
+				Caster.SendLocalizedMessage(500237); // Target can not be seen.
+			}
+			else if (SpellHelper.CheckTown(p, Caster) && CheckSequence())
+			{
+				SpellHelper.Turn(Caster, p);
 
-                SpellHelper.GetSurfaceTop(ref p);
+				SpellHelper.GetSurfaceTop(ref p);
 
-                Effects.PlaySound(p, Caster.Map, 0x1DD);
+				Effects.PlaySound(p, Caster.Map, 0x1DD);
 
-                Point3D loc = new Point3D(p.X, p.Y, p.Z);
+				Point3D loc = new Point3D(p.X, p.Y, p.Z);
 
-                IEntity to = new Entity(Serial.Zero, new Point3D(p), Caster.Map);
-                Effects.SendMovingParticles(Caster, to, 0xf53, 1, 0, false, false, 33, 3, 1260, 1, 0, EffectLayer.Head, 0x100);
+				IEntity to = new Entity(Serial.Zero, new Point3D(p), Caster.Map);
+				Effects.SendMovingParticles(Caster, to, 0xf53, 1, 0, false, false, 33, 3, 1260, 1, 0, EffectLayer.Head,
+					0x100);
 
-                GreaterNaturalFire fire = new GreaterNaturalFire(Caster.Location, Caster.Map, Caster);
-                fire.MoveToWorld(loc, Caster.Map);
-            }
+				GreaterNaturalFire fire = new GreaterNaturalFire(Caster.Location, Caster.Map, Caster);
+				fire.MoveToWorld(loc, Caster.Map);
+			}
 
-            FinishSequence();
-        }
-    }
+			FinishSequence();
+		}
+	}
 }

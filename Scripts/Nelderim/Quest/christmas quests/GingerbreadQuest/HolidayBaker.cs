@@ -1,10 +1,14 @@
 //Created by Milva
 
+#region References
+
 using System.Collections.Generic;
 using Server.ContextMenus;
 using Server.Gumps;
 using Server.Items;
 using Server.Network;
+
+#endregion
 
 namespace Server.Mobiles
 {
@@ -72,7 +76,7 @@ namespace Server.Mobiles
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -83,7 +87,7 @@ namespace Server.Mobiles
 
 		public class HolidayBakerEntry : ContextMenuEntry
 		{
-			private Mobile m_Mobile;
+			private readonly Mobile m_Mobile;
 			private Mobile m_Giver;
 
 			public HolidayBakerEntry(Mobile from, Mobile giver)
@@ -165,10 +169,7 @@ namespace Server.Mobiles
 					return true;
 				}
 
-				else
-				{
-					SayTo(from, "Nie, tego nie potrzebuję.");
-				}
+				SayTo(@from, "Nie, tego nie potrzebuję.");
 			}
 
 			return false;

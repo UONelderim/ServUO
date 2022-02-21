@@ -1,13 +1,11 @@
-using System;
-
 namespace Server.Items
 {
 	[Furniture]
-	[Flipable( 0xB2D, 0xB2C )]
-    public class WoodenBenchRC : ResouceCraftable
+	[Flipable(0xB2D, 0xB2C)]
+	public class WoodenBenchRC : ResouceCraftable
 	{
 		[Constructable]
-		public WoodenBenchRC() : base( 0xB2D )
+		public WoodenBenchRC() : base(0xB2D)
 		{
 			Weight = 6;
 		}
@@ -20,7 +18,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)

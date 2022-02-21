@@ -1,10 +1,15 @@
+#region References
+
 using System.Collections.Generic;
+using Server.Items;
+
+#endregion
 
 namespace Server.Mobiles
 {
 	public class FarmHand : BaseVendor
 	{
-		private List<SBInfo> m_SBInfos = new List<SBInfo>();
+		private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
 		protected override List<SBInfo> SBInfos { get { return m_SBInfos; } }
 
 		[Constructable]
@@ -33,7 +38,7 @@ namespace Server.Mobiles
 		{
 			base.InitOutfit();
 
-			AddItem(new Server.Items.WideBrimHat(Utility.RandomNeutralHue()));
+			AddItem(new WideBrimHat(Utility.RandomNeutralHue()));
 		}
 
 		public FarmHand(Serial serial) : base(serial)
@@ -44,7 +49,7 @@ namespace Server.Mobiles
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)

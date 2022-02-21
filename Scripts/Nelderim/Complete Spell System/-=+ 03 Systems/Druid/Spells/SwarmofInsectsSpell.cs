@@ -1,13 +1,17 @@
+#region References
+
 using System;
 using System.Collections;
 using Server.Spells;
 using Server.Targeting;
 
+#endregion
+
 namespace Server.ACC.CSS.Systems.Druid
 {
 	public class DruidSwarmOfInsectsSpell : DruidSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Chmara Insektów", "Ess Ohm En Sec Tia",
 			//SpellCircle.Seventh,
 			263,
@@ -69,12 +73,12 @@ namespace Server.ACC.CSS.Systems.Druid
 			FinishSequence();
 		}
 
-		private static Hashtable m_Table = new Hashtable();
+		private static readonly Hashtable m_Table = new Hashtable();
 
 		private class InternalTimer : Timer
 		{
-			private Mobile m_Mobile;
-			private int m_ToRestore;
+			private readonly Mobile m_Mobile;
+			private readonly int m_ToRestore;
 
 			public InternalTimer(Mobile m, double toRestore) : base(TimeSpan.FromSeconds(20.0))
 			{
@@ -97,7 +101,7 @@ namespace Server.ACC.CSS.Systems.Druid
 
 		private class InternalTarget : Target
 		{
-			private DruidSwarmOfInsectsSpell m_Owner;
+			private readonly DruidSwarmOfInsectsSpell m_Owner;
 
 			public InternalTarget(DruidSwarmOfInsectsSpell owner) : base(12, false, TargetFlags.Harmful)
 			{

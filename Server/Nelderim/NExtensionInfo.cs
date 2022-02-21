@@ -1,16 +1,17 @@
-﻿using Server;
-using System;
+﻿#region References
+
+using Server;
+
+#endregion
 
 namespace Nelderim
 {
-    public abstract class NExtensionInfo
-    {
-        private Serial m_Serial;
+	public abstract class NExtensionInfo
+	{
+		public Serial Serial { get; set; }
 
-        public Serial Serial { get { return m_Serial; } set { m_Serial = value; } }
+		public abstract void Serialize(GenericWriter writer);
 
-        public abstract void Serialize( GenericWriter writer );
-
-        public abstract void Deserialize( GenericReader reader );
-    }
+		public abstract void Deserialize(GenericReader reader);
+	}
 }

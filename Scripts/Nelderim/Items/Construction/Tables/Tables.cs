@@ -1,10 +1,7 @@
-using System;
-
 namespace Server.Items
 {
-
 	[Furniture]
-    public class ElegantLowTableRC : ResouceCraftable
+	public class ElegantLowTableRC : ResouceCraftable
 	{
 		[Constructable]
 		public ElegantLowTableRC() : base(0x2819)
@@ -20,7 +17,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -28,12 +25,11 @@ namespace Server.Items
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
-
 		}
 	}
 
 	[Furniture]
-    public class PlainLowTableRC : ResouceCraftable
+	public class PlainLowTableRC : ResouceCraftable
 	{
 		[Constructable]
 		public PlainLowTableRC() : base(0x281A)
@@ -49,7 +45,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -57,13 +53,12 @@ namespace Server.Items
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
-
 		}
 	}
 
 	[Furniture]
-	[Flipable(0xB90,0xB7D)]
-    public class LargeTableRC : ResouceCraftable
+	[Flipable(0xB90, 0xB7D)]
+	public class LargeTableRC : ResouceCraftable
 	{
 		[Constructable]
 		public LargeTableRC() : base(0xB90)
@@ -79,7 +74,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -88,14 +83,14 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 
-			if ( Weight == 4.0 )
+			if (Weight == 4.0)
 				Weight = 1.0;
 		}
 	}
 
 	[Furniture]
-	[Flipable(0xB35,0xB34)]
-    public class NightstandRC : ResouceCraftable
+	[Flipable(0xB35, 0xB34)]
+	public class NightstandRC : ResouceCraftable
 	{
 		[Constructable]
 		public NightstandRC() : base(0xB35)
@@ -111,7 +106,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -120,14 +115,14 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 
-			if ( Weight == 4.0 )
+			if (Weight == 4.0)
 				Weight = 1.0;
 		}
 	}
 
 	[Furniture]
-	[Flipable(0xB8F,0xB7C)]
-    public class YewWoodTableRC : ResouceCraftable
+	[Flipable(0xB8F, 0xB7C)]
+	public class YewWoodTableRC : ResouceCraftable
 	{
 		[Constructable]
 		public YewWoodTableRC() : base(0xB8F)
@@ -143,7 +138,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int) 0);
+			writer.Write(0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -152,7 +147,7 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 
-			if ( Weight == 4.0 )
+			if (Weight == 4.0)
 				Weight = 1.0;
 		}
 	}

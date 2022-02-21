@@ -1,8 +1,12 @@
+#region References
+
 using System;
 using System.Collections.Generic;
 using Server;
 using Server.Items;
 using Server.Mobiles;
+
+#endregion
 
 namespace Nelderim.Towns
 {
@@ -99,47 +103,28 @@ namespace Nelderim.Towns
 
 	public class TownResource
 	{
-		private TownResourceType m_resourceType;
-		public TownResourceType ResourceType { get => m_resourceType; }
+		public TownResourceType ResourceType { get; }
 
 		public TownResource(TownResourceType nType, int nAmount, int nMaxAmount, int nDailyChange)
 		{
-			m_resourceType = nType;
+			ResourceType = nType;
 			Amount = nAmount;
 			MaxAmount = nMaxAmount;
 			DailyChange = nDailyChange;
 		}
 
-		private int m_amount = 0;
+		public int Amount { get; set; }
 
-		public int Amount
-		{
-			get { return m_amount; }
-			set { m_amount = value; }
-		}
+		public int MaxAmount { get; set; }
 
-		private int m_maxAmount = 0;
-
-		public int MaxAmount
-		{
-			get { return m_maxAmount; }
-			set { m_maxAmount = value; }
-		}
-
-		private int m_dailyChange = 0;
-
-		public int DailyChange
-		{
-			get { return m_dailyChange; }
-			set { m_dailyChange = value; }
-		}
+		public int DailyChange { get; set; }
 	}
 
 	public class TownResources
 	{
 		#region Typy
 
-		private static List<Type> m_klejnoty = new List<Type>
+		private static readonly List<Type> m_klejnoty = new List<Type>
 		{
 			typeof(Amber),
 			typeof(Amethyst),
@@ -156,7 +141,7 @@ namespace Nelderim.Towns
 			typeof(ObsidianStone)
 		};
 
-		private static List<Type> m_ziola = new List<Type>
+		private static readonly List<Type> m_ziola = new List<Type>
 		{
 			typeof(SpidersSilk),
 			typeof(SulfurousAsh),
@@ -180,17 +165,11 @@ namespace Nelderim.Towns
 
 		#endregion
 
-		List<TownResource> m_resources;
-
-		public List<TownResource> Resources
-		{
-			get { return m_resources; }
-			set { m_resources = value; }
-		}
+		public List<TownResource> Resources { get; set; }
 
 		public TownResources()
 		{
-			m_resources = new List<TownResource>();
+			Resources = new List<TownResource>();
 		}
 
 		public TownResourceType CheckResourceType(Item res, out int amount)
@@ -280,7 +259,7 @@ namespace Nelderim.Towns
 			}
 			else if (resType == typeof(CommodityDeed))
 			{
-				Item resT = (Item)((CommodityDeed)(res)).Commodity;
+				Item resT = ((CommodityDeed)(res)).Commodity;
 				resourceType = CheckResourceType(resT, out amount);
 			}
 
@@ -291,12 +270,12 @@ namespace Nelderim.Towns
 
 		public int ResourceAmount(TownResourceType nType)
 		{
-			return m_resources.Find(obj => obj.ResourceType == nType).Amount;
+			return Resources.Find(obj => obj.ResourceType == nType).Amount;
 		}
 
 		public bool HasResource(TownResourceType nType)
 		{
-			return (m_resources.Find(obj => obj.ResourceType == nType) != null);
+			return (Resources.Find(obj => obj.ResourceType == nType) != null);
 		}
 
 		public bool HasResourceAmount(TownResourceType nType, int amount)
@@ -305,10 +284,8 @@ namespace Nelderim.Towns
 			{
 				return ResourceAmount(nType) >= amount;
 			}
-			else
-			{
-				return false;
-			}
+
+			return false;
 		}
 
 		public void ResourceIncreaseAmount(TownResourceType nType, int amount)
@@ -325,9 +302,9 @@ namespace Nelderim.Towns
 		{
 			if (nType != TownResourceType.Invalid)
 			{
-				m_resources.Find(obj => obj.ResourceType == nType).Amount += amount;
-				if (m_resources.Find(obj => obj.ResourceType == nType).Amount < 0)
-					m_resources.Find(obj => obj.ResourceType == nType).Amount = 0;
+				Resources.Find(obj => obj.ResourceType == nType).Amount += amount;
+				if (Resources.Find(obj => obj.ResourceType == nType).Amount < 0)
+					Resources.Find(obj => obj.ResourceType == nType).Amount = 0;
 			}
 		}
 
@@ -337,17 +314,17 @@ namespace Nelderim.Towns
 
 		public int ResourceMaxAmount(TownResourceType nType)
 		{
-			return m_resources.Find(obj => obj.ResourceType == nType).MaxAmount;
+			return Resources.Find(obj => obj.ResourceType == nType).MaxAmount;
 		}
 
 		public void ResourceMaxAmountSet(TownResourceType nType, int max)
 		{
-			m_resources.Find(obj => obj.ResourceType == nType).MaxAmount = max;
+			Resources.Find(obj => obj.ResourceType == nType).MaxAmount = max;
 		}
 
 		public void ResourceMaxAmountIncrease(TownResourceType nType, int max)
 		{
-			m_resources.Find(obj => obj.ResourceType == nType).MaxAmount += max;
+			Resources.Find(obj => obj.ResourceType == nType).MaxAmount += max;
 		}
 
 		#endregion
@@ -356,17 +333,17 @@ namespace Nelderim.Towns
 
 		public int ResourceDailyChange(TownResourceType nType)
 		{
-			return m_resources.Find(obj => obj.ResourceType == nType).DailyChange;
+			return Resources.Find(obj => obj.ResourceType == nType).DailyChange;
 		}
 
 		public void ResourceDailyChangeSet(TownResourceType nType, int daily)
 		{
-			m_resources.Find(obj => obj.ResourceType == nType).DailyChange = daily;
+			Resources.Find(obj => obj.ResourceType == nType).DailyChange = daily;
 		}
 
 		public void ResourceDailyChangeIncrease(TownResourceType nType, int daily)
 		{
-			m_resources.Find(obj => obj.ResourceType == nType).DailyChange += daily;
+			Resources.Find(obj => obj.ResourceType == nType).DailyChange += daily;
 		}
 
 		#endregion
@@ -377,10 +354,8 @@ namespace Nelderim.Towns
 			{
 				return true;
 			}
-			else
-			{
-				return false;
-			}
+
+			return false;
 		}
 
 		public bool IsResourceAmountProper(Item res)
@@ -391,19 +366,15 @@ namespace Nelderim.Towns
 			{
 				return true;
 			}
-			else
+
+			if ((ResourceAmount(m_resourceType) + m_amount) <=
+			    ResourceMaxAmount(
+				    m_resourceType)) // Czy obecny stan surowca + surowiec do dodania zmiesci sie w skarbcu
 			{
-				if ((ResourceAmount(m_resourceType) + m_amount) <=
-				    ResourceMaxAmount(
-					    m_resourceType)) // Czy obecny stan surowca + surowiec do dodania zmiesci sie w skarbcu
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
+				return true;
 			}
+
+			return false;
 		}
 
 		public bool IsResourceAmountProper(TownResourceType m_resourceType, int amount)
@@ -413,19 +384,15 @@ namespace Nelderim.Towns
 			{
 				return true;
 			}
-			else
+
+			if ((ResourceAmount(m_resourceType) + amount) <=
+			    ResourceMaxAmount(
+				    m_resourceType)) // Czy obecny stan surowca + surowiec do dodania zmiesci sie w skarbcu
 			{
-				if ((ResourceAmount(m_resourceType) + amount) <=
-				    ResourceMaxAmount(
-					    m_resourceType)) // Czy obecny stan surowca + surowiec do dodania zmiesci sie w skarbcu
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
+				return true;
 			}
+
+			return false;
 		}
 	}
 
@@ -496,25 +463,13 @@ namespace Nelderim.Towns
 
 	public class TownPost
 	{
-		BaseNelderimGuard m_guard = null;
+		BaseNelderimGuard m_guard;
 		public int m_x, m_y, m_z;
-		Map m_map;
+		readonly Map m_map;
 
-		Towns m_homeTown = Towns.None;
+		public Towns HomeTown { get; set; } = Towns.None;
 
-		public Towns HomeTown
-		{
-			get { return m_homeTown; }
-			set { m_homeTown = value; }
-		}
-
-		Serial m_guardSerial;
-
-		public Serial GuardSerial
-		{
-			get { return m_guardSerial; }
-			set { m_guardSerial = value; }
-		}
+		public Serial GuardSerial { get; set; }
 
 		DateTime m_activatedDate;
 
@@ -524,13 +479,7 @@ namespace Nelderim.Towns
 			set { m_activatedDate = value; }
 		}
 
-		string m_postName; // Nazwa posterunku
-
-		public string PostName
-		{
-			get { return m_postName; }
-			set { m_postName = value; }
-		}
+		public string PostName { get; set; }
 
 		TownGuards m_townGuard; // Poziom straznika
 
@@ -589,16 +538,14 @@ namespace Nelderim.Towns
 				case TownGuards.StraznikElitarny:
 					m_guard = new EliteNelderimGuard();
 					break;
-				default:
-					break;
 			}
 
 			m_guard.Home = new Point3D(m_x, m_y, m_z);
 			m_guard.RangeHome = 3;
 			m_guard.MoveToWorld(new Point3D(m_x, m_y, m_z), m_map);
-			m_guard.HomeRegionName = m_homeTown.ToString();
+			m_guard.HomeRegionName = HomeTown.ToString();
 			m_guard.UpdateRegion();
-			m_guardSerial = m_guard.Serial;
+			GuardSerial = m_guard.Serial;
 		}
 
 		public bool IsGuardAlive()
@@ -613,7 +560,7 @@ namespace Nelderim.Towns
 
 		public void RessurectGuard()
 		{
-			m_ressurectAmount++;
+			RessurectAmount++;
 			SetGuard();
 		}
 
@@ -628,13 +575,7 @@ namespace Nelderim.Towns
 			m_guard = null;
 		}
 
-		int m_ressurectAmount;
-
-		public int RessurectAmount
-		{
-			get { return m_ressurectAmount; }
-			set { m_ressurectAmount = value; }
-		}
+		public int RessurectAmount { get; set; }
 
 		public int ActiveDaysAmount
 		{
@@ -644,8 +585,7 @@ namespace Nelderim.Towns
 				if (m_postStatus == TownBuildingStatus.Dziala &&
 				    DateTime.Now.CompareTo(m_activatedDate.AddDays(1)) == 1)
 					return (int)(m_now.Date - m_activatedDate.Date).TotalDays;
-				else
-					return 0;
+				return 0;
 			}
 		}
 
@@ -657,10 +597,8 @@ namespace Nelderim.Towns
 				{
 					return 0;
 				}
-				else
-				{
-					return m_ressurectAmount / ActiveDaysAmount;
-				}
+
+				return RessurectAmount / ActiveDaysAmount;
 			}
 		}
 
@@ -672,7 +610,7 @@ namespace Nelderim.Towns
 			m_guard.Home = new Point3D(m_x, m_y, m_z);
 			m_guard.RangeHome = 3;
 			m_guard.MoveToWorld(new Point3D(m_x, m_y, m_z), m_map);
-			m_guard.HomeRegionName = m_homeTown.ToString();
+			m_guard.HomeRegionName = HomeTown.ToString();
 			m_guard.UpdateRegion();
 		}
 
@@ -698,8 +636,6 @@ namespace Nelderim.Towns
 				case TownGuards.StraznikElitarny:
 					m_guard = new EliteNelderimGuard();
 					break;
-				default:
-					break;
 			}
 
 			m_guard.MoveToWorld(new Point3D(m_x, m_y, m_z), m_map);
@@ -717,7 +653,7 @@ namespace Nelderim.Towns
 			m_y = y;
 			m_z = z;
 			m_map = map;
-			m_homeTown = homeTown;
+			HomeTown = homeTown;
 			PostStatus = status;
 		}
 
@@ -732,30 +668,28 @@ namespace Nelderim.Towns
 			m_y = y;
 			m_z = z;
 			m_map = map;
-			m_homeTown = homeTown;
+			HomeTown = homeTown;
 			m_postStatus = TownBuildingStatus.Dziala;
-			m_guardSerial = guardSerial;
+			GuardSerial = guardSerial;
 			switch (m_townGuard)
 			{
 				case TownGuards.Straznik:
-					m_guard = (StandardNelderimGuard)World.FindMobile(m_guardSerial);
+					m_guard = (StandardNelderimGuard)World.FindMobile(GuardSerial);
 					break;
 				case TownGuards.CiezkiStraznik:
-					m_guard = (HeavyNelderimGuard)World.FindMobile(m_guardSerial);
+					m_guard = (HeavyNelderimGuard)World.FindMobile(GuardSerial);
 					break;
 				case TownGuards.Strzelec:
-					m_guard = (ArcherNelderimGuard)World.FindMobile(m_guardSerial);
+					m_guard = (ArcherNelderimGuard)World.FindMobile(GuardSerial);
 					break;
 				case TownGuards.StraznikKonny:
-					m_guard = (MountedNelderimGuard)World.FindMobile(m_guardSerial);
+					m_guard = (MountedNelderimGuard)World.FindMobile(GuardSerial);
 					break;
 				case TownGuards.StraznikMag:
-					m_guard = (MageNelderimGuard)World.FindMobile(m_guardSerial);
+					m_guard = (MageNelderimGuard)World.FindMobile(GuardSerial);
 					break;
 				case TownGuards.StraznikElitarny:
-					m_guard = (EliteNelderimGuard)World.FindMobile(m_guardSerial);
-					break;
-				default:
+					m_guard = (EliteNelderimGuard)World.FindMobile(GuardSerial);
 					break;
 			}
 		}
@@ -770,38 +704,20 @@ namespace Nelderim.Towns
 			m_y = y;
 			m_z = z;
 			m_map = map;
-			m_homeTown = homeTown;
+			HomeTown = homeTown;
 			m_postStatus = TownBuildingStatus.Dziala;
 			m_guard = null;
-			m_guardSerial = Serial.Zero;
+			GuardSerial = Serial.Zero;
 		}
 	}
 
 	public class TownBuilding
 	{
-		TownResources m_resources; // Represents cost and daily change
+		public TownResources Resources { get; set; }
 
-		public TownResources Resources
-		{
-			get { return m_resources; }
-			set { m_resources = value; }
-		}
+		public bool Charge { get; set; } = true;
 
-		bool m_charge = true; // If true will charge for building every day
-
-		public bool Charge
-		{
-			get { return m_charge; }
-			set { m_charge = value; }
-		}
-
-		List<TownBuildingName> m_dependecies; // Wymagane budynki do zbudowanie tego
-
-		public List<TownBuildingName> Dependecies
-		{
-			get { return m_dependecies; }
-			set { m_dependecies = value; }
-		}
+		public List<TownBuildingName> Dependecies { get; set; }
 
 		public TownBuilding(TownBuildingName typBudynku, int poziom, TownBuildingStatus status, int opisID)
 		{
@@ -813,37 +729,13 @@ namespace Nelderim.Towns
 			OpisID = opisID;
 		}
 
-		private TownBuildingName m_buildingType;
+		public TownBuildingName BuildingType { get; set; }
 
-		public TownBuildingName BuildingType
-		{
-			get { return m_buildingType; }
-			set { m_buildingType = value; }
-		}
+		public int Poziom { get; set; }
 
-		private int m_poziom = 0;
+		public int OpisID { get; set; }
 
-		public int Poziom
-		{
-			get { return m_poziom; }
-			set { m_poziom = value; }
-		}
-
-		private int m_opisID = 0;
-
-		public int OpisID
-		{
-			get { return m_opisID; }
-			set { m_opisID = value; }
-		}
-
-		private TownBuildingStatus m_status = 0;
-
-		public TownBuildingStatus Status
-		{
-			get { return m_status; }
-			set { m_status = value; }
-		}
+		public TownBuildingStatus Status { get; set; } = 0;
 	}
 
 
@@ -867,53 +759,17 @@ namespace Nelderim.Towns
 
 	public class TownLog
 	{
-		DateTime m_date;
+		public DateTime LogDate { get; set; }
 
-		public DateTime LogDate
-		{
-			get { return m_date; }
-			set { m_date = value; }
-		}
+		public TownLogTypes LogType { get; set; }
 
-		TownLogTypes m_type;
+		public int A { get; set; }
 
-		public TownLogTypes LogType
-		{
-			get { return m_type; }
-			set { m_type = value; }
-		}
+		public int B { get; set; }
 
-		int m_a;
+		public int C { get; set; }
 
-		public int A
-		{
-			get { return m_a; }
-			set { m_a = value; }
-		}
-
-		int m_b;
-
-		public int B
-		{
-			get { return m_b; }
-			set { m_b = value; }
-		}
-
-		int m_c;
-
-		public int C
-		{
-			get { return m_c; }
-			set { m_c = value; }
-		}
-
-		string m_text;
-
-		public string Text
-		{
-			get { return m_text; }
-			set { m_text = value; }
-		}
+		public string Text { get; set; }
 
 
 		public TownLog(DateTime dt, TownLogTypes tlp, string txt = "", int a = 0, int b = 0, int c = 0)
@@ -952,8 +808,6 @@ namespace Nelderim.Towns
 							break;
 						case TownStatus.Citizen:
 							stString = "obywatelem";
-							break;
-						default:
 							break;
 					}
 
@@ -1019,8 +873,6 @@ namespace Nelderim.Towns
 				case TownLogTypes.RELACJE_ZMIENIONO:
 					toReturn = String.Format("{0}relacje z miastem {1} zostaly zmienione o {2}", toReturn,
 						((Towns)A).ToString(), B);
-					break;
-				default:
 					break;
 			}
 

@@ -1,38 +1,40 @@
-using System;
-using Server;
+#region References
+
 using Server.Items;
+
+#endregion
 
 namespace Server.Mobiles
 {
-	[CorpseName( "zwloki mlodego ametystowego smoka" )]
+	[CorpseName("zwloki mlodego ametystowego smoka")]
 	public class AmethystDrake : Drake
 	{
 		[Constructable]
-		public AmethystDrake () : base()
+		public AmethystDrake()
 		{
 			Name = "mlody ametystowy smok";
 			BaseSoundID = 362;
-            Hue= 1373;
-			SetStr( 411, 430 );
-			SetDex( 143, 152 );
-			SetInt( 111, 140 );
+			Hue = 1373;
+			SetStr(411, 430);
+			SetDex(143, 152);
+			SetInt(111, 140);
 
-			SetHits( 241, 258 );
+			SetHits(241, 258);
 
-			SetDamage( 13, 18 );
+			SetDamage(13, 18);
 
-			SetDamageType( ResistanceType.Physical, 50 );
-			SetDamageType( ResistanceType.Fire, 50 );
+			SetDamageType(ResistanceType.Physical, 50);
+			SetDamageType(ResistanceType.Fire, 50);
 
-			SetResistance( ResistanceType.Physical, 45, 50 );
-			SetResistance( ResistanceType.Fire, 50, 60 );
-			SetResistance( ResistanceType.Cold, 40, 50 );
-			SetResistance( ResistanceType.Poison, 20, 30 );
-			SetResistance( ResistanceType.Energy, 30, 40 );
+			SetResistance(ResistanceType.Physical, 45, 50);
+			SetResistance(ResistanceType.Fire, 50, 60);
+			SetResistance(ResistanceType.Cold, 40, 50);
+			SetResistance(ResistanceType.Poison, 20, 30);
+			SetResistance(ResistanceType.Energy, 30, 40);
 
-			SetSkill( SkillName.MagicResist, 65.1, 80.0 );
-			SetSkill( SkillName.Tactics, 65.1, 90.0 );
-			SetSkill( SkillName.Wrestling, 65.1, 80.0 );
+			SetSkill(SkillName.MagicResist, 65.1, 80.0);
+			SetSkill(SkillName.Tactics, 65.1, 90.0);
+			SetSkill(SkillName.Wrestling, 65.1, 80.0);
 
 			Fame = 5500;
 			Karma = -5500;
@@ -43,49 +45,49 @@ namespace Server.Mobiles
 			ControlSlots = 2;
 			MinTameSkill = 82.0;
 
-            SetSpecialAbility( SpecialAbility.DragonBreath );
-        }
-		
+			SetSpecialAbility(SpecialAbility.DragonBreath);
+		}
+
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)
 		{
-            if (!IsBonded && !corpse.Carved && !IsChampionSpawn)
-            {
-                if (Utility.RandomDouble() < 0.10)
-                    corpse.DropItem(new DragonsBlood());
+			if (!IsBonded && !corpse.Carved && !IsChampionSpawn)
+			{
+				if (Utility.RandomDouble() < 0.10)
+					corpse.DropItem(new DragonsBlood());
 
-				corpse.DropItem( new Amethyst(4) );
-            }
+				corpse.DropItem(new Amethyst(4));
+			}
 
 			base.OnCarve(from, corpse, with);
-		}		
-		
+		}
+
 		public override void GenerateLoot()
 		{
-			AddLoot( LootPack.Rich, 5 );
-            AddLoot( LootPack.MageryRegs, 3 );
-        }
+			AddLoot(LootPack.Rich, 5);
+			AddLoot(LootPack.MageryRegs, 3);
+		}
 
-		public override int TreasureMapLevel{ get{ return 3; } }
-		public override int Meat{ get{ return 19; } }
-		public override int Hides{ get{ return 5; } }
-		public override HideType HideType{ get{ return HideType.Horned; } }
-		public override int Scales{ get{ return 7; } }
-		public override ScaleType ScaleType{ get{ return ( Body == 12 ? ScaleType.Yellow : ScaleType.Black ); } }
-		public override FoodType FavoriteFood{ get{ return FoodType.Amethyst; } }
+		public override int TreasureMapLevel { get { return 3; } }
+		public override int Meat { get { return 19; } }
+		public override int Hides { get { return 5; } }
+		public override HideType HideType { get { return HideType.Horned; } }
+		public override int Scales { get { return 7; } }
+		public override ScaleType ScaleType { get { return (Body == 12 ? ScaleType.Yellow : ScaleType.Black); } }
+		public override FoodType FavoriteFood { get { return FoodType.Amethyst; } }
 
-		public AmethystDrake( Serial serial ) : base( serial )
+		public AmethystDrake(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( (int) 0 );
+			base.Serialize(writer);
+			writer.Write(0);
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

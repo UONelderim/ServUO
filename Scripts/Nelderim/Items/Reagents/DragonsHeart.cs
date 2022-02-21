@@ -1,48 +1,49 @@
+#region References
+
 using System;
-using Server;
-using Server.Items;
+
+#endregion
 
 namespace Server.Items
 {
-
 	public class RedDragonsHeart : BaseReagent, ICommodity
 	{
-        TextDefinition ICommodity.Description
-        {
-            get
-            {
-                return new TextDefinition( LabelNumber, String.Format( "{0} serce ognistego smoka", Amount ) );
-            }
-        }
+		TextDefinition ICommodity.Description
+		{
+			get
+			{
+				return new TextDefinition(LabelNumber, String.Format("{0} serce ognistego smoka", Amount));
+			}
+		}
 
-        bool ICommodity.IsDeedable { get { return false; } }
+		bool ICommodity.IsDeedable { get { return false; } }
 
 		[Constructable]
-        public RedDragonsHeart() : this( 1 )
+		public RedDragonsHeart() : this(1)
 		{
 		}
 
 		[Constructable]
-        public RedDragonsHeart( int amount ) : base( 3985, amount )
+		public RedDragonsHeart(int amount) : base(3985, amount)
 		{
 			Name = "Serce ognistego smoka";
 			Hue = 1939;
 		}
 
-        public RedDragonsHeart( Serial serial ) : base( serial )
+		public RedDragonsHeart(Serial serial) : base(serial)
 		{
 		}
 
-        public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -50,42 +51,42 @@ namespace Server.Items
 
 	public class BlueDragonsHeart : BaseReagent, ICommodity
 	{
-        TextDefinition ICommodity.Description
-        {
-            get
-            {
-                return new TextDefinition( LabelNumber, String.Format( "{0} serce lodowego smoka", Amount ) );
-            }
-        }
+		TextDefinition ICommodity.Description
+		{
+			get
+			{
+				return new TextDefinition(LabelNumber, String.Format("{0} serce lodowego smoka", Amount));
+			}
+		}
 
-        bool ICommodity.IsDeedable { get { return false; } }
+		bool ICommodity.IsDeedable { get { return false; } }
 
-        [Constructable]
-        public BlueDragonsHeart() : this( 1 )
+		[Constructable]
+		public BlueDragonsHeart() : this(1)
 		{
 		}
 
 		[Constructable]
-        public BlueDragonsHeart( int amount ) : base( 3985, amount )
+		public BlueDragonsHeart(int amount) : base(3985, amount)
 		{
 			Name = "Serce lodowego smoka";
 			Hue = 2150;
 		}
 
-        public BlueDragonsHeart( Serial serial ) : base( serial )
+		public BlueDragonsHeart(Serial serial) : base(serial)
 		{
 		}
 
-        public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -93,45 +94,44 @@ namespace Server.Items
 
 	public class DragonsHeart : BaseReagent, ICommodity
 	{
-        TextDefinition ICommodity.Description
-        {
-            get
-            {
-                return new TextDefinition( LabelNumber, String.Format( "{0} serce smoka", Amount ) );
-            }
-        }
+		TextDefinition ICommodity.Description
+		{
+			get
+			{
+				return new TextDefinition(LabelNumber, String.Format("{0} serce smoka", Amount));
+			}
+		}
 
-        bool ICommodity.IsDeedable { get { return false; } }
+		bool ICommodity.IsDeedable { get { return false; } }
 
-        [Constructable]
-        public DragonsHeart() : this( 1 )
+		[Constructable]
+		public DragonsHeart() : this(1)
 		{
 		}
 
 		[Constructable]
-        public DragonsHeart( int amount ) : base( 3985, amount )
+		public DragonsHeart(int amount) : base(3985, amount)
 		{
 			Name = "Serce smoka";
 			Hue = 1460;
 		}
 
-        public DragonsHeart( Serial serial ) : base( serial )
+		public DragonsHeart(Serial serial) : base(serial)
 		{
 		}
 
-        public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
 	}
-
 }

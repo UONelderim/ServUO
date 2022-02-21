@@ -1,3 +1,9 @@
+#region References
+
+using System;
+
+#endregion
+
 namespace Server.Items
 {
 	[FlipableAttribute(0x2417, 0x2418)]
@@ -8,7 +14,7 @@ namespace Server.Items
 		{
 			Weight = 3.0;
 			Hue = 0;
-			Name = string.Format("Abstrakcyjne malowidlo zatytulowane {0} stworzone przez {1}", subject, artistName);
+			Name = String.Format("Abstrakcyjne malowidlo zatytulowane {0} stworzone przez {1}", subject, artistName);
 		}
 
 
@@ -20,7 +26,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)

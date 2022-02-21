@@ -1,85 +1,89 @@
+#region References
+
 using Server.Mobiles;
+
+#endregion
 
 namespace Server.SicknessSys
 {
-    public class IllnessCure : Item
-    {
-        private IllnessType IllType { get; set; }
+	public class IllnessCure : Item
+	{
+		private IllnessType IllType { get; set; }
 
-        [Constructable]
-        public IllnessCure(VirusCell cell) : base(0xF07)
-        {
-            IllType = cell.Illness;
+		[Constructable]
+		public IllnessCure(VirusCell cell) : base(0xF07)
+		{
+			IllType = cell.Illness;
 
-            Name = "a " + cell.Sickness + " cure";
-            Hue = cell.PM.Hue;
-            Weight = 1.0;
+			Name = "a " + cell.Sickness + " cure";
+			Hue = cell.PM.Hue;
+			Weight = 1.0;
 
-            Movable = false;
+			Movable = false;
 
-            if (cell.InDebug == true && cell.GM != null)
-            {
-                cell.GM.SendMessage(120, "Potion Created : " + Name + " : " + Hue);
-            }
-        }
+			if (cell.InDebug && cell.GM != null)
+			{
+				cell.GM.SendMessage(120, "Potion Created : " + Name + " : " + Hue);
+			}
+		}
 
-        public IllnessCure(Serial serial) : base(serial)
-        {
-        }
+		public IllnessCure(Serial serial) : base(serial)
+		{
+		}
 
-        public override void OnDoubleClick(Mobile from)
-        {
-            if (from.HasFreeHand())
-            {
-                Item cell = from.Backpack.FindItemByType(typeof(VirusCell));
+		public override void OnDoubleClick(Mobile from)
+		{
+			if (from.HasFreeHand())
+			{
+				Item cell = from.Backpack.FindItemByType(typeof(VirusCell));
 
-                if (cell != null)
-                {
-                    VirusCell Cell = cell as VirusCell;
+				if (cell != null)
+				{
+					VirusCell Cell = cell as VirusCell;
 
-                    if (Cell.Illness == IllType)
-                    {
-                        if (Cell.InDebug == true && Cell.GM != null)
-                        {
-                            Cell.GM.SendMessage(120, "Drank Potion");
-                        }
+					if (Cell.Illness == IllType)
+					{
+						if (Cell.InDebug && Cell.GM != null)
+						{
+							Cell.GM.SendMessage(120, "Drank Potion");
+						}
 
-                        SicknessCure.Cure(from as PlayerMobile, Cell);
+						SicknessCure.Cure(from as PlayerMobile, Cell);
 
-                        Delete();
-                    }
-                    else
-                    {
-                        from.SendMessage("You are not infected with " + Cell.Illness);
-                    }
-                }
-                else
-                {
-                    from.SendMessage("You are not infected with any illness!");
-                }
-            }
-            else
-            {
-                from.SendMessage("a free hand is needed to drink the potion!");
-            }
-        }
+						Delete();
+					}
+					else
+					{
+						from.SendMessage("You are not infected with " + Cell.Illness);
+					}
+				}
+				else
+				{
+					from.SendMessage("You are not infected with any illness!");
+				}
+			}
+			else
+			{
+				from.SendMessage("a free hand is needed to drink the potion!");
+			}
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            writer.Write((int)0);
+			writer.Write(0);
 
-            writer.Write((int)IllType);
-        }
+			writer.Write((int)IllType);
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+			int version = reader.ReadInt();
 
-            IllType = (IllnessType)reader.ReadInt();
-        }
-    }
+			IllType = (IllnessType)reader.ReadInt();
+		}
+	}
 }

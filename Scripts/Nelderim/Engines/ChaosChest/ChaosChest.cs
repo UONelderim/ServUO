@@ -1,9 +1,13 @@
-﻿using System;
+﻿#region References
+
+using System;
 using Server;
 using Server.Engines.BulkOrders;
 using Server.Engines.XmlSpawner2;
 using Server.Items;
 using Server.Network;
+
+#endregion
 
 namespace Nelderim.Engines.ChaosChest
 {
@@ -11,7 +15,7 @@ namespace Nelderim.Engines.ChaosChest
 	{
 		public delegate Item ConstructCallback(int type);
 
-		private static RewardGroup rewardGroup = new RewardGroup(0,
+		private static readonly RewardGroup rewardGroup = new RewardGroup(0,
 			// new RewardItem(20, ZwojeAttach, 0),
 			new RewardItem(12, Pigment, 0),
 			new RewardItem(5, Potion, 0),
@@ -157,20 +161,14 @@ namespace Nelderim.Engines.ChaosChest
 			}
 		}
 
-		private ChaosSigils m_UnsealedChaosSigils;
-
 		[CommandProperty(AccessLevel.GameMaster)]
-		public ChaosSigils UnsealedChaosSigils
-		{
-			get { return m_UnsealedChaosSigils; }
-			set { m_UnsealedChaosSigils = value; }
-		}
+		public ChaosSigils UnsealedChaosSigils { get; set; }
 
 		[Constructable]
 		public ChaosChest() : base(0x1445)
 		{
 			Name = "Skrzynia chaosu";
-			m_UnsealedChaosSigils = ChaosSigilType.NONE;
+			UnsealedChaosSigils = ChaosSigilType.NONE;
 			Locked = true;
 			LockLevel = 0;
 		}
@@ -195,28 +193,28 @@ namespace Nelderim.Engines.ChaosChest
 
 			list.Add("Pieczec {0} delikatnie podswietla sie.", ChaosChestQuest.CURRENT_STAGE);
 
-			if (m_UnsealedChaosSigils.Value != ChaosSigilType.ALL)
+			if (UnsealedChaosSigils.Value != ChaosSigilType.ALL)
 			{
 				for (int i = 1; i < (int)ChaosSigilType.ALL; i *= 2)
 				{
 					ChaosSigilType type = (ChaosSigilType)i;
-					list.Add("Pieczec {0} jest {1}.", type, m_UnsealedChaosSigils.Get(type) ? "otwarta" : "zamknieta");
+					list.Add("Pieczec {0} jest {1}.", type, UnsealedChaosSigils.Get(type) ? "otwarta" : "zamknieta");
 				}
 			}
 		}
 
 		public bool IsSealed(ChaosKey chaosKey)
 		{
-			return !m_UnsealedChaosSigils.Get(chaosKey.ChaosSigilType);
+			return !UnsealedChaosSigils.Get(chaosKey.ChaosSigilType);
 		}
 
 		public void Unseal(ChaosKey chaosKey)
 		{
-			m_UnsealedChaosSigils.Set(chaosKey.ChaosSigilType, true);
+			UnsealedChaosSigils.Set(chaosKey.ChaosSigilType, true);
 			PublicOverheadMessage(MessageType.Emote, 0, true, "*klucz blokuje sie w skrzyni*");
 
 			InvalidateProperties();
-			if (m_UnsealedChaosSigils.Value == ChaosSigilType.ALL)
+			if (UnsealedChaosSigils.Value == ChaosSigilType.ALL)
 			{
 				Locked = false;
 				PublicOverheadMessage(MessageType.Emote, 0, true, "*klik*");
@@ -228,8 +226,8 @@ namespace Nelderim.Engines.ChaosChest
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
-			writer.Write((int)m_UnsealedChaosSigils.Value);
+			writer.Write(0); // version
+			writer.Write((int)UnsealedChaosSigils.Value);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -237,7 +235,7 @@ namespace Nelderim.Engines.ChaosChest
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
-			m_UnsealedChaosSigils = new ChaosSigils((ChaosSigilType)reader.ReadInt());
+			UnsealedChaosSigils = new ChaosSigils((ChaosSigilType)reader.ReadInt());
 		}
 	}
 }

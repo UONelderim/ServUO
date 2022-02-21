@@ -1,82 +1,85 @@
+#region References
+
 using System;
 using System.Collections.Generic;
-using Server;
+
+#endregion
 
 namespace Server.ACC.CM
 {
-	public class ModuleList : Dictionary<Type,Module>
+	public class ModuleList : Dictionary<Type, Module>
 	{
-		private Serial m_Owner;
+		private readonly Serial m_Owner;
 
-		public ModuleList( Serial serial )
+		public ModuleList(Serial serial)
 		{
 			m_Owner = serial;
 		}
 
-        public List<Module> GetListOfModules()
-        {
-            return new List<Module>(Values);
-        }
-
-		public bool Contains( Type type )
+		public List<Module> GetListOfModules()
 		{
-			return ContainsKey( type );
+			return new List<Module>(Values);
 		}
 
-		public void Add( Module mod )
+		public bool Contains(Type type)
 		{
-			if( ContainsKey( mod.GetType() ) )
+			return ContainsKey(type);
+		}
+
+		public void Add(Module mod)
+		{
+			if (ContainsKey(mod.GetType()))
 				return;
 
-			Add( mod.GetType(), mod );
+			Add(mod.GetType(), mod);
 		}
 
-		public void Add( Type type )
+		public void Add(Type type)
 		{
-			if( ContainsKey( type ) )
+			if (ContainsKey(type))
 				return;
 
-			object[] Params = new object[1]{ m_Owner };
-			Module mod = Activator.CreateInstance( type, Params ) as Module;
-			if( mod != null )
-				Add( type, mod );
+			object[] Params = new object[1] { m_Owner };
+			Module mod = Activator.CreateInstance(type, Params) as Module;
+			if (mod != null)
+				Add(type, mod);
 		}
 
-		public void Change( Module mod )
+		public void Change(Module mod)
 		{
-            if (ContainsValue(mod))
-                this[mod.GetType()] = mod;
-            else
-                Add(mod);
+			if (ContainsValue(mod))
+				this[mod.GetType()] = mod;
+			else
+				Add(mod);
 		}
 
-		public void Append( Module mod, bool negatively )
+		public void Append(Module mod, bool negatively)
 		{
-			if( ContainsKey( mod.GetType() ) )
-				((Module)this[ mod.GetType() ]).Append( mod, negatively );
+			if (ContainsKey(mod.GetType()))
+				this[mod.GetType()].Append(mod, negatively);
 		}
 
-		public void Remove( Module mod )
+		public void Remove(Module mod)
 		{
-			Remove( mod.GetType() );
+			Remove(mod.GetType());
 
-			if( Count == 0 )
-				CentralMemory.Remove( m_Owner );
+			if (Count == 0)
+				CentralMemory.Remove(m_Owner);
 		}
 
-		public new void Remove( Type type )
+		public new void Remove(Type type)
 		{
-			base.Remove( type );
+			base.Remove(type);
 
-			if( Count == 0 )
-				CentralMemory.Remove( m_Owner );
+			if (Count == 0)
+				CentralMemory.Remove(m_Owner);
 		}
 
-		public Module Get( Type type )
+		public Module Get(Type type)
 		{
-            if (Contains(type))
-                return this[type];
-            else return null;
+			if (Contains(type))
+				return this[type];
+			return null;
 		}
 	}
 }

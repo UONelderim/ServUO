@@ -1,63 +1,66 @@
-using System;
+#region References
+
 using Server.Items;
-using Server.Spells;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Cleric
 {
 	public class ClericSpellbook : CSpellbook
 	{
-		public override School School{ get{ return School.Cleric; } }
+		public override School School { get { return School.Cleric; } }
 
 		[Constructable]
-		public ClericSpellbook() : this( (ulong)0, CSSettings.FullSpellbooks )
+		public ClericSpellbook() : this(0, CSSettings.FullSpellbooks)
 		{
 		}
 
 		[Constructable]
-		public ClericSpellbook( bool full ) : this( (ulong)0, full )
+		public ClericSpellbook(bool full) : this(0, full)
 		{
 		}
 
 		[Constructable]
-		public ClericSpellbook( ulong content, bool full ) : base( content, 0xEFA, full )
+		public ClericSpellbook(ulong content, bool full) : base(content, 0xEFA, full)
 		{
 			Hue = 0x1F0;
 			Name = "Księga Herdeizmu";
 		}
 
-		public override void OnDoubleClick( Mobile from )
+		public override void OnDoubleClick(Mobile from)
 		{
-			if ( from.AccessLevel == AccessLevel.Player )
+			if (from.AccessLevel == AccessLevel.Player)
 			{
 				Container pack = from.Backpack;
-				if( !(Parent == from || (pack != null && Parent == pack)) )
+				if (!(Parent == from || (pack != null && Parent == pack)))
 				{
-					from.SendMessage( "Ta ksiega musi znajdowac sie w Twoim glownym plecaku." );
+					from.SendMessage("Ta ksiega musi znajdowac sie w Twoim glownym plecaku.");
 					return;
 				}
-				else if( SpellRestrictions.UseRestrictions && !SpellRestrictions.CheckRestrictions( from, this.School ) )
+
+				if (SpellRestrictions.UseRestrictions && !SpellRestrictions.CheckRestrictions(@from, this.School))
 				{
 					return;
 				}
 			}
 
-			from.CloseGump( typeof( ClericSpellbookGump ) );
-			from.SendGump( new ClericSpellbookGump( this ) );
+			from.CloseGump(typeof(ClericSpellbookGump));
+			from.SendGump(new ClericSpellbookGump(this));
 		}
 
-		public ClericSpellbook( Serial serial ) : base( serial )
+		public ClericSpellbook(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
-			writer.Write( (int) 0 ); // version
+			base.Serialize(writer);
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 			int version = reader.ReadInt();
 		}
 	}

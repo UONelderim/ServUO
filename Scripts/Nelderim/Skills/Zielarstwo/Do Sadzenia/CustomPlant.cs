@@ -1,15 +1,4 @@
-﻿using System;
-using Server.Network;
-using System.Collections;
-using System.Collections.Generic;
-using Server;
-using Server.Targets;
-using Server.Items;
-using Server.Targeting;
-using Server.Spells;
-using Server.Mobiles;
-
-namespace Server.Items.Crops
+﻿namespace Server.Items.Crops
 {
 	// Rosliny customable, umozliwiajace zmiane nazwy, mozliwego podloza, itp.
 	// Przydatne dla GMow chcacych wykorzystac w evencie swoje wlasne rosliny.

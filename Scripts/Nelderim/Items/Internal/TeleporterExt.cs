@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿#region References
+
+using System.Collections.Generic;
 using Nelderim;
+
+#endregion
 
 namespace Server.Items
 {

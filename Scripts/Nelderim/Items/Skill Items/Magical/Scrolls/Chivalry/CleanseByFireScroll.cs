@@ -1,36 +1,32 @@
-using System;
-using Server;
-using Server.Items;
-
 namespace Server.Items
 {
 	public class CleanseByFireScroll : ChivalrySpellScroll
 	{
 		[Constructable]
-		public CleanseByFireScroll() : this( 1 )
+		public CleanseByFireScroll() : this(1)
 		{
 		}
 
 		[Constructable]
-        public CleanseByFireScroll(int amount) : base(200, 0x1F6D, amount)
+		public CleanseByFireScroll(int amount) : base(200, 0x1F6D, amount)
 		{
-            Name = "Wrzaca krew";
+			Name = "Wrzaca krew";
 		}
 
-        public CleanseByFireScroll(Serial serial) : base(serial)
+		public CleanseByFireScroll(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}

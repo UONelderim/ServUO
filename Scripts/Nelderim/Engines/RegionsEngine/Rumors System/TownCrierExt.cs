@@ -1,24 +1,28 @@
+#region References
+
+using System.Collections.Generic;
 using Nelderim.Towns;
 using Server.Nelderim;
-using System.Collections.Generic;
+
+#endregion
 
 namespace Server.Mobiles
 {
-    public partial class TownCrier
-    {
-        public static void UpdateNews()
-        {
-            foreach ( TownCrier tc in Instances )
-                tc.Update();
-        }
+	public partial class TownCrier
+	{
+		public static void UpdateNews()
+		{
+			foreach (TownCrier tc in Instances)
+				tc.Update();
+		}
 
-        private void Update()
-        {
-            List<RumorRecord> news = RumorsSystem.GetRumors( this as Mobile, NewsType.News );
+		private void Update()
+		{
+			List<RumorRecord> news = RumorsSystem.GetRumors(this, NewsType.News);
 
-            if ( news != null && news.Count != 0 )
-                ForceBeginAutoShout();
-        }
+			if (news != null && news.Count != 0)
+				ForceBeginAutoShout();
+		}
 
 		[CommandProperty(AccessLevel.Administrator)]
 		public Towns TownAssigned

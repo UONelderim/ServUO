@@ -3,7 +3,7 @@ namespace Server.Items
 	public class BookOfKnowledge : Spellbook
 	{
 		[Constructable]
-		public BookOfKnowledge() : base()
+		public BookOfKnowledge()
 		{
 			Name = "Ksiega Wiedzy";
 			Hue = 1171;
@@ -24,7 +24,7 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write((int)0); // version
+			writer.Write(0); // version
 		}
 
 		public override void Deserialize(GenericReader reader)

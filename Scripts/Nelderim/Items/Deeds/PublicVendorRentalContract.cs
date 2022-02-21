@@ -1,14 +1,17 @@
-﻿
+﻿#region References
+
 using Server.Gumps;
 using Server.Mobiles;
 using Server.Targeting;
+
+#endregion
 
 namespace Server.Items
 {
 	public class PublicVendorRentalContract : VendorRentalContract
 	{
 		[Constructable]
-		public PublicVendorRentalContract() : base()
+		public PublicVendorRentalContract()
 		{
 			Hue = 0x675;
 			Name = "stanowisko kupieckie";
@@ -31,7 +34,7 @@ namespace Server.Items
 		{
 			base.GetProperties(list);
 
-			if ( Offeree != null )
+			if (Offeree != null)
 				list.Add(1062368, Offeree.Name); // Being Offered To ~1_NAME~
 		}
 
@@ -41,13 +44,13 @@ namespace Server.Items
 
 		public override void OnDoubleClick(Mobile from)
 		{
-			if ( Offeree != null )
+			if (Offeree != null)
 			{
 				from.SendLocalizedMessage(1062343); // That item is currently in use.
 			}
-			else if ( Movable )
+			else if (Movable)
 			{
-				if ( !IsChildOf(from.Backpack) )
+				if (!IsChildOf(from.Backpack))
 				{
 					from.SendLocalizedMessage(1062334); // This item must be in your backpack to be used.
 					return;
@@ -55,12 +58,12 @@ namespace Server.Items
 
 				from.Target = new RentTarget(this);
 			}
-			else if ( IsLandlord(from) )
+			else if (IsLandlord(from))
 			{
-				if ( from.InRange(this, 5) )
+				if (from.InRange(this, 5))
 				{
 					from.CloseGump(typeof(VendorRentalContractGump));
-					from.SendGump(new VendorRentalContractGump(this as VendorRentalContract, from));
+					from.SendGump(new VendorRentalContractGump(this, from));
 				}
 				else
 				{
@@ -69,10 +72,10 @@ namespace Server.Items
 			}
 			else
 			{
-				if ( from == null || !from.Player || !from.Alive )
+				if (from == null || !from.Player || !from.Alive)
 					return;
 
-				if ( !from.InRange(this, 5) )
+				if (!from.InRange(this, 5))
 				{
 					from.SendLocalizedMessage(501853); // Target is too far away.
 				}
@@ -101,7 +104,7 @@ namespace Server.Items
 
 		private class RentTarget : Target
 		{
-			private VendorRentalContract m_Contract;
+			private readonly VendorRentalContract m_Contract;
 
 			public RentTarget(VendorRentalContract contract) : base(-1, true, TargetFlags.None)
 			{
@@ -110,17 +113,17 @@ namespace Server.Items
 
 			protected override void OnTarget(Mobile from, object targeted)
 			{
-				if ( !m_Contract.IsUsableBy(from, false, true, true, true) )
+				if (!m_Contract.IsUsableBy(from, false, true, true, true))
 					return;
 
 				IPoint3D location = targeted as IPoint3D;
-				if ( location == null )
+				if (location == null)
 					return;
 
 				Point3D pLocation = new Point3D(location);
 				Map map = from.Map;
 
-				if ( !map.CanFit(pLocation, 16, false, false) )
+				if (!map.CanFit(pLocation, 16, false, false))
 				{
 					from.SendLocalizedMessage(1062486); // A vendor cannot exist at that location.  Please try again.
 				}
@@ -139,7 +142,7 @@ namespace Server.Items
 
 		public class PublicVendorRentalOfferGump : BaseVendorRentalGump
 		{
-			private PublicVendorRentalContract m_Contract;
+			private readonly PublicVendorRentalContract m_Contract;
 
 			public PublicVendorRentalOfferGump(PublicVendorRentalContract contract) : base(
 				GumpType.Offer, contract.Duration, contract.Price, contract.Price,
@@ -157,30 +160,34 @@ namespace Server.Items
 			{
 				m_Contract.Offeree = null;
 
-				if ( !m_Contract.Map.CanFit(m_Contract.Location, 16, false, false) )
+				if (!m_Contract.Map.CanFit(m_Contract.Location, 16, false, false))
 				{
 					from.SendLocalizedMessage(1062486); // A vendor cannot exist at that location.  Please try again.
 					return;
 				}
 
-				if ( m_Contract.Price > 0 )
+				if (m_Contract.Price > 0)
 				{
-					if ( Banker.Withdraw(from, m_Contract.Price) )
-						from.SendLocalizedMessage(1060398, m_Contract.Price.ToString()); // ~1_AMOUNT~ gold has been withdrawn from your bank box.
+					if (Banker.Withdraw(from, m_Contract.Price))
+						from.SendLocalizedMessage(1060398,
+							m_Contract.Price.ToString()); // ~1_AMOUNT~ gold has been withdrawn from your bank box.
 					else
 					{
-						from.SendLocalizedMessage(1062378); // You do not have enough gold in your bank account to cover the cost of the contract.
+						from.SendLocalizedMessage(
+							1062378); // You do not have enough gold in your bank account to cover the cost of the contract.
 
 						return;
 					}
 				}
 
-				PlayerVendor vendor = new PublicVendor(from, m_Contract.Duration, m_Contract.Price, 0, m_Contract.LandlordRenew);
+				PlayerVendor vendor = new PublicVendor(from, m_Contract.Duration, m_Contract.Price, 0,
+					m_Contract.LandlordRenew);
 				vendor.MoveToWorld(m_Contract.Location, m_Contract.Map);
 
 				m_Contract.Delete();
 
-				from.SendLocalizedMessage(1062377); // You have accepted the offer and now own a vendor in this house.  Rental contract options and details may be viewed on this vendor via the 'Contract Options' context menu.	
+				from.SendLocalizedMessage(
+					1062377); // You have accepted the offer and now own a vendor in this house.  Rental contract options and details may be viewed on this vendor via the 'Contract Options' context menu.	
 			}
 
 			protected override void Cancel(Mobile from)

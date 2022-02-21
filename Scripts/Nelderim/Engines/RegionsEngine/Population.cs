@@ -1,31 +1,32 @@
 // 05.05.11 :: troyan
 
+#region References
+
 using Nelderim.Races;
+
+#endregion
 
 namespace Server.Nelderim
 {
 	public class Population
 	{
-		private double[] m_Proportions;
-		private double m_Female;
-
 		public Population(double[] proportions, double female)
 		{
-			m_Proportions = proportions;
-			m_Female = female;
+			Proportions = proportions;
+			Female = female;
 		}
 
 		public Race GetRace
 		{
 			get
 			{
-				double rand = Server.Utility.Random(0, 99);
+				double rand = Utility.Random(0, 99);
 				double cumsum = 0;
 				int index = 0;
 
 				for (int i = 0; i < NRace.AllRaces.Count; i++)
 				{
-					if ((cumsum += m_Proportions[i]) > rand)
+					if ((cumsum += Proportions[i]) > rand)
 					{
 						index = i;
 						break;
@@ -36,14 +37,8 @@ namespace Server.Nelderim
 			}
 		}
 
-		public double[] Proportions
-		{
-			get { return m_Proportions; }
-		}
+		public double[] Proportions { get; }
 
-		public double Female
-		{
-			get { return m_Female; }
-		}
+		public double Female { get; }
 	}
 }

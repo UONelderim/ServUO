@@ -1,29 +1,26 @@
-using System;
-using Server.Items;
-
 namespace Server.ACC.CSS.Systems.Ancient
-{ 
+{
 	public class LesserBladeTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public LesserBladeTrapDeed() : base( HouseTrapStrength.Lesser, HouseTrapType.Blades )
+		public LesserBladeTrapDeed() : base(HouseTrapStrength.Lesser, HouseTrapType.Blades)
 		{
 		}
 
-		public LesserBladeTrapDeed( Serial serial ) : base( serial )
+		public LesserBladeTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -32,24 +29,24 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class RegularBladeTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public RegularBladeTrapDeed() : base( HouseTrapStrength.Regular, HouseTrapType.Blades )
+		public RegularBladeTrapDeed() : base(HouseTrapStrength.Regular, HouseTrapType.Blades)
 		{
 		}
 
-		public RegularBladeTrapDeed( Serial serial ) : base( serial )
+		public RegularBladeTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -58,24 +55,24 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class GreaterBladeTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public GreaterBladeTrapDeed() : base( HouseTrapStrength.Greater, HouseTrapType.Blades )
+		public GreaterBladeTrapDeed() : base(HouseTrapStrength.Greater, HouseTrapType.Blades)
 		{
 		}
 
-		public GreaterBladeTrapDeed( Serial serial ) : base( serial )
+		public GreaterBladeTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -84,24 +81,24 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class DeadlyBladeTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public DeadlyBladeTrapDeed() : base( HouseTrapStrength.Deadly, HouseTrapType.Blades )
+		public DeadlyBladeTrapDeed() : base(HouseTrapStrength.Deadly, HouseTrapType.Blades)
 		{
 		}
 
-		public DeadlyBladeTrapDeed( Serial serial ) : base( serial )
+		public DeadlyBladeTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -110,24 +107,24 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class LesserExplosionTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public LesserExplosionTrapDeed() : base( HouseTrapStrength.Lesser, HouseTrapType.Explosion )
+		public LesserExplosionTrapDeed() : base(HouseTrapStrength.Lesser, HouseTrapType.Explosion)
 		{
 		}
 
-		public LesserExplosionTrapDeed( Serial serial ) : base( serial )
+		public LesserExplosionTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -136,24 +133,24 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class RegularExplosionTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public RegularExplosionTrapDeed() : base( HouseTrapStrength.Regular, HouseTrapType.Explosion )
+		public RegularExplosionTrapDeed() : base(HouseTrapStrength.Regular, HouseTrapType.Explosion)
 		{
 		}
 
-		public RegularExplosionTrapDeed( Serial serial ) : base( serial )
+		public RegularExplosionTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -162,24 +159,24 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class GreaterExplosionTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public GreaterExplosionTrapDeed() : base( HouseTrapStrength.Greater, HouseTrapType.Explosion )
+		public GreaterExplosionTrapDeed() : base(HouseTrapStrength.Greater, HouseTrapType.Explosion)
 		{
 		}
 
-		public GreaterExplosionTrapDeed( Serial serial ) : base( serial )
+		public GreaterExplosionTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -188,24 +185,24 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class DeadlyExplosionTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public DeadlyExplosionTrapDeed() : base( HouseTrapStrength.Deadly, HouseTrapType.Explosion )
+		public DeadlyExplosionTrapDeed() : base(HouseTrapStrength.Deadly, HouseTrapType.Explosion)
 		{
 		}
 
-		public DeadlyExplosionTrapDeed( Serial serial ) : base( serial )
+		public DeadlyExplosionTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -214,24 +211,24 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class LesserFireColumnTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public LesserFireColumnTrapDeed() : base( HouseTrapStrength.Lesser, HouseTrapType.FireColumn )
+		public LesserFireColumnTrapDeed() : base(HouseTrapStrength.Lesser, HouseTrapType.FireColumn)
 		{
 		}
 
-		public LesserFireColumnTrapDeed( Serial serial ) : base( serial )
+		public LesserFireColumnTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -240,24 +237,24 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class RegularFireColumnTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public RegularFireColumnTrapDeed() : base( HouseTrapStrength.Regular, HouseTrapType.FireColumn )
+		public RegularFireColumnTrapDeed() : base(HouseTrapStrength.Regular, HouseTrapType.FireColumn)
 		{
 		}
 
-		public RegularFireColumnTrapDeed( Serial serial ) : base( serial )
+		public RegularFireColumnTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -266,24 +263,24 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class GreaterFireColumnTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public GreaterFireColumnTrapDeed() : base( HouseTrapStrength.Greater, HouseTrapType.FireColumn )
+		public GreaterFireColumnTrapDeed() : base(HouseTrapStrength.Greater, HouseTrapType.FireColumn)
 		{
 		}
 
-		public GreaterFireColumnTrapDeed( Serial serial ) : base( serial )
+		public GreaterFireColumnTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -292,24 +289,24 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class DeadlyFireColumnTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public DeadlyFireColumnTrapDeed() : base( HouseTrapStrength.Deadly, HouseTrapType.FireColumn )
+		public DeadlyFireColumnTrapDeed() : base(HouseTrapStrength.Deadly, HouseTrapType.FireColumn)
 		{
 		}
 
-		public DeadlyFireColumnTrapDeed( Serial serial ) : base( serial )
+		public DeadlyFireColumnTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -318,24 +315,24 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class LesserPoisonTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public LesserPoisonTrapDeed() : base( HouseTrapStrength.Lesser, HouseTrapType.Poison )
+		public LesserPoisonTrapDeed() : base(HouseTrapStrength.Lesser, HouseTrapType.Poison)
 		{
 		}
 
-		public LesserPoisonTrapDeed( Serial serial ) : base( serial )
+		public LesserPoisonTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -344,24 +341,24 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class RegularPoisonTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public RegularPoisonTrapDeed() : base( HouseTrapStrength.Regular, HouseTrapType.Poison )
+		public RegularPoisonTrapDeed() : base(HouseTrapStrength.Regular, HouseTrapType.Poison)
 		{
 		}
 
-		public RegularPoisonTrapDeed( Serial serial ) : base( serial )
+		public RegularPoisonTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -370,24 +367,24 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class GreaterPoisonTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public GreaterPoisonTrapDeed() : base( HouseTrapStrength.Greater, HouseTrapType.Poison )
+		public GreaterPoisonTrapDeed() : base(HouseTrapStrength.Greater, HouseTrapType.Poison)
 		{
 		}
 
-		public GreaterPoisonTrapDeed( Serial serial ) : base( serial )
+		public GreaterPoisonTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
@@ -396,26 +393,26 @@ namespace Server.ACC.CSS.Systems.Ancient
 	public class DeadlyPoisonTrapDeed : HouseTrapDeed
 	{
 		[Constructable]
-		public DeadlyPoisonTrapDeed() : base( HouseTrapStrength.Deadly, HouseTrapType.Poison )
+		public DeadlyPoisonTrapDeed() : base(HouseTrapStrength.Deadly, HouseTrapType.Poison)
 		{
 		}
 
-		public DeadlyPoisonTrapDeed( Serial serial ) : base( serial )
+		public DeadlyPoisonTrapDeed(Serial serial) : base(serial)
 		{
 		}
 
-		public override void Serialize( GenericWriter writer )
+		public override void Serialize(GenericWriter writer)
 		{
-			base.Serialize( writer );
+			base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
+			writer.Write(0); // version
 		}
 
-		public override void Deserialize( GenericReader reader )
+		public override void Deserialize(GenericReader reader)
 		{
-			base.Deserialize( reader );
+			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
 		}
 	}
-} 
+}

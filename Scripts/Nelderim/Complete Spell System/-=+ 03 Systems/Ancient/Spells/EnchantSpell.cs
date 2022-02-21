@@ -1,182 +1,185 @@
+#region References
+
 using System;
 using System.Collections;
-using Server;
 using Server.Items;
-using Server.Gumps;
 using Server.Spells;
 using Server.Targeting;
-using Server.Network;
-using Server.Regions;
+
+#endregion
 
 namespace Server.ACC.CSS.Systems.Ancient
 {
-    public class AncientEnchantSpell : AncientSpell
-    {
-        private static SpellInfo m_Info = new SpellInfo(
-                                                        "Magiczne nasycenie", "Ort Ylem",
-                                                        218,
-                                                        9002,
-                                                        Reagent.BlackPearl,
-                                                        Reagent.MandrakeRoot
-                                                       );
+	public class AncientEnchantSpell : AncientSpell
+	{
+		private static readonly SpellInfo m_Info = new SpellInfo(
+			"Magiczne nasycenie", "Ort Ylem",
+			218,
+			9002,
+			Reagent.BlackPearl,
+			Reagent.MandrakeRoot
+		);
 
-        private int m_Hue;
-        private string m_Name;
+		private int m_Hue;
+		private string m_Name;
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Second; }
-        }
-        public override double CastDelay { get { return 5.0; } }
-        public override double RequiredSkill { get { return 70.0; } }
-        public override int RequiredMana { get { return 55; } }
-        public AncientEnchantSpell(Mobile caster, Item scroll)
-            : base(caster, scroll, m_Info)
-        {
-        }
+		public override SpellCircle Circle
+		{
+			get { return SpellCircle.Second; }
+		}
 
-        public override void OnCast()
-        {
-            if (CheckSequence())
-            {
-                m_Name = null;
-                Caster.Target = new InternalTarget(this);
-            }
-        }
+		public override double CastDelay { get { return 5.0; } }
+		public override double RequiredSkill { get { return 70.0; } }
+		public override int RequiredMana { get { return 55; } }
 
-        public override bool CheckCast()
-        {
-            if (!base.CheckCast())
-                return false;
+		public AncientEnchantSpell(Mobile caster, Item scroll)
+			: base(caster, scroll, m_Info)
+		{
+		}
 
-            return true;
-        }
+		public override void OnCast()
+		{
+			if (CheckSequence())
+			{
+				m_Name = null;
+				Caster.Target = new InternalTarget(this);
+			}
+		}
 
-        public void Target(BaseRanged weapon)
-        {
-            if (!Caster.CanSee(weapon))
-            {
-                Caster.SendLocalizedMessage(500237); // Target can not be seen.
-            }
-            else if (!Caster.CanBeginAction(typeof(AncientEnchantSpell)))
-            {
-                Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
+		public override bool CheckCast()
+		{
+			if (!base.CheckCast())
+				return false;
 
-            }
-            else if (CheckSequence())
-            {
-                if (Caster.BeginAction(typeof(AncientEnchantSpell)))
-                {
-                    if (this.Scroll != null)
-                        Scroll.Consume();
-                    m_Hue = weapon.Hue;
-                    m_Name = weapon.Name;
-                    weapon.Name = "" + m_Name + " [zaklęte]";
-                    weapon.Hue = 1366;
-                    weapon.Attributes.WeaponDamage += 10;
-                    weapon.Attributes.AttackChance += 10;
+			return true;
+		}
 
-                    Caster.PlaySound(0x20C);
-                    Caster.PlaySound(0x145);
-                    Caster.FixedParticles(0x3779, 1, 30, 9964, 3, 3, EffectLayer.Waist);
+		public void Target(BaseRanged weapon)
+		{
+			if (!Caster.CanSee(weapon))
+			{
+				Caster.SendLocalizedMessage(500237); // Target can not be seen.
+			}
+			else if (!Caster.CanBeginAction(typeof(AncientEnchantSpell)))
+			{
+				Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
+			}
+			else if (CheckSequence())
+			{
+				if (Caster.BeginAction(typeof(AncientEnchantSpell)))
+				{
+					if (this.Scroll != null)
+						Scroll.Consume();
+					m_Hue = weapon.Hue;
+					m_Name = weapon.Name;
+					weapon.Name = "" + m_Name + " [zaklęte]";
+					weapon.Hue = 1366;
+					weapon.Attributes.WeaponDamage += 10;
+					weapon.Attributes.AttackChance += 10;
 
-                    IEntity from = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z), Caster.Map);
-                    IEntity to = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z + 50), Caster.Map);
-                    Effects.SendMovingParticles(from, to, 0x13B1, 1, 0, false, false, 33, 3, 9501, 1, 0, EffectLayer.Head, 0x100);
-                    StopTimer(Caster);
+					Caster.PlaySound(0x20C);
+					Caster.PlaySound(0x145);
+					Caster.FixedParticles(0x3779, 1, 30, 9964, 3, 3, EffectLayer.Waist);
 
-                    Timer t = new InternalTimer(Caster, weapon, m_Hue, m_Name);
+					IEntity from = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z), Caster.Map);
+					IEntity to = new Entity(Serial.Zero, new Point3D(Caster.X, Caster.Y, Caster.Z + 50), Caster.Map);
+					Effects.SendMovingParticles(from, to, 0x13B1, 1, 0, false, false, 33, 3, 9501, 1, 0,
+						EffectLayer.Head, 0x100);
+					StopTimer(Caster);
 
-                    m_Timers[Caster] = t;
+					Timer t = new InternalTimer(Caster, weapon, m_Hue, m_Name);
 
-                    t.Start();
-                }
-                else if (!Caster.CanBeginAction(typeof(AncientEnchantSpell)))
-                {
-                    DoFizzle();
-                }
-            }
+					m_Timers[Caster] = t;
 
-            FinishSequence();
-        }
+					t.Start();
+				}
+				else if (!Caster.CanBeginAction(typeof(AncientEnchantSpell)))
+				{
+					DoFizzle();
+				}
+			}
 
-        private class InternalTarget : Target
-        {
-            private AncientEnchantSpell m_Owner;
+			FinishSequence();
+		}
 
-            public InternalTarget(AncientEnchantSpell owner)
-                : base(12, false, TargetFlags.None)
-            {
-                m_Owner = owner;
-            }
+		private class InternalTarget : Target
+		{
+			private readonly AncientEnchantSpell m_Owner;
 
-            protected override void OnTarget(Mobile from, object o)
-            {
-                if (o is BaseRanged)
-                {
-                    m_Owner.Target((BaseRanged)o);
-                }
-                else
-                {
-                    from.SendMessage("Tego nie można nasycić."); // I cannot mark that object.
-                }
-            }
+			public InternalTarget(AncientEnchantSpell owner)
+				: base(12, false, TargetFlags.None)
+			{
+				m_Owner = owner;
+			}
 
-            protected override void OnTargetFinish(Mobile from)
-            {
-                m_Owner.FinishSequence();
-            }
-        }
-        private static Hashtable m_Timers = new Hashtable();
+			protected override void OnTarget(Mobile from, object o)
+			{
+				if (o is BaseRanged)
+				{
+					m_Owner.Target((BaseRanged)o);
+				}
+				else
+				{
+					from.SendMessage("Tego nie można nasycić."); // I cannot mark that object.
+				}
+			}
 
-        public static bool StopTimer(Mobile m)
-        {
-            Timer t = (Timer)m_Timers[m];
+			protected override void OnTargetFinish(Mobile from)
+			{
+				m_Owner.FinishSequence();
+			}
+		}
 
-            if (t != null)
-            {
-                t.Stop();
-                m_Timers.Remove(m);
-            }
+		private static readonly Hashtable m_Timers = new Hashtable();
 
-            return (t != null);
-        }
+		public static bool StopTimer(Mobile m)
+		{
+			Timer t = (Timer)m_Timers[m];
 
-        private class InternalTimer : Timer
-        {
-            private Mobile m_Owner;
-            private BaseRanged m_Weapon;
-            private int m_weaponhue;
-            private string m_Name;
+			if (t != null)
+			{
+				t.Stop();
+				m_Timers.Remove(m);
+			}
 
-            public InternalTimer(Mobile owner, BaseRanged weapon, int m_Hue, string m_WeaponName)
-                : base(TimeSpan.FromSeconds(0))
-            {
-                m_Owner = owner;
-                m_Weapon = weapon;
-                m_weaponhue = m_Hue;
-                m_Name = m_WeaponName;
+			return (t != null);
+		}
 
-                int val = (int)owner.Skills[SkillName.Magery].Value;
+		private class InternalTimer : Timer
+		{
+			private readonly Mobile m_Owner;
+			private readonly BaseRanged m_Weapon;
+			private readonly int m_weaponhue;
+			private readonly string m_Name;
 
-                if (val > 100)
-                    val = 100;
+			public InternalTimer(Mobile owner, BaseRanged weapon, int m_Hue, string m_WeaponName)
+				: base(TimeSpan.FromSeconds(0))
+			{
+				m_Owner = owner;
+				m_Weapon = weapon;
+				m_weaponhue = m_Hue;
+				m_Name = m_WeaponName;
 
-                Delay = TimeSpan.FromSeconds(val);
-                Priority = TimerPriority.TwoFiftyMS;
-            }
+				int val = (int)owner.Skills[SkillName.Magery].Value;
 
-            protected override void OnTick()
-            {
-                if (!m_Owner.CanBeginAction(typeof(AncientEnchantSpell)))
-                {
-                    m_Weapon.Hue = m_weaponhue;
-                    m_Weapon.Name = m_Name;
-                    m_Weapon.Attributes.WeaponDamage -= 10;
-                    m_Weapon.Attributes.AttackChance -= 10;
-                    m_Owner.EndAction(typeof(AncientEnchantSpell));
-                }
-            }
-        }
-    }
+				if (val > 100)
+					val = 100;
+
+				Delay = TimeSpan.FromSeconds(val);
+				Priority = TimerPriority.TwoFiftyMS;
+			}
+
+			protected override void OnTick()
+			{
+				if (!m_Owner.CanBeginAction(typeof(AncientEnchantSpell)))
+				{
+					m_Weapon.Hue = m_weaponhue;
+					m_Weapon.Name = m_Name;
+					m_Weapon.Attributes.WeaponDamage -= 10;
+					m_Weapon.Attributes.AttackChance -= 10;
+					m_Owner.EndAction(typeof(AncientEnchantSpell));
+				}
+			}
+		}
+	}
 }

@@ -20,64 +20,66 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
 
+#region References
+
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Server;
+
+#endregion
 
 namespace UltimaLive
 {
-    public class CRC
-    {
-        //CRC caching
-        //[map][block]
-        public static UInt16[][] MapCRCs; 
+	public class CRC
+	{
+		//CRC caching
+		//[map][block]
+		public static ushort[][] MapCRCs;
 
-        public static void InvalidateBlockCRC(int map, int block)
-        {
-            MapCRCs[map][block] = UInt16.MaxValue;
-        }
+		public static void InvalidateBlockCRC(int map, int block)
+		{
+			MapCRCs[map][block] = UInt16.MaxValue;
+		}
 
-        public static void Configure()
-        {
-            EventSink.WorldLoad += new WorldLoadEventHandler(OnLoad);
-        }
+		public static void Configure()
+		{
+			EventSink.WorldLoad += OnLoad;
+		}
 
-        public static void OnLoad()
-        {
-            MapCRCs = new UInt16[256][];
+		public static void OnLoad()
+		{
+			MapCRCs = new ushort[256][];
 
-            //We need CRCs for every block in every map.  
-            foreach (KeyValuePair<int, MapRegistry.MapDefinition> kvp in MapRegistry.Definitions)
-            {
-                int blocks = Server.Map.Maps[kvp.Key].Tiles.BlockWidth * Server.Map.Maps[kvp.Key].Tiles.BlockHeight;
-                MapCRCs[kvp.Key] = new UInt16[blocks];
+			//We need CRCs for every block in every map.  
+			foreach (KeyValuePair<int, MapRegistry.MapDefinition> kvp in MapRegistry.Definitions)
+			{
+				int blocks = Map.Maps[kvp.Key].Tiles.BlockWidth * Map.Maps[kvp.Key].Tiles.BlockHeight;
+				MapCRCs[kvp.Key] = new ushort[blocks];
 
-                for (int j = 0; j < blocks; j++)
-                {
-                    MapCRCs[kvp.Key][j] = UInt16.MaxValue;
-                }
+				for (int j = 0; j < blocks; j++)
+				{
+					MapCRCs[kvp.Key][j] = UInt16.MaxValue;
+				}
+			}
+		}
 
-            }
-        }
+		/* Thank you http://en.wikipedia.org/wiki/Fletcher%27s_checksum
+		 * Each sum is computed modulo 255 and thus remains less than 
+		 * 0xFF at all times. This implementation will thus never 
+		 * produce the checksum results 0x00FF, 0xFF00 or 0xFFFF.
+		/**/
+		public static ushort Fletcher16(byte[] data)
+		{
+			ushort sum1 = 0;
+			ushort sum2 = 0;
+			int index;
+			for (index = 0; index < data.Length; ++index)
+			{
+				sum1 = (ushort)((sum1 + data[index]) % 255);
+				sum2 = (ushort)((sum2 + sum1) % 255);
+			}
 
-        /* Thank you http://en.wikipedia.org/wiki/Fletcher%27s_checksum
-         * Each sum is computed modulo 255 and thus remains less than 
-         * 0xFF at all times. This implementation will thus never 
-         * produce the checksum results 0x00FF, 0xFF00 or 0xFFFF.
-        /**/
-        public static UInt16 Fletcher16( byte[] data)
-        {
-           UInt16 sum1 = 0;
-           UInt16 sum2 = 0;
-           int index;
-           for( index = 0; index < data.Length; ++index )
-           {
-              sum1 = (UInt16) ((sum1 + data[index]) % 255);
-              sum2 = (UInt16) ((sum2 + sum1) % 255);
-           }
-
-           return (UInt16)((sum2 << 8) | sum1);
-        }
-    }
+			return (ushort)((sum2 << 8) | sum1);
+		}
+	}
 }
