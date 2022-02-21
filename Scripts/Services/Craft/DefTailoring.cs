@@ -706,7 +706,7 @@ namespace Server.Engines.Craft
             MarkOption = true;
             Repair = true;
             CanEnhance = true;
-            CanAlter = true;
+            CanAlter = false;
         } 
         #endregion
 
