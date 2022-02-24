@@ -20,23 +20,7 @@ namespace Nelderim.ExtraCraftResource
 
 		public static void Save(WorldSaveEventArgs args)
 		{
-			Cleanup();
 			Save(args, ModuleName);
-		}
-
-		private static void Cleanup()
-		{
-			List<Serial> toRemove = new List<Serial>();
-			foreach (KeyValuePair<Serial, ExtraCraftResourceInfo> kvp in m_ExtensionInfo)
-			{
-				if (kvp.Value.Resource2 == CraftResource.None || World.FindItem(kvp.Key) == null)
-					toRemove.Add(kvp.Key);
-			}
-
-			foreach (Serial serial in toRemove)
-			{
-				m_ExtensionInfo.TryRemove(serial, out _);
-			}
 		}
 	}
 }

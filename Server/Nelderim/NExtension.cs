@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.IO;
 using Server;
 
@@ -29,9 +30,21 @@ namespace Nelderim
 
 			return result;
 		}
+		
+		private static void Cleanup()
+		{
+			var toRemove = new List<Serial>();
+			foreach (var kvp in m_ExtensionInfo)
+				if (World.FindEntity(kvp.Key) == null)
+					toRemove.Add(kvp.Key);
+
+			foreach (var serial in toRemove)
+				m_ExtensionInfo.TryRemove(serial, out _);
+		}
 
 		public static void Save(WorldSaveEventArgs args, string moduleName)
 		{
+			Cleanup();
 			if (!Directory.Exists("Saves/Nelderim"))
 				Directory.CreateDirectory("Saves/Nelderim");
 
