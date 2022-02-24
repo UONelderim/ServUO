@@ -54,23 +54,7 @@ namespace Server.Items
 
 		public static void Save(WorldSaveEventArgs args)
 		{
-			Cleanup();
 			Save(args, ModuleName);
-		}
-
-		private static void Cleanup()
-		{
-			List<Serial> toRemove = new List<Serial>();
-			foreach (KeyValuePair<Serial, TaxidermyKitExtInfo> kvp in m_ExtensionInfo)
-			{
-				if (World.FindItem(kvp.Key) == null)
-					toRemove.Add(kvp.Key);
-			}
-
-			foreach (Serial serial in toRemove)
-			{
-				m_ExtensionInfo.TryRemove(serial, out _);
-			}
 		}
 	}
 

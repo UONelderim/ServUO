@@ -191,24 +191,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 
 			public static void Save(WorldSaveEventArgs args)
 			{
-				Cleanup();
 				Save(args, ModuleName);
-			}
-
-			private static void Cleanup()
-			{
-				List<Serial> toRemove = new List<Serial>();
-				foreach (KeyValuePair<Serial, SeanceSpellExtInfo> kvp in m_ExtensionInfo)
-				{
-					if (World.FindEntity(kvp.Key) == null)
-						toRemove.Add(kvp.Key);
-				}
-
-				foreach (Serial serial in toRemove)
-				{
-					SeanceSpellExtInfo removed;
-					m_ExtensionInfo.TryRemove(serial, out removed);
-				}
 			}
 		}
 
