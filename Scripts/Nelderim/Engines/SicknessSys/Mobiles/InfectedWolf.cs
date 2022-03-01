@@ -29,7 +29,7 @@ namespace Server.SicknessSys.Mobiles
 
 					if (cell == null)
 					{
-						Say("*Bite*");
+						Say("*ugryzienie*");
 
 						PlayerMobile pm = defender as PlayerMobile;
 

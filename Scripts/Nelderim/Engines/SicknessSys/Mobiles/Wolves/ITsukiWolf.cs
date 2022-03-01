@@ -8,7 +8,7 @@ using Server.Mobiles;
 
 namespace Server.SicknessSys.Mobiles
 {
-	[CorpseName("a infected tsuki wolf corpse")]
+	[CorpseName("zwloki zarazonego trojglowego wilka")]
 	public class ITsukiWolf : InfectedWolf
 	{
 		private static readonly Hashtable m_Table = new Hashtable();
@@ -16,7 +16,7 @@ namespace Server.SicknessSys.Mobiles
 		[Constructable]
 		public ITsukiWolf() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
 		{
-			Name = "a infected tsuki wolf";
+			Name = "zarazony trojglowy wilk";
 			Body = 250;
 
 			switch (Utility.Random(3))

@@ -6,13 +6,13 @@ using Server.Mobiles;
 
 namespace Server.SicknessSys.Mobiles
 {
-	[CorpseName("a infected dire wolf corpse")]
+	[CorpseName("zwloki zarazonego wscieklego wilka")]
 	public class IDireWolf : InfectedWolf
 	{
 		[Constructable]
 		public IDireWolf() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
 		{
-			Name = "a infected dire wolf";
+			Name = "zarazony wsciekly wilk";
 			Body = 23;
 			BaseSoundID = 0xE5;
 

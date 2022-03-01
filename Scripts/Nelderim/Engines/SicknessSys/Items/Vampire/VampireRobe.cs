@@ -15,11 +15,11 @@ namespace Server.SicknessSys.Items
 		public VampireRobe(PlayerMobile player, int stageID, int stageNum) :
 			base(1175) //Stage  1 = 0x1F03, 2 = 0x2687, 3 = 0x7816, GM = 0x4B9D
 		{
-			Name = GetStageName(stageNum) + " Vampire Robe";
+			Name = GetStageName(stageNum) + " Wampirza Szata";
 			ItemID = stageID;
 			pm = player.Name;
 			Weight = 1.0;
-			LootType = LootType.Blessed;
+			//LootType = LootType.Blessed;
 		}
 
 		public VampireRobe(Serial serial) : base(serial)
@@ -30,10 +30,10 @@ namespace Server.SicknessSys.Items
 		{
 			switch (stage)
 			{
-				case 1: return "Lesser";
-				case 2: return "Enlightened";
-				case 3: return "Master";
-				default: return "Grand Master";
+				case 1: return "Pomniejsza";
+				case 2: return "Owiecajaca";
+				case 3: return "Mistrzowska";
+				default: return "Zacna";
 			}
 		}
 

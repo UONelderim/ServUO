@@ -29,7 +29,7 @@ namespace Server.SicknessSys.Mobiles
 
 			Illness = (IllnessType)getIllness;
 
-			Name = "a " + Illness;
+			Name = "" + Illness;
 
 			Body = SwapBody(58); //Cold body type default
 

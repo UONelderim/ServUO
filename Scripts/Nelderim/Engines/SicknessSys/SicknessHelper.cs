@@ -403,12 +403,12 @@ namespace Server.SicknessSys
 			if (pm.FindItemOnLayer(Layer.MiddleTorso) != null)
 				NumberOfClothing++;
 			if (pm.FindItemOnLayer(Layer.OuterTorso) != null)
-			{
+			/*{
 				if (item is VampireRobe)
 					NumberOfClothing += 5;
 				else
 					NumberOfClothing++;
-			}
+			}*/
 
 			if (pm.FindItemOnLayer(Layer.Pants) != null)
 				NumberOfClothing++;

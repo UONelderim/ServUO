@@ -21,7 +21,7 @@ namespace Server.SicknessSys
 
 				SicknessAnimate.RunCureAnimation(pm);
 
-				pm.SendMessage("You feel better!");
+				pm.SendMessage("Czujesz sie lepiej!");
 
 				pm.CloseAllGumps();
 

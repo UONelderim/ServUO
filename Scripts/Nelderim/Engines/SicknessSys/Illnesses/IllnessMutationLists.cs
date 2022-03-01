@@ -101,8 +101,8 @@ namespace Server.SicknessSys.Illnesses
 							if (cell.Stage == 1 && cell.PM.Hue != 1154)
 							{
 								cell.PM.Hue = 1154;
-								cell.PM.HairHue = 1194;
-								cell.PM.FacialHairHue = 1194;
+								cell.PM.HairHue = 1617;
+								cell.PM.FacialHairHue = 1617;
 
 								SicknessAnimate.RunMutateAnimation(cell.PM);
 							}

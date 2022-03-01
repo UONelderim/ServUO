@@ -21,7 +21,7 @@ namespace Server.SicknessSys
 		{
 			Effects.SendLocationEffect(new Point3D(pm.X, pm.Y, pm.Z + 1), pm.Map, 0x376A, 15, 0, 0); //0x47D );
 			Effects.SendLocationEffect(new Point3D(pm.X, pm.Y, pm.Z + 1), pm.Map, 0x375A, 15, 0, 0);
-			pm.Say("*feeling good*");
+			pm.Say("*czujesz sie dobrze*");
 
 			pm.Animate(34, 5, 1, true, false, 0);
 			pm.PlaySound(0x1E0);
@@ -115,7 +115,7 @@ namespace Server.SicknessSys
 			m.Animate(34, 5, 1, true, false, 0);
 			m.Say("*In Alah KaZappa Vas*");
 
-			pm.SendMessage(53, pm.Name + ", a cure potion has magically appeared in your backpack!");
+			pm.SendMessage(53, pm.Name + ", medykamenty, ktore ulecza Twa chorobe magicznie pojawily sie w plecaku!");
 
 			Effects.SendLocationParticles(pm, 0x376A, 9, 32, 5022);
 			Effects.PlaySound(pm.Location, pm.Map, 0x1F5);
@@ -133,7 +133,7 @@ namespace Server.SicknessSys
 		public static void RunGrowlAnimation(PlayerMobile pm)
 		{
 			Effects.SendBoltEffect(pm, true, 1177);
-			pm.SendMessage("You are near silver, leave now or die!");
+			pm.SendMessage("Jestes w poblizu srebra, odejdz lub gin!");
 
 			pm.Animate(30, 5, 1, true, false, 0);
 			pm.PlaySound(pm.Female ? 0x31C : 0x42C);
@@ -144,7 +144,7 @@ namespace Server.SicknessSys
 		{
 			TurnToMobile(pm, pm.Combatant as Mobile);
 
-			pm.Say("*Blood Drain*");
+			pm.Say("*wysysasz krew*");
 			pm.PlaySound(0x030);
 
 			pm.Combatant.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
@@ -155,7 +155,7 @@ namespace Server.SicknessSys
 		{
 			TurnToMobile(pm, pm.Combatant as Mobile);
 
-			pm.Say("*Blood Burn*");
+			pm.Say("*krew w zylach gotuje sie*");
 			pm.PlaySound(0x114);
 
 			pm.Combatant.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
@@ -164,7 +164,7 @@ namespace Server.SicknessSys
 
 		public static void RunBloodBathAnimation(PlayerMobile pm)
 		{
-			pm.Say("*Blood Bath*");
+			pm.Say("*kapiel w krwi*");
 
 			pm.FixedParticles(0x3728, 1, 13, 5042, EffectLayer.Waist);
 
@@ -178,7 +178,7 @@ namespace Server.SicknessSys
 		{
 			TurnToMobile(pm, pm.Combatant as Mobile);
 
-			pm.Say("*Rage Feed*");
+			pm.Say("*gniew*");
 			pm.PlaySound(0x03A);
 
 			pm.Combatant.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
@@ -189,7 +189,7 @@ namespace Server.SicknessSys
 		{
 			TurnToMobile(pm, pm.Combatant as Mobile);
 
-			pm.Say("*Rage Strike*");
+			pm.Say("*gniewne uderzenie*");
 			pm.PlaySound(0x13C);
 
 			pm.Combatant.FixedParticles(0x375A, 1, 17, 9919, 33, 7, EffectLayer.Waist);
@@ -198,7 +198,7 @@ namespace Server.SicknessSys
 
 		public static void RunRagePushAnimation(PlayerMobile pm)
 		{
-			pm.Say("*Rage Push*");
+			pm.Say("*odpychajacy gniew*");
 
 			pm.FixedParticles(0x3728, 1, 13, 5042, EffectLayer.Waist);
 

@@ -17,9 +17,9 @@ namespace Server.SicknessSys
 				TryToDamage(cell);
 
 				if (cell.LevelMod == 1)
-					cell.PM.SendMessage(53, "You have lost [ 1 ] white cell!");
+					cell.PM.SendMessage(53, "Straciles [ 1 ] biala komorke!");
 				else
-					cell.PM.SendMessage(53, "You have lost [ " + cell.LevelMod + " ] white cells!");
+					cell.PM.SendMessage(53, "Straciles [ " + cell.LevelMod + " ] bialych komorek!");
 
 				cell.Level = cell.Level + cell.LevelMod;
 
@@ -36,7 +36,7 @@ namespace Server.SicknessSys
 
 					UpdateSickness(cell);
 
-					cell.PM.SendMessage(37, "Your illness has caused your body to change!");
+					cell.PM.SendMessage(37, "Twoja choroba spowodowala zmiany w Twoim ciele!");
 
 					AddVampireRobe(cell);
 				}
@@ -49,7 +49,7 @@ namespace Server.SicknessSys
 					int chanceTOdie = Utility.RandomMinMax(1, 90000 / (int)cell.Illness);
 
 					if (chanceTOdie >= 3)
-						cell.PM.SendMessage(37, "Your illness consumes you, see a medic before you die!");
+						cell.PM.SendMessage(37, "Twa choroba zjada Cie, musisz to wyleczyc! Udaj sie do medyka!");
 					else
 						cell.PM.Kill();
 				}
@@ -58,9 +58,9 @@ namespace Server.SicknessSys
 					if (cell.Level == 99)
 					{
 						if (cell.Illness == IllnessType.Vampirism)
-							cell.PM.SendMessage("Your virus has fully matured, you are now a Vampire");
+							cell.PM.SendMessage("Twoj wirus w pelni sie rozwinal i stales sie Wampirem");
 						else
-							cell.PM.SendMessage("Your virus has fully matured, you are now a Werewolf");
+							cell.PM.SendMessage("Twoj wirus w pelni sie rozwinal i stales sie Wilkolakiem");
 
 						cell.Level = 100;
 
@@ -74,7 +74,7 @@ namespace Server.SicknessSys
 
 						if (cell.Level < age)
 						{
-							cell.PM.SendMessage("The virus has aged!");
+							cell.PM.SendMessage("Wirus sie postarzal!");
 
 							SicknessAnimate.RunMutateAnimation(cell.PM);
 
@@ -83,7 +83,7 @@ namespace Server.SicknessSys
 						}
 						else
 						{
-							cell.PM.SendMessage("The virus has faded from your body!");
+							cell.PM.SendMessage("Wirus opuscil Twoje cialo!");
 
 							SicknessCure.Cure(cell.PM, cell);
 						}

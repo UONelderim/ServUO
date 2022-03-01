@@ -32,20 +32,20 @@ namespace Server.SicknessSys
 							else if (Cell.Illness == IllnessType.Lycanthropia)
 								SicknessSkills.RagePush(Cell.PM, Cell);
 							else
-								from.Say("Don't touch me, I'm sick!");
+								from.Say("nIE DOTYKAJ MNIE! JESTEM CHORY!");
 
 							if (SicknessHelper.IsSpecialVirus(Cell))
 								Cell.LastSkill = 60;
 						}
 						else
 						{
-							from.SendMessage("Your skills do not work jurying the day!");
+							from.SendMessage("Twoje umiejetnosci nie dzialaja w ciagu dnia! Sprobuj w nocy.");
 						}
 					}
 					else
 					{
-						from.SendMessage("Your still recouping from the last skill use, please wait " + Cell.LastSkill +
-						                 " secs");
+						from.SendMessage("Aby uzyc umiejetnosci ponownie, musisz poczekac " + Cell.LastSkill +
+						                 " sekund");
 					}
 				}
 				else if (targeted == from.Combatant)
@@ -68,20 +68,20 @@ namespace Server.SicknessSys
 						}
 						else
 						{
-							from.SendMessage("Your skills do not work jurying the day!");
+							from.SendMessage("woje umiejetnosci nie dzialaja w ciagu dnia! Sprobuj w nocy.");
 						}
 					}
 					else
 					{
-						from.SendMessage("Your still recouping from the last skill use, please wait " + Cell.LastSkill +
-						                 " secs");
+						from.SendMessage("Aby uzyc umiejetnosci ponownie, musisz poczekac " + Cell.LastSkill +
+						                 " sekund");
 					}
 				}
 				else if (targeted is PlayerMobile)
 				{
 					PlayerMobile pm = targeted as PlayerMobile;
 
-					pm.Say("Don't touch me with your contaminated hands!");
+					pm.Say("Nie dotykaj mnie tymi skazonymi lapami!");
 				}
 				else if (targeted is Mobile)
 				{
@@ -109,12 +109,12 @@ namespace Server.SicknessSys
 								}
 								else
 								{
-									from.Say("*failed to spread your illness*");
+									from.Say("*nie udalo Ci sie nikogo zarazic*");
 								}
 							}
 							else
 							{
-								from.SendMessage("You need to be closer to that, to spread your illness");
+								from.SendMessage("Musisz stac blizej, by rozprzestrzeniac choroby");
 							}
 						}
 					}

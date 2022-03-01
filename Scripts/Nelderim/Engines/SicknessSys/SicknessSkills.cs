@@ -23,8 +23,8 @@ namespace Server.SicknessSys
 			}
 			else
 			{
-				pm.Say("*miss*");
-				pm.SendMessage("You are at max power!");
+				pm.Say("*nie trafiles*");
+				pm.SendMessage("Masz maksymalna moc!");
 			}
 		}
 
@@ -42,8 +42,8 @@ namespace Server.SicknessSys
 			}
 			else
 			{
-				pm.Say("*miss*");
-				pm.SendMessage("You do not have enough power to perform Blood Burn");
+				pm.Say("*nie trafiles*");
+				pm.SendMessage("Brak Ci mocy, by uzyc umiejetnosci Palaca Krew");
 			}
 		}
 
@@ -59,14 +59,14 @@ namespace Server.SicknessSys
 
 				pm.Mana = cell.PM.ManaMax;
 
-				pm.SendMessage("Your mind has been replenished!");
+				pm.SendMessage("Twoj umysl oczyszcza sie!");
 
 				SicknessAnimate.RunBloodBathAnimation(pm);
 			}
 			else
 			{
-				pm.Say("*fizzle*");
-				pm.SendMessage("You do not have enough power to perform Blood Bath");
+				pm.Say("*rozprasza sie*");
+				pm.SendMessage("Nie masz wystarczajacej mocy, by wykonac umiejetnosc Kapiel w Krwii");
 			}
 		}
 
@@ -83,8 +83,8 @@ namespace Server.SicknessSys
 			}
 			else
 			{
-				pm.Say("*miss*");
-				pm.SendMessage("You are full and refuse to eat!");
+				pm.Say("*nie trafiles*");
+				pm.SendMessage("Jestes pelny i nie chce Ci sie jesc!");
 			}
 		}
 
@@ -100,8 +100,8 @@ namespace Server.SicknessSys
 			}
 			else
 			{
-				pm.Say("*miss*");
-				pm.SendMessage("You do not have enough power to perform Rage Strike");
+				pm.Say("*nie trafiles*");
+				pm.SendMessage("Nie masz wystarczajacej mocy, by wykonac umiejetnosc Gniewne Uderzenie");
 			}
 		}
 
@@ -113,16 +113,16 @@ namespace Server.SicknessSys
 			{
 				pm.SpeechHue = 47;
 
-				pm.Say("HP + " + hitsGain);
+				pm.Say("Zycie + " + hitsGain);
 
 				pm.Hits = cell.PM.HitsMax;
 
-				pm.SendMessage("Your body has been rejuvenated!");
+				pm.SendMessage("Twoje cialo goi sie!");
 			}
 			else
 			{
-				pm.Say("*fizzle*");
-				pm.SendMessage("You do not have enough power to perform Rage Push");
+				pm.Say("*rozprasza sie*");
+				pm.SendMessage("Nie masz wystarczajacej mocy, by wykonac umiejetnosc Wsciekle Odepchniecie");
 			}
 		}
 	}
