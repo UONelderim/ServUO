@@ -6,13 +6,13 @@ using Server.Mobiles;
 
 namespace Server.SicknessSys.Mobiles
 {
-	[CorpseName("a infected vampire bat corpse")]
+	[CorpseName("zwloki zakazonego nietoperza wampira")]
 	public class InfectedBat : BaseCreature
 	{
 		[Constructable]
 		public InfectedBat() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
 		{
-			Name = "a infected vampire bat";
+			Name = "zakazony nietoperz wampir";
 			Body = 317;
 			BaseSoundID = 0x270;
 
@@ -69,7 +69,7 @@ namespace Server.SicknessSys.Mobiles
 
 					if (cell == null)
 					{
-						Say("*Bite*");
+						Say("*ugryzienie*");
 
 						PlayerMobile pm = defender as PlayerMobile;
 

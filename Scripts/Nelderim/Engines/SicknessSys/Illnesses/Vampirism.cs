@@ -62,9 +62,9 @@ namespace Server.SicknessSys.Illnesses
 				cell.PM.Damage(damage);
 
 				if (DoMinDamage)
-					cell.PM.SendMessage("You feel the pain of being exposed to garlic!");
+					cell.PM.SendMessage("Czujesz obecnosc czosnku!");
 				else
-					cell.PM.SendMessage("You are exposed to light, cover up or die!");
+					cell.PM.SendMessage("Zostales wystawiony na dzialanie swiatla. Schowaj sie, bo zginiesz!");
 
 				SicknessAnimate.RunScreamAnimation(cell.PM);
 			}

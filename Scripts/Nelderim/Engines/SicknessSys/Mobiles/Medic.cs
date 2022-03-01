@@ -12,7 +12,7 @@ namespace Server.SicknessSys.Mobiles
 		[Constructable]
 		public Medic() : base(AIType.AI_Healer, FightMode.None, 10, 1, 0.2, 0.4)
 		{
-			Title = "the medic";
+			Title = "- medyk";
 
 			InitStats(31, 41, 51);
 
@@ -81,7 +81,7 @@ namespace Server.SicknessSys.Mobiles
 
 					SpeechHue = 53;
 
-					SayTo(pm, "Get well soon, " + pm.Name);
+					SayTo(pm, "Zdrowiej, " + pm.Name);
 
 					SicknessAnimate.RunMedicGiveCureAnimation(pm, this);
 					//}
@@ -91,9 +91,9 @@ namespace Server.SicknessSys.Mobiles
 					SpeechHue = 38;
 
 					if (illcure == null)
-						SayTo(pm, pm.Name + ", You do not look sick to me!");
+						SayTo(pm, pm.Name + ", Nie wygladasz na chorego!");
 					else
-						SayTo(pm, pm.Name + ", I gave you a potion, check your backpack!");
+						SayTo(pm, pm.Name + ", Otrzymales ode mnie miksture. Sprawdz swoj plecak!");
 
 					base.OnDoubleClick(from);
 				}
@@ -120,7 +120,7 @@ namespace Server.SicknessSys.Mobiles
 						{
 							SpeechHue = 53;
 
-							SayTo(pm, pm.Name + ", are you sick? Double click me for a cure!");
+							SayTo(pm, pm.Name + ", Czy jestes chory? (aby otrzymac odtrutke, 2xkliknij na mnie)!");
 
 							SicknessAnimate.RunMedicAnimation(pm, this);
 						}

@@ -34,7 +34,7 @@ namespace Server.SicknessSys.Gumps
 
 				if (IsBeat)
 				{
-					pm.PlaySound(0x24C);
+					//pm.PlaySound(0x24C);
 
 					VeinHue = beat;
 

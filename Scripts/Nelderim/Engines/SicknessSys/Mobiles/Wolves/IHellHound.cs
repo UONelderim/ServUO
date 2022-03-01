@@ -7,13 +7,13 @@ using Server.Mobiles;
 
 namespace Server.SicknessSys.Mobiles
 {
-	[CorpseName("a infected hell hound corpse")]
+	[CorpseName("zwloki zarazonego piekielnego ogara")]
 	public class IHellHound : InfectedWolf
 	{
 		[Constructable]
 		public IHellHound() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
 		{
-			Name = "a infected hell hound";
+			Name = "zarazony piekielny ogar";
 			Body = 98;
 			BaseSoundID = 229;
 

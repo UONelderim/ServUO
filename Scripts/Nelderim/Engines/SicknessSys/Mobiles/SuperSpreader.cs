@@ -30,7 +30,7 @@ namespace Server.SicknessSys.Mobiles
 
 			Illness = (IllnessType)getIllness;
 
-			Name = "a " + Illness + " super spreader";
+			Name = "rozsiewacz" + Illness + "";
 
 			Body = 238;
 

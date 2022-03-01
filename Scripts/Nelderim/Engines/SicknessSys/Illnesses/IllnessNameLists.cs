@@ -12,16 +12,16 @@ namespace Server.SicknessSys.Illnesses
 
 		public static List<string> GetColdNameList()
 		{
-			ColdNames.Add("a Common Cold");
-			ColdNames.Add("the Seasonal Cold");
-			ColdNames.Add("a Spring Cold");
-			ColdNames.Add("the Winter Cold");
-			ColdNames.Add("the Cold");
-			ColdNames.Add("Cooties");
-			ColdNames.Add("a Head Cold");
-			ColdNames.Add("a Chest Cold");
-			ColdNames.Add("Swamp Gas");
-			ColdNames.Add("Dungeanitas");
+			ColdNames.Add("Przeziebienie");
+			ColdNames.Add("Sezonowe Przeziebienie");
+			ColdNames.Add("Katar");
+			ColdNames.Add("Kaszel");
+			ColdNames.Add("Garlanska Grypa");
+			ColdNames.Add("Bol Gardla");
+			ColdNames.Add("Bol GLowy");
+			ColdNames.Add("Tasandorska Grypa");
+			ColdNames.Add("Niestrawnosc");
+			ColdNames.Add("Dur Brzuszny");
 
 			return ColdNames;
 		}
@@ -30,16 +30,16 @@ namespace Server.SicknessSys.Illnesses
 
 		public static List<string> GetFluNameList()
 		{
-			FluNames.Add("the Bird Flu");
-			FluNames.Add("the Swine Flu");
-			FluNames.Add("the Dragon Flu");
-			FluNames.Add("the Yellow Flu");
-			FluNames.Add("the Stomach Flu");
-			FluNames.Add("Britannia Cat Flu");
-			FluNames.Add("Captain Trips");
-			FluNames.Add("an Unknown Flu");
-			FluNames.Add("Heat Stroke");
-			FluNames.Add("Hypothermia");
+			FluNames.Add("Ptasia Grypa");
+			FluNames.Add("Swinska Grypa");
+			FluNames.Add("Smocza Grypa");
+			FluNames.Add("Zielona Grypa");
+			FluNames.Add("Rozwolnienie");
+			FluNames.Add("Tasandorska Szczurza Grypa");
+			FluNames.Add("Kac");
+			FluNames.Add("Nieznana Choroba");
+			FluNames.Add("Zawal serca");
+			FluNames.Add("Hipotermia");
 
 			return FluNames;
 		}
@@ -48,30 +48,21 @@ namespace Server.SicknessSys.Illnesses
 
 		public static List<string> GetVirusNameList()
 		{
-			VirusNames.Add("a Common Virus");
-			VirusNames.Add("a Rare Virus");
-			VirusNames.Add("an Unknown Virus");
-			VirusNames.Add("Brainpox");
-			VirusNames.Add("a Rare Wormword Virus");
-			VirusNames.Add("Curse of the Warmbloods");
+			VirusNames.Add("Zwyczajny wirus");
+			VirusNames.Add("Rzadki Wirus");
+			VirusNames.Add("Nieznany wirus");
+			VirusNames.Add("Tasandorosis");
+			VirusNames.Add("Wirus Orkopochodny");
+			VirusNames.Add("Klatwa Krwii Moreny Nekromantki");
 			VirusNames.Add("Dar-Kosis");
-			VirusNames.Add("Death Stench");
-			VirusNames.Add("Demon Pox");
-			VirusNames.Add("Dragon Pox");
-			VirusNames.Add("Dryditch Fever");
-			VirusNames.Add("the Hourman Virus");
-			VirusNames.Add("the Inferno Virus");
-			VirusNames.Add("the Krytos Virus");
+			VirusNames.Add("Cuchnaca Smierc");
+			VirusNames.Add("Wyprysk Demona");
+			VirusNames.Add("Wyprysk Smoka");
+			VirusNames.Add("Goraczka z Garlan");
 			VirusNames.Add("Letumosis");
 			VirusNames.Add("Neurodermatitis");
 			VirusNames.Add("Ratititis");
-			VirusNames.Add("the Red Death");
-			VirusNames.Add("Sakutia");
-			VirusNames.Add("the Solanum Virus");
-			VirusNames.Add("Spattergroit");
-			VirusNames.Add("the White Disease");
-			VirusNames.Add("the Minoc Lung Virus");
-			VirusNames.Add("the Vorpal Bunny Virus");
+
 
 			return VirusNames;
 		}
@@ -80,9 +71,9 @@ namespace Server.SicknessSys.Illnesses
 
 		public static List<string> GetVampireNameList()
 		{
-			VampireNames.Add("a Common Vampiric Virus");
-			VampireNames.Add("the Rare BloodFire Virus");
-			VampireNames.Add("an Unknown Vampirism Virus");
+			VampireNames.Add("Zwyczajny Wirus Wampiryzmu");
+			VampireNames.Add("Rzadki wirus plonacej krwii");
+			VampireNames.Add("nieznany wirus wampiryzmu");
 
 			return VampireNames;
 		}
@@ -91,9 +82,9 @@ namespace Server.SicknessSys.Illnesses
 
 		public static List<string> GetLycanthropiaNameList()
 		{
-			LycanthropiaNames.Add("a Common Lycanthropia Virus");
-			LycanthropiaNames.Add("the Rare RageFire Virus");
-			LycanthropiaNames.Add("an Unknown Lycanthropia Virus");
+			LycanthropiaNames.Add("zwyczajny wirus likanotropii");
+			LycanthropiaNames.Add("rzadki wirus wilczego gniewu");
+			LycanthropiaNames.Add("nieznany wirus likanotropii");
 
 			return LycanthropiaNames;
 		}

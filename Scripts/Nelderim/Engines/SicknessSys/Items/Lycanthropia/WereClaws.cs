@@ -12,13 +12,13 @@ namespace Server.SicknessSys.Items
 	{
 		public PlayerMobile pm { get; set; }
 
-		public override string DefaultName => "Were Claws";
+		public override string DefaultName => "Szpony Lykana";
 
 		[Constructable]
 		public WereClaws(PlayerMobile player) : base(0x27AB)
 		{
 			pm = player;
-			Hue = 1177;
+			Hue = 1150;
 			Weight = 5.0;
 			Layer = Layer.TwoHanded;
 			LootType = LootType.Blessed;

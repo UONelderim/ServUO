@@ -37,8 +37,8 @@ namespace Server.SicknessSys
 					VirusCell vc = pm.Backpack.FindItemByType(typeof(VirusCell)) as VirusCell;
 					SicknessCore.VirusCellList.Add(vc);
 
-					if (type == IllnessType.Vampirism)
-						pm.AddToBackpack(new VampireRobe(pm, 0x1F03, 1));
+				//	if (type == IllnessType.Vampirism)
+				//		pm.AddToBackpack(new VampireRobe(pm, 0x1F03, 1));
 
 					if (type == IllnessType.Lycanthropia)
 						pm.AddToBackpack(new WereClaws(pm));

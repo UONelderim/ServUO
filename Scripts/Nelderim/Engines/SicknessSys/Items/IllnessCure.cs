@@ -15,7 +15,7 @@ namespace Server.SicknessSys
 		{
 			IllType = cell.Illness;
 
-			Name = "a " + cell.Sickness + " cure";
+			Name = "lek na" + cell.Sickness + "";
 			Hue = cell.PM.Hue;
 			Weight = 1.0;
 
@@ -23,7 +23,7 @@ namespace Server.SicknessSys
 
 			if (cell.InDebug && cell.GM != null)
 			{
-				cell.GM.SendMessage(120, "Potion Created : " + Name + " : " + Hue);
+				cell.GM.SendMessage(120, "Stworzone przez : " + Name + " : " + Hue);
 			}
 		}
 
@@ -45,7 +45,7 @@ namespace Server.SicknessSys
 					{
 						if (Cell.InDebug && Cell.GM != null)
 						{
-							Cell.GM.SendMessage(120, "Drank Potion");
+							Cell.GM.SendMessage(120, "Wypijasz miksture");
 						}
 
 						SicknessCure.Cure(from as PlayerMobile, Cell);
@@ -54,17 +54,17 @@ namespace Server.SicknessSys
 					}
 					else
 					{
-						from.SendMessage("You are not infected with " + Cell.Illness);
+						from.SendMessage("Jestes zarazony " + Cell.Illness);
 					}
 				}
 				else
 				{
-					from.SendMessage("You are not infected with any illness!");
+					from.SendMessage("Nie jestes zarazony zadna choroba!");
 				}
 			}
 			else
 			{
-				from.SendMessage("a free hand is needed to drink the potion!");
+				from.SendMessage("Aby to wypic, musisz miec wolna reke!");
 			}
 		}
 
