@@ -10,7 +10,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public Armorer()
-            : base("zbrojmistrz")
+            : base("- zbrojmistrz")
         {
             SetSkill(SkillName.ArmsLore, 64.0, 100.0);
             SetSkill(SkillName.Blacksmith, 60.0, 83.0);

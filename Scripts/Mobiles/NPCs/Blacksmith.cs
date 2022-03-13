@@ -13,7 +13,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public Blacksmith()
-            : base("kowal")
+            : base("- kowal")
         {
             SetSkill(SkillName.ArmsLore, 36.0, 68.0);
             SetSkill(SkillName.Blacksmith, 65.0, 88.0);

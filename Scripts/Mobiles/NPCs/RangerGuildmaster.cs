@@ -4,7 +4,7 @@ namespace Server.Mobiles
     {
         [Constructable]
         public RangerGuildmaster()
-            : base("ranger")
+            : base("- mistrz gildii straznikow lesnych")
         {
             SetSkill(SkillName.AnimalLore, 64.0, 100.0);
             SetSkill(SkillName.Camping, 75.0, 98.0);

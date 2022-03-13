@@ -8,7 +8,7 @@ namespace Server.Mobiles
         public Samurai()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
-            Title = "the samurai";
+            Title = "- wojownik";
 
             InitStats(100, 100, 25);
 

@@ -8,7 +8,7 @@ namespace Server.Engines.Quests.Hag
     {
         [Constructable]
         public Blackheart()
-            : base("the Drunken Pirate")
+            : base("- pijany pirat")
         {
         }
 

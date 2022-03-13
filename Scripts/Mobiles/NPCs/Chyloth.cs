@@ -26,7 +26,7 @@ namespace Server.Engines.Quests.Doom
 
         [Constructable]
         public Chyloth()
-            : base("przewoznik dusz")
+            : base("- przewoznik dusz")
         {
         }
 

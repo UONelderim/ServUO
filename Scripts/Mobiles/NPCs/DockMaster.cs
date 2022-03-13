@@ -23,7 +23,7 @@ namespace Server.Mobiles
         }
 
         [Constructable]
-        public DockMaster() : base("zarzadca dokow")
+        public DockMaster() : base("- zarzadca dokow")
         {
         }
 

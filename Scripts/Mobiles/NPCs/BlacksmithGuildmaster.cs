@@ -7,7 +7,7 @@ namespace Server.Mobiles
     {
         [Constructable]
         public BlacksmithGuildmaster()
-            : base("kowal")
+            : base("- mistrz gildii kowali")
         {
             SetSkill(SkillName.ArmsLore, 65.0, 88.0);
             SetSkill(SkillName.Blacksmith, 90.0, 100.0);

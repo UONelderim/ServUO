@@ -4,7 +4,7 @@ namespace Server.Mobiles
     {
         [Constructable]
         public TailorGuildmaster()
-            : base("tailor")
+            : base("- mistrz gildii krawcow")
         {
             SetSkill(SkillName.Tailoring, 90.0, 100.0);
         }

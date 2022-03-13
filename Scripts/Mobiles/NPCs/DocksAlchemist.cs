@@ -10,7 +10,7 @@ namespace Server.Mobiles
         public override NpcGuild NpcGuild => NpcGuild.MagesGuild;
 
         [Constructable]
-        public DocksAlchemist() : base("alchemik")
+        public DocksAlchemist() : base("- alchemik")
         {
             SetSkill(SkillName.Alchemy, 85.0, 100.0);
             SetSkill(SkillName.TasteID, 65.0, 88.0);

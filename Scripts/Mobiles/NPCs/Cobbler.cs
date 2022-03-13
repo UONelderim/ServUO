@@ -7,7 +7,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Cobbler()
-            : base("szewc")
+            : base("- szewc")
         {
             SetSkill(SkillName.Tailoring, 60.0, 83.0);
         }
