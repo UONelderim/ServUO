@@ -7,7 +7,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Synaeva()
-            : base("Synaeva", "the arcanist")
+            : base("Synaeva", "- arkanista")
         {
             SetSkill(SkillName.Meditation, 60.0, 83.0);
             SetSkill(SkillName.Focus, 60.0, 83.0);

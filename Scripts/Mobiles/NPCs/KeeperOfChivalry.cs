@@ -8,7 +8,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public KeeperOfChivalry()
-            : base("- paladyn")
+            : base("- rycerz")
         {
             SetSkill(SkillName.Fencing, 75.0, 85.0);
             SetSkill(SkillName.Macing, 75.0, 85.0);

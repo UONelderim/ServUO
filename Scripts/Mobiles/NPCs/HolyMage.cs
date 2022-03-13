@@ -8,7 +8,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public HolyMage()
-            : base("the Holy Mage")
+            : base("- swiety mag")
         {
             SetSkill(SkillName.EvalInt, 65.0, 88.0);
             SetSkill(SkillName.Inscribe, 60.0, 83.0);

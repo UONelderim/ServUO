@@ -9,7 +9,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Alchemist()
-            : base("alchemik")
+            : base("- alchemik")
         {
             SetSkill(SkillName.Alchemy, 85.0, 100.0);
             SetSkill(SkillName.TasteID, 65.0, 88.0);

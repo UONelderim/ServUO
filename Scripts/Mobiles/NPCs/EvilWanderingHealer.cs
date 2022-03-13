@@ -7,7 +7,7 @@ namespace Server.Mobiles
         [Constructable]
         public EvilWanderingHealer()
         {
-            Title = "wedrowny uzdrowiciel";
+            Title = "- wedrowny uzdrowiciel";
             Karma = -10000;
 
             AddItem(new GnarledStaff());

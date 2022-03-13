@@ -5,7 +5,7 @@ namespace Server.Mobiles
         [Constructable]
         public EvilHealer()
         {
-            Title = "znachor";
+            Title = "- znachor";
 
             Karma = -10000;
 

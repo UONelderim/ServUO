@@ -19,7 +19,7 @@ namespace Server.Mobiles
                 Body = 0x191;
                 Name = NameList.RandomName("female");
                 AddItem(new FancyDress(Utility.RandomDyedHue()));
-                Title = "the actress";
+                Title = "- aktorka";
             }
             else
             {
@@ -27,7 +27,7 @@ namespace Server.Mobiles
                 Name = NameList.RandomName("male");
                 AddItem(new LongPants(Utility.RandomNeutralHue()));
                 AddItem(new FancyShirt(Utility.RandomDyedHue()));
-                Title = "aktor";
+                Title = "- aktor";
             }
 
             AddItem(new Boots(Utility.RandomNeutralHue()));

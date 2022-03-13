@@ -10,7 +10,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Bowyer()
-            : base("łukmistrz")
+            : base("- lukmistrz")
         {
             SetSkill(SkillName.Fletching, 80.0, 100.0);
             SetSkill(SkillName.Archery, 80.0, 100.0);

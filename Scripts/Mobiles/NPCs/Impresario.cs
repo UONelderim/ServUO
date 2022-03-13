@@ -9,7 +9,7 @@ namespace Server.Engines.Quests.Collector
     {
         [Constructable]
         public Impresario()
-            : base("impresario")
+            : base("- impresario")
         {
         }
 

@@ -8,7 +8,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Rebinil()
-            : base("the healer")
+            : base("- uzdrowiciel")
         {
             Name = "Rebinil";
         }

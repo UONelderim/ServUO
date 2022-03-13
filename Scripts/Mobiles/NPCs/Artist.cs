@@ -13,7 +13,7 @@ namespace Server.Mobiles
             SetSkill(SkillName.Healing, 36, 68);
 
             SpeechHue = Utility.RandomDyedHue();
-            Title = "artysta";
+            Title = "- artysta";
             Hue = Race.RandomSkinHue();
 
             if (Female = Utility.RandomBool())

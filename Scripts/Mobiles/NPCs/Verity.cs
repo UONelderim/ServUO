@@ -7,7 +7,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Verity()
-            : base("Verity", "the librarian")
+            : base("Verity", "- bibliotekarz")
         {
         }
 

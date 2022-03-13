@@ -6,7 +6,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Huntsman()
-            : base("Huntsman")
+            : base("- mysliwy")
         {
         }
 
