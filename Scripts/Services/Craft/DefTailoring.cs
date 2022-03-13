@@ -690,8 +690,8 @@ namespace Server.Engines.Craft
             AddRes(index, typeof(BloodOfTheDarkFather), 1157343, 5, 1044253);
             AddRes(index, typeof(DarkSapphire), 1032690, 4, 1044253);
             ForceNonExceptional(index);
-            AddRecipe(index, (int)TailorRecipe.CuffsOfTheArchmage);
-            #endregion*/
+            AddRecipe(index, (int)TailorRecipe.CuffsOfTheArchmage);*/
+            #endregion
 
             // Set the overridable material
             SetSubRes(typeof(Leather), 1049150);
