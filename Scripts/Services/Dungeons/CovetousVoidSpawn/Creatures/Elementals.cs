@@ -73,13 +73,13 @@ namespace Server.Mobiles
         }
     }
 
-    [CorpseName("a vortex elemental corpse")]
+    [CorpseName("resztki zywiolaka wirow")]
     public class VortexElemental : CovetousCreature
     {
         [Constructable]
         public VortexElemental() : base(AIType.AI_Melee)
         {
-            Name = "a vortex elemental";
+            Name = "zywiolak wirow";
             Body = 13;
             Hue = 0x4001;
             BaseSoundID = 655;
@@ -88,7 +88,7 @@ namespace Server.Mobiles
         [Constructable]
         public VortexElemental(int level, bool voidSpawn) : base(AIType.AI_Melee, level, voidSpawn)
         {
-            Name = "a vortex elemental";
+            Name = "zywiolak wirow";
             Body = 13;
             Hue = 0x4001;
             BaseSoundID = 655;
