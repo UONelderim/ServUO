@@ -9,16 +9,13 @@ namespace Server.Mobiles
 	[CorpseName("zwloki wielkiego demona hordy")]
 	public class GreaterHordeDaemon : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.20; } }
-
 		[Constructable]
 		public GreaterHordeDaemon() : base(AIType.AI_Melee, FightMode.Closest, 12, 1, 0.2, 0.4)
 		{
 			Name = "wielki demon hordy";
 			Body = 796;
 			BaseSoundID = 357;
-
-
+			
 			SetStr(616, 740);
 			SetDex(131, 160);
 			SetInt(121, 155);

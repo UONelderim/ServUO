@@ -11,7 +11,7 @@ namespace Server.Mobiles
 	public class Arachne : BaseCreature
 	{
 		// 10.10.2012 :: zombie
-		public override double DifficultyScalar { get { return 1.45; } }
+		public override double DifficultyScalar { get { return 1.05; } }
 		// zombie
 
 		[Constructable]

@@ -3,8 +3,6 @@ namespace Server.Mobiles
 	[CorpseName("zwloki mrocznej czelusci")]
 	public class MrocznaCzelusc : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.15; } }
-
 		[Constructable]
 		public MrocznaCzelusc() : base(AIType.AI_NecroMage, FightMode.Weakest, 12, 1, 0.2, 0.4)
 		{

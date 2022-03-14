@@ -9,7 +9,6 @@ namespace Server.Mobiles
 	[CorpseName("zwloki wielkiego demona zaglady")]
 	public class GreaterMoloch : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.20; } }
 		public override double AttackMasterChance { get { return 0.15; } }
 
 		[Constructable]

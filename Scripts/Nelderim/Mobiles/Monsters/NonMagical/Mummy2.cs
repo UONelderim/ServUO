@@ -9,7 +9,6 @@ namespace Server.Mobiles
 	[CorpseName("resztki mumii")]
 	public class Mummy2 : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.02; } }
 		public override bool BleedImmune { get { return true; } }
 
 		[Constructable]

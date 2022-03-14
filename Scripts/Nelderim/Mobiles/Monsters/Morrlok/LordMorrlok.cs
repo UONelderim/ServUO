@@ -9,7 +9,6 @@ namespace Server.Mobiles
 {
 	public class LordMorrlok : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.15; } }
 		public override double AttackMasterChance { get { return 0.15; } }
 
 		[Constructable]

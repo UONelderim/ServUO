@@ -15,7 +15,7 @@ namespace Server.Mobiles
 	[CorpseName("zwloki Dalharuk'a Elghinn'a")]
 	public class DalharukElghinn : BaseCreature
 	{
-		public override double DifficultyScalar => 1.40;
+		public override double DifficultyScalar => 1.10;
 		public override bool BardImmune => false;
 		public override double AttackMasterChance => 0.15;
 		public override double SwitchTargetChance => 0.15;

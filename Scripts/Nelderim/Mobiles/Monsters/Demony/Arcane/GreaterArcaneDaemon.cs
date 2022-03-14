@@ -9,8 +9,6 @@ namespace Server.Mobiles
 	[CorpseName("zwloki wielkiego demona cienia")]
 	public class GreaterArcaneDaemon : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.20; } }
-
 		[Constructable]
 		public GreaterArcaneDaemon() : base(AIType.AI_Boss, FightMode.Closest, 12, 1, 0.2, 0.4)
 		{
