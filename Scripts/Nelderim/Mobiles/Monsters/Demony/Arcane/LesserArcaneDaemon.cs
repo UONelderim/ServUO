@@ -9,8 +9,6 @@ namespace Server.Mobiles
 	[CorpseName("zwloki mniejszego demona cienia")]
 	public class LesserArcaneDaemon : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.10; } }
-
 		[Constructable]
 		public LesserArcaneDaemon() : base(AIType.AI_Boss, FightMode.Closest, 12, 2, 0.2, 0.4)
 		{

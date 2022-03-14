@@ -8,8 +8,6 @@ namespace Server.Mobiles
 {
 	public class LucznikMorrlok : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.10; } }
-
 		[Constructable]
 		public LucznikMorrlok() : base(AIType.AI_Archer, FightMode.Closest, 12, 4, 0.2, 0.4)
 		{

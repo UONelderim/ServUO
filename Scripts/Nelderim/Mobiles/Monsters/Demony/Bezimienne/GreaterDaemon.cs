@@ -9,7 +9,6 @@ namespace Server.Mobiles
 	[CorpseName("zwloki wielkiego bezimiennego demona")]
 	public class GreaterDaemon : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.20; } }
 		public override double AttackMasterChance { get { return 0.15; } }
 		public override double SwitchTargetChance { get { return 0.25; } }
 

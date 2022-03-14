@@ -9,8 +9,6 @@ namespace Server.Mobiles
 	[CorpseName("zwloki potwora morskiego")]
 	public class AncientSeaMonster : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.10; } }
-
 		[Constructable]
 		public AncientSeaMonster() : base(AIType.AI_Melee, FightMode.Weakest, 12, 1, 0.2, 0.4)
 		{

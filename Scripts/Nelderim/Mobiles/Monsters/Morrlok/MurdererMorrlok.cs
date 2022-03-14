@@ -9,7 +9,7 @@ namespace Server.Mobiles
 {
 	public class MordercaMorrlok : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.15; } }
+		public override double DifficultyScalar { get { return 1.05; } }
 		private Timer m_SoundTimer;
 		private bool m_HasTeleportedAway;
 

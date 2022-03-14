@@ -8,8 +8,6 @@ namespace Server.Mobiles
 {
 	public class JezdziecMorrlok : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.10; } }
-
 		[Constructable]
 		public JezdziecMorrlok() : base(AIType.AI_Melee, FightMode.Strongest, 12, 1, 0.1, 0.4)
 		{

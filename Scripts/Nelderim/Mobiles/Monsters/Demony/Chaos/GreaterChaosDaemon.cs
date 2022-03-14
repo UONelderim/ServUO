@@ -9,8 +9,6 @@ namespace Server.Mobiles
 	[CorpseName("zwloki wielkiego demona chaosu")]
 	public class GreaterChaosDaemon : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.20; } }
-
 		[Constructable]
 		public GreaterChaosDaemon() : base(AIType.AI_Melee, FightMode.Weakest, 12, 1, 0.2, 0.4)
 		{

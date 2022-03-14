@@ -6,8 +6,8 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-	[CorpseName("resztkii wladcy piaskow")]
-	public class WladcaPiaskowBoss : BaseCreature
+	[CorpseName("resztki wladcy piaskow")]
+	public class WladcaPiaskow : BaseCreature
 	{
 		public override double DifficultyScalar { get { return 1.05; } }
 		public override double AttackMasterChance { get { return 0.75; } }
@@ -18,7 +18,7 @@ namespace Server.Mobiles
 		public override bool AutoDispel { get { return true; } }
 
 		[Constructable]
-		public WladcaPiaskowBoss() : base(AIType.AI_Melee, FightMode.Closest, 13, 1, 0.25, 0.5)
+		public WladcaPiaskow() : base(AIType.AI_Melee, FightMode.Closest, 13, 1, 0.25, 0.5)
 		{
 			Body = 0x316;
 
@@ -122,7 +122,7 @@ namespace Server.Mobiles
 			}
 		}
 
-		public WladcaPiaskowBoss(Serial serial) : base(serial)
+		public WladcaPiaskow(Serial serial) : base(serial)
 		{
 		}
 
