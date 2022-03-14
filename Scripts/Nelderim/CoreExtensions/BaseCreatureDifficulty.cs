@@ -60,7 +60,7 @@ namespace Server.Mobiles
 		{
 			get
 			{
-				double dps = Math.Max(MeleeDPS, MagicDPS);
+				double dps = MeleeDPS + MagicDPS;
 
 				if (HitPoisonBonus > 0)
 					dps += dps * HitPoisonBonus;
