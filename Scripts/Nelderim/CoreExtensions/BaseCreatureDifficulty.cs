@@ -283,6 +283,7 @@ namespace Server.Mobiles
 
 		public double BaseDifficulty => DPS * Math.Max(0.01, Life);
 
+		//Use DifficultyScalar only if mobile have special modification/ability that changes difficulty and cannot be calculated automatically
 		public virtual double DifficultyScalar => 1.0;
 
 		public double GenerateDifficulty() => Math.Round(BaseDifficulty * DifficultyScalar, 4);
@@ -322,5 +323,73 @@ namespace Server.Mobiles
 		public override int Fame => Config.Get("Nelderim.CustomFameKarma", false) ? NelderimFame : base.Fame;
 
 		public override int Karma => Config.Get("Nelderim.CustomFameKarma", false) ? NelderimKarma : base.Karma;
+		
+		[CommandProperty(AccessLevel.GameMaster)]
+		public DifficultyLevelValue DifficultyLevel {
+			get => DifficultyLevelExt.Get(this).DifficultyLevel;
+			set
+			{
+				if(DifficultyLevelExt.Get(this).DifficultyLevel != DifficultyLevelValue.Normal)
+					DifficultyLevelExt.Restore(this);
+				
+				DifficultyLevelExt.Get(this).DifficultyLevel = value;
+				
+				if (value != DifficultyLevelValue.Normal)
+					DifficultyLevelExt.Apply(this);
+				
+				_Difficulty = GenerateDifficulty();
+			}
+		}
+
+		public virtual string DifficultyLevelPrefix
+		{
+			get
+			{
+				switch (DifficultyLevel)
+				{
+					case DifficultyLevelValue.VeryWeak: return "Bardzo slaby";
+					case DifficultyLevelValue.Weak: return "Slaby";
+					case DifficultyLevelValue.Lesser: return "Mniejszy";
+					case DifficultyLevelValue.Greater: return "Wiekszy";
+					case DifficultyLevelValue.Strong: return "Silny";
+					case DifficultyLevelValue.VeryStrong: return "Potezny";
+					default: return "";
+				}
+			}
+		}
+		
+		public virtual int DifficultyLevelBody
+		{
+			get
+			{
+				switch (DifficultyLevel)
+				{
+					case DifficultyLevelValue.VeryWeak:
+					case DifficultyLevelValue.Weak:
+					case DifficultyLevelValue.Lesser:
+					case DifficultyLevelValue.Greater:
+					case DifficultyLevelValue.Strong:
+					case DifficultyLevelValue.VeryStrong:
+					default: return BodyValue;
+				}
+			}
+		}
+		
+		public virtual int DifficultyLevelHue
+		{
+			get
+			{
+				switch (DifficultyLevel)
+				{
+					case DifficultyLevelValue.VeryWeak:
+					case DifficultyLevelValue.Weak:
+					case DifficultyLevelValue.Lesser:
+					case DifficultyLevelValue.Greater:
+					case DifficultyLevelValue.Strong:
+					case DifficultyLevelValue.VeryStrong:
+					default: return Hue;
+				}
+			}
+		}
 	}
 }
