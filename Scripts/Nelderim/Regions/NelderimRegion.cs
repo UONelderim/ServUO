@@ -19,11 +19,6 @@ namespace Server.Regions
 	{
 		private static ViolationsTimer m_Timer;
 		private readonly bool m_Allowed;
-		protected bool m_SeasonOverride;
-		protected SeasonList m_Season;
-
-		public bool SeasonOverride { get { return m_SeasonOverride; } }
-		public SeasonList Season { get { return m_Season; } }
 
 		public static void Initialize()
 		{
@@ -33,15 +28,12 @@ namespace Server.Regions
 			m_Timer.Start();
 		}
 
-		// 20.08.2012 :: zombie
 		public NelderimRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent)
 		{
 			string allowedAttrName = "allowed";
-			m_Allowed = xml.HasAttribute(allowedAttrName) && XmlConvert.ToInt32(xml.GetAttribute(allowedAttrName)) == 0
-				? false
-				: true;
+			m_Allowed = xml.HasAttribute(allowedAttrName) && XmlConvert.ToInt32(xml.GetAttribute(allowedAttrName)) == 0;
 		}
-		// 
+		 
 
 		public static List<Mobile> FirstWarning { get; private set; }
 
@@ -60,22 +52,6 @@ namespace Server.Regions
 
 		public override void OnEnter(Mobile m)
 		{
-			#region Seasons
-
-			//if ( m.Player )
-			//{
-			//	if ( !m_SeasonOverride )
-			//		m.Send( new SeasonChange( Map.Season ) );
-			//	else
-			//	{
-			//		m.Send( new SeasonChange( ( int ) Season ) );
-			//	}
-
-			//	m.CheckLightLevels( true );
-			//}
-
-			#endregion
-
 			#region zakazane regiony
 
 			if (m.Player && m.AccessLevel == AccessLevel.Player)

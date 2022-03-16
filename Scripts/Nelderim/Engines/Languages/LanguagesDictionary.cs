@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Server;
 
 #endregion
 
@@ -37,7 +38,7 @@ namespace Nelderim
 			ArrayList list = new ArrayList();
 			try
 			{
-				using (StreamReader sr = new StreamReader(String.Format("Data\\Languages\\{0}.txt", filename)))
+				using (StreamReader sr = new StreamReader(Path.Combine(Core.BaseDirectory,"Data", "Languages", $"{filename}.txt")))
 				{
 					string line;
 					while ((line = sr.ReadLine()) != null)

@@ -15,7 +15,7 @@
 			<guard type="2" file="DefaultHeavy" factor="1" span="1" female="0.5">
 				<races None="100" Tamael="0" Jarling="0" Naur="0" Elf="0" Drow="0" Krasnolud="0" />
 			</guard>
-      <guard type="3" file="DefaultMage" factor="1" span="1" female="0.5">
+      		<guard type="3" file="DefaultMage" factor="1" span="1" female="0.5">
 				<races None="100" Tamael="0" Jarling="0" Naur="0" Elf="0" Drow="0" Krasnolud="0" />
 			</guard>
 			<guard type="4" file="DefaultMounted" factor="1" span="1" female="0.5">
@@ -30,26 +30,11 @@
 		</guards>
 	</region>
 
-    <region name="Green_Acres" parent="Default">
+    <region name="GreenAcres" parent="Default">
     </region>
     <region name="Jail" parent="Default">
     </region>
-    
-    <region name="Komnaty_Stworzenia">
-    	<races None="100" Tamael="0" Jarling="0" Naur="0" Elf="0" Drow="0" Krasnolud="0" />
-    	<intolerance None="0" Tamael="0" Jarling="0" Naur="0" Elf="0" Drow="0" Krasnolud="0" />
-    </region>
-    <region name="KomnataStworzeniaTeleport" parent="Komnaty_Stworzenia">
-    </region>
-    <region name="KomnataLudzi" parent="Komnaty_Stworzenia">
-    </region>
-    <region name="KomnataElfow" parent="Komnaty_Stworzenia">
-    </region>
-    <region name="KomnataKrasnoludow" parent="Komnaty_Stworzenia">
-    </region>
-    <region name="KomnataDrowow" parent="Komnaty_Stworzenia">
-    </region>	
-	
+		
 	<region name="Cesarstwo" parent="Default">
 		<bannedschools magery="0" chivalry="0" necromancy="0" druidism="0" />
         <bannedfollowers summons="0" familiars="0" tammed="0" tammedlimit="60"/>
@@ -65,7 +50,7 @@
 			<guard type="2" file="CesarstwoHeavy" factor="1" span="1" female="0.5">
 				<races None="0" Tamael="100" Jarling="0" Naur="0" Elf="0" Drow="0" Krasnolud="0" />
 			</guard>
-      <guard type="3" file="CesarstwoMage" factor="1" span="1" female="0.5">
+      		<guard type="3" file="CesarstwoMage" factor="1" span="1" female="0.5">
 				<races None="0" Tamael="100" Jarling="0" Naur="0" Elf="0" Drow="0" Krasnolud="0" />
 			</guard>
 			<guard type="4" file="CesarstwoMounted" factor="1" span="1" female="0.5">
@@ -80,13 +65,11 @@
 		</guards>
 	</region>
 
-	<region name="Kryjowka_Przemytnikow" parent="Default">
+	<region name="KryjowkaPrzemytnikow" parent="Default">
     	<races None="0" Tamael="25" Jarling="25" Naur="30" Elf="0" Drow="0" Krasnolud="20" />
     </region>
-    <region name="PodWesolymUrwiglowa" parent="Kryjowka_Przemytnikow">
-    </region>
-    <region name="Przemytnikow_Kopalnia" parent="Kryjowka_Przemytnikow">
-    </region>
+    <region name="PodWesolymUrwiglowa" parent="KryjowkaPrzemytnikow"/>
+    <region name="ZagubionaKopalnia" parent="KryjowkaPrzemytnikow"/>
 
 	
 	<region name="Tasandora" parent="Cesarstwo">
@@ -104,7 +87,7 @@
 			<guard type="2" file="CesarstwoHeavy" factor="1" span="1" female="0.5">
 				<races None="0" Tamael="100" Jarling="0" Naur="0" Elf="0" Drow="0" Krasnolud="0" />
 			</guard>
-      <guard type="3" file="CesarstwoMage" factor="1" span="1" female="0.5">
+      		<guard type="3" file="CesarstwoMage" factor="1" span="1" female="0.5">
 				<races None="0" Tamael="100" Jarling="0" Naur="0" Elf="0" Drow="0" Krasnolud="0" />
 			</guard>
 			<guard type="4" file="CesarstwoMounted" factor="1" span="1" female="0.5">
@@ -118,37 +101,27 @@
 			</guard>
 		</guards>
 	</region>
-    <region name="Tasandora_Kopalnia" parent="Tasandora">
-    </region>
-    <region name="PodGlowaSmoka" parent="Tasandora">
-    </region>
-    <region name="CichySwit" parent="Tasandora">
-    </region>
-    <region name="Mordownia" parent="Tasandora">
-    </region>
-    <region name="BeczulkaRumu" parent="Tasandora">
-    </region>
-     <region name="SwiatyniaStworzenia" parent="Tasandora"> 	
-    </region>
-     <region name="SwiatyniaKonca" parent="Tasandora">    	
-    </region>
-     <region name="DrzewoZycia" parent="Tasandora">  	 
-    </region>
+	<region name="Tasandora_Kopalnia" parent="Tasandora"/>
+	<region name="PodGlowaSmoka" parent="Tasandora"/>
+	<region name="CichySwit" parent="Tasandora"/>
+	<region name="Mordownia" parent="Tasandora"/>
+	<region name="BeczulkaRumu" parent="Tasandora"/>
+	<region name="SwiatyniaStworzenia" parent="Tasandora"/>
+	<region name="SwiatyniaKonca" parent="Tasandora"/>
+	<region name="DrzewoZycia" parent="Tasandora"/>
 
     <region name="Ferion" parent="Cesarstwo">
 		<bannedschools magery="0" chivalry="0" necromancy="1" druidism="0" />
         <bannedfollowers summons="0" familiars="1" tammed="0" tammedlimit="60"/>
     	<races None="0" Tamael="80" Jarling="10" Naur="0" Elf="0" Drow="0" Krasnolud="10"  />
     </region>
-    <region name="Bryza" parent="Ferion">
-    </region>
+	<region name="Bryza" parent="Ferion"/>
     <region name="Tafroel" parent="Cesarstwo">
 		<bannedschools magery="0" chivalry="0" necromancy="1" druidism="0" />
         <bannedfollowers summons="0" familiars="1" tammed="0" tammedlimit="60"/>
     	<races None="0" Tamael="80" Jarling="10" Naur="0" Elf="0" Drow="0" Krasnolud="10"  />
     </region>
-    <region name="PodLisciemKlonu" parent="Tafroel">
-    </region>
+	<region name="PodLisciemKlonu" parent="Tafroel"/>
     <region name="Talas" parent="Cesarstwo">
 		<bannedschools magery="0" chivalry="0" necromancy="1" druidism="0" />
         <bannedfollowers summons="0" familiars="1" tammed="0" tammedlimit="60"/>
@@ -171,8 +144,7 @@
         <bannedfollowers summons="0" familiars="1" tammed="0" tammedlimit="60"/>
     	<races None="0" Tamael="80" Jarling="10" Naur="0" Elf="0" Drow="0" Krasnolud="10"  />
     </region>
-    <region name="Hirneth" parent="Cesarstwo">
-    </region>
+	<region name="Hirneth" parent="Cesarstwo"/>
     <region name="Orod" parent="Cesarstwo">
 		<bannedschools magery="0" chivalry="0" necromancy="1" druidism="0" />
         <bannedfollowers summons="0" familiars="1" tammed="0" tammedlimit="60"/>
@@ -196,35 +168,20 @@
     		</guard>
     	</guards>
     </region>
-    <region name="Orod_Kopalnia" parent="Orod">
-    </region>
-    <region name="SrebrzystyDzban" parent="Orod">
-    </region>
-    <region name="Ethrod" parent="Cesarstwo">
-    </region>
-    <region name="Ethrod_Kopalnia" parent="Ethrod">
-    </region>
-    <region name="Elbrind" parent="Cesarstwo">
-    </region>
-    <region name="Barad-dur" parent="Cesarstwo">
-    </region>
-    <region name="Ruth" parent="Cesarstwo">
-    </region>
-    <region name="Alcala" parent="Cesarstwo">
-    </region>
-    <region name="Belegost" parent="Cesarstwo">
-    </region>
-    <region name="Hurengrav" parent="Cesarstwo">
-    </region>
-    <region name="SwiatyniaHurengrav" parent="Cesarstwo">  	
-    </region>
-    <region name="SwiatyniaHirneth" parent="Cesarstwo">    	
-    </region>
-    
-    <region name="Lesniczowka" parent="Cesarstwo">
-    </region>
-    
-    <region name="Przemytnikow" parent="Default">
+	<region name="Orod_Kopalnia" parent="Orod"/>
+	<region name="SrebrzystyDzban" parent="Orod"/>
+	<region name="Ethrod" parent="Cesarstwo"/>
+	<region name="Ethrod_Kopalnia" parent="Ethrod"/>
+	<region name="Elbrind" parent="Cesarstwo"/>
+	<region name="BaradDur" parent="Cesarstwo"/>
+	<region name="Ruth" parent="Cesarstwo"/>
+	<region name="Alcala" parent="Cesarstwo"/>
+	<region name="Belegost" parent="Cesarstwo"/>
+	<region name="Hurengrav" parent="Cesarstwo"/>
+	<region name="SwiatyniaHurengrav" parent="Cesarstwo"/>
+	<region name="SwiatyniaHirneth" parent="Cesarstwo"/>
+	<region name="Lesniczowka" parent="Cesarstwo"/>
+    <region name="JaskiniaPrzemytnikow" parent="Default">
     	<races None="0" Tamael="0" Jarling="0" Naur="0" Elf="0" Drow="100" Krasnolud="0" />
     	<guards>
     		<guard type="0" file="PodmrokStandard" factor="0.8" span="0.6" female="0.75">
@@ -241,9 +198,7 @@
     		</guard>
    		</guards>
     </region>
-    <region name="Jaskinia_Drowow" parent="Przemytnikow">
-    </region>
-    
+	<region name="JaskiniaDrowow" parent="JaskiniaPrzemytnikow"/>
     
     <region name="Twierdza" parent="Default">
     	<intolerance None="0" Tamael="10" Jarling="10" Naur="20" Elf="20" Drow="20" Krasnolud="0" />
@@ -268,76 +223,65 @@
     		</guard>
     	</guards>
     </region>
-    <region name="Twierdza_Kopalnia" parent="Cesarstwo">
-    </region>
-    <region name="PodZelaznymMlotem" parent="Twierdza">
-    </region>
-    
-  
+	<region name="Twierdza_Kopalnia" parent="Cesarstwo"/>
+	<region name="PodZelaznymMlotem" parent="Twierdza"/>
+      
     <region name="Geriador" parent="Default">
-    <bannedschools magery="0" chivalry="0" necromancy="0" druidism="0"/>
-    <races None="0" Tamael="20" Jarling="60" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
-    <intolerance None="0" Tamael="0" Jarling="0" Naur="20" Elf="10" Drow="100" Krasnolud="0" />
-    <guards>
-    	<guard type="0" file="GeriadorStandard" factor="0.9" span="0.667" female="0.5">
-    		<races None="0" Tamael="20" Jarling="60" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
-    	</guard>
-		<guard type="1" file="GeriadorArcher" factor="0.9" span="0.667" female="0.5">
-    		<races None="0" Tamael="20" Jarling="60" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
-    	</guard>
-		<guard type="2" file="GeriadorHeavy" factor="0.9" span="0.667" female="0.5">
-    		<races None="0" Tamael="20" Jarling="60" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
-    	</guard>
-		<guard type="3" file="GeriadorMage" factor="0.9" span="0.667" female="0.5">
-    		<races None="0" Tamael="20" Jarling="60" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
-    	</guard>
-    	<guard type="4" file="GeriadorMounted" factor="0.9" span="0.667" female="0.5">
-    		<races None="0" Tamael="20" Jarling="60" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
-    	</guard>
-    	<guard type="5" file="GeriadorElite" factor="0.9" span="0.667" female="0.5">
-    		<races None="0" Tamael="20" Jarling="60" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
-    	</guard>
-		
-    </guards>
+		<bannedschools magery="0" chivalry="0" necromancy="0" druidism="0"/>
+		<races None="0" Tamael="20" Jarling="60" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
+		<intolerance None="0" Tamael="0" Jarling="0" Naur="20" Elf="10" Drow="100" Krasnolud="0" />
+		<guards>
+			<guard type="0" file="GeriadorStandard" factor="0.9" span="0.667" female="0.5">
+				<races None="0" Tamael="20" Jarling="60" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
+			</guard>
+			<guard type="1" file="GeriadorArcher" factor="0.9" span="0.667" female="0.5">
+				<races None="0" Tamael="20" Jarling="60" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
+			</guard>
+			<guard type="2" file="GeriadorHeavy" factor="0.9" span="0.667" female="0.5">
+				<races None="0" Tamael="20" Jarling="60" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
+			</guard>
+			<guard type="3" file="GeriadorMage" factor="0.9" span="0.667" female="0.5">
+				<races None="0" Tamael="20" Jarling="60" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
+			</guard>
+			<guard type="4" file="GeriadorMounted" factor="0.9" span="0.667" female="0.5">
+				<races None="0" Tamael="20" Jarling="60" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
+			</guard>
+			<guard type="5" file="GeriadorElite" factor="0.9" span="0.667" female="0.5">
+				<races None="0" Tamael="20" Jarling="60" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
+			</guard>
+		</guards>
     </region>
     <region name="Garlan" parent="Geriador">
     	<bannedfollowers summons="1" familiars="1" tammed="0" tammedlimit="60"/>
 		<races None="0" Tamael="0" Jarling="80" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
     	<guards>
-    	<guard type="0" file="GeriadorStandard" factor="0.9" span="0.667" female="0.5">
-    		<races None="0" Tamael="0" Jarling="80" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
-    	</guard>
-		<guard type="1" file="GeriadorArcher" factor="0.9" span="0.667" female="0.5">
-    		<races None="0" Tamael="0" Jarling="80" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
-    	</guard>
-		<guard type="2" file="GeriadorHeavy" factor="0.9" span="0.667" female="0.5">
-    		<races None="0" Tamael="0" Jarling="80" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
-    	</guard>
-		<guard type="3" file="GeriadorMage" factor="0.9" span="0.667" female="0.5">
-    		<races None="0" Tamael="0" Jarling="80" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
-    	</guard>
-    	<guard type="4" file="GeriadorMounted" factor="0.9" span="0.667" female="0.5">
-    		<races None="0" Tamael="0" Jarling="80" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
-    	</guard>
-    	<guard type="5" file="GeriadorElite" factor="0.9" span="0.667" female="0.5">
-    		<races None="0" Tamael="0" Jarling="80" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
-    	</guard>
+			<guard type="0" file="GeriadorStandard" factor="0.9" span="0.667" female="0.5">
+				<races None="0" Tamael="0" Jarling="80" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
+			</guard>
+			<guard type="1" file="GeriadorArcher" factor="0.9" span="0.667" female="0.5">
+				<races None="0" Tamael="0" Jarling="80" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
+			</guard>
+			<guard type="2" file="GeriadorHeavy" factor="0.9" span="0.667" female="0.5">
+				<races None="0" Tamael="0" Jarling="80" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
+			</guard>
+			<guard type="3" file="GeriadorMage" factor="0.9" span="0.667" female="0.5">
+				<races None="0" Tamael="0" Jarling="80" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
+			</guard>
+			<guard type="4" file="GeriadorMounted" factor="0.9" span="0.667" female="0.5">
+				<races None="0" Tamael="0" Jarling="80" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
+			</guard>
+			<guard type="5" file="GeriadorElite" factor="0.9" span="0.667" female="0.5">
+				<races None="0" Tamael="0" Jarling="80" Naur="0" Elf="0" Drow="0" Krasnolud="20" />
+			</guard>
     	</guards>
     </region>
-    <region name="WesolaMlynareczka" parent="Garlan">
-    </region>
-     <region name="Garlan_Kopalnia" parent="Garlan">
-    </region>
-     <region name="AltarPrawosciIHonoru" parent="Garlan">   	
-    </region>
-    <region name="Sniezna_Przystan" parent="Geriador">
-    </region>
-    <region name="Cirith-dur" parent="Geriador">
-    </region>
-    <region name="Saew" parent="Geriador">
-    </region>    
-   
-    
+	<region name="WesolaMlynareczka" parent="Garlan"/>
+	<region name="Garlan_Kopalnia" parent="Garlan"/>
+	<region name="AltarPrawosciIHonoru" parent="Garlan"/>
+	<region name="SnieznaPrzystan" parent="Geriador"/>
+	<region name="CirithDur" parent="Geriador"/>
+	<region name="Saew" parent="Geriador"/>    
+       
     <region name="Orda" parent="Default">
       	<races None="0" Tamael="10" Jarling="10" Naur="70" Elf="0" Drow="0" Krasnolud="10" />
       	<intolerance None="0" Tamael="20" Jarling="20" Naur="0" Elf="20" Drow="100" Krasnolud="10" /> 
@@ -356,26 +300,17 @@
     		</guard>
     	</guards>
     </region>
-    <region name="Thila" parent="Orda">
-    </region>
-    <region name="inik" parent="Thila">
-    </region>
-    <region name="HarlElghinyrrokOrbb" parent="Thila">
-    </region>
-    <region name="Oaza" parent="Orda">
-    </region>
-    <region name="plakla_niar" parent="Oaza">
-    </region>
-    <region name="Grobowce_Naurow" parent="Orda">
-    </region>
-    <region name="Naur" parent="Orda">
-    </region>
-    
-    
-    <region name="Lotharn_Panstwo" parent="Default">
-    </region>
-    <region name="Lotharn" parent="Lotharn_Panstwo">
-    </region>
+	<region name="Thila" parent="Orda"/>
+	<region name="inik" parent="Thila"/>
+	<region name="HarlElghinyrrokOrbb" parent="Thila"/>
+	<region name="Oaza" parent="Orda"/>
+	<region name="PlaklaNiar" parent="Oaza"/>
+	<region name="GrobowceNaurow" parent="Orda"/>
+	<region name="Naur" parent="Orda"/>
+
+
+	<region name="Lotharn_Panstwo" parent="Default"/>
+	<region name="Lotharn" parent="Lotharn_Panstwo"/>
     
     <region name="Falas" parent="Default">
     	<intolerance None="0" Tamael="10" Jarling="0" Naur="10" Elf="10" Drow="10" Krasnolud="10" />
@@ -395,10 +330,8 @@
     		</guard>
     	</guards>
     </region>
-    <region name="Shamordar" parent="Falas">
-    </region>
-    <region name="Hernport" parent="Falas">
-    </region>
+	<region name="Shamordar" parent="Falas"/>
+	<region name="Hernport" parent="Falas"/>
     <region name="Tirassa" parent="Falas">
     	<bannedfollowers summons="1" familiars="1" tammed="0" tammedlimit="60"/>
     	<races None="0" Tamael="40" Jarling="30"  Naur="0"  Elf="0" Drow="0" Krasnolud="30" /> 
@@ -417,65 +350,49 @@
     		</guard>
     	</guards>
     </region>
-    <region name="Nintayl" parent="Falas">
-    </region>    
-    
-    <region name="Pedanin" parent="Default"> 
-    </region>
-    
-    <region name="Edhil" parent="Default">
-    </region>
-    <region name="Imloth" parent="Default">
-    </region>
-    <region name="Aegas" parent="Default">
-    </region>  
+	<region name="Nintayl" parent="Falas"/>
+	
+	<region name="Pedanin" parent="Default"/>
+	<region name="Edhil" parent="Default"/>
+	<region name="Imloth" parent="Default"/>
+	<region name="Aegas" parent="Default"/>  
 
-    <region name="Arnad-i-Edhil" parent="Default">
-    <bannedschools magery="0" chivalry="0" necromancy="0" druidism="0"/>
-    <races None="0" Tamael="0" Jarling="0" Naur="0" Elf="100" Drow="0" Krasnolud="0" />
-    <intolerance None="0" Tamael="20" Jarling="20" Naur="20" Elf="0" Drow="100" Krasnolud="20" />
-    <guards>
-    	<guard type="0" file="ElfyStandard" factor="0.95" span="0.95" female="0.5">
-    		<races None="0" Tamael="0" Jarling="0" Naur="0" Elf="100" Drow="0" Krasnolud="0" />
-    	</guard>
-    	<guard type="1" file="ElfyMounted" factor="0.95" span="0.95" female="0.5">
-    		<races None="0" Tamael="0" Jarling="0" Naur="0" Elf="100" Drow="0" Krasnolud="0" />
-    	</guard>
-    	<guard type="2" file="ElfyArcher" factor="0.95" span="0.95" female="0.5">
-    		<races None="0" Tamael="0" Jarling="0" Naur="0" Elf="100" Drow="0" Krasnolud="0" />
-    	</guard>
-    	<guard type="3" file="ElfyElite" factor="0.95" span="0.95" female="0.5">
-    		<races None="0" Tamael="0" Jarling="0" Naur="0" Elf="100" Drow="0" Krasnolud="0" />
-    	</guard>
-    	<guard type="4" file="ElfySpecial" factor="0.95" span="0.95" female="0.5">
-    		<races None="0" Tamael="0" Jarling="0" Naur="0" Elf="100" Drow="0" Krasnolud="0" />
-    	</guard>
-    </guards>
+    <region name="ArnadIEdhil" parent="Default">
+		<bannedschools magery="0" chivalry="0" necromancy="0" druidism="0"/>
+		<races None="0" Tamael="0" Jarling="0" Naur="0" Elf="100" Drow="0" Krasnolud="0" />
+		<intolerance None="0" Tamael="20" Jarling="20" Naur="20" Elf="0" Drow="100" Krasnolud="20" />
+		<guards>
+			<guard type="0" file="ElfyStandard" factor="0.95" span="0.95" female="0.5">
+				<races None="0" Tamael="0" Jarling="0" Naur="0" Elf="100" Drow="0" Krasnolud="0" />
+			</guard>
+			<guard type="1" file="ElfyMounted" factor="0.95" span="0.95" female="0.5">
+				<races None="0" Tamael="0" Jarling="0" Naur="0" Elf="100" Drow="0" Krasnolud="0" />
+			</guard>
+			<guard type="2" file="ElfyArcher" factor="0.95" span="0.95" female="0.5">
+				<races None="0" Tamael="0" Jarling="0" Naur="0" Elf="100" Drow="0" Krasnolud="0" />
+			</guard>
+			<guard type="3" file="ElfyElite" factor="0.95" span="0.95" female="0.5">
+				<races None="0" Tamael="0" Jarling="0" Naur="0" Elf="100" Drow="0" Krasnolud="0" />
+			</guard>
+			<guard type="4" file="ElfySpecial" factor="0.95" span="0.95" female="0.5">
+				<races None="0" Tamael="0" Jarling="0" Naur="0" Elf="100" Drow="0" Krasnolud="0" />
+			</guard>
+		</guards>
     </region>
-    
-    <region name="Enedh-en-Glad" parent="Arnad-i-Edhil"> 
-    </region>
-    <region name="MalthenAmlug" parent="Enedh-en-Glad"> 
-    </region>
-    <region name="Kopalnia_Elfow" parent="Enedh-en-Glad"> 
-    </region>
-    <region name="DrzewoPoczatku" parent="Enedh-en-Glad"> 
-    </region>
-    
-    <region name="Lotharn_Panstwo" parent="Default">
-    </region>
-    <region name="Lotharn" parent="Lotharn_Panstwo">
-    </region>
-    
-    <region name="Edhil_Panstwo" parent="Default">
-    </region>
-    <region name="Edhil" parent="Edhil_Panstwo">
-    </region>
-    
-    <region name="Pedanin_Panstwo" parent="Default">
-    </region>
-    <region name="Pedanin" parent="Pedanin_Panstwo">
-    </region>    
+
+	<region name="EnedhEnGlad" parent="ArnadIEdhil"/>
+	<region name="MalthenAmlug" parent="EnedhEnGlad"/>
+	<region name="Enedh_Kopalnia" parent="EnedhEnGlad"/>
+	<region name="DrzewoPoczatku" parent="EnedhEnGlad"/>
+
+	<region name="Lotharn_Panstwo" parent="Default"/>
+	<region name="Lotharn" parent="Lotharn_Panstwo"/>
+
+	<region name="Edhil_Panstwo" parent="Default"/>
+	<region name="Edhil" parent="Edhil_Panstwo"/>
+
+	<region name="Pedanin_Panstwo" parent="Default"/>
+	<region name="Pedanin" parent="Pedanin_Panstwo"/>    
 
     <region name="Podmrok_A" parent="Default">
     	<intolerance None="0" Tamael="80" Jarling="80" Naur="80" Elf="100" Drow="0" Krasnolud="40" />
@@ -496,162 +413,20 @@
     		</guard>
    		</guards>
     </region>
-    <region name="Wioska_Drowow" parent="Podmrok_A">
-    </region>
-    <region name="Podmroku" parent="Podmrok_A">
-    </region>
-    <region name="Kryjowka_Drowow" parent="Podmrok_A">
-    </region>
-    <region name="SwiatyniaLoethe" parent="Podmrok_A">
-    </region>
-    <region name="Podmrok_C" parent="Podmrok_A">
-    </region>
-    <region name="MiastoDrowow" parent="Podmrok_A">
-    </region>
-    <region name="SwiatyniaLoethe_2" parent="Podmrok_A">
-    </region>
-    <region name="KarczmaDrowow" parent="Podmrok_A">
-    </region>	
-<!--	<region name="Bedwyrgard" parent="Default">
-		<bannedschools magery="0" chivalry="0" necromancy="0" druidism="0" />
-		<races None="0" Norstyg="100" Joramita="0" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-		<intolerance None="10" Norstyg="10" Joramita="10" Darkelota="20" Rewianczyk="10" Elf="10" Drow="10" Krasnolud="10" Arkan="10" />
-		<guards>
-			<guard type="0" file="NorstygStandard" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="100" Joramita="0" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="1" file="NorstygArcher" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="100" Joramita="0" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="2" file="NorstygHeavy" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="100" Joramita="0" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-            <guard type="3" file="NorstygMage" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="100" Joramita="0" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="4" file="NorstygMounted" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="100" Joramita="0" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="5" file="NorstygElite" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="100" Joramita="0" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-		</guards>
-	</region>
-    
-    <region name="Nehkrumorgh" parent="Default">
-		<bannedschools magery="0" chivalry="0" necromancy="0" druidism="0" />
-		<races None="0" Norstyg="0" Joramita="0" Darkelota="100" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-		<intolerance None="10" Norstyg="10" Joramita="10" Darkelota="10" Rewianczyk="10" Elf="10" Drow="10" Krasnolud="10" Arkan="10" />
-		<guards>
-			<guard type="0" file="DarkelotaStandard" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="0" Darkelota="100" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="1" file="DarkelotaArcher" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="0" Darkelota="100" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="2" file="DarkelotaHeavy" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="0" Darkelota="100" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-            <guard type="3" file="DarkelotaMage" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="0" Darkelota="100" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="4" file="DarkelotaMounted" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="0" Darkelota="100" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="5" file="DarkelotaElite" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="0" Darkelota="100" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-		</guards>
-	</region>
-    
-    <region name="Malluan" parent="Default">
-		<bannedschools magery="0" chivalry="0" necromancy="0" druidism="0" />
-		<races None="0" Norstyg="0" Joramita="0" Darkelota="0" Rewianczyk="100" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-		<intolerance None="10" Norstyg="40" Joramita="10" Darkelota="15" Rewianczyk="10" Elf="10" Drow="10" Krasnolud="10" Arkan="10" />
-		<guards>
-			<guard type="0" file="RewianczykStandard" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="0" Darkelota="0" Rewianczyk="100" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="1" file="RewianczykArcher" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="0" Darkelota="0" Rewianczyk="100" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="2" file="RewianczykHeavy" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="0" Darkelota="0" Rewianczyk="100" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-            <guard type="3" file="RewianczykMage" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="0" Darkelota="0" Rewianczyk="100" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="4" file="RewianczykMounted" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="0" Darkelota="0" Rewianczyk="100" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="5" file="RewianczykElite" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="0" Darkelota="0" Rewianczyk="100" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-		</guards>
-	</region>
-    
-    <region name="Magizhaar" parent="Default">
-		<bannedschools magery="0" chivalry="0" necromancy="0" druidism="0" />
-		<races None="0" Norstyg="0" Joramita="100" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-		<intolerance None="10" Norstyg="10" Joramita="10" Darkelota="10" Rewianczyk="10" Elf="10" Drow="10" Krasnolud="10" Arkan="10" />
-		<guards>
-			<guard type="0" file="JoramitaStandard" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="100" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="1" file="JoramitaArcher" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="100" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="2" file="JoramitaHeavy" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="100" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-            <guard type="3" file="JoramitaMage" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="100" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="4" file="JoramitaMounted" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="100" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="5" file="JoramitaElite" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="100" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-		</guards>
-	</region>
-
-    <region name="Dziki Port" parent="Default">
-		<bannedschools magery="0" chivalry="0" necromancy="0" druidism="0" />
-		<races None="0" Norstyg="25" Joramita="25" Darkelota="25" Rewianczyk="25" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-		<intolerance None="90" Norstyg="20" Joramita="20" Darkelota="20" Rewianczyk="20" Elf="30" Drow="30" Krasnolud="30" Arkan="30" />
-		<guards>
-			<guard type="0" file="JoramitaStandard" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="100" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="1" file="JoramitaArcher" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="100" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="2" file="JoramitaHeavy" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="100" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-            <guard type="3" file="JoramitaMage" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="100" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="4" file="JoramitaMounted" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="100" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-			<guard type="5" file="JoramitaElite" factor="1" span="1" female="0.5">
-				<races None="0" Norstyg="0" Joramita="100" Darkelota="0" Rewianczyk="0" Elf="0" Drow="0" Krasnolud="0" Arkan="0" />
-			</guard>
-		</guards>
-	</region>
--->	
-	<region name="NamedMine" parent="Default">
-		<oreveins Iron="53.8" DullCopper="10.0" ShadowIron="8.5" Copper="7.2" Bronze="5.5" Gold="4.0" Agapite="0.0" Verite="11.0" Valorite="0.0" />
-	</region>	
-	
-	<region name="NamedForest" parent="Default">
-		<woodveins Wood="69.0" Oak="15.0" Ash="10.0" Yew="3.0" Heartwood="3.0" Bloodwood="0.0" Frostwood="0.0" />
-	</region>
+	<region name="WioskaDrowow" parent="Podmrok_A"/>
+	<region name="Podmroku" parent="Podmrok_A"/>
+<!--	<region name="Kryjowka_Drowow" parent="Podmrok_A"/>-->
+	<region name="SwiatyniaLoethe" parent="Podmrok_A"/>
+	<region name="Podmrok_C" parent="Podmrok_A"/>
+	<region name="MiastoDrowow" parent="Podmrok_A"/>
+	<region name="SwiatyniaLoethe_2" parent="Podmrok_A"/>
+	<region name="KarczmaDrowow" parent="Podmrok_A"/>	
 
 	<region name="ArtTrader" parent="Default">
 		<races None="100" Tamael="0" Jarling="0" Naur="0" Elf="0" Drow="0" Krasnolud="0" Female="0.5"/>
 	</region>
 	
+	<region name="Wulkan_LVL1" parent="Default">
+		<difficultyLevel Normal="80" Greater="20"/>
+	</region>
 </NelderimRegions>

@@ -1,5 +1,7 @@
 #region References
 
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using static System.Text.RegularExpressions.RegexOptions;
 
@@ -23,6 +25,22 @@ namespace Server
 			}
 
 			return chances.Length - 1;
+		}
+
+		public static T RandomWeigthed<T>(Dictionary<T, int> weightedItems)
+		{
+			if (weightedItems != null)
+			{
+				var sum = weightedItems.Values.Sum();
+				var rnd = Random(sum);
+				foreach (var keyValue in weightedItems)
+				{
+					if (rnd < keyValue.Value)
+						return keyValue.Key;
+					rnd -= keyValue.Value;
+				}
+			}
+			return default;
 		}
 
 		public static Direction GetDirection(int xSource, int ySource, int xDest, int yDest)
