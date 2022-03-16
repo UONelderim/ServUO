@@ -746,7 +746,7 @@
 			<rect x="3265" y="1641" width="10" height="29" />
 			<music name="ElfCity" />
 		</region>
-		<region type="CityRegion" name="Enedh-en-Glad">
+		<region type="CityRegion" name="EnedhEnGlad">
 			<rect x="3508" y="1466" width="109" height="132" />
 			<rect x="3495" y="1489" width="13" height="35" />
 			<rect x="3460" y="1536" width="48" height="67" />

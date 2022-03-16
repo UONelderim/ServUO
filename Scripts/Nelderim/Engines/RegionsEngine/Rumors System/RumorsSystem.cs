@@ -12,7 +12,7 @@ namespace Server.Nelderim
 {
 	public class RumorsSystem
 	{
-		private static readonly string SaveFolder = "Data/NelderimRegions";
+		private static readonly string SaveFolder = Path.Combine(Core.BaseDirectory, "Data", "NelderimRegions");
 		public static AccessLevel m_AccessLevel = AccessLevel.Administrator;
 
 		public static List<RumorRecord> RumorsList { get; }

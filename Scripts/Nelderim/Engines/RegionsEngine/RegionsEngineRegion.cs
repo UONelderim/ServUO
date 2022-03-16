@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Server.Mobiles;
+
 namespace Server.Nelderim
 {
 	public class RegionsEngineRegion
@@ -13,6 +16,7 @@ namespace Server.Nelderim
 			TameLimit = 0;
 			Intolerance = null;
 			ResourceVeins = null;
+			DifficultyLevelWeights = new Dictionary<DifficultyLevelValue, int>();
 		}
 
 		public string Name { get; }
@@ -21,16 +25,10 @@ namespace Server.Nelderim
 
 		public Population RegionPopulation { get; set; }
 
-		public Race GetRace
-		{
-			get { return RegionPopulation.GetRace; }
-		}
+		public Race GetRace => RegionPopulation.GetRace;
 
 
-		public double GetFemaleChance
-		{
-			get { return RegionPopulation.Female; }
-		}
+		public double GetFemaleChance => RegionPopulation.Female;
 
 		public GuardEngine[] Guards { get; set; }
 
@@ -85,5 +83,7 @@ namespace Server.Nelderim
 		public int[] Intolerance { get; set; }
 
 		public double[] ResourceVeins { get; set; }
+		
+		public Dictionary<DifficultyLevelValue, int> DifficultyLevelWeights { get; set; }
 	}
 }

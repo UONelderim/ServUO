@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Xml;
 using Nelderim.Races;
@@ -19,17 +20,12 @@ namespace Server.Nelderim
 {
 	public class RegionsEngine
 	{
-		#region pola
-
+		public static readonly string NelderimRegionsDirectory = Path.Combine(Core.BaseDirectory, "Data", "NelderimRegions");
+		public static readonly string NelderimRegionsFile = Path.Combine(NelderimRegionsDirectory, "NelderimRegions.xml");
 		public static List<RegionsEngineRegion> NelderimRegions { get; private set; }
-
-		#endregion
-
-		#region konstruktory i inicjalizacja
 
 		public RegionsEngine()
 		{
-			NelderimRegions = new List<RegionsEngineRegion>();
 			Load();
 		}
 
@@ -40,19 +36,15 @@ namespace Server.Nelderim
 			CommandSystem.Register("RELoad", AccessLevel.Administrator, RELoad_OnCommand);
 			CommandSystem.Register("RESave", AccessLevel.Administrator, RESave_OnCommand);
 			RumorsSystem.Load();
+			EventSink.MobileCreated += OnCreate;
+			EventSink.OnEnterRegion += OnEnterRegion
+				;
 		}
-
-		#endregion
-
-		#region metody
-
-		#region Load & Save
 
 		[Usage("RELoad")]
 		[Description("Wgrywa informacje o regionach (RegionsEngine).")]
 		public static void RELoad_OnCommand(CommandEventArgs e)
 		{
-			NelderimRegions = new List<RegionsEngineRegion>();
 			e.Mobile.SendMessage("Wczytuje regiony Nelderim...");
 
 			if (Load())
@@ -75,18 +67,19 @@ namespace Server.Nelderim
 
 		public static bool Load()
 		{
+			NelderimRegions = new List<RegionsEngineRegion>();
 			Console.Write("NelderimRegions: Wczytywanie...");
 
 			try
 			{
-				if (!File.Exists("Data/NelderimRegions/NelderimRegions.xml"))
+				if (!File.Exists(NelderimRegionsFile))
 				{
 					Console.WriteLine("Error: NelderimRegions.xml does not exist");
 					return false;
 				}
 
 				XmlDocument doc = new XmlDocument();
-				doc.Load("Data/NelderimRegions/NelderimRegions.xml");
+				doc.Load(NelderimRegionsFile);
 
 				XmlElement root = doc["NelderimRegions"];
 
@@ -282,7 +275,7 @@ namespace Server.Nelderim
 							double factor = XmlConvert.ToDouble(guard.GetAttribute("factor"));
 							double span = XmlConvert.ToDouble(guard.GetAttribute("span"));
 							double female = XmlConvert.ToDouble(guard.GetAttribute("female"));
-							string file = "Data/NelderimRegions/Profiles/" + guard.GetAttribute("file") + ".xml";
+							string file = Path.Combine(NelderimRegionsDirectory, "Profiles", $"{guard.GetAttribute("file")}.xml");
 							int[] guards = new int[NRace.AllRaces.Count];
 							int sum = 0;
 
@@ -308,7 +301,22 @@ namespace Server.Nelderim
 					}
 
 					#endregion
+					
+					XmlElement difficultyLevelXml = reg["difficultyLevel"];
+					if (difficultyLevelXml != null)
+					{
+						foreach (DifficultyLevelValue difficultyLevel in Enum.GetValues(typeof(DifficultyLevelValue)))
+						{
+							var value = 0;
+							if(Region.ReadInt32(difficultyLevelXml, difficultyLevel.ToString(), ref value, false));
+								newRegion.DifficultyLevelWeights[difficultyLevel] = value;
+						}
 
+						var sum = newRegion.DifficultyLevelWeights.Values.Sum();
+						if (sum != 100)
+							Console.WriteLine($"[DifficultyLevel] Suma prawdopodobienstw dla regionu {name} jest niepoprawna i wynosi {sum}");
+					}
+					
 					NelderimRegions.Add(newRegion);
 				}
 			}
@@ -329,8 +337,7 @@ namespace Server.Nelderim
 
 			try
 			{
-				XmlTextWriter xml = new XmlTextWriter("Data/NelderimRegions/NelderimRegions.xml",
-					Encoding.UTF8);
+				XmlTextWriter xml = new XmlTextWriter(NelderimRegionsFile, Encoding.UTF8);
 				xml.Indentation = 1;
 				xml.IndentChar = '\t';
 				xml.Formatting = Formatting.Indented;
@@ -514,6 +521,17 @@ namespace Server.Nelderim
 
 					#endregion
 
+					if (reg.DifficultyLevelWeights.Count != 0)
+					{
+						xml.WriteStartElement("difficultyLevel");
+						foreach (var pair in reg.DifficultyLevelWeights)
+						{
+							if(pair.Value != 0)
+								xml.WriteAttributeString(pair.Key.ToString(),XmlConvert.ToString(pair.Value));
+						}
+						xml.WriteEndElement();
+					}
+
 					xml.WriteEndElement(); // "region"
 				}
 
@@ -533,7 +551,27 @@ namespace Server.Nelderim
 			return true;
 		}
 
-		#endregion
+		private static void OnEnterRegion(OnEnterRegionEventArgs e)
+		{
+			var m = e.From;
+			if (e.OldRegion == null)
+				if (m is BaseVendor)
+					m.Race = GetRace(e.NewRegion.Name);
+		}
+
+		private static void OnCreate(MobileCreatedEventArgs e)
+		{
+			var m = e.Mobile;
+
+			if (m is BaseCreature bc)
+			{
+				RegionsEngineRegion r = GetRegion(m.Region.Name);
+				if (r != null && r.DifficultyLevelWeights.Count != 0)
+				{
+					bc.DifficultyLevel = Utility.RandomWeigthed(r.DifficultyLevelWeights);
+				}
+			}
+		}
 
 
 		public static RegionsEngineRegion GetRegion(string regionName)
@@ -853,7 +891,5 @@ namespace Server.Nelderim
 				Console.WriteLine(exc.ToString());
 			}
 		}
-
-		#endregion
 	}
 }

@@ -1,5 +1,3 @@
-// 05.05.11 :: troyan
-
 #region References
 
 using Nelderim.Races;
