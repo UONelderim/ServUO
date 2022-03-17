@@ -467,7 +467,7 @@ namespace Server
 
 	[NoSort]
 	[PropertyObject]
-	public struct Rectangle3D
+	public struct Rectangle3D : IComparable, IComparable<Rectangle3D>
 	{
 		private Point3D m_Start;
 		private Point3D m_End;
@@ -581,6 +581,20 @@ namespace Server
 
 				return hash;
 			}
+		}
+
+		public int CompareTo(object obj)
+		{
+			if (obj is Rectangle3D rect)
+				return CompareTo(rect);
+
+			return -1;
+		}
+
+		public int CompareTo(Rectangle3D other)
+		{
+			var mStartComparison = m_Start.CompareTo(other.m_Start);
+			return mStartComparison != 0 ? mStartComparison : m_End.CompareTo(other.m_End);
 		}
 	}
 }

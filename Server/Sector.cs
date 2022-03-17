@@ -31,17 +31,18 @@ namespace Server
 		int IComparable.CompareTo(object obj)
 		{
 			if (obj is RegionRect regRect)
-				return m_Region.CompareTo(regRect.m_Region);
+				return CompareTo(regRect);
 
 			return -1;
 		}
 
-		int IComparable<RegionRect>.CompareTo(RegionRect regRect)
-		{
-			if (regRect != null)
-				return m_Region.CompareTo(regRect.m_Region);
 
-			return -1;
+		public int CompareTo(RegionRect other)
+		{
+			if (ReferenceEquals(this, other)) return 0;
+			if (ReferenceEquals(null, other)) return 1;
+			var mRegionComparison = m_Region.CompareTo(other.m_Region);
+			return mRegionComparison != 0 ? mRegionComparison : m_Rect.CompareTo(other.m_Rect);
 		}
 	}
 
