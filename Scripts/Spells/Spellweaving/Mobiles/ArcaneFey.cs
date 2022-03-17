@@ -1,6 +1,6 @@
 namespace Server.Mobiles
 {
-    [CorpseName("a pixie corpse")]
+    [CorpseName("zwloki wrozki")]
     public class ArcaneFey : BaseCreature
     {
         [Constructable]
