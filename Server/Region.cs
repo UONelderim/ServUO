@@ -479,10 +479,8 @@ namespace Server
 						{
 							var sector = Map.GetRealSector(x, y);
 
-							if (sectors.Add(sector))
-							{
-								sector.OnEnter(this, rect);
-							}
+							sector.OnEnter(this, rect);
+							sectors.Add(sector);
 						}
 					}
 				}
