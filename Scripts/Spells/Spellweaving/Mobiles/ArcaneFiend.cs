@@ -1,13 +1,13 @@
 namespace Server.Mobiles
 {
-    [CorpseName("an imp corpse")]
+    [CorpseName("zwloki impa")]
     public class ArcaneFiend : BaseCreature
     {
         [Constructable]
         public ArcaneFiend()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "an imp";
+            Name = "imp";
             Body = 74;
             BaseSoundID = 422;
 
