@@ -238,8 +238,11 @@ namespace Server.Misc
             return success;
         }
 
-        private static double GetGainChance(Mobile from, Skill skill, double chance, bool success)
+        public static double GetGainChance(Mobile from, Skill skill, double chance, bool success)
         {
+	        if (Config.Get("Nelderim.CustomGainChance", true))
+		        return NGetGainChance(from, skill, chance, success);
+		        
             double gc = (double)(from.Skills.Cap - from.Skills.Total) / from.Skills.Cap;
 
             gc += (skill.Cap - skill.Base) / skill.Cap;
@@ -255,9 +258,7 @@ namespace Server.Misc
 
             // Pets get a 100% bonus
             if (from is BaseCreature && ((BaseCreature)from).Controlled)
-                gc += gc;
-
-            gc *= NRegionalModifier(from);
+                gc += gc * 1.00;
 
             if (gc > 1.00)
                 gc = 1.00;

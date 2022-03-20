@@ -40,4 +40,8 @@
         <HintPath>..\Ultima.dll</HintPath>
       </Reference>
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Nelderim\Misc\Test.cs" />
+  </ItemGroup>
 </Project>
