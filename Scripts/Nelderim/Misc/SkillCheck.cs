@@ -1,6 +1,7 @@
 #region References
 
 using Server.Engines.ArenaSystem;
+using Server.Mobiles;
 using Server.Multis;
 using Server.Regions;
 
@@ -108,6 +109,33 @@ namespace Server.Misc
 				return m_DungeonGain;
 
 			return 1.0;
+		}
+
+		public static double NGetGainChance(Mobile from, Skill skill, double chance, bool success)
+		{
+			double gc = (double)(from.Skills.Cap - from.Skills.Total) / from.Skills.Cap;
+
+			gc += (skill.Cap - skill.Base) / skill.Cap;
+			gc /= 2;
+
+			gc += (1.0 - chance) * (success ? 0.5 : 0.0);
+			gc /= 2;
+
+			gc *= skill.Info.GainFactor;
+
+			gc *= NRegionalModifier(from);
+
+			if (gc < 0.01)
+				gc = 0.01;
+
+			// Pets get a 100% bonus
+			if (from is BaseCreature && ((BaseCreature)from).Controlled)
+				gc += gc;
+
+			if (gc > 1.00)
+				gc = 1.00;
+
+			return gc;
 		}
 	}
 }
