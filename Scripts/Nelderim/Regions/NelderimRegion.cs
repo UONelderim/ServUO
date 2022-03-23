@@ -31,7 +31,7 @@ namespace Server.Regions
 		public NelderimRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent)
 		{
 			string allowedAttrName = "allowed";
-			m_Allowed = xml.HasAttribute(allowedAttrName) && XmlConvert.ToInt32(xml.GetAttribute(allowedAttrName)) == 0;
+			m_Allowed = xml.HasAttribute(allowedAttrName) && XmlConvert.ToInt32(xml.GetAttribute(allowedAttrName)) == 0 ? false : true;
 		}
 		 
 
