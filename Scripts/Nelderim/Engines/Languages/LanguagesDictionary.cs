@@ -65,7 +65,7 @@ namespace Nelderim
 		{
 			try
 			{
-				using (StreamReader sr = new StreamReader(String.Format("Data\\Languages\\{0}.txt", filename)))
+				using (StreamReader sr = new StreamReader(Path.Combine(Core.BaseDirectory,"Data", "Languages", $"{filename}.txt")))
 				{
 					string line;
 					while ((line = sr.ReadLine()) != null)
