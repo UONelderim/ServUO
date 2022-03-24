@@ -42,14 +42,18 @@ namespace Server.Items
 			AllowGhosts = true;
 		}
 
-		public override void Deserialize(GenericReader reader)
-		{
-			AllowGhosts = reader.ReadBool();
-		}
-
 		public override void Serialize(GenericWriter writer)
 		{
+			writer.Write( (int)0 ); //version
 			writer.Write(AllowGhosts);
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			int version = 0;
+			if (Fix)
+				version = reader.ReadInt(); //version
+			AllowGhosts = reader.ReadBool();
 		}
 	}
 }

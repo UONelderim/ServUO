@@ -13,5 +13,7 @@ namespace Nelderim
 		public abstract void Serialize(GenericWriter writer);
 
 		public abstract void Deserialize(GenericReader reader);
+		
+		public bool Fix { get; set; }
 	}
 }

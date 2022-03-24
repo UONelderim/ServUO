@@ -17,20 +17,24 @@ namespace Nelderim.Gains
 
 		public double IntGain { get; set; }
 
-		public override void Deserialize(GenericReader reader)
-		{
-			LastPowerHour = reader.ReadDateTime();
-			StrGain = reader.ReadDouble();
-			DexGain = reader.ReadDouble();
-			IntGain = reader.ReadDouble();
-		}
-
 		public override void Serialize(GenericWriter writer)
 		{
+			writer.Write( (int)0 ); //version
 			writer.Write(LastPowerHour);
 			writer.Write(StrGain);
 			writer.Write(DexGain);
 			writer.Write(IntGain);
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			int version = 0;
+			if (Fix)
+				version = reader.ReadInt(); //version
+			LastPowerHour = reader.ReadDateTime();
+			StrGain = reader.ReadDouble();
+			DexGain = reader.ReadDouble();
+			IntGain = reader.ReadDouble();
 		}
 	}
 }

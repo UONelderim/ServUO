@@ -199,15 +199,19 @@ namespace Server.ACC.CSS.Systems.Ancient
 		{
 			public int OldBody { get; set; }
 
-			public override void Deserialize(GenericReader reader)
+			public override void Serialize( GenericWriter writer )
 			{
-				OldBody = reader.ReadInt();
-				World.FindMobile(Serial).BodyValue = OldBody;
+				writer.Write( (int)0 ); //version
+				writer.Write( OldBody );
 			}
 
-			public override void Serialize(GenericWriter writer)
+			public override void Deserialize( GenericReader reader )
 			{
-				writer.Write(OldBody);
+				int version = 0;
+				if (Fix)
+					version = reader.ReadInt(); //version
+				OldBody = reader.ReadInt();
+				World.FindMobile(Serial).BodyValue = OldBody;
 			}
 		}
 	}

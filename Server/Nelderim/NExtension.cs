@@ -57,7 +57,7 @@ namespace Nelderim
 				{
 					BinaryFileWriter writer = new BinaryFileWriter(m_FileStream, true);
 
-					writer.Write(0); //version
+					writer.Write(1); //version
 					writer.Write(m_ExtensionInfo.Count);
 					foreach (T info in m_ExtensionInfo.Values)
 					{
@@ -101,6 +101,9 @@ namespace Nelderim
 					Serial serial = new Serial(reader.ReadInt());
 
 					T info = new T { Serial = serial };
+
+					if (version > 0)
+						info.Fix = true;
 
 					info.Deserialize(reader);
 

@@ -40,20 +40,9 @@ namespace Nelderim
 
 		public DateTime LastQuestPointsTime { get; set; }
 
-		public override void Deserialize(GenericReader reader)
-		{
-			Crest = reader.ReadInt();
-			CrestSize = (CrestSize)reader.ReadInt();
-			AppearanceAndCharacteristic = reader.ReadString();
-			HistoryAndProfession = reader.ReadString();
-			AttendenceInEvents = reader.ReadBool();
-			EventFrequencyAttendence = (EventFrequency)reader.ReadInt();
-			QuestPoints = reader.ReadInt();
-			LastQuestPointsTime = reader.ReadDateTime();
-		}
-
 		public override void Serialize(GenericWriter writer)
 		{
+			writer.Write( (int)0 ); //version
 			writer.Write(Crest);
 			writer.Write((int)CrestSize);
 			writer.Write(AppearanceAndCharacteristic);
@@ -62,6 +51,21 @@ namespace Nelderim
 			writer.Write((int)EventFrequencyAttendence);
 			writer.Write(QuestPoints);
 			writer.Write(LastQuestPointsTime);
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			int version = 0;
+			if (Fix)
+				version = reader.ReadInt(); //version
+			Crest = reader.ReadInt();
+			CrestSize = (CrestSize)reader.ReadInt();
+			AppearanceAndCharacteristic = reader.ReadString();
+			HistoryAndProfession = reader.ReadString();
+			AttendenceInEvents = reader.ReadBool();
+			EventFrequencyAttendence = (EventFrequency)reader.ReadInt();
+			QuestPoints = reader.ReadInt();
+			LastQuestPointsTime = reader.ReadDateTime();
 		}
 	}
 }

@@ -20,8 +20,22 @@ namespace Nelderim
 
 		public DateTime ModifiedDate { get; set; }
 
+		public override void Serialize(GenericWriter writer)
+		{
+			writer.Write( (int)0 ); //version
+			writer.Write(Labels.Length);
+			foreach (string label in Labels)
+				writer.Write(label);
+
+			writer.Write(ModifiedBy);
+			writer.Write(ModifiedDate);
+		}
+
 		public override void Deserialize(GenericReader reader)
 		{
+			int version = 0;
+			if (Fix)
+				version = reader.ReadInt(); //version
 			int labels_count = reader.ReadInt();
 			Labels = new string[labels_count];
 			for (int j = 0; j < labels_count; j++)
@@ -29,16 +43,6 @@ namespace Nelderim
 
 			ModifiedBy = reader.ReadString();
 			ModifiedDate = reader.ReadDateTime();
-		}
-
-		public override void Serialize(GenericWriter writer)
-		{
-			writer.Write(Labels.Length);
-			foreach (string label in Labels)
-				writer.Write(label);
-
-			writer.Write(ModifiedBy);
-			writer.Write(ModifiedDate);
 		}
 	}
 }
