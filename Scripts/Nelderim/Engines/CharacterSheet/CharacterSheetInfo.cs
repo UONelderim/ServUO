@@ -1,6 +1,7 @@
 #region References
 
 using System;
+using System.Collections.Generic;
 using Server;
 
 #endregion
@@ -39,10 +40,12 @@ namespace Nelderim
 		public int QuestPoints { get; set; }
 
 		public DateTime LastQuestPointsTime { get; set; }
+		
+		public SortedSet<QuestPointsHistoryEntry> QuestPointsHistory { get; set; } = new SortedSet<QuestPointsHistoryEntry>();
 
 		public override void Serialize(GenericWriter writer)
 		{
-			writer.Write( (int)0 ); //version
+			writer.Write( (int)1 ); //version
 			writer.Write(Crest);
 			writer.Write((int)CrestSize);
 			writer.Write(AppearanceAndCharacteristic);
@@ -51,6 +54,11 @@ namespace Nelderim
 			writer.Write((int)EventFrequencyAttendence);
 			writer.Write(QuestPoints);
 			writer.Write(LastQuestPointsTime);
+			writer.Write(QuestPointsHistory.Count);
+			foreach (var questPointsHistoryEntry in QuestPointsHistory)
+			{
+				questPointsHistoryEntry.Serialize(writer);
+			}
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -66,6 +74,15 @@ namespace Nelderim
 			EventFrequencyAttendence = (EventFrequency)reader.ReadInt();
 			QuestPoints = reader.ReadInt();
 			LastQuestPointsTime = reader.ReadDateTime();
+			if (version > 0)
+			{
+				var questPointsHistoryEntryCount = reader.ReadInt();
+				QuestPointsHistory = new SortedSet<QuestPointsHistoryEntry>();
+				for (int i = 0; i < questPointsHistoryEntryCount; i++)
+				{
+					QuestPointsHistory.Add(new QuestPointsHistoryEntry(reader));
+				}
+			}
 		}
 	}
 }

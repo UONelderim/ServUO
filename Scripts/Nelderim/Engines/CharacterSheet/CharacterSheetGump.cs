@@ -17,7 +17,8 @@ namespace Nelderim
 		General,
 		Cele,
 		Historia,
-		CharacterSheetSave
+		CharacterSheetSave,
+		HistoriaPunktow
 	}
 
 	public class CharacterSheetGump : Gump
@@ -91,6 +92,7 @@ namespace Nelderim
 			AddPageButton(10, 100, GetButtonID(0, 1, gmRequested), "Ogolne", page, CSPages.General);
 			AddPageButton(110, 100, GetButtonID(0, 2, gmRequested), "Cele", page, CSPages.Cele);
 			AddPageButton(210, 100, GetButtonID(0, 3, gmRequested), "Historia", page, CSPages.Historia);
+			AddPageButton(10, 633, GetButtonID(0, 4, gmRequested), "Historia punktow fabularnych", page, CSPages.HistoriaPunktow );
 
 			switch (page)
 			{
@@ -189,8 +191,10 @@ namespace Nelderim
 									CSPages.CharacterSheetSave);
 							}
 						}
+						AddLabel(10, 450, 0x480, "Powod:");
+						AddImageTiled( 10, 470, 310, 20, 0xBBC );
+						AddTextEntry(10, 470, 3100,20,0,0,"");
 					}
-
 					break;
 				}
 			}
@@ -215,6 +219,11 @@ namespace Nelderim
 					object[] args = new object[2];
 					switch (index)
 					{
+						case 1:
+						{
+							m_FromPlayer.SendGump(new CharacterSheetGump( m_FromPlayer, m_TargetPlayer, CSPages.General, gmRequested));
+							return;
+						}
 						case 2:
 						{
 							args[0] = CSPages.Cele;
@@ -230,6 +239,12 @@ namespace Nelderim
 								TextEntryChangedCallback, null);
 							book.FillTextEntryBook(m_CharacterSheetInfo.HistoryAndProfession);
 							break;
+						}
+						case 4:
+						{
+							m_FromPlayer.SendGump(new CharacterSheetGump( m_FromPlayer, m_TargetPlayer, CSPages.General, gmRequested));
+							m_FromPlayer.SendGump(new QuestPointsHistoryGump(m_TargetPlayer));
+							return;
 						}
 						default: return;
 					}
@@ -278,6 +293,10 @@ namespace Nelderim
 				case 2:
 				{
 					m_CharacterSheetInfo.QuestPoints -= index;
+					m_CharacterSheetInfo.QuestPointsHistory.Add(
+						new QuestPointsHistoryEntry(
+							DateTime.Now, m_FromPlayer.Account.Username, -index, info.TextEntries[0].Text)
+					);
 					m_TargetPlayer.SendMessage(0x26,
 						"Twoje saldo punktow fabularnych zostalo zmniejszone przez Mistrza Gry");
 
@@ -288,6 +307,9 @@ namespace Nelderim
 				case 3:
 				{
 					m_CharacterSheetInfo.QuestPoints += index;
+					m_CharacterSheetInfo.QuestPointsHistory.Add(
+						new QuestPointsHistoryEntry(
+							DateTime.Now, m_FromPlayer.Account.Username, index, info.TextEntries[0].Text));
 					m_TargetPlayer.SendMessage(0x3A, "Zostales nagrodzony punktami fabularnymi przez Mistrza Gry");
 
 					m_FromPlayer.SendGump(new CharacterSheetGump(m_FromPlayer, m_TargetPlayer, CSPages.General,
