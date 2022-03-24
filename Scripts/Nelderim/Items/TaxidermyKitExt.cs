@@ -64,16 +64,20 @@ namespace Server.Items
 
 		public int HueVal { get; set; }
 
-		public override void Deserialize(GenericReader reader)
-		{
-			AnimalName = reader.ReadString();
-			HueVal = reader.ReadInt();
-		}
-
 		public override void Serialize(GenericWriter writer)
 		{
+			writer.Write( (int)0 ); //version
 			writer.Write(AnimalName);
 			writer.Write(HueVal);
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			int version = 0;
+			if (Fix)
+				version = reader.ReadInt(); //version
+			AnimalName = reader.ReadString();
+			HueVal = reader.ReadInt();
 		}
 	}
 }

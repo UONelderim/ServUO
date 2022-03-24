@@ -88,17 +88,20 @@ namespace Server.Items
 
 	class BaseTrapExtInfo : NExtensionInfo
 	{
-		protected BaseTrap.TrapLevel m_Level;
-		public BaseTrap.TrapLevel Level { get { return m_Level; } set { m_Level = value; } }
-
-		public override void Deserialize(GenericReader reader)
-		{
-			m_Level = (BaseTrap.TrapLevel)reader.ReadInt();
-		}
+		public BaseTrap.TrapLevel Level { get; set; }
 
 		public override void Serialize(GenericWriter writer)
 		{
-			writer.Write((int)m_Level);
+			writer.Write( (int)0 ); //version
+			writer.Write((int)Level);
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			int version = 0;
+			if (Fix)
+				version = reader.ReadInt(); //version
+			Level = (BaseTrap.TrapLevel)reader.ReadInt();
 		}
 	}
 }

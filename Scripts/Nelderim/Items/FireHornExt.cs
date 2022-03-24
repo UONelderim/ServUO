@@ -56,14 +56,18 @@ namespace Server.Items
 			UsesRemaining = Utility.RandomMinMax(FireHorn.InitMinUses, FireHorn.InitMaxUses);
 		}
 
-		public override void Deserialize(GenericReader reader)
-		{
-			UsesRemaining = reader.ReadInt();
-		}
-
 		public override void Serialize(GenericWriter writer)
 		{
+			writer.Write( (int)0 ); //version
 			writer.Write(UsesRemaining);
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			int version = 0;
+			if (Fix)
+				version = reader.ReadInt(); //version
+			UsesRemaining = reader.ReadInt();
 		}
 	}
 }

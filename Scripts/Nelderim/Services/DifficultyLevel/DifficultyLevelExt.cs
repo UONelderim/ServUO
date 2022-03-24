@@ -118,14 +118,18 @@ namespace Server.Mobiles
 			DifficultyLevel = DifficultyLevelValue.Normal;
 		}
 
-		public override void Deserialize(GenericReader reader)
-		{
-			DifficultyLevel = (DifficultyLevelValue)reader.ReadByte();
-		}
-
 		public override void Serialize(GenericWriter writer)
 		{
+			writer.Write( (int)0 ); //version
 			writer.Write((byte)DifficultyLevel);
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			int version = 0;
+			if (Fix)
+				version = reader.ReadInt(); //version
+			DifficultyLevel = (DifficultyLevelValue)reader.ReadByte();
 		}
 	}
 }
