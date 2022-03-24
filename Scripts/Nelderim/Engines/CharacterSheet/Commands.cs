@@ -17,36 +17,25 @@ namespace Nelderim
 	{
 		public static void Initialize()
 		{
-			CommandSystem.Register("kartapostaci", AccessLevel.Player, KartaPostaciGracz);
-			CommandSystem.Register("kp", AccessLevel.Player, KartaPostaciGracz);
-			CommandSystem.Register("kartapostaciinnych", AccessLevel.Counselor, KartaPostaciGraczInny);
-			CommandSystem.Register("kpi", AccessLevel.Counselor, KartaPostaciGraczInny);
+			CommandSystem.Register("kartapostaci", AccessLevel.Player, KartaPostaci);
+			CommandSystem.Register("kp", AccessLevel.Player, KartaPostaci);
 			CommandSystem.Register("qs", AccessLevel.GameMaster, Qs_OnCommand);
 		}
 
 		[Usage("KartaPostaci")]
 		[Description("Otwiera karte postaci gracza")]
-		private static void KartaPostaciGracz(CommandEventArgs e)
+		private static void KartaPostaci(CommandEventArgs e)
 		{
-			if ((e.Mobile).AccessLevel == AccessLevel.Player)
+			if (e.Mobile.AccessLevel == AccessLevel.Player)
 				e.Mobile.SendGump(new CharacterSheetGump(e.Mobile, e.Mobile, CSPages.General, false));
 			else
-				e.Mobile.SendLocalizedMessage(1063670);
-		}
-
-		[Usage("KartaPostaciInnych")]
-		[Description("Otwiera karte postaci innego gracza")]
-		private static void KartaPostaciGraczInny(CommandEventArgs e)
-		{
-			e.Mobile.BeginTarget(8, false, TargetFlags.None, CharacterSheetOfOtherPlayer_OnTarget);
+				e.Mobile.BeginTarget(8, false, TargetFlags.None, CharacterSheetOfOtherPlayer_OnTarget);
 		}
 
 		private static void CharacterSheetOfOtherPlayer_OnTarget(Mobile from, object obj)
 		{
-			if (obj is PlayerMobile && ((Mobile)obj).AccessLevel == AccessLevel.Player)
-				from.SendGump(new CharacterSheetGump(from, (Mobile)obj, CSPages.General, true));
-			else
-				from.SendLocalizedMessage(1063670);
+			if (obj is PlayerMobile m)
+				from.SendGump(new CharacterSheetGump(from, m, CSPages.General, true));
 		}
 
 		[Usage("Qs")]
