@@ -189,5 +189,7 @@ namespace Server.Mobiles
 				m_ResTimer.Stop();
 			}
 		}
+
+		public TimeSpan LongTermElapse => m_LongTermElapse;
 	}
 }
