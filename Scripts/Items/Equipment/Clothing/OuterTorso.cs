@@ -502,7 +502,23 @@ namespace Server.Items
             BeginDecay(m_DefaultDecayTime);
         }
 
-        public new bool Scissor(Mobile from, Scissors scissors)
+		public override void OnDoubleClick(Mobile from)
+		{
+
+			if (from.InRange(GetWorldLocation(), 1))
+			{
+				Delete();
+				from.AddToBackpack(new Bandage(2));
+				from.SendMessage("Rozdarles szate posmiertna uzyskujac z niej 2 bandaze");
+			}
+			else
+			{
+				from.SendLocalizedMessage(500295); // You are too far away to do that
+			}
+
+		}
+
+		public new bool Scissor(Mobile from, Scissors scissors)
         {
             from.SendLocalizedMessage(502440); // Scissors can not be used on that to produce anything.
             return false;
