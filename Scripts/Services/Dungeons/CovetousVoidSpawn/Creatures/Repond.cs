@@ -7,7 +7,8 @@ namespace Server.Mobiles
         [Constructable]
         public LizardmanWitchdoctor() : base(AIType.AI_Mage)
         {
-            Name = "a lizardman witchdoctor";
+			Name = NameList.RandomName("lizardman");
+			Title = "a lizardman witchdoctor";
             Body = Utility.RandomList(35, 36);
             BaseSoundID = 417;
         }
@@ -15,8 +16,9 @@ namespace Server.Mobiles
         [Constructable]
         public LizardmanWitchdoctor(int level, bool voidSpawn) : base(AIType.AI_Mage, level, voidSpawn)
         {
-            Name = "a lizardman witchdoctor";
-            Body = Utility.RandomList(35, 36);
+			Name = NameList.RandomName("lizardman");
+			Title = "a lizardman witchdoctor";
+			Body = Utility.RandomList(35, 36);
             BaseSoundID = 417;
         }
 
