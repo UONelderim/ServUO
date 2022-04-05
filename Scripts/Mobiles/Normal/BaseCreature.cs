@@ -1097,7 +1097,7 @@ namespace Server.Mobiles
 
 		public virtual double TeleportChance => 0.05;
 		public virtual bool AttacksFocus => false;
-		public virtual bool ShowSpellMantra => false;
+		public virtual bool ShowSpellMantra => true;
 		public virtual bool FreezeOnCast => ShowSpellMantra;
 		public override bool CanFly => false;
 
