@@ -76,7 +76,7 @@ namespace Server.Items
 
             if (map != null)
             {
-                totalMinutes /= 10 + (map.MapIndex * 20);
+                totalMinutes /= 10 + (1 /*map.MapIndex*/ * 20);  //anything with "map.MapIndex" in the calculating i replaced with 1. that makes all time sync together as 1
             }
 
             return (MoonPhase)(totalMinutes % 8);
@@ -97,7 +97,8 @@ namespace Server.Items
 
             if (map != null)
             {
-                totalMinutes += map.MapIndex * 320;
+                //totalMinutes += map.MapIndex * 320; 
+                totalMinutes /= 30;
             }
 
             // Really on OSI this must be by subserver
