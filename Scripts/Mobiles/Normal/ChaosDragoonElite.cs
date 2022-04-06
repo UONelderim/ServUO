@@ -181,13 +181,18 @@ namespace Server.Mobiles
                     break;
             }
 
-            SwampDragon mt = new SwampDragon
-            {
-                HasBarding = true,
-                BardingResource = res
-            };
-            mt.BardingHP = mt.BardingMaxHP;
-            mt.Rider = this;
+          	SwampDragon mount = new SwampDragon();
+
+			mount.ControlMaster = this as Mobile;
+			//mount.Controled = true;
+			mount.Rider = this;
+			
+			if ( res != CraftResource.None )
+			{
+				mount.HasBarding = true;
+				mount.BardingResource = res;
+				mount.BardingHP = mount.BardingMaxHP;
+			}
 
             SetSpecialAbility(SpecialAbility.DragonBreath);
         }
@@ -227,20 +232,18 @@ namespace Server.Mobiles
             AddLoot(LootPack.Gems);
         }
 
-        public override bool OnBeforeDeath()
-        {
-            IMount mount = Mount;
+      public override bool OnBeforeDeath()
+		{
+			IMount mount = this.Mount;
 
-            if (mount != null)
-            {
-                if (mount is SwampDragon)
-                    ((SwampDragon)mount).HasBarding = false;
+			if ( mount != null )
+				mount.Rider = null;
 
-                mount.Rider = null;
-            }
+			if ( mount is Mobile )
+				((Mobile)mount).Kill();
 
-            return base.OnBeforeDeath();
-        }
+			return base.OnBeforeDeath();
+		}
 
         public override void AlterMeleeDamageTo(Mobile to, ref int damage)
         {
