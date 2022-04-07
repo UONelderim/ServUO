@@ -851,6 +851,18 @@ namespace Server.Mobiles
 				return;
 			}
 
+			if (!InLOS(from))
+			{
+				from.SendLocalizedMessage(1052011); // You must have line of sight to do that.
+				return;
+			}
+
+			if (from.Mounted)
+			{
+				from.SendLocalizedMessage(1010097); // You cannot use this while mounted.
+				return;
+			}
+
 			if (!CheckVendorAccess(from))
 			{
 				Say(501522); // I shall not treat with scum like thee!
@@ -1049,6 +1061,18 @@ namespace Server.Mobiles
 
 			if (!from.CheckAlive())
 			{
+				return;
+			}
+
+			if (!InLOS(from))
+			{
+				from.SendLocalizedMessage(1052011); // You must have line of sight to do that.
+				return;
+			}
+
+			if (from.Mounted)
+			{
+				from.SendLocalizedMessage(1010097); // You cannot use this while mounted.
 				return;
 			}
 
