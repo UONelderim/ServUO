@@ -680,9 +680,13 @@ namespace Knives.TownHouses
 
 			ArrayList items = new ArrayList();
 			foreach (Rectangle2D rect in Blocks)
-			foreach (Item item in Map.GetItemsInBounds(rect))
-				if (House.Region.Contains(item.Location) && item.RootParent == null && !items.Contains(item))
-					items.Add(item);
+			{
+				var eable = Map.GetItemsInBounds(rect);
+				foreach (Item item in eable)
+					if (House.Region.Contains(item.Location) && item.RootParent == null && !items.Contains(item))
+						items.Add(item);
+				eable.Free();
+			}
 
 			foreach (Item item in new ArrayList(items))
 			{
@@ -969,30 +973,34 @@ namespace Knives.TownHouses
 
 			ArrayList unlockedItemsToPack = new ArrayList();
 			foreach (Rectangle2D rect in Blocks)
-			foreach (Item item in Map.GetItemsInBounds(rect))
 			{
-				if (item is BaseAddon)
+				var eable = Map.GetItemsInBounds(rect);
+				foreach (Item item in eable)
 				{
-					BaseAddon ba = (BaseAddon)item;
-					bag.DropItem(ba.Deed);
-					ba.Delete();
-					continue;
+					if (item is BaseAddon)
+					{
+						BaseAddon ba = (BaseAddon)item;
+						bag.DropItem(ba.Deed);
+						ba.Delete();
+						continue;
+					}
+
+					if (item is HouseSign
+					    || item is BaseDoor
+					    || item is BaseMulti
+					    || item is AddonComponent
+					    || !item.Visible
+					    || item.IsLockedDown
+					    || item.IsSecure
+					    || !item.Movable
+					    || item.Map != House.Map
+					    || !House.Region.Contains(item.Location))
+						continue;
+
+
+					unlockedItemsToPack.Add(item);
 				}
-
-				if (item is HouseSign
-				    || item is BaseDoor
-				    || item is BaseMulti
-				    || item is AddonComponent
-				    || !item.Visible
-				    || item.IsLockedDown
-				    || item.IsSecure
-				    || !item.Movable
-				    || item.Map != House.Map
-				    || !House.Region.Contains(item.Location))
-					continue;
-
-
-				unlockedItemsToPack.Add(item);
+				eable.Free();
 			}
 
 			foreach (Item item in unlockedItemsToPack)

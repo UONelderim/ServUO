@@ -573,10 +573,12 @@ namespace Server.Engines.Doom
 
             CreateVarietyDealer(492, 369);
 
-            foreach (Item s in Map.Malas.GetItemsInBounds(new Rectangle2D(434, 371, 44, 1)))
+            var eable = Map.Malas.GetItemsInBounds(new Rectangle2D(434, 371, 44, 1));
+            foreach (Item s in eable)
             {
                 s.Delete();
             }
+            eable.Free();
 
             for (int x = 434; x <= 478; ++x)
             {
