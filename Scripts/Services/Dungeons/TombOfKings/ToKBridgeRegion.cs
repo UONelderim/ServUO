@@ -26,11 +26,13 @@ namespace Server.Regions
             {
                 Rectangle2D r2d = new Rectangle2D(r3d.Start, r3d.End);
 
-                foreach (Item item in Map.GetItemsInBounds(r2d))
+                var eable = Map.GetItemsInBounds(r2d)
+                foreach (Item item in eable)
                 {
                     if (item is Static)
                         m_Blocks.Add(item);
                 }
+                eable.Free();
             }
 
             if (m_Blocks.Count == 0)
