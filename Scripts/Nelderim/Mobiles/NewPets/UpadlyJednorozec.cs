@@ -12,7 +12,7 @@ namespace Server.Mobiles
 	public class UpadlyJednorozec : BaseMount
 	{
 		public override bool AllowMaleRider { get { return false; } }
-		public override bool AllowMaleTamer { get { return false; } }
+		public override bool AllowMaleTamer { get { return true; } }
 
 		public override bool InitialInnocent { get { return true; } }
 
