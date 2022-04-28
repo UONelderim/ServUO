@@ -6,6 +6,10 @@ namespace Server.Items
 {
     public class Kindling : Item
     {
+		
+		public TimeSpan Cooldown { get { return TimeSpan.FromSeconds(2.0); }  }
+		
+		
         [Constructable]
         public Kindling()
             : this(1)
@@ -45,25 +49,30 @@ namespace Server.Items
 
         public override void OnDoubleClick(Mobile from)
         {
-            if (!VerifyMove(from))
-                return;
+			if ( from.BeginAction( typeof( Kindling ) ) )
+			{
+				Timer.DelayCall( Cooldown, new TimerStateCallback( Cooldown_Callback ), from );
+				
+				if (!VerifyMove(from))
+					return;
 
-            if (!from.InRange(GetWorldLocation(), 2))
-            {
-                from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 1019045); // I can't reach that.
-                return;
-            }
+				if (!from.InRange(GetWorldLocation(), 2))
+				{
+					from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 1019045); // I can't reach that.
+					return;
+				}
 
-            Point3D fireLocation = GetFireLocation(from);
+				Point3D fireLocation = GetFireLocation(from);
 
-            if (fireLocation == Point3D.Zero)
-            {
-                from.SendLocalizedMessage(501695); // There is not a spot nearby to place your campfire.
-            }
-            else if (!from.CheckSkill(SkillName.Camping, 0.0, 100.0))
-            {
-                from.SendLocalizedMessage(501696); // You fail to ignite the campfire.
-            }
+				if (fireLocation == Point3D.Zero)
+				{
+					from.SendLocalizedMessage(501695); // There is not a spot nearby to place your campfire.
+				}
+				else if (!from.CheckSkill(SkillName.Camping, 0.0, 100.0))
+				{
+					from.SendLocalizedMessage(501696); // You fail to ignite the campfire.
+				}
+			}
             else
             {
                 Consume();
@@ -118,5 +127,9 @@ namespace Server.Items
                     list.Add(loc);
             }
         }
+		
+		private static void Cooldown_Callback(object state) {
+			((Mobile)state).EndAction(typeof(Kindling));
+			}
     }
 }
