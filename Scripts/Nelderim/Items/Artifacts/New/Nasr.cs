@@ -9,7 +9,7 @@
 		[Constructable]
 		public Nasr()
 		{
-			Hue = 2511;
+			Hue = 2238;
 			Attributes.WeaponDamage = 25;
 			Attributes.AttackChance = 15;
 			WeaponAttributes.HitLightning = 45;

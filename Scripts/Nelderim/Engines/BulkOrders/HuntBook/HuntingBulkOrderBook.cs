@@ -1,5 +1,3 @@
-// 08.03.16 :: emfor :: bulki mysliwego
-
 #region References
 
 using System.Collections;
@@ -50,7 +48,7 @@ namespace Server.Engines.BulkOrders
 			LootType = LootType.Blessed;
 
 			Name = "Ksiega zlecen Mysliwego";
-			Hue = 2702;
+			Hue = 1182;
 
 			Entries = new ArrayList();
 			Filter = new HuntingBOBFilter();

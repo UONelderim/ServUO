@@ -16,7 +16,7 @@ namespace Server
 		public ArtefaktowyPyl(int amount) : base(0x26B8)
 		{
 			Name = "Artefaktowy Pyl";
-			Hue = 2594;
+			Hue = 1079;
 			Stackable = true;
 			Amount = amount;
 		}

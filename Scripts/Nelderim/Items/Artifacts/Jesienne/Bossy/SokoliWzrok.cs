@@ -1,6 +1,6 @@
 namespace Server.Items
 {
-	public class SokoliWzork : RavenHelm
+	public class SokoliWzrok : RavenHelm
 	{
 		public override int InitMinHits { get { return 60; } }
 		public override int InitMaxHits { get { return 60; } }
@@ -12,15 +12,15 @@ namespace Server.Items
 		public override int BaseEnergyResistance { get { return 4; } }
 
 		[Constructable]
-		public SokoliWzork()
+		public SokoliWzrok()
 		{
-			Hue = 2673;
+			Hue = 1689;
 			Name = "Sokoli Wzrok";
 			Attributes.BonusStam = 5;
 			SkillBonuses.SetValues(0, SkillName.Archery, 10);
 		}
 
-		public SokoliWzork(Serial serial)
+		public SokoliWzrok(Serial serial)
 			: base(serial)
 		{
 		}

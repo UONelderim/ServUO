@@ -10,7 +10,7 @@ namespace Server.Items
 		public PrzekletaArcaneShield()
 		{
 			ItemID = 0x1B78;
-			Hue = 2700;
+			Hue = 1180;
 			Name = "Przeklete Arkana Obronne";
 			Attributes.NightSight = 1;
 			Attributes.SpellChanneling = 1;

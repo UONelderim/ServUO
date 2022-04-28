@@ -15,7 +15,7 @@
 		[Constructable]
 		public LegendaMedrcow()
 		{
-			Hue = 2074;
+			Hue = 1797;
 			Attributes.BonusStr = 5;
 			Attributes.BonusInt = 7;
 			Attributes.BonusDex = 5;

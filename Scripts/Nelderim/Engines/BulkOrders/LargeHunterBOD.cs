@@ -176,7 +176,7 @@ namespace Server.Engines.BulkOrders
 					break;
 			}
 
-			int hue = 0xA7E;
+			int hue = 1556;
 			int amountMax = Utility.RandomList(10, 15, 20, 20);
 
 			this.Hue = hue;

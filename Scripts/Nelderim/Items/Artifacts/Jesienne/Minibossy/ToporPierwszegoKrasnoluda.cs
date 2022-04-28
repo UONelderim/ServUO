@@ -8,7 +8,7 @@ namespace Server.Items
 		[Constructable]
 		public ToporPierwszegoKrasnoluda()
 		{
-			Hue = 2671;
+			Hue = 1687;
 			Name = "Topor Pierwszego Krasnoluda";
 			Attributes.WeaponDamage = 55;
 			WeaponAttributes.HitLeechHits = 25;

@@ -10,7 +10,7 @@ namespace Server.Items
 		public DrowArtifact() : base(0x1401)
 		{
 			Name = "Artefakt Drowow";
-			Hue = 1946;
+			Hue = 2082;
 			m_Race = Race.NDrow;
 		}
 

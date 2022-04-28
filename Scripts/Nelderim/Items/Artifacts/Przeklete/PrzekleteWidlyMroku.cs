@@ -8,7 +8,7 @@
 		[Constructable]
 		public PrzekleteWidlyMroku()
 		{
-			Hue = 2700;
+			Hue = 1180;
 			Name = "Przeklęte Widly Mroku";
 			Attributes.WeaponDamage = 50;
 			WeaponAttributes.HitFireArea = 65;
@@ -17,7 +17,6 @@
 			Attributes.SpellChanneling = 1;
 			Attributes.WeaponSpeed = -25;
 			LootType = LootType.Cursed;
-			//Server.Engines.XmlSpawner2.XmlAttach.AttachTo(this, new Server.Engines.XmlSpawner2.TemporaryQuestObject("CursedArtifact", 20160));
 		}
 
 		public PrzekleteWidlyMroku(Serial serial)

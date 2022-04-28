@@ -8,7 +8,7 @@
 		[Constructable]
 		public PrzekleteOrleSkrzydla()
 		{
-			Hue = 2700;
+			Hue = 1180;
 			Name = "Przeklęte Orle Skrzydla";
 			Attributes.AttackChance = 5;
 			Attributes.DefendChance = 15;
@@ -17,7 +17,6 @@
 			WeaponAttributes.HitMagicArrow = 10;
 			Attributes.WeaponDamage = 38;
 			LootType = LootType.Cursed;
-			//Server.Engines.XmlSpawner2.XmlAttach.AttachTo(this, new Server.Engines.XmlSpawner2.TemporaryQuestObject("CursedArtifact", 20160));
 		}
 
 		public PrzekleteOrleSkrzydla(Serial serial)

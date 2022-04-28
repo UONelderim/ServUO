@@ -17,7 +17,7 @@ namespace Server.Mobiles
 		{
 			Name = "Ilthar D'Orbb";
 			Body = 173;
-			Hue = 2594;
+			Hue = 1079;
 			BaseSoundID = 1170;
 
 			SetStr(402, 462);

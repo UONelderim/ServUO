@@ -11,7 +11,7 @@ namespace Server.Items
 		[Constructable]
 		public ArkanaZywiolow()
 		{
-			Hue = 0xB85;
+			Hue = 1381;
 			Attributes.CastRecovery = 1;
 			Attributes.CastSpeed = 1;
 			Attributes.RegenMana = 2;

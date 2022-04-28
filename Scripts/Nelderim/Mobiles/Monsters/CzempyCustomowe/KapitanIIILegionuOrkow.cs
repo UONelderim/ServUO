@@ -20,7 +20,7 @@ namespace Server.Mobiles
 
 			Name = "Kapitan III Legionu Orków";
 			BaseSoundID = 0x45A;
-			Hue = 2700;
+			Hue = 1180;
 
 			SetStr(767, 945);
 			SetDex(66, 75);

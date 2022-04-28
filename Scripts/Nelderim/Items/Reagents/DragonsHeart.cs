@@ -27,7 +27,7 @@ namespace Server.Items
 		public RedDragonsHeart(int amount) : base(3985, amount)
 		{
 			Name = "Serce ognistego smoka";
-			Hue = 1939;
+			Hue = 2143;
 		}
 
 		public RedDragonsHeart(Serial serial) : base(serial)
@@ -113,7 +113,7 @@ namespace Server.Items
 		public DragonsHeart(int amount) : base(3985, amount)
 		{
 			Name = "Serce smoka";
-			Hue = 1460;
+			Hue = 2666;
 		}
 
 		public DragonsHeart(Serial serial) : base(serial)

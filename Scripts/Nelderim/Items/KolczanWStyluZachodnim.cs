@@ -10,7 +10,7 @@ namespace Server.Items
 			LowerAmmoCost = 20;
 			Capacity = 1000;
 			Name = "kołczan w stylu zachodnim";
-			Hue = 2697;
+			Hue = 1567;
 		}
 
 		public KolczanWStyluZachodnim(Serial serial) : base(serial)

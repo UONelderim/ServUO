@@ -51,7 +51,7 @@ namespace Server.Mobiles
 		public SkoczekZPodmroku(string name) : base(name, 187, 0x3EBA, AIType.AI_Mage, FightMode.Evil, 12, 5, 0.2, 0.4)
 		{
 			BaseSoundID = 0x3C5;
-			Hue = 2672;
+			Hue = 1688;
 			SetStr(296, 325);
 			SetDex(86, 105);
 			SetInt(186, 225);

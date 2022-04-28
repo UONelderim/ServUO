@@ -9,7 +9,7 @@ namespace Server.Items
 		[Constructable]
 		public GniewOceanu()
 		{
-			Hue = 1947;
+			Hue = 2083;
 			Attributes.AttackChance = 30;
 			Attributes.WeaponDamage = 40;
 			Attributes.BonusStam = 10;
