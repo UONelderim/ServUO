@@ -21,7 +21,7 @@ namespace Server.Mobiles
 		[Constructable]
 		public RedBeetle(string name) : base(name, 0x317, 0x3EBC, AIType.AI_Melee, FightMode.Closest, 12, 1, 0.2, 0.4)
 		{
-			Hue = 2585;
+			Hue = 1070;
 			SetStr(400);
 			SetDex(100);
 			SetInt(500);

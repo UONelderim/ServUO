@@ -12,7 +12,7 @@
 		[Constructable]
 		public ZrodloJedwab() : base(Utility.Random(3153, 4))
 		{
-			Hue = 1946;
+			Hue = 2082;
 			Name = "Roslina z jedwabnikiem"; // 1032611
 		}
 

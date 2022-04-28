@@ -8,7 +8,7 @@ namespace Server.Items
 		[Constructable]
 		public ToporWysokichElfow()
 		{
-			Hue = 2671;
+			Hue = 1687;
 			Name = "Topor Wysokich Elfow";
 			Attributes.WeaponDamage = 55;
 			WeaponAttributes.HitLeechHits = 25;

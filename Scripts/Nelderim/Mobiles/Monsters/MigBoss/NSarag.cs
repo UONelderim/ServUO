@@ -21,7 +21,7 @@ namespace Server.Mobiles
 		public NSarag() : base(AIType.AI_Boss, FightMode.Closest, 12, 1, 0.2, 0.4)
 		{
 			Body = 308;
-			Hue = 2702;
+			Hue = 1182;
 			Name = "sarag - przedwieczny nieumarly";
 
 			BaseSoundID = 0x48D;

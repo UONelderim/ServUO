@@ -15,7 +15,7 @@
 		[Constructable]
 		public WiernyPrzysiedze()
 		{
-			Hue = 2956;
+			Hue = 1388;
 			ArmorAttributes.MageArmor = 1;
 			Attributes.AttackChance = 10;
 			Attributes.BonusHits = 10;

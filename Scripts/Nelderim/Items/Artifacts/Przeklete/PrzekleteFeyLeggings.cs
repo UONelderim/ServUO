@@ -15,15 +15,13 @@ namespace Server.Items
 		public PrzekleteFeyLeggings()
 		{
 			Name = "Przeklęte Kolcze Spodnie Błogosławione Przez Naneth";
-			Hue = 2700;
+			Hue = 1180;
 			LootType = LootType.Cursed;
 			Attributes.BonusHits = 6;
 			Attributes.DefendChance = 30;
 
 			ArmorAttributes.MageArmor = 1;
 		}
-
-		//public override Race RequiredRace { get { return Race.Elf; } }
 
 		public PrzekleteFeyLeggings(Serial serial) : base(serial)
 		{

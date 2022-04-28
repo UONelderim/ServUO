@@ -13,7 +13,7 @@ namespace Server.Mobiles
 		public SkorpionKrolewski() : base(AIType.AI_Melee, FightMode.Weakest, 12, 1, 0.2, 0.4)
 		{
 			BaseSoundID = 96;
-			Hue = 2687;
+			Hue = 1557;
 			Body = 48;
 			Name = "Skorpion krolewski";
 

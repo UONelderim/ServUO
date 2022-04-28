@@ -9,7 +9,7 @@ namespace Server.Items
 		[Constructable]
 		public PrzekletyArcticDeathDealer()
 		{
-			Hue = 2700;
+			Hue = 1180;
 			Weight = 10;
 			WeaponAttributes.HitHarm = 66;
 			LootType = LootType.Cursed;

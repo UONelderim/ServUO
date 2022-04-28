@@ -16,7 +16,7 @@
 		[Constructable]
 		public Przysiega()
 		{
-			Hue = 2956;
+			Hue = 1388;
 			ArmorAttributes.MageArmor = 1;
 			ArmorAttributes.LowerStatReq = 50;
 			Attributes.BonusHits = 10;

@@ -11,10 +11,9 @@ namespace Server.Items
 		[Constructable]
 		public PrzekletaSamaritanRobe()
 		{
-			Hue = 2700;
+			Hue = 1180;
 			Name = "Przeklęta Szata Samarytanina";
 			LootType = LootType.Cursed;
-			//Server.Engines.XmlSpawner2.XmlAttach.AttachTo(this, new Server.Engines.XmlSpawner2.TemporaryQuestObject("CursedArtifact", 20160));
 		}
 
 		public PrzekletaSamaritanRobe(Serial serial) : base(serial)

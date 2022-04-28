@@ -15,7 +15,7 @@
 		[Constructable]
 		public Ancile()
 		{
-			Hue = 2961;
+			Hue = 1393;
 			StrRequirement = 105;
 			Attributes.BonusDex = 1;
 			Attributes.RegenHits = 3;

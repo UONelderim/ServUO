@@ -9,12 +9,11 @@ namespace Server.Items
 		public PrzekletaStudniaOdnowy()
 		{
 			Name = "Przeklęta Studnia Odnowy";
-			Hue = 2700;
+			Hue = 1180;
 			LootType = LootType.Cursed;
 			Attributes.RegenMana = 10;
 			Attributes.RegenHits = 6;
 			Attributes.RegenStam = 6;
-			//Server.Engines.XmlSpawner2.XmlAttach.AttachTo(this, new Server.Engines.XmlSpawner2.TemporaryQuestObject("CursedArtifact", 20160));
 		}
 
 		public PrzekletaStudniaOdnowy(Serial serial) : base(serial)

@@ -9,7 +9,7 @@ namespace Server.Items
 		[Constructable]
 		public JaszczurzySzal()
 		{
-			Hue = 0x783;
+			Hue = 1597;
 			Slayer = SlayerName.ReptilianDeath;
 			Attributes.WeaponDamage = 40;
 			WeaponAttributes.UseBestSkill = 1;

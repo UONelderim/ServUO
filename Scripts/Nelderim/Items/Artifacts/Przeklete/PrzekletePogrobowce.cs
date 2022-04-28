@@ -8,7 +8,7 @@
 		[Constructable]
 		public PrzekletePogrobowce()
 		{
-			Hue = 2700;
+			Hue = 1180;
 			Name = "Przeklęte Pogrobowce";
 			WeaponAttributes.HitHarm = 30;
 			Attributes.WeaponDamage = 50;
@@ -19,7 +19,6 @@
 			Attributes.SpellChanneling = 1;
 			Slayer = SlayerName.BloodDrinking;
 			LootType = LootType.Cursed;
-			//Server.Engines.XmlSpawner2.XmlAttach.AttachTo(this, new Server.Engines.XmlSpawner2.TemporaryQuestObject("CursedArtifact", 20160));
 		}
 
 		public PrzekletePogrobowce(Serial serial)
