@@ -8,7 +8,7 @@ namespace Server.Items
 		[Constructable]
 		public PrzekletyLowcaDusz()
 		{
-			Hue = 0x497;
+			Hue = 1175;
 			Name = "Przeklęty Łowca Dusz";
 			LootType = LootType.Cursed;
 			Label2 = "Dar Awatara Dusz";

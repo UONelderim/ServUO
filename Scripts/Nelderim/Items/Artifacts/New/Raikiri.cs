@@ -9,7 +9,7 @@ namespace Server.Items
 		[Constructable]
 		public Raikiri()
 		{
-			Hue = 1946;
+			Hue = 2082;
 			WeaponAttributes.HitFireball = 25;
 			WeaponAttributes.HitLightning = 25;
 			Attributes.Luck = 200;

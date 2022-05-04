@@ -9,7 +9,7 @@
 		[Constructable]
 		public PrzekletaRetorta()
 		{
-			Hue = 2700;
+			Hue = 1180;
 			Name = "Przekleta Retorta";
 			WeaponAttributes.HitLowerDefend = 45;
 			Attributes.BonusDex = 9;

@@ -9,7 +9,7 @@
 		[Constructable]
 		public KasraShamshir()
 		{
-			Hue = 2964;
+			Hue = 1396;
 
 			WeaponAttributes.HitColdArea = 10;
 			WeaponAttributes.HitEnergyArea = 10;

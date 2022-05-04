@@ -60,21 +60,21 @@ namespace Server.Mobiles
 				{
 					BodyValue = 116;
 					ItemID = 16039;
-					Hue = 2956;
+					Hue = 1388;
 					break;
 				}
 				case 1:
 				{
 					BodyValue = 178;
 					ItemID = 16041;
-					Hue = 2957;
+					Hue = 1389;
 					break;
 				}
 				case 2:
 				{
 					BodyValue = 179;
 					ItemID = 16055;
-					Hue = 2958;
+					Hue = 1390;
 					break;
 				}
 			}

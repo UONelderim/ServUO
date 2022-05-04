@@ -97,7 +97,7 @@ namespace Server.Items
 			else
 				Repeat = repeat;
 
-			base.Hue = m_Class <= 2 ? 1935 : m_Class <= 6 ? 0x8a5 : m_Class <= 11 ? 2401 : 0x972;
+			base.Hue = m_Class <= 2 ? 2139 : m_Class <= 6 ? 2213 : m_Class <= 11 ? 2401 : 2418;
 		}
 
 		public RewardScroll(Serial serial) : base(serial)

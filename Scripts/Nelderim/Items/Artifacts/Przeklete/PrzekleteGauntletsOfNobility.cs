@@ -2,7 +2,6 @@ namespace Server.Items
 {
 	public class PrzekleteGauntletsOfNobility : RingmailGloves
 	{
-		//public override int LabelNumber { get { return 1061092; } } // Rekawice Szlachectwa
 		public override int InitMinHits { get { return 60; } }
 		public override int InitMaxHits { get { return 60; } }
 
@@ -12,7 +11,7 @@ namespace Server.Items
 		[Constructable]
 		public PrzekleteGauntletsOfNobility()
 		{
-			Hue = 2700;
+			Hue = 1180;
 			Attributes.BonusStr = 18;
 			Attributes.Luck = 120;
 			Attributes.WeaponDamage = 20;

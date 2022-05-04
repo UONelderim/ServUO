@@ -15,7 +15,7 @@ namespace Server.Items
 		[Constructable]
 		public SzponySzalenstwa()
 		{
-			Hue = 0xA8E;
+			Hue = 1182;
 			Attributes.LowerManaCost = 2;
 			Attributes.RegenStam = 3;
 			Attributes.AttackChance = 5;

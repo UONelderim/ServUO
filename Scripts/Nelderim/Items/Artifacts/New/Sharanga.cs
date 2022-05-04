@@ -9,7 +9,7 @@ namespace Server.Items
 		[Constructable]
 		public Sharanga()
 		{
-			Hue = 1462;
+			Hue = 2668;
 
 			Attributes.AttackChance = 15;
 			Attributes.RegenHits = 4;

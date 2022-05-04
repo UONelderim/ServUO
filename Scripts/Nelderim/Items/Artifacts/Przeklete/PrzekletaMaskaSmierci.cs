@@ -14,7 +14,7 @@
 		[Constructable]
 		public PrzekletaMaskaSmierci()
 		{
-			Hue = 2700;
+			Hue = 1180;
 			Name = "Przeklęta Maska Smierci";
 			ArmorAttributes.MageArmor = 1;
 			Attributes.DefendChance = 15;
@@ -22,7 +22,6 @@
 			Attributes.NightSight = 1;
 			Attributes.SpellDamage = 10;
 			LootType = LootType.Cursed;
-			//Server.Engines.XmlSpawner2.XmlAttach.AttachTo(this, new Server.Engines.XmlSpawner2.TemporaryQuestObject("CursedArtifact", 20160));
 		}
 
 		public PrzekletaMaskaSmierci(Serial serial)

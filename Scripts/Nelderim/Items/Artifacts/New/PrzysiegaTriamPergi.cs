@@ -9,7 +9,7 @@
 		[Constructable]
 		public PrzysiegaTriamPergi()
 		{
-			Hue = 0x87;
+			Hue = 135;
 			Attributes.Luck = 50;
 			Attributes.LowerManaCost = 3;
 		}

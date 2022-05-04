@@ -10,7 +10,7 @@ namespace Server.Items
 		[Constructable]
 		public KoszulaZPajeczychNici()
 		{
-			Hue = 2523;
+			Hue = 2250;
 			Name = "Koszula z pajeczych nici";
 			Attributes.BonusHits = 1;
 			LootType = LootType.Cursed;

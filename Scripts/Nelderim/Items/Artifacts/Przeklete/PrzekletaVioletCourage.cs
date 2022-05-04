@@ -15,9 +15,8 @@ namespace Server.Items
 		[Constructable]
 		public PrzekletaVioletCourage()
 		{
-			Hue = 2700;
+			Hue = 1180;
 			LootType = LootType.Cursed;
-			;
 			Attributes.Luck = 95;
 			Attributes.DefendChance = 25;
 			ArmorAttributes.LowerStatReq = 100;

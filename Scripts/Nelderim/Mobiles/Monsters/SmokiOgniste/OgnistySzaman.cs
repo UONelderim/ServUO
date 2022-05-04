@@ -17,7 +17,7 @@ namespace Server.Mobiles
 		{
 			Name = "ognisty szaman";
 			Body = 33;
-			Hue = 2585;
+			Hue = 1070;
 
 			BaseSoundID = 417;
 

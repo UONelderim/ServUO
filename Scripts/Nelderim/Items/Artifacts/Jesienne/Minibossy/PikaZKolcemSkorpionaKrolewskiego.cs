@@ -8,7 +8,7 @@ namespace Server.Items
 		[Constructable]
 		public PikaZKolcemSkorpionaKrolewskiego()
 		{
-			Hue = 2671;
+			Hue = 1687;
 			Name = "Pika z Kolcem Skorpiona Krolewskiego";
 			Attributes.WeaponDamage = 55;
 			WeaponAttributes.HitLeechHits = 25;

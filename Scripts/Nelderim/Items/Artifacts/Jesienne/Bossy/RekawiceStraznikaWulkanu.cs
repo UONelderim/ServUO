@@ -14,7 +14,7 @@ namespace Server.Items
 		[Constructable]
 		public RekawiceStraznikaWulkanu()
 		{
-			Hue = 2643;
+			Hue = 2189;
 			Name = "Rekawice Straznika Wulkanu";
 			Attributes.BonusInt = 5;
 			Attributes.BonusStr = 10;
