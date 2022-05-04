@@ -1,135 +1,133 @@
+using System;
+using System.Collections;
+using Server;
 using Server.Network;
 using Server.Regions;
-using System.Collections;
 
 namespace Server.Items
 {
-    public class Kindling : Item
-    {
-		
+	public class Kindling : Item
+	{
 		public TimeSpan Cooldown { get { return TimeSpan.FromSeconds(2.0); }  }
+
+		[Constructable]
+		public Kindling() : this( 1 )
+		{
+		}
+
+		[Constructable]
+		public Kindling( int amount ) : base( 0xDE1 )
+		{
+			Stackable = true;
+			Weight = 1.0;
+			Amount = amount;
+		}
+
+		public Kindling( Serial serial ) : base( serial )
+		{
+		}
+
 		
-		
-        [Constructable]
-        public Kindling()
-            : this(1)
-        {
-        }
 
-        [Constructable]
-        public Kindling(int amount)
-            : base(0xDE1)
-        {
-            Stackable = true;
-            Weight = 1.0;
-            Amount = amount;
-        }
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
 
-        public Kindling(Serial serial)
-            : base(serial)
-        {
-        }
+			writer.Write( (int) 0 ); // version
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
 
-            writer.Write(1); // version
-        }
+			int version = reader.ReadInt();
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-
-            if (version == 0)
-                Weight = 1.0;
-        }
-
-        public override void OnDoubleClick(Mobile from)
-        {
+		public override void OnDoubleClick( Mobile from )
+		{
 			if ( from.BeginAction( typeof( Kindling ) ) )
 			{
 				Timer.DelayCall( Cooldown, new TimerStateCallback( Cooldown_Callback ), from );
-				
-				if (!VerifyMove(from))
+
+				if ( !this.VerifyMove( from ) )
 					return;
 
-				if (!from.InRange(GetWorldLocation(), 2))
+				if ( !from.InRange( this.GetWorldLocation(), 2 ) )
 				{
-					from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 1019045); // I can't reach that.
+					from.LocalOverheadMessage( MessageType.Regular, 0x3B2, 1019045 ); // I can't reach that.
 					return;
 				}
 
-				Point3D fireLocation = GetFireLocation(from);
+				Point3D fireLocation = GetFireLocation( from );
 
-				if (fireLocation == Point3D.Zero)
+				if ( fireLocation == Point3D.Zero )
 				{
-					from.SendLocalizedMessage(501695); // There is not a spot nearby to place your campfire.
+					from.SendLocalizedMessage( 501695 ); // There is not a spot nearby to place your campfire.
 				}
-				else if (!from.CheckSkill(SkillName.Camping, 0.0, 100.0))
+				else if ( !from.CheckSkill( SkillName.Camping, 0.0, 100.0 ) )
 				{
-					from.SendLocalizedMessage(501696); // You fail to ignite the campfire.
+					from.SendLocalizedMessage( 501696 ); // You fail to ignite the campfire.
+				}
+				else
+				{
+					Consume();
+
+					if ( !this.Deleted && this.Parent == null )
+						from.PlaceInBackpack( this );
+
+					new Campfire().MoveToWorld( fireLocation, from.Map );
 				}
 			}
-            else
-            {
-                Consume();
+			else
+			{
+				from.SendMessage( "Musisz poczekac zanim uzyjesz tego ponownie" );
+			}
+		}
 
-                if (!Deleted && Parent == null)
-                    from.PlaceInBackpack(this);
+		private Point3D GetFireLocation( Mobile from )
+		{
+			if ( from.Region.IsPartOf( typeof( DungeonRegion ) ) )
+				return Point3D.Zero;
 
-                new Campfire().MoveToWorld(fireLocation, from.Map);
-            }
-        }
+			if ( this.Parent == null )
+				return this.Location;
 
-        private Point3D GetFireLocation(Mobile from)
-        {
-            if (from.Region.IsPartOf<DungeonRegion>())
-                return Point3D.Zero;
+			ArrayList list = new ArrayList( 4 );
 
-            if (Parent == null)
-                return Location;
+			AddOffsetLocation( from,  0, -1, list );
+			AddOffsetLocation( from, -1,  0, list );
+			AddOffsetLocation( from,  0,  1, list );
+			AddOffsetLocation( from,  1,  0, list );
 
-            ArrayList list = new ArrayList(4);
+			if ( list.Count == 0 )
+				return Point3D.Zero;
 
-            AddOffsetLocation(from, 0, -1, list);
-            AddOffsetLocation(from, -1, 0, list);
-            AddOffsetLocation(from, 0, 1, list);
-            AddOffsetLocation(from, 1, 0, list);
+			int idx = Utility.Random( list.Count );
+			return (Point3D) list[idx];
+		}
 
-            if (list.Count == 0)
-                return Point3D.Zero;
+		private void AddOffsetLocation( Mobile from, int offsetX, int offsetY, ArrayList list )
+		{
+			Map map = from.Map;
 
-            int idx = Utility.Random(list.Count);
-            return (Point3D)list[idx];
-        }
+			int x = from.X + offsetX;
+			int y = from.Y + offsetY;
 
-        private void AddOffsetLocation(Mobile from, int offsetX, int offsetY, ArrayList list)
-        {
-            Map map = from.Map;
+			Point3D loc = new Point3D( x, y, from.Z );
 
-            int x = from.X + offsetX;
-            int y = from.Y + offsetY;
+			if ( map.CanFit( loc, 1 ) && from.InLOS( loc ) )
+			{
+				list.Add( loc );
+			}
+			else
+			{
+				loc = new Point3D( x, y, map.GetAverageZ( x, y ) );
 
-            Point3D loc = new Point3D(x, y, from.Z);
-
-            if (map.CanFit(loc, 1) && from.InLOS(loc))
-            {
-                list.Add(loc);
-            }
-            else
-            {
-                loc = new Point3D(x, y, map.GetAverageZ(x, y));
-
-                if (map.CanFit(loc, 1) && from.InLOS(loc))
-                    list.Add(loc);
-            }
-        }
-		
+				if ( map.CanFit( loc, 1 ) && from.InLOS( loc ) )
+					list.Add( loc );
+			}
+		}
 		private static void Cooldown_Callback(object state) {
 			((Mobile)state).EndAction(typeof(Kindling));
-			}
-    }
-}
+	}
+}}
