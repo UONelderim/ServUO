@@ -23,7 +23,7 @@ namespace Server.Mobiles
 		{
 			Name = "azatoth - wladca demonow ";
 			Body = 0x310;
-			Hue = 2585;
+			Hue = 1070;
 			BaseSoundID = 357;
 
 			SetStr(1286, 1385);

@@ -8,7 +8,7 @@ namespace Server.Items
 		[Constructable]
 		public KosturMagaZOrod()
 		{
-			Hue = 2677;
+			Hue = 1693;
 			Name = "Kostur Maga Z Orod";
 			Attributes.WeaponDamage = 20;
 			WeaponAttributes.HitLeechHits = 35;

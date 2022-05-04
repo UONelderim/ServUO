@@ -322,7 +322,7 @@ namespace Server.Items
 		[Constructable]
 		public BowstringNightmare(int amount) : base(amount)
 		{
-			Hue = 2065;
+			Hue = 1788;
 			Name = "Cieciwa z wlosia koszmara";
 		}
 
@@ -356,7 +356,7 @@ namespace Server.Items
 		[Constructable]
 		public BowstringKirin(int amount) : base(amount)
 		{
-			Hue = 2517;
+			Hue = 2244;
 			Name = "Cieciwa z wlosia ki-rina";
 		}
 

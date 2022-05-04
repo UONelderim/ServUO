@@ -8,7 +8,7 @@ namespace Server.Items
 		[Constructable]
 		public PrzekletySoulSeeker()
 		{
-			Hue = 2700;
+			Hue = 1180;
 			Name = "Przeklęty Poszukiwacz Dusz";
 			WeaponAttributes.HitLeechStam = 40;
 			WeaponAttributes.HitLeechMana = 40;
@@ -17,7 +17,6 @@ namespace Server.Items
 			Attributes.WeaponSpeed = 60;
 			Slayer = SlayerName.Repond;
 			LootType = LootType.Cursed;
-			//Server.Engines.XmlSpawner2.XmlAttach.AttachTo(this, new Server.Engines.XmlSpawner2.TemporaryQuestObject("CursedArtifact", 20160));
 		}
 
 		public override void GetDamageTypes(Mobile wielder, out int phys, out int fire, out int cold, out int pois,

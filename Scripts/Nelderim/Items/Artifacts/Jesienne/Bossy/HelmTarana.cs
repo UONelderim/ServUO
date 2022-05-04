@@ -14,7 +14,7 @@ namespace Server.Items
 		[Constructable]
 		public HelmTarana()
 		{
-			Hue = 2693;
+			Hue = 1563;
 			Name = "Helm Tarana";
 			Attributes.BonusMana = 10;
 			Attributes.RegenMana = 1;

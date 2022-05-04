@@ -15,7 +15,7 @@ namespace Server.Mobiles
 			Name = "mlody szafirowy smok";
 			BaseSoundID = 362;
 
-			Hue = 2061;
+			Hue = 1784;
 
 			SetStr(411, 440);
 			SetDex(153, 162);

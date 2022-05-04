@@ -24,7 +24,7 @@ namespace Server.Mobiles
 		{
 			Name = "pole antymagiczne ";
 			Body = 58;
-			Hue = 2961;
+			Hue = 1393;
 
 
 			SetStr(1286, 1385);

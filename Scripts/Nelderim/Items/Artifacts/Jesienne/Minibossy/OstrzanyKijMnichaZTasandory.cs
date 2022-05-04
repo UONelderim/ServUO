@@ -8,7 +8,7 @@ namespace Server.Items
 		[Constructable]
 		public OstrzanyKijMnichaZTasandory()
 		{
-			Hue = 2573;
+			Hue = 2300;
 			Name = "Ostrzany Kij Mnicha z Tasandory";
 			Attributes.WeaponDamage = 25;
 			WeaponAttributes.HitLeechHits = 40;

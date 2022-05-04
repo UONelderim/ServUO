@@ -14,7 +14,7 @@ namespace Server.Items
 		[Constructable]
 		public BagiennaTunika()
 		{
-			Hue = 2641;
+			Hue = 2187;
 			Name = "Bagienna Tunika";
 			Attributes.BonusStam = 5;
 			Attributes.WeaponSpeed = 10;

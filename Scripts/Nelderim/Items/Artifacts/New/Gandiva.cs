@@ -9,7 +9,7 @@ namespace Server.Items
 		[Constructable]
 		public Gandiva()
 		{
-			Hue = 2951;
+			Hue = 1393;
 
 			Slayer = SlayerName.ArachnidDoom;
 			Attributes.WeaponDamage = 30;

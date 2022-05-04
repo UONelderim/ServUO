@@ -8,7 +8,7 @@
 		[Constructable]
 		public PrzekletyKilofZRuinTwierdzy()
 		{
-			Hue = 2700;
+			Hue = 1180;
 			Name = "Przeklęty Kilof Z Ruin Twierdzy";
 			Attributes.WeaponDamage = 40;
 			Attributes.AttackChance = 25;
@@ -19,7 +19,6 @@
 			Attributes.WeaponSpeed = 20;
 			LootType = LootType.Cursed;
 			Weight = 10.0;
-			//Server.Engines.XmlSpawner2.XmlAttach.AttachTo(this, new Server.Engines.XmlSpawner2.TemporaryQuestObject("CursedArtifact", 20160));
 		}
 
 		public PrzekletyKilofZRuinTwierdzy(Serial serial)

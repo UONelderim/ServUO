@@ -9,7 +9,7 @@ namespace Server.Items
 		[Constructable]
 		public PrzekletyFleshRipper()
 		{
-			Hue = 2700;
+			Hue = 1180;
 			LootType = LootType.Cursed;
 			SkillBonuses.SetValues(0, SkillName.Anatomy, 30.0);
 			Name = "Przeklety Wypruwacz Flakow";

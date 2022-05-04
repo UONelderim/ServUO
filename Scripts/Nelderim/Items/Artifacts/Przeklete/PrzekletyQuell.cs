@@ -2,16 +2,15 @@ namespace Server.Items
 {
 	public class PrzekletyQuell : Bardiche
 	{
-		// public override int LabelNumber { get { return 1065842; } } // Zdlawiony
 		public override int InitMinHits { get { return 60; } }
 		public override int InitMaxHits { get { return 60; } }
 
-		public override bool CanFortify { get { return true; } } //bylo false
+		public override bool CanFortify { get { return true; } }
 
 		[Constructable]
 		public PrzekletyQuell()
 		{
-			Hue = 2700;
+			Hue = 1180;
 
 			Attributes.SpellChanneling = 1;
 			Attributes.WeaponSpeed = 25;

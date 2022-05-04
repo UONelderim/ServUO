@@ -13,7 +13,7 @@ namespace Server.Items
 		[Constructable]
 		public TunikaNamiestnikaSnieznejPrzystani()
 		{
-			Hue = 2518;
+			Hue = 2245;
 			Attributes.LowerRegCost = 20;
 			Name = "Tunika Namiestnika Snieznej Przystani";
 			SkillBonuses.SetValues(0, SkillName.Macing, 10.0);

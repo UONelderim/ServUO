@@ -20,7 +20,7 @@ namespace Server.Items
 		{
 			Name = "Ksiega Pomocnika Pana";
 			Movable = true;
-			Hue = 1925;
+			Hue = 1599;
 			LootType = LootType.Blessed;
 		}
 

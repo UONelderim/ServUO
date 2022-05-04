@@ -15,7 +15,7 @@
 		[Constructable]
 		public RekawiceBulpa()
 		{
-			Hue = 2070;
+			Hue = 1793;
 			Attributes.DefendChance = 5;
 			Attributes.SpellDamage = 5;
 			Attributes.WeaponDamage = 5;

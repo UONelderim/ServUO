@@ -79,7 +79,7 @@ namespace Server.Items
 		{
 			Stackable = true;
 			Name = "Wywar Sily";
-			Hue = 2700;
+			Hue = 1180;
 		}
 
 		public WywarSily(Serial serial) : base(serial)

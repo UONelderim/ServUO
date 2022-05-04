@@ -15,7 +15,7 @@
 		[Constructable]
 		public MaskaSmierci()
 		{
-			Hue = 2518;
+			Hue = 2245;
 			ArmorAttributes.MageArmor = 1;
 			Attributes.DefendChance = 5;
 			Attributes.LowerManaCost = 8;

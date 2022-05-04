@@ -8,7 +8,7 @@ namespace Server.Items
 		[Constructable]
 		public ChwytTeczy()
 		{
-			Hue = 2579;
+			Hue = 1064;
 			Name = "Chwyt Teczy";
 			Attributes.WeaponDamage = 40;
 			WeaponAttributes.HitLeechHits = 100;

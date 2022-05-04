@@ -8,7 +8,7 @@ namespace Server.Items
 		[Constructable]
 		public Aderthand()
 		{
-			Hue = 2964;
+			Hue = 1396;
 			Name = "Aderthand";
 			WeaponAttributes.HitColdArea = 10;
 			WeaponAttributes.HitEnergyArea = 10;

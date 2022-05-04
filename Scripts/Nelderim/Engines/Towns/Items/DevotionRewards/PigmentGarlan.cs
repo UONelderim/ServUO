@@ -10,7 +10,7 @@ namespace Server.Items
 
 		[Constructable]
 		public PigmentGarlan(int uses)
-			: base(PigmentTarget.Cloth, uses, 2690)
+			: base(PigmentTarget.Cloth, uses, 1560)
 		{
 			Name = "Pigment barw Garlan";
 		}

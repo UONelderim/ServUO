@@ -10,7 +10,7 @@ namespace Server.Items
 		[Constructable]
 		public PrzekletaIolosLute()
 		{
-			Hue = 2700;
+			Hue = 1180;
 			Slayer = SlayerName.Silver;
 			Slayer2 = SlayerName.Exorcism;
 			LootType = LootType.Cursed;

@@ -9,7 +9,7 @@ namespace Server.Items
 		[Constructable]
 		public LowcaDusz()
 		{
-			Hue = 0x497;
+			Hue = 1175;
 			Slayer = SlayerName.Exorcism;
 			WeaponAttributes.HitLeechHits = 30;
 			Attributes.WeaponDamage = 40;
