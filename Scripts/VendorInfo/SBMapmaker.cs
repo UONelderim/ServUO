@@ -15,9 +15,9 @@ namespace Server.Mobiles
         {
             public InternalBuyInfo()
             {
-                Add(new GenericBuyInfo(typeof(BlankMap), 5, 40, 0x14EC, 0));
-                Add(new GenericBuyInfo(typeof(MapmakersPen), 8, 20, 0x0FBF, 0));
-                Add(new GenericBuyInfo(typeof(BlankScroll), 12, 40, 0xEF3, 0));
+				Add( new GenericBuyInfo( typeof( BlankScroll ), 10, 50, 0xEF3, 0 ) );
+				Add( new GenericBuyInfo( typeof( MapmakersPen ), 30, 50, 0x0FBF, 0 ) );
+				Add( new GenericBuyInfo( typeof( BlankMap ), 10, 50, 0x14EC, 0 ) );
 
                 for (int i = 0; i < PresetMapEntry.Table.Length; ++i)
                     Add(new PresetMapBuyInfo(PresetMapEntry.Table[i], Utility.RandomMinMax(7, 10), 20));
@@ -28,13 +28,13 @@ namespace Server.Mobiles
         {
             public InternalSellInfo()
             {
-                Add(typeof(BlankScroll), 6);
-                Add(typeof(MapmakersPen), 4);
-                Add(typeof(BlankMap), 2);
-                Add(typeof(CityMap), 3);
-                Add(typeof(LocalMap), 3);
-                Add(typeof(WorldMap), 3);
-                Add(typeof(PresetMapEntry), 3);
+				Add( typeof( BlankScroll ), 3 );
+				Add( typeof( MapmakersPen ), 8 );
+				Add( typeof( BlankMap ), 3 );
+				Add( typeof( LocalMap ), 4 );
+				Add( typeof( CityMap ), 5 );
+				Add( typeof( SeaChart ), 7 );
+				Add( typeof( WorldMap ), 9 );
                 //TODO: Buy back maps that the mapmaker sells!!!
             }
         }

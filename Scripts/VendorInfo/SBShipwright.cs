@@ -25,19 +25,21 @@ namespace Server.Mobiles
         {
             public InternalBuyInfo(Mobile m)
             {
-                Add(new GenericBuyInfo("1041205", typeof(SmallBoatDeed), 10177, 20, 0x14F2, 0));
-                Add(new GenericBuyInfo("1041206", typeof(SmallDragonBoatDeed), 10177, 20, 0x14F2, 0));
-                Add(new GenericBuyInfo("1041207", typeof(MediumBoatDeed), 11552, 20, 0x14F2, 0));
-                Add(new GenericBuyInfo("1041208", typeof(MediumDragonBoatDeed), 11552, 20, 0x14F2, 0));
-                Add(new GenericBuyInfo("1041209", typeof(LargeBoatDeed), 12927, 20, 0x14F2, 0));
-                Add(new GenericBuyInfo("1041210", typeof(LargeDragonBoatDeed), 12927, 20, 0x14F2, 0));
+			    //statki 
+				Add( new GenericBuyInfo( "1041205", typeof( SmallBoatDeed ), 70000, 3, 0x14F2, 0 ) );
+				Add( new GenericBuyInfo( "1041206", typeof( SmallDragonBoatDeed ), 80000, 3, 0x14F2, 0 ) );
+				Add( new GenericBuyInfo( "1041207", typeof( MediumBoatDeed ), 90000, 2, 0x14F2, 0 ) );
+				Add( new GenericBuyInfo( "1041208", typeof( MediumDragonBoatDeed ), 100000, 2, 0x14F2, 0 ) );
+				Add( new GenericBuyInfo( "1041209", typeof( LargeBoatDeed ), 110000, 1, 0x14F2, 0 ) );
+				Add( new GenericBuyInfo( "1041210", typeof( LargeDragonBoatDeed ), 120000, 1, 0x14F2, 0 ) );
 
-                if (m.Region is SeaMarketRegion || m.Region is TokunoDocksRegion)
+               /*  if (m.Region is SeaMarketRegion || m.Region is TokunoDocksRegion)
                 {
                     Add(new GenericBuyInfo("1116740", typeof(TokunoGalleonDeed), 150002, 20, 0x14F2, 0));
                     Add(new GenericBuyInfo("1116739", typeof(GargishGalleonDeed), 200002, 20, 0x14F2, 0));
-                    Add(new GenericBuyInfo("1116491", typeof(RowBoatDeed), 6252, 20, 0x14F2, 0));
-                }
+                    Add(new GenericBuyInfo("1116491", typeof(RowBoatDeed), 6252, 20, 0x14F2, 0)); // nie wiemy co z galeonami; TBD
+                
+                } */
 
                 Add(new GenericBuyInfo(typeof(Spyglass), 3, 20, 0x14F5, 0));
             }

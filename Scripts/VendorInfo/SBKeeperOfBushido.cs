@@ -15,7 +15,8 @@ namespace Server.Mobiles
         {
             public InternalBuyInfo()
             {
-                Add(new GenericBuyInfo(typeof(BookOfBushido), 500, 20, 9100, 0));
+                Add( new GenericBuyInfo( typeof( BookOfChivalry ), 500, 20, 0x2252, 0 ) );
+                Add( new GenericBuyInfo( typeof( BookOfBushido ), 500, 20, 0x238C, 0 ) );
             }
         }
 

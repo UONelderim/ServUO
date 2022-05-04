@@ -15,7 +15,7 @@ namespace Server.Mobiles
         {
             public InternalBuyInfo()
             {
-                Add(new GenericBuyInfo(typeof(Hides), 3, 40, 0x1079, 0, true));
+                Add( new GenericBuyInfo( typeof( Hides ), 10, 50, 0x1079, 0 ) ); 
             }
         }
 
@@ -23,7 +23,8 @@ namespace Server.Mobiles
         {
             public InternalSellInfo()
             {
-                Add(typeof(Hides), 2);
+                Add( typeof( Hides ), 3 ); 
+				Add( typeof( Leather ), 3 ); 
             }
         }
     }
