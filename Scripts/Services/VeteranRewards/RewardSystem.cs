@@ -13,7 +13,7 @@ namespace Server.Engines.VeteranRewards
 
     public class RewardSystem
     {
-        public static bool Enabled = Config.Get("VetRewards.Enabled", true);
+        public static bool Enabled = Config.Get("VetRewards.Enabled", false);
         public static int SkillCap = Config.Get("PlayerCaps.TotalSkillCap", 7000);
         public static int SkillCapBonus = Config.Get("VetRewards.SkillCapBonus", 200);
         public static int SkillCapBonusLevels = Config.Get("VetRewards.SkillCapBonusLevels", 4);
