@@ -77,7 +77,7 @@ namespace Server.Mobiles
 				Add( typeof( BlueBook ), 7 );
 				Add( typeof( BlankScroll ), 2 );
 				Add( typeof( Spellbook ), 50 );
-			}
+			
             }
         }
     }
