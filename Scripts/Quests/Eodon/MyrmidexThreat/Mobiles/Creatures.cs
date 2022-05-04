@@ -26,7 +26,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.15, 0.3)
         {
             Body = 1404;
-            Name = "Myrmidex Queen";
+            Name = "Krolowa Pelzaczy";
             BaseSoundID = 959;
 
             SetHits(60000);
