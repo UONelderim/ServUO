@@ -26,7 +26,7 @@ namespace Server.Regions
             {
                 Rectangle2D r2d = new Rectangle2D(r3d.Start, r3d.End);
 
-                var eable = Map.GetItemsInBounds(r2d)
+                var eable = Map.GetItemsInBounds(r2d);
                 foreach (Item item in eable)
                 {
                     if (item is Static)
