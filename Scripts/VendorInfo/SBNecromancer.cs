@@ -16,28 +16,37 @@ namespace Server.Mobiles
         {
             public InternalBuyInfo()
             {
-                Add(new GenericBuyInfo(typeof(BlackPearl), 5, 20, 0xF7A, 0));
-                Add(new GenericBuyInfo(typeof(Bloodmoss), 7, 20, 0xF7B, 0));
-                Add(new GenericBuyInfo(typeof(MandrakeRoot), 3, 20, 0xF86, 0));
-                Add(new GenericBuyInfo(typeof(Garlic), 3, 20, 0xF84, 0));
-                Add(new GenericBuyInfo(typeof(Ginseng), 3, 20, 0xF85, 0));
-                Add(new GenericBuyInfo(typeof(Nightshade), 4, 20, 0xF88, 0));
-                Add(new GenericBuyInfo(typeof(SpidersSilk), 3, 20, 0xF8D, 0));
-                Add(new GenericBuyInfo(typeof(SulfurousAsh), 4, 20, 0xF8C, 0));
 
-                Add(new GenericBuyInfo(typeof(BatWing), 4, 20, 0xF78, 0));
-                Add(new GenericBuyInfo(typeof(GraveDust), 4, 20, 0xF8F, 0));
-                Add(new GenericBuyInfo(typeof(DaemonBlood), 4, 20, 0xF7D, 0));
-                Add(new GenericBuyInfo(typeof(NoxCrystal), 4, 20, 0xF8E, 0));
-                Add(new GenericBuyInfo(typeof(PigIron), 4, 20, 0xF8A, 0));
+                Add( new GenericBuyInfo( typeof( NecromancerSpellbook ), 115, 50, 0x2253, 0 ) );
+
+				Add( new GenericBuyInfo( typeof( morticiansScalpel ), 5000, 50, 4327, 0 ) );
+
+
+                Add( new GenericBuyInfo( typeof( BlackPearl ), 7, 50, 0xF7A, 0 ) );
+				Add( new GenericBuyInfo( typeof( Bloodmoss ), 7, 50, 0xF7B, 0 ) );
+				Add( new GenericBuyInfo( typeof( Garlic ), 5, 50, 0xF84, 0 ) );
+				Add( new GenericBuyInfo( typeof( Ginseng ), 5, 50, 0xF85, 0 ) );
+				Add( new GenericBuyInfo( typeof( MandrakeRoot ), 5, 50, 0xF86, 0 ) );
+				Add( new GenericBuyInfo( typeof( Nightshade ), 5, 50, 0xF88, 0 ) );
+				Add( new GenericBuyInfo( typeof( SpidersSilk ), 5, 50, 0xF8D, 0 ) );
+				Add( new GenericBuyInfo( typeof( SulfurousAsh ), 5, 50, 0xF8C, 0 ) );
+				Add( new GenericBuyInfo( typeof( DestroyingAngel ), 8, 50, 0xE1F, 0 ) );
+				Add( new GenericBuyInfo( typeof( PetrafiedWood ), 8, 50, 0x97A, 0 ) );
+				Add( new GenericBuyInfo( typeof( SpringWater ), 8, 50, 0xE24, 0 ) );
+				
+				Add( new GenericBuyInfo( typeof( MortarPestle ), 9, 50, 0xE9B, 0 ) );
+				Add( new GenericBuyInfo( typeof( Bottle ), 5, 50, 0xF0E, 0 ) ); 
 
                 Add(new GenericBuyInfo(typeof(NecromancerSpellbook), 150, 10, 0x2253, 0));
 
-                Add(new GenericBuyInfo("1041072", typeof(MagicWizardsHat), 11, 10, 0x1718, Utility.RandomDyedHue()));
-                Add(new GenericBuyInfo(typeof(ScribesPen), 8, 10, 0xFBF, 0));
-                Add(new GenericBuyInfo(typeof(BlankScroll), 5, 20, 0x0E34, 0));
-                Add(new GenericBuyInfo(typeof(RecallRune), 25, 10, 0x1f14, 0));
-                Add(new GenericBuyInfo(typeof(Spellbook), 50, 10, 0xEFA, 0));
+                if ( Core.AOS )
+				{
+					Add( new GenericBuyInfo( typeof( BatWing ), 6, 50, 0xF78, 0 ) );
+					Add( new GenericBuyInfo( typeof( DaemonBlood ), 8, 50, 0xF7D, 0 ) );
+					Add( new GenericBuyInfo( typeof( PigIron ), 7, 50, 0xF8A, 0 ) );
+					Add( new GenericBuyInfo( typeof( NoxCrystal ), 8, 50, 0xF8E, 0 ) );
+					Add( new GenericBuyInfo( typeof( GraveDust ), 6, 50, 0xF8F, 0 ) );
+				}
 
                 Type[] types = Loot.MageryScrollTypes;
 
@@ -59,24 +68,65 @@ namespace Server.Mobiles
         {
             public InternalSellInfo()
             {
-                Add(typeof(WizardsHat), 15);
-                Add(typeof(Runebook), 1250);
-                Add(typeof(BlackPearl), 3);
-                Add(typeof(Bloodmoss), 4);
-                Add(typeof(MandrakeRoot), 2);
-                Add(typeof(Garlic), 2);
-                Add(typeof(Ginseng), 2);
-                Add(typeof(Nightshade), 2);
-                Add(typeof(SpidersSilk), 2);
-                Add(typeof(SulfurousAsh), 2);
-                Add(typeof(RecallRune), 13);
-                Add(typeof(Spellbook), 25);
+               // 15.08.2012 :: zombie :: 15 -> 5
+                Add( typeof( WizardsHat ), 5 );
+				// zombie
 
-                Add(typeof(PigIron), 2);
-                Add(typeof(DaemonBlood), 3);
-                Add(typeof(NoxCrystal), 3);
-                Add(typeof(BatWing), 1);
-                Add(typeof(GraveDust), 1);
+				Add( typeof( BlackPearl ), 2 ); 
+				Add( typeof( Bloodmoss ), 2 ); 
+				Add( typeof( MandrakeRoot ), 2 ); 
+				Add( typeof( Garlic ), 2 ); 
+				Add( typeof( Ginseng ), 2 ); 
+				Add( typeof( Nightshade ), 2 ); 
+				Add( typeof( SpidersSilk ), 2 ); 
+				Add( typeof( SulfurousAsh ), 2 ); 
+				
+				// szczepki 
+				//Add( typeof( SzczepkaCzosnek ), 40 ); 
+				//Add( typeof( SzczepkaZenszen ), 40 ); 
+				//Add( typeof( SzczepkaMandragora ), 40 ); 
+				//Add( typeof( SzczepkaKrwawyMech ), 40 ); 
+				//Add( typeof( SzczepkaWilczaJagoda ), 40 ); 
+				// szczepki 
+				
+				if ( Core.AOS )
+				{
+					Add( typeof( BatWing ), 2 );
+					Add( typeof( DaemonBlood ), 2 );
+					Add( typeof( PigIron ), 2 );
+					Add( typeof( NoxCrystal ), 2 );
+					Add( typeof( GraveDust ), 2 );
+				}
+
+				Add( typeof( RecallRune ), 50 );
+				Add( typeof( Spellbook ), 25 );
+
+				if ( Core.SE )
+				{				
+					Add( typeof( ExorcismScroll ), 35 );
+					Add( typeof( AnimateDeadScroll ), 30 );
+					Add( typeof( BloodOathScroll ), 18 );
+					Add( typeof( CorpseSkinScroll ), 24 );
+					Add( typeof( CurseWeaponScroll ), 20 );
+					Add( typeof( EvilOmenScroll ), 20 );
+					Add( typeof( PainSpikeScroll ), 16 );
+					Add( typeof( SummonFamiliarScroll ), 26 );
+					Add( typeof( HorrificBeastScroll ), 22 );
+					Add( typeof( MindRotScroll ), 28 );
+					Add( typeof( PoisonStrikeScroll ), 22 );
+					Add( typeof( WraithFormScroll ), 25 );
+					Add( typeof( LichFormScroll ), 38 );
+					Add( typeof( StrangleScroll ), 33 );
+					Add( typeof( WitherScroll ), 35 );
+					Add( typeof( VampiricEmbraceScroll ), 45 );
+					Add( typeof( VengefulSpiritScroll ), 48 );
+					
+				Add( typeof( ScribesPen ), 3 );
+				Add( typeof( BrownBook ), 4 );
+				Add( typeof( TanBook ), 4 );
+				Add( typeof( BlueBook ), 4 );
+				Add( typeof( BlankScroll ), 2 );
+			}
 
                 Type[] types = Loot.MageryScrollTypes;
 

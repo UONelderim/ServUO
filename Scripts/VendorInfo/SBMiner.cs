@@ -15,13 +15,16 @@ namespace Server.Mobiles
         {
             public InternalBuyInfo()
             {
-                Add(new GenericBuyInfo(typeof(Bag), 6, 20, 0xE76, 0));
-                Add(new GenericBuyInfo(typeof(Candle), 6, 10, 0xA28, 0));
-                Add(new GenericBuyInfo(typeof(Torch), 8, 10, 0xF6B, 0));
-                Add(new GenericBuyInfo(typeof(Lantern), 2, 10, 0xA25, 0));
-                //Add( new GenericBuyInfo( typeof( OilFlask ), 8, 10, 0x####, 0 ) );
-                Add(new GenericBuyInfo(typeof(Pickaxe), 25, 10, 0xE86, 0));
-                Add(new GenericBuyInfo(typeof(Shovel), 12, 10, 0xF39, 0));
+
+                Add( new GenericBuyInfo( typeof( Bag ), 50, 50, 0xE76, 0 ) );
+				Add( new GenericBuyInfo( typeof( Candle ), 10, 50, 0xA28, 0 ) );
+				Add( new GenericBuyInfo( typeof( Torch ), 20, 50, 0xF6B, 0 ) );
+				Add( new GenericBuyInfo( typeof( Lantern ), 30, 50, 0xA25, 0 ) );
+				//Add( new GenericBuyInfo( typeof( OilFlask ), 8, 10, 0x####, 0 ) );
+				Add( new GenericBuyInfo( typeof( Pickaxe ), 30, 50, 0xE86, 0 ) );
+				Add( new GenericBuyInfo( typeof( Shovel ), 30, 50, 0xF39, 0 ) );
+				Add( new GenericBuyInfo( typeof( IronIngot ), 10, 50, 0x1BF2, 0 ) );
+				
             }
         }
 
@@ -29,13 +32,14 @@ namespace Server.Mobiles
         {
             public InternalSellInfo()
             {
-                Add(typeof(Pickaxe), 12);
-                Add(typeof(Shovel), 6);
-                Add(typeof(Lantern), 1);
-                //Add( typeof( OilFlask ), 4 );
-                Add(typeof(Torch), 3);
-                Add(typeof(Bag), 3);
-                Add(typeof(Candle), 3);
+				Add( typeof( Pickaxe ), 8 );
+				Add( typeof( Shovel ), 6 );
+				Add( typeof( Lantern ), 1 );
+				//Add( typeof( OilFlask ), 4 );
+				Add( typeof( Torch ), 3 );
+				Add( typeof( Bag ), 3 );
+				Add( typeof( Candle ), 3 );
+				Add( typeof( IronIngot ), 3 );
             }
         }
     }

@@ -15,13 +15,16 @@ namespace Server.Mobiles
         {
             public InternalBuyInfo()
             {
-                Add(new GenericBuyInfo(typeof(Ginseng), 3, 20, 0xF85, 0));
-                Add(new GenericBuyInfo(typeof(Garlic), 3, 20, 0xF84, 0));
-                Add(new GenericBuyInfo(typeof(MandrakeRoot), 3, 20, 0xF86, 0));
-                Add(new GenericBuyInfo(typeof(Nightshade), 3, 20, 0xF88, 0));
-                Add(new GenericBuyInfo(typeof(Bloodmoss), 5, 20, 0xF7B, 0));
-                Add(new GenericBuyInfo(typeof(MortarPestle), 8, 20, 0xE9B, 0));
-                Add(new GenericBuyInfo(typeof(Bottle), 5, 20, 0xF0E, 0, true));
+				Add( new GenericBuyInfo( typeof( Bloodmoss ), 7, 200, 0xF7B, 0 ) ); 
+				Add( new GenericBuyInfo( typeof( MandrakeRoot ), 5, 200, 0xF86, 0 ) ); 
+				Add( new GenericBuyInfo( typeof( Garlic ), 5, 200, 0xF84, 0 ) ); 
+				Add( new GenericBuyInfo( typeof( Ginseng ), 5, 200, 0xF85, 0 ) ); 
+				Add( new GenericBuyInfo( typeof( Nightshade ), 5, 200, 0xF88, 0 ) ); 
+				Add( new GenericBuyInfo( typeof( Bottle ), 5, 200, 0xF0E, 0 ) ); 
+				Add( new GenericBuyInfo( typeof( MortarPestle ), 30, 20, 0xE9B, 0 ) );
+				Add( new GenericBuyInfo( typeof( DestroyingAngel ), 8, 50, 0xE1F, 0 ) );
+				Add( new GenericBuyInfo( typeof( PetrafiedWood ), 8, 50, 0x97A, 0 ) );
+				Add( new GenericBuyInfo( typeof( SpringWater ), 8, 50, 0xE24, 0 ) ); 
             }
         }
 
@@ -29,13 +32,13 @@ namespace Server.Mobiles
         {
             public InternalSellInfo()
             {
-                Add(typeof(Bloodmoss), 3);
-                Add(typeof(MandrakeRoot), 2);
-                Add(typeof(Garlic), 2);
-                Add(typeof(Ginseng), 2);
-                Add(typeof(Nightshade), 2);
-                Add(typeof(Bottle), 3);
-                Add(typeof(MortarPestle), 4);
+				Add( typeof( Bloodmoss ), 3 ); 
+				Add( typeof( MandrakeRoot ), 2 ); 
+				Add( typeof( Garlic ), 2 ); 
+				Add( typeof( Ginseng ), 2 ); 
+				Add( typeof( Nightshade ), 2 ); 
+				Add( typeof( Bottle ), 3 ); 
+				Add( typeof( MortarPestle ), 4 ); 
             }
         }
     }

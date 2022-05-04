@@ -15,9 +15,9 @@ namespace Server.Mobiles
         {
             public InternalBuyInfo()
             {
-                Add(new GenericBuyInfo("special beard dye", typeof(SpecialBeardDye), 500000, 20, 0xE26, 0));
-                Add(new GenericBuyInfo("special hair dye", typeof(SpecialHairDye), 500000, 20, 0xE26, 0));
-                Add(new GenericBuyInfo("1041060", typeof(HairDye), 60, 20, 0xEFF, 0));
+				Add( new GenericBuyInfo( "special beard dye", typeof( SpecialBeardDye ), 50000, 50, 0xE26, 0 ) ); 
+				Add( new GenericBuyInfo( "special hair dye", typeof( SpecialHairDye ), 50000, 50, 0xE26, 0 ) ); 
+				Add( new GenericBuyInfo( "1041060", typeof( HairDye ), 1000, 50, 0xEFF, 0 ) ); 
             }
         }
 
@@ -25,9 +25,9 @@ namespace Server.Mobiles
         {
             public InternalSellInfo()
             {
-                Add(typeof(HairDye), 30);
-                Add(typeof(SpecialBeardDye), 250000);
-                Add(typeof(SpecialHairDye), 250000);
+				Add( typeof( HairDye ), 200 ); 
+				Add( typeof( SpecialBeardDye ), 15000 ); 
+				Add( typeof( SpecialHairDye ), 15000 ); 
             }
         }
     }
