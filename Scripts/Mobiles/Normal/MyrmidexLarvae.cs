@@ -2,14 +2,14 @@ using Server.Engines.MyrmidexInvasion;
 
 namespace Server.Mobiles
 {
-    [CorpseName("zwloki larwy myrmideksow")]
+    [CorpseName("zwloki larwy pelzaczy")]
     public class MyrmidexLarvae : BaseCreature
     {
         [Constructable]
         public MyrmidexLarvae()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, .2, .4)
         {
-            Name = "larwa myrmideksow";
+            Name = "larwa pelzaczy";
 
             Body = 1293;
             BaseSoundID = 959;

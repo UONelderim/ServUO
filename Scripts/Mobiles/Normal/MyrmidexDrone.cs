@@ -3,14 +3,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("zwloki trutnia myrmideksow")]
+    [CorpseName("zwloki trutnia pelzaczy")]
     public class MyrmidexDrone : BaseCreature
     {
         [Constructable]
         public MyrmidexDrone()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, .2, .4)
         {
-            Name = "truten myrmideksow";
+            Name = "truten pelzaczy";
 
             Body = 1402;
             BaseSoundID = 959;
