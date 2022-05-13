@@ -58,7 +58,7 @@ namespace Server.Mobiles
         }
 
         public override bool AllowMaleRider => false;
-        public override bool AllowMaleTamer => false;
+        public override bool AllowMaleTamer => true;
         public override bool InitialInnocent => true;
         public override TimeSpan MountAbilityDelay => TimeSpan.FromHours(1.0);
 
