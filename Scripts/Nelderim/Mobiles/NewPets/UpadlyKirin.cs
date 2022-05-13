@@ -12,7 +12,7 @@ namespace Server.Mobiles
 	public class UpadlyKirin : BaseMount
 	{
 		public override bool AllowFemaleRider { get { return false; } }
-		public override bool AllowFemaleTamer { get { return false; } }
+		public override bool AllowFemaleTamer { get { return true; } }
 
 		public override bool InitialInnocent { get { return true; } }
 
