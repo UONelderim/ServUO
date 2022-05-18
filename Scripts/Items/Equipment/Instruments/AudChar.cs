@@ -6,7 +6,7 @@ namespace Server.Items
         public AudChar()
             : base(0x403B, 0x392, 0x44)
         {
-            Weight = 10.0;
+            Weight = 4.0;
             Name = "Basetla";
         }
 
