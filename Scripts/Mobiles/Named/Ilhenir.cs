@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Server.Mobiles
 {
     [CorpseName("zwloki splamionego")]
-    public class Ilhenir : BaseChampion
+    public class Ilhenir : BaseCreature
     {
         private readonly DateTime m_NextDrop = DateTime.UtcNow;
 
@@ -60,7 +60,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override ChampionSkullType SkullType => ChampionSkullType.Pain;
+  /*      public override ChampionSkullType SkullType => ChampionSkullType.Pain;
         public override Type[] UniqueList => new Type[] { };
         public override Type[] SharedList => new Type[]
                 {
@@ -82,7 +82,18 @@ namespace Server.Mobiles
             AddLoot(LootPack.FilthyRich);
             AddLoot(LootPack.Talisman, 5);
             AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 3));
-        }
+        }*/
+
+        public override bool Unprovokable => true;
+        public override bool Uncalmable => true;
+        public override Poison PoisonImmune => Poison.Lethal;
+        public override int TreasureMapLevel => 5;
+        
+    	public override bool OnBeforeDeath()
+		{
+			AddLoot( LootPack.DeathKnightScrolls );
+			return base.OnBeforeDeath( );
+		}
 
         public override void OnDamage(int amount, Mobile from, bool willKill)
         {

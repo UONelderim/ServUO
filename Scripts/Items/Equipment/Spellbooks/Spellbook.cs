@@ -23,6 +23,7 @@ namespace Server.Items
         Arcanist,
         Mystic,
         SkillMasteries,
+        DeathKnight //Mroczny Rycerz
     }
 
     public enum BookQuality
@@ -412,7 +413,10 @@ namespace Server.Items
             {
                 return SpellbookType.SkillMasteries;
             }
-
+            else if ( spellID >= 750 && spellID < 764 )
+            {
+                return SpellbookType.DeathKnight;
+            }                                           // Mroczny Rycerz
             return SpellbookType.Invalid;
         }
 

@@ -86,6 +86,12 @@ namespace Server.Mobiles
 			ArtifactHelper.ArtifactDistribution(this);
 		}
 
+		public override bool OnBeforeDeath()
+		{
+			AddLoot( LootPack.DeathKnightScrolls );
+			return base.OnBeforeDeath( );
+		}
+
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)
 		{
 			if (!IsBonded && !corpse.Carved && !IsChampionSpawn)
