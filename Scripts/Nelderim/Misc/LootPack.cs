@@ -7,6 +7,7 @@ using Server.ACC.CSS.Systems.Cleric;
 using Server.ACC.CSS.Systems.Druid;
 using Server.ACC.CSS.Systems.Ranger;
 using Server.ACC.CSS.Systems.Undead;
+using Server.ACC.CSS.Systems.Rogue;
 using Server.Items;
 
 #endregion
@@ -127,6 +128,34 @@ namespace Server
 			new LootPackItem(typeof(AvatarSacredBoonScroll), 1)
 		};
 
+        public static readonly LootPackItem[] RogueScrollItems = new LootPackItem[]
+        {
+            new LootPackItem( typeof( RogueCharmScroll ), 1 ),
+            new LootPackItem( typeof( RogueFalseCoinScroll ), 1 ),
+            new LootPackItem( typeof( RogueIntimidationScroll ), 1 ),
+            new LootPackItem( typeof( RogueShadowScroll ), 1 ),   
+            new LootPackItem( typeof( RogueShieldOfEarthScroll ), 1 ),   
+        	new LootPackItem( typeof( RogueSlyFoxScroll ), 1 )
+        };
+
+        public static readonly LootPackItem[] DeathKnightItems = new LootPackItem[]
+        {
+            new LootPackItem( typeof( DeathKnightSkull750 ), 1 ),
+            new LootPackItem( typeof( DeathKnightSkull751 ), 1 ),
+            new LootPackItem( typeof( DeathKnightSkull752 ), 1 ),
+            new LootPackItem( typeof( DeathKnightSkull753 ), 1 ),
+            new LootPackItem( typeof( DeathKnightSkull754 ), 1 ),
+            new LootPackItem( typeof( DeathKnightSkull755 ), 1 ),
+            new LootPackItem( typeof( DeathKnightSkull756 ), 1 ),
+            new LootPackItem( typeof( DeathKnightSkull757 ), 1 ),
+            new LootPackItem( typeof( DeathKnightSkull758 ), 1 ),
+            new LootPackItem( typeof( DeathKnightSkull759 ), 1 ),
+            new LootPackItem( typeof( DeathKnightSkull760 ), 1 ),
+            new LootPackItem( typeof( DeathKnightSkull761 ), 1 ),
+            new LootPackItem( typeof( DeathKnightSkull762 ), 1 )
+
+        };
+        
 		public static readonly LootPackItem[] BardScrollItems =
 		{
 			new LootPackItem(typeof(BardArmysPaeonScroll), 1),
