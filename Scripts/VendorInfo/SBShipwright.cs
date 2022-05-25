@@ -33,13 +33,13 @@ namespace Server.Mobiles
 				Add( new GenericBuyInfo( "1041209", typeof( LargeBoatDeed ), 110000, 1, 0x14F2, 0 ) );
 				Add( new GenericBuyInfo( "1041210", typeof( LargeDragonBoatDeed ), 120000, 1, 0x14F2, 0 ) );
 
-               /*  if (m.Region is SeaMarketRegion || m.Region is TokunoDocksRegion)
-                {
+               // if (m.Region is SeaMarketRegion || m.Region is TokunoDocksRegion)
+              //  {
                     Add(new GenericBuyInfo("1116740", typeof(TokunoGalleonDeed), 150002, 20, 0x14F2, 0));
                     Add(new GenericBuyInfo("1116739", typeof(GargishGalleonDeed), 200002, 20, 0x14F2, 0));
-                    Add(new GenericBuyInfo("1116491", typeof(RowBoatDeed), 6252, 20, 0x14F2, 0)); // nie wiemy co z galeonami; TBD
+                    Add(new GenericBuyInfo("1116491", typeof(RowBoatDeed), 6252, 20, 0x14F2, 0)); 
                 
-                } */
+              //  } 
 
                 Add(new GenericBuyInfo(typeof(Spyglass), 3, 20, 0x14F5, 0));
             }
