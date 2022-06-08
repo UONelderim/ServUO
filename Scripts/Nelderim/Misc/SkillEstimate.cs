@@ -1,11 +1,13 @@
 using System;
-using System.Globalization;
+using System.Collections.Generic;
 using System.Linq;
 using Server;
 using Server.Commands;
 using Server.Engines.Craft;
 using Server.Engines.Harvest;
 using Server.Misc;
+using Server.Spells;
+using Server.Spells.Bushido;
 
 namespace Nelderim
 {
@@ -39,11 +41,15 @@ namespace Nelderim
 					fakeMob.Skills[fromSkill.SkillID].Cap = fromSkill.Cap;
 				}
 
+				var dupeItem = Dupe.DupeItem(e.Mobile.FindItemOnLayer(Layer.Bracelet));
+				fakeMob.EquipItem(dupeItem);
+
+
 				try
 				{
-					e.Mobile.SendMessage(
-						IntegralTrapezoidRule(x => AverageTimeToGain(fakeMob, fakeMob.Skills[skillName], x), start,
-							end, end - start).ToString(CultureInfo.CurrentCulture));
+					e.Mobile.SendMessage($"Trening {skillName} od {start/10} do {end/10} zajmie około " + TimeSpan.FromSeconds(
+						IntegralTrapezoidRule(x => AverageTimeToGain(fakeMob, fakeMob.Skills[skillName], x), 
+							start, end, end - start)).ToString(@"hh\:mm\:ss" ));
 				}
 				finally
 				{
@@ -52,7 +58,7 @@ namespace Nelderim
 			}
 		}
 
-		public static double AverageTimeToGain(Mobile from, Skill skill, double value)
+		private static double AverageTimeToGain(Mobile from, Skill skill, double value)
 		{
 			int oldValue = skill.BaseFixedPoint;
 			from.Skills[skill.SkillID].BaseFixedPoint = (int)value;
@@ -94,7 +100,7 @@ namespace Nelderim
 				case SkillName.Provocation: return 0.5; //optimal
 				case SkillName.Inscribe: return OptimalCraftSuccessChance(from, DefInscription.CraftSystem);
 				case SkillName.Lockpicking: return 0;
-				case SkillName.Magery: return 0;
+				case SkillName.Magery: return MagicalSuccessChance(from, skill);
 				case SkillName.MagicResist: return 0;
 				case SkillName.Tactics: return 0;
 				case SkillName.Snooping: return 0;
@@ -118,13 +124,13 @@ namespace Nelderim
 				case SkillName.Meditation: return 0;
 				case SkillName.Stealth: return 0;
 				case SkillName.RemoveTrap: return 0;
-				case SkillName.Necromancy: return 0;
+				case SkillName.Necromancy: return MagicalSuccessChance(from, skill);
 				case SkillName.Focus: return 0;
-				case SkillName.Chivalry: return 0;
-				case SkillName.Bushido: return 0;
-				case SkillName.Ninjitsu: return 0;
-				case SkillName.Spellweaving: return 0;
-				case SkillName.Mysticism: return 0;
+				case SkillName.Chivalry: return MagicalSuccessChance(from, skill);
+				case SkillName.Bushido: return MagicalSuccessChance(from, skill);
+				case SkillName.Ninjitsu: return MagicalSuccessChance(from, skill);
+				case SkillName.Spellweaving: return MagicalSuccessChance(from, skill);
+				case SkillName.Mysticism: return MagicalSuccessChance(from, skill);
 				case SkillName.Imbuing: return 0;
 				case SkillName.Throwing: return 0;
 				default: throw new NotImplementedException();
@@ -170,6 +176,70 @@ namespace Nelderim
 			return bestChance;
 		}
 
+		private static HashSet<Spell> spellCache = new HashSet<Spell>();
+		private static HashSet<SpecialMove> moveCache = new HashSet<SpecialMove>();
+
+		private static double MagicalSuccessChance(Mobile from, Skill skill)
+		{
+			if (spellCache.Count == 0)
+				foreach (var type in SpellRegistry.Types)
+					if (type != null)
+						if (type.IsSubclassOf(typeof(SpecialMove)))
+							moveCache.Add((SpecialMove)Activator.CreateInstance(type));
+						else
+							spellCache.Add((Spell)Activator.CreateInstance(type, from, null));
+
+			return BestSpellChance(skill, out _);
+		}
+
+		private static double BestSpellChance(Skill skill, out object bestSpell)
+		{
+			bestSpell = null;
+			double bestChance = 0.0;
+			double bestChanceDiff = 1;
+			double chance;
+			if (skill.SkillName == SkillName.Bushido || skill.SkillName == SkillName.Ninjitsu)
+			{
+				foreach (var move in moveCache)
+				{
+					if (move.MoveSkill != skill.SkillName) continue;
+					if (move is LightningStrike && skill.Value >= 87.5)
+						chance = MinMaxSuccessChance(skill, 0, skill.Cap) / 4;
+					else if (move is MomentumStrike)
+						chance = MinMaxSuccessChance(skill, move.RequiredSkill, 120);
+					else
+						chance = MinMaxSuccessChance(skill, move.RequiredSkill - 12.5, move.RequiredSkill + 37.5);
+
+					var chanceDiff = Math.Abs(chance - 0.5);
+					if (chanceDiff < bestChanceDiff)
+					{
+						bestSpell = move;
+						bestChance = chance;
+						bestChanceDiff = chanceDiff;
+					}
+				}
+			}
+			else
+			{
+				foreach (var spell in spellCache)
+				{
+					if (spell.CastSkill != skill.SkillName) continue;
+					spell.GetCastSkills(out var min, out var max);
+					chance = MinMaxSuccessChance(skill, min, max);
+
+					var chanceDiff = Math.Abs(chance - 0.5);
+					if (chanceDiff < bestChanceDiff)
+					{
+						bestSpell = spell;
+						bestChance = chance;
+						bestChanceDiff = chanceDiff;
+					}
+				}
+			}
+
+			return bestChance;
+		}
+
 		private static double GetSkillDelay(Mobile from, Skill skill)
 		{
 			switch (skill.SkillName)
@@ -199,7 +269,7 @@ namespace Nelderim
 				case SkillName.Provocation: return 10;
 				case SkillName.Inscribe: return DefInscription.CraftSystem.Delay;
 				case SkillName.Lockpicking: return 0;
-				case SkillName.Magery: return 0;
+				case SkillName.Magery: return MagicalCastDelay(from, skill);
 				case SkillName.MagicResist: return 0;
 				case SkillName.Tactics: return 0;
 				case SkillName.Snooping: return 0;
@@ -223,13 +293,13 @@ namespace Nelderim
 				case SkillName.Meditation: return 0;
 				case SkillName.Stealth: return 0;
 				case SkillName.RemoveTrap: return 0;
-				case SkillName.Necromancy: return 0;
+				case SkillName.Necromancy: return MagicalCastDelay(from, skill);
 				case SkillName.Focus: return 0;
-				case SkillName.Chivalry: return 0;
-				case SkillName.Bushido: return 0;
-				case SkillName.Ninjitsu: return 0;
-				case SkillName.Spellweaving: return 0;
-				case SkillName.Mysticism: return 0;
+				case SkillName.Chivalry: return MagicalCastDelay(from, skill);
+				case SkillName.Bushido: return MagicalCastDelay(from, skill);
+				case SkillName.Ninjitsu: return MagicalCastDelay(from, skill);
+				case SkillName.Spellweaving: return MagicalCastDelay(from, skill);
+				case SkillName.Mysticism: return MagicalCastDelay(from, skill);
 				case SkillName.Imbuing: return 0;
 				case SkillName.Throwing: return 0;
 				default: throw new NotImplementedException();
@@ -239,6 +309,24 @@ namespace Nelderim
 		private static double ChanceBasedAverage(double chance, double successValue, double failValue)
 		{
 			return successValue * chance + failValue * (1 - chance); 
+		}
+
+		private static double MagicalCastDelay(Mobile from, Skill skill)
+		{
+			BestSpellChance(skill, out object best);
+			switch (best)
+			{
+				case Spell spell:
+				{
+					var newSpell = (Spell) Activator.CreateInstance(spell.GetType(), from, null); //We need new spell instance for mana scaling :/
+					return newSpell.GetCastDelay().TotalSeconds +
+					       newSpell.ScaleMana(newSpell.GetMana()) * Mobile.GetManaRegenRate(from).TotalSeconds;
+				}
+				case SpecialMove move:
+					return move.ScaleMana(@from, move.BaseMana) * Mobile.GetManaRegenRate(from).TotalSeconds;
+			}
+
+			throw new ArgumentException("Unknown spell chance");
 		}
 
 
