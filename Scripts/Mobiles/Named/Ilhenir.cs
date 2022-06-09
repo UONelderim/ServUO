@@ -13,7 +13,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public Ilhenir()
-            : base(AIType.AI_Mage)
+            : base(AIType.AI_Mage, FightMode.Closest, 18, 1, 0.1, 0.2)
         {
             Name = "Ilhenir";
             Title = "splamiony";
@@ -59,31 +59,7 @@ namespace Server.Mobiles
             : base(serial)
         {
         }
-
-  /*      public override ChampionSkullType SkullType => ChampionSkullType.Pain;
-        public override Type[] UniqueList => new Type[] { };
-        public override Type[] SharedList => new Type[]
-                {
-                    typeof(ANecromancerShroud),
-                    typeof(LieutenantOfTheBritannianRoyalGuard),
-                    typeof(OblivionsNeedle),
-                    typeof(TheRobeOfBritanniaAri)
-                };
-        public override Type[] DecorativeList => new Type[] { typeof(MonsterStatuette) };
-        public override MonsterStatuetteType[] StatueTypes => new MonsterStatuetteType[] { };
-        public override bool Unprovokable => true;
-        public override bool Uncalmable => true;
-        public override Poison PoisonImmune => Poison.Lethal;
-        public override int TreasureMapLevel => 5;
-
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.UltraRich, 4);
-            AddLoot(LootPack.FilthyRich);
-            AddLoot(LootPack.Talisman, 5);
-            AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 3));
-        }*/
-
+        
         public override bool Unprovokable => true;
         public override bool Uncalmable => true;
         public override Poison PoisonImmune => Poison.Lethal;

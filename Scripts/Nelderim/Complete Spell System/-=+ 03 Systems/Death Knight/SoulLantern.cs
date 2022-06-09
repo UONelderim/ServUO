@@ -58,7 +58,7 @@ namespace Server.Items
             }
         }
 
-        public override void OnAdded(object parent)
+        public override void OnAdded(IEntity parent)
         {
             if (owner == null && parent is Item)
             {

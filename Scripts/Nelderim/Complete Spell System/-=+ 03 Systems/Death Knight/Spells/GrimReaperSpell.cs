@@ -1,10 +1,4 @@
 using System;
-using System.Collections;
-using Server;
-using Server.Mobiles;
-using Server.Network;
-using Server.Items;
-using Server.Targeting;
 using Server.Spells.Chivalry;
 
 namespace Server.Spells.DeathKnight
@@ -17,67 +11,69 @@ namespace Server.Spells.DeathKnight
 				9002
 			);
 
-		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 0.5 ); } }
-		public override int RequiredTithing{ get{ return 42; } }
-		public override double RequiredSkill{ get{ return 30.0; } }
-		public override bool BlocksMovement{ get{ return false; } }
-		public override int RequiredMana{ get{ return 28; } }
+		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 0.5 );
+		public override double RequiredSkill => 30.0;
+		public override int RequiredMana => 28;
+		public override int RequiredTithing => 42;
+		public override bool BlocksMovement => false;
 
 		public GrimReaperSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
 		{
 		}
 
+		public override TimeSpan GetCastDelay()
+		{
+			TimeSpan delay = base.GetCastDelay();
+
+			if (EnemyOfOneSpell.UnderEffect(Caster))
+			{
+				double milliseconds = delay.TotalMilliseconds / 2;
+
+				delay = TimeSpan.FromMilliseconds(milliseconds);
+			}
+
+			return delay;
+		}
+
 		public override void OnCast()
 		{
-			if ( CheckSequence() && CheckFizzle() )
+			if (EnemyOfOneSpell.UnderEffect(Caster))
 			{
-				Caster.PlaySound( 0x0F5 );
-				Caster.PlaySound( 0x1ED );
-				Caster.FixedParticles( 0x375A, 1, 30, 9966, 33, 2, EffectLayer.Head );
-				Caster.FixedParticles( 0x37B9, 1, 30, 9502, 43, 3, EffectLayer.Head );
+				PlayEffects();
 
-				Timer t = (Timer)m_Table[Caster];
+				// As per Pub 71, Enemy of one has now been changed to a Spell Toggle. You can remove the effect
+				// before the duration expires by recasting the spell.
+				EnemyOfOneSpell.RemoveEffect(Caster);
+			}
+			else if (CheckSequence())
+			{
+				PlayEffects();
 
-				if ( t != null )
-					t.Stop();
+				// TODO: validate formula
+				int seconds = ComputePowerValue(1);
+				Utility.FixMinMax(ref seconds, 67, 228);
 
-				double delay = (double)ComputePowerValue( 1 ) / 60;
+				TimeSpan delay = TimeSpan.FromSeconds(seconds);
 
-				// TODO: Should caps be applied?
-				if ( delay < 1.5 )
-					delay = 1.5;
-				else if ( delay > 3.5 )
-					delay = 3.5;
+				Timer timer = Timer.DelayCall(delay, EnemyOfOneSpell.RemoveEffect, Caster);
 
-				m_Table[Caster] = Timer.DelayCall( TimeSpan.FromMinutes( delay ), new TimerStateCallback( Expire_Callback ), Caster );
+				DateTime expire = DateTime.UtcNow + delay;
 
-				if ( Caster is PlayerMobile )
-				{
-					((PlayerMobile)Caster).EnemyOfOneType = null;
-					((PlayerMobile)Caster).WaitingForEnemy = true;
-
-					BuffInfo.AddBuff ( Caster, new BuffInfo ( BuffIcon.EnemyOfOne, 1044119, 1044118, TimeSpan.FromMinutes ( delay ), Caster ) );
-				}
+				EnemyOfOneContext context = new EnemyOfOneContext(Caster, timer, expire);
+				context.OnCast();
+				EnemyOfOneSpell.AddContext(Caster, context);
 			}
 
 			FinishSequence();
 		}
 
-		private static Hashtable m_Table = new Hashtable();
-
-		private static void Expire_Callback( object state )
+		private void PlayEffects()
 		{
-			Mobile m = (Mobile)state;
+			Caster.PlaySound(0x0F5);
+			Caster.PlaySound(0x1ED);
 
-			m_Table.Remove( m );
-
-			m.PlaySound( 0x1F8 );
-
-			if ( m is PlayerMobile )
-			{
-				((PlayerMobile)m).EnemyOfOneType = null;
-				((PlayerMobile)m).WaitingForEnemy = false;
-			}
+			Caster.FixedParticles(0x375A, 1, 30, 9966, 33, 2, EffectLayer.Head);
+			Caster.FixedParticles(0x37B9, 1, 30, 9502, 43, 3, EffectLayer.Head);
 		}
 	}
 }

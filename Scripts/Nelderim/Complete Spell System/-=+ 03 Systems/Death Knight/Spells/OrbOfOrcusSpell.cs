@@ -29,20 +29,6 @@ namespace Server.Spells.DeathKnight
 
 		public override bool CheckCast()
 		{
-			if ( Core.AOS )
-				return true;
-
-			if ( Caster.MagicDamageAbsorb > 0 )
-			{
-				Caster.SendLocalizedMessage( 1005559 ); // This spell is already in effect.
-				return false;
-			}
-			else if ( !Caster.CanBeginAction( typeof( DefensiveSpell ) ) )
-			{
-				Caster.SendLocalizedMessage( 1005385 ); // The spell will not adhere to you at this time.
-				return false;
-			}
-
 			return true;
 		}
 
@@ -54,13 +40,13 @@ namespace Server.Spells.DeathKnight
 			{
 				Caster.SendLocalizedMessage( 1005559 ); // This spell is already in effect.
 			}
-			else if ( !Caster.CanBeginAction( typeof( DefensiveSpell ) ) )
+			else if ( !Caster.CanBeginAction( typeof( OrbOfOrcusSpell ) ) )
 			{
 				Caster.SendLocalizedMessage( 1005385 ); // The spell will not adhere to you at this time.
 			}
 			else if ( CheckSequence() )
 			{
-				if ( Caster.BeginAction( typeof( DefensiveSpell ) ) && CheckFizzle() )
+				if ( Caster.BeginAction( typeof( OrbOfOrcusSpell ) ) && CheckFizzle() )
 				{
 					int value = (int)( GetKarmaPower( Caster ) / 4 );
 

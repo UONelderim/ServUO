@@ -86,7 +86,7 @@ namespace Server.Spells.DeathKnight
 					nBenefit = (int)( GetKarmaPower( Caster ) / 100 );
 				}
 
-				damage = GetNewAosDamage( 32, 1, 4, Caster.Player && playerVsPlayer ) + nBenefit;
+				damage = GetNewAosDamage( 32, 1, 4, Caster.Player && playerVsPlayer, null ) + nBenefit;
 
 				if ( targets.Count > 0 )
 				{

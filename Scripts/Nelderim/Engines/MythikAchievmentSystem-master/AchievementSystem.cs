@@ -131,14 +131,14 @@ namespace Scripts.Mythik.Systems.Achievements
                               
                               for (int i = 0; i < count; ++i)
                               {
-                                  m_pointsTotal.Add(reader.ReadInt(), reader.ReadInt());
+                                  m_pointsTotal.Add(reader.ReadSerial(), reader.ReadInt());
                               }
 
                               count = reader.ReadInt();
 
                               for (int i = 0; i < count; ++i)
                               {
-                                  var id = reader.ReadInt();
+                                  var id = reader.ReadSerial();
                                   var dict = new Dictionary<int, AchieveData>();
                                   int iCount = reader.ReadInt();
                                   if (iCount > 0)
@@ -227,7 +227,7 @@ namespace Scripts.Mythik.Systems.Achievements
 
             if (achieves[ach.ID].Progress >= ach.CompletionTotal)
             {
-                player.SendGump(new AchievementObtainedGump(ach),false);
+                player.SendGump(new AchievementObtainedGump(ach));
                 achieves[ach.ID].CompletedOn = DateTime.UtcNow;
 
                 AddPoints(player,ach.RewardPoints);
