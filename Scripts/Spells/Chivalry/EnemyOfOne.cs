@@ -64,7 +64,7 @@ namespace Server.Spells.Chivalry
 
                 EnemyOfOneContext context = new EnemyOfOneContext(Caster, timer, expire);
                 context.OnCast();
-                m_Table[Caster] = context;
+                AddContext(Caster, context);
             }
 
             FinishSequence();
@@ -80,6 +80,11 @@ namespace Server.Spells.Chivalry
         }
 
         private static readonly Dictionary<Mobile, EnemyOfOneContext> m_Table = new Dictionary<Mobile, EnemyOfOneContext>();
+
+        public static void AddContext(Mobile m, EnemyOfOneContext context)
+        {
+	        m_Table[m] = context;
+        }
 
         public static EnemyOfOneContext GetContext(Mobile m)
         {

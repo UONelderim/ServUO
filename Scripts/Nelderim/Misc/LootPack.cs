@@ -264,5 +264,10 @@ namespace Server
 		{
 			new LootPackEntry(false, true, AncientScrollItems, 30.00, 1)
 		});
+		
+		public static readonly LootPack DeathKnightScrolls = new LootPack( new LootPackEntry[]
+		{
+			new LootPackEntry( false, true,  DeathKnightItems, 30.00, 1 )
+		} );
 	}
 }

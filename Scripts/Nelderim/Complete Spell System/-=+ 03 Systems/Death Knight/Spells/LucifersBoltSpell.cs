@@ -40,7 +40,7 @@ namespace Server.Spells.DeathKnight
 			{
 				SpellHelper.Turn( Caster, m );
 
-				SpellHelper.CheckReflect( 4, Caster, ref m );
+				SpellHelper.CheckReflect( this, Caster, ref m );
 
 				double duration = 2.0 + ( GetKarmaPower( m ) * 0.2 );
 

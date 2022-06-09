@@ -41,7 +41,7 @@ namespace Server.Items
 			return base.OnEquip( from );
 		}
 
-		public override void OnRemoved( object parent )
+		public override void OnRemoved( IEntity parent )
 		{
 			this.ItemID = 0xA18;
 			base.OnRemoved( parent );
