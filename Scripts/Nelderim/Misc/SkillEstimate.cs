@@ -40,15 +40,10 @@ namespace Nelderim
 					fakeMob.Skills[fromSkill.SkillID].Base = fromSkill.Base;
 					fakeMob.Skills[fromSkill.SkillID].Cap = fromSkill.Cap;
 				}
-
-				var dupeItem = Dupe.DupeItem(e.Mobile.FindItemOnLayer(Layer.Bracelet));
-				fakeMob.EquipItem(dupeItem);
-
-
 				try
 				{
 					e.Mobile.SendMessage($"Trening {skillName} od {start/10} do {end/10} zajmie około " + TimeSpan.FromSeconds(
-						IntegralTrapezoidRule(x => AverageTimeToGain(fakeMob, fakeMob.Skills[skillName], x), 
+						IntegralTrapezoidRule(x => AverageTimeToGain(e.Mobile, fakeMob, fakeMob.Skills[skillName], x), 
 							start, end, end - start)).ToString(@"hh\:mm\:ss" ));
 				}
 				finally
@@ -58,49 +53,49 @@ namespace Nelderim
 			}
 		}
 
-		private static double AverageTimeToGain(Mobile from, Skill skill, double value)
+		private static double AverageTimeToGain(Mobile from, Mobile fakeMob, Skill skill, double value)
 		{
-			int oldValue = skill.BaseFixedPoint;
-			from.Skills[skill.SkillID].BaseFixedPoint = (int)value;
-			var chance = GetOptimalSuccessChance(from, skill);
-			var successGainChance = SkillCheck.GetGainChance(from, skill, chance, true);
-			var failedGainChance = SkillCheck.GetGainChance(from, skill, chance, false);
+			skill.BaseFixedPoint = (int)value;
+			var chance = GetOptimalSuccessChance(from, fakeMob, skill);
+			var successGainChance = SkillCheck.GetGainChance(fakeMob, skill, chance, true);
+			var failedGainChance = SkillCheck.GetGainChance(fakeMob, skill, chance, false);
 			var avgChance = ChanceBasedAverage(chance, successGainChance, failedGainChance);
 
-			from.Skills[skill.SkillID].BaseFixedPoint = oldValue;
-			return 1/avgChance * GetSkillDelay(from, skill);
+			var skillDelay = GetSkillDelay(from, fakeMob, skill);
+			var result = 1 / avgChance * skillDelay;
+			return result;
 		}
 
-		private static double GetOptimalSuccessChance(Mobile from, Skill skill)
+		private static double GetOptimalSuccessChance(Mobile from, Mobile fakeMob, Skill skill)
 		{
 			switch (skill.SkillName)
 			{
-				case SkillName.Alchemy: return OptimalCraftSuccessChance(from, DefAlchemy.CraftSystem);
+				case SkillName.Alchemy: return OptimalCraftSuccessChance(fakeMob, DefAlchemy.CraftSystem);
 				case SkillName.Anatomy: return 0;
 				case SkillName.AnimalLore: return 0;
 				case SkillName.ItemID: return 0;
 				case SkillName.ArmsLore: return MinMaxSuccessChance(skill, 0, 100);
 				case SkillName.Parry: return 0;
 				case SkillName.Begging: return 0;
-				case SkillName.Blacksmith: return OptimalCraftSuccessChance(from, DefBlacksmithy.CraftSystem);
-				case SkillName.Fletching: return OptimalCraftSuccessChance(from, DefBowFletching.CraftSystem);
+				case SkillName.Blacksmith: return OptimalCraftSuccessChance(fakeMob, DefBlacksmithy.CraftSystem);
+				case SkillName.Fletching: return OptimalCraftSuccessChance(fakeMob, DefBowFletching.CraftSystem);
 				case SkillName.Peacemaking: return 0.5; //optimal
 				case SkillName.Camping: return 0;
-				case SkillName.Carpentry: return OptimalCraftSuccessChance(from, DefCarpentry.CraftSystem);
-				case SkillName.Cartography: return OptimalCraftSuccessChance(from, DefCartography.CraftSystem);
-				case SkillName.Cooking: return OptimalCraftSuccessChance(from, DefCooking.CraftSystem);
+				case SkillName.Carpentry: return OptimalCraftSuccessChance(fakeMob, DefCarpentry.CraftSystem);
+				case SkillName.Cartography: return OptimalCraftSuccessChance(fakeMob, DefCartography.CraftSystem);
+				case SkillName.Cooking: return OptimalCraftSuccessChance(fakeMob, DefCooking.CraftSystem);
 				case SkillName.DetectHidden: return 0;
 				case SkillName.Discordance: return 0.5; //optimal
 				case SkillName.EvalInt: return MinMaxSuccessChance(skill, 0, skill.Cap); //EvalInt assumes only direct skill use, without casting spells
 				case SkillName.Healing: return 0;
-				case SkillName.Fishing: return HarvestSuccessChance(from, skill, Fishing.System, Fishing.System.Definition);
+				case SkillName.Fishing: return HarvestSuccessChance(fakeMob, skill, Fishing.System, Fishing.System.Definition);
 				case SkillName.Herbalism: return 0;
 				case SkillName.Herding: return 0;
 				case SkillName.Hiding: return 0;
 				case SkillName.Provocation: return 0.5; //optimal
-				case SkillName.Inscribe: return OptimalCraftSuccessChance(from, DefInscription.CraftSystem);
+				case SkillName.Inscribe: return OptimalCraftSuccessChance(fakeMob, DefInscription.CraftSystem);
 				case SkillName.Lockpicking: return 0;
-				case SkillName.Magery: return MagicalSuccessChance(from, skill);
+				case SkillName.Magery: return MagicalSuccessChance(fakeMob, skill);
 				case SkillName.MagicResist: return 0;
 				case SkillName.Tactics: return 0;
 				case SkillName.Snooping: return 0;
@@ -109,28 +104,28 @@ namespace Nelderim
 				case SkillName.Archery: return 0;
 				case SkillName.SpiritSpeak: return 0;
 				case SkillName.Stealing: return 0;
-				case SkillName.Tailoring: return OptimalCraftSuccessChance(from, DefTailoring.CraftSystem);
+				case SkillName.Tailoring: return OptimalCraftSuccessChance(fakeMob, DefTailoring.CraftSystem);
 				case SkillName.AnimalTaming: return 0.5; //optimal
 				case SkillName.TasteID: return 0;
-				case SkillName.Tinkering: return OptimalCraftSuccessChance(from, DefTinkering.CraftSystem);
+				case SkillName.Tinkering: return OptimalCraftSuccessChance(fakeMob, DefTinkering.CraftSystem);
 				case SkillName.Tracking: return 0;
 				case SkillName.Veterinary: return 0;
 				case SkillName.Swords: return 0;
 				case SkillName.Macing: return 0;
 				case SkillName.Fencing: return 0;
 				case SkillName.Wrestling: return 0;
-				case SkillName.Lumberjacking: return HarvestSuccessChance(from, skill, Lumberjacking.System, Lumberjacking.System.Definition);
-				case SkillName.Mining: return HarvestSuccessChance(from, skill, Mining.System, Mining.System.OreAndStone);
+				case SkillName.Lumberjacking: return HarvestSuccessChance(fakeMob, skill, Lumberjacking.System, Lumberjacking.System.Definition);
+				case SkillName.Mining: return HarvestSuccessChance(fakeMob, skill, Mining.System, Mining.System.OreAndStone);
 				case SkillName.Meditation: return 0;
 				case SkillName.Stealth: return 0;
 				case SkillName.RemoveTrap: return 0;
-				case SkillName.Necromancy: return MagicalSuccessChance(from, skill);
+				case SkillName.Necromancy: return MagicalSuccessChance(fakeMob, skill);
 				case SkillName.Focus: return 0;
-				case SkillName.Chivalry: return MagicalSuccessChance(from, skill);
-				case SkillName.Bushido: return MagicalSuccessChance(from, skill);
-				case SkillName.Ninjitsu: return MagicalSuccessChance(from, skill);
-				case SkillName.Spellweaving: return MagicalSuccessChance(from, skill);
-				case SkillName.Mysticism: return MagicalSuccessChance(from, skill);
+				case SkillName.Chivalry: return MagicalSuccessChance(fakeMob, skill);
+				case SkillName.Bushido: return MagicalSuccessChance(fakeMob, skill);
+				case SkillName.Ninjitsu: return MagicalSuccessChance(fakeMob, skill);
+				case SkillName.Spellweaving: return MagicalSuccessChance(fakeMob, skill);
+				case SkillName.Mysticism: return MagicalSuccessChance(fakeMob, skill);
 				case SkillName.Imbuing: return 0;
 				case SkillName.Throwing: return 0;
 				default: throw new NotImplementedException();
@@ -142,19 +137,19 @@ namespace Nelderim
 			return (skill.Base - minSkill) / (maxSkill - minSkill);
 		}
 
-		private static double HarvestSuccessChance(Mobile from, Skill skill, HarvestSystem system, HarvestDefinition def)
+		private static double HarvestSuccessChance(Mobile fakeMob, Skill skill, HarvestSystem system, HarvestDefinition def)
 		{
 			var weightedVeins = def.Veins
 				.ToDictionary(harvestVein => harvestVein, harvestVein => (int)(harvestVein.VeinChance * 10));
 
 			HarvestVein vein = Utility.RandomWeigthed(weightedVeins);
-			HarvestResource res = system.MutateResource(from, null, def, null, Point3D.Zero, vein, vein.PrimaryResource,
+			HarvestResource res = system.MutateResource(fakeMob, null, def, null, Point3D.Zero, vein, vein.PrimaryResource,
 				vein.FallbackResource);
 
 			return MinMaxSuccessChance(skill, res.MinSkill, res.MaxSkill);
 		}
 
-		private static double OptimalCraftSuccessChance(Mobile from, CraftSystem system)
+		private static double OptimalCraftSuccessChance(Mobile fakeMob, CraftSystem system)
 		{
 			double bestChance = 0.0;
 			double bestChanceDiff = 1;
@@ -163,7 +158,7 @@ namespace Nelderim
 			{
 				var craftItem = system.CraftItems.GetAt(i);
 				bool allRequiredSkills = true;
-				var chance = craftItem.GetSuccessChance(from, null, system, false, ref allRequiredSkills);
+				var chance = craftItem.GetSuccessChance(fakeMob, null, system, false, ref allRequiredSkills);
 				var chanceDiff = Math.Abs(chance - 0.5);
 				if (chanceDiff < bestChanceDiff)
 				{
@@ -172,14 +167,14 @@ namespace Nelderim
 					bestChanceDiff = chanceDiff;
 				}
 			}
-			Console.WriteLine($"{from.Skills[system.MainSkill].Base} {debugItem.ItemType.Name} {debugItem.Skills.GetAt(0).MinSkill} {debugItem.Skills.GetAt(0).MaxSkill} {bestChance}");
+			Console.WriteLine($"{fakeMob.Skills[system.MainSkill].Base} {debugItem.ItemType.Name} {debugItem.Skills.GetAt(0).MinSkill} {debugItem.Skills.GetAt(0).MaxSkill} {bestChance}");
 			return bestChance;
 		}
 
 		private static HashSet<Spell> spellCache = new HashSet<Spell>();
 		private static HashSet<SpecialMove> moveCache = new HashSet<SpecialMove>();
 
-		private static double MagicalSuccessChance(Mobile from, Skill skill)
+		private static double MagicalSuccessChance(Mobile fakeMob, Skill skill)
 		{
 			if (spellCache.Count == 0)
 				foreach (var type in SpellRegistry.Types)
@@ -187,7 +182,7 @@ namespace Nelderim
 						if (type.IsSubclassOf(typeof(SpecialMove)))
 							moveCache.Add((SpecialMove)Activator.CreateInstance(type));
 						else
-							spellCache.Add((Spell)Activator.CreateInstance(type, from, null));
+							spellCache.Add((Spell)Activator.CreateInstance(type, fakeMob, null));
 
 			return BestSpellChance(skill, out _);
 		}
@@ -210,7 +205,7 @@ namespace Nelderim
 					else
 						chance = MinMaxSuccessChance(skill, move.RequiredSkill - 12.5, move.RequiredSkill + 37.5);
 
-					var chanceDiff = Math.Abs(chance - 0.5);
+					var chanceDiff = Math.Abs(0.65 - chance);
 					if (chanceDiff < bestChanceDiff)
 					{
 						bestSpell = move;
@@ -227,7 +222,7 @@ namespace Nelderim
 					spell.GetCastSkills(out var min, out var max);
 					chance = MinMaxSuccessChance(skill, min, max);
 
-					var chanceDiff = Math.Abs(chance - 0.5);
+					var chanceDiff = Math.Abs(0.65 - chance);
 					if (chanceDiff < bestChanceDiff)
 					{
 						bestSpell = spell;
@@ -240,7 +235,7 @@ namespace Nelderim
 			return bestChance;
 		}
 
-		private static double GetSkillDelay(Mobile from, Skill skill)
+		private static double GetSkillDelay(Mobile from, Mobile fakeMob, Skill skill)
 		{
 			switch (skill.SkillName)
 			{
@@ -253,13 +248,13 @@ namespace Nelderim
 				case SkillName.Begging: return 0;
 				case SkillName.Blacksmith: return DefBlacksmithy.CraftSystem.Delay;
 				case SkillName.Fletching: return DefBowFletching.CraftSystem.Delay;
-				case SkillName.Peacemaking: return ChanceBasedAverage(GetOptimalSuccessChance(from, skill), 10, 5);
+				case SkillName.Peacemaking: return ChanceBasedAverage(GetOptimalSuccessChance(from, fakeMob, skill), 10, 5);
 				case SkillName.Camping: return 0;
 				case SkillName.Carpentry: return DefCarpentry.CraftSystem.Delay;
 				case SkillName.Cartography: return DefCartography.CraftSystem.Delay;
 				case SkillName.Cooking: return DefCooking.CraftSystem.Delay;
 				case SkillName.DetectHidden: return 0;
-				case SkillName.Discordance: return ChanceBasedAverage(GetOptimalSuccessChance(from, skill), 8, 5);;
+				case SkillName.Discordance: return ChanceBasedAverage(GetOptimalSuccessChance(from, fakeMob, skill), 8, 5);;
 				case SkillName.EvalInt: return 1;
 				case SkillName.Healing: return 0;
 				case SkillName.Fishing: return 0;
@@ -279,7 +274,7 @@ namespace Nelderim
 				case SkillName.SpiritSpeak: return 0;
 				case SkillName.Stealing: return 0;
 				case SkillName.Tailoring: return DefTailoring.CraftSystem.Delay;
-				case SkillName.AnimalTaming: return 4 * 3; //
+				case SkillName.AnimalTaming: return 4 * 3; //3-5 ticks, 3 seconds each
 				case SkillName.TasteID: return 0;
 				case SkillName.Tinkering: return DefTinkering.CraftSystem.Delay;
 				case SkillName.Tracking: return 0;
@@ -319,11 +314,10 @@ namespace Nelderim
 				case Spell spell:
 				{
 					var newSpell = (Spell) Activator.CreateInstance(spell.GetType(), from, null); //We need new spell instance for mana scaling :/
-					return newSpell.GetCastDelay().TotalSeconds +
-					       newSpell.ScaleMana(newSpell.GetMana()) * Mobile.GetManaRegenRate(from).TotalSeconds;
+					return newSpell.ScaleMana(newSpell.GetMana()) * Mobile.GetManaRegenRate(from).TotalSeconds;
 				}
 				case SpecialMove move:
-					return move.ScaleMana(@from, move.BaseMana) * Mobile.GetManaRegenRate(from).TotalSeconds;
+					return move.ScaleMana(from, move.BaseMana) * Mobile.GetManaRegenRate(from).TotalSeconds;
 			}
 
 			throw new ArgumentException("Unknown spell chance");
