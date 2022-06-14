@@ -73,7 +73,7 @@ namespace Server.Mobiles
 		public override int Hides { get { return 5; } }
 		public override HideType HideType { get { return HideType.Horned; } }
 		public override int Scales { get { return 2; } }
-		public override ScaleType ScaleType { get { return (Body == 60 ? ScaleType.Yellow : ScaleType.Red); } }
+		public override ScaleType ScaleType { get { return (Body == 60 ? ScaleType.Blue : ScaleType.White); } }
 		public override FoodType FavoriteFood { get { return FoodType.Meat | FoodType.Fish; } }
 
 		public MlodyLodowySmok(Serial serial) : base(serial)
