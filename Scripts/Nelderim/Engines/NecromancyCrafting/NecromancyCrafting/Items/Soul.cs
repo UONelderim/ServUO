@@ -11,7 +11,7 @@ namespace Server.Items
 		public Soul(int amount) : base(0x2100)
 		{
 			Name = "dusza";
-			Stackable = false;
+			Stackable = true;
 			Hue = 1367;
 			Amount = amount;
 		}
