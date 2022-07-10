@@ -33,7 +33,7 @@ namespace Server.Spells.SkillMasteries
                 _Radius = skill / 40;
                 _DamageMalus = (int)(skill / 2.4);
 
-                Caster.PublicOverheadMessage(MessageType.Regular, Caster.SpeechHue, false, "Prepare Yourself!");
+                Caster.PublicOverheadMessage(MessageType.Regular, Caster.SpeechHue, false, "PRZYGOTUJ SIE!");
 
                 if (Caster.Player)
                 {
