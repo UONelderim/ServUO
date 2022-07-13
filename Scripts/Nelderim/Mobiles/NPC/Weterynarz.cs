@@ -73,6 +73,7 @@ namespace Server.Mobiles
 			public override void OnClick()
 			{
 				m_Wet.BeginRes(m_From);
+				m_Wet.Say( "Wskrzeszenie tego zwierzecia bedzie Cie kosztowac 20 000 centarow." ); 
 			}
 		}
 
