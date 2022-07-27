@@ -8,12 +8,12 @@ namespace Server.Mobiles
 	[CorpseName( "zwloki szafirowego jednorozca" )]
 	public class SzafirowyJednorozec : BaseMount
 	{
-		public override bool AllowMaleRider{ get{ return false; } }
-		public override bool AllowMaleTamer{ get{ return true; } }
+		public override bool AllowMaleRider => false;
+		public override bool AllowMaleTamer => true;
 
-		public override bool InitialInnocent{ get{ return true; } }
+		public override bool InitialInnocent => true;
 
-		public override TimeSpan MountAbilityDelay { get { return TimeSpan.FromHours( 1.0 ); } }
+		public override TimeSpan MountAbilityDelay => TimeSpan.FromHours( 1.0 );
 
 		public override void OnDisallowedRider( Mobile m )
 		{
@@ -116,16 +116,12 @@ namespace Server.Mobiles
 			AddLoot( LootPack.Potions );
 		}
 
-		public override OppositionGroup OppositionGroup
-		{
-			get{ return OppositionGroup.FeyAndUndead; }
-		}
-
-		public override Poison PoisonImmune{ get{ return Poison.Lethal; } }
-		public override int Meat{ get{ return 3; } }
-		public override int Hides{ get{ return 5; } }
-		public override HideType HideType{ get{ return HideType.Horned; } }
-		public override FoodType FavoriteFood{ get{ return FoodType.FruitsAndVegies | FoodType.GrainsAndHay; } }
+		public override TribeType Tribe => TribeType.Fey;
+		public override Poison PoisonImmune => Poison.Lethal;
+		public override int Meat => 3;
+		public override int Hides => 5;
+		public override HideType HideType => HideType.Horned;
+		public override FoodType FavoriteFood => FoodType.FruitsAndVegies | FoodType.GrainsAndHay;
 
 		public SzafirowyJednorozec( Serial serial ) : base( serial )
 		{
