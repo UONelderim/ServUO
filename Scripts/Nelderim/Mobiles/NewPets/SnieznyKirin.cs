@@ -8,12 +8,12 @@ namespace Server.Mobiles
 	[CorpseName( "zwolki snieznego ki-rina " )]
 	public class SnieznyKirin : BaseMount
 	{
-		public override bool AllowFemaleRider{ get{ return false; } }
-		public override bool AllowFemaleTamer{ get{ return true; } }
+		public override bool AllowFemaleRider => false;
+		public override bool AllowFemaleTamer => true;
 
-		public override bool InitialInnocent{ get{ return true; } }
+		public override bool InitialInnocent => true;
 
-		public override TimeSpan MountAbilityDelay { get { return TimeSpan.FromHours( 1.0 ); } }
+		public override TimeSpan MountAbilityDelay => TimeSpan.FromHours( 1.0 );
 
 		public override void OnDisallowedRider( Mobile m )
 		{
@@ -46,7 +46,7 @@ namespace Server.Mobiles
 		}
 
 		[Constructable]
-		public SnieznyKirin( string name ) : base( name, 132, 0x3EAD, AIType.AI_BattleMage, FightMode.Evil, 12, 1, 0.2, 0.4 )
+		public SnieznyKirin( string name ) : base( name, 132, 0x3EAD, AIType.AI_Mage, FightMode.Evil, 12, 1, 0.2, 0.4 )
 		{
 			BaseSoundID = 0x3C5;
 			Hue = 1153;
@@ -81,7 +81,11 @@ namespace Server.Mobiles
 			Tamable = true;
 			ControlSlots = 2;
 			MinTameSkill = 96.1;
+			
+			SetWeaponAbility(WeaponAbility.ParalyzingBlow);
 		}
+		
+		public override double WeaponAbilityChance => 0.133;
 
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)
 		{
@@ -100,21 +104,13 @@ namespace Server.Mobiles
 			AddLoot( LootPack.Potions );
 		}
 
-		public override OppositionGroup OppositionGroup
-		{
-			get{ return OppositionGroup.FeyAndUndead; }
-		}
+		public override TribeType Tribe => TribeType.Fey;
 
-		public override int Meat{ get{ return 3; } }
-		public override int Hides{ get{ return 5; } }
-		public override HideType HideType{ get{ return HideType.Horned; } }
-		public override FoodType FavoriteFood{ get{ return FoodType.FruitsAndVegies | FoodType.GrainsAndHay; } }
-		public override void AddWeaponAbilities()
-		{
-            
-            WeaponAbilities.Add( WeaponAbility.ParalyzingBlow, 0.133 );
-            
-		}
+		public override int Meat => 3;
+		public override int Hides => 5;
+		public override HideType HideType => HideType.Horned;
+		public override FoodType FavoriteFood => FoodType.FruitsAndVegies | FoodType.GrainsAndHay;
+
 		public SnieznyKirin( Serial serial ) : base( serial )
 		{
 		}
