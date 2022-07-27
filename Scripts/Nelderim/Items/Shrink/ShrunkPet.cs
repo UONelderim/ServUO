@@ -145,7 +145,7 @@ namespace Server.Items
 
 			_cliloc.To = from;
 
-			if (target == null || target.ControlSlots > 5 || 1 > target.ControlSlots)
+			if (target == null || target.ControlSlots > 5 || 1 > target.ControlSlots || target.Allured)
 				_cliloc[1].Send(); // Nie mozesz tego uwiazac.
 			else if (target.ControlMaster != from)
 				_cliloc[2].Send(); // Musisz kontrolowac istote ktora chcesz uwiazac
