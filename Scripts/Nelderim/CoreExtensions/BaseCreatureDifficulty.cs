@@ -334,7 +334,7 @@ namespace Server.Mobiles
 				
 				DifficultyLevelExt.Get(this).DifficultyLevel = value;
 				
-				if (value != DifficultyLevelValue.Normal)
+				if (!Summoned && value != DifficultyLevelValue.Normal)
 					DifficultyLevelExt.Apply(this);
 				
 				_Difficulty = GenerateDifficulty();
