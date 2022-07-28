@@ -597,8 +597,8 @@ namespace Server.Items
                 {
                     spawn.NoLootOnDeath = true;
 
-                    spawn.Name = "Ancient Chest Guardian";
-                    spawn.Title = "(Guardian)";
+                    spawn.Name = "Starozytny Potwor";
+                    spawn.Title = "(Straznik)";
                     spawn.Tamable = false;
 
                     if (spawn.HitsMaxSeed >= 0)
