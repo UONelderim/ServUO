@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("zwlok iognistego wierzchowaca")]
+    [CorpseName("zwloki ognistego wierzchowaca")]
     public class FireSteed : BaseMount
     {
         [Constructable]
