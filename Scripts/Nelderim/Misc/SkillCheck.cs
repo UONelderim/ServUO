@@ -1,6 +1,7 @@
 #region References
 
 using System.Collections.Generic;
+using Nelderim.Gains;
 using Server.Engines.ArenaSystem;
 using Server.Mobiles;
 using Server.Multis;
@@ -142,6 +143,8 @@ namespace Server.Misc
 			gc *= skill.Info.GainFactor;
 
 			gc *= NRegionalModifier(from, skill);
+
+			gc *= Gains.calculateGainFactor(from);
 
 			if (gc < 0.01)
 				gc = 0.01;
