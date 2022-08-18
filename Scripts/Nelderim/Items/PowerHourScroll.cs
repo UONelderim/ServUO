@@ -27,25 +27,25 @@ namespace Server.Items
 		{
 			PlayerMobile pm = (PlayerMobile)from;
 
-			if (pm.HasPowerHour)
-			{
-				// Player is currently on PowerHour
-				pm.SendLocalizedMessage(1064802); // Jestes w trakcie PowerHour!
-			}
-			else if (pm.AllowPowerHour)
-			{
-				// Player hasnt used PowerHour
-				pm.SendLocalizedMessage(1064801); // Nie zuzyto jeszcze PowerHour tego dnia!
-			}
-			else
-			{
-				// Reset PowerHour
-				pm.LastPowerHour = DateTime.Now.AddDays(-1);
-				pm.SendLocalizedMessage(
-					1064803); // Zuzycie PowerHour zostalo zresetowane, mozesz uruchomic je ponownie.
-				// Remove scroll
-				Delete();
-			}
+			// if (pm.HasPowerHour)
+			// {
+			// 	// Player is currently on PowerHour
+			// 	pm.SendLocalizedMessage(1064802); // Jestes w trakcie PowerHour!
+			// }
+			// else if (pm.AllowPowerHour)
+			// {
+			// 	// Player hasnt used PowerHour
+			// 	pm.SendLocalizedMessage(1064801); // Nie zuzyto jeszcze PowerHour tego dnia!
+			// }
+			// else
+			// {
+			// 	// Reset PowerHour
+			// 	pm.LastPowerHour = DateTime.Now.AddDays(-1);
+			// 	pm.SendLocalizedMessage(
+			// 		1064803); // Zuzycie PowerHour zostalo zresetowane, mozesz uruchomic je ponownie.
+			// 	// Remove scroll
+			// 	Delete();
+			// }
 		}
 
 		public override void Serialize(GenericWriter writer)
