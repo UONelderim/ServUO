@@ -1,5 +1,6 @@
 #region References
 
+using System;
 using System.Collections.Generic;
 using Nelderim.Gains;
 using Server.Engines.ArenaSystem;
@@ -155,6 +156,13 @@ namespace Server.Misc
 
 			if (gc > 1.00)
 				gc = 1.00;
+			
+			if (Gains.Get(from).GainDebug && skill.Lock == SkillLock.Up)
+			{
+				if ( skill.SkillName != SkillName.Meditation && skill.SkillName != SkillName.Focus )
+					from.SendMessage(success ? 0x40 : 0x20, "[{0}: {1}%] GainChance = {2}% SuccessChance = {3}%", 
+						skill.Name, skill.Value, Math.Round(gc * 100, 2), Math.Round(chance * 100, 2));
+			}
 
 			return gc;
 		}

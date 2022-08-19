@@ -13,12 +13,25 @@ namespace Server.Mobiles
 	public partial class PlayerMobile
 	{
 		// Gainy
-		
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
 		public double GainFactor
 		{
 			get => Gains.Get(this).GainFactor;
 			set => Gains.Get(this).GainFactor = value;
+		}
+		
+		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
+		public DateTime GainBoostEndTime
+		{
+			get => Gains.Get(this).GainBoostEndTime;
+			set => Gains.Get(this).GainBoostEndTime = value;
+		}
+		
+		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
+		public bool GainDebug
+		{
+			get => Gains.Get(this).GainDebug;
+			set => Gains.Get(this).GainDebug = value;
 		}
 		
 		public DateTime LastMacroCheck { get; set; }
