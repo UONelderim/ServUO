@@ -10,13 +10,31 @@ namespace Server.Items
 {
 	public class GainBooster : Item
 	{
+		private double _GainFactor;
+		private TimeSpan _Duration;
 		public override int LabelNumber => 1064800; // Gain Booster
-		
+
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
-		public double GainFactor { get; set; }
-		
+		public double GainFactor
+		{
+			get => _GainFactor;
+			set
+			{
+				_GainFactor = value;
+				InvalidateProperties();
+			}
+		}
+
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
-		public TimeSpan Duration { get; set; }
+		public TimeSpan Duration
+		{
+			get => _Duration;
+			set
+			{
+				_Duration = value;
+				InvalidateProperties();
+			}
+		}
 
 		[Constructable]
 		public GainBooster() : this(2.0, 60)
