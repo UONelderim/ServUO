@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using Nelderim;
 using Nelderim.Gains;
-using Server.Commands;
 using Server.Items;
 
 #endregion
@@ -14,28 +13,28 @@ namespace Server.Mobiles
 	public partial class PlayerMobile
 	{
 		// Gainy
-
+		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
+		public double GainFactor
+		{
+			get => Gains.Get(this).GainFactor;
+			set => Gains.Get(this).GainFactor = value;
+		}
+		
+		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
+		public DateTime GainBoostEndTime
+		{
+			get => Gains.Get(this).GainBoostEndTime;
+			set => Gains.Get(this).GainBoostEndTime = value;
+		}
+		
+		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
+		public bool GainDebug
+		{
+			get => Gains.Get(this).GainDebug;
+			set => Gains.Get(this).GainDebug = value;
+		}
+		
 		public DateTime LastMacroCheck { get; set; }
-
-		[CommandProperty(AccessLevel.GameMaster)]
-		public DateTime LastPowerHour
-		{
-			get => Gains.Get(this).LastPowerHour;
-			set => Gains.Get(this).LastPowerHour = value;
-		}
-
-		[CommandProperty(AccessLevel.GameMaster)]
-		public bool AllowPowerHour
-		{
-			get => !HasPowerHour && (DateTime.Now.DayOfYear > LastPowerHour.DayOfYear ||
-			                         DateTime.Now.Year != LastPowerHour.Year);
-		}
-
-		[CommandProperty(AccessLevel.Counselor)]
-		public bool HasPowerHour
-		{
-			get => DateTime.Now - LastPowerHour <= PowerHour.Duration;
-		}
 
 		public bool GainsDebugEnabled { get; set; }
 

@@ -1,5 +1,8 @@
 #region References
 
+using System;
+using System.Collections.Generic;
+using Nelderim.Gains;
 using Server.Engines.ArenaSystem;
 using Server.Mobiles;
 using Server.Multis;
@@ -83,27 +86,44 @@ namespace Server.Misc
 		private static readonly double m_VillageGain = 0.9;
 		private static readonly double m_DungeonGain = 1.25;
 
-		public static double NRegionalModifier(Mobile m)
+		private static readonly List<SkillName> m_BoatAllowedSkills = new List<SkillName> { SkillName.Fishing };
+		private static readonly List<SkillName> m_MineAllowedSkills = new List<SkillName> { SkillName.Mining };
+
+		private static readonly List<SkillName> m_CraftingSkills = new List<SkillName>
+		{
+			SkillName.Alchemy,
+			SkillName.Blacksmith,
+			SkillName.Carpentry,
+			SkillName.Cartography,
+			SkillName.Cooking,
+			SkillName.Fletching,
+			SkillName.Imbuing,
+			SkillName.Inscribe,
+			SkillName.Tailoring,
+			SkillName.Tinkering
+		};
+
+		public static double NRegionalModifier(Mobile m, Skill skill)
 		{
 			if (m == null || m.Map == null || m.Map == Map.Internal)
 				return 1.0;
 
-			if (BaseBoat.FindBoatAt(m) != null)
+			if (!m_BoatAllowedSkills.Contains(skill.SkillName) && BaseBoat.FindBoatAt(m) != null)
 				return m_BoatGain;
 
 			Region region = m.Region;
 
 			if (region is HouseRegion)
 				return m_HouseGain;
-			if (region is MiningRegion)
+			if (region is MiningRegion && !m_MineAllowedSkills.Contains(skill.SkillName))
 				return m_MineGain;
-			if (region is TavernRegion)
+			if (region is TavernRegion && !m_CraftingSkills.Contains(skill.SkillName))
 				return m_InnGain;
-			if (region is CityRegion)
+			if (region is CityRegion  && !m_CraftingSkills.Contains(skill.SkillName))
 				return m_CityGain;
 			if (region is ArenaRegion)
 				return m_ArenaGain;
-			if (region is VillageRegion)
+			if (region is VillageRegion  && !m_CraftingSkills.Contains(skill.SkillName))
 				return m_VillageGain;
 			if (region is DungeonRegion)
 				return m_DungeonGain;
@@ -123,7 +143,11 @@ namespace Server.Misc
 
 			gc *= skill.Info.GainFactor;
 
-			gc *= NRegionalModifier(from);
+			var regionalModifier = NRegionalModifier(from, skill);
+
+			gc *= regionalModifier;
+
+			gc *= Gains.calculateGainFactor(from);
 
 			if (gc < 0.01)
 				gc = 0.01;
@@ -134,6 +158,14 @@ namespace Server.Misc
 
 			if (gc > 1.00)
 				gc = 1.00;
+			
+			if (Gains.Get(from).GainDebug && skill.Lock == SkillLock.Up)
+				if (skill.SkillName != SkillName.Meditation && skill.SkillName != SkillName.Focus)
+					from.SendMessage(success ? 0x40 : 0x20, 
+						$"[{skill.Name}: {skill.Value}%] " +
+						$"GainChance = {Math.Round(gc * 100, 2)}% " +
+						$"SuccessChance = {Math.Round(chance * 100, 2)}% " +
+						$"RegionalModifier = x{regionalModifier}");
 
 			return gc;
 		}
