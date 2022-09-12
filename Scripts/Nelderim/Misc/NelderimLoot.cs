@@ -87,7 +87,7 @@ namespace Nelderim
 		private static void GenerateRecallRunes(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
 			var count = (int)Math.Min(5, 1 + bc.Difficulty / 500);
-			var chance = Math.Pow(bc.Difficulty, 0.6) / 10;
+			var chance = Math.Pow(bc.Difficulty, 0.6) / 40;
 
 			entries.Add(new LootPackEntry(false, true, RecallRune, chance, count));
 		}
@@ -123,7 +123,7 @@ namespace Nelderim
 					return;
 			}
 
-			var count = (int)Math.Ceiling(Math.Pow(bc.Difficulty, 0.35)) * 5;
+			var count = (int)Math.Ceiling(Math.Pow(bc.Difficulty, 0.5));
 			entries.Add(new LootPackEntry(false, true, lootItems, 100, count));
 		}
 
@@ -142,7 +142,7 @@ namespace Nelderim
 		private static void GenerateScrolls(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
 			var count = (int)Math.Floor(Math.Pow((1 + bc.Difficulty) * 39.0, 0.15));
-			var scrollChance = Math.Max(0.01, Math.Min(0.8, Math.Pow(bc.Difficulty * 0.5, 0.29) * 0.03));
+			var scrollChance = Math.Max(0.01, Math.Min(0.8, Math.Pow(bc.Difficulty * 0.5, 0.29) * 0.025));
 
 			var chances = GetChances(Math.Min(1, Math.Pow(bc.Difficulty, 0.9) / 10000), 2.0, NL_scrolls.Length);
 
