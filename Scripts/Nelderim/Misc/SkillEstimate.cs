@@ -45,7 +45,7 @@ namespace Nelderim
 				{
 					e.Mobile.SendMessage($"Trening {skillName} od {start/10} do {end/10} zajmie około " + TimeSpan.FromSeconds(
 						IntegralTrapezoidRule(x => AverageTimeToGain(e.Mobile, fakeMob, fakeMob.Skills[skillName], x), 
-							start, end, end - start)).ToString(@"hh\:mm\:ss" ));
+							start, end, end - start)).ToString(@"c" ));
 				}
 				finally
 				{
@@ -173,7 +173,7 @@ namespace Nelderim
 					bestChanceDiff = chanceDiff;
 				}
 			}
-			Console.WriteLine($"{fakeMob.Skills[system.MainSkill].Base} {debugItem.ItemType.Name} {debugItem.Skills.GetAt(0).MinSkill} {debugItem.Skills.GetAt(0).MaxSkill} {bestChance}");
+			// Console.WriteLine($"{fakeMob.Skills[system.MainSkill].Base} {debugItem.ItemType.Name} {debugItem.Skills.GetAt(0).MinSkill} {debugItem.Skills.GetAt(0).MaxSkill} {bestChance}");
 			return bestChance;
 		}
 
