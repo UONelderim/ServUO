@@ -142,23 +142,25 @@ namespace Server.Misc
 			gc /= 2;
 
 			gc *= skill.Info.GainFactor;
+			
+			if (gc < 0.01)
+				gc = 0.01;
 
 			var regionalModifier = NRegionalModifier(from, skill);
 
 			gc *= regionalModifier;
 
+			gc *= Config.Get("Nelderim.BaseGainFactor", 1.0);
+			
 			gc *= Gains.calculateGainFactor(from);
-
-			if (gc < 0.01)
-				gc = 0.01;
-
+			
 			// Pets get a 100% bonus
 			if (from is BaseCreature && ((BaseCreature)from).Controlled)
 				gc += gc;
 
 			if (gc > 1.00)
 				gc = 1.00;
-			
+
 			if (Gains.Get(from).GainDebug && skill.Lock == SkillLock.Up)
 				if (skill.SkillName != SkillName.Meditation && skill.SkillName != SkillName.Focus)
 					from.SendMessage(success ? 0x40 : 0x20, 
