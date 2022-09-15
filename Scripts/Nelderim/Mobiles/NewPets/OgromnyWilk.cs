@@ -58,7 +58,7 @@ namespace Server.Mobiles
 			ControlSlots = 2;
 			MinTameSkill = 106.0;
 
-			SetWeaponAbility(WeaponAbility.MortalStrike);
+			SetSpecialAbility(SpecialAbility.Rage);
 
 			switch (Utility.Random(10))
 			{
