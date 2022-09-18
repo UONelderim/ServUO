@@ -4,13 +4,13 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-	[CorpseName( "a drake corpse" )]
+	[CorpseName( "zwloki smoczego pisklecia" )]
 	public class RDrake : BaseMount
 	{
 
 		
 		[Constructable]
-		public RDrake() : this( "zwloki smoczego pisklecia" )
+		public RDrake() : this( "wierzchowe smocze piskle" )
 		{
 		}
 
