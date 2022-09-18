@@ -13,7 +13,7 @@ namespace Server.Mobiles
                 } 
 
                 [Constructable] 
-                public RSpider ( string name ) : base( name, 0xAD, 0x3f11, AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4 ) 
+                public RSpider ( string name ) : base( name, 0xAD, 0x3f11, AIType.AI_Melee, FightMode.Closest, 10, 1, 0.3, 0.4 ) 
                 { 
                         Name = "wierzchowy ogromny pajak";
                         Body = Utility.RandomList( 173 ); 
