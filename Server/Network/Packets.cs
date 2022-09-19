@@ -1238,6 +1238,19 @@ namespace Server.Network
 				{
 					hue = p.SolidHueOverride;
 				}
+				else if (item is IMountItem mi && mi.Mount is Mobile m)
+				{
+					hue = m.BodyHue;
+
+					if (m.SolidHueOverride >= 0)
+					{
+						hue = m.SolidHueOverride;
+					}
+					else
+					{
+						hue |= m.HueFlags;
+					}
+				}
 			}
 			else
 			{
@@ -1447,7 +1460,7 @@ namespace Server.Network
 
 			if (hue != 0)
 			{
-				m_Stream.Write((ushort)hue);
+				m_Stream.Write((short)hue);
 			}
 
 			if (flags != 0)
@@ -1560,7 +1573,7 @@ namespace Server.Network
 			m_Stream.Write((short)beheld.Y);
 			m_Stream.Write((sbyte)beheld.Z);
 			m_Stream.Write((byte)beheld.Direction);
-			m_Stream.Write((ushort)beheld.Hue);
+			m_Stream.Write((short)(beheld.BodyHue | beheld.HueFlags));
 			m_Stream.Write((byte)beheld.GetPacketFlags());
 			m_Stream.Write((byte)beheld.GetNotoriety(beholder));
 
@@ -2565,11 +2578,15 @@ namespace Server.Network
 			: base(0x77, 17)
 		{
 			var loc = m.Location;
-			var hue = m.Hue;
+			var hue = m.BodyHue;
 
 			if (m.SolidHueOverride >= 0)
 			{
 				hue = m.SolidHueOverride;
+			}
+			else
+			{
+				hue |= m.HueFlags;
 			}
 
 			m_Stream.Write(m.Serial);
@@ -3580,97 +3597,67 @@ namespace Server.Network
 
 	public sealed class HealthbarPoison : Packet
 	{
-		public HealthbarPoison(Mobile m)
-			: base(0x17)
+		public static bool Send(NetState ns, Mobile beheld)
+		{
+			return ns != null && Send(ns, Instantiate(ns, beheld));
+		}
+
+		public static HealthbarPoison Instantiate(NetState ns, Mobile beheld)
+		{
+			var level = (beheld.Poison?.Level ?? -1) + 1;
+
+			if (level <= 0 && beheld is Mobile m && (m.Poisoned || m.PoisonHealthbar))
+			{
+				level = 1;
+			}
+
+			return new HealthbarPoison(beheld.Serial, level, ns?.IsEnhancedClient ?? false);
+		}
+
+		private HealthbarPoison(Serial serial, int level, bool enhanced)
+			: base(enhanced ? 0x16 : 0x17)
 		{
 			EnsureCapacity(12);
 
-			m_Stream.Write(m.Serial);
+			m_Stream.Write(serial);
 
 			m_Stream.Write((short)1);
 			m_Stream.Write((short)1);
 
-			var p = m.Poison;
-
-			if (p != null)
-			{
-				m_Stream.Write((byte)(p.Level + 1));
-			}
-			else
-			{
-				m_Stream.Write((byte)0);
-			}
+			m_Stream.Write((byte)level);
 		}
 	}
 
 	public sealed class HealthbarYellow : Packet
 	{
-		public HealthbarYellow(Mobile m)
-			: base(0x17)
+		public static bool Send(NetState ns, IDamageable beheld)
+		{
+			return ns != null && Send(ns, Instantiate(ns, beheld));
+		}
+
+		public static HealthbarYellow Instantiate(NetState ns, IDamageable beheld)
+		{
+			var state = beheld.Invulnerable;
+
+			if (!state && beheld is Mobile m && (m.Blessed || m.YellowHealthbar))
+			{
+				state = true;
+			}
+
+			return new HealthbarYellow(beheld.Serial, state, ns?.IsEnhancedClient ?? false);
+		}
+
+		private HealthbarYellow(Serial serial, bool state, bool enhanced)
+			: base(enhanced ? 0x16 : 0x17)
 		{
 			EnsureCapacity(12);
 
-			m_Stream.Write(m.Serial);
+			m_Stream.Write(serial);
 
 			m_Stream.Write((short)1);
 			m_Stream.Write((short)2);
-
-			if (m.Blessed || m.YellowHealthbar)
-			{
-				m_Stream.Write((byte)1);
-			}
-			else
-			{
-				m_Stream.Write((byte)0);
-			}
-		}
-	}
-
-	public sealed class HealthbarYellowEC : Packet
-	{
-		public HealthbarYellowEC(Mobile m)
-			: base(0x16)
-		{
-			EnsureCapacity(12);
-
-			m_Stream.Write(m.Serial);
-
-			m_Stream.Write((short)1);
-			m_Stream.Write((short)2);
-
-			if (m.Blessed || m.YellowHealthbar)
-			{
-				m_Stream.Write((byte)1);
-			}
-			else
-			{
-				m_Stream.Write((byte)0);
-			}
-		}
-	}
-
-	public sealed class HealthbarPoisonEC : Packet
-	{
-		public HealthbarPoisonEC(Mobile m)
-			: base(0x16)
-		{
-			EnsureCapacity(12);
-
-			m_Stream.Write(m.Serial);
-
-			m_Stream.Write((short)1);
-			m_Stream.Write((short)1);
-
-			var p = m.Poison;
-
-			if (p != null)
-			{
-				m_Stream.Write((byte)(p.Level + 1));
-			}
-			else
-			{
-				m_Stream.Write((byte)0);
-			}
+			
+			m_Stream.Write(state);
 		}
 	}
 
@@ -3694,11 +3681,15 @@ namespace Server.Network
 		private MobileUpdate(Mobile m, int flags)
 			: base(0x20, 19)
 		{
-			var hue = m.Hue;
+			var hue = m.BodyHue;
 
 			if (m.SolidHueOverride >= 0)
 			{
 				hue = m.SolidHueOverride;
+			}
+			else
+			{
+				hue |= m.HueFlags;
 			}
 
 			m_Stream.Write(m.Serial);
@@ -3765,11 +3756,15 @@ namespace Server.Network
 
 			EnsureCapacity(23 + (count * 9));
 
-			var hue = beheld.Hue;
+			var hue = beheld.BodyHue;
 
 			if (beheld.SolidHueOverride >= 0)
 			{
 				hue = beheld.SolidHueOverride;
+			}
+			else
+			{
+				hue |= beheld.HueFlags;
 			}
 
 			m_Stream.Write(beheld.Serial);
@@ -3797,6 +3792,19 @@ namespace Server.Network
 					if (beheld.SolidHueOverride >= 0)
 					{
 						hue = beheld.SolidHueOverride;
+					}
+					else if (item is IMountItem mi && mi.Mount is Mobile m)
+					{
+						hue = m.BodyHue;
+
+						if (m.SolidHueOverride >= 0)
+						{
+							hue = m.SolidHueOverride;
+						}
+						else
+						{
+							hue |= m.HueFlags;
+						}
 					}
 
 					var itemID = item.ItemID & (prefixHues ? 0x7FFF : 0xFFFF);
@@ -3828,6 +3836,10 @@ namespace Server.Network
 					{
 						hue = beheld.SolidHueOverride;
 					}
+					else
+					{
+						hue |= beheld.HueFlags;
+					}
 
 					var itemID = beheld.HairItemID & (prefixHues ? 0x7FFF : 0xFFFF);
 
@@ -3858,6 +3870,10 @@ namespace Server.Network
 					{
 						hue = beheld.SolidHueOverride;
 					}
+					else
+					{
+						hue |= beheld.HueFlags;
+					}
 
 					var itemID = beheld.FacialHairItemID & (prefixHues ? 0x7FFF : 0xFFFF);
 
@@ -3887,6 +3903,10 @@ namespace Server.Network
 					if (beheld.SolidHueOverride >= 0)
 					{
 						hue = beheld.SolidHueOverride;
+					}
+					else
+					{
+						hue |= beheld.HueFlags;
 					}
 
 					var itemID = beheld.FaceItemID & (prefixHues ? 0x7FFF : 0xFFFF);
@@ -4089,21 +4109,46 @@ namespace Server.Network
 		{ }
 	}
 
-	public sealed class CityInfo
+	[PropertyObject]
+	public sealed class CityInfo : IPoint3D
 	{
+		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
+		public string City { get; set; }
+
+		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
+		public string Building { get; set; }
+
+		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
+		public int Description { get; set; }
+
 		private Point3D m_Location;
 
-		public CityInfo(string city, string building, int description, int x, int y, int z, Map m)
+		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
+		public Point3D Location { get => m_Location; set => m_Location = value; }
+
+		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
+		public int X { get => m_Location.X; set => m_Location.X = value; }
+
+		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
+		public int Y { get => m_Location.Y; set => m_Location.Y = value; }
+
+		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
+		public int Z { get => m_Location.Z; set => m_Location.Z = value; }
+
+		[CommandProperty(AccessLevel.Counselor, AccessLevel.Administrator)]
+		public Map Map { get; set; }
+
+		public CityInfo(string city, string building, int description, int x, int y, int z, Map map)
 		{
 			City = city;
 			Building = building;
 			Description = description;
 			m_Location = new Point3D(x, y, z);
-			Map = m;
+			Map = map;
 		}
 
-		public CityInfo(string city, string building, int x, int y, int z, Map m)
-			: this(city, building, 0, x, y, z, m)
+		public CityInfo(string city, string building, int x, int y, int z, Map map)
+			: this(city, building, 0, x, y, z, map)
 		{ }
 
 		public CityInfo(string city, string building, int description, int x, int y, int z)
@@ -4113,18 +4158,6 @@ namespace Server.Network
 		public CityInfo(string city, string building, int x, int y, int z)
 			: this(city, building, 0, x, y, z, Map.Trammel)
 		{ }
-
-		public string City { get; set; }
-		public string Building { get; set; }
-		public int Description { get; set; }
-
-		public int X { get => m_Location.X; set => m_Location.X = value; }
-		public int Y { get => m_Location.Y; set => m_Location.Y = value; }
-		public int Z { get => m_Location.Z; set => m_Location.Z = value; }
-
-		public Point3D Location { get => m_Location; set => m_Location = value; }
-
-		public Map Map { get; set; }
 	}
 
 	public sealed class CharacterListUpdate : Packet

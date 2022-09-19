@@ -141,17 +141,7 @@ namespace Server
 				return list.Aggregate(0, (hash, r) => (hash * 397) ^ GetBoundsHashCode(r));
 			}
 		}
-
-		public static bool Contains(this RegionRect[] rects, IPoint3D p)
-		{
-			return rects.Any(rect => Contains(rect.Rect, p.X, p.Y, p.Z));
-		}
-
-		public static bool Contains(this RegionRect[] rects, Point3D p)
-		{
-			return rects.Any(rect => Contains(rect.Rect, p.X, p.Y, p.Z));
-		}
-
+		
 		public static bool Contains(this Rectangle3D[] rects, IPoint3D p)
 		{
 			return rects.Any(rect => Contains(rect, p.X, p.Y, p.Z));
@@ -170,16 +160,6 @@ namespace Server
 		public static bool Contains(this Rectangle3D[] rects, Point2D p)
 		{
 			return rects.Any(rect => Contains(rect, p.X, p.Y));
-		}
-
-		public static bool Contains(this List<RegionRect> rects, IPoint3D p)
-		{
-			return rects.Any(rect => Contains(rect.Rect, p.X, p.Y, p.Z));
-		}
-
-		public static bool Contains(this List<RegionRect> rects, Point3D p)
-		{
-			return rects.Any(rect => Contains(rect.Rect, p.X, p.Y, p.Z));
 		}
 
 		public static bool Contains(this List<Rectangle3D> rects, IPoint3D p)

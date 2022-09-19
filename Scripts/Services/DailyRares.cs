@@ -1,13 +1,16 @@
 using System;
+using System.Collections.Generic;
 
 namespace Server.Items
 {
-    public class DailyRaresSpawner
+	public static class DailyRares
 	{
-		[ConfigProperty("Shadowguard.ReadyDuration")]
+		public static HashSet<Item> Rares { get; } = new HashSet<Item>();
+
+		[ConfigProperty("DailyRares.Enabled")]
 		public static bool Enabled
 		{
-			get => Config.Get("DailyRares.Enabled", true); 
+			get => Config.Get("DailyRares.Enabled", true);
 			set
 			{
 				Config.Set("DailyRares.Enabled", value);
@@ -19,348 +22,279 @@ namespace Server.Items
 		public static void Initialize()
 		{
 			Invalidate();
+
+			EventSink.AfterWorldSave += e => Rares.RemoveWhere(o => o.Deleted || o.Parent != null || o.LastMoved < DateTime.UtcNow);
 		}
 
-        public static void Invalidate()
-        {
-            if (!Enabled)
-            {
-                return;
-            }
+		public static void Invalidate()
+		{
+			// rocks
+			SetItem<DailyRocks>(Map.Felucca, 2684, 2060, 28);
+			SetItem<DailyRocks>(Map.Trammel, 2684, 2060, 28);
 
-            // rocks
-            Map map = Map.Felucca;
-            Point3D p = new Point3D(new Point3D(2684, 2060, 28));
-            if (map.FindItem<DailyRocks>(p) == null)
-            {
-                SetItem(new DailyRocks(), p, map);
-            }
+			// rock
+			SetItem<DailyRock>(Map.Felucca, 5511, 3116, -4);
+			SetItem<DailyRock>(Map.Trammel, 5511, 3116, -4);
 
-            map = Map.Trammel;
-            p = new Point3D(new Point3D(2684, 2060, 28));
-            if (map.FindItem<DailyRocks>(p) == null)
-            {
-                SetItem(new DailyRocks(), p, map);
-            }
+			// fruit basket
+			SetItem<FruitBasket>(Map.Felucca, 2636, 2081, 16);
+			SetItem<FruitBasket>(Map.Trammel, 2636, 2081, 16);
 
-            // rock
-            map = Map.Felucca;
-            p = new Point3D(5511, 3116, -4);
-            if (map.FindItem<DailyRock>(p) == null)
-            {
-                SetItem(new DailyRock(), p, map);
-            }
+			// fruit basket
+			SetItem<FruitBasket>(Map.Felucca, 286, 986, 6);
+			SetItem<FruitBasket>(Map.Trammel, 286, 986, 6);
 
-            map = Map.Trammel;
-            p = new Point3D(5511, 3116, -4);
-            if (map.FindItem<DailyRock>(p) == null)
-            {
-                SetItem(new DailyRock(), p, map);
-            }
+			// closed barrel
+			SetItem<ClosedBarrel>(Map.Felucca, 5191, 587, 0);
+			SetItem<ClosedBarrel>(Map.Trammel, 5191, 587, 0);
 
-            // fruit basket (eat)
-            map = Map.Felucca;
-            p = new Point3D(2636, 2081, 16);
-            if (map.FindItem<FruitBasket>(p) == null)
-            {
-                SetItem(new FruitBasket(true), p, map);
-            }
+			// closed barrel
+			SetItem<ClosedBarrel>(Map.Felucca, 5301, 592, 0);
+			SetItem<ClosedBarrel>(Map.Trammel, 5301, 592, 0);
 
-            map = Map.Trammel;
-            p = new Point3D(2636, 2081, 16);
-            if (map.FindItem<FruitBasket>(p) == null)
-            {
-                SetItem(new FruitBasket(true), p, map);
-            }
+			// large candle
+			SetItem<CandleLarge>(Map.Felucca, 5575, 1829, 6);
+			SetItem<CandleLarge>(Map.Trammel, 5575, 1829, 6);
 
-            // fruit basket
-            map = Map.Felucca;
-            p = new Point3D(286, 986, 6);
-            if (map.FindItem<FruitBasket>(p) == null)
-            {
-                SetItem(new FruitBasket(), p, map);
-            }
+			// full jars
+			SetItem<DailyFullJars>(Map.Felucca, 3656, 2506, 0);
 
-            map = Map.Trammel;
-            p = new Point3D(286, 986, 6);
-            if (map.FindItem<FruitBasket>(p) == null)
-            {
-                SetItem(new FruitBasket(), p, map);
-            }
+			// hay
+			SetItem<DecoHay2>(Map.Felucca, 5998, 3774, 19);
 
-            // closed barrel 1
-            map = Map.Felucca;
-            p = new Point3D(5191, 587, 0);
-            if (map.FindItem<ClosedBarrel>(p) == null)
-            {
-                SetItem(new ClosedBarrel(), p, map);
-            }
+			// broken chair
+			SetItem<DailyBrokenChair>(Map.Ilshenar, 148, 946, -29);
 
-            map = Map.Trammel;
-            p = new Point3D(5191, 587, 0);
-            if (map.FindItem<ClosedBarrel>(p) == null)
-            {
-                SetItem(new ClosedBarrel(), p, map);
-            }
+			// meat pie
+			SetItem<DailyMeatPie>(Map.Malas, 2112, 1311, -44);
 
-            // closed barrel 2
-            map = Map.Felucca;
-            p = new Point3D(5301, 592, 0);
-            if (map.FindItem<ClosedBarrel>(p) == null)
-            {
-                SetItem(new ClosedBarrel(), p, map);
-            }
+			// seaweed
+			SetItem<DailySeaweed>(Map.Felucca, 4548, 2400, -5);
+			SetItem<DailySeaweed>(Map.Trammel, 4548, 2400, -5);
+		}
 
-            map = Map.Trammel;
-            p = new Point3D(5301, 592, 0);
-            if (map.FindItem<ClosedBarrel>(p) == null)
-            {
-                SetItem(new ClosedBarrel(), p, map);
-            }
+		public static void SetItem<T>(Map map, int x, int y, int z) where T : Item, new()
+		{
+			if (map == null || map == Map.Internal)
+			{
+				return;
+			}
 
-            // Large Candle
-            map = Map.Felucca;
-            p = new Point3D(5575, 1829, 6);
-            if (map.FindItem<CandleLarge>(p) == null)
-            {
-                CandleLarge candle = new CandleLarge
-                {
-                    Burning = true
-                };
-                SetItem(candle, p, map);
-            }
+			var loc = new Point3D(x, y, z);
+			var item = map.FindItem<T>(loc);
 
-            map = Map.Trammel;
-            p = new Point3D(5575, 1829, 6);
-            if (map.FindItem<CandleLarge>(p) == null)
-            {
-                CandleLarge candle = new CandleLarge
-                {
-                    Burning = true
-                };
-                SetItem(candle, p, map);
-            }
+			if (Enabled)
+			{
+				if (item?.Deleted != false)
+				{
+					item = new T();
+				}
 
-            // full jars
-            map = Map.Felucca;
-            p = new Point3D(3656, 2506, 0);
-            if (map.FindItem<DailyFullJars>(p) == null)
-            {
-                SetItem(new DailyFullJars(), p, map);
-            }
+				SetItem(item, loc, map);
+			}
+			else if (item != null)
+			{
+				item.Delete();
 
-            // Hay
-            p = new Point3D(5998, 3774, 19);
-            if (map.FindItem<DecoHay2>(p) == null)
-            {
-                SetItem(new DecoHay2(), p, map);
-            }
+				Rares.Remove(item);
+			}
+		}
 
-            // Broken Chair
-            map = Map.Ilshenar;
-            p = new Point3D(148, 946, -29);
-            if (map.FindItem<DailyBrokenChair>(p) == null)
-            {
-                SetItem(new DailyBrokenChair(), p, map);
-            }
+		public static void SetItem(Item item, Point3D p, Map map)
+		{
+			if (item == null)
+			{
+				return;
+			}
 
-            // Meat Pie
-            map = Map.Malas;
-            p = new Point3D(2112, 1311, -44);
-            if (map.FindItem<DailyMeatPie>(p) == null)
-            {
-                SetItem(new DailyMeatPie(), p, map);
-            }
+			item.MoveToWorld(p, map);
 
-            // Daily Seaweed
-            map = Map.Felucca;
-            p = new Point3D(4548, 2400, -5);
-            if (map.FindItem<DailySeaweed>(p) == null)
-            {
-                SetItem(new DailySeaweed(), p, map);
-            }
+			item.LastMoved = DateTime.UtcNow.AddDays(1);
 
-            map = Map.Trammel;
-            p = new Point3D(4548, 2400, -5);
-            if (map.FindItem<DailySeaweed>(p) == null)
-            {
-                SetItem(new DailySeaweed(), p, map);
-            }
-        }
+			if (item is BaseLight light)
+			{
+				light.Burning = true;
+			}
 
-        public static void SetItem(Item item, Point3D p, Map map)
-        {
-            item.MoveToWorld(p, map);
-            item.LastMoved = DateTime.UtcNow + TimeSpan.FromMinutes(int.MaxValue);
-        }
-    }
+			Rares.Add(item);
+		}
+	}
 
-    public class DailyRocks : Item
-    {
-        [Constructable]
-        public DailyRocks()
-            : base(0x1367)
-        {
-        }
+	public interface IDailyRare : ISpawnable
+	{
+		DateTime LastMoved { get; set; }
+	}
 
-        public DailyRocks(Serial serial)
-            : base(serial)
-        {
-        }
+	public class DailyRocks : Item, IDailyRare
+	{
+		[Constructable]
+		public DailyRocks()
+			: base(0x1367)
+		{
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-            writer.Write(0); // version
-        }
+		public DailyRocks(Serial serial)
+			: base(serial)
+		{
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-            reader.ReadInt();
-        }
-    }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-    public class DailyRock : Item
-    {
-        [Constructable]
-        public DailyRock()
-            : base(0x1368)
-        {
-        }
+			writer.Write(0); // version
+		}
 
-        public DailyRock(Serial serial)
-            : base(serial)
-        {
-        }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-            writer.Write(0); // version
-        }
+			reader.ReadInt();
+		}
+	}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-            reader.ReadInt();
-        }
-    }
+	public class DailyRock : Item, IDailyRare
+	{
+		[Constructable]
+		public DailyRock()
+			: base(0x1368)
+		{
+		}
 
-    public class DailyFullJars : Item
-    {
-        [Constructable]
-        public DailyFullJars()
-            : base(0xE48)
-        {
-        }
+		public DailyRock(Serial serial)
+			: base(serial)
+		{
+		}
 
-        public DailyFullJars(Serial serial)
-            : base(serial)
-        {
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+			writer.Write(0); // version
+		}
 
-            writer.Write(0); // version
-        }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+			reader.ReadInt();
+		}
+	}
 
-            int version = reader.ReadInt();
-        }
-    }
+	public class DailyFullJars : Item, IDailyRare
+	{
+		[Constructable]
+		public DailyFullJars()
+			: base(0xE48)
+		{
+		}
 
-    public class DailyBrokenChair : Item
-    {
-        [Constructable]
-        public DailyBrokenChair()
-            : base(0xC19)
-        {
-        }
+		public DailyFullJars(Serial serial)
+			: base(serial)
+		{
+		}
 
-        public DailyBrokenChair(Serial serial)
-            : base(serial)
-        {
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+			writer.Write(0); // version
+		}
 
-            writer.Write(0); // version
-        }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+			reader.ReadInt();
+		}
+	}
 
-            int version = reader.ReadInt();
-        }
-    }
+	public class DailyBrokenChair : Item, IDailyRare
+	{
+		[Constructable]
+		public DailyBrokenChair()
+			: base(0xC19)
+		{
+		}
 
-    public class DailySeaweed : Item
-    {
-        [Constructable]
-        public DailySeaweed()
-            : base(0xDBA)
-        {
-        }
+		public DailyBrokenChair(Serial serial)
+			: base(serial)
+		{
+		}
 
-        public DailySeaweed(Serial serial)
-            : base(serial)
-        {
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+			writer.Write(0); // version
+		}
 
-            writer.Write(0); // version
-        }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+			reader.ReadInt();
+		}
+	}
 
-            int version = reader.ReadInt();
-        }
-    }
+	public class DailySeaweed : Item, IDailyRare
+	{
+		[Constructable]
+		public DailySeaweed()
+			: base(0xDBA)
+		{
+		}
 
-    public class DailyMeatPie : Food
-    {
-        public override int LabelNumber => 1060141;  // a tasty meat pie
+		public DailySeaweed(Serial serial)
+			: base(serial)
+		{
+		}
 
-        [Constructable]
-        public DailyMeatPie()
-            : base(0x1041)
-        {
-            Stackable = false;
-            Weight = 1.0;
-            FillFactor = 5;
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-        public DailyMeatPie(Serial serial)
-            : base(serial)
-        {
-        }
+			writer.Write(0); // version
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-            writer.Write(0); // version
-        }
+			reader.ReadInt();
+		}
+	}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+	public class DailyMeatPie : Food, IDailyRare
+	{
+		public override int LabelNumber => 1060141;  // a tasty meat pie
 
-            int version = reader.ReadInt();
-        }
-    }
+		[Constructable]
+		public DailyMeatPie()
+			: base(0x1041)
+		{
+			Stackable = false;
+			Weight = 1.0;
+			FillFactor = 5;
+		}
+
+		public DailyMeatPie(Serial serial)
+			: base(serial)
+		{
+		}
+
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+
+			writer.Write(0); // version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+
+			reader.ReadInt();
+		}
+	}
 }

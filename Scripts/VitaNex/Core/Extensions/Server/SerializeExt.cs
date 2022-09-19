@@ -1323,7 +1323,7 @@ namespace Server
 
 		public static void WriteTextDef(this GenericWriter writer, TextDefinition def)
 		{
-			if (def == null)
+			if (def.IsEmpty)
 			{
 				writer.WriteEncodedInt(0);
 				return;

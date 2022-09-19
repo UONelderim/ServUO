@@ -528,12 +528,12 @@ namespace Server.Engines.Doom
             dealer.FacialHairItemID = 0x203E;
             dealer.FacialHairHue = 0x482;
 
-            dealer.AddItem(new FloppyHat(1));
-            dealer.AddItem(new Robe(1));
+            dealer.SetWearable(new FloppyHat(), 1, 1);
+            dealer.SetWearable(new Robe(), 1, 1);
 
-            dealer.AddItem(new LanternOfSouls());
+            dealer.SetWearable(new LanternOfSouls(), dropChance: 1);
 
-            dealer.AddItem(new Sandals(0x482));
+            dealer.SetWearable(new Sandals(), 0x482, 1);
             /* End outfit */
 
             dealer.MoveToWorld(p, Map.Malas);
@@ -749,11 +749,11 @@ namespace Server.Engines.Doom
                 Region reg = Region.Find(loc, map).GetRegion("Doom Gauntlet");
 
                 if (reg != null)
-                    playerCount = reg.AllMobiles.Where(m => m is PlayerMobile && m.AccessLevel == AccessLevel.Player).Count();
+                    playerCount = reg.AllMobiles.Where(m => m is PlayerMobile && m.AccessLevel < AccessLevel.Counselor).Count();
             }
 
             if (playerCount == 0 && m_Region != null)
-                playerCount = m_Region.AllMobiles.Where(m => m.AccessLevel == AccessLevel.Player).Count();
+                playerCount = m_Region.AllMobiles.Where(m => m.AccessLevel < AccessLevel.Counselor).Count();
 
             int count = (playerCount + PlayersPerSpawn - 1) / PlayersPerSpawn;
 

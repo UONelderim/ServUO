@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-
+using Server.Items;
 using VitaNex;
 using VitaNex.Crypto;
 using VitaNex.FX;
@@ -374,24 +374,14 @@ namespace Server
 			return r.Map == m && Contains(r, p);
 		}
 
-		public static bool Contains(this RegionRect r, Point3D p, Map m)
-		{
-			return r.Region.Map == m && Contains(r, p);
-		}
-
 		public static bool Contains(this Sector s, Point3D p)
 		{
-			return s.RegionRects.Any(rect => rect.Contains(p));
+			return s.RegionRects.Values.Combine().Any(rect => rect.Contains(p));
 		}
 
 		public static bool Contains(this Region r, Point3D p)
 		{
 			return r.Area.Contains(p);
-		}
-
-		public static bool Contains(this RegionRect r, Point3D p)
-		{
-			return r.Rect.Contains(p);
 		}
 
 		public static TRegion Create<TRegion>(params object[] args)

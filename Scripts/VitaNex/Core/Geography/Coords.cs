@@ -205,7 +205,7 @@ namespace Server
 				return false;
 			}
 
-			return _Point == other;
+			return _Point.X == other.X && _Point.Y == other.Y;
 		}
 
 		public bool Equals(IPoint2D other)
@@ -215,7 +215,7 @@ namespace Server
 				return false;
 			}
 
-			return _Point == other;
+			return _Point.X == other.X && _Point.Y == other.Y;
 		}
 
 		public override bool Equals(object obj)

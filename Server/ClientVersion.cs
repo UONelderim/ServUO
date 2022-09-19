@@ -15,9 +15,17 @@ namespace Server
 		SA
 	}
 
-	public struct ClientVersion : IComparable, IComparable<ClientVersion>, IEquatable<ClientVersion>
+	[Parsable]
+	public readonly struct ClientVersion : IComparable, IComparable<ClientVersion>, IEquatable<ClientVersion>
 	{
 		public static readonly ClientVersion Zero = new ClientVersion(0, 0, 0, 0);
+
+		public static ClientVersion Parse(string input)
+		{
+			TryParse(input, out var value);
+
+			return value;
+		}
 
 		public static bool TryParse(string input, out int maj, out int min, out int rev, out int pat, out ClientType type)
 		{
@@ -207,7 +215,7 @@ namespace Server
 
 		public bool Equals(ClientVersion v)
 		{
-			return Major == v.Major && Minor == v.Minor && Revision == v.Revision && Patch == v.Patch && Type == v.Type;
+			return Hash == v.Hash;
 		}
 
 		public int CompareTo(ClientVersion v)

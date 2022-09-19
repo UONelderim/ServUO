@@ -9,11 +9,11 @@ namespace Server.Mobiles
         {
             Title = "- wedrowny uzdrowiciel";
 
-            AddItem(new GnarledStaff());
+			SetWearable(new GnarledStaff(), dropChance: 1);
 
             SetSkill(SkillName.Camping, 80.0, 100.0);
             //SetSkill(SkillName.Forensics, 80.0, 100.0); //!NELDERIM!
-            SetSkill( SkillName.SpiritSpeak, 80.0, 100.0);
+            SetSkill(SkillName.SpiritSpeak, 80.0, 100.0);
         }
 
         public WanderingHealer(Serial serial)

@@ -326,7 +326,7 @@ namespace VitaNex
 
 		public static string GetString(this TextDefinition text, ClilocLNG lng)
 		{
-			if (text == null)
+			if (text.IsEmpty)
 			{
 				return String.Empty;
 			}
@@ -341,7 +341,7 @@ namespace VitaNex
 
 		public static bool IsNullOrEmpty(this TextDefinition text)
 		{
-			if (text == null)
+			if (text.IsEmpty)
 			{
 				return true;
 			}
@@ -351,7 +351,7 @@ namespace VitaNex
 
 		public static bool IsNullOrWhiteSpace(this TextDefinition text)
 		{
-			if (text == null)
+			if (text.IsEmpty)
 			{
 				return true;
 			}
