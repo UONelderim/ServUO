@@ -761,13 +761,13 @@ Circle375
 		private Point3D m_Location;
 		private int m_ItemID;
 		private int m_Hue;
-		private int m_Amount;
+		private int m_Amount = 1;
 		private Layer m_Layer;
 		private Map m_Map;
 		private LootType m_LootType;
 		private DateTime m_LastMovedTime;
 		private Direction m_Direction;
-		private LightType m_Light;
+		private LightType m_Light = LightType.Empty;
 		#endregion
 
 		private ItemDelta m_DeltaFlags;
@@ -2788,23 +2788,17 @@ Circle375
 
 		public virtual void Serialize(GenericWriter writer)
 		{
-			writer.Write(17); // version
+			writer.Write(18); // version
+
+			// 18: LastMove and ItemData simplification
 
 			// 17
 			if (_ItemDataOverride != null)
 			{
 				writer.Write(true);
 
-				var iData = _ItemDataOverride.Value;
-
-				writer.Write(iData.Name);
-				writer.Write((ulong)iData.Flags);
-				writer.Write(iData.Weight);
-				writer.Write(iData.Quality);
-				writer.Write(iData.Animation);
-				writer.Write(iData.Quantity);
-				writer.Write(iData.Value);
-				writer.Write(iData.Height);
+				// 18
+				_ItemDataOverride.Value.Serialize(writer);
 			}
 			else
 			{
@@ -2906,7 +2900,7 @@ Circle375
 				flags |= SaveFlag.Direction;
 			}
 
-			if (m_Light != 0)
+			if (m_Light != LightType.Empty)
 			{
 				flags |= SaveFlag.Light;
 			}
@@ -3015,41 +3009,8 @@ Circle375
 
 			writer.Write((ulong)flags);
 
-			/* begin last moved time optimization */
-			var ticks = m_LastMovedTime.Ticks;
-			var now = DateTime.UtcNow.Ticks;
-
-			TimeSpan d;
-
-			try
-			{
-				d = new TimeSpan(ticks - now);
-			}
-			catch
-			{
-				if (ticks < now)
-				{
-					d = TimeSpan.MaxValue;
-				}
-				else
-				{
-					d = TimeSpan.MaxValue;
-				}
-			}
-
-			var minutes = -d.TotalMinutes;
-
-			if (minutes < Int32.MinValue)
-			{
-				minutes = Int32.MinValue;
-			}
-			else if (minutes > Int32.MaxValue)
-			{
-				minutes = Int32.MaxValue;
-			}
-
-			writer.WriteEncodedInt((int)minutes);
-			/* end */
+			// 18
+			writer.WriteEncodedLong(DateTime.UtcNow.Ticks - m_LastMovedTime.Ticks);
 
 			if (GetSaveFlag(flags, SaveFlag.Direction))
 			{
@@ -3063,7 +3024,6 @@ Circle375
 
 			if (GetSaveFlag(flags, SaveFlag.Bounce))
 			{
-				// ReSharper disable once PossibleNullReferenceException
 				BounceInfo.Serialize(info.m_Bounce, writer);
 			}
 
@@ -3369,20 +3329,15 @@ Circle375
 
 			switch (version)
 			{
+				case 18:
 				case 17:
 					{
 						if (reader.ReadBool())
 						{
-							_ItemDataOverride = new ItemData(
-								reader.ReadString(),
-								(TileFlag)reader.ReadULong(),
-								reader.ReadInt(),
-								reader.ReadInt(),
-								reader.ReadInt(),
-								reader.ReadInt(),
-								reader.ReadInt(),
-								reader.ReadInt()
-							);
+							if (version >= 18)
+								_ItemDataOverride = new ItemData(reader);
+							else
+								_ItemDataOverride = new ItemData(reader.ReadString(), (TileFlag)reader.ReadULong(), reader.ReadInt(), reader.ReadInt(), reader.ReadInt(), reader.ReadInt(), reader.ReadInt(), reader.ReadInt());
 						}
 
 						var lines = reader.ReadInt();
@@ -3479,7 +3434,20 @@ Circle375
 					{
 						var flags = version >= 16 ? (SaveFlag)reader.ReadULong() : (SaveFlag)reader.ReadInt();
 
-						if (version < 7)
+						if (version >= 18)
+						{
+							var ticks = reader.ReadEncodedLong();
+
+							try
+							{
+								LastMoved = new DateTime(DateTime.UtcNow.Ticks - ticks);
+							}
+							catch
+							{
+								LastMoved = DateTime.UtcNow;
+							}
+						}
+						else if (version < 7)
 						{
 							LastMoved = reader.ReadDeltaTime();
 						}
@@ -4019,8 +3987,6 @@ Circle375
 			}
 
 			VerifyCompactInfo();
-
-			UpdateLight();
 		}
 
 		private void FixHolding()
@@ -4293,23 +4259,41 @@ Circle375
 			}
 		}
 
-		public bool ParentsContain<T>() where T : Item
+		public bool ParentsContain<T>() 
 		{
+			return ParentsContain<T>(out _);
+		}
+
+		public bool ParentsContain<T>(out T found)
+		{
+			found = default(T);
+
+			var t = typeof(T);
+
+			if (!t.IsInterface && !t.IsClass)
+			{
+				return false;
+			}
+
 			var p = Parent;
 
-			while (p is Item item)
+			while (p != null)
 			{
-				if (item is T)
+				if (p is T o)
 				{
+					found = o;
+
 					return true;
 				}
 
-				if (item.Parent == null)
+				if (p is Item item)
+				{
+					p = item.Parent;
+				}
+				else
 				{
 					break;
 				}
-
-				p = item.Parent;
 			}
 
 			return false;
@@ -4924,6 +4908,8 @@ Circle375
 
 		public virtual void OnAfterDuped(Item newItem)
 		{
+			newItem.m_Light = m_Light;
+			
 			newItem.Insured = false;
 			newItem.PayedInsurance = false;
 
@@ -5009,6 +4995,9 @@ Circle375
 		{ }
 
 		public virtual void OnAfterSpawn()
+		{ }
+
+		protected virtual void OnCreate()
 		{ }
 
 		public virtual int PhysicalResistance => 0;
@@ -5177,8 +5166,6 @@ Circle375
 
 					UpdateTotal(this, TotalType.Weight, newPileWeight - oldPileWeight);
 
-					UpdateLight();
-
 					InvalidateProperties();
 					Delta(ItemDelta.Update);
 				}
@@ -5298,11 +5285,14 @@ Circle375
 
 		#endregion
 
+		[CommandProperty(AccessLevel.GameMaster, true)]
+		public bool HasLockedParent => ParentsContain<ILockable>(out var lockable) && lockable.Locked;
+
 		[NoDupe, CommandProperty(AccessLevel.GameMaster, true)]
 		public IEntity Parent { get; set; }
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public int ParentCount => Parent != null ? Parents.Count() : 0;
+		public int ParentCount => Parents?.Count() ?? 0;
 
 		public IEnumerable<IEntity> Parents
 		{
@@ -5329,13 +5319,20 @@ Circle375
 				return;
 			}
 
-			OnParentChanging(p);
-
 			var oldParent = Parent;
+
+			OnParentChanging(p);
 
 			Parent = p;
 
 			OnParentChanged(oldParent);
+
+			var items = LookupItems();
+
+			if (items != null)
+			{
+				ColUtility.IterateReverse(items, item => item.OnTreeParentChanged(this, oldParent));
+			}
 		}
 
 		protected virtual void OnParentChanging(IEntity newParent)
@@ -5381,12 +5378,56 @@ Circle375
 			}
 		}
 
+		protected virtual void OnTreeParentChanged(Item sender, IEntity oldParent)
+		{
+			var items = sender?.LookupItems();
+
+			if (items != null)
+			{
+				ColUtility.IterateReverse(items, item => item.OnTreeParentChanged(sender, oldParent));
+			}
+		}
+
+		[CommandProperty(AccessLevel.GameMaster)]
+		public virtual LightType DefaultLight
+		{
+			get
+			{
+				var data = ItemData;
+
+				if (data.Flags.HasFlag(TileFlag.LightSource))
+				{
+					var light = data.Quality;
+
+					if (light >= 0 && light <= 255)
+					{
+						return (LightType)light;
+					}
+				}
+
+				return LightType.Empty;
+			}
+		}
+
 		[CommandProperty(AccessLevel.Decorator)]
 		public LightType Light
 		{
-			get => m_Light;
+			get
+			{
+				if (m_Light == LightType.Empty)
+				{
+					return DefaultLight;
+				}
+
+				return m_Light;
+			}
 			set
 			{
+				if (value == DefaultLight)
+				{
+					value = LightType.Empty;
+				}
+
 				if (m_Light != value)
 				{
 					m_Light = value;
@@ -6048,7 +6089,7 @@ Circle375
 			return new Point3D(m_Location.m_X, m_Location.m_Y, m_Location.m_Z + ItemData.CalcHeight);
 		}
 
-		public void SendLocalizedMessageTo(Mobile to, int number)
+		public virtual void SendLocalizedMessageTo(Mobile to, int number)
 		{
 			if (!Deleted && to != null && to.CanSee(this))
 			{
@@ -6056,7 +6097,7 @@ Circle375
 			}
 		}
 
-		public void SendLocalizedMessageTo(Mobile to, int number, string args)
+		public virtual void SendLocalizedMessageTo(Mobile to, int number, string args)
 		{
 			if (!Deleted && to != null && to.CanSee(this))
 			{
@@ -6064,7 +6105,7 @@ Circle375
 			}
 		}
 
-		public void SendLocalizedMessageTo(Mobile to, int number, AffixType affixType, string affix, string args)
+		public virtual void SendLocalizedMessageTo(Mobile to, int number, AffixType affixType, string affix, string args)
 		{
 			if (!Deleted && to != null && to.CanSee(this))
 			{
@@ -6072,7 +6113,7 @@ Circle375
 			}
 		}
 
-		public void SendLocalizedMessage(int number, string args)
+		public virtual void SendLocalizedMessage(int number, string args)
 		{
 			if (Deleted || m_Map == null || m_Map == Map.Internal)
 			{
@@ -6096,7 +6137,7 @@ Circle375
 			Packet.Release(p);
 		}
 
-		public void SendLocalizedMessage(MessageType type, int number, AffixType affixType, string affix, string args)
+		public virtual void SendLocalizedMessage(MessageType type, int number, AffixType affixType, string affix, string args)
 		{
 			if (Deleted || m_Map == null || m_Map == Map.Internal)
 			{
@@ -6748,8 +6789,6 @@ Circle375
 			: this()
 		{
 			m_ItemID = itemID;
-
-			UpdateLight();
 		}
 
 		public Item()
@@ -6758,12 +6797,8 @@ Circle375
 
 			m_Map = Map.Internal;
 
-			m_Light = LightType.Empty;
-
-			m_Amount = 1;
-
-			Visible = true;
-			Movable = true;
+			SetFlag(ImplFlag.Visible, true);
+			SetFlag(ImplFlag.Movable, true);
 
 			SetLastMoved();
 
@@ -6776,6 +6811,11 @@ Circle375
 				if (!obj.Deleted)
 				{
 					EventSink.InvokeItemCreated(new ItemCreatedEventArgs(obj));
+
+					if (!obj.Deleted)
+					{
+						OnCreate();
+					}
 				}
 			}, this);
 		}
@@ -6800,26 +6840,6 @@ Circle375
 				World.m_ItemTypes.Add(ourType);
 
 				m_TypeRef = World.m_ItemTypes.Count - 1;
-			}
-		}
-
-		public virtual void UpdateLight()
-		{
-			var data = ItemData;
-
-			if (!data.Flags.HasFlag(TileFlag.LightSource))
-			{
-				return;
-			}
-
-			if (m_Light == LightType.Empty)
-			{
-				var light = data.Quality;
-
-				if (light >= 0 && light <= 255)
-				{
-					m_Light = (LightType)light;
-				}
 			}
 		}
 

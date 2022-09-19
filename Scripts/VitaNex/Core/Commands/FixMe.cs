@@ -393,8 +393,6 @@ namespace VitaNex.Commands
 							item.InvalidateProperties();
 						}
 					});
-
-				list.Free(true);
 			}
 
 			m.InvalidateProperties();

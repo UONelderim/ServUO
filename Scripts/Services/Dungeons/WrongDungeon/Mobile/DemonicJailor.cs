@@ -44,10 +44,10 @@ namespace Server.Mobiles
             Fame = 5000;
             Karma = -5000;
 
-            SetWearable(new ShortPants(Utility.RandomRedHue()));
-            AddItem(new Sandals(Utility.RandomRedHue()));
-            AddItem(new Shirt(Utility.RandomRedHue()));
-            AddItem(new SkinningKnife());
+            SetWearable(new ShortPants(), Utility.RandomRedHue(), 1);
+            SetWearable(new Sandals(), Utility.RandomRedHue(), 1);
+            SetWearable(new Shirt(), Utility.RandomRedHue(), 1);
+			SetWearable(new SkinningKnife(), dropChance: 1);
 
             Utility.AssignRandomHair(this);
         }
@@ -130,7 +130,7 @@ namespace Server.Mobiles
                 m.RevealingAction();
             base.OnMovement(m, oldLocation);
 
-            if (m_NextTerror < DateTime.Now && m != null && InRange(m.Location, 3) && m.AccessLevel == AccessLevel.Player)
+            if (m_NextTerror < DateTime.Now && m != null && InRange(m.Location, 3) && m.AccessLevel < AccessLevel.Counselor)
             {
                 m.Frozen = true;
                 m.SendLocalizedMessage(1080342, Title, 33); // Terror slices into your very being, destroying any chance of resisting ~1_name~ you might have had

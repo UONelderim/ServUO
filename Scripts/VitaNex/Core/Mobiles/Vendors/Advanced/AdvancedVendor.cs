@@ -272,14 +272,14 @@ namespace VitaNex.Mobiles
 			string title,
 			Type cashType,
 			TextDefinition cashName,
-			TextDefinition cashAbbr = null,
+			TextDefinition cashAbbr,
 			bool showCashName = true)
 			: this(title)
 		{
 			CashProperty = new ObjectProperty();
 			CashType = cashType ?? typeof(Gold);
-			CashName = cashName ?? "Gold";
-			CashAbbr = cashAbbr ?? String.Empty;
+			CashName = cashName.IsEmpty ? "Gold" : cashName.String;
+			CashAbbr = cashAbbr.IsEmpty ? String.Empty :cashAbbr.String;
 			ShowCashName = showCashName;
 		}
 
@@ -287,14 +287,14 @@ namespace VitaNex.Mobiles
 			string title,
 			string cashProp,
 			TextDefinition cashName,
-			TextDefinition cashAbbr = null,
+			TextDefinition cashAbbr,
 			bool showCashName = true)
 			: this(title)
 		{
 			CashProperty = new ObjectProperty(cashProp);
 			CashType = typeof(ObjectProperty);
-			CashName = cashName ?? "Credits";
-			CashAbbr = cashAbbr ?? String.Empty;
+			CashName = cashName.IsEmpty ? "Credits" : cashName.String;
+			CashAbbr = cashAbbr.IsEmpty ? String.Empty : cashAbbr.String;
 			ShowCashName = showCashName;
 		}
 

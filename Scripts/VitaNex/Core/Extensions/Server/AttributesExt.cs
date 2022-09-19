@@ -515,7 +515,7 @@ namespace Server
 		}
 
 		private static AttributeDefinition GetDefaultDefinition(
-			TextDefinition name = null,
+			TextDefinition name,
 			double weight = 1.0,
 			int min = 0,
 			int max = 1,
@@ -2133,7 +2133,7 @@ namespace Server
 		public bool Percentage { get; set; }
 
 		public AttributeDefinition(
-			TextDefinition name = null,
+			TextDefinition name,
 			double weight = 1.0,
 			int min = 0,
 			int max = 1,
@@ -2141,7 +2141,7 @@ namespace Server
 			bool percentage = false)
 			: base(weight, min, max, inc)
 		{
-			Name = name ?? new TextDefinition(0, String.Empty);
+			Name = name;
 			Percentage = percentage;
 		}
 

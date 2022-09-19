@@ -9,6 +9,7 @@
 //        #        The MIT License (MIT)          #
 #endregion
 
+using System;
 using System.Linq;
 
 namespace Server
@@ -17,7 +18,7 @@ namespace Server
 	{
 		public static bool Contains(this Sector s, Point3D p)
 		{
-			return s.RegionRects.Any(rect => rect.Contains(p));
+			return s.RegionRects.Values.Combine().Any(rect => rect.Contains(p));
 		}
 	}
 }

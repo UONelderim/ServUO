@@ -956,8 +956,6 @@ namespace Server
 				{
 					yield return i;
 				}
-
-				list.Free(true);
 			}
 
 			var b = m.FindBankNoCreate();
@@ -970,8 +968,6 @@ namespace Server
 				{
 					yield return i;
 				}
-
-				list.Free(true);
 			}
 
 			foreach (var i in FindEquippedItems<TItem>(m))
@@ -1049,8 +1045,6 @@ namespace Server
 				{
 					yield return i;
 				}
-
-				list.Free(true);
 			}
 
 			var b = m.FindBankNoCreate();
@@ -1063,8 +1057,6 @@ namespace Server
 				{
 					yield return i;
 				}
-
-				list.Free(true);
 			}
 
 			foreach (var i in FindEquippedItems<TItem>(m))
@@ -1147,8 +1139,6 @@ namespace Server
 				{
 					yield return i;
 				}
-
-				list.Free(true);
 			}
 
 			var b = m.FindBankNoCreate();
@@ -1161,8 +1151,6 @@ namespace Server
 				{
 					yield return i;
 				}
-
-				list.Free(true);
 			}
 
 			foreach (var i in FindEquippedItems<TItem>(m).Where(i => predicate(i)))
@@ -1198,8 +1186,6 @@ namespace Server
 				{
 					yield return i;
 				}
-
-				list.Free(true);
 			}
 
 			var b = m.FindBankNoCreate();
@@ -1212,8 +1198,6 @@ namespace Server
 				{
 					yield return i;
 				}
-
-				list.Free(true);
 			}
 
 			foreach (var i in m.Items.Where(i => predicate(i)))
