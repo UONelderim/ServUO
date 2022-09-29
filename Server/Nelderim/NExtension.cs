@@ -34,9 +34,9 @@ namespace Nelderim
 		private static void Cleanup()
 		{
 			var toRemove = new List<Serial>();
-			foreach (var kvp in m_ExtensionInfo)
-				if (World.FindEntity(kvp.Key) == null)
-					toRemove.Add(kvp.Key);
+			foreach (var serial in m_ExtensionInfo.Keys)
+				if (World.FindEntity(serial) == null)
+					toRemove.Add(serial);
 
 			foreach (var serial in toRemove)
 				m_ExtensionInfo.TryRemove(serial, out _);
