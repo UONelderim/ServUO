@@ -18,7 +18,6 @@ namespace Nelderim
 
 		public static void Save(WorldSaveEventArgs args)
 		{
-			Labels.Cleanup();
 			Labels.Save(args, ModuleName);
 		}
 	}
