@@ -33,7 +33,7 @@ namespace Nelderim.Factions
 			Faction.Save(args, ModuleName);
 		}
 
-		public static void Conifgure()
+		public static void Configure()
 		{
 			RegisterFaction(new None(0));
 			RegisterFaction(new East(1));

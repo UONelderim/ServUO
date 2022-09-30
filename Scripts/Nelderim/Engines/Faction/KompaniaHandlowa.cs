@@ -6,6 +6,8 @@ namespace Nelderim.Factions
 		{
 		}
 		
-		public override string Name { get; set; } = "Kompania Handlowa";
+		public override string Name => "Kompania Handlowa";
+
+		public override Faction[] Enemies => new Faction[] { };
 	}
 }

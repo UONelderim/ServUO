@@ -8,7 +8,7 @@
 
 		public override string[] Names => new[]
 		{
-			"None", "Czlowieka", "Czlowiekowi", "Czlowieka", "Czlowiekiem", "Czlowieku", "Czlowieku"
+			"Czlowiek", "Czlowieka", "Czlowiekowi", "Czlowieka", "Czlowiekiem", "Czlowieku", "Czlowieku"
 		};
 
 		public override string[] PluralNames =>

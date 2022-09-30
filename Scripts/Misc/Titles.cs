@@ -4,6 +4,7 @@ using Server.Mobiles;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Nelderim.Factions;
 
 namespace Server.Misc
 {
@@ -231,6 +232,17 @@ namespace Server.Misc
             else if (beheld is BaseVendor)
                 title.AppendFormat(" {0}", customTitle);
 
+            if (beheld is PlayerMobile pm)
+            {
+	            if (pm.Faction != null && pm.Faction != Faction.None)
+		            title.Append($" [{pm.Faction}]");
+
+	            if (pm.RaceMod != null)
+		            title.Append($" [{pm.RaceMod}]");
+	            else if (pm.Race != null)
+		            title.Append($" [{pm.Race}]");
+            }
+            
             return title.ToString();
         }
 

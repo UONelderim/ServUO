@@ -275,6 +275,11 @@ namespace Server.Misc
                         return Notoriety.CanBeAttacked;
                 }
 
+                if (target.Owner is PlayerMobile targetPm && source.Faction != null && source.Faction.Enemies.Contains(targetPm.Faction))
+                {
+	                return Notoriety.Enemy;
+                }
+
                 return Notoriety.Innocent;
             }
         }
@@ -430,6 +435,11 @@ namespace Server.Misc
                         return Notoriety.CanBeAttacked;
                     }
                 }
+            }
+
+            if (source.Faction != null && source.Faction.Enemies.Contains(target.Faction) )
+            {
+	            return Notoriety.Enemy;
             }
 
             return Notoriety.Innocent;
