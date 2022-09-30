@@ -13,7 +13,7 @@ using Server.Guilds;
 
 namespace Server
 {
-	public abstract class GenericReader
+	public abstract partial class GenericReader
 	{
 		public abstract Type ReadObjectType();
 
@@ -104,7 +104,7 @@ namespace Server
 		public abstract bool End();
 	}
 
-	public abstract class GenericWriter
+	public abstract partial class GenericWriter
 	{
 		public abstract void Close();
 
@@ -225,7 +225,7 @@ namespace Server
 		public abstract void WriteGuildSet<T>(HashSet<T> set, bool tidy) where T : BaseGuild;
 	}
 
-	public class BinaryFileWriter : GenericWriter
+	public partial class BinaryFileWriter : GenericWriter
 	{
 		private readonly bool PrefixStrings;
 		private readonly Stream m_File;
@@ -1118,7 +1118,7 @@ namespace Server
 		}
 	}
 
-	public sealed class BinaryFileReader : GenericReader
+	public sealed partial class BinaryFileReader : GenericReader
 	{
 		private readonly BinaryReader m_File;
 
@@ -1593,7 +1593,7 @@ namespace Server
 		}
 	}
 
-	public sealed class AsyncWriter : GenericWriter
+	public sealed partial class AsyncWriter : GenericWriter
 	{
 		private static volatile int m_ThreadCount;
 
