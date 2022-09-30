@@ -1,7 +1,6 @@
-// 2005.01.04 :: LogoS :: RaceTeleporter
-
 #region References
 
+using Nelderim.Races;
 using Server.Mobiles;
 
 #endregion
@@ -10,20 +9,13 @@ namespace Server.Items
 {
 	public class RaceTeleporter : Item
 	{
-		private Point3D m_TamaelLoc;
-		private Point3D m_JarlingLoc;
-		private Point3D m_NaurLoc;
-		private Point3D m_ElfLoc;
-		private Point3D m_DrowLoc;
-		private Point3D m_KrasnoludLoc;
-
 		private Map m_WorldMap;
 		private bool m_Active;
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public bool Active
 		{
-			get { return m_Active; }
+			get => m_Active;
 			set
 			{
 				m_Active = value;
@@ -32,86 +24,41 @@ namespace Server.Items
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Point3D TamaelLoc
-		{
-			get { return m_TamaelLoc; }
-			set
-			{
-				m_TamaelLoc = value;
-				InvalidateProperties();
-			}
-		}
+		public Point3D TamaelLoc { get; set; }
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Point3D JarlingLoc
-		{
-			get { return m_JarlingLoc; }
-			set
-			{
-				m_JarlingLoc = value;
-				InvalidateProperties();
-			}
-		}
+		public Point3D JarlingLoc { get; set; }
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Point3D NaurLoc
-		{
-			get { return m_NaurLoc; }
-			set
-			{
-				m_NaurLoc = value;
-				InvalidateProperties();
-			}
-		}
+		public Point3D NaurLoc { get; set; }
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Point3D ElfLoc
-		{
-			get { return m_ElfLoc; }
-			set
-			{
-				m_ElfLoc = value;
-				InvalidateProperties();
-			}
-		}
+		public Point3D ElfLoc { get; set; }
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Point3D DrowLoc
-		{
-			get { return m_DrowLoc; }
-			set
-			{
-				m_DrowLoc = value;
-				InvalidateProperties();
-			}
-		}
+		public Point3D DrowLoc { get; set; }
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Point3D KrasnoludLoc
-		{
-			get { return m_KrasnoludLoc; }
-			set
-			{
-				m_KrasnoludLoc = value;
-				InvalidateProperties();
-			}
-		}
+		public Point3D KrasnoludLoc { get; set; }
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public Map WorldMap
 		{
-			get { return m_WorldMap; }
+			get => m_WorldMap;
 			set
 			{
 				m_WorldMap = value;
 				InvalidateProperties();
 			}
 		}
+		
+		[CommandProperty(AccessLevel.GameMaster)]
+		public string UnkRaceMsg { get; set; }
 
 		[Constructable]
 		public RaceTeleporter() : base(0x1BC3)
 		{
-			Name = "Nelderim";
+			Name = "Teleporter Rasowy";
 			Movable = false;
 			Visible = false;
 			m_Active = true;
@@ -152,29 +99,24 @@ namespace Server.Items
 			if (map == null || map == Map.Internal)
 				map = m.Map;
 
-			Point3D p = Point3D.Zero;
-
-			if (m.Race == Race.NTamael)
-				p = m_TamaelLoc;
-			else if (m.Race == Race.NJarling)
-				p = m_JarlingLoc;
-			else if (m.Race == Race.NNaur)
-				p = m_NaurLoc;
-			else if (m.Race == Race.NElf)
-				p = m_ElfLoc;
-			else if (m.Race == Race.NDrow)
-				p = m_DrowLoc;
-			else if (m.Race == Race.NKrasnolud)
-				p = m_KrasnoludLoc;
+			Point3D p = m.Race switch
+			{
+				NTamael _ => TamaelLoc,
+				NJarling _ => JarlingLoc,
+				NNaur _ => NaurLoc,
+				NElf _ => ElfLoc,
+				NDrow _ => DrowLoc,
+				NKrasnolud _ => KrasnoludLoc,
+				_ => Point3D.Zero
+			};
 
 			if (p == Point3D.Zero)
 			{
-				m.SendMessage("Nie wybrales zadnej z ras, wroc sie i dokonaj wyboru!");
+				m.SendMessage(UnkRaceMsg);
 				return;
 			}
 
 			BaseCreature.TeleportPets(m, p, map);
-
 
 			m.Map = map;
 			m.Location = p;
@@ -184,13 +126,14 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write(0); // version
-			writer.Write(m_TamaelLoc);
-			writer.Write(m_JarlingLoc);
-			writer.Write(m_NaurLoc);
-			writer.Write(m_ElfLoc);
-			writer.Write(m_DrowLoc);
-			writer.Write(m_KrasnoludLoc);
+			writer.Write(1); // version
+			writer.Write(UnkRaceMsg);
+			writer.Write(TamaelLoc);
+			writer.Write(JarlingLoc);
+			writer.Write(NaurLoc);
+			writer.Write(ElfLoc);
+			writer.Write(DrowLoc);
+			writer.Write(KrasnoludLoc);
 			writer.Write(m_Active);
 			writer.Write(m_WorldMap);
 		}
@@ -203,14 +146,17 @@ namespace Server.Items
 
 			switch (version)
 			{
+				case 1:
+					UnkRaceMsg = reader.ReadString();
+					goto case 0;
 				case 0:
 				{
-					m_TamaelLoc = reader.ReadPoint3D();
-					m_JarlingLoc = reader.ReadPoint3D();
-					m_NaurLoc = reader.ReadPoint3D();
-					m_ElfLoc = reader.ReadPoint3D();
-					m_DrowLoc = reader.ReadPoint3D();
-					m_KrasnoludLoc = reader.ReadPoint3D();
+					TamaelLoc = reader.ReadPoint3D();
+					JarlingLoc = reader.ReadPoint3D();
+					NaurLoc = reader.ReadPoint3D();
+					ElfLoc = reader.ReadPoint3D();
+					DrowLoc = reader.ReadPoint3D();
+					KrasnoludLoc = reader.ReadPoint3D();
 
 					m_Active = reader.ReadBool();
 					m_WorldMap = reader.ReadMap();
