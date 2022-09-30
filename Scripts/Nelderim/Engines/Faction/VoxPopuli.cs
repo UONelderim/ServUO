@@ -6,6 +6,8 @@ namespace Nelderim.Factions
 		{
 		}
 
-		public override string Name { get; set; } = "Vox Populi";
+		public override string Name => "Vox Populi";
+
+		public override Faction[] Enemies => new Faction[] { };
 	}
 }

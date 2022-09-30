@@ -6,6 +6,8 @@ namespace Nelderim.Factions
 		{
 		}
 		
-		public override string Name { get; set; } = "East";
+		public override string Name => "Frakcja1";
+
+		public override Faction[] Enemies => new[] { West };
 	}
 }
