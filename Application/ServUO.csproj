@@ -14,6 +14,7 @@
 		<StartupObject>ServUO.ServUO</StartupObject>
 		<RootNamespace>Server</RootNamespace>
 		<NoWin32Manifest>true</NoWin32Manifest>
+		<LangVersion>8</LangVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
