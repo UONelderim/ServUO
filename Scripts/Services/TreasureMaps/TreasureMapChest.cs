@@ -577,7 +577,7 @@ namespace Server.Items
 
                     if (spawn != null)
                     {
-                        spawn.Hue = 2725;
+                        spawn.Hue = 0;
                     }
                 }
             }
