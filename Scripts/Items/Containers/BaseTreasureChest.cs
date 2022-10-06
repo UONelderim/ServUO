@@ -98,9 +98,9 @@ namespace Server.Items
             get
             {
                 if (Locked)
-                    return "a locked treasure chest";
+                    return "zamknieta skrzynia ze skarbem";
 
-                return "a treasure chest";
+                return "skrzynia ze skarbem";
             }
         }
         public override void Serialize(GenericWriter writer)
