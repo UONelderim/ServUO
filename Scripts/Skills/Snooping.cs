@@ -3,11 +3,15 @@ using Server.Misc;
 using Server.Mobiles;
 using Server.Network;
 using Server.Regions;
+using System.Collections;
+using Server;
+using System;
 
 namespace Server.SkillHandlers
 {
     public class Snooping
     {
+	    public static TimeSpan Cooldown { get { return TimeSpan.FromSeconds(2.0); }  }
         public static void Configure()
         {
             Container.SnoopHandler = Container_Snoop;
@@ -38,7 +42,7 @@ namespace Server.SkillHandlers
 
         public static void Container_Snoop(Container cont, Mobile from)
         {
-            if (from.IsStaff() || from.InRange(cont.GetWorldLocation(), 1))
+            if (from.IsStaff() || from.BeginAction (typeof(Snooping)) || from.InRange(cont.GetWorldLocation(), 1));
             {
                 Mobile root = cont.RootParent as Mobile;
 
@@ -66,7 +70,7 @@ namespace Server.SkillHandlers
 
                     if (map != null)
                     {
-                        string message = string.Format("You notice {0} peeking into your belongings!", from.Name);
+                        string message = string.Format("Zauwazasz jak {0} zaglada do czyjegos plecaka!", from.Name);
 
                         root.Send(new AsciiMessage(Serial.MinusOne, -1, MessageType.Label, 946, 3, "", message));
                     }
@@ -94,6 +98,13 @@ namespace Server.SkillHandlers
             {
                 from.SendLocalizedMessage(500446); // That is too far away.
             }
+            
+            Timer.DelayCall( Cooldown, new TimerStateCallback( Cooldown_Callback ), from );
+        }
+		
+        public static void Cooldown_Callback(object state)
+        {
+	        ((Mobile)state).EndAction(typeof(Snooping));
         }
     }
 }
