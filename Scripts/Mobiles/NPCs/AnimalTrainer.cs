@@ -550,7 +550,7 @@ namespace Server.Mobiles
                     15,
                     275,
                     20,
-                    "<BASEFONT COLOR=#000008>Select a pet to retrieve from the stables:</BASEFONT>",
+                    "<BASEFONT COLOR=#000008>Wybierz zwierze ktore chcesz wyciagnac ze stajni:</BASEFONT>",
                     false,
                     false);
 
