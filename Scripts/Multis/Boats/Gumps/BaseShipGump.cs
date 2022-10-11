@@ -30,7 +30,7 @@ namespace Server.Gumps
             AddLabel(80, 38, 0x53, shipName);
 
             AddHtmlLocalized(10, 56, 75, 18, 1149762, LabelColor, false, false); //Owner:
-            AddLabel(80, 56, 0x53, galleon.Owner != null ? galleon.Owner.Name : "Unknown");
+            AddLabel(80, 56, 0x53, galleon.Owner != null ? galleon.Owner.Name : "Nieznany");
         }
 
         public int GetHue(SecurityLevel level)

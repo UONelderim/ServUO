@@ -55,7 +55,7 @@ namespace Server.Items
                         return;
 
                     if (galleon.GetSecurityLevel(from) < SecurityLevel.Captain)
-                        from.SendMessage("You must be the captain to paint this ship!");
+                        from.SendMessage("Aby malowac statkek musisz byc jego kapitanem!");
 
                     else if (galleon.Contains(pnt)/*&& boat.X == pnt.X && boat.Y == pnt.Y*/)
                     {

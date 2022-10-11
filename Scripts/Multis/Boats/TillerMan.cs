@@ -162,7 +162,7 @@ namespace Server.Items
             {
                 PublicOverheadMessage(MessageType.Regular, 0x3B2, 1114137, RandomBabbleArgs());
                 // Ar! Did I ever tell thee about the time I was in ~1_CITY~ and I met ~2_GENDER~ ~3_STORY~ Anyway, 'tis a dull story.
-
+				//dokonczyc tlumaczenia w STORY
                 _NextBabble = DateTime.UtcNow + TimeSpan.FromMinutes(Utility.RandomMinMax(3, 10));
             }
         }

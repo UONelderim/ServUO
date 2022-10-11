@@ -17,7 +17,7 @@ namespace Server.Multis
             get
             {
                 if (BoatItem == null || BoatItem.ShipName == null || BoatItem.ShipName.Trim().Length == 0)
-                    return "Unnamed Ship";
+                    return "Nienazwany Statek";
 
                 return BoatItem.ShipName;
             }
