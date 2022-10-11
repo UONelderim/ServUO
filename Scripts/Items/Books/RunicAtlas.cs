@@ -197,7 +197,7 @@ namespace Server.Items
                 }
                 else
                 {
-                    desc = "Empty";
+                    desc = "Pusta";
                     hue = 0;
                 }
 
@@ -217,7 +217,7 @@ namespace Server.Items
                 entry = Atlas.Entries[Selected];
             }
 
-            string coords = entry != null ? RunebookGump.GetLocation(entry) : "Nowhere";
+            string coords = entry != null ? RunebookGump.GetLocation(entry) : "Nigdzie";
 
             AddHtml(25, 254, 182, 18, string.Format("<center>{0}</center>", coords), false, false);
 

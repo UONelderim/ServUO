@@ -1593,8 +1593,8 @@ namespace Server.Multis
             packKey.MaxRange = 10;
             bankKey.MaxRange = 10;
 
-            packKey.Name = "a ship key";
-            bankKey.Name = "a ship key";
+            packKey.Name = "klucz do statku";
+            bankKey.Name = "klucz do statku";
 
             BankBox box = m.BankBox;
 
@@ -2094,7 +2094,7 @@ namespace Server.Multis
 
             if (!Guilds.BaseGuildGump.CheckProfanity(newName))
             {
-                from.SendMessage("That name is unacceptable.");
+                from.SendMessage("Ta nazwa jest niedopuszczalna.");
                 return;
             }
 
