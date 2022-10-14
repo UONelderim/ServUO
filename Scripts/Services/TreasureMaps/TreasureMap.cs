@@ -692,11 +692,11 @@ namespace Server.Items
 
                 if (guardian)
                 {
-                    bc.Title = "(Guardian)";
+                    bc.Title = "(Straznik)";
 
                     if (!TreasureMapInfo.NewSystem && level == 0)
                     {
-                        bc.Name = "a chest guardian";
+                        bc.Name = "straznik skrzyni";
                         bc.Hue = 0x835;
                     }
 
