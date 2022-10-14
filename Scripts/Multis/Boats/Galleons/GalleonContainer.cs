@@ -15,7 +15,7 @@ namespace Server.Items
 
         public override bool IsDecoContainer => false;
 
-        public override string DefaultName => "Ship Container";
+        public override string DefaultName => "Przechowanlnia";
 
         public override int DefaultMaxWeight => 1250;
 
@@ -47,7 +47,7 @@ namespace Server.Items
             public override void OnClick()
             {
                 Owner.From.Target = new RelocateTarget(m_Container, m_Galleon);
-                Owner.From.SendMessage("Where do you wish to relocate the ship container?");
+                Owner.From.SendMessage("Gdzie chcesz przenieść kontener statku?");
             }
         }
 
@@ -79,7 +79,7 @@ namespace Server.Items
                         {
                             if (o is Mobile || o is Item)
                             {
-                                from.SendMessage("You cannot place the ship container there, try again.");
+                                from.SendMessage("Nie możesz tam umieścić kontenera statku, spróbuj ponownie.");
                                 from.Target = new RelocateTarget(m_Container, m_Galleon);
                                 eable.Free();
                                 return;
@@ -97,7 +97,7 @@ namespace Server.Items
                     }
                     else
                     {
-                        from.SendMessage("You cannot place the ship container there, try again.");
+                        from.SendMessage("Nie możesz tam umieścić kontenera statku, spróbuj ponownie.");
                         from.Target = new RelocateTarget(m_Container, m_Galleon);
                     }
                 }
@@ -123,10 +123,10 @@ namespace Server.Items
             else if (!m_Galleon.Contains(from))
             {
                 if (m_Galleon.TillerMan != null)
-                    m_Galleon.TillerManSay("You must be on the ship to open the container.");
+                    m_Galleon.TillerManSay("Musisz być na statku, aby otworzyć kontener.");
             }
             else if (m_Galleon.Owner is PlayerMobile && !m_Galleon.Scuttled && m_Galleon.GetSecurityLevel(from) < SecurityLevel.Crewman)
-                from.SendMessage("You must be at least a crewman to access the ship container.");
+                from.SendMessage("Aby uzyskać dostęp do kontenera statku, musisz być co najmniej członkiem załogi.");
             else
                 base.OnDoubleClick(from);
         }

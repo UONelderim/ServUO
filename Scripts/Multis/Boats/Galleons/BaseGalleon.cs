@@ -696,7 +696,7 @@ namespace Server.Multis
                         if (!mob.Hidden && mob.AccessLevel < AccessLevel.Counselor)
                         {
                             if (from != null)
-                                from.SendMessage("The weapon pad must be clear of obstructions to place a cannon.");
+                                from.SendMessage("Podkladka pod bron musi byc wolna od przeszkod, aby mozna bylo umiescic armate.");
 
                             eable.Free();
                             return false;
