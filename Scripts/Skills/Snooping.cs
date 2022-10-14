@@ -3,8 +3,6 @@ using Server.Misc;
 using Server.Mobiles;
 using Server.Network;
 using Server.Regions;
-using System.Collections;
-using Server;
 using System;
 
 namespace Server.SkillHandlers
@@ -42,8 +40,10 @@ namespace Server.SkillHandlers
 
         public static void Container_Snoop(Container cont, Mobile from)
         {
-            if (from.IsStaff() || from.BeginAction (typeof(Snooping)) || from.InRange(cont.GetWorldLocation(), 1));
+            if (from.IsStaff() || from.BeginAction (typeof(Snooping)) || from.InRange(cont.GetWorldLocation(), 1))
             {
+	            Timer.DelayCall( Cooldown, new TimerStateCallback( Cooldown_Callback ), from );
+	            
                 Mobile root = cont.RootParent as Mobile;
 
                 if (root != null && !root.Alive)
@@ -98,8 +98,6 @@ namespace Server.SkillHandlers
             {
                 from.SendLocalizedMessage(500446); // That is too far away.
             }
-            
-            Timer.DelayCall( Cooldown, new TimerStateCallback( Cooldown_Callback ), from );
         }
 		
         public static void Cooldown_Callback(object state)
