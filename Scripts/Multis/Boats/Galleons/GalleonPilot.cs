@@ -469,11 +469,11 @@ namespace Server.Mobiles
                 string nameStr;
 
                 if (Galleon.ShipName == null || Galleon.ShipName.Length == 0)
-                    nameStr = "an unnamed ship";
+                    nameStr = "nienazwany statek";
                 else
-                    nameStr = string.Format("the {0}", Galleon.ShipName);
+                    nameStr = string.Format("{0}", Galleon.ShipName);
 
-                list.Add(string.Format("{0} the Pilot of {1}", Name, nameStr));
+                list.Add(string.Format("{0} - pilot {1}", Name, nameStr));
             }
             else
                 base.AddNameProperties(list);
