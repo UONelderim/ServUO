@@ -239,7 +239,7 @@ namespace Server.Items
 					resourcesAccepted.Add(CraftResource.Frostwood);
 					return IsInResourceList(resourcesAccepted, i);
 				case PigmentTarget.Spellbook:
-					return IsInType(t, typeof(Spellbook)) || IsInType(t, typeof(CSpellbook));
+					return IsInType(t, typeof(Spellbook)) || IsInType(t, typeof(CSpellbook)) || IsInType(t, typeof(BaseTalisman)) || IsInType(t, typeof(NBaseTalisman));
 				case PigmentTarget.Cloth:
 					return IsInType(t, typeof(BaseClothing));
 				default:
