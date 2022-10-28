@@ -14,7 +14,7 @@ namespace Nelderim.Factions
 
 		public override void Deserialize(GenericReader reader)
 		{
-			int version = 0;
+			int version = reader.ReadInt();
 			Faction = reader.ReadFaction();
 		}
 	}
