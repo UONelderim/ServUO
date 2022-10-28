@@ -24,16 +24,10 @@ namespace Server.Regions
 
 		public RaceRoomRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent)
 		{
-			if (Name.StartsWith("RaceRoom"))
-			{
-				string raceRoomType = Name.Substring("RaceRoom".Length);
-				if (!Enum.TryParse(raceRoomType, out m_Room))
-					Console.WriteLine("Invalid RaceRoomRegion type " + raceRoomType);
-			}
-			else
-			{
-				Console.WriteLine("Invlaid RaceRoom name for " + Name);
-			}
+			var roomTypeStr = "";
+			ReadString(xml, "room", ref roomTypeStr, true);
+			if (!Enum.TryParse(roomTypeStr, out m_Room))
+				Console.WriteLine("Invalid RaceRoomRegion type " + roomTypeStr);
 		}
 
 		public override bool OnCombatantChange(Mobile from, IDamageable Old, IDamageable New)
