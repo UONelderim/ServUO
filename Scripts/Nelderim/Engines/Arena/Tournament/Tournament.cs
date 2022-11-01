@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections;
+using Nelderim.Time;
 using Server.Gumps;
 using Server.Mobiles;
 
@@ -1748,8 +1749,7 @@ namespace Server.Engines.Tournament
 					}
 
 					status += "ktory odbyl sie "
-					          + NelderimDateTime.TransformToString(Owner.TournamentStart,
-						          NelderimDateTimeFormat.LongWhen)
+					          + new NDateTime(Owner.TournamentStart).ToString(NDateTimeFormat.LongWhen)
 					          + "\n\n";
 
 

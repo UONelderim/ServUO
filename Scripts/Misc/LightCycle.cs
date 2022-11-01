@@ -3,6 +3,8 @@ using Server.Commands;
 using Server.Items;
 using Server.Network;
 using System;
+using Nelderim.Time;
+
 #endregion
 
 namespace Server
@@ -29,9 +31,12 @@ namespace Server
 
         public static void Initialize()
         {
-            new LightCycleTimer(Clock.SecondsPerUOMinute).Start();
+	        if (!Config.Get("Nelderim.TimeSystemEnabled", true))
+	        {
+		        new LightCycleTimer(Clock.SecondsPerUOMinute).Start();
+	        }
 
-            EventSink.Login += OnLogin;
+	        EventSink.Login += OnLogin;
 
             CommandSystem.Register("GlobalLight", AccessLevel.GameMaster, Light_OnCommand);
         }
@@ -46,6 +51,11 @@ namespace Server
 
         public static int ComputeLevelFor(Mobile from)
         {
+	        if (Config.Get("Nelderim.TimeSystemEnabled", true))
+	        {
+		        return ServerTime.LightLevel;
+	        }
+	        
             if (_LevelOverride > int.MinValue)
                 return _LevelOverride;
 

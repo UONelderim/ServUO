@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Nelderim.Time;
 using Server.ContextMenus;
 using Server.Engines.Tournament;
 using Server.Gumps;
@@ -361,8 +362,7 @@ namespace Server.Mobiles
 							m_Owner.TournamentStart = DateTime.Now + TimeSpan.FromDays(2);
 
 							m_Owner.Say("Nie rozumiem daty. Ustalam termin turnieju na "
-							            + NelderimDateTime.TransformToString(m_Owner.TournamentStart,
-								            NelderimDateTimeFormat.LongIs));
+							            + new NDateTime(m_Owner.TournamentStart).ToString(NDateTimeFormat.LongIs));
 
 							from.SendMessage(38, "Start ustalony na {0}", m_Owner.TournamentStart);
 						}
@@ -866,7 +866,7 @@ namespace Server.Mobiles
 						m_TournamentStart = DateTime.Now + TimeSpan.FromDays(1);
 
 						Say("Nie rozumiem daty. Ustalam termin turnieju na "
-						    + NelderimDateTime.TransformToString(m_TournamentStart, NelderimDateTimeFormat.LongIs));
+						    + new NDateTime(m_TournamentStart).ToString(NDateTimeFormat.LongIs));
 					}
 				}
 			}
@@ -2280,7 +2280,7 @@ namespace Server.Mobiles
 				#region 1st part ( Header + Rewards )
 
 				status += ArenaName + " zaprasza wszystkich chetnych ";
-				status += NelderimDateTime.TransformToString(TournamentStart, NelderimDateTimeFormat.LongWhen);
+				status += new NDateTime(TournamentStart).ToString(NDateTimeFormat.LongWhen);
 				status += " do wziecia udzialu w pasjonujacych zawodach";
 
 				if (TrnRewardName != null)

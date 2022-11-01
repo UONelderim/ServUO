@@ -5,6 +5,8 @@ using Server.Multis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim.Time;
+
 #endregion
 
 namespace Server.Items
@@ -70,7 +72,12 @@ namespace Server.Items
 
         public static MoonPhase GetMoonPhase(Map map, int x, int y)
         {
-            int hours, minutes, totalMinutes;
+	        if (Config.Get("Nelderim.TimeSystemEnabled", true))
+	        {
+		        return ServerTime.LargeMoonPhase;
+	        }
+
+	        int hours, minutes, totalMinutes;
 
             GetTime(map, x, y, out hours, out minutes, out totalMinutes);
 
@@ -91,7 +98,13 @@ namespace Server.Items
 
         public static void GetTime(Map map, int x, int y, out int hours, out int minutes, out int totalMinutes)
         {
-            TimeSpan timeSpan = DateTime.UtcNow - WorldStart;
+	        if (Config.Get("Nelderim.TimeSystemEnabled", true))
+	        {
+		        ServerTime.GetTime(out hours, out minutes, out totalMinutes);
+		        return;
+	        }
+
+	        TimeSpan timeSpan = DateTime.UtcNow - WorldStart;
 
             totalMinutes = (int)(timeSpan.TotalSeconds / SecondsPerUOMinute);
 
@@ -123,6 +136,11 @@ namespace Server.Items
             int hours, minutes;
 
             GetTime(map, x, y, out hours, out minutes);
+            if (Config.Get("Nelderim.TimeSystemEnabled", true))
+            {
+	            ServerTime.GetTime(out generalNumber, out exactTime);
+	            return;
+            }
 
             // 00:00 AM - 00:59 AM : Witching hour
             // 01:00 AM - 03:59 AM : Middle of night
@@ -184,7 +202,14 @@ namespace Server.Items
             GetTime(from, out genericNumber, out exactTime);
 
             SendLocalizedMessageTo(from, genericNumber);
-            SendLocalizedMessageTo(from, 1042958, exactTime); // ~1_TIME~ to be exact
+            if (Config.Get("Nelderim.TimeSystemEnabled", true))
+            {
+	            from.SendMessage(exactTime);
+            }
+            else
+            {
+	            SendLocalizedMessageTo(from, 1042958, exactTime); // ~1_TIME~ to be exact
+            }
         }
 
         public override void Serialize(GenericWriter writer)
