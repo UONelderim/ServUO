@@ -5,6 +5,7 @@ using System.Collections;
 using System.IO;
 using System.Text;
 using System.Xml;
+using Nelderim.Time;
 using Server.Mobiles;
 
 #endregion
@@ -272,8 +273,8 @@ namespace Server.Engines.Tournament
 			}
 
 			output += "Poczatek turnieju: " +
-			          (new NelderimDateTime(m_StartDate)).ToString(NelderimDateTimeFormat.LongIs) + "\n";
-			output += "Koniec turnieju: " + (new NelderimDateTime(m_StopDate)).ToString(NelderimDateTimeFormat.LongIs) +
+			          (new NDateTime(m_StartDate)).ToString(NDateTimeFormat.LongIs) + "\n";
+			output += "Koniec turnieju: " + (new NDateTime(m_StopDate)).ToString(NDateTimeFormat.LongIs) +
 			          "\n\n";
 			output += "Zwyciezcy: \n";
 			if (m_1stName != null)
