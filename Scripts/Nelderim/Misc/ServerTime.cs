@@ -33,8 +33,8 @@ namespace Nelderim.Time
 	{
 		// Zmienne okreslajace punkt synchronizacji czasu gry z czasem rzeczywistym:
 		internal static int SynchPointYear => 2020; // rok czasu rzeczywistego
-		internal static int SynchPointMonth => 06; // miesiac czasu rzeczywistego
-		internal static int SynchPointDay => 05; // dzien czasu rzeczywistego (ustawiac na czwartek (Roztopy)!!)
+		internal static int SynchPointMonth => 6; // miesiac czasu rzeczywistego
+		internal static int SynchPointDay => 4; // dzien czasu rzeczywistego (ustawiac na czwartek (Roztopy)!!)
 		internal static int SynchPointNelYear => 1561; // rok czasu gry
 
 		public static DateTime WorldStart { get; } = new DateTime(SynchPointYear, SynchPointMonth, SynchPointDay);
@@ -172,6 +172,13 @@ namespace Nelderim.Time
 		{
 			if (Config.Get("Nelderim.TimeSystemEnabled", true))
 			{
+				if (NDateTime.WorldStart.DayOfWeek != DayOfWeek.Thursday)
+				{
+					Console.WriteLine("NIEPOPRAWNY DZIEN SYNCHRONIZACJI CZASU SERWERA");
+					Console.WriteLine(NDateTime.WorldStart);
+					Console.WriteLine(NDateTime.WorldStart.DayOfWeek);
+					Console.WriteLine("TO POWINIEN BYC CZWARTEK");
+				}
 				new ServerTimeTimer().Start();
 			}
 		}
