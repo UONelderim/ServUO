@@ -148,6 +148,12 @@ namespace Server.Items
                 return false;
             }
 
+            if (Value - skill.Cap > 5.0)
+            {
+	            from.SendMessage($"Twoj potencjal umiejetnosci {skill.Name} jest zbyt niski, by uzyc tego zwoju.");
+	            return false;
+            }
+
             return true;
         }
 
