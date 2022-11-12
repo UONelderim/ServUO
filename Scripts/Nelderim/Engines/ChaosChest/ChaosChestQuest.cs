@@ -144,8 +144,7 @@ namespace Nelderim.Engines.ChaosChest
 		public static void OnDeath(CreatureDeathEventArgs e)
 		{
 			Mobile m = e.Creature;
-			if (m != null && m.Region != null &&
-			    m.Region.Name != null &&
+			if (m?.Region?.Name != null &&
 			    REGION_MAP.ContainsKey(m.Region.Name) &&
 			    REGION_MAP[m.Region.Name].Equals(CURRENT_STAGE))
 			{
