@@ -86,6 +86,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 			{
 				WeaponAttributes.HitEnergyArea = 50;
 				WeaponAttributes.HitLightning = 50;
+				WeaponAttributes.HitLeechStam = 20;
 				Attributes.WeaponDamage = 25;
 				Attributes.WeaponSpeed = 15;
 				m_Owner = owner;
