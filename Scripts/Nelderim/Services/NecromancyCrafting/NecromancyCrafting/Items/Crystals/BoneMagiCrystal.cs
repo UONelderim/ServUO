@@ -5,31 +5,18 @@ namespace Server.Items
 {
 	public class BoneMagiCrystal : BaseNecroCraftCrystal
 	{
-		public override double RequiredNecroSkill
-		{
-			get { return 40.0; }
-		}
-		
-		private static Type[] _requiredBodyParts = new Type[]
-		{
+		public override double RequiredNecroSkill => 40.0;
+
+		private static Type[] _requiredBodyParts = {
 			typeof( SkeletonMageTorso ),
 			typeof( SkeletonLegs )
 		};
 
-		public override Type[] RequiredBodyParts
-		{
-			get { return _requiredBodyParts; }
-		}
+		public override Type[] RequiredBodyParts => _requiredBodyParts;
 
-		public override Type SummonType
-		{
-			get { return typeof(BoneMagi); }
-		}
-		
-		public override string DefaultName
-		{
-			get { return "kryształ kościanego maga"; }
-		}
+		public override Type SummonType => typeof(BoneMagi);
+
+		public override string DefaultName => "kryształ kościanego maga";
 
 		[Constructable]
 		public BoneMagiCrystal()

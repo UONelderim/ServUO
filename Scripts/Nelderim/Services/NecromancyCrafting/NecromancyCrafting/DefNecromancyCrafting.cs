@@ -24,7 +24,9 @@ namespace Server.Engines.Craft
             get
             {
                 if (m_CraftSystem == null)
-                    m_CraftSystem = new DefNecromancyCrafting();
+                {
+	                m_CraftSystem = new DefNecromancyCrafting();
+                }
 
                 return m_CraftSystem;
             }
@@ -39,16 +41,23 @@ namespace Server.Engines.Craft
         {
         }
 
-        public override int CanCraft(Mobile from, BaseTool tool, Type itemType)
+        public override int CanCraft(Mobile from, ITool tool, Type itemType)
         {
+	        var num = 0;
             if (tool == null || tool.Deleted || tool.UsesRemaining < 0)
-                return 1044038; // You have worn out your tool!
-            else if (!(from is PlayerMobile && from.Skills[SkillName.Necromancy].Base >= 20.0))
-                return 1044153; // You don't have the required skill
-            else if (!BaseTool.CheckAccessible(tool, from))
-                return 1044263; // The tool must be on your person to use.
+            {
+	            return 1044038; // You have worn out your tool!
+            }
+            if (!(from is PlayerMobile && from.Skills[SkillName.Necromancy].Base >= 20.0))
+            {
+	            return 1044153; // You don't have the required skill
+            }
+            if (!tool.CheckAccessible(from, ref num))
+            {
+	            return 1044263; // The tool must be on your person to use.
+            }
 
-            return 0;
+            return num;
         }
 
         public override void PlayCraftEffect(Mobile from)
@@ -61,30 +70,44 @@ namespace Server.Engines.Craft
             bool makersMark, CraftItem item)
         {
             if (toolBroken)
-                from.SendLocalizedMessage(1044038); // You have worn out your tool
+            {
+	            from.SendLocalizedMessage(1044038); // You have worn out your tool
+            }
 
             if (failed)
             {
                 from.PlaySound(65); // rune breaking
                 if (lostMaterial)
-                    return 1044043; // You failed to create the item, and some of your materials are lost.
+                {
+	                return 1044043; // You failed to create the item, and some of your materials are lost.
+                }
                 else
-                    return 1044157; // You failed to create the item, but no materials were lost.
+                {
+	                return 1044157; // You failed to create the item, but no materials were lost.
+                }
             }
             else
             {
                 from.PlaySound(65); // rune breaking
                 if (quality == 0)
-                    return 502785; // You were barely able to make this item.  It's quality is below average.
+                {
+	                return 502785; // You were barely able to make this item.  It's quality is below average.
+                }
                 else if (makersMark && quality == 2)
-                    return 1044156; // You create an exceptional quality item and affix your maker's mark.
+                {
+	                return 1044156; // You create an exceptional quality item and affix your maker's mark.
+                }
                 else if (quality == 2)
-                    return 1044155; // You create an exceptional quality item.
+                {
+	                return 1044155; // You create an exceptional quality item.
+                }
                 else
-                    return 1044154; // You create the item.
+                {
+	                return 1044154; // You create the item.
+                }
             }
         }
-
+        
         public override void InitCraftList()
         {
             int index = AddCraft(typeof(SkeletonCrystal), "Krysztaly", "Krysztal Szkieleta", 20.0, 120.0,
@@ -211,7 +234,7 @@ namespace Server.Engines.Craft
                 "Nie masz wystarczajaco duzej ilosci drewnianych skrzyń.");
             AddSkill(index, SkillName.Anatomy, 100.0, 120.0);
 
-            RecycleHelper = new NecroRecycle();
+            // RecycleHelper = new NecroRecycle();
         }
     }
 }

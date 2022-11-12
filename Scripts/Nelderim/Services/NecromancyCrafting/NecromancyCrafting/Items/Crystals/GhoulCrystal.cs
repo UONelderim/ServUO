@@ -5,31 +5,18 @@ namespace Server.Items
 {
 	public class GhoulCrystal : BaseNecroCraftCrystal
 	{
-		public override double RequiredNecroSkill
-		{
-			get { return 80.0; }
-		}
-		
-		private static Type[] _requiredBodyParts = new Type[]
-		{
+		public override double RequiredNecroSkill => 80.0;
+
+		private static Type[] _requiredBodyParts = {
 			typeof(ToxicTorso),
 			typeof(RottingLegs)
 		};
 
-		public override Type[] RequiredBodyParts
-		{
-			get { return _requiredBodyParts; }
-		}
+		public override Type[] RequiredBodyParts => _requiredBodyParts;
 
-		public override Type SummonType
-		{
-			get { return typeof(Ghoul); }
-		}
-		
-		public override string DefaultName
-		{
-			get { return "kryształ ghoula"; }
-		}
+		public override Type SummonType => typeof(Ghoul);
+
+		public override string DefaultName => "kryształ ghoula";
 
 		[Constructable]
 		public GhoulCrystal()

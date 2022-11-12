@@ -5,31 +5,18 @@ namespace Server.Items
 {
 	public class BoneKnightCrystal : BaseNecroCraftCrystal
 	{
-		public override double RequiredNecroSkill
-		{
-			get { return 30.0; }
-		}
-		
-		private static Type[] _requiredBodyParts = new Type[]
-		{
+		public override double RequiredNecroSkill => 30.0;
+
+		private static Type[] _requiredBodyParts = {
 			typeof( SkeletonTorso ),
 			typeof( SkeletonLegs )	
 		};
 
-		public override Type[] RequiredBodyParts
-		{
-			get { return _requiredBodyParts; }
-		}
+		public override Type[] RequiredBodyParts => _requiredBodyParts;
 
-		public override Type SummonType
-		{
-			get { return typeof(BoneKnight); }
-		}
-		
-		public override string DefaultName
-		{
-			get { return "kryształ kościanego rycerza"; }
-		}
+		public override Type SummonType => typeof(BoneKnight);
+
+		public override string DefaultName => "kryształ kościanego rycerza";
 
 		[Constructable]
 		public BoneKnightCrystal()
