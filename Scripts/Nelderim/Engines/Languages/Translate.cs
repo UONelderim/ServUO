@@ -119,7 +119,7 @@ namespace Nelderim
 				}
 				else
 				{
-					translatedWord = dict.ElementAt(random.Next(dict.Count)).Value;
+					translatedWord = dict.ElementAt(Math.Abs(word.GetHashCode()) % dict.Count).Value;
 				}
 
 				if (translatedWord.Length > 0 && word.Length > 0 && Char.IsUpper(word[0]))
