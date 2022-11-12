@@ -90,6 +90,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 			{
 				WeaponAttributes.HitFireArea = 50;
 				WeaponAttributes.HitFireball = 50;
+				WeaponAttributes.HitLeechHits = 20;
 				Attributes.WeaponDamage = 25;
 				Attributes.WeaponSpeed = 15;
 				m_Owner = owner;

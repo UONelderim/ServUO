@@ -116,13 +116,13 @@ namespace Server.ACC.CSS.Systems.Ranger
 				double span = 1.0 * GetScalar(Caster);
 				new InternalTimer(Caster, TimeSpan.FromMinutes((int)span)).Start();
 
-				IMount mount = Caster.Mount;
+				/*IMount mount = Caster.Mount;
 
 				if (mount != null)
 					mount.Rider = null;
 
 
-				Caster.BeginAction(typeof(RangerHuntersAimSpell));
+				Caster.BeginAction(typeof(RangerHuntersAimSpell));*/
 			}
 		}
 

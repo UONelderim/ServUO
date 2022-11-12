@@ -25,7 +25,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 			get { return SpellCircle.Fourth; }
 		}
 
-		public override double CastDelay { get { return 3.0; } }
+		public override double CastDelay { get { return 0.5; } }
 		public override int RequiredMana { get { return 25; } }
 		public override double RequiredSkill { get { return 50; } }
 
@@ -67,8 +67,8 @@ namespace Server.ACC.CSS.Systems.Ranger
 					Item sword = GetSword();
 					BaseWeapon bw = (BaseWeapon)sword;
 
-					int min = bw.MinDamage + 5;
-					int max = bw.MaxDamage + 20;
+					int min = bw.MinDamage + 8;
+					int max = bw.MaxDamage + 30;
 
 					int phys = bw.AosElementDamages.Physical;
 					int cold = bw.AosElementDamages.Cold;
