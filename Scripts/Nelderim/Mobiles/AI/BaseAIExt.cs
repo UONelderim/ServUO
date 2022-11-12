@@ -2,6 +2,7 @@
 
 using System;
 using System.Text.RegularExpressions;
+using Nelderim.Towns;
 using Server.Gumps;
 using Server.Nelderim;
 using Server.Spells.Fifth;
@@ -508,6 +509,20 @@ namespace Server.Mobiles
 						BeginPickTarget(e.Mobile, OrderType.Friend);
 				}
 			}
+		}
+		
+		private bool IsSpidersFriend(Mobile m)
+		{
+			if (m.Race == Race.NDrow || TownDatabase.IsCitizenOfGivenTown(m, Towns.Wioska_Drowow))
+				return true;
+			
+			if (m is BaseCreature bc &&  bc.Controlled)
+			{
+				Mobile master = bc.ControlMaster;
+				if (master?.Race == Race.NDrow || TownDatabase.IsCitizenOfGivenTown(master, Towns.Wioska_Drowow))
+					return true;
+			}
+			return false;
 		}
 	}
 }

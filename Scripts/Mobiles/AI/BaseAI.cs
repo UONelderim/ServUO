@@ -2984,12 +2984,10 @@ namespace Server.Mobiles
 
 					// If you're spider, don't focus drows
 					if (SlayerGroup.GetEntryByName(SlayerName.SpidersDeath).Slays(m_Mobile) &&
-					    (m.Race == Race.NDrow || m is BaseCreature bc && bc.Controlled && bc.ControlMaster != null &&
-						    bc.ControlMaster.Race == Race.NDrow) &&
 					    !m_Mobile.IsChampionSpawn &&
 					    !(m_Mobile is NSzeol) &&
-					    !(m_Mobile is Mephitis)
-					   )
+					    !(m_Mobile is Mephitis) &&
+					    IsSpidersFriend(m))
 					{
 						// Except when drow attacked you
 						bool shouldFocus = false;
