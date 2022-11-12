@@ -7,6 +7,7 @@ using System.Net;
 using Server.Accounting;
 using Server.Commands;
 using Server.Engines.Help;
+using Server.Mobiles;
 using Server.Network;
 using Server.Regions;
 
@@ -416,6 +417,11 @@ namespace Server.Misc
 				{
 					state.Send(new DeleteResult(DeleteResultType.BadRequest));
 					state.Send(new CharacterListUpdate(acct));
+				}
+				else if ( m.IsPlayer() && m is PlayerMobile pm && pm.GameTime > TimeSpan.FromHours(48) )
+				{
+					state.Send( new DeleteResult( DeleteResultType.BadRequest ) );
+					state.Send( new CharacterListUpdate( acct ) );
 				}
 				else
 				{
