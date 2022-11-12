@@ -9,14 +9,15 @@ namespace Server.Mobiles
 	[CorpseName("zwloki wladcy minotaurow")]
 	public class MinotaurBoss : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.05; } }
-		public override bool BardImmune { get { return true; } }
-		public override double AttackMasterChance { get { return 0.75; } }
-		public override double SwitchTargetChance { get { return 0.15; } }
-		public override Poison PoisonImmune { get { return Poison.Lethal; } }
-		public override int Meat { get { return 2; } }
-		public override bool CanRummageCorpses { get { return true; } }
-		public override bool AutoDispel { get { return true; } }
+		public override double DifficultyScalar => 1.05;
+		public override bool BardImmune => true;
+		public override double AttackMasterChance => 0.75;
+		public override double SwitchTargetChance => 0.15;
+		public override Poison PoisonImmune => Poison.Lethal;
+		public override int Meat => 2;
+		public override bool CanRummageCorpses => true;
+		public override bool AutoDispel => true;
+		public override bool AllureImmune => true;
 
 		[Constructable]
 		public MinotaurBoss() : base(AIType.AI_Melee, FightMode.Closest, 13, 1, 0.25, 0.5)
