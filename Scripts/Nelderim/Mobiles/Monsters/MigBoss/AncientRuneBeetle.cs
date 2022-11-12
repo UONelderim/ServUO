@@ -18,7 +18,7 @@ namespace Server.Mobiles
 		{
 			Name = "prastary zuk runiczny";
 			Body = 244;
-			Hue = 2874;
+			Hue = 1455;
 
 			SetStr(898, 1030);
 			SetDex(130, 150);
