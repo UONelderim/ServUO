@@ -12,7 +12,7 @@ using Server.Network;
 
 namespace Nelderim
 {
-	public class Translate
+	public static class Translate
 	{
 		public static void Initialize()
 		{
@@ -45,53 +45,66 @@ namespace Nelderim
 
 			foreach (Mobile m in from.Map.GetMobilesInRange(from.Location, tileLength))
 			{
-				string mySpeechTranslated = "";
-				if (m.Player)
+				if (m is PlayerMobile pm)
 				{
-					PlayerMobile pm = m as PlayerMobile;
-
-					if (pm.LanguagesKnown.Get(from.LanguageSpeaking) || from == m)
-					{
-						from.SayTo(pm, String.Format("[{0}] ", from.LanguageSpeaking.ToString()) + mySpeech);
-					}
-					else
-					{
-						switch (from.LanguageSpeaking)
-						{
-							case Language.Krasnoludzki:
-								mySpeechTranslated = TranslateUsingDict(mySpeech, LanguagesDictionary.Krasnoludzki);
-								break;
-							case Language.Elficki:
-								mySpeechTranslated = TranslateUsingDict(mySpeech, LanguagesDictionary.Elficki);
-								break;
-							case Language.Drowi:
-								mySpeechTranslated = TranslateUsingDict(mySpeech, LanguagesDictionary.Drowi);
-								break;
-							case Language.Jarlowy:
-								mySpeechTranslated = TranslateUsingDict(mySpeech, LanguagesDictionary.Jarlowy);
-								break;
-							case Language.Demoniczny:
-								mySpeechTranslated = TranslateUsingWordsList(mySpeech, LanguagesDictionary.Demoniczny);
-								break;
-							case Language.Orkowy:
-								mySpeechTranslated = TranslateUsingDict(mySpeech, LanguagesDictionary.Orkowy);
-								break;
-							case Language.Nieumarlych:
-								mySpeechTranslated = TranslateUsingSentencesList(LanguagesDictionary.Nieumarlych);
-								break;
-							case Language.Belkot:
-								mySpeechTranslated = TranslateUsingWordsList(mySpeech, LanguagesDictionary.Belkot);
-								break;
-						}
-
-						from.SayTo(pm, mySpeechTranslated);
-					}
+					SayTo(from, pm, mySpeech);
 				}
 				else
 				{
 					m.OnSpeech(args);
 				}
 			}
+		}
+		
+		private static void SayTo(PlayerMobile from, PlayerMobile to, string text)
+		{
+			from.RevealingAction();
+			
+			if (from == to || to.KnowsLanguage(from.LanguageSpeaking) )
+			{
+				from.SayTo(to, $"[{from.LanguageSpeaking.ToString()}] {text} ");
+			}
+			else
+			{
+				from.SayTo(to, CommonToForeign(text, from.LanguageSpeaking));
+			}
+		}
+
+		public static void SayPublic(PlayerMobile from, string text)
+		{
+			foreach (Mobile m in from.Map.GetMobilesInRange(from.Location, 18))
+			{
+				if (m.Player)
+				{
+					SayTo(from, m as PlayerMobile, text);
+				}
+			}
+		}
+		
+		public static bool KnowsLanguage(this Mobile m, Language lang)
+		{
+			if (m is PlayerMobile pm)
+			{
+				pm.LanguagesKnown.Get(lang);
+			}
+
+			return false;
+		}
+
+		public static String CommonToForeign(String speech, Language lang)
+		{
+			return lang switch
+			{
+				Language.Krasnoludzki => TranslateUsingDict(speech, LanguagesDictionary.Krasnoludzki),
+				Language.Elficki => TranslateUsingDict(speech, LanguagesDictionary.Elficki),
+				Language.Drowi => TranslateUsingDict(speech, LanguagesDictionary.Drowi),
+				Language.Jarlowy => TranslateUsingDict(speech, LanguagesDictionary.Jarlowy),
+				Language.Demoniczny => TranslateUsingWordsList(speech, LanguagesDictionary.Demoniczny),
+				Language.Orkowy => TranslateUsingDict(speech, LanguagesDictionary.Orkowy),
+				Language.Nieumarlych => TranslateUsingSentencesList(LanguagesDictionary.Nieumarlych),
+				Language.Belkot => TranslateUsingWordsList(speech, LanguagesDictionary.Belkot),
+				_ => speech
+			};
 		}
 
 		private static readonly Random random = new Random();
