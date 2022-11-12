@@ -12,8 +12,8 @@ namespace Server.ACC.CSS.Systems.Undead
 {
 	public class UndeadCauseFearSpell : UndeadSpell
 	{
-		public override double RequiredSkill { get { return 80.0; } }
-		public override int RequiredMana { get { return 25; } }
+		public override double RequiredSkill => 80.0;
+		public override int RequiredMana => 25;
 
 		private static readonly SpellInfo m_Info = new SpellInfo("Strach", "Uus Vas Corp",
 			//SpellCircle.Fifth,
@@ -24,10 +24,7 @@ namespace Server.ACC.CSS.Systems.Undead
 			Reagent.MandrakeRoot
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Sixth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Sixth;
 
 		public UndeadCauseFearSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)

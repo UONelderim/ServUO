@@ -23,15 +23,12 @@ namespace Server.ACC.CSS.Systems.Druid
 			CReagent.SpringWater
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Eighth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Eighth;
 
 
-		public override double CastDelay { get { return 2.0; } }
-		public override double RequiredSkill { get { return 89.0; } }
-		public override int RequiredMana { get { return 60; } }
+		public override double CastDelay => 2.0;
+		public override double RequiredSkill => 89.0;
+		public override int RequiredMana => 60;
 
 		public DruidRestorativeSoilSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)
@@ -81,7 +78,7 @@ namespace Server.ACC.CSS.Systems.Druid
 			private DateTime m_End;
 			private Mobile m_Owner;
 
-			public override bool BlocksFit { get { return true; } }
+			public override bool BlocksFit => true;
 
 			public InternalItem(Point3D loc, Map map, Mobile caster)
 				: base(0x913)
@@ -111,7 +108,7 @@ namespace Server.ACC.CSS.Systems.Druid
 			{
 			}
 
-			public override bool HandlesOnMovement { get { return true; } }
+			public override bool HandlesOnMovement => true;
 
 			public override void Serialize(GenericWriter writer)
 			{

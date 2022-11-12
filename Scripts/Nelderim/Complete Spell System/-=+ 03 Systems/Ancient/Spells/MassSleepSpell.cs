@@ -23,10 +23,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.SpidersSilk
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Fifth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Fifth;
 
 		public AncientMassSleepSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)

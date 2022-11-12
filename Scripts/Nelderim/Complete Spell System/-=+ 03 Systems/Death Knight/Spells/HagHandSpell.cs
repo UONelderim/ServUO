@@ -20,10 +20,10 @@ namespace Server.Spells.DeathKnight
 				9031
 			);
 
-		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 1 ); } }
-		public override double RequiredSkill{ get{ return 5.0; } }
-		public override int RequiredMana{ get{ return 8; } }
-		public override int RequiredTithing{ get{ return 7; } }
+		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 1 );
+		public override double RequiredSkill => 5.0;
+		public override int RequiredMana => 8;
+		public override int RequiredTithing => 7;
 
 		public HagHandSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
 		{

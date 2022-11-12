@@ -15,12 +15,12 @@ namespace Server.Spells.DeathKnight
 			);
 
 		private static Hashtable m_Table = new Hashtable();
-        public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds(3); } }
-		public override int RequiredTithing{ get{ return 49; } }
-        public override int RequiredMana { get { return 32; } }
-		public override double RequiredSkill{ get{ return 68.0; } }
+        public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(3);
+        public override int RequiredTithing => 49;
+        public override int RequiredMana => 32;
+        public override double RequiredSkill => 68.0;
 
-		public SuccubusSkinSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
+        public SuccubusSkinSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
 		{
 		}
 

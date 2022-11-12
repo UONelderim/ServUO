@@ -22,14 +22,11 @@ namespace Server.ACC.CSS.Systems.Druid
 			CReagent.SpringWater
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Sixth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Sixth;
 
-		public override double CastDelay { get { return 3.0; } }
-		public override double RequiredSkill { get { return 60.0; } }
-		public override int RequiredMana { get { return 45; } }
+		public override double CastDelay => 3.0;
+		public override double RequiredSkill => 60.0;
+		public override int RequiredMana => 45;
 
 		public DruidStoneCircleSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
@@ -172,7 +169,7 @@ namespace Server.ACC.CSS.Systems.Druid
 			private DateTime m_End;
 			private Mobile m_Caster;
 
-			public override bool BlocksFit { get { return true; } }
+			public override bool BlocksFit => true;
 
 			public InternalItem(Point3D loc, Map map, Mobile caster) : base(0x08E2)
 			{

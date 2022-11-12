@@ -21,14 +21,11 @@ namespace Server.ACC.CSS.Systems.Druid
 			CReagent.SpringWater
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.First; }
-		}
+		public override SpellCircle Circle => SpellCircle.First;
 
-		public override double CastDelay { get { return 1.0; } }
-		public override double RequiredSkill { get { return 20.0; } }
-		public override int RequiredMana { get { return 15; } }
+		public override double CastDelay => 1.0;
+		public override double RequiredSkill => 20.0;
+		public override int RequiredMana => 15;
 
 		public DruidShieldOfEarthSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
@@ -102,7 +99,7 @@ namespace Server.ACC.CSS.Systems.Druid
 			private Timer m_Timer;
 			private DateTime m_End;
 
-			public override bool BlocksFit { get { return true; } }
+			public override bool BlocksFit => true;
 
 			public InternalItem(Point3D loc, Map map, Mobile caster) : base(0x0C92)
 			{

@@ -26,10 +26,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.SpidersSilk
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Eighth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Eighth;
 
 		public AncientArmageddonSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)

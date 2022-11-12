@@ -23,10 +23,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.Nightshade
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Third; }
-		}
+		public override SpellCircle Circle => SpellCircle.Third;
 
 		public AncientSleepSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)

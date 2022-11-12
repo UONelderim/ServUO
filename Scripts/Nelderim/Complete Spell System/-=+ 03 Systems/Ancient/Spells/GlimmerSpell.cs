@@ -18,14 +18,11 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.Bloodmoss
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Second; }
-		}
+		public override SpellCircle Circle => SpellCircle.Second;
 
-		public override double CastDelay { get { return 1.5; } }
-		public override double RequiredSkill { get { return 0.0; } }
-		public override int RequiredMana { get { return 3; } }
+		public override double CastDelay => 1.5;
+		public override double RequiredSkill => 0.0;
+		public override int RequiredMana => 3;
 
 		public AncientGlimmerSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)
@@ -102,7 +99,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			private Timer m_Timer;
 			private DateTime m_End;
 
-			public override bool BlocksFit { get { return true; } }
+			public override bool BlocksFit => true;
 
 			public InternalItem(Point3D loc, Map map, Mobile caster)
 				: base(0x1647)

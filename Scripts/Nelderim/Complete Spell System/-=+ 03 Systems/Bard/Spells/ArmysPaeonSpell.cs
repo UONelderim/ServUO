@@ -18,14 +18,11 @@ namespace Server.ACC.CSS.Systems.Bard
 			9041
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.First; }
-		}
+		public override SpellCircle Circle => SpellCircle.First;
 
-		public override double CastDelay { get { return 3; } }
-		public override double RequiredSkill { get { return 60.0; } }
-		public override int RequiredMana { get { return 15; } }
+		public override double CastDelay => 3;
+		public override double RequiredSkill => 60.0;
+		public override int RequiredMana => 15;
 
 		public BardArmysPaeonSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

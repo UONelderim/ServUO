@@ -21,17 +21,14 @@ namespace Server.ACC.CSS.Systems.Avatar
 			9041
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Fourth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Fourth;
 
 		private static readonly Hashtable m_Table = new Hashtable();
 
-		public override int RequiredTithing { get { return 15; } }
-		public override double RequiredSkill { get { return 25.0; } }
+		public override int RequiredTithing => 15;
+		public override double RequiredSkill => 25.0;
 
-		public override int RequiredMana { get { return 11; } }
+		public override int RequiredMana => 11;
 
 		public AvatarSacredBoonSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

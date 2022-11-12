@@ -18,10 +18,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.SulfurousAsh
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Second; }
-		}
+		public override SpellCircle Circle => SpellCircle.Second;
 
 		public AncientDestroyTrapSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)

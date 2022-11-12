@@ -20,14 +20,11 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.Bloodmoss
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Third; }
-		}
+		public override SpellCircle Circle => SpellCircle.Third;
 
-		public override double CastDelay { get { return 3.0; } }
-		public override double RequiredSkill { get { return 50.0; } }
-		public override int RequiredMana { get { return 45; } }
+		public override double CastDelay => 3.0;
+		public override double RequiredSkill => 50.0;
+		public override int RequiredMana => 45;
 
 		public AncientSwarmSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)

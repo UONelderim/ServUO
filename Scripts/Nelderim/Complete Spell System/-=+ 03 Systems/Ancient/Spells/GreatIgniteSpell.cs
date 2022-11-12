@@ -11,9 +11,10 @@ namespace Server.ACC.CSS.Systems.Ancient
 {
     public class AncientGreatIgniteSpell : AncientSpell
     {
-        public override double CastDelay { get { return 2.5; } }
-        public override double RequiredSkill { get { return 50.0; } }
-        public override int RequiredMana { get { return 40; } }
+        public override double CastDelay => 2.5;
+        public override double RequiredSkill => 50.0;
+        public override int RequiredMana => 40;
+
         private static SpellInfo m_Info = new SpellInfo(
                                                         "Większe Podpalenie", "Vas In Flam",
                                                         233,
@@ -23,10 +24,7 @@ namespace Server.ACC.CSS.Systems.Ancient
                                                         Reagent.SpidersSilk
                                                        );
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.First; }
-        }
+        public override SpellCircle Circle => SpellCircle.First;
 
         public AncientGreatIgniteSpell(Mobile caster, Item scroll)
             : base(caster, scroll, m_Info)

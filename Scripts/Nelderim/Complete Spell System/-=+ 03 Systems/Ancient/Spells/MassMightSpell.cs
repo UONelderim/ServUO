@@ -10,8 +10,8 @@ namespace Server.ACC.CSS.Systems.Ancient
 {
 	public class AncientMassMightSpell : AncientSpell
 	{
-		public override double RequiredSkill { get { return 70.0; } }
-		public override int RequiredMana { get { return 60; } }
+		public override double RequiredSkill => 70.0;
+		public override int RequiredMana => 60;
 
 		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Masowa potęga", "Rel Sanctum Angst Ver Nergo",
@@ -22,10 +22,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.Ginseng
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Seventh; }
-		}
+		public override SpellCircle Circle => SpellCircle.Seventh;
 
 		public AncientMassMightSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)

@@ -16,15 +16,12 @@ namespace Server.ACC.CSS.Systems.Avatar
 			9041
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Eighth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Eighth;
 
-		public override int RequiredTithing { get { return 100; } }
-		public override double RequiredSkill { get { return 80.0; } }
+		public override int RequiredTithing => 100;
+		public override double RequiredSkill => 80.0;
 
-		public override int RequiredMana { get { return 50; } }
+		public override int RequiredMana => 50;
 
 		private static readonly Hashtable m_Table = new Hashtable();
 
@@ -34,26 +31,17 @@ namespace Server.ACC.CSS.Systems.Avatar
 				Scroll.Consume();
 		}
 
-		public int Body
-		{
-			get { return 146; }
-		}
+		public int Body => 146;
 
-		public int Hue
-		{
-			get { return 1174; }
-		}
+		public int Hue => 1174;
 
-		public int PhysResistOffset { get { return 0; } }
-		public int FireResistOffset { get { return 0; } }
-		public int ColdResistOffset { get { return 0; } }
-		public int PoisResistOffset { get { return 0; } }
-		public int NrgyResistOffset { get { return 0; } }
+		public int PhysResistOffset => 0;
+		public int FireResistOffset => 0;
+		public int ColdResistOffset => 0;
+		public int PoisResistOffset => 0;
+		public int NrgyResistOffset => 0;
 
-		public double TickRate
-		{
-			get { return 600; }
-		}
+		public double TickRate => 600;
 
 		public void OnTick(Mobile m)
 		{

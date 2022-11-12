@@ -20,14 +20,11 @@ namespace Server.ACC.CSS.Systems.Ranger
 			Reagent.SulfurousAsh
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Fifth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Fifth;
 
-		public override double CastDelay { get { return 2.0; } }
-		public override int RequiredMana { get { return 15; } }
-		public override double RequiredSkill { get { return 30; } }
+		public override double CastDelay => 2.0;
+		public override int RequiredMana => 15;
+		public override double RequiredSkill => 30;
 
 		public RangerSummonMountSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

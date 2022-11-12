@@ -20,14 +20,11 @@ namespace Server.ACC.CSS.Systems.Rogue
 			9012
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Fourth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Fourth;
 
-		public override double CastDelay { get { return 2; } }
-		public override double RequiredSkill { get { return 80; } }
-		public override int RequiredMana { get { return 30; } }
+		public override double CastDelay => 2;
+		public override double RequiredSkill => 80;
+		public override int RequiredMana => 30;
 
 		private Timer m_Timer;
 

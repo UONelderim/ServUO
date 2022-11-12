@@ -23,14 +23,11 @@ namespace Server.ACC.CSS.Systems.Ancient
 		private int m_Hue;
 		private string m_Name;
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Second; }
-		}
+		public override SpellCircle Circle => SpellCircle.Second;
 
-		public override double CastDelay { get { return 5.0; } }
-		public override double RequiredSkill { get { return 70.0; } }
-		public override int RequiredMana { get { return 55; } }
+		public override double CastDelay => 5.0;
+		public override double RequiredSkill => 70.0;
+		public override int RequiredMana => 55;
 
 		public AncientEnchantSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)

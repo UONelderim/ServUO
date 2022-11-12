@@ -19,35 +19,23 @@ namespace Server.ACC.CSS.Systems.Undead
 			Reagent.PigIron
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Eighth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Eighth;
 
-		public override double RequiredSkill { get { return 80.0; } }
+		public override double RequiredSkill => 80.0;
 
-		public override int RequiredMana { get { return 50; } }
+		public override int RequiredMana => 50;
 
-		public int Body
-		{
-			get { return 130; }
-		}
+		public int Body => 130;
 
-		public int Hue
-		{
-			get { return 2874; }
-		}
+		public int Hue => 2874;
 
-		public virtual int PhysResistOffset { get { return 0; } }
-		public virtual int FireResistOffset { get { return 0; } }
-		public virtual int ColdResistOffset { get { return 0; } }
-		public virtual int PoisResistOffset { get { return 0; } }
-		public virtual int NrgyResistOffset { get { return 0; } }
+		public virtual int PhysResistOffset => 0;
+		public virtual int FireResistOffset => 0;
+		public virtual int ColdResistOffset => 0;
+		public virtual int PoisResistOffset => 0;
+		public virtual int NrgyResistOffset => 0;
 
-		public double TickRate
-		{
-			get { return 600; }
-		}
+		public double TickRate => 600;
 
 		public void OnTick(Mobile m)
 		{

@@ -19,14 +19,11 @@ namespace Server.ACC.CSS.Systems.Undead
 			Reagent.Nightshade
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Fifth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Fifth;
 
-		public override double RequiredSkill { get { return 40.0; } }
+		public override double RequiredSkill => 40.0;
 
-		public override int RequiredMana { get { return 14; } }
+		public override int RequiredMana => 14;
 
 		public UndeadHammerOfFaithSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
@@ -62,18 +59,18 @@ namespace Server.ACC.CSS.Systems.Undead
 			private DateTime m_Expire;
 			private Timer m_Timer;
 
-			public override WeaponAbility PrimaryAbility { get { return WeaponAbility.WhirlwindAttack; } }
-			public override WeaponAbility SecondaryAbility { get { return WeaponAbility.CrushingBlow; } }
+			public override WeaponAbility PrimaryAbility => WeaponAbility.WhirlwindAttack;
+			public override WeaponAbility SecondaryAbility => WeaponAbility.CrushingBlow;
 
-			public override int StrengthReq { get { return 10; } }
-			public override int MinDamage { get { return 17; } }
-			public override int MaxDamage { get { return 18; } }
-			public override float Speed { get { return 3.25f; } }
+			public override int StrengthReq => 10;
+			public override int MinDamage => 17;
+			public override int MaxDamage => 18;
+			public override float Speed => 3.25f;
 
-			public override int InitMinHits { get { return 255; } }
-			public override int InitMaxHits { get { return 255; } }
+			public override int InitMinHits => 255;
+			public override int InitMaxHits => 255;
 
-			public override WeaponAnimation DefAnimation { get { return WeaponAnimation.Bash2H; } }
+			public override WeaponAnimation DefAnimation => WeaponAnimation.Bash2H;
 
 			[Constructable]
 			public HammerOfFaith(Mobile owner) : base(9915)

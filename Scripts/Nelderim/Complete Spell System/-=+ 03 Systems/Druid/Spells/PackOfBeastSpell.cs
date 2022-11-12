@@ -21,14 +21,11 @@ namespace Server.ACC.CSS.Systems.Druid
 			CReagent.PetrafiedWood
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Third; }
-		}
+		public override SpellCircle Circle => SpellCircle.Third;
 
-		public override double CastDelay { get { return 1.0; } }
-		public override double RequiredSkill { get { return 40.0; } }
-		public override int RequiredMana { get { return 45; } }
+		public override double CastDelay => 1.0;
+		public override double RequiredSkill => 40.0;
+		public override int RequiredMana => 45;
 
 		public DruidPackOfBeastSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

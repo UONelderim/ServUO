@@ -23,14 +23,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.SpidersSilk
 		);
 
-		public override SpellCircle Circle
-		{
-			get
-			{
-				return SpellCircle.Sixth;
-				;
-			}
-		}
+		public override SpellCircle Circle => SpellCircle.Sixth;
 
 		public AncientSleepFieldSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)
@@ -106,7 +99,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			private Mobile m_Caster;
 			private SleepingBody m_Body;
 
-			public override bool BlocksFit { get { return true; } }
+			public override bool BlocksFit => true;
 
 			public InternalItem(int itemID, Point3D loc, Mobile caster, Map map, TimeSpan duration, int val)
 				: base(itemID)

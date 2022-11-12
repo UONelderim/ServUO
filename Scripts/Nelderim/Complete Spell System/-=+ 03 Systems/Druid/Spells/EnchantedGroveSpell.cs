@@ -23,14 +23,11 @@ namespace Server.ACC.CSS.Systems.Druid
 			CReagent.SpringWater
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Eighth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Eighth;
 
-		public override double CastDelay { get { return 7.0; } }
-		public override double RequiredSkill { get { return 95.0; } }
-		public override int RequiredMana { get { return 60; } }
+		public override double CastDelay => 7.0;
+		public override double RequiredSkill => 95.0;
+		public override int RequiredMana => 60;
 
 		public DruidEnchantedGroveSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
@@ -201,7 +198,7 @@ namespace Server.ACC.CSS.Systems.Druid
 			private DateTime m_End;
 			private readonly Mobile m_Caster;
 
-			public override bool BlocksFit { get { return true; } }
+			public override bool BlocksFit => true;
 
 			public InternalItem(Point3D loc, Map map, Mobile caster) : base(0x3274)
 			{

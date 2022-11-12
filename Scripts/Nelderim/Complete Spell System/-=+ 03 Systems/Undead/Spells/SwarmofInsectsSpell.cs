@@ -22,14 +22,11 @@ namespace Server.ACC.CSS.Systems.Undead
 			CReagent.DestroyingAngel
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Seventh; }
-		}
+		public override SpellCircle Circle => SpellCircle.Seventh;
 
-		public override double CastDelay { get { return 2.0; } }
-		public override double RequiredSkill { get { return 85.0; } }
-		public override int RequiredMana { get { return 10; } }
+		public override double CastDelay => 2.0;
+		public override double RequiredSkill => 85.0;
+		public override int RequiredMana => 10;
 
 		public UndeadSwarmOfInsectsSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

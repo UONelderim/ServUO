@@ -19,14 +19,11 @@ namespace Server.ACC.CSS.Systems.Ranger
 			Reagent.Nightshade
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Fifth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Fifth;
 
-		public override double CastDelay { get { return 7.0; } }
-		public override double RequiredSkill { get { return 95.0; } }
-		public override int RequiredMana { get { return 30; } }
+		public override double CastDelay => 7.0;
+		public override double RequiredSkill => 95.0;
+		public override int RequiredMana => 30;
 
 		public RangerNoxBowSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
@@ -61,23 +58,23 @@ namespace Server.ACC.CSS.Systems.Ranger
 			private DateTime m_Expire;
 			private Timer m_Timer;
 
-			public override int EffectID { get { return 0xF42; } }
-			public override Type AmmoType { get { return typeof(Arrow); } }
-			public override Item Ammo { get { return new Arrow(); } }
+			public override int EffectID => 0xF42;
+			public override Type AmmoType => typeof(Arrow);
+			public override Item Ammo => new Arrow();
 
-			public override WeaponAbility PrimaryAbility { get { return WeaponAbility.InfectiousStrike; } }
-			public override WeaponAbility SecondaryAbility { get { return WeaponAbility.MortalStrike; } }
+			public override WeaponAbility PrimaryAbility => WeaponAbility.InfectiousStrike;
+			public override WeaponAbility SecondaryAbility => WeaponAbility.MortalStrike;
 
-			public override int StrengthReq { get { return 30; } }
-			public override int MinDamage { get { return 16; } }
-			public override int MaxDamage { get { return 18; } }
-			public override float Speed { get { return 4.25f; } }
-			public override int DefMaxRange { get { return 10; } }
+			public override int StrengthReq => 30;
+			public override int MinDamage => 16;
+			public override int MaxDamage => 18;
+			public override float Speed => 4.25f;
+			public override int DefMaxRange => 10;
 
-			public override int InitMinHits { get { return 31; } }
-			public override int InitMaxHits { get { return 60; } }
+			public override int InitMinHits => 31;
+			public override int InitMaxHits => 60;
 
-			public override WeaponAnimation DefAnimation { get { return WeaponAnimation.ShootBow; } }
+			public override WeaponAnimation DefAnimation => WeaponAnimation.ShootBow;
 
 			[Constructable]
 			public RangerNoxBow(Mobile owner) : base(0x13B2)

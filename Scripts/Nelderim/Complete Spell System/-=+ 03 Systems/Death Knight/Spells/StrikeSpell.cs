@@ -15,10 +15,10 @@ namespace Server.Spells.DeathKnight
 				9022
 			);
 
-		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 1 ); } }
-		public override int RequiredTithing{ get{ return 140; } }
-		public override double RequiredSkill{ get{ return 80.0; } }
-		public override int RequiredMana{ get{ return 30; } }
+		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 1 );
+		public override int RequiredTithing => 140;
+		public override double RequiredSkill => 80.0;
+		public override int RequiredMana => 30;
 
 		public StrikeSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
 		{

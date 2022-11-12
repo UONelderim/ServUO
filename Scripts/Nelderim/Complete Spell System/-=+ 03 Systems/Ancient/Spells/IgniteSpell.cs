@@ -17,14 +17,11 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.BlackPearl
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.First; }
-		}
+		public override SpellCircle Circle => SpellCircle.First;
 
-		public override double CastDelay { get { return 3.0; } }
-		public override double RequiredSkill { get { return 0.0; } }
-		public override int RequiredMana { get { return 10; } }
+		public override double CastDelay => 3.0;
+		public override double RequiredSkill => 0.0;
+		public override int RequiredMana => 10;
 
 		public AncientIgniteSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)

@@ -18,15 +18,12 @@ namespace Server.ACC.CSS.Systems.Avatar
 			9041
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Eighth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Eighth;
 
-		public override int RequiredTithing { get { return 40; } }
-		public override double RequiredSkill { get { return 50.0; } }
+		public override int RequiredTithing => 40;
+		public override double RequiredSkill => 50.0;
 
-		public override int RequiredMana { get { return 50; } }
+		public override int RequiredMana => 50;
 
 		public AvatarRestorationSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

@@ -19,14 +19,11 @@ namespace Server.ACC.CSS.Systems.Avatar
 			Reagent.NoxCrystal
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.First; }
-		}
+		public override SpellCircle Circle => SpellCircle.First;
 
-		public override double RequiredSkill { get { return 20; } }
-		public override int RequiredMana { get { return 10; } }
-		public override int RequiredTithing { get { return 10; } }
+		public override double RequiredSkill => 20;
+		public override int RequiredMana => 10;
+		public override int RequiredTithing => 10;
 
 		public AvatarHeavenlyLightSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

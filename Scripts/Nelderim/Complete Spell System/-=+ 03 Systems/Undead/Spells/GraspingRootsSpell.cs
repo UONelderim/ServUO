@@ -21,14 +21,11 @@ namespace Server.ACC.CSS.Systems.Undead
 			Reagent.SpidersSilk
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Fifth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Fifth;
 
-		public override double CastDelay { get { return 1.5; } }
-		public override double RequiredSkill { get { return 40.0; } }
-		public override int RequiredMana { get { return 40; } }
+		public override double CastDelay => 1.5;
+		public override double RequiredSkill => 40.0;
+		public override int RequiredMana => 40;
 
 		public UndeadGraspingRootsSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

@@ -17,10 +17,10 @@ namespace Server.Spells.DeathKnight
 				false
 			);
 
-		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 1 ); } }
-		public override int RequiredTithing{ get{ return 700; } }
-		public override double RequiredSkill{ get{ return 100.0; } }
-		public override int RequiredMana{ get{ return 64; } }
+		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 1 );
+		public override int RequiredTithing => 700;
+		public override double RequiredSkill => 100.0;
+		public override int RequiredMana => 64;
 
 		public WrathSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
 		{
@@ -31,7 +31,7 @@ namespace Server.Spells.DeathKnight
 			Caster.Target = new InternalTarget( this );
 		}
 
-		public override bool DelayedDamage{ get{ return true; } }
+		public override bool DelayedDamage => true;
 
 		public void Target( IPoint3D p )
 		{

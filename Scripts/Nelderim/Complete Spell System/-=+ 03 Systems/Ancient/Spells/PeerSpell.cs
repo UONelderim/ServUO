@@ -20,14 +20,11 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.Nightshade
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Third; }
-		}
+		public override SpellCircle Circle => SpellCircle.Third;
 
-		public override double CastDelay { get { return 5.0; } }
-		public override double RequiredSkill { get { return 80.0; } }
-		public override int RequiredMana { get { return 55; } }
+		public override double CastDelay => 5.0;
+		public override double RequiredSkill => 80.0;
+		public override int RequiredMana => 55;
 		private int m_OldBody;
 		private Souless m_Fake;
 		public ArrayList m_PeerMod;

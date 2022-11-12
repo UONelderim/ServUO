@@ -14,9 +14,9 @@ namespace Server.ACC.CSS.Systems.Ancient
 {
 	public class AncientSeanceSpell : AncientSpell
 	{
-		public override double CastDelay { get { return 4.5; } }
-		public override double RequiredSkill { get { return 89.0; } }
-		public override int RequiredMana { get { return 50; } }
+		public override double CastDelay => 4.5;
+		public override double RequiredSkill => 89.0;
+		public override int RequiredMana => 50;
 
 		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Seans", "Kal Wis Corp",
@@ -29,10 +29,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.SulfurousAsh
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Fourth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Fourth;
 
 		public AncientSeanceSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)
