@@ -57,7 +57,7 @@ namespace Server.Spells.DeathKnight
 				Caster.LocalOverheadMessage( MessageType.Regular, 0x481, false, "Ten cel juz korzysta z tego efektu." );
 			}
 
-			else if ( CheckBSequence( m, false ) && CheckFizzle() )
+			else if ( CheckBSequence( m, false ) /*&& CheckFizzle()*/ )
 			{
 				SpellHelper.Turn( Caster, m );
 

@@ -47,7 +47,7 @@ namespace Server.Spells.DeathKnight
 			{
 				Caster.SendLocalizedMessage( 500237 ); // Target can not be seen.
 			}
-			else if ( CheckBSequence( m, false ) && CheckFizzle() )
+			else if ( CheckBSequence( m, false ) /*&& CheckFizzle()*/ )
 			{
 				SpellHelper.Turn( Caster, m );
 

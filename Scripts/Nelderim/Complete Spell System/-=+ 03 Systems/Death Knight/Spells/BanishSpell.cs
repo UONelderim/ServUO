@@ -26,7 +26,7 @@ namespace Server.Spells.DeathKnight
 
 		public override void OnCast()
 		{
-			if ( CheckFizzle() ){ Caster.Target = new InternalTarget( this ); }
+			/*if ( CheckFizzle() ){*/ Caster.Target = new InternalTarget( this );/* }*/
 		}
 
 		public class InternalTarget : Target
