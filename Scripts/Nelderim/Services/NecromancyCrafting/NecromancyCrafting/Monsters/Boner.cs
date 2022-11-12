@@ -6,9 +6,9 @@ namespace Server.Mobiles
 	[CorpseName( "resztki koscieja" )]
 	public class Boner : BaseCreature
 	{
-		public override bool IsScaredOfScaryThings{ get{ return false; } }
+		public override bool IsScaredOfScaryThings => false;
 
-		public override bool IsBondable{ get{ return false; } }
+		public override bool IsBondable => false;
 
 		[Constructable]
 		public Boner() : base( AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4 )
@@ -48,7 +48,7 @@ namespace Server.Mobiles
 			ControlSlots = 5;
 		}
 
-		public override bool DeleteOnRelease{ get{ return true; } }
+		public override bool DeleteOnRelease => true;
 
 		public override int GetAngerSound()
 		{
@@ -84,12 +84,12 @@ namespace Server.Mobiles
 			return base.GetHurtSound();
 		}
 
-		public override bool AutoDispel{ get{ return !Controlled; } }
-		public override bool BleedImmune{ get{ return true; } }
-		public override bool BardImmune{ get{ return Controlled; } }
-		public override bool Unprovokable { get { return true; } }
-		public override bool AreaPeaceImmune { get { return true; } }
-		public override Poison PoisonImmune{ get{ return Poison.Lethal; } }
+		public override bool AutoDispel => !Controlled;
+		public override bool BleedImmune => true;
+		public override bool BardImmune => Controlled;
+		public override bool Unprovokable => true;
+		public override bool AreaPeaceImmune => true;
+		public override Poison PoisonImmune => Poison.Lethal;
 
 		public Boner( Serial serial ) : base( serial )
 		{

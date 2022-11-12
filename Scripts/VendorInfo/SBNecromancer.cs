@@ -19,7 +19,7 @@ namespace Server.Mobiles
 
                 Add( new GenericBuyInfo( typeof( NecromancerSpellbook ), 115, 50, 0x2253, 0 ) );
 
-				Add( new GenericBuyInfo( typeof( morticiansScalpel ), 5000, 50, 4327, 0 ) );
+				Add( new GenericBuyInfo( typeof( Scalpel ), 5000, 50, 4327, 0 ) );
 
 
                 Add( new GenericBuyInfo( typeof( BlackPearl ), 7, 50, 0xF7A, 0 ) );

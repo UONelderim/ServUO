@@ -7,7 +7,7 @@ namespace Server.Items
 	[FlipableAttribute( 0x13E4, 0x13E3 )]
 	public class Scalpel : BaseTool
 	{
-		public override CraftSystem CraftSystem{ get{ return DefNecromancyCrafting.CraftSystem; } }
+		public override CraftSystem CraftSystem => DefNecromancyCrafting.CraftSystem;
 
 		[Constructable]
 		public Scalpel() : base( 0x10E7 )

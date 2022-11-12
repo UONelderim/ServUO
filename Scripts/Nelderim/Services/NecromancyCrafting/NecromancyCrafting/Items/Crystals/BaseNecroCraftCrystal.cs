@@ -29,11 +29,8 @@ namespace Server.Items
 		
 		public abstract Type[] RequiredBodyParts { get; }
 		
-		public int[] RequiredBodyPartsAmounts
-		{
-			get { return RequiredBodyParts.Select(x => 1).ToArray(); }
-		}
-		
+		public int[] RequiredBodyPartsAmounts => RequiredBodyParts.Select(x => 1).ToArray();
+
 		public abstract Type SummonType { get; }
 		
 		public  BaseNecroCraftCrystal() : base( 0x1F19 )
