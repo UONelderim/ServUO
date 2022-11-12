@@ -46,7 +46,7 @@ namespace Server.Spells.DeathKnight
 			}
 			else if ( CheckSequence() )
 			{
-				if ( Caster.BeginAction( typeof( OrbOfOrcusSpell ) ) && CheckFizzle() )
+				if ( Caster.BeginAction( typeof( OrbOfOrcusSpell ) ) /*&& CheckFizzle()*/ )
 				{
 					int value = (int)( GetKarmaPower( Caster ) / 4 );
 
