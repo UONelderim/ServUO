@@ -20,14 +20,14 @@ namespace Server.Items
 		{
 			m_Player = from;
 			if (IsChildOf(from.Backpack))
-				from.SendMessage("Najpeirw umiesć wykrywacz pułapek na ziemi");
+				from.SendMessage("Najpierw umiesć wykrywacz pułapek na ziemi");
 
 			else if (!from.InRange(this.GetWorldLocation(), 2))
-				from.SendMessage("Aktywujesz wykrywacz pułapek");
+				from.SendMessage("Stoisz za daleko od wykrywacza");
 
 			else
 			{
-				from.SendMessage("Twój wykrywacz pułapek zaczyna drżeć. Chyba coś znalazł... Bądź ostrożny!");
+				from.SendMessage("Aktywujesz wykrywacz pułapek");
 				from.PlaySound(0x2F3); // Earthquake Sound
 
 				bool trapfound = false;
@@ -58,10 +58,10 @@ namespace Server.Items
 				// Report back!
 				//
 				if (trapfound)
-					m_Player.SendMessage(0x59,
+					m_Player.SendMessage(0x78,
 						"Twój wykrywacz pułapek zaczyna drżeć. Chyba coś znalazł... Bądź ostrożny!");
 				else
-					m_Player.SendMessage(0x59, "Twój wykrywacz pułape. Prawdopodobnie jest bezpiecznie");
+					m_Player.SendMessage(0x69, "Twój wykrywacz nic nie znalazł. Prawdopodobnie jest bezpiecznie...");
 
 				//
 				// 10% of the device burning out (rather than charges)
