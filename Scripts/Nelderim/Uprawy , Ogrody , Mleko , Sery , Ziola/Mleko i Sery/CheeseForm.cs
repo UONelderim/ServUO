@@ -105,14 +105,12 @@ namespace Server.Items
 				}
 				else if ((Fermentation == true) && (ContientUnFromton == false) && (MoulePlein == true))
 				{
-					//this.PublicOverheadMessage( MessageType.Regular, 1151, false, string.Format("Proces fermetacji: " + StadeFermentation.ToString() + " %" ));
 					from.SendMessage (0x84C, "Proces fermetacji: " + StadeFermentation.ToString() + " %" );
 				}
 				else if ((Fermentation == false) && (ContientUnFromton == true) && (MoulePlein == true))
 				{
 					if (m_FromBonusSkill < 10)
 					{
-						//this.PublicOverheadMessage( MessageType.Regular, 1152, false, string.Format("Fermetacja sie nie udala, mleko przepadlo." ) );
 						from.SendMessage (0x84C, "Fermetacja sie nie udala, mleko przepadlo."  );
 						m_ContientUnFromton = false;
 						m_MoulePlein = false;
