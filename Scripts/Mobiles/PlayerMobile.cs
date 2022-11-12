@@ -903,7 +903,7 @@ namespace Server.Mobiles
             EventSink.UnequipMacro += UnequipMacro;
             #endregion
 
-            Timer.DelayCall(TimeSpan.Zero, CheckPets);
+            // Timer.DelayCall(TimeSpan.Zero, CheckPets);
         }
 
         #region Enhanced Client
