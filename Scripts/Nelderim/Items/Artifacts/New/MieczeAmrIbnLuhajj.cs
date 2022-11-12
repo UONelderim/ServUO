@@ -2,9 +2,9 @@
 {
 	public class MieczeAmrIbnLuhajj : Daisho
 	{
-		public override int LabelNumber { get { return 1065795; } } // Miecze Amr Ibn Luhajj
-		public override int InitMinHits { get { return 60; } }
-		public override int InitMaxHits { get { return 60; } }
+		public override int LabelNumber => 1065795; // Miecze Amr Ibn Luhajj
+		public override int InitMinHits => 60;
+		public override int InitMaxHits => 60;
 
 		[Constructable]
 		public MieczeAmrIbnLuhajj()

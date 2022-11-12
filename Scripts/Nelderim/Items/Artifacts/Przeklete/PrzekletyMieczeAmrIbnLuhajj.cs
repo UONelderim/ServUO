@@ -2,8 +2,8 @@
 {
 	public class PrzekletyMieczeAmrIbnLuhajj : Daisho
 	{
-		public override int InitMinHits { get { return 255; } }
-		public override int InitMaxHits { get { return 255; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		[Constructable]
 		public PrzekletyMieczeAmrIbnLuhajj()
