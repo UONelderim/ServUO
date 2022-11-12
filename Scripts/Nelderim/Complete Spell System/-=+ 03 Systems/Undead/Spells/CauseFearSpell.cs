@@ -13,6 +13,7 @@ namespace Server.ACC.CSS.Systems.Undead
 	public class UndeadCauseFearSpell : UndeadSpell
 	{
 		public override double RequiredSkill => 80.0;
+		public override double CastDelay => 0.5;
 		public override int RequiredMana => 25;
 
 		private static readonly SpellInfo m_Info = new SpellInfo("Strach", "Uus Vas Corp",
