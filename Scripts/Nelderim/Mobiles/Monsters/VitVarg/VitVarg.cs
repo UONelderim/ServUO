@@ -9,7 +9,7 @@ namespace Server.Mobiles
 	[CorpseName("zwloki bia³ego wilka")]
 	public class VitVarg : BaseCreature
 	{
-		public override bool IgnoreYoungProtection { get { return Core.ML; } }
+		public override bool IgnoreYoungProtection => Core.ML;
 
 		[Constructable]
 		public VitVarg() : base(AIType.AI_Mage, FightMode.Closest, 14, 1, 0.2, 0.4)
@@ -86,16 +86,17 @@ namespace Server.Mobiles
 		}
 
 
-		public override bool BardImmune { get { return false; } }
-		public override Poison PoisonImmune { get { return Poison.Lethal; } }
-		public override double AttackMasterChance { get { return 0.10; } }
-		public override double SwitchTargetChance { get { return 0.10; } }
-		public override double DispelDifficulty { get { return 120.0; } }
-		public override double DispelFocus { get { return 45.0; } }
-		public override bool AutoDispel { get { return true; } }
-		public override bool CanRummageCorpses { get { return true; } }
+		public override bool BardImmune => false;
+		public override Poison PoisonImmune => Poison.Lethal;
+		public override double AttackMasterChance => 0.10;
+		public override double SwitchTargetChance => 0.10;
+		public override double DispelDifficulty => 120.0;
+		public override double DispelFocus => 45.0;
+		public override bool AutoDispel => true;
+		public override bool CanRummageCorpses => true;
+		public override bool AllureImmune => true;
 
-		public override int TreasureMapLevel { get { return 1; } }
+		public override int TreasureMapLevel => 1;
 
 		public VitVarg(Serial serial) : base(serial)
 		{

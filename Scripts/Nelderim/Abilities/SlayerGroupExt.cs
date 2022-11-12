@@ -16,6 +16,8 @@ namespace Server.Items
 			ref SlayerGroup eodon,
 			ref SlayerGroup eodonTribe, ref SlayerGroup dino, ref SlayerGroup myrmidex)
 		{
+			AddSuperTypes(humanoid, typeof(KapitanIIILegionuOrkow));
+			AddEntryTypes(humanoid, SlayerName.OrcSlaying, typeof(KapitanIIILegionuOrkow));
 			AddSuperTypes(undead, typeof(SaragAwatar), typeof(NSarag));
 			AddSuperTypes(elemental, typeof(AgapiteColossus), typeof(BronzeColossus),
 				typeof(BronzeColossus), typeof(DullCopperColossus), typeof(GoldenColossus), typeof(ShadowIronColossus),

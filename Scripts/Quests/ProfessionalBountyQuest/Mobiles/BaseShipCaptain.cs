@@ -50,6 +50,7 @@ namespace Server.Mobiles
         public virtual bool Aggressive => true;
 
         public override bool PlayerRangeSensitive => false;
+        public override bool AllureImmune => true;
 
         public override double TreasureMapChance => 0.05;
         public override int TreasureMapLevel => 7;
