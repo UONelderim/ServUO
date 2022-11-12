@@ -13,7 +13,7 @@ namespace Server.Items
 		[Constructable]
 		public OchronaPrzedZaraza()
 		{
-			Hue = 2029;
+			Hue = 1150;
 			Attributes.CastSpeed = -1;
 			Name = "Ochrona Przed Zaraza";
 			Attributes.RegenMana = 5;
