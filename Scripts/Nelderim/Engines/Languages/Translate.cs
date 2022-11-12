@@ -152,7 +152,7 @@ namespace Nelderim
 				}
 				else
 				{
-					translatedWord = list[random.Next(list.Count)];
+					translatedWord = list[Math.Abs(word.GetHashCode()) % list.Count];
 					if (translatedWord.Length > 0 && word.Length > 0 && Char.IsUpper(word[0]))
 					{
 						char upperChar = Char.ToUpper(translatedWord[0]);
