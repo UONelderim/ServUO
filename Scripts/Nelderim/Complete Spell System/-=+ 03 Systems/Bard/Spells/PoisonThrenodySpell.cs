@@ -16,12 +16,9 @@ namespace Server.ACC.CSS.Systems.Bard
 			212, 9041
 		);
 
-		public virtual TimeSpan Cooldown { get { return TimeSpan.FromMinutes(0.2); } }
+		public virtual TimeSpan Cooldown => TimeSpan.FromMinutes(0.2);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.First; }
-		}
+		public override SpellCircle Circle => SpellCircle.First;
 
 		public BardPoisonThrenodySpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
@@ -29,9 +26,9 @@ namespace Server.ACC.CSS.Systems.Bard
 				Scroll.Consume();
 		}
 
-		public override double CastDelay { get { return 2; } }
-		public override double RequiredSkill { get { return 35.0; } }
-		public override int RequiredMana { get { return 14; } }
+		public override double CastDelay => 2;
+		public override double RequiredSkill => 35.0;
+		public override int RequiredMana => 14;
 
 		public override void OnCast()
 		{

@@ -18,15 +18,12 @@ namespace Server.ACC.CSS.Systems.Avatar
 			9041
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.First; }
-		}
+		public override SpellCircle Circle => SpellCircle.First;
 
-		public override double CastDelay { get { return 2; } }
-		public override int RequiredTithing { get { return 50; } }
-		public override double RequiredSkill { get { return 60.0; } }
-		public override int RequiredMana { get { return 15; } }
+		public override double CastDelay => 2;
+		public override int RequiredTithing => 50;
+		public override double RequiredSkill => 60.0;
+		public override int RequiredMana => 15;
 
 		public AvatarArmysPaeonSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

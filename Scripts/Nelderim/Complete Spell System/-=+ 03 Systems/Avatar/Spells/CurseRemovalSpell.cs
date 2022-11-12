@@ -21,15 +21,12 @@ namespace Server.ACC.CSS.Systems.Avatar
 			9031
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.First; }
-		}
+		public override SpellCircle Circle => SpellCircle.First;
 
-		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds(1); } }
-		public override double RequiredSkill { get { return 50.0; } }
-		public override int RequiredMana { get { return 8; } }
-		public override int RequiredTithing { get { return 20; } }
+		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(1);
+		public override double RequiredSkill => 50.0;
+		public override int RequiredMana => 8;
+		public override int RequiredTithing => 20;
 
 		public AvatarCurseRemovalSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

@@ -17,14 +17,11 @@ namespace Server.ACC.CSS.Systems.Rogue
 			9041
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Fourth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Fourth;
 
-		public override double CastDelay { get { return 2; } }
-		public override double RequiredSkill { get { return 60; } }
-		public override int RequiredMana { get { return 15; } }
+		public override double CastDelay => 2;
+		public override double RequiredSkill => 60;
+		public override int RequiredMana => 15;
 
 		private static readonly Dictionary<Mobile, SkillMod> m_Table = new Dictionary<Mobile, SkillMod>();
 

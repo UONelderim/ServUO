@@ -16,15 +16,12 @@ namespace Server.ACC.CSS.Systems.Avatar
 			9012
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.First; }
-		}
+		public override SpellCircle Circle => SpellCircle.First;
 
-		public override double CastDelay { get { return 1.5; } }
-		public override int RequiredTithing { get { return 100; } }
-		public override double RequiredSkill { get { return 70.0; } }
-		public override int RequiredMana { get { return 45; } }
+		public override double CastDelay => 1.5;
+		public override int RequiredTithing => 100;
+		public override double RequiredSkill => 70.0;
+		public override int RequiredMana => 45;
 
 		public AvatarBallSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
@@ -37,7 +34,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 			Caster.Target = new InternalTarget(this);
 		}
 
-		public override bool DelayedDamage { get { return true; } }
+		public override bool DelayedDamage => true;
 
 		public void Target(Mobile m)
 		{

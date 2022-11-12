@@ -20,14 +20,11 @@ namespace Server.ACC.CSS.Systems.Ranger
 			Reagent.Bloodmoss
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Fourth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Fourth;
 
-		public override double CastDelay { get { return 0.5; } }
-		public override int RequiredMana { get { return 25; } }
-		public override double RequiredSkill { get { return 50; } }
+		public override double CastDelay => 0.5;
+		public override int RequiredMana => 25;
+		public override double RequiredSkill => 50;
 
 		public RangerThrowSwordSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
@@ -52,7 +49,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 			Caster.Target = new InternalTarget(this);
 		}
 
-		public override bool DelayedDamage { get { return true; } }
+		public override bool DelayedDamage => true;
 
 		public void Target(Mobile m)
 		{

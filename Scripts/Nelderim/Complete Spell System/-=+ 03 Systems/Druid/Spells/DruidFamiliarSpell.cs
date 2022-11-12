@@ -23,14 +23,11 @@ namespace Server.ACC.CSS.Systems.Druid
 			CReagent.PetrafiedWood
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Sixth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Sixth;
 
-		public override double CastDelay { get { return 3.0; } }
-		public override double RequiredSkill { get { return 30.0; } }
-		public override int RequiredMana { get { return 17; } }
+		public override double CastDelay => 3.0;
+		public override double RequiredSkill => 30.0;
+		public override int RequiredMana => 17;
 
 		public DruidFamiliarSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

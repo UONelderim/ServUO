@@ -14,10 +14,10 @@ namespace Server.Spells.DeathKnight
 				9011
 			);
 
-		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 1 ); } }
-		public override int RequiredTithing{ get{ return 77; } }
-		public override double RequiredSkill{ get{ return 60.0; } }
-		public override int RequiredMana{ get{ return 48; } }
+		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 1 );
+		public override int RequiredTithing => 77;
+		public override double RequiredSkill => 60.0;
+		public override int RequiredMana => 48;
 
 		public ShieldOfHateSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
 		{

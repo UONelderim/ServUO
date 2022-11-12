@@ -23,14 +23,11 @@ namespace Server.ACC.CSS.Systems.Undead
 			CReagent.SpringWater
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Seventh; }
-		}
+		public override SpellCircle Circle => SpellCircle.Seventh;
 
-		public override double CastDelay { get { return 3.0; } }
-		public override double RequiredSkill { get { return 70.0; } }
-		public override int RequiredMana { get { return 40; } }
+		public override double CastDelay => 3.0;
+		public override double RequiredSkill => 70.0;
+		public override int RequiredMana => 40;
 
 		private readonly RunebookEntry m_Entry;
 
@@ -225,7 +222,7 @@ namespace Server.ACC.CSS.Systems.Undead
 		[DispellableField]
 		private class InternalItem : Moongate
 		{
-			public override bool ShowFeluccaWarning { get { return Core.AOS; } }
+			public override bool ShowFeluccaWarning => Core.AOS;
 
 			public InternalItem(Point3D target, Map map) : base(target, map)
 			{

@@ -15,10 +15,7 @@ namespace Server.ACC.CSS.Systems.Bard
 			212, 9041
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Sixth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Sixth;
 
 		public BardFoeRequiemSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
@@ -26,9 +23,9 @@ namespace Server.ACC.CSS.Systems.Bard
 				Scroll.Consume();
 		}
 
-		public override double CastDelay { get { return 3; } }
-		public override double RequiredSkill { get { return 55.0; } }
-		public override int RequiredMana { get { return 25; } }
+		public override double CastDelay => 3;
+		public override double RequiredSkill => 55.0;
+		public override int RequiredMana => 25;
 
 		public override void OnCast()
 		{

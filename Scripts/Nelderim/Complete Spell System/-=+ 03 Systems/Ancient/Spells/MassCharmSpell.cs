@@ -23,10 +23,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.MandrakeRoot
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Seventh; }
-		}
+		public override SpellCircle Circle => SpellCircle.Seventh;
 
 		public AncientMassCharmSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)

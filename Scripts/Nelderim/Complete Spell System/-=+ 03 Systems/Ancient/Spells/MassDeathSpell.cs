@@ -22,17 +22,14 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.Nightshade
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Eighth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Eighth;
 
 		public AncientMassDeathSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)
 		{
 		}
 
-		public override bool DelayedDamage { get { return !Core.AOS; } }
+		public override bool DelayedDamage => !Core.AOS;
 
 		public override void OnCast()
 		{

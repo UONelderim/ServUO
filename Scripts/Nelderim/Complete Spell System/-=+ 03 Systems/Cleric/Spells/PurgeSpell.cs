@@ -17,14 +17,11 @@ namespace Server.ACC.CSS.Systems.Cleric
 			9041
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Sixth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Sixth;
 
-		public override int RequiredTithing { get { return 5; } }
-		public override double RequiredSkill { get { return 70.0; } }
-		public override int RequiredMana { get { return 20; } }
+		public override int RequiredTithing => 5;
+		public override double RequiredSkill => 70.0;
+		public override int RequiredMana => 20;
 
 		public ClericPurgeSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

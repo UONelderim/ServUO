@@ -18,10 +18,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.Ginseng
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.First; }
-		}
+		public override SpellCircle Circle => SpellCircle.First;
 
 		public AncientAwakenAllSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)

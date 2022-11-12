@@ -9,9 +9,9 @@ namespace Server.ACC.CSS.Systems.Ancient
 {
 	public class AncientGreatDouseSpell : AncientSpell
 	{
-		public override double CastDelay { get { return 0.5; } }
-		public override double RequiredSkill { get { return 50.0; } }
-		public override int RequiredMana { get { return 20; } }
+		public override double CastDelay => 0.5;
+		public override double RequiredSkill => 50.0;
+		public override int RequiredMana => 20;
 
 		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Większe Wygaszenie", "Vas An Flam",
@@ -21,10 +21,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.SpidersSilk
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.First; }
-		}
+		public override SpellCircle Circle => SpellCircle.First;
 
 		public AncientGreatDouseSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)

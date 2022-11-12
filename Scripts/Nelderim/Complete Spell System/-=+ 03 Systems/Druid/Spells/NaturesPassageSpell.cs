@@ -24,14 +24,11 @@ namespace Server.ACC.CSS.Systems.Druid
 			Reagent.MandrakeRoot
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Fourth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Fourth;
 
-		public override double CastDelay { get { return 0.5; } }
-		public override double RequiredSkill { get { return 15.0; } }
-		public override int RequiredMana { get { return 10; } }
+		public override double CastDelay => 0.5;
+		public override double RequiredSkill => 15.0;
+		public override int RequiredMana => 10;
 		private readonly RunebookEntry m_Entry;
 		private readonly Runebook m_Book;
 

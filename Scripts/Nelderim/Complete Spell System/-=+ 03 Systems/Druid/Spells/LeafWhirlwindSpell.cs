@@ -21,14 +21,11 @@ namespace Server.ACC.CSS.Systems.Druid
 			CReagent.DestroyingAngel
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Sixth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Sixth;
 
-		public override double CastDelay { get { return 3.0; } }
-		public override int RequiredMana { get { return 25; } }
-		public override double RequiredSkill { get { return 50; } }
+		public override double CastDelay => 3.0;
+		public override int RequiredMana => 25;
+		public override double RequiredSkill => 50;
 
 		public DruidLeafWhirlwindSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

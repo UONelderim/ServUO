@@ -18,14 +18,11 @@ namespace Server.ACC.CSS.Systems.Ranger
 			Reagent.Bloodmoss
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Third; }
-		}
+		public override SpellCircle Circle => SpellCircle.Third;
 
 
-		public override double RequiredSkill { get { return 85.0; } }
-		public override int RequiredMana { get { return 19; } }
+		public override double RequiredSkill => 85.0;
+		public override int RequiredMana => 19;
 
 		public static void Initialize()
 		{

@@ -19,10 +19,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.Nightshade
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.First; }
-		}
+		public override SpellCircle Circle => SpellCircle.First;
 
 		public AncientDetectTrapSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)

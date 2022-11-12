@@ -22,18 +22,15 @@ namespace Server.ACC.CSS.Systems.Undead
 			CReagent.SpringWater
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Second; }
-		}
+		public override SpellCircle Circle => SpellCircle.Second;
 
 		public UndeadLureStoneSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
 		}
 
-		public override double CastDelay { get { return 1.0; } }
-		public override double RequiredSkill { get { return 15.0; } }
-		public override int RequiredMana { get { return 80; } }
+		public override double CastDelay => 1.0;
+		public override double RequiredSkill => 15.0;
+		public override int RequiredMana => 80;
 
 		public override bool CheckCast()
 		{
@@ -85,7 +82,7 @@ namespace Server.ACC.CSS.Systems.Undead
 			private DateTime m_End;
 			private readonly Mobile m_Owner;
 
-			public override bool BlocksFit { get { return true; } }
+			public override bool BlocksFit => true;
 
 			public InternalItema(Point3D loc, Map map, Mobile caster) : base(0x3D64)
 			{
@@ -114,7 +111,7 @@ namespace Server.ACC.CSS.Systems.Undead
 			{
 			}
 
-			public override bool HandlesOnMovement { get { return true; } }
+			public override bool HandlesOnMovement => true;
 
 			public override void Serialize(GenericWriter writer)
 			{
@@ -192,7 +189,7 @@ namespace Server.ACC.CSS.Systems.Undead
 			private Timer m_Timer;
 			private DateTime m_End;
 
-			public override bool BlocksFit { get { return true; } }
+			public override bool BlocksFit => true;
 
 			public InternalItemb(Point3D loc, Map map, Mobile caster) : base(0x3D64)
 			{

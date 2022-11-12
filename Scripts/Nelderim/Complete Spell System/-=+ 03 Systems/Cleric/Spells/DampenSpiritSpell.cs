@@ -18,15 +18,12 @@ namespace Server.ACC.CSS.Systems.Cleric
 			9041
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Fourth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Fourth;
 
-		public override int RequiredTithing { get { return 15; } }
-		public override double RequiredSkill { get { return 35.0; } }
+		public override int RequiredTithing => 15;
+		public override double RequiredSkill => 35.0;
 
-		public override int RequiredMana { get { return 11; } }
+		public override int RequiredMana => 11;
 
 		private static readonly Hashtable m_Table = new Hashtable();
 

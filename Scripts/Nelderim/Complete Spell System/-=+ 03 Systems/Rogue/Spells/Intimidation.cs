@@ -18,16 +18,13 @@ namespace Server.ACC.CSS.Systems.Rogue
 			Reagent.PowderOfTranslocation
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Fourth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Fourth;
 
-		public override double CastDelay { get { return 3; } }
+		public override double CastDelay => 3;
 
-		public override double RequiredSkill { get { return 80.0; } }
+		public override double RequiredSkill => 80.0;
 
-		public override int RequiredMana { get { return 35; } }
+		public override int RequiredMana => 35;
 
 		public RogueIntimidationSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

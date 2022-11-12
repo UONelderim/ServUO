@@ -20,10 +20,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.SulfurousAsh
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Second; }
-		}
+		public override SpellCircle Circle => SpellCircle.Second;
 
 		private FakeGold m_Fake;
 

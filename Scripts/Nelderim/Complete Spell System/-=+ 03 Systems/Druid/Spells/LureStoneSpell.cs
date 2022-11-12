@@ -22,10 +22,7 @@ namespace Server.ACC.CSS.Systems.Druid
 			CReagent.SpringWater
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Second; }
-		}
+		public override SpellCircle Circle => SpellCircle.Second;
 
 		public DruidLureStoneSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
@@ -33,9 +30,9 @@ namespace Server.ACC.CSS.Systems.Druid
 				Scroll.Consume();
 		}
 
-		public override double CastDelay { get { return 1.0; } }
-		public override double RequiredSkill { get { return 15.0; } }
-		public override int RequiredMana { get { return 80; } }
+		public override double CastDelay => 1.0;
+		public override double RequiredSkill => 15.0;
+		public override int RequiredMana => 80;
 
 		public override bool CheckCast()
 		{
@@ -87,7 +84,7 @@ namespace Server.ACC.CSS.Systems.Druid
 			private DateTime m_End;
 			private readonly Mobile m_Owner;
 
-			public override bool BlocksFit { get { return true; } }
+			public override bool BlocksFit => true;
 
 			public InternalItema(Point3D loc, Map map, Mobile caster) : base(0x1355)
 			{
@@ -115,7 +112,7 @@ namespace Server.ACC.CSS.Systems.Druid
 			{
 			}
 
-			public override bool HandlesOnMovement { get { return true; } }
+			public override bool HandlesOnMovement => true;
 
 			public override void Serialize(GenericWriter writer)
 			{
@@ -193,7 +190,7 @@ namespace Server.ACC.CSS.Systems.Druid
 			private Timer m_Timer;
 			private DateTime m_End;
 
-			public override bool BlocksFit { get { return true; } }
+			public override bool BlocksFit => true;
 
 			public InternalItemb(Point3D loc, Map map, Mobile caster) : base(0x1356)
 			{

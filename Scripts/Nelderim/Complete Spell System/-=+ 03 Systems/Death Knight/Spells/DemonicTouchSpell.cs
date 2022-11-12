@@ -14,10 +14,10 @@ namespace Server.Spells.DeathKnight
 				9061
 			);
 
-		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 1 ); } }
-		public override int RequiredTithing{ get{ return 21; } }
-		public override double RequiredSkill{ get{ return 15.0; } }
-		public override int RequiredMana{ get{ return 16; } }
+		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 1 );
+		public override int RequiredTithing => 21;
+		public override double RequiredSkill => 15.0;
+		public override int RequiredMana => 16;
 
 		public DemonicTouchSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
 		{

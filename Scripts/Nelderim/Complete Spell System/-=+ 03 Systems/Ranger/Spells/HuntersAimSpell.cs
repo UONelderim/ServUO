@@ -21,14 +21,11 @@ namespace Server.ACC.CSS.Systems.Ranger
 			Reagent.Bloodmoss
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Fourth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Fourth;
 
-		public override double CastDelay { get { return 3.0; } }
-		public override int RequiredMana { get { return 25; } }
-		public override double RequiredSkill { get { return 50; } }
+		public override double CastDelay => 3.0;
+		public override int RequiredMana => 25;
+		public override double RequiredSkill => 50;
 
 		private static readonly Hashtable m_Table = new Hashtable();
 

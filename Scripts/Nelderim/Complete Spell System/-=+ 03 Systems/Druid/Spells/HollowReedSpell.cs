@@ -20,14 +20,11 @@ namespace Server.ACC.CSS.Systems.Druid
 			Reagent.Nightshade
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Second; }
-		}
+		public override SpellCircle Circle => SpellCircle.Second;
 
-		public override double CastDelay { get { return 1.0; } }
-		public override double RequiredSkill { get { return 30.0; } }
-		public override int RequiredMana { get { return 30; } }
+		public override double CastDelay => 1.0;
+		public override double RequiredSkill => 30.0;
+		public override int RequiredMana => 30;
 
 		public DruidHollowReedSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

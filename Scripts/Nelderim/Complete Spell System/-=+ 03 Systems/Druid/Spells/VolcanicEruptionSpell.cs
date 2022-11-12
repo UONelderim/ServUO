@@ -20,14 +20,11 @@ namespace Server.ACC.CSS.Systems.Druid
 			CReagent.DestroyingAngel
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Eighth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Eighth;
 
-		public override double CastDelay { get { return 2.0; } }
-		public override double RequiredSkill { get { return 88.0; } }
-		public override int RequiredMana { get { return 85; } }
+		public override double CastDelay => 2.0;
+		public override double RequiredSkill => 88.0;
+		public override int RequiredMana => 85;
 
 		public DruidVolcanicEruptionSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{

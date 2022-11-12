@@ -19,10 +19,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.MandrakeRoot
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Second; }
-		}
+		public override SpellCircle Circle => SpellCircle.Second;
 
 		public AncientGreatLightSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)

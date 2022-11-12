@@ -20,17 +20,14 @@ namespace Server.ACC.CSS.Systems.Ancient
 			Reagent.SulfurousAsh
 		);
 
-		public override SpellCircle Circle
-		{
-			get { return SpellCircle.Sixth; }
-		}
+		public override SpellCircle Circle => SpellCircle.Sixth;
 
 		public AncientTremorSpell(Mobile caster, Item scroll)
 			: base(caster, scroll, m_Info)
 		{
 		}
 
-		public override bool DelayedDamage { get { return !Core.AOS; } }
+		public override bool DelayedDamage => !Core.AOS;
 
 		public override void OnCast()
 		{
