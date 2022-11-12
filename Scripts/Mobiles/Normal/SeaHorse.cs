@@ -18,7 +18,15 @@ namespace Server.Mobiles
             Skills[SkillName.MagicResist].Base = 25.0 + (Utility.RandomDouble() * 5.0);
             Skills[SkillName.Wrestling].Base = 35.0 + (Utility.RandomDouble() * 10.0);
             Skills[SkillName.Tactics].Base = 30.0 + (Utility.RandomDouble() * 15.0);
+            
+            Tamable = true;
+            ControlSlots = 1;
+            MinTameSkill = 29.1;
         }
+        
+        public override int Meat => 3;
+        public override int Hides => 4;
+        public override FoodType FavoriteFood => FoodType.FruitsAndVegies | FoodType.GrainsAndHay;
 
         public SeaHorse(Serial serial)
             : base(serial)
