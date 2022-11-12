@@ -13,7 +13,7 @@ namespace Server.Mobiles
 		public BronzeColossus() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
 		{
 			// TODO: Gas attack
-			Name = "brazowy kolos";
+			Name = "kolos brazu";
 			Body = 76;
 			Hue = 0x972;
 			BaseSoundID = 268;

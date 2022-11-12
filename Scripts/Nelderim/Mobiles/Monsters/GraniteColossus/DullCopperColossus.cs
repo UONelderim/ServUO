@@ -12,7 +12,7 @@ namespace Server.Mobiles
 		[Constructable]
 		public DullCopperColossus() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
 		{
-			Name = "kolos rudy miedzi";
+			Name = "kolos matowej miedzi";
 			Body = 76;
 			Hue = 0x973;
 			BaseSoundID = 268;

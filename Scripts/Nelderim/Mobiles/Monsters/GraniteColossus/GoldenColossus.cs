@@ -12,7 +12,7 @@ namespace Server.Mobiles
 		[Constructable]
 		public GoldenColossus() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
 		{
-			Name = "zloty kolos";
+			Name = "kolos zlota";
 			Body = 76;
 			Hue = 0x8A5;
 			BaseSoundID = 268;

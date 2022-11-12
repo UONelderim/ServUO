@@ -13,9 +13,8 @@ namespace Server.Mobiles
 		public ValoriteColossus() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
 		{
 			// TODO: Gas attack
-			Name = "Valorytowy kolos";
+			Name = "kolos valorytu";
 			Body = 76;
-			Body = 0x33D;
 			BaseSoundID = 268;
 
 			SetStr(226, 255);

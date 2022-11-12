@@ -12,7 +12,7 @@ namespace Server.Mobiles
 		[Constructable]
 		public VeriteColossus() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
 		{
-			Name = "verytowy kolos";
+			Name = "kolos verytu";
 			Body = 76;
 			Hue = 0x89F;
 			BaseSoundID = 268;
