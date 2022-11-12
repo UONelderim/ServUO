@@ -8,7 +8,6 @@ using static Server.Mobiles.DragonBreath;
 namespace Server.Mobiles
 {
 	[CorpseName("zwloki lodowej jaszczurki")]
-	[TypeAlias("Server.Mobiles.IceLizard")]
 	public class IceLizard : BaseCreature
 	{
 		public static void Initialize()

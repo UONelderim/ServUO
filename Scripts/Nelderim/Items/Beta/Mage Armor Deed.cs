@@ -6,7 +6,6 @@ using Server.Targeting;
 
 namespace Server.Items
 {
-	[TypeAlias("Server.Items.MageArmorScroll")]
 	public class MageArmorScroll : Item
 	{
 		public override int LabelNumber { get { return 1060437; } }
