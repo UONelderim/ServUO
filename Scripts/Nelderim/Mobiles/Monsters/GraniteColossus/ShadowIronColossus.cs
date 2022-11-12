@@ -12,7 +12,7 @@ namespace Server.Mobiles
 		[Constructable]
 		public ShadowIronColossus() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
 		{
-			Name = "kolos rudy shadowa";
+			Name = "kolos mrocznego metalu";
 			Body = 76;
 			Hue = 0x966;
 			BaseSoundID = 268;

@@ -12,7 +12,7 @@ namespace Server.Mobiles
 		[Constructable]
 		public AgapiteColossus() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
 		{
-			Name = "agapitowy kolos";
+			Name = "kolos agapitu";
 			Body = 76;
 			Hue = 0x979;
 			BaseSoundID = 268;

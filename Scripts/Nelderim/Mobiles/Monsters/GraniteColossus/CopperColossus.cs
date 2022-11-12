@@ -12,7 +12,7 @@ namespace Server.Mobiles
 		[Constructable]
 		public CopperColossus() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
 		{
-			Name = "miedziany kolos";
+			Name = "kolos miedzi";
 			Body = 76;
 			Hue = 0x96D;
 			BaseSoundID = 268;
