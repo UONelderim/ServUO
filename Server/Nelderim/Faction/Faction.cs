@@ -6,7 +6,7 @@ namespace Nelderim.Factions
 	[Parsable]
 	public abstract class Faction : NExtension<FactionInfo>
 	{
-		public static Faction[] Factions = new Faction[0x10];
+		public static Faction[] Factions = new Faction[0x100];
 		
 		public static List<Faction> AllFactions = new List<Faction>();
 
