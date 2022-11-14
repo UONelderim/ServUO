@@ -176,7 +176,8 @@ namespace Server.Engines.PartySystem
 					Mobile f = m_Members[i].Mobile;
 
 					f.Send(memberList);
-
+					f.SendIncomingPacket();
+					
 					if (f != m)
 					{
 						MobileStatus.Send(f.NetState, m);
@@ -192,7 +193,9 @@ namespace Server.Engines.PartySystem
 
 						if (m.NetState != null && m.NetState.IsEnhancedClient)
 							Waypoints.Create(m, f, WaypointType.PartyMember);
+						
 					}
+					
 				}
 
 				Packet.Release(memberList);
@@ -285,6 +288,7 @@ namespace Server.Engines.PartySystem
 					Disband();
 				}
 			}
+			m.SendRemovePacket();
 
 			Spells.SkillMasteries.SkillMasterySpell.OnPartyRemoved(m, m_Members == null || m_Members.Count == 0);
 		}
