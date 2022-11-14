@@ -9076,7 +9076,7 @@ namespace Server
 				return false;
 			}
 
-			if (m.Hidden && (m_AccessLevel < AccessLevel.Counselor || (m_AccessLevel < m.AccessLevel && m_AccessLevel < AccessLevel.Administrator)))
+			if (m.Hidden && (m.Party == null || m.Party != Party) && (m_AccessLevel < AccessLevel.Counselor || (m_AccessLevel < m.AccessLevel && m_AccessLevel < AccessLevel.Administrator)))
 			{
 				return false;
 			}
