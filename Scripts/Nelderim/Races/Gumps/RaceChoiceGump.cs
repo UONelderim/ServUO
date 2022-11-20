@@ -40,38 +40,46 @@ namespace Server.Gumps
 
 		public int GetHairGumpId(int hairId)
 		{
-			int offset = m_From.Female ? 10000 : 0;
+			var offset = m_From.Female ? 10000 : 0;
 
-			switch (hairId)
+			return hairId switch
 			{
-				case Hair.Human.Short: return 50700 + offset;
-				case Hair.Human.Long: return 50701 + offset;
-				case Hair.Human.PonyTail: return 50702 + offset;
-				case Hair.Human.Mohawk: return 50703 + offset;
-				case Hair.Human.Pageboy: return 50710 + offset;
-				case Hair.Human.Buns: return 50712 + offset;
-				case Hair.Human.Afro: return 50900 + offset;
-				case Hair.Human.Receeding: return 50901 + offset;
-				case Hair.Human.PigTails: return 50902 + offset;
-				case Hair.Human.Krisna: return 50715 + offset;
-				default: return 0;
-			}
+				Hair.Human.Short => 50700,
+				Hair.Human.Long => 50701,
+				Hair.Human.PonyTail => 50702,
+				Hair.Human.Mohawk => 50703,
+				Hair.Human.Pageboy => 50710,
+				Hair.Human.Buns => 50712,
+				Hair.Human.Afro => 50900,
+				Hair.Human.Receeding => 50901,
+				Hair.Human.PigTails => 50902,
+				Hair.Human.Krisna => 50715,
+				Hair.Elf.MidLong => 50916,
+				Hair.Elf.LongFeather => 50917,
+				Hair.Elf.Short => 50918,
+				Hair.Elf.Mullet => 50919,
+				Hair.Elf.Flower => 50890,
+				Hair.Elf.Long => 50891,
+				Hair.Elf.Knob => 50892,
+				Hair.Elf.Braided => 50893,
+				Hair.Elf.Bun => 50894,
+				Hair.Elf.Spiked => 50895,
+				_ => 0
+			} + offset;
 		}
 
-		public int GetBeardGumpId(int facialHairId)
-		{
-			switch (facialHairId)
+		public int GetBeardGumpId(int facialHairId) =>
+			facialHairId switch
 			{
-				case Beard.Human.Long: return 50801;
-				case Beard.Human.Short: return 50802;
-				case Beard.Human.Goatee: return 50800;
-				case Beard.Human.Mustache: return 50808;
-				case Beard.Human.MidShort: return 50904;
-				case Beard.Human.MidLong: return 50905;
-				case Beard.Human.Vandyke: return 50906;
-				default: return 0;
-			}
-		}
+				Beard.Human.Long => 50801,
+				Beard.Human.Short => 50802,
+				Beard.Human.Goatee => 50800,
+				Beard.Human.Mustache => 50808,
+				Beard.Human.MidShort => 50904,
+				Beard.Human.MidLong => 50905,
+				Beard.Human.Vandyke => 50906,
+				_ => 0
+			};
 
 		public virtual bool AllowAppearanceChange()
 		{

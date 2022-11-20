@@ -34,13 +34,29 @@ namespace Nelderim.Races
 		{
 			new[] // Female
 			{
-				Hair.Human.Bald, Hair.Human.Short, Hair.Human.Long, Hair.Human.PonyTail, Hair.Human.Pageboy,
-				Hair.Human.Buns, Hair.Human.PigTails, Hair.Human.Krisna,
+				Hair.Elf.MidLong,
+				Hair.Elf.LongFeather,
+				Hair.Elf.Short,
+				Hair.Elf.Mullet,
+				Hair.Elf.Flower,
+				Hair.Elf.Long,
+				Hair.Elf.Knob,
+				Hair.Elf.Braided,
+				Hair.Elf.Bun,
+				Hair.Elf.Spiked
 			},
 			new[] // Male
 			{
-				Hair.Human.Bald, Hair.Human.Short, Hair.Human.Long, Hair.Human.PonyTail, Hair.Human.Pageboy,
-				Hair.Human.Receeding, Hair.Human.Krisna,
+				Hair.Elf.MidLong,
+				Hair.Elf.LongFeather,
+				Hair.Elf.Short,
+				Hair.Elf.Mullet,
+				Hair.Elf.Flower,
+				Hair.Elf.Long,
+				Hair.Elf.Knob,
+				Hair.Elf.Braided,
+				Hair.Elf.Bun,
+				Hair.Elf.Spiked
 			}
 		};
 
@@ -48,11 +64,11 @@ namespace Nelderim.Races
 		{
 			new[] // Female
 			{
-				Beard.Human.Clean,
+				Beard.Elf.Clean
 			},
 			new[] // Male
 			{
-				Beard.Human.Clean, Beard.Human.Goatee, Beard.Human.Mustache, Beard.Human.Vandyke,
+				Beard.Elf.Clean
 			}
 		};
 	}
