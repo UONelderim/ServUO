@@ -1,27 +1,30 @@
+using System;
+using Server;
+
 namespace Server
 {
-	public class ArtefaktowyPyl : Item
+	public class PowerScrollPowder : Item
 	{
 		public override double DefaultWeight => 0.01;
 
 		[Constructable]
-		public ArtefaktowyPyl() : this(1)
+		public PowerScrollPowder() : this(1)
 		{
 		}
 
 		[Constructable]
-		public ArtefaktowyPyl(int amount) : base(0x26B8)
+		public PowerScrollPowder(int amount) : base(0x26B8)
 		{
-			Name = "Artefaktowy Pyl";
-			Hue = 1079;
+			Name = "Pyl mocy";
+			Hue = 118;
 			Stackable = true;
 			Amount = amount;
 		}
 
-		public ArtefaktowyPyl(Serial serial) : base(serial)
+		public PowerScrollPowder(Serial serial) : base(serial)
 		{
 		}
-
+		
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
