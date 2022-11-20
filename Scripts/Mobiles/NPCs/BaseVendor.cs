@@ -83,6 +83,8 @@ namespace Server.Mobiles
 
 		public override bool ShowFameTitle => false;
 
+		public virtual Type Currency => typeof(Gold);
+
 		public virtual bool IsValidBulkOrder(Item item)
 		{
 			return false;
@@ -1736,34 +1738,37 @@ namespace Server.Mobiles
 				bought = true;
 			}
 
-			if (!bought)
+			if (Currency == typeof(Gold))
 			{
-				if (totalCost <= Int32.MaxValue)
+				if (!bought)
 				{
-					if (Banker.Withdraw(buyer, (int)totalCost))
+					if (totalCost <= Int32.MaxValue)
+					{
+						if (Banker.Withdraw(buyer, (int)totalCost))
+						{
+							bought = true;
+							fromBank = true;
+						}
+					}
+					else if (buyer.Account != null && AccountGold.Enabled)
+					{
+						if (buyer.Account.WithdrawCurrency(totalCost / AccountGold.CurrencyThreshold))
+						{
+							bought = true;
+							fromBank = true;
+						}
+					}
+				}
+
+				if (!bought)
+				{
+					cont = buyer.FindBankNoCreate();
+
+					if (cont != null && ConsumeGold(cont, totalCost))
 					{
 						bought = true;
 						fromBank = true;
 					}
-				}
-				else if (buyer.Account != null && AccountGold.Enabled)
-				{
-					if (buyer.Account.WithdrawCurrency(totalCost / AccountGold.CurrencyThreshold))
-					{
-						bought = true;
-						fromBank = true;
-					}
-				}
-			}
-
-			if (!bought)
-			{
-				cont = buyer.FindBankNoCreate();
-
-				if (cont != null && ConsumeGold(cont, totalCost))
-				{
-					bought = true;
-					fromBank = true;
 				}
 			}
 
@@ -1771,7 +1776,7 @@ namespace Server.Mobiles
 			{
 				// ? Begging thy pardon, but thy bank account lacks these funds. 
 				// : Begging thy pardon, but thou casnt afford that.
-				SayTo(buyer, totalCost >= 2000 ? 500191 : 500192, 0x3B2);
+				SayTo(buyer, (Currency == typeof(Gold)) && totalCost >= 2000 ? 500191 : 500192, 0x3B2);
 
 				return false;
 			}
@@ -1909,14 +1914,14 @@ namespace Server.Mobiles
 			return true;
 		}
 
-		public static bool ConsumeGold(Container cont, double amount)
+		public bool ConsumeGold(Container cont, double amount)
 		{
 			return ConsumeGold(cont, amount, true);
 		}
 
-		public static bool ConsumeGold(Container cont, double amount, bool recurse)
+		public bool ConsumeGold(Container cont, double amount, bool recurse)
 		{
-			var gold = new Queue<Gold>(FindGold(cont, recurse));
+			var gold = new Queue<Item>(FindGold(cont, recurse));
 			var total = gold.Aggregate(0.0, (c, g) => c + g.Amount);
 
 			if (total < amount)
@@ -1951,7 +1956,7 @@ namespace Server.Mobiles
 			return true;
 		}
 
-		private static IEnumerable<Gold> FindGold(Container cont, bool recurse)
+		protected virtual IEnumerable<Item> FindGold(Container cont, bool recurse)
 		{
 			if (cont == null || cont.Items.Count == 0)
 			{
@@ -1991,9 +1996,9 @@ namespace Server.Mobiles
 						yield return gold;
 					}
 				}
-				else if (item is Gold)
+				else if (item.GetType() == Currency)
 				{
-					yield return (Gold)item;
+					yield return item;
 				}
 			}
 		}
@@ -2151,11 +2156,15 @@ namespace Server.Mobiles
 			{
 				while (giveGold > 60000)
 				{
-					seller.AddToBackpack(new Gold(60000));
+					var fullStack = (Item)Activator.CreateInstance(Currency);
+					fullStack.Amount = 60000;
+					seller.AddToBackpack(fullStack);
 					giveGold -= 60000;
 				}
 
-				seller.AddToBackpack(new Gold(giveGold));
+				var stack = (Item)Activator.CreateInstance(Currency);
+				stack.Amount = giveGold;
+				seller.AddToBackpack(stack);
 
 				seller.PlaySound(0x0037); //Gold dropping sound
 
