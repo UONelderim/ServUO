@@ -95,6 +95,9 @@ namespace Server.Items
             }
         }
         public override string DefaultTitle => string.Format("<basefont color=#FFFFFF>Power Scroll ({0} Skill):</basefont>", Value);
+
+        public override bool IsStandardLoot() => true;
+        
         public static PowerScroll CreateRandom(int min, int max)
         {
             min /= 5;
