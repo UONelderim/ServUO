@@ -17,7 +17,7 @@ namespace Server.OneTime
 
 		public static void Initialize()
 		{
-			EventSink.ServerStarted += OneTimeStarted;
+			// EventSink.ServerStarted += OneTimeStarted;
 		}
 
 		private static void OneTimeStarted()
