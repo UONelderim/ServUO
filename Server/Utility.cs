@@ -1326,7 +1326,7 @@ namespace Server
 		}
 		#endregion
 
-		private static readonly SkillName[] m_AllSkills =
+		public static readonly SkillName[] AllSkills =
 		{
 			SkillName.Alchemy, SkillName.Anatomy, SkillName.AnimalLore, SkillName.ItemID, SkillName.ArmsLore, SkillName.Parry,
 			SkillName.Begging, SkillName.Blacksmith, SkillName.Fletching, SkillName.Peacemaking, SkillName.Camping,
@@ -1341,12 +1341,12 @@ namespace Server
 			SkillName.Ninjitsu, SkillName.Spellweaving, SkillName.Mysticism, SkillName.Imbuing, SkillName.Throwing
 		};
 
-		private static readonly SkillName[] m_CombatSkills =
+		public static readonly SkillName[] CombatSkills =
 		{
 			SkillName.Archery, SkillName.Swords, SkillName.Macing, SkillName.Fencing, SkillName.Wrestling
 		};
 
-		private static readonly SkillName[] m_CraftSkills =
+		public static readonly SkillName[] CraftSkills =
 		{
 			SkillName.Alchemy, SkillName.Blacksmith, SkillName.Fletching, SkillName.Carpentry, SkillName.Cartography,
 			SkillName.Cooking, SkillName.Inscribe, SkillName.Tailoring, SkillName.Tinkering
@@ -1354,17 +1354,17 @@ namespace Server
 
 		public static SkillName RandomSkill()
 		{
-			return m_AllSkills[Random(m_AllSkills.Length - (Core.ML ? 0 : Core.SE ? 1 : Core.AOS ? 3 : 6))];
+			return AllSkills[Random(AllSkills.Length - (Core.ML ? 0 : Core.SE ? 1 : Core.AOS ? 3 : 6))];
 		}
 
 		public static SkillName RandomCombatSkill()
 		{
-			return m_CombatSkills[Random(m_CombatSkills.Length)];
+			return CombatSkills[Random(CombatSkills.Length)];
 		}
 
 		public static SkillName RandomCraftSkill()
 		{
-			return m_CraftSkills[Random(m_CraftSkills.Length)];
+			return CraftSkills[Random(CraftSkills.Length)];
 		}
 
 		public static void FixPoint(ref int top, ref int bottom)
