@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -27,15 +28,35 @@ namespace Server.Mobiles
 				_ => 60000
 			};
 		}
+
+		public class PowerScrollBuyInfo : GenericBuyInfo<PowerScroll>
+		{
+			private static readonly List<SkillName> allowedSkills =
+				PowerScroll.Skills.Where(s => !Utility.CraftSkills.Contains(s)).CastToList<SkillName>();
+
+			private int _powerLevel { get; }
+			
+			public PowerScrollBuyInfo(int powerLevel, int amount) : base (GetBuyPrice(powerLevel), amount, 0x14F0, 0x481)
+			{
+				_powerLevel = powerLevel;
+				CreateCallback = InitializePS;
+			}
+
+			private void InitializePS(PowerScroll powerScroll, GenericBuyInfo buyInfo)
+			{
+				powerScroll.Value = _powerLevel;
+				powerScroll.Skill = Utility.RandomList(allowedSkills);
+			}
+		}
 		
 		public class InternalBuyInfo : List<IBuyItemInfo>
 		{
 			public InternalBuyInfo()
-			{  
-				Add( new GenericBuyInfo( typeof(PowerScroll), GetBuyPrice(105), 50, 0x2DF3, 0 , new object[]{105}) );
-				Add( new GenericBuyInfo( typeof(PowerScroll), GetBuyPrice(110), 40, 0x2DF3, 0 , new object[]{110}) );
-				Add( new GenericBuyInfo( typeof(PowerScroll), GetBuyPrice(115), 30, 0x2DF3, 0 , new object[]{115}) );
-				Add( new GenericBuyInfo( typeof(PowerScroll), GetBuyPrice(120), 20, 0x2DF3, 0 , new object[]{120}) );
+			{
+				Add( new PowerScrollBuyInfo(105, 50));
+				Add( new PowerScrollBuyInfo(110, 40));
+				Add( new PowerScrollBuyInfo(115, 30));
+				Add( new PowerScrollBuyInfo(120, 20));
 			}
 		}
 

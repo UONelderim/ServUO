@@ -6,7 +6,8 @@ namespace Server.Mobiles
 {
 	public class ArtTrader : BaseVendor
 	{
-		protected override List<SBInfo> SBInfos => new List<SBInfo>();
+		private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
+		protected override List<SBInfo> SBInfos => m_SBInfos;
 
 		public override Type Currency => typeof(ArtefaktowyPyl);
 
