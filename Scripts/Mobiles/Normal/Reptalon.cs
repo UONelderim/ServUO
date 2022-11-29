@@ -1,75 +1,95 @@
+using System;
+using Server;
 using Server.Items;
 
 namespace Server.Mobiles
 {
-	[CorpseName("zwloki starej chimery")]
+	[CorpseName( "zwloki starej chimery" )]
 	public class Reptalon : BaseMount
 	{
 		[Constructable]
-		public Reptalon()
-			: base("stara chimera", 0x114, 0x3E90, AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.35)
+		public Reptalon() : base( "stara chimera", 0x114, 0x3E90, AIType.AI_BattleMage, FightMode.Closest, 12, 1, 0.3, 0.35 )
 		{
-			BaseSoundID = 0x16A;
+			BaseSoundID = 0x4FB;
 
-			SetStr(1001, 1025);
-			SetDex(152, 164);
-			SetInt(251, 289);
+			SetStr( 1001, 1025 );
+			SetDex( 152, 164 );
+			SetInt( 401, 478 );  //  251, 289 
 
-			SetHits(833, 931);
+			SetHits( 933, 1031 ); // 833, 931 );
 
-			SetDamage(21, 28);
+			SetDamage( 25, 30 );
+            
+			SetDamageType( ResistanceType.Physical, 25 );
+			SetDamageType( ResistanceType.Fire, 25 );
+			SetDamageType( ResistanceType.Cold, 0 );
+			SetDamageType( ResistanceType.Poison, 25);
+			SetDamageType( ResistanceType.Energy, 25 );
 
-			SetDamageType(ResistanceType.Physical, 0);
-			SetDamageType(ResistanceType.Poison, 25);
-			SetDamageType(ResistanceType.Energy, 75);
+			SetResistance( ResistanceType.Physical, 53, 64 );
+			SetResistance( ResistanceType.Fire, 60, 70 );
+			SetResistance( ResistanceType.Cold, 55, 65 );
+			SetResistance( ResistanceType.Poison, 65, 75 );
+			SetResistance( ResistanceType.Energy, 71, 83 );
+			
 
-			SetResistance(ResistanceType.Physical, 53, 64);
-			SetResistance(ResistanceType.Fire, 35, 45);
-			SetResistance(ResistanceType.Cold, 36, 45);
-			SetResistance(ResistanceType.Poison, 52, 63);
-			SetResistance(ResistanceType.Energy, 71, 83);
 
-			SetSkill(SkillName.Wrestling, 101.5, 118.2);
-			SetSkill(SkillName.Tactics, 101.7, 108.2);
-			SetSkill(SkillName.MagicResist, 76.4, 89.9);
-			SetSkill(SkillName.Anatomy, 56.4, 59.7);
 
+			SetSkill( SkillName.Wrestling, 101.5, 118.2 );
+			SetSkill( SkillName.Tactics, 101.7, 108.2 );
+			SetSkill( SkillName.MagicResist, 99.1, 100.0 );
+			SetSkill( SkillName.Anatomy, 56.4, 59.7 );
+			SetSkill( SkillName.EvalInt, 50.1, 70.0 );
+			SetSkill( SkillName.Magery, 50.1, 70.0 );
+			
+			
+			VirtualArmor = 60;
+			
 			Tamable = true;
-			ControlSlots = 4;
-			MinTameSkill = 110;
-
-			SetWeaponAbility(WeaponAbility.ParalyzingBlow);
-			SetSpecialAbility(SpecialAbility.DragonBreath);
+			ControlSlots = 5;
+			Hue = 2586;
+			MinTameSkill = 115.1;
 		}
-
-		public Reptalon(Serial serial)
-			: base(serial)
-		{
-		}
-
-		public override int TreasureMapLevel => 5;
-		public override int Meat => 4;
-		public override MeatType MeatType => MeatType.DinoRibs;
-		public override int Hides => 10;
-		public override bool CanAngerOnTame => true;
-		public override bool StatLossAfterTame => true;
-		public override FoodType FavoriteFood => FoodType.Meat;
-		public override bool CanFly => true;
 
 		public override void GenerateLoot()
 		{
-			AddLoot(LootPack.UltraRich, 3);
+			AddLoot( LootPack.AosUltraRich, 3 );
 		}
 
-		public override void Serialize(GenericWriter writer)
+        public override void AddWeaponAbilities()
+        {
+            WeaponAbilities.Add( WeaponAbility.ParalyzingBlow, 0.4 );
+			WeaponAbilities.Add( WeaponAbility.WhirlwindAttack, 0.4 );
+			WeaponAbilities.Add( WeaponAbility.CrushingBlow, 0.133 );
+			WeaponAbilities.Add( WeaponAbility.MortalStrike, 0.133 );
+        }
+
+		public override int TreasureMapLevel{ get{ return 5; } }
+		public override int Meat{ get{ return 5; } }
+		public override int Hides{ get{ return 10; } }
+		public override HideType HideType{ get{ return HideType.Horned; } }
+		public override bool CanBreath{ get{ return true; } }
+		public override bool CanAngerOnTame{ get { return true; } }
+		public override bool StatLossAfterTame{ get{ return true; } }
+		public override FoodType FavoriteFood{ get{ return FoodType.Meat; } }
+		public override Poison PoisonImmune{ get{ return Poison.Deadly; } }		
+		public override Poison HitPoison{ get{ return Poison.Deadly; } }
+
+		public Reptalon( Serial serial ) : base( serial )
 		{
-			base.Serialize(writer);
-			writer.Write(1); // version
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Deserialize(reader);
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
 			int version = reader.ReadInt();
 		}
 	}
