@@ -54,6 +54,11 @@
 				<child name="Kopalnia" x="5186" y="1147" z="0" />
 				<child name="Wesola Mlynareczka" x="1013" y="680" z="2" />
 			</parent>
+			<parent name="L'Delmah (podmrok)">
+				<child name="Wejscie / bank" x="5361" y="2096" z="20" />
+				<child name="Swiatynia" x="5376" y="1965" z="12" />
+				<child name="domy mieszkalne" x="5242" y="2077" z="0" />
+			</parent>
 			<parent name="Orod">
 				<child name="Brama Zachodnia" x="543" y="2010" z="0" />
 				<child name="Brama Wschodnia" x="806" y="1878" z="0" />
@@ -106,6 +111,7 @@
 			<child name="Oaza" x="2311" y="2560" z="0" />
 		</parent>
 		<parent name="Podmrok">
+			<child name="Miasto" x="5361" y="2096" z="20" />
 			<child name="Wioska" x="5942" y="321" z="2" />
 			<child name="Kopalnia" x="5906" y="549" z="4" />
 			<child name="Wyjscie" x="1989" y="2442" z="5" />
@@ -115,7 +121,9 @@
 			<child name="Wioska" x="5555" y="1116" z="0" />
 			<child name="Brama Smokow" x="2549" y="1787" z="2" />
 			<child name="Brama Mroku" x="5651" y="1120" z="0" />
-			<child name="Kopalnia" x="5551" y="1214" z="1" />
+			<child name="Swiatynia (wioska)" x="5330" y="413" z="0" />
+			<child name="Kopalnia (wioska)" x="5906" y="549" z="4" />
+			<child name="Kopalnia (miasto)" x="5932" y="1990" z="0" />
 			<child name="Pod Zelaznym Mlotem" x="5517" y="1100" z="0" />
 		</parent>
 		<parent name="Zamki">
@@ -160,13 +168,18 @@
 				<child name="Tasandora" x="1273" y="1795" z="35" />
 			</parent>
 		</parent>
+		<parent name="Loethe">
+				<child name="Swiatynia w Noamuth Quortek" x="5330" y="413" z="0" />
+				<child name="Swiatynia w L'Delmah" x="5376" y="1965" z="12" />
+		</parent>
 		<parent name="Kopalnie">
 			<child name="Tasandora" x="1365" y="1888" z="0" />
 			<child name="Garlan" x="5186" y="1147" z="0" />
 			<child name="Ethrod" x="783" y="1468" z="-20" />
 			<child name="Saew" x="1360" y="645" z="0" />
 			<child name="Twierdzy" x="5551" y="1214" z="1" />
-			<child name="Podmroku" x="5906" y="549" z="4" />
+			<child name="Noamuth Quortek" x="5906" y="549" z="4" />
+			<child name="LDelmah" x="5932" y="1990" z="0" />
 			<child name="Zagubiona Kopalnia" x="5159" y="417" z="0" />
 		</parent>
 		<parent name="Karczmy">
