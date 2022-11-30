@@ -95,7 +95,7 @@ namespace Nelderim.Towns
 		// Bedwyrgard = 1,
 		//  Magizhaar = 2,
 		//  Malluan = 3,
-		Wioska_Drowow = 4,
+		LDelmah = 4,
 		Tasandora = 1,
 		Garlan = 2,
 		Twierdza = 3
