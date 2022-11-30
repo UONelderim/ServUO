@@ -513,13 +513,13 @@ namespace Server.Mobiles
 		
 		private bool IsSpidersFriend(Mobile m)
 		{
-			if (m.Race == Race.NDrow || TownDatabase.IsCitizenOfGivenTown(m, Towns.Wioska_Drowow))
+			if (m.Race == Race.NDrow || TownDatabase.IsCitizenOfGivenTown(m, Towns.LDelmah))
 				return true;
 			
 			if (m is BaseCreature bc &&  bc.Controlled)
 			{
 				Mobile master = bc.ControlMaster;
-				if (master?.Race == Race.NDrow || TownDatabase.IsCitizenOfGivenTown(master, Towns.Wioska_Drowow))
+				if (master?.Race == Race.NDrow || TownDatabase.IsCitizenOfGivenTown(master, Towns.LDelmah))
 					return true;
 			}
 			return false;

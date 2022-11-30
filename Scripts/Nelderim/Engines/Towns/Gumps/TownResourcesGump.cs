@@ -2363,7 +2363,7 @@ namespace Server.Gumps
 										m_toGive = new MiastowaSzataTwierdza();
 										from.AddToBackpack(m_toGive);
 										break;
-									case Towns.Wioska_Drowow:
+									case Towns.LDelmah:
 										TownDatabase.GetCitinzeship(from).UseDevotion(2000);
 										m_toGive = new MiastowaSzataWioskaDrowow();
 										from.AddToBackpack(m_toGive);
@@ -2406,7 +2406,7 @@ namespace Server.Gumps
 										m_toGive = new MiastowaSzataZKapturemTwierdza();
 										from.AddToBackpack(m_toGive);
 										break;
-									case Towns.Wioska_Drowow:
+									case Towns.LDelmah:
 										TownDatabase.GetCitinzeship(from).UseDevotion(10000);
 										m_toGive = new MiastowaSzataZKapturemWioskaDrowow();
 										from.AddToBackpack(m_toGive);
@@ -2454,7 +2454,7 @@ namespace Server.Gumps
 									//     m_toGive = new MiastowaSzataTwierdza();
 									//     from.AddToBackpack(m_toGive);
 									//     break;
-									case Towns.Wioska_Drowow:
+									case Towns.LDelmah:
 										TownDatabase.GetCitinzeship(from).UseDevotion(1000);
 										m_toGive = new PigmentDrow();
 										from.AddToBackpack(m_toGive);
@@ -3047,7 +3047,7 @@ namespace Server.Gumps
 			AddTownButton(10, 50, Towns.Tasandora);
 			AddTownButton(10, 70, Towns.Garlan);
 			AddTownButton(10, 90, Towns.Twierdza);
-			AddTownButton(10, 110, Towns.Wioska_Drowow);
+			AddTownButton(10, 110, Towns.LDelmah);
 		}
 
 		public override void OnResponse(NetState sender, RelayInfo info)
