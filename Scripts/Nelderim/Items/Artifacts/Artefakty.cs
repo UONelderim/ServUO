@@ -927,10 +927,17 @@ namespace Server.Items
                 case ArtGroup.Fishing:
                     DistributeArtifact(creature, CreateRandomFishingArtifact());
                     break;
+                case ArtGroup.Elghin:
+	                DistributeArtifact(creature, CreateRandomElghinArtifact());
+	                break;
+                case ArtGroup.CustomChamp:
+	                DistributeArtifact(creature, CreateRandomCustomChampArtifact());
+	                break;
 
 
                 case ArtGroup.None:
                 default:
+	                Console.WriteLine("Unknown ArtGroup for " + creature.GetType().Name);
                     break;
             }
         }
