@@ -1,3 +1,4 @@
+
 // 06.05.18 :: Migalart :: utworzenie
 
 #region References
@@ -12,7 +13,7 @@ namespace Server.Mobiles
 	public class NPrzeklety : BaseCreature
 	{
 		[Constructable]
-		public NPrzeklety() : base(AIType.AI_Boss, FightMode.Closest, 12, 2, 0.2, 0.4)
+		public NPrzeklety() : base(AIType.AI_NecroMage, FightMode.Closest, 12, 2, 0.2, 0.4)
 		{
 			Name = "przeklety";
 			Body = 259;
