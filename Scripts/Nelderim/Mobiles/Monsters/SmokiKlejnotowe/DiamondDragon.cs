@@ -48,6 +48,8 @@ namespace Server.Mobiles
 			Tamable = false;
 			ControlSlots = 3;
 			MinTameSkill = 105.2;
+			
+			SetSpecialAbility(SpecialAbility.DragonBreath);
 		}
 		
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)
@@ -65,17 +67,13 @@ namespace Server.Mobiles
 			base.OnCarve(from, corpse, with);
 		}
 		
-	    public override void AddWeaponAbilities()
-        {
-	        WeaponAbilities.Add( WeaponAbility.WhirlwindAttack, 0.3 );
-        }
 
 		public override void GenerateLoot()
 		{
 			AddLoot( LootPack.FilthyRich, 5 );
 		}
 		
-		public override bool HasBreath{ get{ return true; } } // fire breath enabled
+		
 		public override bool AutoDispel{ get{ return true; } }
 		public override int TreasureMapLevel{ get{ return 5; } }
 		public override int Meat{ get{ return 19; } }
