@@ -39,13 +39,13 @@ namespace Server.Mobiles
 			Fame = 5500;
 			Karma = -5500;
 
-			VirtualArmor = 46;
+			
 
 			Tamable = false;
 			ControlSlots = 2;
 			MinTameSkill = 84.0;
 
-			PackReg( 3 );
+			SetSpecialAbility(SpecialAbility.DragonBreath);
 		}
 		
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)
@@ -67,7 +67,7 @@ namespace Server.Mobiles
 			AddLoot( LootPack.Rich, 5 );
 		}
 		
-		public override bool HasBreath{ get{ return true; } } // fire breath enabled
+		
 		public override int TreasureMapLevel{ get{ return 3; } }
 		public override int Meat{ get{ return 19; } }
 		public override int Hides{ get{ return 10; } }
