@@ -2,64 +2,62 @@
 // ** Basic Trap Framework (BTF)
 // ** Author: Lichbane
 //
-
-#region References
-
+using System;
 using Server.Mobiles;
-
-#endregion
 
 namespace Server.Items
 {
-	public class LightningRegularTrap : BaseTinkerTrap
-	{
-		private static readonly string m_ArmedName = "uzbrojona porażająca pułapka";
-		private static readonly string m_UnarmedName = "nieuzbrojona porażająca pułapka";
-		private static readonly double m_ExpiresIn = 120.0;
-		private static readonly int m_ArmingSkill = 25;
-		private static readonly int m_DisarmingSkill = 50;
-		private static readonly int m_KarmaLoss = 50;
-		private static readonly bool m_AllowedInTown = false;
+    public class LightningRegularTrap : BaseTinkerTrap
+    {
+        private Boolean m_TrapArmed = false;
+        private DateTime m_TimeTrapArmed;
 
-		[Constructable]
-		public LightningRegularTrap()
-			: base(m_ArmedName, m_UnarmedName, m_ExpiresIn, m_ArmingSkill, m_DisarmingSkill, m_KarmaLoss,
-				m_AllowedInTown)
-		{
-		}
+        private static string m_ArmedName = "uzbrojona porażająca pułapka";
+        private static string m_UnarmedName = "nieuzbrojona porażająca pułapka";
+        private static double m_ExpiresIn = 900.0;
+        private static int m_ArmingSkill = 25;
+        private static int m_DisarmingSkill = 50;
+        private static int m_KarmaLoss = 50;
+        private static bool m_AllowedInTown = false;
 
-		public override void TrapEffect(Mobile from)
-		{
-			from.PlaySound(0x4A); // click sound
+        [Constructable]
+        public LightningRegularTrap()
+            : base(m_ArmedName, m_UnarmedName, m_ExpiresIn, m_ArmingSkill, m_DisarmingSkill, m_KarmaLoss, m_AllowedInTown)
+        {
+        }
 
-			from.BoltEffect(0);
+        public override void TrapEffect(Mobile from)
+        {
+            from.PlaySound(0x4A);  // click sound
 
-			int damage = Utility.RandomMinMax(30, 50);
-			AOS.Damage(from, from, damage, 50, 0, 0, 0, 100);
+            from.BoltEffect(0);
 
-			bool m_TrapsLimit = Trapcrafting.Config.TrapsLimit;
-			if ((m_TrapsLimit) && (((PlayerMobile)this.Owner).TrapsActive > 0))
-				((PlayerMobile)this.Owner).TrapsActive -= 1;
+            int damage = Utility.RandomMinMax(30, 50);
+            AOS.Damage(from, from, damage, 50, 0, 0, 0, 100);
 
-			this.Delete();
-		}
+            bool m_TrapsLimit = Trapcrafting.Config.TrapsLimit;
+            if ((m_TrapsLimit) && (((PlayerMobile)this.Owner).TrapsActive > 0))
+                ((PlayerMobile)this.Owner).TrapsActive -= 1;
 
-		public LightningRegularTrap(Serial serial) : base(serial)
-		{
-		}
+            this.Delete();
+        }
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
+        public LightningRegularTrap(Serial serial) : base(serial)
+        {
+        }
 
-			writer.Write(0); // version
-		}
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
 
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
+            writer.Write((int)0); // version
+        }
 
-			int version = reader.ReadInt();
-		}
-	}
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
 }
