@@ -89,5 +89,15 @@ namespace Server.Mobiles
 		public virtual double SwitchTargetChance => 0.05;
 
 		public virtual bool IgnoreHonor => false;
+
+		[CommandProperty(AccessLevel.GameMaster)]
+		public bool Muted
+		{
+			get => DateTime.Now < MutedUntil;
+			set => MutedUntil = DateTime.Now.AddHours(value ? 3 : 0);
+		}
+
+		[CommandProperty(AccessLevel.GameMaster, true)]
+		public DateTime MutedUntil { get; private set; }
 	}
 }
