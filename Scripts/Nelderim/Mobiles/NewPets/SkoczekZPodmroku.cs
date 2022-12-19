@@ -8,7 +8,7 @@ using Server.Network;
 
 namespace Server.Mobiles
 {
-	[CorpseName("zlowki skoczka z podmroku ")]
+	[CorpseName("zwloki skoczka z podmroku ")]
 	public class SkoczekZPodmroku : BaseMount
 	{
 		public override TimeSpan MountAbilityDelay { get { return TimeSpan.FromHours(1.0); } }
