@@ -1,8 +1,6 @@
 #region References
 
-using System;
 using System.Collections.Generic;
-using Server.Items;
 
 #endregion
 
@@ -21,9 +19,10 @@ namespace Server.Mobiles
 						m.Emote("*Szlocha...*");
 					},
 					m => m.Say("Znowu mnie wyruchali bez mydła!"),
-					m => { 
+					m =>
+					{
 						m.Say("Płaczę bo lubię!");
-						m.Emote("*Szlocha...*"); 
+						m.Emote("*Szlocha...*");
 					},
 					m => m.Say("Dlaczego wojownik musi mieć pod górkę?!"),
 					m =>
@@ -39,10 +38,12 @@ namespace Server.Mobiles
 					m => m.Say("Do czego by się tu dzisiaj przypierdolić..."),
 					m => m.Say("Dobra nie mam siły do ciebie."),
 					m => m.Say("Chciałem być kowalem, a zostałem furiatem!"),
-					m => m.Say("Czysty wojownik nie ma szans w tym świecie... dlatego postanowiłem, że przestaje sie myć!"),
+					m => m.Say(
+						"Czysty wojownik nie ma szans w tym świecie... dlatego postanowiłem, że przestaje sie myć!"),
 					m => m.Say("Od poł godziny probuje ustalić co ci nie pasuje..."),
 					m => m.Say("Nie pyskuj gnoju!"),
-					m => m.Say("Czy słyszałeś już, że krasnoludy dużo pierdzą po grochówce? Chcesz bym ci o tym opowiedział?"),
+					m => m.Say(
+						"Czy słyszałeś już, że krasnoludy dużo pierdzą po grochówce? Chcesz bym ci o tym opowiedział?"),
 					m =>
 					{
 						m.Say("To wszystko wina świata!");
@@ -77,7 +78,7 @@ namespace Server.Mobiles
 		public Fuglus(Serial serial) : base(serial)
 		{
 		}
-		
+
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);

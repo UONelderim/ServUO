@@ -1,7 +1,6 @@
 #region References
 
 using System.Collections.Generic;
-using CPA = Server.CommandPropertyAttribute;
 
 #endregion
 
@@ -22,8 +21,9 @@ namespace Server.Mobiles
 		public CleanNPC(Serial serial) : base(serial)
 		{
 		}
-		
+
 		protected override List<SBInfo> SBInfos { get; }
+
 		public override void InitSBInfo()
 		{
 		}

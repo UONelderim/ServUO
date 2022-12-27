@@ -1,6 +1,5 @@
 #region References
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Server.Items;
@@ -54,26 +53,25 @@ namespace Server.Mobiles
 			m => m.Say("Potężne złoże tu wyczuwam..."),
 			m => m.Say("Kiedyś się dorobię i sam sobie pałac zbuduje... kiedyś"),
 		};
-		
+
 		private static readonly Dictionary<Race, List<Action>> _Actions = new Dictionary<Race, List<Action>>
 		{
+			{ Race.DefaultRace, _DefaultActions },
 			{
-				Race.DefaultRace, _DefaultActions
+				Race.NTamael,
+				_DefaultActions
+					.Concat(new List<Action> { m => m.Say("Aż miło pracować na potęgę wielkiej Tasandory"), })
+					.ToList()
 			},
 			{
-				Race.NTamael, _DefaultActions.Concat(new List<Action>
-				{
-					m => m.Say("Aż miło pracować na potęgę wielkiej Tasandory"),
-				}).ToList()
+				Race.NJarling,
+				_DefaultActions
+					.Concat(new List<Action> { m => m.Say("Pierdoleni Tamaelowie... urobek mi podkradają..."), })
+					.ToList()
 			},
 			{
-				Race.NJarling, _DefaultActions.Concat(new List<Action>
-				{
-					m => m.Say("Pierdoleni Tamaelowie... urobek mi podkradają..."),
-				}).ToList()
-			},
-			{
-				Race.NKrasnolud, _DefaultActions.Concat(new List<Action>
+				Race.NKrasnolud,
+				_DefaultActions.Concat(new List<Action>
 				{
 					m => m.Say("Bez smoków, tak to można pracować..."),
 					m => m.Say("Wole pracować z Jarlingami niż z tymi tasandorskimi parchami..."),
@@ -93,7 +91,7 @@ namespace Server.Mobiles
 			base.InitOutfit();
 
 			EquipItem(new Pickaxe());
-			
+
 			if (Utility.RandomBool())
 			{
 				Lantern lantern = new Lantern();

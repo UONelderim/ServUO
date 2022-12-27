@@ -3,7 +3,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Server.Items;
-using CPA = Server.CommandPropertyAttribute;
 
 #endregion
 
@@ -45,12 +44,10 @@ namespace Server.Mobiles
 				m.Emote("*Zamyśla się*");
 			}
 		};
-		
+
 		private static readonly Dictionary<Race, List<Action>> _Actions = new Dictionary<Race, List<Action>>
 		{
-			{
-				Race.DefaultRace, _DefaultActions
-			},
+			{ Race.DefaultRace, _DefaultActions },
 			{
 				Race.NTamael, _DefaultActions.Concat(new List<Action>
 				{
@@ -99,7 +96,7 @@ namespace Server.Mobiles
 		public override void InitOutfit()
 		{
 			base.InitOutfit();
-			
+
 			if (Utility.Random(3) == 0)
 			{
 				EquipItem(new Pitchfork());
@@ -109,7 +106,7 @@ namespace Server.Mobiles
 		public Chlop(Serial serial) : base(serial)
 		{
 		}
-		
+
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);

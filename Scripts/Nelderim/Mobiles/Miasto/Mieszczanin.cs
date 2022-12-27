@@ -1,8 +1,6 @@
 #region References
 
-using System;
 using System.Collections.Generic;
-using Server.Items;
 
 #endregion
 
@@ -12,9 +10,7 @@ namespace Server.Mobiles
 	{
 		private static readonly Dictionary<Race, List<Action>> _Actions = new Dictionary<Race, List<Action>>
 		{
-			{
-				Race.DefaultRace, new List<Action>()
-			},
+			{ Race.DefaultRace, new List<Action>() },
 			{
 				Race.NTamael, new List<Action>
 				{
@@ -38,7 +34,8 @@ namespace Server.Mobiles
 					},
 					m => m.Say("Sąsiad cholerny nowego konia sobie kupił... Ciekawe skąd ma na to pieniądze..."),
 					m => m.Say("Tasandora dla Tamaeli!"),
-					m => {
+					m =>
+					{
 						m.Say("Cholipka...");
 						m.Emote("*Rozgląda się powoli wzdychając*");
 					},
@@ -98,7 +95,8 @@ namespace Server.Mobiles
 						m.Emote("*Wrzeszczy*");
 						m.Say("Rządamy niższych podatków!");
 					},
-					m => m.Say("Śnieg, mróz i srogie zimy... dziadek mi o nich opowiadał. Geriador usłany był płatkami śniegu."),
+					m => m.Say(
+						"Śnieg, mróz i srogie zimy... dziadek mi o nich opowiadał. Geriador usłany był płatkami śniegu."),
 					m =>
 					{
 						m.Emote("*Parska*");
@@ -139,9 +137,11 @@ namespace Server.Mobiles
 					m => m.Say("Śmierć Krasnoludom, śmierć Tamaelom"),
 					m => m.Emote("*Podrzuca złotą monetę*"),
 					m => m.Emote("*Wybucha śmiechem*"),
-					m => m.Say("...i wtedy ja mu mówię 'Lepiej się cofnij'... i wiesz co? Cofnął się... Głupi Krasnal..."),
+					m => m.Say(
+						"...i wtedy ja mu mówię 'Lepiej się cofnij'... i wiesz co? Cofnął się... Głupi Krasnal..."),
 					m => m.Emote("*Wydmuchuje nos*"),
-					m => m.Say("...zioła... zaklęcia ...i.. tłuczek... miecza nie ma na tej liście? Jak ja mam niby walczyć?!"),
+					m => m.Say(
+						"...zioła... zaklęcia ...i.. tłuczek... miecza nie ma na tej liście? Jak ja mam niby walczyć?!"),
 				}
 			},
 			{
@@ -212,7 +212,8 @@ namespace Server.Mobiles
 					m => m.Say("Czym by tu się zająć... Eh stara bieda"),
 					m => m.Say("Nie chce mi sie gadać... Idź już sobie"),
 					m => m.Say("Ci strażnicy to by mogli zacząć łapać kogo trzeba, a nie biednych mieszkańców męczą"),
-					m => m.Say("Póki Krasnoludy nie zaczną rządzić tym wypizdowiem to będzie tu ciągle te same gówno..."),
+					m => m.Say(
+						"Póki Krasnoludy nie zaczną rządzić tym wypizdowiem to będzie tu ciągle te same gówno..."),
 					m => m.Say("A idź do diabła pieprzony tamelski kurwisynu..."),
 					m => m.Emote("*Klnie pod nosem*"),
 					m =>
@@ -245,7 +246,7 @@ namespace Server.Mobiles
 		public Mieszczanin() : base("- Mieszczanin")
 		{
 		}
-		
+
 		public override void OnGenderChanged(bool oldFemale)
 		{
 			base.OnGenderChanged(oldFemale);
@@ -262,7 +263,7 @@ namespace Server.Mobiles
 		public Mieszczanin(Serial serial) : base(serial)
 		{
 		}
-		
+
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);

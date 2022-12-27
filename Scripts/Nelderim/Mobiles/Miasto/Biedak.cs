@@ -12,7 +12,8 @@ namespace Server.Mobiles
 		private static readonly Dictionary<Race, List<Action>> _Actions = new Dictionary<Race, List<Action>>
 		{
 			{
-				Race.DefaultRace, new List<Action>
+				Race.DefaultRace,
+				new List<Action>
 				{
 					m => m.Say("Daj Panie choć złamanego grosza..."),
 					m => m.Say("...i tak to właśnie pozbyłem się mego dobytku..."),
@@ -29,7 +30,7 @@ namespace Server.Mobiles
 		};
 
 		protected override Dictionary<Race, List<Action>> NpcActions => _Actions;
-		
+
 		[Constructable]
 		public Biedak() : base("- Biedak")
 		{
@@ -38,7 +39,7 @@ namespace Server.Mobiles
 		public Biedak(Serial serial) : base(serial)
 		{
 		}
-		
+
 		public override void OnGenderChanged(bool oldFemale)
 		{
 			base.OnGenderChanged(oldFemale);

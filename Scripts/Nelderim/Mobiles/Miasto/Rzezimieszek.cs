@@ -25,7 +25,6 @@ namespace Server.Mobiles
 					m => m.Say("Dawaj co masz albo przetrące Ci łeb!"),
 					m => m.Say("Wychędoże Cie w oczodoły!"),
 					m => m.Say("Wracaj tu kurwisynu!"),
-					
 				}
 			}
 		};
@@ -52,7 +51,7 @@ namespace Server.Mobiles
 		public override void InitOutfit()
 		{
 			base.InitOutfit();
-			
+
 			SetWearable(new Bandana(), GetRandomHue(), 1.0);
 			EquipItem(Loot.RandomWeapon());
 		}
