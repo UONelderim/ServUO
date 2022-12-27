@@ -45,20 +45,20 @@ namespace Server.Mobiles
 			SetResistance(ResistanceType.Cold, 40, 45);
 			SetResistance(ResistanceType.Poison, 35, 50);
 			SetResistance(ResistanceType.Energy, 35, 50);
-			
+
 			SetSkill(SkillName.Anatomy, 100.0);
 			SetSkill(SkillName.Swords, 50.0, 70.0);
 			SetSkill(SkillName.MagicResist, 80.0, 90.0);
 			SetSkill(SkillName.Fencing, 90.0, 110.0);
 			SetSkill(SkillName.Tactics, 100.0);
-			
+
 			SetWeaponAbility(WeaponAbility.ArmorIgnore);
 		}
 
 		protected override void OnCreate()
 		{
 			base.OnCreate();
-			
+
 			EquipItem(new NorseHelm { Movable = false });
 			EquipItem(new PlateChest { Movable = false });
 			EquipItem(new PlateGorget { Movable = false });

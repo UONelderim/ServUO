@@ -1,8 +1,6 @@
 #region References
 
-using System;
 using System.Collections.Generic;
-using Server.Items;
 
 #endregion
 
@@ -164,7 +162,8 @@ namespace Server.Mobiles
 						"Jo jest spod Aegis, miołech tam kuzyna, borok nie pił piwa, tera chłopa ni ma!"),
 					m =>
 					{
-						m.Say("Jarling nie rozumie nas, gdy pijemy wódkę, Tamael chciałby tak jak my, ale z marnym skutkiem!");
+						m.Say(
+							"Jarling nie rozumie nas, gdy pijemy wódkę, Tamael chciałby tak jak my, ale z marnym skutkiem!");
 						m.Emote("*Przyśpiewuje do flaszeczki*");
 					},
 					m => m.Say("To jest Krasnoludzka brać, lubi dużo pić i spać!"),

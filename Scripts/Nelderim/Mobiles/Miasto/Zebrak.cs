@@ -15,18 +15,21 @@ namespace Server.Mobiles
 			m => m.Say("Złota daj żebrakowi..."),
 			m => m.Say("O Panocku o licu złotym, zlituj sie"),
 			m => m.Say("Psia mać..."),
-			m => {
+			m =>
+			{
 				m.Say("Choć okrucha chleba... błagam");
 				m.Emote("*Składa ręce błagalnie*");
 			},
 			m => m.Say("Mam chorą córkę..."),
-			m => {
+			m =>
+			{
 				m.Say("Wszystko mi zabrali... Wszystko...");
 				m.Emote("*Szlocha*");
 			},
 			m => m.Say("Czy Ty przypadkiem ode mnie nie pożyczałeś pieniędzy?"),
 			m => m.Say("Poratujcie w potrzebie..."),
-			m => {
+			m =>
+			{
 				m.Say("Kiedyś to sie żylo...");
 				m.Emote("*Wzdycha ze smutkiem*");
 			},
@@ -34,36 +37,37 @@ namespace Server.Mobiles
 			m => m.Say("Za co ja dzieciaki wyżywie... Poratujcie błagam"),
 			m => m.Say("Na chleb jeno..."),
 			m => m.Emote("*Smarka w brudną chustę*"),
-			m => {
+			m =>
+			{
 				m.Say("Kiedyś to było...");
 				m.Emote("*Wzdycha ciężko*");
 			},
 			m => m.Emote("*Poprawia łachmany*"),
 			m => m.Say("Było sie młodym i głupim... Tak wyszło..."),
-			m => {
+			m =>
+			{
 				m.Emote("*Podnosi coś z ziemi*");
 				m.Say("Ah.. jednak nie");
 			},
-			m => {
+			m =>
+			{
 				m.Say("Cholipka...");
 				m.Emote("*Rozgląda się powoli wzdychając*");
 			},
 		};
-		
+
 		private static readonly Dictionary<Race, List<Action>> _Actions = new Dictionary<Race, List<Action>>
 		{
 			{ Race.DefaultRace, new List<Action> { m => m.Emote("*Rozgląda się uważnie w koło*") } },
 			{
-				Race.NTamael, _DefaultActions.Concat(new List<Action>
-				{
-					m => m.Say("Wszystko co miałem dla kraju oddałem..."),
-				}).ToList()
+				Race.NTamael,
+				_DefaultActions.Concat(new List<Action> { m => m.Say("Wszystko co miałem dla kraju oddałem..."), })
+					.ToList()
 			},
 			{
-				Race.NJarling, _DefaultActions.Concat(new List<Action>
-				{
-					m => m.Say("Aż sie tu nie chce żyć... parszywe miasto"),
-				}).ToList()
+				Race.NJarling,
+				_DefaultActions
+					.Concat(new List<Action> { m => m.Say("Aż sie tu nie chce żyć... parszywe miasto"), }).ToList()
 			},
 		};
 
@@ -78,7 +82,7 @@ namespace Server.Mobiles
 		public Zebrak(Serial serial) : base(serial)
 		{
 		}
-		
+
 		public override void OnGenderChanged(bool oldFemale)
 		{
 			base.OnGenderChanged(oldFemale);
@@ -91,7 +95,7 @@ namespace Server.Mobiles
 				Title = "- Żebrak";
 			}
 		}
-		
+
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);

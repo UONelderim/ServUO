@@ -18,7 +18,6 @@ namespace Server.Mobiles
 					m => m.Say("Psia krew..."),
 					m => m.Say("Miłość do lasów i gór..."),
 					m => m.Say("Miłego dnia!"),
-					
 				}
 			}
 		};
@@ -46,7 +45,7 @@ namespace Server.Mobiles
 		public Druid(Serial serial) : base(serial)
 		{
 		}
-		
+
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);

@@ -8,7 +8,7 @@ namespace Server.Mobiles
 		protected delegate void Action(Mobile from);
 
 		protected virtual Dictionary<Race, List<Action>> NpcActions { get; }
-		
+
 		protected virtual TimeSpan ActionDelay => TimeSpan.FromSeconds(10);
 
 		private DateTime _lastAction;
@@ -17,10 +17,10 @@ namespace Server.Mobiles
 		{
 			base.OnMovement(m, oldLocation);
 
-			if (NpcActions == null || 
-			    Muted || 
-			    DateTime.Now - _lastAction < ActionDelay || 
-			    !(Utility.RandomDouble() < 0.25) || 
+			if (NpcActions == null ||
+			    Muted ||
+			    DateTime.Now - _lastAction < ActionDelay ||
+			    !(Utility.RandomDouble() < 0.25) ||
 			    !m.InRange(this, 3))
 			{
 				return;
@@ -44,6 +44,7 @@ namespace Server.Mobiles
 		}
 
 		protected override List<SBInfo> SBInfos { get; }
+
 		public override void InitSBInfo()
 		{
 		}
@@ -51,7 +52,7 @@ namespace Server.Mobiles
 		public NBaseTalkingNPC(string title) : base(title)
 		{
 		}
-		
+
 		public NBaseTalkingNPC(Serial serial) : base(serial)
 		{
 		}
