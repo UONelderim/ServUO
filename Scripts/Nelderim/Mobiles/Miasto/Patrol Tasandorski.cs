@@ -12,17 +12,18 @@ namespace Server.Mobiles
 		public PatrolTasandorski() : base(AIType.AI_Melee, FightMode.Criminal, 12, 1, 0.2, 0.4)
 		{
 			SpeechHue = Utility.RandomDyedHue();
-
 			Title = "- Patrol Tasandorski";
 			Hue = Race.RandomSkinHue();
 
-			if (this.Female = Utility.RandomBool())
+			if (Utility.RandomBool())
 			{
+				Female = true;
 				Body = 0x191;
 				Name = NameList.RandomName("female");
 			}
 			else
 			{
+				Female = false;
 				Body = 0x190;
 				Name = NameList.RandomName("male");
 			}
@@ -44,69 +45,30 @@ namespace Server.Mobiles
 			SetResistance(ResistanceType.Cold, 40, 45);
 			SetResistance(ResistanceType.Poison, 35, 50);
 			SetResistance(ResistanceType.Energy, 35, 50);
-
-
+			
 			SetSkill(SkillName.Anatomy, 100.0);
 			SetSkill(SkillName.Swords, 50.0, 70.0);
 			SetSkill(SkillName.MagicResist, 80.0, 90.0);
 			SetSkill(SkillName.Fencing, 90.0, 110.0);
 			SetSkill(SkillName.Tactics, 100.0);
-
-			Fame = 5000;
-			Karma = -5000;
-
-			VirtualArmor = 40;
-
-			NorseHelm Helm = new NorseHelm();
-			Helm.Hue = 0;
-			Helm.Movable = false;
-			EquipItem(Helm);
-
-			PlateChest chest = new PlateChest();
-			chest.Hue = 0;
-			chest.Movable = false;
-			EquipItem(chest);
-
-			PlateGorget Gorget = new PlateGorget();
-			Gorget.Hue = 0;
-			Gorget.Movable = false;
-			EquipItem(Gorget);
-
-			PlateGloves Gloves = new PlateGloves();
-			Gloves.Hue = 0;
-			Gloves.Movable = false;
-			EquipItem(Gloves);
-
-			PlateLegs legs = new PlateLegs();
-			legs.Hue = 0;
-			legs.Movable = false;
-			EquipItem(legs);
-
-			PlateArms arms = new PlateArms();
-			arms.Hue = 0;
-			arms.Movable = false;
-			EquipItem(arms);
-
-			Boots Boot = new Boots();
-			Boot.Hue = 2894;
-			AddItem(Boot);
-
-			Cloak Cloa = new Cloak();
-			Cloa.Hue = 2894;
-			Cloa.Movable = false;
-			AddItem(Cloa);
-
-			BodySash sash = new BodySash();
-			sash.Hue = 2894;
-			sash.Movable = false;
-			EquipItem(sash);
-
-			Spear sword = new Spear();
-			sword.Hue = 0;
-			sword.Movable = false;
-			EquipItem(sword);
-
+			
 			SetWeaponAbility(WeaponAbility.ArmorIgnore);
+		}
+
+		protected override void OnCreate()
+		{
+			base.OnCreate();
+			
+			EquipItem(new NorseHelm { Movable = false });
+			EquipItem(new PlateChest { Movable = false });
+			EquipItem(new PlateGorget { Movable = false });
+			EquipItem(new PlateGloves { Movable = false });
+			EquipItem(new PlateLegs { Movable = false });
+			EquipItem(new PlateArms { Movable = false });
+			EquipItem(new Boots { Movable = false, Hue = 2894 });
+			EquipItem(new Cloak { Movable = false, Hue = 2894 });
+			EquipItem(new BodySash { Movable = false, Hue = 2894 });
+			EquipItem(new Spear { Movable = false });
 		}
 
 		public override void GenerateLoot()
@@ -115,9 +77,10 @@ namespace Server.Mobiles
 		}
 
 
-		public override bool ShowFameTitle { get { return true; } }
-		public override bool CanRummageCorpses { get { return true; } }
-		public override Poison PoisonImmune { get { return Poison.Regular; } }
+		public override bool ShowFameTitle => true;
+		public override bool CanRummageCorpses => true;
+		public override Poison PoisonImmune => Poison.Regular;
+		public override bool DeleteCorpseOnDeath => true;
 
 
 		public PatrolTasandorski(Serial serial) : base(serial)
