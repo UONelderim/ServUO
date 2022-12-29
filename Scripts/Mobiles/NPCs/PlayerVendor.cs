@@ -226,7 +226,7 @@ namespace Server.Mobiles
         }
     }
 
-    public class PlayerVendor : Mobile
+    public partial class PlayerVendor : Mobile
     {
         private Hashtable m_SellItems;
         private BaseHouse m_House;
@@ -1066,6 +1066,12 @@ namespace Server.Mobiles
 
         public override void OnSpeech(SpeechEventArgs e)
         {
+	        if (Config.Get("Nelderim.CustomOnSpeech", false))
+	        {
+		        NelderimOnSpeech(e);
+		        return;
+	        }
+	        
             Mobile from = e.Mobile;
 
             if (e.Handled || !from.Alive || from.GetDistanceToSqrt(this) > 3)

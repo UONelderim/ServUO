@@ -99,5 +99,7 @@ namespace Server.Mobiles
 
 		[CommandProperty(AccessLevel.GameMaster, true)]
 		public DateTime MutedUntil { get; private set; }
+		
+		public virtual List<OnSpeechEntry> OnSpeechActions => new List<OnSpeechEntry>();
 	}
 }
