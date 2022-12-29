@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace Server.Mobiles
 {
-    public class AnimalTrainer : BaseVendor
+    public partial class AnimalTrainer : BaseVendor
     {
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
 

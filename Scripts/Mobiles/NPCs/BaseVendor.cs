@@ -130,7 +130,7 @@ namespace Server.Mobiles
 			}
 		}
 
-		private class BulkOrderInfoEntry : ContextMenuEntry
+		internal class BulkOrderInfoEntry : ContextMenuEntry
 		{
 			private readonly Mobile m_From;
 			private readonly BaseVendor m_Vendor;
@@ -221,7 +221,7 @@ namespace Server.Mobiles
 			}
 		}
 
-		private class BribeEntry : ContextMenuEntry
+		internal class BribeEntry : ContextMenuEntry
 		{
 			private readonly Mobile m_From;
 			private readonly BaseVendor m_Vendor;
@@ -254,7 +254,7 @@ namespace Server.Mobiles
 			}
 		}
 
-		private class ClaimRewardsEntry : ContextMenuEntry
+		internal class ClaimRewardsEntry : ContextMenuEntry
 		{
 			private readonly Mobile m_From;
 			private readonly BaseVendor m_Vendor;
@@ -2022,7 +2022,7 @@ namespace Server.Mobiles
 				}
 			}
 
-			return true;
+			return NelderimCheckVendorAccess(from);
 		}
 
 		public virtual bool OnSellItems(Mobile seller, List<SellItemResponse> list)

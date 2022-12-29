@@ -550,7 +550,7 @@ namespace Server.Mobiles
 
 			if (m_Mobile.Controlled && m_Mobile.Commandable)
 			{
-				if (Config.Get("Nelderim.CustomAICommands", false))
+				if (Config.Get("Nelderim.CustomOnSpeech", false))
 				{
 					NelderimOnSpeech(e);
 					return;

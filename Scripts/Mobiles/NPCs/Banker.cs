@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace Server.Mobiles
 {
-    public class Banker : BaseVendor
+    public partial class Banker : BaseVendor
     {
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
 
@@ -343,14 +343,21 @@ namespace Server.Mobiles
 
         public override void OnSpeech(SpeechEventArgs e)
         {
-            HandleSpeech(this, e);
+	        if (Config.Get("Nelderim.CustomOnSpeech", false))
+	        {
+		        NelderimOnSpeech(e);
+	        }
+	        else
+	        {
+		        HandleSpeech(this, e);
+	        }
 
-            base.OnSpeech(e);
+	        base.OnSpeech(e);
         }
 
         public static void HandleSpeech(Mobile vendor, SpeechEventArgs e)
         {
-            if (!e.Handled && e.Mobile.InRange(vendor, 12))
+	        if (!e.Handled && e.Mobile.InRange(vendor, 12))
             {
                 if (e.Mobile.Map.Rules != MapRules.FeluccaRules && vendor is BaseVendor && !((BaseVendor)vendor).CheckVendorAccess(e.Mobile))
                 {

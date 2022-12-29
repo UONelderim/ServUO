@@ -108,6 +108,12 @@ namespace Server.Mobiles
         public override void OnSpeech(SpeechEventArgs e)
         {
             base.OnSpeech(e);
+            
+            if (Config.Get("Nelderim.CustomOnSpeech", false))
+            {
+	            NelderimOnSpeech(e);
+	            return;
+            }
 
             Mobile from = e.Mobile;
 
