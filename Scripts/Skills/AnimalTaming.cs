@@ -10,7 +10,7 @@ using System.Collections;
 
 namespace Server.SkillHandlers
 {
-    public class AnimalTaming
+    public partial class AnimalTaming
     {
         private static readonly Hashtable m_BeingTamed = new Hashtable();
 
@@ -328,21 +328,10 @@ namespace Server.SkillHandlers
                     else if (m_Count < m_MaxCount)
                     {
                         m_Tamer.RevealingAction();
+                        
+	                    TamerSpeech(m_Tamer);
 
-                        switch (Utility.Random(3))
-                        {
-                            case 0:
-                                m_Tamer.PublicOverheadMessage(MessageType.Regular, 0x3B2, Utility.Random(502790, 4));
-                                break;
-                            case 1:
-                                m_Tamer.PublicOverheadMessage(MessageType.Regular, 0x3B2, Utility.Random(1005608, 6));
-                                break;
-                            case 2:
-                                m_Tamer.PublicOverheadMessage(MessageType.Regular, 0x3B2, Utility.Random(1010593, 4));
-                                break;
-                        }
-
-                        if (!alreadyOwned) // Passively check animal lore for gain
+	                    if (!alreadyOwned) // Passively check animal lore for gain
                         {
                             m_Tamer.CheckTargetSkill(SkillName.AnimalLore, m_Creature, 0.0, 120.0);
                         }

@@ -16,7 +16,6 @@ namespace Nelderim
 	{
 		public static void Initialize()
 		{
-			// Register our speech handler
 			EventSink.Speech += EventSink_Speech;
 		}
 
@@ -107,13 +106,13 @@ namespace Nelderim
 			};
 		}
 
-		private static readonly Random random = new Random();
+		private static readonly Random _Random = new Random();
 
 		public static string RandomWord(int length)
 		{
 			const string chars = "abcdefghijklmnopqrstuvwxyz";
 			return new string(Enumerable.Repeat(chars, length)
-				.Select(s => s[random.Next(s.Length)]).ToArray());
+				.Select(s => s[_Random.Next(s.Length)]).ToArray());
 		}
 
 		public static string TranslateUsingDict(string speech, Dictionary<string, string> dict)
@@ -150,7 +149,6 @@ namespace Nelderim
 			}
 
 			return sb.ToString();
-			;
 		}
 
 		public static string TranslateUsingWordsList(string speech, List<string> list)
@@ -182,12 +180,11 @@ namespace Nelderim
 			}
 
 			return sb.ToString();
-			;
 		}
 
 		public static string TranslateUsingSentencesList(List<string> list)
 		{
-			return list[random.Next(list.Count)];
+			return list[_Random.Next(list.Count)];
 		}
 	}
 }

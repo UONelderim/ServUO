@@ -34,10 +34,10 @@ namespace Nelderim
 
 		public LanguagesGump(PlayerMobile from) : base(0, 0)
 		{
-			this.Closable = true;
-			this.Disposable = true;
-			this.Dragable = true;
-			this.Resizable = false;
+			Closable = true;
+			Disposable = true;
+			Dragable = true;
+			Resizable = false;
 
 			AddPage(0);
 
@@ -60,7 +60,6 @@ namespace Nelderim
 			int buttonID = info.ButtonID;
 			if (buttonID > 0)
 			{
-				// ButtonID 0 to zamkniecie gumpa
 				if (from is PlayerMobile)
 				{
 					PlayerMobile pm = (PlayerMobile)from;
