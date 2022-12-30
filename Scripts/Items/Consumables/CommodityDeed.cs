@@ -156,7 +156,7 @@ namespace Server.Items
         {
             InvalidateProperties();
 
-            if (Commodity == null && item is ICommodity && ((ICommodity)item).IsDeedable)
+            if (Commodity == null && (item is ICommodity && ((ICommodity)item).IsDeedable) || item.Stackable)
             {
                 Commodity = item;
                 Commodity.Internalize();
