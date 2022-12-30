@@ -12,7 +12,7 @@ namespace Server.Engines.Craft
         ChanceMinusSixtyToFourtyFive
     }
 
-    public abstract class CraftSystem
+    public abstract partial class CraftSystem
     {
         #region Static Properties
         public static List<CraftSystem> Systems { get; set; }

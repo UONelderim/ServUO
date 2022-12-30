@@ -30,7 +30,7 @@ namespace Server.Engines.Craft
             int resHue);
     }
 
-    public class CraftItem
+    public partial class CraftItem
     {
         /// <summary>
         /// this delegate will handle all crafting functions, 
@@ -1907,6 +1907,8 @@ namespace Server.Engines.Craft
                         CommandLogging.WriteLine(
                             from, "Crafting {0} with craft system {1}", CommandLogging.Format(item), craftSystem.GetType().Name);
                     }
+                    
+                    CreateByproducts(from);
                 }
 
                 tool.UsesRemaining--;
