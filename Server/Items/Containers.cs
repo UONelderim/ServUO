@@ -7,7 +7,7 @@ using Server.Network;
 
 namespace Server.Items
 {
-	public class BankBox : Container
+	public partial class BankBox : Container
 	{
 		public static bool SendDeleteOnClose { get; set; }
 
