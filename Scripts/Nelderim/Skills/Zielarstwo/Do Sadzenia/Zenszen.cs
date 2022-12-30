@@ -9,6 +9,7 @@
 		{
 			Hue = 0;
 			Name = "Szczepka zen-szeniu";
+			Stackable = true;
 		}
 
 		[Constructable]
@@ -44,6 +45,7 @@
 		{
 			Hue = 0;
 			Name = "Zen-szen";
+			Stackable = true;
 		}
 
 		public KrzakZenszen(Serial serial) : base(serial)
@@ -73,6 +75,7 @@
 		{
 			Hue = 0;
 			Name = "Surowy zen-szen";
+			Stackable = true;
 		}
 
 		[Constructable]

@@ -4,13 +4,14 @@
 	{
 		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new SurowiecPajeczyna(count)); }
 
-		public override bool GivesSeed { get { return false; } }
+		public override bool GivesSeed => false;
 
 		[Constructable]
 		public ZrodloPajeczyna() : base(0x10D6) //0x26A1
 		{
 			Hue = 0x481;
 			Name = "Klab pajeczych sieci";
+			Stackable = true;
 		}
 
 		public ZrodloPajeczyna(Serial serial) : base(serial)
@@ -39,6 +40,7 @@
 		{
 			Hue = 0;
 			Name = "Nawinieta pajeczyna";
+			Stackable = true;
 		}
 
 		[Constructable]

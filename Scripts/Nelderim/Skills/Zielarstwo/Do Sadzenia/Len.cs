@@ -1,5 +1,7 @@
 namespace Server.Items.Crops
 {
+	// TODO: ustawic dodatkowy skill krawiectwo i zwiekszyc progi umozliwiajace zbieranie
+
 	public class SzczepkaLen : WeedSeedZiolaUprawne
 	{
 		public override Item CreateWeed() { return new KrzakLen(); }
@@ -9,6 +11,7 @@ namespace Server.Items.Crops
 		{
 			Hue = 51;
 			Name = "Ziarno lnu";
+			Stackable = true;
 		}
 
 		[Constructable]
@@ -35,8 +38,6 @@ namespace Server.Items.Crops
 
 	public class KrzakLen : WeedPlantZiolaUprawne
 	{
-		public override SkillName SkillRequired { get { return SkillName.Herbalism; } }
-
 		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new PlonLen(count / 2)); }
 
 		public override void CreateSeed(Mobile from, int count) { from.AddToBackpack(new SzczepkaLen(count * 3)); }
@@ -46,6 +47,7 @@ namespace Server.Items.Crops
 		{
 			Hue = 0;
 			Name = "Krzak lnu";
+			Stackable = true;
 		}
 
 		public KrzakLen(Serial serial) : base(serial)
@@ -75,6 +77,7 @@ namespace Server.Items.Crops
 		{
 			Hue = 0;
 			Name = "Lodyga lnu";
+			Stackable = true;
 		}
 
 		[Constructable]

@@ -1,19 +1,22 @@
 ﻿namespace Server.Items.Crops
 {
+	// TODO: mozliwe jest uzycie umiejetnosci TworzenieLukow, zatem mozna zwiekszyc progi umozliwiajace zbieranie
 	public class ZrodloKonopia : WeedPlantZbieractwo
 	{
+		public static SkillName[] cannabisSkills = { SkillName.Herbalism, SkillName.Fletching };
 		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new SurowiecKonopia(count)); }
 
-		public override SkillName SkillRequired { get { return SkillName.Herbalism; } }
+		public override SkillName[] SkillsRequired => cannabisSkills;
 		//public override int CropAmount { get{ return 5; } }
 
-		public override bool GivesSeed { get { return false; } }
+		public override bool GivesSeed => false;
 
 		[Constructable]
 		public ZrodloKonopia() : base(0x0CC3) //3271
 		{
 			//Hue = 263;
 			Name = "Krzak konopi"; // 1032612
+			Stackable = true;
 		}
 
 		public ZrodloKonopia(Serial serial) : base(serial)
@@ -37,13 +40,14 @@
 	{
 		public override int AmountOfReagent(double skill) { return 12; }
 		public override void CreateReagent(Mobile from, int count) { from.AddToBackpack(new CannabisFiber(count)); }
-		public override SkillName SkillRequired { get { return SkillName.Fletching; } }
+		public override SkillName[] SkillsRequired => ZrodloKonopia.cannabisSkills;
 
 		[Constructable]
 		public SurowiecKonopia(int amount) : base(amount, 0x0C5F)
 		{
 			//Hue = 0;
 			Name = "Lodyga konopi"; // 1032615
+			Stackable = true;
 		}
 
 		[Constructable]

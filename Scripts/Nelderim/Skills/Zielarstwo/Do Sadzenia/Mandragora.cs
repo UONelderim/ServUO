@@ -9,6 +9,7 @@
 		{
 			Hue = 0;
 			Name = "Szczepka mandragory";
+			Stackable = true;
 		}
 
 		[Constructable]
@@ -44,6 +45,7 @@
 		{
 			Hue = 0;
 			Name = "Mandragora";
+			Stackable = true;
 		}
 
 		public KrzakMandragora(Serial serial) : base(serial)
@@ -73,6 +75,7 @@
 		{
 			Hue = 0;
 			Name = "Swiezy korzen mandragory";
+			Stackable = true;
 		}
 
 		[Constructable]

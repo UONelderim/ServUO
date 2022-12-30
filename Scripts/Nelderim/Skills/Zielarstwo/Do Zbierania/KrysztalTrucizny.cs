@@ -7,13 +7,14 @@
 			from.AddToBackpack(new SurowiecKrysztalTrucizny(count));
 		}
 
-		public override bool GivesSeed { get { return false; } }
+		public override bool GivesSeed => false;
 
 		[Constructable]
 		public ZrodloKrysztalTrucizny() : base(0x35DA)
 		{
 			Hue = 0x44;
 			Name = "Krysztaly trucizny";
+			Stackable = true;
 		}
 
 		public ZrodloKrysztalTrucizny(Serial serial) : base(serial)
@@ -42,6 +43,7 @@
 		{
 			Hue = 0x44;
 			Name = "Nieksztaltny krysztal trucizny";
+			Stackable = true;
 		}
 
 		[Constructable]
