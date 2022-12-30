@@ -35,16 +35,14 @@ namespace Nelderim
 
 		private static void FillDictionary(string filename, Dictionary<string, string> dict)
 		{
-			ArrayList list = new ArrayList();
+			var list = new List<string>();
 			try
 			{
-				using (StreamReader sr = new StreamReader(Path.Combine(Core.BaseDirectory,"Data", "Languages", $"{filename}.txt")))
+				using var reader = new StreamReader(Path.Combine(Core.BaseDirectory,"Data", "Languages", $"{filename}.txt"));
+				string line;
+				while ((line = reader.ReadLine()) != null)
 				{
-					string line;
-					while ((line = sr.ReadLine()) != null)
-					{
-						list.Add(line);
-					}
+					list.Add(line);
 				}
 			}
 			catch (Exception e)
@@ -53,9 +51,9 @@ namespace Nelderim
 				Console.WriteLine(e.Message);
 			}
 
-			foreach (string line in list)
+			foreach (var line in list)
 			{
-				string[] parts = line.Split('=');
+				var parts = line.Split('=');
 				if (parts.Length != 2) continue;
 				dict[parts[0].ToLower()] = parts[1].ToLower();
 			}
@@ -65,14 +63,12 @@ namespace Nelderim
 		{
 			try
 			{
-				using (StreamReader sr = new StreamReader(Path.Combine(Core.BaseDirectory,"Data", "Languages", $"{filename}.txt")))
+				using StreamReader reader = new StreamReader(Path.Combine(Core.BaseDirectory,"Data", "Languages", $"{filename}.txt"));
+				string line;
+				while ((line = reader.ReadLine()) != null)
 				{
-					string line;
-					while ((line = sr.ReadLine()) != null)
-					{
-						if (line.Trim().Length != 0)
-							list.Add(line.ToLower());
-					}
+					if (line.Trim().Length != 0)
+						list.Add(line.ToLower());
 				}
 			}
 			catch (Exception e)

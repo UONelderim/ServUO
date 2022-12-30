@@ -26,13 +26,11 @@ namespace Nelderim
 
 		public override void Deserialize(GenericReader reader)
 		{
-			int version = 0;
-			if (Fix)
-				version = reader.ReadInt(); //version
+			int version = reader.ReadInt();
 			LanguagesKnown = new KnownLanguages((Language)reader.ReadInt());
 			LanguageSpeaking = (Language)reader.ReadInt();
 
-			if (LanguagesKnown == null) LanguagesKnown = new KnownLanguages();
+			LanguagesKnown ??= new KnownLanguages();
 		}
 	}
 }
