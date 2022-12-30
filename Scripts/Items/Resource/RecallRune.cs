@@ -16,7 +16,7 @@ namespace Server.Items
     {
         public override int LabelNumber => Type == RecallRuneType.Normal ? 1060577 : Type == RecallRuneType.Shop ? 1151508 : 1149570;  // Recall Rune - Shop Recall Rune - Ship Recall Rune
 
-        private const string RuneFormat = "a recall rune for {0}";
+        private const string RuneFormat = "runa prowadzaca do {0}";
         private string m_Description;
         private bool m_Marked;
         private Map m_TargetMap;
@@ -299,19 +299,19 @@ namespace Server.Items
                     string desc;
 
                     if ((desc = m_Description) == null || (desc = desc.Trim()).Length == 0)
-                        desc = "an unknown location";
+                        desc = "nieznanej lokacji";
 
-                    if (m_TargetMap == Map.Tokuno)
-                        list.Add((House != null ? 1063260 : 1063259), RuneFormat, desc); // ~1_val~ (Tokuno Islands)[(House)]
-                    else if (m_TargetMap == Map.Malas)
-                        list.Add((House != null ? 1062454 : 1060804), RuneFormat, desc); // ~1_val~ (Malas)[(House)]
-                    else if (m_TargetMap == Map.Felucca)
-                        list.Add((House != null ? 1062452 : 1060805), RuneFormat, desc); // ~1_val~ (Felucca)[(House)]
-                    else if (m_TargetMap == Map.Trammel)
-                        list.Add((House != null ? 1062453 : 1060806), RuneFormat, desc); // ~1_val~ (Trammel)[(House)]
-                    else if (m_TargetMap == Map.TerMur)
-                        list.Add((House != null ? 1113206 : 1113205), RuneFormat, desc); // ~1_val~ (Ter Mur)(House)
-                    else
+                    // if (m_TargetMap == Map.Tokuno)
+                    //     list.Add((House != null ? 1063260 : 1063259), RuneFormat, desc); // ~1_val~ (Tokuno Islands)[(House)]
+                    // else if (m_TargetMap == Map.Malas)
+                    //     list.Add((House != null ? 1062454 : 1060804), RuneFormat, desc); // ~1_val~ (Malas)[(House)]
+                    // else if (m_TargetMap == Map.Felucca)
+                    //     list.Add((House != null ? 1062452 : 1060805), RuneFormat, desc); // ~1_val~ (Felucca)[(House)]
+                    // else if (m_TargetMap == Map.Trammel)
+                    //     list.Add((House != null ? 1062453 : 1060806), RuneFormat, desc); // ~1_val~ (Trammel)[(House)]
+                    // else if (m_TargetMap == Map.TerMur)
+                    //     list.Add((House != null ? 1113206 : 1113205), RuneFormat, desc); // ~1_val~ (Ter Mur)(House)
+                    // else
                         list.Add((House != null ? "{0} ({1})(House)" : "{0} ({1})"), string.Format(RuneFormat, desc), m_TargetMap);
                 }
             }
