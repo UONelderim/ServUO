@@ -6,6 +6,8 @@ using Server.Network;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim;
+
 #endregion
 
 namespace Server.Mobiles
@@ -523,6 +525,7 @@ namespace Server.Mobiles
                                         {
                                             // Into your bank box I have placed a check in the amount of:
                                             vendor.Say(1042673, AffixType.Append, amount.ToString("#,0"), "");
+                                            BankLog.Log(e.Mobile, amount, "check");
                                         }
                                     }
                                 }

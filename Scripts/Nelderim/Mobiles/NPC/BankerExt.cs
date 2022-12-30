@@ -1,5 +1,6 @@
 using System;
 using System.Text.RegularExpressions;
+using Nelderim;
 using Server.Accounting;
 using Server.Items;
 using Server.Network;
@@ -163,6 +164,7 @@ namespace Server.Mobiles
 				                    {
 					                    // Into your bank box I have placed a check in the amount of:
 					                    Say(1042673, AffixType.Append, amount.ToString("#,0"), "");
+					                    BankLog.Log(e.Mobile, amount, "check");
 				                    }
 			                    }
 		                    }

@@ -1,4 +1,6 @@
 #region References
+
+using Nelderim;
 using Server.Accounting;
 #endregion
 
@@ -153,6 +155,7 @@ namespace Server.Items
 
             // Gold was deposited in your account:
             from.SendLocalizedMessage(1042672, true, deposited.ToString("#,0"));
+            BankLog.Log(from, -Worth, "check");
         }
     }
 }
