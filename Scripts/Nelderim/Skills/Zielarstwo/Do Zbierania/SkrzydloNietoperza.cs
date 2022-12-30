@@ -7,13 +7,14 @@
 			from.AddToBackpack(new SurowiecSkrzydloNietoperza(count));
 		}
 
-		public override bool GivesSeed { get { return false; } }
+		public override bool GivesSeed => false;
 
 		[Constructable]
 		public ZrodloSkrzydloNietoperza() : base(0x2631)
 		{
 			Hue = 0x420;
 			Name = "Martwy nietoperz";
+			Stackable = true;
 		}
 
 		public ZrodloSkrzydloNietoperza(Serial serial) : base(serial)
@@ -43,6 +44,7 @@
 		{
 			Hue = 0x415;
 			Name = "Szczatki nietoperza";
+			Stackable = true;
 		}
 
 		[Constructable]

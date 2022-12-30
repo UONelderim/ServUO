@@ -4,13 +4,14 @@
 	{
 		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new SurowiecKrewDemona(count)); }
 
-		public override bool GivesSeed { get { return false; } }
+		public override bool GivesSeed => false;
 
 		[Constructable]
 		public ZrodloKrewDemona() : base(0x1CF3)
 		{
 			Hue = 0;
 			Name = "Krew demona";
+			Stackable = true;
 		}
 
 		public ZrodloKrewDemona(Serial serial) : base(serial)
@@ -40,6 +41,7 @@
 		{
 			Hue = 0;
 			Name = "Porcja krwi demona";
+			Stackable = true;
 		}
 
 		[Constructable]

@@ -9,6 +9,7 @@
 		{
 			Hue = 0;
 			Name = "Szczepka wilczej jagody";
+			Stackable = true;
 		}
 
 		[Constructable]
@@ -44,6 +45,7 @@
 		{
 			Hue = 0;
 			Name = "Krzak wilczych jagod";
+			Stackable = true;
 		}
 
 		public KrzakWilczaJagoda(Serial serial) : base(serial)
@@ -73,6 +75,7 @@
 		{
 			Hue = 0;
 			Name = "Galazka wilczej jagody";
+			Stackable = true;
 		}
 
 		[Constructable]

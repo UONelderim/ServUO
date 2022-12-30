@@ -7,13 +7,14 @@
 			from.AddToBackpack(new SurowiecSwinskieZelazo(count));
 		}
 
-		public override bool GivesSeed { get { return false; } }
+		public override bool GivesSeed => false;
 
 		[Constructable]
 		public ZrodloSwinskieZelazo() : base(0x266C)
 		{
 			Hue = 0x383;
 			Name = "Zardzewiala surowka";
+			Stackable = true;
 		}
 
 		public ZrodloSwinskieZelazo(Serial serial) : base(serial)
@@ -42,6 +43,7 @@
 		{
 			Hue = 0x383;
 			Name = "Ordzewiale zeliwo";
+			Stackable = true;
 		}
 
 		[Constructable]

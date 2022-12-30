@@ -4,13 +4,14 @@
 	{
 		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new SurowiecSiarka(count)); }
 
-		public override bool GivesSeed { get { return false; } }
+		public override bool GivesSeed => false;
 
 		[Constructable]
 		public ZrodloSiarka() : base(0x19B7)
 		{
 			Hue = 0x31;
 			Name = "Bryla pirytu";
+			Stackable = true;
 		}
 
 		public ZrodloSiarka(Serial serial) : base(serial)
@@ -39,6 +40,7 @@
 		{
 			Hue = 0x31;
 			Name = "Odlamek pirytu";
+			Stackable = true;
 		}
 
 		[Constructable]

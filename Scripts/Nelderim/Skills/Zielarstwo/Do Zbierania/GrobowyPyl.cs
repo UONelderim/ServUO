@@ -4,13 +4,14 @@
 	{
 		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new SurowiecGrobowyPyl(count)); }
 
-		public override bool GivesSeed { get { return false; } }
+		public override bool GivesSeed => false;
 
 		[Constructable]
 		public ZrodloGrobowyPyl() : base(0x0F35)
 		{
 			Hue = 0x481;
 			Name = "Prochy ze zwlok";
+			Stackable = true;
 		}
 
 		public ZrodloGrobowyPyl(Serial serial) : base(serial)
@@ -39,6 +40,7 @@
 		{
 			Hue = 0x481;
 			Name = "Zanieczyszczone prochy";
+			Stackable = true;
 		}
 
 		[Constructable]

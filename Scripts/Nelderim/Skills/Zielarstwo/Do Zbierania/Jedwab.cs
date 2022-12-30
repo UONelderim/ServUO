@@ -1,19 +1,23 @@
 ﻿namespace Server.Items.Crops
 {
+	// TODO: mozliwe jest uzycie umiejetnosci TworzenieLukow, zatem mozna zwiekszyc progi umozliwiajace zbieranie
 	public class ZrodloJedwab : WeedPlantZbieractwo
 	{
-		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new SurowiecJedwab(count)); }
+		public static SkillName[] silkSkills = { SkillName.Herbalism, SkillName.Fletching };
 
-		public override SkillName SkillRequired { get { return SkillName.Herbalism; } }
+		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new SurowiecJedwab(count)); }
+		public override SkillName[] SkillsRequired => silkSkills;
+
 		//public override int CropAmount { get{ return 5; } }
 
-		public override bool GivesSeed { get { return false; } }
+		public override bool GivesSeed => false;
 
 		[Constructable]
 		public ZrodloJedwab() : base(Utility.Random(3153, 4))
 		{
-			Hue = 2082;
+			Hue = 1946;
 			Name = "Roslina z jedwabnikiem"; // 1032611
+			Stackable = true;
 		}
 
 		public ZrodloJedwab(Serial serial) : base(serial)
@@ -37,13 +41,14 @@
 	{
 		public override int AmountOfReagent(double skill) { return 12; }
 		public override void CreateReagent(Mobile from, int count) { from.AddToBackpack(new SilkFiber(count)); }
-		public override SkillName SkillRequired { get { return SkillName.Fletching; } }
+		public override SkillName[] SkillsRequired => ZrodloJedwab.silkSkills;
 
 		[Constructable]
 		public SurowiecJedwab(int amount) : base(amount, 0x0DF9) //0x0DEF
 		{
 			Hue = 2886;
 			Name = "Kokon jedwabiu"; // 1032614
+			Stackable = true;
 		}
 
 		[Constructable]

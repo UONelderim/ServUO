@@ -93,7 +93,7 @@
 	}
 
 	// Klasa ogolnie reprezentujaca plon z dowolnego ziela.
-	public abstract class WeedCropZiolaUprawne : WeedCrop
+	public class WeedCropZiolaUprawne : WeedCrop
 	{
 		public override string MsgCreatedZeroReagent { get { return "Nie uzyskales wystarczajacej ilosci reagentu."; } }
 		public override string MsgFailedToCreateReagents { get { return "Nie udalo ci sie uzyskac reagentow."; } }
