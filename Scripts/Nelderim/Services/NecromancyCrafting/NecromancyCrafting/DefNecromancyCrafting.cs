@@ -154,7 +154,7 @@ namespace Server.Engines.Craft
                 "Nie masz wystarczajaco duzej ilosci prochu koscieja.");
 
             index = AddCraft(typeof(AncientLichCrystal), "Krysztaly", "Krysztal Starozytnego Licza", 100.0, 120.0,
-                typeof(SkeletonCrystal), "Krysztal Zla", 1, "Nie masz wystarczajaco duzej ilosci krysztalow zla.");
+                typeof(SkeletonCrystal), "Krysztal Szkieleta", 1, "Nie masz wystarczajaco duzej ilosci krysztalow zla.");
             AddRes(index, typeof(AncientLichPowder), "Porch starozytnego licza", 1,
                 "Nie masz wystarczajaco duzej ilosci prochu straozytnego licza.");
 

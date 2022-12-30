@@ -79,6 +79,7 @@
 //                             if (!from.AddToBackpack(resource))
 //                             {
 //                                 from.SendMessage("Jeden z materiałów nie zmieścił się do plecaka");
+//								   Console.WriteLine(DateTime.Now + " Upuszczam przedmiot " + resource.Name + " " + from.Name);
 //                             }
 //                         }
 //
@@ -88,8 +89,9 @@
 //                         return true;
 //                     }
 //                 }
-//                 catch
+//                 catch(Exception e)
 //                 {
+//					   Console.WriteLine(e.Message);
 //                 }
 //
 //                 return false;

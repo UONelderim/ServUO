@@ -63,6 +63,13 @@ namespace Server.Items
 
 			if ( pack == null )
 				return;
+			var bc = (BaseCreature) Activator.CreateInstance( SummonType );
+			if ( from.Followers + bc.ControlSlots > from.FollowersMax )
+			{
+				from.SendLocalizedMessage( 1049607 ); // You have too many followers to control that creature.
+				bc.Delete();
+				return;
+			}
 			int res = pack.ConsumeTotal(RequiredBodyParts, RequiredBodyPartsAmounts);
 
 			if (res != -1)
@@ -86,7 +93,6 @@ namespace Server.Items
 					return;
 				}
 			}
-			BaseCreature bc = (BaseCreature) Activator.CreateInstance( SummonType );
 			if ( bc.SetControlMaster( from ) )
 			{
 				bc.Allured = true;
@@ -94,6 +100,10 @@ namespace Server.Items
 				bc.MoveToWorld( from.Location, from.Map );
 				from.PlaySound( 0x241 );
 				Delete();
+			}
+			else
+			{
+				bc.Delete();
 			}
 		}
 
