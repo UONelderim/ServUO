@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Server.Items;
+using Server.Network;
 using Server.Spells;
 
 namespace Server.Mobiles
@@ -216,16 +217,28 @@ namespace Server.Mobiles
 		{
 			if (m_Corrosive)
 			{
-				for (int i = 0; i < m.Items.Count; i++)
+				for (var i = 0; i < m.Items.Count; i++)
 				{
 					IDurability item = m.Items[i] as IDurability;
 
-					if (item != null && Utility.RandomDouble() < 0.25)
+					if (item == null || !(Utility.RandomDouble() < 0.25)) continue;
+					
+					m.LocalOverheadMessage(MessageType.Regular, 0x3B2, false, "Zraca substancja niszczy twoj ekwipunek.");
+					if (item.HitPoints < 5)
 					{
-						// if (item.HitPoints > 10)
-						//     item.HitPoints -= 10;
-						// else
+						m.LocalOverheadMessage(MessageType.Regular, 0x3B2, false, "Twoj ekwipunek sie rozpada!");
+					}
+					if (item.HitPoints >= 1)
+					{
 						item.HitPoints -= 1;
+					}
+					else if (item.MaxHitPoints > 1)
+					{
+						item.MaxHitPoints -= 1;
+					}
+					else
+					{
+						m.Items[i].Delete();
 					}
 				}
 			}
@@ -233,9 +246,8 @@ namespace Server.Mobiles
 			{
 				int dmg = m_Damage;
 
-				if (m is PlayerMobile)
+				if (m is PlayerMobile pm)
 				{
-					PlayerMobile pm = m as PlayerMobile;
 					dmg = (int)BalmOfProtection.HandleDamage(pm, dmg);
 					AOS.Damage(m, m_Owner, dmg, 0, 0, 0, 100, 0);
 				}
