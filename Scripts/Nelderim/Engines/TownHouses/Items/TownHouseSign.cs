@@ -972,16 +972,15 @@ namespace Knives.TownHouses
 			}
 
 			ArrayList unlockedItemsToPack = new ArrayList();
+			var addonsToPack = new List<BaseAddon>();
 			foreach (Rectangle2D rect in Blocks)
 			{
 				var eable = Map.GetItemsInBounds(rect);
 				foreach (Item item in eable)
 				{
-					if (item is BaseAddon)
+					if (item is BaseAddon ba)
 					{
-						BaseAddon ba = (BaseAddon)item;
-						bag.DropItem(ba.Deed);
-						ba.Delete();
+						addonsToPack.Add(ba);
 						continue;
 					}
 
@@ -1006,6 +1005,12 @@ namespace Knives.TownHouses
 			foreach (Item item in unlockedItemsToPack)
 			{
 				bag.DropItem(item);
+			}
+			
+			foreach (var addon in addonsToPack)
+			{
+				bag.DropItem(addon.Deed);
+				addon.Delete();
 			}
 
 			if (bag.Items.Count == 0)
