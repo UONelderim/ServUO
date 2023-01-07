@@ -1,5 +1,6 @@
 #region References
 
+using System.Text.RegularExpressions;
 using Server.Items;
 
 #endregion
@@ -40,89 +41,74 @@ namespace Server.Mobiles
 
 			if (from.InRange(this, 2))
 			{
-				if (e.Speech.ToLower().IndexOf("zadan") >= 0 || e.Speech.ToLower().IndexOf("witaj") >= 0)
+				if (Regex.IsMatch(e.Speech,"zadan|witaj", RegexOptions.IgnoreCase))
 				{
-					string message1 =
-						"Hrrr... Czego tu szukasz? Nie powinno Cie tu byc... Lepiej zawroc... Chociaz, skoro tak bardzo chcesz zajrzec do krainy, ktorej nawet drowy sie obiawiaja... smialo. Przepuszcze Cie... ale najpierw przynies mi serca smoka, starozytnego ognistego i starozytnego lodowego smoka. Potrzebuje ich do mojego wywaru... Ruszaj wiec...";
-					this.Say(message1);
+					Say("Hrrr... Czego tu szukasz? Nie powinno Cie tu byc... Lepiej zawroc... Chociaz, " +
+					    "skoro tak bardzo chcesz zajrzec do krainy, ktorej nawet drowy sie obiawiaja... " +
+					    "smialo. Przepuszcze Cie... ale najpierw przynies mi serca smoka, starozytnego ognistego i " +
+					    "starozytnego lodowego smoka. Potrzebuje ich do mojego wywaru... Ruszaj wiec...");
 				}
 			}
 		}
 
 
-		public int serce1;
-		public int serce2;
-		public int serce3;
-		public int serce4;
+		private bool _Serce1;
+		private bool _Serce2;
+		private bool _Serce3;
 
 		public override bool OnDragDrop(Mobile from, Item dropped)
 		{
 			if (dropped is DragonsHeart)
 			{
 				dropped.Delete();
-
-
+				
 				Say(true, " Pierwsza pieczec zostala otwarta, do otwarcia nastepnej potrzebuje Serce Lodowego Smoka! ");
-
-				serce1 = 1;
+				_Serce1 = true;
 			}
-
-
-			if (dropped is BlueDragonsHeart && serce1 < 1)
+			if (dropped is BlueDragonsHeart && !_Serce1)
 			{
-				Say(true, "Glupcze najpierw potrzebuje serce zwyklego smoka!");
-			}
-
-
-			if (dropped is BlueDragonsHeart && serce1 > 0)
-			{
-				dropped.Delete();
-
-				Say(true,
-					" Druga pieczec zostala otwarta, do otwarcia przedostateniej potrzebuje serce Ognistego Smoka ");
-
-				serce2 = 1;
-			}
-
-
-			if (dropped is RedDragonsHeart && serce1 < 1)
-			{
-				Say(true, "Glupcze najpierw potrzebuje serce Starozytnego Lodowego Smoka!");
-			}
-
-
-			if (dropped is RedDragonsHeart && serce2 < 1 && serce1 > 0)
-			{
-				Say(true, "Glupcze, teraz potrzebuje serce Starozytnego Lodowego Smoka!");
-			}
-
-
-			if (dropped is RedDragonsHeart && serce2 > 0)
-			{
-				dropped.Delete();
-
-				serce3 = 1;
-				if (serce1 > 0 && serce2 > 0 && serce3 > 0)
+				if(!_Serce1)
+					Say(true, "Glupcze najpierw potrzebuje serce zwyklego smoka!");
+				else
 				{
-					Point3D loc = new Point3D(5914, 3227, 0);
-					Map map = Map.Felucca;
-					WrotaElghin portal = new WrotaElghin();
-					portal.MoveToWorld(loc, map);
-
+					dropped.Delete();
 
 					Say(true,
-						" Ooo tak! Wspaniale... Prosze oto portal, ktory zaprowadzi cie w szpony smierci... hahaha, ruszaj smialo, tylko spiesz sie! Za chwile go zamkne! ");
+						" Druga pieczec zostala otwarta, do otwarcia przedostateniej potrzebuje serce Ognistego Smoka ");
 
-					serce1 = 0;
-					serce2 = 0;
-					serce3 = 0;
+					_Serce2 = true;
 				}
 			}
+			if (dropped is RedDragonsHeart)
+			{
+				if(!_Serce1)
+					Say(true, "Glupcze najpierw potrzebuje serce zwyklego smoka!");
+				else if (!_Serce2)
+				{
+					Say(true, "Glupcze, teraz potrzebuje serce Starozytnego Lodowego Smoka!");
+				}
+				else
+				{
+					dropped.Delete();
 
+					_Serce3 = true;
+					if (_Serce1 && _Serce2 && _Serce3)
+					{
+						Point3D loc = new Point3D(5914, 3227, 0);
+						Map map = Map.Felucca;
+						WrotaElghin portal = new WrotaElghin();
+						portal.MoveToWorld(loc, map);
+						
+						Say(true,
+							" Ooo tak! Wspaniale... Prosze oto portal, ktory zaprowadzi cie w szpony smierci... hahaha, ruszaj smialo, tylko spiesz sie! Za chwile go zamkne! ");
+
+						_Serce1 = _Serce2 = _Serce3 = false;
+					}
+				}
+			}
 			return base.OnDragDrop(from, dropped);
 		}
-
-
+		
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
