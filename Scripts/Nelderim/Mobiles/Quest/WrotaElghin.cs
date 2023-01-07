@@ -10,7 +10,7 @@ namespace Server.Items
 	{
 		private static readonly TimeSpan m_DDT = TimeSpan.FromSeconds(300.0); // czas rozpadu w sekundach
 
-		public override int LabelNumber { get { return 1048047; } } // a Moongate
+		public override int LabelNumber => 1048047; // a Moongate
 
 		[Constructable]
 		public WrotaElghin()
@@ -27,7 +27,6 @@ namespace Server.Items
 			: base(serial)
 		{
 		}
-
 
 		public override bool OnMoveOver(Mobile m)
 		{
