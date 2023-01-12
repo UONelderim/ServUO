@@ -701,6 +701,8 @@ namespace Server.Items
 
                         if (version < 2)
                             Guardians = new List<Mobile>();
+                        if (version < 4)
+	                        AncientGuardians = new List<Mobile>();
 
                         break;
                     }
