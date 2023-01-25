@@ -47,7 +47,10 @@ namespace Server.Spells.Necromancy
 
                         if (m != null)
                         {
-                            m.FixedParticles(0x374A, 1, 15, 9502, 97, 3, (EffectLayer)255);
+	                        if (m.Hidden == false)
+	                        {
+		                        m.FixedParticles(0x374A, 1, 15, 9502, 97, 3, (EffectLayer)255);
+	                        }
                         }
                         else
                         {
