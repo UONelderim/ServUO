@@ -55,7 +55,10 @@ namespace Server.ACC.CSS.Systems.Bard
 
 					m.AddStatMod(mod);
 
-					m.FixedParticles(0x375A, 10, 15, 5017, 0x224, 3, EffectLayer.Waist);
+					if (m.Hidden == false)
+					{
+						m.FixedParticles(0x375A, 10, 15, 5017, 0x224, 3, EffectLayer.Waist);
+					}
 				}
 			}
 

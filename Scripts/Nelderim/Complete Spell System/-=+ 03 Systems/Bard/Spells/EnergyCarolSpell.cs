@@ -51,8 +51,12 @@ namespace Server.ACC.CSS.Systems.Bard
 
 						m.SendMessage("Twoja odporność na energię wzrasta.");
 						ResistanceMod mod1 = new ResistanceMod(ResistanceType.Energy, +amount);
+						
+						if (m.Hidden == false)
+						{
+							m.FixedParticles(0x373A, 10, 15, 5012, 0x14, 3, EffectLayer.Waist);
+						}
 
-						m.FixedParticles(0x373A, 10, 15, 5012, 0x14, 3, EffectLayer.Waist);
 						m.AddResistanceMod(mod1);
 
 						new ExpireTimer(m, mod1, duration).Start();
