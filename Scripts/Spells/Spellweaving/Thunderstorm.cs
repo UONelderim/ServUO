@@ -72,7 +72,12 @@ namespace Server.Spells.Spellweaving
                     Spell oldSpell = m.Spell as Spell;
 
                     SpellHelper.Damage(this, m, (m.Player && Caster.Player) ? pvpDamage : pvmDamage, 0, 0, 0, 0, 100);
-                    Effects.SendPacket(m.Location, m.Map, new HuedEffect(EffectType.FixedFrom, m.Serial, Serial.Zero, 0x1B6C, m.Location, m.Location, 10, 10, false, false, 0x480, 4));
+                    if (m.Hidden == false)
+                    {
+	                    Effects.SendPacket(m.Location, m.Map,
+		                    new HuedEffect(EffectType.FixedFrom, m.Serial, Serial.Zero, 0x1B6C, m.Location, m.Location,
+			                    10, 10, false, false, 0x480, 4));
+                    }
 
                     if (oldSpell != null && oldSpell != m.Spell)
                     {
