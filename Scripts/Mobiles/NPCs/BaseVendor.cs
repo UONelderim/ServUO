@@ -426,6 +426,7 @@ namespace Server.Mobiles
 			InitStats(100, 100, 25);
 
 			SpeechHue = Utility.RandomDyedHue();
+			RaceGenerator.Init(this);
 			// Female = GetGender();
 			// Hue = Race.RandomSkinHue();
 			// Body = Race.Body(this);
