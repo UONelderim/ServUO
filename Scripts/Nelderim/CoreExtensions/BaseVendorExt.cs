@@ -292,5 +292,13 @@ namespace Server.Mobiles
 		        }
 	        }
         }
+
+        protected override void OnCreate()
+        {
+	        base.OnCreate();
+			RaceGenerator.Init(this);
+	        InitBody();
+	        InitOutfit();
+        }
 	}
 }
