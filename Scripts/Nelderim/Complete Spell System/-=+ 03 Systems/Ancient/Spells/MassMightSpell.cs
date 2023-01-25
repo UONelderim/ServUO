@@ -77,6 +77,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 						SpellHelper.AddStatBonus(Caster, targ, true, StatType.Str);
 						SpellHelper.AddStatBonus(Caster, targ, true, StatType.Dex);
 						SpellHelper.AddStatBonus(Caster, targ, false, StatType.Int);
+						
 
 						targ.FixedParticles(0x373A, 10, 15, 5018, EffectLayer.Waist);
 						targ.PlaySound(0x1EA);

@@ -53,8 +53,10 @@ namespace Server.ACC.CSS.Systems.Bard
 					StatMod mod = new StatMod(StatType.Str, str, +amount, TimeSpan.FromSeconds(duration));
 
 					m.AddStatMod(mod);
-
-					m.FixedParticles(0x375A, 10, 15, 5017, 0x224, 3, EffectLayer.Waist);
+					if (m.Hidden == false)
+					{
+						m.FixedParticles(0x375A, 10, 15, 5017, 0x224, 3, EffectLayer.Waist);
+					}
 				}
 			}
 

@@ -53,8 +53,11 @@ namespace Server.ACC.CSS.Systems.Bard
 						ResistanceMod mod1 = new ResistanceMod(ResistanceType.Physical, +amount);
 
 						m.AddResistanceMod(mod1);
-
-						m.FixedParticles(0x373A, 10, 15, 5012, 0x450, 3, EffectLayer.Waist);
+						
+						if (m.Hidden == false)
+						{
+							m.FixedParticles(0x373A, 10, 15, 5012, 0x450, 3, EffectLayer.Waist);
+						}
 
 						new ExpireTimer(m, mod1, duration).Start();
 					}
