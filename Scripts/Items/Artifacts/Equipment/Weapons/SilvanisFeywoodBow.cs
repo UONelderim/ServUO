@@ -6,6 +6,7 @@ namespace Server.Items
         [Constructable]
         public SilvanisFeywoodBow()
         {
+	        Name = "Luk Silvani";
             Hue = 0x1A;
             Attributes.SpellChanneling = 1;
             Attributes.AttackChance = 12;
