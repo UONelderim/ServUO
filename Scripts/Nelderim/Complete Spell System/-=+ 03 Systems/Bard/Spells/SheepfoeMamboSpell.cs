@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections;
+using System.Linq;
 using Server.Mobiles;
 using Server.Spells;
 
@@ -35,12 +36,13 @@ namespace Server.ACC.CSS.Systems.Bard
 			{
 				ArrayList targets = new ArrayList();
 
-				foreach (Mobile m in Caster.GetMobilesInRange(3))
+				var eable = Caster.GetMobilesInRange(3);
+				foreach (Mobile m in eable)
 				{
 					if (Caster.CanBeBeneficial(m, false, true) && !(m is Golem))
 						targets.Add(m);
 				}
-
+				eable.Free();
 
 				for (int i = 0; i < targets.Count; ++i)
 				{

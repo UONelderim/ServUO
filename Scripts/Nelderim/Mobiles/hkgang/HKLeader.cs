@@ -83,7 +83,8 @@ namespace Server.Engines.HunterKiller
 
 				nextAbilityTime = DateTime.Now + TimeSpan.FromSeconds(Utility.RandomMinMax(7, 14));
 
-				foreach (Mobile m in GetMobilesInRange(5))
+				var eable = GetMobilesInRange(5);
+				foreach (Mobile m in eable)
 				{
 					if (m is BaseCreature && InLOS(m))
 					{
@@ -97,6 +98,7 @@ namespace Server.Engines.HunterKiller
 						}
 					}
 				}
+				eable.Free();
 
 				if (target == null) return;
 

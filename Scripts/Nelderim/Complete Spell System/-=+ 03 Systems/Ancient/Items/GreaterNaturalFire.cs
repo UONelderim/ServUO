@@ -169,11 +169,13 @@ namespace Server.ACC.CSS.Systems.Ancient
 
 					if (map != null)
 					{
-						foreach (Mobile m in m_FireRing.GetMobilesInRange(1))
+						var eable = m_FireRing.GetMobilesInRange(1);
+						foreach (Mobile m in eable)
 						{
 							if ((m.Z + 16) > m_FireRing.Z && (m_FireRing.Z + 12) > m.Z)
 								m_Queue.Enqueue(m);
 						}
+						eable.Free();
 
 						while (m_Queue.Count > 0)
 						{

@@ -51,7 +51,8 @@ namespace Server.ACC.CSS.Systems.Ancient
 
 				if (Caster.Skills[SkillName.Magery].Base >= 50)
 				{
-					foreach (Mobile ma in Caster.GetMobilesInRange(5))
+					var eable = Caster.GetMobilesInRange(5);
+					foreach (Mobile ma in eable)
 					{
 						BaseCreature m = ma as BaseCreature;
 						if (m != null)
@@ -64,6 +65,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 							}
 						}
 					}
+					eable.Free();
 				}
 			}
 

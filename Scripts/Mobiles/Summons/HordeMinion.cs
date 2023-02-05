@@ -88,13 +88,15 @@ namespace Server.Mobiles
 
             ArrayList list = new ArrayList();
 
-            foreach (Item item in GetItemsInRange(2))
+            var eable = GetItemsInRange(2);
+            foreach (Item item in eable)
             {
                 if (item.Movable && item.Stackable)
                 {
                     list.Add(item);
                 }
             }
+            eable.Free();
 
             int pickedUp = 0;
 

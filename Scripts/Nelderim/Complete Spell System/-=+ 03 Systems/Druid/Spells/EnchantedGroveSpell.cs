@@ -321,11 +321,13 @@ namespace Server.ACC.CSS.Systems.Druid
 				{
 					ArrayList list = new ArrayList();
 
-					foreach (Mobile m in m_DruidEnchantedGrove.GetMobilesInRange(5))
+					var eable = m_DruidEnchantedGrove.GetMobilesInRange(5);
+					foreach (Mobile m in eable)
 					{
 						if (m.Player && m.Karma >= 0 && m.Alive)
 							list.Add(m);
 					}
+					eable.Free();
 
 					for (int i = 0; i < list.Count; ++i)
 					{

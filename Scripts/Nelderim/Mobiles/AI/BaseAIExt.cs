@@ -26,7 +26,8 @@ namespace Server.Mobiles
 		{
 			get
 			{
-				foreach (Item it in m_Mobile.GetItemsInRange(1))
+				var eable = m_Mobile.GetItemsInRange(1);
+				foreach (Item it in eable)
 				{
 					if (it is FireFieldSpell.FireFieldItem || it is PoisonFieldSpell.InternalItem ||
 					    it is ParalyzeFieldSpell.InternalItem || it is EnergyFieldSpell.InternalItem)
@@ -34,6 +35,7 @@ namespace Server.Mobiles
 						return true;
 					}
 				}
+				eable.Free();
 
 				return false;
 			}
