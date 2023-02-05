@@ -64,12 +64,11 @@ namespace Server.SicknessSys.Mobiles
 		{
 			StayHidden();
 
-			foreach (Mobile mobile in GetMobilesInRange(2))
+			var eable = GetMobilesInRange(2);
+			foreach (var mobile in eable)
 			{
-				if (mobile is PlayerMobile)
+				if (mobile is PlayerMobile pm)
 				{
-					PlayerMobile pm = mobile as PlayerMobile;
-
 					Item HasVirus = pm.Backpack.FindItemByType(typeof(VirusCell));
 
 					bool GaveIllness = false;
@@ -104,6 +103,7 @@ namespace Server.SicknessSys.Mobiles
 					}
 				}
 			}
+			eable.Free();
 
 			base.OnThink();
 		}

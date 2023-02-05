@@ -35,11 +35,13 @@ namespace Server.ACC.CSS.Systems.Bard
 			{
 				List<Mobile> targets = new List<Mobile>();
 
-				foreach (Mobile m in Caster.GetMobilesInRange(3))
+				var eable = Caster.GetMobilesInRange(3);
+				foreach (Mobile m in eable)
 				{
 					if (Caster.CanBeBeneficial(m, false, true) && !(m is Golem))
 						targets.Add(m);
 				}
+				eable.Free();
 
 				int ticks = (int)(Caster.Skills[CastSkill].Value * 0.05);
 				int manaRegen = Math.Max(1, (int)(Caster.Skills[DamageSkill].Value * 0.08));

@@ -3170,7 +3170,7 @@ namespace Server.Gumps
 			{
 				if (m_Account != null)
 				{
-					m_Account.AddTag(m_Name, text);
+					m_Account.SetTag(m_Name, text);
 					from.SendGump(new AdminGump(from, AdminGumpPage.AccountDetails_Tags, 0, null, "Tag added.", m_Account));
 				}
 			}

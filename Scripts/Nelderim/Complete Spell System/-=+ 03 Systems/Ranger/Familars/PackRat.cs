@@ -76,11 +76,13 @@ namespace Server.ACC.CSS.Systems.Ranger
 
 			ArrayList list = new ArrayList();
 
-			foreach (Item item in this.GetItemsInRange(2))
+			var eable = GetItemsInRange(2);
+			foreach (Item item in eable)
 			{
 				if (item.Movable && item.Stackable)
 					list.Add(item);
 			}
+			eable.Free();
 
 			int pickedUp = 0;
 

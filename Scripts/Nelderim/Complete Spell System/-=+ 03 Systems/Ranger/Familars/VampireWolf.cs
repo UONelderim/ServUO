@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections;
+using System.Linq;
 using Server.Items;
 using Server.Mobiles;
 using static Server.Mobiles.DragonBreath;
@@ -99,11 +100,13 @@ namespace Server.ACC.CSS.Systems.Ranger
 
 			ArrayList list = new ArrayList();
 
-			foreach (Mobile m in this.GetMobilesInRange(5))
+			var eable = GetMobilesInRange(5);
+			foreach (Mobile m in eable)
 			{
 				if (m.Player && m.Alive && !m.IsDeadBondedPet && m.Karma <= 0)
 					list.Add(m);
 			}
+			eable.Free();
 
 			for (int i = 0; i < list.Count; ++i)
 			{

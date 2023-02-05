@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Server.Items;
 using Server.Mobiles;
 using Server.Targeting;
@@ -223,9 +224,10 @@ namespace Server.Commands
 
 				e.Mobile.RevealingAction();
 
-				ArrayList items = new ArrayList();
+				var items = new List<Item>();
 
-				foreach (Item item in e.Mobile.GetItemsInRange(2))
+				var eable = e.Mobile.GetItemsInRange(2);
+				foreach (Item item in eable)
 				{
 					if (item.Movable && item.Visible)
 					{
@@ -268,6 +270,7 @@ namespace Server.Commands
 						}
 					}
 				}
+				eable.Free();
 
 				if (items.Count == 0)
 				{
@@ -290,12 +293,12 @@ namespace Server.Commands
 
 		private class GrabTimer : Timer
 		{
-			private readonly ArrayList m_Items;
+			private readonly List<Item> m_Items;
 			private readonly PlayerMobile m_From;
 			private readonly bool m_Unsafe;
 			private readonly Point3D m_location;
 
-			public GrabTimer(PlayerMobile from, ArrayList items, bool us) : base(TimeSpan.FromSeconds(0.5),
+			public GrabTimer(PlayerMobile from, List<Item> items, bool us) : base(TimeSpan.FromSeconds(0.5),
 				TimeSpan.FromSeconds(1))
 			{
 				m_Items = items;

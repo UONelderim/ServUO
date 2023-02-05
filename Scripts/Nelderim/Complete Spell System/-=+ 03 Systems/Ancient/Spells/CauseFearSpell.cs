@@ -34,11 +34,13 @@ namespace Server.ACC.CSS.Systems.Ancient
 			{
 				List<Mobile> targets = new List<Mobile>();
 
-				foreach (Mobile m in Caster.GetMobilesInRange(8))
+				var eable = Caster.GetMobilesInRange(8);
+				foreach (Mobile m in eable)
 				{
 					if (Caster != m && SpellHelper.ValidIndirectTarget(Caster, m) && Caster.CanBeHarmful(m, false))
 						targets.Add(m);
 				}
+				eable.Free();
 
 				Caster.PlaySound(0x245);
 				Caster.PlaySound(0x3EA);

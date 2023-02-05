@@ -420,13 +420,15 @@ namespace Server.SkillHandlers
 
                         string message = string.Format("You notice {0} trying to steal from {1}.", m_Thief.Name, mobRoot.Name);
 
-                        foreach (NetState ns in m_Thief.GetClientsInRange(8))
+                        var eable = m_Thief.GetClientsInRange(8);
+                        foreach (NetState ns in eable)
                         {
                             if (ns.Mobile != m_Thief)
                             {
                                 ns.Mobile.SendMessage(message);
                             }
                         }
+                        eable.Free();
                     }
                 }
                 else if (root is Corpse && ((Corpse)root).IsCriminalAction(m_Thief))
