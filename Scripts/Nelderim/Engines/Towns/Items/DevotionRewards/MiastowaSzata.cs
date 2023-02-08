@@ -228,6 +228,22 @@ namespace Server.Items
 			LootType = LootType.Blessed;
 			Weight = 4.0;
 		}
+		
+		        public override void OnDoubleClick( Mobile from )
+        {
+            if (ItemID == 0x2684)
+            {
+                ItemID = 7939;
+                //OnRemoved(from);
+            }	
+            else
+            {
+                    
+                ItemID = 0x2684;
+            }
+            base.OnDoubleClick(from);
+            
+        }
 
 		public override bool Dye(Mobile from, DyeTub sender)
 		{
