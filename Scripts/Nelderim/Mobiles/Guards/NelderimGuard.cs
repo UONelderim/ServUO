@@ -151,7 +151,7 @@ namespace Server.Mobiles
 				case GuardType.MountedGuard:
 					RangePerception = 16;
 					ActiveSpeed = 0.05;
-					AI = AIType.AI_Mounted;
+					AI = AIType.AI_Melee;
 					PackGold(40, 80);
 					break;
 				case GuardType.ArcherGuard:
