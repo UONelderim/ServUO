@@ -2787,7 +2787,7 @@ namespace Server.Mobiles
                 AdjustTameRequirements();
             }
 
-            if (AI == AIType.AI_UNUSED1 || AI == AIType.AI_UNUSED2)
+            if (AI == AIType.AI_UNUSED1 || AI == AIType.AI_UNUSED2 || AI ==AIType.AI_UNUSED3)
                 AI = AIType.AI_Melee; // Can be safely removed on 1/1/2021 - Dan
         }
 
@@ -3101,6 +3101,9 @@ namespace Server.Mobiles
                 case AIType.AI_Melee:
                     m_AI = new MeleeAI(this);
                     break;
+                case AIType.AI_Animal:
+	                m_AI = new AnimalAI(this);
+	                break;
                 case AIType.AI_Archer:
                     m_AI = new ArcherAI(this);
                     break;
@@ -3112,6 +3115,9 @@ namespace Server.Mobiles
                     break;
                 case AIType.AI_Mage:
                     m_AI = new MageAI(this);
+                    break;
+                case AIType.AI_Boss:
+                    m_AI = new BossAI(this);
                     break;
                 case AIType.AI_NecroMage:
                     m_AI = new NecroMageAI(this);
@@ -3140,9 +3146,6 @@ namespace Server.Mobiles
                 case AIType.AI_Necro:
                     m_AI = new NecroAI(this);
                     break;
-				case AIType.AI_Animal:
-					m_AI = new AnimalAI(this);
-					break;
             }
         }
 
