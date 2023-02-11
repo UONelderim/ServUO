@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Server.Engines.Craft;
 using Server.Items;
 
@@ -9,71 +10,59 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-	// Klasa automatycznie generujaca liste itemkow, ktore mozna sprzedac do NPC
-	// na podstawie wszystkiego, co mozna wyprodukowac danym skillem rzemieslniczym.
 	public class CraftSB : SBInfo
 	{
-		// Ponizsze obiekty mozna uzywac jako SBInfo w definicjach klas NPC:
-		public static SBInfo CraftSellWeaponsmith = CraftItemsExcluding(DefBlacksmithy.CraftSystem,
-			new[] { typeof(BaseWeapon), typeof(DragonBardingDeed), typeof(Shuriken) });
+		public static SBInfo Weaponsmith = new CraftSB(DefBlacksmithy.CraftSystem,
+			new List<Type> { typeof(BaseWeapon), typeof(BaseShield)},
+			new List<Type> { typeof(DragonBardingDeed),  typeof(Shuriken) }
+		);
 
-		public static SBInfo CraftSellBlacksmith = CraftItemsExcluding(DefBlacksmithy.CraftSystem,
-			new[] { typeof(BaseArmor), typeof(DragonBardingDeed) });
+		public static SBInfo Armorer = new CraftSB(DefBlacksmithy.CraftSystem,
+			new List<Type> { typeof(BaseArmor) },
+			new List<Type> { typeof(DragonBardingDeed), typeof(BaseShield) }
+		);
 
-		public static SBInfo CraftSellTinker =
-			CraftItemsExcluding(DefTinkering.CraftSystem, new[] { typeof(BaseJewel) });
+		public static SBInfo Tinekerer = new CraftSB(DefTinkering.CraftSystem,
+			new List<Type>(),
+			new List<Type>()
+		);
 
-		public static SBInfo CraftSellCarpenter =
-			CraftItemsExcluding(DefCarpentry.CraftSystem, new[] { typeof(BaseInstrument) });
+		public static SBInfo Carpenter = new CraftSB(DefCarpentry.CraftSystem,
+			new List<Type>(),
+			new List<Type> { typeof(BaseInstrument) }
+		);
 
-		public static SBInfo CraftSellTailor =
-			CraftItemsExcluding(DefTailoring.CraftSystem, new[] { typeof(BaseArmor) });
+		public static SBInfo Fletcher = new CraftSB(DefBowFletching.CraftSystem,
+			new List<Type> { typeof(BaseWeapon) },
+			new List<Type>()
+		);
 
-		public static SBInfo CraftSellLeatherWorker =
-			CraftItemsExcluding(DefTailoring.CraftSystem, new[] { typeof(BaseClothing) });
+		public static SBInfo LeatherWorker = new CraftSB(DefTailoring.CraftSystem,
+			new List<Type>(),
+			new List<Type> { typeof(BaseClothing) }
+		);
 
-		public static SBInfo CraftSellFletcher =
-			CraftItemsIncluding(DefBowFletching.CraftSystem, new[] { typeof(BaseWeapon) });
+		public static SBInfo Tailor = new CraftSB(DefTailoring.CraftSystem,
+			new List<Type>(),
+			new List<Type> { typeof(BaseArmor) }
+		);
 
 		private GenericSellInfo m_SellInfo;
 
 		private readonly CraftSystem m_CraftSystem;
-		private readonly List<Type> m_Exclude; // If the list is not empty, then NPC will not buy these items
-
-		private readonly List<Type>
-			m_Include; // If the list is not empty, then NPC will only buy these items (m_Exclude becomes irrelevant)
-
+		private readonly List<Type> m_Include;
+		private readonly List<Type> m_Exclude;
 		public override IShopSellInfo SellInfo => m_SellInfo;
 		public override List<IBuyItemInfo> BuyInfo { get; } = new List<IBuyItemInfo>();
 
-		private CraftSB(CraftSystem system, Type[] exclude, Type[] include)
+		private CraftSB(CraftSystem system, List<Type> include, List<Type> exclude)
 		{
-			m_Exclude = new List<Type>();
-			m_Include = new List<Type>();
-
 			m_CraftSystem = system;
-
-			if (exclude != null && exclude.Length > 0)
-				m_Exclude.AddRange(exclude);
-
-			if (include != null && include.Length > 0)
-				m_Include.AddRange(include);
-
+			m_Include = include;
+			m_Exclude = exclude;
 			SellInit();
 		}
 
-		protected static SBInfo CraftItemsIncluding(CraftSystem system, Type[] list)
-		{
-			return new CraftSB(system, null, list);
-		}
-
-		protected static SBInfo CraftItemsExcluding(CraftSystem system, Type[] list)
-		{
-			return new CraftSB(system, list, null);
-		}
-
-		// Ta metoda oblicza wartosc produktu na podstawie ilosci potrzebnego do produkcji surowca.
-		// Dodatkowo mozna tez uwzglednic rodzaj samego rzemiosla.
 		private int CalculatePrice(CraftItem item)
 		{
 			CraftRes res;
@@ -86,7 +75,7 @@ namespace Server.Mobiles
 			int amount = res.Amount;
 			double unitPrice = 1.0;
 
-			if (res.ItemType == typeof(Log)) // DREWNO
+			if (res.ItemType == typeof(Log))
 			{
 				if (m_CraftSystem == DefCarpentry.CraftSystem) // SeedBox: 50 klod
 					unitPrice = 2.50;
@@ -97,7 +86,7 @@ namespace Server.Mobiles
 				else
 					unitPrice = 2.00;
 			}
-			else if (res.ItemType == typeof(IronIngot)) // SZTABY
+			else if (res.ItemType == typeof(IronIngot))
 			{
 				if (m_CraftSystem == DefTinkering.CraftSystem) // kula do boli: 10 sztab
 					unitPrice = 3.33;
@@ -106,7 +95,7 @@ namespace Server.Mobiles
 				else
 					unitPrice = 2.00;
 			}
-			else if (res.ItemType == typeof(Leather)) // SKORY
+			else if (res.ItemType == typeof(Leather))
 			{
 				if (m_CraftSystem == DefTailoring.CraftSystem) // StuddedXxxx: 14 skor
 					unitPrice = 4.75;
@@ -115,7 +104,7 @@ namespace Server.Mobiles
 				else
 					unitPrice = 2.00;
 			}
-			else if (res.ItemType == typeof(Cloth)) // MATERIAL
+			else if (res.ItemType == typeof(Cloth))
 			{
 				unitPrice = 1.50;
 			}
@@ -127,44 +116,27 @@ namespace Server.Mobiles
 		{
 			m_SellInfo = new GenericSellInfo();
 
-			if (m_Exclude != null && m_Exclude.Count > 0)
+			if (m_Include.Count > 0)
 			{
-				// We add everything from craft list except some type of items
-
-				foreach (CraftItem item in m_CraftSystem.CraftItems)
+				foreach (var includeType in m_Include)
 				{
-					foreach (Type exclude in m_Exclude)
+					if (m_Exclude.Any(exclude => includeType.IsSubclassOf(exclude) || includeType == exclude))
+						continue;
+
+					var item = m_CraftSystem.CraftItems.SearchForSubclass(includeType);
+					if (item != null)
 					{
-						if (item.ItemType.IsSubclassOf(exclude) || item.ItemType == exclude)
-							break;
 						m_SellInfo.Add(item.ItemType, CalculatePrice(item));
-
-						//Console.WriteLine("{0} {1}  {2} {3}", ex, item.ItemType, exclude, m_CraftSystem);
-					}
-				}
-			}
-			else if (m_Include != null && m_Include.Count > 0)
-			{
-				// We only add specified type of items from craft list
-
-				foreach (CraftItem item in m_CraftSystem.CraftItems)
-				{
-					foreach (Type include in m_Include)
-					{
-						if (item.ItemType.IsSubclassOf(include) || item.ItemType == include)
-						{
-							m_SellInfo.Add(item.ItemType, CalculatePrice(item));
-							break;
-						}
 					}
 				}
 			}
 			else
 			{
-				// We add everything from craft list
-
 				foreach (CraftItem item in m_CraftSystem.CraftItems)
 				{
+					if (m_Exclude.Any(exclude => item.ItemType.IsSubclassOf(exclude) || item.ItemType == exclude))
+						continue;
+
 					m_SellInfo.Add(item.ItemType, CalculatePrice(item));
 				}
 			}

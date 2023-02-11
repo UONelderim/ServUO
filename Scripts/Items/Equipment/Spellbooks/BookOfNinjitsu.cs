@@ -4,7 +4,7 @@ namespace Server.Items
     {
         [Constructable]
         public BookOfNinjitsu()
-            : this((ulong)0xFF)
+            : this(0)
         {
         }
 

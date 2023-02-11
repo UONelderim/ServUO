@@ -171,13 +171,13 @@ namespace Server.Commands
 
 		public SBInfosAnalyzer(Mobile m)
 		{
-			SBInfos.Add(CraftSB.CraftSellBlacksmith);
-			SBInfos.Add(CraftSB.CraftSellCarpenter);
-			SBInfos.Add(CraftSB.CraftSellLeatherWorker);
-			SBInfos.Add(CraftSB.CraftSellTailor);
-			SBInfos.Add(CraftSB.CraftSellTinker);
-			SBInfos.Add(CraftSB.CraftSellWeaponsmith);
-			SBInfos.Add(CraftSB.CraftSellFletcher);
+			SBInfos.Add(CraftSB.Armorer);
+			SBInfos.Add(CraftSB.Carpenter);
+			SBInfos.Add(CraftSB.LeatherWorker);
+			SBInfos.Add(CraftSB.Tailor);
+			SBInfos.Add(CraftSB.Tinekerer);
+			SBInfos.Add(CraftSB.Weaponsmith);
+			SBInfos.Add(CraftSB.Fletcher);
 			IEnumerable<Type> types = Assembly.GetAssembly(typeof(SBInfo)).GetTypes().Where(myType =>
 				myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(SBInfo)));
 			foreach (Type type in types)
