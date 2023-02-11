@@ -4,7 +4,7 @@ namespace Server.Items
     {
         [Constructable]
         public BookOfBushido()
-            : this((ulong)0x3F)
+            : this(0)
         {
         }
 
