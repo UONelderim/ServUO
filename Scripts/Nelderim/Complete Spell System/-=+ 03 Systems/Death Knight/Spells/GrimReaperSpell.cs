@@ -12,72 +12,53 @@ namespace Server.Spells.DeathKnight
 	public class GrimReaperSpell : DeathKnightSpell
 	{
 		private static SpellInfo m_Info = new SpellInfo(
-				"Ponury Zniwiarz", "Astaroth Mortem",
-				-1,
-				9002
-			);
+			"Ponury Zniwiarz", "Astaroth Mortem",
+			-1,
+			9002
+		);
 
-		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 0.5 ); } }
-		public override int RequiredTithing{ get{ return 42; } }
-		public override double RequiredSkill{ get{ return 30.0; } }
-		public override bool BlocksMovement{ get{ return false; } }
-		public override int RequiredMana{ get{ return 28; } }
+		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(0.5);
+		public override int RequiredTithing => 42;
+		public override double RequiredSkill => 30.0;
+		public override bool BlocksMovement => false;
+		public override int RequiredMana => 28;
 
-		public GrimReaperSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
+		public GrimReaperSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
 		}
 
 		public override void OnCast()
 		{
-			if ( CheckSequence() && CheckFizzle() )
+			if (CheckSequence() && CheckFizzle())
 			{
-				Caster.PlaySound( 0x0F5 );
-				Caster.PlaySound( 0x1ED );
-				Caster.FixedParticles( 0x375A, 1, 30, 9966, 33, 2, EffectLayer.Head );
-				Caster.FixedParticles( 0x37B9, 1, 30, 9502, 43, 3, EffectLayer.Head );
+				Caster.PlaySound(0x0F5);
+				Caster.PlaySound(0x1ED);
+				Caster.FixedParticles(0x375A, 1, 30, 9966, 33, 2, EffectLayer.Head);
+				Caster.FixedParticles(0x37B9, 1, 30, 9502, 43, 3, EffectLayer.Head);
 
-				Timer t = (Timer)m_Table[Caster];
-
-				if ( t != null )
-					t.Stop();
-
-				double delay = (double)ComputePowerValue( 1 ) / 60;
+				double delaySeconds = (double)ComputePowerValue(1) / 60;
 
 				// TODO: Should caps be applied?
-				if ( delay < 1.5 )
-					delay = 1.5;
-				else if ( delay > 3.5 )
-					delay = 3.5;
+				if (delaySeconds < 1.5)
+					delaySeconds = 1.5;
+				else if (delaySeconds > 3.5)
+					delaySeconds = 3.5;
 
-				m_Table[Caster] = Timer.DelayCall( TimeSpan.FromMinutes( delay ), new TimerStateCallback( Expire_Callback ), Caster );
+				TimeSpan delay = TimeSpan.FromSeconds(delaySeconds);
 
-				if ( Caster is PlayerMobile )
-				{
-					((PlayerMobile)Caster).EnemyOfOneType = null;
-					((PlayerMobile)Caster).WaitingForEnemy = true;
+				Timer timer = Timer.DelayCall(delay, EnemyOfOneSpell.RemoveEffect, Caster);
 
-					BuffInfo.AddBuff ( Caster, new BuffInfo ( BuffIcon.EnemyOfOne, 1044119, 1044118, TimeSpan.FromMinutes ( delay ), Caster ) );
-				}
+				DateTime expire = DateTime.UtcNow + delay;
+
+				EnemyOfOneContext context = new EnemyOfOneContext(Caster, timer, expire);
+				context.OnCast();
+				EnemyOfOneSpell.AddContext(Caster, context);
+
+				BuffInfo.AddBuff(Caster,
+					new BuffInfo(BuffIcon.EnemyOfOne, 1044119, 1044118, TimeSpan.FromMinutes(delaySeconds), Caster));
 			}
 
 			FinishSequence();
-		}
-
-		private static Hashtable m_Table = new Hashtable();
-
-		private static void Expire_Callback( object state )
-		{
-			Mobile m = (Mobile)state;
-
-			m_Table.Remove( m );
-
-			m.PlaySound( 0x1F8 );
-
-			if ( m is PlayerMobile )
-			{
-				((PlayerMobile)m).EnemyOfOneType = null;
-				((PlayerMobile)m).WaitingForEnemy = false;
-			}
 		}
 	}
 }

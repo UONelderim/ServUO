@@ -8,7 +8,7 @@ namespace Server.Engines.Craft
         RunicAtlas = 800
     }
 
-    public class DefInscription : CraftSystem
+    public partial class DefInscription : CraftSystem
     {
         public override SkillName MainSkill => SkillName.Inscribe;
 
@@ -154,17 +154,17 @@ namespace Server.Engines.Craft
             switch (m_Circle)
             {
                 default:
-                case 0: minSkill = -25.0; maxSkill = 25.0; cliloc = 1111691; break;
-                case 1: minSkill = -10.8; maxSkill = 39.2; cliloc = 1111691; break;
-                case 2: minSkill = 03.5; maxSkill = 53.5; cliloc = 1111692; break;
-                case 3: minSkill = 17.8; maxSkill = 67.8; cliloc = 1111692; break;
-                case 4: minSkill = 32.1; maxSkill = 82.1; cliloc = 1111693; break;
-                case 5: minSkill = 46.4; maxSkill = 96.4; cliloc = 1111693; break;
-                case 6: minSkill = 60.7; maxSkill = 110.7; cliloc = 1111694; break;
-                case 7: minSkill = 75.0; maxSkill = 125.0; cliloc = 1111694; break;
+                case 0: minSkill = -25.0; maxSkill = 25.0; break;
+                case 1: minSkill = -10.8; maxSkill = 39.2; break;
+                case 2: minSkill = 03.5; maxSkill = 53.5; break;
+                case 3: minSkill = 17.8; maxSkill = 67.8; break;
+                case 4: minSkill = 32.1; maxSkill = 82.1; break;
+                case 5: minSkill = 46.4; maxSkill = 96.4; break;
+                case 6: minSkill = 60.7; maxSkill = 110.7; break;
+                case 7: minSkill = 75.0; maxSkill = 125.0; break;
             }
 
-            int index = AddCraft(type, cliloc, 1044381 + m_Index++, minSkill, maxSkill, m_RegTypes[(int)regs[0]], 1044353 + (int)regs[0], 1, 1044361 + (int)regs[0]);
+            int index = AddCraft(type, "Magia", 1044381 + m_Index++, minSkill, maxSkill, m_RegTypes[(int)regs[0]], 1044353 + (int)regs[0], 1, 1044361 + (int)regs[0]);
 
             for (int i = 1; i < regs.Length; ++i)
                 AddRes(index, m_RegTypes[(int)regs[i]], 1044353 + (int)regs[i], 1, 1044361 + (int)regs[i]);
@@ -177,7 +177,7 @@ namespace Server.Engines.Craft
         private void AddNecroSpell(int spell, int mana, double minSkill, Type type, params Reg[] regs)
         {
             int id = GetRegLocalization(regs[0]);
-            int index = AddCraft(type, 1061677, 1060509 + spell, minSkill, minSkill + 1.0, m_RegTypes[(int)regs[0]], id, 1, 501627);
+            int index = AddCraft(type, "Nekromancja", 1060509 + spell, minSkill, minSkill + 1.0, m_RegTypes[(int)regs[0]], id, 1, 501627);
 
             for (int i = 1; i < regs.Length; ++i)
             {
@@ -192,7 +192,7 @@ namespace Server.Engines.Craft
 
         private void AddMysticSpell(int id, int mana, double minSkill, Type type, params Reg[] regs)
         {
-            int index = AddCraft(type, 1111671, id, minSkill, minSkill + 1.0, m_RegTypes[(int)regs[0]], GetRegLocalization(regs[0]), 1, 501627);	//Yes, on OSI it's only 1.0 skill diff'.  Don't blame me, blame OSI.
+            int index = AddCraft(type, "Mistycyzm", id, minSkill, minSkill + 1.0, m_RegTypes[(int)regs[0]], GetRegLocalization(regs[0]), 1, 501627);	//Yes, on OSI it's only 1.0 skill diff'.  Don't blame me, blame OSI.
 
             for (int i = 1; i < regs.Length; ++i)
                 AddRes(index, m_RegTypes[(int)regs[i]], GetRegLocalization(regs[i]), 1, 501627);
@@ -340,65 +340,66 @@ namespace Server.Engines.Craft
             AddNecroSpell(14, 23, 59.6, typeof(WitherScroll), Reg.GraveDust, Reg.NoxCrystal, Reg.PigIron);
             AddNecroSpell(15, 17, 19.6, typeof(WraithFormScroll), Reg.NoxCrystal, Reg.PigIron);
             AddNecroSpell(16, 40, 79.6, typeof(ExorcismScroll), Reg.NoxCrystal, Reg.GraveDust);
-
+            
             int index;
 
-            index = AddCraft(typeof(EnchantedSwitch), 1044294, 1072893, 45.0, 95.0, typeof(BlankScroll), 1044377, 1, 1044378);
+            var otherGroup = "Inne";
+            index = AddCraft(typeof(EnchantedSwitch), otherGroup, 1072893, 45.0, 95.0, typeof(BlankScroll), 1044377, 1, 1044378);
             AddRes(index, typeof(SpidersSilk), 1044360, 1, 1044253);
             AddRes(index, typeof(BlackPearl), 1044353, 1, 1044253);
             AddRes(index, typeof(SwitchItem), 1073464, 1, 1044253);
             ForceNonExceptional(index);
 
-            index = AddCraft(typeof(RunedPrism), 1044294, 1073465, 45.0, 95.0, typeof(BlankScroll), 1044377, 1, 1044378);
+            index = AddCraft(typeof(RunedPrism), otherGroup, 1073465, 45.0, 95.0, typeof(BlankScroll), 1044377, 1, 1044378);
             AddRes(index, typeof(SpidersSilk), 1044360, 1, 1044253);
             AddRes(index, typeof(BlackPearl), 1044353, 1, 1044253);
             AddRes(index, typeof(HollowPrism), 1072895, 1, 1044253);
             ForceNonExceptional(index);
 
-            index = AddCraft(typeof(Runebook), 1044294, 1041267, 45.0, 95.0, typeof(BlankScroll), 1044377, 8, 1044378);
+            index = AddCraft(typeof(Runebook), otherGroup, 1041267, 45.0, 95.0, typeof(BlankScroll), 1044377, 8, 1044378);
             AddRes(index, typeof(RecallScroll), 1044445, 1, 1044253);
             AddRes(index, typeof(GateTravelScroll), 1044446, 1, 1044253);            
 
-            AddCraft(typeof(BulkOrders.BulkOrderBook), 1044294, 1028793, 65.0, 115.0, typeof(BlankScroll), 1044377, 10, 1044378);
+            AddCraft(typeof(BulkOrders.BulkOrderBook), otherGroup, 1028793, 65.0, 115.0, typeof(BlankScroll), 1044377, 10, 1044378);
 
-            AddCraft(typeof(Spellbook), 1044294, 1023834, 50.0, 126, typeof(BlankScroll), 1044377, 10, 1044378);
+            AddCraft(typeof(Spellbook), otherGroup, 1023834, 50.0, 126, typeof(BlankScroll), 1044377, 10, 1044378);
 
-            index = AddCraft(typeof(ScrappersCompendium), 1044294, 1072940, 75.0, 125.0, typeof(BlankScroll), 1044377, 100, 1044378);
+            index = AddCraft(typeof(ScrappersCompendium), otherGroup, 1072940, 75.0, 125.0, typeof(BlankScroll), 1044377, 100, 1044378);
             AddRes(index, typeof(DreadHornMane), 1032682, 1, 1044253);
             AddRes(index, typeof(Taint), 1032679, 10, 1044253);
             AddRes(index, typeof(Corruption), 1032676, 10, 1044253);
             AddRecipe(index, (int)TinkerRecipes.ScrappersCompendium);
             ForceNonExceptional(index);
 
-            index = AddCraft(typeof(SpellbookEngraver), 1044294, 1072151, 75.0, 100.0, typeof(Feather), 1044562, 1, 1044563);
+            index = AddCraft(typeof(SpellbookEngraver), otherGroup, 1072151, 75.0, 100.0, typeof(Feather), 1044562, 1, 1044563);
             AddRes(index, typeof(BlackPearl), 1015001, 7, 1044253);
                         
             AddCraft(typeof(MysticBook), 1044294, 1031677, 50.0, 100.0, typeof(BlankScroll), 1044377, 10, 1044378);
 
             AddCraft(typeof(NecromancerSpellbook), 1044294, 1074909, 50.0, 100.0, typeof(BlankScroll), 1044377, 10, 1044378);
 
-            index = AddCraft(typeof(ExodusSummoningRite), 1044294, 1153498, 95.0, 120.0, typeof(DaemonBlood), 1023965, 5, 1044253);
+            index = AddCraft(typeof(ExodusSummoningRite), otherGroup, 1153498, 95.0, 120.0, typeof(DaemonBlood), 1023965, 5, 1044253);
             AddRes(index, typeof(Taint), 1032679, 1, 1044253);
             AddRes(index, typeof(DaemonBone), 1017412, 5, 1044253);
             AddRes(index, typeof(SummonDaemonScroll), 1016017, 1, 1044253);
 
-            index = AddCraft(typeof(PropheticManuscript), 1044294, 1155631, 90.0, 115.0, typeof(AncientParchment), 1155627, 10, 1044253);
+            index = AddCraft(typeof(PropheticManuscript), otherGroup, 1155631, 90.0, 115.0, typeof(AncientParchment), 1155627, 10, 1044253);
             AddRes(index, typeof(AntiqueDocumentsKit), 1155630, 1, 1044253);
             AddRes(index, typeof(WoodPulp), 1113136, 10, 1113289);
             AddRes(index, typeof(Beeswax), 1025154, 5, 1044253);
 
-            AddCraft(typeof(BlankScroll), 1044294, 1023636, 50.0, 100.0, typeof(WoodPulp), 1113136, 1, 1044378);
+            AddCraft(typeof(BlankScroll), otherGroup, 1023636, 50.0, 100.0, typeof(WoodPulp), 1113136, 1, 1044378);
 
-            index = AddCraft(typeof(ScrollBinderDeed), 1044294, 1113135, 75.0, 125.0, typeof(WoodPulp), 1113136, 1, 1044253);
+            index = AddCraft(typeof(ScrollBinderDeed), otherGroup, 1113135, 75.0, 125.0, typeof(WoodPulp), 1113136, 1, 1044253);
             SetItemHue(index, 1641);
 
-            index = AddCraft(typeof(GargoyleBook100), 1044294, 1113290, 60.0, 100.0, typeof(BlankScroll), 1044377, 40, 1044378);
+            index = AddCraft(typeof(GargoyleBook100), otherGroup, 1113290, 60.0, 100.0, typeof(BlankScroll), 1044377, 40, 1044378);
             AddRes(index, typeof(Beeswax), 1025154, 2, 1053098);
 
-            index = AddCraft(typeof(GargoyleBook200), 1044294, 1113291, 72.0, 100.0, typeof(BlankScroll), 1044377, 40, 1044378);
+            index = AddCraft(typeof(GargoyleBook200), otherGroup, 1113291, 72.0, 100.0, typeof(BlankScroll), 1044377, 40, 1044378);
             AddRes(index, typeof(Beeswax), 1025154, 4, 1053098);
 
-            index = AddCraft(typeof(RunicAtlas), 1044294, 1156443, 45.0, 95.0, typeof(BlankScroll), 1044377, 24, 1044378);
+            index = AddCraft(typeof(RunicAtlas), otherGroup, 1156443, 45.0, 95.0, typeof(BlankScroll), 1044377, 24, 1044378);
             AddRes(index, typeof(RecallRune), 1044447, 3, 1044253);
             AddRes(index, typeof(RecallScroll), 1044445, 3, 1044253);
             AddRes(index, typeof(GateTravelScroll), 1044446, 3, 1044253);
@@ -421,6 +422,8 @@ namespace Server.Engines.Craft
             AddMysticSpell(1031692, 50, 75.0, typeof(NetherCycloneScroll), Reg.Bloodmoss, Reg.Nightshade, Reg.SulfurousAsh, Reg.MandrakeRoot);
             AddMysticSpell(1031693, 50, 75.0, typeof(RisingColossusScroll), Reg.DaemonBone, Reg.FertileDirt, Reg.DragonBlood, Reg.Nightshade, Reg.MandrakeRoot);
 
+            InitNelderimSpells();
+            
             MarkOption = true;
         }
     }
