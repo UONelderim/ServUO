@@ -71,7 +71,7 @@ namespace Server.Targets
 					}
 				}
 			}
-			else if (targeted is NBaseWarHorse wh && wh.HasBarding)
+			else if (targeted is WarHorse wh && wh.HasBarding)
 			{
 				if (!wh.Controlled || wh.ControlMaster != from)
 					from.SendLocalizedMessage(1053022); // You cannot remove barding from a swamp dragon you do not own.
