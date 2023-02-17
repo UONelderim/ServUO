@@ -234,7 +234,9 @@ namespace Server.Engines.Craft
                 "Nie masz wystarczajaco duzej ilosci drewnianych skrzyń.");
             AddSkill(index, SkillName.Anatomy, 100.0, 120.0);
 
-            // RecycleHelper = new NecroRecycle();
+            Recycle = true;
+            RecycleAction = NecroRecycle.Do;
+            RecycleText = "ROZŁÓŻ PRZYWOŁAŃCA";
         }
     }
 }

@@ -4,6 +4,7 @@ using Server.Targeting;
 
 namespace Server.Engines.Craft
 {
+
 	public enum SmeltResult
 	{
 		Success,
