@@ -88,14 +88,11 @@ namespace Server.ACC.CSS.Systems.Druid
 				if ( !pack.CheckHold( this, item, false, true ) )
 					return;
 
-				bool rejected;
-				LRReason reject;
+				NextActionTime = Core.TickCount;
 
-				NextActionTime = DateTime.Now;
+				
 
-				Lift( item, item.Amount, out rejected, out reject );
-
-				if ( rejected )
+				if ( !Lift( item, item.Amount ) )
 					continue;
 
 				Drop( this, Point3D.Zero );
@@ -119,17 +116,6 @@ namespace Server.ACC.CSS.Systems.Druid
 				from.SendGump( new WarningGump( 1060635, 30720, 1061672, 32512, 420, 280, new WarningGumpCallback( ConfirmRelease_Callback ), null ) );
 			else
 				EndRelease( from );
-		}
-
-		#region Pack Animal Methods
-		public override bool OnBeforeDeath()
-		{
-			if ( !base.OnBeforeDeath() )
-				return false;
-
-			PackAnimal.CombineBackpacks( this );
-
-			return true;
 		}
 
 		public override DeathMoveResult GetInventoryMoveResultFor( Item item )
@@ -180,7 +166,6 @@ namespace Server.ACC.CSS.Systems.Druid
 
 			PackAnimal.GetContextMenuEntries( this, from, list );
 		}
-		#endregion
 
 		public SkitteringHopperFamiliar( Serial serial ) : base( serial )
 		{

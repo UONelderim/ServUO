@@ -132,7 +132,7 @@ namespace Server.ACC.CSS.Systems.Druid
 			AddHtmlLocalized( 30, 26, 200, 20, 1060147, EnabledColor16, false, false ); // Chose thy familiar...
 
 			double lore = from.Skills[SkillName.Magery].Base;
-			double taming = from.Skills[SkillName.Zielarstwo].Base;
+			double taming = from.Skills[SkillName.Herbalism].Base;
 
 			for ( int i = 0; i < entries.Length; ++i )
 			{
@@ -160,7 +160,7 @@ namespace Server.ACC.CSS.Systems.Druid
 				DruidFamiliarEntry entry = m_Entries[index];
 
 				double lore = m_From.Skills[SkillName.Magery].Base;
-				double taming = m_From.Skills[SkillName.Zielarstwo].Base;
+				double taming = m_From.Skills[SkillName.Herbalism].Base;
 
 				BaseCreature check = (BaseCreature)DruidFamiliarSpell.Table[m_From];
 
