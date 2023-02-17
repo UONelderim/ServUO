@@ -73,7 +73,7 @@ namespace Server.Mobiles
 			public override void OnClick()
 			{
 				m_Wet.BeginRes(m_From);
-				m_Wet.Say( "Wskrzeszenie tego zwierzecia bedzie Cie kosztowac 20 000 centarow." ); 
+				m_Wet.Say( "Wskrzeszenie tego zwierzecia bedzie Cie kosztowac 5 000 centarow." ); 
 			}
 		}
 
@@ -135,7 +135,7 @@ namespace Server.Mobiles
 			}
 			else if (BandageContext.AllowPetRessurection(from, pet, false))
 			{
-				if (Banker.Withdraw(from, 20000))
+				if (Banker.Withdraw(from, 5000))
 				{
 					pet.PlaySound(0x214);
 					pet.FixedEffect(0x376A, 10, 16);

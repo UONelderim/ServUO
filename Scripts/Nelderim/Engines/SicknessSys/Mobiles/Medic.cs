@@ -1,5 +1,6 @@
 #region References
 
+using System.Linq;
 using Server.Items;
 using Server.Mobiles;
 
@@ -108,7 +109,8 @@ namespace Server.SicknessSys.Mobiles
 			{
 				ThinkDelay = 25;
 
-				foreach (Mobile mobile in GetMobilesInRange(3))
+				var eable = GetMobilesInRange(3);
+				foreach (var mobile in eable)
 				{
 					if (mobile is PlayerMobile)
 					{
@@ -126,6 +128,7 @@ namespace Server.SicknessSys.Mobiles
 						}
 					}
 				}
+				eable.Free();
 			}
 			else
 			{

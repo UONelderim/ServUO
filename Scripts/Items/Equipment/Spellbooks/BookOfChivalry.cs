@@ -4,7 +4,7 @@ namespace Server.Items
     {
         [Constructable]
         public BookOfChivalry()
-            : this((ulong)0x3FF)
+            : this(0)
         {
         }
 

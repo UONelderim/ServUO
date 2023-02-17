@@ -217,13 +217,15 @@ namespace Server.Mobiles
 				SetWearable(pack);
 				pack.Initialize();
 
-                foreach (NetState state in GetClientsInRange(12))
+				var eable = GetClientsInRange(12);
+				foreach (NetState state in eable)
                 {
                     Mobile m = state.Mobile;
 
                     if (m != null && m.Player && m != from)
                         PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1071919, from.Name, m.NetState); // * ~1_VAL~ slices through the plague beast's amorphous tissue *
                 }
+				eable.Free();
 
                 from.LocalOverheadMessage(MessageType.Regular, 0x21, 1071904); // * You slice through the plague beast's amorphous tissue *
                 Timer.DelayCall(TimeSpan.Zero, pack.Open, from);

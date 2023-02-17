@@ -71,7 +71,7 @@ namespace Nelderim.Races
 		{
 			new[] // Female
 			{
-				Hair.Human.Bald, Hair.Human.Short, Hair.Human.Long, Hair.Human.PonyTail, Hair.Human.Mohawk,
+				Hair.Human.Short, Hair.Human.Long, Hair.Human.PonyTail, Hair.Human.Mohawk,
 				Hair.Human.Pageboy, Hair.Human.Buns, Hair.Human.Afro, Hair.Human.PigTails, Hair.Human.Krisna,
 			},
 			new[] // Male

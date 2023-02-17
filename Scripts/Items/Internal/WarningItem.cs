@@ -129,11 +129,13 @@ namespace Server.Items
             {
                 List<WarningItem> list = new List<WarningItem>();
 
-                foreach (Item item in GetItemsInRange(NeighborRange))
+                var eable = GetItemsInRange(NeighborRange);
+                foreach (Item item in eable)
                 {
                     if (item != this && item is WarningItem)
                         list.Add((WarningItem)item);
                 }
+                eable.Free();
 
                 for (int i = 0; i < list.Count; i++)
                     list[i].Broadcast(triggerer);

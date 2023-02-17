@@ -122,11 +122,17 @@ namespace Server.Mobiles
 				List<Mobile> targets = new List<Mobile>();
 
 				if (m_from.Map != null && m_from.Map != Map.Internal)
-					foreach (Mobile m in m_from.GetMobilesInRange(2))
+				{
+					var eable = m_from.GetMobilesInRange(2);
+					foreach (Mobile m in eable)
+					{
 						if (m_from != m && SpellHelper.ValidIndirectTarget(m_from, m) &&
 						    m_from.CanBeHarmful(m, false) && (!Core.AOS || m_from.InLOS(m)))
 							if (m_from.Controlled || m.Player || m is BaseCreature && ((BaseCreature)m).Controlled)
 								targets.Add(m);
+					}
+					eable.Free();
+				}
 
 				for (int i = 0; i < targets.Count; ++i)
 				{

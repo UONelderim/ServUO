@@ -29,12 +29,14 @@ namespace Server.SicknessSys.Illnesses
 
 			if (cell.Level < 100)
 			{
-				IEnumerable<Garlic> result = from c in cell.PM.GetItemsInRange(3)
+				var eable = cell.PM.GetItemsInRange(3);
+				IEnumerable<Garlic> result = from c in eable
 					where c is Garlic
 					select c as Garlic;
 
 
 				DoMinDamage = result.Any();
+				eable.Free();
 
 				Item resultBP = cell.PM.Backpack.FindItemByType(typeof(Garlic));
 				if (resultBP != null)

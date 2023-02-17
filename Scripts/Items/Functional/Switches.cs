@@ -20,7 +20,8 @@ namespace Server.Items
 
         public override void DoSomethingSpecial(Mobile from)
         {
-            foreach (Item item in GetItemsInRange(8))
+	        var eable = GetItemsInRange(8);
+	        foreach (Item item in eable)
             {
                 if (item.ItemID == 0x3660 && item.Hue == 1000) //Dark Globe of Sosaria
                 {
@@ -28,6 +29,7 @@ namespace Server.Items
                     m_timerA.Start();
                 }
             }
+	        eable.Free();
         }
 
         public override void Serialize(GenericWriter writer)

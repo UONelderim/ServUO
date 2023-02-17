@@ -63,11 +63,13 @@ namespace Server
 
 						pm.Say("You Moved!");
 
-						IEnumerable<Item> items = from c in pm.GetItemsInRange(50)
+						var eable = pm.GetItemsInRange(50);
+						IEnumerable<Item> items = from c in eable
 							where c.Visible
 							select c;
 
 						itms.AddRange(items);
+						eable.Free();
 					}
 					else
 					{

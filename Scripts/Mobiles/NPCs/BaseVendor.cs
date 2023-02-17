@@ -307,8 +307,8 @@ namespace Server.Mobiles
 
 			Title = title;
 
-			InitBody();
-			InitOutfit();
+			// InitBody();
+			// InitOutfit();
 
 			Container pack;
 			//these packs MUST exist, or the client will crash when the packets are sent
@@ -426,11 +426,12 @@ namespace Server.Mobiles
 			InitStats(100, 100, 25);
 
 			SpeechHue = Utility.RandomDyedHue();
-			Female = GetGender();
-			Hue = Race.RandomSkinHue();
-			Body = Race.Body(this);
-
-			Name = NameList.RandomName(Female ? "female" : "male");
+			RaceGenerator.Init(this);
+			// Female = GetGender();
+			// Hue = Race.RandomSkinHue();
+			// Body = Race.Body(this);
+			//
+			// Name = NameList.RandomName(Female ? "female" : "male");
 		}
 
 		public virtual int GetRandomHue()
@@ -721,15 +722,15 @@ namespace Server.Mobiles
 				break;
 			}
 
-			var hairHue = GetHairHue();
-
-			Utility.AssignRandomHair(this, hairHue);
-			Utility.AssignRandomFacialHair(this, hairHue);
-
-			if (Body == 0x191)
-			{
-				FacialHairItemID = 0;
-			}
+			// var hairHue = GetHairHue();
+			//
+			// Utility.AssignRandomHair(this, hairHue);
+			// Utility.AssignRandomFacialHair(this, hairHue);
+			//
+			// if (Body == 0x191)
+			// {
+			// 	FacialHairItemID = 0;
+			// }
 
 			if (Body == 0x191)
 			{

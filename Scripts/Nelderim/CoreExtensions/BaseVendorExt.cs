@@ -292,5 +292,12 @@ namespace Server.Mobiles
 		        }
 	        }
         }
+
+        protected override void OnCreate()
+        {
+	        base.OnCreate();
+	        InitBody();
+	        InitOutfit();
+        }
 	}
 }

@@ -2340,7 +2340,7 @@ namespace Server.Gumps
 					switch (index)
 					{
 						case 1:
-							if (TownDatabase.GetCitinzeship(from).HasDevotion(2000))
+							if (TownDatabase.IsCitizenOfAnyTown(from) && TownDatabase.GetCitinzeship(from).HasDevotion(2000))
 							{
 								Item m_toGive;
 								switch (TownDatabase.GetCitizenCurrentCity(from))

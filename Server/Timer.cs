@@ -203,22 +203,17 @@ namespace Server
 
 			private class TimerChangeEntry
 			{
-				public Timer m_Timer;
-
 				public int m_NewIndex;
 				public bool m_IsAdd;
 
-				private TimerChangeEntry(Timer t, int newIndex, bool isAdd)
+				private TimerChangeEntry(int newIndex, bool isAdd)
 				{
-					m_Timer = t;
 					m_NewIndex = newIndex;
 					m_IsAdd = isAdd;
 				}
 
 				public void Free()
 				{
-					m_Timer = null;
-
 					if (m_InstancePool.Count < 512) // Arbitrary
 					{
 						m_InstancePool.Enqueue(this);
@@ -227,17 +222,16 @@ namespace Server
 
 				private static readonly ConcurrentQueue<TimerChangeEntry> m_InstancePool = new ConcurrentQueue<TimerChangeEntry>();
 
-				public static TimerChangeEntry GetInstance(Timer t, int newIndex, bool isAdd)
+				public static TimerChangeEntry GetInstance(int newIndex, bool isAdd)
 				{
 					if (m_InstancePool.TryDequeue(out var e))
 					{
-						e.m_Timer = t;
 						e.m_NewIndex = newIndex;
 						e.m_IsAdd = isAdd;
 					}
 					else
 					{
-						e = new TimerChangeEntry(t, newIndex, isAdd);
+						e = new TimerChangeEntry(newIndex, isAdd);
 					}
 
 					return e;
@@ -246,10 +240,7 @@ namespace Server
 
 			public static void Change(Timer t, int newIndex, bool isAdd)
 			{
-				lock (m_Changed)
-				{
-					m_Changed[t] = TimerChangeEntry.GetInstance(t, newIndex, isAdd);
-				}
+				m_Changed[t] = TimerChangeEntry.GetInstance(newIndex, isAdd);
 
 				m_Signal.Set();
 			}
@@ -271,40 +262,39 @@ namespace Server
 
 			private static void ProcessChanged()
 			{
-				lock (m_Changed)
+				var curTicks = Core.TickCount;
+
+				foreach (var timer in m_Changed.Keys)
 				{
-					var curTicks = Core.TickCount;
-
-					foreach (var tce in m_Changed.Values)
+					m_Changed.TryRemove(timer, out var tce);
+					if (tce == null)
 					{
-						var timer = tce.m_Timer;
-						var newIndex = tce.m_NewIndex;
+						continue;
+					}
+					var newIndex = tce.m_NewIndex;
 
-						if (timer.m_List != null)
-						{
-							timer.m_List.Remove(timer);
-						}
-
-						if (tce.m_IsAdd)
-						{
-							timer.m_Next = curTicks + timer.m_Delay;
-							timer.m_Index = 0;
-						}
-
-						if (newIndex >= 0)
-						{
-							timer.m_List = m_Timers[newIndex];
-							timer.m_List.Add(timer);
-						}
-						else
-						{
-							timer.m_List = null;
-						}
-
-						tce.Free();
+					if (timer.m_List != null)
+					{
+						timer.m_List.Remove(timer);
 					}
 
-					m_Changed.Clear();
+					if (tce.m_IsAdd)
+					{
+						timer.m_Next = curTicks + timer.m_Delay;
+						timer.m_Index = 0;
+					}
+
+					if (newIndex >= 0)
+					{
+						timer.m_List = m_Timers[newIndex];
+						timer.m_List.Add(timer);
+					}
+					else
+					{
+						timer.m_List = null;
+					}
+
+					tce.Free();
 				}
 			}
 

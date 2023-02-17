@@ -55,10 +55,12 @@ namespace Server.SicknessSys
 		{
 			int rnd = Utility.RandomMinMax(1, 100);
 
-			IEnumerable<PlayerMobile> result = from c in pm.GetMobilesInRange(3)
+			var eable = pm.GetMobilesInRange(3);
+			IEnumerable<PlayerMobile> result = from c in eable
 				where c is PlayerMobile
 				select c as PlayerMobile;
-
+			eable.Free();
+			
 			if (result.Any())
 			{
 				foreach (PlayerMobile player in result)
