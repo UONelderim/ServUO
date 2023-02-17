@@ -135,10 +135,10 @@ namespace Server.Engines.Craft
             AddHtmlLocalized(270, 468, 150, 18, 1079443, args, LabelColor, false, false); //~1_DONE~/~2_TOTAL~ COMPLETED
 
             // Resmelt option
-            if (m_CraftSystem.Resmelt)
+            if (m_CraftSystem.Recycle)
             {
                 AddButton(15, 342, 4005, 4007, GetButtonID(6, 1), GumpButtonType.Reply, 0);
-                AddHtmlLocalized(50, 345, 150, 18, 1044259, LabelColor, false, false); // SMELT ITEM
+                AddHtml(50, 345, 150, 18, $"<BASEFONT COLOR=#FFFFFF>{m_CraftSystem.RecycleText}</BASEFONT>", false, false); // SMELT ITEM
             }
             // ****************************************
 
@@ -642,8 +642,8 @@ namespace Server.Engines.Craft
                                 }
                             case 1: // Smelt item
                                 {
-                                    if (system.Resmelt)
-                                        Resmelt.Do(m_From, system, m_Tool);
+                                    if (system.Recycle)
+                                        system.RecycleAction(m_From, system, m_Tool);
 
                                     break;
                                 }

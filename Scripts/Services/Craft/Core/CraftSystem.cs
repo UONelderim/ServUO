@@ -94,7 +94,13 @@ namespace Server.Engines.Craft
 
         public bool CanAlter { get; set; }
 
-        public bool Resmelt { get; set; }
+        public bool Recycle { get; set; }
+
+        public delegate void RecycleActionHandler(Mobile from, CraftSystem craftSystem, ITool tool);
+        
+        public RecycleActionHandler RecycleAction { get; set; }
+        
+        public string RecycleText { get; set; }
 
         public bool Repair { get; set; }
 

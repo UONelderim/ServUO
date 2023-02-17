@@ -833,7 +833,9 @@ namespace Server.Engines.Craft
             AddSubRes2(typeof(WhiteScales), 1060879, 0.0, 1053137, 1044268);
             AddSubRes2(typeof(BlueScales), 1060880, 0.0, 1053137, 1044268);
 
-            Resmelt = true;
+            Recycle = true;
+            RecycleAction = Resmelt.Do;
+            RecycleText = "PRZETOP PRZEDMIOT";
             Repair = true;
             MarkOption = true;
             CanEnhance = true;
