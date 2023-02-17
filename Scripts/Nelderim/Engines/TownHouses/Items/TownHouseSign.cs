@@ -663,7 +663,8 @@ namespace Knives.TownHouses
 
 		private void HideOtherSigns()
 		{
-			foreach (Item item in House.Sign.GetItemsInRange(0))
+			var eable = House.Sign.GetItemsInRange(0);
+			foreach (Item item in eable)
 				if (!(item is HouseSign))
 					if (item.ItemID == 0xB95
 					    || item.ItemID == 0xB96
@@ -671,6 +672,7 @@ namespace Knives.TownHouses
 					    || item.ItemID == 0xC44
 					    || (item.ItemID > 0xBA3 && item.ItemID < 0xC0E))
 						item.Visible = false;
+			eable.Free();
 		}
 
 		public virtual void ConvertItems(bool keep)
@@ -744,12 +746,16 @@ namespace Knives.TownHouses
 
 			door.Delete();
 
-			foreach (Item inneritem in newdoor.GetItemsInRange(1))
+			var eable = newdoor.GetItemsInRange(1);
+			foreach (Item inneritem in eable)
+			{
 				if (inneritem is BaseDoor && inneritem != newdoor && inneritem.Z == newdoor.Z)
 				{
 					((BaseDoor)inneritem).Link = newdoor;
 					newdoor.Link = (BaseDoor)inneritem;
 				}
+			}
+			eable.Free();
 
 			House.Doors.Add(newdoor);
 		}
@@ -780,12 +786,16 @@ namespace Knives.TownHouses
 
 				door.Delete();
 
-				foreach (Item inneritem in newdoor.GetItemsInRange(1))
+				var eable = newdoor.GetItemsInRange(1);
+				foreach (Item inneritem in eable)
+				{
 					if (inneritem is BaseDoor && inneritem != newdoor && inneritem.Z == newdoor.Z)
 					{
 						((BaseDoor)inneritem).Link = newdoor;
 						newdoor.Link = (BaseDoor)inneritem;
 					}
+				}
+				eable.Free();
 
 				House.Doors.Remove(door);
 			}

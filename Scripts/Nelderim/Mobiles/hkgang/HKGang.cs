@@ -188,13 +188,15 @@ namespace Server.Engines.HunterKiller
 
 			ArrayList list = new ArrayList();
 
-			foreach (Mobile m in this.GetMobilesInRange(MaxRange))
+			var eable = GetMobilesInRange(MaxRange);
+			foreach (Mobile m in eable)
 			{
 				if (m != null && m.Player && !m.Deleted && m.Alive && !m.Hidden && m.AccessLevel == AccessLevel.Player)
 				{
 					list.Add(m);
 				}
 			}
+			eable.Free();
 
 			if (list.Count == 0) return;
 

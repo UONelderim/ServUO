@@ -304,7 +304,8 @@ namespace Server.SkillHandlers
 			{
 				var inRangeArray = new List<PlayerMobile>();
 
-				foreach (Mobile m in from.GetMobilesInRange(range))
+				var eable = from.GetMobilesInRange(range);
+				foreach (Mobile m in eable)
 				{
 					if (m is PlayerMobile pm)
 					{
@@ -321,6 +322,7 @@ namespace Server.SkillHandlers
 						}
 					}
 				}
+				eable.Free();
 
 				if (detectedanyone)
 					from.SendMessage("Wyczules kogos w poblizu!");

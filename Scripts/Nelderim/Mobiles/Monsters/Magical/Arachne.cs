@@ -1,6 +1,7 @@
 #region References
 
 using System.Collections;
+using System.Linq;
 using Server.Items;
 
 #endregion
@@ -76,7 +77,8 @@ namespace Server.Mobiles
 		{
 			ArrayList list = new ArrayList();
 
-			foreach (Mobile m in this.GetMobilesInRange(2))
+			var eable = GetMobilesInRange(2);
+			foreach (Mobile m in eable)
 			{
 				if (m == this || !CanBeHarmful(m))
 					continue;
@@ -87,6 +89,7 @@ namespace Server.Mobiles
 				else if (m.Player)
 					list.Add(m);
 			}
+			eable.Free();
 
 			foreach (Mobile m in list)
 			{

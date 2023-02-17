@@ -302,7 +302,7 @@ namespace Nelderim.Time
 		{
 			public ServerTimeTimer() : base(TimeSpan.Zero, TimeSpan.FromMinutes(2))
 			{
-				Priority = TimerPriority.TwoFiftyMS;
+				Priority = TimerPriority.FiveSeconds;
 			}
 
 			protected override void OnTick()

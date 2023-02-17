@@ -325,8 +325,10 @@ namespace Server.Engines.Doom
         {
             Packet p = new AsciiMessage(from.Serial, from.Body, MessageType.Regular, MsgParams[index][0], MsgParams[index][1], from.Name, Msgs[index]);
             p.Acquire();
-            foreach (NetState state in from.Map.GetClientsInRange(from.Location))
+            var eable = from.Map.GetClientsInRange(from.Location);
+            foreach (NetState state in eable)
                 state.Send(p);
+            eable.Free();
 
             Packet.Release(p);
         }

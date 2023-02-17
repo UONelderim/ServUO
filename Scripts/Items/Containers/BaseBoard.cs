@@ -122,8 +122,10 @@ namespace Server.Items
                 }
                 else
                 {
-                    foreach (NetState state in GetClientsInRange(2))
+	                var eable = GetClientsInRange(2);
+	                foreach (NetState state in eable)
                         state.Send(p);
+	                eable.Free();
                 }
 
                 p.Release();

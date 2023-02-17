@@ -436,10 +436,12 @@ namespace Server.SicknessSys
 
 		public static bool AreRatsClose(PlayerMobile pm)
 		{
-			IEnumerable<Rat> result = from c in pm.GetMobilesInRange(3)
+			var eable = pm.GetMobilesInRange(3);
+			IEnumerable<Rat> result = from c in eable
 				where c is Rat
 				select c as Rat;
 
+			eable.Free();
 			return result.Any();
 		}
 	}

@@ -4107,7 +4107,8 @@ namespace Server.Mobiles
         {
             Packet p = null;
 
-            foreach (NetState ns in from.GetClientsInRange(8))
+            var eable = from.GetClientsInRange(8);
+            foreach (NetState ns in eable)
             {
                 Mobile mob = ns.Mobile;
 
@@ -4124,6 +4125,7 @@ namespace Server.Mobiles
                     ns.Send(p);
                 }
             }
+            eable.Free();
 
             Packet.Release(p);
         }

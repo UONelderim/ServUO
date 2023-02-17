@@ -320,7 +320,8 @@ namespace Server.Commands
                 {
                     bool hasBankerSpawner = false;
 
-                    foreach (Item item in m.GetItemsInRange(0))
+                    var eable = m.GetItemsInRange(0);
+                    foreach (Item item in eable)
                     {
                         if (item is Spawner)
                         {
@@ -333,6 +334,7 @@ namespace Server.Commands
                                 break;
                         }
                     }
+                    eable.Free();
 
                     if (!hasBankerSpawner)
                     {
@@ -553,11 +555,13 @@ namespace Server.Commands
 
             p.Acquire();
 
-            foreach (NetState state in m.GetClientsInRange(12))
+            var eable = m.GetClientsInRange(12);
+            foreach (NetState state in eable)
             {
                 if (toAll || state.Mobile.CanSee(m))
                     state.Send(p);
             }
+            eable.Free();
 
             p.Release();
         }

@@ -1,6 +1,7 @@
 ﻿#region References
 
 using System;
+using System.Linq;
 using Server.Spells;
 using Server.Spells.Fifth;
 using Server.Spells.First;
@@ -506,7 +507,8 @@ namespace Server.Mobiles
 
 			if (map != null)
 			{
-				foreach (Mobile trg in m_Mobile.GetMobilesInRange(m_Mobile.RangePerception))
+				var eable = m_Mobile.GetMobilesInRange(m_Mobile.RangePerception);
+				foreach (Mobile trg in eable)
 				{
 					if (trg != m_Mobile && trg.Hidden && trg.AccessLevel == AccessLevel.Player &&
 					    m_Mobile.CheckSkill(SkillName.DetectHidden, 0.0, 100.0))
@@ -517,6 +519,7 @@ namespace Server.Mobiles
 						trg.SendLocalizedMessage(500814); // You have been revealed!  
 					}
 				}
+				eable.Free();
 			}
 		}
 	}
