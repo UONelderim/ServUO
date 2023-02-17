@@ -13,10 +13,10 @@ namespace Server.Spells.DeathKnight
 				9061
 			);
 
-		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 1 );
-		public override int RequiredTithing => 28;
-		public override double RequiredSkill => 20.0;
-		public override int RequiredMana => 20;
+		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 1 ); } }
+		public override int RequiredTithing{ get{ return 28; } }
+		public override double RequiredSkill{ get{ return 20.0; } }
+		public override int RequiredMana{ get{ return 20; } }
 
 		public StrengthOfSteelSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
 		{
@@ -48,7 +48,7 @@ namespace Server.Spells.DeathKnight
 			{
 				Caster.SendLocalizedMessage( 500237 ); // Target can not be seen.
 			}
-			else if ( CheckBSequence( m ) /*&& CheckFizzle()*/ )
+			else if ( CheckBSequence( m ) /*& CheckFizzle()*/ )
 			{
 				SpellHelper.Turn( Caster, m );
 
