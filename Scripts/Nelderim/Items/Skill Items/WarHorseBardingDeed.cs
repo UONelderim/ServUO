@@ -9,14 +9,11 @@ using Server.Targeting;
 
 namespace Server.Items
 {
-	//[TypeAlias( "Server.Items.DragonBarding" )]
 	public class WarHorseBardingDeed : Item, ICraftable
 	{
 		private bool m_Exceptional;
 		private Mobile m_Crafter;
 		private CraftResource m_Resource;
-
-		//public override int LabelNumber{ get{ return m_Exceptional ? 1053181 : 1053012; } } // dragon barding deed
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public Mobile Crafter
@@ -62,8 +59,7 @@ namespace Server.Items
 		{
 			base.GetProperties(list);
 
-			if (m_Exceptional /* && m_Crafter*/ != null)
-				//list.Add( 1050043, m_Crafter.Name ); // crafted by ~1_NAME~
+			if (m_Exceptional)
 				list.Add(1060636); // exceptional
 		}
 
@@ -85,7 +81,7 @@ namespace Server.Items
 			if (Deleted)
 				return;
 
-			NBaseWarHorse pet = obj as NBaseWarHorse;
+			var pet = obj as WarHorse;
 
 			if (pet == null || pet.HasBarding)
 			{
@@ -101,14 +97,14 @@ namespace Server.Items
 			}
 			else
 			{
-				pet.BardingExceptional = this.Exceptional;
-				pet.BardingCrafter = this.Crafter;
+				pet.BardingExceptional = Exceptional;
+				pet.BardingCrafter = Crafter;
 				pet.BardingHP = pet.BardingMaxHP;
-				pet.BardingResource = this.Resource;
+				pet.BardingResource = Resource;
 				pet.HasBarding = true;
-				pet.Hue = this.Hue;
+				pet.Hue = Hue;
 
-				this.Delete();
+				Delete();
 
 				from.SendLocalizedMessage(
 					1053027); // You place the barding on your swamp dragon.  Use a bladed item on your dragon to remove the armor.
