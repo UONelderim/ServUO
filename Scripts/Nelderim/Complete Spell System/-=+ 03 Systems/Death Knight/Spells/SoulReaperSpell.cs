@@ -15,7 +15,7 @@ namespace Server.Spells.DeathKnight
 				9032
 			);
 
-		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 1 );
+		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 3 );
 		public override int RequiredTithing => 63;
 		public override double RequiredSkill => 45.0;
 		public override int RequiredMana => 40;
