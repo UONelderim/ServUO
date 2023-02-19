@@ -14,7 +14,7 @@ namespace Server.Spells.DeathKnight
 				9061
 			);
 
-		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 1 );
+		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 1.5 );
 		public override int RequiredTithing => 21;
 		public override double RequiredSkill => 15.0;
 		public override int RequiredMana => 16;
@@ -29,7 +29,7 @@ namespace Server.Spells.DeathKnight
 			// THIS ALSO AFFECTS BENEFICIAL SPELLS AND POTIONS THAT RESTORE HEALTH, STAMINA, AND MANA
 
 			double mod = 1.0;
-				if ( m is PlayerMobile ){ mod = 1.25; } // ONLY CHANGE THIS VALUE
+				if ( m is PlayerMobile ){ mod = 0.45; } // ONLY CHANGE THIS VALUE
 
 			value = (int)( value * mod );
 				if ( value < 0 ){ value = 1; }
