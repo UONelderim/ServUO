@@ -20,6 +20,8 @@ namespace Server.ACC.CSS.Systems.Druid
 		public override SkillName CastSkill { get { return SkillName.Herbalism; } }
 		public override SkillName DamageSkill { get { return SkillName.Magery; } }
 		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds(3 * CastDelaySecondsPerTick); } }
+		
+		public override int CastRecoveryBase { get { return 4; } }
 
 		public override void GetCastSkills(out double min, out double max)
 		{
