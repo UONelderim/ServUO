@@ -54,7 +54,7 @@ namespace Server.ACC.CSS.Systems.Druid
 				// m.FixedParticles( 0x91B, 1, 240, 9916, 0, 3, EffectLayer.Head );
 				m.PlaySound(0x1E5);
 
-				double damage = ((Caster.Skills[CastSkill].Value - m.Skills[SkillName.Magery].Value) / 10) + 30;
+				double damage = ((Caster.Skills[CastSkill].Value - m.Skills[SkillName.Magery].Value) / 10) + 3;
 
 				if (damage < 1)
 					damage = 1;
