@@ -12,7 +12,7 @@ namespace Server.Spells.DeathKnight
 				9022
 			);
 
-		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 1 );
+		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 3 );
 		public override int RequiredTithing => 35;
 		public override double RequiredSkill => 25.0;
 		public override int RequiredMana => 24;
@@ -42,7 +42,7 @@ namespace Server.Spells.DeathKnight
 
 				SpellHelper.CheckReflect( this, Caster, ref m );
 
-				double duration = 2.0 + ( GetKarmaPower( m ) * 0.2 );
+				double duration = 0.5 + ( GetKarmaPower( m ) );
 
 				m.Paralyze( TimeSpan.FromSeconds( duration ) );
 				m.FixedEffect( 0x376A, 6, 1 );
