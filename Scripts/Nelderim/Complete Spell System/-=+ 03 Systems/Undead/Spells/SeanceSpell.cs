@@ -13,7 +13,7 @@ namespace Server.ACC.CSS.Systems.Undead
 {
 	public class UndeadSeanceSpell : UndeadSpell
 	{
-		public override double CastDelay => 4.5;
+		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 3.5 );
 		public override double RequiredSkill => 80.0;
 		public override int RequiredMana => 50;
 
@@ -70,63 +70,78 @@ namespace Server.ACC.CSS.Systems.Undead
 			return true;
 		}
 
-		public override void OnCast()
-		{
-			if (!CheckSequence())
-			{
-				return;
-			}
+		        public override void OnCast()
+        {
+            if (!CheckSequence())
+            {
+                return;
+            }
+            else if (!Caster.CanBeginAction(typeof(UndeadSeanceSpell)))
+            {
+                Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
+            }
+            else if (TransformationSpellHelper.UnderTransformation(Caster))
+            {
+                Caster.SendMessage("Nie możesz wejść do królestwa zmarłych w tej formie.");
+            }
+            else if (DisguiseTimers.IsDisguised(Caster))
+            {
+                Caster.SendMessage("Nie możesz wejść do krainy zmarłych będąc ukrytym.");
+            }
+            else if (Caster.BodyMod == 183 || Caster.BodyMod == 184)
+            {
+                Caster.SendMessage("Nie możesz wejść do krainy umarłych bez usunięcia farby.");
+            }
+            else if (!Caster.CanBeginAction(typeof(Server.Spells.Fifth.IncognitoSpell)) || Caster.IsBodyMod)
+            {
+                DoFizzle();
+            }
+            else if (CheckSequence())
+            {
+                if (Caster.BeginAction(typeof(UndeadSeanceSpell)))
+                {
+                    if (this.Scroll != null)
+                        Scroll.Consume();
+                    Caster.PlaySound(0x379);
 
-			if (!Caster.CanBeginAction(typeof(UndeadSeanceSpell)))
-			{
-				Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
-			}
-			else if (TransformationSpellHelper.UnderTransformation(Caster))
-			{
-				Caster.SendMessage("Nie możesz wejść do królestwa zmarłych w tej formie.");
-			}
-			else if (DisguiseTimers.IsDisguised(Caster))
-			{
-				Caster.SendMessage("Nie możesz wejść do krainy zmarłych będąc ukrytym.");
-			}
-			else if (Caster.BodyMod == 183 || Caster.BodyMod == 184)
-			{
-				Caster.SendMessage("Nie możesz wejść do krainy umarłych bez usunięcia farby.");
-			}
-			else if (!Caster.CanBeginAction(typeof(IncognitoSpell)) || Caster.IsBodyMod)
-			{
-				DoFizzle();
-			}
-			else if (CheckSequence())
-			{
-				if (Caster.BeginAction(typeof(UndeadSeanceSpell)))
-				{
-					if (this.Scroll != null)
-						Scroll.Consume();
-					Caster.PlaySound(0x379);
+                    AncientSeanceSpell.SeanceSpellExt.Get(Caster).OldBody = Caster.BodyValue;
+                    Caster.BodyValue = Caster.Female ? 403 : 402;
 
-					AncientSeanceSpell.SeanceSpellExt.Get(Caster).OldBody = Caster.BodyValue;
-					Caster.BodyValue = Caster.Female ? 403 : 402;
+                    Caster.SendMessage("Wkraczasz do królestwa zmarłych.");
+                    BaseArmor.ValidateMobile(Caster);
 
-					Caster.SendMessage("Wkraczasz do królestwa zmarłych.");
-					BaseArmor.ValidateMobile(Caster);
+                    StopTimer(Caster);
 
-					StopTimer(Caster);
+                    Timer t = new InternalTimer(Caster);
+                    m_Timers[Caster] = t;
+                    t.Start();
 
-					Timer t = new InternalTimer(Caster);
+                    // Set a flag indicating that the spell cannot be cast again until the timer expires
+                    Caster.BeginAction(typeof(UndeadSeanceSpellCooldown));
+                }
+                else
+                {
+                    Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
+                }
+            }
+            FinishSequence();
+        }
+        
+        public class UndeadSeanceSpellCooldown : Timer
+        {
+            private Mobile m_Caster;
 
-					m_Timers[Caster] = t;
+            public UndeadSeanceSpellCooldown(Mobile caster)
+                : base(TimeSpan.FromMinutes(5))
+            {
+                m_Caster = caster;
+            }
 
-					t.Start();
-				}
-				else
-				{
-					Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
-				}
-			}
-
-			FinishSequence();
-		}
+            protected override void OnTick()
+            {
+                m_Caster.EndAction(typeof(UndeadSeanceSpellCooldown));
+            }
+        }
 
 		private static readonly Hashtable m_Timers = new Hashtable();
 

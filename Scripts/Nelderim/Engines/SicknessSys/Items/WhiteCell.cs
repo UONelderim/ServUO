@@ -54,7 +54,7 @@ namespace Server.SicknessSys.Items
 
 		public override void OnDoubleClick(Mobile from)
 		{
-			PM.Say("*" + ViralResistance + "*");
+			PM.Say("*Twoja odpornośc na wirusy to" + ViralResistance + "");
 
 			base.OnDoubleClick(from);
 		}

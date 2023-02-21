@@ -32,7 +32,7 @@ namespace Server.SicknessSys
 							else if (Cell.Illness == IllnessType.Lycanthropia)
 								SicknessSkills.RagePush(Cell.PM, Cell);
 							else
-								from.Say("nIE DOTYKAJ MNIE! JESTEM CHORY!");
+								from.Say("NIE DOTYKAJ MNIE! JESTEM CHORY!");
 
 							if (SicknessHelper.IsSpecialVirus(Cell))
 								Cell.LastSkill = 60;
@@ -87,7 +87,7 @@ namespace Server.SicknessSys
 				{
 					Mobile m = targeted as Mobile;
 
-					m.Say("!!!");
+					m.Say("Co to do cholery?!");
 				}
 				else if (targeted is Item)
 				{
