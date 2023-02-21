@@ -55,7 +55,7 @@ namespace Server.SicknessSys
 			{
 				pm.SpeechHue = 47;
 
-				pm.Say("Mana + " + manaGain);
+				pm.SendMessage("Mana + " + manaGain);
 
 				pm.Mana = cell.PM.ManaMax;
 
@@ -113,7 +113,7 @@ namespace Server.SicknessSys
 			{
 				pm.SpeechHue = 47;
 
-				pm.Say("Zycie + " + hitsGain);
+				pm.SendMessage("Zycie + " + hitsGain);
 
 				pm.Hits = cell.PM.HitsMax;
 

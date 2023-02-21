@@ -159,7 +159,7 @@ namespace Server.SicknessSys
 					else
 						Sickness = sickness;
 
-					Name = "komorka" + Sickness; 
+					Name = "komorka wirusa: " + Sickness; 
 					Damage = Cold.BaseDamage;
 					StatDrain = Cold.StatDrain;
 					PowerDegenRate = Cold.PowerDegenRate;
@@ -172,7 +172,7 @@ namespace Server.SicknessSys
 					else
 						Sickness = sickness;
 
-					Name = "komorka" + Sickness; 
+					Name = "komorka wirusa: " + Sickness; 
 					Damage = Flu.BaseDamage;
 					StatDrain = Flu.StatDrain;
 					PowerDegenRate = Flu.PowerDegenRate;
@@ -185,7 +185,7 @@ namespace Server.SicknessSys
 					else
 						Sickness = sickness;
 
-					Name = "komorka" + Sickness; 
+					Name = "komorka wirusa: " + Sickness; 
 					Damage = Virus.BaseDamage;
 					StatDrain = Virus.StatDrain;
 					PowerDegenRate = Virus.PowerDegenRate;
@@ -198,7 +198,7 @@ namespace Server.SicknessSys
 					else
 						Sickness = sickness;
 
-					Name = "komorka" + Sickness; 
+					Name = "komorka wirusa: " + Sickness; 
 					Damage = Vampirism.BaseDamage;
 					StatDrain = Vampirism.StatDrain;
 					PowerDegenRate = Vampirism.PowerDegenRate;
@@ -211,14 +211,14 @@ namespace Server.SicknessSys
 					else
 						Sickness = sickness;
 
-					Name = "komorka" + Sickness; 
+					Name = "komorka wirusa: " + Sickness; 
 					Damage = Lycanthropia.BaseDamage;
 					StatDrain = Lycanthropia.StatDrain;
 					PowerDegenRate = Lycanthropia.PowerDegenRate;
 					break;
 
 				default:
-					Sickness = "brak";
+					Sickness = "";
 					break;
 			}
 		}

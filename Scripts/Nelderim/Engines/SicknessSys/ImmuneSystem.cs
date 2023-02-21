@@ -43,7 +43,7 @@ namespace Server.SicknessSys
 					{
 						if (cell.PM.Combatant != null)
 						{
-							cell.PM.SendMessage("Test Message : Fired");
+							cell.PM.SendMessage("Twoje cialo plonie... CO TO TAKIEGO?!");
 
 							if (cell.PM.InRange(cell.PM.Combatant.Location, 2))
 							{
