@@ -141,13 +141,18 @@ namespace Nelderim.Engines.ChaosChest
 
 		private static Item Proszek(int type)
 		{
-			switch (Utility.RandomList(4))
+			var reward = Utility.RandomList(
+				typeof(BlacksmihyPowderOfTemperament), 
+				typeof(BowFletchingPowderOfTemperament), 
+				typeof(CarpentryPowderOfTemperament),
+				typeof(TailoringPowderOfTemperament),
+				typeof(TinkeringPowderOfTemperament));
+			if (reward != null)
 			{
-				case 3: return new PowderForMetal();
-				case 2: return new PowderForLeather();
-				case 1: return new PowderForWood();
-				default: return new PowderForTinkering();
+				return (Item)Activator.CreateInstance(reward);
 			}
+
+			return null;
 		}
 
 		private static Item Art(int type)
