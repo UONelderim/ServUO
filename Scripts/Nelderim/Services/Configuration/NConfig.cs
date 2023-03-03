@@ -2,6 +2,7 @@
 // ServUO - NConfig.cs
 // **********
 
+using Nelderim.Config;
 using static Server.Config;
 
 namespace Nelderim.Configuration
@@ -9,6 +10,7 @@ namespace Nelderim.Configuration
 	public static class NConfig
 	{
 		public static Loot Loot = new Loot();
+		public static Durability Durability = new Durability();
 		public static bool CustomOnSpeech => Get("Nelderim.CustomOnSpeech", true);
 		public static bool CustomFameKarma => Get("Nelderim.CustomFameKarma", true);
 		public static bool CustomGainChance => Get("Nelderim.CustomGainChance", true);

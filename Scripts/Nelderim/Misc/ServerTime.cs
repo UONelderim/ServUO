@@ -2,6 +2,7 @@
 
 using System;
 using System.Text.RegularExpressions;
+using Nelderim.Configuration;
 using Server;
 using Server.Items;
 using Server.Network;

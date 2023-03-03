@@ -8,6 +8,7 @@ using AMT = Server.Items.ArmorMaterialType;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim.Configuration;
 
 namespace Server.Items
 {
@@ -2014,9 +2015,11 @@ namespace Server.Items
             if (Absorbed < 2)
                 Absorbed = 2;
 
-            double chance = NegativeAttributes.Antique > 0 ? 80 : 25;
+            double baseChance = NConfig.Durability.Enabled ? NConfig.Durability.BaseArmorLossChance : 0.25;
 
-            if (chance >= Utility.Random(100)) // 25% chance to lower durability
+            double chance = NegativeAttributes.Antique > 0 ? baseChance * 3 : baseChance;
+
+            if (chance >= Utility.RandomDouble()) // 25% chance to lower durability
             {
                 int selfRepair = m_AosArmorAttributes.SelfRepair + (IsSetItem && m_SetEquipped ? m_SetSelfRepair : 0);
 
