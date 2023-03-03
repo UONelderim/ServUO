@@ -1330,7 +1330,7 @@ namespace Server.Mobiles
 
             if (pm != null)
             {
-                pm.ClaimAutoStabledPets();
+                // pm.ClaimAutoStabledPets();
                 pm.ValidateEquipment();
 
                 ReportMurdererGump.CheckMurderer(pm);
