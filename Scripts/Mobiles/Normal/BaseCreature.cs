@@ -1564,7 +1564,7 @@ namespace Server.Mobiles
             return amount;
         }
 
-        public virtual bool DeleteCorpseOnDeath => false;
+        public virtual bool DeleteCorpseOnDeath { get; set; }
 
         public override void SetLocation(Point3D newLocation, bool isTeleport)
         {
@@ -1853,6 +1853,11 @@ namespace Server.Mobiles
             if (from is PlayerMobile)
             {
                 Timer.DelayCall(TimeSpan.FromSeconds(10), ((PlayerMobile)@from).RecoverAmmo);
+            }
+
+            if (from is BaseNelderimGuard && !Controlled && !IsDeadPet)
+            {
+	            DeleteCorpseOnDeath = true;
             }
 
             base.OnDamage(amount, from, willKill);
