@@ -6,6 +6,8 @@ using Server.Multis;
 using Server.Regions;
 using Server.Spells.SkillMasteries;
 using System;
+using Nelderim.Configuration;
+
 #endregion
 
 namespace Server.Misc
@@ -240,7 +242,7 @@ namespace Server.Misc
 
         public static double GetGainChance(Mobile from, Skill skill, double chance, bool success)
         {
-	        if (Config.Get("Nelderim.CustomGainChance", true))
+	        if (NConfig.CustomGainChance)
 		        return NGetGainChance(from, skill, chance, success);
 		        
             double gc = (double)(from.Skills.Cap - from.Skills.Total) / from.Skills.Cap;

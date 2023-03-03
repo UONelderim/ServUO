@@ -170,7 +170,7 @@ namespace Nelderim.Time
 
 		public static void Initialize()
 		{
-			if (Config.Get("Nelderim.TimeSystemEnabled", true))
+			if (NConfig.TimeSystemEnabled)
 			{
 				if (NDateTime.WorldStart.DayOfWeek != DayOfWeek.Thursday)
 				{

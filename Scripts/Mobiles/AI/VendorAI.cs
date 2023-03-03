@@ -1,3 +1,5 @@
+using Nelderim.Configuration;
+
 namespace Server.Mobiles
 {
     public partial class VendorAI : BaseAI
@@ -109,7 +111,7 @@ namespace Server.Mobiles
         {
             base.OnSpeech(e);
             
-            if (Config.Get("Nelderim.CustomOnSpeech", false))
+            if (NConfig.CustomOnSpeech)
             {
 	            NelderimOnSpeech(e);
 	            return;

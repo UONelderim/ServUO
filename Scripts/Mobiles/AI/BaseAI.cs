@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Nelderim.Configuration;
 using Server.ContextMenus;
 using Server.Gumps;
 using Server.Items;
@@ -550,7 +551,7 @@ namespace Server.Mobiles
 
 			if (m_Mobile.Controlled && m_Mobile.Commandable)
 			{
-				if (Config.Get("Nelderim.CustomOnSpeech", false))
+				if (NConfig.CustomOnSpeech)
 				{
 					NelderimOnSpeech(e);
 					return;

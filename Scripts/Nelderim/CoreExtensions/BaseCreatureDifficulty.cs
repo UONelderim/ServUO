@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using Nelderim.Configuration;
 using Server.Items;
 
 #endregion
@@ -320,9 +321,9 @@ namespace Server.Mobiles
 			}
 		}
 
-		public override int Fame => Config.Get("Nelderim.CustomFameKarma", false) ? NelderimFame : base.Fame;
+		public override int Fame => NConfig.CustomFameKarma ? NelderimFame : base.Fame;
 
-		public override int Karma => Config.Get("Nelderim.CustomFameKarma", false) ? NelderimKarma : base.Karma;
+		public override int Karma => NConfig.CustomFameKarma ? NelderimKarma : base.Karma;
 		
 		[CommandProperty(AccessLevel.GameMaster)]
 		public DifficultyLevelValue DifficultyLevel {
