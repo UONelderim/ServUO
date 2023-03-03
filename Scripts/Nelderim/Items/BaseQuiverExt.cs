@@ -1,6 +1,7 @@
 ﻿#region References
 
 using Nelderim;
+using Nelderim.Configuration;
 using Server.Network;
 
 #endregion
@@ -63,9 +64,9 @@ namespace Server.Items
 			if (Absorbed < 2)
 				Absorbed = 2;
 
-			double chance = 25;
+			double chance = NConfig.Durability.Enabled ? NConfig.Durability.BaseQuiverLossChance : 0.25;
 
-			if (chance >= Utility.Random(100)) // 25% chance to lower durability
+			if (chance >= Utility.RandomDouble()) // 25% chance to lower durability
 			{
 				int wear = 1;
 

@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using Nelderim;
+using Nelderim.Configuration;
 using Nelderim.Gains;
 using Server.Engines.ArenaSystem;
 using Server.Mobiles;

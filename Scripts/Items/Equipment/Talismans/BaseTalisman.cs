@@ -8,6 +8,7 @@ using Server.Spells.Necromancy;
 using Server.Spells.Second;
 using Server.Targeting;
 using System;
+using Nelderim.Configuration;
 
 namespace Server.Items
 {
@@ -465,8 +466,9 @@ namespace Server.Items
             if (m_MaxHitPoints == 0)
                 return damage;
 
-            int chance = m_NegativeAttributes.Antique > 0 ? 50 : 25;
-            if (chance > Utility.Random(100)) // 25% chance to lower durability
+            double baseChance = NConfig.Durability.Enabled ? NConfig.Durability.BaseTalismanLossChance : 0.25;
+            double chance = NegativeAttributes.Antique > 0 ? baseChance * 2 : baseChance;
+            if (chance >= Utility.RandomDouble()) // 25% chance to lower durability
             {
                 if (m_HitPoints >= 1)
                 {

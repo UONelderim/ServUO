@@ -17,6 +17,8 @@ using Server.Misc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim.Configuration;
+
 #endregion
 
 namespace Server.Items
@@ -1807,10 +1809,12 @@ namespace Server.Items
                     splintering = true;
             }
 
-            double chance = NegativeAttributes.Antique > 0 ? 5 : 0;
+            double baseChance = NConfig.Durability.Enabled ? NConfig.Durability.BaseWeaponLossChance : 0.25;
+            double chance = NegativeAttributes.Antique > 0 ? baseChance * 5 : baseChance;
+            
             bool acidicTarget = MaxRange <= 1 && m_AosAttributes.SpellChanneling == 0 && !(this is Fists) && (defender is Slime || defender is ToxicElemental || defender is CorrosiveSlime);
 
-            if (acidicTarget || (defender != null && splintering) || Utility.Random(40) <= chance)
+            if (acidicTarget || (defender != null && splintering) || chance >= Utility.RandomDouble())
             {
                 if (MaxRange <= 1 && acidicTarget)
                 {
