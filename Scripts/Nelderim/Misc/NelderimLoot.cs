@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using Nelderim.Configuration;
 using Server;
 using Server.ACC.CSS.Systems.Ancient;
 using Server.ACC.CSS.Systems.Avatar;
@@ -79,7 +80,7 @@ namespace Nelderim
 			var minGold = (int)Math.Ceiling(Math.Pow(bc.Difficulty * 630, 0.49));
 			var maxGold = (int)Math.Ceiling(minGold * 1.3);
 
-			var amount = (int)(Utility.RandomMinMax(minGold, maxGold) * Config.Get("NelderimLoot.GoldModifier", 1.0));
+			var amount = (int)(Utility.RandomMinMax(minGold, maxGold) * NConfig.Loot.GoldModifier);
 
 			entries.Add(new LootPackEntry(true, true, LootPack.Gold, 100.0, amount));
 		}
@@ -172,17 +173,17 @@ namespace Nelderim
 
 		public static void GenerateMagicItems(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			var countModifier = Config.Get("NelderimLoot.ItemsCountModifier", 1.0);
+			var countModifier = NConfig.Loot.ItemsCountModifier;
 			var itemsMin = (int)Math.Floor(Math.Pow(bc.Difficulty, 0.275) * countModifier);
 			var itemsMax = (int)Math.Max(1, itemsMin + Math.Ceiling((double)itemsMin / 3 * countModifier));
 			var itemsCount = Utility.RandomMinMax(itemsMin, itemsMax);
 
-			var propsModifier = Config.Get("NelderimLoot.PropsCountModifier", 1.0);
+			var propsModifier = NConfig.Loot.PropsCountModifier;
 			var minProps = (int)Utility.Clamp(Math.Log(bc.Difficulty * 0.1) * propsModifier, 1, 5);
 			var maxProps = (int)Utility.Clamp(Math.Log(bc.Difficulty) * propsModifier, 1, 5);
 
-			var minIntensityModifier = Config.Get("NelderimLoot.MinPropsIntensityModifier", 1.0);
-			var maxIntensityModifier = Config.Get("NelderimLoot.MaxPropsIntensityModifier", 1.0);
+			var minIntensityModifier = NConfig.Loot.MinIntensityModifier;
+			var maxIntensityModifier = NConfig.Loot.MaxIntensityModifier;
 			var minIntensity = Utility.Clamp(Math.Pow(bc.Difficulty, 0.6) * minIntensityModifier, 5, 30);
 			var maxIntensity = Utility.Clamp((Math.Pow(bc.Difficulty, 0.75) + 30) * maxIntensityModifier, 50, 100);
 			var reduceStep = (int)Math.Max(1, itemsCount * 0.2); // Po kazdym 20% itemow oslabiamy loot

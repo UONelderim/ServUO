@@ -3,6 +3,7 @@ using Server.Commands;
 using Server.Items;
 using Server.Network;
 using System;
+using Nelderim.Configuration;
 using Nelderim.Time;
 
 #endregion
@@ -31,7 +32,7 @@ namespace Server
 
         public static void Initialize()
         {
-	        if (!Config.Get("Nelderim.TimeSystemEnabled", true))
+	        if (!NConfig.TimeSystemEnabled)
 	        {
 		        new LightCycleTimer(Clock.SecondsPerUOMinute).Start();
 	        }
@@ -51,7 +52,7 @@ namespace Server
 
         public static int ComputeLevelFor(Mobile from)
         {
-	        if (Config.Get("Nelderim.TimeSystemEnabled", true))
+	        if (NConfig.TimeSystemEnabled)
 	        {
 		        return ServerTime.LightLevel;
 	        }

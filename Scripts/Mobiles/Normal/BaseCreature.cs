@@ -25,6 +25,8 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Nelderim.Configuration;
+
 #endregion
 
 namespace Server.Mobiles
@@ -5069,7 +5071,7 @@ namespace Server.Mobiles
                     break;
             }
 
-			if (Config.Get("NelderimLoot.Enabled", false))
+			if (NConfig.Loot.Enabled)
 				AddLoot(NelderimLoot.Generate(this, stage));
 			else
 				GenerateLoot();
