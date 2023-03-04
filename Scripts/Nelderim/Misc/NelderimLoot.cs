@@ -87,20 +87,20 @@ namespace Nelderim
 
 		private static void GenerateRecallRunes(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			var count = (int)Math.Min(5, 1 + bc.Difficulty / 500);
-			var chance = Math.Pow(bc.Difficulty, 0.6) / 40;
+			var count = (int)Math.Min(5, 1 + bc.Difficulty * 0.002);
+			var chance = Math.Pow(bc.Difficulty, 0.6) * 0.025;
 
 			entries.Add(new LootPackEntry(false, true, RecallRune, chance, count));
 		}
 
 		private static void GenerateGems(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			var count = (int)Math.Ceiling(Math.Pow(bc.Difficulty, 0.35)) * 5;
-			var chance = Math.Max(0.01, Math.Min(1, 0.1 + Math.Pow(bc.Difficulty, 0.3) / 20)) * 100;
+			var count = (int)Math.Ceiling(Math.Pow(bc.Difficulty, 0.35));
+			var chance = Math.Max(0.01, Math.Min(1, 0.1 + Math.Pow(bc.Difficulty, 0.3) * 0.05)) * 100;
 
 			for (var i = 0; i < count; i++)
-				new LootPackEntry(false, true,
-					Utility.RandomDouble() > 0.01 ? LootPack.GemItems : LootPack.RareGemItems, chance, 1);
+				entries.Add(new LootPackEntry(false, true,
+					Utility.RandomDouble() > 0.01 ? LootPack.GemItems : LootPack.RareGemItems, chance, 1));
 		}
 
 		private static void GenerateReagents(BaseCreature bc, ref List<LootPackEntry> entries)
@@ -145,7 +145,7 @@ namespace Nelderim
 			var count = (int)Math.Floor(Math.Pow((1 + bc.Difficulty) * 39.0, 0.15));
 			var scrollChance = Math.Max(0.01, Math.Min(0.8, Math.Pow(bc.Difficulty * 0.5, 0.29) * 0.025));
 
-			var chances = GetChances(Math.Min(1, Math.Pow(bc.Difficulty, 0.9) / 10000), 2.0, NL_scrolls.Length);
+			var chances = GetChances(Math.Min(1, Math.Pow(bc.Difficulty, 0.9) * 0.0001), 2.0, NL_scrolls.Length);
 
 			for (var i = 0; i < count; i++)
 			{
@@ -167,7 +167,7 @@ namespace Nelderim
 
 		private static void GenerateInstruments(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			var chance = Math.Max(0.01, Math.Min(1, Math.Pow(bc.Difficulty, 0.3) / 30)) * 100;
+			var chance = Math.Max(0.01, Math.Min(1, Math.Pow(bc.Difficulty, 0.3) * 0.3)) * 100;
 			entries.Add(new LootPackEntry(false, true, LootPack.Instruments, chance, 1));
 		}
 
