@@ -1207,7 +1207,7 @@ namespace Server.Items
 
             Mobile dead = m_Owner;
 
-            if ((GetFlag(CorpseFlag.Carved) && (from.Skills[SkillName.Camping].Value <= CampingCarved)) || dead == null)
+            if (GetFlag(CorpseFlag.Carved) || dead == null)
             {
                 PrivateOverheadMessage(MessageType.Regular, 0x3B2, 500485, from.NetState); // You see nothing useful to carve from the corpse.
             }

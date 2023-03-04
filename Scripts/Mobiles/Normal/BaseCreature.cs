@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Nelderim.Configuration;
+using Server.Nelderim.CoreExtensions;
 
 #endregion
 
@@ -1958,15 +1959,25 @@ namespace Server.Mobiles
                     hides = (int)Math.Ceiling(hides * 1.1); // 10% bonus only applies to hides, ore & logs
                 }
 
-                if (corpse.Map == Map.Felucca && !Siege.SiegeShard)
+                var mobileFactor = 1.0 + from.CarvingBonus();
+                if (mobileFactor > 1.0)
                 {
-                    feathers *= 2;
-                    wool *= 2;
-                    hides *= 2;
-                    fur *= 2;
-                    meat *= 2;
-                    scales *= 2;
+	                feathers = (int)Math.Ceiling(feathers * mobileFactor);
+	                wool = (int)Math.Ceiling(wool * mobileFactor);
+	                hides = (int)Math.Ceiling(hides * mobileFactor);
+	                meat = (int)Math.Ceiling(meat * mobileFactor);
+	                scales = (int)Math.Ceiling(scales * mobileFactor);
                 }
+
+                // if (corpse.Map == Map.Felucca && !Siege.SiegeShard)
+                // {
+                //     feathers *= 2;
+                //     wool *= 2;
+                //     hides *= 2;
+                //     fur *= 2;
+                //     meat *= 2;
+                //     scales *= 2;
+                // }
 
                 if (special)
                 {
