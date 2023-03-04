@@ -1133,8 +1133,9 @@ namespace Server.Mobiles
 
         #region Flee!!!
         public virtual bool CanFlee => !m_Paragon && !GivesMLMinorArtifact && !SlayerGroup.GetEntryByName(SlayerName.Silver).Slays(this);
-        public virtual double FleeChance => 0.25;
-        public virtual double BreakFleeChance => 0.85;
+        public virtual double FleeChance => 0.90;
+
+        public virtual double BreakFleeChance => 0.10;
 
         public long NextFleeCheck { get; set; }
         public DateTime ForceFleeUntil { get; set; }
@@ -1177,7 +1178,7 @@ namespace Server.Mobiles
 
         public virtual bool CheckFlee()
         {
-            return Hits <= (HitsMax * 16) / 100;
+            return Hits <= HitsMax * 20/100;
         }
 
         public virtual bool BreakFlee()
