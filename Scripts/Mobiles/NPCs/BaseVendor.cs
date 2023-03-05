@@ -1168,6 +1168,12 @@ namespace Server.Mobiles
 					return false;
 				}
 
+				if (!IsAssignedBuildingWorking())
+				{
+					SayTo(from, "Miasto nie oplacilo moich uslug");
+					return false;
+				}
+
 				Item reward;
 				int gold, fame;
 
@@ -2353,7 +2359,7 @@ namespace Server.Mobiles
 
 			if (from.Alive && IsActiveVendor)
 			{
-				if (SupportsBulkOrders(from))
+				if (SupportsBulkOrders(from) && IsAssignedBuildingWorking())
 				{
 					list.Add(new BulkOrderInfoEntry(from, this));
 

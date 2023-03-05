@@ -251,7 +251,7 @@ namespace Server.Engines.BulkOrders
 
             if (pm.AccessLevel > AccessLevel.Player || fromContextMenu || 0.2 > Utility.RandomDouble())
             {
-                SkillName sk = GetSkillForBOD(type);
+                SkillName sk = GetSkillForBOD(type, pm);
                 double theirSkill = pm.Skills[sk].Base;
                 bool doLarge = theirSkill >= 70.1 && ((theirSkill - 40.0) / 300.0) > Utility.RandomDouble();
 
@@ -281,13 +281,16 @@ namespace Server.Engines.BulkOrders
                     case BODType.Carpentry:
                         if (doLarge) return new LargeCarpentryBOD();
                         else return SmallCarpentryBOD.CreateRandomFor(pm);
+                    case BODType.Hunter:
+	                    if (doLarge) return new LargeHunterBOD();
+	                    else return SmallHunterBOD.CreateRandomFor(pm, theirSkill);
                 }
             }
 
             return null;
         }
 
-        public static SkillName GetSkillForBOD(BODType type)
+        public static SkillName GetSkillForBOD(BODType type, PlayerMobile pm)
         {
             switch (type)
             {
@@ -300,7 +303,23 @@ namespace Server.Engines.BulkOrders
                 case BODType.Cooking: return SkillName.Cooking;
                 case BODType.Fletching: return SkillName.Fletching;
                 case BODType.Carpentry: return SkillName.Carpentry;
+                case BODType.Hunter: return GetSkillForHunterBOD(pm);
             }
+        }
+
+        public static readonly SkillName[] HunterSkills =
+        {
+	        SkillName.Magery, SkillName.Necromancy, SkillName.Fencing, SkillName.Swords, SkillName.Archery,
+	        SkillName.Macing, SkillName.AnimalTaming, SkillName.Throwing
+        };
+        
+        public static SkillName GetSkillForHunterBOD(PlayerMobile pm)
+        {
+	        return pm.Skills
+		        .Where(skill => HunterSkills.Contains(skill.SkillName))
+		        .ToDictionary(skill => skill.SkillName, skill => skill.Base)
+		        .Highest(pair => pair.Value)
+		        .Key;
         }
 
         public static int GetBodHue(BODType type)
