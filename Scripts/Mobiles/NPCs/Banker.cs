@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Nelderim;
+using Nelderim.Configuration;
 
 #endregion
 
@@ -345,7 +346,7 @@ namespace Server.Mobiles
 
         public override void OnSpeech(SpeechEventArgs e)
         {
-	        if (Config.Get("Nelderim.CustomOnSpeech", false))
+	        if (NConfig.CustomOnSpeech)
 	        {
 		        NelderimOnSpeech(e);
 	        }

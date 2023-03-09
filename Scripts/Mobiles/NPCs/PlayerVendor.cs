@@ -11,6 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Nelderim.Configuration;
 
 namespace Server.Mobiles
 {
@@ -1066,7 +1067,7 @@ namespace Server.Mobiles
 
         public override void OnSpeech(SpeechEventArgs e)
         {
-	        if (Config.Get("Nelderim.CustomOnSpeech", false))
+	        if (NConfig.CustomOnSpeech)
 	        {
 		        NelderimOnSpeech(e);
 		        return;

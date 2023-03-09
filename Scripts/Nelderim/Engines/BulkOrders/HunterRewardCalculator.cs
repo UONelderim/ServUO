@@ -51,15 +51,19 @@ namespace Server.Engines.BulkOrders
 
 		private static Item CreateDurabilityPowder(int type)
 		{
-			int uses = Utility.Random(2) + 1; // 1-2
-			switch (Utility.Random(4))
+			var uses = Utility.Random(2) + 1; // 1-2
+			var reward = Utility.RandomList(
+				typeof(BlacksmihyPowderOfTemperament), 
+				typeof(BowFletchingPowderOfTemperament), 
+				typeof(CarpentryPowderOfTemperament),
+				typeof(TailoringPowderOfTemperament),
+				typeof(TinkeringPowderOfTemperament));
+			if (reward != null)
 			{
-				default:
-				case 0: return new PowderForWood(uses);
-				case 1: return new PowderForMetal(uses);
-				case 2: return new PowderForLeather(uses);
-				case 3: return new PowderForTinkering(uses);
+				return (Item)Activator.CreateInstance(reward, uses);
 			}
+
+			return null;
 		}
 
 		private static Item CreateDecoMinor(int type)
