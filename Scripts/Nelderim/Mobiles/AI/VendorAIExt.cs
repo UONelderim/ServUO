@@ -36,6 +36,7 @@ namespace Server.Mobiles
 				{
 					if (!(m is BaseVendor bv)) return;
 					if (!bv.CheckVendorAccess(from)) return;
+					if (!bv.IsAssignedBuildingWorking()) return;
 						
 					new BaseVendor.BulkOrderInfoEntry(from, bv).OnClick();
 				}),

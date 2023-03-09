@@ -5,6 +5,7 @@ using Server.Multis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim.Configuration;
 using Nelderim.Time;
 
 #endregion
@@ -72,7 +73,7 @@ namespace Server.Items
 
         public static MoonPhase GetMoonPhase(Map map, int x, int y)
         {
-	        if (Config.Get("Nelderim.TimeSystemEnabled", true))
+	        if (NConfig.TimeSystemEnabled)
 	        {
 		        return ServerTime.LargeMoonPhase;
 	        }
@@ -98,7 +99,7 @@ namespace Server.Items
 
         public static void GetTime(Map map, int x, int y, out int hours, out int minutes, out int totalMinutes)
         {
-	        if (Config.Get("Nelderim.TimeSystemEnabled", true))
+	        if (NConfig.TimeSystemEnabled)
 	        {
 		        ServerTime.GetTime(out hours, out minutes, out totalMinutes);
 		        return;
@@ -136,7 +137,7 @@ namespace Server.Items
             int hours, minutes;
 
             GetTime(map, x, y, out hours, out minutes);
-            if (Config.Get("Nelderim.TimeSystemEnabled", true))
+            if (NConfig.TimeSystemEnabled)
             {
 	            ServerTime.GetTime(out generalNumber, out exactTime);
 	            return;
@@ -202,7 +203,7 @@ namespace Server.Items
             GetTime(from, out genericNumber, out exactTime);
 
             SendLocalizedMessageTo(from, genericNumber);
-            if (Config.Get("Nelderim.TimeSystemEnabled", true))
+            if (NConfig.TimeSystemEnabled)
             {
 	            from.SendMessage(exactTime);
             }

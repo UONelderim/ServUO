@@ -4,6 +4,7 @@ using Server.Misc;
 
 using System;
 using System.Collections.Generic;
+using Nelderim.Configuration;
 
 namespace Server.Items
 {
@@ -523,9 +524,11 @@ namespace Server.Items
             if (m_TimesImbued >= 1 && m_MaxHitPoints == 0)
                 return damageTaken;
 
-            double chance = NegativeAttributes.Antique > 0 ? 80 : 25;
+            double baseChance = NConfig.Durability.Enabled ? NConfig.Durability.BaseJewelLossChance : 0.25;
 
-            if (chance >= Utility.Random(100)) // 25% chance to lower durability
+            double chance = NegativeAttributes.Antique > 0 ? baseChance * 3 : baseChance;
+
+            if (chance >= Utility.RandomDouble()) // 25% chance to lower durability
             {
                 int wear = 1;
 

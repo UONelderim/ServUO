@@ -25,6 +25,9 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Nelderim.Configuration;
+using Server.Nelderim.CoreExtensions;
+
 #endregion
 
 namespace Server.Mobiles
@@ -1131,8 +1134,9 @@ namespace Server.Mobiles
 
         #region Flee!!!
         public virtual bool CanFlee => !m_Paragon && !GivesMLMinorArtifact && !SlayerGroup.GetEntryByName(SlayerName.Silver).Slays(this);
-        public virtual double FleeChance => 0.25;
-        public virtual double BreakFleeChance => 0.85;
+        public virtual double FleeChance => 0.90;
+
+        public virtual double BreakFleeChance => 0.10;
 
         public long NextFleeCheck { get; set; }
         public DateTime ForceFleeUntil { get; set; }
@@ -1175,7 +1179,7 @@ namespace Server.Mobiles
 
         public virtual bool CheckFlee()
         {
-            return Hits <= (HitsMax * 16) / 100;
+            return Hits <= HitsMax * 20/100;
         }
 
         public virtual bool BreakFlee()
@@ -1562,7 +1566,7 @@ namespace Server.Mobiles
             return amount;
         }
 
-        public virtual bool DeleteCorpseOnDeath => false;
+        public virtual bool DeleteCorpseOnDeath { get; set; }
 
         public override void SetLocation(Point3D newLocation, bool isTeleport)
         {
@@ -1853,6 +1857,11 @@ namespace Server.Mobiles
                 Timer.DelayCall(TimeSpan.FromSeconds(10), ((PlayerMobile)@from).RecoverAmmo);
             }
 
+            if (from is BaseNelderimGuard && !Controlled && !IsDeadPet)
+            {
+	            DeleteCorpseOnDeath = true;
+            }
+
             base.OnDamage(amount, from, willKill);
         }
 
@@ -1950,15 +1959,25 @@ namespace Server.Mobiles
                     hides = (int)Math.Ceiling(hides * 1.1); // 10% bonus only applies to hides, ore & logs
                 }
 
-                if (corpse.Map == Map.Felucca && !Siege.SiegeShard)
+                var mobileFactor = 1.0 + from.CarvingBonus();
+                if (mobileFactor > 1.0)
                 {
-                    feathers *= 2;
-                    wool *= 2;
-                    hides *= 2;
-                    fur *= 2;
-                    meat *= 2;
-                    scales *= 2;
+	                feathers = (int)Math.Ceiling(feathers * mobileFactor);
+	                wool = (int)Math.Ceiling(wool * mobileFactor);
+	                hides = (int)Math.Ceiling(hides * mobileFactor);
+	                meat = (int)Math.Ceiling(meat * mobileFactor);
+	                scales = (int)Math.Ceiling(scales * mobileFactor);
                 }
+
+                // if (corpse.Map == Map.Felucca && !Siege.SiegeShard)
+                // {
+                //     feathers *= 2;
+                //     wool *= 2;
+                //     hides *= 2;
+                //     fur *= 2;
+                //     meat *= 2;
+                //     scales *= 2;
+                // }
 
                 if (special)
                 {
@@ -5069,7 +5088,7 @@ namespace Server.Mobiles
                     break;
             }
 
-			if (Config.Get("NelderimLoot.Enabled", false))
+			if (NConfig.Loot.Enabled)
 				AddLoot(NelderimLoot.Generate(this, stage));
 			else
 				GenerateLoot();

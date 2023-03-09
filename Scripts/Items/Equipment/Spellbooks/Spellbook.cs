@@ -8,6 +8,8 @@ using Server.Spells.Mysticism;
 using Server.Targeting;
 using System;
 using System.Collections.Generic;
+using Nelderim.Configuration;
+
 #endregion
 
 namespace Server.Items
@@ -32,7 +34,7 @@ namespace Server.Items
         Exceptional
     }
 
-    public class Spellbook : Item, ISpellbook, ICraftable, ISlayer, IEngravable, IVvVItem, IOwnerRestricted, IWearableDurability
+    public partial class Spellbook : Item, ISpellbook, ICraftable, ISlayer, IEngravable, IVvVItem, IOwnerRestricted, IWearableDurability
     {
         private static readonly Dictionary<Mobile, List<Spellbook>> m_Table = new Dictionary<Mobile, List<Spellbook>>();
 
@@ -288,9 +290,11 @@ namespace Server.Items
             if (m_MaxHitPoints == 0)
                 return damage;
 
-            int chance = m_NegativeAttributes.Antique > 0 ? 50 : 25;
+            
+            double baseChance = NConfig.Durability.Enabled ? NConfig.Durability.SpellBookLossChance : 0.25;
+            double chance = NegativeAttributes.Antique > 0 ? baseChance * 2 : baseChance;
 
-            if (chance > Utility.Random(100)) // 25% chance to lower durability
+            if (chance >= Utility.RandomDouble()) // 25% chance to lower durability
             {
                 if (m_HitPoints >= 1)
                 {

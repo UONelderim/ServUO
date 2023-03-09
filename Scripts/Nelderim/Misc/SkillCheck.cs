@@ -2,6 +2,8 @@
 
 using System;
 using System.Collections.Generic;
+using Nelderim;
+using Nelderim.Configuration;
 using Nelderim.Gains;
 using Server.Engines.ArenaSystem;
 using Server.Mobiles;
@@ -150,7 +152,7 @@ namespace Server.Misc
 
 			gc *= regionalModifier;
 
-			gc *= Config.Get("Nelderim.BaseGainFactor", 1.0);
+			gc *= NConfig.BaseGainFactor;
 			
 			gc *= Gains.calculateGainFactor(from);
 			

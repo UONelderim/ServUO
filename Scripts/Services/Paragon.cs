@@ -1,5 +1,7 @@
 using Server.Items;
 using System;
+using System.Linq;
+using Server.Regions;
 
 namespace Server.Mobiles
 {
@@ -136,10 +138,13 @@ namespace Server.Mobiles
 
         public static bool CheckConvert(BaseCreature bc, Point3D location, Map m)
         {
-            if (Array.IndexOf(Maps, m) == -1)
-                return false;
+            // if (Array.IndexOf(Maps, m) == -1)
+            //     return false;
 
-            if (bc is BaseChampion || bc is Harrower || bc is BaseVendor || bc is Clone || bc.IsParagon)
+            if (!IsInParagonRegion(location, m))
+	            return false;
+
+            if (bc is BaseChampion || bc is Harrower || bc is BaseVendor || bc is Clone || bc.IsParagon || bc.Summoned || bc.Controlled || bc is KhaldunSummoner || bc is KhaldunZealot)
                 return false;
 
             int fame = bc.Fame;
@@ -174,6 +179,14 @@ namespace Server.Mobiles
                 m.SendMessage("As a reward for slaying the mighty paragon, an artifact has been placed in your backpack.");
             else
                 m.SendMessage("As your backpack is full, your reward for destroying the legendary paragon has been placed at your feet.");
+        }
+        
+        private static bool IsInParagonRegion(Point3D location, Map map) {
+	        return Region.Regions.Any(
+		        r => 
+			        r is ParagonsRegion && 
+			        r.Map == map && 
+			        r.Contains(location));
         }
     }
 }

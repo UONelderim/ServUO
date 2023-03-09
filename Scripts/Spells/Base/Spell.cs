@@ -1032,6 +1032,11 @@ namespace Server.Spells
             {
                 m_Caster.Spell = null;
             }
+
+            if (m_Caster.FindItemOnLayer(Layer.OneHanded) is Spellbook spellbook)
+            {
+	            spellbook.OnSequenceFinished();
+            }
         }
 
         public virtual int ComputeKarmaAward()
