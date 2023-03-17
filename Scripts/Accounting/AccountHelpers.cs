@@ -578,6 +578,8 @@ namespace Server.Accounting
 					parent.AppendChild(account);
 				}
 
+				SaveNelderim(account);
+				
 				return true;
 			}
 			catch (Exception ex)
@@ -747,12 +749,15 @@ namespace Server.Accounting
 				TotalGameTime = Utility.GetXMLTimeSpan(Utility.GetText(node["totalGameTime"], null), TimeSpan.Zero);
 				TotalCurrency = Utility.GetXMLDouble(Utility.GetText(node["totalCurrency"], "0"), 0);
 				Sovereigns = Utility.GetXMLInt32(Utility.GetText(node["sovereigns"], "0"), 0);
-
+				QuestPoints = Utility.GetXMLInt32(Utility.GetText(node["questPoints"], "0"), 0);
+				
 				LoadMobiles(node);
 				LoadComments(node);
 				LoadTags(node);
 				LoadAddressList(node);
 				LoadAccessCheck(node);
+				
+				LoadNelderim(node);
 
 				ResolveGameTime();
 
