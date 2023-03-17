@@ -269,7 +269,7 @@ namespace Server.Accounting
 		bool WithdrawSovereigns(int amount);
 	}
 
-	public interface IAccount : IGoldAccount, ISecureAccount, IStoreAccount, IComparable, IComparable<IAccount>, IEnumerable<Mobile>
+	public partial interface IAccount : IGoldAccount, ISecureAccount, IStoreAccount, IComparable, IComparable<IAccount>, IEnumerable<Mobile>
 	{
 		[CommandProperty(AccessLevel.Administrator, true)]
 		string Username { get; }

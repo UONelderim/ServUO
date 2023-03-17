@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Nelderim;
 using Nelderim.Gains;
+using Server.Accounting;
 using Server.Items;
 
 #endregion
@@ -59,11 +60,25 @@ namespace Server.Mobiles
 		[CommandProperty(AccessLevel.Seer)]
 		public int QuestPoints
 		{
-			get => CharacterSheet.Get(this).QuestPoints;
+			get
+			{
+				Account acct = Account as Account;
+
+				if (acct != null)
+				{
+					return acct.QuestPoints;
+				}
+
+				return 0;
+			}
 			set
 			{
-				CharacterSheet.Get(this).QuestPoints = value;
-				LastQuestPointsTime = DateTime.Now;
+				Account acct = Account as Account;
+
+				if (acct != null)
+				{
+					acct.QuestPoints = value;
+				}
 			}
 		}
 
@@ -71,8 +86,41 @@ namespace Server.Mobiles
 		[CommandProperty(AccessLevel.Seer)]
 		public DateTime LastQuestPointsTime
 		{
-			get => CharacterSheet.Get(this).LastQuestPointsTime;
-			set => CharacterSheet.Get(this).LastQuestPointsTime = value;
+			get
+			{
+				Account acct = Account as Account;
+
+				if (acct != null)
+				{
+					return acct.LastQuestPointsTime;
+				}
+
+				return DateTime.MinValue;
+			}
+			set
+			{
+				Account acct = Account as Account;
+
+				if (acct != null)
+				{
+					acct.LastQuestPointsTime = value;
+				}
+			}
+		}
+
+		public SortedSet<QuestPointsHistoryEntry> QuestPointsHistory
+		{
+			get
+			{
+				Account acct = Account as Account;
+
+				if (acct != null)
+				{
+					return acct.QuestPointsHistory;
+				}
+
+				return new SortedSet<QuestPointsHistoryEntry>();
+			}
 		}
 
 		// Languages

@@ -28,7 +28,7 @@ namespace Server.Gumps
 			AddLabel(233, 13, 0x480, "Powód");
 
 			int y = 38;
-			foreach (var qphe in CharacterSheet.Get(player).QuestPointsHistory.Reverse())
+			foreach (var qphe in player.QuestPointsHistory.Reverse())
 			{
 				AddLabel(13, y, 0x480, qphe.DateTime.ToShortDateString());
 				AddLabel(98, y, 0x480, qphe.GameMaster);

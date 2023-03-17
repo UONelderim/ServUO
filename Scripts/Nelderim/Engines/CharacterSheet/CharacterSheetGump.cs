@@ -151,10 +151,10 @@ namespace Nelderim
 
 
 					AddImage(135, 385, 51);
-					AddLabel(160, 398, 200, String.Format("{0}", m_CharacterSheetInfo.QuestPoints.ToString()));
+					AddLabel(160, 398, 200, String.Format("{0}", m_TargetPlayer.QuestPoints.ToString()));
 
 					AddLabel(5, 325, 200,
-						String.Format("Czas przydzielenia punktow {0}", m_CharacterSheetInfo.LastQuestPointsTime));
+						String.Format("Czas przydzielenia punktow {0}", m_TargetPlayer.LastQuestPointsTime));
 
 					if (m_From.AccessLevel >= AccessLevel.Counselor)
 					{
@@ -292,8 +292,8 @@ namespace Nelderim
 				}
 				case 2:
 				{
-					m_CharacterSheetInfo.QuestPoints -= index;
-					m_CharacterSheetInfo.QuestPointsHistory.Add(
+					m_TargetPlayer.QuestPoints -= index;
+					m_TargetPlayer.QuestPointsHistory.Add(
 						new QuestPointsHistoryEntry(
 							DateTime.Now, m_FromPlayer.Account.Username, -index, info.TextEntries[0].Text)
 					);
@@ -306,8 +306,8 @@ namespace Nelderim
 				}
 				case 3:
 				{
-					m_CharacterSheetInfo.QuestPoints += index;
-					m_CharacterSheetInfo.QuestPointsHistory.Add(
+					m_TargetPlayer.QuestPoints += index;
+					m_TargetPlayer.QuestPointsHistory.Add(
 						new QuestPointsHistoryEntry(
 							DateTime.Now, m_FromPlayer.Account.Username, index, info.TextEntries[0].Text));
 					m_TargetPlayer.SendMessage(0x3A, "Zostales nagrodzony punktami fabularnymi przez Mistrza Gry");
@@ -337,7 +337,7 @@ namespace Nelderim
 
 		public bool CanAssignQuestPoints(PlayerMobile pm)
 		{
-			return DateTime.Compare(CharacterSheet.Get(pm).LastQuestPointsTime.AddMinutes(30), DateTime.Now) <= 0;
+			return DateTime.Compare(pm.LastQuestPointsTime.AddMinutes(30), DateTime.Now) <= 0;
 		}
 	}
 }
