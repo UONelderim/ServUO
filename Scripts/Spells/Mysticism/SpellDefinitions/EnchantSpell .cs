@@ -17,7 +17,7 @@ namespace Server.Spells.Mysticism
         public AosWeaponAttribute Attribute { get; set; }
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Zaklety Orz", "In Ort Ylem",
+                "Zaklety Orez", "In Ort Ylem",
                 230,
                 9022,
                 Reagent.SpidersSilk,
