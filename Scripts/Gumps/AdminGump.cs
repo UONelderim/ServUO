@@ -373,6 +373,9 @@ namespace Server.Gumps
 
 					AddButtonLabeled(20, 180, GetButtonID(3, 201), "Shutdown (Save)");
 					AddButtonLabeled(20, 200, GetButtonID(3, 202), "Shutdown (No Save)");
+					
+					AddHtml(210, 150, 200, 20, Color("Minutes to Shutdown/Restart", LabelColor32), false, false);
+					AddTextField(210, 180, 50, 20, 1);
 
 					AddButtonLabeled(20, 230, GetButtonID(3, 203), "Restart (Save)");
 					AddButtonLabeled(20, 250, GetButtonID(3, 204), "Restart (No Save)");
@@ -1737,7 +1740,7 @@ namespace Server.Gumps
 						page = AdminGumpPage.Administer_Server;
 					else if (index >= 100)
 						page = AdminGumpPage.Administer_WorldBuilding;
-
+					
 					switch (index)
 					{
 						case 0:
@@ -1780,16 +1783,16 @@ namespace Server.Gumps
 							notice = "The world has been saved.";
 							break;
 						case 201:
-							Shutdown(false, true);
+							Shutdown(false, true, info.GetTextEntry(1));
 							break;
 						case 202:
-							Shutdown(false, false);
+							Shutdown(false, false, info.GetTextEntry(1));
 							break;
 						case 203:
-							Shutdown(true, true);
+							Shutdown(true, true, info.GetTextEntry(1));
 							break;
 						case 204:
-							Shutdown(true, false);
+							Shutdown(true, false, info.GetTextEntry(1));
 							break;
 						case 210:
 						case 211:
@@ -3072,14 +3075,55 @@ namespace Server.Gumps
 			}
 		}
 
-		private void Shutdown(bool restart, bool save)
+		public static ShutdownTimer AdminShutdownTimer;
+
+		private void Shutdown(bool restart, bool save, TextRelay relay)
 		{
-			CommandLogging.WriteLine(m_From, "{0} {1} shutting down server (Restart: {2}) (Save: {3})", m_From.AccessLevel, CommandLogging.Format(m_From), restart, save);
+			var text = relay?.Text.Trim();
 
-			if (save)
-				InvokeCommand("Save");
+			var delayMinutes = 0;
+			Int32.TryParse(text, out delayMinutes);
+			
+			CommandLogging.WriteLine(m_From, "{0} {1} shutting down server (Restart: {2}) (Save: {3}) in {4} minutes", m_From.AccessLevel, CommandLogging.Format(m_From), restart, save, delayMinutes);
 
-			Core.Kill(restart);
+			AdminShutdownTimer = new ShutdownTimer(restart, save, delayMinutes);
+			AdminShutdownTimer.Start();
+		}
+		
+		public class ShutdownTimer : Timer
+		{
+			private bool _Restart;
+			private bool _Save;
+			private int _DelaySeconds;
+			public ShutdownTimer (bool restart, bool save, int delayMinutes) : base (TimeSpan.FromSeconds(1.0), TimeSpan.FromSeconds(10.0))
+			{
+				_Restart = restart;
+				_Save = save;
+				_DelaySeconds = delayMinutes * 60;
+				foreach (var ns in NetState.Instances)
+				{
+					if (ns.Mobile != null)
+					{
+						ns.Mobile.SendGump(new ShutdownGump(delayMinutes, ns.Mobile.TrueAccessLevel));
+					}
+				}
+			}
+		
+			protected override void OnTick()
+			{
+				if(_DelaySeconds <= 0)
+				{
+					if (_Save)
+						AutoSave.Save();
+
+					Core.Kill(_Restart);
+				}
+				else
+				{
+					World.Broadcast(1154,true, "Pozostalo {0} Sekund", _DelaySeconds);
+					_DelaySeconds -= 10;
+				}
+			}
 		}
 
 		private void InvokeCommand(string c)
