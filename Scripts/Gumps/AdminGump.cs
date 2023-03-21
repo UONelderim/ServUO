@@ -9,6 +9,7 @@ using Server.Prompts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Text;
 
@@ -346,11 +347,11 @@ namespace Server.Gumps
 				}
 				case AdminGumpPage.Administer_WorldBuilding:
 				{
-					AddHtml(10, 125, 400, 20, Color(Center("Generating"), LabelColor32), false, false);
+					// AddHtml(10, 125, 400, 20, Color(Center("Generating"), LabelColor32), false, false);
 
-					AddButtonLabeled(20, 150, GetButtonID(3, 101), "Create World");
-					AddButtonLabeled(20, 175, GetButtonID(3, 102), "Delete World");
-					AddButtonLabeled(20, 200, GetButtonID(3, 103), "Recreate World");
+					// AddButtonLabeled(20, 150, GetButtonID(3, 101), "Create World");
+					// AddButtonLabeled(20, 175, GetButtonID(3, 102), "Delete World");
+					// AddButtonLabeled(20, 200, GetButtonID(3, 103), "Recreate World");
 
 					AddHtml(20, 275, 400, 30, Color(Center("Statics"), LabelColor32), false, false);
 
@@ -370,11 +371,11 @@ namespace Server.Gumps
 
 					AddButtonLabeled(20, 150, GetButtonID(3, 200), "Save");
 
-					AddButtonLabeled(20, 180, GetButtonID(3, 201), "Shutdown (With Save)");
-					AddButtonLabeled(20, 200, GetButtonID(3, 202), "Shutdown (Without Save)");
+					AddButtonLabeled(20, 180, GetButtonID(3, 201), "Shutdown (Save)");
+					AddButtonLabeled(20, 200, GetButtonID(3, 202), "Shutdown (No Save)");
 
-					AddButtonLabeled(20, 230, GetButtonID(3, 203), "Shutdown & Restart (With Save)");
-					AddButtonLabeled(20, 250, GetButtonID(3, 204), "Shutdown & Restart (Without Save)");
+					AddButtonLabeled(20, 230, GetButtonID(3, 203), "Restart (Save)");
+					AddButtonLabeled(20, 250, GetButtonID(3, 204), "Restart (No Save)");
 
 					AddHtml(10, 295, 400, 20, Color(Center("Broadcast"), LabelColor32), false, false);
 
@@ -477,8 +478,8 @@ namespace Server.Gumps
 					AddButtonLabeled(20, 230, GetButtonID(3, 406), "Mortal");
 					AddButtonLabeled(220, 230, GetButtonID(3, 407), "Immortal");
 
-					AddButtonLabeled(20, 250, GetButtonID(3, 408), "Squelch");
-					AddButtonLabeled(220, 250, GetButtonID(3, 409), "Unsquelch");
+					AddButtonLabeled(20, 250, GetButtonID(3, 408), "Squelch (Mute)");
+					AddButtonLabeled(220, 250, GetButtonID(3, 409), "Unsquelch (Unmute)");
 
 					AddButtonLabeled(20, 270, GetButtonID(3, 410), "Freeze");
 					AddButtonLabeled(220, 270, GetButtonID(3, 411), "Unfreeze");
@@ -621,7 +622,7 @@ namespace Server.Gumps
 					}
 
 					AddButtonLabeled(20, y, GetButtonID(7, 0), "Go to");
-					AddButtonLabeled(200, y, GetButtonID(7, 1), "Get");
+					AddButtonLabeled(200, y, GetButtonID(7, 1), "Bring");
 					y += 20;
 
 					AddButtonLabeled(20, y, GetButtonID(7, 2), "Kick");
@@ -636,8 +637,8 @@ namespace Server.Gumps
 					AddButtonLabeled(200, y, GetButtonID(7, 7), "Immortal");
 					y += 20;
 
-					AddButtonLabeled(20, y, GetButtonID(7, 8), "Squelch");
-					AddButtonLabeled(200, y, GetButtonID(7, 9), "Unsquelch");
+					AddButtonLabeled(20, y, GetButtonID(7, 8), "Squelch (Mute)");
+					AddButtonLabeled(200, y, GetButtonID(7, 9), "Unsquelch (Unmute)");
 					y += 20;
 
 					AddButtonLabeled(20, y, GetButtonID(7, 12), "Kill");
@@ -671,10 +672,10 @@ namespace Server.Gumps
 
 					for (int i = 0, index = (listPage * 12); i < 12 && index >= 0 && index < m_List.Count; ++i, ++index)
 					{
-						DictionaryEntry de = (DictionaryEntry)m_List[index];
+						var kvp = (KeyValuePair<IPAddress, List<object>>)m_List[index];
 
-						IPAddress ipAddr = (IPAddress)de.Key;
-						List<object> accts = (List<object>)de.Value;
+						IPAddress ipAddr = kvp.Key;
+						List<object> accts = kvp.Value;
 
 						int offset = 140 + (i * 20);
 
@@ -1319,52 +1320,38 @@ namespace Server.Gumps
 
 		private static List<object> GetAllSharedAccounts()
 		{
-			Dictionary<IPAddress, List<object>> table = new Dictionary<IPAddress, List<object>>();
-			List<object> list;
+			var table = new Dictionary<IPAddress, List<object>>();
 
-			foreach (IAccount acct in Accounts.GetAccounts())
+			foreach (var acct in Accounts.GetAccounts())
 			{
-				IPAddress[] theirAddresses = acct.LoginIPs;
+				var theirAddresses = acct.LoginIPs;
 
-				for (int i = 0; i < theirAddresses.Length; ++i)
+				foreach (var address in theirAddresses)
 				{
-					if (!table.TryGetValue(theirAddresses[i], out list))
-						table[theirAddresses[i]] = list = new List<object>();
+					if (!table.TryGetValue(address, out var list))
+						table[address] = list = new List<object>();
 
 					list.Add(acct);
 				}
 			}
 
-			list = new List<object>(table.Values);
+			var result = new List<KeyValuePair<IPAddress, List<object>>>();
 
-			for (int i = 0; i < list.Count; ++i)
+			foreach (var kv in table)
 			{
-				List<object> accts = (List<object>)list[i];
+				var accounts = kv.Value;
 
-				if (accts.Count == 1)
-					list.RemoveAt(i--);
-				else
-					accts.Sort();
+				if (accounts.Count == 1) continue;
+				
+				accounts.Sort();
+				result.Add(kv);
 			}
 
-			list.Sort(SharedAccountComparer.Instance);
+			result.Sort((kv1, kv2) => kv2.Value.Count - kv1.Value.Count);
 
-			return list;
+			return result.Cast<object>().ToList();
 		}
-
-		private class SharedAccountComparer : IComparer<object>
-		{
-			public static readonly IComparer<object> Instance = new SharedAccountComparer();
-
-			public int Compare(object x, object y)
-			{
-				List<object> aList = (List<object>)x;
-				List<object> bList = (List<object>)y;
-
-				return bList.Count - aList.Count;
-			}
-		}
-
+		
 		private static List<object> GetSharedAccounts(IPAddress ipAddress)
 		{
 			List<object> list = new List<object>();
