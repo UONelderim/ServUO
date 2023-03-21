@@ -545,6 +545,12 @@ namespace Server.Mobiles
                 {
                     Enabled = from.Map.Rules == MapRules.FeluccaRules || CheckVendorAccess(from)
                 };
+                
+                if (InsuranceEnabled && from is PlayerMobile pm)
+                {
+	                list.Add(new PlayerMobile.CallbackEntry(1114299, pm.OpenItemInsuranceMenu));
+	                list.Add(new PlayerMobile.CallbackEntry(6201, pm.ToggleItemInsurance));
+                }
 
                 list.Add(entry);
             }

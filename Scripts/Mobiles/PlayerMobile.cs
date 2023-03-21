@@ -2326,13 +2326,8 @@ namespace Server.Mobiles
 				 }*/
 
                 list.Add(new OpenBackpackEntry(this));
-
-                if (Alive && InsuranceEnabled)
-                {
-                    list.Add(new CallbackEntry(1114299, OpenItemInsuranceMenu));
-                    list.Add(new CallbackEntry(6201, ToggleItemInsurance));
-                }
-                else if (Siege.SiegeShard)
+                
+                if (Siege.SiegeShard)
                 {
                     list.Add(new CallbackEntry(3006168, SiegeBlessItem));
                 }
@@ -2445,7 +2440,7 @@ namespace Server.Mobiles
         }
 
         #region Insurance
-        private void ToggleItemInsurance()
+        public void ToggleItemInsurance()
         {
             if (!CheckAlive())
             {
@@ -2688,7 +2683,7 @@ namespace Server.Mobiles
             }
         }
 
-        private void OpenItemInsuranceMenu()
+        public void OpenItemInsuranceMenu()
         {
             if (!CheckAlive())
                 return;
@@ -3007,9 +3002,9 @@ namespace Server.Mobiles
             SendLocalizedMessage(1113798); // Your PvP warning query has been re-enabled.
         }
 
-        private delegate void ContextCallback();
+        public delegate void ContextCallback();
 
-        private class CallbackEntry : ContextMenuEntry
+        public class CallbackEntry : ContextMenuEntry
         {
             private readonly ContextCallback m_Callback;
 
