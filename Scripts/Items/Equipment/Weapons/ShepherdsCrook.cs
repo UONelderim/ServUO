@@ -140,34 +140,45 @@ namespace Server.Items
 
                 protected override void OnTarget(Mobile from, object targ)
                 {
-                    if (targ is IPoint2D)
-                    {
-                        double min = m_Creature.CurrentTameSkill - 30;
-                        double max = m_Creature.CurrentTameSkill + 30 + Utility.Random(10);
+	                if (!(targ is IPoint2D p)) return;
+	                
+	                if (from.BeginAction(typeof(ShepherdsCrook)))
+	                {
+		                Timer.DelayCall(TimeSpan.FromMilliseconds(1000), () =>
+		                {
+			                from.EndAction(typeof(ShepherdsCrook));
+		                });
+		                    
+		                double min = m_Creature.CurrentTameSkill - 30;
+		                double max = m_Creature.CurrentTameSkill + 30 + Utility.Random(10);
 
-                        if (max <= from.Skills[SkillName.Herding].Value)
-                            m_Creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 502471, from.NetState); // That wasn't even challenging.
+		                if (max <= from.Skills[SkillName.Herding].Value)
+			                m_Creature.PrivateOverheadMessage(MessageType.Regular, 0x3B2, 502471,
+				                from.NetState); // That wasn't even challenging.
 
-                        if (from.CheckTargetSkill(SkillName.Herding, m_Creature, min, max))
-                        {
-                            IPoint2D p = (IPoint2D)targ;
+		                if (from.CheckTargetSkill(SkillName.Herding, m_Creature, min, max))
+		                {
+			                if (targ != from)
+				                p = new Point2D(p.X, p.Y);
 
-                            if (targ != from)
-                                p = new Point2D(p.X, p.Y);
+			                m_Creature.TargetLocation = p;
+			                from.SendLocalizedMessage(502479); // The animal walks where it was instructed to.
 
-                            m_Creature.TargetLocation = p;
-                            from.SendLocalizedMessage(502479); // The animal walks where it was instructed to.
-
-                            if (Siege.SiegeShard && m_Crook is IUsesRemaining)
-                            {
-                                Siege.CheckUsesRemaining(from, m_Crook);
-                            }
-                        }
-                        else
-                        {
-                            from.SendLocalizedMessage(502472); // You don't seem to be able to persuade that to move.
-                        }
-                    }
+			                if (Siege.SiegeShard && m_Crook is IUsesRemaining)
+			                {
+				                Siege.CheckUsesRemaining(from, m_Crook);
+			                }
+		                }
+		                else
+		                {
+			                from.SendLocalizedMessage(
+				                502472); // You don't seem to be able to persuade that to move.
+		                }
+	                } 
+	                else
+	                {
+		                from.SendLocalizedMessage(500119); // You must wait to perform another action
+	                }
                 }
             }
         }
