@@ -625,9 +625,9 @@ namespace Server.Mobiles
                 damage = (int)(damage / Paragon.HitsBuff);
             }
 
-            if (damage > 200)
+            if (damage > 100)
             {
-                damage = 200;
+                damage = 100;
             }
 
             return damage;
