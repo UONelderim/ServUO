@@ -869,7 +869,7 @@ namespace Server
 
 			if (message)
 			{
-				Broadcast(0x35, false, AccessLevel.Player, "The world is saving, please wait.");
+				Broadcast(0x35, false, AccessLevel.Player, "Trwa zapis świata.");
 			}
 
 			var strategy = SaveStrategy.Acquire();
@@ -928,7 +928,7 @@ namespace Server
 
 			if (message)
 			{
-				Broadcast(0x35, false, AccessLevel.Player, $"World save done in {watch.Elapsed.TotalSeconds:F1} seconds.");
+				Broadcast(0x35, false, AccessLevel.Player, $"Zapis zakonczony w {watch.Elapsed.TotalSeconds:F1} sekund.");
 			}
 
 			NetState.Resume();

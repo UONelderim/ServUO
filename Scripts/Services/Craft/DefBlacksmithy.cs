@@ -210,28 +210,10 @@ namespace Server.Engines.Craft
 
         public override void PlayCraftEffect(Mobile from)
         {
-            // no animation, instant sound
-            //if ( from.Body.Type == BodyType.Human && !from.Mounted )
-            //	from.Animate( 9, 5, 1, true, false, 0 );
-            //new InternalTimer( from ).Start();
-            from.PlaySound(0x2A);
-        }
-
-        // Delay to synchronize the sound with the hit on the anvil
-        private class InternalTimer : Timer
-        {
-            private readonly Mobile m_From;
-
-            public InternalTimer(Mobile from)
-                : base(TimeSpan.FromSeconds(0.7))
-            {
-                m_From = from;
-            }
-
-            protected override void OnTick()
-            {
-                m_From.PlaySound(0x2A);
-            }
+            if ( from.Body.Type == BodyType.Human && !from.Mounted )
+            	from.Animate( 9, 5, 1, true, false, 0 );
+            // Delay to synchronize the sound with the hit on the anvil
+            Timer.DelayCall(TimeSpan.FromSeconds(0.5), () => from.PlaySound(0x2A));
         }
 
         public override int PlayEndingEffect(

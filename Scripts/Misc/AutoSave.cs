@@ -145,15 +145,15 @@ namespace Server.Misc
 
 				if (m > 0 && s > 0)
 				{
-					World.Broadcast(0x35, false, $"The world will save in {m} minute{(m != 1 ? "s" : "")} and {s} second{(s != 1 ? "s" : "")}.");
+					World.Broadcast(0x35, false, $"Swiat zostanie zapisany za {m} minut i {s} sekund.");
 				}
 				else if (m > 0)
 				{
-					World.Broadcast(0x35, false, $"The world will save in {m} minute{(m != 1 ? "s" : "")}.");
+					World.Broadcast(0x35, false, $"Swiat zostanie zapisany za {m} minut.");
 				}
 				else
 				{
-					World.Broadcast(0x35, false, $"The world will save in {s} second{(s != 1 ? "s" : "")}.");
+					World.Broadcast(0x35, false, $"Swiat zostanie zapisany za {s} sekund.");
 				}
 
 				Timer.DelayCall(Warning, Save);
