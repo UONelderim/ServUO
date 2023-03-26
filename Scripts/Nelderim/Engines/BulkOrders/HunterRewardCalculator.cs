@@ -53,7 +53,7 @@ namespace Server.Engines.BulkOrders
 		{
 			var uses = Utility.Random(2) + 1; // 1-2
 			var reward = Utility.RandomList(
-				typeof(BlacksmihyPowderOfTemperament), 
+				typeof(BlacksmithyPowderOfTemperament), 
 				typeof(BowFletchingPowderOfTemperament), 
 				typeof(CarpentryPowderOfTemperament),
 				typeof(TailoringPowderOfTemperament),

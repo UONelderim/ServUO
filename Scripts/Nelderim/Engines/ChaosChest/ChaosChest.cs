@@ -142,7 +142,7 @@ namespace Nelderim.Engines.ChaosChest
 		private static Item Proszek(int type)
 		{
 			var reward = Utility.RandomList(
-				typeof(BlacksmihyPowderOfTemperament), 
+				typeof(BlacksmithyPowderOfTemperament), 
 				typeof(BowFletchingPowderOfTemperament), 
 				typeof(CarpentryPowderOfTemperament),
 				typeof(TailoringPowderOfTemperament),

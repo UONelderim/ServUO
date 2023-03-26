@@ -6,21 +6,21 @@ using Server.Engines.Craft;
 
 namespace Server.Items
 {
-	public class BlacksmihyPowderOfTemperament : SpecializedPowderOfTemperament
+	public class BlacksmithyPowderOfTemperament : SpecializedPowderOfTemperament
 	{
 		public override CraftSystem CraftSystem => DefBlacksmithy.CraftSystem;
 
 		[Constructable]
-		public BlacksmihyPowderOfTemperament() : this(5)
+		public BlacksmithyPowderOfTemperament() : this(5)
 		{
 		}
 
 		[Constructable]
-		public BlacksmihyPowderOfTemperament(int uses) : base(uses)
+		public BlacksmithyPowderOfTemperament(int uses) : base(uses)
 		{
 		}
 
-		public BlacksmihyPowderOfTemperament(Serial serial) : base(serial)
+		public BlacksmithyPowderOfTemperament(Serial serial) : base(serial)
 		{
 		}
 
