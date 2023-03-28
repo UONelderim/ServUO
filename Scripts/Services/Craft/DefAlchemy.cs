@@ -57,6 +57,7 @@ namespace Server.Engines.Craft
         public override void PlayCraftEffect(Mobile from)
         {
             from.PlaySound(0x242);
+            from.Emote ("*rozciera ziola*");
         }
 
         private static readonly Type typeofPotion = typeof(BasePotion);

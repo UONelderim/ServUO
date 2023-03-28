@@ -80,6 +80,7 @@ namespace Server.Engines.Craft
         public override void PlayCraftEffect(Mobile from)
         {
             from.PlaySound(0x249);
+            from.Emote( "*zapisuje zwoj*" );
         }
 
         private static readonly Type typeofSpellScroll = typeof(SpellScroll);

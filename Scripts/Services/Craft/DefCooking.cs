@@ -77,6 +77,8 @@ namespace Server.Engines.Craft
 
         public override void PlayCraftEffect(Mobile from)
         {
+	        from.Emote( "*gotuje*" );
+	        from.PlaySound(0x247);
         }
 
         public override int PlayEndingEffect(Mobile from, bool failed, bool lostMaterial, bool toolBroken, int quality, bool makersMark, CraftItem item)

@@ -214,6 +214,7 @@ namespace Server.Engines.Craft
             	from.Animate( 9, 5, 1, true, false, 0 );
             // Delay to synchronize the sound with the hit on the anvil
             Timer.DelayCall(TimeSpan.FromSeconds(0.5), () => from.PlaySound(0x2A));
+            from.Emote("*kuje*");
         }
 
         public override int PlayEndingEffect(
