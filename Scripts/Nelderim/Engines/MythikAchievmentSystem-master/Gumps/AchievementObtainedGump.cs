@@ -30,7 +30,7 @@ namespace Scripts.Mythik.Systems.Achievements.Gumps
                 this.AddItem(80 - bounds.Width / 2 - bounds.X, (30 - bounds.Height / 2 - bounds.Y) + y, ach.ItemIcon );
             this.AddLabel(121, 55, 49, ach.Title);
             this.AddHtml(120, 80, 167, 42, ach.Desc, (bool)true, (bool)true);
-            this.AddLabel(275, 51, 61, @"COMPLETE");
+            this.AddLabel(275, 51, 61, @"UKONCZONO");
             this.AddBackground(320, 72, 44, 47, 9200);
             this.AddLabel(337, 87, 0, ach.RewardPoints.ToString());
         }
