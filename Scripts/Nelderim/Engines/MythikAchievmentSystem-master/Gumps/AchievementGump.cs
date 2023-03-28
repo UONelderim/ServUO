@@ -27,8 +27,8 @@ namespace Scripts.Mythik.Systems.Achievements.Gumps
             this.AddBackground(72, 104, 245, 453, 9270);
             this.AddBackground(72, 34, 635, 53, 9270);
             this.AddBackground(327, 0, 133, 41, 9200);
-            this.AddLabel(292, 52, 68, @"Mythik Achievement System");
-            this.AddLabel(360, 11, 82, total + @" Points");
+            this.AddLabel(292, 52, 68, @"System Osiagniec");
+            this.AddLabel(360, 11, 82, total + @" Punktow");
             this.AddBackground(341, 522, 353, 26, 9200);
 
             int cnt = 0;
