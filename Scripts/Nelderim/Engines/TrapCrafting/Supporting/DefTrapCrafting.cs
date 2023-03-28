@@ -54,6 +54,7 @@ namespace Server.Engines.Craft
 		public override void PlayCraftEffect(Mobile from)
 		{
 			from.PlaySound(0x241);
+			from.Emote("*wyrabia przedmiot*");
 		}
 
 		private class InternalTimer : Timer

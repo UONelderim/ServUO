@@ -64,6 +64,7 @@ namespace Server.Engines.Craft
             //if ( from.Body.Type == BodyType.Human && !from.Mounted )
             //	from.Animate( 9, 5, 1, true, false, 0 );
             //new InternalTimer( from ).Start();
+            from.Emote( "*wyrabia przedmiot ze szkla*" );
         }
 
         public override int PlayEndingEffect(Mobile from, bool failed, bool lostMaterial, bool toolBroken, int quality, bool makersMark, CraftItem item)

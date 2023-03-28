@@ -62,6 +62,8 @@ namespace Server.Engines.Craft
 
         public override void PlayCraftEffect(Mobile from)
         {
+	        from.Emote( "*rzezbi*" );
+	        from.PlaySound(0x13F);
         }
 
         // Delay to synchronize the sound with the hit on the anvil 

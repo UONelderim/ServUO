@@ -110,6 +110,7 @@ namespace Server.Engines.Craft
 	        if ( from.Body.Type == BodyType.Human && !from.Mounted )
 		        from.Animate( 33, 5, 1, true, false, 0 );
             from.PlaySound(0x23D);
+            from.Emote("*wyrabia przedmiot*");
         }
 
         public override int PlayEndingEffect(Mobile from, bool failed, bool lostMaterial, bool toolBroken, int quality, bool makersMark, CraftItem item)
