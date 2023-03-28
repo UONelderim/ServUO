@@ -857,6 +857,26 @@ namespace Server.Mobiles
                     12,
                     true,
                     new Type[] { typeof(CrystalHydra) }));
+                
+                // Lodowe Smoki
+                Definitions.Add(new DragonBreathDefinition(
+	                0.16,
+	                1.0,
+	                1.3,
+	                1.0,
+	                0, 0, 100, 0, 0, 0, 0,
+	                30.0, 45.0,
+	                0x36D4,
+	                5,
+	                0,
+	                false,
+	                false,
+	                0x480,
+	                0,
+	                0x227,
+	                12,
+	                false,
+	                new Type[] { typeof(LodowySmok), typeof(StaryLodowySmok), typeof(MlodyLodowySmok), typeof(PrastaryLodowySmok), typeof(NStarozytnyLodowySmok) }));
             }
 
             public static DragonBreathDefinition GetDefinition(BaseCreature bc)
