@@ -37,7 +37,7 @@ namespace Server.Mobiles
 
 			SetDamageType(ResistanceType.Fire, 25);
 			SetDamageType(ResistanceType.Energy, 75);
-			SetDamageType( ResistanceType.Energy, 0 );
+			SetDamageType( ResistanceType.Physical, 0 );
 
 			SetResistance(ResistanceType.Physical, 90, 100);
 			SetResistance(ResistanceType.Fire, 60, 80);
