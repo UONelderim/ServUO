@@ -275,8 +275,8 @@ namespace Server.Engines.BulkOrders
                 RewardCollection.Add(new BODCollectionItem(0x13E3, 1157219, 0, 10, SmithHammer));
                 RewardCollection.Add(new BODCollectionItem(0xF39, 1157084, 0x973, 10, SturdyShovel));
                 RewardCollection.Add(new BODCollectionItem(0xE86, 1157085, 0x973, 25, SturdyPickaxe));
-                RewardCollection.Add(new BODCollectionItem(0x14F0, 1157181, 0, 25, RewardTitle, 0));
-                RewardCollection.Add(new BODCollectionItem(0x14F0, 1157182, 0, 100, RewardTitle, 1));
+                //RewardCollection.Add(new BODCollectionItem(0x14F0, 1157181, 0, 25, RewardTitle, 0));
+               // RewardCollection.Add(new BODCollectionItem(0x14F0, 1157182, 0, 100, RewardTitle, 1));
                 RewardCollection.Add(new BODCollectionItem(0x13C6, 1157086, 0, 100, MiningGloves, 1));
                 RewardCollection.Add(new BODCollectionItem(0x13D5, 1157087, 0, 200, MiningGloves, 3));
                 RewardCollection.Add(new BODCollectionItem(0xFB4, 1157090, 0, 200, ProspectorsTool));
@@ -627,11 +627,11 @@ namespace Server.Engines.BulkOrders
                 RewardCollection = new List<CollectionItem>();
 
                 RewardCollection.Add(new BODCollectionItem(0xF9D, 1157219, 0, 10, SewingKit));
-                RewardCollection.Add(new BODCollectionItem(0x14F0, 1157183, 0, 10, RewardTitle, 2));
+                //RewardCollection.Add(new BODCollectionItem(0x14F0, 1157183, 0, 10, RewardTitle, 2));
                 RewardCollection.Add(new BODCollectionItem(0x1765, 1157109, 0, 10, Cloth, 0));
-                RewardCollection.Add(new BODCollectionItem(0x14F0, 1157184, 0, 25, RewardTitle, 3));
+               // RewardCollection.Add(new BODCollectionItem(0x14F0, 1157184, 0, 25, RewardTitle, 3));
                 RewardCollection.Add(new BODCollectionItem(0x1761, 1157109, 0, 50, Cloth, 1));
-                RewardCollection.Add(new BODCollectionItem(0x14F0, 1157185, 0, 100, RewardTitle, 4));
+                //RewardCollection.Add(new BODCollectionItem(0x14F0, 1157185, 0, 100, RewardTitle, 4));
                 RewardCollection.Add(new BODCollectionItem(0x1765, 1157109, 0, 100, Cloth, 2));
                 RewardCollection.Add(new BODCollectionItem(0x1765, 1157109, 0, 150, Cloth, 3));
                 RewardCollection.Add(new BODCollectionItem(0x170D, 1157110, 0, 150, Sandals, 3));
@@ -927,24 +927,24 @@ namespace Server.Engines.BulkOrders
             RewardCollection = new List<CollectionItem>();
 
             RewardCollection.Add(new BODCollectionItem(0x1EBC, 1157219, 0, 10, TinkerTools));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157186, 0, 25, RewardTitle, 5));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157187, 0, 50, RewardTitle, 6));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157190, 0, 210, RewardTitle, 9));
+           // RewardCollection.Add(new BODCollectionItem(0x14F0, 1157186, 0, 25, RewardTitle, 5));
+           // RewardCollection.Add(new BODCollectionItem(0x14F0, 1157187, 0, 50, RewardTitle, 6));
+           // RewardCollection.Add(new BODCollectionItem(0x14F0, 1157190, 0, 210, RewardTitle, 9));
             RewardCollection.Add(new BODCollectionItem(0x2831, 1157288, 0, 225, Recipe, 0));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157188, 0, 250, RewardTitle, 7));
+           // RewardCollection.Add(new BODCollectionItem(0x14F0, 1157188, 0, 250, RewardTitle, 7));
             RewardCollection.Add(new BODCollectionItem(0x2831, 1157287, 0, 310, Recipe, 1));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157189, 0, 225, RewardTitle, 8));
+           // RewardCollection.Add(new BODCollectionItem(0x14F0, 1157189, 0, 225, RewardTitle, 8));
             RewardCollection.Add(new BODCollectionItem(0x2831, 1157289, 0, 350, Recipe, 2));
             RewardCollection.Add(new BODCollectionItem(0x9E2B, 1157264, 0, 400, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152674, CraftResources.GetHue(CraftResource.Gold), 450, SmeltersTalisman, (int)CraftResource.Gold));
-            RewardCollection.Add(new BODCollectionItem(0x14EC, 1152665, CraftResources.GetHue(CraftResource.Gold), 500, HarvestMap, (int)CraftResource.Gold));
+           // RewardCollection.Add(new BODCollectionItem(0x14EC, 1152665, CraftResources.GetHue(CraftResource.Gold), 500, HarvestMap, (int)CraftResource.Gold));
             RewardCollection.Add(new BODCollectionItem(0x9E2B, 1157218, 0, 550, CraftsmanTalisman, 25)); // todo: Get id
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152675, CraftResources.GetHue(CraftResource.Agapite), 600, SmeltersTalisman, (int)CraftResource.Agapite));
-            RewardCollection.Add(new BODCollectionItem(0x14EC, 1152666, CraftResources.GetHue(CraftResource.Agapite), 650, HarvestMap, (int)CraftResource.Agapite));
+           // RewardCollection.Add(new BODCollectionItem(0x14EC, 1152666, CraftResources.GetHue(CraftResource.Agapite), 650, HarvestMap, (int)CraftResource.Agapite));
             RewardCollection.Add(new BODCollectionItem(0x1940, 1157221, 0, 700, CreateItem, 0)); // powder of fort keg
             RewardCollection.Add(new BODCollectionItem(0x9CE9, 1157290, 0, 750, CreateItem, 1)); // automaton actuator
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152676, CraftResources.GetHue(CraftResource.Verite), 800, SmeltersTalisman, (int)CraftResource.Verite));
-            RewardCollection.Add(new BODCollectionItem(0x14EC, 1152667, CraftResources.GetHue(CraftResource.Verite), 850, HarvestMap, (int)CraftResource.Verite));
+           // RewardCollection.Add(new BODCollectionItem(0x14EC, 1152667, CraftResources.GetHue(CraftResource.Verite), 850, HarvestMap, (int)CraftResource.Verite));
             RewardCollection.Add(new BODCollectionItem(0x9E2B, 1157265, 0, 900, CraftsmanTalisman, 50));
             RewardCollection.Add(new BODCollectionItem(0x9E7E, 1157216, 0, 950, RockHammer));
             RewardCollection.Add(new BODCollectionItem(0x9CAA, 1157286, 1175, 1000, CreateItem, 2));
@@ -1112,29 +1112,29 @@ namespace Server.Engines.BulkOrders
             RewardCollection = new List<CollectionItem>();
 
             RewardCollection.Add(new BODCollectionItem(0x1028, 1157219, 0, 10, DovetailSaw));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157191, 0, 25, RewardTitle, 10));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157192, 0, 50, RewardTitle, 11));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157193, 0, 250, RewardTitle, 12));
+      //    RewardCollection.Add(new BODCollectionItem(0x14F0, 1157191, 0, 25, RewardTitle, 10));
+     //     RewardCollection.Add(new BODCollectionItem(0x14F0, 1157192, 0, 50, RewardTitle, 11));
+     //     RewardCollection.Add(new BODCollectionItem(0x14F0, 1157193, 0, 250, RewardTitle, 12));
             RewardCollection.Add(new BODCollectionItem(0x9E2C, 1157264, 0, 300, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152678, CraftResources.GetHue(CraftResource.YewWood), 350, WoodsmansTalisman, (int)CraftResource.YewWood));
             RewardCollection.Add(new BODCollectionItem(0x9E2C, 1157218, 0, 450, CraftsmanTalisman, 25));
             RewardCollection.Add(new BODCollectionItem(0x12B3, 1157293, CraftResources.GetHue(CraftResource.DullCopper), 450, RunicMalletAndChisel, 1));
             RewardCollection.Add(new BODCollectionItem(0x12B3, 1157294, CraftResources.GetHue(CraftResource.ShadowIron), 450, RunicMalletAndChisel, 2));
-            RewardCollection.Add(new BODCollectionItem(0x14EC, 1152669, CraftResources.GetHue(CraftResource.YewWood), 500, HarvestMap, (int)CraftResource.YewWood));
+     //     RewardCollection.Add(new BODCollectionItem(0x14EC, 1152669, CraftResources.GetHue(CraftResource.YewWood), 500, HarvestMap, (int)CraftResource.YewWood));
             RewardCollection.Add(new BODCollectionItem(0x1029, 1157223, CraftResources.GetHue(CraftResource.OakWood), 550, RunicDovetailSaw, 0));
             RewardCollection.Add(new BODCollectionItem(0x12B3, 1157295, CraftResources.GetHue(CraftResource.Copper), 600, RunicMalletAndChisel, 3));
             RewardCollection.Add(new BODCollectionItem(0x12B3, 1157296, CraftResources.GetHue(CraftResource.Bronze), 650, RunicMalletAndChisel, 4));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152679, CraftResources.GetHue(CraftResource.Heartwood), 650, WoodsmansTalisman, (int)CraftResource.Heartwood));
-            RewardCollection.Add(new BODCollectionItem(0x14EC, 1152670, CraftResources.GetHue(CraftResource.Heartwood), 700, HarvestMap, (int)CraftResource.Heartwood));
+    //      RewardCollection.Add(new BODCollectionItem(0x14EC, 1152670, CraftResources.GetHue(CraftResource.Heartwood), 700, HarvestMap, (int)CraftResource.Heartwood));
             RewardCollection.Add(new BODCollectionItem(0x1029, 1157224, CraftResources.GetHue(CraftResource.AshWood), 750, RunicDovetailSaw, 1));
             RewardCollection.Add(new BODCollectionItem(0x9E2C, 1157265, 0, 800, CraftsmanTalisman, 50));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152680, CraftResources.GetHue(CraftResource.Bloodwood), 850, WoodsmansTalisman, (int)CraftResource.Bloodwood));
-            RewardCollection.Add(new BODCollectionItem(0x14EC, 1152671, CraftResources.GetHue(CraftResource.Bloodwood), 900, HarvestMap, (int)CraftResource.Bloodwood));
+    //      RewardCollection.Add(new BODCollectionItem(0x14EC, 1152671, CraftResources.GetHue(CraftResource.Bloodwood), 900, HarvestMap, (int)CraftResource.Bloodwood));
             RewardCollection.Add(new BODCollectionItem(0x12B3, 1157297, CraftResources.GetHue(CraftResource.Gold), 900, RunicMalletAndChisel, 5));
             RewardCollection.Add(new BODCollectionItem(0x1029, 1157225, CraftResources.GetHue(CraftResource.YewWood), 950, RunicDovetailSaw, 2));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152681, CraftResources.GetHue(CraftResource.Frostwood), 1000, WoodsmansTalisman, (int)CraftResource.Frostwood));
             RewardCollection.Add(new BODCollectionItem(0x12B3, 1157298, CraftResources.GetHue(CraftResource.Agapite), 1000, RunicMalletAndChisel, 6));
-            RewardCollection.Add(new BODCollectionItem(0x14EC, 1152672, CraftResources.GetHue(CraftResource.Frostwood), 1050, HarvestMap, (int)CraftResource.Frostwood));
+     //     RewardCollection.Add(new BODCollectionItem(0x14EC, 1152672, CraftResources.GetHue(CraftResource.Frostwood), 1050, HarvestMap, (int)CraftResource.Frostwood));
             RewardCollection.Add(new BODCollectionItem(0x12B3, 1157299, CraftResources.GetHue(CraftResource.Verite), 1100, RunicMalletAndChisel, 7));
             RewardCollection.Add(new BODCollectionItem(0x1029, 1157226, CraftResources.GetHue(CraftResource.Heartwood), 1150, RunicDovetailSaw, 3));
             RewardCollection.Add(new BODCollectionItem(0x12B3, 1157300, CraftResources.GetHue(CraftResource.Valorite), 1150, RunicMalletAndChisel, 8));
@@ -1307,9 +1307,9 @@ namespace Server.Engines.BulkOrders
             RewardCollection = new List<CollectionItem>();
 
             RewardCollection.Add(new BODCollectionItem(0x0FBF, 1157219, 0, 10, ScribesPen));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157194, 0, 25, RewardTitle, 13));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157195, 0, 50, RewardTitle, 14));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157196, 0, 210, RewardTitle, 15));
+       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157194, 0, 25, RewardTitle, 13));
+       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157195, 0, 50, RewardTitle, 14));
+       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157196, 0, 210, RewardTitle, 15));
             RewardCollection.Add(new BODCollectionItem(0x2831, 1156443, 0, 210, Recipe, 3));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2741, 250, NaturalDye, 3));
             RewardCollection.Add(new BODCollectionItem(0x9E28, 1157264, 0, 275, CraftsmanTalisman, 10));
@@ -1433,10 +1433,10 @@ namespace Server.Engines.BulkOrders
             RewardCollection = new List<CollectionItem>();
 
             RewardCollection.Add(new BODCollectionItem(0x97F, 1157219, 0, 10, Skillet));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157197, 0, 25, RewardTitle, 13));
+       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157197, 0, 25, RewardTitle, 13));
             RewardCollection.Add(new BODCollectionItem(0x2831, 1031233, 0, 25, Recipe, 4));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157198, 0, 50, RewardTitle, 14));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157199, 0, 210, RewardTitle, 15));
+       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157198, 0, 50, RewardTitle, 14));
+       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157199, 0, 210, RewardTitle, 15));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157264, 0, 250, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157218, 0, 300, CraftsmanTalisman, 25));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157265, 0, 350, CraftsmanTalisman, 50));
@@ -1569,20 +1569,20 @@ namespace Server.Engines.BulkOrders
             RewardCollection = new List<CollectionItem>();
 
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157219, 0, 10, FletcherTools));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157200, 0, 25, RewardTitle, 17));
+        //  RewardCollection.Add(new BODCollectionItem(0x14F0, 1157200, 0, 25, RewardTitle, 17));
             RewardCollection.Add(new BODCollectionItem(0x9E29, 1157264, 0, 210, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152678, CraftResources.GetHue(CraftResource.YewWood), 225, WoodsmansTalisman, (int)CraftResource.YewWood));
-            RewardCollection.Add(new BODCollectionItem(0x14EC, 1152669, CraftResources.GetHue(CraftResource.YewWood), 310, HarvestMap, (int)CraftResource.YewWood));
+        //  RewardCollection.Add(new BODCollectionItem(0x14EC, 1152669, CraftResources.GetHue(CraftResource.YewWood), 310, HarvestMap, (int)CraftResource.YewWood));
             RewardCollection.Add(new BODCollectionItem(0x9E29, 1157218, 0, 325, CraftsmanTalisman, 25));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152679, CraftResources.GetHue(CraftResource.Heartwood), 360, WoodsmansTalisman, (int)CraftResource.Heartwood));
-            RewardCollection.Add(new BODCollectionItem(0x14EC, 1152670, CraftResources.GetHue(CraftResource.Heartwood), 375, HarvestMap, (int)CraftResource.Heartwood));
+       //   RewardCollection.Add(new BODCollectionItem(0x14EC, 1152670, CraftResources.GetHue(CraftResource.Heartwood), 375, HarvestMap, (int)CraftResource.Heartwood));
             RewardCollection.Add(new BODCollectionItem(0x9E29, 1157265, 0, 410, CraftsmanTalisman, 50));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157223, CraftResources.GetHue(CraftResource.OakWood), 425, CreateRunicFletcherTools, 0));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152680, CraftResources.GetHue(CraftResource.Bloodwood), 510, WoodsmansTalisman, (int)CraftResource.Bloodwood));
-            RewardCollection.Add(new BODCollectionItem(0x14EC, 1152671, CraftResources.GetHue(CraftResource.Bloodwood), 525, HarvestMap, (int)CraftResource.Bloodwood));
+     //     RewardCollection.Add(new BODCollectionItem(0x14EC, 1152671, CraftResources.GetHue(CraftResource.Bloodwood), 525, HarvestMap, (int)CraftResource.Bloodwood));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157224, CraftResources.GetHue(CraftResource.AshWood), 650, CreateRunicFletcherTools, 1));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152681, CraftResources.GetHue(CraftResource.Frostwood), 750, WoodsmansTalisman, (int)CraftResource.Frostwood));
-            RewardCollection.Add(new BODCollectionItem(0x14EC, 1152672, CraftResources.GetHue(CraftResource.Frostwood), 950, HarvestMap, (int)CraftResource.Frostwood));
+      //    RewardCollection.Add(new BODCollectionItem(0x14EC, 1152672, CraftResources.GetHue(CraftResource.Frostwood), 950, HarvestMap, (int)CraftResource.Frostwood));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157225, CraftResources.GetHue(CraftResource.YewWood), 1000, CreateRunicFletcherTools, 2));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157226, CraftResources.GetHue(CraftResource.Heartwood), 1100, CreateRunicFletcherTools, 3));
         }
@@ -1733,9 +1733,9 @@ namespace Server.Engines.BulkOrders
             RewardCollection = new List<CollectionItem>();
 
             RewardCollection.Add(new BODCollectionItem(0xE9B, 1157219, 0, 10, MortarAndPestle));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157183, 0, 25, RewardTitle, 20));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157202, 0, 50, RewardTitle, 21));
-            RewardCollection.Add(new BODCollectionItem(0x14F0, 1157203, 0, 210, RewardTitle, 22));
+       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157183, 0, 25, RewardTitle, 20));
+       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157202, 0, 50, RewardTitle, 21));
+       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157203, 0, 210, RewardTitle, 22));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157278, 2741, 225, NaturalDye, 0));
             RewardCollection.Add(new BODCollectionItem(0x975, 1152660, CraftResources.GetHue(CraftResource.AshWood), 250, Cauldron, 0));
             RewardCollection.Add(new BODCollectionItem(0x975, 1152656, CraftResources.GetHue(CraftResource.Bronze), 260, Cauldron, 1));
