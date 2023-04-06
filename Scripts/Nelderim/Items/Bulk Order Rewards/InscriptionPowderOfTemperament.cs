@@ -6,23 +6,23 @@ using Server.Engines.Craft;
 
 namespace Server.Items
 {
-	public class TinkeringPowderOfTemperament : SpecializedPowderOfTemperament
+	public class InscriptionPowderOfTemperament : SpecializedPowderOfTemperament
 	{
-		public override CraftSystem CraftSystem => DefTinkering.CraftSystem;
+		public override CraftSystem CraftSystem => DefBlacksmithy.CraftSystem;
 
 		[Constructable]
-		public TinkeringPowderOfTemperament() : this(5)
+		public InscriptionPowderOfTemperament() : this(5)
 		{
 		}
 
 		[Constructable]
-		public TinkeringPowderOfTemperament(int uses) : base(uses)
+		public InscriptionPowderOfTemperament(int uses) : base(uses)
 		{
-			Name = "Proszek wzmocnienia wyrobow majstra";
-			Hue = 0x455;
+			Name = "Proszek wzmocnienia wyrobow skryby";
+			Hue = 0xA26;
 		}
 
-		public TinkeringPowderOfTemperament(Serial serial) : base(serial)
+		public InscriptionPowderOfTemperament(Serial serial) : base(serial)
 		{
 		}
 
