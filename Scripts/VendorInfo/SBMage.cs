@@ -52,6 +52,15 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo(typeof(NoxCrystal), 8, 50, 0xF8E, 0));
 				Add(new GenericBuyInfo(typeof(GraveDust), 6, 50, 0xF8F, 0));
 
+				AddRange(MageryScrolls);
+			}
+		}
+
+		public static List<IBuyItemInfo> MageryScrolls
+		{
+			get
+			{
+				var result = new List<IBuyItemInfo>();
 				Type[] types = Loot.MageryScrollTypes;
 				int circles = 5;
 				for (int i = 0; i < circles * 8 && i < types.Length; ++i)
@@ -64,8 +73,10 @@ namespace Server.Mobiles
 					else if (i > 6)
 						--itemID;
 
-					Add(new GenericBuyInfo(types[i], 12 + ((i / 8) * 10), 20, itemID, 0, true));
+					result.Add(new GenericBuyInfo(types[i], 12 + ((i / 8) * 10), 20, itemID, 0, true));
 				}
+
+				return result;
 			}
 		}
 

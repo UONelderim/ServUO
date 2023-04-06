@@ -16,8 +16,18 @@ namespace Server.Mobiles
 			public InternalBuyInfo()
 			{
 				Add(new GenericBuyInfo(typeof(BookOfChivalry), 500, 20, 0x2252, 0));
+				AddRange(ChivalryScrolls);
 			}
 		}
+		
+		public static List<IBuyItemInfo> ChivalryScrolls = new List<IBuyItemInfo>(
+			new []{
+				new GenericBuyInfo(typeof(CloseWoundsScroll), 20, 10, 0x1F6E, 1150),
+				new GenericBuyInfo(typeof(RemoveCurseScroll), 20, 10, 0x1F6E, 1150),
+				new GenericBuyInfo(typeof(CleanseByFireScroll), 20, 10, 0x1F6D, 1150),
+				new GenericBuyInfo(typeof(ConsecrateWeaponScroll), 20, 10, 0x1F6D, 1150),
+				new GenericBuyInfo(typeof(DivineFuryScroll), 20, 10, 0x1F6D, 1150)
+			});
 
 		public class InternalSellInfo : GenericSellInfo
 		{

@@ -30,33 +30,21 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo(typeof(BlueBook), 15, 50, 0xFF2, 0));
 				Add(new GenericBuyInfo("1041267", typeof(Runebook), 35000, 10, 0xEFA, 0x461));
 
-				Add(new GenericBuyInfo(typeof(HonorableExecutionScroll), 60, 10, 0x1F71, 137));
-				Add(new GenericBuyInfo(typeof(ConfidenceScroll), 60, 10, 0x1F72, 137));
-				Add(new GenericBuyInfo(typeof(CounterAttackScroll), 60, 10, 0x1F72, 137));
+				AddRange(SBMage.MageryScrolls);
+				AddRange(SBNecromancer.NecromancerSpells);
+				AddRange(SBKeeperOfChivalry.ChivalryScrolls);
+				AddRange(SBKeeperOfBushido.BushidoScrolls);
+				AddRange(SBKeeperOfNinjitsu.NinjitsuScrolls);
+				AddRange(SBSpellWeaver.SpellweaverSpells);
+				AddRange(SBMystic.MysticSpells);
 
-				Add(new GenericBuyInfo(typeof(CloseWoundsScroll), 20, 10, 0x1F6E, 1150));
-				Add(new GenericBuyInfo(typeof(RemoveCurseScroll), 20, 10, 0x1F6E, 1150));
-				Add(new GenericBuyInfo(typeof(CleanseByFireScroll), 20, 10, 0x1F6D, 1150));
-				Add(new GenericBuyInfo(typeof(ConsecrateWeaponScroll), 20, 10, 0x1F6D, 1150));
-				Add(new GenericBuyInfo(typeof(DivineFuryScroll), 20, 10, 0x1F6D, 1150));
-
-				Add(new GenericBuyInfo(typeof(AnimalFormScroll), 70, 10, 0x1F6F, 1000));
-				Add(new GenericBuyInfo(typeof(MirrorImageScroll), 70, 10, 0x1F70, 1000));
-				Add(new GenericBuyInfo(typeof(FocusAttackScroll), 70, 10, 0x1F6F, 1000));
-				Add(new GenericBuyInfo(typeof(BackstabScroll), 70, 10, 0x1F70, 1000));
-
-				Add(new GenericBuyInfo(typeof(CurseWeaponScroll), 40, 10, 0x2263, 0));
-				Add(new GenericBuyInfo(typeof(BloodOathScroll), 40, 10, 0x2261, 0));
-				Add(new GenericBuyInfo(typeof(CorpseSkinScroll), 40, 10, 0x2262, 0));
-				Add(new GenericBuyInfo(typeof(EvilOmenScroll), 40, 10, 0x2264, 0));
-				Add(new GenericBuyInfo(typeof(PainSpikeScroll), 40, 10, 0x2268, 0));
-				Add(new GenericBuyInfo(typeof(WraithFormScroll), 40, 10, 0x226F, 0));
-				Add(new GenericBuyInfo(typeof(MindRotScroll), 40, 10, 0x2267, 0));
-				Add(new GenericBuyInfo(typeof(SummonFamiliarScroll), 40, 105, 0x226B, 0));
-				Add(new GenericBuyInfo(typeof(AnimateDeadScroll), 40, 10, 0x2260, 0));
-
-				Add(new GenericBuyInfo(typeof(BookOfNinjitsu), 335, 20, 0x23A0, 0));
-				Add(new GenericBuyInfo(typeof(BookOfBushido), 280, 20, 0x238C, 0));
+				Add(new GenericBuyInfo(typeof(Spellbook), 200, 20, 0x23A0, 0));
+				Add(new GenericBuyInfo(typeof(NecromancerSpellbook), 300, 20, 0x23A0, 0));
+				Add(new GenericBuyInfo(typeof(BookOfChivalry), 350, 20, 0x23A0, 0));
+				Add(new GenericBuyInfo(typeof(BookOfBushido), 350, 20, 0x238C, 0));
+				Add(new GenericBuyInfo(typeof(BookOfNinjitsu), 350, 20, 0x23A0, 0));
+				Add(new GenericBuyInfo(typeof(SpellweavingBook), 400, 20, 0x23A0, 0));
+				Add(new GenericBuyInfo(typeof(MysticBook), 400, 20, 0x23A0, 0));
 			}
 		}
 
