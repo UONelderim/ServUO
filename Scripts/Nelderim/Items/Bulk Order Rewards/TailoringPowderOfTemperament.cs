@@ -18,6 +18,8 @@ namespace Server.Items
 		[Constructable]
 		public TailoringPowderOfTemperament(int uses) : base(uses)
 		{
+			Name = "Proszek wzmocnienia wyrobow krawieckich";
+			Hue = 0x483;
 		}
 
 		public TailoringPowderOfTemperament(Serial serial) : base(serial)

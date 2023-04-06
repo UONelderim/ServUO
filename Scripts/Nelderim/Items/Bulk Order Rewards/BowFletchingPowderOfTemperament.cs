@@ -18,6 +18,8 @@ namespace Server.Items
 		[Constructable]
 		public BowFletchingPowderOfTemperament(int uses) : base(uses)
 		{
+			Name = "Proszek wzmocnienia wyrobow kowalskich";
+			Hue = 0x591;
 		}
 
 		public BowFletchingPowderOfTemperament(Serial serial) : base(serial)
