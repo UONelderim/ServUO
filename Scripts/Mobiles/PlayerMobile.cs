@@ -6460,6 +6460,7 @@ namespace Server.Mobiles
 
         public void AutoStablePets()
         {
+	        return; //No autostable
             if (AllFollowers.Count > 0)
             {
                 for (int i = m_AllFollowers.Count - 1; i >= 0; --i)
