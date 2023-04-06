@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Nelderim;
 using Nelderim.Gains;
 using Server.Accounting;
+using Server.Engines.BulkOrders;
 using Server.Items;
 
 #endregion
@@ -178,26 +179,18 @@ namespace Server.Mobiles
 
 		//Hunters Bulki
 
-		private DateTime m_NextHunterBulkOrder;
-
 		[CommandProperty(AccessLevel.GameMaster)]
-		public TimeSpan NextHunterBulkOrder
-		{
-			get
-			{
-				TimeSpan ts = m_NextHunterBulkOrder - DateTime.Now;
-
-				if (ts < TimeSpan.Zero)
-					ts = TimeSpan.Zero;
-
-				return ts;
-			}
-			set
-			{
-				try { m_NextHunterBulkOrder = DateTime.Now + value; }
-				catch { }
-			}
-		}
+        public TimeSpan NextHunterBulkOrder
+        {
+            get
+            {
+                return BulkOrderSystem.GetNextBulkOrder(BODType.Hunter, this);
+            }
+            set
+            {
+                BulkOrderSystem.SetNextBulkOrder(BODType.Hunter, this, value);
+            }
+        }
 
 		// Nietolerancja
 
