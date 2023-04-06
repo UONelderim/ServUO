@@ -9,7 +9,7 @@ namespace Server.Engines.Quests
         public PatienceQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(MiniatureMushroom), "miniature mushrooms", 20, 0xD16, 3600));
+            AddObjective(new ObtainObjective(typeof(MiniatureMushroom), "Male Grzybki", 20, 0xD16, 3600));
 
             AddReward(new BaseReward(1074872)); // The opportunity to learn the ways of the Arcanist.
         }
@@ -58,7 +58,7 @@ namespace Server.Engines.Quests
         public NeedsOfManyHeartwoodQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(Cotton), "bale of cotton", 10, 0xDF9));
+            AddObjective(new ObtainObjective(typeof(Cotton), "bawelna", 10, 0xDF9));
 
             AddReward(new BaseReward(1074872)); // The opportunity to learn the ways of the Arcanist.
         }
@@ -103,7 +103,7 @@ namespace Server.Engines.Quests
         public NeedsOfManyPartHeartwoodQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(Board), "boards", 250, 0x1BD7));
+            AddObjective(new ObtainObjective(typeof(Board), "Deski", 250, 0x1BD7));
 
             AddReward(new BaseReward(1074872)); // The opportunity to learn the ways of the Arcanist.
         }
@@ -146,9 +146,9 @@ namespace Server.Engines.Quests
         public MakingContributionHeartwoodQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(SackFlour), "sack of flour", 1, 0x1039));
-            AddObjective(new ObtainObjective(typeof(JarHoney), "jar of honey", 10, 0x9EC));
-            AddObjective(new ObtainObjective(typeof(FishSteak), "fish steak", 20, 0x97B));
+            AddObjective(new ObtainObjective(typeof(SackFlour), "worek maki", 1, 0x1039));
+            AddObjective(new ObtainObjective(typeof(JarHoney), "sloik miodu", 10, 0x9EC));
+            AddObjective(new ObtainObjective(typeof(FishSteak), "steki rybne", 20, 0x97B));
 
             AddReward(new BaseReward(1074872)); // The opportunity to learn the ways of the Arcanist.
         }
@@ -194,8 +194,8 @@ namespace Server.Engines.Quests
         public UnnaturalCreationsQuest()
             : base()
         {
-            AddObjective(new SlayObjective(typeof(ExodusOverseer), "exodus overseers", 5));
-            AddObjective(new SlayObjective(typeof(ExodusMinion), "exodus minions", 2));
+            AddObjective(new SlayObjective(typeof(ExodusOverseer), "mechaniczny obserwator", 5));
+            AddObjective(new SlayObjective(typeof(ExodusMinion), "mechaniczny straznik", 2));
 
             AddReward(new BaseReward(typeof(ArcaneCircleScroll), 1071026)); // Arcane Circle			
             AddReward(new BaseReward(typeof(GiftOfRenewalScroll), 1071027)); // Gift of Renewal
