@@ -10,7 +10,7 @@ namespace Server.Mobiles
         public Orc()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = NameList.RandomName("ork");
+            Name = NameList.RandomName("orc");
             Body = 17;
             BaseSoundID = 0x45A;
 

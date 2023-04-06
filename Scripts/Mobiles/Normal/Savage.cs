@@ -10,7 +10,7 @@ namespace Server.Mobiles
         public Savage()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = NameList.RandomName("dzikus");
+            Name = NameList.RandomName("savage");
 
             if (Female = Utility.RandomBool())
                 Body = 184;

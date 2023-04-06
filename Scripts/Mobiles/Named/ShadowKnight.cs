@@ -14,7 +14,7 @@ namespace Server.Mobiles
         public ShadowKnight()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = NameList.RandomName("mroczny rycerz");
+            Name = NameList.RandomName("shadow knight");
             Title = "Mroczny Rycerz";
             Body = 311;
 
