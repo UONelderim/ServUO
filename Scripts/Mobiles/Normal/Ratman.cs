@@ -9,7 +9,7 @@ namespace Server.Mobiles
         public Ratman()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = NameList.RandomName("szczuroczlek");
+            Name = NameList.RandomName("ratman");
             Body = 42;
             BaseSoundID = 437;
 

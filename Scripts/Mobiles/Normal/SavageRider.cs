@@ -10,7 +10,7 @@ namespace Server.Mobiles
         public SavageRider()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.15, 0.4)
         {
-            Name = NameList.RandomName("dziki jezdziec");
+            Name = NameList.RandomName("savage rider");
 
             Body = 185;
 

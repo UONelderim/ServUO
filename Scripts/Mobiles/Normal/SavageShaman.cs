@@ -14,7 +14,7 @@ namespace Server.Mobiles
         public SavageShaman()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = NameList.RandomName("szaman dzikusow");
+            Name = NameList.RandomName("savage shaman");
 
             Female = true;
             Body = 186;
