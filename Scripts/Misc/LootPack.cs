@@ -302,20 +302,22 @@ namespace Server
 
         public static readonly LootPackItem[] ArcanistScrollItems = new[]
         {
-            new LootPackItem(typeof(ArcaneCircleScroll), 1),
-            new LootPackItem(typeof(GiftOfRenewalScroll), 1),
-            new LootPackItem(typeof(ImmolatingWeaponScroll), 1),
-            new LootPackItem(typeof(AttuneWeaponScroll), 1),
-            new LootPackItem(typeof(ThunderstormScroll), 1),
-            new LootPackItem(typeof(NatureFuryScroll), 1),
-            new LootPackItem(typeof(ReaperFormScroll), 1),
-            new LootPackItem(typeof(WildfireScroll), 1),
-            new LootPackItem(typeof(EssenceOfWindScroll), 1),
-            new LootPackItem(typeof(DryadAllureScroll), 1),
-            new LootPackItem(typeof(EtherealVoyageScroll), 1),
-            new LootPackItem(typeof(WordOfDeathScroll), 1),
-            new LootPackItem(typeof(GiftOfLifeScroll), 1),
-            new LootPackItem(typeof(ArcaneEmpowermentScroll), 1)
+	        new LootPackItem(typeof(ArcaneCircleScroll), 1),
+	        new LootPackItem(typeof(AttuneWeaponScroll), 1),
+	        new LootPackItem(typeof(GiftOfRenewalScroll), 1),
+	        new LootPackItem(typeof(NatureFuryScroll), 1),
+	        new LootPackItem(typeof(ImmolatingWeaponScroll), 1),
+	        new LootPackItem(typeof(ThunderstormScroll), 1),
+	        new LootPackItem(typeof(ArcaneEmpowermentScroll), 1),
+	        new LootPackItem(typeof(EtherealVoyageScroll), 1),
+	        new LootPackItem(typeof(ReaperFormScroll), 1),
+	        new LootPackItem(typeof(GiftOfLifeScroll), 1),
+	        new LootPackItem(typeof(SummonFeyScroll), 1),
+	        new LootPackItem(typeof(SummonFiendScroll), 1),
+	        new LootPackItem(typeof(DryadAllureScroll), 1),
+	        new LootPackItem(typeof(EssenceOfWindScroll), 1),
+	        new LootPackItem(typeof(WildfireScroll), 1),
+	        new LootPackItem(typeof(WordOfDeathScroll), 1)
         };
 
         public static readonly LootPackItem[] MysticScrollItems = new[]

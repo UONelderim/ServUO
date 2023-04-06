@@ -290,10 +290,10 @@ namespace Server
 
         private static readonly Type[] m_ArcanistScrollTypes = new[]
         {
-            typeof(ArcaneCircleScroll), typeof(GiftOfRenewalScroll), typeof(ImmolatingWeaponScroll), typeof(AttuneWeaponScroll),
-            typeof(ThunderstormScroll), typeof(NatureFuryScroll),
-			typeof(ReaperFormScroll), typeof(WildfireScroll), typeof(EssenceOfWindScroll), typeof(DryadAllureScroll),
-            typeof(EtherealVoyageScroll), typeof(WordOfDeathScroll), typeof(GiftOfLifeScroll), typeof(ArcaneEmpowermentScroll)
+            typeof(ArcaneCircleScroll), typeof(AttuneWeaponScroll), typeof(GiftOfRenewalScroll), typeof(NatureFuryScroll), 
+            typeof(ImmolatingWeaponScroll), typeof(ThunderstormScroll), typeof(ArcaneEmpowermentScroll), typeof(EtherealVoyageScroll),
+			typeof(ReaperFormScroll), typeof(GiftOfLifeScroll), typeof(SummonFeyScroll), typeof(SummonFiendScroll),
+			typeof(DryadAllureScroll), typeof(EssenceOfWindScroll), typeof(WildfireScroll), typeof(WordOfDeathScroll), 
         };
 
         private static readonly Type[] m_MysticismScrollTypes = new[]
