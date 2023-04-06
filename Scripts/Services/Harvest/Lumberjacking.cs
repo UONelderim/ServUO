@@ -61,9 +61,9 @@ namespace Server.Engines.Harvest
                 // The chopping effect
                 EffectActions = new int[] { 7 },
                 EffectSounds = new int[] { 0x13E },
-                EffectCounts = (new int[] { 1 }),
-                EffectDelay = TimeSpan.FromSeconds(1.6),
-                EffectSoundDelay = TimeSpan.FromSeconds(0.9),
+                EffectCounts = (new int[] { 3 }),
+                EffectDelay = TimeSpan.FromSeconds(1.25),
+                EffectSoundDelay = TimeSpan.FromSeconds(0.7),
 
                 NoResourcesMessage = 500493, // There's not enough wood here to harvest.
                 FailMessage = 500495, // You hack at the tree for a while, but fail to produce any useable wood.
