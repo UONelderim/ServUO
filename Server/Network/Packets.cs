@@ -3151,7 +3151,6 @@ namespace Server.Network
 		public static bool Send(NetState ns, bool playSound)
 		{
 			return ns != null && Send(ns, Instantiate(ns, playSound));
-			return true; // !Nelderim! Disabled seasonChange packet as it crashes classicuo
 		}
 
 		public static SeasonChange Instantiate(NetState ns, bool playSound)
