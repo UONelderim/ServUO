@@ -59,6 +59,8 @@
 *.csproj.user
 *.DotSettings.user
 *.ini
+*.mul
+*.enu
 
 # Include Data Files
 !/Data/*
