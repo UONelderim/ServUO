@@ -61,9 +61,9 @@ namespace Server.Engines.Harvest
             // The digging effect
             oreAndStone.EffectActions = new int[] { 3 };
             oreAndStone.EffectSounds = new int[] { 0x125, 0x126 };
-            oreAndStone.EffectCounts = new int[] { 1 };
-            oreAndStone.EffectDelay = TimeSpan.FromSeconds(1.6);
-            oreAndStone.EffectSoundDelay = TimeSpan.FromSeconds(0.9);
+            oreAndStone.EffectCounts = new int[] { 3 };
+            oreAndStone.EffectDelay = TimeSpan.FromSeconds(1.25);
+            oreAndStone.EffectSoundDelay = TimeSpan.FromSeconds(0.7);
 
             oreAndStone.NoResourcesMessage = 503040; // There is no metal here to mine.
             oreAndStone.DoubleHarvestMessage = 503042; // Someone has gotten to the metal before you.
@@ -152,9 +152,9 @@ namespace Server.Engines.Harvest
             // The digging effect
             sand.EffectActions = new int[] { 3 };
             sand.EffectSounds = new int[] { 0x125, 0x126 };
-            sand.EffectCounts = new int[] { 6 };
-            sand.EffectDelay = TimeSpan.FromSeconds(1.6);
-            sand.EffectSoundDelay = TimeSpan.FromSeconds(0.9);
+            sand.EffectCounts = new int[] { 3 };
+            sand.EffectDelay = TimeSpan.FromSeconds(1.25);
+            sand.EffectSoundDelay = TimeSpan.FromSeconds(0.7);
 
             sand.NoResourcesMessage = 1044629; // There is no sand here to mine.
             sand.DoubleHarvestMessage = 1044629; // There is no sand here to mine.
