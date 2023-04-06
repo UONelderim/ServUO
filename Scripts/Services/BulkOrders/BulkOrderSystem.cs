@@ -813,6 +813,7 @@ namespace Server.Engines.BulkOrders
             Entries[BODType.Cooking] = new BODEntry();
             Entries[BODType.Alchemy] = new BODEntry();
             Entries[BODType.Inscription] = new BODEntry();
+            Entries[BODType.Hunter] = new BODEntry();
         }
 
         public void CheckCache()
