@@ -18,6 +18,7 @@ namespace Server.Mobiles
 			SetSkill(SkillName.Fencing, 120.0, 120.0);
 			SetSkill(SkillName.Stealth, 120.0, 120.0);
 			SetSkill(SkillName.Ninjitsu, 120.0, 120.0);
+			SetSkill(SkillName.Throwing, 120.0, 120.0);
 		}
 
 		public override void InitSBInfo()

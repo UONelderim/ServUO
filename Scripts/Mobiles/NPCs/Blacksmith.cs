@@ -23,6 +23,7 @@ namespace Server.Mobiles
             SetSkill(SkillName.Swords, 60.0, 83.0);
             SetSkill(SkillName.Tactics, 60.0, 83.0);
             SetSkill(SkillName.Parry, 61.0, 93.0);
+            SetSkill(SkillName.Throwing, 60.0, 83.0);
         }
 
         public override void InitSBInfo()
