@@ -15,18 +15,8 @@ namespace Server.Mobiles
 		{
 			public InternalBuyInfo()
 			{
-				Add(new GenericBuyInfo(typeof(HealingStoneScroll), 13, 20, 0x2D9F, 0));
-				Add(new GenericBuyInfo(typeof(NetherBoltScroll), 8, 20, 0x2D9E, 0));
-				Add(new GenericBuyInfo(typeof(EnchantScroll), 23, 10, 0x2DA1, 0, true));
-				Add(new GenericBuyInfo(typeof(PurgeMagicScroll), 18, 10, 0x2DA0, 0, true));
-				Add(new GenericBuyInfo(typeof(EagleStrikeScroll), 33, 10, 0x2DA3, 0, true));
-				Add(new GenericBuyInfo(typeof(SleepScroll), 28, 10, 0x2DA2, 0, true));
-				Add(new GenericBuyInfo(typeof(AnimatedWeaponScroll), 38, 10, 0x2DA4, 0, true));
-				Add(new GenericBuyInfo(typeof(StoneFormScroll), 43, 10, 0x2DA5, 0, true));
+				AddRange(MysticSpells);
 				//  Add(new GenericBuyInfo(typeof(MysticBook), 18, 10, 0x2D9D, 0, true)); // księga ma być dropiona z questa
-				// Add(new GenericBuyInfo(typeof(ScribesPen), 8, 10, 0xFBF, 0, true)); u skryby
-				//  Add(new GenericBuyInfo(typeof(BlankScroll), 5, 20, 0x0E34, 0, true)); zwoje u skryby
-				//     Add(new GenericBuyInfo(typeof(RecallRune), 15, 10, 0x1F14, 0, true)); // runa jest u maga
 
 			    Add(new GenericBuyInfo(typeof(RefreshPotion), 15, 10, 0xF0B, 0, true));
 			    Add(new GenericBuyInfo(typeof(AgilityPotion), 15, 10, 0xF08, 0, true));
@@ -50,6 +40,18 @@ namespace Server.Mobiles
 			    Add(new GenericBuyInfo(typeof(FertileDirt), 3, 20, 0xF81, 0));
 			}
 		}
+		
+		public static List<IBuyItemInfo> MysticSpells = new List<IBuyItemInfo>(
+			new []{
+				new GenericBuyInfo(typeof(HealingStoneScroll), 13, 20, 0x2D9F, 0),
+				new GenericBuyInfo(typeof(NetherBoltScroll), 8, 20, 0x2D9E, 0),
+				new GenericBuyInfo(typeof(EnchantScroll), 23, 10, 0x2DA1, 0, true),
+				new GenericBuyInfo(typeof(PurgeMagicScroll), 18, 10, 0x2DA0, 0, true),
+				new GenericBuyInfo(typeof(EagleStrikeScroll), 33, 10, 0x2DA3, 0, true),
+				new GenericBuyInfo(typeof(SleepScroll), 28, 10, 0x2DA2, 0, true),
+				new GenericBuyInfo(typeof(AnimatedWeaponScroll), 38, 10, 0x2DA4, 0, true),
+				new GenericBuyInfo(typeof(StoneFormScroll), 43, 10, 0x2DA5, 0, true)
+			});
 
 		public class InternalSellInfo : GenericSellInfo
 		{

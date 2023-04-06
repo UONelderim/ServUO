@@ -54,8 +54,23 @@ namespace Server.Mobiles
 
 					Add(new GenericBuyInfo(types[i], 12 + ((i / 8) * 10), 20, itemID, 0, true));
 				}
+				
+				AddRange(NecromancerSpells);
 			}
 		}
+
+		public static List<IBuyItemInfo> NecromancerSpells = new List<IBuyItemInfo>(
+		new []{
+			new GenericBuyInfo(typeof(CurseWeaponScroll), 40, 10, 0x2263, 0),
+			new GenericBuyInfo(typeof(BloodOathScroll), 40, 10, 0x2261, 0),
+			new GenericBuyInfo(typeof(CorpseSkinScroll), 40, 10, 0x2262, 0),
+			new GenericBuyInfo(typeof(EvilOmenScroll), 40, 10, 0x2264, 0),
+			new GenericBuyInfo(typeof(PainSpikeScroll), 40, 10, 0x2268, 0),
+			new GenericBuyInfo(typeof(WraithFormScroll), 40, 10, 0x226F, 0),
+			new GenericBuyInfo(typeof(MindRotScroll), 40, 10, 0x2267, 0),
+			new GenericBuyInfo(typeof(SummonFamiliarScroll), 40, 105, 0x226B, 0),
+			new GenericBuyInfo(typeof(AnimateDeadScroll), 40, 10, 0x2260, 0)
+		});
 
 		public class InternalSellInfo : GenericSellInfo
 		{
