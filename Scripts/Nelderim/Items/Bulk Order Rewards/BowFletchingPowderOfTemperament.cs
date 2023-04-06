@@ -18,7 +18,7 @@ namespace Server.Items
 		[Constructable]
 		public BowFletchingPowderOfTemperament(int uses) : base(uses)
 		{
-			Name = "Proszek wzmocnienia wyrobow kowalskich";
+			Name = "Proszek wzmocnienia wyrobow lukmistrza";
 			Hue = 0x591;
 		}
 

@@ -18,7 +18,7 @@ namespace Server.Items
 		[Constructable]
 		public CarpentryPowderOfTemperament(int uses) : base(uses)
 		{
-			Name = "Proszek wzmocnienia wyrobow kowalskich";
+			Name = "Proszek wzmocnienia wyrobow stolarskich";
 			Hue = 0x5E8;
 		}
 
