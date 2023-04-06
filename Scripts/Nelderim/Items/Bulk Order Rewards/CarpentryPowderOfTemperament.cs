@@ -18,6 +18,8 @@ namespace Server.Items
 		[Constructable]
 		public CarpentryPowderOfTemperament(int uses) : base(uses)
 		{
+			Name = "Proszek wzmocnienia wyrobow kowalskich";
+			Hue = 0x5E8;
 		}
 
 		public CarpentryPowderOfTemperament(Serial serial) : base(serial)

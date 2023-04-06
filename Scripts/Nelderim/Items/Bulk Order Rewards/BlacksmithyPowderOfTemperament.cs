@@ -18,6 +18,8 @@ namespace Server.Items
 		[Constructable]
 		public BlacksmithyPowderOfTemperament(int uses) : base(uses)
 		{
+			Name = "Proszek wzmocnienia wyrobow kowalskich";
+			Hue = 0x44E;
 		}
 
 		public BlacksmithyPowderOfTemperament(Serial serial) : base(serial)
