@@ -22,7 +22,7 @@ namespace Server.Engines.Harvest
         public int MaxRange { get; set; }
         public int ConsumedPerHarvest { get; set; }
         public int ConsumedPerFeluccaHarvest { get; set; }
-        public bool PlaceAtFeetIfFull { get; set; }
+        public bool PlaceAtFeetIfFull { get; set; } = true;
         public SkillName Skill { get; set; }
         public int[] EffectActions { get; set; }
         public int[] EffectCounts { get; set; }
