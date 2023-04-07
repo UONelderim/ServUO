@@ -6,10 +6,11 @@ using Server.Multis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim.Configuration;
 
 namespace Server.Regions
 {
-    public class HouseRegion : BaseRegion
+    public partial class HouseRegion : BaseRegion
     {
         public static readonly int HousePriority = DefaultPriority + 1;
         public static TimeSpan CombatHeatDelay = TimeSpan.FromSeconds(30.0);
@@ -275,6 +276,12 @@ namespace Server.Regions
         public override void OnSpeech(SpeechEventArgs e)
         {
             base.OnSpeech(e);
+            
+            if (NConfig.CustomOnSpeech)
+            {
+	            NelderimOnSpeech(e);
+	            return;
+            }
 
             Mobile from = e.Mobile;
             Item sign = House.Sign;
