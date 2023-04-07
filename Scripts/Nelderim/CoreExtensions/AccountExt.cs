@@ -26,7 +26,8 @@ namespace Server.Accounting
 					AppendNode(xmlqph, "entry", qph.Reason, 
 						("gm", qph.GameMaster), 
 						("dateTime", qph.DateTime.ToString()),
-						("points", qph.Points.ToString())
+						("points", qph.Points.ToString()),
+						("charName", qph.CharName)
 						);
 				}
 			}
@@ -51,8 +52,9 @@ namespace Server.Accounting
 				var dateTime = Utility.GetXMLDateTime(Utility.GetAttribute(entry,"dateTime", ""), DateTime.MinValue);
 				var gm = Utility.GetAttribute(entry,"gm", "");
 				var points = Utility.GetXMLInt32(Utility.GetAttribute(entry,"points", "0"),0);
+				var charName = Utility.GetAttribute(entry, "charName", "");
 				var reason = Utility.GetText(entry, "");
-				QuestPointsHistory.Add(new QuestPointsHistoryEntry(dateTime, gm, points, reason));
+				QuestPointsHistory.Add(new QuestPointsHistoryEntry(dateTime, gm, points, reason, charName));
 			}
 		}
 	}

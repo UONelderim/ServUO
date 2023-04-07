@@ -12,13 +12,16 @@ namespace Nelderim
 		public int Points { get; set; }
 
 		public string Reason { get; set; }
+		
+		public string CharName { get; set; }
 
-		public QuestPointsHistoryEntry(DateTime dateTime, string gameMaster, int points, string reason)
+		public QuestPointsHistoryEntry(DateTime dateTime, string gameMaster, int points, string reason, string charName)
 		{
 			DateTime = dateTime;
 			GameMaster = gameMaster;
 			Points = points;
 			Reason = reason;
+			CharName = charName;
 		}
 
 		public QuestPointsHistoryEntry( GenericReader reader)

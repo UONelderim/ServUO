@@ -243,7 +243,7 @@ namespace Nelderim
 						case 4:
 						{
 							m_FromPlayer.SendGump(new CharacterSheetGump( m_FromPlayer, m_TargetPlayer, CSPages.General, gmRequested));
-							m_FromPlayer.SendGump(new QuestPointsHistoryGump(m_TargetPlayer));
+							m_FromPlayer.SendGump(new QuestPointsHistoryGump(m_TargetPlayer, 0));
 							return;
 						}
 						default: return;
@@ -295,7 +295,7 @@ namespace Nelderim
 					m_TargetPlayer.QuestPoints -= index;
 					m_TargetPlayer.QuestPointsHistory.Add(
 						new QuestPointsHistoryEntry(
-							DateTime.Now, m_FromPlayer.Account.Username, -index, info.TextEntries[0].Text)
+							DateTime.Now, m_FromPlayer.Account.Username, -index, info.TextEntries[0].Text, m_FromPlayer.Name)
 					);
 					m_TargetPlayer.SendMessage(0x26,
 						"Twoje saldo punktow fabularnych zostalo zmniejszone przez Mistrza Gry");
@@ -309,7 +309,7 @@ namespace Nelderim
 					m_TargetPlayer.QuestPoints += index;
 					m_TargetPlayer.QuestPointsHistory.Add(
 						new QuestPointsHistoryEntry(
-							DateTime.Now, m_FromPlayer.Account.Username, index, info.TextEntries[0].Text));
+							DateTime.Now, m_FromPlayer.Account.Username, index, info.TextEntries[0].Text, m_FromPlayer.Name));
 					m_TargetPlayer.SendMessage(0x3A, "Zostales nagrodzony punktami fabularnymi przez Mistrza Gry");
 
 					m_FromPlayer.SendGump(new CharacterSheetGump(m_FromPlayer, m_TargetPlayer, CSPages.General,
