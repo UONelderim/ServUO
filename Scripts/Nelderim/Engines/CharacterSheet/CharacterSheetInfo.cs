@@ -65,7 +65,7 @@ namespace Nelderim
 				var lastQuestPointsTime = reader.ReadDateTime();
 				if (pm != null)
 				{
-					pm.QuestPoints = questPoints;
+					pm.QuestPoints += questPoints;
 					pm.LastQuestPointsTime = lastQuestPointsTime;
 				}
 				if (version > 0)
@@ -74,7 +74,9 @@ namespace Nelderim
 					var questPointsHistory = new SortedSet<QuestPointsHistoryEntry>();
 					for (int i = 0; i < questPointsHistoryEntryCount; i++)
 					{
-						questPointsHistory.Add(new QuestPointsHistoryEntry(reader));
+						var qphe = new QuestPointsHistoryEntry(reader);
+						qphe.CharName = pm?.Name;
+						questPointsHistory.Add(qphe);
 					}
 					pm?.QuestPointsHistory.UnionWith(questPointsHistory);
 				}
