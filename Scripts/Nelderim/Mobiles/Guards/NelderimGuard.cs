@@ -46,10 +46,7 @@ namespace Server.Mobiles
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
 		public string HomeRegionName
 		{
-			get
-			{
-				return m_RegionName;
-			}
+			get => m_RegionName;
 
 			set
 			{
@@ -112,7 +109,7 @@ namespace Server.Mobiles
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
 		public WarFlag WarSideFlag
 		{
-			get { return m_Flag; }
+			get => m_Flag;
 			set
 			{
 				m_Flag = value;
@@ -125,7 +122,7 @@ namespace Server.Mobiles
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
 		public WarFlag WarOpponentFlag
 		{
-			get { return m_Enemy; }
+			get => m_Enemy;
 			set
 			{
 				m_Enemy = value;
@@ -207,24 +204,19 @@ namespace Server.Mobiles
 		{
 		}
 
-		public override bool AutoDispel { get { return true; } }
-		public override bool Unprovokable { get { return true; } }
-		public override bool Uncalmable { get { return true; } }
-		public override bool BardImmune { get { return true; } }
-		public override Poison PoisonImmune { get { return Poison.Greater; } }
+		public override bool AutoDispel => true;
+		public override bool Unprovokable => true;
+		public override bool Uncalmable => true;
+		public override bool BardImmune => true;
+		public override Poison PoisonImmune => Poison.Greater;
+		public override bool IsMonster => false;
 
 		public override bool HandlesOnSpeech(Mobile from)
 		{
 			return true;
 		}
 
-		public override bool ShowFameTitle
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public override bool ShowFameTitle => false;
 
 		public GuardType Type { get; }
 
@@ -274,6 +266,18 @@ namespace Server.Mobiles
 					break;
 				}
 			}
+		}
+
+		public override bool Move(Direction d)
+		{
+			if ((GetDistanceToSqrt(Home) > RangePerception * 6 )
+			    &&  !(Home == new Point3D(0, 0, 0)))
+			{
+				DebugSay("I am to far");
+				SetLocation(Home, false);
+			}
+			
+			return base.Move(d);
 		}
 
 		public override void GenerateLoot()

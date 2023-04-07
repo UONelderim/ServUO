@@ -9,7 +9,7 @@ namespace Server
     {
 	    public static readonly double MinDelay = 0.1;
         public static readonly double MaxDelay = 0.5;
-        public static readonly double MinDelayWild = 0.4;
+        public static readonly double MinDelayWild = 0.15;
         public static readonly double MaxDelayWild = 0.8;
 
         public static bool GetSpeeds(BaseCreature bc, ref double activeSpeed, ref double passiveSpeed)
