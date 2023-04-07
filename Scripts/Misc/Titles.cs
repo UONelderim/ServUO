@@ -4,6 +4,7 @@ using Server.Mobiles;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Nelderim.Configuration;
 using Nelderim.Factions;
 
 namespace Server.Misc
@@ -161,10 +162,10 @@ namespace Server.Misc
                         KarmaEntry ke = karmaEntries[j];
                         StringBuilder title = new StringBuilder();
 
-                        /*if ((karma >= 0 && ke.m_Karma >= 0 && karma >= ke.m_Karma) || (karma < 0 && ke.m_Karma < 0 && karma < ke.m_Karma))
+                        if ((karma >= 0 && ke.m_Karma >= 0 && karma >= ke.m_Karma) || (karma < 0 && ke.m_Karma < 0 && karma < ke.m_Karma))
                         {
                             list.Add(title.AppendFormat(ke.m_Title, m.Name, m.Female ? "Lady" : "Lord").ToString());
-                        }*/
+                        }
                     }
                 }
             }
@@ -191,10 +192,10 @@ namespace Server.Misc
                     {
                         KarmaEntry ke = karmaEntries[j];
 
-                    /*    if (karma <= ke.m_Karma || j == (karmaEntries.Length - 1))
+                    if (karma <= ke.m_Karma || j == (karmaEntries.Length - 1))
                         {
                             return string.Format(ke.m_Title, beheld.Name, beheld.Female ? "Lady" : "Lord");
-                        }*/
+                        }
                     }
 
                     return string.Empty;
@@ -207,15 +208,15 @@ namespace Server.Misc
         {
             StringBuilder title = new StringBuilder();
 
-          /* if (beheld.ShowFameTitle && beheld is PlayerMobile && ((PlayerMobile)beheld).FameKarmaTitle != null)
+            if (NConfig.FameTitlesEnabled && beheld.ShowFameTitle && beheld is PlayerMobile && ((PlayerMobile)beheld).FameKarmaTitle != null)
             {
                 title.AppendFormat(((PlayerMobile)beheld).FameKarmaTitle, beheld.Name, beheld.Female ? "Lady" : "Lord");
             }
-            else if (beheld.ShowFameTitle || (beholder == beheld))
+            else if (NConfig.FameTitlesEnabled && beheld.ShowFameTitle || (beholder == beheld))
             {
                 title.Append(ComputeFameTitle(beheld));
             }
-            else*/
+            else
             {
                 title.Append(beheld.Name);
             }

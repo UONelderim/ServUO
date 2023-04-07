@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
-
+using Nelderim.Configuration;
 using Server.Accounting;
 using Server.Commands;
 using Server.ContextMenus;
@@ -12326,7 +12326,7 @@ namespace Server
 
 		public virtual bool PropertyTitle => !OldPropertyTitles || ClickTitle;
 
-		public virtual bool ShowFameTitle => true;
+		public virtual bool ShowFameTitle => NConfig.FameTitlesEnabled && true;
 		public virtual bool ShowAccessTitle => false;
 
 		/// <summary>

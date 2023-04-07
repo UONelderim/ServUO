@@ -39,6 +39,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim.Configuration;
 using Server.Engines.ArenaSystem;
 using RankDefinition = Server.Guilds.RankDefinition;
 #endregion
@@ -702,7 +703,7 @@ namespace Server.Mobiles
             {
                 string name;
 
-                if (Fame >= 10000)
+                if (NConfig.FameTitlesEnabled && Fame >= 10000)
                     name = string.Format("{0} {1}", Female ? "Lady" : "Lord", RawName);
                 else
                     name = RawName;
