@@ -53,12 +53,12 @@ namespace Server.Gumps
 
 			if (page > 0)
 			{
-				AddButton(500, 568, 0x15A2,0x15A3, 1,GumpButtonType.Reply, 0);
+				AddButton(500, 568, 0x15E3,0x15E7, 1,GumpButtonType.Reply, 0);
 			}
 
 			if (startIndex + pageSize < player.QuestPointsHistory.Count)
 			{
-				AddButton(550, 568, 0x15A5,0x15A6, 2, GumpButtonType.Reply, 0);
+				AddButton(550, 568, 0x15E1,0x15E5, 2, GumpButtonType.Reply, 0);
 			}
 			
 			AddButton(658, 568, 4005, 4007, 0, GumpButtonType.Reply, 0);
