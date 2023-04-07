@@ -12,6 +12,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Server.Commands
 {
@@ -744,11 +745,23 @@ namespace Server.Commands
                                 }
                             }
                         }
+                        
+                        foreach (var ns in NetState.Instances) {
+	                        var m = ns?.Mobile;
+
+	                        if (m == null || m.AccessLevel > from.AccessLevel || m.Map == Map.Internal)
+		                        continue;
+
+	                        if (Regex.IsMatch(m.Name, name, RegexOptions.IgnoreCase)) {
+		                        from.MoveToWorld(m.Location, m.Map);
+		                        return;
+	                        }
+                        }
 
                         if (ser != 0)
                             from.SendMessage("No object with that serial was found.");
                         else
-                            from.SendMessage("No region with that name was found.");
+                            from.SendMessage("No map/region/player with that name was found.");
 
                         return;
                     }
