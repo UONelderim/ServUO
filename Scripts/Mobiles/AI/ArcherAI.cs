@@ -10,7 +10,7 @@ namespace Server.Mobiles
         {
             m_Mobile.DebugSay("I have no combatant");
 
-            OnGuardActionWarden();
+            OnGuardActionWander();
 
             if (AcquireFocusMob(m_Mobile.RangePerception, m_Mobile.FightMode, false))
             {

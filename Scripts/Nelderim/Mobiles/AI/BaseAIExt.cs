@@ -146,7 +146,7 @@ namespace Server.Mobiles
 			}
 		}
 
-		protected void OnGuardActionWarden()
+		protected void OnGuardActionWander()
 		{
 			if (!(m_Mobile is BaseNelderimGuard))
 				return;
