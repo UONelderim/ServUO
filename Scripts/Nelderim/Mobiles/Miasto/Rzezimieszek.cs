@@ -34,6 +34,7 @@ namespace Server.Mobiles
 		[Constructable]
 		public Rzezimieszek() : base("- Rzezimieszek")
 		{
+			MakeAggressive();
 			SetStr(86, 100);
 			SetDex(81, 95);
 			SetInt(61, 75);

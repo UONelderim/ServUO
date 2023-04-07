@@ -5,15 +5,22 @@ namespace Server.Mobiles
 {
 	public abstract class NBaseTalkingNPC : BaseVendor
 	{
+		private DateTime _lastAction;
 		public override bool IsInvulnerable => false;
-
-		protected delegate void Action(Mobile from);
 
 		protected virtual Dictionary<Race, List<Action>> NpcActions { get; }
 
 		protected virtual TimeSpan ActionDelay => TimeSpan.FromSeconds(10);
 
-		private DateTime _lastAction;
+		protected override List<SBInfo> SBInfos { get; }
+
+		public NBaseTalkingNPC(string title) : base(title)
+		{
+		}
+
+		public NBaseTalkingNPC(Serial serial) : base(serial)
+		{
+		}
 
 		public override void OnMovement(Mobile m, Point3D oldLocation)
 		{
@@ -45,18 +52,18 @@ namespace Server.Mobiles
 			}
 		}
 
-		protected override List<SBInfo> SBInfos { get; }
-
 		public override void InitSBInfo()
 		{
 		}
 
-		public NBaseTalkingNPC(string title) : base(title)
+		protected void MakeAggressive()
 		{
-		}
-
-		public NBaseTalkingNPC(Serial serial) : base(serial)
-		{
+			AI = AIType.AI_Melee;
+			FightMode = FightMode.Closest;
+			RangePerception = 12;
+			RangeFight = 1;
+			ActiveSpeed = 0.2;
+			PassiveSpeed = 0.4;
 		}
 
 		public override void Serialize(GenericWriter writer)
@@ -72,5 +79,7 @@ namespace Server.Mobiles
 
 			int version = reader.ReadInt();
 		}
+
+		protected delegate void Action(Mobile from);
 	}
 }
