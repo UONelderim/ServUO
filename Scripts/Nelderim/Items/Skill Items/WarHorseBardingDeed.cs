@@ -49,6 +49,7 @@ namespace Server.Items
 			}
 		}
 
+		[Constructable]
 		public WarHorseBardingDeed() : base(0x14F0)
 		{
 			Weight = 1.0;
@@ -102,7 +103,6 @@ namespace Server.Items
 				pet.BardingHP = pet.BardingMaxHP;
 				pet.BardingResource = Resource;
 				pet.HasBarding = true;
-				pet.Hue = Hue;
 
 				Delete();
 
