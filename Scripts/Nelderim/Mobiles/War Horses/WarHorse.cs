@@ -135,15 +135,15 @@ namespace Server.Mobiles
 
                 if (m_HasBarding)
                 {
-                    Hue = CraftResources.GetHue(m_BardingResource);
-                    BodyValue = 0x31F;
-                    ItemID = 0x3EBE;
+	                HueMod = CraftResources.GetHue(m_BardingResource);
+	                BodyMod = 0x11C;
+	                ItemID = 0x3E92;
                 }
                 else
                 {
-                    Hue = 0x851;
-                    BodyValue = 0x31A;
-                    ItemID = 0x3EBD;
+                    HueMod = 0;
+                    BodyMod = 0;
+                    ItemID = m_IDs[m_IDs.IndexOf(Body) + 1];
                 }
 
                 InvalidateProperties();
@@ -191,26 +191,22 @@ namespace Server.Mobiles
 
 	        CraftResourceInfo resInfo = CraftResources.GetInfo(m_BardingResource);
 
-	        if (resInfo == null)
-		        return 0;
-
-	        CraftAttributeInfo attrs = resInfo.AttributeInfo;
+	        CraftAttributeInfo attrs = resInfo?.AttributeInfo;
 
 	        if (attrs == null)
 		        return 0;
 
-	        int expBonus = BardingExceptional ? 1 : 0;
-	        int resBonus = 0;
+	        var expBonus = BardingExceptional ? 1 : 0;
 
-	        switch (type)
+	        var resBonus = type switch
 	        {
-		        default:
-		        case ResistanceType.Physical: resBonus = Math.Max(5, attrs.ArmorPhysicalResist); break;
-		        case ResistanceType.Fire: resBonus = Math.Max(3, attrs.ArmorFireResist); break;
-		        case ResistanceType.Cold: resBonus = Math.Max(2, attrs.ArmorColdResist); break;
-		        case ResistanceType.Poison: resBonus = Math.Max(3, attrs.ArmorPoisonResist); break;
-		        case ResistanceType.Energy: resBonus = Math.Max(2, attrs.ArmorEnergyResist); break;
-	        }
+		        ResistanceType.Physical => Math.Max(5, attrs.ArmorPhysicalResist),
+		        ResistanceType.Fire => Math.Max(3, attrs.ArmorFireResist),
+		        ResistanceType.Cold => Math.Max(2, attrs.ArmorColdResist),
+		        ResistanceType.Poison => Math.Max(3, attrs.ArmorPoisonResist),
+		        ResistanceType.Energy => Math.Max(2, attrs.ArmorEnergyResist),
+		        _ => 0
+	        };
 
 	        return (resBonus + expBonus) * 5;
         }
