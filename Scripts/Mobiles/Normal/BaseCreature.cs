@@ -3498,10 +3498,10 @@ namespace Server.Mobiles
             {
                 m_ControlOrder = value;
 
-                if (m_Allured && m_ControlOrder != OrderType.None)
+               /* if (m_Allured && m_ControlOrder != OrderType.None)
                 {
                     Say(1079120); // Very well.
-                }
+                }*/  //usunąć info "Very Well" w allured po komendzie
 
                 if (m_AI != null)
                 {
