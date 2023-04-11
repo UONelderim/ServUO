@@ -278,7 +278,7 @@ namespace Server.Spells.SkillMasteries
             AddAlphaRegion(15, 15, 365, 190);
 
             AddHtmlLocalized(30, 20, 360, 25, 1156099, 0x7FFF, false, false); // Another player is offering to bodyguard you:
-            AddLabel(90, 55, 1153, string.Format("{0} will body guard {1}", protector.Name, protectee.Name));
+            AddLabel(90, 55, 1153, string.Format("{0} ochroni {1}", protector.Name, protectee.Name));
 
             AddImage(50, 45, 9005);
             AddImageTiled(80, 80, 200, 1, 9107);

@@ -91,7 +91,7 @@ namespace Server.Spells.SkillMasteries
         {
             base.SendCastEffect();
 
-            Caster.PrivateOverheadMessage(MessageType.Regular, 0x35, false, "You ready your pet for combat, increasing its battle effectiveness!", Caster.NetState);
+            Caster.PrivateOverheadMessage(MessageType.Regular, 0x35, false, "Przygotowujesz swojego zwierzaka do walki, zwiekszajac jego skutecznosc bojowa!", Caster.NetState);
         }
 
         public override void OnCast()

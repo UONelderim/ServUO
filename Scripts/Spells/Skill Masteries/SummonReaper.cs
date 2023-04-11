@@ -77,7 +77,7 @@ namespace Server.Spells.SkillMasteries
         }
     }
 
-    [CorpseName("a reapers corpse")]
+    [CorpseName("zwloki zniwiarza")]
     public class SummonedReaper : BaseCreature
     {
         private readonly int m_DispelDifficulty;
@@ -91,7 +91,7 @@ namespace Server.Spells.SkillMasteries
         public SummonedReaper(Mobile caster, SummonReaperSpell spell)
             : base(AIType.AI_Spellweaving, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a reaper";
+            Name = "zniwiarz";
             Body = 47;
             BaseSoundID = 442;
 
