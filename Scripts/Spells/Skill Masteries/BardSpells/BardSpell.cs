@@ -80,7 +80,7 @@ namespace Server.Spells.SkillMasteries
 
         public void OnPickedInstrument(Mobile from, BaseInstrument instrument)
         {
-            from.SendMessage("You choose a muscial instrument. Try using the bard mastery again.");
+            from.SendMessage("Wybierasz instrument. Sprobuj uzyc talentu barda ponownie.");
         }
 
         public override bool CheckFizzle()

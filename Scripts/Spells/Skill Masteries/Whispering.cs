@@ -55,7 +55,7 @@ namespace Server.Spells.SkillMasteries
         {
             base.SendCastEffect();
 
-            Caster.PrivateOverheadMessage(MessageType.Regular, 0x35, false, "You guide your pet's behaviors, enhancing its skill gains!", Caster.NetState);
+            Caster.PrivateOverheadMessage(MessageType.Regular, 0x35, false, "Kierujesz zachowaniem swojego zwierzaka, zwiekszajac jego umiejetnosci!", Caster.NetState);
         }
 
         public override void OnCast()
