@@ -1337,7 +1337,7 @@ public class OltarzPoczatkuF : Item
 public class PomnikOrlaS : Item
 	{
 		[Constructable]
-		public PomnikOrlaS() : base( 0x283 )
+		public PomnikOrlaS() : base( 0x1446 )
 		{
 			Name="Pomnik Orla";
 			Weight = 250;
@@ -1371,7 +1371,7 @@ public class PomnikOrlaS : Item
 public class PomnikOrlaE : Item
 	{
 		[Constructable]
-		public PomnikOrlaE() : base( 0x284 )
+		public PomnikOrlaE() : base( 0x1447 )
 		{
 			Name="Pomnik Orla";
 			Weight = 250;
@@ -2605,7 +2605,7 @@ public class PomnikGargulcaF : Item
 public class PomnikKaplankiF : Item
 	{
 		[Constructable]
-		public PomnikKaplankiF() : base( 0x88C )
+		public PomnikKaplankiF() : base( 0x16DC )
 		{
 			Name="Pomnik Kaplanki";
 			Weight = 300;
