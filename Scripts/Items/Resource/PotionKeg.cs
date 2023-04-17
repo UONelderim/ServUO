@@ -95,6 +95,8 @@ namespace Server.Items
                         case PotionEffect.Invisibility: number = 1080071; break; // A keg of Invisibility potions
                         case PotionEffect.Parasitic: number = 1080067; break; // A Keg of Murky Liquid.
                         case PotionEffect.Darkglow: number = 1080068; break; // A Keg of Baneful Liquid.
+                        case PotionEffect.NStrengthGreater:	number = 1041600; break; // + (int) m_Type - (int) PotionEffect.NAgilityGreater;
+                        case PotionEffect.NAgilityGreater:	number = 1041599; break; // + (int) m_Type - (int) PotionEffect.NStrengthGreater;
                     }
                 }
                 else
@@ -413,11 +415,15 @@ namespace Server.Items
                     return new AgilityPotion();
                 case PotionEffect.AgilityGreater:
                     return new GreaterAgilityPotion();
+                case PotionEffect.NAgilityGreater:
+	                return new NGreaterAgilityPotion();
 
                 case PotionEffect.Strength:
                     return new StrengthPotion();
                 case PotionEffect.StrengthGreater:
                     return new GreaterStrengthPotion();
+                case PotionEffect.NStrengthGreater:
+	                return new NGreaterStrengthPotion();
 
                 case PotionEffect.PoisonLesser:
                     return new LesserPoisonPotion();
