@@ -1436,7 +1436,7 @@ namespace Server.Engines.Craft
                 chance += .5;
             }
 
-            if (allRequiredSkills && valMainSkill == maxMainSkill)
+            if (allRequiredSkills && valMainSkill >= maxMainSkill)
             {
                 chance = 1.0;
             }
