@@ -5465,7 +5465,7 @@ namespace Server.Mobiles
 
             if (m_ControlOrder == OrderType.Guard)
             {
-                list.Add(1080078); // guarding
+             //   list.Add(1080078); // guarding
             }
 
             if (IsGolem)
