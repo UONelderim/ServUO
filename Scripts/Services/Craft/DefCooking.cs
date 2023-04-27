@@ -147,6 +147,36 @@ namespace Server.Engines.Craft
             index = AddCraft(typeof(FreshSeasoning), 1044495, 1159200, 75.0, 125.0, typeof(DriedHerbs), 1023137, 1, 1044253);
             AddRes(index, typeof(Salt), 1159201, 3, 1044253);
             #endregion
+            
+            index = AddCraft( typeof( PetBondingPotion ), "Wywary" , "wywar oswajacza" , 80.0, 100.0, typeof( BaseBeverage ), 1046458, 5, 1044253 );
+			AddRes( index, typeof( Gold ), "zloto" , 8000, 1044253 );
+			AddRes( index, typeof( TribalBerry ), "tubylcza jagoda" , 5, 1044253 );
+			AddRes( index, typeof( Beeswax ), "wosk" , 35, 1044253 );
+
+			index = AddCraft( typeof( AdmiralsHeartyRum ), "Wywary" , "Krasnoludzki Rum" , 45.0, 78.0, typeof( BaseBeverage ), 1046458, 1, 1044253 );
+			AddRes( index, typeof( SheafOfHay ), "snop siana" , 2, 1044253 );
+			AddRes( index, typeof( SmallFlask ), 1044610, 1, 1044253 );
+
+			index = AddCraft( typeof( WywarSily ), "Wywary" , "Wywar Sily" , 90.0, 150.0, typeof( BaseBeverage ), 1046458, 5, 1044253 );
+			AddRes( index, typeof( Onion ), "cebula" , 10, 1044253 );
+			AddRes( index, typeof( Carrot ), "marchew" , 10, 1044253 );
+			AddRes( index, typeof( JarHoneyGryczany ), "sloik miodu gryczanego" , 1, 1044253 );
+
+			index = AddCraft( typeof( WywarZrecznosci ), "Wywary" , "Wywar Zrecznosci" , 90.0, 150.0, typeof( BaseBeverage ), 1046458, 5, 1044253 );
+			AddRes( index, typeof( Cabbage ), "kapusta" , 10, 1044253 );
+			AddRes( index, typeof( JarHoneySpadziowy), "sloik miodu spadziwoego" , 1, 1044253 );
+			AddRes( index, typeof( BottleSheepMilk ), "Butelka Owczego Mleka" , 10, 1044253 );
+
+			index = AddCraft( typeof( WywarInteligencji ), "Wywary" , "Wywar Inteligencji" , 90.0, 150.0, typeof( BottleGoatMilk ), "Butelka Koziego Mleka", 5, 1044253 );
+			AddRes( index, typeof( Corn ), "kukurydza" , 10, 1044253 );
+			AddRes( index, typeof( Eggs), "jajka" , 15, 1044253 );
+			AddRes( index, typeof( BottleCowMilk ), "Butelka Krowiego Mleka" , 10, 1044253 );
+
+			index = AddCraft( typeof( OrangePetalsBrew ), "Wywary" , "Wywar Odpornosci na trucizny" , 90.0, 150.0, typeof( BottleGoatMilk ), "Butelka Koziego Mleka", 5, 1044253 );
+			AddRes( index, typeof( Carrot ), "marchew" , 10, 1044253 );
+			AddRes( index, typeof( Taint), "skaza" , 15, 1044253 );
+			AddRes( index, typeof( Corruption ), "Zepsucie" , 10, 1044253 );
+			
 
             #region Preparations
             index = AddCraft(typeof(UnbakedQuiche), 1044496, 1041339, 0.0, 100.0, typeof(Dough), 1044469, 1, 1044253);
