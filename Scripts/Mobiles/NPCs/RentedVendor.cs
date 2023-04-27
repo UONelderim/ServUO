@@ -62,7 +62,7 @@ namespace Server.Mobiles
             m_RentalDuration = duration;
             m_RentalPrice = m_RenewalPrice = rentalPrice;
             m_LandlordRenew = landlordRenew;
-            m_RenterRenew = false;
+            m_RenterRenew = true;
 
             m_RentalGold = rentalGold;
 
