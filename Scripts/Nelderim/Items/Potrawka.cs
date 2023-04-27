@@ -1,68 +1,39 @@
-﻿#region References
-
 using System;
-using Server.Spells;
+using Server;
 
-#endregion
 
 namespace Server.Items
 {
 	public abstract class BasePotrawka : Item
 	{
-		public virtual int Bonus { get { return 0; } }
-		public virtual StatType Type { get { return StatType.Int; } }
-		public virtual TimeSpan Duration { get { return TimeSpan.FromMinutes(10.0); } }
-		public virtual TimeSpan Cooldown { get { return TimeSpan.FromMinutes(60.0); } }
+		
+		public virtual TimeSpan Cooldown { get { return TimeSpan.FromMinutes(60.0); }  }
 
 		public override double DefaultWeight
 		{
 			get { return 1.0; }
 		}
 
-		public BasePotrawka(int hue) : base(0x284F)
+		public BasePotrawka( int hue ) : base( 0x284F )
 		{
 			Hue = hue;
 		}
 
-		public BasePotrawka(Serial serial) : base(serial)
+		public BasePotrawka( Serial serial ) : base( serial )
 		{
 		}
+		
 
-		public virtual bool Apply(Mobile from)
+		public override void Serialize( GenericWriter writer )
 		{
-			bool applied = SpellHelper.AddStatOffset(from, Type, Bonus, TimeSpan.FromMinutes(10.0));
+			base.Serialize( writer );
 
-
-			if (!applied)
-				from.SendLocalizedMessage(502173); // You are already under a similar effect.
-
-			return applied;
+			writer.Write( (int) 0 ); // version
 		}
 
-		public override void OnDoubleClick(Mobile from)
+		public override void Deserialize( GenericReader reader )
 		{
-			if (!IsChildOf(from.Backpack))
-			{
-				from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
-			}
-			else if (Apply(from))
-			{
-				from.FixedEffect(0x375A, 10, 15);
-				from.PlaySound(0x1E7);
-				Delete();
-			}
-		}
-
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
-
-			writer.Write(0); // version
-		}
-
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 
 			int version = reader.ReadInt();
 		}
@@ -70,100 +41,154 @@ namespace Server.Items
 
 	public class Potrawka : BasePotrawka
 	{
-		public override int Bonus { get { return 5; } }
-		public override StatType Type { get { return StatType.Int; } }
+		public override void OnDoubleClick( Mobile from )
+		{
+			if ( !IsChildOf( from.Backpack ) )
+			{
+				from.SendLocalizedMessage( 1042038 ); // You must have the object in your backpack to use it.
+			}
+			else if ( from.GetStatMod( "[Klops] STR" ) != null )
+			{
+				from.SendLocalizedMessage( 1062927 ); // You have eaten one of these recently and eating another would provide no benefit.
+			}
+			else
+			{
+				from.PlaySound( 0x1EE );
+				from.AddStatMod( new StatMod( StatType.Str, "[Klops] STR", 10, TimeSpan.FromMinutes( 5.0 ) ) );
 
+				Consume();
+			}
+		}
 
 		[Constructable]
-		public Potrawka() : base(0x284F)
+		public Potrawka() : base( 0x284F )
 		{
-			Stackable = false;
+		Stackable = true;
 			Name = "pożywne klopsiki";
 			Hue = 51;
+			Label1 = "sprawia, ze stajesz sie silniejszy";
 		}
 
-		public Potrawka(Serial serial) : base(serial)
+		public Potrawka( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
+			base.Serialize( writer );
 
-			writer.Write(0); // version
+			writer.Write( (int) 0 ); // version
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
-
+			base.Deserialize( reader );
+			
 			int version = reader.ReadInt();
+			//if ( Hue == 151 )
+			//	Hue = 51;
 		}
 	}
-
-	public class PysznaPotrawka : BasePotrawka
+		public class PysznaPotrawka : BasePotrawka
 	{
-		public override int Bonus { get { return 5; } }
-		public override StatType Type { get { return StatType.Dex; } }
+		public override void OnDoubleClick( Mobile from )
+		{
+			if ( !IsChildOf( from.Backpack ) )
+			{
+				from.SendLocalizedMessage( 1042038 ); // You must have the object in your backpack to use it.
+			}
+			else if ( from.GetStatMod( "[Klops] DEX" ) != null )
+			{
+				from.SendLocalizedMessage( 1062927 ); // You have eaten one of these recently and eating another would provide no benefit.
+			}
+			else
+			{
+				from.PlaySound( 0x1EE );
+				from.AddStatMod( new StatMod( StatType.Dex, "[Klops] DEX", 10, TimeSpan.FromMinutes( 5.0 ) ) );
+
+				Consume();
+			}
+		}
 
 
 		[Constructable]
-		public PysznaPotrawka() : base(0x284F)
+		public PysznaPotrawka() : base( 0x284F )
 		{
-			Stackable = false;
+		Stackable = true;
 			Name = "tłuste klopsiki";
 			Hue = 39;
+			Label1 = "zwieksza Twoja zrecznosc";
 		}
 
-		public PysznaPotrawka(Serial serial) : base(serial)
+		public PysznaPotrawka( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
+			base.Serialize( writer );
 
-			writer.Write(0); // version
+			writer.Write( (int) 0 ); // version
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 
 			int version = reader.ReadInt();
+			//if ( Hue == 151 )
+			//	Hue = 51;
 		}
 	}
-
 	public class PotrawkaBle : BasePotrawka
 	{
-		public override int Bonus { get { return 5; } }
-		public override StatType Type { get { return StatType.Str; } }
+		public override void OnDoubleClick( Mobile from )
+		{
+			if ( !IsChildOf( from.Backpack ) )
+			{
+				from.SendLocalizedMessage( 1042038 ); // You must have the object in your backpack to use it.
+			}
+			else if ( from.GetStatMod( "[Klops] INT" ) != null )
+			{
+				from.SendLocalizedMessage( 1062927 ); // You have eaten one of these recently and eating another would provide no benefit.
+			}
+			else
+			{
+				from.PlaySound( 0x1EE );
+				from.AddStatMod( new StatMod( StatType.Int, "[Klops] INT", 10, TimeSpan.FromMinutes( 5.0 ) ) );
 
+				Consume();
+			}
+		}
 
 		[Constructable]
-		public PotrawkaBle() : base(0x284F)
+		public PotrawkaBle() : base( 0x284F )
 		{
-			Stackable = false;
+		Stackable = true;
 			Name = "klopsiki z dynią";
 			Hue = 11;
+			Label1 = "wzmaga prace umyslu";
 		}
 
-		public PotrawkaBle(Serial serial) : base(serial)
+		public PotrawkaBle( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
+			base.Serialize( writer );
 
-			writer.Write(0); // version
+			writer.Write( (int) 0 ); // version
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 
 			int version = reader.ReadInt();
+			//if ( Hue == 151 )
+			//	Hue = 51;
 		}
 	}
+	
 }
