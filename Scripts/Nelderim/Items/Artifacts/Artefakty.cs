@@ -27,6 +27,7 @@ namespace Server.Items
 	{
 		Summer,
 		Autumn,
+		Spring,
 		Winter
 	}
 
@@ -280,6 +281,40 @@ namespace Server.Items
                 typeof(PocalunekBoginii),
                 }
             },
+            
+            { ArtSeason.Spring, new Type[] {
+		            typeof( DreadsRevenge ),
+		            typeof ( Calm ),
+		            typeof ( StrzalaAbarisa ),
+		            typeof ( Pacify ),
+		            typeof( SmoczeJelita ),
+		            typeof(ScrappersCompendium),
+		            typeof(RycerzeWojny),
+		            typeof(SerpentsFang),
+		            typeof(ShadowDancerLeggings),
+		            typeof(SmoczeJelita),
+		            typeof(SpodnieOswiecenia),
+		            typeof(KosturMagaZOrod),
+		            typeof(TchnienieMatki),
+		            typeof(TomeOfLostKnowledge),
+		            typeof(Svalinn),
+		            typeof(Vijaya),
+		            typeof(WiernyPrzysiedze),
+		            typeof(Wrzeciono),
+		            typeof(Zapomnienie),
+		            typeof(DreadsRevenge),
+		            typeof(DarkenedSky),
+		            typeof(WindsEdge),
+		            typeof(HanzosBow),
+		            typeof(TheDestroyer),
+		            typeof(HolySword),
+		            typeof(ShaminoCrossbow),
+		            typeof(LegendaStraznika),
+		            typeof(MagicznySaif),
+		            typeof(MlotPharrosa),
+		            typeof(RoyalGuardSurvivalKnife),
+	            }
+            },
 
             { ArtSeason.Autumn, new Type[] {
                 typeof(Aegis),
@@ -389,6 +424,33 @@ namespace Server.Items
                 typeof(DemonForks),
                 typeof(Exiler),
                 }
+            },
+            
+            { ArtSeason.Spring, new Type[] {
+		            typeof(RuneBeetleCarapace),
+		            typeof(OponczaMrozu),
+		            typeof(LeggingsOfEmbers),
+		            typeof(DemonForks),
+		            typeof(GniewOceanu),
+		            typeof(StraznikPolnocy),
+		            typeof(TomeOfEnlightenment),
+		            typeof(BlazeOfDeath),
+		            typeof(EnchantedTitanLegBone),
+		            typeof(StaffOfPower),
+		            typeof(WrathOfTheDryad),
+		            typeof(LunaLance),
+		            typeof(LowcaDusz),
+		            typeof(Saif),
+		            typeof(Gandiva),
+		            typeof(Sharanga),
+		            typeof(BowOfTheJukaKing),
+		            typeof(NoxRangersHeavyCrossbow),
+		            typeof(ZlamanyGungnir),
+		            typeof(MelisandesCorrodedHatchet),
+		            typeof(OverseerSunderedBlade),
+		            typeof(PocalunekBoginii),
+		            typeof(ChwytTeczy),
+	            }
             },
 
             { ArtSeason.Autumn, new Type[] {
@@ -550,6 +612,36 @@ namespace Server.Items
                 typeof(ZlotaSciana),
                 typeof(SrebrneOstrzeZEnedh),
                 }
+            },
+            
+            { ArtSeason.Spring, new Type[] {
+		            typeof(Retorta),
+		            typeof(BoneCrusher),
+		            typeof(CaptainQuacklebushsCutlass),
+		            typeof(ColdBlood),
+		            typeof(NightsKiss),
+		            typeof(EnchantedTitanLegBone),
+		            typeof(WrathOfTheDryad),
+		            typeof(LunaLance),
+		            typeof(OstrzePolksiezyca),
+		            typeof(BowOfTheJukaKing),
+		            typeof(NoxRangersHeavyCrossbow),
+		            typeof(ZdradzieckaSzata),
+		            typeof(PiecioMiloweSandaly),
+		            typeof(BraceletOfHealth),
+		            typeof(AlchemistsBauble),
+		            typeof(SwordsOfProsperity),
+		            typeof(Exiler),
+		            typeof(MyckaRybaka),
+		            typeof(OchronaCialaIDucha),
+		            typeof(RekawiceGornikaZOrod),
+		            typeof(ZlotaSciana),
+		            typeof(SrebrneOstrzeZEnedh),
+		            typeof( LegendaKapitana ),
+		            typeof( IolosLute ),
+		            typeof( StaffOfPower ),
+		            typeof( KasraShamshir ),
+	            }
             },
 
             { ArtSeason.Summer, new Type[] {
@@ -719,15 +811,18 @@ namespace Server.Items
 			b.AddRange(m_BossArtifacts[ArtSeason.Autumn]);
             b.AddRange(m_BossArtifacts[ArtSeason.Summer]);
             b.AddRange(m_BossArtifacts[ArtSeason.Winter]);
+            b.AddRange(m_BossArtifacts[ArtSeason.Spring]);
             b.AddRange(m_MinibossArtifacts[ArtSeason.Autumn]);
             b.AddRange(m_MinibossArtifacts[ArtSeason.Summer]);
             b.AddRange(m_MinibossArtifacts[ArtSeason.Winter]);
+            b.AddRange(m_MinibossArtifacts[ArtSeason.Spring]);
 			b.AddRange(ParagonArtifacts);
 			b.AddRange(DoomArtifacts);
 			b.AddRange(HunterArtifacts);
             b.AddRange(m_CartographyArtifacts[ArtSeason.Autumn]);
             b.AddRange(m_CartographyArtifacts[ArtSeason.Summer]);
             b.AddRange(m_CartographyArtifacts[ArtSeason.Winter]);
+            b.AddRange(m_CartographyArtifacts[ArtSeason.Spring]);
             b.AddRange(FishingArtifacts);
 			m_AllArtifactsAllSeasons = b.ToArray();
 
