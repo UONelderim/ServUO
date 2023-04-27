@@ -110,13 +110,8 @@ namespace Server.Mobiles
 
 		public override bool OnBeforeDeath()
 		{
-			IMount mount = this.Mount;
-
-			if (mount != null)
-				mount.Rider = null;
-
-			if (mount is Mobile)
-				((Mobile)mount).Kill();
+			if ( Mount != null )
+				Mount.Rider = null;
 
 			return base.OnBeforeDeath();
 		}
