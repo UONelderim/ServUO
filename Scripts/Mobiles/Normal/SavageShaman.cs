@@ -48,7 +48,7 @@ namespace Server.Mobiles
 
             SetWearable(new BoneArms(), dropChance: 1);
             SetWearable(new BoneLegs(), dropChance: 1);
-            SetWearable(new DeerMask(), dropChance: 1);
+            SetWearable(new NDeerMask(), dropChance: 1);
         }
 
         public SavageShaman(Serial serial)
