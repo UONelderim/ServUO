@@ -1084,7 +1084,7 @@ namespace Server.Items
 
             CraftItem item = system.CraftItems.SearchFor(GetType());
 
-            if (item != null && item.Resources.Count == 1 && item.Resources.GetAt(0).Amount >= 2)
+            if (item != null && item.Resources.Count >= 1 && item.Resources.GetAt(0).Amount >= 2)
             {
                 try
                 {
