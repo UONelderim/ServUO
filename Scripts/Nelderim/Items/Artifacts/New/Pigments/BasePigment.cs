@@ -228,7 +228,7 @@ namespace Server.Items
 					resourcesAccepted.Add(CraftResource.SpinedLeather);
 					resourcesAccepted.Add(CraftResource.HornedLeather);
 					resourcesAccepted.Add(CraftResource.BarbedLeather);
-					return IsInResourceList(resourcesAccepted, i) || IsInType(t, typeof(BaseQuiver));
+					return IsInResourceList(resourcesAccepted, i) || IsInType(t, typeof(BaseQuiver)) || IsInType(t, typeof(DeerMask)) || IsInType(t, typeof(BearMask)) || IsInType(t, typeof(HornedTribalMask)) || IsInType(t, typeof(TribalMask));
 				case PigmentTarget.Wood:
 					resourcesAccepted.Add(CraftResource.RegularWood);
 					resourcesAccepted.Add(CraftResource.OakWood);
