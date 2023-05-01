@@ -107,17 +107,17 @@ namespace Server.Items
 
                     if (format != null)
                     {
-                        if (format.StartsWith("the head of "))
-                            format = format.Substring("the head of ".Length);
+                        if (format.StartsWith("Glowa "))
+                            format = format.Substring("Glowa ".Length);
 
-                        if (format.EndsWith(", taken in a duel"))
+                        if (format.EndsWith(", zebrana w pojedynku"))
                         {
-                            format = format.Substring(0, format.Length - ", taken in a duel".Length);
+                            format = format.Substring(0, format.Length - ", zebrana w pojedynku".Length);
                             m_HeadType = HeadType.Duel;
                         }
-                        else if (format.EndsWith(", taken in a tournament"))
+                        else if (format.EndsWith(", zebrana w turnieju"))
                         {
-                            format = format.Substring(0, format.Length - ", taken in a tournament".Length);
+                            format = format.Substring(0, format.Length - ", zebrana w turnieju".Length);
                             m_HeadType = HeadType.Tournament;
                         }
                     }
