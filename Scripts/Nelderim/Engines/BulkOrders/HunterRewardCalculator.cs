@@ -70,8 +70,8 @@ namespace Server.Engines.BulkOrders
 		{
 			Dictionary<Type, int> objects = new Dictionary<Type, int>();
 			objects.Add(typeof(FurCape), 15);
-			objects.Add(typeof(BearMask), 15);
-			objects.Add(typeof(DeerMask), 15);
+			objects.Add(typeof(NBearMask), 15);
+			objects.Add(typeof(NDeerMask), 15);
 			objects.Add(typeof(Arrows), 10);
 			objects.Add(typeof(CrossBowBolts), 10);
 			objects.Add(typeof(Rope), 10);
