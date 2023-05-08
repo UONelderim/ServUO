@@ -218,7 +218,7 @@ namespace Server.Misc
             }
             else
             {
-                title.Append(beheld.Name);
+                title.Append(beheld.NGetName(beholder));
             }
 
             if (beheld is PlayerMobile && (((PlayerMobile)beheld).CurrentChampTitle != null) && ((PlayerMobile)beheld).DisplayChampionTitle)

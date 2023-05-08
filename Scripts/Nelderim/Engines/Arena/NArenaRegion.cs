@@ -1396,7 +1396,7 @@ namespace Server.Regions
 					else
 					{
 						MobileIncoming.Send(m.NetState, mob);
-						m.NetState.Send(mob.OPLPacket);
+						m.NetState.Send(mob.NGetOPLPacket(m));
 					}
 				}
 
