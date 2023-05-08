@@ -156,7 +156,12 @@ namespace Nelderim.Time
 
 		public static NDateTime CurrentTime
 		{
-			get => _CurrentTime;
+			get
+			{
+				if(_CurrentTime == null);
+					_CurrentTime = new NDateTime();
+				return _CurrentTime;
+			}
 			private set
 			{
 				var oldTime = CurrentTime;
@@ -303,6 +308,7 @@ namespace Nelderim.Time
 		{
 			public ServerTimeTimer() : base(TimeSpan.Zero, TimeSpan.FromMinutes(2))
 			{
+				CurrentTime = new NDateTime();
 				Priority = TimerPriority.FiveSeconds;
 			}
 
