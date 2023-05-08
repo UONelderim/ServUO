@@ -35,7 +35,7 @@ namespace Server
 			SecureTradeEquip.Send(fromNS, m_From.Container, from);
 			SecureTradeEquip.Send(fromNS, m_To.Container, to);
 
-			from.Send(new DisplaySecureTrade(to, m_From.Container, m_To.Container, to.Name));
+			from.Send(new DisplaySecureTrade(to, m_From.Container, m_To.Container, to.NGetName(from)));
 
 			from.Send(new UpdateSecureTrade(m_From.Container, false, false));
 
@@ -56,7 +56,7 @@ namespace Server
 			SecureTradeEquip.Send(toNS, m_To.Container, to);
 			SecureTradeEquip.Send(toNS, m_From.Container, from);
 
-			toNS.Send(new DisplaySecureTrade(from, m_To.Container, m_From.Container, from.Name));
+			toNS.Send(new DisplaySecureTrade(from, m_To.Container, m_From.Container, from.NGetName(toNS.Mobile)));
 
 			toNS.Send(new UpdateSecureTrade(m_To.Container, false, false));
 

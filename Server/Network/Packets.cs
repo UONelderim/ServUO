@@ -3376,10 +3376,10 @@ namespace Server.Network
 
 	public sealed class MobileName : Packet
 	{
-		public MobileName(Mobile m)
+		public MobileName(Mobile from, Mobile m)
 			: base(0x98)
 		{
-			var name = m.Name ?? String.Empty;
+			var name = m.NGetName(from);
 
 			if (!String.IsNullOrWhiteSpace(name) && name.IndexOfAny(new[] { '<', '>' }) >= 0)
 			{
@@ -3485,8 +3485,9 @@ namespace Server.Network
 			}
 
 			EnsureCapacity(size);
-
-			var name = beheld?.Name ?? String.Empty;
+			
+			var mob = beheld as Mobile;
+			var name = mob?.NGetName(beholder) ?? String.Empty;
 
 			m_Stream.Write(beheld.Serial);
 			m_Stream.WriteAsciiFixed(name, 30);
