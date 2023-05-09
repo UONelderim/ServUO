@@ -2,7 +2,6 @@
 using Server.Mobiles;
 using System;
 
-
 namespace Scripts.Mythik.Systems.Achievements
 {
     public class HunterAchievement : BaseAchievement

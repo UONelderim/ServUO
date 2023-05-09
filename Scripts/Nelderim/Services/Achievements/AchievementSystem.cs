@@ -9,20 +9,7 @@ using Scripts.Mythik.Systems.Achievements.Gumps;
 
 namespace Scripts.Mythik.Systems.Achievements
 {
-    //TODO
-    //page limit?
-    /*thought of eating a lemon (and other foods), consume pots,
-     *  craft a home, 
-     *  own home (more for larger homes), 
-     *  loot x amount of gold, 
-     *  find a uni, 
-     *  kill each mob in the game,
-     *   enter an event,
-     *    tame all tamables,
-     *     use a max powerscroll (or skill stone), 
-     *     ride each type of mount
-     */
-    public class AchievementSystem
+	public class AchievementSystem
     {
         public class AchievementCategory
         {
