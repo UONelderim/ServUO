@@ -9,19 +9,19 @@ namespace Server
 {
 	public partial class Mobile
 	{
-		[CommandProperty(AccessLevel.GameMaster)]
-		private Dictionary<Mobile, string> _names
+		public Dictionary<Mobile, string> NameFor
 		{
 			get => Names.Get(this).Names;
 			set
 			{
 				Names.Get(this).Names = value;
+				Delta(MobileDelta.Name);
 				InvalidateProperties();
 			}
 		}
 		
 		public string NGetName(Mobile m) => NConfig.NameSystemEnabled && m != this && m.IsPlayer()
-			? _names.TryGetValue(m, out var assignedName) ? assignedName : "nieznajomy"
+			? NameFor.TryGetValue(m, out var assignedName) ? assignedName : "nieznajomy"
 			: Name;
 		
 
