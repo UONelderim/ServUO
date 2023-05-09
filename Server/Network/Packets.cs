@@ -3376,10 +3376,10 @@ namespace Server.Network
 
 	public sealed class MobileName : Packet
 	{
-		public MobileName(Mobile from, Mobile m)
+		public MobileName(Mobile m, Mobile requester)
 			: base(0x98)
 		{
-			var name = m.NGetName(from);
+			var name = m.NGetName(requester);
 
 			if (!String.IsNullOrWhiteSpace(name) && name.IndexOfAny(new[] { '<', '>' }) >= 0)
 			{
