@@ -188,6 +188,7 @@ namespace Server.Guilds
             PlayerMobile targ = targeted as PlayerMobile;
 
             Guild g = state as Guild;
+            if (g == null) return;
 
             if (pm == null || !IsMember(pm, guild) || !pm.GuildRank.GetFlag(RankFlags.CanInvitePlayer))
             {
