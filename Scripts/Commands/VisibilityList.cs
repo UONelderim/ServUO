@@ -109,7 +109,7 @@ namespace Server.Commands
                                 {
                                     MobileIncoming.Send(ns, from);
 
-                                    ns.Send(from.OPLPacket);
+                                    ns.Send(from.NGetOPLPacket(ns.Mobile));
 
                                     foreach (Item item in from.Items)
                                         ns.Send(item.OPLPacket);

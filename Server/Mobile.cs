@@ -1050,12 +1050,12 @@ namespace Server
 
 		public virtual void SendPropertiesTo(Mobile from)
 		{
-			from.Send(PropertyList);
+			from.Send(NGetPropertyList(this));
 		}
 
 		public virtual void OnAosSingleClick(Mobile from)
 		{
-			var opl = PropertyList;
+			var opl = NGetPropertyList(from);
 
 			if (opl.Header > 0)
 			{
@@ -7391,7 +7391,7 @@ namespace Server
 
 								if (ViewOPL)
 								{
-									ns.Send(m.OPLPacket);
+									ns.Send(m.NGetOPLPacket(ns.Mobile));
 								}
 							}
 						}
@@ -8831,7 +8831,7 @@ namespace Server
 
 						if (state.Mobile.ViewOPL)
 						{
-							state.Send(OPLPacket);
+							state.Send(NGetOPLPacket(state.Mobile));
 						}
 					}
 				}
@@ -9805,6 +9805,7 @@ namespace Server
 					ClearProperties();
 				}
 
+				NInvalidateProperties();
 				OnInvalidateProperties();
 			}
 			finally
@@ -10100,7 +10101,7 @@ namespace Server
 
 									if (m.ViewOPL)
 									{
-										m.m_NetState.Send(OPLPacket);
+										m.m_NetState.Send(NGetOPLPacket(m));
 									}
 								}
 
@@ -10127,7 +10128,7 @@ namespace Server
 
 									if (ViewOPL)
 									{
-										ourState.Send(m.OPLPacket);
+										ourState.Send(m.NGetOPLPacket(m));
 									}
 								}
 							}
@@ -10168,7 +10169,7 @@ namespace Server
 
 								if (mobile.ViewOPL)
 								{
-									ns.Send(OPLPacket);
+									ns.Send(NGetOPLPacket(ns.Mobile));
 								}
 							}
 						}
@@ -10594,7 +10595,7 @@ namespace Server
 
 						if (mobile.ViewOPL)
 						{
-							state.Send(OPLPacket);
+							state.Send(NGetOPLPacket(mobile));
 						}
 					}
 				}
@@ -11359,7 +11360,7 @@ namespace Server
 
 				if (sendOPLUpdate)
 				{
-					ourState.Send(OPLPacket);
+					ourState.Send(NGetOPLPacket(m));
 				}
 			}
 
@@ -11506,7 +11507,7 @@ namespace Server
 
 						if (sendOPLUpdate)
 						{
-							state.Send(OPLPacket);
+							state.Send(NGetOPLPacket(m));
 						}
 					}
 				}
@@ -12326,7 +12327,7 @@ namespace Server
 
 		public virtual bool PropertyTitle => !OldPropertyTitles || ClickTitle;
 
-		public virtual bool ShowFameTitle => NConfig.FameTitlesEnabled && true;
+		public virtual bool ShowFameTitle => NConfig.FameTitlesEnabled;
 		public virtual bool ShowAccessTitle => false;
 
 		/// <summary>
