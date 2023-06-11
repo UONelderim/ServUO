@@ -36,7 +36,8 @@ namespace Nelderim
 			{
 				var mobile = reader.ReadMobile();
 				var name = reader.ReadString();
-				Names[mobile] = name;
+				if(name != null)
+					Names[mobile] = name;
 			}
 		}
 	}
