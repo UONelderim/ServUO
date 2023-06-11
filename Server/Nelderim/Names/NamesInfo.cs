@@ -9,12 +9,7 @@ namespace Nelderim
 {
 	public class NamesInfo : NExtensionInfo
 	{
-		public NamesInfo()
-		{
-			Names = new Dictionary<Mobile, string>();
-		}
-		
-		public Dictionary<Mobile, string> Names { get; set; }
+		public Dictionary<Mobile, string> Names = new Dictionary<Mobile, string>();
 
 		public override void Serialize(GenericWriter writer)
 		{
