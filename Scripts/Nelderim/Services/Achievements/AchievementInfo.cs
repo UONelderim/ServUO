@@ -6,7 +6,7 @@ namespace Scripts.Mythik.Systems.Achievements
 {
 	public class AchievementInfo : NExtensionInfo
 	{
-		public Dictionary<int, AchievementStatus> Achievements;
+		public Dictionary<int, AchievementStatus> Achievements = new Dictionary<int, AchievementStatus>();
 
 		public override void Serialize(GenericWriter writer)
 		{
