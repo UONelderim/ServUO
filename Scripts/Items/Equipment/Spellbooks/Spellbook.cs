@@ -274,8 +274,8 @@ namespace Server.Items
 
         public virtual bool CanFortify => false;
 
-        public virtual int InitMinHits => 0;
-        public virtual int InitMaxHits => 0;
+        public virtual int InitMinHits => 80;
+        public virtual int InitMaxHits => 120;
 
         public virtual void ScaleDurability()
         {
