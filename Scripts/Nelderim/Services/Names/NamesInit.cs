@@ -10,7 +10,7 @@ namespace Nelderim
 {
 	public class NamesInit
 	{
-		public static string ModuleName = "Labels";
+		public static string ModuleName = "Names";
 		
 		public static void Initialize()
 		{
