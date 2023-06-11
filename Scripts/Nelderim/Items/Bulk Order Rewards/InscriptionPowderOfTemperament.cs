@@ -8,7 +8,7 @@ namespace Server.Items
 {
 	public class InscriptionPowderOfTemperament : SpecializedPowderOfTemperament
 	{
-		public override CraftSystem CraftSystem => DefBlacksmithy.CraftSystem;
+		public override CraftSystem CraftSystem => DefInscription.CraftSystem;
 
 		[Constructable]
 		public InscriptionPowderOfTemperament() : this(5)
