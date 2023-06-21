@@ -21,7 +21,7 @@ namespace Nelderim
 
 		private static void EventSink_Speech(SpeechEventArgs args)
 		{
-			PlayerMobile from = args.Mobile as PlayerMobile;
+			Mobile from = args.Mobile;
 			string mySpeech = args.Speech;
 			if (from == null || mySpeech == null || args.Type == MessageType.Emote ||
 			    from.LanguageSpeaking == Language.Powszechny)
@@ -55,7 +55,7 @@ namespace Nelderim
 			}
 		}
 		
-		private static void SayTo(PlayerMobile from, PlayerMobile to, string text)
+		private static void SayTo(Mobile from, Mobile to, string text)
 		{
 			from.RevealingAction();
 			
@@ -69,25 +69,20 @@ namespace Nelderim
 			}
 		}
 
-		public static void SayPublic(PlayerMobile from, string text)
+		public static void SayPublic(Mobile from, string text)
 		{
 			foreach (Mobile m in from.Map.GetMobilesInRange(from.Location, 18))
 			{
 				if (m.Player)
 				{
-					SayTo(from, m as PlayerMobile, text);
+					SayTo(from, m, text);
 				}
 			}
 		}
 		
 		public static bool KnowsLanguage(this Mobile m, Language lang)
 		{
-			if (m is PlayerMobile pm)
-			{
-				pm.LanguagesKnown.Get(lang);
-			}
-
-			return false;
+			return m.AccessLevel > AccessLevel.VIP || m.LanguagesKnown.Get(lang);
 		}
 
 		public static String CommonToForeign(String speech, Language lang)
