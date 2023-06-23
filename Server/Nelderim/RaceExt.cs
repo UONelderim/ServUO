@@ -16,7 +16,7 @@ namespace Server
 
 		public virtual int DescNumber => 1072202; // Description
 
-		public string GetName(Cases c)
+		public string GetName(Cases c = Cases.Mianownik)
 		{
 			return GetName(c, Names);
 		}

@@ -24,10 +24,10 @@ namespace Nelderim
 
 		public override void Deserialize(GenericReader reader)
 		{
-			int version = 0;
+			int version = reader.ReadInt();
 			int namesCount = reader.ReadInt();
 			Names = new Dictionary<Mobile, string>(namesCount);
-			for (int j = 0; j < namesCount; j++)
+			for (var i = 0; i < namesCount; i++)
 			{
 				var mobile = reader.ReadMobile();
 				var name = reader.ReadString();
