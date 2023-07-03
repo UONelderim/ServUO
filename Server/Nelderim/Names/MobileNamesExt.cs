@@ -20,10 +20,21 @@ namespace Server
 			}
 		}
 		
-		public string NGetName(Mobile m) => NConfig.NameSystemEnabled && m != this && m.IsPlayer()
-			? NameFor.TryGetValue(m, out var assignedName) ? assignedName : "nieznajomy"
-			: Name;
-		
+		public string NGetName(Mobile m)
+		{
+			if (NConfig.NameSystemEnabled && !UseRealName(m) )
+			{
+				return NameFor.TryGetValue(m, out var assignedName) ? assignedName : DefaultName;
+			}
+			return Name;
+		}
+
+		public virtual bool UseRealName(Mobile m)
+		{
+			return m == this || IsStaff() || m.IsStaff();
+		}
+
+		public virtual string DefaultName => "nieznajomy " + (Race == Race.DefaultRace ? "" : Race.GetName().ToLower());
 
 		public Dictionary<Mobile, ObjectPropertyList> OPLs = new Dictionary<Mobile, ObjectPropertyList>();
 		public Dictionary<Mobile, OPLInfo> OPLInfos = new Dictionary<Mobile, OPLInfo>();

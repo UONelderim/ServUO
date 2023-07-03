@@ -9,12 +9,7 @@ namespace Nelderim
 {
 	public class NamesInfo : NExtensionInfo
 	{
-		public NamesInfo()
-		{
-			Names = new Dictionary<Mobile, string>();
-		}
-		
-		public Dictionary<Mobile, string> Names { get; set; }
+		public Dictionary<Mobile, string> Names = new Dictionary<Mobile, string>();
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -29,14 +24,15 @@ namespace Nelderim
 
 		public override void Deserialize(GenericReader reader)
 		{
-			int version = 0;
+			int version = reader.ReadInt();
 			int namesCount = reader.ReadInt();
 			Names = new Dictionary<Mobile, string>(namesCount);
-			for (int j = 0; j < namesCount; j++)
+			for (var i = 0; i < namesCount; i++)
 			{
 				var mobile = reader.ReadMobile();
 				var name = reader.ReadString();
-				Names[mobile] = name;
+				if(mobile != null && name != null )
+					Names[mobile] = name;
 			}
 		}
 	}

@@ -521,7 +521,7 @@ namespace Server.Items
             Amount = owner.Body; // Protocol defines that for itemid 0x2006, amount=body
             Stackable = false;
 
-            Name = owner.Name;
+            Name = owner.Race == Race.DefaultRace ? owner.Name : owner.Race.GetName(Cases.Dopelniacz).ToLower();
             Hue = owner.Hue;
 
             Direction = owner.Direction;
