@@ -30,6 +30,7 @@ namespace Server.Commands
 			}
 			else
 				pm.SendMessage(136, "Ochrona Mistrza Gry aktywna!");
+			pm.InvalidateProperties();
 		}
 	}
 }

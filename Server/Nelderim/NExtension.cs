@@ -85,7 +85,7 @@ namespace Nelderim
 
 			string pathNfile = @"Saves/Nelderim/" + moduleName + ".sav";
 
-			Console.WriteLine(moduleName + ": Wczytywanie...");
+			Console.Write(moduleName + ": Wczytywanie...");
 			using (FileStream m_FileStream = new FileStream(pathNfile, FileMode.Open, FileAccess.Read))
 			{
 				BinaryReader m_BinaryReader = new BinaryReader(m_FileStream);
@@ -114,6 +114,7 @@ namespace Nelderim
 				m_BinaryReader.Close();
 				m_FileStream.Close();
 			}
+			Console.WriteLine(moduleName + "Done");
 		}
 	}
 }

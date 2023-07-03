@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using Server.Items;
 using Server.Nelderim;
 
 #endregion
@@ -101,5 +100,12 @@ namespace Server.Mobiles
 		public DateTime MutedUntil { get; private set; }
 		
 		public virtual List<OnSpeechEntry> OnSpeechActions => new List<OnSpeechEntry>();
+
+		public override bool UseRealName(Mobile m)
+		{
+			return base.UseRealName(m) || ControlMaster == null || ControlMaster == m;
+		}
+
+		public override string DefaultName => "zwierze";
 	}
 }

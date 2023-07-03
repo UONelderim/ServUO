@@ -1,24 +1,20 @@
-#region References
-
 using Server;
-
-#endregion
 
 namespace Nelderim
 {
-	class Languages : NExtension<LanguagesInfo>
+	public class LanguagesInit
 	{
-		public static string ModuleName = "Speech";
+		public static string ModuleName = "Languages";
 
 		public static void Initialize()
 		{
 			EventSink.WorldSave += Save;
-			Load(ModuleName);
+			Languages.Load(ModuleName);
 		}
 
 		public static void Save(WorldSaveEventArgs args)
 		{
-			Save(args, ModuleName);
+			Languages.Save(args, ModuleName);
 		}
 	}
 }

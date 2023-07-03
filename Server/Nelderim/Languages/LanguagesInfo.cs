@@ -6,7 +6,7 @@ using Server;
 
 namespace Nelderim
 {
-	class LanguagesInfo : NExtensionInfo
+	public class LanguagesInfo : NExtensionInfo
 	{
 		public LanguagesInfo()
 		{
