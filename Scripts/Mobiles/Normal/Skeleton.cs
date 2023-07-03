@@ -35,6 +35,8 @@ namespace Server.Mobiles
 
             Fame = 450;
             Karma = -450;
+            
+            ControlSlots = 1;
         }
 
         public Skeleton(Serial serial)

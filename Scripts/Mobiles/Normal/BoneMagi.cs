@@ -39,6 +39,8 @@ namespace Server.Mobiles
 
             Fame = 3000;
             Karma = -3000;
+            
+            ControlSlots = 1;
         }
 
         public BoneMagi(Serial serial)

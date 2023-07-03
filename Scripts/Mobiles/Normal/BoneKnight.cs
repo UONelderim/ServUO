@@ -34,6 +34,8 @@ namespace Server.Mobiles
 
             Fame = 3000;
             Karma = -3000;
+            
+            ControlSlots = 2;
         }
 
         public BoneKnight(Serial serial)

@@ -41,6 +41,9 @@ namespace Server.Mobiles
 
             Fame = 23000;
             Karma = -23000;
+            
+            
+            ControlSlots = 4;
         }
 
         public AncientLich(Serial serial)
