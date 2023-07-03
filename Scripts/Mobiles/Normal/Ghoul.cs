@@ -33,6 +33,8 @@ namespace Server.Mobiles
 
             Fame = 2500;
             Karma = -2500;
+            
+            ControlSlots = 1;
         }
 
         public Ghoul(Serial serial)

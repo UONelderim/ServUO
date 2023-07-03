@@ -31,6 +31,9 @@ namespace Server.Mobiles
 
             Fame = 600;
             Karma = -600;
+            
+            
+            ControlSlots = 1;
         }
 
         public Zombie(Serial serial)
