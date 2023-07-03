@@ -11,9 +11,9 @@ namespace Server.Engines.Quests.Matriarch
     {
         public BaseSolenMatriarch()
         {
-            Name = "- krolowa mrowek";
+            Name = "krolowa mrowek";
 
-            Body = 0x328;
+            Body = 807;
 
             if (!RedSolen)
                 Hue = 0x44E;
