@@ -1309,8 +1309,7 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x0FBF, 1157219, 0, 10, ScribesPen));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157194, 0, 25, RewardTitle, 13));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157195, 0, 50, RewardTitle, 14));
-       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157196, 0, 210, RewardTitle, 15));
-            RewardCollection.Add(new BODCollectionItem(0x2831, 1156443, 0, 210, Recipe, 3));
+			RewardCollection.Add(new BODCollectionItem(0x2831, 1156443, 0, 210, Recipe, 3));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2741, 250, NaturalDye, 3));
             RewardCollection.Add(new BODCollectionItem(0x9E28, 1157264, 0, 275, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2740, 310, NaturalDye, 4));
@@ -1318,6 +1317,7 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2732, 375, NaturalDye, 5));
             RewardCollection.Add(new BODCollectionItem(0x9E28, 1157265, 0, 410, CraftsmanTalisman, 50));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2731, 450, NaturalDye, 6));
+            RewardCollection.Add(new BODCollectionItem(4102, "Proszek wzmocnienia wyrobow skryby", 0, 450, InscriptionPowderOfTemperament));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2735, 475, NaturalDye, 7));
             RewardCollection.Add(new BODCollectionItem(0x9E28, 1157291, 0, 500, ImprovementTalisman, 10));
         }
@@ -1343,8 +1343,14 @@ namespace Server.Engines.BulkOrders
         {
             return new GuaranteedSpellbookImprovementTalisman(type);
         }
+        
+        private static Item InscriptionPowderOfTemperament(int type)
+        {
+	        return new InscriptionPowderOfTemperament(type);
+        }
 
         #endregion
+        
 
         public static readonly InscriptionRewardCalculator Instance = new InscriptionRewardCalculator();
 
