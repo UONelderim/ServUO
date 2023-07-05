@@ -1,7 +1,6 @@
 #region References
 
 using System;
-using System.Collections.Generic;
 using Server;
 using Server.Commands;
 using Server.Gumps;
@@ -41,15 +40,27 @@ namespace Nelderim
 
 			AddPage(0);
 
-			List<Language> languages = from.LanguagesKnown.List;
-			AddBackground(0, 0, 200, 50 + languages.Count * 30, 9260);
+			var allLanguages = Enum.GetValues(typeof(Language));
+			
+			AddBackground(0, 0, 200, 50 + allLanguages.Length * 30, 9260);
 			AddLabel(17, 17, 0, @"Wybierz język");
 			int y = 40;
-			foreach (Language lang in languages)
+			foreach (Language lang in allLanguages)
 			{
-				AddButton(20, y, from.LanguageSpeaking == lang ? 4006 : 4005, 4007, (int)lang + 1, GumpButtonType.Reply,
-					1);
-				AddLabel(60, y, 0, Enum.GetName(typeof(Language), lang));
+				
+				if (from.LanguageSpeaking == lang || lang == Language.Belkot || from.LanguagesKnown[lang] > 300)
+				{
+					AddButton(20, y, from.LanguageSpeaking == lang ? 4006 : 4005, 4007, (int)lang + 2,
+						GumpButtonType.Reply,
+						1);
+				}
+				else
+				{
+					AddImage(20, y, 4022, 901);
+				}
+
+				AddLabel(60, y, 0, $"{(float)(from.LanguagesKnown[lang])/10:f1}");
+				AddLabel(100, y, 0 ,Enum.GetName(typeof(Language), lang));
 				y += 30;
 			}
 		}
@@ -63,7 +74,7 @@ namespace Nelderim
 				if (from is PlayerMobile)
 				{
 					PlayerMobile pm = (PlayerMobile)from;
-					Language langToSpeak = (Language)info.ButtonID - 1;
+					Language langToSpeak = (Language)info.ButtonID - 2;
 					pm.LanguageSpeaking = langToSpeak;
 					pm.SendGump(new LanguagesGump(pm));
 				}

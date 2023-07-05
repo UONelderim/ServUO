@@ -1,114 +1,83 @@
 #region References
 
-using System;
-using System.Collections.Generic;
 using Server;
 
 #endregion
 
 namespace Nelderim
 {
-	[Flags]
 	public enum Language
 	{
-		Powszechny = 0x00,
-		Krasnoludzki = 0x01,
-		Elficki = 0x02,
-		Drowi = 0x04,
-		Jarlowy = 0x08,
-		Demoniczny = 0x10,
-		Orkowy = 0x20,
-		Nieumarlych = 0x40,
-		Belkot = 0x80
+		Belkot = -1,
+		Powszechny = 0,
+		Krasnoludzki = 1,
+		Elficki = 2,
+		Drowi = 3,
+		Jarlowy = 4,
+		Demoniczny = 5,
+		Orkowy = 6,
+		Nieumarlych = 7,
 	}
 
 	[PropertyObject]
 	public class KnownLanguages
 	{
-		[CommandProperty(AccessLevel.GameMaster)]
-		public bool Krasnoludzki
-		{
-			get { return Get(Language.Krasnoludzki); }
-			set { Set(Language.Krasnoludzki, value); }
-		}
+		private readonly ushort[] _languageValues = new ushort[8];
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public bool Elficki
+		public ushort Powszechny
 		{
-			get { return Get(Language.Elficki); }
-			set { Set(Language.Elficki, value); }
+			get => this[Language.Powszechny];
+			set => this[Language.Powszechny] = value;
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public bool Drowi
+		public ushort Krasnoludzki
 		{
-			get { return Get(Language.Drowi); }
-			set { Set(Language.Drowi, value); }
+			get => this[Language.Krasnoludzki];
+			set => this[Language.Krasnoludzki] = value;
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public bool Jarlowy
+		public ushort Elficki
 		{
-			get { return Get(Language.Jarlowy); }
-			set { Set(Language.Jarlowy, value); }
+			get => this[Language.Elficki];
+			set => this[Language.Elficki] = value;
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public bool Demoniczny
+		public ushort Drowi
 		{
-			get { return Get(Language.Demoniczny); }
-			set { Set(Language.Demoniczny, value); }
+			get => this[Language.Drowi];
+			set => this[Language.Drowi] = value;
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public bool Orkowy
+		public ushort Jarlowy
 		{
-			get { return Get(Language.Orkowy); }
-			set { Set(Language.Orkowy, value); }
+			get => this[Language.Jarlowy];
+			set => this[Language.Jarlowy] = value;
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public bool Nieumarlych
+		public ushort Demoniczny
 		{
-			get { return Get(Language.Nieumarlych); }
-			set { Set(Language.Nieumarlych, value); }
+			get => this[Language.Demoniczny];
+			set => this[Language.Demoniczny] = value;
 		}
 
-		public bool Get(Language lang)
+		[CommandProperty(AccessLevel.GameMaster)]
+		public ushort Orkowy
 		{
-			return Value.HasFlag(lang);
+			get => this[Language.Orkowy];
+			set => this[Language.Orkowy] = value;
 		}
 
-		public void Set(Language lang, bool value)
+		[CommandProperty(AccessLevel.GameMaster)]
+		public ushort Nieumarlych
 		{
-			if (value)
-				Value |= lang;
-			else
-				Value &= ~lang;
-		}
-
-		public KnownLanguages() : this(Language.Powszechny)
-		{
-		}
-
-		public KnownLanguages(Language languages)
-		{
-			Value = languages;
-		}
-
-		public Language Value { get; private set; }
-
-		public List<Language> List
-		{
-			get
-			{
-				List<Language> result = new List<Language>();
-				foreach (Language lang in Enum.GetValues(typeof(Language)))
-					if (Get(lang))
-						result.Add(lang);
-
-				return result;
-			}
+			get => this[Language.Nieumarlych];
+			set => this[Language.Nieumarlych] = value;
 		}
 
 		public override string ToString()
@@ -116,9 +85,38 @@ namespace Nelderim
 			return "...";
 		}
 
-		public static implicit operator KnownLanguages(Language languages)
+		public ushort this[Language lang]
 		{
-			return new KnownLanguages(languages);
+			get
+			{
+				if (lang == Language.Belkot) return 0;
+				return _languageValues[(int)lang];
+			}
+			set  
+			{
+				if(lang == Language.Belkot) return;
+				_languageValues[(int)lang] = value;
+			}
+		}
+
+		public void Serialize(GenericWriter writer)
+		{
+			writer.Write((int)0);
+			writer.Write(_languageValues.Length);
+			foreach (var value in _languageValues)
+			{
+				writer.Write(value);
+			}
+		}
+
+		public void Deserialize(GenericReader reader)
+		{
+			reader.ReadInt(); //version
+			var count = reader.ReadInt();
+			for (int i = 0; i < count; i++)
+			{
+				_languageValues[i] = reader.ReadUShort();
+			}
 		}
 	}
 }

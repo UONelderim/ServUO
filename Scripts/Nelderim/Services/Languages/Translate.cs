@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Server;
-using Server.Mobiles;
 using Server.Network;
 
 #endregion
@@ -23,8 +22,7 @@ namespace Nelderim
 		{
 			Mobile from = args.Mobile;
 			string mySpeech = args.Speech;
-			if (from == null || mySpeech == null || args.Type == MessageType.Emote ||
-			    from.LanguageSpeaking == Language.Powszechny)
+			if (from == null || mySpeech == null || args.Type == MessageType.Emote)
 			{
 				return;
 			}
@@ -44,31 +42,58 @@ namespace Nelderim
 
 			foreach (Mobile m in from.Map.GetMobilesInRange(from.Location, tileLength))
 			{
-				if (m is PlayerMobile pm)
-				{
-					SayTo(from, pm, mySpeech);
-				}
-				else
-				{
-					m.OnSpeech(args);
-				}
+				SayTo(from, m, mySpeech);
 			}
 		}
 		
 		private static void SayTo(Mobile from, Mobile to, string text)
 		{
 			from.RevealingAction();
-			
-			if (from == to || to.KnowsLanguage(from.LanguageSpeaking) )
-			{
-				from.SayTo(to, $"[{from.LanguageSpeaking.ToString()}] {text} ");
-			}
+			if (to.IsStaff() || from == to) 
+				from.SayTo(to, $"[{from.LanguageSpeaking}] {text}");
 			else
 			{
-				from.SayTo(to, CommonToForeign(text, from.LanguageSpeaking));
+				var translated = TryTranslate(from, to, text, from.LanguageSpeaking);
+				if (to.LanguagesKnown[from.LanguageSpeaking] > 50)
+				{
+					translated = $"[{from.LanguageSpeaking}] {translated}";
+				}
+
+				from.SayTo(to, translated);
 			}
 		}
 
+		private static string TryTranslate(Mobile from, Mobile to, string text, Language lang)
+		{
+			var translated = lang switch
+			{
+				Language.Krasnoludzki => TranslateUsingDict(text, LanguagesDictionary.Krasnoludzki),
+				Language.Elficki => TranslateUsingDict(text, LanguagesDictionary.Elficki),
+				Language.Drowi => TranslateUsingDict(text, LanguagesDictionary.Drowi),
+				Language.Jarlowy => TranslateUsingDict(text, LanguagesDictionary.Jarlowy),
+				Language.Demoniczny => TranslateUsingWordsList(text, LanguagesDictionary.Demoniczny),
+				Language.Orkowy => TranslateUsingDict(text, LanguagesDictionary.Orkowy),
+				Language.Nieumarlych => TranslateUsingSentencesList(LanguagesDictionary.Nieumarlych),
+				Language.Powszechny => RandomWord(text),
+				Language.Belkot => RandomWord(text),
+				_ => text
+			};
+			
+			return Mix(text, translated, from.LanguagesKnown[lang], to.LanguagesKnown[lang]);
+		}
+
+		public static string Mix(string original, string translated, ushort fromLangValue, ushort toLangValue)
+		{
+			StringBuilder sb = new StringBuilder();
+			for (var i = 0; i < original.Length; i++)
+			{
+				if (fromLangValue > Utility.Random(1000)) sb.Append(original[i]);
+				else sb.Append(translated[(int)(((float)i / original.Length) * translated.Length)]);
+			}
+
+			return sb.ToString();
+		}
+		
 		public static void SayPublic(Mobile from, string text)
 		{
 			foreach (Mobile m in from.Map.GetMobilesInRange(from.Location, 18))
@@ -79,35 +104,24 @@ namespace Nelderim
 				}
 			}
 		}
-		
-		public static bool KnowsLanguage(this Mobile m, Language lang)
-		{
-			return m.AccessLevel > AccessLevel.VIP || m.LanguagesKnown.Get(lang);
-		}
+		private static char[] _Alphabet = "abcdefghijklmnopqrstuvwxyz".ToArray();
 
-		public static String CommonToForeign(String speech, Language lang)
+		public static string RandomWord(string text)
 		{
-			return lang switch
+			var sb = new StringBuilder();
+			for (var i = 0; i < text.Length; i++)
 			{
-				Language.Krasnoludzki => TranslateUsingDict(speech, LanguagesDictionary.Krasnoludzki),
-				Language.Elficki => TranslateUsingDict(speech, LanguagesDictionary.Elficki),
-				Language.Drowi => TranslateUsingDict(speech, LanguagesDictionary.Drowi),
-				Language.Jarlowy => TranslateUsingDict(speech, LanguagesDictionary.Jarlowy),
-				Language.Demoniczny => TranslateUsingWordsList(speech, LanguagesDictionary.Demoniczny),
-				Language.Orkowy => TranslateUsingDict(speech, LanguagesDictionary.Orkowy),
-				Language.Nieumarlych => TranslateUsingSentencesList(LanguagesDictionary.Nieumarlych),
-				Language.Belkot => TranslateUsingWordsList(speech, LanguagesDictionary.Belkot),
-				_ => speech
-			};
-		}
-
-		private static readonly Random _Random = new Random();
-
-		public static string RandomWord(int length)
-		{
-			const string chars = "abcdefghijklmnopqrstuvwxyz";
-			return new string(Enumerable.Repeat(chars, length)
-				.Select(s => s[_Random.Next(s.Length)]).ToArray());
+				if (_Alphabet.Contains(Char.ToLower(text[i])))
+				{
+					var c = Utility.RandomList(_Alphabet);
+					sb.Append(Char.IsUpper(text[i]) ? Char.ToUpper(c) : c);
+				}
+				else
+				{
+					sb.Append(text[i]);
+				}
+			}
+			return sb.ToString();
 		}
 
 		public static string TranslateUsingDict(string speech, Dictionary<string, string> dict)
@@ -179,7 +193,7 @@ namespace Nelderim
 
 		public static string TranslateUsingSentencesList(List<string> list)
 		{
-			return list[_Random.Next(list.Count)];
+			return list[Utility.Random(list.Count)];
 		}
 	}
 }
