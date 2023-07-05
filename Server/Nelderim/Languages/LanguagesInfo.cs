@@ -20,17 +20,15 @@ namespace Nelderim
 		public override void Serialize(GenericWriter writer)
 		{
 			writer.Write( (int)0 ); //version
-			writer.Write((int)LanguagesKnown.Value);
+			LanguagesKnown.Serialize(writer);
 			writer.Write((int)LanguageSpeaking);
 		}
 
 		public override void Deserialize(GenericReader reader)
 		{
 			int version = reader.ReadInt();
-			LanguagesKnown = new KnownLanguages((Language)reader.ReadInt());
+			LanguagesKnown.Deserialize(reader);
 			LanguageSpeaking = (Language)reader.ReadInt();
-
-			LanguagesKnown ??= new KnownLanguages();
 		}
 	}
 }
