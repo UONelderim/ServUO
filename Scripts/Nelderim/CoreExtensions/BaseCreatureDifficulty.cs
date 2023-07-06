@@ -97,7 +97,7 @@ namespace Server.Mobiles
 			}
 		}
 
-		public double Life => HitsMax * AvgResFactor * MeeleeSkillFactor / 100;
+		public double Life => HitsMax * AvgResFactor * MagicResFactor * MeeleeSkillFactor / 100 ;
 		
 		// Old formula
 		// Math.Max(0.5, Skills[((BaseWeapon)Weapon).Skill].Value / 120);
@@ -107,6 +107,8 @@ namespace Server.Mobiles
 			(double)(PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance) / 5;
 
 		public double AvgResFactor => AvgRes / 100;
+
+		public double MagicResFactor => Skills[SkillName.MagicResist].Value / 100;
 
 		public double GetPoisonBonus(Poison p)
 		{
