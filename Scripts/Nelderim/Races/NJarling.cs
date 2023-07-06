@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Nelderim.Races
 {
 	class NJarling : NRace
@@ -22,6 +24,11 @@ namespace Nelderim.Races
 		public override int[] HairHues => new[]
 		{
 			1110, 1111, 1112, 1113, 1114, 1115, 1118, 1119, 1120, 1121, 1122, 1123, 1126, 1127, 1128, 1129
+		};
+		
+		public override Dictionary<Language, ushort> DefaultLanguages() => new Dictionary<Language, ushort>
+		{
+			{ Language.Powszechny, 1000 }, { Language.Jarlowy, 1000}
 		};
 	}
 }

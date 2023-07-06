@@ -1,5 +1,6 @@
 #region References
 
+using System.Collections.Generic;
 using Server;
 
 #endregion
@@ -47,6 +48,11 @@ namespace Nelderim.Races
 				Beard.Human.Long, Beard.Human.Short, Beard.Human.Goatee, Beard.Human.Mustache, Beard.Human.MidShort,
 				Beard.Human.MidLong, Beard.Human.Vandyke,
 			}
+		};
+		
+		public override Dictionary<Language, ushort> DefaultLanguages() => new Dictionary<Language, ushort>
+		{
+			{ Language.Powszechny, 1000 }, { Language.Krasnoludzki, 1000}
 		};
 	}
 }

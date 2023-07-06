@@ -1,6 +1,6 @@
 #region References
 
-using System;
+using Nelderim;
 using Server.Network;
 
 #endregion
@@ -30,12 +30,12 @@ namespace Server.Gumps
 
 		public string Color(string text, int color)
 		{
-			return String.Format("<BASEFONT COLOR=#{0:X6}>{1}</BASEFONT>", color, text);
+			return $"<BASEFONT COLOR=#{color:X6}>{text}</BASEFONT>";
 		}
 
 		public string Center(string text)
 		{
-			return String.Format("<CENTER>{0}</CENTER>", text);
+			return $"<CENTER>{text}</CENTER>";
 		}
 
 		public int GetHairGumpId(int hairId)
@@ -90,8 +90,7 @@ namespace Server.Gumps
 		{
 			AddBackground(0, 0, 605, 570, 9200);
 			AddImageTiled(5, 5, 595, 560, 9274);
-			AddLabel(20, 10, 930,
-				String.Format("WYBOR RASY NELDERIM - {0}", m_Race.GetName(Cases.Mianownik).ToUpper()));
+			AddLabel(20, 10, 930, $"WYBOR RASY NELDERIM - {m_Race.GetName().ToUpper()}");
 
 			AddHtml(390, 257, 203, 25,
 				Color(Center("RASA " + m_Race.GetPluralName(Cases.Dopelniacz).ToUpper()), 0x333333), true, false);
@@ -301,6 +300,14 @@ namespace Server.Gumps
 				int[] fhs = m_From.Female ? m_Race.BeardTable[0] : m_Race.BeardTable[1];
 				m_FacialHairItemID = fhs[info.ButtonID - 401];
 			}
+			
+			m_From.LanguagesKnown.Clear();
+			var langs = m_Race.DefaultLanguages();
+			foreach (var lang in langs.Keys)
+			{
+				m_From.LanguagesKnown[lang] = langs[lang];
+			}
+			m_From.LanguageSpeaking = Language.Powszechny;
 
 			ExtendedResponse(info);
 		}
