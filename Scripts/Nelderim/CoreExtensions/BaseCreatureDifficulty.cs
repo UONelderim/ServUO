@@ -26,12 +26,15 @@ namespace Server.Mobiles
 			}
 		}
 
-		private static readonly double _mdpsMageryScalar = 0.5;
-		private static readonly double _mdpsEvalScalar = 0.003;
-		private static readonly double _mdpsMeditScalar = 0.001;
-		private static readonly double _mdpsManaScalar = 0.0002;
-		private static readonly double _mdpsMaxCircleScalar = 0.05;
-		private static readonly double _mdpsManaCap = 500;
+		private const double _mdpsMageryScalar = 0.5;
+		private const double _mdpsEvalScalar = 0.003;
+		private const double _mdpsMeditScalar = 0.001;
+		private const double _mdpsManaScalar = 0.0002;
+		private const double _mdpsMaxCircleScalar = 0.05;
+		private const double _mdpsManaCap = 500;
+		private const double _mdpsNecroScalar = 0.4;
+		private const double _mdpsSSScalar = 0.001;
+
 
 		public double MagicDPS
 		{
@@ -39,18 +42,30 @@ namespace Server.Mobiles
 			{
 				if (AIObject is MageAI ai)
 				{
-					int maxCircle = ai.GetMaxCircle();
-					double magery = Skills[SkillName.Magery].Value;
-					double evalInt = Skills[SkillName.EvalInt].Value;
-					double meditation = Skills[SkillName.Meditation].Value;
+					var maxCircle = ai.GetMaxCircle();
+					var magery = Skills[SkillName.Magery].Value;
+					var evalInt = Skills[SkillName.EvalInt].Value;
+					var meditation = Skills[SkillName.Meditation].Value;
 
-					double mageryValue = magery * _mdpsMageryScalar * (1 + maxCircle * _mdpsMaxCircleScalar);
+					var mageryValue = magery * _mdpsMageryScalar * (1 + maxCircle * _mdpsMaxCircleScalar);
 
-					double evalIntBonus = mageryValue * evalInt * _mdpsEvalScalar;
-					double meditBonus = mageryValue * meditation * _mdpsMeditScalar;
-					double manaBonus = mageryValue * Math.Min(ManaMax, _mdpsManaCap) * _mdpsManaScalar;
+					var evalIntBonus = mageryValue * evalInt * _mdpsEvalScalar;
+					var meditBonus = mageryValue * meditation * _mdpsMeditScalar;
+					var manaBonus = mageryValue * Math.Min(ManaMax, _mdpsManaCap) * _mdpsManaScalar;
 
-					return mageryValue + evalIntBonus + meditBonus + manaBonus;
+					var mageryResult = mageryValue + evalIntBonus + meditBonus + manaBonus;
+
+					if (AIObject is NecroMageAI)
+					{
+						var necro = Skills[SkillName.Necromancy].Value;
+						var spiritSpeak = Skills[SkillName.SpiritSpeak].Value;
+
+						var necroBonus = necro * _mdpsNecroScalar;
+						var ssBonus = spiritSpeak * _mdpsSSScalar;
+
+						return mageryResult + necroBonus + ssBonus;
+					}
+					return mageryResult;
 				}
 
 				return 0;
