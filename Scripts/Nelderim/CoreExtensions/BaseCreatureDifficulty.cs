@@ -83,32 +83,10 @@ namespace Server.Mobiles
 		}
 
 		public double Life => HitsMax * AvgResFactor * MeeleeSkillFactor / 100;
-
-		public Skill MaxMeleeSkill
-		{
-			get
-			{
-				SkillName[] meleeSkillNames =
-				{
-					SkillName.Wrestling, SkillName.Macing, SkillName.Fencing, SkillName.Swords, SkillName.Archery,
-					SkillName.Throwing
-				};
-
-				Skill skillMax = Skills[meleeSkillNames[0]];
-
-				foreach (SkillName msn in meleeSkillNames)
-				{
-					Skill skill = Skills[msn];
-
-					if (skill.Base > skillMax.Base)
-						skillMax = skill;
-				}
-
-				return skillMax;
-			}
-		}
-
-		public double MeeleeSkillFactor => Math.Max(0.5, MaxMeleeSkill.Value / 120);
+		
+		// Old formula
+		// Math.Max(0.5, Skills[((BaseWeapon)Weapon).Skill].Value / 120);
+		public double MeeleeSkillFactor => Math.Pow(Math.E, (Skills[((BaseWeapon)Weapon).Skill].Value / 100)) - 1;
 
 		public double AvgRes =>
 			(double)(PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance) / 5;
