@@ -75,6 +75,8 @@ namespace Nelderim
 				{
 					PlayerMobile pm = (PlayerMobile)from;
 					Language langToSpeak = (Language)info.ButtonID - 2;
+					if (pm.LanguagesKnown[langToSpeak] < 200)
+						langToSpeak = Language.Belkot;
 					pm.LanguageSpeaking = langToSpeak;
 					pm.SendGump(new LanguagesGump(pm));
 				}

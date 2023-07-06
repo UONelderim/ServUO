@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Nelderim;
+
 namespace Server
 {
 	public partial class Race
@@ -50,6 +53,8 @@ namespace Server
 
 			return true;
 		}
+
+		public virtual Dictionary<Language, ushort> DefaultLanguages() => new Dictionary<Language, ushort>();
 	}
 
 	public enum Cases

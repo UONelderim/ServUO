@@ -1,5 +1,6 @@
 #region References
 
+using System;
 using Server;
 
 #endregion
@@ -116,6 +117,14 @@ namespace Nelderim
 			for (int i = 0; i < count; i++)
 			{
 				_languageValues[i] = reader.ReadUShort();
+			}
+		}
+
+		public void Clear()
+		{
+			foreach (Language lang in Enum.GetValues(typeof(Language)))
+			{
+				this[lang] = 0;
 			}
 		}
 	}
