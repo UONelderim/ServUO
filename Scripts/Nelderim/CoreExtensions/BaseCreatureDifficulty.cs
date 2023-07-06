@@ -75,6 +75,9 @@ namespace Server.Mobiles
 				if (SpecialAbilitiesBonus > 0)
 					dps += dps * SpecialAbilitiesBonus;
 
+				if (AutoDispel)
+					dps *= 1.1;
+
 				return dps;
 			}
 		}
@@ -123,7 +126,7 @@ namespace Server.Mobiles
 		}
 
 		public double HitPoisonBonus => GetPoisonBonus(HitPoison) * HitPoisonChance * MeeleeSkillFactor;
-
+		
 		public double WeaponAbilitiesBonus
 		{
 			get
