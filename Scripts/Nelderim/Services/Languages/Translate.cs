@@ -13,6 +13,8 @@ namespace Nelderim
 {
 	public static class Translate
 	{
+		private readonly record struct TranslationResult(Language lang, string[] originalWords, string[] translatedWords);
+		
 		public static void Initialize()
 		{
 			EventSink.Speech += EventSink_Speech;
@@ -20,180 +22,137 @@ namespace Nelderim
 
 		private static void EventSink_Speech(SpeechEventArgs args)
 		{
-			Mobile from = args.Mobile;
-			string mySpeech = args.Speech;
-			if (from == null || mySpeech == null || args.Type == MessageType.Emote)
+			var from = args.Mobile;
+			var speech = args.Speech;
+			if (from == null || speech == null || args.Type == MessageType.Emote || speech.StartsWith("*"))
 			{
 				return;
 			}
 
 			args.Blocked = true;
-			int tileLength = 15;
 
-			switch (args.Type)
+			var tileLength = args.Type switch
 			{
-				case MessageType.Yell:
-					tileLength = 18;
-					break;
-				case MessageType.Whisper:
-					tileLength = 1;
-					break;
-			}
+				MessageType.Yell => 18,
+				MessageType.Whisper => 1,
+				_ => 15
+			};
 
-			foreach (Mobile m in from.Map.GetMobilesInRange(from.Location, tileLength))
+			var translationResult = TranslateText(speech, from.LanguageSpeaking);
+			foreach (var to in from.Map.GetMobilesInRange(from.Location, tileLength))
 			{
-				SayTo(from, m, mySpeech);
-			}
-		}
-		
-		private static void SayTo(Mobile from, Mobile to, string text)
-		{
-			from.RevealingAction();
-			if (to.IsStaff() || from == to) 
-				from.SayTo(to, $"[{from.LanguageSpeaking}] {text}");
-			else
-			{
-				var translated = TryTranslate(from, to, text, from.LanguageSpeaking);
-				if (to.LanguagesKnown[from.LanguageSpeaking] > 50)
-				{
-					translated = $"[{from.LanguageSpeaking}] {translated}";
-				}
-
+				var translated = Combine(translationResult, from, to);
+				from.RevealingAction();
 				from.SayTo(to, translated);
 			}
 		}
 
-		private static string TryTranslate(Mobile from, Mobile to, string text, Language lang)
+		private static TranslationResult TranslateText(string original, Language lang)
 		{
-			var translated = lang switch
+			var originalWords = original.Split(' ');
+			var translatedWords = lang switch
 			{
-				Language.Krasnoludzki => TranslateUsingDict(text, LanguagesDictionary.Krasnoludzki),
-				Language.Elficki => TranslateUsingDict(text, LanguagesDictionary.Elficki),
-				Language.Drowi => TranslateUsingDict(text, LanguagesDictionary.Drowi),
-				Language.Jarlowy => TranslateUsingDict(text, LanguagesDictionary.Jarlowy),
-				Language.Demoniczny => TranslateUsingWordsList(text, LanguagesDictionary.Demoniczny),
-				Language.Orkowy => TranslateUsingDict(text, LanguagesDictionary.Orkowy),
-				Language.Nieumarlych => TranslateUsingSentencesList(LanguagesDictionary.Nieumarlych),
-				Language.Powszechny => RandomWord(text),
-				Language.Belkot => RandomWord(text),
-				_ => text
+				Language.Krasnoludzki => TranslateUsingDict(originalWords, LanguagesDictionary.Krasnoludzki),
+				Language.Elficki => TranslateUsingDict(originalWords, LanguagesDictionary.Elficki),
+				Language.Drowi => TranslateUsingDict(originalWords, LanguagesDictionary.Drowi),
+				Language.Jarlowy => TranslateUsingDict(originalWords, LanguagesDictionary.Jarlowy),
+				Language.Demoniczny => TranslateUsingList(originalWords, LanguagesDictionary.Demoniczny),
+				Language.Orkowy => TranslateUsingDict(originalWords, LanguagesDictionary.Orkowy),
+				Language.Nieumarlych => TranslateUsingList(originalWords, LanguagesDictionary.Nieumarlych),
+				Language.Powszechny => RandomWord(originalWords),
+				Language.Belkot => RandomWord(originalWords),
+				_ => null
 			};
+
+			return new TranslationResult(lang, originalWords, translatedWords);
+		}
+
+		private static string Combine(TranslationResult tr, Mobile from, Mobile to)
+		{
+			if (to.IsStaff() || from == to)
+				return $"[{from.LanguageSpeaking}] {string.Join(" ", tr.originalWords)}";
 			
-			return Mix(text, translated, from.LanguagesKnown[lang], to.LanguagesKnown[lang]);
-		}
-
-		public static string Mix(string original, string translated, ushort fromLangValue, ushort toLangValue)
-		{
+			var fromLangValue = from.LanguagesKnown[tr.lang];
+			var toLangValue = to.LanguagesKnown[tr.lang];
+			if (tr.originalWords.Length != tr.translatedWords.Length)
+			{
+				Console.WriteLine("Translated words doesn't match original words!");
+				Console.WriteLine($"original {tr.originalWords}");
+				Console.WriteLine($"translated {tr.translatedWords}");
+			}
 			StringBuilder sb = new StringBuilder();
-			for (var i = 0; i < original.Length; i++)
+			if (toLangValue >= 500)
 			{
-				if (fromLangValue > Utility.Random(1000)) sb.Append(original[i]);
-				else sb.Append(translated[(int)(((float)i / original.Length) * translated.Length)]);
+				sb.Append($"[{from.LanguageSpeaking}]");
 			}
-
-			return sb.ToString();
-		}
-		
-		public static void SayPublic(Mobile from, string text)
-		{
-			foreach (Mobile m in from.Map.GetMobilesInRange(from.Location, 18))
+			for (var index = 0; index < tr.originalWords.Length; index++)
 			{
-				if (m.Player)
+				sb.Append(" ");
+				var originalWord = tr.originalWords[index];
+				var translatedWord = tr.translatedWords[index];
+				if (originalWord.GetHashCode() % 1000 < fromLangValue && translatedWord.GetHashCode() % 1000 < toLangValue)
 				{
-					SayTo(from, m, text);
-				}
-			}
-		}
-		private static char[] _Alphabet = "abcdefghijklmnopqrstuvwxyz".ToArray();
-
-		public static string RandomWord(string text)
-		{
-			var sb = new StringBuilder();
-			for (var i = 0; i < text.Length; i++)
-			{
-				if (_Alphabet.Contains(Char.ToLower(text[i])))
-				{
-					var c = Utility.RandomList(_Alphabet);
-					sb.Append(Char.IsUpper(text[i]) ? Char.ToUpper(c) : c);
-				}
-				else
-				{
-					sb.Append(text[i]);
-				}
-			}
-			return sb.ToString();
-		}
-
-		public static string TranslateUsingDict(string speech, Dictionary<string, string> dict)
-		{
-			string translatedWord;
-			StringBuilder sb = new StringBuilder(speech.Length);
-			foreach (string word in speech.Split(' '))
-			{
-				if (word.StartsWith("*"))
-				{
-					translatedWord = word.Substring(1);
-				}
-				else if (dict.ContainsKey(word.ToLower()))
-				{
-					translatedWord = dict[word.ToLower()];
-				}
-				else
-				{
-					translatedWord = dict.ElementAt(Math.Abs(word.GetHashCode()) % dict.Count).Value;
-				}
-
-				if (translatedWord.Length > 0 && word.Length > 0 && Char.IsUpper(word[0]))
-				{
-					char upperChar = Char.ToUpper(translatedWord[0]);
-					sb.Append(upperChar);
-					sb.Append(translatedWord.Substring(1));
+					sb.Append(originalWord);
 				}
 				else
 				{
 					sb.Append(translatedWord);
 				}
-
-				sb.Append(" ");
 			}
-
 			return sb.ToString();
 		}
 
-		public static string TranslateUsingWordsList(string speech, List<string> list)
+		private static char[] _Alphabet = "abcdefghijklmnopqrstuvwxyz".ToArray();
+
+		private static string[] RandomWord(string[] originalWords)
 		{
-			string translatedWord;
-			StringBuilder sb = new StringBuilder(speech.Length);
-			foreach (string word in speech.Split(' '))
+			var result = new string[originalWords.Length];
+			for (var index = 0; index < originalWords.Length; index++)
 			{
-				if (word.StartsWith("*"))
+				result[index] = originalWords[index].Select(_ =>
 				{
-					sb.Append(word);
-				}
-				else
-				{
-					translatedWord = list[Math.Abs(word.GetHashCode()) % list.Count];
-					if (translatedWord.Length > 0 && word.Length > 0 && Char.IsUpper(word[0]))
-					{
-						char upperChar = Char.ToUpper(translatedWord[0]);
-						sb.Append(upperChar);
-						sb.Append(translatedWord.Substring(1));
-					}
-					else
-					{
-						sb.Append(translatedWord);
-					}
-				}
-
-				sb.Append(" ");
+					var newChar = Utility.RandomList(_Alphabet);
+					return Char.IsUpper(_) ? Char.ToUpper(newChar) : newChar;
+				}).ToString();
 			}
-
-			return sb.ToString();
+			return result;
 		}
 
-		public static string TranslateUsingSentencesList(List<string> list)
+		private static string[] TranslateUsingDict(string[] originalWords, Dictionary<string, string> dict)
 		{
-			return list[Utility.Random(list.Count)];
+			var translatedWords = new string[originalWords.Length];
+			for (var index = 0; index < originalWords.Length; index++)
+			{
+				var word = originalWords[index].ToLower();
+				translatedWords[index] = dict.TryGetValue(word, out var value)
+					? value
+					: dict.ElementAt(Math.Abs(word.GetHashCode()) % dict.Count).Value;
+
+				if (Char.IsUpper(originalWords[index][0]))
+				{
+					translatedWords[index] = CapitalizeFirstLetter(translatedWords[index]);
+				}
+			}
+			return translatedWords;
+		}
+
+		private static string[] TranslateUsingList(string[] originalWords, List<string> list)
+		{
+			var translatedWords = new string[originalWords.Length];
+			for (var index = 0; index < originalWords.Length; index++)
+			{
+				translatedWords[index] = list[(Math.Abs(originalWords[index].ToLower().GetHashCode()) % list.Count)];
+				if (Char.IsUpper(originalWords[index][0]))
+				{
+					translatedWords[index] = CapitalizeFirstLetter(translatedWords[index]);
+				}
+			}
+			return translatedWords;
+		}
+
+		private static string CapitalizeFirstLetter(string text)
+		{
+			return text.Remove(0, 1).Insert(0, Char.ToUpper(text[0]).ToString());
 		}
 	}
 }

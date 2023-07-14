@@ -45,14 +45,7 @@ namespace Server.SkillHandlers
 		{
 			var wordList = tamer.Race == Race.NDrow ? _DrowTamingSpeech : _RegularTamingSpeech;
 			var toSay = Utility.RandomList(wordList);
-			if (tamer is PlayerMobile pm)
-			{
-				Translate.SayPublic(pm, toSay);
-			}
-			else
-			{
-				tamer.PublicOverheadMessage(MessageType.Regular, 0x3B2, false, toSay);
-			}
+			tamer.Say(toSay);
 		}
 	}
 }
