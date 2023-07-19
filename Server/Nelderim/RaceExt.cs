@@ -31,7 +31,7 @@ namespace Server
 
 		private string GetName(Cases c, string[] list)
 		{
-			if (list.Length == 0) return Name;
+			if (list == null || list.Length == 0) return Name;
 
 			int index = (int)c;
 			if (list[index] != null)
