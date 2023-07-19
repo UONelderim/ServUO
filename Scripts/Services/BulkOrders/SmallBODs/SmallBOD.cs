@@ -136,7 +136,7 @@ namespace Server.Engines.BulkOrders
             }
         }
         [CommandProperty(AccessLevel.GameMaster)]
-        public BulkMaterialType Material
+        public virtual BulkMaterialType Material
         {
             get
             {

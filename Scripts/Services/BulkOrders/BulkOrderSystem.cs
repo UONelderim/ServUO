@@ -406,6 +406,7 @@ namespace Server.Engines.BulkOrders
                 case BODType.Cooking: points = CookingRewardCalculator.Instance.ComputePoints(bod); break;
                 case BODType.Fletching: points = FletchingRewardCalculator.Instance.ComputePoints(bod); break;
                 case BODType.Carpentry: points = CarpentryRewardCalculator.Instance.ComputePoints(bod); break;
+                case BODType.Hunter: points = HunterRewardCalculator.Instance.ComputePoints(bod); break;
             }
 
             banked = points * 0.02;
@@ -424,6 +425,7 @@ namespace Server.Engines.BulkOrders
                 case BODType.Cooking: points = CookingRewardCalculator.Instance.ComputePoints(bod); break;
                 case BODType.Fletching: points = FletchingRewardCalculator.Instance.ComputePoints(bod); break;
                 case BODType.Carpentry: points = CarpentryRewardCalculator.Instance.ComputePoints(bod); break;
+                case BODType.Hunter: points = HunterRewardCalculator.Instance.ComputePoints(bod); break;
             }
 
             banked = points * .2;
@@ -517,6 +519,7 @@ namespace Server.Engines.BulkOrders
             switch (bod.BODType)
             {
                 default: return true;
+                case BODType.Hunter:
                 case BODType.Alchemy:
                 case BODType.Inscription: return false;
                 case BODType.Tinkering:
@@ -541,6 +544,7 @@ namespace Server.Engines.BulkOrders
             switch (bod.BODType)
             {
                 default: return true;
+                case BODType.Hunter:
                 case BODType.Alchemy:
                 case BODType.Inscription:
                 case BODType.Cooking: return false;

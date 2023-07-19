@@ -66,7 +66,7 @@ namespace Server.Engines.BulkOrders
             }
         }
         [CommandProperty(AccessLevel.GameMaster)]
-        public BulkMaterialType Material
+        public virtual BulkMaterialType Material
         {
             get
             {
@@ -251,6 +251,7 @@ namespace Server.Engines.BulkOrders
                     else
                     {
                         entry.Amount += small.AmountCur;
+                        OnEndCombine(small);
                         small.Delete();
 
                         from.SendLocalizedMessage(1045165); // The orders have been combined.
@@ -270,6 +271,10 @@ namespace Server.Engines.BulkOrders
             {
                 from.SendLocalizedMessage(1045158); // You must have the item in your backpack to target it.
             }
+        }
+
+        public virtual void OnEndCombine(SmallBOD small)
+        {
         }
 
         public virtual bool CheckType(SmallBOD small, Type type)

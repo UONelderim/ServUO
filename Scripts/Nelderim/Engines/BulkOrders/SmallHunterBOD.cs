@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 using Server.Items;
 using Server.Mobiles;
 
@@ -14,9 +13,28 @@ namespace Server.Engines.BulkOrders
 	{
 		public override BODType BODType => BODType.Hunter;
 
-		public int Level => Graphic;
-
 		private static readonly TimeSpan m_HuntProtection = TimeSpan.FromSeconds(15.0);
+
+		//Since we don't use material, we can store collected points in it :)
+		public override BulkMaterialType Material => (BulkMaterialType)CollectedPoints;
+		
+		private static double ScalePoints(double difficulty)
+		{
+			return Math.Pow(difficulty, 0.625);
+		}
+
+		private double _CollectedPoints;
+
+		[CommandProperty(AccessLevel.GameMaster)]
+		public double CollectedPoints
+		{
+			get => _CollectedPoints;
+			set
+			{
+				_CollectedPoints = value;
+				InvalidateProperties();
+			}
+		}
 
 		public override int ComputeFame()
 		{
@@ -30,35 +48,28 @@ namespace Server.Engines.BulkOrders
 
 		public override List<Item> ComputeRewards(bool full)
 		{
-			List<Item> list = new List<Item>();
+			var list = new List<Item>();
 
-			RewardGroup rewardGroup =
+			var rewardGroup =
 				HunterRewardCalculator.Instance.LookupRewards(HunterRewardCalculator.Instance.ComputePoints(this));
 
-			if (rewardGroup != null)
+			if (rewardGroup == null) return list;
+			if (full)
 			{
-				if (full)
+				foreach (var reward in rewardGroup.Items)
 				{
-					for (int i = 0; i < rewardGroup.Items.Length; ++i)
-					{
-						Item item = rewardGroup.Items[i].Construct();
+					var item = reward.Construct();
 
-						if (item != null)
-							list.Add(item);
-					}
+					if (item != null)
+						list.Add(item);
 				}
-				else
-				{
-					RewardItem rewardItem = rewardGroup.AcquireItem();
+			}
+			else
+			{
+				var item = rewardGroup.AcquireItem()?.Construct();
 
-					if (rewardItem != null)
-					{
-						Item item = rewardItem.Construct();
-
-						if (item != null)
-							list.Add(item);
-					}
-				}
+				if (item != null)
+					list.Add(item);
 			}
 
 			return list;
@@ -67,125 +78,103 @@ namespace Server.Engines.BulkOrders
 		public static SmallHunterBOD CreateRandomFor(Mobile m, double theirSkill)
 		{
 			SmallBulkEntry[] entries;
-			double propab1 = 0.0; // prawdopodobienstwo zlecenia o poziomie trudnosci 1
-			double propab2 = 0.0; // prawdopodobienstwo (zalezne!) zlecenia o poziomie trudnosci 2
+			double easyChance;
+			double mediumChance;
 
-			if (theirSkill >= 105.1)
+			switch (theirSkill)
 			{
-				propab1 = 0.22; // 9/(9+44+29)
-				propab2 = 0.68; // 44/(44+29)
+				case >= 105.1:
+					easyChance = 0.22; 
+					mediumChance = 0.68;
+					break;
+				case >= 90.1:
+					easyChance = 0.26;
+					mediumChance = 0.8; 
+					break;
+				case >= 70.1:
+					easyChance = 0.78; 
+					mediumChance = 1.0;
+					break;
+				default:
+					easyChance = 1.0;
+					mediumChance = 0.0;
+					break;
 			}
-			else if (theirSkill >= 90.1)
-			{
-				propab1 = 0.26; // 22/(22+50+13)
-				propab2 = 0.8; // 50/(50+13)
-			}
-			else if (theirSkill >= 70.1)
-			{
-				propab1 = 0.78; // 70/(70+20+0)
-				propab2 = 1.0; // 20/(20+0)
-			}
+
+			var rand = Utility.RandomDouble();
+
+			if (easyChance >= rand)
+				entries = SmallBulkEntry.Easy;
+			else if (mediumChance >= rand)
+				entries = SmallBulkEntry.Medium;
 			else
+				entries = SmallBulkEntry.Hard;
+
+			if (entries.Length <= 0) return null;
+
+			var amountMax = theirSkill switch
 			{
-				propab1 = 1.0;
-				propab2 = 0.0;
-			}
+				>= 70.1 => Utility.RandomList(10, 15, 20, 20),
+				>= 50.1 => Utility.RandomList(10, 15, 15, 20),
+				_ => Utility.RandomList(10, 10, 15, 20)
+			};
 
-			double rand = Utility.RandomDouble();
+			var entry = Utility.RandomList(entries);
 
-			if (propab1 >= rand)
-				entries = SmallBulkEntry.Hunter1;
-			else if (propab2 >= rand)
-				entries = SmallBulkEntry.Hunter2;
-			else
-				entries = SmallBulkEntry.Hunter3;
-
-			if (entries.Length > 0)
-			{
-				int amountMax;
-
-				if (theirSkill >= 70.1)
-					amountMax = Utility.RandomList(10, 15, 20, 20);
-				else if (theirSkill >= 50.1)
-					amountMax = Utility.RandomList(10, 15, 15, 20);
-				else
-					amountMax = Utility.RandomList(10, 10, 15, 20);
-
-				SmallBulkEntry entry = entries[Utility.Random(entries.Length)];
-
-				//Logowanie
-				if (!Directory.Exists("Logs"))
-					Directory.CreateDirectory("Logs");
-
-				string directory = "Logs/HunterBulkOrders";
-
-				if (!Directory.Exists(directory))
-					Directory.CreateDirectory(directory);
-
-				try
-				{
-					StreamWriter m_Output = new StreamWriter(Path.Combine(directory, "GivenHunterBODs.log"), true);
-					m_Output.AutoFlush = true;
-					string log = String.Format("Small\t{0}\t{1}\t{2}", DateTime.Now, entry.Type, amountMax.ToString());
-					m_Output.WriteLine(log);
-					m_Output.Flush();
-					m_Output.Close();
-				}
-				catch
-				{
-				}
-
-				if (entry != null)
-					return new SmallHunterBOD(entry, amountMax);
-			}
+			if (entry != null)
+				return new SmallHunterBOD(entry, amountMax);
 
 			return null;
 		}
 
 		private SmallHunterBOD(SmallBulkEntry entry, int amountMax)
 		{
-			this.Hue = 0xA8E;
-			this.AmountMax = amountMax;
-			this.Type = entry.Type;
-			this.Number = entry.Number;
-			this.Graphic = entry.Graphic;
+			Hue = 0xA8E;
+			AmountMax = amountMax;
+			Type = entry.Type;
+			Graphic = entry.Graphic;
+			Number = entry.Number;
 		}
 
 		[Constructable]
 		public SmallHunterBOD()
 		{
-			SmallBulkEntry[] entries;
-			int prop = Utility.RandomList(1, 2, 3);
-			if (prop == 1)
-				entries = SmallBulkEntry.Hunter1;
-			else if (prop == 2)
-				entries = SmallBulkEntry.Hunter2;
-			else
-				entries = SmallBulkEntry.Hunter3;
-
-			if (entries.Length > 0)
+			var entries = Utility.RandomList(1, 2, 3) switch
 			{
-				int hue = 0xA8E;
-				int amountMax = Utility.RandomList(10, 15, 20);
+				3 => SmallBulkEntry.Hard,
+				2 => SmallBulkEntry.Medium,
+				_ => SmallBulkEntry.Easy
+			};
 
-				SmallBulkEntry entry = entries[Utility.Random(entries.Length)];
+			if (entries.Length <= 0) return;
+			
+			var entry = Utility.RandomList(entries);
 
-				this.Hue = hue;
-				this.AmountMax = amountMax;
-				this.Type = entry.Type;
-				this.Number = entry.Number;
-				this.Graphic = entry.Graphic;
-			}
+			Hue = 0xA8E;
+			AmountMax =  Utility.RandomList(10, 15, 20);
+			Type = entry.Type;
+			Number = entry.Number;
+			Graphic = entry.Graphic;
 		}
 
-		public SmallHunterBOD(int amountCur, int amountMax, Type type, int number, int graphic, int level)
+		public SmallHunterBOD(int amountCur, int amountMax, Type type, int number, int graphic, bool reqExceptional, BulkMaterialType mat, int hue)
 		{
-			this.Hue = 0xA8E;
-			this.AmountMax = amountMax;
-			this.AmountCur = amountCur;
-			this.Type = type;
-			this.Number = number;
-			this.Graphic = graphic;
+			Hue = 0xA8E;
+			AmountMax = amountMax;
+			AmountCur = amountCur;
+			Type = type;
+			Number = number;
+			Graphic = graphic;
+			RequireExceptional = reqExceptional;
+			CollectedPoints = (double)mat;
+			GraphicHue = hue;
+		}
+		
+		public override void GetProperties(ObjectPropertyList list)
+		{
+			base.GetProperties(list);
+			
+			list.Add(1060658, "{0}\t{1}", "Zebrane punkty", $"{CollectedPoints:F2}"); // ~1_val~: ~2_val~
 		}
 
 		public SmallHunterBOD(Serial serial) : base(serial)
@@ -197,6 +186,7 @@ namespace Server.Engines.BulkOrders
 			base.Serialize(writer);
 
 			writer.Write(0); // version
+			writer.Write(_CollectedPoints);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -204,39 +194,44 @@ namespace Server.Engines.BulkOrders
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
+			_CollectedPoints = reader.ReadDouble();
 		}
 
 		public override void EndCombine(Mobile from, object o)
 		{
-			if (o is Corpse && o != null && (o as Corpse).Owner != null)
+			if (o is Corpse corpse && corpse.Owner is BaseCreature bc)
 			{
-				Type objectType = (o as Corpse).Owner.GetType();
+				var mobType = corpse.Owner.GetType();
 
 				if (AmountCur >= AmountMax)
 				{
 					from.SendLocalizedMessage(
 						1045166); // The maximum amount of requested items have already been combined to this deed.
 				}
-				else if (Type == null || (objectType != Type && !objectType.IsSubclassOf(Type)))
+				else if (Type == null || (mobType != Type && !mobType.IsSubclassOf(Type)))
 				{
 					from.SendLocalizedMessage(1045169); // The item is not in the request.
 				}
-				else if (((o as Corpse).Owner as BaseCreature).IsChampionSpawn)
+				else if (bc.IsChampionSpawn || bc.Summoned)
 				{
 					from.SendMessage("Te zwłoki nie mogą zostać oddane.");
 				}
-				else if (!CanBeHunted(from, (o as Corpse)))
+				else if (bc.CollectedByHunter)
 				{
-					from.SendMessage("CBH: Te zwłoki nie mogą zostać oddane.");
+					from.SendMessage("Te zwłoki zostaly juz oddane.");
+				}
+				else if (!CanBeCollected(from, corpse))
+				{
+					from.SendMessage("Te zwłoki naleza do kogos innego.");
 				}
 				else
 				{
-					(((Corpse)o).Owner as BaseCreature).IsChampionSpawn = true;
+					bc.CollectedByHunter = true;
 					++AmountCur;
 
 					from.SendLocalizedMessage(1045170); // The item has been combined with the deed.
-
 					from.SendGump(new SmallBODGump(from, this));
+					_CollectedPoints += ScalePoints(bc.Difficulty / AmountMax);
 
 					if (AmountCur < AmountMax)
 						BeginCombine(from);
@@ -248,46 +243,17 @@ namespace Server.Engines.BulkOrders
 			}
 		}
 
-		public bool CanBeHunted(Mobile from, Corpse c)
+		public bool CanBeCollected(Mobile from, Corpse c)
 		{
-			if (c == null || c.Owner == null)
-				return false;
-
-			BaseCreature mob = c.Owner as BaseCreature;
-
-			if (from is PlayerMobile && from != null && mob != null && !mob.Summoned)
+			if (from is PlayerMobile && c?.Owner is BaseCreature mob)
 			{
 				if (c.TimeOfDeath + m_HuntProtection > DateTime.Now)
 				{
-					//from.SendMessage("Czas nie ok!");
-					List<DamageStore> rights = mob.GetLootingRights();
-					int maxdmg = -1;
-					int idx = -1;
-					for (int i = 0; i < rights.Count; i++)
-					{
-						DamageStore ds = rights[i];
-						if (ds.m_Damage > maxdmg)
-						{
-							idx = i;
-							maxdmg = ds.m_Damage;
-						}
-					}
-
-					if (idx < 0)
-						return false;
-					DamageStore ds1 = rights[idx];
-					//from.SendMessage(mob.IsQuestMonster.ToString());
-					if (from == ds1.m_Mobile && !mob.IsChampionSpawn)
-						return true;
-					return false;
+					var maxDamage = mob.GetLootingRights().Highest(r => r.m_Damage);
+					return from == maxDamage.m_Mobile;
 				}
-
-				//from.SendMessage("Po czasie!");
-				if (!mob.IsChampionSpawn)
-					return true;
-				return false;
+				return true;
 			}
-
 			return false;
 		}
 	}
