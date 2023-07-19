@@ -448,7 +448,7 @@ namespace Server.Engines.BulkOrders
 
 		#endregion
 
-		public static readonly HunterRewardCalculator Instance = new HunterRewardCalculator();
+		public static readonly HunterRewardCalculator Instance = new();
 
 		public override int ComputePoints(int quantity, bool exceptional, BulkMaterialType material, int itemCount,
 			Type type)
@@ -464,72 +464,71 @@ namespace Server.Engines.BulkOrders
 
 		private static readonly int[] GoldPerCreature = { 30, 100, 300 };
 
-		public int ComputeGold(int creatureAmount, int level)
+		public int ComputeGold(double points)
 		{
-			int levelIndex = (level - 1);
-			int gold = GoldPerCreature[levelIndex] * creatureAmount;
-
-			return Utility.RandomMinMax((int)(gold * 0.95), (int)(gold * 1.05)); // plus minus 5%
+			return Utility.RandomMinMax((int)(points * 0.95), (int)(points * 1.05));
 		}
 
 		public override int ComputeGold(SmallBOD bod)
 		{
-			return ComputeGold(bod.AmountMax, SmallBulkEntry.GetHunterBulkLevel(bod));
+			return ComputeGold((bod as SmallHunterBOD)?.CollectedPoints ?? 0);
 		}
 
 		public override int ComputeGold(LargeBOD bod)
 		{
-			return bod.Entries.Length * ComputeGold(bod.AmountMax, SmallBulkEntry.GetHunterBulkLevel(bod));
+			return bod.Entries.Length * ComputeGold((bod as LargeHunterBOD)?.CollectedPoints ?? 0);
 		}
 
 		public override int ComputePoints(SmallBOD bod)
 		{
-			int level = SmallBulkEntry.GetHunterBulkLevel(bod);
-			int basePoints = 0;
-			int levelPoints = 100 * (level - 1);
-			int amountPoints;
-			switch (bod.AmountMax)
-			{
-				case 10:
-					amountPoints = 10;
-					break;
-				case 15:
-					amountPoints = 25;
-					break;
-				case 20:
-					amountPoints = 50;
-					break;
-				default:
-					amountPoints = 0;
-					break;
-			}
-
-			return basePoints + levelPoints + amountPoints;
+			// int level = (bod as SmallHunterBOD)?.Level ?? 1;
+			// int basePoints = 0;
+			// int levelPoints = 100 * (level - 1);
+			// int amountPoints;
+			// switch (bod.AmountMax)
+			// {
+			// 	case 10:
+			// 		amountPoints = 10;y
+			// 		break;
+			// 	case 15:
+			// 		amountPoints = 25;
+			// 		break;
+			// 	case 20:
+			// 		amountPoints = 50;
+			// 		break;
+			// 	default:
+			// 		amountPoints = 0;
+			// 		break;
+			// }
+			//
+			// return basePoints + levelPoints + amountPoints;
+			return (int)(((SmallHunterBOD)bod)?.CollectedPoints ?? 0);
 		}
 
 		public override int ComputePoints(LargeBOD bod)
 		{
-			int level = SmallBulkEntry.GetHunterBulkLevel(bod);
-			int basePoints = 200;
-			int levelPoints = 100 * (level - 1);
-			int amountPoints;
-			switch (bod.AmountMax)
-			{
-				case 10:
-					amountPoints = 10;
-					break;
-				case 15:
-					amountPoints = 25;
-					break;
-				case 20:
-					amountPoints = 50;
-					break;
-				default:
-					amountPoints = 0;
-					break;
-			}
-
-			return basePoints + levelPoints + amountPoints;
+			// int level = (bod as LargeHunterBOD)?.Level ?? 1;
+			// int basePoints = 200;
+			// int levelPoints = 100 * (level - 1);
+			// int amountPoints;
+			// switch (bod.AmountMax)
+			// {
+			// 	case 10:
+			// 		amountPoints = 10;
+			// 		break;
+			// 	case 15:
+			// 		amountPoints = 25;
+			// 		break;
+			// 	case 20:
+			// 		amountPoints = 50;
+			// 		break;
+			// 	default:
+			// 		amountPoints = 0;
+			// 		break;
+			// }
+			//
+			// return basePoints + levelPoints + amountPoints;
+			return (int)(((LargeHunterBOD)bod)?.CollectedPoints ?? 0);
 		}
 
 		public HunterRewardCalculator()

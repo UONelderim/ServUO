@@ -14,6 +14,26 @@ namespace Server.Engines.BulkOrders
 	public class LargeHunterBOD : LargeBOD
 	{
 		public override BODType BODType => BODType.Hunter;
+		
+		public override BulkMaterialType Material => (BulkMaterialType)CollectedPoints;
+
+		private static double ScalePoints(double smallPoints)
+		{
+			return smallPoints * 1.2;
+		}
+		
+		private double _CollectedPoints;
+		
+		[CommandProperty(AccessLevel.GameMaster)]
+		public double CollectedPoints
+		{
+			get => _CollectedPoints;
+			set
+			{
+				_CollectedPoints = value;
+				InvalidateProperties();
+			}
+		}
 
 		public override int ComputeFame()
 		{
@@ -34,34 +54,33 @@ namespace Server.Engines.BulkOrders
 		[Constructable]
 		public LargeHunterBOD(double theirSkill)
 		{
-			LargeBulkEntry[] entries;
-			double prop1 = 0.0; // prawdopodobienstwo zlecenia o poziomie trudnosci 1
-			double prop2 = 0.0; // prawdopodobienstwo (zalezne!) zlecenia o poziomie trudnosci 2
+			double easyChance;
+			double mediumChance;
 
 			if (theirSkill > 105.0)
 			{
-				prop1 = 0.31; // 2/(2+8+8)
-				prop2 = 0.50; // 8/(8+8)
+				easyChance = 0.31; // 2/(2+8+8)
+				mediumChance = 0.50; // 8/(8+8)
 			}
 			else if (theirSkill > 90.0)
 			{
-				prop1 = 0.33; // 5/(15+10+0)
-				prop2 = 1.0; // 10/(10+0)
+				easyChance = 0.33; // 5/(15+10+0)
+				mediumChance = 1.0; // 10/(10+0)
 			}
 			else
 			{
-				prop1 = 1.0; // 10/(10+0+0)
-				prop2 = 0.0;
+				easyChance = 1.0; // 10/(10+0+0)
+				mediumChance = 0.0;
 			}
 
 			double rnd = Utility.RandomDouble();
-			int type = 0; // poziom trudnosci zlecenia (1-3)
+			int type;
 
-			if (prop1 > rnd)
+			if (easyChance > rnd)
 			{
 				type = 1;
 			}
-			else if (prop2 > rnd)
+			else if (mediumChance > rnd)
 			{
 				type = 2;
 			}
@@ -70,178 +89,51 @@ namespace Server.Engines.BulkOrders
 				type = 3;
 			}
 
-			switch (type)
+			Hue = 0x614;
+			AmountMax = Utility.RandomList(10, 15, 20, 20);
+			Entries = LargeBulkEntry.ConvertEntries(this, type switch
 			{
-				default:
-				case 1:
-					switch (Utility.Random(12))
-					{
-						default:
-						case 0:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Animal_1);
-							break;
-						case 1:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Animal_2);
-							break;
-						case 2:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Ants);
-							break;
-						case 3:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Elementals_1);
-							break;
-						case 4:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Horda_1);
-							break;
-						case 5:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Horda_2);
-							break;
-						case 6:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Horda_3);
-							break;
-						case 7:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Orcs);
-							break;
-						case 8:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.OreElementals);
-							break;
-						case 9:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Plants);
-							break;
-						case 10:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Rozne);
-							break;
-						case 11:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Undead_1);
-							break;
-					}
-
-					break;
-
-				case 2:
-					switch (Utility.Random(9))
-					{
-						default:
-						case 0:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Elementals_2);
-							break;
-						case 1:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Gargoyles);
-							break;
-						case 2:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Jukas);
-							break;
-						case 3:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Mech);
-							break;
-						case 4:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Minotaurs);
-							break;
-						case 5:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Ophidians);
-							break;
-						case 6:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Strong);
-							break;
-						case 7:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Terathans);
-							break;
-						case 8:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Undead_2);
-							break;
-					}
-
-					break;
-
-				case 3:
-					switch (Utility.Random(5))
-					{
-						default:
-						case 0:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Kox_1);
-							break;
-						case 1:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Kox_2);
-							break;
-						case 2:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Kox_3);
-							break;
-						case 3:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Kox_4);
-							break;
-						case 4:
-							entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.Kox_5);
-							break;
-					}
-
-					break;
-			}
-
-			int hue = 1556;
-			int amountMax = Utility.RandomList(10, 15, 20, 20);
-
-			this.Hue = hue;
-			this.AmountMax = amountMax;
-			this.Entries = entries;
-
-			//Logowanie
-			if (!Directory.Exists("Logs"))
-				Directory.CreateDirectory("Logs");
-
-			string directory = "Logs/HunterBulkOrders";
-
-			if (!Directory.Exists(directory))
-				Directory.CreateDirectory(directory);
-
-			try
-			{
-				StreamWriter m_Output = new StreamWriter(Path.Combine(directory, "GivenHunterBODs.log"), true);
-				m_Output.AutoFlush = true;
-				StringBuilder strB = new StringBuilder();
-				strB.Append(entries[0].Details.Type);
-				for (int i = 1; i < entries.Length; i++)
-				{
-					strB.Append(", ");
-					strB.Append(entries[i].Details.Type);
-				}
-
-				string log = String.Format("Large\t{0}\t{1}\t{2}", DateTime.Now, strB, amountMax.ToString());
-				m_Output.WriteLine(log);
-				m_Output.Flush();
-				m_Output.Close();
-			}
-			catch
-			{
-			}
+				3 => Utility.RandomList(LargeBulkEntry.LargeHard),
+				2 => Utility.RandomList(LargeBulkEntry.LargeMedium),
+				_ => Utility.RandomList(LargeBulkEntry.LargeEasy),
+			});;
 		}
 
-		public LargeHunterBOD(int amountMax, LargeBulkEntry[] entries)
+		public LargeHunterBOD(int amountMax, bool reqExceptional, BulkMaterialType mat, LargeBulkEntry[] entries)
 		{
-			this.Hue = 0xA7E;
-			this.AmountMax = amountMax;
-			this.Entries = entries;
+			Hue = 0x614;
+			AmountMax = amountMax;
+			Entries = entries;
+			RequireExceptional = reqExceptional;
+			CollectedPoints = (double)mat;
 		}
 
 		public override List<Item> ComputeRewards(bool full)
 		{
-			List<Item> list = new List<Item>();
+			var list = new List<Item>();
 
-			RewardGroup rewardGroup =
+			var rewardGroup =
 				HunterRewardCalculator.Instance.LookupRewards(HunterRewardCalculator.Instance.ComputePoints(this));
 
-			if (rewardGroup != null)
-			{
-				RewardItem rewardItem = rewardGroup.AcquireItem();
+			var item = rewardGroup?.AcquireItem()?.Construct();
 
-				if (rewardItem != null)
-				{
-					Item item = rewardItem.Construct();
-
-					if (item != null)
-						list.Add(item);
-				}
-			}
+			if (item != null)
+				list.Add(item);
 
 			return list;
+		}
+
+		public override void OnEndCombine(SmallBOD small)
+		{
+			if (small is SmallHunterBOD hunterBod)
+				_CollectedPoints += ScalePoints(hunterBod.CollectedPoints);
+		}
+		
+		public override void GetProperties(ObjectPropertyList list)
+		{
+			base.GetProperties(list);
+			
+			list.Add(1060658, "{0}\t{1}", "Zebrane punkty", $"{CollectedPoints:F2}"); // ~1_val~: ~2_val~
 		}
 
 		public LargeHunterBOD(Serial serial) : base(serial)
@@ -253,6 +145,7 @@ namespace Server.Engines.BulkOrders
 			base.Serialize(writer);
 
 			writer.Write(0); // version
+			writer.Write(_CollectedPoints);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -260,6 +153,7 @@ namespace Server.Engines.BulkOrders
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
+			_CollectedPoints = reader.ReadDouble();
 		}
 	}
 }

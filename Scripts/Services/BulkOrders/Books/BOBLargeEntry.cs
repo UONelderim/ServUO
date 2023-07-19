@@ -105,6 +105,7 @@ namespace Server.Engines.BulkOrders
                 case BODType.Fletching: bod = new LargeFletchingBOD(m_AmountMax, m_RequireExceptional, m_Material, ReconstructEntries()); break;
                 case BODType.Tinkering: bod = new LargeTinkerBOD(m_AmountMax, m_RequireExceptional, m_Material, ReconstructEntries(), m_GemType); break;
                 case BODType.Cooking: bod = new LargeCookingBOD(m_AmountMax, m_RequireExceptional, m_Material, ReconstructEntries()); break;
+                case BODType.Hunter: bod = new LargeHunterBOD(m_AmountMax, m_RequireExceptional, m_Material, ReconstructEntries()); break;
             }
 
             for (int i = 0; bod != null && i < bod.Entries.Length; ++i)

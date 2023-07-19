@@ -112,6 +112,7 @@ namespace Server.Engines.BulkOrders
                 case BODType.Fletching: bod = new SmallFletchingBOD(m_AmountCur, m_AmountMax, m_ItemType, m_Number, m_Graphic, m_RequireExceptional, m_Material, m_Hue); break;
                 case BODType.Tinkering: bod = new SmallTinkerBOD(m_AmountCur, m_AmountMax, m_ItemType, m_Number, m_Graphic, m_RequireExceptional, m_Material, m_Hue, m_GemType); break;
                 case BODType.Cooking: bod = new SmallCookingBOD(m_AmountCur, m_AmountMax, m_ItemType, m_Number, m_Graphic, m_RequireExceptional, m_Material, m_Hue); break;
+                case BODType.Hunter: bod = new SmallHunterBOD(m_AmountCur, m_AmountMax, m_ItemType, m_Number, m_Graphic, m_RequireExceptional, m_Material, m_Hue); break;
             }
 
             return bod;

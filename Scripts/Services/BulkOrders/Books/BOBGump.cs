@@ -612,6 +612,7 @@ namespace Server.Engines.BulkOrders
                             case BulkMaterialType.Frostwood: return 1071433;
                         }
                     }
+	                case BODType.Hunter: return ((int)mat).ToString();
             }
 
             return "";
