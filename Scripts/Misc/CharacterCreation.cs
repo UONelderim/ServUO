@@ -1,6 +1,6 @@
 #region References
 using System;
-
+using System.Data;
 using Server.Accounting;
 using Server.Items;
 using Server.Mobiles;
@@ -232,8 +232,8 @@ namespace Server.Misc
 				newChar.BankBox.DropItem(ticket);
 			}
 
-			var city = args.City;
-			var map = Siege.SiegeShard && city.Map == Map.Trammel ? Map.Felucca : city.Map;
+			var city = AccountHandler.StartingCities[0];
+			var map = Map.Trammel;
 
 			newChar.MoveToWorld(city.Location, map);
 
