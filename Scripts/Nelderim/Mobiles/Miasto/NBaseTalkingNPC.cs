@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Server.Mobiles
 {
@@ -22,15 +23,17 @@ namespace Server.Mobiles
 		{
 		}
 
-		public override void OnMovement(Mobile m, Point3D oldLocation)
+		public override void OnThink()
 		{
-			base.OnMovement(m, oldLocation);
+			var players = GetClientsInRange(Core.GlobalUpdateRange);
+			var playersCount = players.Count();
+			players.Free();
 
 			if (NpcActions == null ||
 			    Muted ||
 			    DateTime.Now - _lastAction < ActionDelay ||
-			    !(Utility.RandomDouble() < 0.25) ||
-			    !m.InRange(this, 3))
+			    !(Utility.RandomDouble() < 0.01 ) ||
+			    playersCount < 1)
 			{
 				return;
 			}
