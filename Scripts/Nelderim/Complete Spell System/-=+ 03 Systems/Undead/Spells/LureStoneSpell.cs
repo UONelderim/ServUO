@@ -135,6 +135,11 @@ namespace Server.ACC.CSS.Systems.Undead
 
 			public override void OnMovement(Mobile m, Point3D oldLocation)
 			{
+				if (m is BaseNelderimGuard || m is BaseVendor)
+				{
+					return;
+				}
+
 				if (m_Owner != null)
 				{
 					if (m.InRange(this, 1000))
@@ -144,17 +149,17 @@ namespace Server.ACC.CSS.Systems.Undead
 
 						BaseCreature cret = m as BaseCreature;
 						if (cret != null)
-							if (tamer >= 99.9 && (cret.Combatant == null || !cret.Combatant.Alive ||
-							                      cret.Combatant.Deleted))
+						{
+							if (tamer >= 99.9 && (cret.Combatant == null || !cret.Combatant.Alive || cret.Combatant.Deleted))
 							{
 								cret.TargetLocation = new Point2D(this.X, this.Y);
 							}
-							else if (cret.Tamable && (cret.Combatant == null || !cret.Combatant.Alive ||
-							                          cret.Combatant.Deleted))
+							else if (cret.Tamable && (cret.Combatant == null || !cret.Combatant.Alive || cret.Combatant.Deleted))
 							{
 								if (cret.MinTameSkill <= (tamer + bonus) + 0.1)
 									cret.TargetLocation = new Point2D(this.X, this.Y);
 							}
+						}
 					}
 				}
 			}
