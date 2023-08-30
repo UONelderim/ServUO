@@ -136,26 +136,31 @@ namespace Server.ACC.CSS.Systems.Druid
 
 			public override void OnMovement(Mobile m, Point3D oldLocation)
 			{
+				if (m is BaseNelderimGuard || m is BaseVendor)
+				{
+					return;
+				}
+
 				if (m_Owner != null)
 				{
-					if (m.InRange(this, 600))
+					if (m.InRange(this, 1000))
 					{
 						double tamer = m_Owner.Skills[SkillName.Herbalism].Value;
-						double bonus = m_Owner.Skills[SkillName.Magery].Value / 100;
+						double bonus = m_Owner.Skills[SkillName.Magery].Value / 10;
 
 						BaseCreature cret = m as BaseCreature;
 						if (cret != null)
-							if (tamer >= 99.9 && (cret.Combatant == null || !cret.Combatant.Alive ||
-							                      cret.Combatant.Deleted))
+						{
+							if (tamer >= 99.9 && (cret.Combatant == null || !cret.Combatant.Alive || cret.Combatant.Deleted))
 							{
 								cret.TargetLocation = new Point2D(this.X, this.Y);
 							}
-							else if (cret.Tamable && (cret.Combatant == null || !cret.Combatant.Alive ||
-							                          cret.Combatant.Deleted))
+							else if (cret.Tamable && (cret.Combatant == null || !cret.Combatant.Alive || cret.Combatant.Deleted))
 							{
 								if (cret.MinTameSkill <= (tamer + bonus) + 0.1)
 									cret.TargetLocation = new Point2D(this.X, this.Y);
 							}
+						}
 					}
 				}
 			}
