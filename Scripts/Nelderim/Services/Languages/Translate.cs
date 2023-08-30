@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using Server;
 using Server.Network;
+using Server.Multis;
+using Server.Items;
 
 #endregion
 
@@ -45,7 +47,16 @@ namespace Nelderim
 				from.RevealingAction();
 				from.SayTo(to, translated);
 			}
+			foreach (Item it in from.Map.GetItemsInRange(from.Location, tileLength))
+			{
+				if (it is BaseBoat || it is KeywordTeleporter)
+				{
+					it.OnSpeech(args);
+				}
+			}
+		
 		}
+		
 
 		private static TranslationResult TranslateText(string original, Language lang)
 		{
