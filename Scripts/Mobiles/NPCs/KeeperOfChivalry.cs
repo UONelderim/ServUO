@@ -25,6 +25,7 @@ namespace Server.Mobiles
         public override void InitSBInfo()
         {
             m_SBInfos.Add(new SBKeeperOfChivalry());
+            m_SBInfos.Add(new SBKeeperOfBushido());
         }
 
         public override void InitOutfit()
