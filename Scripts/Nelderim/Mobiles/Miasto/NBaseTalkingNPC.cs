@@ -25,13 +25,13 @@ namespace Server.Mobiles
 
 		public override void OnThink()
 		{
+			if (DateTime.Now - _lastAction < ActionDelay) return;
 			var players = GetClientsInRange(Core.GlobalUpdateRange);
 			var playersCount = players.Count();
 			players.Free();
 
 			if (NpcActions == null ||
 			    Muted ||
-			    DateTime.Now - _lastAction < ActionDelay ||
 			    !(Utility.RandomDouble() < 0.01 ) ||
 			    playersCount < 1)
 			{
