@@ -41,22 +41,23 @@ namespace Nelderim
 			};
 
 			var translationResult = TranslateText(speech, from.LanguageSpeaking);
-			foreach (var to in from.Map.GetMobilesInRange(from.Location, tileLength))
+			var meable = from.Map.GetMobilesInRange(from.Location, tileLength)
+			foreach (var to in meable)
 			{
 				var translated = Combine(translationResult, from, to);
 				from.RevealingAction();
 				from.SayTo(to, translated);
 			}
-
-			var eable = from.Map.GetItemsInRange(from.Location, tileLength);
-			foreach (Item it in eable)
+			meable.Free();
+			var ieable = from.Map.GetItemsInRange(from.Location, tileLength);
+			foreach (Item it in ieable)
 			{
 				if (it is BaseBoat || it is KeywordTeleporter)
 				{
 					it.OnSpeech(args);
 				}
 			}
-			eable.Free();
+			ieable.Free();
 		}
 		
 
