@@ -2365,7 +2365,8 @@ namespace Server.Mobiles
 
 					if (BulkOrderSystem.NewSystemEnabled)
 					{
-						list.Add(new BribeEntry(from, this));
+						if(SupportsBribes)
+							list.Add(new BribeEntry(from, this));
 						list.Add(new ClaimRewardsEntry(from, this));
 					}
 				}

@@ -16,6 +16,7 @@ namespace Server.Mobiles
 		public override NpcGuild NpcGuild => NpcGuild.RangersGuild;
 		public override bool IsActiveBuyer => false;
 		public override bool IsActiveSeller => false;
+		public override bool SupportsBribes => false;
 
 		[Constructable]
 		public Hunter() : base("- mysliwy")

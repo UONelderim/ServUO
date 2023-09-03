@@ -9,18 +9,18 @@ namespace Server.Mobiles
 	public partial class VendorAI
 	{
 		private static readonly List<OnSpeechEntry> _KeywordActions =
-			new List<OnSpeechEntry>
+			new()
 			{
 				new OnSpeechEntry("sprzed" , (m, from) =>
 				{
-					if (m is BaseVendor bv)
+					if (m is BaseVendor bv && bv.GetSellInfo().Length > 0)
 					{
 						bv.VendorSell(from);
 					}
 				}),
 				new OnSpeechEntry("kup" , (m, from) =>
 				{
-					if (m is BaseVendor bv)
+					if (m is BaseVendor bv && bv.GetBuyInfo().Length > 0)
 					{
 						bv.VendorBuy(from);
 					}
@@ -44,6 +44,7 @@ namespace Server.Mobiles
 				{
 					if (!(m is BaseVendor bv)) return;
 					if (!bv.CheckVendorAccess(from)) return;
+					if (!bv.SupportsBribes) return;
 						
 					new BaseVendor.BribeEntry(from, bv).OnClick();
 				}),
@@ -68,7 +69,6 @@ namespace Server.Mobiles
 					var regex = new Regex(keyword, RegexOptions.IgnoreCase);
 					if (regex.IsMatch(e.Speech))
 					{
-						e.Handled = true;
 						var lazyRegex = new Regex($"^{keyword}..?$", RegexOptions.IgnoreCase);
 						if(!entry.Exact && String.Equals(e.Speech, keyword, StringComparison.CurrentCultureIgnoreCase) || lazyRegex.IsMatch(e.Speech))
 						{
@@ -77,6 +77,7 @@ namespace Server.Mobiles
 						else
 						{
 							entry.Action.Invoke(bv, from);
+							e.Handled = true;
 						}
 						bv.FocusMob = from;
 						break;

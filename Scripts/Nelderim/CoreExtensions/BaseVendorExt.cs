@@ -13,19 +13,20 @@ namespace Server.Mobiles
 	public abstract partial class BaseVendor
 	{
 		// Towns
+		public virtual bool SupportsBribes => true;
 
 		[CommandProperty(AccessLevel.Administrator)]
 		public Towns TownAssigned
 		{
-			get { return TownsVendor.Get(this).TownAssigned; }
-			set { TownsVendor.Get(this).TownAssigned = value; }
+			get => TownsVendor.Get(this).TownAssigned;
+			set => TownsVendor.Get(this).TownAssigned = value;
 		}
 
 		[CommandProperty(AccessLevel.Administrator)]
 		public TownBuildingName TownBuildingAssigned
 		{
-			get { return TownsVendor.Get(this).TownBuildingAssigned; }
-			set { TownsVendor.Get(this).TownBuildingAssigned = value; }
+			get => TownsVendor.Get(this).TownBuildingAssigned;
+			set => TownsVendor.Get(this).TownBuildingAssigned = value;
 		}
 
 		public bool IsAssignedBuildingWorking()
@@ -60,8 +61,8 @@ namespace Server.Mobiles
 		[CommandProperty(AccessLevel.GameMaster)]
 		public bool Smuggler
 		{
-			get { return TownsVendor.Get(this).TradesWithCriminals; }
-			set { TownsVendor.Get(this).TradesWithCriminals = value; }
+			get => TownsVendor.Get(this).TradesWithCriminals;
+			set => TownsVendor.Get(this).TradesWithCriminals = value;
 		}
 
 		// blokada nietolerancji
@@ -117,7 +118,7 @@ namespace Server.Mobiles
             {
                 List<RumorRecord> RumorsList = RumorsSystem.GetRumors( this, PriorityLevel.VeryLow );
 
-                this.Direction = this.GetDirectionTo( from.Location );
+                Direction = GetDirectionTo( from.Location );
 
                 if ( !CheckVendorAccess( from ) )
                     return;
@@ -131,17 +132,17 @@ namespace Server.Mobiles
                 switch ( RumorsList.Count )
                 {
                     case 1:
-                        Say( from.Female ? 505525 : 505524, ( RumorsList[ 0 ] as RumorRecord ).Title ); // Co ciekawego? Slyszalas o ___?
+                        Say( from.Female ? 505525 : 505524, ( RumorsList[ 0 ]).Title ); // Co ciekawego? Slyszalas o ___?
                         break;
                     case 2:
-                        Say( 505523, String.Format( "{0}\t{1}", ( RumorsList[ 0 ] as RumorRecord ).Title, ( RumorsList[ 1 ] as RumorRecord ).Title ) ); // Mam dwie nowiny. O ___ i o ___.
+                        Say( 505523, String.Format( "{0}\t{1}", ( RumorsList[ 0 ]).Title, (RumorsList[ 1 ]).Title ) ); // Mam dwie nowiny. O ___ i o ___.
                         break;
                     default:
                         string text = "";
                         
                         for( int i=0; i < RumorsList.Count; i++ )
                         {
-                            RumorRecord rum = ( RumorRecord )RumorsList[ i ];
+                            RumorRecord rum = RumorsList[ i ];
         
                             text += String.Format( "{0}{1}{2}", ( i + 1 == RumorsList.Count ) ? " lub o " : " ", rum.Title, ( i + 1 == RumorsList.Count ) ? "" : "," );
                         }
