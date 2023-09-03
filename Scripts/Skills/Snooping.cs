@@ -40,7 +40,7 @@ namespace Server.SkillHandlers
 
         public static void Container_Snoop(Container cont, Mobile from)
         {
-            if (from.IsStaff() || from.BeginAction (typeof(Snooping)) || from.InRange(cont.GetWorldLocation(), 1))
+            if (from.IsStaff() || (from.BeginAction (typeof(Snooping)) && from.InRange(cont.GetWorldLocation(), 1)))
             {
 	            Timer.DelayCall( Cooldown, new TimerStateCallback( Cooldown_Callback ), from );
 	            
