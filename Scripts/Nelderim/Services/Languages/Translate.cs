@@ -41,7 +41,7 @@ namespace Nelderim
 			};
 
 			var translationResult = TranslateText(speech, from.LanguageSpeaking);
-			var meable = from.Map.GetMobilesInRange(from.Location, tileLength)
+			var meable = from.Map.GetMobilesInRange(from.Location, tileLength);
 			foreach (var to in meable)
 			{
 				var translated = Combine(translationResult, from, to);
