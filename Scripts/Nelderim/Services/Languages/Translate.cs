@@ -47,14 +47,16 @@ namespace Nelderim
 				from.RevealingAction();
 				from.SayTo(to, translated);
 			}
-			foreach (Item it in from.Map.GetItemsInRange(from.Location, tileLength))
+
+			var eable = from.Map.GetItemsInRange(from.Location, tileLength);
+			foreach (Item it in eable)
 			{
 				if (it is BaseBoat || it is KeywordTeleporter)
 				{
 					it.OnSpeech(args);
 				}
 			}
-		
+			eable.Free();
 		}
 		
 
