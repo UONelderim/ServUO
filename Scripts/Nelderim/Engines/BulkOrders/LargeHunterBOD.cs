@@ -89,7 +89,7 @@ namespace Server.Engines.BulkOrders
 				type = 3;
 			}
 
-			Hue = 0x614;
+			Hue = 1556;
 			AmountMax = Utility.RandomList(10, 15, 20, 20);
 			Entries = LargeBulkEntry.ConvertEntries(this, type switch
 			{
@@ -101,7 +101,7 @@ namespace Server.Engines.BulkOrders
 
 		public LargeHunterBOD(int amountMax, bool reqExceptional, BulkMaterialType mat, LargeBulkEntry[] entries)
 		{
-			Hue = 0x614;
+			Hue = 1556;
 			AmountMax = amountMax;
 			Entries = entries;
 			RequireExceptional = reqExceptional;

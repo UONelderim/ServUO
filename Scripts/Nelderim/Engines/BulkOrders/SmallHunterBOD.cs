@@ -129,7 +129,7 @@ namespace Server.Engines.BulkOrders
 
 		private SmallHunterBOD(SmallBulkEntry entry, int amountMax)
 		{
-			Hue = 0xA8E;
+			Hue = 1182;
 			AmountMax = amountMax;
 			Type = entry.Type;
 			Graphic = entry.Graphic;
@@ -150,7 +150,7 @@ namespace Server.Engines.BulkOrders
 			
 			var entry = Utility.RandomList(entries);
 
-			Hue = 0xA8E;
+			Hue = 1182;
 			AmountMax =  Utility.RandomList(10, 15, 20);
 			Type = entry.Type;
 			Number = entry.Number;
