@@ -75,7 +75,7 @@ namespace Server.Engines.Craft
 
         private static readonly Type[] m_TailorClothNonColorables = new Type[]
         {
-            typeof(NDeerMask), typeof(NBearMask), typeof(OrcMask), typeof(NTribalMask), typeof(NHornedTribalMask), typeof(CuffsOfTheArchmage)
+            typeof(CuffsOfTheArchmage)
         };
 
         // singleton instance
@@ -231,41 +231,35 @@ namespace Server.Engines.Craft
 
             AddCraft(typeof(Kasa), 1011375, 1030211, 60.0, 85.0, typeof(Cloth), 1044455, 12, 1044287);
 
-            AddCraft(typeof(OrcMask), 1011375, 1025147, 75.0, 100.0, typeof(Cloth), 1044455, 12, 1044287);
-            AddCraft(typeof(NBearMask), 1011375, 1025445, 77.5, 102.5, typeof(Cloth), 1044455, 15, 1044287);
-            AddCraft(typeof(NDeerMask), 1011375, 1025447, 77.5, 102.5, typeof(Cloth), 1044455, 15, 1044287);
-            AddCraft(typeof(NTribalMask), 1011375, 1025449, 82.5, 107.5, typeof(Cloth), 1044455, 12, 1044287);
-            AddCraft(typeof(NHornedTribalMask), 1011375, 1025451, 82.5, 107.5, typeof(Cloth), 1044455, 12, 1044287);
-
-       /*     index = AddCraft(typeof(ChefsToque), 1011375, 1109618, 6.2, 21.2, typeof(Cloth), 1044455, 11, 1044287);
-            AddRecipe(index, (int)TailorRecipe.ChefsToque);
-
-            index = AddCraft(typeof(KrampusMinionHat), 1011375, 1125639, 100.0, 500.0, typeof(Cloth), 1044455, 8, 1044287);
-            AddRecipe(index, (int)TailorRecipe.KrampusMinionHat);
-
-            index = AddCraft(typeof(AssassinsCowl), 1011375, 1126024, 90.0, 110.0, typeof(Cloth), 1044455, 5, 1044287);
-            AddRes(index, typeof(Leather), 1044462, 5, 1044463);
-            AddRes(index, typeof(VileTentacles), 1113333, 5, 1044253);
-            AddRecipe(index, (int)TailorRecipe.AssassinsCowl);
-
-            index = AddCraft(typeof(MagesHood), 1011375, 1159227, 90.0, 110.0, typeof(Cloth), 1044455, 5, 1044287);
-            AddRes(index, typeof(Leather), 1044462, 5, 1044463);
-            AddRes(index, typeof(VoidCore), 1113334, 5, 1044253);
-            AddRecipe(index, (int)TailorRecipe.MagesHood);
-
-            index = AddCraft(typeof(CowlOfTheMaceAndShield), 1011375, 1159228, 120.0, 215.0, typeof(Cloth), 1044455, 5, 1044287);
-            AddRes(index, typeof(Leather), 1044462, 5, 1044463);
-            AddRes(index, typeof(MaceAndShieldGlasses), 1073381, 1, 1044253);
-            AddRes(index, typeof(VileTentacles), 1113333, 10, 1044253);
-            AddRecipe(index, (int)TailorRecipe.CowlOfTheMaceAndShield);
-            ForceExceptional(index);
-
-            index = AddCraft(typeof(MagesHoodOfScholarlyInsight), 1011375, 1159229, 120.0, 215.0, typeof(Cloth), 1044455, 5, 1044287);
-            AddRes(index, typeof(Leather), 1044462, 5, 1044463);
-            AddRes(index, typeof(TheScholarsHalo), 1157354, 1, 1044253);
-            AddRes(index, typeof(VoidCore), 1113334, 10, 1044253);
-            AddRecipe(index, (int)TailorRecipe.MagesHoodOfScholarlyInsight);
-            ForceExceptional(index);*/
+            /*     index = AddCraft(typeof(ChefsToque), 1011375, 1109618, 6.2, 21.2, typeof(Cloth), 1044455, 11, 1044287);
+                 AddRecipe(index, (int)TailorRecipe.ChefsToque);
+     
+                 index = AddCraft(typeof(KrampusMinionHat), 1011375, 1125639, 100.0, 500.0, typeof(Cloth), 1044455, 8, 1044287);
+                 AddRecipe(index, (int)TailorRecipe.KrampusMinionHat);
+     
+                 index = AddCraft(typeof(AssassinsCowl), 1011375, 1126024, 90.0, 110.0, typeof(Cloth), 1044455, 5, 1044287);
+                 AddRes(index, typeof(Leather), 1044462, 5, 1044463);
+                 AddRes(index, typeof(VileTentacles), 1113333, 5, 1044253);
+                 AddRecipe(index, (int)TailorRecipe.AssassinsCowl);
+     
+                 index = AddCraft(typeof(MagesHood), 1011375, 1159227, 90.0, 110.0, typeof(Cloth), 1044455, 5, 1044287);
+                 AddRes(index, typeof(Leather), 1044462, 5, 1044463);
+                 AddRes(index, typeof(VoidCore), 1113334, 5, 1044253);
+                 AddRecipe(index, (int)TailorRecipe.MagesHood);
+     
+                 index = AddCraft(typeof(CowlOfTheMaceAndShield), 1011375, 1159228, 120.0, 215.0, typeof(Cloth), 1044455, 5, 1044287);
+                 AddRes(index, typeof(Leather), 1044462, 5, 1044463);
+                 AddRes(index, typeof(MaceAndShieldGlasses), 1073381, 1, 1044253);
+                 AddRes(index, typeof(VileTentacles), 1113333, 10, 1044253);
+                 AddRecipe(index, (int)TailorRecipe.CowlOfTheMaceAndShield);
+                 ForceExceptional(index);
+     
+                 index = AddCraft(typeof(MagesHoodOfScholarlyInsight), 1011375, 1159229, 120.0, 215.0, typeof(Cloth), 1044455, 5, 1044287);
+                 AddRes(index, typeof(Leather), 1044462, 5, 1044463);
+                 AddRes(index, typeof(TheScholarsHalo), 1157354, 1, 1044253);
+                 AddRes(index, typeof(VoidCore), 1113334, 10, 1044253);
+                 AddRecipe(index, (int)TailorRecipe.MagesHoodOfScholarlyInsight);
+                 ForceExceptional(index);*/
 
             #endregion
 
@@ -495,7 +489,7 @@ namespace Server.Engines.Craft
             AddRecipe(index, (int)TailorRecipe.StitchersMittens);
             ForceNonExceptional(index);*/
 
-            AddCraft(typeof(LeatherGorget), 1015293, 1025063, 53.9, 78.9, typeof(Leather), 1044462, 4, 1044463);
+        AddCraft(typeof(LeatherGorget), 1015293, 1025063, 53.9, 78.9, typeof(Leather), 1044462, 4, 1044463);
             AddCraft(typeof(LeatherCap), 1015293, 1027609, 6.2, 31.2, typeof(Leather), 1044462, 2, 1044463);
             AddCraft(typeof(LeatherGloves), 1015293, 1025062, 51.8, 76.8, typeof(Leather), 1044462, 3, 1044463);
             AddCraft(typeof(LeatherArms), 1015293, 1025061, 53.9, 78.9, typeof(Leather), 1044462, 4, 1044463);
@@ -589,6 +583,16 @@ namespace Server.Engines.Craft
             index = AddCraft(typeof(DragonTurtleHideArms), 1015293, 1109638, 101.5, 116.5, typeof(Leather), 1044462, 4, 1044463);
             AddRes(index, typeof(DragonTurtleScute), 1123910, 2, 1044253);
             AddRecipe(index, (int)TailorRecipe.DragonTurtleHideArms);
+            
+            AddCraft(typeof(NBearMask), 1015293, "Maska niedzwiedzia", 77.5, 100, typeof(Leather), 1044462, 15, 1044463);
+			
+            AddCraft(typeof(NDeerMask), 1015293, "Maska lani", 77.5, 100, typeof(Leather), 1044462, 15, 1044463);
+			
+            AddCraft(typeof(NTribalMask), 1015293, "Maska tubylca", 82.5, 105, typeof(Leather), 1044462, 12, 1044463);
+			
+            AddCraft(typeof(NHornedTribalMask), 1015293, "Maska tubylca", 82.5, 105, typeof(Leather), 1044462, 12, 1044463);
+			
+            AddCraft(typeof(OrcMask), 1015293, "Maska tubylca", 75, 100, typeof(Leather), 1044462, 12, 1044463);
 
             #endregion
 
