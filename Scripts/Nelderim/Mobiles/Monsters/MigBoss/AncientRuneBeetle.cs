@@ -123,6 +123,13 @@ namespace Server.Mobiles
 		{
 			AddLoot(LootPack.FilthyRich, 2);
 		}
+		
+		public override void OnDeath(Container c)
+		{
+			base.OnDeath(c);
+
+			ArtifactHelper.ArtifactDistribution(this);
+		}
 
 		public override Poison PoisonImmune => Poison.Greater;
 		public override Poison HitPoison => Poison.Greater;
