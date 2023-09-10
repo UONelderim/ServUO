@@ -160,7 +160,6 @@ namespace Server.Items
         {
             typeof(Aegis),
             typeof(HolySword),
-            typeof(CrownOfTalKeesh),
             typeof(ShadowDancerLeggings),
             typeof(SpiritOfTheTotem),
             typeof(HatOfTheMagi),
@@ -516,7 +515,7 @@ namespace Server.Items
             typeof(PrzekletyMieczeAmrIbnLuhajj),
             typeof(PrzekletySoulSeeker),
             typeof(PrzekleteSongWovenMantle),
-            typeof(PrzekletaMaskaSmierci),
+            typeof(PrzekleteFeyLeggings),
             typeof(PrzekletaArcaneShield),
             typeof(PrzekletaIolosLute),
             typeof(PrzekletaRetorta),
