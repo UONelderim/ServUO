@@ -1,46 +1,70 @@
-using Server;
 using System.Collections.Generic;
-using Nelderim;
+using Server;
+using Nelderim.Achievements.Gumps;
 using Server.Mobiles;
 using Server.Commands;
+using Server.Targeting;
 
-namespace Scripts.Mythik.Systems.Achievements
+namespace Nelderim.Achievements
 {
-	public partial class AchievementSystem : NExtension<AchievementInfo>
+	public partial class AchievementSystem : NExtension<AchievementsInfo>
 	{
 		public static string ModuleName = "Achievements";
 
-		internal static Dictionary<int, BaseAchievement> Definitions = new Dictionary<int, BaseAchievement>();
-		internal static Dictionary<int, AchievementCategory> Categories = new Dictionary<int, AchievementCategory>();
+		public static AchievementRegistry<AchievementCategory> CategoryRegistry = new("achievementCategories");
+		public static AchievementRegistry<Achievement> AchievementRegistry = new("achievements");
+		
+		public static Dictionary<int, Achievement> Achievements => AchievementRegistry.Entries;
+		public static Dictionary<int, AchievementCategory> Categories => CategoryRegistry.Entries;
 
+		
 		public static void Initialize()
 		{
+			CategoryRegistry.Load();
+			AchievementRegistry.Load();
+
 			RegisterAchievements();
-			CommandSystem.Register("achievements", AccessLevel.Player, OpenGumpCommand);
+
+			CommandSystem.Register("achievements", AccessLevel.Player, AchievementsCommand);
 			EventSink.WorldSave += Save;
 			Load(ModuleName);
+
+			CategoryRegistry.Save();
+			AchievementRegistry.Save();
 		}
 
+		private static AchievementCategory Register(AchievementCategory category)
+		{
+			return CategoryRegistry.Register(category);
+		}
+
+		private static Achievement Register(Achievement achievement)
+		{
+			return AchievementRegistry.Register(achievement);
+		}
+		
 		public static void Save(WorldSaveEventArgs args)
 		{
 			Save(args, ModuleName);
 		}
-
-		public static void OpenGump(Mobile from, Mobile target)
+		
+		private static void AchievementsCommand(CommandEventArgs e)
 		{
-			if (from == null || target == null) return;
-
-			if (target is PlayerMobile player)
+			var pm = e.Mobile as PlayerMobile;
+			if (pm == null) return;
+			if (pm.AccessLevel <= AccessLevel.Counselor)
 			{
-				from.SendGump(new AchievementGump(player.Achievements, player.AchievementPoints));
+				pm.SendGump(new AchievementGump(pm));
 			}
-		}
-
-		[Usage("osiagniecia"), Aliases("achievements")]
-		[Description("Opens the Achievements gump")]
-		private static void OpenGumpCommand(CommandEventArgs e)
-		{
-			OpenGump(e.Mobile, e.Mobile);
+			else
+			{
+				pm.BeginTarget(8, false, TargetFlags.None, (from, target) =>
+					{
+						if (target is PlayerMobile targetPm)
+							from.SendGump(new AchievementGump(targetPm));
+					}
+				);
+			}
 		}
 	}
 }

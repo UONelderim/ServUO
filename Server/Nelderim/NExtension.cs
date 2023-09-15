@@ -12,6 +12,8 @@ namespace Nelderim
 {
 	public abstract class NExtension<T> where T : NExtensionInfo, new()
 	{
+		public const string BasePath = "Saves/Nelderim";
+		
 		protected static ConcurrentDictionary<Serial, T> m_ExtensionInfo = new ConcurrentDictionary<Serial, T>();
 
 		public static bool Delete(IEntity entity)
@@ -45,10 +47,10 @@ namespace Nelderim
 		public static void Save(WorldSaveEventArgs args, string moduleName)
 		{
 			Cleanup();
-			if (!Directory.Exists("Saves/Nelderim"))
-				Directory.CreateDirectory("Saves/Nelderim");
+			if (!Directory.Exists(BasePath))
+				Directory.CreateDirectory(BasePath);
 
-			string pathNfile = @"Saves/Nelderim/" + moduleName + ".sav";
+			string pathNfile = $"{BasePath}/{moduleName}.sav";
 
 			Console.WriteLine(moduleName + ": Zapisywanie...");
 			try
@@ -77,13 +79,13 @@ namespace Nelderim
 
 		public static void Load(string moduleName)
 		{
-			if (!File.Exists(@"Saves/Nelderim/" + moduleName + ".sav"))
+			if (!File.Exists($"{BasePath}/{moduleName}.sav"))
 				moduleName = Char.ToLower(moduleName[0]) + moduleName.Substring(1); // 1st letter lowercase
-			if (!File.Exists(@"Saves/Nelderim/" + moduleName + ".sav"))
+			if (!File.Exists($"{BasePath}/{moduleName}.sav"))
 				return;
 
 
-			string pathNfile = @"Saves/Nelderim/" + moduleName + ".sav";
+			string pathNfile = $"{BasePath}/{moduleName}.sav";
 
 			Console.Write(moduleName + ": Wczytywanie...");
 			using (FileStream m_FileStream = new FileStream(pathNfile, FileMode.Open, FileAccess.Read))

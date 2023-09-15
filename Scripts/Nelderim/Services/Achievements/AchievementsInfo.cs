@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-using Nelderim;
 using Server;
 
-namespace Scripts.Mythik.Systems.Achievements
+namespace Nelderim.Achievements
 {
-	public class AchievementInfo : NExtensionInfo
+	public class AchievementsInfo : NExtensionInfo
 	{
-		public Dictionary<int, AchievementStatus> Achievements = new Dictionary<int, AchievementStatus>();
+		public Dictionary<Achievement, AchievementStatus> Achievements = new ();
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -14,7 +13,7 @@ namespace Scripts.Mythik.Systems.Achievements
 			writer.Write(Achievements.Count);
 			foreach (var key in Achievements.Keys)
 			{
-				writer.Write(key);
+				writer.Write(key.Id);
 				Achievements[key].Serialize(writer);
 			}
 		}
@@ -23,12 +22,13 @@ namespace Scripts.Mythik.Systems.Achievements
 		{
 			reader.ReadInt(); //version
 			var count = reader.ReadInt();
-			Achievements = new Dictionary<int, AchievementStatus>(count);
+			Achievements = new Dictionary<Achievement, AchievementStatus>(count);
 			for (var i = 0; i < count; i++)
 			{
 				var key = reader.ReadInt();
-				var value = new AchievementStatus(reader);
-				Achievements[key] = value;
+				var value = new AchievementStatus();
+				value.Deserialize(reader);
+				Achievements[AchievementSystem.Achievements[key]] = value;
 			}
 		}
 	}

@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Scripts.Mythik.Systems.Achievements;
-using Scripts.Mythik.Systems.Achievements.Gumps;
+using Nelderim.Achievements;
+using Nelderim.Achievements.Gumps;
 
 namespace Server.Mobiles
 {
 	public partial class PlayerMobile
 	{
-		public Dictionary<int, AchievementStatus> Achievements => AchievementSystem.Get(this).Achievements;
+		public Dictionary<Achievement, AchievementStatus> Achievements => AchievementSystem.Get(this).Achievements;
 
 		private int _AchievementPoints = -1;
 
@@ -28,48 +28,51 @@ namespace Server.Mobiles
 			var total = 0;
 			foreach (var achievement in Achievements.Values.Where(achievement => achievement.Completed))
 			{
-				if (AchievementSystem.Definitions.TryGetValue(achievement.ID, out var achievementDefinition))
+				if (AchievementSystem.AchievementRegistry.Entries.TryGetValue(achievement.Id, out var achievementDefinition))
 				{
 					total += achievementDefinition.Points;
 				}
 				else
 				{
-					Console.Write($"Invalid achievement {achievement.ID}");
+					Console.Write($"Invalid achievement {achievement.Id}");
 				}
 			}
-
 			_AchievementPoints = total;
 		}
 
-		public void SetAchievementStatus(BaseAchievement achievement, int progress)
+		public int GetAchivementProgress(Achievement achievement)
 		{
-			var achieves = Achievements;
+			return Achievements[achievement]?.Progress ?? 0;
+		}
 
-			if (achieves.ContainsKey(achievement.ID))
+		public void SetAchievementProgress(Achievement achievement, int progress)
+		{
+			if (!Achievements.ContainsKey(achievement))
 			{
-				if (achieves[achievement.ID].Progress >= achievement.CompletionTotal)
-					return;
-				achieves[achievement.ID].Progress += progress;
+				Achievements.Add(achievement, new AchievementStatus());
 			}
-			else
-			{
-				achieves.Add(achievement.ID, new AchievementStatus { Progress = progress });
-			}
+			
+			if (Achievements[achievement].Completed)
+				return;
 
-			if (achieves[achievement.ID].Progress >= achievement.CompletionTotal)
+			Achievements[achievement].Progress = progress;
+			if (Achievements[achievement].Progress >= achievement.Goal.Amount)
 			{
 				SendGump(new AchievementObtainedGump(achievement));
-				achieves[achievement.ID].CompletedOn = DateTime.UtcNow;
+				Achievements[achievement].CompletedOn = DateTime.UtcNow;
 
 				AchievementPoints += achievement.Points;
 
-				if (achievement.RewardItems == null || achievement.RewardItems.Length <= 0) return;
+				if (achievement.Rewards == null || achievement.Rewards.Length <= 0) return;
 
 				try
 				{
 					SendAsciiMessage("Otrzymales nagrode za zdobycie tego osiagniecia!");
-					var item = (Item)Activator.CreateInstance(achievement.RewardItems[0]);
-					AddToBackpack(item);
+					foreach (var rewardFunc in achievement.Rewards)
+					{
+						var item = rewardFunc.Invoke();
+						AddToBackpack(item);
+					}
 				}
 				catch (Exception e)
 				{
