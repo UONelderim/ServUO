@@ -1239,6 +1239,7 @@ namespace Server.Mobiles
 
 				OnSuccessfulBulkOrderReceive(from);
 				Engines.CityLoyalty.CityLoyaltySystem.OnBODTurnIn(from, gold);
+				EventSink.InvokeBODCompleted(new BODCompletedEventArgs(from, dropped));
 
 				if (pm != null)
 				{

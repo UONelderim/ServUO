@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using Server.Network;
 using System;
 using System.Linq;
+using Server.Mobiles;
 
-namespace Scripts.Mythik.Systems.Achievements
+namespace Nelderim.Achievements.Gumps
 {
 	class AchievementGump : Gump
 	{
-		private int m_curTotal;
-		private Dictionary<int, AchievementStatus> m_curAchieves;
+		private PlayerMobile _target;
 
-		public AchievementGump(Dictionary<int, AchievementStatus> achieves, int total, int category = 1) : base(25, 25)
+		public AchievementGump(PlayerMobile pm, int category = 1) : base(25, 25)
 		{
-			m_curAchieves = achieves;
-			m_curTotal = total;
+			_target = pm;
 			Closable = true;
 			Disposable = true;
 			Dragable = true;
@@ -27,65 +26,69 @@ namespace Scripts.Mythik.Systems.Achievements
 			AddBackground(72, 34, 635, 53, 9270);
 			AddBackground(327, 0, 133, 41, 9200);
 			AddLabel(292, 52, 68, "System Osiagniec");
-			AddLabel(360, 11, 82, $"{total} Punktow");
+			AddLabel(360, 11, 82, $"{_target.AchievementPoints} Punktow");
 			AddBackground(341, 522, 353, 26, 9200);
 
 			int cnt = 0;
 			if (AchievementSystem.Categories.TryGetValue(category, out var reqCat))
 			{
 				Console.WriteLine("Couldnt find Achievement category: " + category);
-				reqCat = AchievementSystem.Categories[0];
+				reqCat = AchievementSystem.Categories.Values.First();
 			}
 
-			foreach (var cat in AchievementSystem.Categories.Values)
+			foreach (var cur in AchievementSystem.Categories.Values)
 			{
 				var x = 90;
 				var bgID = 9200;
 
-				if (cat.Parent != 0 && cat.ID != reqCat.ID && cat.Parent != reqCat.ID && cat.Parent != reqCat.Parent)
+				if (cur.Parent != null && cur.Id != reqCat.Id && cur.Parent != reqCat && cur.Parent != reqCat?.Parent)
 					continue;
-				if (cat.Parent != 0)
+				if (cur.Parent != null)
 					x += 20;
-				if (cat.ID == category)
+				if (cur.Id == category)
 					bgID = 5120;
 
 				AddBackground(x, 123 + (cnt * 31), 18810 / x, 25, bgID);
-				if (cat.ID == category) // selected
+				if (cur.Id == category) // selected
 					AddImage(x + 12, 129 + (cnt * 31), 1210);
 				else
-					AddButton(x + 12, 129 + (cnt * 31), 1209, 1210, (int)(5000 + cat.ID), GumpButtonType.Reply, 0);
-				AddLabel(x + 32, 125 + (cnt * 31), 0, cat.Name);
+					AddButton(x + 12, 129 + (cnt * 31), 1209, 1210, (int)(5000 + cur.Id), GumpButtonType.Reply, 0);
+				AddLabel(x + 32, 125 + (cnt * 31), 0, cur.Name);
 				cnt++;
 			}
 
 			cnt = 0;
-			foreach (var ac in AchievementSystem.Definitions.Values.Where(ac => ac.CategoryID == category))
+			foreach (var ac in AchievementSystem.Achievements.Values.Where(ac => ac.Category.Id == category))
 			{
 				if (ac.PreReq != null)
 				{
-					if (!achieves.ContainsKey(ac.PreReq.ID))
+					if (!_target.Achievements.ContainsKey(ac.PreReq))
 						continue;
-					if (achieves[ac.PreReq.ID].Completed)
+					if (_target.Achievements[ac.PreReq].Completed)
 						continue;
 				}
 
-				if (achieves.TryGetValue(ac.ID, out var achieve))
+				if (_target.Achievements.TryGetValue(ac, out var achieve))
 				{
-					AddAchieve(ac, cnt, achieve);
+					AddAchievement(ac, cnt, achieve);
 				}
 				else
 				{
 					if (ac.Secret)
 						continue;
-					AddAchieve(ac, cnt, null);
+					AddAchievement(ac, cnt, null);
 				}
 
 				cnt++;
 			}
 		}
 
-		private void AddAchieve(BaseAchievement ac, int i, AchievementStatus acheiveData)
+		private void AddAchievement(Achievement achievement, int i, AchievementStatus status)
 		{
+			if (status == null)
+			{
+				status = AchievementStatus.Empty;
+			}
 			var index = i % 4;
 			if (index == 0)
 			{
@@ -96,29 +99,29 @@ namespace Scripts.Mythik.Systems.Achievements
 			}
 
 			var bg = 9350;
-			if (acheiveData.Completed)
+			if (status.Completed)
 				bg = 9300;
 			AddBackground(340, 122 + (index * 100), 347, 97, bg);
-			AddLabel(414, 131 + (index * 100), 49, ac.Title);
-			if (ac.ItemIcon > 0)
-				AddItem(357, 147 + (index * 100), ac.ItemIcon);
+			AddLabel(414, 131 + (index * 100), 49, achievement.Name);
+			if (achievement.Icon > 0)
+				AddItem(357, 147 + (index * 100), achievement.Icon);
 			AddImageTiled(416, 203 + (index * 100), 95, 9, 9750);
 
-			var step = 95.0 / ac.CompletionTotal;
+			var step = 95.0 / achievement.Goal.Amount;
 			var progress = 0;
-			if (acheiveData.Completed)
-				progress = acheiveData.Progress;
+			if (status.Completed)
+				progress = achievement.Goal.GetProgress(status);
 
 			AddImageTiled(416, 203 + (index * 100), (int)(progress * step), 9, 9752);
-			AddHtml(413, 152 + (index * 100), 194, 47, ac.Desc, (bool)true, (bool)true);
-			if (acheiveData.Completed)
-				AddLabel(566, 127 + (index * 100), 32, acheiveData.CompletedOn.ToShortDateString());
+			AddHtml(413, 152 + (index * 100), 194, 47, achievement.Description, (bool)true, (bool)true);
+			if (status.Completed)
+				AddLabel(566, 127 + (index * 100), 32, status.CompletedOn.ToShortDateString());
 
-			if (ac.CompletionTotal > 1)
-				AddLabel(522, 196 + (index * 100), 0, progress + @" / " + ac.CompletionTotal);
+			if (achievement.Goal.Amount > 1)
+				AddLabel(522, 196 + (index * 100), 0, progress + @" / " + achievement.Goal.Amount);
 
 			AddBackground(628, 149 + (index * 100), 48, 48, 9200);
-			AddLabel(648, 163 + (index * 100), 32, ac.Points.ToString());
+			AddLabel(648, 163 + (index * 100), 32, achievement.Points.ToString());
 		}
 
 		public override void OnResponse(NetState sender, RelayInfo info)
@@ -126,7 +129,7 @@ namespace Scripts.Mythik.Systems.Achievements
 			if (info.ButtonID == 0)
 				return;
 			var btn = info.ButtonID - 5000;
-			sender.Mobile.SendGump(new AchievementGump(m_curAchieves, m_curTotal, btn));
+			sender.Mobile.SendGump(new AchievementGump(_target, btn));
 		}
 	}
 }

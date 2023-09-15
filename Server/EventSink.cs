@@ -1845,7 +1845,7 @@ namespace Server
 		}
 	}
 
-	public static class EventSink
+	public static partial class EventSink
 	{
 		public static event OnItemLiftEventHandler OnItemLift;
 		public static event OnItemLiftedEventHandler OnItemLifted;
