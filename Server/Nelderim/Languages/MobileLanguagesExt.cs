@@ -1,9 +1,12 @@
 using Nelderim;
+using Server.Network;
 
 namespace Server
 {
 	public partial class Mobile
 	{
+		public virtual bool UseLanguages => false;
+		
 		[CommandProperty(AccessLevel.GameMaster)]
 		public Language LanguageSpeaking
 		{
@@ -16,6 +19,40 @@ namespace Server
 		{
 			get => Languages.Get(this).LanguagesKnown;
 			set => Languages.Get(this).LanguagesKnown = value;
+		}
+		
+		public void NPublicOverheadMessage(MessageType type, int hue, bool ascii, string text, bool noLineOfSight)
+		{
+			if (m_Map != null)
+			{
+				var translationResult = Translate.Apply(text, LanguageSpeaking);
+				Packet p;
+				
+				var eable = m_Map.GetClientsInRange(m_Location);
+
+				foreach (var state in eable)
+				{
+					var mobile = state.Mobile;
+
+					if (mobile != null && mobile.CanSee(this) && (noLineOfSight || mobile.InLOS(this)))
+					{
+						var translated = Translate.Combine(translationResult, this, mobile);
+						if (ascii)
+						{
+							p = new AsciiMessage(Serial, Body, type, hue, 3, Name, translated);
+						}
+						else
+						{
+							p = new UnicodeMessage(Serial, Body, type, hue, 3, m_Language, Name, translated);
+						}
+
+						p.Acquire();
+						state.Send(p);
+						Packet.Release(p);
+					}
+				}
+				eable.Free();
+			}
 		}
 	}
 }

@@ -7,7 +7,7 @@ namespace Nelderim.Achievements
 			Amount = amount;
 		}
 		
-		public int Amount { get; init; }
+		public int Amount { get; set; }
 		
 		public Achievement Achievement { get; internal set; }
 		

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Nelderim;
 using Nelderim.Configuration;
 using Server.Accounting;
 using Server.Commands;
@@ -4950,12 +4951,15 @@ namespace Server
 
 				Packet regp = null;
 				Packet mutp = null;
+				
+				var translationResult = Translate.Apply(text, LanguageSpeaking);
 
 				// TODO: Should this be sorted like onSpeech is below?
 
 				for (var i = 0; i < hears.Count; ++i)
 				{
 					var heard = hears[i];
+					var translated = Translate.Combine(translationResult, this, heard);
 
 					if (mutatedArgs == null || !CheckHearsMutatedSpeech(heard, mutateContext))
 					{
@@ -4965,12 +4969,9 @@ namespace Server
 
 						if (ns != null)
 						{
-							if (regp == null)
-							{
-								regp = Packet.Acquire(new UnicodeMessage(m_Serial, Body, type, hue, 3, m_Language, Name, text));
-							}
-
+							regp = Packet.Acquire(new UnicodeMessage(m_Serial, Body, type, hue, 3, m_Language, Name, translated));
 							ns.Send(regp);
+							Packet.Release(regp);
 						}
 					}
 					else
@@ -4991,7 +4992,6 @@ namespace Server
 					}
 				}
 
-				Packet.Release(regp);
 				Packet.Release(mutp);
 
 				if (onSpeech.Count > 1)
@@ -5005,7 +5005,10 @@ namespace Server
 					{
 						if (mutatedArgs == null || !CheckHearsMutatedSpeech(heard, mutateContext))
 						{
-							heard.OnSpeech(regArgs);
+							if(heard.UseLanguages)
+								heard.OnSpeech(new SpeechEventArgs(this, Translate.Combine(translationResult, this, heard), type, hue, keywords));
+							else
+								heard.OnSpeech(regArgs);
 						}
 						else
 						{
@@ -11674,6 +11677,11 @@ namespace Server
 		{
 			if (m_Map != null)
 			{
+				if (UseLanguages)
+				{
+					NPublicOverheadMessage(type, hue, ascii, text, noLineOfSight);
+					return;
+				}
 				Packet p = null;
 
 				if (ascii)
