@@ -12,14 +12,14 @@ namespace Nelderim
 {
 	public class LanguagesDictionary
 	{
-		public static Dictionary<string, string> Jarlowy = new Dictionary<string, string>();
-		public static Dictionary<string, string> Krasnoludzki = new Dictionary<string, string>();
-		public static Dictionary<string, string> Elficki = new Dictionary<string, string>();
-		public static Dictionary<string, string> Drowi = new Dictionary<string, string>();
-		public static Dictionary<string, string> Orkowy = new Dictionary<string, string>();
-		public static List<string> Demoniczny = new List<string>();
-		public static List<string> Nieumarlych = new List<string>();
-		public static List<string> Belkot = new List<string>();
+		public static Dictionary<string, string> Jarlowy = new();
+		public static Dictionary<string, string> Krasnoludzki = new();
+		public static Dictionary<string, string> Elficki = new();
+		public static Dictionary<string, string> Drowi = new();
+		public static Dictionary<string, string> Orkowy = new();
+		public static List<string> Demoniczny = new();
+		public static List<string> Nieumarlych = new();
+		public static List<string> Belkot = new();
 
 		public static void Initialize()
 		{

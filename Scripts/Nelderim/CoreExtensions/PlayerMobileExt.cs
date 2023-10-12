@@ -216,5 +216,7 @@ namespace Server.Mobiles
 		}
 
 		public TimeSpan LongTermElapse => m_LongTermElapse;
+
+		public override bool UseLanguages => true;
 	}
 }

@@ -8,12 +8,7 @@ namespace Nelderim
 {
 	public class LanguagesInfo : NExtensionInfo
 	{
-		public LanguagesInfo()
-		{
-			LanguagesKnown = new KnownLanguages();
-		}
-
-		public KnownLanguages LanguagesKnown { get; set; }
+		public KnownLanguages LanguagesKnown { get; set; } = new();
 
 		public Language LanguageSpeaking { get; set; }
 

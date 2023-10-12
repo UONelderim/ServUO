@@ -125,7 +125,7 @@ namespace Server.Mobiles
 
                 if ( RumorsList == null || RumorsList.Count == 0 )
                 {
-                    Say( 00505132 ); // Pfff... nuda, cisza, spokoj... nic do rozmowy przy mlodym winie.
+                    Say("Pfff... nuda, cisza, spokoj... nic do rozmowy przy mlodym winie."); // 
                     return;
                 }
 
@@ -300,5 +300,7 @@ namespace Server.Mobiles
 	        InitBody();
 	        InitOutfit();
         }
+        
+        public override bool UseLanguages => true;
 	}
 }

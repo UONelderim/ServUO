@@ -5,9 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Server;
-using Server.Network;
-using Server.Multis;
-using Server.Items;
 
 #endregion
 
@@ -15,53 +12,9 @@ namespace Nelderim
 {
 	public static class Translate
 	{
-		private readonly record struct TranslationResult(Language lang, string[] originalWords, string[] translatedWords);
+		public readonly record struct TranslationResult(Language lang, string[] originalWords, string[] translatedWords);
 		
-		public static void Initialize()
-		{
-			EventSink.Speech += EventSink_Speech;
-		}
-
-		private static void EventSink_Speech(SpeechEventArgs args)
-		{
-			var from = args.Mobile;
-			var speech = args.Speech;
-			if (from == null || speech == null || args.Type == MessageType.Emote || speech.StartsWith("*"))
-			{
-				return;
-			}
-
-			args.Blocked = true;
-
-			var tileLength = args.Type switch
-			{
-				MessageType.Yell => 18,
-				MessageType.Whisper => 1,
-				_ => 15
-			};
-
-			var translationResult = TranslateText(speech, from.LanguageSpeaking);
-			var meable = from.Map.GetMobilesInRange(from.Location, tileLength);
-			foreach (var to in meable)
-			{
-				var translated = Combine(translationResult, from, to);
-				from.RevealingAction();
-				from.SayTo(to, translated);
-			}
-			meable.Free();
-			var ieable = from.Map.GetItemsInRange(from.Location, tileLength);
-			foreach (Item it in ieable)
-			{
-				if (it is BaseBoat || it is KeywordTeleporter)
-				{
-					it.OnSpeech(args);
-				}
-			}
-			ieable.Free();
-		}
-		
-
-		private static TranslationResult TranslateText(string original, Language lang)
+		public static TranslationResult Apply(string original, Language lang)
 		{
 			var originalWords = original.Split(' ');
 			var translatedWords = lang switch
@@ -81,7 +34,7 @@ namespace Nelderim
 			return new TranslationResult(lang, originalWords, translatedWords);
 		}
 
-		private static string Combine(TranslationResult tr, Mobile from, Mobile to)
+		public static string Combine(TranslationResult tr, Mobile from, Mobile to)
 		{
 			if (to.IsStaff() || from == to)
 				return $"[{from.LanguageSpeaking}] {string.Join(" ", tr.originalWords)}";
@@ -104,7 +57,7 @@ namespace Nelderim
 				sb.Append(" ");
 				var originalWord = tr.originalWords[index];
 				var translatedWord = tr.translatedWords[index];
-				if (originalWord.GetHashCode() % 1000 < fromLangValue && translatedWord.GetHashCode() % 1000 < toLangValue)
+				if (Math.Abs(originalWord.GetHashCode() % 1000) < fromLangValue && Math.Abs(translatedWord.GetHashCode() % 1000) < toLangValue)
 				{
 					sb.Append(originalWord);
 				}

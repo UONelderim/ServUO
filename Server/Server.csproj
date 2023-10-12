@@ -10,7 +10,7 @@
 		<ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<RootNamespace>Server</RootNamespace>
-		<LangVersion>8</LangVersion>
+		<LangVersion>10</LangVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
