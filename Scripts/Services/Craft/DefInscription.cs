@@ -375,9 +375,9 @@ namespace Server.Engines.Craft
             index = AddCraft(typeof(SpellbookEngraver), otherGroup, 1072151, 75.0, 100.0, typeof(Feather), 1044562, 1, 1044563);
             AddRes(index, typeof(BlackPearl), 1015001, 7, 1044253);
                         
-            AddCraft(typeof(MysticBook), 1044294, 1031677, 50.0, 100.0, typeof(BlankScroll), 1044377, 10, 1044378);
+            AddCraft(typeof(MysticBook), otherGroup, 1031677, 50.0, 100.0, typeof(BlankScroll), 1044377, 10, 1044378);
 
-            AddCraft(typeof(NecromancerSpellbook), 1044294, 1074909, 50.0, 100.0, typeof(BlankScroll), 1044377, 10, 1044378);
+            AddCraft(typeof(NecromancerSpellbook), otherGroup, 1074909, 50.0, 100.0, typeof(BlankScroll), 1044377, 10, 1044378);
 
             index = AddCraft(typeof(ExodusSummoningRite), otherGroup, 1153498, 95.0, 120.0, typeof(DaemonBlood), 1023965, 5, 1044253);
             AddRes(index, typeof(Taint), 1032679, 1, 1044253);
