@@ -271,7 +271,7 @@ namespace Server.Engines.Craft
             AddRes( index, typeof( DreadHornMane ), "Grzywa Spaczonego" , 10, 1044253 );
             AddRes( index, typeof( CapturedEssence ), "złapana esencja" , 2, 1044253 );
             AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
-            index = AddCraft( typeof( RangerLightningBowScroll ), 1044294, "Umiejetnosci specjalne", 80.0, 110.0, typeof( DryIce ), "suchy lód" , 20, 1044253 );
+            index = AddCraft( typeof( RangerLightningBowScroll ), "Umiejetnosci specjalne", "Umiejetnosci specjalne", 80.0, 110.0, typeof( DryIce ), "suchy lód" , 20, 1044253 );
             AddRes( index, typeof( DreadHornMane ), "Grzywa Spaczonego" , 10, 1044253 );
             AddRes( index, typeof( CapturedEssence ), "złapana esencja" , 2, 1044253 );
             AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
