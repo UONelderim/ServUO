@@ -21,6 +21,7 @@ namespace Server.Items
 		{
 			Amount = amount;
 			Name = "potężna mikstura zręczności";
+			Stackable = true;
 			Weight = 0.5;
 		}
 

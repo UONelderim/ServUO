@@ -20,6 +20,7 @@ namespace Server.Items
 		public NGreaterStrengthPotion() : base(PotionEffect.NStrengthGreater)
 		{
 			Name = "potężna mikstura siły";
+			Stackable = true;
 			Weight = 0.5;
 		}
 
