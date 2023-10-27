@@ -44,7 +44,7 @@ namespace Server.Mobiles
 
 
 			SetSkill(SkillName.MagicResist, 57.5, 80.0);
-			SetSkill(SkillName.Swords, 90.0, 120.0);
+			SetSkill(SkillName.Macing, 90.0, 120.0);
 			SetSkill(SkillName.Tactics, 90.0, 102.5);
 			SetSkill(SkillName.Anatomy, 90.0, 105.2);
 
@@ -53,44 +53,14 @@ namespace Server.Mobiles
 
 			VirtualArmor = 40;
 
-			BoneHelm Helm = new BoneHelm();
-			Helm.Hue = 556;
-			Helm.Movable = false;
-			EquipItem(Helm);
-
-			BoneChest chest = new BoneChest();
-			chest.Hue = 556;
-			chest.Movable = false;
-			EquipItem(chest);
-
-			BoneGloves Gloves = new BoneGloves();
-			Gloves.Hue = 556;
-			Gloves.Movable = false;
-			EquipItem(Gloves);
-
-			BoneLegs legs = new BoneLegs();
-			legs.Hue = 556;
-			legs.Movable = false;
-			EquipItem(legs);
-
-			ThighBoots Boot = new ThighBoots();
-			Boot.Hue = 33;
-			EquipItem(Boot);
-
-			Cloak Cloa = new Cloak();
-			Cloa.Hue = 33;
-			Cloa.Movable = false;
-			AddItem(Cloa);
-
-			BodySash sash = new BodySash();
-			sash.Hue = 33;
-			sash.Movable = false;
-			EquipItem(sash);
-
-			HammerPick sword = new HammerPick();
-			sword.Hue = 589;
-			sword.Movable = false;
-			EquipItem(sword);
+			EquipItem(new BoneHelm { Hue = 556, Movable = false });
+			EquipItem(new BoneChest { Hue = 556, Movable = false });
+			EquipItem(new BoneGloves { Hue = 556, Movable = false });
+			EquipItem(new BoneLegs { Hue = 556, Movable = false });
+			EquipItem(new ThighBoots { Hue = 33 });
+			EquipItem(new Cloak { Hue = 33, Movable = false });
+			EquipItem(new BodySash { Hue = 33, Movable = false });
+			EquipItem(new HammerPick { Hue = 589, Movable = false });
 
 			SetWeaponAbility(WeaponAbility.ArmorIgnore);
 		}

@@ -40,7 +40,6 @@ namespace Server.Mobiles
 
             SetSkill(SkillName.MagicResist, 25.0, 47.5);
             SetSkill(SkillName.Tactics, 65.0, 87.5);
-            SetSkill(SkillName.Wrestling, 15.0, 37.5);
             SetSkill(SkillName.Spellweaving, 50.0, 75.0);
             SetSkill(SkillName.Focus, 50.0, 75.0);
 
@@ -81,9 +80,10 @@ namespace Server.Mobiles
             HairHue = Race.RandomHairHue();
 
             // weapon, shield
-            Item weapon = Loot.RandomWeapon();
+            BaseWeapon weapon = Loot.RandomWeapon();
 
 			SetWearable(weapon, dropChance: 1);
+			SetSkill(weapon.Skill, 15.0, 37.5);
 
             if (weapon.Layer == Layer.OneHanded && Utility.RandomBool())
                 SetWearable(Loot.RandomShield(), dropChance: 1);

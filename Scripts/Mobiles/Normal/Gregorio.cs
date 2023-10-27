@@ -31,7 +31,7 @@ namespace Server.Mobiles
 
             SetSkill(SkillName.MagicResist, 25.0, 50.0);
             SetSkill(SkillName.Tactics, 80.0, 100.0);
-            SetSkill(SkillName.Wrestling, 80.0, 100.0);
+            SetSkill(SkillName.Fencing, 80.0, 100.0);
         }
 
         public Gregorio(Serial serial)

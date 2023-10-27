@@ -33,7 +33,7 @@ namespace Server.Mobiles
             SetSkill(SkillName.Meditation, 195.0, 200.0);
             SetSkill(SkillName.MagicResist, 100.0, 120.0);
             SetSkill(SkillName.Tactics, 195.0, 220.0);
-            SetSkill(SkillName.Wrestling, 195.0, 220.0);
+            SetSkill(SkillName.Swords, 195.0, 220.0);
 
             Item vikingsword = new VikingSword
             {

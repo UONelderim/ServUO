@@ -2259,6 +2259,7 @@ namespace Server.Mobiles
 
         protected override void OnCreate()
         {
+	        CalculateDifficulty();
             GenerateLoot(LootStage.Spawning);
         }
 

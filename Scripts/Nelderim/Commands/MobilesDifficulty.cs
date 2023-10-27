@@ -31,7 +31,6 @@ namespace Server.Commands
 					var bc = (BaseCreature)Activator.CreateInstance(ScriptCompiler.FindTypeByName(className, false));
 					if (bc.AI != AIType.AI_Animal && bc.AI != AIType.AI_Vendor)
 					{
-						bc.GenerateDifficulty();
 						var props = new Dictionary<string, object>();
 						props.Add("className", className);
 						fillCommonProps(bc, props);
