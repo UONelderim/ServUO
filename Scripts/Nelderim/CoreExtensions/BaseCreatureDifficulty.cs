@@ -101,7 +101,7 @@ namespace Server.Mobiles
 		
 		// Old formula
 		// Math.Max(0.5, Skills[((BaseWeapon)Weapon).Skill].Value / 120);
-		public double MeeleeSkillFactor => Math.Pow(Math.E, (Skills[((BaseWeapon)Weapon).Skill].Value / 100)) - 1;
+		public double MeeleeSkillFactor => Math.Pow(Math.E, (Skills[((BaseWeapon)Weapon).GetUsedSkill(this, true)].Value / 100)) - 1;
 
 		public double AvgRes =>
 			(double)(PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance) / 5;
@@ -285,7 +285,10 @@ namespace Server.Mobiles
 		//Use DifficultyScalar only if mobile have special modification/ability that changes difficulty and cannot be calculated automatically
 		public virtual double DifficultyScalar => 1.0;
 
-		public double GenerateDifficulty() => Math.Round(BaseDifficulty * DifficultyScalar, 4);
+		public void CalculateDifficulty()
+		{
+			_Difficulty = Math.Round(BaseDifficulty * DifficultyScalar, 4);
+		}
 
 		private double? _Difficulty;
 
@@ -295,7 +298,7 @@ namespace Server.Mobiles
 			get
 			{
 				if (!_Difficulty.HasValue)
-					_Difficulty = GenerateDifficulty();
+					CalculateDifficulty();
 				return _Difficulty.Value;
 			}
 		}
@@ -336,7 +339,7 @@ namespace Server.Mobiles
 				if (!Summoned && value != DifficultyLevelValue.Normal)
 					DifficultyLevelExt.Apply(this);
 				
-				_Difficulty = GenerateDifficulty();
+				CalculateDifficulty();
 			}
 		}
 

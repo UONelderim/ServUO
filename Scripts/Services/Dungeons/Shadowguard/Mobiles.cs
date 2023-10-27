@@ -33,6 +33,7 @@ namespace Server.Engines.Shadowguard
             SetSkill(SkillName.Anatomy, 125.0);
             SetSkill(SkillName.MagicResist, 83.5, 92.5);
             SetSkill(SkillName.Wrestling, 125.0);
+            SetSkill(SkillName.Swords, 125.0);
             SetSkill(SkillName.Tactics, 125.0);
 
             AddItem(new ExecutionersAxe());

@@ -48,6 +48,7 @@ namespace Server.Mobiles
             SetSkill(SkillName.Swords, 45, 67);
             SetSkill(SkillName.Archery, 36, 67);
             SetSkill(SkillName.Parry, 45, 60);
+            SetSkill(SkillName.Wrestling, 30, 50);
             SetSkill(SkillName.Musicianship, 66.0, 97.5);
             SetSkill(SkillName.Peacemaking, 65.0, 87.5);
 

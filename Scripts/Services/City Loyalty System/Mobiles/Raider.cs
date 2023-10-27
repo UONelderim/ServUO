@@ -50,7 +50,7 @@ namespace Server.Mobiles
             SetResistance(ResistanceType.Energy, 45, 55);
 
             SetSkill(SkillName.MagicResist, 50.0, 75.5);
-            SetSkill(SkillName.Archery, 90.0, 105.5);
+            SetSkill(SkillName.Swords, 90.0, 105.5);
             SetSkill(SkillName.Tactics, 90.0, 105.5);
             SetSkill(SkillName.Anatomy, 90.0, 105.5);
 

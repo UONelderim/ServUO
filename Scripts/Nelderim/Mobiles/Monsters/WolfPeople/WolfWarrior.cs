@@ -35,11 +35,9 @@ namespace Server.Mobiles
 
 
 			SetSkill(SkillName.Anatomy, 125.0);
-			SetSkill(SkillName.Fencing, 46.0, 77.5);
-			SetSkill(SkillName.Macing, 35.0, 57.5);
 			SetSkill(SkillName.Poisoning, 60.0, 82.5);
 			SetSkill(SkillName.MagicResist, 83.5, 92.5);
-			SetSkill(SkillName.Wrestling, 125.0);
+			SetSkill(SkillName.Swords, 125.0);
 			SetSkill(SkillName.Tactics, 125.0);
 			SetSkill(SkillName.Lumberjacking, 125.0);
 
@@ -47,56 +45,18 @@ namespace Server.Mobiles
 			Karma = -3000;
 
 
-			LeatherCap Helm = new LeatherCap();
-			Helm.Hue = 2707;
-			Helm.LootType = LootType.Blessed;
-			Helm.ItemID = 5445;
-			Helm.Name = "wilcza maska";
-			AddItem(Helm);
-			StuddedChest Chest = new StuddedChest();
-			Chest.Hue = 2707;
-			Chest.LootType = LootType.Blessed;
-			AddItem(Chest);
-			StuddedGorget Gorget = new StuddedGorget();
-			Gorget.Hue = 2707;
-			Gorget.LootType = LootType.Blessed;
-			AddItem(Gorget);
-			BoneGloves Gloves = new BoneGloves();
-			Gloves.Hue = 2707;
-			Gloves.LootType = LootType.Blessed;
-			AddItem(Gloves);
-			BoneArms Arms = new BoneArms();
-			Arms.Hue = 2707;
-			Arms.LootType = LootType.Blessed;
-			AddItem(Arms);
-			BoneLegs Legs = new BoneLegs();
-			Legs.Hue = 2707;
-			Legs.LootType = LootType.Blessed;
-			AddItem(Legs);
-			Katana sword = new Katana();
-			sword.Hue = 424;
-			sword.Movable = false;
-			Legs.LootType = LootType.Blessed;
-			EquipItem(sword);
-
-			MetalShield Shield = new MetalShield();
-			Shield.Hue = 424;
-			Shield.Movable = false;
-			Legs.LootType = LootType.Blessed;
-			EquipItem(Shield);
-
-
-			Cloak Cloa = new Cloak();
-			Cloa.Hue = 2707;
-			Cloa.LootType = LootType.Blessed;
-			AddItem(Cloa);
-
-
-			Item hair = new Item(Utility.RandomList(0x203C));
-			hair.Hue = Race.RandomHairHue();
-			hair.Layer = Layer.Hair;
-			hair.Movable = false;
-			AddItem(hair);
+			EquipItem(new LeatherCap { Hue = 2707, LootType = LootType.Blessed, ItemID = 5445, Name = "wilcza maska" });
+			EquipItem(new StuddedChest { Hue = 2707, LootType = LootType.Blessed });
+			EquipItem(new StuddedGorget { Hue = 2707, LootType = LootType.Blessed });
+			EquipItem(new BoneGloves { Hue = 2707, LootType = LootType.Blessed });
+			EquipItem(new BoneArms { Hue = 2707, LootType = LootType.Blessed });
+			EquipItem(new BoneLegs { Hue = 2707, LootType = LootType.Blessed });
+			EquipItem(new Katana { Hue = 424, Movable = false, LootType = LootType.Blessed });
+			EquipItem(new MetalShield { Hue = 424, Movable = false, LootType = LootType.Blessed });
+			EquipItem(new Cloak { Hue = 2707, LootType = LootType.Blessed });
+			
+			HairItemID = 0x203C;
+			HairHue = Race.RandomHairHue();
 		}
 
 		public override void GenerateLoot()

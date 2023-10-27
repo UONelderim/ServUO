@@ -31,6 +31,7 @@ namespace Server.Mobiles
             SetSkill(SkillName.Anatomy, 78.5);
             SetSkill(SkillName.MagicResist, 82.5);
             SetSkill(SkillName.Tactics, 65.3);
+            SetSkill(SkillName.Archery, 10, 25);
 
             SetWearable(new Bow(), dropChance: 1);
         }
