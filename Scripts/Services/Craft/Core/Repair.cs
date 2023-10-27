@@ -689,7 +689,8 @@ namespace Server.Engines.Craft
                     (targeted is BaseWeapon && ((BaseWeapon)targeted).CanRepair) ||
                     (targeted is BaseClothing && ((BaseClothing)targeted).CanRepair) ||
                     (targeted is BaseJewel && ((BaseJewel)targeted).CanRepair)) ||
-                    (targeted is BaseTalisman && ((BaseTalisman)targeted).CanRepair);
+                    (targeted is BaseTalisman && ((BaseTalisman)targeted).CanRepair) ||
+                    (targeted is Spellbook spellbook && spellbook.CanRepair);
         }
     }
 }
