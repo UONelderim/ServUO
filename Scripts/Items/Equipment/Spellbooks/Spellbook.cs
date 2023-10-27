@@ -108,6 +108,8 @@ namespace Server.Items
             LootType = LootType.Blessed;
 
             Content = content;
+            
+            m_HitPoints = m_MaxHitPoints = Utility.RandomMinMax(InitMinHits, InitMaxHits);
         }
 
         public Spellbook(Serial serial)
@@ -131,7 +133,9 @@ namespace Server.Items
             get { return m_Quality; }
             set
             {
+	            UnscaleDurability();
                 m_Quality = value;
+                ScaleDurability();
                 InvalidateProperties();
             }
         }
@@ -272,17 +276,46 @@ namespace Server.Items
             }
         }
 
-        public virtual bool CanFortify => false;
+        public bool CanRepair => true;
+        public virtual bool CanFortify => true;
 
         public virtual int InitMinHits => 80;
         public virtual int InitMaxHits => 120;
 
         public virtual void ScaleDurability()
         {
+	        int scale = 100 + GetDurabilityBonus();
+
+	        m_HitPoints = ((m_HitPoints * scale) + 99) / 100;
+	        m_MaxHitPoints = ((m_MaxHitPoints * scale) + 99) / 100;
+
+	        if (m_MaxHitPoints > 255)
+		        m_MaxHitPoints = 255;
+
+	        if (m_HitPoints > 255)
+		        m_HitPoints = 255;
+
+	        InvalidateProperties();
         }
 
         public virtual void UnscaleDurability()
         {
+	        int scale = 100 + GetDurabilityBonus();
+
+	        m_HitPoints = ((m_HitPoints * 100) + (scale - 1)) / scale;
+	        m_MaxHitPoints = ((m_MaxHitPoints * 100) + (scale - 1)) / scale;
+
+	        InvalidateProperties();
+        }
+        
+        public virtual int GetDurabilityBonus()
+        {
+	        int bonus = 0;
+
+	        if (m_Quality == BookQuality.Exceptional)
+		        bonus += 20;
+
+	        return bonus;
         }
 
         public virtual int OnHit(BaseWeapon weap, int damage)
@@ -1184,7 +1217,7 @@ namespace Server.Items
                 Crafter = from;
             }
 
-            m_Quality = (BookQuality)(quality - 1);
+            Quality = (BookQuality)(quality - 1);
 
             return quality;
         }
