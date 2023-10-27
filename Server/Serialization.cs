@@ -99,6 +99,8 @@ namespace Server
 		public abstract HashSet<Mobile> ReadMobileSet();
 		public abstract HashSet<BaseGuild> ReadGuildSet();
 
+		public abstract void Skip(int count);
+
 		public abstract int PeekInt();
 
 		public abstract bool End();
@@ -781,6 +783,11 @@ namespace Server
 
 		private void TidyObjectList<T>(ArrayList list, Predicate<T> tidy)
 		{
+			if (list == null)
+			{
+				return;
+			}
+
 			var i = list.Count;
 
 			while (--i >= 0)
@@ -796,11 +803,18 @@ namespace Server
 
 		public override void WriteObjectList<T>(ArrayList list, Action<GenericWriter, T> writer)
 		{
-			Write(list.Count);
-
-			foreach (T obj in list)
+			if (list == null)
 			{
-				writer(this, obj);
+				Write((int)0);
+			}
+			else
+			{
+				Write(list.Count);
+
+				foreach (T obj in list)
+				{
+					writer(this, obj);
+				}
 			}
 		}
 
@@ -1200,19 +1214,26 @@ namespace Server
 		public override Enum ReadEnum()
 		{
 			var type = ReadObjectType();
-			var value = ReadEncodedULong();
+
+			var value = default(Enum);
 
 			if (type?.IsEnum == true)
 			{
 				if ((int)Type.GetTypeCode(type) % 2 == 1)
 				{
-					return (Enum)Enum.ToObject(type, unchecked((long)value));
+					value = (Enum)Enum.ToObject(type, ReadEncodedLong());
 				}
-
-				return (Enum)Enum.ToObject(type, value);
+				else
+				{
+					value = (Enum)Enum.ToObject(type, ReadEncodedULong());
+				}
+			}
+			else
+			{
+				Skip(8);
 			}
 
-			return default;
+			return value;
 		}
 
 		public override T ReadEnum<T>()
@@ -1287,7 +1308,7 @@ namespace Server
 
 		public override int ReadEncodedInt()
 		{
-			return (int)ReadEncodedUInt();
+			return unchecked((int)ReadEncodedUInt());
 		}
 
 		public override uint ReadEncodedUInt()
@@ -1308,7 +1329,7 @@ namespace Server
 
 		public override long ReadEncodedLong()
 		{
-			return (long)ReadEncodedULong();
+			return unchecked((long)ReadEncodedULong());
 		}
 
 		public override ulong ReadEncodedULong()
@@ -1568,6 +1589,14 @@ namespace Server
 		public override HashSet<T> ReadGuildSet<T>()
 		{
 			return ReadObjectSet(ReadGuild<T>);
+		}
+
+		public override void Skip(int count)
+		{
+			while (--count >= 0)
+			{
+				_ = ReadByte();
+			}
 		}
 
 		public override int PeekInt()
@@ -2011,6 +2040,11 @@ namespace Server
 
 		private void TidyObjectList<T>(ArrayList list, Predicate<T> tidy)
 		{
+			if (list == null)
+			{
+				return;
+			}
+
 			var i = list.Count;
 
 			while (--i >= 0)
@@ -2026,11 +2060,18 @@ namespace Server
 
 		public override void WriteObjectList<T>(ArrayList list, Action<GenericWriter, T> writer)
 		{
-			Write(list.Count);
-
-			foreach (T obj in list)
+			if (list == null)
 			{
-				writer(this, obj);
+				Write((int)0);
+			}
+			else
+			{
+				Write(list.Count);
+
+				foreach (T obj in list)
+				{
+					writer(this, obj);
+				}
 			}
 		}
 
