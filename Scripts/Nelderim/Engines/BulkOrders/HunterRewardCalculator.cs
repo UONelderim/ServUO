@@ -98,16 +98,19 @@ namespace Server.Engines.BulkOrders
 			return SelectRandomType(objects);
 		}
 
+		private enum TalizmanType
+		{
+			Level2,
+			Level3,
+		}
+
 		private static Item CreateTalismans(int type)
 		{
-			Item toReceive;
-			if (type == 2)
-				toReceive = new TalismanLevel2();
-			else if (type == 3)
-				toReceive = new TalismanLevel3();
-			else
-				toReceive = new TalismanLevel2();
-			return toReceive;
+			switch ((TalizmanType)type)
+			{
+				case TalizmanType.Level3: return new TalismanLevel3();
+				default: return new TalismanLevel2();
+			}
 		}
 
 		private static Item CreatePetResurrectPotion(int type)
@@ -319,133 +322,123 @@ namespace Server.Engines.BulkOrders
 			return SelectRandomType(objects);
 		}
 
-		public static Item CreateArtifacts(int type)
+		private static Type[] m_artLvl1 = new Type[]
 		{
-			Type artifactType;
+			typeof(Raikiri),
+			typeof(PeasantsBokuto),
+			typeof(PixieSwatter),
+			typeof(Frostbringer),
+			typeof(SzyjaGeriadoru),
+			typeof(BlazenskieSzczescie),
+			typeof(KulawyMagik),
+			typeof(KilofZRuinTwierdzy),
+			typeof(SkalpelDoktoraBrandona),
+			typeof(JaszczurzySzal),
+			typeof(OblivionsNeedle),
+			typeof(Bonesmasher),
+			typeof(ColdForgedBlade),
+			typeof(DaimyosHelm),
+			typeof(LegsOfStability),
+			typeof(AegisOfGrace),
+			typeof(AncientFarmersKasa),
+			typeof(StudniaOdnowy)
+		};
 
-			List<Type> artifactLBODLevel1 = new List<Type>(); // najslabsze
-			artifactLBODLevel1.Add(typeof(Raikiri));
-			artifactLBODLevel1.Add(typeof(PeasantsBokuto));
-			artifactLBODLevel1.Add(typeof(PixieSwatter));
-			artifactLBODLevel1.Add(typeof(Frostbringer));
-			artifactLBODLevel1.Add(typeof(SzyjaGeriadoru));
-			artifactLBODLevel1.Add(typeof(BlazenskieSzczescie));
-			artifactLBODLevel1.Add(typeof(KulawyMagik));
-			artifactLBODLevel1.Add(typeof(KilofZRuinTwierdzy));
-			artifactLBODLevel1.Add(typeof(SkalpelDoktoraBrandona));
-			artifactLBODLevel1.Add(typeof(JaszczurzySzal));
-			artifactLBODLevel1.Add(typeof(OblivionsNeedle));
-			artifactLBODLevel1.Add(typeof(Bonesmasher));
-			artifactLBODLevel1.Add(typeof(ColdForgedBlade));
-			artifactLBODLevel1.Add(typeof(DaimyosHelm));
-			artifactLBODLevel1.Add(typeof(LegsOfStability));
-			artifactLBODLevel1.Add(typeof(AegisOfGrace));
-			artifactLBODLevel1.Add(typeof(AncientFarmersKasa));
-			artifactLBODLevel1.Add(typeof(StudniaOdnowy));
+		private static Type[] m_artLvl2 = new Type[]
+		{
+			typeof(Tyrfing),
+			typeof(Arteria),
+			typeof(ArcticDeathDealer),
+			typeof(CavortingClub),
+			typeof(Quernbiter),
+			typeof(PromienSlonca),
+			typeof(SwordsOfProsperity),
+			typeof(TeczowaNarzuta),
+			typeof(SmoczeKosci),
+			typeof(RekawiceFredericka),
+			typeof(OdbijajacyStrzaly),
+			typeof(HuntersHeaddress),
+			typeof(BurglarsBandana),
+			typeof(SpodnieOswiecenia),
+			typeof(KiltZycia),
+			typeof(ArkanaZywiolow),
+			typeof(OstrzeCienia),
+			typeof(TalonBite),
+			typeof(SilvanisFeywoodBow),
+			typeof(BrambleCoat),
+			typeof(OrcChieftainHelm),
+			typeof(ShroudOfDeciet),
+			typeof(CaptainJohnsHat),
+			typeof(EssenceOfBattle),
+		};
 
+		private static Type[] m_artLvl3 = new Type[]
+		{
+			typeof(HebanowyPlomien),
+			typeof(PomstaGrima),
+			typeof(MaskaSmierci),
+			typeof(SmoczyNos),
+			typeof(StudniaOdnowy),
+			typeof(Aegis),
+			typeof(HanzosBow),
+			typeof(MagicznySaif),
+			typeof(StrzalaAbarisa),
+			typeof(FangOfRactus),
+			typeof(RighteousAnger),
+			typeof(Stormgrip),
+			typeof(LeggingsOfEmbers),
+			typeof(SmoczeJelita),
+			typeof(SongWovenMantle),
+			typeof(StitchersMittens),
+			typeof(FeyLeggings),
+            //typeof(PadsOfTheCuSidhe),
+            typeof(DjinnisRing),
+			typeof(PendantOfTheMagi),
+		};
 
-			List<Type> artifactLBODLevel2 = new List<Type>(); // srednie
-			artifactLBODLevel2.Add(typeof(Tyrfing));
-			artifactLBODLevel2.Add(typeof(Arteria));
-			artifactLBODLevel2.Add(typeof(ArcticDeathDealer));
-			artifactLBODLevel2.Add(typeof(CavortingClub));
-			artifactLBODLevel2.Add(typeof(Quernbiter));
-			artifactLBODLevel2.Add(typeof(PromienSlonca));
-			artifactLBODLevel2.Add(typeof(SwordsOfProsperity));
-			artifactLBODLevel2.Add(typeof(TeczowaNarzuta));
-			artifactLBODLevel2.Add(typeof(SmoczeKosci));
-			artifactLBODLevel2.Add(typeof(RekawiceFredericka));
-			artifactLBODLevel2.Add(typeof(OdbijajacyStrzaly));
-			artifactLBODLevel2.Add(typeof(HuntersHeaddress));
-			artifactLBODLevel2.Add(typeof(BurglarsBandana));
-			artifactLBODLevel2.Add(typeof(SpodnieOswiecenia));
-			artifactLBODLevel2.Add(typeof(KiltZycia));
-			artifactLBODLevel2.Add(typeof(ArkanaZywiolow));
-			artifactLBODLevel2.Add(typeof(OstrzeCienia));
-			artifactLBODLevel2.Add(typeof(TalonBite));
-			artifactLBODLevel2.Add(typeof(SilvanisFeywoodBow));
-			artifactLBODLevel2.Add(typeof(BrambleCoat));
-			artifactLBODLevel2.Add(typeof(OrcChieftainHelm));
-			artifactLBODLevel2.Add(typeof(ShroudOfDeceit));
-			artifactLBODLevel2.Add(typeof(CaptainJohnsHat));
-			artifactLBODLevel2.Add(typeof(EssenceOfBattle));
+		private static Type[] m_artLvl4 = new Type[]
+		{
+			typeof(Stormgrip),
+			typeof(FeyLeggings),
+			typeof(PendantOfTheMagi), // maszyjnik trzech krolow
+            typeof(EssenceOfBattle),
+			typeof(HuntersHeaddress),
+			typeof(SpodnieOswiecenia),
+			typeof(OrcChieftainHelm),
+			typeof(KulawyMagik),
+			typeof(SmoczyNos), // nogawice ozdobione luskami smoka
+        };
 
-			List<Type> artifactLBODLevel3 = new List<Type>(); // najlepsze
-			artifactLBODLevel3.Add(typeof(HebanowyPlomien));
-			artifactLBODLevel3.Add(typeof(PomstaGrima));
-			artifactLBODLevel3.Add(typeof(MaskaSmierci));
-			artifactLBODLevel3.Add(typeof(SmoczyNos));
-			artifactLBODLevel3.Add(typeof(StudniaOdnowy));
-			artifactLBODLevel3.Add(typeof(Aegis));
-			artifactLBODLevel3.Add(typeof(HanzosBow));
-			artifactLBODLevel3.Add(typeof(MagicznySaif));
-			artifactLBODLevel3.Add(typeof(StrzalaAbarisa));
-			artifactLBODLevel3.Add(typeof(FangOfRactus));
-			artifactLBODLevel3.Add(typeof(RighteousAnger));
-			artifactLBODLevel3.Add(typeof(Stormgrip));
-			artifactLBODLevel3.Add(typeof(LeggingsOfEmbers));
-			artifactLBODLevel3.Add(typeof(SmoczeJelita));
-			artifactLBODLevel3.Add(typeof(SongWovenMantle));
-			artifactLBODLevel3.Add(typeof(StitchersMittens));
-			artifactLBODLevel3.Add(typeof(FeyLeggings));
-			//artifactLBODLevel3.Add(typeof(PadsOfTheCuSidhe));
-			artifactLBODLevel3.Add(typeof(DjinnisRing));
-			artifactLBODLevel3.Add(typeof(PendantOfTheMagi));
-
-			int rand = Utility.RandomMinMax(0, 100);
-
-			if (type == 10)
-			{
-				if (rand < 80) // 80% (lvl 1)
-					artifactType = artifactLBODLevel1[Utility.Random(artifactLBODLevel1.Count)];
-				else if (rand < 95) // 15% (lvl 2)
-					artifactType = artifactLBODLevel2[Utility.Random(artifactLBODLevel2.Count)];
-				else // 5% (lvl 3)
-					artifactType = artifactLBODLevel3[Utility.Random(artifactLBODLevel3.Count)];
-			}
-			else if (type == 15)
-			{
-				if (rand < 5) // 5% (lvl 1: najslabsze)
-					artifactType = artifactLBODLevel1[Utility.Random(artifactLBODLevel1.Count)];
-				else if (rand < 85) // 80% (lvl 2: srednie)
-					artifactType = artifactLBODLevel2[Utility.Random(artifactLBODLevel2.Count)];
-				else // 15% (lvl 3: najlepsze)
-					artifactType = artifactLBODLevel3[Utility.Random(artifactLBODLevel3.Count)];
-			}
-			else if (type == 20)
-			{
-				if (rand < 5) // 5% (lvl 1: najslabsze)
-					artifactType = artifactLBODLevel1[Utility.Random(artifactLBODLevel1.Count)];
-				else if (rand < 20) // 15% (lvl 2: srednie)
-					artifactType = artifactLBODLevel2[Utility.Random(artifactLBODLevel2.Count)];
-				else // 80% (lvl 3: najmocniejsze)
-					artifactType = artifactLBODLevel3[Utility.Random(artifactLBODLevel3.Count)];
-			}
-			else
-			{
-				artifactType = artifactLBODLevel1[Utility.Random(artifactLBODLevel1.Count)];
-			}
-
-			Item art = (Item)Activator.CreateInstance(artifactType);
-			return art;
+		private enum ArtType
+		{
+			Art1,
+			Art2,
+			Art3,
+			Art4
 		}
 
+		public static Item CreateArtifacts(int type)
+		{
+			Type itemType;
+			switch ((ArtType)type)
+			{
+				case ArtType.Art4:
+					itemType = Utility.RandomList(m_artLvl4);
+					break;
+				case ArtType.Art3:
+					itemType = Utility.RandomList(m_artLvl3);
+					break;
+				case ArtType.Art2:
+					itemType = Utility.RandomList(m_artLvl2);
+					break;
+				default:
+					itemType = Utility.RandomList(m_artLvl1);
+					break;
+			}
 
-		//private static Item CreateDung( int type )
-		//{
-		//    return new HorseDung();
-		//}
-
-		//private static Item CreateShoes( int type )
-		//{
-		//    return new HorseShoes();
-		//}
-
-		//private static Item CreateAqFishingNet( int type )
-		//{
-		//    return new AquariumFishingNet();
-		//}		
-
+			Item art = (Item)Activator.CreateInstance(itemType);
+			return art;
+		}
 		#endregion
 
 		public static readonly HunterRewardCalculator Instance = new();
@@ -462,7 +455,7 @@ namespace Server.Engines.BulkOrders
 			return 0;
 		}
 
-		private static readonly int[] GoldPerCreature = { 30, 100, 300 };
+		private static readonly int[] GoldPerCreature = { 30, 100, 300, 600 };
 
 		public int ComputeGold(double points)
 		{
@@ -533,49 +526,41 @@ namespace Server.Engines.BulkOrders
 
 		public HunterRewardCalculator()
 		{
+			const int PIGMENT_1 = 0;
+			const int PIGMENT_2 = 1;
+
 			// Konstrukcja new RewardItem( ilosc procent ze zostanie wybrany, grupa)
 			// Konstrukcja new RewardItem( ilosc procent ze zostanie wybrany, grupa, typ) // typ moze byc uzyty np przy rozroznieniu poziomu talizmanow czy losowania artefaktow
 			// Pierwszy zawsze musi byc ten z najwiekszym prawdopodobnienstwem, reszta bez znaczenia
 			Groups = new[]
 			{
-				new RewardGroup(0, new RewardItem(60, DecoMinor), new RewardItem(20, Pigments, 0),
-					new RewardItem(20, TransPowders, 10)),
-				new RewardGroup(50, new RewardItem(40, DecoMinor), new RewardItem(40, Pigments, 0),
-					new RewardItem(20, TransPowders, 15)),
-				new RewardGroup(80, new RewardItem(40, DecoMinor), new RewardItem(70, Pigments, 0),
-					new RewardItem(10, TransPowders, 20)),
-				new RewardGroup(100, new RewardItem(20, DecoMinor), new RewardItem(20, DecoMajor),
-					new RewardItem(20, Pigments, 0), new RewardItem(20, Pigments, 1),
-					new RewardItem(20, TransPowders, 20)),
-				new RewardGroup(150, new RewardItem(40, DecoMajor), new RewardItem(40, Pigments, 1),
-					new RewardItem(20, DurabilityPowder)),
-				new RewardGroup(200, new RewardItem(60, DecoMajor), new RewardItem(20, DurabilityPowder),
-					new RewardItem(20, Artifacts, 10)),
-				new RewardGroup(230, new RewardItem(50, DecoMajor), new RewardItem(20, DurabilityPowder),
-					new RewardItem(20, Artifacts, 10), new RewardItem(15, PetResurrectPotion)),
-				new RewardGroup(250, new RewardItem(60, Artifacts, 10),
-					new RewardItem(30, Talismans, 2) , new RewardItem(10, PetResurrectPotion)),
-				new RewardGroup(300, new RewardItem(40, Talismans, 2), new RewardItem(40, Artifacts, 15),
-					new RewardItem(20, Artifacts, 10)),
-				new RewardGroup(350, new RewardItem(60, Artifacts, 15),
-					new RewardItem(30, Talismans, 2) , new RewardItem(10, PetResurrectPotion)),
-				new RewardGroup(380, new RewardItem(60, Artifacts, 15), new RewardItem(30, Talismans, 2),
-					new RewardItem(10, PetResurrectPotion, 2)),
-				new RewardGroup(400, new RewardItem(40, Talismans, 3), new RewardItem(40, Artifacts, 20),
-					new RewardItem(20, Artifacts, 15)),
-				new RewardGroup(450, new RewardItem(70, Artifacts, 20), new RewardItem(30, Talismans, 3)),
+					new RewardGroup(  0, new RewardItem(60, DecoMinor), new RewardItem(20, Pigments, PIGMENT_1), new RewardItem(20, TransPowders, 10)),
+					new RewardGroup( 25, new RewardItem(50, DecoMinor), new RewardItem(30, Pigments, PIGMENT_1), new RewardItem(20, TransPowders, 13)),
+					new RewardGroup( 50, new RewardItem(40, DecoMinor), new RewardItem(40, Pigments, PIGMENT_1), new RewardItem(20, TransPowders, 15)),
 
-				//new RewardGroup(110, new RewardItem( 60, DecoMinor ), new RewardItem( 15, Pigments, 0), new RewardItem( 25, TransPowders, 10 )),
-				//new RewardGroup(115, new RewardItem( 65, DecoMinor ), new RewardItem( 20, Pigments, 0), new RewardItem( 15, TransPowders, 15 )),
-				//new RewardGroup(120, new RewardItem( 70, DecoMinor ), new RewardItem( 25, Pigments, 0), new RewardItem( 5, TransPowders, 20 )),
+					new RewardGroup(100, new RewardItem(20, DecoMinor), new RewardItem(20, DecoMajor), new RewardItem(20, Pigments, PIGMENT_1), new RewardItem(20, Pigments, PIGMENT_2), new RewardItem(20, TransPowders, 20)),
+					new RewardGroup(125, new RewardItem(30, DecoMajor), new RewardItem(30, Pigments, PIGMENT_2), new RewardItem(10, Pigments, PIGMENT_1), new RewardItem(10, DecoMinor), new RewardItem(10, TransPowders, 20), new RewardItem(10, DurabilityPowder)),
+					new RewardGroup(150, new RewardItem(40, DecoMajor), new RewardItem(40, Pigments, PIGMENT_2), new RewardItem(20, DurabilityPowder)),
 
-				//new RewardGroup(210, new RewardItem( 45, DecoMinor ), new RewardItem( 15, Pigments, 1), new RewardItem( 15, TransPowders, 20),   new RewardItem( 5, Talismans, 2),  new RewardItem( 15, PHS ), new RewardItem( 5, DecoMajor )),
-				//new RewardGroup(215, new RewardItem( 40, DecoMinor ), new RewardItem( 20, Pigments, 1), new RewardItem( 5, TransPowders, 30),   new RewardItem( 10, Talismans, 2), new RewardItem( 15, PHS ), new RewardItem( 10, DecoMajor )),
-				//new RewardGroup(220, new RewardItem( 35, DecoMinor ), new RewardItem( 20, Pigments, 1), new RewardItem( 0, TransPowders, 40),   new RewardItem( 15, Talismans, 2), new RewardItem( 15, PHS ), new RewardItem( 15, DecoMajor )),
+					new RewardGroup(200, new RewardItem(60, DecoMajor), new RewardItem(20, DurabilityPowder), new RewardItem(20, Artifacts, (int)ArtType.Art1)),
+					new RewardGroup(225, new RewardItem(40, Artifacts, (int)ArtType.Art1), new RewardItem(30, DecoMajor), new RewardItem(15, Talismans, (int)TalizmanType.Level2), new RewardItem(10, DurabilityPowder), new RewardItem(5, PetResurrectPotion)),
+					new RewardGroup(250, new RewardItem(60, Artifacts, (int)ArtType.Art1), new RewardItem(30, Talismans, (int)TalizmanType.Level2), new RewardItem(10, PetResurrectPotion)),
 
-				//new RewardGroup(310, new RewardItem( 55, DecoMajor ), new RewardItem( 15, Talismans, 3), new RewardItem( 30, Artifacts, 10)),
-				//new RewardGroup(315, new RewardItem( 40, Artifacts, 15), new RewardItem( 20, Talismans, 3), new RewardItem( 40, DecoMajor)),
-				//new RewardGroup(320, new RewardItem( 50, Artifacts, 20), new RewardItem( 25, Talismans, 3), new RewardItem( 25, DecoMajor)),
+					new RewardGroup(300, new RewardItem(40, Talismans, (int)TalizmanType.Level2), new RewardItem(40, Artifacts, (int)ArtType.Art2), new RewardItem(20, Artifacts, (int)ArtType.Art1)),
+					new RewardGroup(325, new RewardItem(50, Artifacts, (int)ArtType.Art2), new RewardItem(35, Talismans, (int)TalizmanType.Level2), new RewardItem(10, Artifacts, (int)ArtType.Art1), new RewardItem(5, PetResurrectPotion)),
+					new RewardGroup(350, new RewardItem(60, Artifacts, (int)ArtType.Art2), new RewardItem(30, Talismans, (int)TalizmanType.Level2), new RewardItem(10, PetResurrectPotion)),
+
+					new RewardGroup(400, new RewardItem(40, Talismans, (int)TalizmanType.Level3), new RewardItem(40, Artifacts, (int)ArtType.Art3), new RewardItem(20, Artifacts, (int)ArtType.Art2)),
+					new RewardGroup(425, new RewardItem(55, Artifacts, (int)ArtType.Art3), new RewardItem(35, Talismans, (int)TalizmanType.Level3), new RewardItem(10, Artifacts, (int)ArtType.Art2)),
+					new RewardGroup(450, new RewardItem(70, Artifacts, (int)ArtType.Art3), new RewardItem(30, Talismans, (int)TalizmanType.Level3)),
+
+					new RewardGroup(500, new RewardItem(60, Talismans, (int)TalizmanType.Level3), new RewardItem(10, Talismans, (int)TalizmanType.Level2), new RewardItem(20, Artifacts, (int)ArtType.Art2), new RewardItem(10, Artifacts, (int)ArtType.Art1)),
+					new RewardGroup(525, new RewardItem(70, Talismans, (int)TalizmanType.Level3), new RewardItem(15, Artifacts, (int)ArtType.Art2), new RewardItem(5, Artifacts, (int)ArtType.Art1), new RewardItem(5, Artifacts, (int)ArtType.Art3), new RewardItem(5, Artifacts, (int)ArtType.Art4)),
+					new RewardGroup(550, new RewardItem(80, Talismans, (int)TalizmanType.Level3), new RewardItem(10, Artifacts, (int)ArtType.Art3), new RewardItem(10, Artifacts, (int)ArtType.Art4)),
+
+					new RewardGroup(700, new RewardItem(60, Artifacts, (int)ArtType.Art4), new RewardItem(40, Artifacts, (int)ArtType.Art3)),
+					new RewardGroup(725, new RewardItem(70, Artifacts, (int)ArtType.Art4), new RewardItem(30, Artifacts, (int)ArtType.Art3)),
+					new RewardGroup(750, new RewardItem(80, Artifacts, (int)ArtType.Art4), new RewardItem(20, Artifacts, (int)ArtType.Art3)),
 			};
 		}
 	}

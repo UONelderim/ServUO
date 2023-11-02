@@ -54,45 +54,32 @@ namespace Server.Engines.BulkOrders
 		[Constructable]
 		public LargeHunterBOD(double theirSkill)
 		{
-			double easyChance;
-			double mediumChance;
+            double[] chances = { 0, 0, 0, 0 };
+            if (theirSkill >= 105.1)
+            {
+                chances[0] = 0.20;
+                chances[1] = 0.25;
+                chances[2] = 0.30;
+                chances[3] = 0.25;
+            }
+            else if (theirSkill >= 90.1)
+            {
+                chances[0] = 0.33;
+                chances[1] = 0.67;
+            }
+            else
+            {
+                chances[0] = 1.00;
+            }
 
-			if (theirSkill > 105.0)
-			{
-				easyChance = 0.31; // 2/(2+8+8)
-				mediumChance = 0.50; // 8/(8+8)
-			}
-			else if (theirSkill > 90.0)
-			{
-				easyChance = 0.33; // 5/(15+10+0)
-				mediumChance = 1.0; // 10/(10+0)
-			}
-			else
-			{
-				easyChance = 1.0; // 10/(10+0+0)
-				mediumChance = 0.0;
-			}
-
-			double rnd = Utility.RandomDouble();
-			int type;
-
-			if (easyChance > rnd)
-			{
-				type = 1;
-			}
-			else if (mediumChance > rnd)
-			{
-				type = 2;
-			}
-			else
-			{
-				type = 3;
-			}
+            int level = Utility.RandomIndex(chances) + 1;
+			Console.WriteLine("level=" + level + ", theirSkill=" + theirSkill + ", chances[3]=" + chances[3]);
 
 			Hue = 1556;
 			AmountMax = Utility.RandomList(10, 15, 20, 20);
-			Entries = LargeBulkEntry.ConvertEntries(this, type switch
+			Entries = LargeBulkEntry.ConvertEntries(this, level switch
 			{
+				4 => Utility.RandomList(LargeBulkEntry.LargeBoss),
 				3 => Utility.RandomList(LargeBulkEntry.LargeHard),
 				2 => Utility.RandomList(LargeBulkEntry.LargeMedium),
 				_ => Utility.RandomList(LargeBulkEntry.LargeEasy),
