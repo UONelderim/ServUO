@@ -16,6 +16,8 @@ namespace Server.Engines.BulkOrders
 		public static SmallBulkEntry[] Medium => GetEntries("Hunting", "SmallMedium");
 
 		public static SmallBulkEntry[] Hard => GetEntries("Hunting", "SmallHard");
+
+		public static SmallBulkEntry[] Boss => GetEntries("Hunting", "SmallBoss");
 	}
 
 	public partial class LargeBulkEntry
@@ -62,5 +64,17 @@ namespace Server.Engines.BulkOrders
 		public static SmallBulkEntry[] Hard3 => GetEntries("Hunting", "LargeHard3");
 		public static SmallBulkEntry[] Hard4 => GetEntries("Hunting", "LargeHard4");
 		public static SmallBulkEntry[] Hard5 => GetEntries("Hunting", "LargeHard5");
+
+		public static SmallBulkEntry[][] LargeBoss = { Boss1, Boss2, Boss3, Boss4, Boss5, Boss6, Boss7, Boss8 };
+
+		public static SmallBulkEntry[] Boss1 => GetEntries("Hunting", "LargeBoss1");
+		public static SmallBulkEntry[] Boss2 => GetEntries("Hunting", "LargeBoss2");
+		public static SmallBulkEntry[] Boss3 => GetEntries("Hunting", "LargeBoss3");
+		public static SmallBulkEntry[] Boss4 => GetEntries("Hunting", "LargeBoss4");
+		public static SmallBulkEntry[] Boss5 => GetEntries("Hunting", "LargeBoss5");
+		public static SmallBulkEntry[] Boss6 => GetEntries("Hunting", "LargeBoss6");
+		public static SmallBulkEntry[] Boss7 => GetEntries("Hunting", "LargeBoss7");
+		public static SmallBulkEntry[] Boss8 => GetEntries("Hunting", "LargeBoss8");
+
 	}
 }
