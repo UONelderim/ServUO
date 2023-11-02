@@ -46,6 +46,8 @@ namespace Server.Mobiles
         public override Poison PoisonImmune => Poison.Regular;
 		
         public override TribeType Tribe => TribeType.Undead;
+        
+        public override PackInstinct PackInstinct => PackInstinct.Daemon;
 
         public override void GenerateLoot()
         {
