@@ -78,37 +78,42 @@ namespace Server.Engines.BulkOrders
 		public static SmallHunterBOD CreateRandomFor(Mobile m, double theirSkill)
 		{
 			SmallBulkEntry[] entries;
-			double easyChance;
-			double mediumChance;
 
-			switch (theirSkill)
+			double[] chances = { 0, 0, 0, 0 };
+			if (theirSkill >= 105.1)
 			{
-				case >= 105.1:
-					easyChance = 0.22; 
-					mediumChance = 0.68;
-					break;
-				case >= 90.1:
-					easyChance = 0.26;
-					mediumChance = 0.8; 
-					break;
-				case >= 70.1:
-					easyChance = 0.78; 
-					mediumChance = 1.0;
-					break;
-				default:
-					easyChance = 1.0;
-					mediumChance = 0.0;
-					break;
+				chances[0] = 0.15;
+				chances[1] = 0.40;
+				chances[2] = 0.25;
+				chances[3] = 0.20;
+			}
+			else if (theirSkill >= 90.1)
+			{
+				chances[0] = 0.25;
+				chances[1] = 0.55;
+				chances[2] = 0.20;
+			}
+			else if (theirSkill >= 70.1)
+			{
+				chances[0] = 0.75;
+				chances[1] = 0.25;
+			}
+			else
+			{
+				chances[0] = 1.00;
 			}
 
-			var rand = Utility.RandomDouble();
+			int level = Utility.RandomIndex(chances) + 1;
+			Console.WriteLine("level=" + level + ", theirSkill=" + theirSkill+ ", chances[3]="+ chances[3]);
+			switch (level)
+			{
+				default:
+				case 1: entries = SmallBulkEntry.Easy; break;
+				case 2: entries = SmallBulkEntry.Medium; break;
+				case 3: entries = SmallBulkEntry.Hard; break;
+				case 4: entries = SmallBulkEntry.Boss; break;
+			}
 
-			if (easyChance >= rand)
-				entries = SmallBulkEntry.Easy;
-			else if (mediumChance >= rand)
-				entries = SmallBulkEntry.Medium;
-			else
-				entries = SmallBulkEntry.Hard;
 
 			if (entries.Length <= 0) return null;
 
@@ -139,8 +144,9 @@ namespace Server.Engines.BulkOrders
 		[Constructable]
 		public SmallHunterBOD()
 		{
-			var entries = Utility.RandomList(1, 2, 3) switch
+			var entries = Utility.RandomList(1, 2, 3, 4) switch
 			{
+				4 => SmallBulkEntry.Boss,
 				3 => SmallBulkEntry.Hard,
 				2 => SmallBulkEntry.Medium,
 				_ => SmallBulkEntry.Easy
