@@ -738,7 +738,7 @@
     Walden, Waldo, Wallace, Wally, Walter, Ward, Warner, Warren, Waylan, Wayland, Waylon, Wayne, Wendell,
     Weston, Weylin, Whitaker, Wilfen, Willard, Willem, William, Winston, Winthrop, Wlby, Wyatt, Xenos,
     Xerxes, Ximen, Yakecan, Yancey, Yardley, Yarin, Yerik, Yero, Yervant, Yusuf, Yves, Zachariah, Zackery,
-    Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren,
+    Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren
   </namelist>
   <namelist type="czlowiek_female">
     Aba, Abby, Abella, Abey, Abigail, Abina, Abiona, Abira, Abra,
@@ -956,7 +956,7 @@
     Zahirah, Zahra, Zakia, Zalea, Zalika, Zaltana, Zandra, Zarah,
     Zehava, Zelenka, Zelia, Zella, Zena, Zenaide, Zenia, Zerlinda,
     Zevida, Zia, Ziazan, Zigana, Zila, Zina, Zinnia, Zita, Zoe, Zora,
-    Zorah, Zorda, Zuleika, Zulema,
+    Zorah, Zorda, Zuleika, Zulema
   </namelist>
 
     <namelist type="jarling_male">
@@ -1052,7 +1052,7 @@
     Walden, Waldo, Wallace, Wally, Walter, Ward, Warner, Warren, Waylan, Wayland, Waylon, Wayne, Wendell,
     Weston, Weylin, Whitaker, Wilfen, Willard, Willem, William, Winston, Winthrop, Wlby, Wyatt, Xenos,
     Xerxes, Ximen, Yakecan, Yancey, Yardley, Yarin, Yerik, Yero, Yervant, Yusuf, Yves, Zachariah, Zackery,
-    Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren,
+    Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren
   </namelist>
   <namelist type="jarling_female">
     Aba, Abby, Abella, Abey, Abigail, Abina, Abiona, Abira, Abra,
@@ -1270,7 +1270,7 @@
     Zahirah, Zahra, Zakia, Zalea, Zalika, Zaltana, Zandra, Zarah,
     Zehava, Zelenka, Zelia, Zella, Zena, Zenaide, Zenia, Zerlinda,
     Zevida, Zia, Ziazan, Zigana, Zila, Zina, Zinnia, Zita, Zoe, Zora,
-    Zorah, Zorda, Zuleika, Zulema,
+    Zorah, Zorda, Zuleika, Zulema
   </namelist>
   
   <namelist type="norstyg_male">
@@ -1366,7 +1366,7 @@
     Walden, Waldo, Wallace, Wally, Walter, Ward, Warner, Warren, Waylan, Wayland, Waylon, Wayne, Wendell,
     Weston, Weylin, Whitaker, Wilfen, Willard, Willem, William, Winston, Winthrop, Wlby, Wyatt, Xenos,
     Xerxes, Ximen, Yakecan, Yancey, Yardley, Yarin, Yerik, Yero, Yervant, Yusuf, Yves, Zachariah, Zackery,
-    Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren,
+    Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren
   </namelist>
   <namelist type="norstyg_female">
     Aba, Abby, Abella, Abey, Abigail, Abina, Abiona, Abira, Abra,
@@ -1584,7 +1584,7 @@
     Zahirah, Zahra, Zakia, Zalea, Zalika, Zaltana, Zandra, Zarah,
     Zehava, Zelenka, Zelia, Zella, Zena, Zenaide, Zenia, Zerlinda,
     Zevida, Zia, Ziazan, Zigana, Zila, Zina, Zinnia, Zita, Zoe, Zora,
-    Zorah, Zorda, Zuleika, Zulema,
+    Zorah, Zorda, Zuleika, Zulema
   </namelist>
 <namelist type="none_male">
   Aaron, Aasin, Abbott, Abdel, Abdiel, Abijah, Abner, Abran, Ackerley, Adair, Adeben, Adem, Adiran,
@@ -1596,7 +1596,7 @@
   Angren, Amdir, Alfir, Adar, Zyvnik, Elnik, Dahos, Gretes, Ibnay, Ocerad, Adrryk, Valenen, Wanes, Gralt,
   Arion, Arkin, Arlen, Arley, Arlin, Arlo, Arman, Armen, Armon, Arnon, Arpiar, Arsenio, Arthur, Ashby,
   Asher, Ashford, Ashlin, Ashon, Ashur, Athan, Atheron, Atman, Audric, Audun, Augustus, Aurek, Austin,
-  Averill, Avery,
+  Averill, Avery
 </namelist>
 <namelist type="none_female">
   Aba, Abby, Abella, Abey, Abigail, Abina, Abiona, Abira, Abra,
@@ -1631,7 +1631,7 @@
   Aurina, Aurkene, Ava, Avana, Avasa, Avella, Avena, Avie,
   Aviva, Axella, Ayaluna, Ayame, Ayana, Ayasha, Aydee, Ayela, Ayiana, Ayila,
   Ayisha, Ayita, Ayla, Aynora, Ayuna, Azaleah, Azarael, Azera, Azha,
-  Azilea, Azina, Azize, Azura,
+  Azilea, Azina, Azize, Azura
 </namelist> 
 <namelist type="tamael_male">
   Aaron, Aasin, Abbott, Abdel, Abdiel, Abijah, Abner, Abran, Ackerley, Adair, Adeben, Adem, Adiran,
@@ -1726,7 +1726,7 @@
   Walden, Waldo, Wallace, Wally, Walter, Ward, Warner, Warren, Waylan, Wayland, Waylon, Wayne, Wendell,
   Weston, Weylin, Whitaker, Wilfen, Willard, Willem, William, Winston, Winthrop, Wlby, Wyatt, Xenos,
   Xerxes, Ximen, Yakecan, Yancey, Yardley, Yarin, Yerik, Yero, Yervant, Yusuf, Yves, Zachariah, Zackery,
-  Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren,
+  Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren
 </namelist>
 <namelist type="tamael_female">
   Aba, Abby, Abella, Abey, Abigail, Abina, Abiona, Abira, Abra,
@@ -1944,7 +1944,7 @@
   Zahirah, Zahra, Zakia, Zalea, Zalika, Zaltana, Zandra, Zarah,
   Zehava, Zelenka, Zelia, Zella, Zena, Zenaide, Zenia, Zerlinda,
   Zevida, Zia, Ziazan, Zigana, Zila, Zina, Zinnia, Zita, Zoe, Zora,
-  Zorah, Zorda, Zuleika, Zulema,
+  Zorah, Zorda, Zuleika, Zulema
 </namelist>
 
 <namelist type="naur_male">
@@ -2040,7 +2040,7 @@
   Walden, Waldo, Wallace, Wally, Walter, Ward, Warner, Warren, Waylan, Wayland, Waylon, Wayne, Wendell,
   Weston, Weylin, Whitaker, Wilfen, Willard, Willem, William, Winston, Winthrop, Wlby, Wyatt, Xenos,
   Xerxes, Ximen, Yakecan, Yancey, Yardley, Yarin, Yerik, Yero, Yervant, Yusuf, Yves, Zachariah, Zackery,
-  Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren,
+  Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren
 </namelist>
 <namelist type="naur_female">
   Aba, Abby, Abella, Abey, Abigail, Abina, Abiona, Abira, Abra,
@@ -2258,7 +2258,7 @@
   Zahirah, Zahra, Zakia, Zalea, Zalika, Zaltana, Zandra, Zarah,
   Zehava, Zelenka, Zelia, Zella, Zena, Zenaide, Zenia, Zerlinda,
   Zevida, Zia, Ziazan, Zigana, Zila, Zina, Zinnia, Zita, Zoe, Zora,
-  Zorah, Zorda, Zuleika, Zulema,
+  Zorah, Zorda, Zuleika, Zulema
 </namelist>  
   
 <namelist type="joramita_male">
@@ -2354,7 +2354,7 @@
   Walden, Waldo, Wallace, Wally, Walter, Ward, Warner, Warren, Waylan, Wayland, Waylon, Wayne, Wendell,
   Weston, Weylin, Whitaker, Wilfen, Willard, Willem, William, Winston, Winthrop, Wlby, Wyatt, Xenos,
   Xerxes, Ximen, Yakecan, Yancey, Yardley, Yarin, Yerik, Yero, Yervant, Yusuf, Yves, Zachariah, Zackery,
-  Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren,
+  Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren
 </namelist>
 <namelist type="joramita_female">
   Aba, Abby, Abella, Abey, Abigail, Abina, Abiona, Abira, Abra,
@@ -2572,7 +2572,7 @@
   Zahirah, Zahra, Zakia, Zalea, Zalika, Zaltana, Zandra, Zarah,
   Zehava, Zelenka, Zelia, Zella, Zena, Zenaide, Zenia, Zerlinda,
   Zevida, Zia, Ziazan, Zigana, Zila, Zina, Zinnia, Zita, Zoe, Zora,
-  Zorah, Zorda, Zuleika, Zulema,
+  Zorah, Zorda, Zuleika, Zulema
 </namelist>
 
 <namelist type="darkelota_male">
@@ -2886,7 +2886,7 @@
   Zahirah, Zahra, Zakia, Zalea, Zalika, Zaltana, Zandra, Zarah,
   Zehava, Zelenka, Zelia, Zella, Zena, Zenaide, Zenia, Zerlinda,
   Zevida, Zia, Ziazan, Zigana, Zila, Zina, Zinnia, Zita, Zoe, Zora,
-  Zorah, Zorda, Zuleika, Zulema,
+  Zorah, Zorda, Zuleika, Zulema
 </namelist>
 
 <namelist type="rewianczyk_male">
@@ -2982,7 +2982,7 @@
   Walden, Waldo, Wallace, Wally, Walter, Ward, Warner, Warren, Waylan, Wayland, Waylon, Wayne, Wendell,
   Weston, Weylin, Whitaker, Wilfen, Willard, Willem, William, Winston, Winthrop, Wlby, Wyatt, Xenos,
   Xerxes, Ximen, Yakecan, Yancey, Yardley, Yarin, Yerik, Yero, Yervant, Yusuf, Yves, Zachariah, Zackery,
-  Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren,
+  Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren
 </namelist>
 <namelist type="rewianczyk_female">
   Aba, Abby, Abella, Abey, Abigail, Abina, Abiona, Abira, Abra,
@@ -3200,7 +3200,7 @@
   Zahirah, Zahra, Zakia, Zalea, Zalika, Zaltana, Zandra, Zarah,
   Zehava, Zelenka, Zelia, Zella, Zena, Zenaide, Zenia, Zerlinda,
   Zevida, Zia, Ziazan, Zigana, Zila, Zina, Zinnia, Zita, Zoe, Zora,
-  Zorah, Zorda, Zuleika, Zulema,
+  Zorah, Zorda, Zuleika, Zulema
 </namelist>
 
 <namelist type="elf_male">
@@ -3437,7 +3437,7 @@
   Zahirah, Zahra, Zakia, Zalea, Zalika, Zaltana, Zandra, Zarah,
   Zehava, Zelenka, Zelia, Zella, Zena, Zenaide, Zenia, Zerlinda,
   Zevida, Zia, Ziazan, Zigana, Zila, Zina, Zinnia, Zita, Zoe, Zora,
-  Zorah, Zorda, Zuleika, Zulema,
+  Zorah, Zorda, Zuleika, Zulema
 </namelist>
 
 <namelist type="arkan_male">
@@ -3533,7 +3533,7 @@
   Walden, Waldo, Wallace, Wally, Walter, Ward, Warner, Warren, Waylan, Wayland, Waylon, Wayne, Wendell,
   Weston, Weylin, Whitaker, Wilfen, Willard, Willem, William, Winston, Winthrop, Wlby, Wyatt, Xenos,
   Xerxes, Ximen, Yakecan, Yancey, Yardley, Yarin, Yerik, Yero, Yervant, Yusuf, Yves, Zachariah, Zackery,
-  Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren,
+  Zaid, Zaide, Zane, Zaniel, Zann, Zared, Zarek, Zeke, Zion, Ziven, Zorn, Thingurod, Silvren
 </namelist>
 <namelist type="arkan_female">
   Aba, Abby, Abella, Abey, Abigail, Abina, Abiona, Abira, Abra,
@@ -3751,6 +3751,6 @@
   Zahirah, Zahra, Zakia, Zalea, Zalika, Zaltana, Zandra, Zarah,
   Zehava, Zelenka, Zelia, Zella, Zena, Zenaide, Zenia, Zerlinda,
   Zevida, Zia, Ziazan, Zigana, Zila, Zina, Zinnia, Zita, Zoe, Zora,
-  Zorah, Zorda, Zuleika, Zulema,
+  Zorah, Zorda, Zuleika, Zulema
 </namelist>
 </names>
