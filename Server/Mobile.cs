@@ -1086,6 +1086,8 @@ namespace Server
 
 		public virtual void AddNameProperties(ObjectPropertyList list)
 		{
+			if (NConfig.NameSystemEnabled) return;
+			
 			var name = Name;
 
 			if (name == null)
