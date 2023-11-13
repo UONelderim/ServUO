@@ -210,7 +210,7 @@ namespace Server.Misc
 
             if (NConfig.FameTitlesEnabled && beheld.ShowFameTitle && beheld is PlayerMobile && ((PlayerMobile)beheld).FameKarmaTitle != null)
             {
-                title.AppendFormat(((PlayerMobile)beheld).FameKarmaTitle, beheld.Name, beheld.Female ? "Lady" : "Lord");
+                title.AppendFormat(((PlayerMobile)beheld).FameKarmaTitle, beheld.Name, beheld.Female /*? "Lady" : "Lord"*/);
             }
             else if (NConfig.FameTitlesEnabled && beheld.ShowFameTitle || (beholder == beheld))
             {
@@ -230,7 +230,7 @@ namespace Server.Misc
 
             if (beheld is PlayerMobile && ((PlayerMobile)beheld).PaperdollSkillTitle != null)
                 title.Append(", ").Append(((PlayerMobile)beheld).PaperdollSkillTitle);
-            else if (beheld is BaseVendor)
+           else if (beheld is BaseVendor)
                 title.AppendFormat(" {0}", customTitle);
 
             if (beheld is PlayerMobile pm)
@@ -300,7 +300,7 @@ namespace Server.Misc
 
         private static readonly string[,] m_Levels = new string[,]
         {
-            { "Neophyte", "Neophyte", "Neophyte" },
+         /*   { "Neophyte", "Neophyte", "Neophyte" },
             { "Novice", "Novice", "Novice" },
             { "Apprentice", "Apprentice", "Apprentice" },
             { "Journeyman", "Journeyman", "Journeyman" },
@@ -309,7 +309,7 @@ namespace Server.Misc
             { "Master", "Master", "Master" },
             { "Grandmaster", "Grandmaster", "Grandmaster" },
             { "Elder", "Tatsujin", "Shinobi" },
-            { "Legendary", "Kengo", "Ka-ge" }
+            { "Legendary", "Kengo", "Ka-ge" }*/
         };
 
         private static string GetSkillLevel(Skill skill)
@@ -343,7 +343,7 @@ namespace Server.Misc
         {
             new FameEntry(1249, new KarmaEntry[]
             {
-                new KarmaEntry(-10000, "The Outcast {0}"),
+            /*    new KarmaEntry(-10000, "The Outcast {0}"),
                 new KarmaEntry(-5000, "The Despicable {0}"),
                 new KarmaEntry(-2500, "The Scoundrel {0}"),
                 new KarmaEntry(-1250, "The Unsavory {0}"),
@@ -353,11 +353,11 @@ namespace Server.Misc
                 new KarmaEntry(2499, "The Kind {0}"),
                 new KarmaEntry(4999, "The Good {0}"),
                 new KarmaEntry(9999, "The Honest {0}"),
-                new KarmaEntry(10000, "The Trustworthy {0}")
+                new KarmaEntry(10000, "The Trustworthy {0}")*/
             }),
             new FameEntry(2499, new KarmaEntry[]
             {
-                new KarmaEntry(-10000, "The Wretched {0}"),
+            /*    new KarmaEntry(-10000, "The Wretched {0}"),
                 new KarmaEntry(-5000, "The Dastardly {0}"),
                 new KarmaEntry(-2500, "The Malicious {0}"),
                 new KarmaEntry(-1250, "The Dishonorable {0}"),
@@ -367,11 +367,11 @@ namespace Server.Misc
                 new KarmaEntry(2499, "The Respectable {0}"),
                 new KarmaEntry(4999, "The Honorable {0}"),
                 new KarmaEntry(9999, "The Commendable {0}"),
-                new KarmaEntry(10000, "The Estimable {0}")
+                new KarmaEntry(10000, "The Estimable {0}")*/
             }),
             new FameEntry(4999, new KarmaEntry[]
             {
-                new KarmaEntry(-10000, "The Nefarious {0}"),
+            /*    new KarmaEntry(-10000, "The Nefarious {0}"),
                 new KarmaEntry(-5000, "The Wicked {0}"),
                 new KarmaEntry(-2500, "The Vile {0}"),
                 new KarmaEntry(-1250, "The Ignoble {0}"),
@@ -381,11 +381,11 @@ namespace Server.Misc
                 new KarmaEntry(2499, "The Proper {0}"),
                 new KarmaEntry(4999, "The Admirable {0}"),
                 new KarmaEntry(9999, "The Famed {0}"),
-                new KarmaEntry(10000, "The Great {0}")
+                new KarmaEntry(10000, "The Great {0}")*/
             }),
             new FameEntry(9999, new KarmaEntry[]
             {
-                new KarmaEntry(-10000, "The Dread {0}"),
+            /*    new KarmaEntry(-10000, "The Dread {0}"),
                 new KarmaEntry(-5000, "The Evil {0}"),
                 new KarmaEntry(-2500, "The Villainous {0}"),
                 new KarmaEntry(-1250, "The Sinister {0}"),
@@ -395,11 +395,11 @@ namespace Server.Misc
                 new KarmaEntry(2499, "The Eminent {0}"),
                 new KarmaEntry(4999, "The Noble {0}"),
                 new KarmaEntry(9999, "The Illustrious {0}"),
-                new KarmaEntry(10000, "The Glorious {0}")
+                new KarmaEntry(10000, "The Glorious {0}")*/
             }),
             new FameEntry(10000, new KarmaEntry[]
             {
-                new KarmaEntry(-10000, "The Dread {1} {0}"),
+            /*    new KarmaEntry(-10000, "The Dread {1} {0}"),
                 new KarmaEntry(-5000, "The Evil {1} {0}"),
                 new KarmaEntry(-2500, "The Dark {1} {0}"),
                 new KarmaEntry(-1250, "The Sinister {1} {0}"),
@@ -409,7 +409,7 @@ namespace Server.Misc
                 new KarmaEntry(2499, "The Eminent {1} {0}"),
                 new KarmaEntry(4999, "The Noble {1} {0}"),
                 new KarmaEntry(9999, "The Illustrious {1} {0}"),
-                new KarmaEntry(10000, "The Glorious {1} {0}")
+                new KarmaEntry(10000, "The Glorious {1} {0}")*/
             })
         };
 
