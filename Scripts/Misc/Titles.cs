@@ -173,7 +173,7 @@ namespace Server.Misc
             return list;
         }
 
-        public static string[] HarrowerTitles = new string[] { "Spite", "Opponent", "Hunter", "Venom", "Executioner", "Annihilator", "Champion", "Assailant", "Purifier", "Nullifier" };
+        //public static string[] HarrowerTitles = new string[] { "Spite", "Opponent", "Hunter", "Venom", "Executioner", "Annihilator", "Champion", "Assailant", "Purifier", "Nullifier" };
 
         public static string ComputeFameTitle(Mobile beheld)
         {
@@ -194,7 +194,7 @@ namespace Server.Misc
 
                     if (karma <= ke.m_Karma || j == (karmaEntries.Length - 1))
                         {
-                            return string.Format(ke.m_Title, beheld.Name, beheld.Female ? "Lady" : "Lord");
+                            return string.Format(ke.m_Title, beheld.Name, beheld.Female /*? "Lady" : "Lord"*/);
                         }
                     }
 
