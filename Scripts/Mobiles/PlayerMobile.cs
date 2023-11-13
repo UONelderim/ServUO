@@ -3498,7 +3498,7 @@ namespace Server.Mobiles
             }
         }
 
-        public override double RacialSkillBonus
+        /*public override double RacialSkillBonus
         {
             get
             {
@@ -3509,9 +3509,9 @@ namespace Server.Mobiles
 
                 return 0;
             }
-        }
+        }*/
 
-        public override double GetRacialSkillBonus(SkillName skill)
+       /* public override double GetRacialSkillBonus(SkillName skill)
         {
             if (Race == Race.Human)
                 return 20.0;
@@ -3526,7 +3526,7 @@ namespace Server.Mobiles
             }
 
             return RacialSkillBonus;
-        }
+        }*/
 
         public override void OnWarmodeChanged()
         {
