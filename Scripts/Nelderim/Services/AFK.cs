@@ -1,7 +1,5 @@
 // AFK Command v1.1.0
 // Author: Felladrin
-// Started: 2013-08-14
-// Updated: 2016-01-03
 
 using System;
 using System.Collections.Generic;
@@ -9,25 +7,17 @@ using Server;
 using Server.Commands;
 using Server.Mobiles;
 
-namespace Felladrin.Commands
+namespace Nelderim
 {
     public static class AFK
     {
-        public static class Config
-        {
-            public static bool Enabled = true;    // Is this command enabled?
-        }
-
         public static void Initialize()
         {
-            if (Config.Enabled)
-            {
-                CommandSystem.Register("AFK", AccessLevel.Player, new CommandEventHandler(OnCommand));
-                EventSink.Speech += OnSpeech;
-            }
+            CommandSystem.Register("AFK", AccessLevel.Player, OnCommand);
+            EventSink.Speech += OnSpeech;
         }
 
-        class AfkInfo
+        private class AfkInfo
         {
             public string Message = "*drzemie*";
             public DateTime Time = DateTime.Now;
@@ -40,13 +30,14 @@ namespace Felladrin.Commands
             }
         }
 
-        static Dictionary<int, AfkInfo> PlayersAfk = new Dictionary<int, AfkInfo>();
+        static Dictionary<PlayerMobile, AfkInfo> PlayersAfk = new();
 
         [Usage("AFK")]
         [Description("Puts your char in 'Away From Keyboard' mode.")]
         static void OnCommand(CommandEventArgs e)
         {
-            PlayerMobile pm = e.Mobile as PlayerMobile;
+	        if (e.Mobile is not PlayerMobile pm)
+	            return;
 
             if (isAFK(pm))
             {
@@ -69,8 +60,7 @@ namespace Felladrin.Commands
 
         static void OnSpeech(SpeechEventArgs e)
         {
-            var playerMobile = e.Mobile as PlayerMobile;
-            if (playerMobile != null && isAFK(playerMobile))
+	        if (e.Mobile is PlayerMobile playerMobile && isAFK(playerMobile))
             {
                 SetBack(playerMobile);
             }
@@ -96,32 +86,31 @@ namespace Felladrin.Commands
                 pm.Emote("chrapie", ts.Hours);
             }
 
-            Timer.DelayCall(TimeSpan.FromSeconds(10), delegate { AnnounceAFK(pm);  });
+            Timer.DelayCall(TimeSpan.FromSeconds(10), () => AnnounceAFK(pm));
         }
 
-        static void SetAFK(Mobile m, string message)
+        static void SetAFK(PlayerMobile pm, string message)
         {
-            PlayersAfk.Add(m.Serial.Value, new AfkInfo(message, m.Location));
-            m.Emote("*drzemie*");
+            PlayersAfk.Add(pm, new AfkInfo(message, pm.Location));
+            pm.Emote("*drzemie*");
         }
 
-        static void SetBack(Mobile m)
+        static void SetBack(PlayerMobile pm)
         {
-            PlayersAfk.Remove(m.Serial.Value);
-            m.Emote("*wybudza sie z drzemski*");
+            PlayersAfk.Remove(pm);
+            pm.Emote("*wybudza sie z drzemki*");
         }
 
-        static bool isAFK(IEntity e)
+        static bool isAFK(PlayerMobile pm)
         {
-            return PlayersAfk.ContainsKey(e.Serial.Value);
+            return PlayersAfk.ContainsKey(pm);
         }
 
-        static string GetAFKMessage(IEntity e)
+        static string GetAFKMessage(PlayerMobile pm)
         {
-            if (PlayersAfk.ContainsKey(e.Serial.Value))
+            if (PlayersAfk.ContainsKey(pm))
             {
-                AfkInfo info;
-                PlayersAfk.TryGetValue(e.Serial.Value, out info);
+                PlayersAfk.TryGetValue(pm, out var info);
                 if (info != null)
                 {
                     return info.Message;
@@ -131,12 +120,11 @@ namespace Felladrin.Commands
             return "*drzemie*";
         }
 
-        static Point3D GetAFKLocation(IEntity e)
+        static Point3D GetAFKLocation(PlayerMobile pm)
         {
-            if (PlayersAfk.ContainsKey(e.Serial.Value))
+            if (PlayersAfk.ContainsKey(pm))
             {
-                AfkInfo info;
-                PlayersAfk.TryGetValue(e.Serial.Value, out info);
+                PlayersAfk.TryGetValue(pm, out var info);
                 if (info != null)
                 {
                     return info.Location;
@@ -146,30 +134,21 @@ namespace Felladrin.Commands
             return new Point3D();
         }
 
-        static TimeSpan GetAFKTimeSpan(IEntity pm)
+        static TimeSpan GetAFKTimeSpan(PlayerMobile pm)
         {
-            if (PlayersAfk.ContainsKey(pm.Serial.Value))
+	        if (!PlayersAfk.ContainsKey(pm)) return TimeSpan.Zero;
+	        
+	        PlayersAfk.TryGetValue(pm, out var info);
+	        if (info == null) return TimeSpan.Zero;
+	        
+            try
             {
-                AfkInfo info;
-                PlayersAfk.TryGetValue(pm.Serial.Value, out info);
-                if (info != null)
-                {
-                    TimeSpan time;
-
-                    try
-                    {
-                        time = DateTime.Now - info.Time;
-                    }
-                    catch
-                    {
-                        time = TimeSpan.Zero;
-                    }
-
-                    return time;
-                }
+	            return DateTime.Now - info.Time;
             }
-
-            return TimeSpan.Zero;
+            catch
+            {
+	            return TimeSpan.Zero;
+            }
         }
     }
 }
