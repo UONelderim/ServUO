@@ -36,6 +36,26 @@ namespace Server.Mobiles
             ControlSlotsMin = controlmin;
             ControlSlotsMax = controlmax;
         }
+        
+        public TrainingDefinition(
+	        Type type,
+	        Class classificaion,
+	        MagicalAbility magicalAbility,
+	        SpecialAbility[] specialAbility,
+	        WeaponAbility[] weaponAbility,
+	        AreaEffect[] areaEffect,
+	        int controlSlots)
+        {
+	        CreatureType = type;
+	        Class = classificaion;
+	        MagicalAbilities = magicalAbility;
+	        SpecialAbilities = specialAbility;
+	        WeaponAbilities = weaponAbility;
+	        AreaEffects = areaEffect;
+
+	        ControlSlotsMin = controlSlots;
+	        ControlSlotsMax = controlSlots;
+        }
 
         public bool HasSpecialAbility(SpecialAbility ability)
         {
