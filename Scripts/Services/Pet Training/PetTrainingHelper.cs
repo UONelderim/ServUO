@@ -115,7 +115,7 @@ namespace Server.Mobiles
         Capybara = Poisoning | Piercing | Bashing | Slashing | WrestlingMastery
     }
 
-    public static class PetTrainingHelper
+    public static partial class PetTrainingHelper
     {
         public static List<TrainingPoint> TrainingPoints => _TrainingPoints;
         public static List<TrainingPoint> _TrainingPoints;
@@ -823,9 +823,11 @@ namespace Server.Mobiles
                 new TrainingDefinition(typeof(CoconutCrab), Class.None, MagicalAbility.CoconutCrab, SpecialAbilityCoconutCrab, WepAbility2, AreaEffectArea2, 1, 3),
                 new TrainingDefinition(typeof(Capybara), Class.Clawed, MagicalAbility.Capybara, SpecialAbilityClawed, WepAbility1, AreaEffectNone, 1, 3),
             };
+            Definitions = NTrainingDefinitions;
+
             #endregion
         }
-
+        
         public static void Configure()
         {
             LoadDefinitions();
