@@ -13,7 +13,7 @@ namespace Server.Mobiles
     }
 
     [PropertyObject]
-    public class TrainingProfile
+    public partial class TrainingProfile
     {
         [CommandProperty(AccessLevel.GameMaster)]
         public TrainingMode TrainingMode { get; set; }
@@ -128,6 +128,7 @@ namespace Server.Mobiles
 
         private int AssignStartingTrainingPoints()
         {
+	        return NAssignStartingTrainingPoints();
             if (ControlSlots != ControlSlotsMin)
             {
                 return 1501;
