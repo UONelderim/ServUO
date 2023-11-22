@@ -2,6 +2,21 @@
 
 namespace Server.Mobiles
 {
+	public partial class TrainingProfile
+	{
+		private int NAssignStartingTrainingPoints()
+		{
+			return ControlSlots switch
+			{
+				1 => 800,
+				2 => 650,
+				3 => 500,
+				4 => 400,
+				_ => 0
+			};
+		}
+	}
+	
 	public partial class PetTrainingHelper
 	{
 		private static TrainingDefinition[] NTrainingDefinitions => new TrainingDefinition[]
