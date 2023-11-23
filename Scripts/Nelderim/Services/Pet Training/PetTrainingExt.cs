@@ -9,9 +9,9 @@ namespace Server.Mobiles
 			return ControlSlots switch
 			{
 				1 => 800,
-				2 => 650,
-				3 => 500,
-				4 => 400,
+				2 => 700,
+				3 => 600,
+				4 => 500,
 				_ => 0
 			};
 		}
