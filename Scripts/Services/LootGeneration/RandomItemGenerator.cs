@@ -4,12 +4,13 @@ using Server.Mobiles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim.Configuration;
 
 namespace Server.Items
 {
     public class RandomItemGenerator
     {
-        public static bool Enabled => false;
+        public static bool Enabled => true;
         public static int FeluccaLuckBonus { get; private set; }
         public static int FeluccaBudgetBonus { get; private set; }
 
@@ -78,6 +79,8 @@ namespace Server.Items
         /// <returns></returns>
         public static int GetBaseBudget(BaseCreature bc)
         {
+	        if (NConfig.Loot.Enabled && NConfig.Loot.LootBudget)
+		        return (int)(Math.Pow(Math.Log10(bc.Difficulty + 1), 2) * 20);
             if (bc is BaseRenowned)
                 return MaxBaseBudget;
 

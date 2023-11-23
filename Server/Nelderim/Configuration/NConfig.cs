@@ -18,5 +18,6 @@ namespace Nelderim.Configuration
 		public static bool TimeSystemEnabled => Get("Nelderim.TimeSystemEnabled", true);
 		public static bool FameTitlesEnabled => Get("Nelderim.FameTitlesEnabled", false);
 		public static bool NameSystemEnabled => Get("Nelderim.NameSystemEnabled", true);
+		public static bool CustomInsuranceCost => Get("Nelderim.CustomInsuranceCost", true);
 	}
 }
