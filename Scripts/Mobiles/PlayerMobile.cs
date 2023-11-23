@@ -2564,6 +2564,9 @@ namespace Server.Mobiles
 
         public int GetInsuranceCost(Item item)
         {
+	        if(NConfig.CustomInsuranceCost)
+				return NGetInsuranceCost(item);
+	        
             int imbueWeight = Imbuing.GetTotalWeight(item, -1, false, false);
             int cost = 600; // this handles old items, set items, etc
 

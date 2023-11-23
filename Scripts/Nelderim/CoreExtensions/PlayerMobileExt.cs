@@ -7,6 +7,7 @@ using Nelderim.Gains;
 using Server.Accounting;
 using Server.Engines.BulkOrders;
 using Server.Items;
+using Server.SkillHandlers;
 
 #endregion
 
@@ -218,5 +219,32 @@ namespace Server.Mobiles
 		public TimeSpan LongTermElapse => m_LongTermElapse;
 
 		public override bool UseLanguages => true;
+		
+		
+		
+		public int NGetInsuranceCost(Item item)
+		{
+			int imbueWeight = Imbuing.GetTotalWeight(item, -1, false, false);
+			int cost = 600; // this handles old items, set items, etc
+
+			if (item is IVvVItem vItem && vItem.IsVvVItem)
+				cost = 800;
+			else if (imbueWeight > 0)
+				cost = Math.Min(800, Math.Max(10, imbueWeight)) * 6;
+			else if (GenericBuyInfo.BuyPrices.ContainsKey(item.GetType()))
+				cost = Math.Min(800, Math.Max(10, GenericBuyInfo.BuyPrices[item.GetType()]));
+			else if (item.LootType == LootType.Newbied)
+				cost = 10;
+
+			NegativeAttributes negAttrs = RunicReforging.GetNegativeAttributes(item);
+
+			if (negAttrs != null && negAttrs.Prized > 0)
+				cost *= 2;
+
+			if (Region != null)
+				cost = (int)(cost * Region.InsuranceMultiplier);
+
+			return cost;
+		}
 	}
 }

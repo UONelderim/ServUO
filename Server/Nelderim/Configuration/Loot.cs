@@ -17,5 +17,6 @@ namespace Nelderim.Configuration
 		public double PropsCountModifier => Get("NelderimLoot.PropsCountModifier", 1.0);
 		public double MinIntensityModifier => Get("NelderimLoot.MinIntensityModifier", 1.0);
 		public double MaxIntensityModifier => Get("NelderimLoot.MaxIntensityModifier", 1.0);
+		public bool LootBudget => Get("NelderimLoot.LootBudget", true); 
 	}
 }
