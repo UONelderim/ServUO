@@ -97,11 +97,11 @@ namespace Server.Mobiles
 			}
 		}
 
-		public double Life => HitsMax * AvgResFactor * MagicResFactor * MeeleeSkillFactor / 100 ;
+		public double Life => Math.Log(HitsMax * AvgResFactor * MagicResFactor * MeeleeSkillFactor / 100) * 100;
 		
 		// Old formula
 		// Math.Max(0.5, Skills[((BaseWeapon)Weapon).Skill].Value / 120);
-		public double MeeleeSkillFactor => Math.Pow(Math.E, (Skills[((BaseWeapon)Weapon).GetUsedSkill(this, true)].Value / 100)) - 1;
+		public double MeeleeSkillFactor => Math.Pow(Math.E, Math.Min(3.0, Skills[((BaseWeapon)Weapon).GetUsedSkill(this, true)].Value / 100)) - 1;
 
 		public double AvgRes =>
 			(double)(PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance) / 5;
