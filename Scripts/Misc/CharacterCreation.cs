@@ -1293,7 +1293,8 @@ namespace Server.Misc
 					}
 				case SkillName.Mysticism:
 					{
-						PackItem(m, new MysticBook(0xABUL));
+						
+						// PackItem(m, new MysticBook(0xABUL));
 						break;
 					}
 			}

@@ -36,15 +36,17 @@ namespace Server.Mobiles
 				AddRange(SBKeeperOfBushido.BushidoScrolls);
 				AddRange(SBKeeperOfNinjitsu.NinjitsuScrolls);
 				AddRange(SBSpellWeaver.SpellweaverSpells);
-				AddRange(SBMystic.MysticSpells);
+				//!Mistyk!
+				// AddRange(SBMystic.MysticSpells);
 
 				Add(new GenericBuyInfo(typeof(Spellbook), 200, 20, 0x23A0, 0));
 				Add(new GenericBuyInfo(typeof(NecromancerSpellbook), 300, 20, 0x23A0, 0));
 				Add(new GenericBuyInfo(typeof(BookOfChivalry), 350, 20, 0x23A0, 0));
 				Add(new GenericBuyInfo(typeof(BookOfBushido), 350, 20, 0x238C, 0));
 				Add(new GenericBuyInfo(typeof(BookOfNinjitsu), 350, 20, 0x23A0, 0));
-				Add(new GenericBuyInfo(typeof(SpellweavingBook), 400, 20, 0x23A0, 0));
-				Add(new GenericBuyInfo(typeof(MysticBook), 400, 20, 0x23A0, 0));
+				Add(new GenericBuyInfo(typeof(SpellweavingBook), 400, 20, 0x2D50, 0));
+				//!Mistyk!
+				// Add(new GenericBuyInfo(typeof(MysticBook), 400, 20, 0x2D9D, 0));
 			}
 		}
 
