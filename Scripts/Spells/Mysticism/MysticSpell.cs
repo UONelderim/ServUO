@@ -1,4 +1,5 @@
 using System;
+using Server.Mobiles;
 
 namespace Server.Spells.Mysticism
 {
@@ -78,6 +79,12 @@ namespace Server.Spells.Mysticism
         {
             if (!base.CheckCast())
                 return false;
+            
+            if (Caster is PlayerMobile && !((PlayerMobile)Caster).Mysticism)
+            {
+	            Caster.SendMessage("Tylko prawdziwy mistyk może rzucić to zaklęcie");
+	            return false;
+            }
 
             return true;
         }

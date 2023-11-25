@@ -261,7 +261,7 @@ namespace Nelderim
 			new LootPackItem(typeof(ArcaneCircleScroll)), new LootPackItem(typeof(AttuneWeaponScroll)),
 			new LootPackItem(typeof(GiftOfRenewalScroll)), new LootPackItem(typeof(NatureFuryScroll)),
 			//Mysticism
-			new LootPackItem(typeof(HealingStoneScroll)), new LootPackItem(typeof(NetherBoltScroll)),
+			// new LootPackItem(typeof(HealingStoneScroll)), new LootPackItem(typeof(NetherBoltScroll)),
 		};
 
 		public static readonly LootPackItem[] Scrolls2 =
@@ -273,7 +273,7 @@ namespace Nelderim
 			//Chivalry
 			new LootPackItem(typeof(RemoveCurseScroll)), new LootPackItem(typeof(CleanseByFireScroll)),
 			//Mysticism
-			new LootPackItem(typeof(EnchantScroll)), new LootPackItem(typeof(PurgeMagicScroll)),
+			// new LootPackItem(typeof(EnchantScroll)), new LootPackItem(typeof(PurgeMagicScroll)),
 		};
 
 		public static readonly LootPackItem[] Scrolls3 =
@@ -293,7 +293,7 @@ namespace Nelderim
 			//Spellweaving
 			new LootPackItem(typeof(ImmolatingWeaponScroll)), new LootPackItem(typeof(ThunderstormScroll)),
 			//Mysticism
-			new LootPackItem(typeof(EagleStrikeScroll)), new LootPackItem(typeof(SleepScroll)),
+			// new LootPackItem(typeof(EagleStrikeScroll)), new LootPackItem(typeof(SleepScroll)),
 		};
 
 		public static readonly LootPackItem[] Scrolls4 =
@@ -314,7 +314,7 @@ namespace Nelderim
 			new LootPackItem(typeof(ArcaneEmpowermentScroll)), new LootPackItem(typeof(EtherealVoyageScroll)),
 			new LootPackItem(typeof(ReaperFormScroll)),
 			//Mysticism
-			new LootPackItem(typeof(AnimatedWeaponScroll)), new LootPackItem(typeof(StoneFormScroll)),
+			// new LootPackItem(typeof(AnimatedWeaponScroll)), new LootPackItem(typeof(StoneFormScroll)),
 		};
 
 		public static readonly LootPackItem[] Scrolls5 =
@@ -335,7 +335,7 @@ namespace Nelderim
 			new LootPackItem(typeof(GiftOfLifeScroll)), new LootPackItem(typeof(SummonFeyScroll)),
 			new LootPackItem(typeof(SummonFiendScroll)),
 			//Mysticism
-			new LootPackItem(typeof(MassSleepScroll)), new LootPackItem(typeof(SpellTriggerScroll)),
+			// new LootPackItem(typeof(MassSleepScroll)), new LootPackItem(typeof(SpellTriggerScroll)),
 		};
 
 		public static readonly LootPackItem[] Scrolls6 =
@@ -355,7 +355,7 @@ namespace Nelderim
 			//Spellweaving
 			new LootPackItem(typeof(DryadAllureScroll)), new LootPackItem(typeof(EssenceOfWindScroll)),
 			//Mysticism
-			new LootPackItem(typeof(BombardScroll)), new LootPackItem(typeof(CleansingWindsScroll)),
+			// new LootPackItem(typeof(BombardScroll)), new LootPackItem(typeof(CleansingWindsScroll)),
 		};
 
 		public static readonly LootPackItem[] Scrolls7 =
@@ -373,7 +373,7 @@ namespace Nelderim
 			//Spellweaving
 			new LootPackItem(typeof(WildfireScroll)),
 			//Mysticism
-			new LootPackItem(typeof(HailStormScroll)), new LootPackItem(typeof(SpellPlagueScroll)),
+			// new LootPackItem(typeof(HailStormScroll)), new LootPackItem(typeof(SpellPlagueScroll)),
 		};
 
 		public static readonly LootPackItem[] Scrolls8 =
@@ -390,7 +390,7 @@ namespace Nelderim
 			//Spellweaving
 			new LootPackItem(typeof(WordOfDeathScroll)),
 			//Mysticism
-			new LootPackItem(typeof(NetherCycloneScroll)), new LootPackItem(typeof(RisingColossusScroll)),
+			// new LootPackItem(typeof(NetherCycloneScroll)), new LootPackItem(typeof(RisingColossusScroll)),
 		};
 
 		private static readonly LootPackItem[][] NL_scrolls =
