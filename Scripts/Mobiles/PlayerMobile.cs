@@ -5413,6 +5413,8 @@ namespace Server.Mobiles
 
         public override void AddNameProperties(ObjectPropertyList list)
         {
+	        if (NConfig.NameSystemEnabled) return;
+	        
             string prefix = "";
 
             if (ShowFameTitle && Fame >= 10000)
