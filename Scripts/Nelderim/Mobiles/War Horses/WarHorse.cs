@@ -135,13 +135,13 @@ namespace Server.Mobiles
 
                 if (m_HasBarding)
                 {
-	                HueMod = CraftResources.GetHue(m_BardingResource);
+	                Hue = CraftResources.GetHue(m_BardingResource);
 	                BodyMod = 0x11C;
 	                ItemID = 0x3E92;
                 }
                 else
                 {
-                    HueMod = 0;
+	                Hue = 0;
                     BodyMod = 0;
                     ItemID = m_IDs[m_IDs.IndexOf(Body) + 1];
                 }

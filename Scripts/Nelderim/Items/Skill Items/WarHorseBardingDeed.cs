@@ -18,7 +18,7 @@ namespace Server.Items
 		[CommandProperty(AccessLevel.GameMaster)]
 		public Mobile Crafter
 		{
-			get { return m_Crafter; }
+			get => m_Crafter;
 			set
 			{
 				m_Crafter = value;
@@ -29,7 +29,7 @@ namespace Server.Items
 		[CommandProperty(AccessLevel.GameMaster)]
 		public bool Exceptional
 		{
-			get { return m_Exceptional; }
+			get => m_Exceptional;
 			set
 			{
 				m_Exceptional = value;
@@ -40,7 +40,7 @@ namespace Server.Items
 		[CommandProperty(AccessLevel.GameMaster)]
 		public CraftResource Resource
 		{
-			get { return m_Resource; }
+			get => m_Resource;
 			set
 			{
 				m_Resource = value;
@@ -106,8 +106,7 @@ namespace Server.Items
 
 				Delete();
 
-				from.SendLocalizedMessage(
-					1053027); // You place the barding on your swamp dragon.  Use a bladed item on your dragon to remove the armor.
+				from.SendMessage("Zakladasz zbroje na konia bojowego, uzyj noza, aby ja zdjac");
 			}
 		}
 
@@ -165,15 +164,8 @@ namespace Server.Items
 				resourceType = craftItem.Resources.GetAt(0).ItemType;
 
 			Resource = CraftResources.GetFromType(resourceType);
-
-			CraftContext context = craftSystem.GetContext(from);
-
-			if (context != null && context.DoNotColor)
-				Hue = 0;
-
 			return quality;
 		}
-
 		#endregion
 	}
 }
