@@ -81,7 +81,7 @@ namespace Server
 		public virtual void NGetProperties(ObjectPropertyList list, Mobile m)
 		{
 			NAddNameProperties(list, m);
-			AddNameProperties(list); //We still call original method for extra labels, but just 'Name' should be disabled
+			GetProperties(list);
 
 			if (Spawner != null)
 			{
