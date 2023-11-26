@@ -71,7 +71,7 @@ namespace Server.Misc
 
             public static void Configure()
             {
-                //DisallowFeature( Features.FilterLight );
+                DisallowFeature( Features.FilterLight );
             }
 
             public static void DisallowFeature(Features feature)
