@@ -258,10 +258,10 @@ namespace Server.Gumps
             AddHtmlLocalized(408, 141, 120, 20, 1156104, 0x7FFF, false, false); // Deposit Gold
 
             AddButton(390, 162, 0x15E1, 0x15E5, 8, GumpButtonType.Reply, 0);
-            AddHtmlLocalized(408, 161, 120, 20, 1071987, 0x7FFF, false, false); // Dismiss Vendor
+            AddHtmlLocalized(408, 161, 120, 20, 1071987, 0xF800, false, false); // Dismiss Vendor
 
             AddButton(390, 182, 0x15E1, 0x15E5, 9, GumpButtonType.Reply, 0);
-            AddHtmlLocalized(408, 181, 120, 20, 1154631, 0x7FFF, false, false); // Opt Out of Search
+            AddHtmlLocalized(408, 181, 120, 20, m_Vendor.VendorSearch ? 1154631 : 1154630, 0x7FFF, false, false); // Opt Out of Search
 
             AddButton(390, 202, 0x15E1, 0x15E5, 0, GumpButtonType.Reply, 0);
             AddHtmlLocalized(408, 201, 120, 20, 1011012, 0x7FFF, false, false); // CANCEL
@@ -963,7 +963,7 @@ namespace Server.Gumps
                 AddHtmlLocalized(275, 312, 160, 18, 1072256, 0x421F, false, false); // Elf
             }
             else
-            {
+            { */
                 // Change hair
                 for (int i = 0; i < m_HairStyles.Length; i++)
                 {
@@ -1011,11 +1011,11 @@ namespace Server.Gumps
                 }
 
                 // Change race
-            //    AddHtmlLocalized(275, 292, 160, 18, 1072255, 0x421F, false, false); // Human
+                // AddHtmlLocalized(275, 292, 160, 18, 1072255, 0x421F, false, false); // Human
 
-                AddButton(245, 310, 0xFA5, 0xFA7, 6, GumpButtonType.Reply, 0);
-                AddHtmlLocalized(275, 312, 160, 18, 1072256, 0x7FFF, false, false); // Elf
-            }*/
+                // AddButton(245, 310, 0xFA5, 0xFA7, 6, GumpButtonType.Reply, 0);
+                // AddHtmlLocalized(275, 312, 160, 18, 1072256, 0x7FFF, false, false); // Elf
+            // }
 
             AddButton(10, 340, 0xFA5, 0xFA7, 0, GumpButtonType.Reply, 0);
             AddHtmlLocalized(45, 342, 305, 18, 1060675, 0x7FFF, false, false); // CLOSE
