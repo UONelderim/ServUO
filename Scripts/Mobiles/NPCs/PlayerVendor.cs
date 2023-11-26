@@ -246,7 +246,7 @@ namespace Server.Mobiles
 
             VendorSearch = true;
 
-            ShopName = "Shop Not Yet Named";
+            ShopName = "Sklep bez nazwy";
 
             m_SellItems = new Hashtable();
 
