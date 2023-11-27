@@ -1,7 +1,6 @@
 #region References
 
 using System;
-using Server.Mobiles;
 using Server.Items;
 using Server.Multis;
 
@@ -20,73 +19,64 @@ namespace Server.Commands
         [Description("Komenda ta czysci poklad Twojej lodzi")]
         public static void CleanBoard_OnCommand(CommandEventArgs e)
         {
-            PlayerMobile pm = (PlayerMobile)e.Mobile;
+            var m = e.Mobile;
 
-            if (IsPlayerNearBaseBoat(pm))
+            if (IsMobileAtBoat(m))
             {
-                pm.SendMessage("Oczysciles poklad ze zwlok.");
-                pm.Emote("*wyrzuca zwloki za burte*");
-                pm.SendSound(0x026);
-                CheckAndMoveCorpses(pm);
+                if (CheckAndMoveCorpses(m))
+                {
+	                m.SendMessage("Oczysciles poklad ze zwlok.");
+	                m.Emote("*wyrzuca zwloki za burte*");
+	                m.SendSound(0x026);
+                }
+                else
+                {
+	                m.SendMessage("Nie ma nic do czyszczenia.");
+                }
             }
             else
             {
-                pm.SendMessage("Musisz byc w poblizu swojej lodzi, aby uzyc tej komendy.");
+                m.SendMessage("Musisz byc w poblizu swojej lodzi, aby uzyc tej komendy.");
             }
         }
 
-        private static bool IsPlayerNearBaseBoat(PlayerMobile player)
+        private static bool IsMobileAtBoat(Mobile m)
         {
-            Map map = player.Map;
-            Point3D playerLocation = player.Location;
-
-            int radius = 5;
-            IPooledEnumerable nearbyBoats = map.GetItemsInRange(playerLocation, radius);
-
-            bool result = false;
-
-            foreach (Item item in nearbyBoats)
-            {
-                if (item is BaseBoat)
-                {
-                    result = true;
-                    break;
-                }
-            }
-
-            nearbyBoats.Free();
-
-            return result;
+	        return BaseBoat.FindBoatAt(m) != null;
         }
         
         // TODO: Delay na użycie?
-        public static void CheckAndMoveCorpses(PlayerMobile player)
+        public static bool CheckAndMoveCorpses(Mobile m)
         {
-            Map map = player.Map;
-            Point3D playerLocation = player.Location;
-
-            int radius = 5;
-            IPooledEnumerable nearbyCorpses = map.GetItemsInRange(playerLocation, radius);
-
-            foreach (Item item in nearbyCorpses)
+	        var result = false;
+            IPooledEnumerable nearbyItems = m.GetItemsInRange(4);
+            foreach (Item item in nearbyItems)
             {
                 if (item is Corpse)
                 {
-                    Corpse corpse = (Corpse)item;
-
-                    int offsetX = playerLocation.X > 10 ? -10 : playerLocation.X < -10 ? 10 : Utility.RandomMinMax(-10, 10);
-                    int offsetY = playerLocation.Y > 10 ? -10 : playerLocation.Y < -10 ? 10 : Utility.RandomMinMax(-10, 10);
-
-                    Point3D newLocation = new Point3D(
-	                    playerLocation.X + offsetX,
-	                    playerLocation.Y + offsetY,
-	                    playerLocation.Z);
-
-                    corpse.MoveToWorld(newLocation, map);
+	                int offsetX = item.Location.X - m.Location.X;
+	                int offsetY = item.Location.Y - m.Location.Y;
+                    if (offsetX == 0 && offsetY == 0)
+                    {
+	                    offsetX = 5;
+                    }
+                    if (Math.Abs(offsetX) > Math.Abs(offsetY))
+                    {
+	                    offsetY = 0;
+                    }
+                    if(Math.Abs(offsetX) < Math.Abs(offsetY))
+                    {
+	                    offsetX = 0;
+                    }
+                    item.MoveToWorld(new Point3D(
+	                    m.Location.X + Utility.Clamp(offsetX, -1, 1) * 5,
+	                    m.Location.Y + Utility.Clamp(offsetY, -1, 1) * 5,
+	                    item.Location.Z));
+                    result = true;
                 }
             }
-
-            nearbyCorpses.Free();
+            nearbyItems.Free();
+            return result;
         }
     }
 }
