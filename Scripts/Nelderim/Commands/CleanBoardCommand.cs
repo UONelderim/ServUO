@@ -49,7 +49,8 @@ namespace Server.Commands
         public static bool CheckAndMoveCorpses(Mobile m)
         {
 	        var result = false;
-            IPooledEnumerable nearbyItems = m.GetItemsInRange(4);
+	        var radius = 4;
+            IPooledEnumerable nearbyItems = m.GetItemsInRange(radius);
             foreach (Item item in nearbyItems)
             {
                 if (item is Corpse)
@@ -58,7 +59,7 @@ namespace Server.Commands
 	                int offsetY = item.Location.Y - m.Location.Y;
                     if (offsetX == 0 && offsetY == 0)
                     {
-	                    offsetX = 5;
+	                    offsetX = 1;
                     }
                     if (Math.Abs(offsetX) > Math.Abs(offsetY))
                     {
@@ -69,8 +70,8 @@ namespace Server.Commands
 	                    offsetX = 0;
                     }
                     item.MoveToWorld(new Point3D(
-	                    m.Location.X + Utility.Clamp(offsetX, -1, 1) * 5,
-	                    m.Location.Y + Utility.Clamp(offsetY, -1, 1) * 5,
+	                    m.Location.X + Utility.Clamp(offsetX, -1, 1) * (radius + 1),
+	                    m.Location.Y + Utility.Clamp(offsetY, -1, 1) * (radius + 1),
 	                    item.Location.Z));
                     result = true;
                 }
