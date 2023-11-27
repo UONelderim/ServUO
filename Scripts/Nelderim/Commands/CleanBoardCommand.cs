@@ -25,6 +25,8 @@ namespace Server.Commands
             if (IsPlayerNearBaseBoat(pm))
             {
                 pm.SendMessage("Oczysciles poklad ze zwlok.");
+                pm.Emote("*wyrzuca zwloki za burte*");
+                pm.SendSound(0x026);
                 CheckAndMoveCorpses(pm);
             }
             else
