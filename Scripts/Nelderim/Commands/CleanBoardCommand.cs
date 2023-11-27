@@ -58,8 +58,7 @@ namespace Server.Commands
 
             return result;
         }
-
-        // sprawdza w obszarze 5 kratek i przesuwa o 7 w osiach X i Y
+        
         // TODO: Delay na użycie?
         public static void CheckAndMoveCorpses(PlayerMobile player)
         {
@@ -74,10 +73,14 @@ namespace Server.Commands
                 if (item is Corpse)
                 {
                     Corpse corpse = (Corpse)item;
+
+                    int offsetX = playerLocation.X > 10 ? -10 : playerLocation.X < -10 ? 10 : Utility.RandomMinMax(-10, 10);
+                    int offsetY = playerLocation.Y > 10 ? -10 : playerLocation.Y < -10 ? 10 : Utility.RandomMinMax(-10, 10);
+
                     Point3D newLocation = new Point3D(
-                        playerLocation.X + Utility.RandomMinMax(-7, 7),
-                        playerLocation.Y + Utility.RandomMinMax(-7, 7),
-                        playerLocation.Z);
+	                    playerLocation.X + offsetX,
+	                    playerLocation.Y + offsetY,
+	                    playerLocation.Z);
 
                     corpse.MoveToWorld(newLocation, map);
                 }
