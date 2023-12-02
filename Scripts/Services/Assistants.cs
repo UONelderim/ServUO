@@ -47,7 +47,7 @@ namespace Server.Misc
             /// <summary>
             ///     Enable assistant negotiator?
             /// </summary>
-            public static bool Enabled { get; set; } = false;
+            public static bool Enabled { get; set; } = true;
 
             /// <summary>
             ///     When true, this will cause anyone who does not negotiate.
