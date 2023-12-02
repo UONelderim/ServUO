@@ -34,7 +34,7 @@ namespace Server.Mobiles
 				}
 				else
 				{
-					Console.Write($"Invalid achievement {achievement.Id}");
+					Console.WriteLine($"Invalid achievement {achievement.Id}");
 				}
 			}
 			_AchievementPoints = total;
