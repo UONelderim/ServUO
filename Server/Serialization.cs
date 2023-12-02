@@ -1189,7 +1189,7 @@ namespace Server
 			}
 			catch
 			{
-				return DateTime.MaxValue;
+				return DateTime.MinValue;
 			}
 		}
 
