@@ -164,12 +164,12 @@ namespace Nelderim.Time
 			}
 			private set
 			{
-				var oldTime = CurrentTime;
+				var oldTime = _CurrentTime;
 				_CurrentTime = value;
 				SetGlobalLight();
-				if (oldTime!= null && oldTime.Season != CurrentTime.Season)
+				if (oldTime == null || oldTime.Season != _CurrentTime.Season)
 				{
-					SetGlobalSeason(CurrentTime.Season);
+					SetGlobalSeason(_CurrentTime.Season);
 				}
 			}
 		}
