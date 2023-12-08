@@ -198,10 +198,10 @@ namespace Server.Misc
                         }
                     }
 
-                    return string.Empty;
+                    return beheld.Name;
                 }
             }
-            return string.Empty;
+            return beheld.Name;
         }
 
         public static string ComputeTitle(Mobile beholder, Mobile beheld)
