@@ -10,7 +10,15 @@ namespace Server
 		[CommandProperty(AccessLevel.GameMaster)]
 		public Language LanguageSpeaking
 		{
-			get => Languages.Get(this).LanguageSpeaking;
+			get
+			{
+				var lang = Languages.Get(this).LanguageSpeaking;
+				if (LanguagesKnown[lang] == 0)
+				{
+					LanguageSpeaking = Nelderim.Language.Belkot;
+				}
+				return lang;
+			}
 			set => Languages.Get(this).LanguageSpeaking = value;
 		}
 
