@@ -44,7 +44,7 @@ namespace Server
 
 					if (mobile != null && mobile.CanSee(this) && (noLineOfSight || mobile.InLOS(this)))
 					{
-						var translated = Translate.Combine(translationResult, this, mobile);
+						var translated = ShouldTranslate(type) ? Translate.Combine(translationResult, this, mobile) : text;
 						if (ascii)
 						{
 							p = new AsciiMessage(Serial, Body, type, hue, 3, Name, translated);
@@ -61,6 +61,11 @@ namespace Server
 				}
 				eable.Free();
 			}
+		}
+
+		public bool ShouldTranslate(MessageType type)
+		{
+			return type == MessageType.Regular || type == MessageType.Whisper || type == MessageType.Yell;
 		}
 	}
 }

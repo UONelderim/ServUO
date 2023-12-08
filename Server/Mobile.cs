@@ -4961,7 +4961,7 @@ namespace Server
 				for (var i = 0; i < hears.Count; ++i)
 				{
 					var heard = hears[i];
-					var translated = Translate.Combine(translationResult, this, heard);
+					var translated = ShouldTranslate(type) ? Translate.Combine(translationResult, this, heard) : text;
 
 					if (mutatedArgs == null || !CheckHearsMutatedSpeech(heard, mutateContext))
 					{
