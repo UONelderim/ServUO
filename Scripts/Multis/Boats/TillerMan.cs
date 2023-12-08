@@ -148,6 +148,7 @@ namespace Server.Items
 
                     list.Add(new EmergencyRepairEntry(this, from));
                     list.Add(new ShipRepairEntry(this, from));
+                    list.Add(new CleanWayEntry(this));
                 }
                 else if (Boat.IsOwner(from))
                 {
@@ -283,6 +284,51 @@ namespace Server.Items
                         break;
                     }
             }
+        }
+        
+        private class CleanWayEntry : ContextMenuEntry
+        {
+	        private TillerMan _tillerMan;
+
+	        public CleanWayEntry(TillerMan tillerMan) : base(154)
+	        {
+		        _tillerMan = tillerMan;
+	        }
+
+	        public override void OnClick()
+	        {
+		        var boat = _tillerMan.Boat;
+		        var offset = Math.Max(boat.StarboardOffset.X, boat.PortOffset.X) + 1;
+		        var eable = boat.GetItemsInRange(Math.Max(boat.TillerManDistance, boat.HoldDistance) + 2);
+		        List<Corpse> corpses = new List<Corpse>();
+		        foreach (Item item in eable)
+		        {
+			        if (item is Corpse corpse)
+			        {
+				        corpses.Add(corpse);
+			        }
+		        }
+		        if (corpses.Count == 0)
+		        {
+			        _tillerMan.PublicOverheadMessage(MessageType.Regular, 0, true, "Nie ma czego czyscic kapitanie");
+			        return;
+		        }
+		        foreach (var corpse in corpses)
+		        {
+			        switch (boat.Facing)
+			        {
+				        case Direction.East:
+				        case Direction.West:
+					        corpse.Y += corpse.Y > boat.Y ? offset : -offset;
+					        break;
+				        case Direction.North:
+				        case Direction.South:
+					        corpse.X += corpse.X > boat.X ? offset : -offset;
+					        break;
+			        }
+		        }
+		        _tillerMan.PublicOverheadMessage(MessageType.Regular, 0, true, "Wyczyscilem poklad kapitanie");
+	        }
         }
     }
 }
