@@ -343,8 +343,8 @@ namespace Server.Items
         public override int EnergyResistance => m_AosResistances.Energy;
         public virtual int BaseGemTypeNumber => 0;
 
-        public virtual int InitMinHits => 0;
-        public virtual int InitMaxHits => 0;
+        public virtual int InitMinHits => 35;
+        public virtual int InitMaxHits => 50;
 
         public override int LabelNumber
         {

@@ -2032,7 +2032,7 @@ namespace Server.Items
 
                 if (neg != null)
                 {
-                    if (item is IDurability && (neg.Antique == 1 || neg.Brittle == 1 || item is BaseJewel))
+                    if (item is IDurability && (neg.Antique == 1 || neg.Brittle == 1))
                     {
                         ((IDurability)item).MaxHitPoints = 255;
                         ((IDurability)item).HitPoints = 255;
