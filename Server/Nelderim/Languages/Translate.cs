@@ -48,7 +48,7 @@ namespace Nelderim
 				Console.WriteLine($"translated {tr.translatedWords}");
 			}
 			StringBuilder sb = new StringBuilder();
-			if (toLangValue >= 500)
+			if (toLangValue >= 500 && fromLangValue >= 500)
 			{
 				sb.Append($"[{from.LanguageSpeaking}]");
 			}
@@ -76,11 +76,15 @@ namespace Nelderim
 			var result = new string[originalWords.Length];
 			for (var index = 0; index < originalWords.Length; index++)
 			{
-				result[index] = originalWords[index].Select(_ =>
+				var word = originalWords[index];
+				var newWord = new StringBuilder();
+				foreach (var c in word)
 				{
 					var newChar = Utility.RandomList(_Alphabet);
-					return Char.IsUpper(_) ? Char.ToUpper(newChar) : newChar;
-				}).ToString();
+					newWord.Append(Char.IsUpper(c) ? Char.ToUpper(newChar) : newChar);
+				}
+
+				result[index] = newWord.ToString();
 			}
 			return result;
 		}
