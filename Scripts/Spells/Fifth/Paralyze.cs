@@ -31,7 +31,7 @@ namespace Server.Spells.Fifth
             {
                 Caster.SendLocalizedMessage(500237); // Target can not be seen.
             }
-            else if (m.Frozen || m.Paralyzed || (m.Spell != null && m.Spell.IsCasting && !(m.Spell is PaladinSpell)))
+            else if (m.Frozen || m.Paralyzed)
             {
                 Caster.SendLocalizedMessage(1061923); // The target is already frozen.
             }
