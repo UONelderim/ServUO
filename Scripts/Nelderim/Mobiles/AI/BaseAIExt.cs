@@ -517,12 +517,21 @@ namespace Server.Mobiles
 		{
 			if (m.Race == Race.NDrow || TownDatabase.IsCitizenOfGivenTown(m, Towns.LDelmah))
 				return true;
-			
-			if (m is BaseCreature bc &&  bc.Controlled)
+
+			if (m is BaseCreature bc)
 			{
-				Mobile master = bc.ControlMaster;
-				if (master?.Race == Race.NDrow || TownDatabase.IsCitizenOfGivenTown(master, Towns.LDelmah))
-					return true;
+				if (bc.Controlled)
+				{
+					Mobile master = bc.ControlMaster;
+					if (master?.Race == Race.NDrow || TownDatabase.IsCitizenOfGivenTown(master, Towns.LDelmah))
+						return true;
+				}
+				if (bc.Summoned)
+				{
+					Mobile master = bc.SummonMaster;
+					if (master?.Race == Race.NDrow || TownDatabase.IsCitizenOfGivenTown(master, Towns.LDelmah))
+						return true;
+				}
 			}
 			return false;
 		}
