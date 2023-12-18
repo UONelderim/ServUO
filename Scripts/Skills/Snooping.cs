@@ -96,7 +96,7 @@ namespace Server.SkillHandlers
             }
             else
             {
-                from.SendLocalizedMessage(500446); // That is too far away.
+               from.SendMessage("Zanim znow zerkniesz do tego pojemnika, musisz chwile poczekac"); 
             }
         }
 		
