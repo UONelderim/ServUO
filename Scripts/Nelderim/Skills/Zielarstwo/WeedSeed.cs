@@ -29,7 +29,7 @@ namespace Server.Items.Crops
 		protected static SkillName[] defaultSkillsRequired = { WeedHelper.MainWeedSkill };
 		public virtual SkillName[] SkillsRequired => defaultSkillsRequired;
 
-		public virtual double MinSkillReq => 90.0;
+		public virtual double MinSkillReq => 60.0; //bylo 90
 
 		public WeedSeed(int itemID) : base(itemID)
 		{
