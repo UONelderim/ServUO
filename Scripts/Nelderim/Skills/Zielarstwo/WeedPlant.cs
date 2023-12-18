@@ -21,7 +21,7 @@ namespace Server.Items.Crops
 
 		//private bool m_DisableSeed;			// pozwala zablokowac uzyskiwanie sadzonek z danego egzemplarza krzaczka
 
-		public virtual int SeedAmount => 1; // ilosc uzyskiwanych nasion
+		public virtual int SeedAmount => 3; // ilosc uzyskiwanych nasion  (było 1)
 
 		public virtual bool GivesSeed => false; // czy daje sadzonki? (FALSE dla zbieractwa [regi nekro])
 

@@ -44,7 +44,7 @@ namespace Server.Items.Crops
 		// Oblicza ilosc reagentow uzyskanych z jednego plonu:
 		public virtual int AmountOfReagent(double skill)
 		{
-			return 2;
+			return 5; //bylo 2
 			//return (int) Math.Round( skill/100 * 25 );
 		}
 
