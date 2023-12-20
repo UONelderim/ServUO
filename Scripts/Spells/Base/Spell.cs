@@ -829,22 +829,6 @@ namespace Server.Spells
             {
                 m_Caster.Target.BeginTimeout(m_Caster, TimeSpan.FromSeconds(30.0));
             }
-            
-
-            if (PlayerMobileExtensions.FakeLowerManaCost((PlayerMobile)m_Caster) > 0)
-            {
-	            FakeLowerManaCostWhileCasting(m_Caster);
-	            // Dodać jakieś info??
-            }
-
-            void FakeLowerManaCostWhileCasting(Mobile from)
-            {
-	            int fakelowerManaCost = PlayerMobileExtensions.FakeLowerManaCost((PlayerMobile)from);
-	            
-	            from.Mana = Math.Max(0, from.Mana - fakelowerManaCost);
-
-	            // Czy nie potrzeba jeszcze jakieś logiki?
-            }
         }
         
   
@@ -956,6 +940,9 @@ namespace Server.Spells
             lmc += BaseArmor.GetInherentLowerManaCost(m_Caster);
 
             scalar -= (double)lmc / 100;
+            
+            int fakeLowerManaCost = PlayerMobileExtensions.FakeLowerManaCost((PlayerMobile)m_Caster);
+            scalar -= (double)fakeLowerManaCost / 100;
 
             return (int)(mana * scalar);
         }
