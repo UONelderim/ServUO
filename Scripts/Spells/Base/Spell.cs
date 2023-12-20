@@ -50,6 +50,18 @@ namespace Server.Spells
 
         public virtual SkillName CastSkill => SkillName.Magery;
         public virtual SkillName DamageSkill => SkillName.EvalInt;
+        
+        // DOROBIĆ TO SAMO DLA LRC WG TRELLO        
+        public static class PlayerMobileExtensions
+        {
+	        public static int FakeLowerManaCost(PlayerMobile playerMobile)
+	        {
+		        double herbalismSkill = playerMobile.Skills[SkillName.Herbalism].Value;
+		        int fakelowerManaCost = (int)(herbalismSkill / 20.0); //Co 20 skilla dodaje nam LMC
+		        return fakelowerManaCost;
+	        }
+        }
+
 
         public virtual bool RevealOnCast => true;
         public virtual bool ClearHandsOnCast => true;
@@ -790,6 +802,7 @@ namespace Server.Spells
         }
 
         public abstract void OnCast();
+        
 
         private void SequenceSpell()
         {
@@ -816,7 +829,26 @@ namespace Server.Spells
             {
                 m_Caster.Target.BeginTimeout(m_Caster, TimeSpan.FromSeconds(30.0));
             }
+            
+
+            if (PlayerMobileExtensions.FakeLowerManaCost((PlayerMobile)m_Caster) > 0)
+            {
+	            FakeLowerManaCostWhileCasting(m_Caster);
+	            // Dodać jakieś info??
+            }
+
+            void FakeLowerManaCostWhileCasting(Mobile from)
+            {
+	            int fakelowerManaCost = PlayerMobileExtensions.FakeLowerManaCost((PlayerMobile)from);
+	            
+	            from.Mana = Math.Max(0, from.Mana - fakelowerManaCost);
+
+	            // Czy nie potrzeba jeszcze jakieś logiki?
+            }
         }
+        
+  
+
 
         #region Enhanced Client
         public bool OnCastInstantTarget()
