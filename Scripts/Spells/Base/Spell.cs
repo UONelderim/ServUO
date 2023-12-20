@@ -51,14 +51,20 @@ namespace Server.Spells
         public virtual SkillName CastSkill => SkillName.Magery;
         public virtual SkillName DamageSkill => SkillName.EvalInt;
         
-        // DOROBIĆ TO SAMO DLA LRC WG TRELLO        
         public static class PlayerMobileExtensions
         {
 	        public static int FakeLowerManaCost(PlayerMobile playerMobile)
 	        {
 		        double herbalismSkill = playerMobile.Skills[SkillName.Herbalism].Value;
-		        int fakelowerManaCost = (int)(herbalismSkill / 20.0); //Co 20 skilla dodaje nam LMC
+		        int fakelowerManaCost = (int)(herbalismSkill / 20.0);
 		        return fakelowerManaCost;
+	        }
+	        
+	        public static int FakeLowerRegCost(PlayerMobile playerMobile)
+	        {
+		        double herbalismSkill = playerMobile.Skills[SkillName.Herbalism].Value;
+		        int fakeLowerRegCost = (int)(herbalismSkill / 5.0); 
+		        return fakeLowerRegCost;
 	        }
         }
 
@@ -395,33 +401,52 @@ namespace Server.Spells
         {
             return m_Info.AllowTown;
         }
+        
+        
+        void FakeLowerRegCostWhileCasting(Mobile from)
+        {
+	        int fakeLowerRegCost = PlayerMobileExtensions.FakeLowerRegCost((PlayerMobile)from);
 
+	        if (Utility.RandomDouble() <= (double)fakeLowerRegCost / 100)
+	        {
+		        return;
+	        }
+        }
+        
         public virtual bool ConsumeReagents()
         {
-            if ((m_Scroll != null && !(m_Scroll is SpellStone)) || !m_Caster.Player)
-            {
-                return true;
-            }
+	        if ((m_Scroll != null && !(m_Scroll is SpellStone)) || !m_Caster.Player)
+	        {
+		        return true;
+	        }
 
-            if (AosAttributes.GetValue(m_Caster, AosAttribute.LowerRegCost) > Utility.Random(100))
-            {
-                return true;
-            }
+	        if (AosAttributes.GetValue(m_Caster, AosAttribute.LowerRegCost) > Utility.Random(100) ||
+	            PlayerMobileExtensions.FakeLowerRegCost((PlayerMobile)m_Caster) > 0)
+	        {
+		        return true;
+	        }
 
-            Container pack = m_Caster.Backpack;
+	        Container pack = m_Caster.Backpack;
 
-            if (pack == null)
-            {
-                return false;
-            }
+	        if (pack == null)
+	        {
+		        return false;
+	        }
 
-            if (pack.ConsumeTotal(m_Info.Reagents, m_Info.Amounts) == -1)
-            {
-                return true;
-            }
+	        if (pack.ConsumeTotal(m_Info.Reagents, m_Info.Amounts) == -1)
+	        {
+		        return true;
+	        }
+	        
+	        if (PlayerMobileExtensions.FakeLowerRegCost((PlayerMobile)m_Caster) > 0)
+	        {
+		        FakeLowerRegCostWhileCasting(m_Caster);
+	        }
 
-            return false;
+	        return false;
         }
+
+
 
         public virtual double GetInscribeSkill(Mobile m)
         {
