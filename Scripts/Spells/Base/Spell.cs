@@ -419,10 +419,16 @@ namespace Server.Spells
 	        {
 		        return true;
 	        }
-
-	        if (AosAttributes.GetValue(m_Caster, AosAttribute.LowerRegCost) > Utility.Random(100) ||
-	            PlayerMobileExtensions.FakeLowerRegCost((PlayerMobile)m_Caster) > 0)
+	        
+	        int lowerRegCost = AosAttributes.GetValue(m_Caster, AosAttribute.LowerRegCost);
+	        
+	        int fakeLowerRegCost = PlayerMobileExtensions.FakeLowerRegCost((PlayerMobile)m_Caster);
+	        
+	        int combinedRegCost = lowerRegCost + fakeLowerRegCost;
+	        
+	        if (combinedRegCost > Utility.Random(100))
 	        {
+		        FakeLowerRegCostWhileCasting(m_Caster);
 		        return true;
 	        }
 
