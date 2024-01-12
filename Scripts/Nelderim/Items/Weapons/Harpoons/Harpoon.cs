@@ -21,7 +21,7 @@ namespace Server.Items
 		public override WeaponType DefType{ get{ return WeaponType.Ranged; } }
 		public override WeaponAnimation DefAnimation{ get{ return WeaponAnimation.Throwing; } }
 
-		public SkillName AccuracySkill{ get{ return SkillName.Tactics; } }
+		//public SkillName AccuracySkill{ get{ return SkillName.Tactics; } }
 
 		public override WeaponAbility PrimaryAbility{ get{ return WeaponAbility.ParalyzingBlow; } }
 		public override WeaponAbility SecondaryAbility{ get{ return WeaponAbility.MortalStrike; } }
@@ -38,7 +38,7 @@ namespace Server.Items
 		public int OldSpeed{ get{ return 20; } }
 
 		public override int MinThrowRange => 5;
-		public override int DefMaxRange{ get{ return 10; } }
+		//public override int DefMaxRange{ get{ return 10; } }
 
 		public override int InitMinHits{ get{ return 50; } }
 		public override int InitMaxHits{ get{ return 90; } }
@@ -104,7 +104,7 @@ namespace Server.Items
 			}
 		}
 
-		public void OnHit( Mobile attacker, Mobile defender, double damageBonus )
+	/*	public void OnHit( Mobile attacker, Mobile defender, double damageBonus )
 		{
 			base.OnHit( attacker, defender, damageBonus );
 		}
@@ -112,7 +112,7 @@ namespace Server.Items
 		public void OnMiss( Mobile attacker, Mobile defender )
 		{
 			base.OnMiss( attacker, defender );
-		}
+		}*/
 
 		/*public virtual bool OnFired(Mobile attacker, Mobile defender)
 		{
