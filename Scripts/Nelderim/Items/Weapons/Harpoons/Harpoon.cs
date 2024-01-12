@@ -3,11 +3,14 @@ using Server.Items;
 using Server.Network;
 using Server.Spells;
 using Server.Mobiles;
+using System.Collections.Generic;
 
 namespace Server.Items
 {
-	public class Harpoon : BaseThrown
+	public class Harpoon : BaseThrown, ICustomWeaponAbilities
 	{
+		
+		
 		public override int EffectID{ get{ return 0x528A; } }
 		
 		public override Type AmmoType => null;
@@ -42,6 +45,23 @@ namespace Server.Items
 
 		public override int InitMinHits{ get{ return 50; } }
 		public override int InitMaxHits{ get{ return 90; } }
+		
+		private static int[] m_ItemIDs = new int[] { 0x13F8, 0xE89, 0xDF0, 0xE81 };
+		public static int[] ItemIDs { get { return m_ItemIDs; } }
+
+		private const int ConcussionBlowIndex = 3;
+		private const int CrushingBlowIndex = 4;
+		private const int DisarmIndex = 5;
+		private const int DoubleStrikeIndex = 7;
+		private const int ParalyzingBlowIndex = 11;
+		private const int WhirlwindAttackIndex = 13;
+		private const int ForceOfNatureIndex = 29;
+		private static Dictionary<int, int[]> LegacyWeaponAbilitiesByItemID = new Dictionary<int, int[]> {
+			{ 0x13F8, new int[] { ConcussionBlowIndex, ForceOfNatureIndex } },    // GnarledStaff
+			{ 0xE89, new int[] { DoubleStrikeIndex, ConcussionBlowIndex } },      // QuarterStaff
+			{ 0xDF0, new int[] { WhirlwindAttackIndex, ParalyzingBlowIndex } },   // BlackStaff
+			{ 0xE81, new int[] { CrushingBlowIndex, DisarmIndex } }               // ShepherdsCrook
+		};
 
 		[Constructable]
 		public Harpoon() : base( 0xF63 )
@@ -155,6 +175,11 @@ namespace Server.Items
 			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
+
+		public int LegacyPrimaryWeaponAbilityIndex { get { return LegacyWeaponAbilitiesByItemID.ContainsKey(ItemID) ? LegacyWeaponAbilitiesByItemID[ItemID][0] : -1; } }
+		public int LegacySecondaryWeaponAbilityIndex { get { return LegacyWeaponAbilitiesByItemID.ContainsKey(ItemID) ? LegacyWeaponAbilitiesByItemID[ItemID][1] : -1; } }
+		public int CustomPrimaryWeaponAbilityIndex { get { return DoubleStrikeIndex; } }
+		public int CustomSecondaryWeaponAbilityIndex { get { return ForceOfNatureIndex; } }
 	}
 
 	/*public class HarpoonRope : Item
