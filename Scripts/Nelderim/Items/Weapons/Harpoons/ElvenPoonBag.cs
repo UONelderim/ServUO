@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using Server;
 
 namespace Server.Items
@@ -32,4 +32,4 @@ namespace Server.Items
 			int version = reader.ReadEncodedInt();
 		}
 	}
-}
+}*/

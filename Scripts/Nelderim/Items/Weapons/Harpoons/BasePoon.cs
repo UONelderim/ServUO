@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using Server.Network;
 using Server.Engines.Craft;
 
@@ -117,8 +117,8 @@ namespace Server.Items
 		{
 			int total = base.GetTotal( type );
 
-			if ( type == TotalType.Weight /*&& !Server.Misc.AdventuresFunctions.IsInMidland((object)this)*/)
-				total -= total * m_WeightReduction / 100;
+			if ( type == TotalType.Weight /*&& !Server.Misc.AdventuresFunctions.IsInMidland((object)this))*/
+			/*	total -= total * m_WeightReduction / 100;
 
 			return total;
 		}
@@ -497,4 +497,4 @@ namespace Server.Items
 			throw new NotImplementedException();
 		}
 	}
-}
+}*/

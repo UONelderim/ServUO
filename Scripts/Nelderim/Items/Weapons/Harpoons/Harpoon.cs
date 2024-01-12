@@ -6,11 +6,13 @@ using Server.Mobiles;
 
 namespace Server.Items
 {
-	public class Harpoon : BaseRanged
+	public class Harpoon : BaseThrown
 	{
 		public override int EffectID{ get{ return 0x528A; } }
-		public override Type AmmoType => typeof(HarpoonRope) ;
-		public override Item Ammo{ get{ return new HarpoonRope(); } }
+		
+		public override Type AmmoType => null;
+
+		public override Item Ammo => null;
 
 		public override int DefHitSound{ get{ return 0x5D2; } }
 		public override int DefMissSound{ get{ return 0x5D3; } }
@@ -25,16 +27,17 @@ namespace Server.Items
 		public override WeaponAbility SecondaryAbility{ get{ return WeaponAbility.MortalStrike; } }
 
 
-		public override int StrengthReq => 20; 
-		public override int MinDamage => 15;
-		public override int MaxDamage =>  19;
-		public override float Speed =>  5.00f;
+		public override int StrengthReq => 25;
+		public override int MinDamage => 13;
+		public override int MaxDamage => 17;
+		public override float Speed => 3.0f;
 
 		public int OldStrengthReq{ get{ return 15; } }
 		public int OldMinDamage{ get{ return 9; } }
 		public int OldMaxDamage{ get{ return 41; } }
 		public int OldSpeed{ get{ return 20; } }
 
+		public override int MinThrowRange => 5;
 		public override int DefMaxRange{ get{ return 10; } }
 
 		public override int InitMinHits{ get{ return 50; } }
@@ -50,7 +53,7 @@ namespace Server.Items
 
 		public override bool OnEquip( Mobile from )
 		{
-			from.SendMessage( "To jest bron miotana i wymaga liny oraz harpuna, by nia ciskac." );
+			from.SendMessage( "To jest bron miotana." );
 			return base.OnEquip( from );
 		}
 
@@ -111,7 +114,7 @@ namespace Server.Items
 			base.OnMiss( attacker, defender );
 		}
 
-		public virtual bool OnFired(Mobile attacker, Mobile defender)
+		/*public virtual bool OnFired(Mobile attacker, Mobile defender)
 		{
 			BasePoon quiver = attacker.FindItemOnLayer(Layer.Cloak) as BasePoon;
 			Container pack = attacker.Backpack;
@@ -134,7 +137,7 @@ namespace Server.Items
 			attacker.MovingEffect(defender, EffectID, 18, 1, false, false);
 
 			return true;
-		}
+		}*/
 
 
 		public Harpoon( Serial serial ) : base( serial )
@@ -154,7 +157,7 @@ namespace Server.Items
 		}
 	}
 
-	public class HarpoonRope : Item
+	/*public class HarpoonRope : Item
 	{
 		public override double DefaultWeight
 		{
@@ -189,5 +192,5 @@ namespace Server.Items
 			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
-	}
+	}*/
 }
