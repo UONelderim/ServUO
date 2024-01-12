@@ -311,11 +311,14 @@ namespace Server.Items
             {
                 int toHold = Math.Min(100 - m_Held, pot.Amount);
 
-                if (pot.PotionEffect > PotionEffect.Darkglow)
+                if (pot.PotionEffect > PotionEffect.Darkglow && 
+                    pot.PotionEffect != PotionEffect.NStrengthGreater && 
+                    pot.PotionEffect != PotionEffect.NAgilityGreater)
                 {
-                    from.SendLocalizedMessage(502232); // The keg is not designed to hold that type of object.
-                    return false;
+	                from.SendLocalizedMessage(502232); // The keg is not designed to hold that type of object.
+	                return false;
                 }
+
                 else if (toHold <= 0)
                 {
                     from.SendLocalizedMessage(502233); // The keg will not hold any more!
