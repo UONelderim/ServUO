@@ -25,26 +25,6 @@ namespace Server.Items
 		public override WeaponAnimation DefAnimation{ get{ return WeaponAnimation.Throwing; } }
 
 		//public SkillName AccuracySkill{ get{ return SkillName.Tactics; } }
-
-		public override WeaponAbility PrimaryAbility{ get{ return WeaponAbility.ParalyzingBlow; } }
-		public override WeaponAbility SecondaryAbility{ get{ return WeaponAbility.MortalStrike; } }
-
-
-		public override int StrengthReq => 25;
-		public override int MinDamage => 13;
-		public override int MaxDamage => 17;
-		public override float Speed => 3.0f;
-
-		public int OldStrengthReq{ get{ return 15; } }
-		public int OldMinDamage{ get{ return 9; } }
-		public int OldMaxDamage{ get{ return 41; } }
-		public int OldSpeed{ get{ return 20; } }
-
-		public override int MinThrowRange => 5;
-		//public override int DefMaxRange{ get{ return 10; } }
-
-		public override int InitMinHits{ get{ return 50; } }
-		public override int InitMaxHits{ get{ return 90; } }
 		
 		private static int[] m_ItemIDs = new int[] { 0x13F8, 0xE89, 0xDF0, 0xE81 };
 		public static int[] ItemIDs { get { return m_ItemIDs; } }
@@ -62,6 +42,31 @@ namespace Server.Items
 			{ 0xDF0, new int[] { WhirlwindAttackIndex, ParalyzingBlowIndex } },   // BlackStaff
 			{ 0xE81, new int[] { CrushingBlowIndex, DisarmIndex } }               // ShepherdsCrook
 		};
+		
+		public int LegacyPrimaryWeaponAbilityIndex { get { return LegacyWeaponAbilitiesByItemID.ContainsKey(ItemID) ? LegacyWeaponAbilitiesByItemID[ItemID][0] : -1; } }
+		public int LegacySecondaryWeaponAbilityIndex { get { return LegacyWeaponAbilitiesByItemID.ContainsKey(ItemID) ? LegacyWeaponAbilitiesByItemID[ItemID][1] : -1; } }
+		public int CustomPrimaryWeaponAbilityIndex { get { return ForceOfNatureIndex; } }
+		public int CustomSecondaryWeaponAbilityIndex { get { return ConcussionBlowIndex; } }
+
+		public override WeaponAbility PrimaryAbility{ get{ return WeaponAbility.ForceOfNature; } }
+		public override WeaponAbility SecondaryAbility{ get{ return WeaponAbility.ConcussionBlow; } }
+
+
+		public override int StrengthReq => 25;
+		public override int MinDamage => 13;
+		public override int MaxDamage => 17;
+		public override float Speed => 3.0f;
+
+		public int OldStrengthReq{ get{ return 15; } }
+		public int OldMinDamage{ get{ return 9; } }
+		public int OldMaxDamage{ get{ return 41; } }
+		public int OldSpeed{ get{ return 20; } }
+
+		public override int MinThrowRange => 5;
+		//public override int DefMaxRange{ get{ return 10; } }
+
+		public override int InitMinHits{ get{ return 50; } }
+		public override int InitMaxHits{ get{ return 90; } }
 
 		[Constructable]
 		public Harpoon() : base( 0xF63 )
@@ -69,12 +74,6 @@ namespace Server.Items
 			Name = "harpun";
 			Weight = 7.0;
 			Layer = Layer.OneHanded;
-		}
-
-		public override bool OnEquip( Mobile from )
-		{
-			from.SendMessage( "To jest bron miotana." );
-			return base.OnEquip( from );
 		}
 
 		public TimeSpan OnSwing( Mobile attacker, Mobile defender )
@@ -176,10 +175,7 @@ namespace Server.Items
 			int version = reader.ReadInt();
 		}
 
-		public int LegacyPrimaryWeaponAbilityIndex { get { return LegacyWeaponAbilitiesByItemID.ContainsKey(ItemID) ? LegacyWeaponAbilitiesByItemID[ItemID][0] : -1; } }
-		public int LegacySecondaryWeaponAbilityIndex { get { return LegacyWeaponAbilitiesByItemID.ContainsKey(ItemID) ? LegacyWeaponAbilitiesByItemID[ItemID][1] : -1; } }
-		public int CustomPrimaryWeaponAbilityIndex { get { return DoubleStrikeIndex; } }
-		public int CustomSecondaryWeaponAbilityIndex { get { return ForceOfNatureIndex; } }
+
 	}
 
 	/*public class HarpoonRope : Item
