@@ -76,6 +76,7 @@ namespace Server.Mobiles
         {
             Layer = Layer.Backpack;
             Weight = 1.0;
+            MaxItems = 250; //przeniesiono z RunUO
         }
 
         public VendorBackpack(Serial serial)
