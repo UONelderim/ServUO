@@ -29,27 +29,16 @@ namespace Server.Items
 		private static int[] m_ItemIDs = new int[] { 0x13F8, 0xE89, 0xDF0, 0xE81 };
 		public static int[] ItemIDs { get { return m_ItemIDs; } }
 
-		private const int ConcussionBlowIndex = 3;
-		private const int CrushingBlowIndex = 4;
-		private const int DisarmIndex = 5;
-		private const int DoubleStrikeIndex = 7;
-		private const int ParalyzingBlowIndex = 11;
-		private const int WhirlwindAttackIndex = 13;
-		private const int ForceOfNatureIndex = 29;
-		private static Dictionary<int, int[]> LegacyWeaponAbilitiesByItemID = new Dictionary<int, int[]> {
-			{ 0x13F8, new int[] { ConcussionBlowIndex, ForceOfNatureIndex } },    // GnarledStaff
-			{ 0xE89, new int[] { DoubleStrikeIndex, ConcussionBlowIndex } },      // QuarterStaff
-			{ 0xDF0, new int[] { WhirlwindAttackIndex, ParalyzingBlowIndex } },   // BlackStaff
-			{ 0xE81, new int[] { CrushingBlowIndex, DisarmIndex } }               // ShepherdsCrook
-		};
-		
-		public int LegacyPrimaryWeaponAbilityIndex { get { return LegacyWeaponAbilitiesByItemID.ContainsKey(ItemID) ? LegacyWeaponAbilitiesByItemID[ItemID][0] : -1; } }
-		public int LegacySecondaryWeaponAbilityIndex { get { return LegacyWeaponAbilitiesByItemID.ContainsKey(ItemID) ? LegacyWeaponAbilitiesByItemID[ItemID][1] : -1; } }
-		public int CustomPrimaryWeaponAbilityIndex { get { return ForceOfNatureIndex; } }
-		public int CustomSecondaryWeaponAbilityIndex { get { return ConcussionBlowIndex; } }
+		private static int ArmorIgnoreIndex => 3;
+		private static int ParalyzingBlowIndex => 11;
+		private static int MortalStrikeIndex => 9;
+		public int LegacyPrimaryWeaponAbilityIndex { get { return ArmorIgnoreIndex; } }
+		public int LegacySecondaryWeaponAbilityIndex { get { return ParalyzingBlowIndex; } }
+		public int CustomPrimaryWeaponAbilityIndex { get { return ArmorIgnoreIndex; } }
+		public int CustomSecondaryWeaponAbilityIndex { get { return MortalStrikeIndex; } }
 
-		public override WeaponAbility PrimaryAbility{ get{ return WeaponAbility.ForceOfNature; } }
-		public override WeaponAbility SecondaryAbility{ get{ return WeaponAbility.ConcussionBlow; } }
+		public override WeaponAbility PrimaryAbility{ get{ return WeaponAbility.ArmorIgnore; } }
+		public override WeaponAbility SecondaryAbility{ get{ return WeaponAbility.MortalStrike; } }
 
 
 		public override int StrengthReq => 25;

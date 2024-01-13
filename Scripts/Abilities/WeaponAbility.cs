@@ -410,13 +410,30 @@ namespace Server.Items
         {
             int index = e.Index;
 
-            if (index == 0)
+			OverrideWeaponAbility(e.Mobile.Weapon as ICustomWeaponAbilities, ref index);
+
+			if (index == 0)
                 ClearCurrentAbility(e.Mobile);
             else if (index >= 1 && index < m_Abilities.Length)
                 SetCurrentAbility(e.Mobile, m_Abilities[index]);
         }
 
-        private static readonly Hashtable m_PlayersTable = new Hashtable();
+		// Game client seems to have hardcoded mapping of weapon graphics to weapon special abilities icons.
+		// Hence, if character is wielding weapon of particular appearance (ItemID) he is only able to perform weapon abilities assigned to that appearance,
+		// regardless of the special abilities configured in BaseWeapon children classes on server.
+		// Here we can deal with that issue by translating special abilities denoted by client icons to abilities that we want to be triggered by given weapon.
+		private static void OverrideWeaponAbility(ICustomWeaponAbilities weapon, ref int index)
+		{
+			if (weapon != null)
+			{
+				if (index == weapon.LegacyPrimaryWeaponAbilityIndex)
+					index = weapon.CustomPrimaryWeaponAbilityIndex;
+				else if (index == weapon.LegacySecondaryWeaponAbilityIndex)
+					index = weapon.CustomSecondaryWeaponAbilityIndex;
+			}
+		}
+
+		private static readonly Hashtable m_PlayersTable = new Hashtable();
 
         private static void AddContext(Mobile m, WeaponAbilityContext context)
         {
