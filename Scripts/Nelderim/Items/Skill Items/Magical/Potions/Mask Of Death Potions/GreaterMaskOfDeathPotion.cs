@@ -8,7 +8,7 @@ namespace Server.Items
 {
 	public class GreaterMaskOfDeathPotion : BaseMaskOfDeathPotion
 	{
-		public override TimeSpan Duration { get { return TimeSpan.FromSeconds(60.0); } }
+		public override TimeSpan Duration { get { return TimeSpan.FromSeconds(120.0); } }
 		public override double Delay { get { return 30.0; } }
 
 		public override int LabelNumber { get { return 1072103; } } // a Greater Mask of Death potion
