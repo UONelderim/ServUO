@@ -80,6 +80,11 @@ namespace Server.Mobiles
         {
 	        if (NConfig.BetterAI)
 	        {
+		        if(spell == null)
+		        {
+			        return DateTime.UtcNow;
+		        }
+
 		        return DateTime.UtcNow + spell.GetCastDelay() + spell.GetCastRecovery();
 	        }
 	        else
