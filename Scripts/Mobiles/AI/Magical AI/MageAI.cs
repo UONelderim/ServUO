@@ -16,6 +16,8 @@ using Server.Spells.Spellweaving;
 using Server.Spells.Third;
 using Server.Targeting;
 using System;
+using Nelderim.Configuration;
+
 #endregion
 
 namespace Server.Mobiles
@@ -36,7 +38,7 @@ namespace Server.Mobiles
         public Mobile LastTarget { get; set; }
         public Point3D LastTargetLoc { get; set; }
 
-        public virtual bool SmartAI => PetTrainingHelper.GetAbilityProfile(m_Mobile, true).HasAbility(MagicalAbility.MageryMastery);
+        public virtual bool SmartAI => NConfig.BetterAI || PetTrainingHelper.GetAbilityProfile(m_Mobile, true).HasAbility(MagicalAbility.MageryMastery);
 
         public MageAI(BaseCreature m)
             : base(m)
@@ -64,6 +66,9 @@ namespace Server.Mobiles
 
         protected TimeSpan GetDelay(Spell spell)
         {
+	        if (NConfig.BetterAI)
+		        return TimeSpan.Zero;
+	        
             double del = ScaleBySkill(3.0, spell != null ? spell.CastSkill : CastSkill);
             double min = 6.0 - del * 0.75;
             double max = 6.0 - del * 1.25;
@@ -73,26 +78,33 @@ namespace Server.Mobiles
 
         protected virtual DateTime GetCastDelay(Spell spell)
         {
-            if (UsesMagery)
-            {
-                TimeSpan ts = !SmartAI && !(spell is DispelSpell)
-                    ? TimeSpan.FromSeconds(1)
-                    : m_Combo > -1
-                        ? TimeSpan.FromSeconds(.5)
-                        : TimeSpan.FromSeconds(1.5);
-                TimeSpan delay = spell == null
-                    ? TimeSpan.FromSeconds(m_Mobile.ActiveSpeed * 2.0)
-                    : spell.GetCastDelay() + spell.GetCastRecovery() + ts;
+	        if (NConfig.BetterAI)
+	        {
+		        return DateTime.UtcNow + spell.GetCastDelay() + spell.GetCastRecovery();
+	        }
+	        else
+	        {
+				if (UsesMagery)
+		        {
+			        TimeSpan ts = !SmartAI && !(spell is DispelSpell)
+				        ? TimeSpan.FromSeconds(1)
+				        : m_Combo > -1
+					        ? TimeSpan.FromSeconds(.5)
+					        : TimeSpan.FromSeconds(1.5);
+			        TimeSpan delay = spell == null
+				        ? TimeSpan.FromSeconds(m_Mobile.ActiveSpeed * 2.0)
+				        : spell.GetCastDelay() + spell.GetCastRecovery() + ts;
 
-                return DateTime.UtcNow + delay;
-            }
-            else
-            {
-                TimeSpan delay = spell == null
-                    ? TimeSpan.FromSeconds(m_Mobile.ActiveSpeed * 2.0)
-                    : spell.GetCastDelay() + spell.GetCastRecovery() + GetDelay(spell);
-                return DateTime.UtcNow + delay;
-            }
+			        return DateTime.UtcNow + delay;
+		        }
+		        else
+		        {
+			        TimeSpan delay = spell == null
+				        ? TimeSpan.FromSeconds(m_Mobile.ActiveSpeed * 2.0)
+				        : spell.GetCastDelay() + spell.GetCastRecovery() + GetDelay(spell);
+			        return DateTime.UtcNow + delay;
+		        }
+	        }
         }
 
         public override bool DoActionWander()
@@ -486,10 +498,17 @@ namespace Server.Mobiles
 
             double delay;
 
-            if (m_Mobile.Int >= 500)
-                delay = Utility.RandomMinMax(7, 10);
+            if (NConfig.BetterAI)
+            {
+	            delay = Utility.RandomMinMax(1, 3);
+            }
             else
-                delay = Math.Sqrt(600 - m_Mobile.Int);
+            {
+	            if (m_Mobile.Int >= 500)
+		            delay = Utility.RandomMinMax(7, 10);
+	            else
+		            delay = Math.Sqrt(600 - m_Mobile.Int);
+            }
 
             NextHealTime = DateTime.UtcNow + TimeSpan.FromSeconds(delay);
 
@@ -718,7 +737,7 @@ namespace Server.Mobiles
                 {
                     case 0: // Buff
                         {
-                            m_Mobile.DebugSay("Cursing Thyself!");
+                            m_Mobile.DebugSay("Buffing Thyself!");
                             spell = GetRandomBuffSpell();
                             break;
                         }
@@ -1055,17 +1074,20 @@ namespace Server.Mobiles
 
         public virtual Spell GetRandomFieldSpell()
         {
-            // I left this here if someone wants field spells
-            /*bool pois = m_Mobile.Skills[SkillName.Poisoning].Value >= 80.0 || m_Mobile.HitPoison == Poison.Greater || m_Mobile.HitPoison == Poison.Lethal;
+            if (NConfig.BetterAI)
+            {
+	            bool pois = m_Mobile.Skills[SkillName.Poisoning].Value >= 80.0 ||
+	                        m_Mobile.HitPoison == Poison.Greater || m_Mobile.HitPoison == Poison.Lethal;
 
-			if (pois && CheckCanCastMagery(5))
-				return new PoisonFieldSpell(m_Mobile, null);
+	            if (pois && CheckCanCastMagery(5))
+		            return new PoisonFieldSpell(m_Mobile, null);
 
-			if (Utility.RandomBool() && CheckCanCastMagery(6))
-				return new ParalyzeFieldSpell(m_Mobile, null);
+	            if (Utility.RandomBool() && CheckCanCastMagery(6))
+		            return new ParalyzeFieldSpell(m_Mobile, null);
 
-			if (CheckCanCastMagery(4))
-				return new FireFieldSpell(m_Mobile, null);*/
+	            if (CheckCanCastMagery(4))
+		            return new FireFieldSpell(m_Mobile, null);
+            }
 
             return null;
         }
@@ -1083,6 +1105,10 @@ namespace Server.Mobiles
 
         public virtual Spell GetHealSpell()
         {
+	        if (NConfig.BetterAI && MortalStrike.IsWounded(m_Mobile))
+	        {
+		        return null;
+	        }
             Spell spell = null;
 
             if (m_Mobile.Hits < m_Mobile.HitsMax - 50)
@@ -1131,7 +1157,8 @@ namespace Server.Mobiles
             Exp_FB_MA_Poison,
             Exp_FB_Poison_Light,
             Exp_FB_MA_Light,
-            Exp_Poison_FB_Light
+            Exp_Poison_FB_Light,
+            Nelderim_Combo
         }
 
         public virtual Spell DoCombo(Mobile c)
@@ -1139,7 +1166,11 @@ namespace Server.Mobiles
             Spell spell = null;
 
             if (m_ComboType == ComboType.None)
-                m_ComboType = (ComboType)Utility.RandomMinMax(1, 7);
+                m_ComboType = NConfig.BetterAI & Utility.RandomBool() ? 
+	                ComboType.Nelderim_Combo : 
+	                (ComboType)Utility.RandomMinMax(1, 7);
+            if (m_ComboType == ComboType.Nelderim_Combo)
+	            return NDoCombo(c);
 
             if (m_Combo == 1)
             {
