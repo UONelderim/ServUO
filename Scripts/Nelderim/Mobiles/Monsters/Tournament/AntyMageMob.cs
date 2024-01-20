@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using Server;
@@ -6,279 +5,229 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName( "resztki dziwnego twora wragny" )]
-    public class AntyMageMob : BaseCreature
-    {
-        public override double DifficultyScalar{ get{ return 1.15; } }
-        public override bool BleedImmune { get { return true; } }
-        public override double SwitchTargetChance { get { return 0.5; } }
-        public override double AttackMasterChance { get { return 0.5; } }
+	[CorpseName("resztki dziwnego twora wragny")]
+	public class AntyMageMob : BaseCreature
+	{
+		public override double DifficultyScalar => 1.15;
+		public override bool BleedImmune => true;
+		public override double SwitchTargetChance => 0.5;
+		public override double AttackMasterChance => 0.5;
 
-        public override void  AddWeaponAbilities()
-        {
-            WeaponAbilities.Add( WeaponAbility.BleedAttack, 0.4 );
-        }
-        
-        private static bool OverrideRules = true;
+		private static bool OverrideRules = true;
 
-        private static double m_AbilityChance = 0.45;
+		private static double m_AbilityChance = 0.45;
 
-        private static int m_ReturnTime = 240;
+		private static int m_ReturnTime = 240;
 
-        private static int m_MinTime    = 10;
-        private static int m_MaxTime    = 20;
+		private static int m_MinTime = 10;
+		private static int m_MaxTime = 20;
 
-        private DateTime m_NextAbilityTime;
+		private DateTime m_NextAbilityTime;
 
-        private DateTime m_NextReturnTime;
+		private DateTime m_NextReturnTime;
 
-        private ArrayList m_Minions;
-        
-        [Constructable]
-        public AntyMageMob() : base( AIType.AI_Boss, FightMode.Strongest, 12, 1, 0.2, 0.4 )
-        {
-            Name = "dziwny twor Wragny";
-            Body = 78;
-            BaseSoundID = 412;
+		private ArrayList m_Minions;
+
+		[Constructable]
+		public AntyMageMob() : base(AIType.AI_Boss, FightMode.Strongest, 12, 1, 0.2, 0.4)
+		{
+			Name = "dziwny twor Wragny";
+			Body = 78;
+			BaseSoundID = 412;
 			Hue = 1152;
 
-            SetStr( 324, 458 );
-            SetDex( 144, 172 );
-            SetInt( 1449, 1568 );
+			SetStr(324, 458);
+			SetDex(144, 172);
+			SetInt(1449, 1568);
 
-            SetHits( 1120, 1190 );
+			SetHits(1120, 1190);
 
-            SetDamage( 25, 37 );
+			SetDamage(25, 37);
 
-            SetDamageType( ResistanceType.Physical, 20 );
-            SetDamageType( ResistanceType.Cold, 40 );
-            SetDamageType( ResistanceType.Energy, 40 );
+			SetDamageType(ResistanceType.Physical, 20);
+			SetDamageType(ResistanceType.Cold, 40);
+			SetDamageType(ResistanceType.Energy, 40);
 
-            SetResistance( ResistanceType.Physical, 60, 70 );
-            SetResistance( ResistanceType.Fire, 25, 35 );
-            SetResistance( ResistanceType.Cold, 50, 70 );
-            SetResistance( ResistanceType.Poison, 50, 70 );
-            SetResistance( ResistanceType.Energy, 25, 35 );
+			SetResistance(ResistanceType.Physical, 60, 70);
+			SetResistance(ResistanceType.Fire, 25, 35);
+			SetResistance(ResistanceType.Cold, 50, 70);
+			SetResistance(ResistanceType.Poison, 50, 70);
+			SetResistance(ResistanceType.Energy, 25, 35);
 
-            SetSkill( SkillName.EvalInt, 120.1, 140.0 );
-            SetSkill( SkillName.Magery, 120.1, 140.0 );
-            SetSkill( SkillName.Necromancy, 120.1, 140.0 );
-            SetSkill( SkillName.SpiritSpeak, 120.1, 140.0 );
-            SetSkill( SkillName.Meditation, 100.1, 120.0 );
-            SetSkill( SkillName.Poisoning, 100.1, 120.0 );
-            SetSkill( SkillName.MagicResist, 200.1, 240.0 );
-            SetSkill( SkillName.Tactics, 90.1, 110.0 );
-            SetSkill( SkillName.Wrestling, 75.1, 110.0 );
+			SetSkill(SkillName.EvalInt, 120.1, 140.0);
+			SetSkill(SkillName.Magery, 120.1, 140.0);
+			SetSkill(SkillName.Necromancy, 120.1, 140.0);
+			SetSkill(SkillName.SpiritSpeak, 120.1, 140.0);
+			SetSkill(SkillName.Meditation, 100.1, 120.0);
+			SetSkill(SkillName.Poisoning, 100.1, 120.0);
+			SetSkill(SkillName.MagicResist, 200.1, 240.0);
+			SetSkill(SkillName.Tactics, 90.1, 110.0);
+			SetSkill(SkillName.Wrestling, 75.1, 110.0);
 
-            Fame = 30000;
-            Karma = -30000;
+			PackItem(new GnarledStaff());
 
-            VirtualArmor = 60;
-
-            PackItem( new GnarledStaff() );
-            PackNecroReg( 150, 200 );
-
-            m_Minions = new ArrayList();
-			
-        }
+			m_Minions = new ArrayList();
+			SetWeaponAbility(WeaponAbility.BleedAttack);
+		}
 
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)
-		{			
-            if( !IsBonded && !corpse.Carved && !IsChampionSpawn )
-            {
-				if ( Utility.RandomDouble() < 0.50 )
-					corpse.DropItem( new Pumice() );		
-            }
+		{
+			if (!IsBonded && !corpse.Carved && !IsChampionSpawn)
+			{
+				if (Utility.RandomDouble() < 0.50)
+					corpse.DropItem(new Pumice());
+			}
 
 			base.OnCarve(from, corpse, with);
 		}
-		
-		public override void CheckReflect( Mobile caster, ref bool reflect )
+
+		public override double WeaponAbilityChance => 0.4;
+		public override void CheckReflect(Mobile caster, ref bool reflect) => reflect = true;
+		public override int GetIdleSound() => 0x19D;
+		public override int GetAngerSound() => 0x175;
+		public override int GetDeathSound() => 0x108;
+		public override int GetAttackSound() => 0xE2;
+		public override int GetHurtSound() => 0x28B;
+		public override bool Unprovokable => false;
+		public override Poison PoisonImmune => Poison.Lethal;
+		public override int TreasureMapLevel => 5;
+
+		public override bool CanPaperdollBeOpenedBy(Mobile from) //??
 		{
-			reflect = true; // Every spell is reflected back to the caster
+			return false;
 		}
 
-        public override int GetIdleSound()
-        {
-            return 0x19D;
-        }
+		private int CountAliveMinions()
+		{
+			int alive = 0;
 
-        public override int GetAngerSound()
-        {
-            return 0x175;
-        }
+			foreach (Mobile m in m_Minions)
+			{
+				if (m.Alive && !m.Deleted) alive++;
+			}
 
-        public override int GetDeathSound()
-        {
-            return 0x108;
-        }
+			return alive;
+		}
 
-        public override int GetAttackSound()
-        {
-            return 0xE2;
-        }
+		private void SpawnMinions()
+		{
+			if (CountAliveMinions() != 0) return;
 
-        public override int GetHurtSound()
-        {
-            return 0x28B;
-        }
+			m_Minions.Clear();
 
-        public override void GenerateLoot()
-        {
-            AddLoot( LootPack.FilthyRich, 3 );
-            AddLoot( LootPack.UltraRich );
-            AddLoot( LootPack.HighScrolls, 2 );
-        }
+			if (Map == null) return;
 
-        public override bool Unprovokable{ get{ return false; } }
-        public override Poison PoisonImmune{ get{ return Poison.Lethal; } }
-        public override int TreasureMapLevel{ get{ return 5; } }
+			ShowMorphEffect();
 
-        public override bool CanPaperdollBeOpenedBy( Mobile from )
-        {
-            return false;
-        }
+			BodyMod = Utility.RandomBool() ? Utility.RandomList(50, 56) : 3;
 
-        private int CountAliveMinions()
-        {
-            int alive = 0;
+			int minions = Utility.RandomMinMax(5, 8);
 
-            foreach( Mobile m in m_Minions )
-            {
-                if ( m.Alive && !m.Deleted ) alive++;
-            }
+			for (int i = 0; i < minions; ++i)
+			{
+				BaseCreature minion = Utility.RandomBool() ? new Skeleton() : new Zombie();
+				minion.Team = Team;
 
-            return alive;
-        }
+				for (int j = 0; j < 5; ++j)
+				{
+					int x = X + Utility.Random(8) - 4;
+					int y = Y + Utility.Random(8) - 4;
 
-        private void SpawnMinions()
-        {
-            if ( CountAliveMinions() != 0 ) return;
+					if (Map.CanFit(x, y, Z, 16, false, false))
+					{
+						minion.MoveToWorld(new Point3D(x, y, Z), Map);
+						break;
+					}
 
-            m_Minions.Clear();
+					int z = Map.GetAverageZ(x, y);
+					if (Map.CanFit(x, y, z, 16, false, false))
+					{
+						minion.MoveToWorld(new Point3D(x, y, z), Map);
+						break;
+					}
+				}
 
-            Map map = this.Map;
+				minion.Combatant = Combatant;
+				m_Minions.Add(minion);
+			}
 
-            if ( map == null ) return;
+			m_NextReturnTime = DateTime.Now + TimeSpan.FromSeconds(m_ReturnTime);
+		}
 
-            int type = Utility.Random( 2 );
+		private void PoisonAttack()
+		{
+			Combatant.FixedParticles(0x374A, 10, 15, 5021, EffectLayer.Waist);
+			Combatant.PlaySound(0x474);
 
-            ShowMorphEffect();
+			if (Combatant is Mobile m)
+			{
+				m.ApplyPoison(this, Poison.GetPoison(4));
+			}
+		}
 
-            switch( type )
-            {
-                default:
-                case 0: BodyMod = Utility.RandomList( 50, 56 ); break;
-                case 1: BodyMod = 3; break;
-            }
+		public override void OnThink()
+		{
+			if (BodyMod != 0)
+			{
+				if (CountAliveMinions() == 0 || DateTime.Now > m_NextReturnTime)
+				{
+					m_Minions.Clear();
 
-            int minions = Utility.RandomMinMax( 5, 8 );
+					ShowMorphEffect();
 
-            for ( int i = 0; i < minions; ++i )
-            {
-                BaseCreature minion;
+					BodyMod = 0;
+				}
+			}
 
-                switch ( type )
-                {
-                default:
-                case 0: minion = new Skeleton(); break;
-                case 1: minion = new Zombie(); break;
-                }
+			if (!OverrideRules || Combatant == null)
+			{
+				base.OnThink();
 
-                minion.Team = this.Team;
+				return;
+			}
 
-                bool validLocation = false;
+			if (DateTime.Now >= m_NextAbilityTime)
+			{
+				if (m_AbilityChance > Utility.RandomDouble())
+				{
+					if (Utility.RandomBool())
+						PoisonAttack();
+					else
+						SpawnMinions();
+				}
 
-                Point3D loc = this.Location;
+				m_NextAbilityTime = DateTime.Now + TimeSpan.FromSeconds(Utility.RandomMinMax(m_MinTime, m_MaxTime));
+			}
 
-                for ( int j = 0; !validLocation && j < 5; ++j )
-                {
-                    int x = X + Utility.Random( 8 ) - 4;
-                    int y = Y + Utility.Random( 8 ) - 4;
-                    int z = map.GetAverageZ( x, y );
+			base.OnThink();
+		}
 
-                    if ( validLocation = map.CanFit( x, y, this.Z, 16, false, false ) )
-                        loc = new Point3D( x, y, Z );
-                    else if ( validLocation = map.CanFit( x, y, z, 16, false, false ) )
-                        loc = new Point3D( x, y, z );
-                }
+		public void ShowMorphEffect()
+		{
+			Effects.SendLocationParticles(EffectItem.Create(this.Location, this.Map, EffectItem.DefaultDuration),
+				0x3728,
+				8,
+				20,
+				5042);
 
-                minion.MoveToWorld( loc, map );
-                minion.Combatant = Combatant;
+			Effects.PlaySound(this, this.Map, 0x201);
+		}
 
-                m_Minions.Add( minion );
-            }
+		public AntyMageMob(Serial serial) : base(serial)
+		{
+			m_Minions = new ArrayList();
+		}
 
-            m_NextReturnTime = DateTime.Now + TimeSpan.FromSeconds( m_ReturnTime );
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+			writer.Write((int)0);
+		}
 
-        private void PoisonAttack()
-        {
-            Combatant.FixedParticles( 0x374A, 10, 15, 5021, EffectLayer.Waist );
-            Combatant.PlaySound( 0x474 );
-
-            Combatant.ApplyPoison( this, Poison.GetPoison( 4 ) );
-        }
-
-        public override void OnThink()
-        {
-            if ( BodyMod != 0 )
-            {
-                if ( CountAliveMinions() == 0 || DateTime.Now > m_NextReturnTime )
-                {
-                    m_Minions.Clear();
-
-                    ShowMorphEffect();
-
-                    BodyMod = 0;
-                }
-            }
-
-            if ( !OverrideRules || Combatant == null )
-            {
-                base.OnThink();
-
-                return;
-            }
-
-            if ( DateTime.Now >= m_NextAbilityTime )
-            {
-                if ( m_AbilityChance > Utility.RandomDouble() )
-                {
-                    if ( Utility.RandomBool() )
-                        PoisonAttack();
-                    else
-                        SpawnMinions();
-                }
-
-                m_NextAbilityTime = DateTime.Now + TimeSpan.FromSeconds( Utility.RandomMinMax( m_MinTime, m_MaxTime ) );
-            }
-
-            base.OnThink();
-        }
-        
-        public void ShowMorphEffect()
-        {
-            Effects.SendLocationParticles( EffectItem.Create( this.Location, this.Map, EffectItem.DefaultDuration ), 0x3728, 8, 20, 5042 );    
-
-            Effects.PlaySound( this, this.Map, 0x201 );
-        }
-
-        public AntyMageMob( Serial serial ) : base( serial )
-        {
-            m_Minions = new ArrayList();
-        }
-
-        public override void Serialize( GenericWriter writer )
-        {
-            base.Serialize( writer );
-            writer.Write( (int) 0 );
-        }
-
-        public override void Deserialize( GenericReader reader )
-        {
-            base.Deserialize( reader );
-            int version = reader.ReadInt();
-        }
-    }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+			int version = reader.ReadInt();
+		}
+	}
 }
