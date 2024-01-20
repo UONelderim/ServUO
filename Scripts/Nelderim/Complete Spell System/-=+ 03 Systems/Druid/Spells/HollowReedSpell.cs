@@ -35,7 +35,7 @@ namespace Server.ACC.CSS.Systems.Druid
 
 			else if (CheckSequence())
 			{
-				var modValue = (int)((Caster.Skills[SkillName.Herbalism].Value + Caster.Skills[SkillName.Magery].Value) / 12);
+				var modValue = (int)((Caster.Skills[CastSkill].Value + Caster.Skills[DamageSkill].Value) / 12);
 				var duration = TimeSpan.FromMilliseconds(15);
 				Caster.AddStatMod(new StatMod(StatType.All, "[Druid] Hollow Reed", modValue, duration));
 			}
