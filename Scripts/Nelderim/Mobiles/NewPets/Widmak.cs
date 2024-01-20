@@ -14,8 +14,8 @@ namespace Server.Mobiles
 		{
 			BaseSoundID = 0xA8;
 
-			// Force partial hue + spectral + unknown + hue 
-			Hue = 0x8000 + 0x4000 + 0x1800 + 0xF8;
+			// Spectral
+			Hue = 0x4001;
 
 			SetStr(400);
 			SetDex(120);
@@ -101,22 +101,21 @@ namespace Server.Mobiles
 			Spells.Sixth.InvisibilitySpell.RemoveTimer(this);
 		}
 
-		private static bool HasNearbyEnemies(Mobile m)
+		private static bool HasNearbyEnemies(Mobile from)
 		{
-			if (m == null)
+			if (from == null)
 				return false;
 
 			// Ponizszy kod zaczerpnieto z Hiding.cs
+			int range = Math.Min((int)((100 - from.Skills[SkillName.Hiding].Value) / 2) + 8, 18);
 
-			int range = Math.Min((int)((100 - m.Skills[SkillName.Hiding].Value) / 2) + 8, 18);
-
-			bool badCombat = (m.Combatant != null && m.InRange(m.Combatant.Location, range) && m.Combatant.InLOS(m));
+			bool badCombat = (from.Combatant is Mobile m && from.InRange(m.Location, range) && m.InLOS(from));
 			if (!badCombat)
 			{
-				IPooledEnumerable eable = m.GetMobilesInRange(range);
+				IPooledEnumerable eable = from.GetMobilesInRange(range);
 				foreach (Mobile check in eable)
 				{
-					if (check.InLOS(m) && check.Combatant == m)
+					if (check.InLOS(from) && check.Combatant == from)
 					{
 						badCombat = true;
 						break;
