@@ -161,8 +161,8 @@ namespace Server.Engines.Craft
 			AddCraft( typeof( PomnikJezdzcaE ), "Pomniki", "Pomnik Jezdzca (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
 			AddCraft( typeof( PomnikPanaKoncaS ), "Pomniki", "Pomnik Pana Konca (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
 			AddCraft( typeof( PomnikPanaKoncaE ), "Pomniki", "Pomnik Pana Konca (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikLotheS ), "Pomniki", "Pomnik Lothe (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikLotheE ), "Pomniki", "Pomnik Lothe (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikLotheS ), "Pomniki", "Pomnik Loethe (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikLotheE ), "Pomniki", "Pomnik Loethe (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
 			AddCraft( typeof( PomnikMagaS ), "Pomniki", "Pomnik Maga (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
 			AddCraft( typeof( PomnikMagaE ), "Pomniki", "Pomnik Maga (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
 			AddCraft( typeof( PomnikOrbaS ), "Pomniki", "Pomnik Orba (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );

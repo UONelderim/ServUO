@@ -2909,7 +2909,7 @@ public class PomnikLotheS : Item
 		[Constructable]
 		public PomnikLotheS() : base( 0x891 )
 		{
-			Name="Pomnik Lothe";
+			Name="Pomnik Loethe";
 			Weight = 300;
 		}
 
@@ -2942,7 +2942,7 @@ public class PomnikLotheE : Item
 		[Constructable]
 		public PomnikLotheE() : base( 0x892 )
 		{
-			Name="Pomnik Lothe";
+			Name="Pomnik Loethe";
 			Weight = 300;
 		}
 
