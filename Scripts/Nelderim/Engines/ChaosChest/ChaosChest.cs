@@ -176,9 +176,10 @@ namespace Nelderim.Engines.ChaosChest
 			UnsealedChaosSigils = ChaosSigilType.NONE;
 			Locked = true;
 			LockLevel = 0;
+			GenerateLoot();
 		}
 
-		private void generateLoot()
+		private void GenerateLoot()
 		{
 			RewardItem rewardItem = rewardGroup.AcquireItem();
 			Item item = rewardItem.Construct();
@@ -223,7 +224,6 @@ namespace Nelderim.Engines.ChaosChest
 			{
 				Locked = false;
 				PublicOverheadMessage(MessageType.Emote, 0, true, "*klik*");
-				generateLoot();
 			}
 		}
 
