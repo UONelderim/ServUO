@@ -35,7 +35,7 @@ namespace Server.ACC.CSS.Systems.Druid
 				"Black Pearl; Ginseng; Spring Water", "Mana: 45; Skill: 60", 2263, 5120, School.Druid);
 			Register(typeof(DruidEnchantedGroveSpell), "Zaklęty Gaj",
 				"Tworzy gaj drzew wokół czarujacego, przywracając witalność i manę.",
-				"Mandrake Root; Petrafied Wood; Spring Water", "Mana: 60; Skill: 95", 2280, 5120, School.Druid);
+				"Mandrake Root; Petrafied Wood; Spring Water", "Mana: 70; Skill: 78", 2280, 5120, School.Druid);
 			Register(typeof(DruidLureStoneSpell), "Ciekawy Kamień",
 				"Tworzy magiczny kamień, który przywołuje do niego wszystkie pobliskie zwierzęta.",
 				"Black Pearl; Spring Water", "Mana: 30; Skill: 15", 2294, 5120, School.Druid);
