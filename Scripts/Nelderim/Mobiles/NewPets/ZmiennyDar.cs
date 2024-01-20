@@ -7,7 +7,7 @@ namespace Server.Mobiles
     public class ZmiennyDar : BaseCreature
     {
         [Constructable]
-        public ZmiennyDar() : base(AIType.AI_BattleMage, FightMode.Weakest, 12, 1, 0.2, 0.4)
+        public ZmiennyDar() : base(AIType.AI_Mage, FightMode.Weakest, 12, 1, 0.2, 0.4)
         {
             Name = "Athrad Math";
             Body = 0x9e;
@@ -49,19 +49,16 @@ namespace Server.Mobiles
             MinTameSkill = 99.9;
             
             new HueChangeTimer(this).Start();
+            
+            
+            SetWeaponAbility(WeaponAbility.ForceOfNature);
         }
 
         public override void GenerateLoot()
         {
             AddLoot(LootPack.FilthyRich, 1);
             AddLoot(LootPack.Gems, 5);
-            PackReg(5, 10);
-            PackReg(5, 10);
-        }
 
-        public override void AddWeaponAbilities()
-        {
-            WeaponAbilities.Add(WeaponAbility.ForceOfNature, 0.05);
         }
 
         private static readonly int[] hueValues = { 2978, 2415, 2978, 2978, 2978, 2978 };
