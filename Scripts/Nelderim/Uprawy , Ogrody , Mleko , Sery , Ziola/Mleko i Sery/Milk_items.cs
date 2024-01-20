@@ -2,7 +2,7 @@ namespace Server.Items
 {
 	public abstract class MilkBottle : Item
 	{
-		public virtual Item EmptyItem { get { return null; } }
+		public virtual Item EmptyItem => null;
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public Mobile Poisoner { get; set; }
@@ -15,18 +15,18 @@ namespace Server.Items
 
 		public MilkBottle(int itemID) : base(itemID)
 		{
-			this.FillFactor = 4;
+			FillFactor = 4;
+			Stackable = true;
 		}
 
 		public MilkBottle(Serial serial) : base(serial)
 		{
 		}
 
-		public void Boire(Mobile from)
+		public void Drink(Mobile from)
 		{
-			if (soif(from, FillFactor))
+			if (ReduceThirst(from, FillFactor))
 			{
-				// Play a random "Boire" sound
 				from.PlaySound(Utility.Random(0x30, 2));
 
 				if (from.Body.IsHuman && !from.Mounted)
@@ -35,7 +35,7 @@ namespace Server.Items
 				if (Poison != null)
 					from.ApplyPoison(Poisoner, Poison);
 
-				this.Consume();
+				Consume();
 
 				Item item = EmptyItem;
 
@@ -44,7 +44,7 @@ namespace Server.Items
 			}
 		}
 
-		static public bool soif(Mobile from, int fillFactor)
+		private bool ReduceThirst(Mobile from, int fillFactor)
 		{
 			if (from.Thirst >= 20)
 			{
@@ -81,8 +81,8 @@ namespace Server.Items
 			if (!Movable)
 				return;
 
-			if (from.InRange(this.GetWorldLocation(), 1))
-				Boire(from);
+			if (from.InRange(GetWorldLocation(), 1))
+				Drink(from);
 		}
 
 		public override void Serialize(GenericWriter writer)
@@ -123,14 +123,14 @@ namespace Server.Items
 
 	public class BottleCowMilk : MilkBottle
 	{
-		public override Item EmptyItem { get { return new Bottle(); } }
+		public override Item EmptyItem => new Bottle();
 
 		[Constructable]
 		public BottleCowMilk() : base(0x0f09)
 		{
-			this.Weight = 0.2;
-			this.FillFactor = 4;
-			this.Name = "Butelka krowiego mleka";
+			Weight = 0.2;
+			FillFactor = 4;
+			Name = "Butelka krowiego mleka";
 		}
 
 		public BottleCowMilk(Serial serial) : base(serial)
@@ -154,14 +154,13 @@ namespace Server.Items
 
 	public class BottleGoatMilk : MilkBottle
 	{
-		public override Item EmptyItem { get { return new Bottle(); } }
+		public override Item EmptyItem => new Bottle();
 
 		[Constructable]
 		public BottleGoatMilk() : base(0x0f09)
 		{
-			this.Weight = 0.2;
-			this.FillFactor = 4;
-			this.Name = "Butelka koziego mleka";
+			Weight = 0.2;
+			Name = "Butelka koziego mleka";
 		}
 
 		public BottleGoatMilk(Serial serial) : base(serial)
@@ -185,14 +184,13 @@ namespace Server.Items
 
 	public class BottleSheepMilk : MilkBottle
 	{
-		public override Item EmptyItem { get { return new Bottle(); } }
+		public override Item EmptyItem => new Bottle();
 
 		[Constructable]
 		public BottleSheepMilk() : base(0x0f09)
 		{
-			this.Weight = 0.2;
-			this.FillFactor = 4;
-			this.Name = "Butelka owczego mleka";
+			Weight = 0.2;
+			Name = "Butelka owczego mleka";
 		}
 
 		public BottleSheepMilk(Serial serial) : base(serial)
@@ -214,12 +212,6 @@ namespace Server.Items
 		}
 	}
 
-
-/* ***************************** Cheese ******************************** */
-
-
-	// fromage de vache
-
 	public class FromageDeVache : Food, ICarvable
 	{
 		public bool Carve(Mobile from, Item item)
@@ -227,7 +219,7 @@ namespace Server.Items
 			if (!Movable)
 				return false;
 
-			if (this.Amount > 1) // workaround because I can't call scissorhelper twice?
+			if (Amount > 1) // workaround because I can't call scissorhelper twice?
 			{
 				from.SendMessage("You can only cut up one wheel at a time.");
 				return false;
@@ -249,17 +241,13 @@ namespace Server.Items
 		[Constructable]
 		public FromageDeVache(int amount) : base(amount, 0x97E)
 		{
-			this.Weight = 0.4;
-			this.FillFactor = 12;
-			this.Name = "Emmental (krowi ser)";
-			this.Hue = 0x481;
+			Weight = 0.4;
+			FillFactor = 12;
+			Name = "Emmental (krowi ser)";
+			Hue = 0x481;
+			Stackable = true;
 		}
-
-		//public override Item Dupe( int amount )
-		//{
-		//	return base.Dupe( new FromageDeVache(), amount );
-		//}
-
+		
 		public FromageDeVache(Serial serial) : base(serial)
 		{
 		}
@@ -299,16 +287,12 @@ namespace Server.Items
 		[Constructable]
 		public FromageDeVacheWedge(int amount) : base(amount, 0x97D)
 		{
-			this.Weight = 0.3;
-			this.FillFactor = 9;
-			this.Name = "Emmental (krowi ser)";
-			this.Hue = 0x481;
+			Weight = 0.3;
+			FillFactor = 9;
+			Name = "Emmental (krowi ser)";
+			Hue = 0x481;
+			Stackable = true;
 		}
-
-		//public override Item Dupe( int amount )
-		//{
-		//	return base.Dupe( new FromageDeVacheWedge(), amount );
-		//}
 
 		public FromageDeVacheWedge(Serial serial) : base(serial)
 		{
@@ -339,16 +323,12 @@ namespace Server.Items
 		[Constructable]
 		public FromageDeVacheWedgeSmall(int amount) : base(amount, 0x97C)
 		{
-			this.Weight = 0.1;
-			this.FillFactor = 3;
-			this.Name = "Emmental (krowi ser)";
-			this.Hue = 0x481;
+			Weight = 0.1;
+			FillFactor = 3;
+			Name = "Emmental (krowi ser)";
+			Hue = 0x481;
+			Stackable = true;
 		}
-
-		//public override Item Dupe( int amount )
-		//{
-		//	return base.Dupe( new FromageDeVacheWedgeSmall(), amount );
-		//}
 
 		public FromageDeVacheWedgeSmall(Serial serial) : base(serial)
 		{
@@ -368,10 +348,7 @@ namespace Server.Items
 			int version = reader.ReadInt();
 		}
 	}
-
-
-	// fromage de Brebis
-
+	
 	public class FromageDeBrebis : Food, ICarvable
 	{
 		public bool Carve(Mobile from, Item item)
@@ -379,7 +356,7 @@ namespace Server.Items
 			if (!Movable)
 				return false;
 
-			if (this.Amount > 1) // workaround because I can't call scissorhelper twice?
+			if (Amount > 1) // workaround because I can't call scissorhelper twice?
 			{
 				from.SendMessage("You can only cut up one wheel at a time.");
 				return false;
@@ -401,20 +378,16 @@ namespace Server.Items
 		[Constructable]
 		public FromageDeBrebis(int amount) : base(amount, 0x97E)
 		{
-			this.Weight = 0.4;
-			this.FillFactor = 12;
-			this.Name = "Perail de Brebis (owczy ser)";
-			this.Hue = 0x481;
+			Weight = 0.4;
+			FillFactor = 12;
+			Name = "Perail de Brebis (owczy ser)";
+			Hue = 0x481;
+			Stackable = true;
 		}
 
 		public FromageDeBrebis(Serial serial) : base(serial)
 		{
 		}
-
-		//public override Item Dupe( int amount )
-		//{
-		//	return base.Dupe( new FromageDeBrebis(), amount );
-		//}
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -451,21 +424,17 @@ namespace Server.Items
 		[Constructable]
 		public FromageDeBrebisWedge(int amount) : base(amount, 0x97D)
 		{
-			this.Weight = 0.3;
-			this.FillFactor = 9;
-			this.Name = "Perail de Brebis (owczy ser)";
-			this.Hue = 0x481;
+			Weight = 0.3;
+			FillFactor = 9;
+			Name = "Perail de Brebis (owczy ser)";
+			Hue = 0x481;
+			Stackable = true;
 		}
 
 		public FromageDeBrebisWedge(Serial serial) : base(serial)
 		{
 		}
-
-		//public override Item Dupe( int amount )
-		//{
-		//	return base.Dupe( new FromageDeBrebisWedge(), amount );
-		//}
-
+		
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
@@ -491,20 +460,16 @@ namespace Server.Items
 		[Constructable]
 		public FromageDeBrebisWedgeSmall(int amount) : base(amount, 0x97C)
 		{
-			this.Weight = 0.1;
-			this.FillFactor = 3;
-			this.Name = "Perail de Brebis (owczy ser)";
-			this.Hue = 0x481;
+			Weight = 0.1;
+			FillFactor = 3;
+			Name = "Perail de Brebis (owczy ser)";
+			Hue = 0x481;
+			Stackable = true;
 		}
 
 		public FromageDeBrebisWedgeSmall(Serial serial) : base(serial)
 		{
 		}
-
-		//public override Item Dupe( int amount )
-		//{
-		//	return base.Dupe( new FromageDeBrebisWedgeSmall(), amount );
-		//}
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -521,9 +486,6 @@ namespace Server.Items
 		}
 	}
 
-
-	// fromage de Chevre
-
 	public class FromageDeChevre : Food, ICarvable
 	{
 		public bool Carve(Mobile from, Item item)
@@ -531,7 +493,7 @@ namespace Server.Items
 			if (!Movable)
 				return false;
 
-			if (this.Amount > 1) // workaround because I can't call scissorhelper twice?
+			if (Amount > 1) // workaround because I can't call scissorhelper twice?
 			{
 				from.SendMessage("You can only cut up one wheel at a time.");
 				return false;
@@ -553,20 +515,16 @@ namespace Server.Items
 		[Constructable]
 		public FromageDeChevre(int amount) : base(amount, 0x97E)
 		{
-			this.Weight = 0.4;
-			this.FillFactor = 12;
-			this.Name = "Chevreton du Bourbonnais (kozi ser)";
-			this.Hue = 0x481;
+			Weight = 0.4;
+			FillFactor = 12;
+			Name = "Chevreton du Bourbonnais (kozi ser)";
+			Hue = 0x481;
+			Stackable = true;
 		}
 
 		public FromageDeChevre(Serial serial) : base(serial)
 		{
 		}
-
-		//public override Item Dupe( int amount )
-		//{
-		//	return base.Dupe( new FromageDeChevre(), amount );
-		//}
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -603,20 +561,16 @@ namespace Server.Items
 		[Constructable]
 		public FromageDeChevreWedge(int amount) : base(amount, 0x97D)
 		{
-			this.Weight = 0.3;
-			this.FillFactor = 9;
-			this.Name = "Chevreton du Bourbonnais (kozi ser)";
-			this.Hue = 0x481;
+			Weight = 0.3;
+			FillFactor = 9;
+			Name = "Chevreton du Bourbonnais (kozi ser)";
+			Hue = 0x481;
+			Stackable = true;
 		}
 
 		public FromageDeChevreWedge(Serial serial) : base(serial)
 		{
 		}
-
-		//public override Item Dupe( int amount )
-		//{
-		//	return base.Dupe( new FromageDeChevreWedge(), amount );
-		//}
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -643,20 +597,16 @@ namespace Server.Items
 		[Constructable]
 		public FromageDeChevreWedgeSmall(int amount) : base(amount, 0x97C)
 		{
-			this.Weight = 0.1;
-			this.FillFactor = 3;
-			this.Name = "Chevreton du Bourbonnais (kozi ser)";
-			this.Hue = 0x481;
+			Weight = 0.1;
+			FillFactor = 3;
+			Name = "Chevreton du Bourbonnais (kozi ser)";
+			Hue = 0x481;
+			Stackable = true;
 		}
 
 		public FromageDeChevreWedgeSmall(Serial serial) : base(serial)
 		{
 		}
-
-		//public override Item Dupe( int amount )
-		//{
-		//	return base.Dupe( new FromageDeChevreWedgeSmall(), amount );
-		//}
 
 		public override void Serialize(GenericWriter writer)
 		{
