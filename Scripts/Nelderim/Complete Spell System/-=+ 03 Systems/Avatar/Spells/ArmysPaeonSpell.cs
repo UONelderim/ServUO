@@ -1,20 +1,15 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Server;
 using Server.Mobiles;
-using Server.Network;
-using Server.Items;
 using Server.Spells;
 
 namespace Server.ACC.CSS.Systems.Avatar
 {
 	public class AvatarArmysPaeonSpell : AvatarSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static SpellInfo m_Info = new(
 			"Witalność Armii",
 			"Vitalium Engrevo Maxi",
-			//SpellCircle.First,
 			212,
 			9041
 		);
@@ -93,3 +88,4 @@ namespace Server.ACC.CSS.Systems.Avatar
 			}
 		}
 	}
+}
