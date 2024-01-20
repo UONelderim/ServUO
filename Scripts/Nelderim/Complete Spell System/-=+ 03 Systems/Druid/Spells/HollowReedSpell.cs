@@ -1,85 +1,43 @@
 using System;
-using Server.Targeting;
-using Server.Network;
 using Server.Spells;
 
 namespace Server.ACC.CSS.Systems.Druid
 {
 	public class DruidHollowReedSpell : DruidSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
-		                                                "Siła Natury", "En Crur Aeta Sec En Ess ",
-                                                        //SpellCircle.Second,
-		                                                203,
-		                                                9061,
-		                                                false,
-		                                                Reagent.Bloodmoss,
-		                                                Reagent.MandrakeRoot,
-		                                                Reagent.Nightshade
-		                                               );
+		private static SpellInfo m_Info = new(
+			"Siła Natury",
+			"En Crur Aeta Sec En Ess ",
+			203,
+			9061,
+			false,
+			Reagent.Bloodmoss,
+			Reagent.MandrakeRoot,
+			Reagent.Nightshade
+		);
 
-        public override SpellCircle Circle
-        {
-            get { return SpellCircle.Second; }
-        }
+		public override SpellCircle Circle => SpellCircle.Second;
+		public override double CastDelay => 1.0;
+		public override double RequiredSkill => 30.0;
+		public override int RequiredMana => 30;
 
-		public override double CastDelay{ get{ return 1.0; } }
-		public override double RequiredSkill{ get{ return 30.0; } }
-		public override int RequiredMana{ get{ return 30; } }
-
-		public DruidHollowReedSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
+		public DruidHollowReedSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
-			                    if (this.Scroll != null)
-                        Scroll.Consume();
+			Scroll?.Consume();
 		}
 
 		public override void OnCast()
 		{
-			Caster.Target = new InternalTarget( this );
-		}
-
-		public void Target( Mobile m )
-		{
-			if ( !Caster.CanSee( m ) )
+			if (!Caster.CanBeginAction(typeof(DruidHollowReedSpell)))
 			{
-				Caster.SendLocalizedMessage( 500237 ); // Target can not be seen.
-			}
-			else if ( CheckBSequence( m ) )
-			{
-				
-				
-				SpellHelper.Turn( Caster, m );
-                        SpellHelper.AddStatBonus(Caster, m, true, StatType.Str);
-                        SpellHelper.AddStatBonus(Caster, m, true, StatType.Dex);
-                        SpellHelper.AddStatBonus(Caster, m, false, StatType.Int);
-
-				m.PlaySound( 0x15 );
-				m.FixedParticles( 0x373A, 10, 15, 5018, EffectLayer.Waist );
+				Caster.SendLocalizedMessage(1005559);
 			}
 
-			FinishSequence();
-		}
-
-		private class InternalTarget : Target
-		{
-			private DruidHollowReedSpell m_Owner;
-
-			public InternalTarget( DruidHollowReedSpell owner ) : base( 12, false, TargetFlags.Beneficial )
+			else if (CheckSequence())
 			{
-				m_Owner = owner;
-			}
-
-			protected override void OnTarget( Mobile from, object o )
-			{
-				if ( o is Mobile )
-				{
-					m_Owner.Target( (Mobile)o );
-				}
-			}
-
-			protected override void OnTargetFinish( Mobile from )
-			{
-				m_Owner.FinishSequence();
+				var modValue = (int)((Caster.Skills[SkillName.Herbalism].Value + Caster.Skills[SkillName.Magery].Value) / 12);
+				var duration = TimeSpan.FromMilliseconds(15);
+				Caster.AddStatMod(new StatMod(StatType.All, "[Druid] Hollow Reed", modValue, duration));
 			}
 		}
 	}
