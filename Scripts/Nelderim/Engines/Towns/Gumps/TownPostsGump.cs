@@ -15,6 +15,12 @@ namespace Server.Gumps
 		private const int LabelColor = 0x21;
 		private const int SelectedColor = 0x7A1;
 		private readonly Towns m_fromTown;
+		private static Dictionary<Towns, string[]> additionalTownRegions = new()
+		{
+			{ Towns.LDelmah, new[] {"NoamuthQuortek", "NoamuthQuortek_Kopalnia", "MiastoDrowow", "MiastoDrowow_Kopalnia" } },
+			{ Towns.Garlan, new[] {"Garlan_Kopalnia" } },
+			{ Towns.Tasandora, new[] {"Tasandora_Kopalnia" } }
+		};
 
 		public void AddButton(int x, int y, int buttonID, int buttonCli)
 		{
@@ -233,9 +239,19 @@ namespace Server.Gumps
 
 				#endregion
 			}
-			else
-			{
-			}
+		}
+		
+		private bool IsWithinTownRegion(Mobile from, Towns town)
+		{
+			from.UpdateRegion();
+
+			if (from.Region.ToString() == town.ToString())
+				return true;
+
+			if (additionalTownRegions.ContainsKey(town) && additionalTownRegions[town].Contains(from.Region.ToString()))
+				return true;
+
+			return false;
 		}
 
 		public override void OnResponse(NetState sender, RelayInfo info)
@@ -251,9 +267,7 @@ namespace Server.Gumps
 
 			if (val >= 1600) // Przenies posterunek
 			{
-				// Sprawdz czy region jest odpowiedni dla miasta
-				from.UpdateRegion();
-				if (from.Region.ToString() == m_fromTown.ToString())
+				if (IsWithinTownRegion(from, m_fromTown))
 				{
 					// Sprawdz czy skarbiec posiada zloto                          
 					if (TownDatabase.GetTown(m_fromTown).Resources.HasResourceAmount(TownResourceType.Zloto, 1000))
@@ -421,9 +435,7 @@ namespace Server.Gumps
 						from.SendGump(new TownPostsGump(m_fromTown, from, 1));
 						break;
 					case 2:
-						// Sprawdz czy region jest odpowiedni dla miasta
-						from.UpdateRegion();
-						if (from.Region.ToString() == m_fromTown.ToString())
+						if (IsWithinTownRegion(from, m_fromTown))
 						{
 							TownManager tm = TownDatabase.GetTown(m_fromTown);
 							// Sprawdz czy ilosc posterunkow pozwala na zbudowanie kolejnego
