@@ -29,7 +29,7 @@ namespace Server.Items
 		#endregion
 
 		[Constructable]
-		public BaseTinkerTrap(string ArmedName, string UnarmedName, double ExpiresIn, int ArmingSkill,
+		public BaseTinkerTrap(string ArmedName, string UnarmedName, double ExpiresIn,
 			int DisarmingSkill, int KarmaLoss, bool AllowedInTown) : base(0x2AAA)
 		{
 			this.Name = UnarmedName;
@@ -38,7 +38,6 @@ namespace Server.Items
 			this.ArmedName = ArmedName;
 			this.UnarmedName = UnarmedName;
 			this.ExpiresIn = ExpiresIn;
-			this.ArmingSkillReq = ArmingSkill;
 			this.DisarmingSkillReq = DisarmingSkill;
 			this.KarmaLoss = KarmaLoss;
 			this.AllowedInTown = AllowedInTown;
@@ -65,7 +64,6 @@ namespace Server.Items
 
 		public string UnarmedName { get; set; }
 
-		public int ArmingSkillReq { get; set; }
 
 		public int DisarmingSkillReq { get; set; }
 
@@ -81,9 +79,6 @@ namespace Server.Items
 			{
 				if (this.IsChildOf(from.Backpack))
 					from.SendMessage("Pułapka musi zostać najpierw ustawiona zanim ją uzbroisz.");
-
-				// else if (from.Skills.Tinkering.Value < this.ArmingSkillReq)
-				//    from.SendMessage("Niestety nie masz na tyle umiejętności Majsterkowania, by uzbroić tę pułapkę");
 
 				else if (!from.InRange(this.GetWorldLocation(), 2))
 					from.SendMessage("Z tego miejsca nie możesz uzbroić pułapki.");

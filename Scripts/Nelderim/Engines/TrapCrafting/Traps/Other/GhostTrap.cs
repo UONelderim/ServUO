@@ -18,14 +18,13 @@ namespace Server.Items
         private static string m_ArmedName = "uzbrojona pułapka z duchem";
         private static string m_UnarmedName = "nieuzbrojona pułapka z duchem";
         private static double m_ExpiresIn = 900.0;
-        private static int m_ArmingSkill = 10;
         private static int m_DisarmingSkill = 0;
         private static int m_KarmaLoss = 0;
         private static bool m_AllowedInTown = true;
 
         [Constructable]
         public GhostTrap()
-            : base(m_ArmedName, m_UnarmedName, m_ExpiresIn, m_ArmingSkill, m_DisarmingSkill, m_KarmaLoss, m_AllowedInTown)
+            : base(m_ArmedName, m_UnarmedName, m_ExpiresIn, m_DisarmingSkill, m_KarmaLoss, m_AllowedInTown)
         {
         }
 

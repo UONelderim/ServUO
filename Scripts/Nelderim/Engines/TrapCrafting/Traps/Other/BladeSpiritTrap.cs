@@ -15,14 +15,13 @@ namespace Server.Items
         private static string m_ArmedName = "uzbrojona pułapka z duchem ostrzy";
         private static string m_UnarmedName = "nieuzbrojona pułapka z duchem ostrzy";
         private static double m_ExpiresIn = 900.0;
-        private static int m_ArmingSkill = 25;
         private static int m_DisarmingSkill = 50;
         private static int m_KarmaLoss = 120;
         private static bool m_AllowedInTown = false;
 
         [Constructable]
         public BladeSpiritTrap()
-            : base(m_ArmedName, m_UnarmedName, m_ExpiresIn, m_ArmingSkill, m_DisarmingSkill, m_KarmaLoss, m_AllowedInTown)
+            : base(m_ArmedName, m_UnarmedName, m_ExpiresIn, m_DisarmingSkill, m_KarmaLoss, m_AllowedInTown)
         {
         }
 

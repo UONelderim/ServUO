@@ -15,14 +15,13 @@ namespace Server.Items
         private static string m_ArmedName = "uzbrojony tester pułapek";
         private static string m_UnarmedName = "nieuzbrojony tester pułapek";
         private static double m_ExpiresIn = 300.0;
-        private static int m_ArmingSkill = 10;
         private static int m_DisarmingSkill = 10;
         private static int m_KarmaLoss = 0;
         private static bool m_AllowedInTown = true;
 
         [Constructable]
         public TrapTest()
-            : base(m_ArmedName, m_UnarmedName, m_ExpiresIn, m_ArmingSkill, m_DisarmingSkill, m_KarmaLoss, m_AllowedInTown)
+            : base(m_ArmedName, m_UnarmedName, m_ExpiresIn, m_DisarmingSkill, m_KarmaLoss, m_AllowedInTown)
         {
         }
 

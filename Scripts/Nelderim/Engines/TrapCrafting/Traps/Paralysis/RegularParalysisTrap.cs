@@ -15,14 +15,13 @@ namespace Server.Items
         private static string m_ArmedName = "uzbrojona paraliżująca pułapka";
         private static string m_UnarmedName = "nieuzbrojona paraliżująca pułapka";
         private static double m_ExpiresIn = 900.0;
-        private static int m_ArmingSkill = 25;
         private static int m_DisarmingSkill = 50;
         private static int m_KarmaLoss = 0;
         private static bool m_AllowedInTown = false;
 
         [Constructable]
         public ParalysisRegularTrap()
-            : base(m_ArmedName, m_UnarmedName, m_ExpiresIn, m_ArmingSkill, m_DisarmingSkill, m_KarmaLoss, m_AllowedInTown)
+            : base(m_ArmedName, m_UnarmedName, m_ExpiresIn, m_DisarmingSkill, m_KarmaLoss, m_AllowedInTown)
         {
         }
 
