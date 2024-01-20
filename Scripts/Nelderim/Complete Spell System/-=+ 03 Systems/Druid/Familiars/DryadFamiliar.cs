@@ -16,14 +16,14 @@ namespace Server.ACC.CSS.Systems.Druid
 			Hue = 33770;
 			BaseSoundID = 0x4B0;
 
-			SetStr( 200 );
-			SetDex( 200 );
-			SetInt( 100 );
+			SetStr( 400 );
+			SetDex( 400 );
+			SetInt( 200 );
 
-			SetHits( 175 );
-			SetStam( 50 );
+			SetHits( 445 );
+			SetStam( 100 );
 
-			SetDamage( 6, 9 );
+			SetDamage( 12, 18 );
 
 			SetDamageType( ResistanceType.Physical, 50 );
 			SetDamageType( ResistanceType.Energy, 50 );
