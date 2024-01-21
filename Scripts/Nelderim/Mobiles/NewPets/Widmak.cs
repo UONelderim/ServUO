@@ -15,7 +15,7 @@ namespace Server.Mobiles
 			BaseSoundID = 0xA8;
 
 			// Spectral
-			Hue = 0x4001;
+			Hue = 1 | HueTransparentFlag;
 
 			SetStr(400);
 			SetDex(120);
