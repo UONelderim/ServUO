@@ -10,28 +10,34 @@ namespace Server.ACC.CSS.Systems.Cleric
 {
 	public class ClericPurgeSpell : ClericSpell
 	{
-		private static readonly SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new (
 			"Czystka", "Repurgo",
-			//SpellCircle.Second,
 			212,
 			9041
 		);
 
 		public override SpellCircle Circle => SpellCircle.Sixth;
-
 		public override int RequiredTithing => 5;
 		public override double RequiredSkill => 70.0;
 		public override int RequiredMana => 20;
 
 		public ClericPurgeSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
-			if (this.Scroll != null)
-				Scroll.Consume();
+			Scroll?.Consume();
 		}
 
 		public override void OnCast()
 		{
-			Caster.Target = new InternalTarget(this);
+			Caster.BeginTarget(12,
+				true,
+				TargetFlags.None,
+				(_, o) =>
+				{
+					if (o is Mobile)
+					{
+						Target((Mobile)o);
+					}
+				});
 		}
 
 		public void Target(Mobile m)
@@ -70,7 +76,6 @@ namespace Server.ACC.CSS.Systems.Cleric
 
 				m.Paralyzed = false;
 				
-
 				EvilOmenSpell.TryEndEffect(m);
 				StrangleSpell.RemoveCurse(m);
 				BloodOathSpell.RemoveCurse(m);
@@ -86,29 +91,6 @@ namespace Server.ACC.CSS.Systems.Cleric
 			}
 
 			FinishSequence();
-		}
-
-		private class InternalTarget : Target
-		{
-			private readonly ClericPurgeSpell m_Owner;
-
-			public InternalTarget(ClericPurgeSpell owner) : base(12, false, TargetFlags.Beneficial)
-			{
-				m_Owner = owner;
-			}
-
-			protected override void OnTarget(Mobile from, object o)
-			{
-				if (o is Mobile)
-				{
-					m_Owner.Target((Mobile)o);
-				}
-			}
-
-			protected override void OnTargetFinish(Mobile from)
-			{
-				m_Owner.FinishSequence();
-			}
 		}
 	}
 }
