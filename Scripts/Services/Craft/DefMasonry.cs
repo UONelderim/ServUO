@@ -135,6 +135,12 @@ namespace Server.Engines.Craft
             AddCraft(typeof(LargeStoneTableEastDeed), 1044502, 1044511, 75.0, 125.0, typeof(Granite), 1044514, 9, 1044513);
             AddCraft(typeof(LargeStoneTableSouthDeed), 1044502, 1044512, 75.0, 125.0, typeof(Granite), 1044514, 9, 1044513);
             AddCraft(typeof(RitualTableDeed), 1044502, 1097690, 94.7, 103.5, typeof(Granite), 1044514, 8, 1044513);
+            AddCraft(typeof(StoneFireplaceSouthDeed),1044291, 1061849,94.2, 112.2,typeof( Granite ), "granit", 40, 1044351 );
+            AddCraft(typeof(StoneFireplaceEastDeed),	1044291, 1061848,94.2, 112.2,typeof( Granite ), "granit", 40, 1044351 );
+            AddCraft(typeof(GrayBrickFireplaceSouthDeed), 1044291, 1061847, 94.2, 112.2, typeof(DullCopperGranite ), "granit matowej miedzi", 40, 1044351 );
+            AddCraft(typeof(GrayBrickFireplaceEastDeed), 1044291, 1061846, 94.2, 112.2, typeof(DullCopperGranite ), "granit matowej miedzi", 40, 1044351 );
+            AddCraft(typeof(SandstoneFireplaceSouthDeed), 1044291, 1061845, 94.2, 112.2, typeof(GoldGranite ), "granit ze zlota", 40, 1044351 );
+            AddCraft(typeof(SandstoneFireplaceEastDeed), 1044291, 1061844, 94.2, 112.2, typeof(GoldGranite ), "granit ze zlota", 40, 1044351 );
 	        
             //Pomniki
 			AddCraft( typeof( PomnikOrlaS ), "Pomniki", "Pomnik Orla (Poludnie)", 85.0, 135.0, typeof( Granite ), 1044514, 25, 1044513 );
