@@ -15,13 +15,12 @@ namespace Server.ACC.CSS.Systems.Undead
 		}
 
 		public abstract SpellCircle Circle { get; }
+		public override bool ClearHandsOnCast => false;
+		public override SkillName CastSkill => SkillName.SpiritSpeak;
+		public override SkillName DamageSkill => SkillName.Necromancy;
+		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(3 * CastDelaySecondsPerTick);
 
-		public override bool ClearHandsOnCast { get { return false; } }
-		public override SkillName CastSkill { get { return SkillName.SpiritSpeak; } }
-		public override SkillName DamageSkill { get { return SkillName.Necromancy; } }
-		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds(3 * CastDelaySecondsPerTick); } }
-		
-		public override int CastRecoveryBase { get { return 4; } }
+		public override int CastRecoveryBase => 4;
 
 		public override void GetCastSkills(out double min, out double max)
 		{
@@ -52,9 +51,7 @@ namespace Server.ACC.CSS.Systems.Undead
 				return true;
 
 			int maxSkill = (1 + (int)Circle) * 10;
-			//int maxSkill = 40;
 			maxSkill += (1 + ((int)Circle / 6)) * 25;
-			//maxSkill += (1 + (4 / 6)) * 25;
 
 			if (target.Skills[SkillName.MagicResist].Value < maxSkill)
 				target.CheckSkill(SkillName.MagicResist, 0.0, 120.0);
@@ -65,7 +62,6 @@ namespace Server.ACC.CSS.Systems.Undead
 		public virtual double GetResistPercent(Mobile target)
 		{
 			return GetResistPercentForCircle(target, Circle);
-			//return GetResistPercentForCircle(target, SpellCircle.Fourth);
 		}
 
 		public virtual double GetResistPercentForCircle(Mobile target, SpellCircle circle)
@@ -74,8 +70,7 @@ namespace Server.ACC.CSS.Systems.Undead
 			double secondPercent = target.Skills[SkillName.MagicResist].Value -
 			                       (((Caster.Skills[CastSkill].Value - 20.0) / 5.0) + (1 + (int)circle) * 5.0);
 
-			return (firstPercent > secondPercent ? firstPercent : secondPercent) /
-			       2.0; // Seems should be about half of what stratics says.
+			return (firstPercent > secondPercent ? firstPercent : secondPercent) / 2.0;
 		}
 	}
 }
