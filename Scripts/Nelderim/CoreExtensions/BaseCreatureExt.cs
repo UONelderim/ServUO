@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using Nelderim.Engines.ChaosChest;
 using Server.Nelderim;
 
 #endregion
@@ -107,5 +108,10 @@ namespace Server.Mobiles
 		}
 
 		public override string DefaultName => "zwierze";
+
+		public void NGenerateExtraLoot()
+		{
+			ChaosChestQuest.AddLoot(this);
+		}
 	}
 }
