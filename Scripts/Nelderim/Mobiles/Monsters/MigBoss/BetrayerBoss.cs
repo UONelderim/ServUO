@@ -1,6 +1,4 @@
 using System;
-using Server;
-using Server.Misc;
 using Server.Items;
 using Server.Network;
 
@@ -9,8 +7,6 @@ namespace Server.Mobiles
 	[CorpseName( "zwloki zdrajcy pana" )]
 	public class BetrayerBoss : BaseCreature
 	{
-
-
 		private bool m_Stunning;
 
 		[Constructable]
@@ -48,24 +44,14 @@ namespace Server.Mobiles
 			SetSkill( SkillName.Bushido, 90.1, 120.5 );
             SetSkill( SkillName.Focus, 20.2, 30.0 );
 
-			Fame = 15000;
-			Karma = -15000;
-
-			VirtualArmor = 65;
 			SpeechHue = Utility.RandomDyedHue();
 
 			PackItem( new PowerCrystal() );
-			//PackReg( 5 );
-			//PackReg( 5 );
 
 			if ( 0.02 > Utility.RandomDouble() )
 				PackItem( new BlackthornWelcomeBook() );
 
-			m_NextAbilityTime = DateTime.Now + TimeSpan.FromSeconds( Utility.RandomMinMax( 5, 30 ) );
-
-			SetWeaponAbility(WeaponAbility.Bladeweave);
-			SetWeaponAbility(WeaponAbility.DefenseMastery);
-			SetWeaponAbility(WeaponAbility.Feint);
+			_NextAbilityTime = DateTime.Now + TimeSpan.FromSeconds( Utility.RandomMinMax( 5, 30 ) );
 		}
 		
 		public override void OnDeath( Container c )
@@ -90,29 +76,16 @@ namespace Server.Mobiles
 			return 0x140;
 		}
 
-		public override void GenerateLoot()
-		{
-			AddLoot( LootPack.FilthyRich );
-			AddLoot( LootPack.Rich );
-			AddLoot( LootPack.Gems, 1 );
-		}
-		
-		//public override void AddWeaponAbilities()
-  //      {
-  //          WeaponAbilities.Add( WeaponAbility.Bladeweave, 0.4 );
-  //          WeaponAbilities.Add( WeaponAbility.DefenseMastery, 0.222 );
-  //          WeaponAbilities.Add( WeaponAbility.Feint, 0.222 );
-  //      }
-
-		public override bool AlwaysMurderer{ get{ return true; } }
-		public override Poison PoisonImmune{ get{ return Poison.Lethal; } }
-		public override int Meat{ get{ return 1; } }
-		public override bool AutoDispel{ get{ return false; } }
-		public override double DifficultyScalar { get { return 1.40; } }
-		public override bool BardImmune{ get{ return false; } }
-        public override double AttackMasterChance { get { return 0.15; } }
-        public override double SwitchTargetChance { get { return 0.15; } }
-		public override int TreasureMapLevel{ get{ return 5; } }
+		public override bool AlwaysMurderer => true;
+		public override Poison PoisonImmune => Poison.Lethal;
+		public override int Meat => 1;
+		public override bool AutoDispel => false;
+		public override double DifficultyScalar => 1.40;
+		public override bool BardImmune => false;
+		public override double AttackMasterChance => 0.15;
+		public override double SwitchTargetChance => 0.15;
+		public override int TreasureMapLevel => 5;
+		public override double WeaponAbilityChance => 0.8;
 
 		public override void OnGaveMeleeAttack( Mobile defender )
 		{
@@ -123,50 +96,42 @@ namespace Server.Mobiles
 				m_Stunning = true;
 
 				defender.Animate( 21, 6, 1, true, false, 0 );
-				this.PlaySound( 0xEE );
+				PlaySound( 0xEE );
 				defender.LocalOverheadMessage( MessageType.Regular, 0x3B2, false, "You have been stunned by a colossal blow!" );
 
-				BaseWeapon weapon = this.Weapon as BaseWeapon;
-				if ( weapon != null )
+				if ( Weapon is BaseWeapon weapon )
 					weapon.OnHit( this, defender );
 
 				if ( defender.Alive )
 				{
 					defender.Frozen = true;
-					Timer.DelayCall( TimeSpan.FromSeconds( 5.0 ), new TimerStateCallback( Recover_Callback ), defender );
+					Timer.DelayCall( TimeSpan.FromSeconds( 5.0 ), () => Recover_Callback(defender));
 				}
 			}
 		}
 
-		private void Recover_Callback( object state )
+		private void Recover_Callback( Mobile defender )
 		{
-			Mobile defender = state as Mobile;
-
-			if ( defender != null )
-			{
-				defender.Frozen = false;
-				defender.Combatant = null;
-				defender.LocalOverheadMessage( MessageType.Regular, 0x3B2, false, "You recover your senses." );
-			}
+			defender.Frozen = false;
+			defender.Combatant = null;
+			defender.LocalOverheadMessage( MessageType.Regular, 0x3B2, false, "You recover your senses." );
 
 			m_Stunning = false;
 		}
 
-		private DateTime m_NextAbilityTime;
+		private DateTime _NextAbilityTime;
 
 		public override void OnActionCombat()
 		{
-			IDamageable combatant = Combatant;
-
-			if ( DateTime.Now < m_NextAbilityTime || combatant == null || combatant.Deleted || combatant.Map != Map || !InRange( combatant, 3 ) || !CanBeHarmful( combatant ) || !InLOS( combatant ) )
+			if ( DateTime.Now < _NextAbilityTime || Combatant == null || Combatant.Deleted || Combatant.Map != Map || !InRange( Combatant, 3 ) || !CanBeHarmful( Combatant ) || !InLOS( Combatant ) )
 				return;
 
-			m_NextAbilityTime = DateTime.Now + TimeSpan.FromSeconds( Utility.RandomMinMax( 5, 30 ) );
+			_NextAbilityTime = DateTime.Now + TimeSpan.FromSeconds( Utility.RandomMinMax( 5, 30 ) );
 
 			if ( Utility.RandomBool() )
 			{
-				this.FixedParticles( 0x376A, 9, 32, 0x2539, EffectLayer.LeftHand );
-				this.PlaySound( 0x1DE );
+				FixedParticles( 0x376A, 9, 32, 0x2539, EffectLayer.LeftHand );
+				PlaySound( 0x1DE );
 
 				IPooledEnumerable eable = GetMobilesInRange( 2 );
 				foreach ( Mobile m in eable )
