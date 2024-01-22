@@ -99,17 +99,17 @@ namespace Server.Regions
 			}
 		}
 
-		private static ArrayList m_Protection;
+		private static List<Mobile> m_Protection;
 		public ArenaTrainer Owner { get; set; }
 
-		public ArrayList Fighters { get; }
+		public List<Fighter> Fighters { get; }
 
-		public static ArrayList Protection
+		public static List<Mobile> Protection
 		{
 			get
 			{
 				if (m_Protection == null)
-					m_Protection = new ArrayList();
+					m_Protection = new List<Mobile>();
 
 				return m_Protection;
 			}
@@ -120,10 +120,12 @@ namespace Server.Regions
 		}
 
 		public NArenaRegion(string name, Map map, Rectangle3D[] area, ArenaTrainer owner) : base(owner.ArenaName,
-			owner.Map, 100, area)
+			owner.Map,
+			100,
+			area)
 		{
 			Owner = owner;
-			Fighters = new ArrayList();
+			Fighters = new List<Fighter>();
 			DefaultLogoutDelay = TimeSpan.FromSeconds(30);
 		}
 
@@ -145,8 +147,6 @@ namespace Server.Regions
 
 		public override bool OnBeginSpellCast(Mobile m, ISpell s)
 		{
-			FightType ft = FightType.None;
-
 			if (m.AccessLevel >= AccessLevel.Counselor)
 				return base.OnBeginSpellCast(m, s);
 
@@ -159,7 +159,7 @@ namespace Server.Regions
 				return false;
 			}
 
-			if (Owner.NoHiding && s is InvisibilitySpell && IsFighter(m, out ft))
+			if (Owner.NoHiding && s is InvisibilitySpell && IsFighter(m, out var ft))
 			{
 				m.SendLocalizedMessage(505262); // "Zasady walki zabraniaja uzycia tego!!!"
 
@@ -169,7 +169,7 @@ namespace Server.Regions
 
 					EndFight(m, EOFReason.Defeat);
 
-					Mobile op = (Fighters[0] as Fighter).Foe;
+					Mobile op = Fighters[0].Foe;
 
 					if (op != null && op.Alive)
 						EndFight(op, EOFReason.Victory);
@@ -215,8 +215,7 @@ namespace Server.Regions
 
 		public override bool OnSkillUse(Mobile m, int Skill)
 		{
-			FightType ft = FightType.None;
-
+			var ft = FightType.None;
 			if (m.AccessLevel > AccessLevel.Counselor)
 				return true;
 
@@ -230,7 +229,7 @@ namespace Server.Regions
 
 					EndFight(m, EOFReason.Defeat);
 
-					Mobile op = (Fighters[0] as Fighter).Foe;
+					Mobile op = Fighters[0].Foe;
 
 					if (op != null && op.Alive)
 						EndFight(op, EOFReason.Victory);
@@ -256,7 +255,7 @@ namespace Server.Regions
 				{
 					EndFight(m, EOFReason.Defeat);
 
-					Mobile op = (Fighters[0] as Fighter).Foe;
+					Mobile op = Fighters[0].Foe;
 
 					if (op != null && op.Alive)
 						EndFight(op, EOFReason.Victory);
@@ -393,26 +392,6 @@ namespace Server.Regions
 			}
 		}
 
-		/*
-		// 07.05.12 :: emfor :: start
-		public override void OnMobileAdd( Mobile m )
-		{
-	  if( m is BaseMount && m_Owner.NoControls )
-	  {
-		  BaseCreature bc = m as BaseCreature;
-		  
-		  Mobile pm = bc.ControlMaster;
-		  pm.SendMessage("Twoje zwierze zostalo usuniete z areny!");
-		  
-		  bc.ControlOrder = OrderType.Stay;
-					bc.ControlTarget = null;
-		  
-		  ArenaRegion.Extort( m );
-	  }
-	}
-	// 07.05.12 :: emfor :: end
-	*/
-
 		public override void OnExit(Mobile m)
 		{
 			try
@@ -460,11 +439,9 @@ namespace Server.Regions
 
 		public override bool OnBeforeDeath(Mobile m)
 		{
-			FightType ft;
-
 			try
 			{
-				if (IsFighter(m, out ft))
+				if (IsFighter(m, out var ft))
 				{
 					if (m is BaseCreature && !(m is BaseFamiliar || IsSummon(m) || IsControlledSummon(m)))
 					{
@@ -496,7 +473,7 @@ namespace Server.Regions
 							{
 								EndFight(m, EOFReason.Defeat);
 
-								Mobile op = (Fighters[0] as Fighter).Foe;
+								Mobile op = Fighters[0].Foe;
 
 								if (op != null && op.Alive)
 									EndFight(op, EOFReason.Victory);
@@ -673,18 +650,12 @@ namespace Server.Regions
 			return true;
 		}
 
-		public void EndFight(Mobile m)
-		{
-			EndFight(m, EOFReason.DefaultReason);
-		}
 
 		public void EndFight(Mobile m, EOFReason reason)
 		{
-			FightType ft = FightType.None;
-
 			try
 			{
-				if (m != null && IsFighter(m, out ft))
+				if (m != null && IsFighter(m, out var ft))
 				{
 					m.Combatant = null;
 					m.Warmode = false;
@@ -771,7 +742,8 @@ namespace Server.Regions
 						{
 							m.FixedParticles(0x3779, 5, 20, 5002, EffectLayer.Head);
 							m.PlaySound(490);
-							m.SendLocalizedMessage((m.Female) ? 505271 : 505272, "",
+							m.SendLocalizedMessage((m.Female) ? 505271 : 505272,
+								"",
 								167); // Zwyciezylas! | Zwyciezyles!
 							Owner.Say(505273, m.Name); // Zwyciezca jest ~1_NAME~!
 						}
@@ -793,7 +765,7 @@ namespace Server.Regions
 							// ~1_NAME~ haniebnie uciekla z areny!!! : ~1_NAME~ haniebnie uciekl z areny!!!
 							Owner.Say(m.Female ? 505278 : 505279, m.Name);
 
-							Mobile op = (Fighters[0] as Fighter).Foe;
+							Mobile op = Fighters[0].Foe;
 
 							if (op != null && op.Alive)
 								EndFight(op, EOFReason.Victory);
@@ -821,9 +793,7 @@ namespace Server.Regions
 
 		public bool IsFighter(Mobile m)
 		{
-			FightType ft;
-
-			return IsFighter(m, out ft);
+			return IsFighter(m, out _);
 		}
 
 		public bool IsFighter(Mobile mob, out FightType ft)
@@ -1000,7 +970,7 @@ namespace Server.Regions
 			{
 				for (int i = 0; i < Fighters.Count; i++)
 				{
-					Fighter f = Fighters[i] as Fighter;
+					Fighter f = Fighters[i];
 
 					TimeSpan timeRemain = DateTime.Now - f.Start;
 
@@ -1045,12 +1015,12 @@ namespace Server.Regions
 				if (m != null && m.AccessLevel == AccessLevel.Player)
 				{
 					// Hej! ~1_NAME~ nie masz prawa przebywac na arenie!
-					this.Owner.Say(505281, m.Name);
+					Owner.Say(505281, m.Name);
 					// Nie masz prawa przebywac na arenie! Oplac wstep!
 					m.SendLocalizedMessage(505282);
 
-					if (this.Owner.NoEnter)
-						Teleport(m, this.Owner.ExtortPoint);
+					if (Owner.NoEnter)
+						Teleport(m, Owner.ExtortPoint);
 				}
 			}
 			catch (Exception exc)
@@ -1121,9 +1091,9 @@ namespace Server.Regions
 				DisguiseTimers.StopTimer(m);
 				CurseSpell.RemoveEffect(m);
 				StrangleSpell.RemoveCurse(m);
-				m.RemoveStatMod(String.Format("[Magic] {0} Offset", StatType.Dex));
-				m.RemoveStatMod(String.Format("[Magic] {0} Offset", StatType.Int));
-				m.RemoveStatMod(String.Format("[Magic] {0} Offset", StatType.Str));
+				m.RemoveStatMod($"[Magic] {StatType.Dex} Offset");
+				m.RemoveStatMod($"[Magic] {StatType.Int} Offset");
+				m.RemoveStatMod($"[Magic] {StatType.Str} Offset");
 				m.Stam = m.StamMax;
 				m.Mana = m.ManaMax;
 			}
@@ -1225,32 +1195,34 @@ namespace Server.Regions
 
 		public static void Unsummon(Mobile m)
 		{
-			Effects.SendLocationParticles(EffectItem.Create(m.Location, m.Map, EffectItem.DefaultDuration), 0x3728, 1,
-				13, 2100, 3, 5042, 0);
+			Effects.SendLocationParticles(EffectItem.Create(m.Location, m.Map, EffectItem.DefaultDuration),
+				0x3728,
+				1,
+				13,
+				2100,
+				3,
+				5042,
+				0);
 			m.PlaySound(0x201);
 			m.Delete();
 		}
 
 		public static bool CanSee(Mobile from, Mobile target)
 		{
-			// Console.WriteLine( "CanSee( {0}, {1} )", from.Name, target.Name );
 			NArenaRegion fr = from.Region as NArenaRegion;
 			bool fif = (fr != null && fr.IsFighter(from));
 
 			if (fif)
 			{
-				// Console.WriteLine( "{0} is fighter", from.Name );
 				NArenaRegion tr = target.Region as NArenaRegion;
 				bool tif = (tr != null && tr.IsFighter(target));
 				bool sameregion = (fr == tr);
 
 				if (sameregion && tif)
 				{
-					// Console.WriteLine( "{0} is fighter too", target.Name );
 					return true;
 				}
 
-				// Console.WriteLine( "but {0} ins't", target.Name );
 				return false;
 			}
 
