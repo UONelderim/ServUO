@@ -9,14 +9,14 @@ namespace Server.Mobiles
 	[CorpseName("zwloki azatotha - wladcy demonow")]
 	public class WladcaDemonow : BaseCreature
 	{
-		public override bool BardImmune { get { return true; } }
-		public override double AttackMasterChance { get { return 0.15; } }
-		public override double SwitchTargetChance { get { return 0.15; } }
-		public override double DispelDifficulty { get { return 135.0; } }
-		public override double DispelFocus { get { return 45.0; } }
-		public override bool AutoDispel { get { return true; } }
-		public override bool CanRummageCorpses { get { return true; } }
-		public override Poison PoisonImmune { get { return Poison.Lethal; } }
+		public override bool BardImmune => true;
+		public override double AttackMasterChance => 0.15;
+		public override double SwitchTargetChance => 0.15;
+		public override double DispelDifficulty => 135.0;
+		public override double DispelFocus => 45.0;
+		public override bool AutoDispel => true;
+		public override bool CanRummageCorpses => true;
+		public override Poison PoisonImmune => Poison.Lethal;
 
 		[Constructable]
 		public WladcaDemonow() : base(AIType.AI_Boss, FightMode.Closest, 11, 1, 0.25, 0.5)
@@ -37,7 +37,7 @@ namespace Server.Mobiles
 
 			SetDamageType(ResistanceType.Fire, 25);
 			SetDamageType(ResistanceType.Energy, 75);
-			SetDamageType( ResistanceType.Physical, 0 );
+			SetDamageType(ResistanceType.Physical, 0);
 
 			SetResistance(ResistanceType.Physical, 90, 100);
 			SetResistance(ResistanceType.Fire, 60, 80);
@@ -53,10 +53,6 @@ namespace Server.Mobiles
 			SetSkill(SkillName.Tactics, 90.1, 100.0);
 			SetSkill(SkillName.Wrestling, 90.1, 100.0);
 
-			Fame = 34000;
-			Karma = -34000;
-
-			VirtualArmor = 90;
 			AddItem(new LightSource());
 
 			SetWeaponAbility(WeaponAbility.BleedAttack);
@@ -76,15 +72,8 @@ namespace Server.Mobiles
 		public override void OnDeath(Container c)
 		{
 			base.OnDeath(c);
-
 			ArtifactHelper.ArtifactDistribution(this);
 		}
-
-		public override void GenerateLoot()
-		{
-			AddLoot(LootPack.SuperBoss);
-		}
-
 
 		public WladcaDemonow(Serial serial) : base(serial)
 		{
