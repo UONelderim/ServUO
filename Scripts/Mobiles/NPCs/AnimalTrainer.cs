@@ -35,6 +35,7 @@ namespace Server.Mobiles
         public override void InitSBInfo()
         {
             m_SBInfos.Add(new SBAnimalTrainer());
+            NInitSBInfo();
         }
 
         public override int GetShoeHue()
