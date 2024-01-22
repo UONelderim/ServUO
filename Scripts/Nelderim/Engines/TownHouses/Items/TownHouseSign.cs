@@ -620,7 +620,7 @@ namespace Knives.TownHouses
 				House.Components.Resize(maxX - minX, maxY - minY);
 				House.Components.Add(0x520, House.Components.Width - 1, House.Components.Height - 1, -5);
 
-				House.Location = new Point3D(minX, minY, Map.GetAverageZ(minX, minY));
+				House.Location = new Point3D(minX, minY, c_MinZ);
 				House.Map = Map;
 				House.Region.GoLocation = c_BanLoc;
 				House.Sign.Location = c_SignLoc;
