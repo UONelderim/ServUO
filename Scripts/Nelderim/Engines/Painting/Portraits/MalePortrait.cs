@@ -1,9 +1,3 @@
-#region References
-
-using System;
-
-#endregion
-
 namespace Server.Items
 {
 	[FlipableAttribute(0xEA2, 0xEA1)]
@@ -14,15 +8,15 @@ namespace Server.Items
 		{
 			if (artistName == subject)
 			{
-				Name = String.Format("Autoportret {0}", artistName, subject);
+				Name = $"Autoportret {artistName}";
 			}
 			else
 			{
-				Name = String.Format("Portret {0} namalowany przez {1}", artistName, subject);
-
-				Weight = 3.0;
-				Hue = 0;
+				Name = $"Portret {artistName} namalowany przez {subject}";
 			}
+			
+			Weight = 3.0;
+			Hue = 0;
 		}
 
 		public MalePortrait(Serial serial) : base(serial)

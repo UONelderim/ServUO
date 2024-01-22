@@ -1,12 +1,9 @@
-﻿#region References
-
-using System;
-using System.Collections.Generic;
+﻿using System;
 using Server;
+using Server.Mobiles;
+using System.Collections.Generic;
 using Server.Commands;
 using Server.Targeting;
-
-#endregion
 
 namespace Nelderim.Engines.ChaosChest
 {
@@ -17,38 +14,115 @@ namespace Nelderim.Engines.ChaosChest
 		private static ChaosSigilType CURRENT_STAGE_OVERRIDE;
 		private static ChaosChestQuest instance;
 
-		private static readonly Dictionary<string, ChaosSigilType> REGION_MAP = new Dictionary<string, ChaosSigilType>
+		private static readonly Dictionary<string, ChaosSigilType> REGION_MAP = new()
 		{
-			{ "TylReviaren", ChaosSigilType.Natury },
-			{ "Melisande", ChaosSigilType.Natury },
-			{ "Piramida", ChaosSigilType.Natury },
+			{ "TylReviaren_VeryEasy", ChaosSigilType.Natury },
+			{ "TylReviaren_Easy", ChaosSigilType.Natury },
+			{ "TylReviaren_Medium", ChaosSigilType.Natury },
+			{ "TylReviaren_Difficult", ChaosSigilType.Natury },
+			{ "TylReviaren_VeryDifficult", ChaosSigilType.Natury },
+			{ "Melisande_VeryEasy", ChaosSigilType.Natury },
+			{ "Melisande_Easy", ChaosSigilType.Natury },
+			{ "Melisande_Medium", ChaosSigilType.Natury },
+			{ "Melisande_Difficult", ChaosSigilType.Natury },
+			{ "Melisande_VeryDifficult", ChaosSigilType.Natury },
+			{ "Piramida_VeryEasy", ChaosSigilType.Natury },
+			{ "Piramida_Easy", ChaosSigilType.Natury },
+			{ "Piramida_Medium", ChaosSigilType.Natury },
+			{ "Piramida_Difficult", ChaosSigilType.Natury },
+			{ "Piramida_VeryDifficult", ChaosSigilType.Natury },
 			{ "Elbrind", ChaosSigilType.Morlokow },
 			{ "CzerwoneOrki", ChaosSigilType.Morlokow },
-			{ "Hurengrav_LVL1", ChaosSigilType.Smierci },
-			{ "WielkaPokracznaBestia_LVL2", ChaosSigilType.Smierci },
-			{ "WielkaPokracznaBestia_LVL1", ChaosSigilType.Smierci },
+			{ "Hurengrav_VeryEasy", ChaosSigilType.Smierci },
+			{ "Hurengrav_Easy", ChaosSigilType.Smierci },
+			{ "Hurengrav_Medium", ChaosSigilType.Smierci },
+			{ "Hurengrav_Difficult", ChaosSigilType.Smierci },
+			{ "Hurengrav_VeryDifficult", ChaosSigilType.Smierci },
+			{ "KrolewskieKrypty", ChaosSigilType.Smierci },
+			{ "WielkaPokracznaBestia_LVL2_VeryEasy", ChaosSigilType.Smierci },
+			{ "WielkaPokracznaBestia_LVL2_Easy", ChaosSigilType.Smierci },
+			{ "WielkaPokracznaBestia_LVL2_Medium", ChaosSigilType.Smierci },
+			{ "WielkaPokracznaBestia_LVL2_Difficult", ChaosSigilType.Smierci },
+			{ "WielkaPokracznaBestia_LVL2_VeryDifficult", ChaosSigilType.Smierci },
+			{ "WielkaPokracznaBestia_LVL1_VeryEasy", ChaosSigilType.Smierci },
+			{ "WielkaPokracznaBestia_LVL1_Easy", ChaosSigilType.Smierci },
+			{ "WielkaPokracznaBestia_LVL1_Medium", ChaosSigilType.Smierci },
+			{ "WielkaPokracznaBestia_LVL1_Difficult", ChaosSigilType.Smierci },
+			{ "WielkaPokracznaBestia_LVL1_VeryDifficult", ChaosSigilType.Smierci },
 			{ "KryptyNaurow", ChaosSigilType.Smierci },
-			{ "KrysztalowaJaskinia", ChaosSigilType.Krysztalow },
-			{ "KrysztaloweSmoki", ChaosSigilType.Krysztalow },
-			{ "Wulkan_LVL3", ChaosSigilType.Ognia },
-			{ "Wulkan_LVL4", ChaosSigilType.Ognia },
-			{ "LezeOgnistychSmokow_LVL2", ChaosSigilType.Ognia },
-			{ "LezeOgnistychSmokow_LVL3", ChaosSigilType.Ognia },
+			{ "Gorogon_VeryEasy", ChaosSigilType.Krysztalow },
+			{ "Gorogon_Easy", ChaosSigilType.Krysztalow },
+			{ "Gorogon_Medium", ChaosSigilType.Krysztalow },
+			{ "Gorogon_Difficult", ChaosSigilType.Krysztalow },
+			{ "Gorogon_VeryDifficult", ChaosSigilType.Krysztalow },
+			{ "KrysztaloweSmoki_Easy", ChaosSigilType.Krysztalow },
+			{ "KrysztaloweSmoki_VeryEasy", ChaosSigilType.Krysztalow },
+			{ "KrysztaloweSmoki_Medium", ChaosSigilType.Krysztalow },
+			{ "KrysztaloweSmoki_Difficult", ChaosSigilType.Krysztalow },
+			{ "KrysztaloweSmoki_VeryDifficult", ChaosSigilType.Krysztalow },
+			{ "Wulkan_LVL3_Difficult", ChaosSigilType.Ognia },
+			{ "Wulkan_LVL3_Difficult_2", ChaosSigilType.Ognia },
+			{ "Wulkan_LVL3_VeryDifficult", ChaosSigilType.Ognia },
+			{ "Wulkan_LVL4_VeryDifficult", ChaosSigilType.Ognia },
+			{ "LezeOgnistychSmokow_LVL1_Medium", ChaosSigilType.Ognia },
+			{ "LezeOgnistychSmokow_LVL1_Difficult", ChaosSigilType.Ognia },
+			{ "LezeOgnistychSmokow_LVL1_VeryDifficult", ChaosSigilType.Ognia },
+			{ "LezeOgnistychSmokow_LVL2_VeryEasy", ChaosSigilType.Ognia },
+			{ "LezeOgnistychSmokow_LVL2_Easy", ChaosSigilType.Ognia },
+			{ "LezeOgnistychSmokow_LVL2_Medium", ChaosSigilType.Ognia },
+			{ "LezeOgnistychSmokow_LVL2_Difficult", ChaosSigilType.Ognia },
+			{ "LezeOgnistychSmokow_LVL2_VeryDifficult", ChaosSigilType.Ognia },
 			{ "Demonowo", ChaosSigilType.Ognia },
-			{ "Shimmering", ChaosSigilType.Swiatla },
-			{ "BialyWilk", ChaosSigilType.Swiatla },
-			{ "UlnhyrOrben", ChaosSigilType.Swiatla },
-			{ "HallTorech_LVL1", ChaosSigilType.Licza },
-			{ "HallTorech_LVL2", ChaosSigilType.Licza },
-			{ "HallTorech_LVL3", ChaosSigilType.Licza },
-			{ "Garth_LVL1", ChaosSigilType.Licza },
-			{ "Garth_LVL2", ChaosSigilType.Licza }
+			{ "Shimmering_LV1_VeryEasy", ChaosSigilType.Swiatla },
+			{ "Shimmering_LV1_Easy", ChaosSigilType.Swiatla },
+			{ "Shimmering_LV1_Medium", ChaosSigilType.Swiatla },
+			{ "Shimmering_LV1_Difficult", ChaosSigilType.Swiatla },
+			{ "Shimmering_LV1_VeryDifficult", ChaosSigilType.Swiatla },
+			{ "Shimmering_LV2_VeryEasy", ChaosSigilType.Swiatla },
+			{ "Shimmering_LV2_Easy", ChaosSigilType.Swiatla },
+			{ "Shimmering_LV2_Medium", ChaosSigilType.Swiatla },
+			{ "Shimmering_LV2_Difficult", ChaosSigilType.Swiatla },
+			{ "Shimmering_LV2_VeryDifficult", ChaosSigilType.Swiatla },
+			{ "BialyWilk_VeryEasy", ChaosSigilType.Swiatla },
+			{ "BialyWilk_Easy", ChaosSigilType.Swiatla },
+			{ "BialyWilk_Medium", ChaosSigilType.Swiatla },
+			{ "BialyWilk_Difficult", ChaosSigilType.Swiatla },
+			{ "BialyWilk_VeryDifficult", ChaosSigilType.Swiatla },
+			{ "UlnhyrOrbben_LV1_VeryEasy", ChaosSigilType.Swiatla },
+			{ "UlnhyrOrbben_LV1_Easy", ChaosSigilType.Swiatla },
+			{ "UlnhyrOrbben_LV1_Medium", ChaosSigilType.Swiatla },
+			{ "UlnhyrOrbben_LV1_Difficult", ChaosSigilType.Swiatla },
+			{ "UlnhyrOrbben_LV1_VeryDifficult", ChaosSigilType.Swiatla },
+			{ "UlnhyrOrbben_LV2_VeryEasy", ChaosSigilType.Swiatla },
+			{ "UlnhyrOrbben_LV2_Easy", ChaosSigilType.Swiatla },
+			{ "UlnhyrOrbben_LV2_Medium", ChaosSigilType.Swiatla },
+			{ "UlnhyrOrbben_LV2_Difficult", ChaosSigilType.Swiatla },
+			{ "UlnhyrOrbben_LV2_VeryDifficult", ChaosSigilType.Swiatla },
+			{ "HallTorech_LVL1_VeryEasy", ChaosSigilType.Licza },
+			{ "HallTorech_LVL1_Easy", ChaosSigilType.Licza },
+			{ "HallTorech_LVL1_Medium", ChaosSigilType.Licza },
+			{ "HallTorech_LVL1_Difficult", ChaosSigilType.Licza },
+			{ "HallTorech_LVL1_VeryDifficult", ChaosSigilType.Licza },
+			{ "HallTorech_LVL2_VeryEasy", ChaosSigilType.Licza },
+			{ "HallTorech_LVL2_Easy", ChaosSigilType.Licza },
+			{ "HallTorech_LVL2_Medium", ChaosSigilType.Licza },
+			{ "HallTorech_LVL2_Difficult", ChaosSigilType.Licza },
+			{ "HallTorech_LVL2_VeryDifficult", ChaosSigilType.Licza },
+			{ "Garth_LVL1_VeryEasy", ChaosSigilType.Licza },
+			{ "Garth_LVL1_Easy", ChaosSigilType.Licza },
+			{ "Garth_LVL1_Medium", ChaosSigilType.Licza },
+			{ "Garth_LVL1_Difficult", ChaosSigilType.Licza },
+			{ "Garth_LVL1_VeryDifficult", ChaosSigilType.Licza },
+			{ "Garth_LVL2_VeryEasy", ChaosSigilType.Licza },
+			{ "Garth_LVL2_Easy", ChaosSigilType.Licza },
+			{ "Garth_LVL2_Medium", ChaosSigilType.Licza },
+			{ "Garth_LVL2_Difficult", ChaosSigilType.Licza },
+			{ "Garth_LVL2_VeryDifficult", ChaosSigilType.Licza }
 		};
 
 		public static void Initialize()
 		{
 			CommandSystem.Register("CreateChaosChestQuest", AccessLevel.Counselor, CreateChaosChestQuest);
-			EventSink.CreatureDeath += OnDeath;
 		}
 
 		private static void CreateChaosChestQuest(CommandEventArgs e)
@@ -62,57 +136,35 @@ namespace Nelderim.Engines.ChaosChest
 			}
 		}
 
-		internal static ChaosSigilType CURRENT_STAGE
-		{
-			get
-			{
-				return CURRENT_STAGE_OVERRIDE != ChaosSigilType.NONE
-					? CURRENT_STAGE_OVERRIDE
-					: (ChaosSigilType)Math.Pow(2, (int)DateTime.Now.DayOfWeek);
-			}
-		}
+		internal static ChaosSigilType CURRENT_STAGE =>
+			CURRENT_STAGE_OVERRIDE != ChaosSigilType.NONE
+				? CURRENT_STAGE_OVERRIDE
+				: (ChaosSigilType)Math.Pow(2, (int)DateTime.Now.DayOfWeek);
 
-		private static double DROP_CHANCE
-		{
-			get
-			{
-				return DROP_CHANCE_OVERRIDE > 0.0d
-					? DROP_CHANCE_OVERRIDE
-					: DEFAULT_DROP_CHANCE;
-			}
-		}
+		private static double DROP_CHANCE =>
+			DROP_CHANCE_OVERRIDE > 0.0d
+				? DROP_CHANCE_OVERRIDE
+				: DEFAULT_DROP_CHANCE;
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public double DropChanceOverride
 		{
-			get { return DROP_CHANCE_OVERRIDE; }
-			set
-			{
-				DROP_CHANCE_OVERRIDE = value;
-			}
+			get => DROP_CHANCE_OVERRIDE;
+			set => DROP_CHANCE_OVERRIDE = value;
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public double DropChance
-		{
-			get { return DROP_CHANCE; }
-		}
+		public double DropChance => DROP_CHANCE;
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public ChaosSigilType CurrentStageOverride
 		{
-			get { return CURRENT_STAGE_OVERRIDE; }
-			set
-			{
-				CURRENT_STAGE_OVERRIDE = value;
-			}
+			get => CURRENT_STAGE_OVERRIDE;
+			set => CURRENT_STAGE_OVERRIDE = value;
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public ChaosSigilType CurrentStage
-		{
-			get { return CURRENT_STAGE; }
-		}
+		public ChaosSigilType CurrentStage => CURRENT_STAGE;
 
 		private ChaosChestQuest() : base(0x1BC3)
 		{
@@ -127,7 +179,7 @@ namespace Nelderim.Engines.ChaosChest
 		{
 			base.Serialize(writer);
 
-			writer.Write(0); // version
+			writer.Write((int)0); // version
 			writer.Write((int)CurrentStageOverride);
 			writer.Write(DROP_CHANCE_OVERRIDE);
 		}
@@ -141,16 +193,16 @@ namespace Nelderim.Engines.ChaosChest
 			DropChanceOverride = reader.ReadDouble();
 		}
 
-		public static void OnDeath(CreatureDeathEventArgs e)
+		public static void AddLoot(BaseCreature baseCreature)
 		{
-			Mobile m = e.Creature;
-			if (m?.Region?.Name != null &&
-			    REGION_MAP.ContainsKey(m.Region.Name) &&
-			    REGION_MAP[m.Region.Name].Equals(CURRENT_STAGE))
+			if (baseCreature != null && baseCreature.Region != null &&
+			    baseCreature.Region.Name != null &&
+			    REGION_MAP.ContainsKey(baseCreature.Region.Name) &&
+			    REGION_MAP[baseCreature.Region.Name].Equals(CURRENT_STAGE))
 			{
 				if (Utility.RandomDouble() < DROP_CHANCE)
 				{
-					e.Corpse.DropItem(new ChaosKey(CURRENT_STAGE));
+					baseCreature.AddToBackpack(new ChaosKey(CURRENT_STAGE));
 				}
 			}
 		}

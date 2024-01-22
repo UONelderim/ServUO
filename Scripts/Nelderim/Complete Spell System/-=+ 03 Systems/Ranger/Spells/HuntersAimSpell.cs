@@ -1,8 +1,7 @@
 #region References
 
 using System;
-using System.Collections;
-using Server.Mobiles;
+using System.Collections.Generic;
 using Server.Spells;
 
 #endregion
@@ -11,9 +10,8 @@ namespace Server.ACC.CSS.Systems.Ranger
 {
 	public class RangerHuntersAimSpell : RangerSpell
 	{
-		private static readonly SpellInfo m_Info = new SpellInfo(
+		private static readonly SpellInfo m_Info = new (
 			"Celność łowcy", "Cu Ner Sinta",
-			//SpellCircle.Fourth,
 			212,
 			9041,
 			Reagent.Nightshade,
@@ -22,126 +20,37 @@ namespace Server.ACC.CSS.Systems.Ranger
 		);
 
 		public override SpellCircle Circle => SpellCircle.Fourth;
-
 		public override double CastDelay => 3.0;
 		public override int RequiredMana => 25;
 		public override double RequiredSkill => 50;
 
-		private static readonly Hashtable m_Table = new Hashtable();
+		private static readonly List<Mobile> _Table = new();
 
 		public RangerHuntersAimSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
 		{
-			if (this.Scroll != null)
-				Scroll.Consume();
-		}
-
-		public static double GetScalar(Mobile m)
-		{
-			double val = 1.0;
-
-			if (m.CanBeginAction(typeof(RangerHuntersAimSpell)))
-				val = 1.5;
-
-			return val;
-		}
-
-		public static bool HasEffect(Mobile m)
-		{
-			return (m_Table[m] != null);
-		}
-
-		public static void RemoveEffect(Mobile m)
-		{
-			object[] mods = (object[])m_Table[m];
-
-			if (mods != null)
-			{
-				m.RemoveStatMod(((StatMod)mods[0]).Name);
-				m.RemoveStatMod(((StatMod)mods[1]).Name);
-				m.RemoveSkillMod((SkillMod)mods[2]);
-				m.RemoveSkillMod((SkillMod)mods[3]);
-			}
-
-			m_Table.Remove(m);
-
-			m.EndAction(typeof(RangerHuntersAimSpell));
-
-			m.BodyMod = 0;
-		}
-
-		public override bool CheckCast()
-		{
-			if (!base.CheckCast())
-			{
-				return false;
-			}
-
-			if (!Caster.CanBeginAction(typeof(RangerHuntersAimSpell)))
-			{
-				Caster.SendLocalizedMessage(1005559);
-				return false;
-			}
-
-
-			return true;
+			Scroll?.Consume();
 		}
 
 		public override void OnCast()
 		{
-			if (!Caster.CanBeginAction(typeof(RangerHuntersAimSpell)))
+			if (CheckSequence() && Caster.BeginAction(typeof(RangerHuntersAimSpell)))
+			{
+				var scalar = Caster.Skills[DamageSkill].Value / 100;
+				var duration = TimeSpan.FromMinutes(2 * scalar);
+				Caster.AddStatMod(new(StatType.Dex, "[Ranger] Dex Offset", 5, duration));
+				Caster.AddStatMod(new(StatType.Str, "[Ranger] Str Offset", 5, duration));
+				Caster.AddSkillMod(new TimedSkillMod(SkillName.Archery, true, 20, duration));
+				Caster.AddSkillMod(new TimedSkillMod(SkillName.Tactics, true, 20, duration));
+
+				Timer.DelayCall(duration, () =>
+				{
+					_Table.Remove(Caster);
+					Caster.EndAction(typeof(RangerHuntersAimSpell));
+				});
+			}
+			else
 			{
 				Caster.SendLocalizedMessage(1005559);
-			}
-
-			else if (CheckSequence())
-			{
-				object[] mods =
-				{
-					new StatMod(StatType.Dex, "[Ranger] Dex Offset", 5, TimeSpan.Zero),
-					new StatMod(StatType.Str, "[Ranger] Str Offset", 5, TimeSpan.Zero),
-					new DefaultSkillMod(SkillName.Archery, true, 20),
-					new DefaultSkillMod(SkillName.Tactics, true, 20),
-				};
-
-				m_Table[Caster] = mods;
-
-				Caster.AddStatMod((StatMod)mods[0]);
-				Caster.AddStatMod((StatMod)mods[1]);
-				Caster.AddSkillMod((SkillMod)mods[2]);
-				Caster.AddSkillMod((SkillMod)mods[3]);
-
-				double span = 1.0 * GetScalar(Caster);
-				new InternalTimer(Caster, TimeSpan.FromMinutes((int)span)).Start();
-
-				/*IMount mount = Caster.Mount;
-
-				if (mount != null)
-					mount.Rider = null;
-
-
-				Caster.BeginAction(typeof(RangerHuntersAimSpell));*/
-			}
-		}
-
-
-		private class InternalTimer : Timer
-		{
-			private readonly Mobile m_Owner;
-			private readonly DateTime m_Expire;
-
-			public InternalTimer(Mobile owner, TimeSpan duration) : base(TimeSpan.Zero, TimeSpan.FromSeconds(0.1))
-			{
-				m_Owner = owner;
-				m_Expire = DateTime.Now + duration;
-			}
-
-			protected override void OnTick()
-			{
-				if (DateTime.Now >= m_Expire)
-				{
-					RemoveEffect(m_Owner);
-					Stop();
-				}
 			}
 		}
 	}
