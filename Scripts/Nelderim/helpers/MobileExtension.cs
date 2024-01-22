@@ -25,7 +25,7 @@ namespace Server
 			var eable = m.GetObjectsInRange(range);
 			foreach (var o in eable)
 			{
-				if (o.GetType() == type)
+				if (o.GetType().IsInstanceOfType(type))
 				{
 					eable.Free();
 					return true;

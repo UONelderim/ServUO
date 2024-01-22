@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using Server.Items;
-using Server.Regions;
 
 namespace Server.Mobiles
 {
@@ -10,9 +8,9 @@ namespace Server.Mobiles
 		private List<IBuyItemInfo> m_BuyInfo;
 		private IShopSellInfo m_SellInfo = new InternalSellInfo();
 
-		public SBAnimalTrainer(bool inUndershadow = false)
+		public SBAnimalTrainer()
 		{
-			m_BuyInfo = new InternalBuyInfo(inUndershadow);
+			m_BuyInfo = new InternalBuyInfo();
 		}
 
 		public override IShopSellInfo SellInfo { get { return m_SellInfo; } }
@@ -20,7 +18,7 @@ namespace Server.Mobiles
 
 		public class InternalBuyInfo : List<IBuyItemInfo>
 		{
-			public InternalBuyInfo(bool inUndershadow)
+			public InternalBuyInfo()
 			{
 				Add(new AnimalBuyInfo(1, typeof(Cat), 100, 50, 201, 0));
 				Add(new AnimalBuyInfo(1, typeof(Dog), 100, 50, 217, 0));
@@ -37,11 +35,6 @@ namespace Server.Mobiles
 
 				Add(new GenericBuyInfo(typeof(BallOfSummoning), 10000, 20, 3630, 0));
 				Add(new GenericBuyInfo(typeof(PowderOfTranslocation), 3000, 20, 9912, 0));
-				if (inUndershadow)
-				{
-					Add(new AnimalBuyInfo(1, typeof(JaskiniowyJaszczur), 550, 50, 0xDB, 0));
-					Add(new AnimalBuyInfo(1, typeof(JaskiniowyZukJuczny), 631, 50, 0x317, 0));
-				}
 			}
 		}
 

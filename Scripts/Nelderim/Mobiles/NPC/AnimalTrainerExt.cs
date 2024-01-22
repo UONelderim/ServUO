@@ -42,5 +42,13 @@ namespace Server.Mobiles
 		};
 
 		public override List<OnSpeechEntry> OnSpeechActions => _OnSpeechActions;
+
+		private void NInitSBInfo()
+		{
+			if (Race == Race.NDrow)
+			{
+				m_SBInfos.Add(new SBDrowAnimalTrainer());
+			}
+		}
 	}
 }
