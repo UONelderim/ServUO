@@ -117,6 +117,10 @@ namespace Server.Spells.Seventh
           //  {
            //     Caster.SendLocalizedMessage(1049543); // You decide against traveling to Felucca while you are still young.
            // }
+		    else if (SpellHelper.RestrictRedTravel && Caster.Murderer && map.Rules != MapRules.FeluccaRules && !Siege.SiegeShard)
+		    {
+		        Caster.SendLocalizedMessage(1019004); // You are not allowed to travel there.
+		    }
             else if (Caster.Criminal)
             {
                 Caster.SendLocalizedMessage(1005561, "", 0x22); // Thou'rt a criminal and cannot escape so easily.
