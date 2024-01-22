@@ -1,5 +1,3 @@
-#region References
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,14 +14,10 @@ using Server.Spells.Ninjitsu;
 using Server.Spells.Seventh;
 using Server.Spells.Sixth;
 
-#endregion
-
 namespace Server.Regions
 {
 	public class NArenaRegion : Region
 	{
-		#region Subclasses
-
 		public class FightTimer : Timer
 		{
 			readonly Mobile m_Target;
@@ -32,13 +26,10 @@ namespace Server.Regions
 			{
 				m_Target = target;
 				Priority = TimerPriority.FiftyMS;
-				//Console.WriteLine( "building Timer - tick {0}", DateTime.Now.TimeOfDay );
 			}
 
 			protected override void OnTick()
 			{
-				//Console.WriteLine( "Killing Timer - tock {0}", DateTime.Now.TimeOfDay );
-
 				if (m_Target.Region is NArenaRegion && (m_Target.Region as NArenaRegion).IsFighter(m_Target))
 				{
 					m_Target.SendLocalizedMessage(505256); // Uplynal wykupiony czas na arenie.
@@ -108,10 +99,6 @@ namespace Server.Regions
 			}
 		}
 
-		#endregion
-
-		#region Fields & Properties
-
 		private static ArrayList m_Protection;
 		public ArenaTrainer Owner { get; set; }
 
@@ -132,10 +119,6 @@ namespace Server.Regions
 			}
 		}
 
-		#endregion
-
-		#region Constructors, Initialization and Serialization
-
 		public NArenaRegion(string name, Map map, Rectangle3D[] area, ArenaTrainer owner) : base(owner.ArenaName,
 			owner.Map, 100, area)
 		{
@@ -149,10 +132,6 @@ namespace Server.Regions
 			EventSink.Login += OnLogin;
 			EventSink.Logout += OnLogout;
 		}
-
-		#endregion
-
-		#region Overriden Region Methods
 
 		public override bool AllowHousing(Mobile from, Point3D p)
 		{
@@ -311,8 +290,6 @@ namespace Server.Regions
 			{
 				if (IsFighter(m))
 				{
-					#region Mounts
-
 					if (Owner.NoMounts && m.Mounted && m.Mount != null)
 					{
 						m.SendLocalizedMessage(505265); // Zasady walki zabraniaja dosiadania wierzchowcow!!!
@@ -334,10 +311,6 @@ namespace Server.Regions
 							Extort(bc);
 						}
 					}
-
-					#endregion
-
-					#region Controlled Creatures
 
 					//Najpierw sprawdzamy zasady wprowadzania kontrolowancow
 					if (m is BaseCreature && !(m is BaseMount))
@@ -382,10 +355,6 @@ namespace Server.Regions
 						}
 					}
 
-					#endregion
-
-					#region Notoriety actualization
-
 					foreach (Mobile mobile in AllPlayers)
 					{
 						if (mobile == m)
@@ -410,8 +379,6 @@ namespace Server.Regions
 							MobileMoving.Send(m.NetState, mobile);
 						}
 					}
-
-					#endregion
 
 					LookAgain(m);
 					m.SendLocalizedMessage(505269, Owner.ArenaName); // Wkraczasz na arene ~1_NAME~.
@@ -457,8 +424,6 @@ namespace Server.Regions
 					else
 						ClearAgressors(m);
 
-					#region Notoriety actualization
-
 					foreach (Mobile mobile in AllMobiles)
 					{
 						if (mobile == m)
@@ -484,8 +449,6 @@ namespace Server.Regions
 								MobileMoving.Send(mobile.NetState, m);
 						}
 					}
-
-					#endregion
 				}
 			}
 			catch (Exception exc)
@@ -495,9 +458,9 @@ namespace Server.Regions
 			}
 		}
 
-		public override void OnDeath(Mobile m)
+		public override bool OnBeforeDeath(Mobile m)
 		{
-			FightType ft = FightType.None;
+			FightType ft;
 
 			try
 			{
@@ -518,8 +481,6 @@ namespace Server.Regions
 					{
 						switch (ft)
 						{
-							#region Training
-
 							case FightType.ShortTraining:
 							case FightType.LongTraining:
 							{
@@ -528,10 +489,6 @@ namespace Server.Regions
 								m.SendLocalizedMessage(505270, "", 38); // smierc nie dosiega wojownikow areny!
 								break;
 							}
-
-							#endregion
-
-							#region Duels
 
 							case FightType.ShortDuel:
 							case FightType.LongDuel:
@@ -546,8 +503,6 @@ namespace Server.Regions
 
 								break;
 							}
-
-							#endregion
 						}
 					}
 				}
@@ -558,12 +513,8 @@ namespace Server.Regions
 				Owner.RestartArena();
 			}
 
-			base.OnDeath(m);
+			return false;
 		}
-
-		#endregion
-
-		#region Arena Methods
 
 		public static bool Protected(Mobile m)
 		{
@@ -605,10 +556,6 @@ namespace Server.Regions
 				Teleport(blue, Owner.CornerBlue);
 				Teleport(red, Owner.CornerRed);
 
-				#region Pets
-
-				#region Blue
-
 				IPooledEnumerable eable = map.GetMobilesInRange(oldBlueLocation, 8);
 				ArrayList toMove = new ArrayList();
 				ArrayList toUnsummon = new ArrayList();
@@ -627,10 +574,6 @@ namespace Server.Regions
 				eable.Free();
 				toMove.Clear();
 
-				#endregion
-
-				#region Red
-
 				eable = map.GetMobilesInRange(oldRedLocation, 8);
 
 				foreach (Mobile mob in eable)
@@ -648,10 +591,6 @@ namespace Server.Regions
 					Unsummon(toUnsummon[i] as Mobile);
 
 				eable.Free();
-
-				#endregion
-
-				#endregion
 			}
 			catch (Exception exc)
 			{
@@ -686,10 +625,6 @@ namespace Server.Regions
 				Teleport(red, Owner.CornerRed);
 
 
-				#region Pets
-
-				#region Blue
-
 				IPooledEnumerable eable = map.GetMobilesInRange(oldBlueLocation, 8);
 				ArrayList toMove = new ArrayList();
 				ArrayList toUnsummon = new ArrayList();
@@ -708,10 +643,6 @@ namespace Server.Regions
 				eable.Free();
 				toMove.Clear();
 
-				#endregion
-
-				#region Red
-
 				eable = map.GetMobilesInRange(oldRedLocation, 8);
 
 				foreach (Mobile mob in eable)
@@ -729,10 +660,6 @@ namespace Server.Regions
 					Unsummon(toUnsummon[i] as Mobile);
 
 				eable.Free();
-
-				#endregion
-
-				#endregion
 
 				// LookAgain( red );
 				// LookAgain( blue );
@@ -767,8 +694,6 @@ namespace Server.Regions
 					RemoveFighter(m);
 					LookAgain(m);
 
-					#region Followers
-
 					if (m.Followers > 0)
 					{
 						ArrayList toDelete = new ArrayList();
@@ -777,13 +702,9 @@ namespace Server.Regions
 						{
 							if (IsControlled(mob, m) || IsSummoned(mob, m))
 							{
-								#region Dispell summonow
-
 								if (IsSummon(mob) || IsControlledSummon(mob))
 									toDelete.Add(mob);
 								else
-
-									#endregion
 
 								{
 									(mob as BaseCreature).ControlOrder = OrderType.Follow;
@@ -812,10 +733,6 @@ namespace Server.Regions
 						}
 					}
 
-					#endregion
-
-					#region Reason is better then exit
-
 					if ((int)reason > (int)EOFReason.Exit)
 					{
 						Rejuvenate(m, true);
@@ -824,8 +741,6 @@ namespace Server.Regions
 						if (reason != EOFReason.Victory)
 						{
 							m.SetLocation(Owner.EndOfFightPoint, true);
-
-							#region Teleport Pets
 
 							ArrayList move = new ArrayList();
 
@@ -839,10 +754,6 @@ namespace Server.Regions
 							foreach (Mobile mob in move)
 								mob.MoveToWorld(m.Location, m.Map);
 
-							#endregion
-
-							#region Efekt
-
 							Effects.SendLocationEffect(new Point3D(m.X + 1, m.Y, m.Z + 4), m.Map, 0x3728, 13);
 							Effects.SendLocationEffect(new Point3D(m.X + 1, m.Y, m.Z), m.Map, 0x3728, 13);
 							Effects.SendLocationEffect(new Point3D(m.X + 1, m.Y, m.Z - 4), m.Map, 0x3728, 13);
@@ -854,11 +765,7 @@ namespace Server.Regions
 							Effects.SendLocationEffect(new Point3D(m.X + 1, m.Y + 1, m.Z + 3), m.Map, 0x3728, 13);
 							Effects.SendLocationEffect(new Point3D(m.X + 1, m.Y + 1, m.Z - 1), m.Map, 0x3728, 13);
 							m.PlaySound(0x228);
-
-							#endregion
 						}
-
-						#region Fight result announcement
 
 						if (reason == EOFReason.Victory)
 						{
@@ -875,13 +782,7 @@ namespace Server.Regions
 							// ~1_NAME~ zostala haniebnie pokonana!!! : ~1_NAME~ zostal haniebnie pokonany!!!
 							Owner.Say(m.Female ? 505276 : 505277, m.Name);
 						}
-
-						#endregion
 					}
-
-					#endregion
-
-					#region Coward!
 
 					else if (reason == EOFReason.Exit)
 					{
@@ -899,10 +800,6 @@ namespace Server.Regions
 						}
 					}
 
-					#endregion
-
-					#region Tournament
-
 					if (ft == FightType.Tournament)
 					{
 						if (reason == EOFReason.Victory)
@@ -913,8 +810,6 @@ namespace Server.Regions
 							m.SendLocalizedMessage(
 								505280); // Pojedynek zostanie powtorzony! Klepsydra na przygotowanie!
 					}
-
-					#endregion
 				}
 			}
 			catch (Exception exc)
@@ -1007,8 +902,6 @@ namespace Server.Regions
 
 		private void ClearAgressors(Mobile m)
 		{
-			#region Revenants
-
 			try
 			{
 				ArrayList rev = new ArrayList();
@@ -1027,10 +920,6 @@ namespace Server.Regions
 			{
 				Console.WriteLine(exc.ToString());
 			}
-
-			#endregion
-
-			#region Agressors
 
 			try
 			{
@@ -1068,10 +957,6 @@ namespace Server.Regions
 				Console.WriteLine(exc.ToString());
 			}
 
-			#endregion
-
-			#region Aggressed
-
 			try
 			{
 				List<AggressorInfo> list = m.Aggressed;
@@ -1107,8 +992,6 @@ namespace Server.Regions
 			{
 				Console.WriteLine(exc.ToString());
 			}
-
-			#endregion
 		}
 
 		public void CloseBussiness()
@@ -1264,8 +1147,6 @@ namespace Server.Regions
 
 			m.SetLocation(loc, true);
 
-			#region Efekt
-
 			Effects.SendLocationEffect(new Point3D(m.X + 1, m.Y, m.Z + 4), m.Map, 0x3728, 13);
 			Effects.SendLocationEffect(new Point3D(m.X + 1, m.Y, m.Z), m.Map, 0x3728, 13);
 			Effects.SendLocationEffect(new Point3D(m.X + 1, m.Y, m.Z - 4), m.Map, 0x3728, 13);
@@ -1277,8 +1158,6 @@ namespace Server.Regions
 			Effects.SendLocationEffect(new Point3D(m.X + 1, m.Y + 1, m.Z + 3), m.Map, 0x3728, 13);
 			Effects.SendLocationEffect(new Point3D(m.X + 1, m.Y + 1, m.Z - 1), m.Map, 0x3728, 13);
 			m.PlaySound(0x228);
-
-			#endregion
 		}
 
 		public static bool IsSummon(Mobile m)
@@ -1407,7 +1286,5 @@ namespace Server.Regions
 				Console.WriteLine(exc.ToString());
 			}
 		}
-
-		#endregion
 	}
 }
