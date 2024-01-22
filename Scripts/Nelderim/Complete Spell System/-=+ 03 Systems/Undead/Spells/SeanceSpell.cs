@@ -15,7 +15,7 @@ namespace Server.ACC.CSS.Systems.Undead
 	{
 		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds( 3.5 );
 		public override double RequiredSkill => 80.0;
-		public override int RequiredMana => 50;
+		public override int RequiredMana => 32;
 
 		private static readonly SpellInfo m_Info = new SpellInfo(
 			"Seans", "Kal Wis Corp",
@@ -140,6 +140,7 @@ namespace Server.ACC.CSS.Systems.Undead
             protected override void OnTick()
             {
                 m_Caster.EndAction(typeof(UndeadSeanceSpellCooldown));
+               
             }
         }
 
@@ -182,6 +183,7 @@ namespace Server.ACC.CSS.Systems.Undead
 				{
 					m_Owner.BodyValue = AncientSeanceSpell.SeanceSpellExt.Get(m_Owner).OldBody;
 					AncientSeanceSpell.SeanceSpellExt.Delete(m_Owner);
+					m_Owner.SendMessage("Opuszczasz królestwo zmarłych.");
 					m_Owner.EndAction(typeof(UndeadSeanceSpell));
 
 					BaseArmor.ValidateMobile(m_Owner);
