@@ -113,10 +113,10 @@ namespace Server.Spells.Seventh
             else if (!SpellHelper.CheckTravel(Caster, map, loc, TravelCheckType.GateTo))
             {
             }
-            else if (map == Map.Felucca && Caster is PlayerMobile && ((PlayerMobile)Caster).Young)
-            {
-                Caster.SendLocalizedMessage(1049543); // You decide against traveling to Felucca while you are still young.
-            }
+          //  else if (map == Map.Felucca && Caster is PlayerMobile && ((PlayerMobile)Caster).Young)
+          //  {
+           //     Caster.SendLocalizedMessage(1049543); // You decide against traveling to Felucca while you are still young.
+           // }
             else if (Caster.Criminal)
             {
                 Caster.SendLocalizedMessage(1005561, "", 0x22); // Thou'rt a criminal and cannot escape so easily.
