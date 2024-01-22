@@ -9,13 +9,12 @@ namespace Server.Items
 {
 	public abstract class BaseMagicCheese : Item
 	{
-		public virtual int Bonus { get { return 0; } }
-		public virtual StatType Type { get { return StatType.Str; } }
+		public virtual int Bonus => 0;
+		public virtual StatType Type => StatType.Str;
 
 		public BaseMagicCheese(int hue) : base(0x97E)
 		{
 			Weight = 1.0;
-			// Hue = hue;  they're all alike - yellowish
 
 			if (Utility.RandomBool())
 				Hue = Utility.RandomList(0x135, 0xcd, 0x38, 0x3b, 0x42, 0x4f, 0x11e, 0x60, 0x317, 0x10, 0x136, 0x1f9,
@@ -69,15 +68,13 @@ namespace Server.Items
 
 	public class FromageDeChevreMagic : BaseMagicCheese
 	{
-		public override int Bonus { get { return 5; } }
-		public override StatType Type { get { return StatType.Str; } }
-
-		//public override int LabelNumber{ get{ return 1041073; } } // prized fish
+		public override int Bonus => 5;
+		public override StatType Type => StatType.Str;
 
 		[Constructable]
 		public FromageDeChevreMagic() : base(151)
 		{
-			this.Name = "crottin de Chavignol (mariczny owczy ser)";
+			Name = "crottin de Chavignol (magiczny owczy ser)";
 		}
 
 		public FromageDeChevreMagic(Serial serial) : base(serial)
@@ -101,15 +98,13 @@ namespace Server.Items
 
 	public class FromageDeVacheMagic : BaseMagicCheese
 	{
-		public override int Bonus { get { return 5; } }
-		public override StatType Type { get { return StatType.Int; } }
-
-		//public override int LabelNumber{ get{ return 1041073; } } // prized fish
+		public override int Bonus => 5;
+		public override StatType Type => StatType.Int;
 
 		[Constructable]
 		public FromageDeVacheMagic() : base(151)
 		{
-			this.Name = "Maroille (magiczny krowi ser)";
+			Name = "Maroille (magiczny krowi ser)";
 		}
 
 		public FromageDeVacheMagic(Serial serial) : base(serial)
@@ -133,15 +128,14 @@ namespace Server.Items
 
 	public class FromageDeBrebisMagic : BaseMagicCheese
 	{
-		public override int Bonus { get { return 5; } }
-		public override StatType Type { get { return StatType.Dex; } }
+		public override int Bonus => 5;
+		public override StatType Type => StatType.Dex;
 
-		//public override int LabelNumber{ get{ return 1041073; } } // prized fish
 
 		[Constructable]
 		public FromageDeBrebisMagic() : base(151)
 		{
-			this.Name = "Roquefort (magiczny owczy ser)";
+			Name = "Roquefort (magiczny owczy ser)";
 		}
 
 		public FromageDeBrebisMagic(Serial serial) : base(serial)
