@@ -5119,6 +5119,8 @@ namespace Server.Mobiles
             }
 
             KillersLuck = 0;
+
+            NGenerateExtraLoot();
         }
 
         public virtual void GenerateLoot()
