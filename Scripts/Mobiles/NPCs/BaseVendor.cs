@@ -852,7 +852,7 @@ namespace Server.Mobiles
 
 			if (!CheckVendorAccess(from))
 			{
-				Say(501522); // I shall not treat with scum like thee!
+				//Say(501522); // I shall not treat with scum like thee!
 				return;
 			}
 
