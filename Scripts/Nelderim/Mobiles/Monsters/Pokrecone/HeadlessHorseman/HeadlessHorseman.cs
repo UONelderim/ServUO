@@ -6,10 +6,7 @@ namespace Server.Mobiles
     [CorpseName("zwloki Ichabod Crane")]
     public class HeadlessHorseman : BaseCreature
     {
-        public override bool ShowFameTitle
-        {
-            get { return false; }
-        }
+        public override bool ShowFameTitle => false;
 
         public override int GetIdleSound()
         {
@@ -73,11 +70,6 @@ namespace Server.Mobiles
             SetSkill(SkillName.Tactics, 120.0);
             SetSkill(SkillName.Swords, 120.0);
 
-            Fame = 30000;
-            Karma = -30000;
-
-            VirtualArmor = 50;
-
             PlateChest chest = new PlateChest();
             chest.Hue = 1345;
             chest.Movable = false;
@@ -126,30 +118,10 @@ namespace Server.Mobiles
             new Nightmare().Rider = this;
         }
 
-        public override bool BardImmune
-        {
-            get { return true; }
-        }
-
-        public override bool AutoDispel
-        {
-            get { return true; }
-        }
-
-        public override Poison PoisonImmune
-        {
-            get { return Poison.Lethal; }
-        }
-
-        public override bool AlwaysMurderer
-        {
-            get { return true; }
-        }
-
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.Average, 2);
-        }
+        public override bool BardImmune => true;
+        public override bool AutoDispel => true;
+        public override Poison PoisonImmune => Poison.Lethal;
+        public override bool AlwaysMurderer => true;
 
         public override void OnDamage(int amount, Mobile from, bool willKill)
         {
@@ -161,13 +133,12 @@ namespace Server.Mobiles
                 PlaySound(0x491);
 
                 if (0.05 > Utility.RandomDouble())
-                    Timer.DelayCall(TimeSpan.FromSeconds(1.0), new TimerStateCallback(ThrowPumpkin_Callback), from);
+                    Timer.DelayCall(TimeSpan.FromSeconds(1.0), () => ThrowPumpkin_Callback(from));
             }
         }
 
-        public virtual void ThrowPumpkin_Callback(object state)
+        public virtual void ThrowPumpkin_Callback(Mobile from)
         {
-            Mobile from = (Mobile)state;
             Map map = from.Map;
 
             if (map == null)

@@ -2,15 +2,9 @@ namespace Server.Items
 {
     public class HessianSword : Longsword
     {
-        public override int InitMinHits
-        {
-            get { return 25; }
-        }
+        public override int InitMinHits => 25;
 
-        public override int InitMaxHits
-        {
-            get { return 25; }
-        }
+        public override int InitMaxHits => 25;
 
         [Constructable]
         public HessianSword()

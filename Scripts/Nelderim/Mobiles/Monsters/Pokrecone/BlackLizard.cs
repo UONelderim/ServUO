@@ -4,140 +4,122 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("zwloki czarnej jaszczurki")]
-    public class BlackLizard : BaseCreature
-    {
-        [Constructable]
-        public BlackLizard() : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
-        {
-            Name = "czarna jaszczurka";
-            Body = 206;
-            Hue = 2406;
-            BaseSoundID = 0x5A;
+	[CorpseName("zwloki czarnej jaszczurki")]
+	public class BlackLizard : BaseCreature
+	{
+		[Constructable]
+		public BlackLizard() : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.2, 0.4)
+		{
+			Name = "czarna jaszczurka";
+			Body = 206;
+			Hue = 2406;
+			BaseSoundID = 0x5A;
 
-            SetStr(131, 152);
-            SetDex(48, 61);
-            SetInt(29, 32);
+			SetStr(131, 152);
+			SetDex(48, 61);
+			SetInt(29, 32);
 
-            SetHits(128, 145);
-            SetMana(100);
+			SetHits(128, 145);
+			SetMana(100);
 
-            SetDamage(2, 5);
+			SetDamage(2, 5);
 
-            SetDamageType(ResistanceType.Physical, 100);
+			SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 30);
+			SetResistance(ResistanceType.Physical, 30);
 
-            SetSkill(SkillName.MagicResist, 68.9, 79.3);
-            SetSkill(SkillName.Tactics, 45.6, 54.4);
-            SetSkill(SkillName.Wrestling, 50.7, 59.6);
+			SetSkill(SkillName.MagicResist, 68.9, 79.3);
+			SetSkill(SkillName.Tactics, 45.6, 54.4);
+			SetSkill(SkillName.Wrestling, 50.7, 59.6);
 
-            Fame = 1000;
-            Karma = -1000;
+			Tamable = false;
+			PackGold(3, 29);
 
-            Tamable = false;
+			SetSpecialAbility(SpecialAbility.DragonBreath); //Custom definition?
+		}
 
+		public override void AlterMeleeDamageFrom(Mobile from, ref int damage)
+		{
+			if (from == null || from == this) return;
 
-            PackGold(3, 29);
-            
-            SetSpecialAbility(SpecialAbility.DragonBreath); //Custom definition?
-        }
+			PlayerMobile pm = from as PlayerMobile;
+			if (pm == null) return;
 
-        public override void AlterMeleeDamageFrom(Mobile from, ref int damage)
-        {
-            if (from == null || from == this) return;
+			Item weapon1 = pm.FindItemOnLayer(Layer.OneHanded);
+			Item weapon2 = pm.FindItemOnLayer(Layer.TwoHanded);
 
-            PlayerMobile pm = from as PlayerMobile;
-            if (pm == null) return;
+			if (weapon1 is BaseKnife || weapon2 is BaseKnife)
+			{
+				damage *= 2;
+			}
+			else if (weapon1 is BaseSpear || weapon2 is BaseSpear)
+			{
+				damage *= 4;
+			}
+		}
 
-            Item weapon1 = pm.FindItemOnLayer(Layer.OneHanded);
-            Item weapon2 = pm.FindItemOnLayer(Layer.TwoHanded);
+		public override FoodType FavoriteFood => FoodType.Meat | FoodType.Fish;
+		public override int Hides => 12;
+		public override HideType HideType => HideType.Spined;
 
-            if (weapon1 is BaseKnife || weapon2 is BaseKnife)
-            {
-                damage *= 2;
-            }
-            else if (weapon1 is BaseSpear || weapon2 is BaseSpear)
-            {
-                damage *= 4;
-            }
-        }
+		public override void OnDamagedBySpell(Mobile from)
+		{
+			if (from != null && from.Alive && 0.4 > Utility.RandomDouble())
+			{
+				ShootGrassWind(from);
+			}
+		}
 
-        public override FoodType FavoriteFood
-        {
-            get { return FoodType.Meat | FoodType.Fish; }
-        }
+		public void ShootGrassWind(Mobile to)
+		{
+			MovingEffect(to, 0x0C4E, 10, 0, false, false);
+			DoHarmful(to);
+			PlaySound(0x32F); // f_shush
+			AOS.Damage(to, this, 8, 100, 0, 0, 0, 0);
+		}
 
-        public override int Hides
-        {
-            get { return 12; }
-        }
+		private static ResistanceMod _fanMod = new ResistanceMod(ResistanceType.Physical, -50);
 
-        public override HideType HideType
-        {
-            get { return HideType.Spined; }
-        }
+		public override void OnGotMeleeAttack(Mobile attacker)
+		{
+			base.OnGotMeleeAttack(attacker);
+			if (_fannedMobiles.Contains(attacker)) return;
 
-        public override void OnDamagedBySpell(Mobile from)
-        {
-            if (from != null && from.Alive && 0.4 > Utility.RandomDouble())
-            {
-                ShootGrassWind(from);
-            }
-        }
+			if (0.05 > Utility.RandomDouble())
+			{
+				attacker.SendMessage("Czarna jaszczurka rozpyla gaz, ktory redukuje twoja odpornosc fizyczna.");
 
-        public void ShootGrassWind(Mobile to)
-        {
-            MovingEffect(to, 0x0C4E, 10, 0, false, false);
-            DoHarmful(to);
-            PlaySound(0x32F); // f_shush
-            AOS.Damage(to, this, 8, 100, 0, 0, 0, 0);
-        }
-        
-        private static ResistanceMod _fanMod = new ResistanceMod(ResistanceType.Physical, -50);
+				attacker.FixedParticles(0x3779, 10, 30, 0x34, EffectLayer.RightFoot);
+				attacker.PlaySound(0x1E6);
+				attacker.AddResistanceMod(_fanMod);
 
-        public override void OnGotMeleeAttack(Mobile attacker)
-        {
-            base.OnGotMeleeAttack(attacker);
-            if (_fannedMobiles.Contains(attacker)) return;
+				Timer.DelayCall(TimeSpan.FromSeconds(10.0), () =>ExpireFan(attacker));
+				_fannedMobiles.Add(attacker);
+			}
+		}
 
-            if (0.05 > Utility.RandomDouble())
-            {
-                attacker.SendMessage("Czarna jaszczurka rozpyla gaz, ktory redukuje twoja odpornosc fizyczna.");
-                
-                attacker.FixedParticles(0x3779, 10, 30, 0x34, EffectLayer.RightFoot);
-                attacker.PlaySound(0x1E6);
-                attacker.AddResistanceMod(_fanMod);
+		private static List<Mobile> _fannedMobiles = new List<Mobile>();
 
-                Timer.DelayCall(TimeSpan.FromSeconds(10.0), new TimerStateCallback(ExpireFan), attacker);
-                _fannedMobiles.Add(attacker);
-            }
-        }
+		private void ExpireFan(Mobile m)
+		{
+			m?.RemoveResistanceMod(_fanMod);
+			_fannedMobiles.Remove(m);
+		}
 
-        private static List<Mobile> _fannedMobiles = new List<Mobile>();
+		public BlackLizard(Serial serial) : base(serial)
+		{
+		}
 
-        private void ExpireFan(object state)
-        {
-            Mobile m = state as Mobile;
-            if(m != null)
-                m.RemoveResistanceMod(_fanMod);
-            _fannedMobiles.Remove(m);
-        }
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+			writer.Write((int)0);
+		}
 
-        public BlackLizard(Serial serial) : base(serial)
-        {
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-            writer.Write((int)0);
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-            int version = reader.ReadInt();
-        }
-    }
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+			int version = reader.ReadInt();
+		}
+	}
 }

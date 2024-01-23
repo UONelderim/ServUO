@@ -85,10 +85,7 @@ namespace Server.Mobiles
             }
         }
 
-        public override bool CanRummageCorpses
-        {
-            get { return true; }
-        }
+        public override bool CanRummageCorpses => true;
 
         public override int GetAttackSound()
         {

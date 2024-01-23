@@ -39,11 +39,6 @@ namespace Server.Mobiles
             SetSkill(SkillName.Tactics, 90.1, 100.0);
             SetSkill(SkillName.Wrestling, 90.1, 100.0);
 
-            Fame = 24000;
-            Karma = -24000;
-
-            VirtualArmor = 90;
-
             PackItem(new Longsword());
         }
 
@@ -52,43 +47,12 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool CanRummageCorpses
-        {
-            get { return true; }
-        }
-
-        public override Poison HitPoison
-        {
-            get { return Poison.Lethal; }
-        }
-
-        public override Poison PoisonImmune
-        {
-            get { return Poison.Lethal; }
-        }
-
-        public override double HitPoisonChance
-        {
-            get { return 0.8; }
-        }
-
-        public override int TreasureMapLevel
-        {
-            get { return 5; }
-        }
-
-        public override int Meat
-        {
-            get { return 1; }
-        }
-
-        public override void GenerateLoot()
-        {
-            this.AddLoot(LootPack.UltraRich, 4);
-            this.AddLoot(LootPack.FilthyRich, 2);
-            this.AddLoot(LootPack.Rich);
-            this.AddLoot(LootPack.MedScrolls, 2);
-        }
+        public override bool CanRummageCorpses => true;
+        public override Poison HitPoison => Poison.Lethal;
+        public override Poison PoisonImmune => Poison.Lethal;
+        public override double HitPoisonChance => 0.8;
+        public override int TreasureMapLevel => 5;
+        public override int Meat => 1;
 
         public override void Serialize(GenericWriter writer)
         {

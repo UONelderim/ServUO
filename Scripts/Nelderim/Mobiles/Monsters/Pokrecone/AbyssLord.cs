@@ -1,8 +1,3 @@
-//=================================================
-//This script was created by Gizmo's Uo Quest Maker
-//This script was created on 16/03/2020 14:46:01
-//=================================================
-
 namespace Server.Mobiles
 {
     [CorpseName("resztki wladcy otchlani")]
@@ -45,16 +40,6 @@ namespace Server.Mobiles
             SetSkill(SkillName.Hiding, 95.1, 100.0);
             SetSkill(SkillName.Necromancy, 95.1, 100.0);
             SetSkill(SkillName.DetectHidden, 95.1, 100.0);
-
-            Fame = 2400;
-            Karma = -2400;
-        }
-
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.Potions, 5);
-            AddLoot(LootPack.SuperBoss, 1);
-            AddLoot(LootPack.FilthyRich, 2);
         }
 
         public AbyssLord(Serial serial) : base(serial)

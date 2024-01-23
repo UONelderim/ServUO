@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -32,27 +31,9 @@ namespace Server.Mobiles
             SetSkill(SkillName.MagicResist, 50.3, 80.0);
             SetSkill(SkillName.Tactics, 120.1, 160.0);
             SetSkill(SkillName.Wrestling, 125.1, 160.0);
-
-            Fame = 2500;
-            Karma = 0;
-
-            VirtualArmor = 50;
         }
-
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.Gems, (Utility.RandomMinMax(2, 3)));
-        }
-
-        public override int Meat
-        {
-            get { return 1; }
-        }
-
-        public override int Hides
-        {
-            get { return 8; }
-        }
+        public override int Meat => 1;
+        public override int Hides => 8;
 
         public RustMonster(Serial serial) : base(serial)
         {

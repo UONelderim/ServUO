@@ -14,30 +14,15 @@ namespace Server.Mobiles
         private List<WolfPup> _pups;
         private int _maxPups = Utility.RandomMinMax(2, 5);
 
-        public override int Meat
-        {
-            get { return 1; }
-        }
-
-        public override int Hides
-        {
-            get { return 3; }
-        }
-
-        public override FoodType FavoriteFood
-        {
-            get { return FoodType.Meat; }
-        }
-
-        public override PackInstinct PackInstinct
-        {
-            get { return PackInstinct.Canine; }
-        }
+        public override int Meat => 1;
+        public override int Hides => 3;
+        public override FoodType FavoriteFood => FoodType.Meat;
+        public override PackInstinct PackInstinct => PackInstinct.Canine;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public bool RespawnPups
         {
-            get { return false; }
+            get => false;
             set
             {
                 if (value) SpawnBabies();
@@ -71,11 +56,6 @@ namespace Server.Mobiles
             SetSkill(SkillName.MagicResist, 30.6, 45.0);
             SetSkill(SkillName.Tactics, 50.1, 70.0);
             SetSkill(SkillName.Wrestling, 60.1, 75.0);
-
-            Fame = 300;
-            Karma = 0;
-
-            VirtualArmor = 22;
 
             Tamable = false;
 
@@ -218,28 +198,19 @@ namespace Server.Mobiles
     [CorpseName("a young wolf corpse")]
     public class WolfPup : BaseCreature
     {
-        public override int Meat
-        {
-            get { return 1; }
-        }
+        public override int Meat => 1;
 
-        public override FoodType FavoriteFood
-        {
-            get { return FoodType.Meat; }
-        }
+        public override FoodType FavoriteFood => FoodType.Meat;
 
-        public override PackInstinct PackInstinct
-        {
-            get { return PackInstinct.Canine; }
-        }
+        public override PackInstinct PackInstinct => PackInstinct.Canine;
 
         private MotherWolf m_mommy;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public MotherWolf Mother
         {
-            get { return m_mommy; }
-            set { m_mommy = value; }
+            get => m_mommy;
+            set => m_mommy = value;
         }
 
         [Constructable]
@@ -265,11 +236,6 @@ namespace Server.Mobiles
             SetSkill(SkillName.MagicResist, 22.1, 47.0);
             SetSkill(SkillName.Tactics, 19.2, 31.0);
             SetSkill(SkillName.Wrestling, 19.2, 46.0);
-
-            Fame = 100;
-            Karma = 100;
-
-            VirtualArmor = 10;
 
             Tamable = true;
             ControlSlots = 1;
