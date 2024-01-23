@@ -1,9 +1,11 @@
+using Server.Items;
+
 namespace Server.Mobiles
 {
 	[CorpseName("zwloki wielkiego pelzacza")]
 	public class BagusGagakCreeper : BaseCreature
 	{
-		public override bool IgnoreYoungProtection { get { return Core.ML; } }
+		public override bool IgnoreYoungProtection => true;
 
 		[Constructable]
 		public BagusGagakCreeper() : base(AIType.AI_Mage, FightMode.Closest, 12, 1, 0.2, 0.4)
@@ -50,22 +52,19 @@ namespace Server.Mobiles
 			AddLoot(LootPack.UltraRich, 2);
 		}
 
-		/* wylaczamy artefakty poki co: sa to artefakty jak z Doom
-		public override void OnDeath( Container c )
+		public override void OnDeath(Container c)
 		{
-			base.OnDeath( c );
+			base.OnDeath(c);
 
-			if ( !Summoned && !NoKillAwards && DemonKnight.CheckArtifactChance( this ) )
-				DemonKnight.DistributeArtifact( this );
-		} */
+			ArtifactHelper.ArtifactDistribution(this);
+		}
 
-		public override bool BardImmune { get { return !Core.SE; } }
-		public override bool Unprovokable { get { return Core.SE; } }
-		public override bool Uncalmable { get { return Core.SE; } }
-		public override Poison PoisonImmune { get { return Poison.Lethal; } }
-		public override Poison HitPoison { get { return Poison.Deadly; } }
-
-		public override int TreasureMapLevel { get { return 1; } }
+		public override bool BardImmune => false;
+		public override bool Unprovokable => true;
+		public override bool Uncalmable => true;
+		public override Poison PoisonImmune => Poison.Lethal;
+		public override Poison HitPoison => Poison.Deadly;
+		public override int TreasureMapLevel => 1;
 
 		public BagusGagakCreeper(Serial serial) : base(serial)
 		{
