@@ -38,10 +38,10 @@ namespace Server.Engines.Quests
         public ItsHammerTimeQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Blacksmith, 50, "Gorge's Shop", 1077733, 1077734));
+            AddObjective(new ApprenticeObjective(SkillName.Blacksmith, 50, "Sklep Georga", 1077733, 1077734));
 
-            // 1077733 By using George’s forge and anvil, he is able to give you advice as you create blacksmithing items. This helps you hone your Blacksmithing skill a bit faster than normal.
-            // 1077734 You’re not using George’s forge and anvil any longer, and he cannot give you advice. Your Blacksmithing learning potential is no longer enhanced. 
+            // 1077733 By using Georgeâ€™s forge and anvil, he is able to give you advice as you create blacksmithing items. This helps you hone your Blacksmithing skill a bit faster than normal.
+            // 1077734 Youâ€™re not using Georgeâ€™s forge and anvil any longer, and he cannot give you advice. Your Blacksmithing learning potential is no longer enhanced. 
 
             AddReward(new BaseReward(typeof(HammerOfHephaestus), 1077740));
         }
@@ -95,7 +95,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public GeorgeHephaestus()
-            : base("George Hephaestus", "The Blacksmith Instructor")
+            : base("George Hephaestus", "- nauczyciel kowalstwa")
         {
             SetSkill(SkillName.ArmsLore, 120.0, 120.0);
             SetSkill(SkillName.Blacksmith, 120.0, 120.0);

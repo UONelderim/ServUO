@@ -22,7 +22,7 @@ namespace Server.Engines.Quests
 
         /* You have not achieved the rank of Apprentice Rogue (for Hiding). Talk to me when you feel you have accomplished 
         this. */
-        public override object Uncomplete => 10778170;
+        public override object Uncomplete => 1078170;
 
         /* Not bad at all. You have learned to control your fear of the dark and you are becoming one with the shadows. If 
         you haven't already talked to Jun, I advise you do so. Jun can teach you how to stealth undetected. Hiding and 
@@ -34,7 +34,7 @@ namespace Server.Engines.Quests
         public BecomingOneWithTheShadowsQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Hiding, 50, "Haven Dojo", 1078166, 1078167));
+            AddObjective(new ApprenticeObjective(SkillName.Hiding, 50, "Skryto-nie-zabojstwo", 1078166, 1078167));
 
             // 1078166 You feel you can easily slip into the shadows here. Your ability to hide is enhanced in this area.
             // 1078167 You feel it is more difficult to hide here. Your ability to hide is no longer enhanced.
@@ -86,7 +86,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Chiyo()
-            : base("Chiyo", "The Hiding Instructor")
+            : base("Chiyo", "- nauczyciel ukrywania")
         {
             SetSkill(SkillName.Hiding, 120.0, 120.0);
             SetSkill(SkillName.Tracking, 120.0, 120.0);

@@ -36,7 +36,7 @@ namespace Server.Engines.Quests
         public WalkingSilentlyQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Stealth, 50, "Old Haven Training", 1078176, 1078177));
+            AddObjective(new ApprenticeObjective(SkillName.Stealth, 50, "Trening w Starym Haven", 1078176, 1078177));
 
             // 1078176 You feel you can easily slip into the shadows and walk silently here. Your ability to Stealth is enhanced in this area.
             // 1078177 You feel it is more difficult to Stealth here. Your ability to Stealth is no longer enhanced.
@@ -88,7 +88,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Jun()
-            : base("Jun", "The Stealth Instructor")
+            : base("Jun", "- nauczyciel skradania sie")
         {
             SetSkill(SkillName.Hiding, 120.0, 120.0);
             SetSkill(SkillName.Tactics, 120.0, 120.0);

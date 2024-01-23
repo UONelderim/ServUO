@@ -8,7 +8,7 @@ namespace Server.Engines.Quests
         public StitchInTimeQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(FancyDress), "fancy dress", 1, 0x1EFF));
+            AddObjective(new ObtainObjective(typeof(FancyDress), "wymyslna sukienka", 1, 0x1EFF));
 
             AddReward(new BaseReward(typeof(OldRing), 1075524)); // an old ring
             AddReward(new BaseReward(typeof(OldNecklace), 1075525)); // an old necklace
@@ -49,7 +49,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Clairesse()
-            : base("Clairesse", "the servant")
+            : base("Clairesse", "- sluzka")
         {
         }
 

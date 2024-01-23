@@ -40,7 +40,7 @@ namespace Server.Engines.Quests
         public KnowThineEnemyQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Anatomy, 50, "Old Haven Training", 1077686, 1077687));
+            AddObjective(new ApprenticeObjective(SkillName.Anatomy, 50, "Strening w Starym Haven", 1077686, 1077687));
 
             // 1077686 You feel very willing to learn more about the body. Your ability to hone your Anatomy skill is enhanced in this area.
             // 1077687 You lose your ambition to learn about the body. Your Anatomy skill learning potential is no longer enhanced.
@@ -92,7 +92,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public AndreasVesalius()
-            : base("Andreas Vesalius", "The Anatomy Instructor")
+            : base("Andreas Vesalius", "- nauczyciel anatomii")
         {
             SetSkill(SkillName.Anatomy, 120.0, 120.0);
             SetSkill(SkillName.Parry, 120.0, 120.0);

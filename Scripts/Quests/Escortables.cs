@@ -512,7 +512,7 @@ namespace Server.Engines.Quests
         [Constructable]
         public EscortableMerchant()
         {
-            Title = "the merchant";
+            Title = "- kupiec";
             SetSkill(SkillName.ItemID, 55.0, 78.0);
             SetSkill(SkillName.ArmsLore, 55, 78);
         }
@@ -560,7 +560,7 @@ namespace Server.Engines.Quests
         [Constructable]
         public EscortableMage()
         {
-            Title = "the mage";
+            Title = "- mag";
 
             SetSkill(SkillName.EvalInt, 80.0, 100.0);
             SetSkill(SkillName.Inscribe, 80.0, 100.0);
@@ -612,7 +612,7 @@ namespace Server.Engines.Quests
         [Constructable]
         public EscortableMessenger()
         {
-            Title = "the messenger";
+            Title = "- poslaniec";
         }
 
         public EscortableMessenger(Serial serial)
@@ -662,7 +662,7 @@ namespace Server.Engines.Quests
         [Constructable]
         public EscortableSeekerOfAdventure()
         {
-            Title = "the seeker of adventure";
+            Title = "- poszukiwacz przygod";
         }
 
         public EscortableSeekerOfAdventure(Serial serial)
@@ -714,7 +714,7 @@ namespace Server.Engines.Quests
         [Constructable]
         public EscortableNoble()
         {
-            Title = "the noble";
+            Title = "- szlachcic";
 
             SetSkill(SkillName.Parry, 80.0, 100.0);
             SetSkill(SkillName.Swords, 80.0, 100.0);
@@ -772,9 +772,9 @@ namespace Server.Engines.Quests
         public EscortableBrideGroom()
         {
             if (Female)
-                Title = "the bride";
+                Title = "- panna mloda";
             else
-                Title = "the groom";
+                Title = "- pan mlody";
         }
 
         public EscortableBrideGroom(Serial serial)
@@ -830,7 +830,7 @@ namespace Server.Engines.Quests
         [Constructable]
         public EscortablePeasant()
         {
-            Title = "the peasant";
+            Title = "- biedny podroznik";
         }
 
         public EscortablePeasant(Serial serial)
@@ -884,7 +884,7 @@ namespace Server.Engines.Quests
         public EscortableHealer()
             : base()
         {
-            Title = "the wandering healer";
+            Title = "- wedrowny uzdrowiciel";
 
             AI = AIType.AI_Mage;
             ActiveSpeed = 0.2;
