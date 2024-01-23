@@ -8,7 +8,7 @@ namespace Server.Engines.Quests
         public ChopChopOnTheDoubleQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(Log), "log", 60, 0x1BDD));
+            AddObjective(new ObtainObjective(typeof(Log), "kloda", 60, 0x1BDD));
 
             AddReward(new BaseReward(typeof(LumberjacksSatchel), 1074282)); // Craftsman's Satchel
         }
@@ -45,7 +45,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Hargrove()
-            : base("Hargrove", "the lumberjack")
+            : base("Hargrove", "- lokalny drwal")
         {
         }
 

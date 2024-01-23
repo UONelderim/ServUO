@@ -36,7 +36,7 @@ namespace Server.Engines.Quests
         public EyesOfRangerQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Tracking, 50, "Enhanced Tracking Skill", 1078215, 1078216));
+            AddObjective(new ApprenticeObjective(SkillName.Tracking, 50, "Ulepszona umiejetnosc sledzenia", 1078215, 1078216));
 
             // 1078215 You feel you can track creatures here with ease. Your Tracking skill is enhanced in this area.
             // 1078216 You feel it is more difficult to track creatures here. Your Tracking skill is no longer enhanced.
@@ -88,7 +88,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Walker()
-            : base("Walker", "The Tracking Instructor")
+            : base("Walker", "- nauczyciel sledzenia")
         {
             SetSkill(SkillName.Hiding, 120.0, 120.0);
             SetSkill(SkillName.Tactics, 120.0, 120.0);

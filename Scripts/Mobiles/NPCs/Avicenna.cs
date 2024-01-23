@@ -42,7 +42,7 @@ namespace Server.Engines.Quests
         public BruisesBandagesAndBloodQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Healing, 50, "Old Haven Training", 1077677, 1077678));
+            AddObjective(new ApprenticeObjective(SkillName.Healing, 50, "Trening w Starym Haven", 1077677, 1077678));
 
             // 1077677 You feel fresh and are eager to heal wounds. Your ability to improve your Healing skill is enhanced in this area.
             // 1077678 You feel as if you've seen enough blood to last a lifetime. Your Healing learning potential is no longer enhanced.
@@ -94,7 +94,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Avicenna()
-            : base("Avicenna", "The Healing Instructor")
+            : base("Avicenna", "- nauczyciel Leczenia")
         {
             SetSkill(SkillName.Anatomy, 120.0, 120.0);
             SetSkill(SkillName.Parry, 120.0, 120.0);

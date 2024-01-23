@@ -11,7 +11,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public Vagabond()
-            : base("the vagabond")
+            : base("- wloczega")
         {
             SetSkill(SkillName.Begging, 64.0, 100.0);
             SetSkill(SkillName.ItemID, 60.0, 83.0);

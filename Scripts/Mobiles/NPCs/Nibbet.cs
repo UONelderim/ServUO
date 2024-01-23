@@ -8,7 +8,7 @@ namespace Server.Engines.Quests
         public ClockworkPuzzleQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(ClockParts), "clock parts", 5, 0x104F));
+            AddObjective(new ObtainObjective(typeof(ClockParts), "czesci zegara", 5, 0x104F));
 
             AddReward(new BaseReward(typeof(TinkersSatchel), 1074282)); // Craftsman's Satchel
         }
@@ -46,7 +46,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Nibbet()
-            : base("Nibbet", "the tinker")
+            : base("Nibbet", "- lokalny majster")
         {
         }
 

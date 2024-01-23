@@ -8,7 +8,7 @@ namespace Server.Engines.Quests
         public ComfortableSeatingQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(BambooChair), "straw chair", 1, 0xB5B));
+            AddObjective(new ObtainObjective(typeof(BambooChair), "slomiane krzeslo", 1, 0xB5B));
 
             AddReward(new BaseReward(typeof(CarpentersSatchel), 1074282)); // Craftsman's Satchel
         }
@@ -45,7 +45,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Lowel()
-            : base("Lowel", "the carpenter")
+            : base("Lowel", "- lokalny stolarz")
         {
         }
 
