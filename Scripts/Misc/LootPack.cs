@@ -43,24 +43,34 @@ namespace Server
 
             System.Collections.Generic.List<DamageStore> list = dead.GetLootingRights();
 
-            DamageStore highest = null;
+            DamageStore highestDamage = null;
 
             for (int i = 0; i < list.Count; ++i)
             {
                 DamageStore ds = list[i];
 
-                if (ds.m_HasRight && (highest == null || ds.m_Damage > highest.m_Damage))
+                if (ds.m_HasRight && (highestDamage == null || ds.m_Damage > highestDamage.m_Damage))
                 {
-                    highest = ds;
+                    highestDamage = ds;
                 }
             }
-
-            if (highest == null)
+            
+            if (highestDamage == null)
             {
                 return 0;
             }
 
-            return GetLuckChance(highest.m_Mobile, dead);
+            var dmgReq = 0.5 * highestDamage.m_Damage;
+            var highestLuckKiller = highestDamage.m_Mobile;
+            foreach (var ds in list)
+            {
+	            if (ds.m_HasRight && ds.m_Damage >= dmgReq && ds.m_Mobile.Luck > highestDamage.m_Mobile.Luck)
+	            {
+		            highestLuckKiller = ds.m_Mobile;
+	            }
+            }
+
+            return GetLuckChance(highestLuckKiller, dead);
         }
 
         public static bool CheckLuck(int chance)
