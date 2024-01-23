@@ -8,7 +8,7 @@ namespace Server.Mobiles
 	public class Reptalon : BaseMount
 	{
 		[Constructable]
-		public Reptalon() : base( "stara chimera", 0x114, 0x3E90, AIType.AI_Mage, FightMode.Closest, 12, 1, 0.3, 0.35 )
+		public Reptalon() : base( "stara chimera", 0x114, 0x3E90, AIType.AI_Melee, FightMode.Closest, 12, 1, 0.3, 0.35 )
 		{
 			BaseSoundID = 0x4FB;
 
