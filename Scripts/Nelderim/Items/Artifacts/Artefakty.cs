@@ -1092,13 +1092,13 @@ namespace Server.Items
 
         public static double GetArtifactChance(BaseCreature boss)
         {
-            double luck = LootPack.GetLuckChanceForKiller(boss);
-
-            if (luck > 1200)
-                luck = 1200;
+	        //Luck chance is non linear
+	        //5136 for 1200 luck
+	        //10000 for 4000 luck
+            double luckChance = LootPack.GetLuckChanceForKiller(boss);
 
             double chance = ArtifactMonster.GetChanceFor(boss);
-            chance *= 1.0 + 0.25 * (luck / 1200); // luck zwieksza szanse maksymalnie do 125% 
+            chance *= 1.0 + luckChance / 10000;
 
             return chance;
         }
