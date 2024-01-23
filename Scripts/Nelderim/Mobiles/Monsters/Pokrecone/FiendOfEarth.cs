@@ -29,62 +29,17 @@ namespace Server.Mobiles
             SetSkill(SkillName.MagicResist, 100.0);
             SetSkill(SkillName.Tactics, 97.6, 100.0);
             SetSkill(SkillName.Wrestling, 97.6, 100.0);
-
-            Fame = 22500;
-            Karma = -22500;
-
-            VirtualArmor = 70;
         }
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.UltraRich, 3);
-        }
-
-        public override bool AlwaysMurderer
-        {
-            get { return true; }
-        }
-
-        public override bool AutoDispel
-        {
-            get { return true; }
-        }
-
-        public override double AutoDispelChance
-        {
-            get { return 1.0; }
-        }
-
-        public override bool BardImmune
-        {
-            get { return !Core.SE; }
-        }
-
-        public override bool Unprovokable
-        {
-            get { return Core.SE; }
-        }
-
-        public override bool Uncalmable
-        {
-            get { return Core.SE; }
-        }
-
-        public override Poison PoisonImmune
-        {
-            get { return Poison.Deadly; }
-        }
-
-        public override bool ShowFameTitle
-        {
-            get { return false; }
-        }
-
-        public override bool ClickTitle
-        {
-            get { return false; }
-        }
+        public override bool AlwaysMurderer => true;
+        public override bool AutoDispel => true;
+        public override double AutoDispelChance => 1.0;
+        public override bool BardImmune => false;
+        public override bool Unprovokable => true;
+        public override bool Uncalmable => true;
+        public override Poison PoisonImmune => Poison.Deadly;
+        public override bool ShowFameTitle => false;
+        public override bool ClickTitle => false;
 
         public FiendOfEarth(Serial serial) : base(serial)
         {

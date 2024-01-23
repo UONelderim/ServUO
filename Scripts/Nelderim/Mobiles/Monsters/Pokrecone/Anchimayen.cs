@@ -35,9 +35,6 @@ namespace Server.Mobiles
             SetSkill(SkillName.Tactics, 45.4, 59.7);
             SetSkill(SkillName.Wrestling, 49.4, 58.1);
 
-            Fame = 1500;
-            Karma = -1500;
-
             PackGold(80, 125);
 
             if (Utility.RandomDouble() < 0.10)
@@ -50,15 +47,8 @@ namespace Server.Mobiles
                 PackItem(Loot.RandomGem());
         }
 
-        public override bool BleedImmune
-        {
-            get { return true; }
-        }
-
-        public override Poison PoisonImmune
-        {
-            get { return Poison.Regular; }
-        }
+        public override bool BleedImmune => true;
+        public override Poison PoisonImmune => Poison.Regular;
 
         private DateTime m_NextRadiation;
 

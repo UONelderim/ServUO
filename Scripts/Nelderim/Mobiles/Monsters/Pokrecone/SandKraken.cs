@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Server.Items;
 
@@ -35,9 +34,6 @@ namespace Server.Mobiles
             SetSkill(SkillName.MagicResist, 15.1, 20.0);
             SetSkill(SkillName.Tactics, 85.1, 89.7);
             SetSkill(SkillName.Wrestling, 85.1, 91.5);
-
-            Fame = 12000;
-            Karma = -12000;
 
             Tamable = true;
             ControlSlots = 4;
@@ -80,37 +76,8 @@ namespace Server.Mobiles
             return 653;
         }
 
-        public override FoodType FavoriteFood
-        {
-            get { return FoodType.Meat | FoodType.Fish; }
-        }
+        public override FoodType FavoriteFood => FoodType.Meat | FoodType.Fish;
 
-        public void SandAttack(Mobile m)
-        {
-            DoHarmful(m);
-
-            m.FixedParticles(0x36B0, 10, 25, 9540, 2413, 0, EffectLayer.Waist);
-
-            new InternalTimer(m, this).Start();
-        }
-
-        private class InternalTimer : Timer
-        {
-            private Mobile m_Mobile, m_From;
-
-            public InternalTimer(Mobile m, Mobile from) : base(TimeSpan.FromSeconds(1.0))
-            {
-                m_Mobile = m;
-                m_From = from;
-                Priority = TimerPriority.TwoFiftyMS;
-            }
-
-            protected override void OnTick()
-            {
-                m_Mobile.PlaySound(0x4CF);
-                AOS.Damage(m_Mobile, m_From, Utility.RandomMinMax(1, 30), 90, 10, 0, 0, 0);
-            }
-        }
 
         public override void OnGaveMeleeAttack(Mobile defender)
         {

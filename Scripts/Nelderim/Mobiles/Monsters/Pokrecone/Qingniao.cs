@@ -34,9 +34,6 @@ namespace Server.Mobiles
             SetSkill(SkillName.Tactics, 45.6, 54.4);
             SetSkill(SkillName.Wrestling, 50.7, 59.6);
 
-            Fame = 4000;
-            Karma = -4000;
-
             switch (Utility.Random(6))
             {
                 case 0:
@@ -85,20 +82,9 @@ namespace Server.Mobiles
             return 0x081;
         }
 
-        public override MeatType MeatType
-        {
-            get { return MeatType.Bird; }
-        }
-
-        public override int Meat
-        {
-            get { return 1; }
-        }
-
-        public override int Feathers
-        {
-            get { return 25; }
-        }
+        public override MeatType MeatType => MeatType.Bird;
+        public override int Meat => 1;
+        public override int Feathers => 25;
 
         public override void OnThink()
         {
@@ -141,7 +127,7 @@ namespace Server.Mobiles
 
         #region Suppress
 
-        private static Dictionary<Mobile, Timer> m_Suppressed = new Dictionary<Mobile, Timer>();
+        private static Dictionary<Mobile, Timer> m_Suppressed = new ();
         private DateTime m_NextSuppress;
 
         public void Suppress(Mobile target)
