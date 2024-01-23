@@ -29,12 +29,16 @@ namespace Server.Items
 
 		public virtual bool Apply(Mobile from)
 		{
-			bool applied = SpellHelper.AddStatOffset(from, Type, Bonus, TimeSpan.FromMinutes(5.0));
+			var modName = $"[Ser] {Type}";
+			if (from.GetStatMod(modName) != null)
+			{
+				from.SendLocalizedMessage(
+					1062927); // You have eaten one of these recently and eating another would provide no benefit.
+				return false;
+			}
 
-			if (!applied)
-				from.SendLocalizedMessage(502173); // You are already under a similar effect.
-
-			return applied;
+			from.AddStatMod(new StatMod(Type, modName, Bonus, TimeSpan.FromMinutes(5.0)));
+			return true;
 		}
 
 		public override void OnDoubleClick(Mobile from)
@@ -45,9 +49,8 @@ namespace Server.Items
 			}
 			else if (Apply(from))
 			{
-				from.FixedEffect(0x375A, 10, 15);
-				from.PlaySound(0x1E7);
-				Delete();
+				from.PlaySound(0x1EE);
+				Consume();
 			}
 		}
 
