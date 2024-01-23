@@ -21,12 +21,14 @@ namespace Server.Items
         public override double DefaultWeight => 1.0;
         public virtual bool Apply(Mobile from)
         {
-            bool applied = Spells.SpellHelper.AddStatOffset(from, Type, Bonus, TimeSpan.FromMinutes(1.0));
-
-            if (!applied)
-                from.SendLocalizedMessage(502173); // You are already under a similar effect.
-
-            return applied;
+	        var modName = $"[Fish] {Type}";
+	        if ( from.GetStatMod( modName ) != null )
+	        {
+		        from.SendLocalizedMessage( 1062927 ); // You have eaten one of these recently and eating another would provide no benefit.
+		        return false;
+	        }
+	        from.AddStatMod( new StatMod( Type, modName, Bonus, TimeSpan.FromMinutes( 5.0 ) ) );
+            return true;
         }
 
         public override void OnDoubleClick(Mobile from)
@@ -40,7 +42,7 @@ namespace Server.Items
                 from.FixedEffect(0x375A, 10, 15);
                 from.PlaySound(0x1E7);
                 from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 501774); // You swallow the fish whole!
-                Delete();
+                Consume();
             }
         }
 
