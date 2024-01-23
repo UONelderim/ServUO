@@ -12,9 +12,9 @@ namespace Server.ACC.CSS.Systems.Undead
 {
 	public class UndeadLureStoneSpell : UndeadSpell
 	{
-		private static readonly SpellInfo m_Info = new SpellInfo(
-			"Gnijące Zwłoki", "Ekhen Karyen Uus Corps",
-			//SpellCircle.Second,
+		private static readonly SpellInfo m_Info = new(
+			"Gnijące Zwłoki",
+			"Ekhen Karyen Uus Corps",
 			269,
 			9020,
 			false,
@@ -32,17 +32,16 @@ namespace Server.ACC.CSS.Systems.Undead
 		public override double RequiredSkill => 15.0;
 		public override int RequiredMana => 80;
 
-		public override bool CheckCast()
-		{
-			if (!base.CheckCast())
-				return false;
-
-			return true;
-		}
-
 		public override void OnCast()
 		{
-			Caster.Target = new InternalTarget(this);
+			Caster.BeginTarget(12,
+				true,
+				TargetFlags.None,
+				((_, o) =>
+				{
+					if (o is IPoint3D p)
+						Target(p);
+				}));
 		}
 
 		public void Target(IPoint3D p)
@@ -59,78 +58,45 @@ namespace Server.ACC.CSS.Systems.Undead
 
 				Effects.PlaySound(p, Caster.Map, 0x243);
 
-				int stonex;
-				int stoney;
-				int stonez;
-
 				Point3D loc = new Point3D(p.X, p.Y, p.Z);
-				Item item = new InternalItema(loc, Caster.Map, Caster);
-				stonex = p.X;
-				stoney = p.Y - 1;
-				stonez = p.Z;
-				Point3D loca = new Point3D(stonex, stoney, stonez);
-				Item itema = new InternalItemb(loca, Caster.Map, Caster);
+				new LureStone(this, loc, Caster);
+				loc.Y -= 1;
+				new Decor(loc, Caster);
 			}
 
 			FinishSequence();
 		}
 
 		[DispellableField]
-		private class InternalItema : Item
+		private class LureStone : Item
 		{
-			private Timer m_Timer;
-			private DateTime m_End;
-			private readonly Mobile m_Owner;
+			private readonly Mobile _Owner;
+			private readonly UndeadLureStoneSpell _Spell;
 
 			public override bool BlocksFit => true;
 
-			public InternalItema(Point3D loc, Map map, Mobile caster) : base(0x3D64)
+			public LureStone(UndeadLureStoneSpell spell, Point3D loc, Mobile caster) : base(0x3D64)
 			{
-				m_Owner = caster;
-				Visible = false;
+				_Spell = spell;
+				_Owner = caster;
+				Visible = true;
 				Movable = false;
 				Hue = 1429;
 				Name = "gnijące zwłoki";
-				MoveToWorld(loc, map);
-
-				if (caster.InLOS(this))
-					Visible = true;
-				else
-					Delete();
-
-				if (Deleted)
-					return;
-
-				m_Timer = new InternalTimer(this, TimeSpan.FromSeconds(20.0));
-				m_Timer.Start();
-
-				m_End = DateTime.Now + TimeSpan.FromSeconds(20.0);
+				MoveToWorld(loc, caster.Map);
+				Timer.DelayCall(TimeSpan.FromSeconds(20.0), Delete);
 			}
 
-			public InternalItema(Serial serial) : base(serial)
+			public LureStone(Serial serial) : base(serial)
 			{
 			}
 
 			public override bool HandlesOnMovement => true;
 
-			public override void Serialize(GenericWriter writer)
-			{
-				base.Serialize(writer);
-				writer.Write(1); // version
-				writer.Write(m_End - DateTime.Now);
-			}
-
 			public override void Deserialize(GenericReader reader)
 			{
 				base.Deserialize(reader);
-				int version = reader.ReadInt();
-
-				TimeSpan duration = reader.ReadTimeSpan();
-
-				m_Timer = new InternalTimer(this, duration);
-				m_Timer.Start();
-
-				m_End = DateTime.Now + duration;
+				Delete();
 			}
 
 			public override void OnMovement(Mobile m, Point3D oldLocation)
@@ -140,148 +106,49 @@ namespace Server.ACC.CSS.Systems.Undead
 					return;
 				}
 
-				if (m_Owner != null)
+				if (_Owner == null) return;
+				if (!m.InRange(this, Core.GlobalMaxUpdateRange)) return;
+				
+				double castValue = _Owner.Skills[_Spell.CastSkill].Value;
+				double damageValue = _Owner.Skills[_Spell.DamageSkill].Value / 10;
+
+				if (m is BaseCreature cret)
 				{
-					if (m.InRange(this, 1000))
+					if (castValue >= 99.9 && (cret.Combatant == null || !cret.Combatant.Alive ||
+					                      cret.Combatant.Deleted))
 					{
-						double tamer = m_Owner.Skills[SkillName.SpiritSpeak].Value;
-						double bonus = m_Owner.Skills[SkillName.Necromancy].Value / 10;
-
-						BaseCreature cret = m as BaseCreature;
-						if (cret != null)
-						{
-							if (tamer >= 99.9 && (cret.Combatant == null || !cret.Combatant.Alive || cret.Combatant.Deleted))
-							{
-								cret.TargetLocation = new Point2D(this.X, this.Y);
-							}
-							else if (cret.Tamable && (cret.Combatant == null || !cret.Combatant.Alive || cret.Combatant.Deleted))
-							{
-								if (cret.MinTameSkill <= (tamer + bonus) + 0.1)
-									cret.TargetLocation = new Point2D(this.X, this.Y);
-							}
-						}
+						cret.TargetLocation = new Point2D(X, Y);
 					}
-				}
-			}
-
-			public override void OnAfterDelete()
-			{
-				base.OnAfterDelete();
-
-				if (m_Timer != null)
-					m_Timer.Stop();
-			}
-
-			private class InternalTimer : Timer
-			{
-				private readonly InternalItema m_Item;
-
-				public InternalTimer(InternalItema item, TimeSpan duration) : base(duration)
-				{
-					m_Item = item;
-				}
-
-				protected override void OnTick()
-				{
-					m_Item.Delete();
+					else if (cret.Tamable && (cret.Combatant == null || !cret.Combatant.Alive ||
+					                          cret.Combatant.Deleted))
+					{
+						if (cret.MinTameSkill <= (castValue + damageValue) + 0.1)
+							cret.TargetLocation = new Point2D(X, Y);
+					}
 				}
 			}
 		}
 
 		[DispellableField]
-		private class InternalItemb : Item
+		private class Decor : Item
 		{
-			private Timer m_Timer;
-			private DateTime m_End;
-
 			public override bool BlocksFit => true;
 
-			public InternalItemb(Point3D loc, Map map, Mobile caster) : base(0x3D64)
+			public Decor(Point3D loc, Mobile caster) : base(0x3D64)
 			{
-				Visible = false;
 				Movable = false;
-
-				MoveToWorld(loc, map);
-
-				if (caster.InLOS(this))
-					Visible = true;
-				else
-					Delete();
-
-				if (Deleted)
-					return;
-
-				m_Timer = new InternalTimer(this, TimeSpan.FromSeconds(30.0));
-				m_Timer.Start();
-
-				m_End = DateTime.Now + TimeSpan.FromSeconds(30.0);
+				MoveToWorld(loc, caster.Map);
+				Timer.DelayCall(TimeSpan.FromSeconds(20.0), Delete);
 			}
 
-			public InternalItemb(Serial serial) : base(serial)
+			public Decor(Serial serial) : base(serial)
 			{
-			}
-
-			public override void Serialize(GenericWriter writer)
-			{
-				base.Serialize(writer);
-				writer.Write(1); // version
-				writer.Write(m_End - DateTime.Now);
 			}
 
 			public override void Deserialize(GenericReader reader)
 			{
 				base.Deserialize(reader);
-				int version = reader.ReadInt();
-				TimeSpan duration = reader.ReadTimeSpan();
-
-				m_Timer = new InternalTimer(this, duration);
-				m_Timer.Start();
-
-				m_End = DateTime.Now + duration;
-			}
-
-			public override void OnAfterDelete()
-			{
-				base.OnAfterDelete();
-
-				if (m_Timer != null)
-					m_Timer.Stop();
-			}
-
-			private class InternalTimer : Timer
-			{
-				private readonly InternalItemb m_Item;
-
-				public InternalTimer(InternalItemb item, TimeSpan duration) : base(duration)
-				{
-					m_Item = item;
-				}
-
-				protected override void OnTick()
-				{
-					m_Item.Delete();
-				}
-			}
-		}
-
-		private class InternalTarget : Target
-		{
-			private readonly UndeadLureStoneSpell m_Owner;
-
-			public InternalTarget(UndeadLureStoneSpell owner) : base(12, true, TargetFlags.None)
-			{
-				m_Owner = owner;
-			}
-
-			protected override void OnTarget(Mobile from, object o)
-			{
-				if (o is IPoint3D)
-					m_Owner.Target((IPoint3D)o);
-			}
-
-			protected override void OnTargetFinish(Mobile from)
-			{
-				m_Owner.FinishSequence();
+				Delete();
 			}
 		}
 	}
