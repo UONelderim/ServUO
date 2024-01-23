@@ -1,218 +1,201 @@
-using System;
 using Server.Network;
+using System;
 
 namespace Server.Items
 {
-	public abstract class BaseMagicFish : Item
-	{
-		public override double DefaultWeight
-		{
-			get { return 1.0; }
-		}
+    public abstract class BaseMagicFish : Item
+    {
+        public BaseMagicFish(int hue)
+            : base(0xDD6)
+        {
+            Hue = hue;
+        }
 
-		public BaseMagicFish( int hue ) : base( 0xDD6 )
-		{
-			Hue = hue;
-		}
+        public BaseMagicFish(Serial serial)
+            : base(serial)
+        {
+        }
 
-		public BaseMagicFish( Serial serial ) : base( serial )
-		{
-		}
+        public virtual int Bonus => 0;
+        public virtual StatType Type => StatType.Str;
+        public override double DefaultWeight => 1.0;
+        public virtual bool Apply(Mobile from)
+        {
+            bool applied = Spells.SpellHelper.AddStatOffset(from, Type, Bonus, TimeSpan.FromMinutes(1.0));
 
-		public override void Serialize( GenericWriter writer )
-		{
-			base.Serialize( writer );
+            if (!applied)
+                from.SendLocalizedMessage(502173); // You are already under a similar effect.
 
-			writer.Write( (int) 0 ); // version
-		}
+            return applied;
+        }
 
-		public override void Deserialize( GenericReader reader )
-		{
-			base.Deserialize( reader );
+        public override void OnDoubleClick(Mobile from)
+        {
+            if (!IsChildOf(from.Backpack))
+            {
+                from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
+            }
+            else if (Apply(from))
+            {
+                from.FixedEffect(0x375A, 10, 15);
+                from.PlaySound(0x1E7);
+                from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 501774); // You swallow the fish whole!
+                Delete();
+            }
+        }
 
-			int version = reader.ReadInt();
-		}
-	}
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
 
-	public class PrizedFish : BaseMagicFish
-	{
-		public override void OnDoubleClick( Mobile from )
-		{
-			if ( !IsChildOf( from.Backpack ) )
-			{
-				from.SendLocalizedMessage( 1042038 ); // You must have the object in your backpack to use it.
-			}
-			else if ( from.GetStatMod( "[Ser] INT" ) != null )
-			{
-				from.SendLocalizedMessage( 1062927 ); // You have eaten one of these recently and eating another would provide no benefit.
-			}
-			else
-			{
-				from.PlaySound( 0x1EE );
-				from.AddStatMod( new StatMod( StatType.Int, "[Ser] INT", 5, TimeSpan.FromMinutes( 5.0 ) ) );
+            writer.Write(0); // version
+        }
 
-				Consume();
-			}
-		}
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
 
-		public override int LabelNumber{ get{ return 1041073; } } // prized fish
+            int version = reader.ReadInt();
+        }
+    }
 
-		[Constructable]
-		public PrizedFish() : base( 51 )
-		{
-		}
+    public class PrizedFish : BaseMagicFish
+    {
+        [Constructable]
+        public PrizedFish()
+            : base(51)
+        {
+        }
 
-		public PrizedFish( Serial serial ) : base( serial )
-		{
-		}
+        public PrizedFish(Serial serial)
+            : base(serial)
+        {
+        }
 
-		public override void Serialize( GenericWriter writer )
-		{
-			base.Serialize( writer );
+        public override int Bonus => 5;
+        public override StatType Type => StatType.Int;
+        public override int LabelNumber => 1041073;// prized fish
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
 
-			writer.Write( (int) 0 ); // version
-		}
+            writer.Write(0); // version
+        }
 
-		public override void Deserialize( GenericReader reader )
-		{
-			base.Deserialize( reader );
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
 
-			int version = reader.ReadInt();
+            int version = reader.ReadInt();
 
-			if ( Hue == 151 )
-				Hue = 51;
-		}
-	}
+            if (Hue == 151)
+                Hue = 51;
+        }
+    }
 
-	public class WondrousFish : BaseMagicFish
-	{
-		public override void OnDoubleClick( Mobile from )
-		{
-			if ( !IsChildOf( from.Backpack ) )
-			{
-				from.SendLocalizedMessage( 1042038 ); // You must have the object in your backpack to use it.
-			}
-			else if ( from.GetStatMod( "[Ser] DEX" ) != null )
-			{
-				from.SendLocalizedMessage( 1062927 ); // You have eaten one of these recently and eating another would provide no benefit.
-			}
-			else
-			{
-				from.PlaySound( 0x1EE );
-				from.AddStatMod( new StatMod( StatType.Dex, "[Ser] DEX", 5, TimeSpan.FromMinutes( 5.0 ) ) );
+    public class WondrousFish : BaseMagicFish
+    {
+        [Constructable]
+        public WondrousFish()
+            : base(86)
+        {
+        }
 
-				Consume();
-			}
-		}
+        public WondrousFish(Serial serial)
+            : base(serial)
+        {
+        }
 
-		public override int LabelNumber{ get{ return 1041074; } } // wondrous fish
+        public override int Bonus => 5;
+        public override StatType Type => StatType.Dex;
+        public override int LabelNumber => 1041074;// wondrous fish
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
 
-		[Constructable]
-		public WondrousFish() : base( 86 )
-		{
-		}
+            writer.Write(0); // version
+        }
 
-		public WondrousFish( Serial serial ) : base( serial )
-		{
-		}
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
 
-		public override void Serialize( GenericWriter writer )
-		{
-			base.Serialize( writer );
+            int version = reader.ReadInt();
 
-			writer.Write( (int) 0 ); // version
-		}
+            if (Hue == 286)
+                Hue = 86;
+        }
+    }
 
-		public override void Deserialize( GenericReader reader )
-		{
-			base.Deserialize( reader );
+    public class TrulyRareFish : BaseMagicFish
+    {
+        [Constructable]
+        public TrulyRareFish()
+            : base(76)
+        {
+        }
 
-			int version = reader.ReadInt();
+        public TrulyRareFish(Serial serial)
+            : base(serial)
+        {
+        }
 
-			if ( Hue == 286 )
-				Hue = 86;
-		}
-	}
+        public override int Bonus => 5;
+        public override StatType Type => StatType.Str;
+        public override int LabelNumber => 1041075;// truly rare fish
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
 
-	public class TrulyRareFish : BaseMagicFish
-	{
-		public override void OnDoubleClick( Mobile from )
-		{
-			if ( !IsChildOf( from.Backpack ) )
-			{
-				from.SendLocalizedMessage( 1042038 ); // You must have the object in your backpack to use it.
-			}
-			else if ( from.GetStatMod( "[Ser] STR" ) != null )
-			{
-				from.SendLocalizedMessage( 1062927 ); // You have eaten one of these recently and eating another would provide no benefit.
-			}
-			else
-			{
-				from.PlaySound( 0x1EE );
-				from.AddStatMod( new StatMod( StatType.Str, "[Ser] STR", 5, TimeSpan.FromMinutes( 5.0 ) ) );
+            writer.Write(0); // version
+        }
 
-				Consume();
-			}
-		}
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
 
-		public override int LabelNumber{ get{ return 1041075; } } // truly rare fish
+            int version = reader.ReadInt();
 
-		[Constructable]
-		public TrulyRareFish() : base( 76 )
-		{
-		}
+            if (Hue == 376)
+                Hue = 76;
+        }
+    }
 
-		public TrulyRareFish( Serial serial ) : base( serial )
-		{
-		}
+    public class PeculiarFish : BaseMagicFish
+    {
+        [Constructable]
+        public PeculiarFish()
+            : base(66)
+        {
+        }
 
-		public override void Serialize( GenericWriter writer )
-		{
-			base.Serialize( writer );
+        public PeculiarFish(Serial serial)
+            : base(serial)
+        {
+        }
 
-			writer.Write( (int) 0 ); // version
-		}
+        public override int LabelNumber => 1041076;// highly peculiar fish
+        public override bool Apply(Mobile from)
+        {
+            from.Stam += 10;
+            return true;
+        }
 
-		public override void Deserialize( GenericReader reader )
-		{
-			base.Deserialize( reader );
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
 
-			int version = reader.ReadInt();
+            writer.Write(0); // version
+        }
 
-			if ( Hue == 376 )
-				Hue = 76;
-		}
-	}
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
 
-	public class PeculiarFish : BaseMagicFish
-	{
-		public override int LabelNumber{ get{ return 1041076; } } // highly peculiar fish
+            int version = reader.ReadInt();
 
-		[Constructable]
-		public PeculiarFish() : base( 66 )
-		{
-		}
-
-		public PeculiarFish( Serial serial ) : base( serial )
-		{
-		}
-		
-
-		public override void Serialize( GenericWriter writer )
-		{
-			base.Serialize( writer );
-
-			writer.Write( (int) 0 ); // version
-		}
-
-		public override void Deserialize( GenericReader reader )
-		{
-			base.Deserialize( reader );
-
-			int version = reader.ReadInt();
-
-			if ( Hue == 266 )
-				Hue = 66;
-		}
-	}
+            if (Hue == 266)
+                Hue = 66;
+        }
+    }
 }
