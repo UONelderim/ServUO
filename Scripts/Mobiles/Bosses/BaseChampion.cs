@@ -195,8 +195,10 @@ namespace Server.Mobiles
                     m.AddToBackpack(item);
             }
 
-            if (item is PowerScroll && m is PlayerMobile)
+            if (item is PowerScroll ps && m is PlayerMobile)
             {
+	            if(ps.Value > 110d)
+		            Console.WriteLine($"PS: {m.Serial} {m.Name}: {ps.Value} {ps.Skill.ToString()}");
                 PlayerMobile pm = (PlayerMobile)m;
 
                 for (int j = 0; j < pm.JusticeProtectors.Count; ++j)
@@ -236,6 +238,9 @@ namespace Server.Mobiles
                             else
                                 prot.AddToBackpack(powerScroll);
                         }
+                        if(powerScroll is PowerScroll protPs && protPs.Value > 110d)
+	                        Console.WriteLine(
+		                        $"PS Prot: {m.Serial} {m.Name}: {protPs.Value} {protPs.Skill.ToString()}");
                     }
                 }
             }
