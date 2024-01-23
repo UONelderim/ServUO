@@ -96,7 +96,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 				BlessedFor = owner;
 				Name = "Lodowy Łuk";
 
-				double time = (owner.Skills[SkillName.Archery].Value / 20.0) * RangerHuntersAimSpell.GetScalar(owner);
+				double time = (owner.Skills[SkillName.Archery].Value / 20.0);
 				m_Expire = DateTime.Now + TimeSpan.FromMinutes((int)time);
 				m_Timer = new InternalTimer(this, m_Expire);
 
