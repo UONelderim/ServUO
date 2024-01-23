@@ -59,7 +59,7 @@ namespace Server.Mobiles
 		public override bool AutoDispel => false;
 		public override Poison PoisonImmune => Poison.Lethal;
 		public override Poison HitPoison => Poison.Lethal;
-		public override double WeaponAbilityChance => 0.4
+		public override double WeaponAbilityChance => 0.4;
 
 		public EvilSpellbook(Serial serial) : base(serial)
 		{
