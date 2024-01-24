@@ -7,7 +7,7 @@ namespace Server.Engines.Quests.Collector
     {
         [Constructable]
         public GabrielPiete()
-            : base("the renowned minstrel")
+            : base("- znany bard")
         {
         }
 

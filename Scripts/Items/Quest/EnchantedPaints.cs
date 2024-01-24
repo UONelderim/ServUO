@@ -43,7 +43,7 @@ namespace Server.Engines.Quests.Collector
                 {
                     if (qs.IsObjectiveInProgress(typeof(CaptureImagesObjective)))
                     {
-                        player.SendAsciiMessage(0x59, "Target the creature whose image you wish to create.");
+                        player.SendAsciiMessage(0x59, "Wybierz istote, ktorej wizerunek chcesz stworzyc.");
                         player.Target = new InternalTarget(this);
 
                         return;
