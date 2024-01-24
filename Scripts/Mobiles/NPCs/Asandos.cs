@@ -8,7 +8,7 @@ namespace Server.Engines.Quests
         public BakersDozenQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(CookieMix), "cookie mix", 5, 0x103F));
+            AddObjective(new ObtainObjective(typeof(CookieMix), "mieszanka do ciastek", 5, 0x103F));
 
             AddReward(new BaseReward(typeof(ChefsSatchel), 1074282)); // Craftsman's Satchel
         }
@@ -47,7 +47,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Asandos()
-            : base("Asandos", "the chef")
+            : base("Asandos", "- kucharz")
         {
         }
 

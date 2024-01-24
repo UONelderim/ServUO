@@ -8,7 +8,7 @@ namespace Server.Engines.Quests
         public DeliciousFishesQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(Fish), "fish", 5, 0x9CC));
+            AddObjective(new ObtainObjective(typeof(Fish), "ryba", 5, 0x9CC));
 
             AddReward(new BaseReward(typeof(PeppercornFishsteak), 3, 1075557)); // peppercorn fishsteak
         }
@@ -52,7 +52,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Norton()
-            : base("Norton", "the fisher")
+            : base("Norton", "- lokalny polawiacz ryb")
         {
         }
 
