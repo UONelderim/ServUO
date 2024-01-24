@@ -41,7 +41,7 @@ namespace Server.Engines.Quests
         public TheArtOfWarQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Tactics, 50, "Old Haven Training", 1077668, 1077669));
+            AddObjective(new ApprenticeObjective(SkillName.Tactics, 50, "Trening w Starym Haven", 1077668, 1077669));
 
             // 1077668 You feel like practicing combat here would really help you learn to fight better. Your ability to raise your Tactics skill is enhanced in this area.
             // 1077669 You feel less able to absorb the lessons of combat. Your Tactics learning potential is no longer enhanced.
@@ -93,7 +93,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public AldenArmstrong()
-            : base("Alden Armstrong", "The Tactics Instructor")
+            : base("Alden Armstrong", "- nauczyciel taktyki")
         {
             SetSkill(SkillName.Anatomy, 120.0, 120.0);
             SetSkill(SkillName.Parry, 120.0, 120.0);

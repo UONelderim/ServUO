@@ -39,7 +39,7 @@ namespace Server.Engines.Quests
         public ThouAndThineShieldQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Parry, 50, "Old Haven Training", 1077705, 1077706));
+            AddObjective(new ApprenticeObjective(SkillName.Parry, 50, "Trening w Starym Haven", 1077705, 1077706));
 
             // 1077705 You feel as light as a butterfly, as if you could block incoming blows easily. Your ability to hone your Parrying skill is enhanced in this area. 
             // 1077706 Your inner butterfly is tired. You're not particularly able to block incoming blows well. Your Parrying learning potential is no longer enhanced.
@@ -91,7 +91,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public TylAriadne()
-            : base("Tyl Ariadne", "The Parrying Instructor")
+            : base("Tyl Ariadne", "- nauczyciel parowania")
         {
             SetSkill(SkillName.Anatomy, 120.0, 120.0);
             SetSkill(SkillName.Parry, 120.0, 120.0);

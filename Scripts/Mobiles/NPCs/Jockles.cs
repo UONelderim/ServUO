@@ -42,7 +42,7 @@ namespace Server.Engines.Quests
         public TheWayOfTheBladeQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Swords, 50, "Old Haven Training", 1077659, 1077660));
+            AddObjective(new ApprenticeObjective(SkillName.Swords, 50, "Trening w Starym Haven", 1077659, 1077660));
 
             // 1077659 You feel much more attuned to your blade. Your ability to hone your Swordsmanship skill is enhanced in this area.
             // 1077660 You feel less attuned to your blade. Your Swordsmanship learning potential is no longer enhanced.
@@ -94,7 +94,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Jockles()
-            : base("Jockles", "The Swordsmanship Instructor")
+            : base("Jockles", "- nauczyciel walki mieczami")
         {
             SetSkill(SkillName.Anatomy, 120.0, 120.0);
             SetSkill(SkillName.Parry, 120.0, 120.0);
