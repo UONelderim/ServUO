@@ -9,7 +9,7 @@
 
 namespace Server.Items
 {
-	public class FairyTree_Addon : BaseAddon
+	public class FairyTreeAddon : BaseAddon
 	{
 		private static readonly int[,] m_AddOnSimpleComponents =
 		{
@@ -34,16 +34,10 @@ namespace Server.Items
 		};
 
 
-		public override BaseAddonDeed Deed
-		{
-			get
-			{
-				return new FairyTree_AddonDeed();
-			}
-		}
+		public override BaseAddonDeed Deed => new FairyTreeDeed();
 
 		[Constructable]
-		public FairyTree_Addon()
+		public FairyTreeAddon()
 		{
 			for (int i = 0; i < m_AddOnSimpleComponents.Length / 4; i++)
 				AddComponent(new AddonComponent(m_AddOnSimpleComponents[i, 0]), m_AddOnSimpleComponents[i, 1],
@@ -60,7 +54,7 @@ namespace Server.Items
 			AddComplexComponent(this, 2586, -4, 4, 26, 0, 1, "", 1); // 40
 		}
 
-		public FairyTree_Addon(Serial serial) : base(serial)
+		public FairyTreeAddon(Serial serial) : base(serial)
 		{
 		}
 
@@ -103,23 +97,17 @@ namespace Server.Items
 		}
 	}
 
-	public class FairyTree_AddonDeed : BaseAddonDeed
+	public class FairyTreeDeed : BaseAddonDeed
 	{
-		public override BaseAddon Addon
-		{
-			get
-			{
-				return new FairyTree_Addon();
-			}
-		}
+		public override BaseAddon Addon => new FairyTreeAddon();
 
 		[Constructable]
-		public FairyTree_AddonDeed()
+		public FairyTreeDeed()
 		{
-			Name = "FairyTree_";
+			Name = "FairyTree";
 		}
 
-		public FairyTree_AddonDeed(Serial serial) : base(serial)
+		public FairyTreeDeed(Serial serial) : base(serial)
 		{
 		}
 

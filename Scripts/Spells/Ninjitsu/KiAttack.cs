@@ -42,7 +42,7 @@ namespace Server.Spells.Ninjitsu
 
         public override bool Validate(Mobile from)
         {
-            if (from.Hidden && from.AllowedStealthSteps > 0)
+            if (from.Hidden && from.IsStealthing)
             {
                 from.SendLocalizedMessage(1063127); // You cannot use this ability while in stealth mode.
                 return false;

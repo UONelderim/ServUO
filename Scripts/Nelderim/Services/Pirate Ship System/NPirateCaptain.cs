@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using Server.Items;
@@ -11,28 +10,10 @@ namespace Server.Mobiles
     public class NPirateCaptain : BaseCreature
     {
         private NPirateShip m_PirateShip;
-        public bool active;
-        public static string path = "Data/The Pirate Captain/Speech.txt";
         private DateTime nextAbilityTime;
-        private StreamReader text;
-        private string curspeech;
 
         public override bool InitialInnocent => true;
 
-        [CommandProperty(AccessLevel.GameMaster)]
-        public bool Active
-        {
-            get => active;
-            set
-            {
-                if (!value)
-                {
-                    CloseStream();
-                }
-
-                active = value;
-            }
-        }
 
         [Constructable]
         public NPirateCaptain() : base(AIType.AI_Archer, FightMode.Closest, 15, 1, 0.2, 0.4)
@@ -42,12 +23,10 @@ namespace Server.Mobiles
             if (Female == Utility.RandomBool())
             {
                 Body = 0x191;
-                //Name = NameList.RandomName("female");
             }
             else
             {
                 Body = 0x190;
-                //Name = NameList.RandomName("male");
             }
 
             Title = "- kapitan piratow";
@@ -83,8 +62,6 @@ namespace Server.Mobiles
             SetSkill(SkillName.Tactics, 85.0, 87.5);
             SetSkill(SkillName.Wrestling, 35.0, 37.5);
             SetSkill(SkillName.Archery, 85.0, 87.5);
-
-            active = true;
 
             CanSwim = true;
             CantWalk = true;
@@ -173,51 +150,8 @@ namespace Server.Mobiles
                     PlaySound(Female ? 818 : 1092);
                     Say("*pociaga nosem*");
                     break;
-                default:
-                    break;
             }
         }
-
-        public void CloseStream()
-        {
-            if (text != null)
-            {
-                try
-                {
-                    text.Close();
-                    text = null;
-                }
-                catch
-                {
-                }
-
-                ;
-            }
-        }
-
-        public void Talk()
-        {
-            if (text == null) return;
-
-            try
-            {
-                curspeech = text.ReadLine();
-
-                if (curspeech != null)
-                    Say(curspeech);
-            }
-            catch
-            {
-                CloseStream();
-            }
-        }
-
-        public override void OnDeath(Container c)
-        {
-            CloseStream();
-            base.OnDeath(c);
-        }
-
 
         public override bool PlayerRangeSensitive => false;
 
@@ -228,40 +162,32 @@ namespace Server.Mobiles
         private ArrayList list;
         private Direction enemydirection;
 
+        private static readonly String[] _Texts =
+        {
+	        "Szykuj sie na spotkanie z piratem brachu!", "Madrze to atakowac pirata, glupcze?",
+	        "Glebia morza cie pochlonie!", "Czas umierac zawszony kundlu!", "Szykuj sie na zemste mych kamratow!"
+        };
+
         public override void OnThink()
         {
-            if (DateTime.Now >= nextAbilityTime && Combatant == null && active == true)
+            if (DateTime.Now >= nextAbilityTime && Combatant == null)
             {
                 nextAbilityTime = DateTime.Now + TimeSpan.FromSeconds(Utility.RandomMinMax(4, 6));
-
-                if (text == null)
-                {
-                    try
-                    {
-                        text = new StreamReader(path, System.Text.Encoding.Default, false);
-                    }
-                    catch
-                    {
-                    }
-                }
-
-                Talk();
+                Say(Utility.RandomList(_Texts));
                 Emote();
             }
 
 
             if (boatspawn == false)
             {
-                Map map = this.Map;
+                Map map = Map;
                 if (map == null)
                     return;
-                this.Z = -5;
+                Z = -5;
                 m_PirateShip = new NPirateShip();
-                Point3D loc = this.Location;
-                Point3D loccrew = this.Location;
 
-                loc = new Point3D(this.X, this.Y - 1, this.Z);
-                loccrew = new Point3D(this.X, this.Y - 1, this.Z + 1);
+                Point3D loc = new Point3D(X, Y - 1, Z);
+                Point3D loccrew = new Point3D(X, Y - 1, Z + 1);
 
                 m_PirateShip.MoveToWorld(loc, map);
                 boatspawn = true;
@@ -303,7 +229,7 @@ namespace Server.Mobiles
                     if (targets.Count > 0)
                     {
                         m_enemyboat = enemy as BaseBoat;
-                        enemydirection = this.GetDirectionTo(m_enemyboat);
+                        enemydirection = GetDirectionTo(m_enemyboat);
                         break;
                     }
                 }
@@ -342,14 +268,14 @@ namespace Server.Mobiles
 
                 m_PirateShip.StartMove(Direction.North, true);
 
-                if (m_PirateShip != null && this.InRange(m_enemyboat, 10) && m_PirateShip.IsMoving == true)
+                if (m_PirateShip != null && InRange(m_enemyboat, 10) && m_PirateShip.IsMoving)
                 {
                     m_PirateShip.StopMove(false);
                 }
             }
             else
             {
-                if (m_PirateShip != null && m_PirateShip.IsMoving == true)
+                if (m_PirateShip != null && m_PirateShip.IsMoving)
                 {
                     m_PirateShip.StopMove(false);
                 }
@@ -360,13 +286,9 @@ namespace Server.Mobiles
         {
             if (m_PirateShip != null)
             {
-                new SinkTimer(m_PirateShip, this).Start();
+                new SinkTimer(m_PirateShip).Start();
             }
-
-            {
-                CloseStream();
-                base.OnDelete();
-            }
+            base.OnDelete();
         }
 
         public override void OnDamagedBySpell(Mobile caster)
@@ -407,7 +329,7 @@ namespace Server.Mobiles
                     int y = target.Y + Utility.Random(3) - 1;
                     int z = map.GetAverageZ(x, y);
 
-                    if (validLocation = map.CanFit(x, y, this.Z, 16, false, false))
+                    if (validLocation = map.CanFit(x, y, Z, 16, false, false))
                         loc = new Point3D(x, y, Z);
                     else if (validLocation = map.CanFit(x, y, z, 16, false, false))
                         loc = new Point3D(x, y, z);
@@ -423,7 +345,7 @@ namespace Server.Mobiles
         {
             if (m_PirateShip != null)
             {
-                new SinkTimer(m_PirateShip, this).Start();
+                new SinkTimer(m_PirateShip).Start();
             }
 
             return true;
@@ -433,12 +355,10 @@ namespace Server.Mobiles
         {
             private BaseBoat m_Boat;
             private int m_Count;
-            private Mobile m_mobile;
 
-            public SinkTimer(BaseBoat boat, Mobile m) : base(TimeSpan.FromSeconds(1.0), TimeSpan.FromSeconds(4.0))
+            public SinkTimer(BaseBoat boat) : base(TimeSpan.FromSeconds(1.0), TimeSpan.FromSeconds(4.0))
             {
                 m_Boat = boat;
-                m_mobile = m;
 
                 Priority = TimerPriority.TwoFiftyMS;
             }
@@ -500,8 +420,7 @@ namespace Server.Mobiles
             base.Serialize(writer);
             writer.Write((Item)m_PirateShip);
             writer.Write((bool)boatspawn);
-            writer.Write((int)0);
-            writer.Write((bool)active);
+            writer.Write((int)1);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -511,7 +430,8 @@ namespace Server.Mobiles
             boatspawn = reader.ReadBool();
             int version = reader.ReadInt();
 
-            active = reader.ReadBool();
+            if(version == 0)
+				reader.ReadBool();
         }
     }
 }
