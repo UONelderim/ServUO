@@ -7,7 +7,7 @@ namespace Server.Engines.Quests.Collector
     {
         [Constructable]
         public TomasONeerlan()
-            : base("the famed toymaker")
+            : base("- znany tworca zabawek")
         {
         }
 
