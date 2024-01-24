@@ -37,7 +37,7 @@ namespace Server.Engines.Quests
         public SwiftAsAnArrowQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Archery, 50, "Old Haven Training", 1078203, 1078204));
+            AddObjective(new ApprenticeObjective(SkillName.Archery, 50, "Trening w Starym Haven", 1078203, 1078204));
 
             // 1078203 You feel more steady and dexterous here. Your Archery skill is enhanced in this area.
             // 1078204 You feel less steady and dexterous here. Your Archery learning potential is no longer enhanced.
@@ -94,7 +94,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Robyn()
-            : base("Robyn", "The Archer Instructor")
+            : base("Robyn", "- nauczyciel lucznictwa")
         {
             SetSkill(SkillName.Anatomy, 120.0, 120.0);
             SetSkill(SkillName.Parry, 120.0, 120.0);
