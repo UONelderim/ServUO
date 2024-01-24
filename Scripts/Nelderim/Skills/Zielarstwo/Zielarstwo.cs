@@ -79,8 +79,8 @@ namespace Server.Items.Crops
 			return highest;
 		}
 
-		public static bool CheckSkills(Mobile from, SkillName[] SkillsRequired, double minSkill, double chanceAtMin,
-			double maxSkill, double chanceAtMax)
+		public static bool CheckSkills(Mobile from, SkillName[] SkillsRequired, double minSkill, double chancePercentAtMin,
+			double maxSkill, double chancePercentAtMax)
 		{
 			double skill = GetHighestSkillValue(from, SkillsRequired);
 
@@ -88,11 +88,11 @@ namespace Server.Items.Crops
 				return false;
 
 			if (skill >= maxSkill)
-				return chanceAtMax > Utility.RandomDouble();
+				return chancePercentAtMax > Utility.Random(100);
 
-			double chance = chanceAtMin + (skill - minSkill) / (maxSkill - minSkill) * (chanceAtMax - chanceAtMin);
+			double chance = chancePercentAtMin + (skill - minSkill) / (maxSkill - minSkill) * (chancePercentAtMax - chancePercentAtMin);
 
-			return chance > Utility.RandomDouble();
+			return chance > Utility.Random(100);
 		}
 
 		public static bool CheckSkills(Mobile from, SkillName[] SkillsRequired, double minSkill, double maxSkill)

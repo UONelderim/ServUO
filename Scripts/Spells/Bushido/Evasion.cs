@@ -31,7 +31,7 @@ namespace Server.Spells.Bushido
 
             if (weap != null)
             {
-                if (Caster.Skills[weap.Skill].Base < 50)
+                if (Caster.Skills[weap.GetUsedSkill(Caster, true)].Base < 50)
                 {
                     if (messages)
                     {
