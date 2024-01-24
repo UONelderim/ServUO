@@ -546,6 +546,48 @@
     <Objects2>animaltrainer:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
+    <Name>wyspa_noobow_brigands 1</Name>
+    <UniqueId>04b83dc8-9883-4e49-a73d-c3b8e155606f</UniqueId>
+    <Map>Trammel</Map>
+    <X>3719</X>
+    <Y>2671</Y>
+    <Width>20</Width>
+    <Height>20</Height>
+    <CentreX>3729</CentreX>
+    <CentreY>2681</CentreY>
+    <CentreZ>40</CentreZ>
+    <Range>10</Range>
+    <MaxCount>3</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>10</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>Brigand:MX=3:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
     <Name>wyspa_noobow_Old Haven [Drelgor]</Name>
     <UniqueId>8fe29717-489a-4376-952c-c34685932fa7</UniqueId>
     <Map>Trammel</Map>
@@ -586,6 +628,48 @@
     <IsRunning>True</IsRunning>
     <IsHomeRangeRelative>True</IsHomeRangeRelative>
     <Objects2>Zombie:MX=30:SB=1:RT=30:TO=0:KL=100:RK=0:CA=1:DN=0:DX=0:SP=1:PR=35:OBJ=Skeleton:MX=30:SB=1:RT=0:TO=0:KL=0:RK=0:CA=1:DN=0:DX=0:SP=1:PR=35:OBJ=SpellBinder:MX=15:SB=1:RT=0:TO=0:KL=0:RK=0:CA=1:DN=0:DX=0:SP=1:PR=35:OBJ=Drelgor:MX=1:SB=2:RT=30:TO=0:KL=1:RK=0:CA=1:DN=-1:DX=-1:SP=2:PR=35</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_HavenMine#10</Name>
+    <UniqueId>0733d485-3ba3-4620-9064-d4efebafa300</UniqueId>
+    <Map>Trammel</Map>
+    <X>5900</X>
+    <Y>329</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5905</CentreX>
+    <CentreY>334</CentreY>
+    <CentreZ>0</CentreZ>
+    <Range>5</Range>
+    <MaxCount>1</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>2</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>EarthElemental:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Vendors#209</Name>
@@ -670,6 +754,48 @@
     <IsRunning>True</IsRunning>
     <IsHomeRangeRelative>False</IsHomeRangeRelative>
     <Objects2>fisherman:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_HavenMine#0</Name>
+    <UniqueId>0910148d-b24b-4605-bf47-de7825347db5</UniqueId>
+    <Map>Trammel</Map>
+    <X>5912</X>
+    <Y>347</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5917</CentreX>
+    <CentreY>352</CentreY>
+    <CentreZ>0</CentreZ>
+    <Range>5</Range>
+    <MaxCount>2</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>2</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>EarthElemental:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Vendors#198</Name>
@@ -835,7 +961,7 @@
     <Team>0</Team>
     <Amount>1</Amount>
     <IsGroup>False</IsGroup>
-    <IsRunning>True</IsRunning>
+    <IsRunning>False</IsRunning>
     <IsHomeRangeRelative>False</IsHomeRangeRelative>
     <Objects2>EscortableNoble:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
@@ -882,18 +1008,18 @@
     <Objects2>EscortablePeasant:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
-    <Name>wyspa_noobow_Outdoors#453</Name>
-    <UniqueId>1963add7-a895-46ee-a8a3-4268989f4009</UniqueId>
+    <Name>wyspa_noobow_mongbat 3</Name>
+    <UniqueId>1dc71786-ebd3-40fc-b9cb-d61eec9e3e69</UniqueId>
     <Map>Trammel</Map>
-    <X>3457</X>
-    <Y>2434</Y>
-    <Width>50</Width>
-    <Height>50</Height>
-    <CentreX>3482</CentreX>
-    <CentreY>2459</CentreY>
-    <CentreZ>35</CentreZ>
-    <Range>25</Range>
-    <MaxCount>17</MaxCount>
+    <X>3444</X>
+    <Y>2431</Y>
+    <Width>30</Width>
+    <Height>30</Height>
+    <CentreX>3459</CentreX>
+    <CentreY>2446</CentreY>
+    <CentreZ>5</CentreZ>
+    <Range>15</Range>
+    <MaxCount>9</MaxCount>
     <MinDelay>5</MinDelay>
     <MaxDelay>10</MaxDelay>
     <DelayInSec>False</DelayInSec>
@@ -920,8 +1046,8 @@
     <Amount>1</Amount>
     <IsGroup>False</IsGroup>
     <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>mongbat:MX=6:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=timberwolf:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=greywolf:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=bull:MX=7:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=eagle:MX=7:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=hind:MX=7:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=bird:MX=7:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=llama:MX=7:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=goat:MX=7:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=greathart:MX=7:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=cougar:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=panther:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=blackbear:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=brownbear:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=rabbit:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=jackrabbit:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>Mongbat:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=bird:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=cow:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Pig:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Eagle:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=GreyWolf:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Vendors#200</Name>
@@ -1006,48 +1132,6 @@
     <IsRunning>True</IsRunning>
     <IsHomeRangeRelative>True</IsHomeRangeRelative>
     <Objects2>Blacksmith:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
-  </Points>
-  <Points>
-    <Name>wyspa_noobow_Spawner</Name>
-    <UniqueId>21420efe-c4b7-4dcc-a8fc-3686908b6f89</UniqueId>
-    <Map>Trammel</Map>
-    <X>3422</X>
-    <Y>2516</Y>
-    <Width>0</Width>
-    <Height>0</Height>
-    <CentreX>3422</CentreX>
-    <CentreY>2516</CentreY>
-    <CentreZ>21</CentreZ>
-    <Range>0</Range>
-    <MaxCount>1</MaxCount>
-    <MinDelay>5</MinDelay>
-    <MaxDelay>10</MaxDelay>
-    <DelayInSec>False</DelayInSec>
-    <Duration>0</Duration>
-    <DespawnTime>0</DespawnTime>
-    <ProximityRange>-1</ProximityRange>
-    <ProximityTriggerSound>500</ProximityTriggerSound>
-    <TriggerProbability>1</TriggerProbability>
-    <InContainer>False</InContainer>
-    <MinRefractory>0</MinRefractory>
-    <MaxRefractory>0</MaxRefractory>
-    <TODStart>0</TODStart>
-    <TODEnd>0</TODEnd>
-    <TODMode>0</TODMode>
-    <KillReset>1</KillReset>
-    <ExternalTriggering>False</ExternalTriggering>
-    <SequentialSpawning>-1</SequentialSpawning>
-    <AllowGhostTriggering>False</AllowGhostTriggering>
-    <AllowNPCTriggering>False</AllowNPCTriggering>
-    <SpawnOnTrigger>False</SpawnOnTrigger>
-    <SmartSpawning>False</SmartSpawning>
-    <TickReset>False</TickReset>
-    <Team>0</Team>
-    <Amount>1</Amount>
-    <IsGroup>False</IsGroup>
-    <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>Jun:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_tailor</Name>
@@ -1302,62 +1386,20 @@
     <Objects2>EscortableNoble:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
-    <Name>wyspa_noobow_Outdoors#454</Name>
-    <UniqueId>35257712-e876-4ea2-8f1e-2adc0bf78369</UniqueId>
+    <Name>wyspa_noobow_HavenMine#2</Name>
+    <UniqueId>2f78548a-9b22-4e83-8fd0-10774cf7a7b3</UniqueId>
     <Map>Trammel</Map>
-    <X>3411</X>
-    <Y>2461</Y>
-    <Width>50</Width>
-    <Height>50</Height>
-    <CentreX>3436</CentreX>
-    <CentreY>2486</CentreY>
-    <CentreZ>27</CentreZ>
-    <Range>25</Range>
-    <MaxCount>17</MaxCount>
-    <MinDelay>5</MinDelay>
-    <MaxDelay>10</MaxDelay>
-    <DelayInSec>False</DelayInSec>
-    <Duration>0</Duration>
-    <DespawnTime>0</DespawnTime>
-    <ProximityRange>-1</ProximityRange>
-    <ProximityTriggerSound>500</ProximityTriggerSound>
-    <TriggerProbability>1</TriggerProbability>
-    <InContainer>False</InContainer>
-    <MinRefractory>0</MinRefractory>
-    <MaxRefractory>0</MaxRefractory>
-    <TODStart>0</TODStart>
-    <TODEnd>0</TODEnd>
-    <TODMode>0</TODMode>
-    <KillReset>1</KillReset>
-    <ExternalTriggering>False</ExternalTriggering>
-    <SequentialSpawning>-1</SequentialSpawning>
-    <AllowGhostTriggering>False</AllowGhostTriggering>
-    <AllowNPCTriggering>False</AllowNPCTriggering>
-    <SpawnOnTrigger>False</SpawnOnTrigger>
-    <SmartSpawning>False</SmartSpawning>
-    <TickReset>False</TickReset>
-    <Team>0</Team>
-    <Amount>1</Amount>
-    <IsGroup>False</IsGroup>
-    <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>mongbat:MX=6:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=bogling:MX=6:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=timberwolf:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=greywolf:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=bull:MX=7:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=eagle:MX=7:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=hind:MX=7:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=bird:MX=7:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=llama:MX=7:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=goat:MX=7:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=greathart:MX=7:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=cougar:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=panther:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=blackbear:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=brownbear:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=rabbit:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=jackrabbit:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
-  </Points>
-  <Points>
-    <Name>wyspa_noobow_Spawner</Name>
-    <UniqueId>359a0676-0c3f-4d16-a5d9-e7a102e5be1c</UniqueId>
-    <Map>Trammel</Map>
-    <X>3505</X>
-    <Y>2749</Y>
-    <Width>0</Width>
-    <Height>0</Height>
-    <CentreX>3505</CentreX>
-    <CentreY>2749</CentreY>
+    <X>5968</X>
+    <Y>351</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5973</CentreX>
+    <CentreY>356</CentreY>
     <CentreZ>0</CentreZ>
-    <Range>0</Range>
-    <MaxCount>1</MaxCount>
+    <Range>5</Range>
+    <MaxCount>2</MaxCount>
     <MinDelay>5</MinDelay>
-    <MaxDelay>10</MaxDelay>
+    <MaxDelay>2</MaxDelay>
     <DelayInSec>False</DelayInSec>
     <Duration>0</Duration>
     <DespawnTime>0</DespawnTime>
@@ -1382,8 +1424,8 @@
     <Amount>1</Amount>
     <IsGroup>False</IsGroup>
     <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>Gervis:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>EarthElemental:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Spawner</Name>
@@ -1764,18 +1806,60 @@
     <Objects2>tavernkeeper:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
-    <Name>wyspa_noobow_Outdoors#455</Name>
-    <UniqueId>43929ce3-175b-495d-83a1-365c6c601e7a</UniqueId>
+    <Name>wyspa_noobow_HavenMine#14</Name>
+    <UniqueId>42f911e2-64e9-4b82-bc6c-2b658886eb55</UniqueId>
     <Map>Trammel</Map>
-    <X>3400</X>
-    <Y>2684</Y>
-    <Width>100</Width>
-    <Height>100</Height>
-    <CentreX>3450</CentreX>
-    <CentreY>2734</CentreY>
-    <CentreZ>49</CentreZ>
-    <Range>70</Range>
-    <MaxCount>80</MaxCount>
+    <X>5946</X>
+    <Y>290</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5951</CentreX>
+    <CentreY>295</CentreY>
+    <CentreZ>22</CentreZ>
+    <Range>5</Range>
+    <MaxCount>6</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>2</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>Lizardman:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=OgreLord:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_Vendors#203</Name>
+    <UniqueId>459879a2-7348-4ad9-a431-d15b14f21b5c</UniqueId>
+    <Map>Trammel</Map>
+    <X>3463</X>
+    <Y>2576</Y>
+    <Width>0</Width>
+    <Height>0</Height>
+    <CentreX>3463</CentreX>
+    <CentreY>2576</CentreY>
+    <CentreZ>35</CentreZ>
+    <Range>4</Range>
+    <MaxCount>2</MaxCount>
     <MinDelay>5</MinDelay>
     <MaxDelay>10</MaxDelay>
     <DelayInSec>False</DelayInSec>
@@ -1803,7 +1887,7 @@
     <IsGroup>False</IsGroup>
     <IsRunning>True</IsRunning>
     <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>mongbat:MX=36:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=timberwolf:MX=10:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=greywolf:MX=10:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=bull:MX=80:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=eagle:MX=80:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=hind:MX=80:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=bird:MX=80:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=llama:MX=80:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=goat:MX=80:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=greathart:MX=80:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=cougar:MX=10:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=panther:MX=10:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=blackbear:MX=10:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=brownbear:MX=10:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=rabbit:MX=10:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=jackrabbit:MX=10:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+    <Objects2>baker:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Spawner</Name>
@@ -2011,9 +2095,51 @@
     <Team>0</Team>
     <Amount>1</Amount>
     <IsGroup>False</IsGroup>
-    <IsRunning>True</IsRunning>
+    <IsRunning>False</IsRunning>
     <IsHomeRangeRelative>False</IsHomeRangeRelative>
     <Objects2>EscortableNoble:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_Vendors#175</Name>
+    <UniqueId>4971fb2f-2bde-4ddd-aa61-b3c501b4a709</UniqueId>
+    <Map>Trammel</Map>
+    <X>3494</X>
+    <Y>2551</Y>
+    <Width>0</Width>
+    <Height>0</Height>
+    <CentreX>3494</CentreX>
+    <CentreY>2551</CentreY>
+    <CentreZ>20</CentreZ>
+    <Range>4</Range>
+    <MaxCount>1</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>10</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>False</IsHomeRangeRelative>
+    <Objects2>tailorguildmaster:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Vendors#202</Name>
@@ -2269,48 +2395,6 @@
   </Points>
   <Points>
     <Name>wyspa_noobow_Spawner</Name>
-    <UniqueId>58166b1d-698c-4889-a0b6-ad40a12d4ad3</UniqueId>
-    <Map>Trammel</Map>
-    <X>3422</X>
-    <Y>2520</Y>
-    <Width>0</Width>
-    <Height>0</Height>
-    <CentreX>3422</CentreX>
-    <CentreY>2520</CentreY>
-    <CentreZ>21</CentreZ>
-    <Range>0</Range>
-    <MaxCount>1</MaxCount>
-    <MinDelay>5</MinDelay>
-    <MaxDelay>10</MaxDelay>
-    <DelayInSec>False</DelayInSec>
-    <Duration>0</Duration>
-    <DespawnTime>0</DespawnTime>
-    <ProximityRange>-1</ProximityRange>
-    <ProximityTriggerSound>500</ProximityTriggerSound>
-    <TriggerProbability>1</TriggerProbability>
-    <InContainer>False</InContainer>
-    <MinRefractory>0</MinRefractory>
-    <MaxRefractory>0</MaxRefractory>
-    <TODStart>0</TODStart>
-    <TODEnd>0</TODEnd>
-    <TODMode>0</TODMode>
-    <KillReset>1</KillReset>
-    <ExternalTriggering>False</ExternalTriggering>
-    <SequentialSpawning>-1</SequentialSpawning>
-    <AllowGhostTriggering>False</AllowGhostTriggering>
-    <AllowNPCTriggering>False</AllowNPCTriggering>
-    <SpawnOnTrigger>False</SpawnOnTrigger>
-    <SmartSpawning>False</SmartSpawning>
-    <TickReset>False</TickReset>
-    <Team>0</Team>
-    <Amount>1</Amount>
-    <IsGroup>False</IsGroup>
-    <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>Ryuichi:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
-  </Points>
-  <Points>
-    <Name>wyspa_noobow_Spawner</Name>
     <UniqueId>5945f40a-db14-4e96-9013-519eac8681af</UniqueId>
     <Map>Trammel</Map>
     <X>3525</X>
@@ -2350,48 +2434,6 @@
     <IsRunning>True</IsRunning>
     <IsHomeRangeRelative>False</IsHomeRangeRelative>
     <Objects2>TylAriadne:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
-  </Points>
-  <Points>
-    <Name>wyspa_noobow_Outdoors#426</Name>
-    <UniqueId>5a4056c5-7c8d-421d-9672-6348a2aa46a6</UniqueId>
-    <Map>Trammel</Map>
-    <X>3617</X>
-    <Y>2586</Y>
-    <Width>16</Width>
-    <Height>16</Height>
-    <CentreX>3625</CentreX>
-    <CentreY>2594</CentreY>
-    <CentreZ>0</CentreZ>
-    <Range>15</Range>
-    <MaxCount>10</MaxCount>
-    <MinDelay>5</MinDelay>
-    <MaxDelay>10</MaxDelay>
-    <DelayInSec>False</DelayInSec>
-    <Duration>0</Duration>
-    <DespawnTime>0</DespawnTime>
-    <ProximityRange>-1</ProximityRange>
-    <ProximityTriggerSound>500</ProximityTriggerSound>
-    <TriggerProbability>1</TriggerProbability>
-    <InContainer>False</InContainer>
-    <MinRefractory>0</MinRefractory>
-    <MaxRefractory>0</MaxRefractory>
-    <TODStart>0</TODStart>
-    <TODEnd>0</TODEnd>
-    <TODMode>0</TODMode>
-    <KillReset>1</KillReset>
-    <ExternalTriggering>False</ExternalTriggering>
-    <SequentialSpawning>-1</SequentialSpawning>
-    <AllowGhostTriggering>False</AllowGhostTriggering>
-    <AllowNPCTriggering>False</AllowNPCTriggering>
-    <SpawnOnTrigger>False</SpawnOnTrigger>
-    <SmartSpawning>False</SmartSpawning>
-    <TickReset>False</TickReset>
-    <Team>0</Team>
-    <Amount>1</Amount>
-    <IsGroup>False</IsGroup>
-    <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>zombie:MX=10:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Vendors#191</Name>
@@ -2436,6 +2478,90 @@
     <Objects2>weaponsmith:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
+    <Name>wyspa_noobow_HavenMine#1</Name>
+    <UniqueId>5cf84f6f-b7b8-42a9-8fd7-38c2bf226de2</UniqueId>
+    <Map>Trammel</Map>
+    <X>5942</X>
+    <Y>357</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5947</CentreX>
+    <CentreY>362</CentreY>
+    <CentreZ>0</CentreZ>
+    <Range>5</Range>
+    <MaxCount>1</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>2</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>EarthElemental:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_HavenMine#13</Name>
+    <UniqueId>5dcba42e-eccb-4876-9a18-b0e46b456322</UniqueId>
+    <Map>Trammel</Map>
+    <X>5923</X>
+    <Y>314</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5928</CentreX>
+    <CentreY>319</CentreY>
+    <CentreZ>22</CentreZ>
+    <Range>5</Range>
+    <MaxCount>5</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>2</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>Lizardman:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
     <Name>wyspa_noobow_Vendors#228</Name>
     <UniqueId>5e1ae173-0969-48d1-8631-547a3e5d1dc9</UniqueId>
     <Map>Trammel</Map>
@@ -2473,7 +2599,7 @@
     <Team>0</Team>
     <Amount>1</Amount>
     <IsGroup>False</IsGroup>
-    <IsRunning>True</IsRunning>
+    <IsRunning>False</IsRunning>
     <IsHomeRangeRelative>False</IsHomeRangeRelative>
     <Objects2>EscortableSeekerOfAdventure:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
@@ -2646,7 +2772,7 @@
     <Objects2>shipwright:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
-    <Name>wyspa_noobow_bogling 3</Name>
+    <Name>wyspa_noobow_haven bogling 3</Name>
     <UniqueId>67ff538c-5ef2-4092-9807-458e321c8bf9</UniqueId>
     <Map>Trammel</Map>
     <X>3349</X>
@@ -2940,20 +3066,20 @@
     <Objects2>SarsmeaSmythe:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
-    <Name>wyspa_noobow_Outdoors#423</Name>
-    <UniqueId>765efed6-e4af-425f-8938-f742a975a581</UniqueId>
+    <Name>wyspa_noobow_HavenMine#5</Name>
+    <UniqueId>7839052f-550e-475b-a1c8-2e49854c79e8</UniqueId>
     <Map>Trammel</Map>
-    <X>3588</X>
-    <Y>2440</Y>
-    <Width>20</Width>
-    <Height>20</Height>
-    <CentreX>3598</CentreX>
-    <CentreY>2450</CentreY>
-    <CentreZ>16</CentreZ>
-    <Range>10</Range>
-    <MaxCount>4</MaxCount>
+    <X>5981</X>
+    <Y>280</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5986</CentreX>
+    <CentreY>285</CentreY>
+    <CentreZ>0</CentreZ>
+    <Range>5</Range>
+    <MaxCount>1</MaxCount>
     <MinDelay>5</MinDelay>
-    <MaxDelay>10</MaxDelay>
+    <MaxDelay>2</MaxDelay>
     <DelayInSec>False</DelayInSec>
     <Duration>0</Duration>
     <DespawnTime>0</DespawnTime>
@@ -2978,8 +3104,8 @@
     <Amount>1</Amount>
     <IsGroup>False</IsGroup>
     <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>spellbinder:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=zombie:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=skeleton:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>EarthElemental:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Spawner</Name>
@@ -3022,48 +3148,6 @@
     <IsRunning>True</IsRunning>
     <IsHomeRangeRelative>True</IsHomeRangeRelative>
     <Objects2>Avicenna:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
-  </Points>
-  <Points>
-    <Name>wyspa_noobow_ld village undead 1</Name>
-    <UniqueId>7b040209-ebc9-4dbd-a9ef-4083b639c81a</UniqueId>
-    <Map>Trammel</Map>
-    <X>3653</X>
-    <Y>2480</Y>
-    <Width>40</Width>
-    <Height>40</Height>
-    <CentreX>3673</CentreX>
-    <CentreY>2500</CentreY>
-    <CentreZ>0</CentreZ>
-    <Range>20</Range>
-    <MaxCount>16</MaxCount>
-    <MinDelay>5</MinDelay>
-    <MaxDelay>10</MaxDelay>
-    <DelayInSec>False</DelayInSec>
-    <Duration>0</Duration>
-    <DespawnTime>0</DespawnTime>
-    <ProximityRange>-1</ProximityRange>
-    <ProximityTriggerSound>500</ProximityTriggerSound>
-    <TriggerProbability>1</TriggerProbability>
-    <InContainer>False</InContainer>
-    <MinRefractory>0</MinRefractory>
-    <MaxRefractory>0</MaxRefractory>
-    <TODStart>0</TODStart>
-    <TODEnd>0</TODEnd>
-    <TODMode>0</TODMode>
-    <KillReset>1</KillReset>
-    <ExternalTriggering>False</ExternalTriggering>
-    <SequentialSpawning>-1</SequentialSpawning>
-    <AllowGhostTriggering>False</AllowGhostTriggering>
-    <AllowNPCTriggering>False</AllowNPCTriggering>
-    <SpawnOnTrigger>False</SpawnOnTrigger>
-    <SmartSpawning>False</SmartSpawning>
-    <TickReset>False</TickReset>
-    <Team>0</Team>
-    <Amount>1</Amount>
-    <IsGroup>False</IsGroup>
-    <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>True</IsHomeRangeRelative>
-    <Objects2>Skeleton:MX=10:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Zombie:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=SkeletalKnight:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Spawner</Name>
@@ -3229,7 +3313,7 @@
     <Team>0</Team>
     <Amount>1</Amount>
     <IsGroup>False</IsGroup>
-    <IsRunning>True</IsRunning>
+    <IsRunning>False</IsRunning>
     <IsHomeRangeRelative>False</IsHomeRangeRelative>
     <Objects2>EscortableMerchant:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
@@ -3276,7 +3360,49 @@
     <Objects2>waiter:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
-    <Name>wyspa_noobow_mongbat 5</Name>
+    <Name>wyspa_noobow_haven greater mongbat 2</Name>
+    <UniqueId>82892d49-d3b1-453f-98c5-c4c537f167a2</UniqueId>
+    <Map>Trammel</Map>
+    <X>3739</X>
+    <Y>2515</Y>
+    <Width>30</Width>
+    <Height>30</Height>
+    <CentreX>3754</CentreX>
+    <CentreY>2530</CentreY>
+    <CentreZ>44</CentreZ>
+    <Range>15</Range>
+    <MaxCount>5</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>10</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>GreaterMongbat:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_haven mongbat 5</Name>
     <UniqueId>8408b658-e3d7-425e-8ce8-a5d831c9e866</UniqueId>
     <Map>Trammel</Map>
     <X>3367</X>
@@ -3355,51 +3481,9 @@
     <Team>0</Team>
     <Amount>1</Amount>
     <IsGroup>False</IsGroup>
-    <IsRunning>True</IsRunning>
+    <IsRunning>False</IsRunning>
     <IsHomeRangeRelative>False</IsHomeRangeRelative>
     <Objects2>EscortableNoble:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
-  </Points>
-  <Points>
-    <Name>wyspa_noobow_Outdoors#447</Name>
-    <UniqueId>85c8db7f-a4fd-495a-9a2b-905444fd65d6</UniqueId>
-    <Map>Trammel</Map>
-    <X>3643</X>
-    <Y>2375</Y>
-    <Width>94</Width>
-    <Height>94</Height>
-    <CentreX>3690</CentreX>
-    <CentreY>2422</CentreY>
-    <CentreZ>40</CentreZ>
-    <Range>50</Range>
-    <MaxCount>56</MaxCount>
-    <MinDelay>5</MinDelay>
-    <MaxDelay>10</MaxDelay>
-    <DelayInSec>False</DelayInSec>
-    <Duration>0</Duration>
-    <DespawnTime>0</DespawnTime>
-    <ProximityRange>-1</ProximityRange>
-    <ProximityTriggerSound>500</ProximityTriggerSound>
-    <TriggerProbability>1</TriggerProbability>
-    <InContainer>False</InContainer>
-    <MinRefractory>0</MinRefractory>
-    <MaxRefractory>0</MaxRefractory>
-    <TODStart>0</TODStart>
-    <TODEnd>0</TODEnd>
-    <TODMode>0</TODMode>
-    <KillReset>1</KillReset>
-    <ExternalTriggering>False</ExternalTriggering>
-    <SequentialSpawning>-1</SequentialSpawning>
-    <AllowGhostTriggering>False</AllowGhostTriggering>
-    <AllowNPCTriggering>False</AllowNPCTriggering>
-    <SpawnOnTrigger>False</SpawnOnTrigger>
-    <SmartSpawning>False</SmartSpawning>
-    <TickReset>False</TickReset>
-    <Team>0</Team>
-    <Amount>1</Amount>
-    <IsGroup>False</IsGroup>
-    <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>mongbat:MX=12:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=timberwolf:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=greywolf:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=bull:MX=28:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=eagle:MX=28:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=hind:MX=28:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=bird:MX=28:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=llama:MX=28:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=goat:MX=28:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=greathart:MX=28:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=cougar:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=panther:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=blackbear:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=brownbear:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=rabbit:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=jackrabbit:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Spawner</Name>
@@ -3444,6 +3528,48 @@
     <Objects2>Hargrove:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Carpenter:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
+    <Name>wyspa_noobow_HavenMine#6</Name>
+    <UniqueId>864805b8-a288-48b4-8c51-fbe49c50ebc2</UniqueId>
+    <Map>Trammel</Map>
+    <X>5967</X>
+    <Y>278</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5972</CentreX>
+    <CentreY>283</CentreY>
+    <CentreZ>0</CentreZ>
+    <Range>5</Range>
+    <MaxCount>1</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>2</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>EarthElemental:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
     <Name>wyspa_noobow_Spawner</Name>
     <UniqueId>88f5bf59-7e10-45eb-8d7f-c5765c2a2029</UniqueId>
     <Map>Trammel</Map>
@@ -3484,6 +3610,90 @@
     <IsRunning>True</IsRunning>
     <IsHomeRangeRelative>False</IsHomeRangeRelative>
     <Objects2>Dimethro:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_HavenMine#9</Name>
+    <UniqueId>891fe792-06fb-466d-95a6-d24d4bcc85fa</UniqueId>
+    <Map>Trammel</Map>
+    <X>5909</X>
+    <Y>291</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5914</CentreX>
+    <CentreY>296</CentreY>
+    <CentreZ>0</CentreZ>
+    <Range>5</Range>
+    <MaxCount>2</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>2</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>EarthElemental:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_haven mongbat 2</Name>
+    <UniqueId>89e3cdb0-abb8-4e8d-badd-790d719f2254</UniqueId>
+    <Map>Trammel</Map>
+    <X>3451</X>
+    <Y>2379</Y>
+    <Width>50</Width>
+    <Height>50</Height>
+    <CentreX>3476</CentreX>
+    <CentreY>2404</CentreY>
+    <CentreZ>21</CentreZ>
+    <Range>25</Range>
+    <MaxCount>20</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>10</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>Mongbat:MX=8:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Bird:MX=3:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Cow:MX=3:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Pig:MX=3:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=horse:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=GreyWolf:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=TimberWolf:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Vendors#215</Name>
@@ -3528,6 +3738,48 @@
     <Objects2>furtrader:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
+    <Name>wyspa_noobow_HavenMine#12</Name>
+    <UniqueId>8dbca78d-38a3-4cd8-9443-e1861d2bfe69</UniqueId>
+    <Map>Trammel</Map>
+    <X>5946</X>
+    <Y>335</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5951</CentreX>
+    <CentreY>340</CentreY>
+    <CentreZ>-22</CentreZ>
+    <Range>5</Range>
+    <MaxCount>5</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>2</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>Lizardman:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
     <Name>wyspa_noobow_Vendors#169</Name>
     <UniqueId>8e361978-e45a-46ee-913b-c7cab2f4969d</UniqueId>
     <Map>Trammel</Map>
@@ -3570,7 +3822,7 @@
     <Objects2>banker:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
-    <Name>wyspa_noobow_cemetary</Name>
+    <Name>wyspa_noobow_Haven cemetary</Name>
     <UniqueId>8f274bae-1716-409e-bf7e-cae1038c46e0</UniqueId>
     <Map>Trammel</Map>
     <X>3587</X>
@@ -3665,7 +3917,7 @@
     <CentreY>2563</CentreY>
     <CentreZ>20</CentreZ>
     <Range>0</Range>
-    <MaxCount>1</MaxCount>
+    <MaxCount>5</MaxCount>
     <MinDelay>5</MinDelay>
     <MaxDelay>10</MaxDelay>
     <DelayInSec>False</DelayInSec>
@@ -3693,7 +3945,7 @@
     <IsGroup>False</IsGroup>
     <IsRunning>True</IsRunning>
     <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>ElwoodMcCarrin:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+    <Objects2>ElwoodMcCarrin:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=AlbertaGiacco/x/3518/y/2585/z/16/cantwalk/true:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=GabrielPiete/x/3417/y/2599/z/55/cantwalk/true:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=impresario/x/3410/y/2608/z/55/cantwalk/true:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=TomasONeerlan/x/3523/y/2547/z/20/cantwalk/true:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Spawner</Name>
@@ -3780,18 +4032,18 @@
     <Objects2>alchemist:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
-    <Name>wyspa_noobow_Vendors#195</Name>
-    <UniqueId>9ec429c2-2c6e-41bc-9362-d6efe9241a8f</UniqueId>
+    <Name>wyspa_noobow_haven mongbat</Name>
+    <UniqueId>a1437e2a-9c74-44c3-9957-9fa410b91eac</UniqueId>
     <Map>Trammel</Map>
-    <X>3470</X>
-    <Y>2519</Y>
-    <Width>0</Width>
-    <Height>0</Height>
-    <CentreX>3470</CentreX>
-    <CentreY>2519</CentreY>
-    <CentreZ>48</CentreZ>
-    <Range>3</Range>
-    <MaxCount>2</MaxCount>
+    <X>3502</X>
+    <Y>2383</Y>
+    <Width>50</Width>
+    <Height>50</Height>
+    <CentreX>3527</CentreX>
+    <CentreY>2408</CentreY>
+    <CentreZ>40</CentreZ>
+    <Range>25</Range>
+    <MaxCount>27</MaxCount>
     <MinDelay>5</MinDelay>
     <MaxDelay>10</MaxDelay>
     <DelayInSec>False</DelayInSec>
@@ -3811,15 +4063,15 @@
     <SequentialSpawning>-1</SequentialSpawning>
     <AllowGhostTriggering>False</AllowGhostTriggering>
     <AllowNPCTriggering>False</AllowNPCTriggering>
-    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SpawnOnTrigger>True</SpawnOnTrigger>
     <SmartSpawning>False</SmartSpawning>
     <TickReset>False</TickReset>
     <Team>0</Team>
     <Amount>1</Amount>
     <IsGroup>False</IsGroup>
     <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>herbalist:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>Mongbat:MX=8:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Bird:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Rat:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Cow:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Pig:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=GreyWolf:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=TimberWolf:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Horse:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Spawner</Name>
@@ -3904,6 +4156,48 @@
     <IsRunning>True</IsRunning>
     <IsHomeRangeRelative>False</IsHomeRangeRelative>
     <Objects2>cook:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=innkeeper:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_haven mongbat 4</Name>
+    <UniqueId>ac648a4d-24ec-4601-aa6f-8ed9eba45bc9</UniqueId>
+    <Map>Trammel</Map>
+    <X>3404</X>
+    <Y>2465</Y>
+    <Width>30</Width>
+    <Height>30</Height>
+    <CentreX>3419</CentreX>
+    <CentreY>2480</CentreY>
+    <CentreZ>0</CentreZ>
+    <Range>15</Range>
+    <MaxCount>6</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>10</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>Mongbat:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Horse:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Bird:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Eagle:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Vendors#193</Name>
@@ -4074,6 +4368,48 @@
     <Objects2>Ettin:MX=3:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
+    <Name>wyspa_noobow_haven bogling 1</Name>
+    <UniqueId>b3c44f65-f503-4c0d-a4ee-37d08c77593f</UniqueId>
+    <Map>Trammel</Map>
+    <X>3353</X>
+    <Y>2601</Y>
+    <Width>40</Width>
+    <Height>40</Height>
+    <CentreX>3373</CentreX>
+    <CentreY>2621</CentreY>
+    <CentreZ>6</CentreZ>
+    <Range>20</Range>
+    <MaxCount>11</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>10</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>Bogling:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=GreaterMongbat:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Eagle:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Cow:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Pig:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Horse:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=TimberWolf:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
     <Name>wyspa_noobow_Spawner</Name>
     <UniqueId>b5b05952-8fb3-4e25-a327-290dfef95064</UniqueId>
     <Map>Trammel</Map>
@@ -4119,12 +4455,12 @@
     <Name>wyspa_noobow_Vendors#190</Name>
     <UniqueId>b7361c0a-a36a-4307-8b51-6cf6aeb2264f</UniqueId>
     <Map>Trammel</Map>
-    <X>3526</X>
-    <Y>2536</Y>
+    <X>3525</X>
+    <Y>2533</Y>
     <Width>0</Width>
     <Height>0</Height>
-    <CentreX>3526</CentreX>
-    <CentreY>2536</CentreY>
+    <CentreX>3525</CentreX>
+    <CentreY>2533</CentreY>
     <CentreZ>20</CentreZ>
     <Range>2</Range>
     <MaxCount>1</MaxCount>
@@ -4284,48 +4620,6 @@
     <Objects2>Robyn:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
-    <Name>wyspa_noobow_Outdoors#422</Name>
-    <UniqueId>bdce119c-2b79-4ca4-93d8-a09ead70a2a1</UniqueId>
-    <Map>Trammel</Map>
-    <X>3590</X>
-    <Y>2449</Y>
-    <Width>120</Width>
-    <Height>120</Height>
-    <CentreX>3650</CentreX>
-    <CentreY>2509</CentreY>
-    <CentreZ>0</CentreZ>
-    <Range>60</Range>
-    <MaxCount>90</MaxCount>
-    <MinDelay>5</MinDelay>
-    <MaxDelay>10</MaxDelay>
-    <DelayInSec>False</DelayInSec>
-    <Duration>0</Duration>
-    <DespawnTime>0</DespawnTime>
-    <ProximityRange>-1</ProximityRange>
-    <ProximityTriggerSound>500</ProximityTriggerSound>
-    <TriggerProbability>1</TriggerProbability>
-    <InContainer>False</InContainer>
-    <MinRefractory>0</MinRefractory>
-    <MaxRefractory>0</MaxRefractory>
-    <TODStart>0</TODStart>
-    <TODEnd>0</TODEnd>
-    <TODMode>0</TODMode>
-    <KillReset>1</KillReset>
-    <ExternalTriggering>False</ExternalTriggering>
-    <SequentialSpawning>-1</SequentialSpawning>
-    <AllowGhostTriggering>False</AllowGhostTriggering>
-    <AllowNPCTriggering>False</AllowNPCTriggering>
-    <SpawnOnTrigger>False</SpawnOnTrigger>
-    <SmartSpawning>False</SmartSpawning>
-    <TickReset>False</TickReset>
-    <Team>0</Team>
-    <Amount>1</Amount>
-    <IsGroup>False</IsGroup>
-    <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>zombie:MX=70:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=skeleton:MX=70:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=spellbinder:MX=20:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
-  </Points>
-  <Points>
     <Name>wyspa_noobow_Vendors#189</Name>
     <UniqueId>c0ff205f-2697-4e08-8fd8-c6bef7ec6964</UniqueId>
     <Map>Trammel</Map>
@@ -4368,18 +4662,18 @@
     <Objects2>blacksmithguildmaster:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
-    <Name>wyspa_noobow_Outdoors#444</Name>
-    <UniqueId>c8c85e67-7aa0-4779-a8a2-3b70c0fb7c9e</UniqueId>
+    <Name>wyspa_noobow_haven greater mongbat 1</Name>
+    <UniqueId>c2a1079e-981d-4b3b-abd0-fd149f435b34</UniqueId>
     <Map>Trammel</Map>
-    <X>3346</X>
-    <Y>2595</Y>
-    <Width>100</Width>
-    <Height>100</Height>
-    <CentreX>3396</CentreX>
-    <CentreY>2645</CentreY>
-    <CentreZ>48</CentreZ>
-    <Range>50</Range>
-    <MaxCount>56</MaxCount>
+    <X>3761</X>
+    <Y>2570</Y>
+    <Width>30</Width>
+    <Height>30</Height>
+    <CentreX>3776</CentreX>
+    <CentreY>2585</CentreY>
+    <CentreZ>34</CentreZ>
+    <Range>15</Range>
+    <MaxCount>7</MaxCount>
     <MinDelay>5</MinDelay>
     <MaxDelay>10</MaxDelay>
     <DelayInSec>False</DelayInSec>
@@ -4406,22 +4700,106 @@
     <Amount>1</Amount>
     <IsGroup>False</IsGroup>
     <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>mongbat:MX=14:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=timberwolf:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=greywolf:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=bull:MX=40:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=eagle:MX=40:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=hind:MX=40:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=bird:MX=40:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=llama:MX=40:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=goat:MX=40:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=greathart:MX=40:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=cougar:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=panther:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=blackbear:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=brownbear:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=rabbit:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=jackrabbit:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>GreaterMongbat:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Bird:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
-    <Name>wyspa_noobow_Graveyards#6</Name>
-    <UniqueId>cdb37548-82f2-4b7d-a784-84bac7ac9d43</UniqueId>
+    <Name>wyspa_noobow_HavenMine#11</Name>
+    <UniqueId>c2df3d1e-5e77-4d16-8efe-1aa20072f827</UniqueId>
     <Map>Trammel</Map>
-    <X>3397</X>
-    <Y>2642</Y>
-    <Width>20</Width>
-    <Height>20</Height>
-    <CentreX>3407</CentreX>
-    <CentreY>2652</CentreY>
-    <CentreZ>48</CentreZ>
-    <Range>15</Range>
-    <MaxCount>4</MaxCount>
+    <X>5968</X>
+    <Y>314</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5973</CentreX>
+    <CentreY>319</CentreY>
+    <CentreZ>-22</CentreZ>
+    <Range>5</Range>
+    <MaxCount>5</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>2</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>Lizardman:MX=5:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_HavenMine#4</Name>
+    <UniqueId>c3c5eec4-071b-4828-bd55-55897f068b4a</UniqueId>
+    <Map>Trammel</Map>
+    <X>5982</X>
+    <Y>292</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5987</CentreX>
+    <CentreY>297</CentreY>
+    <CentreZ>0</CentreZ>
+    <Range>5</Range>
+    <MaxCount>1</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>2</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>EarthElemental:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_haven bogling 2</Name>
+    <UniqueId>c6c72a72-403c-42a6-ab2e-3a8d5b7bf8f5</UniqueId>
+    <Map>Trammel</Map>
+    <X>3337</X>
+    <Y>2646</Y>
+    <Width>40</Width>
+    <Height>40</Height>
+    <CentreX>3357</CentreX>
+    <CentreY>2666</CentreY>
+    <CentreZ>9</CentreZ>
+    <Range>20</Range>
+    <MaxCount>9</MaxCount>
     <MinDelay>5</MinDelay>
     <MaxDelay>10</MaxDelay>
     <DelayInSec>False</DelayInSec>
@@ -4448,8 +4826,50 @@
     <Amount>1</Amount>
     <IsGroup>False</IsGroup>
     <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>zombie:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=skeleton:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>Bogling:MX=4:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=GreaterMongbat:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Cow:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=Pig:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1:OBJ=TimberWolf:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_HavenMine#8</Name>
+    <UniqueId>c9d1e973-7d9f-4c07-b385-d135415b43f2</UniqueId>
+    <Map>Trammel</Map>
+    <X>5924</X>
+    <Y>276</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5929</CentreX>
+    <CentreY>281</CentreY>
+    <CentreZ>0</CentreZ>
+    <Range>5</Range>
+    <MaxCount>2</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>2</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>EarthElemental:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Spawner</Name>
@@ -4492,6 +4912,48 @@
     <IsRunning>True</IsRunning>
     <IsHomeRangeRelative>False</IsHomeRangeRelative>
     <Objects2>Nibbet:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_Haven brigand 2</Name>
+    <UniqueId>d44f4696-5718-4c73-9594-15734866e130</UniqueId>
+    <Map>Trammel</Map>
+    <X>3709</X>
+    <Y>2629</Y>
+    <Width>20</Width>
+    <Height>20</Height>
+    <CentreX>3719</CentreX>
+    <CentreY>2639</CentreY>
+    <CentreZ>20</CentreZ>
+    <Range>10</Range>
+    <MaxCount>3</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>10</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>Brigand:MX=3:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_Spawner</Name>
@@ -4704,48 +5166,6 @@
     <Objects2>Bard:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
-    <Name>wyspa_noobow_Spawner</Name>
-    <UniqueId>df239d96-ad73-4d8e-a5f5-3069420a6f66</UniqueId>
-    <Map>Trammel</Map>
-    <X>3420</X>
-    <Y>2516</Y>
-    <Width>0</Width>
-    <Height>0</Height>
-    <CentreX>3420</CentreX>
-    <CentreY>2516</CentreY>
-    <CentreZ>21</CentreZ>
-    <Range>0</Range>
-    <MaxCount>1</MaxCount>
-    <MinDelay>5</MinDelay>
-    <MaxDelay>10</MaxDelay>
-    <DelayInSec>False</DelayInSec>
-    <Duration>0</Duration>
-    <DespawnTime>0</DespawnTime>
-    <ProximityRange>-1</ProximityRange>
-    <ProximityTriggerSound>500</ProximityTriggerSound>
-    <TriggerProbability>1</TriggerProbability>
-    <InContainer>False</InContainer>
-    <MinRefractory>0</MinRefractory>
-    <MaxRefractory>0</MaxRefractory>
-    <TODStart>0</TODStart>
-    <TODEnd>0</TODEnd>
-    <TODMode>0</TODMode>
-    <KillReset>1</KillReset>
-    <ExternalTriggering>False</ExternalTriggering>
-    <SequentialSpawning>-1</SequentialSpawning>
-    <AllowGhostTriggering>False</AllowGhostTriggering>
-    <AllowNPCTriggering>False</AllowNPCTriggering>
-    <SpawnOnTrigger>False</SpawnOnTrigger>
-    <SmartSpawning>False</SmartSpawning>
-    <TickReset>False</TickReset>
-    <Team>0</Team>
-    <Amount>1</Amount>
-    <IsGroup>False</IsGroup>
-    <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>Chiyo:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
-  </Points>
-  <Points>
     <Name>wyspa_noobow_Vendors#208</Name>
     <UniqueId>e3cc005f-e3d5-4ad1-be79-3008f8031888</UniqueId>
     <Map>Trammel</Map>
@@ -4830,48 +5250,6 @@
     <Objects2>vagabond:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
-    <Name>wyspa_noobow_Vendors#181</Name>
-    <UniqueId>e8287b72-50c4-4955-a31a-9283ef5a118d</UniqueId>
-    <Map>Trammel</Map>
-    <X>3554</X>
-    <Y>2457</Y>
-    <Width>0</Width>
-    <Height>0</Height>
-    <CentreX>3554</CentreX>
-    <CentreY>2457</CentreY>
-    <CentreZ>15</CentreZ>
-    <Range>6</Range>
-    <MaxCount>2</MaxCount>
-    <MinDelay>5</MinDelay>
-    <MaxDelay>10</MaxDelay>
-    <DelayInSec>False</DelayInSec>
-    <Duration>0</Duration>
-    <DespawnTime>0</DespawnTime>
-    <ProximityRange>-1</ProximityRange>
-    <ProximityTriggerSound>500</ProximityTriggerSound>
-    <TriggerProbability>1</TriggerProbability>
-    <InContainer>False</InContainer>
-    <MinRefractory>0</MinRefractory>
-    <MaxRefractory>0</MaxRefractory>
-    <TODStart>0</TODStart>
-    <TODEnd>0</TODEnd>
-    <TODMode>0</TODMode>
-    <KillReset>1</KillReset>
-    <ExternalTriggering>False</ExternalTriggering>
-    <SequentialSpawning>-1</SequentialSpawning>
-    <AllowGhostTriggering>False</AllowGhostTriggering>
-    <AllowNPCTriggering>False</AllowNPCTriggering>
-    <SpawnOnTrigger>False</SpawnOnTrigger>
-    <SmartSpawning>False</SmartSpawning>
-    <TickReset>False</TickReset>
-    <Team>0</Team>
-    <Amount>1</Amount>
-    <IsGroup>False</IsGroup>
-    <IsRunning>True</IsRunning>
-    <IsHomeRangeRelative>False</IsHomeRangeRelative>
-    <Objects2>evilwanderinghealer:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
-  </Points>
-  <Points>
     <Name>wyspa_noobow_Vendors#179</Name>
     <UniqueId>e94f2afa-0d35-498d-b55a-65d4bae8c8f5</UniqueId>
     <Map>Trammel</Map>
@@ -4912,6 +5290,48 @@
     <IsRunning>True</IsRunning>
     <IsHomeRangeRelative>False</IsHomeRangeRelative>
     <Objects2>healerguildmaster:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_HavenMine#7</Name>
+    <UniqueId>ea934036-2908-4ba2-afb6-5ac326d433f1</UniqueId>
+    <Map>Trammel</Map>
+    <X>5957</X>
+    <Y>270</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5962</CentreX>
+    <CentreY>275</CentreY>
+    <CentreZ>0</CentreZ>
+    <Range>5</Range>
+    <MaxCount>1</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>2</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>EarthElemental:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
     <Name>wyspa_noobow_blacksmith</Name>
@@ -5040,7 +5460,49 @@
     <Objects2>Jillian:MX=1:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
   </Points>
   <Points>
-    <Name>wyspa_noobow_Spawner</Name>
+    <Name>wyspa_noobow_HavenMine#3</Name>
+    <UniqueId>f22a28ed-5e96-4d68-b4c6-fb31e01d895d</UniqueId>
+    <Map>Trammel</Map>
+    <X>5982</X>
+    <Y>334</Y>
+    <Width>10</Width>
+    <Height>10</Height>
+    <CentreX>5987</CentreX>
+    <CentreY>339</CentreY>
+    <CentreZ>0</CentreZ>
+    <Range>5</Range>
+    <MaxCount>2</MaxCount>
+    <MinDelay>5</MinDelay>
+    <MaxDelay>2</MaxDelay>
+    <DelayInSec>False</DelayInSec>
+    <Duration>0</Duration>
+    <DespawnTime>0</DespawnTime>
+    <ProximityRange>-1</ProximityRange>
+    <ProximityTriggerSound>500</ProximityTriggerSound>
+    <TriggerProbability>1</TriggerProbability>
+    <InContainer>False</InContainer>
+    <MinRefractory>0</MinRefractory>
+    <MaxRefractory>0</MaxRefractory>
+    <TODStart>0</TODStart>
+    <TODEnd>0</TODEnd>
+    <TODMode>0</TODMode>
+    <KillReset>1</KillReset>
+    <ExternalTriggering>False</ExternalTriggering>
+    <SequentialSpawning>-1</SequentialSpawning>
+    <AllowGhostTriggering>False</AllowGhostTriggering>
+    <AllowNPCTriggering>False</AllowNPCTriggering>
+    <SpawnOnTrigger>False</SpawnOnTrigger>
+    <SmartSpawning>False</SmartSpawning>
+    <TickReset>False</TickReset>
+    <Team>0</Team>
+    <Amount>1</Amount>
+    <IsGroup>False</IsGroup>
+    <IsRunning>True</IsRunning>
+    <IsHomeRangeRelative>True</IsHomeRangeRelative>
+    <Objects2>EarthElemental:MX=2:SB=0:RT=0:TO=0:KL=0:RK=0:CA=1:DN=-1:DX=-1:SP=1:PR=-1</Objects2>
+  </Points>
+  <Points>
+    <Name>wyspa_noobow_pawner</Name>
     <UniqueId>f66b1860-4f88-4714-b4d1-2af48a9dcd37</UniqueId>
     <Map>Trammel</Map>
     <X>3555</X>
@@ -5295,13 +5757,13 @@
     <Name>wyspa_noobow_Vendors#219</Name>
     <UniqueId>ff164fb4-2ae2-4474-a6d7-dbd102437023</UniqueId>
     <Map>Trammel</Map>
-    <X>3526</X>
-    <Y>2536</Y>
+    <X>3528</X>
+    <Y>2534</Y>
     <Width>0</Width>
     <Height>0</Height>
-    <CentreX>3526</CentreX>
-    <CentreY>2536</CentreY>
-    <CentreZ>21</CentreZ>
+    <CentreX>3528</CentreX>
+    <CentreY>2534</CentreY>
+    <CentreZ>20</CentreZ>
     <Range>4</Range>
     <MaxCount>1</MaxCount>
     <MinDelay>5</MinDelay>
