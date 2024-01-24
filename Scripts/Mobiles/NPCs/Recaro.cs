@@ -38,7 +38,7 @@ namespace Server.Engines.Quests
         public EnGuardeQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Fencing, 50, "Old Haven Training", 1078188, 1078189));
+            AddObjective(new ApprenticeObjective(SkillName.Fencing, 50, "Trening w Starym Haven", 1078188, 1078189));
 
             // 1078188 You feel more dexterous and quick witted while practicing combat here. Your ability to raise your Fencing skill is enhanced in this area.
             // 1078189 You feel less dexterous here. Your Fencing learning potential is no longer enhanced.
@@ -90,7 +90,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Recaro()
-            : base("Recaro", "The Fencer Instructor")
+            : base("Recaro", "- nauczyciel szermierki")
         {
             SetSkill(SkillName.Anatomy, 120.0, 120.0);
             SetSkill(SkillName.Parry, 120.0, 120.0);

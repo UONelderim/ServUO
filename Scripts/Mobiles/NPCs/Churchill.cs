@@ -38,7 +38,7 @@ namespace Server.Engines.Quests
         public CrushingBonesAndTakingNamesQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Macing, 50, "Old Haven Training", 1078063, 1078064));
+            AddObjective(new ApprenticeObjective(SkillName.Macing, 50, "Trening w Starym Haven", 1078063, 1078064));
 
             // 1078063 You feel much more attuned to your mace. Your ability to hone your Mace Fighting skill is enhanced in this area.
             // 1078064 You feel less attuned to your mace. Your Mace Fighting learning potential is no longer enhanced.
@@ -90,7 +90,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Churchill()
-            : base("Churchill", "The Mace Fighting Instructor")
+            : base("Churchill", "- nauczyciel walki obuchami")
         {
             SetSkill(SkillName.Anatomy, 120.0, 120.0);
             SetSkill(SkillName.Parry, 120.0, 120.0);

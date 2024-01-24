@@ -36,7 +36,7 @@ namespace Server.Engines.Quests
         public TheRudimentsOfSelfDefenseQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Wrestling, 50, "Old Haven Training", 1077492, 1077586));
+            AddObjective(new ApprenticeObjective(SkillName.Wrestling, 50, "Trening w Starym haven", 1077492, 1077586));
 
             // 1077492 Your Wrestling potential is greatly enhanced while questing in this area.
             // 1077586 You are not in the quest area for Apprentice Wrestler. Your Wrestling potential is not enhanced here.
@@ -88,7 +88,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Dimethro()
-            : base("Dimethro", "The Wrestling Instructor")
+            : base("Dimethro", "- nauczyciel Walki Piesciami")
         {
             SetSkill(SkillName.EvalInt, 120.0, 120.0);
             SetSkill(SkillName.Inscribe, 120.0, 120.0);
