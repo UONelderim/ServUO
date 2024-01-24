@@ -29,7 +29,7 @@ namespace Server.Engines.Quests
 
         /* You have not achived the rank of Apprentice Stoic. Come back to me once you feel that you are worthy of the rank Apprentice 
         Stoic and i will reward you with a arcane prize. */
-        public override object Uncomplete => 1077601;
+        public override object Uncomplete => 1077628;
 
         /* Splendid! On behalf of the New Haven Mage Council i wish to present you with this hat. When worn the Philosopher's Hat will 
         protect you somewhat from physical attacks. The Philosopher's Hat also enhances the potency of your offensive spells, lowers 
@@ -41,7 +41,7 @@ namespace Server.Engines.Quests
         public StoppingTheWorldQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Meditation, 50, "Old Haven Training", 1077490, 1077584));
+            AddObjective(new ApprenticeObjective(SkillName.Meditation, 50, "Trening w Starym Haven", 1077490, 1077584));
 
             // 1077490 Your Meditation potential is greatly enhanced while questing in this area.
             // 1077584 You are not in the quest area for Apprentice Stoic. Your Meditation potential is not enhanced here.
@@ -93,7 +93,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Gustar()
-            : base("Gustar", "The Meditation Instructor")
+            : base("Gustar", "- nauczyciel medytacji")
         {
             SetSkill(SkillName.EvalInt, 120.0, 120.0);
             SetSkill(SkillName.Inscribe, 120.0, 120.0);

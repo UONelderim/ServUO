@@ -34,7 +34,7 @@ namespace Server.Engines.Quests
         public TheAllureOfDarkMagicQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Necromancy, 50, "Old Haven Training", 1078037, 1078038));
+            AddObjective(new ApprenticeObjective(SkillName.Necromancy, 50, "Training w Starym Haven", 1078037, 1078038));
 
             // 1078037 Your Necromancy potential is greatly enhanced while questing in this area.
             // 1078038 You are not in the quest area for Apprentice Necromancer. Your Necromancy potential is not enhanced here.
@@ -91,7 +91,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Mulcivikh()
-            : base("Mulcivikh", "The Necromancy Instructor")
+            : base("Mulcivikh", "- nauczyciel nekromancji")
         {
             SetSkill(SkillName.Magery, 120.0, 120.0);
             SetSkill(SkillName.MagicResist, 120.0, 120.0);
