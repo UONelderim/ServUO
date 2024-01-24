@@ -8,7 +8,7 @@ namespace Server.Engines.Quests
         public BatteredBucklersQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(Buckler), "buckler", 10, 0x1B73));
+            AddObjective(new ObtainObjective(typeof(Buckler), "puklerz", 10, 0x1B73));
 
             AddReward(new BaseReward(typeof(SmithsSatchel), 1074282)); // Craftsman's Satchel
         }
@@ -46,7 +46,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Gervis()
-            : base("Gervis", "the blacksmith trainer")
+            : base("Gervis", "- nauczyciel kowalstwa")
         {
             SetSkill(SkillName.Blacksmith, 65.0, 88.0);
         }

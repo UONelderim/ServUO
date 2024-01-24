@@ -8,7 +8,7 @@ namespace Server.Engines.Quests
         public MoreOrePleaseQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(IronOre), "iron ore", 5, 0x19B9));
+            AddObjective(new ObtainObjective(typeof(IronOre), "ruda zelaza", 5, 0x19B9));
 
             AddReward(new BaseReward(typeof(MinersQuestSatchel), 1074282)); // Craftsman's Satchel
         }
@@ -22,7 +22,7 @@ namespace Server.Engines.Quests
         public override object Description => 1075529;
         /* Not feeling strong enough today? Its alright, I didn't need a bucket of rocks anyway. */
         public override object Refuse => 1075531;
-        /* Hmmm… we need some more Ore. Try finding a mountain or cave, and give it a whack. */
+        /* Hmmmâ€¦ we need some more Ore. Try finding a mountain or cave, and give it a whack. */
         public override object Uncomplete => 1075532;
         /* I see you found a good vien! Great!  This will help get this order out on time. Good work! */
         public override object Complete => 1075533;
@@ -45,7 +45,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Mugg()
-            : base("Mugg", "the miner")
+            : base("Mugg", "- gornik")
         {
         }
 
