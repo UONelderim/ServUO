@@ -36,7 +36,7 @@ namespace Server.Engines.Quests
         public ChannelingTheSupernaturalQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.SpiritSpeak, 50, "Old Haven Training", 1078045, 1078046));
+            AddObjective(new ApprenticeObjective(SkillName.SpiritSpeak, 50, "Trening w Starym Haven", 1078045, 1078046));
 
             // 1078045 You ability to channel the supernatural is greatly enhanced while questing in this area.
             // 1078046 You are not in the quest area for Apprentice Medium. Your ability to channel the supernatural potential is not enhanced here.
@@ -93,7 +93,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Morganna()
-            : base("Morganna", "The Spirit Speak Instructor")
+            : base("Morganna", "- nauczycielka rozmowy z duchami")
         {
             SetSkill(SkillName.Magery, 120.0, 120.0);
             SetSkill(SkillName.MagicResist, 120.0, 120.0);

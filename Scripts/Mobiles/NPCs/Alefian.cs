@@ -49,7 +49,7 @@ namespace Server.Engines.Quests
         public DefyingTheArcaneQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.MagicResist, 50, "Old Haven Training", 1077494, 1077588));
+            AddObjective(new ApprenticeObjective(SkillName.MagicResist, 50, "Trening w Starym Haven", 1077494, 1077588));
 
             // 1077494 Your Resisting Spells potential is greatly enhanced while questing in this area.
             // 1077588 You are not in the quest area for Apprentice Mage. Your Resisting Spells potential is not enhanced here.
@@ -101,7 +101,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Alefian()
-            : base("Alefian", "The Resisting Spells Instructor")
+            : base("Alefian", "- nauczyciel odpornosci na magie")
         {
             SetSkill(SkillName.EvalInt, 120.0, 120.0);
             SetSkill(SkillName.Inscribe, 120.0, 120.0);

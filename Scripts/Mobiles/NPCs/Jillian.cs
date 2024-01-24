@@ -47,7 +47,7 @@ namespace Server.Engines.Quests
         public ScribingArcaneKnowledgeQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Inscribe, 50, "Haven Library", 1077493, 1077587));
+            AddObjective(new ApprenticeObjective(SkillName.Inscribe, 50, "Biblioteka Haven", 1077493, 1077587));
 
             // 1077493 Your Inscription potential is greatly enhanced while questing in this area.
             // 1077587 You are not in the quest area for Apprentice Scribe. Your Inscription potential is not enhanced here.
@@ -99,7 +99,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Jillian()
-            : base("Jillian", "The Inscription Instructor")
+            : base("Jillian", "- nauczycielka inskrypcji")
         {
             SetSkill(SkillName.EvalInt, 120.0, 120.0);
             SetSkill(SkillName.Inscribe, 120.0, 120.0);
