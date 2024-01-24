@@ -41,7 +41,7 @@ namespace Server.Engines.Quests
         public TheInnerWarriorQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Focus, 50, "Old Haven Training", 1077697, 1077698));
+            AddObjective(new ApprenticeObjective(SkillName.Focus, 50, "Trening w Starym Haven", 1077697, 1077698));
 
             // 1077697 You feel much more attuned to yourself. Your ability to improve Focus skill is enhanced in this area.
             // 1077698 You feel like you don't even know yourself anymore! Your Focus learning potential is no longer enhanced.
@@ -93,7 +93,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public SarsmeaSmythe()
-            : base("Sarsmea Smythe", "The Focus Instructor")
+            : base("Sarsmea Smythe", "- nauczyciel koncentracji")
         {
             SetSkill(SkillName.Anatomy, 120.0, 120.0);
             SetSkill(SkillName.Parry, 120.0, 120.0);

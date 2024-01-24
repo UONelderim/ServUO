@@ -34,7 +34,7 @@ namespace Server.Engines.Quests
         public CleansingOldHavenQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.Chivalry, 50, "Old Haven Training", 1077720, 1077721));
+            AddObjective(new ApprenticeObjective(SkillName.Chivalry, 50, "Trening w Starym Haven", 1077720, 1077721));
 
             // 1077720 Your Chivalry potential is greatly enhanced while questing in this area.
             // 1077721 You are not in the quest area for Apprentice Paladin. Your Chivalry potential is not enhanced here.
@@ -92,7 +92,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Aelorn()
-            : base("Aelorn", "The Chivalry Instructor")
+            : base("Aelorn", "- nauczyciel rycerstwa")
         {
             SetSkill(SkillName.Anatomy, 120.0, 120.0);
             SetSkill(SkillName.MagicResist, 120.0, 120.0);

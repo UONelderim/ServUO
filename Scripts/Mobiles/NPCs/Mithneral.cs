@@ -36,7 +36,7 @@ namespace Server.Engines.Quests
         public ScholarlyTaskQuest()
             : base()
         {
-            AddObjective(new ApprenticeObjective(SkillName.EvalInt, 50, "Old Haven Training", 1077491, 1077585));
+            AddObjective(new ApprenticeObjective(SkillName.EvalInt, 50, "Trening w Starym Haven", 1077491, 1077585));
 
             // 1077491 Your Evaluating Intelligence potential is greatly enhanced while questing in this area.
             // 1077585 You are not in the quest area for Apprentice Scholar. Your Evaluating Intelligence potential is not enhanced here.
@@ -88,7 +88,7 @@ namespace Server.Engines.Quests
 
         [Constructable]
         public Mithneral()
-            : base("Mithneral", "The Evaluating Intelligence Instructor")
+            : base("Mithneral", "- nauczyciel madrosci")
         {
             SetSkill(SkillName.EvalInt, 120.0, 120.0);
             SetSkill(SkillName.Inscribe, 120.0, 120.0);
