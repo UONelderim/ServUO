@@ -24,7 +24,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 		public RangerSpellbook(ulong content, bool full) : base(content, 0xEFA, full)
 		{
 			Hue = 2001;
-			Name = "Poradnik Strażnika Leśmnego";
+			Name = "Poradnik Strażnika Leśnego";
 		}
 
 		public override void OnDoubleClick(Mobile from)
