@@ -18,7 +18,7 @@ namespace Server.Mobiles
 		{
 			public InternalBuyInfo()
 			{
-				Add(new GenericBuyInfo(typeof(Silver), 100, 1000, 0xEF0, 0));
+				// Add(new GenericBuyInfo(typeof(Silver), 100, 1000, 0xEF0, 0));
 				Add(new GenericBuyInfo(typeof(ChaosChest), 100000, 10, 0x1445, 0));
 			}
 		}
