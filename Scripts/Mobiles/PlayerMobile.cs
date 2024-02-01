@@ -5024,6 +5024,9 @@ namespace Server.Mobiles
             {
                 return true;
             }
+            
+            if (m is BaseCreature bc && bc.ControlMaster == this)
+	            return true;
 
             return base.CanSee(m);
         }
