@@ -25,7 +25,7 @@ namespace Server.Items
 				typeof(LucznikMorrlok), typeof(KusznikMorrlok), typeof(LordMorrlok), typeof(MagMorrlok), typeof(JezdziecMorrlok), typeof(MordercaMorrlok), typeof(WojownikMorrlok));
 			AddEntryTypes(humanoid, SlayerName.OrcSlaying, typeof(KapitanIIILegionuOrkow), typeof(FieryGoblinSapper), typeof(GoblinSapper), typeof(Goblin), typeof(GoblinWarrior), typeof(LesserGoblinSapper));
 			AddEntryTypes(humanoid, SlayerName.TrollSlaughter, typeof(TrollLord));
-			AddSuperTypes(undead, typeof(SaragAwatar), typeof(NSarag), typeof(MonstrousInterredGrizzle), typeof(Mummy2), typeof(Mummy3), typeof(Boner), typeof(RedDeath));
+			AddSuperTypes(undead, typeof(SaragAwatar), typeof(NSarag), typeof(MonstrousInterredGrizzle), typeof(Mummy2), typeof(Mummy3), typeof(Boner), typeof(RedDeath), typeof(UnfrozenMummy));
 			AddSuperTypes(elemental, typeof(AgapiteColossus), typeof(BronzeColossus),
 				typeof(BronzeColossus), typeof(DullCopperColossus), typeof(GoldenColossus), typeof(ShadowIronColossus),
 				typeof(ValoriteColossus), typeof(VeriteColossus));
