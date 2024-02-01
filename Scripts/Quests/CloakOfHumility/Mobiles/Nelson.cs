@@ -9,7 +9,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public Nelson()
-            : base("Nelson", "the Shepherd")
+            : base("Nelson", "- pasterz")
         {
         }
 
