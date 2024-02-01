@@ -12,21 +12,25 @@ namespace Nelderim
 			return $"{now.Year}-{now.Month}-{now.Day}";
 		}
 		
-		private static string LogPath = Path.Combine( "Logs/Bank", String.Format( "Bank {0}.log", GetTimeStamp() ) );
+		private static string LogPath = Path.Combine( "Logs/Bank", $"Bank_{GetTimeStamp()}.log");
 
 		static BankLog()
 		{
 			if( !Directory.Exists( "Logs" ) )
 				Directory.CreateDirectory( "Logs" );
 				
-			if( !Directory.Exists( "Logs/Bank" ) )
-				Directory.CreateDirectory( "Logs/Bank" );
+			string directory = "Logs/Bank";
+				
+			if( !Directory.Exists( directory ) )
+				Directory.CreateDirectory( directory );
 		}
         
-		public static void Log(Mobile from, int amount, string desc)
+		public static void Log(Mobile from, long amount, string desc)
 		{
-			using var writer = new StreamWriter(LogPath, true);
-			writer.WriteLine("{0} {1}({2}) {3} {4}", DateTime.Now, from.Serial, from.Name, amount, desc);
+			using (StreamWriter writer = new StreamWriter(LogPath, true))
+			{
+				writer.WriteLine($"{DateTime.Now} {from.Serial}({from.Name}) {amount} {desc}");
+			}
 		}
 	}
 }

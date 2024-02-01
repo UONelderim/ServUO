@@ -182,9 +182,10 @@ namespace Server.Mobiles
 
 			if (message)
 			{
-				from.SendLocalizedMessage(1155856, amount.ToString("N0")); // ~1_AMOUNT~ gold has been removed from your bank box.
+				from.SendLocalizedMessage(1155856,
+					amount.ToString("N0")); // ~1_AMOUNT~ gold has been removed from your bank box.
 			}
-
+			BankLog.Log(from, -amount, "withdraw");
 			return true;
 		}
 
@@ -245,7 +246,7 @@ namespace Server.Mobiles
 
             if (message)
                 from.SendLocalizedMessage(1042763, amount.ToString("N0")); // ~1_AMOUNT~ gold was deposited in your account.
-
+            BankLog.Log(from, amount, "deposit");
             return true;
         }
 
