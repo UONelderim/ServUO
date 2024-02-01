@@ -1,4 +1,4 @@
-﻿namespace Server.Items
+namespace Server.Items
 {
 	public class PigmentTasandora : BasePigment
 	{
@@ -6,11 +6,11 @@
 		public PigmentTasandora()
 			: this(5)
 		{
+        
 		}
-
 		[Constructable]
 		public PigmentTasandora(int uses)
-			: base((int)PigmentTarget.Cloth, uses, 2894)
+			: base(PigmentTarget.Cloth, uses, 2894)
 		{
 			Name = "Pigment barw tasandory";
 		}
@@ -18,7 +18,7 @@
 		public PigmentTasandora(Serial serial) : base(serial)
 		{
 		}
-
+        
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
