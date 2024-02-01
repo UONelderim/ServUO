@@ -11,7 +11,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
 
 	        public BaseGuildmaster(string sufffix)
-		        : base($"{("- mistrz gildii")} {sufffix}")
+		        : base($"- mistrz gildii {sufffix}")
 	        {
 	        }
 
