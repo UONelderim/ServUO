@@ -17,6 +17,7 @@ namespace Server.Accounting
 	[PropertyObject]
 	public partial class Account : IAccount
 	{
+		private const string CharLimitTag = "CharLimit";
 		public static TimeSpan YoungDuration { get => Accounts.YoungDuration; set => Accounts.YoungDuration = value; }
 		public static TimeSpan InactiveDuration { get => Accounts.InactiveDuration; set => Accounts.InactiveDuration = value; }
 		public static TimeSpan EmptyInactiveDuration { get => Accounts.EmptyInactiveDuration; set => Accounts.EmptyInactiveDuration = value; }
@@ -266,7 +267,7 @@ namespace Server.Accounting
 		///     not supported by the client.
 		/// </summary>
 		[CommandProperty(AccessLevel.Administrator)]
-		public int Limit => Siege.SiegeShard ? Siege.CharacterSlots : 8;
+		public int Limit => Int32.TryParse(GetTag(CharLimitTag), out var charLimit) ? charLimit : 4;
 
 		/// <summary>
 		///     Gets the maxmimum amount of characters that this account can hold.
