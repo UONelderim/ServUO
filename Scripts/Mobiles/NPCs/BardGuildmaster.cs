@@ -4,7 +4,7 @@ namespace Server.Mobiles
     {
         [Constructable]
         public BardGuildmaster()
-            : base("- mistrz gildii bardow")
+            : base("bardow")
         {
             SetSkill(SkillName.Archery, 80.0, 100.0);
             SetSkill(SkillName.Discordance, 80.0, 100.0);

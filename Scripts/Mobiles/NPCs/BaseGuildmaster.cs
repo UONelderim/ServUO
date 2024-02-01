@@ -9,11 +9,11 @@ namespace Server.Mobiles
     public abstract class BaseGuildmaster : BaseVendor
     {
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
-        public BaseGuildmaster(string title)
-            : base(title)
-        {
-            Title = string.Format("{0} {1}", title, Female ? "mistrzyni gildii" : "mistrz gildii");
-        }
+
+	        public BaseGuildmaster(string sufffix)
+		        : base($"{("- mistrz gildii")} {sufffix}")
+	        {
+	        }
 
         public BaseGuildmaster(Serial serial)
             : base(serial)
