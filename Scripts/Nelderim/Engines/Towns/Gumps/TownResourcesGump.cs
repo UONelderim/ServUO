@@ -2368,6 +2368,11 @@ namespace Server.Gumps
 										m_toGive = new MiastowaSzataWioskaDrowow();
 										from.AddToBackpack(m_toGive);
 										break;
+									case Towns.Lotharn:
+										TownDatabase.GetCitinzeship(from).UseDevotion(2000);
+										m_toGive = new MiastowaSzataLotharn();
+										from.AddToBackpack(m_toGive);
+										break;
 									default:
 										from.SendLocalizedMessage(1063973);
 										break;
@@ -2409,6 +2414,11 @@ namespace Server.Gumps
 									case Towns.LDelmah:
 										TownDatabase.GetCitinzeship(from).UseDevotion(10000);
 										m_toGive = new MiastowaSzataZKapturemWioskaDrowow();
+										from.AddToBackpack(m_toGive);
+										break;
+									case Towns.Lotharn:
+										TownDatabase.GetCitinzeship(from).UseDevotion(10000);
+										m_toGive = new MiastowaSzataZKapturemLotharn();
 										from.AddToBackpack(m_toGive);
 										break;
 									default:
@@ -2457,6 +2467,11 @@ namespace Server.Gumps
 									case Towns.LDelmah:
 										TownDatabase.GetCitinzeship(from).UseDevotion(1000);
 										m_toGive = new PigmentDrow();
+										from.AddToBackpack(m_toGive);
+										break;
+									case Towns.Lotharn:
+										TownDatabase.GetCitinzeship(from).UseDevotion(1000);
+										m_toGive = new PigmentLotharn();
 										from.AddToBackpack(m_toGive);
 										break;
 									default:
@@ -3040,14 +3055,14 @@ namespace Server.Gumps
 
 			AddPage(0);
 
-			AddBackground(0, 0, 200, 400,
-				5054); // Jesli zostanie dodane wiecej miast, wpierw trzeba poszerzyc ten gump, 4 parametr zwiekszyc!
+			AddBackground(0, 0, 200, 450, 5054); //Increase height for every added city
 
 			AddTownButton(10, 30, Towns.None);
 			AddTownButton(10, 50, Towns.Tasandora);
 			AddTownButton(10, 70, Towns.Garlan);
 			AddTownButton(10, 90, Towns.Twierdza);
 			AddTownButton(10, 110, Towns.LDelmah);
+			AddTownButton(10, 130, Towns.Lotharn);
 		}
 
 		public override void OnResponse(NetState sender, RelayInfo info)
