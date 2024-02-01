@@ -24,7 +24,7 @@ namespace Server.Engines.Quests
         /* I thought you wanted to be an Armsman and really make something of yourself. You have potential, kid, 
         but if you want to play with toothpicks, run to Jockles and he will teach you how to clean your teeth 
         with a sword. If you change your mind, come back to me, and i will show you how to wield a real weapon. */
-        public override object Refuse => 1078068;
+        public override object Refuse => 1078066;
 
         /* Listen kid. There are a lot of undead in Old Haven, and you haven't smashed enough of them yet. So get 
         back there and do some more cleansing. */
