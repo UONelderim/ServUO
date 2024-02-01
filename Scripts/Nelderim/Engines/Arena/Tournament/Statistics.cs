@@ -598,8 +598,8 @@ namespace Server.Engines.Tournament
 
         public static void Initialize()
         {
-            if (!Directory.Exists("Logi/Turnieje"))
-                Directory.CreateDirectory("Logi/Turnieje");
+            if (!Directory.Exists("Logs/Turnieje"))
+                Directory.CreateDirectory("Logs/Turnieje");
 
             Console.Write("Turnieje: wgrywam statystyki...");
             if (TournamentStatistics.Load())
@@ -909,7 +909,7 @@ namespace Server.Engines.Tournament
         {
             try
             {
-                using (StreamWriter op = new StreamWriter("Logi/Turnieje/ranks.html"))
+                using (StreamWriter op = new StreamWriter("Logs/Turnieje/ranks.html"))
                 {
                     op.WriteLine("<html>");
                     op.WriteLine("   <head>");
@@ -936,7 +936,7 @@ namespace Server.Engines.Tournament
                     op.WriteLine("</html>");
                 }
 
-                using (StreamWriter op = new StreamWriter("Logi/Turnieje/history.html"))
+                using (StreamWriter op = new StreamWriter("Logs/Turnieje/history.html"))
                 {
                     op.WriteLine("<html>");
                     op.WriteLine("   <head>");
