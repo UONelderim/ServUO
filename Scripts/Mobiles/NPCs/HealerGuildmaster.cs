@@ -6,7 +6,7 @@ namespace Server.Mobiles
     {
         [Constructable]
         public HealerGuildmaster()
-            : base("- mistrz gildii uzdrowicieli")
+            : base("uzdrowicieli")
         {
             SetSkill(SkillName.Anatomy, 85.0, 100.0);
             SetSkill(SkillName.Healing, 90.0, 100.0);

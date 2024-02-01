@@ -8,7 +8,7 @@ namespace Server.Mobiles
     {
         [Constructable]
         public TinkerGuildmaster()
-            : base("- mistrz gildii majstrow")
+            : base("majstrow")
         {
             SetSkill(SkillName.Lockpicking, 65.0, 88.0);
             SetSkill(SkillName.Tinkering, 90.0, 100.0);

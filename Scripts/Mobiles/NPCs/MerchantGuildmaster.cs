@@ -4,7 +4,7 @@ namespace Server.Mobiles
     {
         [Constructable]
         public MerchantGuildmaster()
-            : base("- mistrz gildii kupcow")
+            : base("kupcow")
         {
             SetSkill(SkillName.ItemID, 85.0, 100.0);
             SetSkill(SkillName.ArmsLore, 85.0, 100.0);
