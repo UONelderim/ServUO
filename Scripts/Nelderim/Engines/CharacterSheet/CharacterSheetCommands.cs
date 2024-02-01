@@ -13,7 +13,7 @@ using Server.Targeting;
 
 namespace Nelderim
 {
-	class Commands
+	class CharacterSheetCommands
 	{
 		public static void Initialize()
 		{
