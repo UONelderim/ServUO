@@ -1,12 +1,6 @@
-#region References
-
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Server.Engines.Plants;
 using Server.Items;
-
-#endregion
 
 namespace Server.Mobiles
 {
@@ -92,6 +86,7 @@ namespace Server.Mobiles
 			MinTameSkill = 93.9;
 
 			SetWeaponAbility(WeaponAbility.BleedAttack);
+			SetSpecialAbility(SpecialAbility.RuneCorruption);
 		}
 
 		public override int GetAngerSound()
@@ -118,11 +113,6 @@ namespace Server.Mobiles
 		{
 			return 0x4E5;
 		}
-
-		public override void GenerateLoot()
-		{
-			AddLoot(LootPack.FilthyRich, 2);
-		}
 		
 		public override void OnDeath(Container c)
 		{
@@ -137,91 +127,9 @@ namespace Server.Mobiles
 		public override bool BardImmune => true;
 		public override double AttackMasterChance => 0.15;
 		public override double SwitchTargetChance => 0.15;
-
 		public override double DispelDifficulty => 135.0;
 		public override double DispelFocus => 45.0;
-
 		public override double WeaponAbilityChance => 0.4;
-
-		public override void OnGaveMeleeAttack(Mobile defender)
-		{
-			base.OnGaveMeleeAttack(defender);
-
-			if (0.20 > Utility.RandomDouble())
-			{
-				/* Rune Corruption
-				 * Start cliloc: 1070846 "The creature magically corrupts your armor!"
-				 * Effect: All resistances -70 (lowest 0) for 5 seconds
-				 * End ASCII: "The corruption of your armor has worn off"
-				 */
-
-				ExpireTimer timer = (ExpireTimer)m_Table[defender];
-
-				if (timer != null)
-				{
-					timer.DoExpire();
-					defender.SendLocalizedMessage(1070845); // The creature continues to corrupt your armor!
-				}
-				else
-					defender.SendLocalizedMessage(1070846); // The creature magically corrupts your armor!
-
-				List<ResistanceMod> mods = new List<ResistanceMod>();
-
-				if (defender.PhysicalResistance > 0)
-					mods.Add(new ResistanceMod(ResistanceType.Physical, -(defender.PhysicalResistance / 2)));
-
-				if (defender.FireResistance > 0)
-					mods.Add(new ResistanceMod(ResistanceType.Fire, -(defender.FireResistance / 2)));
-
-				if (defender.ColdResistance > 0)
-					mods.Add(new ResistanceMod(ResistanceType.Cold, -(defender.ColdResistance / 2)));
-
-				if (defender.PoisonResistance > 0)
-					mods.Add(new ResistanceMod(ResistanceType.Poison, -(defender.PoisonResistance / 2)));
-
-				if (defender.EnergyResistance > 0)
-					mods.Add(new ResistanceMod(ResistanceType.Energy, -(defender.EnergyResistance / 2)));
-
-				for (int i = 0; i < mods.Count; ++i)
-					defender.AddResistanceMod(mods[i]);
-
-				defender.FixedEffect(0x37B9, 10, 5);
-
-				timer = new ExpireTimer(defender, mods, TimeSpan.FromSeconds(5.0));
-				timer.Start();
-				m_Table[defender] = timer;
-			}
-		}
-
-		private static readonly Hashtable m_Table = new Hashtable();
-
-		private class ExpireTimer : Timer
-		{
-			private readonly Mobile m_Mobile;
-			private readonly List<ResistanceMod> m_Mods;
-
-			public ExpireTimer(Mobile m, List<ResistanceMod> mods, TimeSpan delay) : base(delay)
-			{
-				m_Mobile = m;
-				m_Mods = mods;
-				Priority = TimerPriority.TwoFiftyMS;
-			}
-
-			public void DoExpire()
-			{
-				for (int i = 0; i < m_Mods.Count; ++i)
-					m_Mobile.RemoveResistanceMod(m_Mods[i]);
-
-				Stop();
-				m_Table.Remove(m_Mobile);
-			}
-
-			protected override void OnTick()
-			{
-				m_Mobile.SendMessage("The corruption of your armor has worn off");
-				DoExpire();
-			}
-		}
 
 		public AncientRuneBeetle(Serial serial) : base(serial)
 		{
