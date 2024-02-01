@@ -9,7 +9,7 @@ using Server.Network;
 
 namespace Server.Gumps
 {
-	public class CharacterControlGump : Gump
+	public class CharControlGump : Gump
 	{
 		public static void Initialize()
 		{
@@ -21,7 +21,7 @@ namespace Server.Gumps
 			"Brings up a gump which allows deletion of characters and swapping of characters between accounts.")]
 		private static void CharControl_OnCommand(CommandEventArgs e)
 		{
-			e.Mobile.SendGump(new CharacterControlGump());
+			e.Mobile.SendGump(new CharControlGump());
 		}
 
 		Account a1;
@@ -31,29 +31,26 @@ namespace Server.Gumps
 
 		public string Color(string text, int color)
 		{
-			return String.Format("<BASEFONT COLOR=#{0:X6}>{1}</BASEFONT>", color, text);
+			return $"<BASEFONT COLOR=#{color:X6}>{text}</BASEFONT>";
 		}
 
 		public string Center(string text)
 		{
-			return String.Format("<CENTER>{0}</CENTER>", text);
+			return $"<CENTER>{text}</CENTER>";
 		}
 
-		public CharacterControlGump() : this(null, null, null, null)
+		public CharControlGump() : this(null, null, null, null)
 		{
 		}
 
-		protected bool InSwapMode
-		{
-			get { return (swap != null); }
-		}
+		protected bool InSwapMode => (swap != null);
 
-		public CharacterControlGump(Account first, Account second, string ErrorMessage) : this(first, second,
+		public CharControlGump(Account first, Account second, string ErrorMessage) : this(first, second,
 			ErrorMessage, null)
 		{
 		}
 
-		public CharacterControlGump(Account first, Account second, string ErrorMessage, SwapInfo s) : base(50, 50)
+		public CharControlGump(Account first, Account second, string ErrorMessage, SwapInfo s) : base(50, 50)
 		{
 			Closable = true;
 			Disposable = false;
@@ -108,9 +105,7 @@ namespace Server.Gumps
 				if (first != null)
 				{
 					int y = 87;
-					for (int i = 0;
-					     i < 6;
-					     i++) //6 because of 6th char slot and we can handle nulls & out of bounds fine
+					for (int i = 0; i < first.Length; i++)
 					{
 						Mobile m = first[i];
 
@@ -185,7 +180,7 @@ namespace Server.Gumps
 			if (id == 0)
 			{
 				if (InSwapMode)
-					m.SendGump(new CharacterControlGump(a1, a2, "Character swap canceled"));
+					m.SendGump(new CharControlGump(a1, a2, "Character swap canceled"));
 			}
 
 			if (id == 1)
@@ -218,7 +213,7 @@ namespace Server.Gumps
 				if (a2 != null && second == null)
 					second = a2;
 
-				m.SendGump(new CharacterControlGump(first, second, ErrorMessage));
+				m.SendGump(new CharControlGump(first, second, ErrorMessage));
 
 				#endregion
 			}
@@ -388,7 +383,7 @@ namespace Server.Gumps
 				}
 
 				if (SendGumpAgain)
-					m.SendGump(new CharacterControlGump(a1, a2, error, swap));
+					m.SendGump(new CharControlGump(a1, a2, error, swap));
 			}
 		}
 
@@ -426,7 +421,7 @@ namespace Server.Gumps
 			object[] states = (object[])state;
 			Account acct = (Account)states[0];
 			Mobile mob = (Mobile)states[1];
-			CharacterControlGump g = (CharacterControlGump)states[2];
+			CharControlGump g = (CharControlGump)states[2];
 
 			string error;
 
@@ -452,7 +447,7 @@ namespace Server.Gumps
 			if (okay)
 				CommandLogging.WriteLine(from, error);
 
-			from.SendGump(new CharacterControlGump(g.a1, g.a2, error));
+			from.SendGump(new CharControlGump(g.a1, g.a2, error));
 		}
 
 
