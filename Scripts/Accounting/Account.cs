@@ -47,7 +47,7 @@ namespace Server.Accounting
 			}
 		}
 
-		protected Mobile[] m_Mobiles = new Mobile[7];
+		protected Mobile[] m_Mobiles = new Mobile[8];
 
 		/// <summary>
 		///     Object detailing information about the hardware of the last person to log into this account
@@ -266,7 +266,7 @@ namespace Server.Accounting
 		///     not supported by the client.
 		/// </summary>
 		[CommandProperty(AccessLevel.Administrator)]
-		public int Limit => Siege.SiegeShard ? Siege.CharacterSlots : 7;
+		public int Limit => Siege.SiegeShard ? Siege.CharacterSlots : 8;
 
 		/// <summary>
 		///     Gets the maxmimum amount of characters that this account can hold.
