@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Xml;
+using Server.Diagnostics;
 
 #endregion
 
@@ -473,8 +474,9 @@ namespace Server.Nelderim
 				mobile.Value = RumorMobile.Serial.ToString();
 				xNode.Attributes.Append(mobile);
 			}
-			catch
+			catch(Exception e)
 			{
+				ExceptionLogging.LogException(e);
 			}
 
 			#endregion

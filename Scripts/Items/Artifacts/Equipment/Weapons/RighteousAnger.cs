@@ -6,6 +6,7 @@ namespace Server.Items
         [Constructable]
         public RighteousAnger()
         {
+	        Name = "Sprawiedliwy Gniew";
             Hue = 0x284;
             Attributes.AttackChance = 15;
             Attributes.DefendChance = 5;
