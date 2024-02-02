@@ -1426,6 +1426,7 @@ namespace Server.Mobiles
 
             switch (version)
             {
+	            case 12:
                 case 11:
                 {
                     m_Tournament2ndReward = reader.ReadInt();
