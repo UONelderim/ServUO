@@ -1,11 +1,15 @@
-﻿namespace Server.Items.Crops
+﻿using System;
+
+namespace Server.Items.Crops
 {
-	public class SzczepkaKrwawyMech : WeedSeedZiolaUprawne
-	{
-		public override Item CreateWeed() { return new KrzakKrwawyMech(); }
+
+	
+	public class SzczepkaKrwawyMech : BaseSeedling
+    {
+        public override Type PlantType => typeof(KrzakKrwawyMech);
 
 		[Constructable]
-		public SzczepkaKrwawyMech(int amount) : base(amount, 0x0DCD)
+		public SzczepkaKrwawyMech( int amount ) : base( amount, 0x0DCD ) 
 		{
 			Hue = 438;
 			Name = "Szczepka krwawego mchu";
@@ -13,65 +17,66 @@
 		}
 
 		[Constructable]
-		public SzczepkaKrwawyMech() : this(1)
+		public SzczepkaKrwawyMech() : this( 1 )
 		{
 		}
 
-		public SzczepkaKrwawyMech(Serial serial) : base(serial)
+		public SzczepkaKrwawyMech( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
-			writer.Write(0); // version
+			base.Serialize( writer );
+			writer.Write( (int)0 ); // version
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
 	}
+	
+	public class KrzakKrwawyMech : Plant
+    {
+        public override Type SeedType => typeof(SzczepkaKrwawyMech);
+        public override Type CropType => typeof(PlonKrwawyMech);
+		protected override int YoungPlantGraphics => 0x0F3C;
+		protected override int MaturePlantGraphics => 0x0F3B;
 
-	public class KrzakKrwawyMech : WeedPlantZiolaUprawne
-	{
-		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new PlonKrwawyMech(count)); }
-
-		public override void CreateSeed(Mobile from, int count) { from.AddToBackpack(new SzczepkaKrwawyMech(count)); }
-
-		[Constructable]
-		public KrzakKrwawyMech() : base(0x0F3B)
+		[Constructable] 
+		public KrzakKrwawyMech() : base(0x0F3C)
 		{
 			Hue = 0x20;
-			Name = "Krwawy mech";
+			Name = "Krwawy mech";	
 			Stackable = true;
 		}
 
-		public KrzakKrwawyMech(Serial serial) : base(serial)
-		{
+		public KrzakKrwawyMech( Serial serial ) : base( serial ) 
+		{ 
 			//m_plantedTime = DateTime.Now;	// ???
 		}
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
-			writer.Write(0);
-		}
+		public override void Serialize( GenericWriter writer ) 
+		{ 
+			base.Serialize( writer ); 
+			writer.Write( (int) 0 ); 
+		} 
 
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
-			int version = reader.ReadInt();
-		}
-	}
-
-	public class PlonKrwawyMech : WeedCropZiolaUprawne
-	{
-		public override void CreateReagent(Mobile from, int count) { from.AddToBackpack(new Bloodmoss(count)); }
-
+		public override void Deserialize( GenericReader reader ) 
+		{ 
+			base.Deserialize( reader ); 
+			int version = reader.ReadInt(); 
+		} 
+	} 
+	
+	public class PlonKrwawyMech : Crop
+    {
+        public override Type ReagentType => typeof(Bloodmoss);
+		
 		[Constructable]
-		public PlonKrwawyMech(int amount) : base(amount, 0x3183)
+		public PlonKrwawyMech( int amount ) : base( amount, 0x3183 )
 		{
 			Hue = 0x20;
 			Name = "Swiezy krwawy mech";
@@ -79,24 +84,26 @@
 		}
 
 		[Constructable]
-		public PlonKrwawyMech() : this(1)
+		public PlonKrwawyMech() : this( 1 )
 		{
 		}
 
-		public PlonKrwawyMech(Serial serial) : base(serial)
+		public PlonKrwawyMech( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
-			writer.Write(0);
+			base.Serialize( writer );
+			writer.Write( (int) 0 );
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
 	}
+
+
 }

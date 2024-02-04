@@ -1,42 +1,43 @@
-﻿namespace Server.Items.Crops
+﻿using System;
+
+namespace Server.Items.Crops
 {
-	public class ZrodloGrobowyPyl : WeedPlantZbieractwo
-	{
-		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new SurowiecGrobowyPyl(count)); }
+	public class ZrodloGrobowyPyl : ResourceVein
+    {
+        public override Type CropType => typeof(SurowiecGrobowyPyl);
+		protected override int MaturePlantGraphics => 0x0F35;
 
-		public override bool GivesSeed => false;
-
-		[Constructable]
-		public ZrodloGrobowyPyl() : base(0x0F35)
-		{
+		[Constructable] 
+		public ZrodloGrobowyPyl() : base( 0x0F35 )
+		{ 
 			Hue = 0x481;
-			Name = "Prochy ze zwlok";
+			Name = "Prochy ze zwlok";	
 			Stackable = true;
 		}
 
-		public ZrodloGrobowyPyl(Serial serial) : base(serial)
-		{
+		public ZrodloGrobowyPyl( Serial serial ) : base( serial ) 
+		{ 
 		}
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
-			writer.Write(0);
-		}
+		public override void Serialize( GenericWriter writer ) 
+		{ 
+			base.Serialize( writer ); 
+			writer.Write( (int) 0 ); 
+		} 
 
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
-			int version = reader.ReadInt();
-		}
-	}
-
-	public class SurowiecGrobowyPyl : WeedCropZbieractwo
-	{
-		public override void CreateReagent(Mobile from, int count) { from.AddToBackpack(new GraveDust(count)); }
-
+		public override void Deserialize( GenericReader reader ) 
+		{ 
+			base.Deserialize( reader ); 
+			int version = reader.ReadInt(); 
+		} 
+	} 
+	
+	public class SurowiecGrobowyPyl : ResourceCrop
+    {
+        public override Type ReagentType => typeof(GraveDust);
+		
 		[Constructable]
-		public SurowiecGrobowyPyl(int amount) : base(amount, 0x2233)
+		public SurowiecGrobowyPyl( int amount ) : base( amount, 0x2233 )
 		{
 			Hue = 0x481;
 			Name = "Zanieczyszczone prochy";
@@ -44,24 +45,26 @@
 		}
 
 		[Constructable]
-		public SurowiecGrobowyPyl() : this(1)
+		public SurowiecGrobowyPyl() : this( 1 )
 		{
 		}
 
-		public SurowiecGrobowyPyl(Serial serial) : base(serial)
+		public SurowiecGrobowyPyl( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
-			writer.Write(0);
+			base.Serialize( writer );
+			writer.Write( (int) 0 );
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
 	}
+
+
 }

@@ -1,43 +1,44 @@
-﻿namespace Server.Items.Crops
+﻿using System;
+
+namespace Server.Items.Crops
 {
-	public class ZrodloKrewDemona : WeedPlantZbieractwo
-	{
-		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new SurowiecKrewDemona(count)); }
+	public class ZrodloKrewDemona : ResourceVein
+    {
+        public override Type CropType => typeof(SurowiecKrewDemona);
+		protected override int MaturePlantGraphics => 0x1CF3;
 
-		public override bool GivesSeed => false;
-
-		[Constructable]
-		public ZrodloKrewDemona() : base(0x1CF3)
-		{
+		[Constructable] 
+		public ZrodloKrewDemona() : base( 0x1CF3 )
+		{ 
 			Hue = 0;
 			Name = "Krew demona";
-			Stackable = true;
+			Stackable = true;			
 		}
 
-		public ZrodloKrewDemona(Serial serial) : base(serial)
-		{
+		public ZrodloKrewDemona( Serial serial ) : base( serial ) 
+		{ 
 			//m_plantedTime = DateTime.Now;	// ???
 		}
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
-			writer.Write(0);
-		}
+		public override void Serialize( GenericWriter writer ) 
+		{ 
+			base.Serialize( writer ); 
+			writer.Write( (int) 0 ); 
+		} 
 
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
-			int version = reader.ReadInt();
-		}
-	}
-
-	public class SurowiecKrewDemona : WeedCropZbieractwo
-	{
-		public override void CreateReagent(Mobile from, int count) { from.AddToBackpack(new DaemonBlood(count)); }
-
+		public override void Deserialize( GenericReader reader ) 
+		{ 
+			base.Deserialize( reader ); 
+			int version = reader.ReadInt(); 
+		} 
+	} 
+	
+	public class SurowiecKrewDemona : ResourceCrop
+    {
+        public override Type ReagentType => typeof(DaemonBlood);
+		
 		[Constructable]
-		public SurowiecKrewDemona(int amount) : base(amount, 0x0E23)
+		public SurowiecKrewDemona( int amount ) : base( amount, 0x0E23 )
 		{
 			Hue = 0;
 			Name = "Porcja krwi demona";
@@ -45,24 +46,26 @@
 		}
 
 		[Constructable]
-		public SurowiecKrewDemona() : this(1)
+		public SurowiecKrewDemona() : this( 1 )
 		{
 		}
 
-		public SurowiecKrewDemona(Serial serial) : base(serial)
+		public SurowiecKrewDemona( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
-			writer.Write(0);
+			base.Serialize( writer );
+			writer.Write( (int) 0 );
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
 	}
+
+
 }
