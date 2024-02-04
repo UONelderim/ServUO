@@ -2928,7 +2928,7 @@ namespace Server.Mobiles
 					}
 
 					// Can't acquire a target we can't see.
-					if (!m_Mobile.CanSee(m) || !m_Mobile.InLOS(m))
+					if (!m_Mobile.CanSee(m))
 					{
 						continue;
 					}
@@ -3005,7 +3005,7 @@ namespace Server.Mobiles
 
 					theirVal = m_Mobile.GetFightModeRanking(m, acqType, bPlayerOnly);
 
-					if (theirVal > val || (theirVal == val && newFocusMob.Player && !m.Player))
+					if ((theirVal > val || (theirVal == val && newFocusMob.Player && !m.Player)) && m_Mobile.InLOS(m))
 					{
 						newFocusMob = m;
 						val = theirVal;
