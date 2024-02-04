@@ -1,13 +1,15 @@
+using System;
+
 namespace Server.Items.Crops
 {
 	// TODO: ustawic dodatkowy skill krawiectwo i zwiekszyc progi umozliwiajace zbieranie
-
-	public class SzczepkaBawelna : WeedSeedZiolaUprawne
+	
+	public class SzczepkaBawelna : VegetableSeedling
 	{
-		public override Item CreateWeed() { return new KrzakBawelna(); }
+		public override Type PlantType => typeof(KrzakBawelna);
 
-		[Constructable]
-		public SzczepkaBawelna(int amount) : base(amount, 6946)
+        [Constructable]
+		public SzczepkaBawelna( int amount ) : base( amount, 6946 ) 
 		{
 			Hue = 661;
 			Name = "Ziarno bawelny";
@@ -15,62 +17,62 @@ namespace Server.Items.Crops
 		}
 
 		[Constructable]
-		public SzczepkaBawelna() : this(1)
+		public SzczepkaBawelna() : this( 1 )
 		{
 		}
 
-		public SzczepkaBawelna(Serial serial) : base(serial)
+		public SzczepkaBawelna( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
-			writer.Write(0); // version
+			base.Serialize( writer );
+			writer.Write( (int)0 ); // version
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
 	}
+	
+	public class KrzakBawelna : VegetablePlant
+    {
+        public override Type SeedType => typeof(SzczepkaBawelna);
+        public override Type CropType => typeof(Cotton);
+		protected override int YoungPlantGraphics => Utility.RandomList(0x0C53, 0x0C54);
+		protected override int MaturePlantGraphics => Utility.RandomList(0x0C4F, 0x0C50);
 
-	public class KrzakBawelna : WeedPlantZiolaUprawne
-	{
-		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new PlonBawelna(count / 2)); }
-
-		public override void CreateSeed(Mobile from, int count) { from.AddToBackpack(new SzczepkaBawelna(count * 3)); }
-
-		[Constructable]
-		public KrzakBawelna() : base(3155)
+		[Constructable] 
+		public KrzakBawelna() : base(0x0C53)
 		{
 			Hue = 0;
 			Name = "Krzak bawelny";
 			Stackable = true;
+        }
+
+		public KrzakBawelna( Serial serial ) : base( serial ) 
+		{
 		}
 
-		public KrzakBawelna(Serial serial) : base(serial)
-		{
-			//m_plantedTime = DateTime.Now;	// ???
-		}
+		public override void Serialize( GenericWriter writer ) 
+		{ 
+			base.Serialize( writer ); 
+			writer.Write( (int) 0 ); 
+		} 
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
-			writer.Write(0);
-		}
-
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
-			int version = reader.ReadInt();
-		}
+		public override void Deserialize( GenericReader reader ) 
+		{ 
+			base.Deserialize( reader ); 
+			int version = reader.ReadInt(); 
+		} 
 	}
 
-	public class PlonBawelna : WeedCropZiolaUprawne
+	public class PlonBawelna : Crop
 	{
-		public override void CreateReagent(Mobile from, int count) { from.AddToBackpack(new Cotton(count)); }
+		public override Type ReagentType => typeof(Cotton);
 
 		[Constructable]
 		public PlonBawelna(int amount) : base(amount, 3577)
@@ -92,7 +94,7 @@ namespace Server.Items.Crops
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write(0);
+			writer.Write((int)0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -101,4 +103,6 @@ namespace Server.Items.Crops
 			int version = reader.ReadInt();
 		}
 	}
+
+
 }

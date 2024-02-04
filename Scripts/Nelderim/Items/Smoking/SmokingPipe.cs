@@ -31,16 +31,11 @@ namespace Server.Items
                 if (m_Mobile == null || m_Mobile.Backpack == null)
                     return null;
 
-                // Use the deprecated tobacco first
-                Item tobacco = m_Mobile.Backpack.FindItemByType(typeof(Tyton));
-                if (tobacco != null)
-                    return tobacco;
-
                 Item[] tobaccos = m_Mobile.Backpack.FindItemsByType(typeof(ISmokable));
                 foreach (Item tob in tobaccos)
                 {
                     if (tob != null && tob.Amount >= TobaccoRequired)
-                        return tobacco;
+                        return tob;
                 }
 
                 return null;
@@ -50,7 +45,7 @@ namespace Server.Items
             {
                 Item tobacco = GetTobaccoFromBackpack();
 
-                if (tobacco == null || (tobacco.Amount < TobaccoRequired && !(tobacco is Tyton))) // Get rid of the deprecated 'Tyton' instances
+                if (tobacco == null || (tobacco.Amount < TobaccoRequired)) // Get rid of the deprecated 'Tyton' instances
                 {
                     m_Mobile.SendMessage("Za malo tytoniu w plecaku.");
                     m_Mobile.Emote("*z pustej fajki nie unosi sie ani troche dymu*");

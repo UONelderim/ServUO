@@ -1,11 +1,15 @@
-﻿namespace Server.Items.Crops
+﻿using System;
+
+namespace Server.Items.Crops
 {
-	public class SzczepkaWilczaJagoda : WeedSeedZiolaUprawne
-	{
-		public override Item CreateWeed() { return new KrzakWilczaJagoda(); }
+
+	
+	public class SzczepkaWilczaJagoda : BaseSeedling
+    {
+        public override Type PlantType => typeof(KrzakWilczaJagoda);
 
 		[Constructable]
-		public SzczepkaWilczaJagoda(int amount) : base(amount, 0x18E7)
+		public SzczepkaWilczaJagoda( int amount ) : base( amount, 0x18E7 ) 
 		{
 			Hue = 0;
 			Name = "Szczepka wilczej jagody";
@@ -13,65 +17,66 @@
 		}
 
 		[Constructable]
-		public SzczepkaWilczaJagoda() : this(1)
+		public SzczepkaWilczaJagoda() : this( 1 )
 		{
 		}
 
-		public SzczepkaWilczaJagoda(Serial serial) : base(serial)
+		public SzczepkaWilczaJagoda( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
-			writer.Write(0); // version
+			base.Serialize( writer );
+			writer.Write( (int)0 ); // version
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
 	}
+	
+	public class KrzakWilczaJagoda : Plant
+    {
+        public override Type SeedType => typeof(SzczepkaWilczaJagoda);
+        public override Type CropType => typeof(PlonWilczaJagoda);
+		protected override int YoungPlantGraphics => 0x18E5;
+		protected override int MaturePlantGraphics => 0x18E6;
 
-	public class KrzakWilczaJagoda : WeedPlantZiolaUprawne
-	{
-		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new PlonWilczaJagoda(count)); }
-
-		public override void CreateSeed(Mobile from, int count) { from.AddToBackpack(new SzczepkaWilczaJagoda(count)); }
-
-		[Constructable]
-		public KrzakWilczaJagoda() : base(0x18E6)
+		[Constructable] 
+		public KrzakWilczaJagoda() : base( 0x18E5 )
 		{
 			Hue = 0;
 			Name = "Krzak wilczych jagod";
 			Stackable = true;
 		}
 
-		public KrzakWilczaJagoda(Serial serial) : base(serial)
-		{
+		public KrzakWilczaJagoda( Serial serial ) : base( serial ) 
+		{ 
 			//m_plantedTime = DateTime.Now;	// ???
 		}
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
-			writer.Write(0);
-		}
+		public override void Serialize( GenericWriter writer ) 
+		{ 
+			base.Serialize( writer ); 
+			writer.Write( (int) 0 ); 
+		} 
 
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
-			int version = reader.ReadInt();
-		}
-	}
-
-	public class PlonWilczaJagoda : WeedCropZiolaUprawne
-	{
-		public override void CreateReagent(Mobile from, int count) { from.AddToBackpack(new Nightshade(count)); }
-
+		public override void Deserialize( GenericReader reader ) 
+		{ 
+			base.Deserialize( reader ); 
+			int version = reader.ReadInt(); 
+		} 
+	} 
+	
+	public class PlonWilczaJagoda : Crop
+    {
+        public override Type ReagentType => typeof(Nightshade);
+		
 		[Constructable]
-		public PlonWilczaJagoda(int amount) : base(amount, 0x18E8)
+		public PlonWilczaJagoda( int amount ) : base( amount, 0x18E8 )
 		{
 			Hue = 0;
 			Name = "Galazka wilczej jagody";
@@ -79,24 +84,26 @@
 		}
 
 		[Constructable]
-		public PlonWilczaJagoda() : this(1)
+		public PlonWilczaJagoda() : this( 1 )
 		{
 		}
 
-		public PlonWilczaJagoda(Serial serial) : base(serial)
+		public PlonWilczaJagoda( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
-			writer.Write(0);
+			base.Serialize( writer );
+			writer.Write( (int) 0 );
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
 	}
+
+
 }

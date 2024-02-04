@@ -1,45 +1,43 @@
-﻿namespace Server.Items.Crops
+﻿using System;
+
+namespace Server.Items.Crops
 {
-	public class ZrodloKrysztalTrucizny : WeedPlantZbieractwo
-	{
-		public override void CreateCrop(Mobile from, int count)
-		{
-			from.AddToBackpack(new SurowiecKrysztalTrucizny(count));
-		}
+	public class ZrodloKrysztalTrucizny : ResourceVein
+    {
+        public override Type CropType => typeof(SurowiecKrysztalTrucizny);
+		protected override int MaturePlantGraphics => 0x35DA;
 
-		public override bool GivesSeed => false;
-
-		[Constructable]
-		public ZrodloKrysztalTrucizny() : base(0x35DA)
-		{
+		[Constructable] 
+		public ZrodloKrysztalTrucizny() : base( 0x35DA )
+		{ 
 			Hue = 0x44;
-			Name = "Krysztaly trucizny";
+			Name = "Krysztaly trucizny";		
 			Stackable = true;
 		}
 
-		public ZrodloKrysztalTrucizny(Serial serial) : base(serial)
-		{
+		public ZrodloKrysztalTrucizny( Serial serial ) : base( serial ) 
+		{ 
 		}
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
-			writer.Write(0);
-		}
+		public override void Serialize( GenericWriter writer ) 
+		{ 
+			base.Serialize( writer ); 
+			writer.Write( (int) 0 ); 
+		} 
 
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
-			int version = reader.ReadInt();
-		}
-	}
-
-	public class SurowiecKrysztalTrucizny : WeedCropZbieractwo
-	{
-		public override void CreateReagent(Mobile from, int count) { from.AddToBackpack(new NoxCrystal(count)); }
-
+		public override void Deserialize( GenericReader reader ) 
+		{ 
+			base.Deserialize( reader ); 
+			int version = reader.ReadInt(); 
+		} 
+	} 
+	
+	public class SurowiecKrysztalTrucizny : ResourceCrop
+    {
+        public override Type ReagentType => typeof(NoxCrystal);
+		
 		[Constructable]
-		public SurowiecKrysztalTrucizny(int amount) : base(amount, 0x2244)
+		public SurowiecKrysztalTrucizny( int amount ) : base( amount, 0x2244 )
 		{
 			Hue = 0x44;
 			Name = "Nieksztaltny krysztal trucizny";
@@ -47,24 +45,26 @@
 		}
 
 		[Constructable]
-		public SurowiecKrysztalTrucizny() : this(1)
+		public SurowiecKrysztalTrucizny() : this( 1 )
 		{
 		}
 
-		public SurowiecKrysztalTrucizny(Serial serial) : base(serial)
+		public SurowiecKrysztalTrucizny( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
-			writer.Write(0);
+			base.Serialize( writer );
+			writer.Write( (int) 0 );
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
 	}
+
+
 }
