@@ -31,7 +31,7 @@ namespace Server.Misc
 				m.AddItem(pack);
 			}
 
-			PackItem(m, new Gold(1000)); // Starting gold can be customized here
+			PackItem(m, new Gold(5000)); // Starting gold can be customized here
 		}
 
 		private static void AddShirt(Mobile m, int shirtHue)
