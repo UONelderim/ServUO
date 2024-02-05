@@ -1,3 +1,4 @@
+using System;
 using Server.Accounting;
 using Server.ContextMenus;
 using Server.Mobiles;
@@ -472,7 +473,7 @@ namespace Server.Items
 
                 if (m != null && m.Player && m.Backpack == this)
                 {
-                    return Config.Get("CarryWeight.PlayerBackbackMax", 550);
+                    return Math.Max(Config.Get("CarryWeight.PlayerBackbackMax", 550), m.MaxWeight);
                 }
 				
 				return base.DefaultMaxWeight;

@@ -48,8 +48,8 @@ namespace Server.Items
 	[Flipable]
 	public class MiastowaSzataTasandora : MiastowaSzata
 	{
-		public override int BaseColdResistance { get { return 1; } }
-		public override int LabelNumber { get { return 1063965; } } // Szata miasta Bedwyrgard
+		public override int BaseColdResistance => 1;
+		public override int LabelNumber => 1063965; // Szata miasta Bedwyrgard
 
 		[Constructable]
 		public MiastowaSzataTasandora()
@@ -91,8 +91,8 @@ namespace Server.Items
 	[Flipable]
 	public class MiastowaSzataTwierdza : MiastowaSzata
 	{
-		public override int BaseEnergyResistance { get { return 1; } }
-		public override int LabelNumber { get { return 1063966; } } // Szata miasta Malluan
+		public override int BaseEnergyResistance => 1;
+		public override int LabelNumber => 1063966; // Szata miasta Malluan
 
 		[Constructable]
 		public MiastowaSzataTwierdza()
@@ -135,12 +135,12 @@ namespace Server.Items
 	[Flipable]
 	public class MiastowaSzataWioskaDrowow : MiastowaSzata
 	{
-		public override int BaseFireResistance { get { return 1; } }
+		public override int BaseFireResistance => 1;
 		//public override int LabelNumber { get { return 1063967; } } // Szata miasta Nehkrumorgh
 
 		[Constructable]
 		public MiastowaSzataWioskaDrowow()
-			: base(1908)
+			: base(2882)
 		{
 			Name = "Szata Podmroku";
 		}
@@ -179,8 +179,8 @@ namespace Server.Items
 	[Flipable]
 	public class MiastowaSzataGarlan : MiastowaSzata
 	{
-		public override int BasePoisonResistance { get { return 1; } }
-		public override int LabelNumber { get { return 1063968; } } // Szata miasta Magizhaar
+		public override int BasePoisonResistance => 1;
+		public override int LabelNumber => 1063968; // Szata miasta Magizhaar
 
 		[Constructable]
 		public MiastowaSzataGarlan()
@@ -219,6 +219,52 @@ namespace Server.Items
 			return false;
 		}
 	}
+	
+	[Flipable]
+	public class MiastowaSzataLotharn : MiastowaSzata
+	{
+		public override int BaseFireResistance => 1;
+
+		[Constructable]
+		public MiastowaSzataLotharn()
+			: base(2702)
+		{
+			Name = "Szata Lotharn";
+		}
+
+		public MiastowaSzataLotharn(Serial serial)
+			: base(serial)
+		{
+		}
+
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+
+			writer.Write((int)0); // version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+
+			int version = reader.ReadInt();
+		}
+
+		public override bool CanEquip(Mobile m)
+		{
+			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Lotharn))
+			{
+				return true;
+			}
+			else
+			{
+				m.SendLocalizedMessage(1063970);
+				return false;
+			}
+		}
+	}
+
 
 	[Flipable(0x2684, 0x2683)]
 	public class MiastowaSzataZKapturem : BaseOuterTorso
@@ -274,8 +320,8 @@ namespace Server.Items
 	[Flipable(0x2684, 0x2683)]
 	public class MiastowaSzataZKapturemTasandora : MiastowaSzataZKapturem
 	{
-		public override int BaseColdResistance { get { return 2; } }
-		public override int LabelNumber { get { return 1063965; } } // Szata miasta Bedwyrgard
+		public override int BaseColdResistance => 2;
+		public override int LabelNumber => 1063965; // Szata miasta Bedwyrgard
 
 		[Constructable]
 		public MiastowaSzataZKapturemTasandora()
@@ -318,8 +364,8 @@ namespace Server.Items
 	[Flipable(0x2684, 0x2683)]
 	public class MiastowaSzataZKapturemTwierdza : MiastowaSzataZKapturem
 	{
-		public override int BaseEnergyResistance { get { return 2; } }
-		public override int LabelNumber { get { return 1063966; } } // Szata miasta Malluan
+		public override int BaseEnergyResistance => 2;
+		public override int LabelNumber => 1063966; // Szata miasta Malluan
 
 		[Constructable]
 		public MiastowaSzataZKapturemTwierdza()
@@ -362,12 +408,12 @@ namespace Server.Items
 	[Flipable(0x2684, 0x2683)]
 	public class MiastowaSzataZKapturemWioskaDrowow : MiastowaSzataZKapturem
 	{
-		public override int BaseFireResistance { get { return 2; } }
-		public override int LabelNumber { get { return 1063967; } } // Szata miasta Nehkrumorgh
+		public override int BaseFireResistance => 2;
+		public override int LabelNumber => 1063967; // Szata miasta Nehkrumorgh
 
 		[Constructable]
 		public MiastowaSzataZKapturemWioskaDrowow()
-			: base(1908)
+			: base(2882)
 		{
 			Name = "Szata Podmroku";
 		}
@@ -406,8 +452,8 @@ namespace Server.Items
 	[Flipable(0x2684, 0x2683)]
 	public class MiastowaSzataZKapturemGarlan : MiastowaSzataZKapturem
 	{
-		public override int BasePoisonResistance { get { return 2; } }
-		public override int LabelNumber { get { return 1063968; } } // Szata miasta Magizhaar
+		public override int BasePoisonResistance => 2;
+		public override int LabelNumber => 1063968; // Szata miasta Magizhaar
 
 		[Constructable]
 		public MiastowaSzataZKapturemGarlan()
@@ -446,4 +492,52 @@ namespace Server.Items
 			return false;
 		}
 	}
+	
+	
+	[Flipable(0x2684, 0x2683)]
+	public class MiastowaSzataZKapturemLotharn : MiastowaSzataZKapturem
+	{
+		public override int BaseFireResistance => 2;
+		public override int LabelNumber => 1063967; // Szata miasta Nehkrumorgh
+
+		[Constructable]
+		public MiastowaSzataZKapturemLotharn()
+			: base(2702)
+		{
+			Name = "Szata Lotharn";
+		}
+
+		public MiastowaSzataZKapturemLotharn(Serial serial)
+			: base(serial)
+		{
+		}
+
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+
+			writer.Write((int)0); // version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+
+			int version = reader.ReadInt();
+		}
+
+		public override bool CanEquip(Mobile m)
+		{
+			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Lotharn))
+			{
+				return true;
+			}
+			else
+			{
+				m.SendLocalizedMessage(1063970);
+				return false;
+			}
+		}
+	}
+
 }

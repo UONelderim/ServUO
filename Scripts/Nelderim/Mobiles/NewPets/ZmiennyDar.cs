@@ -39,26 +39,12 @@ namespace Server.Mobiles
             SetSkill(SkillName.Tactics, 90.1, 100.0);
             SetSkill(SkillName.Wrestling, 120);
 
-            Fame = 15000;
-            Karma = 15000;
-
-            VirtualArmor = 50;
-
             Tamable = true;
             ControlSlots = 3;
             MinTameSkill = 99.9;
             
             new HueChangeTimer(this).Start();
-            
-            
             SetWeaponAbility(WeaponAbility.ForceOfNature);
-        }
-
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.FilthyRich, 1);
-            AddLoot(LootPack.Gems, 5);
-
         }
 
         private static readonly int[] hueValues = { 2978, 2415, 2978, 2978, 2978, 2978 };
@@ -98,6 +84,7 @@ namespace Server.Mobiles
         public override Poison PoisonImmune => Poison.Deadly;
 
         public override Poison HitPoison => Poison.Deadly;
+        public override double WeaponAbilityChance => 0.05;
 
         public ZmiennyDar(Serial serial) : base(serial)
         {

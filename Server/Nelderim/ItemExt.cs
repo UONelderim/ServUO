@@ -9,8 +9,7 @@ namespace Server
 {
 	public partial class Item
 	{
-		// Nelderim lables
-
+		// Nelderim labels
 		[CommandProperty(AccessLevel.Administrator, true)]
 		public string ModifiedBy
 		{

@@ -1,13 +1,15 @@
+using System;
+
 namespace Server.Items.Crops
 {
 	// TODO: ustawic dodatkowy skill krawiectwo i zwiekszyc progi umozliwiajace zbieranie
 
-	public class SzczepkaLen : WeedSeedZiolaUprawne
-	{
-		public override Item CreateWeed() { return new KrzakLen(); }
+	public class SzczepkaLen : VegetableSeedling
+    {
+        public override Type PlantType => typeof(KrzakLen);
 
-		[Constructable]
-		public SzczepkaLen(int amount) : base(amount, 6946)
+        [Constructable]
+		public SzczepkaLen( int amount ) : base( amount, 6946 ) 
 		{
 			Hue = 51;
 			Name = "Ziarno lnu";
@@ -15,65 +17,65 @@ namespace Server.Items.Crops
 		}
 
 		[Constructable]
-		public SzczepkaLen() : this(1)
+		public SzczepkaLen() : this( 1 )
 		{
 		}
 
-		public SzczepkaLen(Serial serial) : base(serial)
+		public SzczepkaLen( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
-			writer.Write(0); // version
+			base.Serialize( writer );
+			writer.Write( (int)0 ); // version
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
 	}
+	
+	public class KrzakLen : VegetablePlant
+    {
+        public override Type SeedType => typeof(SzczepkaLen);
+        public override Type CropType => typeof(Flax);
+		protected override int YoungPlantGraphics => 0x1A9A;
+		protected override int MaturePlantGraphics => 0x1A9B;
 
-	public class KrzakLen : WeedPlantZiolaUprawne
-	{
-		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new PlonLen(count / 2)); }
-
-		public override void CreateSeed(Mobile from, int count) { from.AddToBackpack(new SzczepkaLen(count * 3)); }
-
-		[Constructable]
-		public KrzakLen() : base(6811)
+		[Constructable] 
+		public KrzakLen() : base(0x1A9A)
 		{
 			Hue = 0;
 			Name = "Krzak lnu";
 			Stackable = true;
+        }
+
+		public KrzakLen( Serial serial ) : base( serial ) 
+		{
 		}
 
-		public KrzakLen(Serial serial) : base(serial)
-		{
-			//m_plantedTime = DateTime.Now;	// ???
-		}
+		public override void Serialize( GenericWriter writer ) 
+		{ 
+			base.Serialize( writer ); 
+			writer.Write( (int) 0 ); 
+		} 
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
-			writer.Write(0);
-		}
-
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
-			int version = reader.ReadInt();
-		}
+		public override void Deserialize( GenericReader reader ) 
+		{ 
+			base.Deserialize( reader ); 
+			int version = reader.ReadInt(); 
+		} 
 	}
-
-	public class PlonLen : WeedCropZiolaUprawne
+	
+	public class PlonLen : VegetableCrop
 	{
-		public override void CreateReagent(Mobile from, int count) { from.AddToBackpack(new Flax(count)); }
+		public override Type ReagentType => typeof(Flax);
 
-		[Constructable]
-		public PlonLen(int amount) : base(amount, 6809)
+		//[Constructable]
+		public PlonLen(int amount) : base(amount, 0x1A99)
 		{
 			Hue = 0;
 			Name = "Lodyga lnu";
@@ -92,7 +94,7 @@ namespace Server.Items.Crops
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write(0);
+			writer.Write((int)0);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -101,4 +103,6 @@ namespace Server.Items.Crops
 			int version = reader.ReadInt();
 		}
 	}
+	
+
 }

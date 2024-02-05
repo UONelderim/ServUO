@@ -6557,6 +6557,7 @@ namespace Server.Mobiles
 
         public override void OnHeal(ref int amount, Mobile from)
         {
+	        RevealingAction();
             base.OnHeal(ref amount, from);
 
             // Removed until we can figure out the endless loop, or do a complete refactor

@@ -1,11 +1,15 @@
-﻿namespace Server.Items.Crops
+﻿using System;
+
+namespace Server.Items.Crops
 {
-	public class SzczepkaMandragora : WeedSeedZiolaUprawne
-	{
-		public override Item CreateWeed() { return new KrzakMandragora(); }
+
+	
+	public class SzczepkaMandragora : BaseSeedling
+    {
+        public override Type PlantType => typeof(KrzakMandragora);
 
 		[Constructable]
-		public SzczepkaMandragora(int amount) : base(amount, 0x18DD)
+		public SzczepkaMandragora( int amount ) : base( amount, 0x18DD ) 
 		{
 			Hue = 0;
 			Name = "Szczepka mandragory";
@@ -13,65 +17,66 @@
 		}
 
 		[Constructable]
-		public SzczepkaMandragora() : this(1)
+		public SzczepkaMandragora() : this( 1 )
 		{
 		}
 
-		public SzczepkaMandragora(Serial serial) : base(serial)
+		public SzczepkaMandragora( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
-			writer.Write(0); // version
+			base.Serialize( writer );
+			writer.Write( (int)0 ); // version
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
 	}
+	
+	public class KrzakMandragora : Plant
+    {
+        public override Type SeedType => typeof(SzczepkaMandragora);
+        public override Type CropType => typeof(PlonMandragora);
+		protected override int YoungPlantGraphics => 0x18DF;
+		protected override int MaturePlantGraphics => 0x18E0;
 
-	public class KrzakMandragora : WeedPlantZiolaUprawne
-	{
-		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new PlonMandragora(count)); }
-
-		public override void CreateSeed(Mobile from, int count) { from.AddToBackpack(new SzczepkaMandragora(count)); }
-
-		[Constructable]
-		public KrzakMandragora() : base(0x18E0)
+		[Constructable] 
+		public KrzakMandragora() : base(0x18DF)
 		{
 			Hue = 0;
 			Name = "Mandragora";
 			Stackable = true;
 		}
 
-		public KrzakMandragora(Serial serial) : base(serial)
-		{
+		public KrzakMandragora( Serial serial ) : base( serial ) 
+		{ 
 			//m_plantedTime = DateTime.Now;	// ???
 		}
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
-			writer.Write(0);
-		}
+		public override void Serialize( GenericWriter writer ) 
+		{ 
+			base.Serialize( writer ); 
+			writer.Write( (int) 0 ); 
+		} 
 
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
-			int version = reader.ReadInt();
-		}
-	}
-
-	public class PlonMandragora : WeedCropZiolaUprawne
-	{
-		public override void CreateReagent(Mobile from, int count) { from.AddToBackpack(new MandrakeRoot(count)); }
-
+		public override void Deserialize( GenericReader reader ) 
+		{ 
+			base.Deserialize( reader ); 
+			int version = reader.ReadInt(); 
+		} 
+	} 
+	
+	public class PlonMandragora : Crop
+    {
+        public override Type ReagentType => typeof(MandrakeRoot);
+		
 		[Constructable]
-		public PlonMandragora(int amount) : base(amount, 0x18DE)
+		public PlonMandragora( int amount ) : base( amount, 0x18DE )
 		{
 			Hue = 0;
 			Name = "Swiezy korzen mandragory";
@@ -79,24 +84,26 @@
 		}
 
 		[Constructable]
-		public PlonMandragora() : this(1)
+		public PlonMandragora() : this( 1 )
 		{
 		}
 
-		public PlonMandragora(Serial serial) : base(serial)
+		public PlonMandragora( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
-			writer.Write(0);
+			base.Serialize( writer );
+			writer.Write( (int) 0 );
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
 	}
+
+
 }

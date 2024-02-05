@@ -1,11 +1,15 @@
+using System;
+
 namespace Server.Items.Crops
 {
-	public class SzczepkaCzosnek : WeedSeedZiolaUprawne
-	{
-		public override Item CreateWeed() { return new KrzakCzosnek(); }
+
+	
+	public class SzczepkaCzosnek : BaseSeedling
+    {
+        public override Type PlantType => typeof(KrzakCzosnek);
 
 		[Constructable]
-		public SzczepkaCzosnek(int amount) : base(amount, 0x18E3)
+		public SzczepkaCzosnek( int amount ) : base( amount, 0x18E3 ) 
 		{
 			Hue = 178;
 			Name = "Szczepka czosnku";
@@ -13,89 +17,92 @@ namespace Server.Items.Crops
 		}
 
 		[Constructable]
-		public SzczepkaCzosnek() : this(1)
+		public SzczepkaCzosnek() : this( 1 )
 		{
 		}
 
-		public SzczepkaCzosnek(Serial serial) : base(serial)
+		public SzczepkaCzosnek( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
-			writer.Write(0); // version
+			base.Serialize( writer );
+			writer.Write( (int)0 ); // version
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
 	}
+	
+	public class KrzakCzosnek : Plant
+    {
+        public override Type SeedType => typeof(SzczepkaCzosnek);
+        public override Type CropType => typeof(PlonCzosnek);
+		protected override int YoungPlantGraphics => 0x18E2;
+		protected override int MaturePlantGraphics => 0x18E2;
 
-	public class KrzakCzosnek : WeedPlantZiolaUprawne
-	{
-		public override void CreateCrop(Mobile from, int count) { from.AddToBackpack(new PlonCzosnek(count)); }
-
-		public override void CreateSeed(Mobile from, int count) { from.AddToBackpack(new SzczepkaCzosnek(count)); }
-
-		[Constructable]
-		public KrzakCzosnek() : base(0x18E2)
+		[Constructable] 
+		public KrzakCzosnek() : base( 0x18E2 )
 		{
 			Hue = 0;
 			Name = "Lodyga czosnku";
-			Stackable = true;
+			Stackable = true;			
 		}
 
-		public KrzakCzosnek(Serial serial) : base(serial)
-		{
+		public KrzakCzosnek( Serial serial ) : base( serial ) 
+		{ 
 			//m_plantedTime = DateTime.Now;	// ???
 		}
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
-			writer.Write(0);
-		}
+		public override void Serialize( GenericWriter writer ) 
+		{ 
+			base.Serialize( writer ); 
+			writer.Write( (int) 0 ); 
+		} 
 
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
-			int version = reader.ReadInt();
-		}
-	}
-
-	public class PlonCzosnek : WeedCropZiolaUprawne
-	{
-		public override void CreateReagent(Mobile from, int count) { from.AddToBackpack(new Garlic(count)); }
-
+		public override void Deserialize( GenericReader reader ) 
+		{ 
+			base.Deserialize( reader ); 
+			int version = reader.ReadInt(); 
+		} 
+	} 
+	
+	public class PlonCzosnek : Crop
+    {
+        public override Type ReagentType => typeof(Garlic);
+		
 		[Constructable]
-		public PlonCzosnek(int amount) : base(amount, 0x18E4)
+		public PlonCzosnek( int amount ) : base( amount, 0x18E4 )
 		{
 			Hue = 0;
 			Name = "Glowka czosnku";
 		}
 
 		[Constructable]
-		public PlonCzosnek() : this(1)
+		public PlonCzosnek() : this( 1 )
 		{
 		}
 
-		public PlonCzosnek(Serial serial) : base(serial)
+		public PlonCzosnek( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
-			writer.Write(0);
+			base.Serialize( writer );
+			writer.Write( (int) 0 );
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
 	}
+
+
 }

@@ -590,6 +590,7 @@ namespace Server.Items
             else if (healer.CanBeBeneficial(patient, true, true))
             {
                 healer.DoBeneficial(patient);
+                patient.RevealingAction();
 
                 BandageContext context = GetContext(healer);
 

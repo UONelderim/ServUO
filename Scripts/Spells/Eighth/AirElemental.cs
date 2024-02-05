@@ -39,10 +39,12 @@ namespace Server.Spells.Eighth
             {
                 TimeSpan duration = TimeSpan.FromSeconds((2 * Caster.Skills.Magery.Fixed) / 5);
 
-                SpellHelper.Summon(new SummonedAirElemental(), Caster, 0x217, duration, false, false);
+                SpellHelper.Summon(AllowPoisonElemental ? new SummonedPoisonElemental() : new SummonedAirElemental(), Caster, 0x217, duration, false, false);
             }
 
             FinishSequence();
         }
+        
+        private bool AllowPoisonElemental =>  (Caster.Followers + 4) <  Caster.FollowersMax && ((Caster.Skills.Magery.Fixed + Caster.Skills.Poisoning.Fixed) / 2) >= 1000;
     }
 }
