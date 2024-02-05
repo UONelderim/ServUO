@@ -72,7 +72,7 @@ namespace Xanthos.Utilities
 		private const string kNewFile = "new";
 		private const string kMotdFile = "motd";
 		private const string kFileSuffix = ".txt";
-		private const string kPathMotd = "Logi/Aukcje_Motd/";
+		private const string kPathMotd = "Logs/Aukcje_Motd/";
 		private const string kPathArchive = kPathMotd + "Archive/";
 		private const string kGreeting = "Greetings And Welcome To ShardName";
 		private const string kDefaultBody = "There is no current news.";

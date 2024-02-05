@@ -73,6 +73,11 @@ namespace Server.Mobiles.Swiateczne
 			base.OnDeath(c);
 
 			ArtifactHelper.ArtifactDistribution(this);
+
+			foreach (var trap in m_Traps)
+			{
+				trap.Delete();
+			}
 		}
 
 		public KevinBoss(Serial serial) : base(serial)

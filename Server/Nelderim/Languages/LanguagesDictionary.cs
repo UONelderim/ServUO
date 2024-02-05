@@ -18,8 +18,7 @@ namespace Nelderim
 		public static Dictionary<string, string> Drowi = new();
 		public static Dictionary<string, string> Orkowy = new();
 		public static List<string> Demoniczny = new();
-		public static List<string> Nieumarlych = new();
-		public static List<string> Belkot = new();
+		public static Dictionary<string, string> Nieumarlych = new();
 
 		public static void Initialize()
 		{
@@ -29,8 +28,7 @@ namespace Nelderim
 			FillDictionary("Drowi", Drowi);
 			FillDictionary("Orkowy", Orkowy);
 			FillList("Demoniczny", Demoniczny);
-			FillList("Nieumarlych", Nieumarlych);
-			FillList("Belkot", Belkot);
+			FillDictionary("Nieumarlych", Nieumarlych);
 		}
 
 		private static void FillDictionary(string filename, Dictionary<string, string> dict)

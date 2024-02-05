@@ -1252,6 +1252,16 @@ namespace Server.Items
             {
                 SpecialMove.ClearCurrentMove(attacker);
             }
+            
+            if (attacker is BaseCreature bc)
+            {
+	            var ab = bc.GetWeaponAbility();
+
+	            if (ab != null)
+	            {
+		            WeaponAbility.SetCurrentAbility(bc, ab);
+	            }
+            }
         }
 
         public virtual TimeSpan OnSwing(Mobile attacker, IDamageable damageable)

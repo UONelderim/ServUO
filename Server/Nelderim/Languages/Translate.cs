@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Server;
 
 #endregion
@@ -25,7 +26,7 @@ namespace Nelderim
 				Language.Jarlowy => TranslateUsingDict(originalWords, LanguagesDictionary.Jarlowy),
 				Language.Demoniczny => TranslateUsingList(originalWords, LanguagesDictionary.Demoniczny),
 				Language.Orkowy => TranslateUsingDict(originalWords, LanguagesDictionary.Orkowy),
-				Language.Nieumarlych => TranslateUsingList(originalWords, LanguagesDictionary.Nieumarlych),
+				Language.Nieumarlych => TranslateUsingLetters(originalWords, LanguagesDictionary.Nieumarlych),
 				Language.Powszechny => RandomWord(originalWords),
 				Language.Belkot => RandomWord(originalWords),
 				_ => null
@@ -113,6 +114,43 @@ namespace Nelderim
 			for (var index = 0; index < originalWords.Length; index++)
 			{
 				translatedWords[index] = list[(Math.Abs(originalWords[index].ToLower().GetHashCode()) % list.Count)];
+				if (Char.IsUpper(originalWords[index][0]))
+				{
+					translatedWords[index] = CapitalizeFirstLetter(translatedWords[index]);
+				}
+			}
+			return translatedWords;
+		}
+		
+		public static string[] TranslateUsingLetters(string[] originalWords, Dictionary<String, String> dict)
+		{
+			var translatedWords = new string[originalWords.Length];
+			for (var index = 0; index < originalWords.Length; index++)
+			{
+				var word = Regex.Replace(originalWords[index], @"[^a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ]", "");
+				if (word.Length == 1)
+				{
+					translatedWords[index] = word;
+					continue;
+				}
+				if (word.Length % 2 != 0)
+					word = word.Substring(0, word.Length - 1); //Drop last character
+				var translated = "";
+				for (var i = 0; i < word.Length; i += 2)
+				{
+					var pair = word.Substring(i, 2).ToLower();
+				
+					if (dict.TryGetValue(pair, out var value))
+					{
+						translated += value;
+					}
+					else
+					{
+						translated += dict.ElementAt(Math.Abs(pair.GetHashCode()) % dict.Count).Value;
+					}
+				}
+				translatedWords[index] = translated;
+				
 				if (Char.IsUpper(originalWords[index][0]))
 				{
 					translatedWords[index] = CapitalizeFirstLetter(translatedWords[index]);

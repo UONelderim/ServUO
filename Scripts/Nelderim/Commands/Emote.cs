@@ -1,85 +1,105 @@
-// 05.03.29  :: troyan :: polecenia przeniesione na poziom Counselor
-// 05.12.18 :: troyan :: dopasowanie do Gmoff
-
-#region References
-
+using System;
+using Server.Items;
 using Server.Network;
-using Server.Targeting;
-
-#endregion
+using Server.Commands.Generic;
 
 namespace Server.Commands
 {
-	public class emote
-	{
-		public static void Initialize()
-		{
-			Color = 99;
-			Register("Em", AccessLevel.Counselor, emoteCommand);
-			Register("SetemoteColor", AccessLevel.Counselor, SetemoteColorCommand);
-		}
+    public class emote
+    {
+        private static int m_Color;
 
-		public static void Register(string command, AccessLevel access, CommandEventHandler handler)
-		{
-			CommandSystem.Register(command, access, handler);
-		}
+        public static void Initialize()
+        {
+            m_Color = 99;
+            TargetCommands.Register(new ShowEmote());
+            CommandSystem.Register( "SetEmoteColor", AccessLevel.Counselor, SetEmoteColorCommand );
+        }
+        
+        public class ShowEmote : BaseCommand
+        {
+            public ShowEmote()
+            {
+                AccessLevel = AccessLevel.Counselor;
+                Supports = CommandSupport.Simple;
+                Commands = new[] { "Em" };
+                ObjectTypes = ObjectTypes.All;
+                Usage = "Em <emote text to display>";
+                Description = "Force target to emote <text>.";
+            }
 
-		public static int Color { get; private set; }
+            public override bool ValidateArgs(BaseCommandImplementor impl, CommandEventArgs e)
+            {
+                return e.Length >= 1;
+            }
 
-		[Usage("SetemoteColor <int>")]
-		[Description("Defines the color for items speech with the emote command")]
-		public static void SetemoteColorCommand(CommandEventArgs e)
-		{
-			if (e.Length <= 0)
-				e.Mobile.SendMessage("Format: SetemoteColor \"<int>\"");
-			else
-			{
-				Color = e.GetInt32(0);
-				e.Mobile.SendMessage(Color, "You choosed this color.");
-			}
-		}
+            public override void Execute(CommandEventArgs e, object targeted)
+            {
+                var from = e.Mobile;
+                var emoteText = $"*{e.ArgString}*";
 
-		[Usage("em <text>")]
-		[Description("Force target to emote <text>.")]
-		public static void emoteCommand(CommandEventArgs e)
-		{
-			string toemote = e.ArgString.Trim();
+                if (targeted is Mobile m)
+                {
+                    if (from != m && from.TrueAccessLevel > m.TrueAccessLevel)
+                    {
+                        CommandLogging.WriteLine(from, $"{from.TrueAccessLevel} { CommandLogging.Format(from)} forcing speech on {CommandLogging.Format(m)}");
+                        m.Emote(e.ArgString);
+                    }
+                }
+                else if (targeted is Item item)
+                {
+                    item.PublicOverheadMessage(MessageType.Regular, Say.Color, false, emoteText);
+                }
+                else if (targeted is IPoint3D p)
+                {
+                    Static emoteHolder = new EmoteItem();
+                    emoteHolder.MoveToWorld(new Point3D(p), from.Map);
+                    emoteHolder.PublicOverheadMessage(MessageType.Regular, Say.Color, false, emoteText);
+                }
+                else
+                {
+                    from.SendMessage("Invalid target");
+                }
+            }
+        }
 
-			if (e.Length > 0)
-				e.Mobile.Target = new emoteTarget(toemote);
-			else
-				e.Mobile.SendMessage("Format: emote \"<text>\"");
-		}
+        public static int Color => m_Color;
 
-		public class emoteTarget : Target
-		{
-			private readonly string m_toemote;
+        [Usage( "SetEmoteColor <int>" )]
+        [Description( "Defines the color for items speech with the emote command" )]
+        public static void SetEmoteColorCommand( CommandEventArgs e )
+        {
+            if ( e.Length <= 0 )
+                e.Mobile.SendMessage( "Format: SetEmoteColor \"<int>\"" );
+            else
+            {
+                m_Color = e.GetInt32(0);
+                e.Mobile.SendMessage( m_Color, "You chose this color." );
+            }
+        }
+    }
 
-			public emoteTarget(string s) : base(-1, false, TargetFlags.None)
-			{
-				m_toemote = s;
-			}
+    class EmoteItem : Static
+    {
+        public EmoteItem() : base(0x1)
+        {
+            Name = "";
+            Timer.DelayCall(TimeSpan.FromSeconds(10), Delete);
+        }
 
-			protected override void OnTarget(Mobile from, object targeted)
-			{
-				if (targeted is Mobile)
-				{
-					Mobile targ = (Mobile)targeted;
+        public EmoteItem(Serial serial) : base(serial)
+        {
+        }
 
-					if (from != targ && from.TrueAccessLevel > targ.TrueAccessLevel)
-					{
-						CommandLogging.WriteLine(from, "{0} {1} forcing speech on {2}", from.TrueAccessLevel,
-							CommandLogging.Format(from), CommandLogging.Format(targ));
-						targ.Say("*" + m_toemote + "*");
-					}
-				}
-				else if (targeted is Item)
-				{
-					Item targ = (Item)targeted;
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+        }
 
-					targ.PublicOverheadMessage(MessageType.Regular, Say.Color, false, "*" + m_toemote + "*");
-				}
-			}
-		}
-	}
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            Delete();
+        }
+    };
 }

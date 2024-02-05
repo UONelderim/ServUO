@@ -1,45 +1,43 @@
-﻿namespace Server.Items.Crops
+﻿using System;
+
+namespace Server.Items.Crops
 {
-	public class ZrodloSwinskieZelazo : WeedPlantZbieractwo
-	{
-		public override void CreateCrop(Mobile from, int count)
-		{
-			from.AddToBackpack(new SurowiecSwinskieZelazo(count));
-		}
+	public class ZrodloSwinskieZelazo : ResourceVein
+    {
+        public override Type CropType => typeof(SurowiecSwinskieZelazo);
+		protected override int MaturePlantGraphics => 0x266C;
 
-		public override bool GivesSeed => false;
-
-		[Constructable]
-		public ZrodloSwinskieZelazo() : base(0x266C)
-		{
+		[Constructable] 
+		public ZrodloSwinskieZelazo() : base( 0x266C )
+		{ 
 			Hue = 0x383;
 			Name = "Zardzewiala surowka";
-			Stackable = true;
+			Stackable = true;			
 		}
 
-		public ZrodloSwinskieZelazo(Serial serial) : base(serial)
+		public ZrodloSwinskieZelazo( Serial serial ) : base( serial ) 
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
-			writer.Write(0);
-		}
+		public override void Serialize( GenericWriter writer ) 
+		{ 
+			base.Serialize( writer ); 
+			writer.Write( (int) 0 ); 
+		} 
 
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
-			int version = reader.ReadInt();
-		}
-	}
-
-	public class SurowiecSwinskieZelazo : WeedCropZbieractwo
-	{
-		public override void CreateReagent(Mobile from, int count) { from.AddToBackpack(new PigIron(count)); }
-
+		public override void Deserialize( GenericReader reader ) 
+		{ 
+			base.Deserialize( reader ); 
+			int version = reader.ReadInt(); 
+		} 
+	} 
+	
+	public class SurowiecSwinskieZelazo : ResourceCrop
+    {
+        public override Type ReagentType => typeof(PigIron);
+		
 		[Constructable]
-		public SurowiecSwinskieZelazo(int amount) : base(amount, 0x0FB7)
+		public SurowiecSwinskieZelazo( int amount ) : base( amount, 0x0FB7 )
 		{
 			Hue = 0x383;
 			Name = "Ordzewiale zeliwo";
@@ -47,24 +45,26 @@
 		}
 
 		[Constructable]
-		public SurowiecSwinskieZelazo() : this(1)
+		public SurowiecSwinskieZelazo() : this( 1 )
 		{
 		}
 
-		public SurowiecSwinskieZelazo(Serial serial) : base(serial)
+		public SurowiecSwinskieZelazo( Serial serial ) : base( serial )
 		{
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
-			writer.Write(0);
+			base.Serialize( writer );
+			writer.Write( (int) 0 );
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 			int version = reader.ReadInt();
 		}
 	}
+
+
 }

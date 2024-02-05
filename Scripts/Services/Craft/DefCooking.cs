@@ -168,7 +168,7 @@ namespace Server.Engines.Craft
 			AddRes( index, typeof( BottleSheepMilk ), "Butelka Owczego Mleka" , 10, 1044253 );
 
 			index = AddCraft( typeof( WywarInteligencji ), "Wywary" , "Wywar Inteligencji" , 90.0, 150.0, typeof( BottleGoatMilk ), "Butelka Koziego Mleka", 5, 1044253 );
-			AddRes( index, typeof( Corn ), "kukurydza" , 10, 1044253 );
+			AddRes( index, typeof( EarOfCorn ), "kukurydza" , 10, 1044253 );
 			AddRes( index, typeof( Eggs), "jajka" , 15, 1044253 );
 			AddRes( index, typeof( BottleCowMilk ), "Butelka Krowiego Mleka" , 10, 1044253 );
 

@@ -483,7 +483,10 @@ namespace Server.Mobiles
                     if (Poisoned)
                         PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1049692, from.NetState); // This mount is too ill to ride.
                     else
-                        Rider = from;
+                    {
+	                    Rider = from;
+	                    Hidden = false;
+                    }
                 }
                 else if (!Controlled && !Summoned)
                 {
