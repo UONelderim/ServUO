@@ -653,11 +653,15 @@ namespace Server.Engines.BulkOrders
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157118, 0x481, 400, PowerScroll, 5));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157112, 0, 400, Tapestry));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157113, 0, 450, BearRug));
+                RewardCollection.Add(new BODCollectionItem(0x0f52, 1049803, 0x482, 450, AncientSewingKit, 10 ));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157119, 0x481, 500, PowerScroll, 10));
+                RewardCollection.Add(new BODCollectionItem(0x0f52, 1049803, 0x482, 550, AncientSewingKit, 15 ));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157114, 0, 550, ClothingBlessDeed));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157120, 0x481, 575, PowerScroll, 15));
                 RewardCollection.Add(new BODCollectionItem(0xF9D, 1157116, CraftResources.GetHue(CraftResource.HornedLeather), 600, RunicKit, 2));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157121, 0x481, 650, PowerScroll, 20));
+                RewardCollection.Add(new BODCollectionItem(0x0f52, 1049803, 0x482, 650, AncientSewingKit, 30 ));
+                RewardCollection.Add(new BODCollectionItem(0x0f52, 1049803, 0x482, 675, AncientSewingKit, 60 ));
                 RewardCollection.Add(new BODCollectionItem(0xF9D, 1157117, CraftResources.GetHue(CraftResource.BarbedLeather), 700, RunicKit, 3));
             }
             else
@@ -673,8 +677,10 @@ namespace Server.Engines.BulkOrders
                     new RewardGroup(350, new RewardItem(1, RunicKit, 1)),
                     new RewardGroup(400, new RewardItem(2, PowerScroll, 5), new RewardItem(3, Tapestry)),
                     new RewardGroup(450, new RewardItem(1, BearRug)),
+                    new RewardGroup( 450, new RewardItem( 1, AncientSewingKit, 10 ) ),
                     new RewardGroup(500, new RewardItem(1, PowerScroll, 10)),
                     new RewardGroup(550, new RewardItem(1, ClothingBlessDeed)),
+                    new RewardGroup( 550, new RewardItem( 1, DecorGreater ) ),
                     new RewardGroup(575, new RewardItem(1, PowerScroll, 15)),
                     new RewardGroup(600, new RewardItem(1, RunicKit, 2)),
                     new RewardGroup(650, new RewardItem(1, PowerScroll, 20)),
@@ -695,6 +701,8 @@ namespace Server.Engines.BulkOrders
         private static readonly ConstructCallback ClothingBlessDeed = CreateCBD;
         private static readonly ConstructCallback CraftsmanTalisman = CreateCraftsmanTalisman;
         private static readonly ConstructCallback PowderForLeather = TailoringPowderOfTemperament;
+        private static readonly ConstructCallback DecorGreater = new ConstructCallback(CreateDecorGreater);
+        private static readonly ConstructCallback AncientSewingKit = new ConstructCallback(CreateAncientSewingKit);
 
         private static Item TailoringPowderOfTemperament(int type)
         {
@@ -762,6 +770,13 @@ namespace Server.Engines.BulkOrders
                     return new MediumStretchedHideSouthDeed();
             }
         }
+        
+        private static Item CreateAncientSewingKit(int type) {
+	        if (type == 10 || type == 15 || type == 30 || type == 60)
+		        return new AncientSewingKit(type);
+
+	        throw new InvalidOperationException();
+        }
 
         private static Item CreateTapestry(int type)
         {
@@ -793,6 +808,23 @@ namespace Server.Engines.BulkOrders
                 case 3:
                     return new PolarBearRugSouthDeed();
             }
+        }
+        
+        private static Type[] m_GreaterDecorTypes = new Type[]
+        {
+	        typeof(BlueCouchEastAddonDeed),
+	        typeof(BlueCouchNorthAddonDeed),
+	        typeof(BlueCouchNorthAddonDeed),
+	        typeof(BlueCouchWestAddonDeed),
+
+	        typeof(GreyDrkFPSouth3AddonDeed)
+        };
+        
+        private static Item CreateDecorGreater(int type) {
+	        var greaterDecorType = m_GreaterDecorTypes[Utility.Random(m_GreaterDecorTypes.Length)];
+			
+	        Item item = (Item)Activator.CreateInstance(greaterDecorType);
+	        return item;
         }
 
         private static Item CreateRunicKit(int type)
