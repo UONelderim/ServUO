@@ -34,6 +34,7 @@ namespace Server.Mobiles
             Tamable = true;
             ControlSlots = 1;
             MinTameSkill = 11.1;
+            new DefecationTimer(this).Start();
         }
 
         public Pig(Serial serial)
@@ -53,6 +54,7 @@ namespace Server.Mobiles
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
+            new DefecationTimer(this).Start();
         }
     }
 }
