@@ -43,7 +43,7 @@ namespace Server.Commands
                     if (from != m && from.TrueAccessLevel > m.TrueAccessLevel)
                     {
                         CommandLogging.WriteLine(from, $"{from.TrueAccessLevel} { CommandLogging.Format(from)} forcing speech on {CommandLogging.Format(m)}");
-                        m.Emote(e.ArgString);
+                        m.Emote(emoteText);
                     }
                 }
                 else if (targeted is Item item)
