@@ -284,7 +284,7 @@ namespace Server.Engines.BulkOrders
                 RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152674, CraftResources.GetHue(CraftResource.Gold), 350, SmeltersTalisman, (int)CraftResource.Gold));
                 RewardCollection.Add(new BODCollectionItem(0x9E2A, 1157264, 0, 400, CraftsmanTalisman, 10));
                 RewardCollection.Add(new BODCollectionItem(0x13EB, 1157088, 0, 450, MiningGloves, 5));
-                RewardCollection.Add(new BODCollectionItem(4102, 1157091, 0, 450, PowderOfTemperament));
+                RewardCollection.Add(new BODCollectionItem(4102, "Proszek wzmocnienia wyrobow kowalskich", 0x44E, 450, BlacksmithyPowderOfTemperament));
                 RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152675, CraftResources.GetHue(CraftResource.Agapite), 475, SmeltersTalisman, (int)CraftResource.Agapite));
                 RewardCollection.Add(new BODCollectionItem(0x9E7E, 1157216, 0, 500, RockHammer));
                 RewardCollection.Add(new BODCollectionItem(0x13E3, 1157092, CraftResources.GetHue(CraftResource.DullCopper), 500, RunicHammer, 1));
@@ -322,8 +322,8 @@ namespace Server.Engines.BulkOrders
                     new RewardGroup( 25, new RewardItem( 1, IronIngots ) ),
                     new RewardGroup(50, new RewardItem(45, SturdyShovel), new RewardItem(45, IronIngots), new RewardItem(10, MiningGloves, 1)),
                     new RewardGroup(200, new RewardItem(45, GargoylesPickaxe), new RewardItem(45, ProspectorsTool), new RewardItem(10, MiningGloves, 3)),
-                    new RewardGroup(400, new RewardItem(2, GargoylesPickaxe), new RewardItem(2, ProspectorsTool), new RewardItem(1, PowderOfTemperament)),
-                    new RewardGroup(450, new RewardItem(9, PowderOfTemperament), new RewardItem(1, MiningGloves, 5)),
+                    new RewardGroup(400, new RewardItem(2, GargoylesPickaxe), new RewardItem(2, ProspectorsTool), new RewardItem(1, BlacksmithyPowderOfTemperament)),
+                    new RewardGroup(450, new RewardItem(9, BlacksmithyPowderOfTemperament), new RewardItem(1, MiningGloves, 5)),
                     new RewardGroup(500, new RewardItem(1, RunicHammer, 1)),
                     new RewardGroup(550, new RewardItem(3, RunicHammer, 1), new RewardItem(2, RunicHammer, 2)),
                     new RewardGroup(600, new RewardItem(1, RunicHammer, 2)),
@@ -353,7 +353,7 @@ namespace Server.Engines.BulkOrders
         private static readonly ConstructCallback MiningGloves = CreateMiningGloves;
         private static readonly ConstructCallback GargoylesPickaxe = CreateGargoylesPickaxe;
         private static readonly ConstructCallback ProspectorsTool = CreateProspectorsTool;
-        private static readonly ConstructCallback PowderOfTemperament = CreatePowderOfTemperament;
+        private static readonly ConstructCallback BlacksmithyPowderOfTemperament = CreatePowderOfTemperament;
         private static readonly ConstructCallback RunicHammer = CreateRunicHammer;
         private static readonly ConstructCallback PowerScroll = CreatePowerScroll;
         private static readonly ConstructCallback ColoredAnvil = CreateColoredAnvil;
@@ -408,7 +408,7 @@ namespace Server.Engines.BulkOrders
 
         private static Item CreatePowderOfTemperament(int type)
         {
-            return new PowderOfTemperament();
+            return new BlacksmithyPowderOfTemperament();
         }
 
         private static Item CreateRunicHammer(int type)
@@ -644,6 +644,7 @@ namespace Server.Engines.BulkOrders
                 RewardCollection.Add(new BODCollectionItem(0x170D, 1157110, 0, 150, Sandals, 3));
                 RewardCollection.Add(new BODCollectionItem(0x1765, 1157109, 0, 200, Cloth, 4));
                 RewardCollection.Add(new BODCollectionItem(0x9E25, 1157264, 0, 200, CraftsmanTalisman, 10)); // todo: Get id
+                RewardCollection.Add(new BODCollectionItem(4102, "Proszek wzmocnienia wyrobow krawieckich", 0x483, 200, TailoringPowderOfTemperament)); 
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157111, 0, 300, StretchedHide));
                 RewardCollection.Add(new BODCollectionItem(0x1765, 1157109, 0, 300, Cloth, 5)); // TODO: Get other 4 colors
                 RewardCollection.Add(new BODCollectionItem(0x9E25, 1157218, 0, 300, CraftsmanTalisman, 25)); // todo: Get id
@@ -693,6 +694,12 @@ namespace Server.Engines.BulkOrders
         private static readonly ConstructCallback BearRug = CreateBearRug;
         private static readonly ConstructCallback ClothingBlessDeed = CreateCBD;
         private static readonly ConstructCallback CraftsmanTalisman = CreateCraftsmanTalisman;
+        private static readonly ConstructCallback PowderForLeather = TailoringPowderOfTemperament;
+
+        private static Item TailoringPowderOfTemperament(int type)
+        {
+	        return new TailoringPowderOfTemperament();
+        }
 
         private static Item CreateSewingKit(int type)
         {
@@ -945,6 +952,7 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x9E2B, 1157264, 0, 400, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152674, CraftResources.GetHue(CraftResource.Gold), 450, SmeltersTalisman, (int)CraftResource.Gold));
            // RewardCollection.Add(new BODCollectionItem(0x14EC, 1152665, CraftResources.GetHue(CraftResource.Gold), 500, HarvestMap, (int)CraftResource.Gold));
+           RewardCollection.Add(new BODCollectionItem(4102, 1152674, 993, 500, TinkeringPowderOfTemperament));
             RewardCollection.Add(new BODCollectionItem(0x9E2B, 1157218, 0, 550, CraftsmanTalisman, 25)); // todo: Get id
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152675, CraftResources.GetHue(CraftResource.Agapite), 600, SmeltersTalisman, (int)CraftResource.Agapite));
            // RewardCollection.Add(new BODCollectionItem(0x14EC, 1152666, CraftResources.GetHue(CraftResource.Agapite), 650, HarvestMap, (int)CraftResource.Agapite));
@@ -958,6 +966,11 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152677, CraftResources.GetHue(CraftResource.Valorite), 1050, SmeltersTalisman, (int)CraftResource.Valorite));
             RewardCollection.Add(new BODCollectionItem(0x14EC, 1152668, CraftResources.GetHue(CraftResource.Valorite), 1100, HarvestMap, (int)CraftResource.Valorite));
             RewardCollection.Add(new BODCollectionItem(0x9DB1, 1157220, 1175, 1200, CreateItem, 3));
+        }
+
+        private Item TinkeringPowderOfTemperament(int type)
+        {
+	        return new TinkeringPowderOfTemperament();
         }
 
         #region Constructors
@@ -1305,7 +1318,7 @@ namespace Server.Engines.BulkOrders
         }
     }
     #endregion
-
+    
     #region Inscription Rewards
     public sealed class InscriptionRewardCalculator : RewardCalculator
     {
@@ -1591,6 +1604,7 @@ namespace Server.Engines.BulkOrders
        //   RewardCollection.Add(new BODCollectionItem(0x14EC, 1152670, CraftResources.GetHue(CraftResource.Heartwood), 375, HarvestMap, (int)CraftResource.Heartwood));
             RewardCollection.Add(new BODCollectionItem(0x9E29, 1157265, 0, 410, CraftsmanTalisman, 50));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157223, CraftResources.GetHue(CraftResource.OakWood), 425, CreateRunicFletcherTools, 0));
+            RewardCollection.Add(new BODCollectionItem(4102, "Proszek wzmocnienia wyrobow lukmistrza", 0x591, 500, BowFletchingPowderOfTemperament));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152680, CraftResources.GetHue(CraftResource.Bloodwood), 510, WoodsmansTalisman, (int)CraftResource.Bloodwood));
      //     RewardCollection.Add(new BODCollectionItem(0x14EC, 1152671, CraftResources.GetHue(CraftResource.Bloodwood), 525, HarvestMap, (int)CraftResource.Bloodwood));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157224, CraftResources.GetHue(CraftResource.AshWood), 650, CreateRunicFletcherTools, 1));
@@ -1598,6 +1612,11 @@ namespace Server.Engines.BulkOrders
       //    RewardCollection.Add(new BODCollectionItem(0x14EC, 1152672, CraftResources.GetHue(CraftResource.Frostwood), 950, HarvestMap, (int)CraftResource.Frostwood));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157225, CraftResources.GetHue(CraftResource.YewWood), 1000, CreateRunicFletcherTools, 2));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157226, CraftResources.GetHue(CraftResource.Heartwood), 1100, CreateRunicFletcherTools, 3));
+        }
+
+        private Item BowFletchingPowderOfTemperament(int type)
+        {
+	        return new BowFletchingPowderOfTemperament();
         }
 
         #region Constructors
