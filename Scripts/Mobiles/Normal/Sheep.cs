@@ -40,6 +40,7 @@ namespace Server.Mobiles
             Tamable = true;
             ControlSlots = 1;
             MinTameSkill = 11.1;
+            new DefecationTimer(this).Start();
         }
 
         public Sheep(Serial serial)
@@ -127,6 +128,7 @@ namespace Server.Mobiles
                         break;
                     }
             }
+            new DefecationTimer(this).Start();
         }
     }
 }
