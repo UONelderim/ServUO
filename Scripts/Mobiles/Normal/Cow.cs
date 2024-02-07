@@ -42,6 +42,7 @@ namespace Server.Mobiles
 
             if (Utility.Random(1000) == 0) // 0.1% chance to have mad cows
                 FightMode = FightMode.Closest;
+            new DefecationTimer(this).Start();
         }
 
         public Cow(Serial serial)
@@ -134,6 +135,7 @@ namespace Server.Mobiles
 
             m_MilkedOn = reader.ReadDateTime();
             m_Milk = reader.ReadInt();
+            new DefecationTimer(this).Start();
         }
     }
 }

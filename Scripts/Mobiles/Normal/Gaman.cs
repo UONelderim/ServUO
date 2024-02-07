@@ -39,6 +39,7 @@ namespace Server.Mobiles
             Tamable = true;
             ControlSlots = 1;
             MinTameSkill = 68.7;
+            new DefecationTimer(this).Start();
         }
 
         public Gaman(Serial serial)
@@ -92,6 +93,7 @@ namespace Server.Mobiles
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
+            new DefecationTimer(this).Start();
         }
     }
 }
