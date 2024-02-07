@@ -318,8 +318,9 @@ namespace Server.Engines.BulkOrders
                 Groups = new RewardGroup[]
                 {
                     new RewardGroup(0, new RewardItem(1, SturdyShovel)),
-                    new RewardGroup(25, new RewardItem(1, SturdyPickaxe)),
-                    new RewardGroup(50, new RewardItem(45, SturdyShovel), new RewardItem(45, SturdyPickaxe), new RewardItem(10, MiningGloves, 1)),
+                    //new (25, new RewardItem(1, SturdyPickaxe)),
+                    new RewardGroup( 25, new RewardItem( 1, IronIngots ) ),
+                    new RewardGroup(50, new RewardItem(45, SturdyShovel), new RewardItem(45, IronIngots), new RewardItem(10, MiningGloves, 1)),
                     new RewardGroup(200, new RewardItem(45, GargoylesPickaxe), new RewardItem(45, ProspectorsTool), new RewardItem(10, MiningGloves, 3)),
                     new RewardGroup(400, new RewardItem(2, GargoylesPickaxe), new RewardItem(2, ProspectorsTool), new RewardItem(1, PowderOfTemperament)),
                     new RewardGroup(450, new RewardItem(9, PowderOfTemperament), new RewardItem(1, MiningGloves, 5)),
@@ -348,6 +349,7 @@ namespace Server.Engines.BulkOrders
         private static readonly ConstructCallback SmithHammer = CreateSmithHammer;
         private static readonly ConstructCallback SturdyShovel = CreateSturdyShovel;
         private static readonly ConstructCallback SturdyPickaxe = CreateSturdyPickaxe;
+        private static readonly ConstructCallback IronIngots = CreateIronIngots;
         private static readonly ConstructCallback MiningGloves = CreateMiningGloves;
         private static readonly ConstructCallback GargoylesPickaxe = CreateGargoylesPickaxe;
         private static readonly ConstructCallback ProspectorsTool = CreateProspectorsTool;
@@ -375,6 +377,11 @@ namespace Server.Engines.BulkOrders
         private static Item CreateSturdyPickaxe(int type)
         {
             return new SturdyPickaxe();
+        }
+
+        private static Item CreateIronIngots(int type)
+        {
+	        return new IronIngot(10);
         }
 
         private static Item CreateMiningGloves(int type)
