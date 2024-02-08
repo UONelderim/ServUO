@@ -1659,7 +1659,7 @@ namespace Server.Engines.BulkOrders
 			RewardCollection.Add(new BODCollectionItem(0x13f7, 1049802, 0x482, 950, AncientTool,30));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157225, CraftResources.GetHue(CraftResource.YewWood), 1000, CreateRunicFletcherTools, 2));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157226, CraftResources.GetHue(CraftResource.Heartwood), 1100, CreateRunicFletcherTools, 3));
-            RewardCollection.Add(new BODCollectionItem(0x13f7, 1049802, 0x482, 950, AncientTool,60));
+            RewardCollection.Add(new BODCollectionItem(0x13f7, 1049802, 0x482, 1100, AncientTool,60));
         }
         
         private static Item CreateSturdyAxe(int type) {
