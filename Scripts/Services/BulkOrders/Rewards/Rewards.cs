@@ -656,6 +656,7 @@ namespace Server.Engines.BulkOrders
                 RewardCollection.Add(new BODCollectionItem(0x0f52, 1049803, 0x482, 450, AncientSewingKit, 10 ));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157119, 0x481, 500, PowerScroll, 10));
                 RewardCollection.Add(new BODCollectionItem(0x0f52, 1049803, 0x482, 550, AncientSewingKit, 15 ));
+                RewardCollection.Add(new BODCollectionItem(0x14EF, "Duza Dekoracja", 0x482, 550, DecorGreater));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157114, 0, 550, ClothingBlessDeed));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157120, 0x481, 575, PowerScroll, 15));
                 RewardCollection.Add(new BODCollectionItem(0xF9D, 1157116, CraftResources.GetHue(CraftResource.HornedLeather), 600, RunicKit, 2));
@@ -677,10 +678,8 @@ namespace Server.Engines.BulkOrders
                     new RewardGroup(350, new RewardItem(1, RunicKit, 1)),
                     new RewardGroup(400, new RewardItem(2, PowerScroll, 5), new RewardItem(3, Tapestry)),
                     new RewardGroup(450, new RewardItem(1, BearRug)),
-                    new RewardGroup( 450, new RewardItem( 1, AncientSewingKit, 10 ) ),
                     new RewardGroup(500, new RewardItem(1, PowerScroll, 10)),
                     new RewardGroup(550, new RewardItem(1, ClothingBlessDeed)),
-                    new RewardGroup( 550, new RewardItem( 1, DecorGreater ) ),
                     new RewardGroup(575, new RewardItem(1, PowerScroll, 15)),
                     new RewardGroup(600, new RewardItem(1, RunicKit, 2)),
                     new RewardGroup(650, new RewardItem(1, PowerScroll, 20)),
