@@ -1621,12 +1621,23 @@ namespace Server.Engines.BulkOrders
     #region Fletching Rewards
     public sealed class FletchingRewardCalculator : RewardCalculator
     {
+	    private static readonly ConstructCallback SturdyAxe = new ConstructCallback(CreateSturdyAxe);
+	    private static readonly ConstructCallback TreefellowsAxe = new ConstructCallback(CreateTreefellowsAxe);
+	    private static readonly ConstructCallback WoodProspectorsTool = new ConstructCallback(CreateWoodProspectorsTool);
+	    private static readonly ConstructCallback LumberjackingGloves = new ConstructCallback(CreateLumberjackingGloves);
+	    private static readonly ConstructCallback AncientTool = new ConstructCallback(CreateAncientTool);
+	    private static readonly ConstructCallback Equiver = new ConstructCallback(CreateEquiver);
         public FletchingRewardCalculator()
         {
             RewardCollection = new List<CollectionItem>();
 
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157219, 0, 10, FletcherTools));
         //  RewardCollection.Add(new BODCollectionItem(0x14F0, 1157200, 0, 25, RewardTitle, 17));
+			RewardCollection.Add(new BODCollectionItem(0x13C6, 3000295, 0, 50, LumberjackingGloves, 1));
+			RewardCollection.Add(new BODCollectionItem(0x0F47, 1046483, 0x973, 50, SturdyAxe));
+			RewardCollection.Add(new BODCollectionItem(0xF43, 3000299, 0x973, 200, TreefellowsAxe));
+			RewardCollection.Add(new BODCollectionItem(0xFB4, 1046493, 0x973, 200, WoodProspectorsTool));
+			RewardCollection.Add(new BODCollectionItem(0x13D5, 3000296, 0, 200, LumberjackingGloves, 3));
             RewardCollection.Add(new BODCollectionItem(0x9E29, 1157264, 0, 210, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152678, CraftResources.GetHue(CraftResource.YewWood), 225, WoodsmansTalisman, (int)CraftResource.YewWood));
         //  RewardCollection.Add(new BODCollectionItem(0x14EC, 1152669, CraftResources.GetHue(CraftResource.YewWood), 310, HarvestMap, (int)CraftResource.YewWood));
@@ -1635,14 +1646,65 @@ namespace Server.Engines.BulkOrders
        //   RewardCollection.Add(new BODCollectionItem(0x14EC, 1152670, CraftResources.GetHue(CraftResource.Heartwood), 375, HarvestMap, (int)CraftResource.Heartwood));
             RewardCollection.Add(new BODCollectionItem(0x9E29, 1157265, 0, 410, CraftsmanTalisman, 50));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157223, CraftResources.GetHue(CraftResource.OakWood), 425, CreateRunicFletcherTools, 0));
+            RewardCollection.Add(new BODCollectionItem(0x13EB, 3000297, 0, 450, LumberjackingGloves, 1));
             RewardCollection.Add(new BODCollectionItem(4102, "Proszek wzmocnienia wyrobow lukmistrza", 0x591, 500, BowFletchingPowderOfTemperament));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152680, CraftResources.GetHue(CraftResource.Bloodwood), 510, WoodsmansTalisman, (int)CraftResource.Bloodwood));
      //     RewardCollection.Add(new BODCollectionItem(0x14EC, 1152671, CraftResources.GetHue(CraftResource.Bloodwood), 525, HarvestMap, (int)CraftResource.Bloodwood));
+			RewardCollection.Add(new BODCollectionItem(0x2FB7, "kolczan", 0, 600, Equiver));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157224, CraftResources.GetHue(CraftResource.AshWood), 650, CreateRunicFletcherTools, 1));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152681, CraftResources.GetHue(CraftResource.Frostwood), 750, WoodsmansTalisman, (int)CraftResource.Frostwood));
+            RewardCollection.Add(new BODCollectionItem(0x13f7, 1049802, 0x482, 750, AncientTool,10));
+            RewardCollection.Add(new BODCollectionItem(0x13f7, 1049802, 0x482, 850, AncientTool,15));
       //    RewardCollection.Add(new BODCollectionItem(0x14EC, 1152672, CraftResources.GetHue(CraftResource.Frostwood), 950, HarvestMap, (int)CraftResource.Frostwood));
+			RewardCollection.Add(new BODCollectionItem(0x13f7, 1049802, 0x482, 950, AncientTool,30));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157225, CraftResources.GetHue(CraftResource.YewWood), 1000, CreateRunicFletcherTools, 2));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157226, CraftResources.GetHue(CraftResource.Heartwood), 1100, CreateRunicFletcherTools, 3));
+            RewardCollection.Add(new BODCollectionItem(0x13f7, 1049802, 0x482, 950, AncientTool,60));
+        }
+        
+        private static Item CreateSturdyAxe(int type) {
+	        // Wzmocniona siekiera
+	        return new SturdyAxe();
+        }
+
+        private static Item CreateTreefellowsAxe(int type) {
+	        // Odpowiednik gorniczego GargoylesPickaxe.
+
+	        return new TreefellowsAxe();
+        }
+
+        private static Item CreateWoodProspectorsTool(int type) {
+	        // Odpowiednik gorniczego ProspectorsTool.
+	        return new WoodProspectorsTool();
+        }
+
+        private static Item CreateLumberjackingGloves(int type) {
+	        // Rekawiczki dodajace skilla drwalnictwo.
+	        if (type == 1)
+		        return new LeatherGlovesOfLumberjacking(1);
+	        else if (type == 3)
+		        return new StuddedGlovesOfLumberjacking(3);
+	        else if (type == 5)
+		        return new RingmailGlovesOfLumberjacking(5);
+
+	        throw new InvalidOperationException();
+        }
+        
+        private static Item CreateEquiver(int type) {
+	        switch (Utility.Random(4)) {
+		        case 0: return new QuiverOfBlight();
+		        case 1: return new QuiverOfFire();
+		        case 2: return new QuiverOfIce();
+		        case 3: return new QuiverOfLightning();
+	        }
+	        throw new InvalidOperationException();
+        }
+        
+        private static Item CreateAncientTool(int type) {
+	        if (type == 10 || type == 15 || type == 30 || type == 60)
+		        return new AncientFletcherTools(type);
+
+	        throw new InvalidOperationException();
         }
 
         private Item BowFletchingPowderOfTemperament(int type)
