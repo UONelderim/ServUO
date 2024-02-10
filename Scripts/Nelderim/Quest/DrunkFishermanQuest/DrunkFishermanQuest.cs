@@ -7,15 +7,12 @@ namespace Server.Engines.Quests
     public class DrunkMinersQuest : BaseQuest
     {
         public DrunkMinersQuest()
-            : base()
-
         {
             AddObjective(new ObtainObjective(typeof(DrunkMinersPickaxe), "Kilof Pijanego Gornika", 1, 0x0E85));
-
-
             AddReward(new BaseReward(typeof(EarringsOfTheMinersFormerWife), 3050029));//Kolczyki Bylej Zony Gornika
 
         }
+        
         public override bool DoneOnce => true;
 
         /*Zagubiony Kilof Gornika*/
@@ -73,7 +70,6 @@ namespace Server.Engines.Quests
         {
             Female = false;
             BodyValue = 400;
-            //this.CantWalk = true;
             Race = Race.Human;
 
             base.InitBody();

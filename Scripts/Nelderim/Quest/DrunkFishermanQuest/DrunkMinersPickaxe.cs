@@ -3,7 +3,7 @@ using Server.Engines.Harvest;
 namespace Server.Items
 {
     [Flipable(0xE86, 0xE85)]
-    public class DrunkMinersPickaxe : BaseAxe, IUsesRemaining, IHarvestTool
+    public class DrunkMinersPickaxe : BaseAxe
     {
         [Constructable]
         public DrunkMinersPickaxe()
@@ -21,8 +21,6 @@ namespace Server.Items
         }
 
         public override HarvestSystem HarvestSystem => Mining.System;
-        public override WeaponAbility PrimaryAbility => WeaponAbility.DoubleStrike;
-        public override WeaponAbility SecondaryAbility => WeaponAbility.Disarm;
         public override int StrengthReq => 50;
         public override int MinDamage => 12;
         public override int MaxDamage => 16;
