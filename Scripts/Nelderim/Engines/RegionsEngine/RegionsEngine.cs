@@ -1,5 +1,3 @@
-#region References
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,8 +11,6 @@ using Server.Spells;
 using Server.Spells.Chivalry;
 using Server.Spells.Eighth;
 using Server.Spells.Necromancy;
-
-#endregion
 
 namespace Server.Nelderim
 {
@@ -90,8 +86,6 @@ namespace Server.Nelderim
 
 					RegionsEngineRegion newRegion = new RegionsEngineRegion(name, parent);
 
-					#region Zyla rudy/drewna
-
 					try
 					{
 						// 
@@ -142,10 +136,6 @@ namespace Server.Nelderim
 						Console.WriteLine(e.ToString());
 					}
 
-					#endregion
-
-					#region Zakazane kontrolowance
-
 					try
 					{
 						XmlNodeList nodes = reg.GetElementsByTagName("bannedfollowers");
@@ -168,10 +158,6 @@ namespace Server.Nelderim
 						Console.WriteLine(e.ToString());
 					}
 
-					#endregion
-
-					#region Zakazane szkoly Arkanii
-
 					try
 					{
 						XmlNodeList nodes = reg.GetElementsByTagName("bannedschools");
@@ -193,10 +179,6 @@ namespace Server.Nelderim
 					{
 						Console.WriteLine(e.ToString());
 					}
-
-					#endregion
-
-					#region Tolerancja
 
 					try
 					{
@@ -223,10 +205,6 @@ namespace Server.Nelderim
 					{
 						Console.WriteLine(e.ToString());
 					}
-
-					#endregion
-
-					#region Populacja
 
 					try
 					{
@@ -260,10 +238,6 @@ namespace Server.Nelderim
 					{
 						Console.WriteLine(e.ToString());
 					}
-
-					#endregion
-
-					#region Guard
 
 					try
 					{
@@ -300,8 +274,6 @@ namespace Server.Nelderim
 					{
 					}
 
-					#endregion
-					
 					XmlElement difficultyLevelXml = reg["difficultyLevel"];
 					if (difficultyLevelXml != null)
 					{
@@ -350,8 +322,6 @@ namespace Server.Nelderim
 					xml.WriteStartElement("region");
 					xml.WriteAttributeString("name", reg.Name);
 					xml.WriteAttributeString("parent", reg.Parent);
-
-					#region Zyla rudy/drewna
 
 					//                try
 					// {
@@ -404,10 +374,6 @@ namespace Server.Nelderim
 					// 	Console.WriteLine( e.ToString() );
 					// }
 
-					#endregion
-
-					#region BannedSchools
-
 					if (reg.Schools != null)
 					{
 						xml.WriteStartElement("bannedschools");
@@ -421,10 +387,6 @@ namespace Server.Nelderim
 						xml.WriteEndElement(); // "bannedschools"
 					}
 
-					#endregion
-
-					#region BannedFollowers
-
 					if (reg.BannedFollowers != null)
 					{
 						xml.WriteStartElement("bannedfollowers");
@@ -437,10 +399,6 @@ namespace Server.Nelderim
 
 						xml.WriteEndElement(); // "bannedfollowers"
 					}
-
-					#endregion
-
-					#region Races
 
 					if (reg.RegionPopulation != null)
 					{
@@ -458,10 +416,6 @@ namespace Server.Nelderim
 						xml.WriteEndElement(); // "races"
 					}
 
-					#endregion
-
-					#region Intolerance
-
 					if (reg.Intolerance != null)
 					{
 						xml.WriteStartElement("intolerance");
@@ -473,10 +427,6 @@ namespace Server.Nelderim
 
 						xml.WriteEndElement(); // "intolerance"
 					}
-
-					#endregion
-
-					#region Guards
 
 					if (reg.Guards != null)
 					{
@@ -518,8 +468,6 @@ namespace Server.Nelderim
 						if (isAnyGuard)
 							xml.WriteEndElement(); // "guards"
 					}
-
-					#endregion
 
 					if (reg.DifficultyLevelWeights.Count != 0)
 					{
