@@ -2238,6 +2238,15 @@ Circle375
 					m_LootType = LootType.Regular;
 				}
 
+				if (dropped.ModifiedBy != null)
+				{
+					ModifiedBy = dropped.ModifiedBy;
+				}
+				if (dropped.ModifiedDate != default)
+				{
+					ModifiedDate = dropped.ModifiedDate;
+				}
+
 				Amount += dropped.Amount;
 
 				EventSink.InvokeOnItemMerged(new OnItemMergedEventArgs(from, dropped, this));

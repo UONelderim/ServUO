@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Reflection;
-
+using Nelderim;
 using Server.Commands;
 using Server.Network;
 
@@ -264,6 +264,7 @@ namespace Server.Gumps
 					if (result == "Property has been set.")
 					{
 						PropertiesGump.OnValueChanged(m_Object, m_Property, m_Stack);
+						LabelsConfig.AddTamperingMark(m_Object, m_Mobile);
 					}
 				}
 				catch

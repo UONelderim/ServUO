@@ -3,6 +3,7 @@ using Server.Items;
 using Server.Services.Virtues;
 using System;
 using System.Collections.Generic;
+using Nelderim;
 
 namespace Server.Mobiles
 {
@@ -134,6 +135,11 @@ namespace Server.Mobiles
                 Mobile m = toGive[i % toGive.Count];
 
                 var ps = GetPowerScroll();
+                LabelsConfig.AddCreationMark(ps, m);
+                if (m.IsStaff())
+                {
+	                LabelsConfig.AddTamperingMark(ps, m);
+                }
                 GiveItemMessage(m, ps);
 
                 GivePowerScrollTo(m, ps);
@@ -153,6 +159,11 @@ namespace Server.Mobiles
                 Mobile m = toGive[i % toGive.Count];
 
                 SkillMasteryPrimer p = CreateRandomPrimer();
+                LabelsConfig.AddCreationMark(p, m);
+                if (m.IsStaff())
+                {
+	                LabelsConfig.AddTamperingMark(p, m);
+                }
                 GiveItemMessage(m, p);
 
                 GivePowerScrollTo(m, p);

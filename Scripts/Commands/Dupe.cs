@@ -1,6 +1,6 @@
 #region References
 using System;
-
+using Nelderim;
 using Server.Diagnostics;
 using Server.Items;
 using Server.Targeting;
@@ -125,6 +125,8 @@ namespace Server.Commands
 							m.SendMessage("Unable to dupe.");
 							return;
 						}
+						LabelsConfig.AddCreationMark(o, m);
+						LabelsConfig.AddTamperingMark(o, m);
 
 						if (pack != null)
 						{
