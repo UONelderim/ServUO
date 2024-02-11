@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using Nelderim;
 using CPA = Server.CommandPropertyAttribute;
 
 namespace Server.Commands
@@ -354,6 +355,8 @@ namespace Server.Commands
                         IEntity built = Build(from, ctor, values, props, realProps, ref sendError);
 
                         sb.AppendFormat("0x{0:X}; ", built.Serial.Value);
+                        LabelsConfig.AddCreationMark(built, from);
+                        LabelsConfig.AddTamperingMark(built, from);
 
                         if (built is Item)
                         {
@@ -384,6 +387,8 @@ namespace Server.Commands
                             IEntity built = Build(from, ctor, values, props, realProps, ref sendError);
 
                             sb.AppendFormat("0x{0:X}; ", built.Serial.Value);
+                            LabelsConfig.AddCreationMark(built, from);
+                            LabelsConfig.AddTamperingMark(built, from);
 
                             if (built is Item)
                             {

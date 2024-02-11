@@ -6,6 +6,8 @@ using Server.Items;
 using Server.Mobiles;
 using System;
 using System.Collections.Generic;
+using Nelderim;
+
 #endregion
 
 namespace Server.Engines.Craft
@@ -1893,6 +1895,11 @@ namespace Server.Engines.Craft
                     else
                     {
                         from.AddToBackpack(item);
+                    }
+                    LabelsConfig.AddCreationMark(item, from);
+                    if (from.IsStaff())
+                    {
+	                    LabelsConfig.AddTamperingMark(item, from);
                     }
 
                     EventSink.InvokeCraftSuccess(new CraftSuccessEventArgs(from, item, tool is Item ? (Item)tool : null));

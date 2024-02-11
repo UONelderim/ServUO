@@ -2,6 +2,7 @@ using Server.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim;
 
 namespace Server.Engines.Craft
 {
@@ -233,6 +234,11 @@ namespace Server.Engines.Craft
             else
             {
                 source = deed ?? addon;
+            }
+
+            if (m.IsStaff())
+            {
+	            LabelsConfig.AddTamperingMark(e, m);
             }
 
             EventSink.InvokeRepairItem(new RepairItemEventArgs(m, source, e));

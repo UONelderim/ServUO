@@ -4,6 +4,8 @@ using Server.Network;
 using Server.Targeting;
 using System.Collections;
 using System.Reflection;
+using Nelderim;
+
 #endregion
 
 namespace Server.Gumps
@@ -224,6 +226,7 @@ namespace Server.Gumps
                         CommandLogging.LogChangeProperty(m_Mobile, m_Object, m_Property.Name, new Point3D(p).ToString());
                         m_Property.SetValue(m_Object, new Point3D(p), null);
                         PropertiesGump.OnValueChanged(m_Object, m_Property, m_Stack);
+                        LabelsConfig.AddTamperingMark(m_Object, m_Mobile);
                     }
                     catch
                     {
