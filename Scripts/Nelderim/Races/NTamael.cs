@@ -30,7 +30,7 @@ namespace Nelderim.Races
 			1136, 1137, 1138, 1139, 1140, 1141, 1142, 1143, 1144, 1145, 1146, 1147, 1148, 1149
 		};
 		
-		public override Dictionary<Language, ushort> DefaultLanguages() => new Dictionary<Language, ushort>
+		public override Dictionary<Language, ushort> DefaultLanguages => new()
 		{
 			{ Language.Powszechny, 1000 },
 		};
