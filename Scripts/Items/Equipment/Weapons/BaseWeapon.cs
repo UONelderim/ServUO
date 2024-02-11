@@ -4536,6 +4536,58 @@ namespace Server.Items
             {
                 list.Add(1061078, ArtifactRarity.ToString()); // artifact rarity ~1_val~
             }
+            
+            list.Add(1061168, "{0}\t{1}", MinDamage.ToString(), MaxDamage.ToString()); // weapon damage ~1_val~ - ~2_val~
+
+            list.Add(1061167, string.Format("{0}s", Speed)); // weapon speed ~1_val~
+
+            if (MaxRange > 1)
+            {
+	            list.Add(1061169, MaxRange.ToString()); // range ~1_val~
+            }
+
+            int strReq = AOS.Scale(StrRequirement, 100 - GetLowerStatReq());
+
+            if (strReq > 0)
+            {
+	            list.Add(1061170, strReq.ToString()); // strength requirement ~1_val~
+            }
+
+            if (Layer == Layer.TwoHanded)
+            {
+	            list.Add(1061171); // two-handed weapon
+            }
+            else
+            {
+	            list.Add(1061824); // one-handed weapon
+            }
+
+            if (m_AosWeaponAttributes.UseBestSkill == 0)
+            {
+	            switch (Skill)
+	            {
+		            case SkillName.Swords:
+			            list.Add(1061172);
+			            break; // skill required: swordsmanship
+		            case SkillName.Macing:
+			            list.Add(1061173);
+			            break; // skill required: mace fighting
+		            case SkillName.Fencing:
+			            list.Add(1061174);
+			            break; // skill required: fencing
+		            case SkillName.Archery:
+			            list.Add(1061175);
+			            break; // skill required: archery
+		            case SkillName.Throwing:
+			            list.Add(1112075); // skill required: throwing
+			            break;
+	            }
+            }
+
+            if (m_Hits >= 0 && m_MaxHits > 0)
+            {
+	            list.Add(1060639, "{0}\t{1}", m_Hits, m_MaxHits); // durability ~1_val~ / ~2_val~
+            }
 
             if (m_Poison != null && m_PoisonCharges > 0 && CanShowPoisonCharges())
             {
@@ -5064,58 +5116,6 @@ namespace Server.Items
             if (direct != 0)
             {
                 list.Add(1079978, direct.ToString()); // Direct Damage: ~1_PERCENT~%
-            }
-
-            list.Add(1061168, "{0}\t{1}", MinDamage.ToString(), MaxDamage.ToString()); // weapon damage ~1_val~ - ~2_val~
-
-            list.Add(1061167, string.Format("{0}s", Speed)); // weapon speed ~1_val~
-
-            if (MaxRange > 1)
-            {
-                list.Add(1061169, MaxRange.ToString()); // range ~1_val~
-            }
-
-            int strReq = AOS.Scale(StrRequirement, 100 - GetLowerStatReq());
-
-            if (strReq > 0)
-            {
-                list.Add(1061170, strReq.ToString()); // strength requirement ~1_val~
-            }
-
-            if (Layer == Layer.TwoHanded)
-            {
-                list.Add(1061171); // two-handed weapon
-            }
-            else
-            {
-                list.Add(1061824); // one-handed weapon
-            }
-
-            if (m_AosWeaponAttributes.UseBestSkill == 0)
-            {
-                switch (Skill)
-                {
-                    case SkillName.Swords:
-                        list.Add(1061172);
-                        break; // skill required: swordsmanship
-                    case SkillName.Macing:
-                        list.Add(1061173);
-                        break; // skill required: mace fighting
-                    case SkillName.Fencing:
-                        list.Add(1061174);
-                        break; // skill required: fencing
-                    case SkillName.Archery:
-                        list.Add(1061175);
-                        break; // skill required: archery
-                    case SkillName.Throwing:
-                        list.Add(1112075); // skill required: throwing
-                        break;
-                }
-            }
-
-            if (m_Hits >= 0 && m_MaxHits > 0)
-            {
-                list.Add(1060639, "{0}\t{1}", m_Hits, m_MaxHits); // durability ~1_val~ / ~2_val~
             }
 
             if (IsSetItem && !m_SetEquipped)
