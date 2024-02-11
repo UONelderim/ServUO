@@ -237,12 +237,12 @@ namespace Server.Misc
             {
 	            if (pm.Faction != null && pm.Faction != Faction.None)
 		            title.Append($" [{pm.Faction}]");
-
-	            if (pm.RaceMod != null)
-		            title.Append($" [{pm.RaceMod}]");
-	            else if (pm.Race != null)
-		            title.Append($" [{pm.Race}]");
             }
+            
+            if (beheld is PlayerMobile { RaceMod: not null } pm2)
+	            title.Append($" [{pm2.RaceMod}]");
+            else if (beheld.Race != null)
+	            title.Append($" [{beheld.Race}]");
             
             return title.ToString();
         }
