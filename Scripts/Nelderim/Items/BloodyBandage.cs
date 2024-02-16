@@ -16,7 +16,7 @@ namespace Server.Items
             Stackable = true;
             Weight = 0.02;
             Amount = amount;
-            Hue = 41;
+            Hue = Mobile.HuePartialFlag | 0x41;
         }
 
         public BloodyBandage(Serial serial) : base(serial)
