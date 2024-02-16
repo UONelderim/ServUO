@@ -37,7 +37,7 @@ namespace Server.Engines.VvV
 
         public static readonly Map Facet = Map.Felucca;
 
-        public static bool Enabled = Config.Get("VvV.Enabled", true);
+        public static bool Enabled = Config.Get("VvV.Enabled", false);
         public static int StartSilver = Config.Get("VvV.StartSilver", 2000);
         public static bool EnhancedRules = Config.Get("VvV.EnhancedRules", false);
 
