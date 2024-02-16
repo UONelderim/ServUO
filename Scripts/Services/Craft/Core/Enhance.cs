@@ -3,6 +3,7 @@ using Server.Mobiles;
 using Server.Targeting;
 using System;
 using System.Collections.Generic;
+using Nelderim;
 
 namespace Server.Engines.Craft
 {
@@ -268,6 +269,10 @@ namespace Server.Engines.Craft
                     }
                 case EnhanceResult.Success:
                     {
+	                    if (from.IsStaff())
+	                    {
+		                    LabelsConfig.AddTamperingMark(item, from);
+	                    }
                         if (!craftItem.ConsumeRes(from, resType, craftSystem, ref resHue, ref maxAmount, ConsumeType.All, ref resMessage))
                             return EnhanceResult.NoResources;
 

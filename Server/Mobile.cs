@@ -4518,6 +4518,8 @@ namespace Server
 				item.Layer = oldItem.Layer;
 				item.RawName = oldItem.RawName;
 				item.Weight = oldItem.Weight;
+				item.ModifiedBy = oldItem.ModifiedBy;
+				item.ModifiedDate = oldItem.ModifiedDate;
 
 				item.Amount = oldItem.Amount - amount;
 				oldItem.Amount = amount;

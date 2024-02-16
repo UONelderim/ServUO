@@ -40,7 +40,7 @@ namespace Server
 			return "~ERROR~";
 		}
 
-		public virtual bool MakeRandomAppearance(Mobile m)
+		public bool MakeRandomAppearance(Mobile m)
 		{
 			if (!(m.BodyValue == 400 || m.BodyValue == 401))
 				return false;
@@ -54,7 +54,16 @@ namespace Server
 			return true;
 		}
 
-		public virtual Dictionary<Language, ushort> DefaultLanguages() => new Dictionary<Language, ushort>();
+		public void AssignDefaultLanguages(Mobile m)
+		{
+			m.LanguagesKnown = new KnownLanguages();
+			foreach (var keyValuePair in DefaultLanguages)
+			{
+				m.LanguagesKnown[keyValuePair.Key] = keyValuePair.Value;
+			}
+		}
+
+		public virtual Dictionary<Language, ushort> DefaultLanguages => new Dictionary<Language, ushort>();
 	}
 
 	public enum Cases

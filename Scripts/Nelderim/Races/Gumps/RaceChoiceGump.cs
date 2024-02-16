@@ -302,7 +302,7 @@ namespace Server.Gumps
 			}
 			
 			m_From.LanguagesKnown.Clear();
-			var langs = m_Race.DefaultLanguages();
+			var langs = m_Race.DefaultLanguages;
 			foreach (var lang in langs.Keys)
 			{
 				m_From.LanguagesKnown[lang] = langs[lang];

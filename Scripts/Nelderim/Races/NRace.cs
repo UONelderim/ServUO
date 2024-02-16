@@ -14,7 +14,7 @@ namespace Nelderim.Races
 	{
 		new public static NRace[] Races { get; } = new NRace[0x100];
 
-		new public static List<NRace> AllRaces { get; } = new List<NRace>();
+		new public static List<NRace> AllRaces { get; } = new();
 
 		public static void Configure()
 		{

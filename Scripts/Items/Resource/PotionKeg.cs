@@ -1,5 +1,6 @@
 using Server.Targeting;
 using System;
+using Nelderim;
 
 namespace Server.Items
 {
@@ -218,6 +219,8 @@ namespace Server.Items
                         from.SendLocalizedMessage(502242); // You pour some of the keg's contents into an empty bottle...
 
                         BasePotion pot = FillBottle();
+                        pot.ModifiedBy = ModifiedBy;
+                        pot.ModifiedDate = ModifiedDate;
 
                         if (pack.TryDropItem(from, pot, false))
                         {
@@ -276,6 +279,8 @@ namespace Server.Items
                     from.SendLocalizedMessage(502242); // You pour some of the keg's contents into an empty bottle...
 
                     BasePotion pot = m_Keg.FillBottle();
+                    pot.ModifiedBy = m_Keg.ModifiedBy;
+                    pot.ModifiedDate = m_Keg.ModifiedDate;
 
                     if (pack.TryDropItem(from, pot, false))
                     {

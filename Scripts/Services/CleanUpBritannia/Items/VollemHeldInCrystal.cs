@@ -73,7 +73,7 @@ namespace Server.Items
 
             if (version == 0)
             {
-                PetTrainingHelper.GetAbilityProfile(this, true).TokunoTame = true;
+                // PetTrainingHelper.GetAbilityProfile(this, true).TokunoTame = true;
             }
         }
     }

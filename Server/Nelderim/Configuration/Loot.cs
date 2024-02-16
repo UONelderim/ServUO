@@ -12,6 +12,7 @@ namespace Nelderim.Configuration
 		
 		public bool Enabled => Get("NelderimLoot.Enabled", true);
 		public bool SALootEnabled => Get("NelderimLoot.SALootEnabled", false);
+		public bool ReforgedNamesEnabled => Get("NelderimLoot.ReforgedNamesEnabled", false);
 		public double GoldModifier => Get("NelderimLoot.GoldModifier", 1.0);
 		public double ItemsCountModifier => Get("NelderimLoot.ItemsCountModifier", 1.0);
 		public double PropsCountModifier => Get("NelderimLoot.PropsCountModifier", 1.0);

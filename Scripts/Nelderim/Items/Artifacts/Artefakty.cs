@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Nelderim;
 using Server;
 using Server.Mobiles;
 using Server.Accounting;
@@ -27,8 +28,8 @@ namespace Server.Items
 	{
 		Summer,
 		Autumn,
-		Spring,
-		Winter
+		Winter,
+        Spring
 	}
 
 	class ArtifactMonster
@@ -97,6 +98,7 @@ namespace Server.Items
             m_CreatureInfo.Add(typeof(Harrower), new ArtInfo(100, ArtGroup.Boss));
             m_CreatureInfo.Add(typeof(AncientRuneBeetle), new ArtInfo(7, ArtGroup.Boss));
             m_CreatureInfo.Add(typeof(Serado), new ArtInfo(40, ArtGroup.Boss));
+			m_CreatureInfo.Add(typeof(BetrayerBoss), new ArtInfo(5, ArtGroup.Boss));
 
             //Mini Bossy
             m_CreatureInfo.Add(typeof(WladcaJezioraLawy), new ArtInfo(7, ArtGroup.Miniboss));
@@ -110,6 +112,7 @@ namespace Server.Items
             m_CreatureInfo.Add(typeof(SaragAwatar), new ArtInfo(2, ArtGroup.Miniboss));
             m_CreatureInfo.Add(typeof(WladcaPiaskow), new ArtInfo(4, ArtGroup.Miniboss));
 			// m_CreatureInfo.Add(typeof(IceDragon), new ArtInfo(5, ArtGroup.Miniboss));
+            m_CreatureInfo.Add(typeof(EvilSpellbook), new ArtInfo(5, ArtGroup.Miniboss));
 
             //Custom champy
             m_CreatureInfo.Add(typeof(KapitanIIILegionuOrkow), new ArtInfo(30, ArtGroup.CustomChamp));
@@ -151,8 +154,8 @@ namespace Server.Items
 
     class ArtifactHelper
     {
-        // TUTAJ PODMIENIAC SEZONY ARTEFAKTOW lato/jesien/zima:
-        private static ArtSeason currentSeason = ArtSeason.Autumn;
+        // TUTAJ PODMIENIAC SEZONY ARTEFAKTOW lato/jesien/zima/wiosna:
+        private static ArtSeason currentSeason = ArtSeason.Winter;
 
         #region Lista_artefaktow_Doom
 
@@ -282,37 +285,37 @@ namespace Server.Items
             },
             
             { ArtSeason.Spring, new Type[] {
-		            typeof( DreadsRevenge ),
-		            typeof ( Calm ),
-		            typeof ( StrzalaAbarisa ),
-		            typeof ( Pacify ),
-		            typeof( SmoczeJelita ),
-		            typeof(ScrappersCompendium),
-		            typeof(RycerzeWojny),
-		            typeof(SerpentsFang),
-		            typeof(ShadowDancerLeggings),
-		            typeof(SmoczeJelita),
-		            typeof(SpodnieOswiecenia),
-		            typeof(KosturMagaZOrod),
-		            typeof(TchnienieMatki),
-		            typeof(TomeOfLostKnowledge),
-		            typeof(Svalinn),
-		            typeof(Vijaya),
-		            typeof(WiernyPrzysiedze),
-		            typeof(Wrzeciono),
-		            typeof(Zapomnienie),
-		            typeof(DreadsRevenge),
-		            typeof(DarkenedSky),
-		            typeof(WindsEdge),
-		            typeof(HanzosBow),
-		            typeof(TheDestroyer),
-		            typeof(HolySword),
-		            typeof(ShaminoCrossbow),
-		            typeof(LegendaStraznika),
-		            typeof(MagicznySaif),
-		            typeof(MlotPharrosa),
-		            typeof(RoyalGuardSurvivalKnife),
-	            }
+                typeof( DreadsRevenge ),
+                typeof ( Calm ),
+                typeof ( StrzalaAbarisa ),
+                typeof ( Pacify ),
+                typeof( SmoczeJelita ),
+                typeof(ScrappersCompendium),
+                typeof(RycerzeWojny),
+                typeof(SerpentsFang),
+                typeof(ShadowDancerLeggings),
+                typeof(SmoczeJelita),
+                typeof(SpodnieOswiecenia),
+                typeof(KosturMagaZOrod),
+                typeof(TchnienieMatki),
+                typeof(TomeOfLostKnowledge),
+                typeof(Svalinn),
+                typeof(Vijaya),
+                typeof(WiernyPrzysiedze),
+                typeof(Wrzeciono),
+                typeof(Zapomnienie),
+                typeof(DreadsRevenge),
+                typeof(DarkenedSky),
+                typeof(WindsEdge),
+                typeof(HanzosBow),
+                typeof(TheDestroyer),
+                typeof(HolySword),
+                typeof(ShaminoCrossbow),
+                typeof(LegendaStraznika),
+                typeof(MagicznySaif),
+                typeof(MlotPharrosa),
+                typeof(RoyalGuardSurvivalKnife),
+                }
             },
 
             { ArtSeason.Autumn, new Type[] {
@@ -345,7 +348,7 @@ namespace Server.Items
                 typeof(OgienZKuchniMurdulfa),
                 typeof(RekawiceStraznikaWulkanu),
                 typeof(ReliktDrowow),
-                typeof(SokoliWzrok),
+                typeof(SokoliWzork),
                 typeof(TrupieRece),
                 typeof(ZgubaSoteriosa),
                 }
@@ -426,30 +429,30 @@ namespace Server.Items
             },
             
             { ArtSeason.Spring, new Type[] {
-		            typeof(RuneBeetleCarapace),
-		            typeof(OponczaMrozu),
-		            typeof(LeggingsOfEmbers),
-		            typeof(DemonForks),
-		            typeof(GniewOceanu),
-		            typeof(StraznikPolnocy),
-		            typeof(TomeOfEnlightenment),
-		            typeof(BlazeOfDeath),
-		            typeof(EnchantedTitanLegBone),
-		            typeof(StaffOfPower),
-		            typeof(WrathOfTheDryad),
-		            typeof(LunaLance),
-		            typeof(LowcaDusz),
-		            typeof(Saif),
-		            typeof(Gandiva),
-		            typeof(Sharanga),
-		            typeof(BowOfTheJukaKing),
-		            typeof(NoxRangersHeavyCrossbow),
-		            typeof(ZlamanyGungnir),
-		            typeof(MelisandesCorrodedHatchet),
-		            typeof(OverseerSunderedBlade),
-		            typeof(PocalunekBoginii),
-		            typeof(ChwytTeczy),
-	            }
+                    typeof(RuneBeetleCarapace),
+                    typeof(OponczaMrozu),
+                    typeof(LeggingsOfEmbers),
+                    typeof(DemonForks),
+                    typeof(GniewOceanu),
+                    typeof(StraznikPolnocy),
+                    typeof(TomeOfEnlightenment),
+                    typeof(BlazeOfDeath),
+                    typeof(EnchantedTitanLegBone),
+                    typeof(StaffOfPower),
+                    typeof(WrathOfTheDryad),
+                    typeof(LunaLance),
+                    typeof(LowcaDusz),
+                    typeof(Saif),
+                    typeof(Gandiva),
+                    typeof(Sharanga),
+                    typeof(BowOfTheJukaKing),
+                    typeof(NoxRangersHeavyCrossbow),
+                    typeof(ZlamanyGungnir),
+                    typeof(MelisandesCorrodedHatchet),
+                    typeof(OverseerSunderedBlade),
+                    typeof(PocalunekBoginii),
+                    typeof(ChwytTeczy),
+                }
             },
 
             { ArtSeason.Autumn, new Type[] {
@@ -510,12 +513,12 @@ namespace Server.Items
             typeof(PrzekletaStudniaOdnowy),
             typeof(PrzekleteOrleSkrzydla),
             typeof(PrzekletePogrobowce),
+            typeof(PrzekleteFeyLeggings),
             typeof(PrzekleteWidlyMroku),
             typeof(PrzekletyKilofZRuinTwierdzy),
             typeof(PrzekletyMieczeAmrIbnLuhajj),
             typeof(PrzekletySoulSeeker),
             typeof(PrzekleteSongWovenMantle),
-            typeof(PrzekleteFeyLeggings),
             typeof(PrzekletaArcaneShield),
             typeof(PrzekletaIolosLute),
             typeof(PrzekletaRetorta),
@@ -614,33 +617,33 @@ namespace Server.Items
             },
             
             { ArtSeason.Spring, new Type[] {
-		            typeof(Retorta),
-		            typeof(BoneCrusher),
-		            typeof(CaptainQuacklebushsCutlass),
-		            typeof(ColdBlood),
-		            typeof(NightsKiss),
-		            typeof(EnchantedTitanLegBone),
-		            typeof(WrathOfTheDryad),
-		            typeof(LunaLance),
-		            typeof(OstrzePolksiezyca),
-		            typeof(BowOfTheJukaKing),
-		            typeof(NoxRangersHeavyCrossbow),
-		            typeof(ZdradzieckaSzata),
-		            typeof(PiecioMiloweSandaly),
-		            typeof(BraceletOfHealth),
-		            typeof(AlchemistsBauble),
-		            typeof(SwordsOfProsperity),
-		            typeof(Exiler),
-		            typeof(MyckaRybaka),
-		            typeof(OchronaCialaIDucha),
-		            typeof(RekawiceGornikaZOrod),
-		            typeof(ZlotaSciana),
-		            typeof(SrebrneOstrzeZEnedh),
-		            typeof( LegendaKapitana ),
-		            typeof( IolosLute ),
-		            typeof( StaffOfPower ),
-		            typeof( KasraShamshir ),
-	            }
+                    typeof(Retorta),
+                    typeof(BoneCrusher),
+                    typeof(CaptainQuacklebushsCutlass),
+                    typeof(ColdBlood),
+                    typeof(NightsKiss),
+                    typeof(EnchantedTitanLegBone),
+                    typeof(WrathOfTheDryad),
+                    typeof(LunaLance),
+                    typeof(OstrzePolksiezyca),
+                    typeof(BowOfTheJukaKing),
+                    typeof(NoxRangersHeavyCrossbow),
+                    typeof(ZdradzieckaSzata),
+                    typeof(PiecioMiloweSandaly),
+                    typeof(BraceletOfHealth),
+                    typeof(AlchemistsBauble),
+                    typeof(SwordsOfProsperity),
+                    typeof(Exiler),
+                    typeof(MyckaRybaka),
+                    typeof(OchronaCialaIDucha),
+                    typeof(RekawiceGornikaZOrod),
+                    typeof(ZlotaSciana),
+                    typeof(SrebrneOstrzeZEnedh),
+                    typeof( LegendaKapitana ),
+                    typeof( IolosLute ),
+                    typeof( StaffOfPower ),
+                    typeof( KasraShamshir ),
+                }
             },
 
             { ArtSeason.Summer, new Type[] {
@@ -1022,16 +1025,16 @@ namespace Server.Items
                     DistributeArtifact(creature, CreateRandomFishingArtifact());
                     break;
                 case ArtGroup.Elghin:
-	                DistributeArtifact(creature, CreateRandomElghinArtifact());
-	                break;
+                    DistributeArtifact(creature, CreateRandomElghinArtifact());
+                    break;
                 case ArtGroup.CustomChamp:
-	                DistributeArtifact(creature, CreateRandomCustomChampArtifact());
-	                break;
+                    DistributeArtifact(creature, CreateRandomCustomChampArtifact());
+                    break;
 
 
                 case ArtGroup.None:
                 default:
-	                Console.WriteLine("Unknown ArtGroup for " + creature.GetType().Name);
+                    Console.WriteLine("Unknown ArtGroup for " + creature.GetType().Name);
                     break;
             }
         }
@@ -1046,11 +1049,14 @@ namespace Server.Items
             if (to == null || artifact == null)
                 return;
 
-            if (to.AccessLevel > AccessLevel.Player)
+            LabelsConfig.AddCreationMark(artifact, to);
+            if (to.IsStaff())
             {
-                artifact.ModifiedBy = to.Account.Username;
-                artifact.ModifiedDate = DateTime.Now;
+                LabelsConfig.AddTamperingMark(artifact, to);
             }
+
+            IAccount acc = to.Account;
+            artifact.LabelOfCreator = $"{to} ('{(acc == null ? "<brak konta>" : acc.Username)}')";
 
             bool message = true;
 

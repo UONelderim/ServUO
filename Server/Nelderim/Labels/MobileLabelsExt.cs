@@ -28,9 +28,9 @@ namespace Server
 				InvalidateProperties();
 			}
 		}
-
+		
 		[CommandProperty(AccessLevel.GameMaster)]
-		public string Label1
+		public string Label0
 		{
 			get => m_Labels[0];
 			set
@@ -41,7 +41,7 @@ namespace Server
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public string Label2
+		public string Label1
 		{
 			get => m_Labels[1];
 			set
@@ -52,12 +52,36 @@ namespace Server
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public string Label3
+		public string Label2
 		{
 			get => m_Labels[2];
 			set
 			{
 				m_Labels[2] = value;
+				InvalidateProperties();
+			}
+		}
+
+		[CommandProperty(AccessLevel.GameMaster)]
+		public string Label3
+		{
+			get => m_Labels[3];
+			set
+			{
+				m_Labels[3] = value;
+				InvalidateProperties();
+			}
+		}
+		
+		
+
+		[CommandProperty(AccessLevel.GameMaster)]
+		public string LabelOfCreator
+		{
+			get => m_Labels[4];
+			set
+			{
+				m_Labels[4] = value;
 				InvalidateProperties();
 			}
 		}
