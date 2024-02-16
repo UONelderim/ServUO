@@ -1,6 +1,7 @@
 using Server.Items;
 using System;
 using System.Linq;
+using Nelderim;
 using Server.Regions;
 
 namespace Server.Mobiles
@@ -174,6 +175,11 @@ namespace Server.Mobiles
         public static void GiveArtifactTo(Mobile m)
         {
             Item item = (Item)Activator.CreateInstance(Artifacts[Utility.Random(Artifacts.Length)]);
+            LabelsConfig.AddCreationMark(item, m);
+            if (m.IsStaff())
+            {
+	            LabelsConfig.AddTamperingMark(item, m);
+            }
 
             if (m.AddToBackpack(item))
                 m.SendMessage("As a reward for slaying the mighty paragon, an artifact has been placed in your backpack.");

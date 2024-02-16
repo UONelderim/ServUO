@@ -342,8 +342,8 @@ namespace Server.Mobiles
         {
             double advance = difficulty / 64;
 
-            if (advance >= 2.5)
-                advance = 2.5;
+            if (advance >= 0.5)
+                advance = 0.5;
 
             return advance;
         }

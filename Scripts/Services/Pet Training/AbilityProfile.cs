@@ -53,10 +53,10 @@ namespace Server.Mobiles
                 Engines.Quests.TamingPetQuest.CheckTame((PlayerMobile)Creature.ControlMaster);
             }
 
-            if (Creature.Map == Map.Tokuno)
-            {
-                TokunoTame = true;
-            }
+            // if (Creature.Map == Map.Tokuno)
+            // {
+            //     TokunoTame = true;
+            // }
         }
 
         public bool AddAbility(MagicalAbility ability, bool advancement = true)

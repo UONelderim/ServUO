@@ -124,8 +124,9 @@ namespace Server.Items
         public virtual bool UseIntOrDexProperty => false;
 
         public virtual int IntOrDexPropertyValue => 0;
-         public int AllResistances { get { return PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance; } }
-        public override void OnAfterDuped(Item newItem)
+	    public int AllResistances => PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance;
+
+	    public override void OnAfterDuped(Item newItem)
         {
             BaseArmor armor = newItem as BaseArmor;
 
@@ -2256,6 +2257,12 @@ namespace Server.Items
 
             if (AllResistances != 0)
                 list.Add(1060526, AllResistances.ToString()); // suma odpornosci ~1_val~%
+            
+            if ((prop = ComputeStatReq(StatType.Str)) > 0)
+	            list.Add(1061170, prop.ToString()); // strength requirement ~1_val~
+
+            if (m_HitPoints >= 0 && m_MaxHitPoints > 0)
+	            list.Add(1060639, "{0}\t{1}", m_HitPoints, m_MaxHitPoints); // durability ~1_val~ / ~2_val~
 
             if ((prop = m_AosWeaponAttributes.HitColdArea) != 0)
                 list.Add(1060416, prop.ToString()); // hit cold area ~1_val~%
@@ -2428,19 +2435,11 @@ namespace Server.Items
             if ((prop = m_AosAttributes.IncreasedKarmaLoss) != 0)
                 list.Add(1075210, prop.ToString()); // Increased Karma Loss ~1val~%
 
-            AddResistanceProperties(list);
-
             if ((prop = m_AosArmorAttributes.MageArmor) != 0)
                 list.Add(1060437); // mage armor
 
             if ((prop = GetLowerStatReq()) != 0)
                 list.Add(1060435, prop.ToString()); // lower requirements ~1_val~%
-
-            if ((prop = ComputeStatReq(StatType.Str)) > 0)
-                list.Add(1061170, prop.ToString()); // strength requirement ~1_val~
-
-            if (m_HitPoints >= 0 && m_MaxHitPoints > 0)
-                list.Add(1060639, "{0}\t{1}", m_HitPoints, m_MaxHitPoints); // durability ~1_val~ / ~2_val~
 
             if (IsSetItem && !m_SetEquipped)
             {

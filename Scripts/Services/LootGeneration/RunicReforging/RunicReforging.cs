@@ -6,6 +6,7 @@ using Server.Targeting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim.Configuration;
 
 namespace Server.Items
 {
@@ -1667,6 +1668,8 @@ namespace Server.Items
 
         public static void ApplyPrefixName(Item item, ReforgedPrefix prefix)
         {
+	        if (!NConfig.Loot.ReforgedNamesEnabled)
+		        return;
             if (item is BaseWeapon)
                 ((BaseWeapon)item).ReforgedPrefix = prefix;
 
@@ -1685,6 +1688,8 @@ namespace Server.Items
 
         public static void ApplySuffixName(Item item, ReforgedSuffix suffix)
         {
+	        if (!NConfig.Loot.ReforgedNamesEnabled)
+		        return;
             if (item is BaseWeapon)
                 ((BaseWeapon)item).ReforgedSuffix = suffix;
 

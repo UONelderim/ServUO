@@ -896,8 +896,10 @@ namespace Server.Mobiles
                 }
 
                 if ((Definition.MagicalAbilities & abil) == 0 || AbilityProfile.HasAbility(abil) ||
-                    !AbilityProfile.CanChooseMagicalAbility(abil) || /*(abil <= MagicalAbility.WrestlingMastery && AbilityProfile.AbilityCount() >= 3) ||*/
-                    ((abil & MagicalAbility.Tokuno) != 0 && !AbilityProfile.TokunoTame))
+                    !AbilityProfile.CanChooseMagicalAbility(abil) //|| 
+                    //(abil <= MagicalAbility.WrestlingMastery && AbilityProfile.AbilityCount() >= 3) ||
+                    //((abil & MagicalAbility.Tokuno) != 0 && !AbilityProfile.TokunoTame)
+                    )
                 {
                     continue;
                 }

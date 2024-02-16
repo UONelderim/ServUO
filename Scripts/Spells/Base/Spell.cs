@@ -20,7 +20,7 @@ using System.Reflection;
 
 namespace Server.Spells
 {
-    public abstract class Spell : ISpell
+    public abstract partial class Spell : ISpell
     {
         private readonly Mobile m_Caster;
         private readonly Item m_Scroll;
@@ -50,7 +50,7 @@ namespace Server.Spells
 
         public virtual SkillName CastSkill => SkillName.Magery;
         public virtual SkillName DamageSkill => SkillName.EvalInt;
-
+        
         public virtual bool RevealOnCast => true;
         public virtual bool ClearHandsOnCast => true;
         public virtual bool ShowHandMovement => true;
@@ -383,34 +383,37 @@ namespace Server.Spells
         {
             return m_Info.AllowTown;
         }
-
+        
         public virtual bool ConsumeReagents()
         {
-            if ((m_Scroll != null && !(m_Scroll is SpellStone)) || !m_Caster.Player)
-            {
-                return true;
-            }
+	        if ((m_Scroll != null && !(m_Scroll is SpellStone)) || !m_Caster.Player)
+	        {
+		        return true;
+	        }
+	        
+	        var lrc = AosAttributes.GetValue(m_Caster, AosAttribute.LowerRegCost);
+	        lrc += HerbalismLowerRegCost(m_Caster);
+	        
+	        if (lrc > Utility.Random(100))
+	        {
+		        return true;
+	        }
 
-            if (AosAttributes.GetValue(m_Caster, AosAttribute.LowerRegCost) > Utility.Random(100))
-            {
-                return true;
-            }
+	        Container pack = m_Caster.Backpack;
 
-            Container pack = m_Caster.Backpack;
+	        if (pack == null)
+	        {
+		        return false;
+	        }
 
-            if (pack == null)
-            {
-                return false;
-            }
+	        if (pack.ConsumeTotal(m_Info.Reagents, m_Info.Amounts) == -1)
+	        {
+		        return true;
+	        }
 
-            if (pack.ConsumeTotal(m_Info.Reagents, m_Info.Amounts) == -1)
-            {
-                return true;
-            }
-
-            return false;
+	        return false;
         }
-
+        
         public virtual double GetInscribeSkill(Mobile m)
         {
             // There is no chance to gain
@@ -790,7 +793,7 @@ namespace Server.Spells
         }
 
         public abstract void OnCast();
-
+        
         private void SequenceSpell()
         {
             m_State = SpellState.Sequencing;
@@ -817,7 +820,7 @@ namespace Server.Spells
                 m_Caster.Target.BeginTimeout(m_Caster, TimeSpan.FromSeconds(30.0));
             }
         }
-
+        
         #region Enhanced Client
         public bool OnCastInstantTarget()
         {
@@ -913,9 +916,10 @@ namespace Server.Spells
                 scalar += .5;
             }
 
-            // Lower Mana Cost = 40%
             int lmc = AosAttributes.GetValue(m_Caster, AosAttribute.LowerManaCost);
-
+            lmc += HerbalismLowerManaCost(m_Caster);
+            
+            // Lower Mana Cost = 40%
             if (lmc > 40)
             {
                 lmc = 40;
@@ -924,7 +928,7 @@ namespace Server.Spells
             lmc += BaseArmor.GetInherentLowerManaCost(m_Caster);
 
             scalar -= (double)lmc / 100;
-
+            
             return (int)(mana * scalar);
         }
 

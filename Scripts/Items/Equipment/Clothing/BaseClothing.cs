@@ -76,7 +76,7 @@ namespace Server.Items
         private SAAbsorptionAttributes m_SAAbsorptionAttributes;
         private NegativeAttributes m_NegativeAttributes;
         private AosWeaponAttributes m_AosWeaponAttributes;
-        public int AllResistances { get { return PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance; } }
+        public int AllResistances => PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance;
 
         private int m_TimesImbued;
         private bool m_IsImbued;
@@ -949,16 +949,22 @@ namespace Server.Items
 
             if (m_AosSkillBonuses != null)
                 m_AosSkillBonuses.GetProperties(list);
-
+            
             int prop;
-
-            base.AddResistanceProperties( list );
-
-            if (AllResistances != 0)
-                list.Add(1060526, AllResistances.ToString()); // suma odpornosci ~1_val~%
 
             if ((prop = ArtifactRarity) > 0)
                 list.Add(1061078, prop.ToString()); // artifact rarity ~1_val~
+            
+            base.AddResistanceProperties(list);
+            
+            if (AllResistances != 0)
+	            list.Add(1060526, AllResistances.ToString()); // suma odpornosci ~1_val~%
+            
+            if ((prop = ComputeStatReq(StatType.Str)) > 0)
+	            list.Add(1061170, prop.ToString()); // strength requirement ~1_val~
+            
+            if (m_HitPoints >= 0 && m_MaxHitPoints > 0)
+	            list.Add(1060639, "{0}\t{1}", m_HitPoints, m_MaxHitPoints); // durability ~1_val~ / ~2_val~
 
             if ((prop = m_SAAbsorptionAttributes.EaterFire) != 0)
                 list.Add(1113593, prop.ToString()); // Fire Eater ~1_Val~%
@@ -1119,22 +1125,14 @@ namespace Server.Items
             if ((prop = m_AosAttributes.IncreasedKarmaLoss) != 0)
                 list.Add(1075210, prop.ToString()); // Increased Karma Loss ~1val~%
 
-            base.AddResistanceProperties(list);
-
             if ((prop = m_AosClothingAttributes.MageArmor) != 0)
                 list.Add(1060437); // mage armor
 
             if ((prop = m_AosClothingAttributes.LowerStatReq) != 0)
                 list.Add(1060435, prop.ToString()); // lower requirements ~1_val~%
 
-            if ((prop = ComputeStatReq(StatType.Str)) > 0)
-                list.Add(1061170, prop.ToString()); // strength requirement ~1_val~
-
             if ((prop = m_AosClothingAttributes.DurabilityBonus) > 0)
                 list.Add(1151780, prop.ToString()); // durability +~1_VAL~%
-
-            if (m_HitPoints >= 0 && m_MaxHitPoints > 0)
-                list.Add(1060639, "{0}\t{1}", m_HitPoints, m_MaxHitPoints); // durability ~1_val~ / ~2_val~
 
             if (IsSetItem && !m_SetEquipped)
             {

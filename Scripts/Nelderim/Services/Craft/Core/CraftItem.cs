@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Nelderim;
 
 namespace Server.Engines.Craft
 {
@@ -49,6 +50,12 @@ namespace Server.Engines.Craft
 						if (remainingItem != null)
 							from.AddToBackpack(remainingItem);
 					}
+
+				LabelsConfig.AddCreationMark(item, from);
+				if (from.IsStaff())
+				{
+					LabelsConfig.AddTamperingMark(item, from);
+				}
 
 				from.AddToBackpack(item);
 			}
