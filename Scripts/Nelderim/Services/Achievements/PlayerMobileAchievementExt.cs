@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.ModelBinding;
 using Nelderim.Achievements;
 using Nelderim.Achievements.Gumps;
 
@@ -42,7 +43,11 @@ namespace Server.Mobiles
 
 		public int GetAchivementProgress(Achievement achievement)
 		{
-			return Achievements[achievement]?.Progress ?? 0;
+			if (Achievements.TryGetValue(achievement, out var value))
+			{
+				return value.Progress;
+			}
+			return 0;
 		}
 
 		public void SetAchievementProgress(Achievement achievement, int progress)
