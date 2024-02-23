@@ -112,42 +112,55 @@ namespace Server.Mobiles
 			}
 		}
 
-		public void EndRes(Mobile from, BaseCreature pet)
+		public void EndRes( Mobile from, BaseCreature pet )
 		{
-			if (Deleted)
+			if ( Deleted )
 				return;
 
 			if (!IsAssignedBuildingWorking())
 			{
 				SayTo(from, 1063883); // Miasto nie oplacilo moich uslug. Nieczynne.
 			}
-			else if (!pet.IsDeadPet)
+			else if (!pet.IsDeadPet) 
 			{
 				SayTo(from, "Nie wskrzesze tego, co juz zyje.");
 			}
 			/*else if ( !pet.Controlled || pet.ControlMaster != from )
 			{
-				SayTo( from, 1042562 ); // You do not own that pet!
+			    SayTo( from, 1042562 ); // You do not own that pet!
 			}*/
-			else if (pet.Body.IsHuman)
+			else if ( pet.Body.IsHuman )
 			{
-				SayTo(from, 502672); // HA HA HA! Sorry, I am not an inn.
+				SayTo( from, 502672 ); // HA HA HA! Sorry, I am not an inn.
 			}
 			else if (BandageContext.AllowPetRessurection(from, pet, false))
 			{
-				if (Banker.Withdraw(from, 5000))
+				Item gold = from.Backpack.FindItemByType(typeof(Gold));
+				int amountToWithdraw = 5000;
+
+				if (gold != null && gold.Amount >= amountToWithdraw)
 				{
-					pet.PlaySound(0x214);
-					pet.FixedEffect(0x376A, 10, 16);
+					gold.Consume(amountToWithdraw);
+					pet.PlaySound( 0x214 );
+					pet.FixedEffect( 0x376A, 10, 16 );
 					pet.ResurrectPet();
-
 					BandageContext.AllowPetRessurection(from, pet, true);
-
 					Say("Powstan moj przyjacielu. Chcialbym ocalic kazde nieszczesliwe zwierze.");
 				}
 				else
 				{
-					SayTo(from, 502677); // But thou hast not the funds in thy bank account!
+					if (Banker.Withdraw(from, amountToWithdraw - (gold != null ? gold.Amount : 0)))
+					{
+						pet.PlaySound( 0x214 );
+						pet.FixedEffect( 0x376A, 10, 16 );
+						pet.ResurrectPet();
+						BandageContext.AllowPetRessurection(from, pet, true);
+						Say("Powstan moj przyjacielu. Chcialbym ocalic kazde nieszczesliwe zwierze.");
+					}
+					else
+					{
+						SayTo(from, 502677); // But thou hast not the funds in thy bank account!
+					}
 				}
 			}
 			else
