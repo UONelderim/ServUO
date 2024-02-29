@@ -1,10 +1,6 @@
-#region References
-
 using System;
 using System.Collections.Generic;
 using Server.Items;
-
-#endregion
 
 namespace Server.Engines.BulkOrders
 {
@@ -27,8 +23,6 @@ namespace Server.Engines.BulkOrders
 					return (Item)Activator.CreateInstance(randomKey);
 			}
 		}
-
-		#region Constructors
 
 		private static readonly ConstructCallback Pigments = CreatePigments;
 		private static readonly ConstructCallback TransPowders = CreateTransPowders;
@@ -336,7 +330,6 @@ namespace Server.Engines.BulkOrders
 			typeof(JaszczurzySzal),
 			typeof(OblivionsNeedle),
 			typeof(Bonesmasher),
-			typeof(ColdForgedBlade),
 			typeof(DaimyosHelm),
 			typeof(LegsOfStability),
 			typeof(AegisOfGrace),
@@ -364,8 +357,6 @@ namespace Server.Engines.BulkOrders
 			typeof(ArkanaZywiolow),
 			typeof(OstrzeCienia),
 			typeof(TalonBite),
-			typeof(SilvanisFeywoodBow),
-			typeof(BrambleCoat),
 			typeof(OrcChieftainHelm),
 			typeof(ShroudOfDeciet),
 			typeof(CaptainJohnsHat),
@@ -388,10 +379,7 @@ namespace Server.Engines.BulkOrders
 			typeof(Stormgrip),
 			typeof(LeggingsOfEmbers),
 			typeof(SmoczeJelita),
-			typeof(SongWovenMantle),
-			typeof(StitchersMittens),
 			typeof(FeyLeggings),
-            //typeof(PadsOfTheCuSidhe),
             typeof(DjinnisRing),
 			typeof(PendantOfTheMagi),
 		};
@@ -400,8 +388,6 @@ namespace Server.Engines.BulkOrders
 		{
 			typeof(Stormgrip),
 			typeof(FeyLeggings),
-			typeof(PendantOfTheMagi), // maszyjnik trzech krolow
-            typeof(EssenceOfBattle),
 			typeof(HuntersHeaddress),
 			typeof(SpodnieOswiecenia),
 			typeof(OrcChieftainHelm),
@@ -439,7 +425,6 @@ namespace Server.Engines.BulkOrders
 			Item art = (Item)Activator.CreateInstance(itemType);
 			return art;
 		}
-		#endregion
 
 		public static readonly HunterRewardCalculator Instance = new();
 

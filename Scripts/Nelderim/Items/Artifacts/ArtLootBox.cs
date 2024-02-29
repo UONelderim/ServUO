@@ -82,9 +82,6 @@ namespace Server
 					case ArtLootType.Paragon:
 						from.AddToBackpack(ArtifactHelper.CreateRandomParagonArtifact());
 						break;
-					case ArtLootType.Doom:
-						from.AddToBackpack(ArtifactHelper.CreateRandomDoomArtifact());
-						break;
 					case ArtLootType.Hunter:
 						from.AddToBackpack(ArtifactHelper.CreateRandomHunterArtifact());
 						break;

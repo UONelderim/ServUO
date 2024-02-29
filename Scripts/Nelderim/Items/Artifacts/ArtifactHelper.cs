@@ -28,95 +28,20 @@ namespace Server.Items
 		Winter,
         Spring
 	}
-
-	class ArtifactMonster
+	
+	record struct ArtInfo(double chance, ArtGroup group);
+	
+    class ArtifactHelper
     {
-        public class ArtInfo
-        {
-            private double m_Chance;
-            private ArtGroup m_Group;
-
-            public double PercentChance => m_Chance;
-
-            public ArtGroup Group => m_Group;
-
-            public ArtInfo(double percent, ArtGroup gr)
-            {
-                m_Chance = percent;
-                m_Group = gr;
-            }
-        }
-
-        private static Dictionary<Type, ArtInfo> m_CreatureInfo = new();
-
-        static ArtifactMonster()
-        {
-            // Wzor:
-            // m_CreatureInfo.Add(typeof(<KlasaPotwora>), new ArtInfo(<ProcentSzansy>, ArtGroup.<GrupaArtefaktow>));
-
-            //Elghin
-            m_CreatureInfo.Add(typeof(DalharukElghinn), new ArtInfo(10, ArtGroup.Elghin));
-			m_CreatureInfo.Add(typeof(KevinBoss), new ArtInfo(5, ArtGroup.Elghin));
-
-
-            //Bossy
-            m_CreatureInfo.Add(typeof(NGorogon), new ArtInfo(5, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(Sfinks), new ArtInfo(5, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(NSzeol), new ArtInfo(5, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(NBurugh), new ArtInfo(6, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(NKatrill), new ArtInfo(5, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(NDeloth), new ArtInfo(5, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(NDzahhar), new ArtInfo(5, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(NSarag), new ArtInfo(6, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(NelderimSkeletalDragon), new ArtInfo(7, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(NStarozytnyLodowySmok), new ArtInfo(8, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(StarozytnyDiamentowySmok), new ArtInfo(8, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(NStarozytnySmok), new ArtInfo(8, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(WladcaDemonow), new ArtInfo(10, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(MinotaurBoss), new ArtInfo(5, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(DreadHorn), new ArtInfo(5, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(LadyMelisande), new ArtInfo(7, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(Travesty), new ArtInfo(6, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(ChiefParoxysmus), new ArtInfo(10, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(Harrower), new ArtInfo(100, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(AncientRuneBeetle), new ArtInfo(7, ArtGroup.Boss));
-            m_CreatureInfo.Add(typeof(Serado), new ArtInfo(40, ArtGroup.Boss));
-			m_CreatureInfo.Add(typeof(BetrayerBoss), new ArtInfo(5, ArtGroup.Boss));
-
-            //Mini Bossy
-            m_CreatureInfo.Add(typeof(WladcaJezioraLawy), new ArtInfo(7, ArtGroup.Miniboss));
-            m_CreatureInfo.Add(typeof(BagusGagakCreeper), new ArtInfo(7, ArtGroup.Miniboss));
-            m_CreatureInfo.Add(typeof(VitVarg), new ArtInfo(7, ArtGroup.Miniboss));
-            m_CreatureInfo.Add(typeof(TilkiBug), new ArtInfo(7, ArtGroup.Miniboss));
-            m_CreatureInfo.Add(typeof(NelderimDragon), new ArtInfo(3, ArtGroup.Miniboss));
-            m_CreatureInfo.Add(typeof(ShimmeringEffusion), new ArtInfo(9, ArtGroup.Miniboss));
-            m_CreatureInfo.Add(typeof(MonstrousInterredGrizzle), new ArtInfo(9, ArtGroup.Miniboss));
-            m_CreatureInfo.Add(typeof(NSilshashaszals), new ArtInfo(5, ArtGroup.Miniboss));
-            m_CreatureInfo.Add(typeof(SaragAwatar), new ArtInfo(2, ArtGroup.Miniboss));
-            m_CreatureInfo.Add(typeof(WladcaPiaskow), new ArtInfo(4, ArtGroup.Miniboss));
-			// m_CreatureInfo.Add(typeof(IceDragon), new ArtInfo(5, ArtGroup.Miniboss));
-            m_CreatureInfo.Add(typeof(EvilSpellbook), new ArtInfo(5, ArtGroup.Miniboss));
-
-            //Custom champy
-            m_CreatureInfo.Add(typeof(KapitanIIILegionuOrkow), new ArtInfo(30, ArtGroup.CustomChamp));
-            m_CreatureInfo.Add(typeof(MorenaAwatar), new ArtInfo(30, ArtGroup.CustomChamp));
-            m_CreatureInfo.Add(typeof(Meraktus), new ArtInfo(20, ArtGroup.CustomChamp));
-            m_CreatureInfo.Add(typeof(Ilhenir), new ArtInfo(20, ArtGroup.CustomChamp));
-            m_CreatureInfo.Add(typeof(Twaulo), new ArtInfo(15, ArtGroup.CustomChamp));
-            m_CreatureInfo.Add(typeof(Pyre), new ArtInfo(30, ArtGroup.CustomChamp));
-			m_CreatureInfo.Add(typeof(MikolajBoss), new ArtInfo(5, ArtGroup.CustomChamp));
-
-            //Fishing Bossy
-            m_CreatureInfo.Add(typeof(Leviathan), new ArtInfo(10, ArtGroup.Fishing));
-        }
-
+	    private static Dictionary<Type, ArtInfo> m_CreatureInfo = new();
+	    
         public static double GetChanceFor(BaseCreature creature)
         {
             Type creatureType = creature.GetType();
 
             if (m_CreatureInfo.ContainsKey(creatureType))
             {
-                return m_CreatureInfo[creatureType].PercentChance / 100.0;
+                return m_CreatureInfo[creatureType].chance / 100.0;
             }
             else
             {
@@ -129,18 +54,13 @@ namespace Server.Items
             Type creatureType = creature.GetType();
 
             if (m_CreatureInfo.ContainsKey(creatureType))
-                return m_CreatureInfo[creatureType].Group;
+                return m_CreatureInfo[creatureType].group;
             else
                 return ArtGroup.None;
         }
-    }
-
-    class ArtifactHelper
-    {
+	    
         // TUTAJ PODMIENIAC SEZONY ARTEFAKTOW lato/jesien/zima/wiosna:
         private static ArtSeason currentSeason = ArtSeason.Winter;
-
-        #region Lista_artefaktow_Elghin
 
         private static Type[] m_ElghinArtifacts = {
             typeof(AtrybutMysliwego),
@@ -157,10 +77,6 @@ namespace Server.Items
             typeof(WisiorMagowBialejWiezy),
         };
 
-        #endregion
-
-        #region Lista_artefaktow_Boss
-
         private static Dictionary<ArtSeason, Type[]> m_BossArtifacts = new()
         {
             { ArtSeason.Summer, new[] {
@@ -176,7 +92,6 @@ namespace Server.Items
                 typeof(PostrachPrzekletych),
                 typeof(Przysiega),
                 typeof(Retorta),
-                typeof(ScrappersCompendium),
                 typeof(RycerzeWojny),
                 typeof(SerpentsFang),
                 typeof(ShadowDancerLeggings),
@@ -206,21 +121,17 @@ namespace Server.Items
                 typeof(Pacify),
                 typeof(RighteousAnger),
                 typeof(SoulSeeker),
-                typeof(BlightGrippedLongbow),
                 typeof(TheNightReaper),
                 typeof(RuneBeetleCarapace),
                 typeof(Ancile),
                 typeof(KosciLosu),
                 typeof(LegendaMedrcow),
                 typeof(SmoczeJelita),
-                typeof(SongWovenMantle),
-                typeof(SpellWovenBritches),
                 typeof(GuantletsOfAnger),
                 typeof(KasaOfTheRajin),
                 typeof(CrownOfTalKeesh),
                 typeof(CrimsonCincture),
                 typeof(DjinnisRing),
-                typeof(PendantOfTheMagi),
                 typeof(PocalunekBoginii),
                 }
             },
@@ -231,7 +142,6 @@ namespace Server.Items
                 typeof ( StrzalaAbarisa ),
                 typeof ( Pacify ),
                 typeof( SmoczeJelita ),
-                typeof(ScrappersCompendium),
                 typeof(RycerzeWojny),
                 typeof(SerpentsFang),
                 typeof(ShadowDancerLeggings),
@@ -271,7 +181,6 @@ namespace Server.Items
                 typeof(PostrachPrzekletych),
                 typeof(Przysiega),
                 typeof(Retorta),
-                typeof(ScrappersCompendium),
                 typeof(RycerzeWojny),
                 typeof(SmoczeJelita),
                 typeof(SpodnieOswiecenia),
@@ -297,7 +206,6 @@ namespace Server.Items
 
             { ArtSeason.Winter, new[] {
                   typeof(ZgubaSoteriosa),
-                  typeof ( SpellWovenBritches ),
                   typeof ( GuantletsOfAnger ),
                   typeof ( KasaOfTheRajin ),
                   typeof ( TomeOfLostKnowledge ),
@@ -321,10 +229,6 @@ namespace Server.Items
                 }
             }
         };
-
-        #endregion
-
-        #region Lista_artefaktow_Mini_Boss
 
         private static Dictionary<ArtSeason, Type[]> m_MinibossArtifacts = new()
         {
@@ -390,7 +294,6 @@ namespace Server.Items
                     typeof(NoxRangersHeavyCrossbow),
                     typeof(ZlamanyGungnir),
                     typeof(MelisandesCorrodedHatchet),
-                    typeof(OverseerSunderedBlade),
                     typeof(PocalunekBoginii),
                     typeof(ChwytTeczy),
                 }
@@ -405,7 +308,6 @@ namespace Server.Items
                 typeof(TheHorselord),
                 typeof(ZlamanyGungnir),
                 typeof(MelisandesCorrodedHatchet),
-                typeof(OverseerSunderedBlade),
                 typeof(PocalunekBoginii),
                 typeof(ChwytTeczy),
                 typeof(CorlrummEronDaUmri),
@@ -433,9 +335,6 @@ namespace Server.Items
                 typeof(FeyLeggings),
                 typeof(WrathOfTheDryad),
                 typeof(GrdykaZWiezyMagii),
-                typeof(OverseerSunderedBlade),
-                typeof(ResilientBracer),
-                typeof(ColdForgedBlade),
                 typeof(Aderthand),
                 typeof(ArcticBeacon),
                 typeof(ArmsOfToxicity),
@@ -443,10 +342,6 @@ namespace Server.Items
                 }
             }
         };
-
-        #endregion
-
-        #region Lista_artefaktow_Custom_Champ
 
         private static Type[] m_CustomChampArtifacts = {
             typeof(PrzekletaMaskaSmierci),
@@ -471,17 +366,12 @@ namespace Server.Items
             typeof(PrzekletyQuell),
         };
 
-        #endregion
-
-        #region Lista_artefaktow_Fishing
-
         private static Type[] m_FishingArtifacts = {
             typeof(CaptainQuacklebushsCutlass),
             typeof(NightsKiss),
             typeof(StraznikPolnocy),
             typeof(BlazeOfDeath),
             typeof(BowOfTheJukaKing),
-            typeof(SpellWovenBritches),
             typeof(LegendaGenerala),
             typeof(BraceletOfHealth),
             typeof(Raikiri),
@@ -509,19 +399,13 @@ namespace Server.Items
             typeof(MelisandesCorrodedHatchet),
             typeof(RaedsGlory),
             typeof(SoulSeeker),
-            typeof(BlightGrippedLongbow),
             typeof(RuneBeetleCarapace),
             typeof(OponczaMrozu),
             typeof(LeggingsOfEmbers),
-            typeof(IronwoodCrown),
             typeof(PasMurdulfaZlotobrodego),
             typeof(PadsOfTheCuSidhe),
             typeof(StudniaOdnowy),
         };
-
-        #endregion
-
-        #region Lista_artefaktow_Kartografia
 
         private static Dictionary<ArtSeason, Type[]> m_CartographyArtifacts = new()
         {
@@ -609,7 +493,6 @@ namespace Server.Items
                 typeof(MelisandesCorrodedHatchet),
                 typeof(RighteousAnger),
                 typeof(LegendaMedrcow),
-                typeof(SongWovenMantle),
                 typeof(GuantletsOfAnger),
                 typeof(CrownOfTalKeesh),
                 }
@@ -638,9 +521,6 @@ namespace Server.Items
                 }
             }
         };
-        #endregion
-
-        #region Lista_artefaktow_Paragony
 
         private static Type[] m_ParagonArtifacts = {
             typeof( GoldBricks ), 
@@ -666,9 +546,7 @@ namespace Server.Items
             typeof( PixieSwatter ),   
             typeof( GlovesOfThePugilist ), 
         };
-        #endregion
 
-        #region Lista_artefaktow_Mysliwskie
         private static Type[] m_HunterArtifacts = {
             typeof(Raikiri), //Type1
             typeof(PeasantsBokuto),
@@ -682,7 +560,6 @@ namespace Server.Items
             typeof(JaszczurzySzal),
             typeof(OblivionsNeedle),
             typeof(Bonesmasher),
-            typeof(ColdForgedBlade),
             typeof(DaimyosHelm),
             typeof(LegsOfStability),
             typeof(AegisOfGrace),
@@ -706,12 +583,9 @@ namespace Server.Items
             typeof(ArkanaZywiolow),
             typeof(OstrzeCienia),
             typeof(TalonBite),
-            typeof(SilvanisFeywoodBow),
-            typeof(BrambleCoat),
             typeof(OrcChieftainHelm),
             typeof(ShroudOfDeciet),
             typeof(CaptainJohnsHat),
-            typeof(EssenceOfBattle),
             typeof(HebanowyPlomien), //Type 3
             typeof(PomstaGrima),
             typeof(MaskaSmierci),
@@ -726,16 +600,62 @@ namespace Server.Items
             typeof(Stormgrip),
             typeof(LeggingsOfEmbers),
             typeof(SmoczeJelita),
-            typeof(SongWovenMantle),
-            typeof(StitchersMittens),
             typeof(FeyLeggings),
             typeof(DjinnisRing),
-            typeof(PendantOfTheMagi)
         };
-        #endregion
-        
-        public static void Configure()
+
+        public static void Initialize()
         {
+            //Elghin
+            m_CreatureInfo.Add(typeof(DalharukElghinn), new ArtInfo(10, ArtGroup.Elghin));
+			m_CreatureInfo.Add(typeof(KevinBoss), new ArtInfo(5, ArtGroup.Elghin));
+            //Bossy
+            m_CreatureInfo.Add(typeof(NGorogon), new ArtInfo(5, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(Sfinks), new ArtInfo(5, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(NSzeol), new ArtInfo(5, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(NBurugh), new ArtInfo(6, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(NKatrill), new ArtInfo(5, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(NDeloth), new ArtInfo(5, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(NDzahhar), new ArtInfo(5, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(NSarag), new ArtInfo(6, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(NelderimSkeletalDragon), new ArtInfo(7, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(NStarozytnyLodowySmok), new ArtInfo(8, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(StarozytnyDiamentowySmok), new ArtInfo(8, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(NStarozytnySmok), new ArtInfo(8, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(WladcaDemonow), new ArtInfo(10, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(MinotaurBoss), new ArtInfo(5, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(DreadHorn), new ArtInfo(5, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(LadyMelisande), new ArtInfo(7, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(Travesty), new ArtInfo(6, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(ChiefParoxysmus), new ArtInfo(10, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(Harrower), new ArtInfo(100, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(AncientRuneBeetle), new ArtInfo(7, ArtGroup.Boss));
+            m_CreatureInfo.Add(typeof(Serado), new ArtInfo(40, ArtGroup.Boss));
+			m_CreatureInfo.Add(typeof(BetrayerBoss), new ArtInfo(5, ArtGroup.Boss));
+            //Mini Bossy
+            m_CreatureInfo.Add(typeof(WladcaJezioraLawy), new ArtInfo(7, ArtGroup.Miniboss));
+            m_CreatureInfo.Add(typeof(BagusGagakCreeper), new ArtInfo(7, ArtGroup.Miniboss));
+            m_CreatureInfo.Add(typeof(VitVarg), new ArtInfo(7, ArtGroup.Miniboss));
+            m_CreatureInfo.Add(typeof(TilkiBug), new ArtInfo(7, ArtGroup.Miniboss));
+            m_CreatureInfo.Add(typeof(NelderimDragon), new ArtInfo(3, ArtGroup.Miniboss));
+            m_CreatureInfo.Add(typeof(ShimmeringEffusion), new ArtInfo(9, ArtGroup.Miniboss));
+            m_CreatureInfo.Add(typeof(MonstrousInterredGrizzle), new ArtInfo(9, ArtGroup.Miniboss));
+            m_CreatureInfo.Add(typeof(NSilshashaszals), new ArtInfo(5, ArtGroup.Miniboss));
+            m_CreatureInfo.Add(typeof(SaragAwatar), new ArtInfo(2, ArtGroup.Miniboss));
+            m_CreatureInfo.Add(typeof(WladcaPiaskow), new ArtInfo(4, ArtGroup.Miniboss));
+			// m_CreatureInfo.Add(typeof(IceDragon), new ArtInfo(5, ArtGroup.Miniboss));
+            m_CreatureInfo.Add(typeof(EvilSpellbook), new ArtInfo(5, ArtGroup.Miniboss));
+            //Custom champy
+            m_CreatureInfo.Add(typeof(KapitanIIILegionuOrkow), new ArtInfo(30, ArtGroup.CustomChamp));
+            m_CreatureInfo.Add(typeof(MorenaAwatar), new ArtInfo(30, ArtGroup.CustomChamp));
+            m_CreatureInfo.Add(typeof(Meraktus), new ArtInfo(20, ArtGroup.CustomChamp));
+            m_CreatureInfo.Add(typeof(Ilhenir), new ArtInfo(20, ArtGroup.CustomChamp));
+            m_CreatureInfo.Add(typeof(Twaulo), new ArtInfo(15, ArtGroup.CustomChamp));
+            m_CreatureInfo.Add(typeof(Pyre), new ArtInfo(30, ArtGroup.CustomChamp));
+			m_CreatureInfo.Add(typeof(MikolajBoss), new ArtInfo(5, ArtGroup.CustomChamp));
+            //Fishing Bossy
+            m_CreatureInfo.Add(typeof(Leviathan), new ArtInfo(10, ArtGroup.Fishing));
+	        
             List<Type> a = new List<Type>();
             a.AddRange(BossArtifacts);
             a.AddRange(MinibossArtifacts);
@@ -893,7 +813,7 @@ namespace Server.Items
 
         public static void DistributeArtifact(BaseCreature creature)
         {
-            ArtGroup group = ArtifactMonster.GetGroupFor(creature);
+            ArtGroup group = GetGroupFor(creature);
 
             switch (group)
             {
@@ -984,7 +904,7 @@ namespace Server.Items
 	        //10000 for 4000 luck
             double luckChance = LootPack.GetLuckChanceForKiller(boss);
 
-            double chance = ArtifactMonster.GetChanceFor(boss);
+            double chance = GetChanceFor(boss);
             chance *= 1.0 + luckChance / 10000;
 
             return chance;

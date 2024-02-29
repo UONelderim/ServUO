@@ -140,7 +140,7 @@ namespace Server.Engines.Craft
 
             index = AddCraft(typeof(MagicalShortbow), 1044566, 1031551, 85.0, 135.0, typeof(Board), 1044041, 15, 1044351);
 
-           /* index = AddCraft(typeof(BlightGrippedLongbow), 1044566, 1072907, 75.0, 125.0, typeof(Board), 1044041, 20, 1044351);
+            index = AddCraft(typeof(BlightGrippedLongbow), 1044566, 1072907, 75.0, 125.0, typeof(Board), 1044041, 20, 1044351);
             AddRes(index, typeof(LardOfParoxysmus), 1032681, 1, 1053098);
             AddRes(index, typeof(Blight), 1032675, 10, 1053098);
             AddRes(index, typeof(Corruption), 1032676, 10, 1053098);
@@ -205,7 +205,7 @@ namespace Server.Engines.Craft
 
             index = AddCraft(typeof(AssassinsShortbow), 1044566, 1073512, 75.0, 125.0, typeof(Board), 1044041, 15, 1044351);
             AddRes(index, typeof(DarkSapphire), 1026249, 1, 1053098);
-            AddRecipe(index, (int)BowRecipes.AssassinsShortbow);*/
+            AddRecipe(index, (int)BowRecipes.AssassinsShortbow);
 
             SetSubRes(typeof(Board), 1072643);
 
