@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using Nelderim;
-using Server;
 using Server.Mobiles;
 using Server.Accounting;
 using Server.Engines.BulkOrders;
@@ -39,15 +37,9 @@ namespace Server.Items
             private double m_Chance;
             private ArtGroup m_Group;
 
-            public double PercentChance
-            {
-                get { return m_Chance; }
-            }
+            public double PercentChance => m_Chance;
 
-            public ArtGroup Group
-            {
-                get { return m_Group; }
-            }
+            public ArtGroup Group => m_Group;
 
             public ArtInfo(double percent, ArtGroup gr)
             {
@@ -56,7 +48,7 @@ namespace Server.Items
             }
         }
 
-        private static Dictionary<Type, ArtInfo> m_CreatureInfo = new Dictionary<Type, ArtInfo>();
+        private static Dictionary<Type, ArtInfo> m_CreatureInfo = new();
 
         static ArtifactMonster()
         {
@@ -159,8 +151,7 @@ namespace Server.Items
 
         #region Lista_artefaktow_Doom
 
-        private static Type[] m_DoomArtifacts = new Type[]
-        {
+        private static Type[] m_DoomArtifacts = {
             typeof(Aegis),
             typeof(HolySword),
             typeof(ShadowDancerLeggings),
@@ -200,8 +191,7 @@ namespace Server.Items
 
         #region Lista_artefaktow_Elghin
 
-        private static Type[] m_ElghinArtifacts = new Type[]
-        {
+        private static Type[] m_ElghinArtifacts = {
             typeof(AtrybutMysliwego),
             typeof(Belthor),
             typeof(FartuchMajstraZTasandory),
@@ -220,9 +210,9 @@ namespace Server.Items
 
         #region Lista_artefaktow_Boss
 
-        private static Dictionary<ArtSeason, Type[]> m_BossArtifacts = new Dictionary<ArtSeason, Type[]>
+        private static Dictionary<ArtSeason, Type[]> m_BossArtifacts = new()
         {
-            { ArtSeason.Summer, new Type[] {
+            { ArtSeason.Summer, new[] {
                 typeof(Aegis),
                 typeof(Manat),
                 typeof(Draupnir),
@@ -284,7 +274,7 @@ namespace Server.Items
                 }
             },
             
-            { ArtSeason.Spring, new Type[] {
+            { ArtSeason.Spring, new[] {
                 typeof( DreadsRevenge ),
                 typeof ( Calm ),
                 typeof ( StrzalaAbarisa ),
@@ -318,7 +308,7 @@ namespace Server.Items
                 }
             },
 
-            { ArtSeason.Autumn, new Type[] {
+            { ArtSeason.Autumn, new[] {
                 typeof(Aegis),
                 typeof(Manat),
                 typeof(Draupnir),
@@ -348,13 +338,13 @@ namespace Server.Items
                 typeof(OgienZKuchniMurdulfa),
                 typeof(RekawiceStraznikaWulkanu),
                 typeof(ReliktDrowow),
-                typeof(SokoliWzork),
+                typeof(SokoliWzrok),
                 typeof(TrupieRece),
                 typeof(ZgubaSoteriosa),
                 }
             },
 
-            { ArtSeason.Winter, new Type[] {
+            { ArtSeason.Winter, new[] {
                   typeof(ZgubaSoteriosa),
                   typeof ( SpellWovenBritches ),
                   typeof ( GuantletsOfAnger ),
@@ -385,9 +375,9 @@ namespace Server.Items
 
         #region Lista_artefaktow_Mini_Boss
 
-        private static Dictionary<ArtSeason, Type[]> m_MinibossArtifacts = new Dictionary<ArtSeason, Type[]>
+        private static Dictionary<ArtSeason, Type[]> m_MinibossArtifacts = new()
         {
-            { ArtSeason.Summer, new Type[] {
+            { ArtSeason.Summer, new[] {
                 typeof(GniewOceanu),
                 typeof(Tyrfing),
                 typeof(BerloLitosci),
@@ -428,7 +418,7 @@ namespace Server.Items
                 }
             },
             
-            { ArtSeason.Spring, new Type[] {
+            { ArtSeason.Spring, new[] {
                     typeof(RuneBeetleCarapace),
                     typeof(OponczaMrozu),
                     typeof(LeggingsOfEmbers),
@@ -455,7 +445,7 @@ namespace Server.Items
                 }
             },
 
-            { ArtSeason.Autumn, new Type[] {
+            { ArtSeason.Autumn, new[] {
                 //Jesien
                 typeof(GlovesOfTheSun),
                 typeof(OrleSkrzydla),
@@ -481,7 +471,7 @@ namespace Server.Items
                 }
             },
 
-            { ArtSeason.Winter, new Type[] {
+            { ArtSeason.Winter, new[] {
                 typeof(LunaLance),
                 typeof(CorlrummEronDaUmri),
                 typeof(StraznikPolnocy),
@@ -507,8 +497,7 @@ namespace Server.Items
 
         #region Lista_artefaktow_Custom_Champ
 
-        private static Type[] m_CustomChampArtifacts = new Type[]
-        {
+        private static Type[] m_CustomChampArtifacts = {
             typeof(PrzekletaMaskaSmierci),
             typeof(PrzekletaStudniaOdnowy),
             typeof(PrzekleteOrleSkrzydla),
@@ -535,8 +524,7 @@ namespace Server.Items
 
         #region Lista_artefaktow_Fishing
 
-        private static Type[] m_FishingArtifacts = new Type[]
-        {
+        private static Type[] m_FishingArtifacts = {
             typeof(CaptainQuacklebushsCutlass),
             typeof(NightsKiss),
             typeof(StraznikPolnocy),
@@ -584,9 +572,9 @@ namespace Server.Items
 
         #region Lista_artefaktow_Kartografia
 
-        private static Dictionary<ArtSeason, Type[]> m_CartographyArtifacts = new Dictionary<ArtSeason, Type[]>
+        private static Dictionary<ArtSeason, Type[]> m_CartographyArtifacts = new()
         {
-            { ArtSeason.Autumn, new Type[] {
+            { ArtSeason.Autumn, new[] {
                 typeof(Retorta),
                 typeof(BoneCrusher),
                 typeof(CaptainQuacklebushsCutlass),
@@ -616,7 +604,7 @@ namespace Server.Items
                 }
             },
             
-            { ArtSeason.Spring, new Type[] {
+            { ArtSeason.Spring, new[] {
                     typeof(Retorta),
                     typeof(BoneCrusher),
                     typeof(CaptainQuacklebushsCutlass),
@@ -646,7 +634,7 @@ namespace Server.Items
                 }
             },
 
-            { ArtSeason.Summer, new Type[] {
+            { ArtSeason.Summer, new[] {
                 typeof(AncientSamuraiDo),
                 typeof(RekawiceBulpa),
                 typeof(BurglarsBandana),
@@ -676,7 +664,7 @@ namespace Server.Items
                 }
             },
 
-            { ArtSeason.Winter, new Type[] {
+            { ArtSeason.Winter, new[] {
                 typeof(Subdue),
                 typeof(MelisandesCorrodedHatchet),
                 typeof(RaedsGlory),
@@ -703,8 +691,7 @@ namespace Server.Items
 
         #region Lista_artefaktow_Paragony
 
-        private static Type[] m_ParagonArtifacts = new Type[]
-        {
+        private static Type[] m_ParagonArtifacts = {
             typeof( GoldBricks ), 
             typeof( AlchemistsBauble ), 
             typeof( ArcticDeathDealer ), 
@@ -731,8 +718,7 @@ namespace Server.Items
         #endregion
 
         #region Lista_artefaktow_Mysliwskie
-        private static Type[] m_HunterArtifacts = new Type[]
-        {
+        private static Type[] m_HunterArtifacts = {
             typeof(Raikiri), //Type1
             typeof(PeasantsBokuto),
             typeof(PixieSwatter),
@@ -833,66 +819,27 @@ namespace Server.Items
         private static Type[] m_AllArtifactsAllSeasons;
         private static Type[] m_AllArtifactsCurrentSeason;
 
-        public static Type[] AllArtifactsAllSeasons
-        {
-            get
-            {
-                return m_AllArtifactsAllSeasons;
-            }
-        }
+        public static Type[] AllArtifactsAllSeasons => m_AllArtifactsAllSeasons;
 
-		public static Type[] AllArtifactsCurrentSeasons
-		{
-			get
-			{
-				return m_AllArtifactsCurrentSeason;
-			}
-		}
+        public static Type[] AllArtifactsCurrentSeasons => m_AllArtifactsCurrentSeason;
 
-		public static Type[] DoomArtifacts
-        {
-            get { return m_DoomArtifacts; }
-        }
+        public static Type[] DoomArtifacts => m_DoomArtifacts;
 
-        public static Type[] ElghinArtifacts
-        {
-            get { return m_ElghinArtifacts; }
-        }
+        public static Type[] ElghinArtifacts => m_ElghinArtifacts;
 
-        public static Type[] BossArtifacts
-        {
-            get { return m_BossArtifacts[currentSeason]; }
-        }
+        public static Type[] BossArtifacts => m_BossArtifacts[currentSeason];
 
-        public static Type[] MinibossArtifacts
-        {
-            get { return m_MinibossArtifacts[currentSeason]; }
-        }
-        
-        public static Type[] ParagonArtifacts
-        {
-            get { return m_ParagonArtifacts; }
-        }
+        public static Type[] MinibossArtifacts => m_MinibossArtifacts[currentSeason];
 
-        public static Type[] FishingBossArtifacts
-        {
-            get { return m_FishingArtifacts; }
-        }
+        public static Type[] ParagonArtifacts => m_ParagonArtifacts;
 
-        public static Type[] CartographyArtifacts
-        {
-            get { return m_CartographyArtifacts[currentSeason]; }
-        }
+        public static Type[] FishingBossArtifacts => m_FishingArtifacts;
 
-		public static Type[] HunterArtifacts
-        {
-			get { return m_HunterArtifacts; }
-		}
+        public static Type[] CartographyArtifacts => m_CartographyArtifacts[currentSeason];
 
-		public static Type[] FishingArtifacts
-        {
-			get { return m_FishingArtifacts; }
-		}
+        public static Type[] HunterArtifacts => m_HunterArtifacts;
+
+        public static Type[] FishingArtifacts => m_FishingArtifacts;
 
         public static Item CreateRandomArtifact()
         {
