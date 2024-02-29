@@ -11,7 +11,6 @@ namespace Server.Items
     public enum ArtGroup
     {
         None,
-        Doom,
         Boss,
         Miniboss,
         Fishing,
@@ -54,14 +53,6 @@ namespace Server.Items
         {
             // Wzor:
             // m_CreatureInfo.Add(typeof(<KlasaPotwora>), new ArtInfo(<ProcentSzansy>, ArtGroup.<GrupaArtefaktow>));
-
-            //Doom
-            m_CreatureInfo.Add(typeof(DemonKnight), new ArtInfo(4, ArtGroup.Doom));
-            m_CreatureInfo.Add(typeof(AbysmalHorror), new ArtInfo(1.5, ArtGroup.Doom));
-            m_CreatureInfo.Add(typeof(DarknightCreeper), new ArtInfo(1.5, ArtGroup.Doom));
-            m_CreatureInfo.Add(typeof(FleshRenderer), new ArtInfo(1.5, ArtGroup.Doom));
-            m_CreatureInfo.Add(typeof(Impaler), new ArtInfo(1.5, ArtGroup.Doom));
-            m_CreatureInfo.Add(typeof(ShadowKnight), new ArtInfo(1.5, ArtGroup.Doom));
 
             //Elghin
             m_CreatureInfo.Add(typeof(DalharukElghinn), new ArtInfo(10, ArtGroup.Elghin));
@@ -148,46 +139,6 @@ namespace Server.Items
     {
         // TUTAJ PODMIENIAC SEZONY ARTEFAKTOW lato/jesien/zima/wiosna:
         private static ArtSeason currentSeason = ArtSeason.Winter;
-
-        #region Lista_artefaktow_Doom
-
-        private static Type[] m_DoomArtifacts = {
-            typeof(Aegis),
-            typeof(HolySword),
-            typeof(ShadowDancerLeggings),
-            typeof(SpiritOfTheTotem),
-            typeof(HatOfTheMagi),
-            typeof(LeggingsOfBane),
-            typeof(TheTaskmaster),
-            typeof(JackalsCollar),
-            typeof(ArcaneShield),
-            typeof(ArmorOfFortune),
-            typeof(TheBeserkersMaul),
-            typeof(BladeOfInsanity),
-            typeof(BoneCrusher),
-            typeof(BreathOfTheDead),
-            typeof(AxeOfTheHeavens),
-            typeof(BraceletOfHealth),
-            typeof(DivineCountenance),
-            typeof(TheDragonSlayer),
-            typeof(TheDryadBow),
-            typeof(Frostbringer),
-            typeof(GauntletsOfNobility),
-            typeof(HuntersHeaddress),
-            typeof(HelmOfInsight),
-            typeof(LegacyOfTheDreadLord),
-            typeof(RingOfTheElements),
-            typeof(MidnightBracers),
-            typeof(HolyKnightsBreastplate),
-            typeof(OrnateCrownOfTheHarrower),
-            typeof(SerpentsFang),
-            typeof(VoiceOfTheFallenKing),
-            typeof(OrnamentOfTheMagician),
-            typeof(StaffOfTheMagi),
-            typeof(TunicOfFire),
-        };
-
-        #endregion
 
         #region Lista_artefaktow_Elghin
 
@@ -789,7 +740,6 @@ namespace Server.Items
             a.AddRange(BossArtifacts);
             a.AddRange(MinibossArtifacts);
             a.AddRange(m_ParagonArtifacts);
-            a.AddRange(m_DoomArtifacts);
             a.AddRange(m_HunterArtifacts);
             a.AddRange(CartographyArtifacts);
             a.AddRange(m_FishingArtifacts);
@@ -805,7 +755,6 @@ namespace Server.Items
             b.AddRange(m_MinibossArtifacts[ArtSeason.Winter]);
             b.AddRange(m_MinibossArtifacts[ArtSeason.Spring]);
 			b.AddRange(ParagonArtifacts);
-			b.AddRange(DoomArtifacts);
 			b.AddRange(HunterArtifacts);
             b.AddRange(m_CartographyArtifacts[ArtSeason.Autumn]);
             b.AddRange(m_CartographyArtifacts[ArtSeason.Summer]);
@@ -822,8 +771,6 @@ namespace Server.Items
         public static Type[] AllArtifactsAllSeasons => m_AllArtifactsAllSeasons;
 
         public static Type[] AllArtifactsCurrentSeasons => m_AllArtifactsCurrentSeason;
-
-        public static Type[] DoomArtifacts => m_DoomArtifacts;
 
         public static Type[] ElghinArtifacts => m_ElghinArtifacts;
 
@@ -848,20 +795,11 @@ namespace Server.Items
                     case 0: return CreateRandomBossArtifact();
                     case 1: return CreateRandomMinibossArtifact();
                     case 2: return CreateRandomParagonArtifact();
-                    case 3: return CreateRandomDoomArtifact();
                     case 4: return CreateRandomHunterArtifact();
                     case 5: return CreateRandomCartographyArtifact();
                     case 6: return CreateRandomFishingArtifact();
                     default: return CreateRandomParagonArtifact();
             }
-        }
-        
-        public static Item CreateRandomDoomArtifact()
-        {
-            int random = Utility.Random(m_DoomArtifacts.Length);
-            Type type = m_DoomArtifacts[random];
-
-            return Loot.Construct(type);
         }
 
         public static Item CreateRandomElghinArtifact()
@@ -959,9 +897,6 @@ namespace Server.Items
 
             switch (group)
             {
-                case ArtGroup.Doom:
-                    DistributeArtifact(creature, CreateRandomDoomArtifact());
-                    break;
                 case ArtGroup.Boss:
                     DistributeArtifact(creature, CreateRandomBossArtifact());
                     break;
@@ -977,8 +912,6 @@ namespace Server.Items
                 case ArtGroup.CustomChamp:
                     DistributeArtifact(creature, CreateRandomCustomChampArtifact());
                     break;
-
-
                 case ArtGroup.None:
                 default:
                     Console.WriteLine("Unknown ArtGroup for " + creature.GetType().Name);
