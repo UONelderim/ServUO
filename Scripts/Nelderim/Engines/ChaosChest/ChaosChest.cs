@@ -32,6 +32,7 @@ namespace Nelderim.Engines.ChaosChest
 
 		private static Item ZwojeAttach(int type)
 		{
+			//XmlEnemyMaster na konkretnego bossa 10% szansy 10% wiecej dmg 24h
 			return new BankCheck(50000); // Tu wstawic zwoj attacha jak bedzie
 		}
 
@@ -106,6 +107,7 @@ namespace Nelderim.Engines.ChaosChest
 					earrings.Attributes[AosAttribute.RegenStam] = 2;
 					break;
 			}
+			//Dac 2 propsy o srednim natezeniu zamiast regen i resista
 
 			TemporaryQuestObject tqo =
 				new TemporaryQuestObject("Bardzo chaotyczne kolczyki", (double)10 * 24 * 60 /*10dni*/);
