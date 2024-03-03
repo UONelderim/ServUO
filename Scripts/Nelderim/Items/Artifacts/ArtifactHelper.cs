@@ -4,6 +4,7 @@ using System.Linq;
 using Nelderim;
 using Server.Mobiles;
 using Server.Engines.BulkOrders;
+using Server.Engines.Points;
 using Server.Mobiles.Swiateczne;
 
 namespace Server.Items
@@ -11,6 +12,7 @@ namespace Server.Items
 	public enum ArtGroup
 	{
 		None,
+		Doom,
 		Boss,
 		Miniboss,
 		Fishing,
@@ -256,6 +258,8 @@ namespace Server.Items
 				.SelectMany(x => x) //flatten
 				.ToArray();
 			_Artifacts.Add(ArtGroup.Hunter, ForAllSeasons(allHunterArtifacts));
+			var allDoomArtifacts = DoomGauntlet.RewardTable.SelectMany(x => x).Distinct().ToArray();
+			_Artifacts.Add(ArtGroup.Doom, ForAllSeasons(allDoomArtifacts));
 
 			_AllArtifactsCurrentSeason = _Artifacts
 				.Values
@@ -276,6 +280,10 @@ namespace Server.Items
 
 		private static Type[] _AllArtifacts;
 		private static Type[] _AllArtifactsCurrentSeason;
+
+		public static Type[] AllArtifacts => _AllArtifacts;
+		public static Type[] AllArtifactsCurrentSeason => _AllArtifactsCurrentSeason;
+		
 
 		private static Type[] _ElghinArtifacts = {
 			typeof(AtrybutMysliwego), typeof(Belthor), typeof(FartuchMajstraZTasandory), typeof(HelmMagaBojowego),

@@ -3,6 +3,7 @@
 using System;
 using Server;
 using Server.Engines.BulkOrders;
+using Server.Engines.Points;
 using Server.Engines.XmlSpawner2;
 using Server.Items;
 using Server.Network;
@@ -161,10 +162,10 @@ namespace Nelderim.Engines.ChaosChest
 		{
 			switch (type)
 			{
-				case 3: return ArtifactHelper.CreateRandomDoomArtifact();
-				case 2: return ArtifactHelper.CreateRandomMinibossArtifact();
-				case 1: return ArtifactHelper.CreateRandomFishingArtifact();
-				default: return ArtifactHelper.CreateRandomCustomChampArtifact();
+				case 3: return ArtifactHelper.GetRandomArtifact(ArtGroup.Doom);
+				case 2: return ArtifactHelper.GetRandomArtifact(ArtGroup.Miniboss);
+				case 1: return ArtifactHelper.GetRandomArtifact(ArtGroup.Fishing);
+				default: return ArtifactHelper.GetRandomArtifact(ArtGroup.CustomChamp);
 			}
 		}
 

@@ -16,14 +16,14 @@ namespace Server.Mobiles
 		{
 			public InternalBuyInfo()
 			{  
-				Add( new GenericBuyInfo( typeof( ArtLootBox ), 2000, 5, 0x2DF3, 0 , new object[]{ArtLootBox.ArtLootType.Random}) );
-				Add( new GenericBuyInfo( typeof( ArtLootBox ), 3000, 5, 0x2DF3, 0 , new object[]{ArtLootBox.ArtLootType.Boss}) );
-				Add( new GenericBuyInfo( typeof( ArtLootBox ), 3000, 5, 0x2DF3, 0 , new object[]{ArtLootBox.ArtLootType.Miniboss}) );
-				Add( new GenericBuyInfo( typeof( ArtLootBox ), 2500, 5, 0x2DF3, 0 , new object[]{ArtLootBox.ArtLootType.Paragon}) );
-				Add( new GenericBuyInfo( typeof( ArtLootBox ), 4500, 5, 0x2DF3, 0 , new object[]{ArtLootBox.ArtLootType.Doom}) );
-				Add( new GenericBuyInfo( typeof( ArtLootBox ), 3000, 5, 0x2DF3, 0 , new object[]{ArtLootBox.ArtLootType.Hunter}) );
-				Add( new GenericBuyInfo( typeof( ArtLootBox ), 3000, 5, 0x2DF3, 0 , new object[]{ArtLootBox.ArtLootType.Cartography}) );
-				Add( new GenericBuyInfo( typeof( ArtLootBox ), 3000, 5, 0x2DF3, 0 , new object[]{ArtLootBox.ArtLootType.Fishing}) );
+				Add( new GenericBuyInfo( typeof( ArtLootBox ), 2000, 5, 0x2DF3, 0 , new object[]{ArtGroup.None}) );
+				Add( new GenericBuyInfo( typeof( ArtLootBox ), 3000, 5, 0x2DF3, 0 , new object[]{ArtGroup.Boss}) );
+				Add( new GenericBuyInfo( typeof( ArtLootBox ), 3000, 5, 0x2DF3, 0 , new object[]{ArtGroup.Miniboss}) );
+				Add( new GenericBuyInfo( typeof( ArtLootBox ), 2500, 5, 0x2DF3, 0 , new object[]{ArtGroup.Paragon}) );
+				Add( new GenericBuyInfo( typeof( ArtLootBox ), 4500, 5, 0x2DF3, 0 , new object[]{ArtGroup.Doom}) );
+				Add( new GenericBuyInfo( typeof( ArtLootBox ), 3000, 5, 0x2DF3, 0 , new object[]{ArtGroup.Hunter}) );
+				Add( new GenericBuyInfo( typeof( ArtLootBox ), 3000, 5, 0x2DF3, 0 , new object[]{ArtGroup.Cartography}) );
+				Add( new GenericBuyInfo( typeof( ArtLootBox ), 3000, 5, 0x2DF3, 0 , new object[]{ArtGroup.Fishing}) );
 			}
 		}
 
@@ -34,7 +34,7 @@ namespace Server.Mobiles
 			
 			public InternalSellInfo()
 			{
-				foreach (Type type in ArtifactHelper.AllArtifactsAllSeasons)
+				foreach (Type type in ArtifactHelper.AllArtifacts) 
 				{
 					Add(type, 100);
 				}
