@@ -75,11 +75,11 @@ namespace Server.Mobiles
 
             if (GiveMLSpecial)
             {
-                if (Utility.RandomDouble() < 0.10)
-                    c.DropItem(new HumanFeyLeggings());
-
-                if (Utility.RandomDouble() < 0.025)
-                    c.DropItem(new CrimsonCincture());
+                // if (Utility.RandomDouble() < 0.10)
+                //     c.DropItem(new HumanFeyLeggings());
+                //
+                // if (Utility.RandomDouble() < 0.025)
+                //     c.DropItem(new CrimsonCincture());
 
                 if (0.05 > Utility.RandomDouble())
                 {
