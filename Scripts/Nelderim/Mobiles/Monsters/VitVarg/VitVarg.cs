@@ -58,13 +58,6 @@ namespace Server.Mobiles
 			AddLoot(LootPack.UltraRich, 2);
 		}
 
-		public override void OnDeath(Container c)
-		{
-			base.OnDeath(c);
-
-			ArtifactHelper.ArtifactDistribution(this);
-		}
-
 		public override int GetIdleSound()
 		{
 			return 0x2CE;
