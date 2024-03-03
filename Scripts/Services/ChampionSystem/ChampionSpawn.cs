@@ -561,8 +561,8 @@ namespace Server.Engines.CannedEvil
                 {
                     RegisterDamageTo(m_Champion);
 
-                    if (m_Champion is BaseChampion)
-                        AwardArtifact(((BaseChampion)m_Champion).GetArtifact());
+                    // if (m_Champion is BaseChampion)
+                    //     AwardArtifact(((BaseChampion)m_Champion).GetArtifact());
 
                     m_DamageEntries.Clear();
 
