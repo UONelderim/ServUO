@@ -506,6 +506,9 @@ namespace Server.Spells
                 }
             }
 
+			if (from is BaseNelderimGuard)
+				return ((BaseNelderimGuard)from).IsEnemy(to);
+
             var fromCreature = from as BaseCreature;
 
             if (fromCreature != null)
