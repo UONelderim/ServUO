@@ -68,10 +68,10 @@ namespace Server.Mobiles
                 }
             }
 
-            if (GivesMLMinorArtifact && 0.5 > Utility.RandomDouble())
-            {
-                MondainsLegacy.DropPeerlessMinor(c);
-            }
+            // if (GivesMLMinorArtifact && 0.5 > Utility.RandomDouble())
+            // {
+            //     MondainsLegacy.DropPeerlessMinor(c);
+            // }
 
             if (GiveMLSpecial)
             {
