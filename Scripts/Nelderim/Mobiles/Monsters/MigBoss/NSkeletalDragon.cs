@@ -73,13 +73,6 @@ namespace Server.Mobiles
 			base.OnCarve(from, corpse, with);
 		}
 
-		public override void OnDeath(Container c)
-		{
-			base.OnDeath(c);
-
-			ArtifactHelper.ArtifactDistribution(this);
-		}
-
 		public override void GenerateLoot()
 		{
 			AddLoot(LootPack.SuperBoss);

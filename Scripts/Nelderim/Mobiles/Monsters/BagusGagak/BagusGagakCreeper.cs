@@ -52,13 +52,6 @@ namespace Server.Mobiles
 			AddLoot(LootPack.UltraRich, 2);
 		}
 
-		public override void OnDeath(Container c)
-		{
-			base.OnDeath(c);
-
-			ArtifactHelper.ArtifactDistribution(this);
-		}
-
 		public override bool BardImmune => false;
 		public override bool Unprovokable => true;
 		public override bool Uncalmable => true;

@@ -53,13 +53,6 @@ namespace Server.Mobiles
 
 			_NextAbilityTime = DateTime.Now + TimeSpan.FromSeconds( Utility.RandomMinMax( 5, 30 ) );
 		}
-		
-		public override void OnDeath( Container c )
-		{
-			base.OnDeath( c );
-
-			ArtifactHelper.ArtifactDistribution(this);
-		}
 
 		public override int GetDeathSound()
 		{

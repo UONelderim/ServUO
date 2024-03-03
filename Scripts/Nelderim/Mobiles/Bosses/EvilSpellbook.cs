@@ -43,14 +43,6 @@ namespace Server.Mobiles
 			SetWeaponAbility(WeaponAbility.ConcussionBlow);
 		}
 
-
-		public override void OnDeath(Container c)
-		{
-			base.OnDeath(c);
-
-			ArtifactHelper.ArtifactDistribution(this);
-		}
-
 		public override bool BardImmune => true;
 		public override double AttackMasterChance => 0.15;
 		public override double SwitchTargetChance => 0.15;
