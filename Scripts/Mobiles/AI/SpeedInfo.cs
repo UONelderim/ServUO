@@ -14,6 +14,8 @@ namespace Server
 
         public static bool GetSpeeds(BaseCreature bc, ref double activeSpeed, ref double passiveSpeed)
         {
+	        return true; //Don't adjust
+	        
             int maxDex = GetMaxMovementDex(bc);
             int dex = Math.Min(maxDex, Math.Max(25, bc.Dex));
 
