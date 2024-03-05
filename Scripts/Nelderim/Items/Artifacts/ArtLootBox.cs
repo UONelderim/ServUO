@@ -9,52 +9,37 @@ namespace Server
 {
 	public class ArtLootBox : Item
 	{
-		public enum ArtLootType
-		{
-			Random = 0,
-			Boss = 1,
-			Miniboss = 2,
-			Paragon = 3,
-			Doom = 4,
-			Hunter = 5,
-			Cartography = 6,
-			Fishing = 7
-		}
-
-		private ArtLootType m_LootType;
+		private ArtGroup _LootType;
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public ArtLootType LootType
+		public ArtGroup LootType
 		{
-			get { return m_LootType; }
+			get => _LootType;
 			set
 			{
-				m_LootType = value;
+				_LootType = value;
 				SetName();
 			}
 		}
 
-		public override double DefaultWeight
-		{
-			get { return 0.01; }
-		}
+		public override double DefaultWeight => 0.01;
 
 		[Constructable]
-		public ArtLootBox() : this(ArtLootType.Random)
+		public ArtLootBox() : this(ArtGroup.None)
 		{
 		}
 
 		[Constructable]
 		public ArtLootBox(string type) : base(0x2DF3)
 		{
-			if (!Enum.TryParse(type, out m_LootType))
-				m_LootType = ArtLootType.Paragon;
+			if (!Enum.TryParse(type, out _LootType))
+				_LootType = ArtGroup.Paragon;
 			SetName();
 		}
 
-		public ArtLootBox(ArtLootType type) : base(0x2DF3)
+		public ArtLootBox(ArtGroup type) : base(0x2DF3)
 		{
-			m_LootType = type;
+			_LootType = type;
 			SetName();
 		}
 
@@ -65,39 +50,13 @@ namespace Server
 		public override void OnDoubleClick(Mobile from)
 		{
 			if (Parent != from.Backpack)
-				from.SendMessage("Nie mozesz tego uzyc");
-			else
 			{
-				switch (m_LootType)
-				{
-					case ArtLootType.Random:
-						from.AddToBackpack(ArtifactHelper.CreateRandomArtifact());
-						break;
-					case ArtLootType.Boss:
-						from.AddToBackpack(ArtifactHelper.CreateRandomBossArtifact());
-						break;
-					case ArtLootType.Miniboss:
-						from.AddToBackpack(ArtifactHelper.CreateRandomMinibossArtifact());
-						break;
-					case ArtLootType.Paragon:
-						from.AddToBackpack(ArtifactHelper.CreateRandomParagonArtifact());
-						break;
-					case ArtLootType.Doom:
-						from.AddToBackpack(ArtifactHelper.CreateRandomDoomArtifact());
-						break;
-					case ArtLootType.Hunter:
-						from.AddToBackpack(ArtifactHelper.CreateRandomHunterArtifact());
-						break;
-					case ArtLootType.Cartography:
-						from.AddToBackpack(ArtifactHelper.CreateRandomCartographyArtifact());
-						break;
-					case ArtLootType.Fishing:
-						from.AddToBackpack(ArtifactHelper.CreateRandomFishingArtifact());
-						break;
-				}
-
-				Delete();
+				from.SendMessage("Nie mozesz tego uzyc");
+				return;
 			}
+
+			from.AddToBackpack(ArtifactHelper.GetRandomArtifact(_LootType));
+			Delete();
 
 			base.OnDoubleClick(from);
 		}
@@ -106,7 +65,7 @@ namespace Server
 		{
 			base.Serialize(writer);
 
-			writer.Write(0); // version
+			writer.Write(1); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -118,30 +77,30 @@ namespace Server
 
 		private void SetName()
 		{
-			switch (m_LootType)
+			switch (_LootType)
 			{
-				case ArtLootType.Random:
+				case ArtGroup.None:
 					Name = "Skrzynia Artefaktu";
 					break;
-				case ArtLootType.Boss:
+				case ArtGroup.Boss:
 					Name = "Skrzynia Artefaktu Władcy Podziemi";
 					break;
-				case ArtLootType.Miniboss:
+				case ArtGroup.Miniboss:
 					Name = "Skrzynia Artefaktu Pomniejszego Władcy Podziemi";
 					break;
-				case ArtLootType.Paragon:
+				case ArtGroup.Paragon:
 					Name = "Skrzynia Artefaktu Paragonów";
 					break;
-				case ArtLootType.Doom:
+				case ArtGroup.Doom:
 					Name = "Skrzynia Artefaktu Pana Mroku";
 					break;
-				case ArtLootType.Hunter:
+				case ArtGroup.Hunter:
 					Name = "Skrzynia Artefaktu Myśliwego";
 					break;
-				case ArtLootType.Cartography:
+				case ArtGroup.Cartography:
 					Name = "Skrzynia Artefaktu Poszukiwaczy Skarbów";
 					break;
-				case ArtLootType.Fishing:
+				case ArtGroup.Fishing:
 					Name = "Skrzynia Artefaktu Leviathana";
 					break;
 			}

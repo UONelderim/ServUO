@@ -61,13 +61,6 @@ namespace Server.Mobiles
 			base.OnCarve(from, corpse, with);
 		}
 
-		public override void OnDeath(Container c)
-		{
-			base.OnDeath(c);
-
-			ArtifactHelper.ArtifactDistribution(this);
-		}
-
 		public override void GenerateLoot()
 		{
 			// 07.01.2013 :: szczaw :: usuniecie PackGold

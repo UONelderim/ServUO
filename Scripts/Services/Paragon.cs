@@ -174,7 +174,7 @@ namespace Server.Mobiles
 
         public static void GiveArtifactTo(Mobile m)
         {
-            Item item = (Item)Activator.CreateInstance(Artifacts[Utility.Random(Artifacts.Length)]);
+            Item item = ArtifactHelper.GetRandomArtifact(ArtGroup.Paragon);
             LabelsConfig.AddCreationMark(item, m);
             if (m.IsStaff())
             {

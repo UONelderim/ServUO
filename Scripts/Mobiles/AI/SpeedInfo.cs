@@ -14,6 +14,8 @@ namespace Server
 
         public static bool GetSpeeds(BaseCreature bc, ref double activeSpeed, ref double passiveSpeed)
         {
+	        return true; //Don't adjust
+	        
             int maxDex = GetMaxMovementDex(bc);
             int dex = Math.Min(maxDex, Math.Max(25, bc.Dex));
 
@@ -52,6 +54,7 @@ namespace Server
 
         public static double TransformMoveDelay(BaseCreature bc, double delay)
         {
+	        return delay; //Don't adjust
             double adjusted = bc.IsMonster ? MaxDelayWild : MaxDelay;
 
             if (!bc.IsDeadPet && (bc.ReduceSpeedWithDamage || bc.IsSubdued))

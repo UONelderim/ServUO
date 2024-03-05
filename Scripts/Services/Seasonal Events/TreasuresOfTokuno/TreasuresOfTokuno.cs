@@ -184,6 +184,7 @@ namespace Server.Misc
 
         public override void ProcessKill(Mobile victim, Mobile killer)
         {
+	        return; //Disabled
             PlayerMobile pm = killer as PlayerMobile;
             BaseCreature bc = victim as BaseCreature;
 

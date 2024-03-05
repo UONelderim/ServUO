@@ -184,7 +184,7 @@ namespace Server
 
         public static void Initialize()
         {
-            EventSink.OnKilledBy += OnKilledBy;
+            // EventSink.OnKilledBy += OnKilledBy;
 
             CommandSystem.Register("DecorateML", AccessLevel.Administrator, DecorateML_OnCommand);
             CommandSystem.Register("DecorateMLDelete", AccessLevel.Administrator, DecorateMLDelete_OnCommand);

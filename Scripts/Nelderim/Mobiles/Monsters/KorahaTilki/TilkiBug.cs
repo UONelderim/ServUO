@@ -80,13 +80,6 @@ namespace Server.Mobiles
 			return 0x34C;
 		}
 
-		public override void OnDeath(Container c)
-		{
-			base.OnDeath(c);
-
-			ArtifactHelper.ArtifactDistribution(this);
-		}
-
 		public override int GetHurtSound()
 		{
 			return 0x354;

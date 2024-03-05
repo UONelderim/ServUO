@@ -72,8 +72,6 @@ namespace Server.Mobiles.Swiateczne
 		{
 			base.OnDeath(c);
 
-			ArtifactHelper.ArtifactDistribution(this);
-
 			foreach (var trap in m_Traps)
 			{
 				trap.Delete();
