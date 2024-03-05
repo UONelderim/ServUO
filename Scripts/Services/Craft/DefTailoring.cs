@@ -1,6 +1,7 @@
 using Server.Items;
 using System;
 using System.Collections.Generic;
+using Items.RegBag;
 
 namespace Server.Engines.Craft
 {
@@ -433,6 +434,8 @@ namespace Server.Engines.Craft
             AddRes(index, typeof(FeyWings), 1113332, 10, 1044253);
             AddRecipe(index, (int)TailorRecipe.ElegantCollarOfFortune);
             ForceExceptional(index);
+            
+            index = AddCraft(typeof(RegBag), 1015283, "worek na reagenty", 35.0, 70.0, typeof(Leather), 1044462, 10);
 
             #endregion
 
