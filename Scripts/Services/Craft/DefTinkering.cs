@@ -619,7 +619,7 @@ namespace Server.Engines.Craft
             AddRes(index, typeof(BaseExplosionPotion), 1044569, 1, 1044253);
             #endregion
 
-        /*    #region Magic Jewlery
+            #region Magic Jewlery
             index = AddCraft(typeof(BrilliantAmberBracelet), 1073107, 1073453, 75.0, 125.0, typeof(IronIngot), 1044036, 5, 1044037);
             AddRes(index, typeof(Amber), 1062607, 20, 1044240);
             AddRes(index, typeof(BrilliantAmber), 1032697, 10, 1044240);
@@ -691,7 +691,7 @@ namespace Server.Engines.Craft
             AddRes(index, typeof(WhitePearl), 1032694, 4, 1044240);
             AddRecipe(index, (int)TinkerRecipes.BraceletOfPrimalConsumption);
             ForceNonExceptional(index);
-            #endregion */
+            #endregion 
 
             // Set the overridable material
             SetSubRes(typeof(IronIngot), 1044022);

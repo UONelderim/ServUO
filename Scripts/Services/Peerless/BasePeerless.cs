@@ -68,18 +68,18 @@ namespace Server.Mobiles
                 }
             }
 
-            if (GivesMLMinorArtifact && 0.5 > Utility.RandomDouble())
-            {
-                MondainsLegacy.DropPeerlessMinor(c);
-            }
+            // if (GivesMLMinorArtifact && 0.5 > Utility.RandomDouble())
+            // {
+            //     MondainsLegacy.DropPeerlessMinor(c);
+            // }
 
             if (GiveMLSpecial)
             {
-                if (Utility.RandomDouble() < 0.10)
-                    c.DropItem(new HumanFeyLeggings());
-
-                if (Utility.RandomDouble() < 0.025)
-                    c.DropItem(new CrimsonCincture());
+                // if (Utility.RandomDouble() < 0.10)
+                //     c.DropItem(new HumanFeyLeggings());
+                //
+                // if (Utility.RandomDouble() < 0.025)
+                //     c.DropItem(new CrimsonCincture());
 
                 if (0.05 > Utility.RandomDouble())
                 {

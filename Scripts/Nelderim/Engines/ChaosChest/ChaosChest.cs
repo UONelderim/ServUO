@@ -3,6 +3,7 @@
 using System;
 using Server;
 using Server.Engines.BulkOrders;
+using Server.Engines.Points;
 using Server.Engines.XmlSpawner2;
 using Server.Items;
 using Server.Network;
@@ -32,6 +33,7 @@ namespace Nelderim.Engines.ChaosChest
 
 		private static Item ZwojeAttach(int type)
 		{
+			//XmlEnemyMaster na konkretnego bossa 10% szansy 10% wiecej dmg 24h
 			return new BankCheck(50000); // Tu wstawic zwoj attacha jak bedzie
 		}
 
@@ -106,6 +108,7 @@ namespace Nelderim.Engines.ChaosChest
 					earrings.Attributes[AosAttribute.RegenStam] = 2;
 					break;
 			}
+			//Dac 2 propsy o srednim natezeniu zamiast regen i resista
 
 			TemporaryQuestObject tqo =
 				new TemporaryQuestObject("Bardzo chaotyczne kolczyki", (double)10 * 24 * 60 /*10dni*/);
@@ -159,10 +162,10 @@ namespace Nelderim.Engines.ChaosChest
 		{
 			switch (type)
 			{
-				case 3: return ArtifactHelper.CreateRandomDoomArtifact();
-				case 2: return ArtifactHelper.CreateRandomMinibossArtifact();
-				case 1: return ArtifactHelper.CreateRandomFishingArtifact();
-				default: return ArtifactHelper.CreateRandomCustomChampArtifact();
+				case 3: return ArtifactHelper.GetRandomArtifact(ArtGroup.Doom);
+				case 2: return ArtifactHelper.GetRandomArtifact(ArtGroup.Miniboss);
+				case 1: return ArtifactHelper.GetRandomArtifact(ArtGroup.Fishing);
+				default: return ArtifactHelper.GetRandomArtifact(ArtGroup.CustomChamp);
 			}
 		}
 

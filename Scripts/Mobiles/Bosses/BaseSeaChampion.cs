@@ -52,7 +52,7 @@ namespace Server.Mobiles
         public override bool OnBeforeDeath()
         {
             RegisterDamageTo(this);
-            AwardArtifact(GetArtifact());
+            // AwardArtifact(GetArtifact());
 
             return base.OnBeforeDeath();
         }

@@ -1,10 +1,6 @@
-#region References
-
 using System;
 using System.Collections.Generic;
 using Server.Items;
-
-#endregion
 
 namespace Server.Engines.BulkOrders
 {
@@ -27,8 +23,6 @@ namespace Server.Engines.BulkOrders
 					return (Item)Activator.CreateInstance(randomKey);
 			}
 		}
-
-		#region Constructors
 
 		private static readonly ConstructCallback Pigments = CreatePigments;
 		private static readonly ConstructCallback TransPowders = CreateTransPowders;
@@ -322,7 +316,7 @@ namespace Server.Engines.BulkOrders
 			return SelectRandomType(objects);
 		}
 
-		private static Type[] m_artLvl1 = new Type[]
+		public static readonly Type[] ArtLvl1 =
 		{
 			typeof(Raikiri),
 			typeof(PeasantsBokuto),
@@ -336,7 +330,6 @@ namespace Server.Engines.BulkOrders
 			typeof(JaszczurzySzal),
 			typeof(OblivionsNeedle),
 			typeof(Bonesmasher),
-			typeof(ColdForgedBlade),
 			typeof(DaimyosHelm),
 			typeof(LegsOfStability),
 			typeof(AegisOfGrace),
@@ -344,7 +337,7 @@ namespace Server.Engines.BulkOrders
 			typeof(StudniaOdnowy)
 		};
 
-		private static Type[] m_artLvl2 = new Type[]
+		public static readonly Type[] ArtLvl2 =
 		{
 			typeof(Tyrfing),
 			typeof(Arteria),
@@ -364,15 +357,13 @@ namespace Server.Engines.BulkOrders
 			typeof(ArkanaZywiolow),
 			typeof(OstrzeCienia),
 			typeof(TalonBite),
-			typeof(SilvanisFeywoodBow),
-			typeof(BrambleCoat),
 			typeof(OrcChieftainHelm),
 			typeof(ShroudOfDeciet),
 			typeof(CaptainJohnsHat),
 			typeof(EssenceOfBattle),
 		};
 
-		private static Type[] m_artLvl3 = new Type[]
+		public static readonly Type[] ArtLvl3 =
 		{
 			typeof(HebanowyPlomien),
 			typeof(PomstaGrima),
@@ -388,25 +379,20 @@ namespace Server.Engines.BulkOrders
 			typeof(Stormgrip),
 			typeof(LeggingsOfEmbers),
 			typeof(SmoczeJelita),
-			typeof(SongWovenMantle),
-			typeof(StitchersMittens),
 			typeof(FeyLeggings),
-            //typeof(PadsOfTheCuSidhe),
             typeof(DjinnisRing),
 			typeof(PendantOfTheMagi),
 		};
 
-		private static Type[] m_artLvl4 = new Type[]
+		public static readonly Type[] ArtLvl4 =
 		{
 			typeof(Stormgrip),
 			typeof(FeyLeggings),
-			typeof(PendantOfTheMagi), // maszyjnik trzech krolow
-            typeof(EssenceOfBattle),
 			typeof(HuntersHeaddress),
 			typeof(SpodnieOswiecenia),
 			typeof(OrcChieftainHelm),
 			typeof(KulawyMagik),
-			typeof(SmoczyNos), // nogawice ozdobione luskami smoka
+			typeof(SmoczyNos),
         };
 
 		private enum ArtType
@@ -423,23 +409,22 @@ namespace Server.Engines.BulkOrders
 			switch ((ArtType)type)
 			{
 				case ArtType.Art4:
-					itemType = Utility.RandomList(m_artLvl4);
+					itemType = Utility.RandomList(ArtLvl4);
 					break;
 				case ArtType.Art3:
-					itemType = Utility.RandomList(m_artLvl3);
+					itemType = Utility.RandomList(ArtLvl3);
 					break;
 				case ArtType.Art2:
-					itemType = Utility.RandomList(m_artLvl2);
+					itemType = Utility.RandomList(ArtLvl2);
 					break;
 				default:
-					itemType = Utility.RandomList(m_artLvl1);
+					itemType = Utility.RandomList(ArtLvl1);
 					break;
 			}
 
 			Item art = (Item)Activator.CreateInstance(itemType);
 			return art;
 		}
-		#endregion
 
 		public static readonly HunterRewardCalculator Instance = new();
 

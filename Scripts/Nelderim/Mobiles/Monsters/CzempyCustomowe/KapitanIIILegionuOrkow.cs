@@ -104,13 +104,6 @@ namespace Server.Mobiles
 			SpawnOrcLord(caster);
 		}
 
-		public override void OnDeath(Container c)
-		{
-			base.OnDeath(c);
-
-			ArtifactHelper.ArtifactDistribution(this);
-		}
-
 		public void SpawnOrcLord(Mobile target)
 		{
 			Map map = target.Map;

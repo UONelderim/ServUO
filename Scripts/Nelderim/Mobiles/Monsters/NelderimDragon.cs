@@ -69,13 +69,6 @@ namespace Server.Mobiles
 			return base.OnBeforeDeath();
 		}
 
-		public override void OnDeath(Container c)
-		{
-			base.OnDeath(c);
-
-			ArtifactHelper.ArtifactDistribution(this);
-		}
-
 		public override void GenerateLoot()
 		{
 			AddLoot(LootPack.UltraRich, 2);

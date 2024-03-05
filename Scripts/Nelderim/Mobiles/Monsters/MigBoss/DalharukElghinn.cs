@@ -79,13 +79,6 @@ namespace Server.Mobiles
 			SetWeaponAbility(WeaponAbility.WhirlwindAttack);
 		}
 
-		public override void OnDeath(Container c)
-		{
-			base.OnDeath(c);
-
-			ArtifactHelper.ArtifactDistribution(this);
-		}
-
 		public override bool OnBeforeDeath()
 		{
 			AddLoot( LootPack.DeathKnightScrolls );

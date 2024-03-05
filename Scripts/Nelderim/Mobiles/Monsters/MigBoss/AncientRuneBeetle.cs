@@ -114,13 +114,6 @@ namespace Server.Mobiles
 			return 0x4E5;
 		}
 		
-		public override void OnDeath(Container c)
-		{
-			base.OnDeath(c);
-
-			ArtifactHelper.ArtifactDistribution(this);
-		}
-
 		public override Poison PoisonImmune => Poison.Greater;
 		public override Poison HitPoison => Poison.Greater;
 		public override FoodType FavoriteFood => FoodType.FruitsAndVegies | FoodType.GrainsAndHay;

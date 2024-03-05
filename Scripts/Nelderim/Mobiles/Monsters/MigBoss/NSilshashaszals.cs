@@ -62,13 +62,6 @@ namespace Server.Mobiles
 			AddLoot(LootPack.SuperBoss);
 		}
 
-		public override void OnDeath(Container c)
-		{
-			base.OnDeath(c);
-
-			ArtifactHelper.ArtifactDistribution(this);
-		}
-
 		public NSilshashaszals(Serial serial) : base(serial)
 		{
 		}
