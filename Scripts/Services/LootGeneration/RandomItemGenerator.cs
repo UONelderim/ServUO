@@ -80,7 +80,7 @@ namespace Server.Items
         public static int GetBaseBudget(BaseCreature bc)
         {
 	        if (NConfig.Loot.Enabled && NConfig.Loot.LootBudget)
-		        return (int)(Math.Pow(Math.Log10(bc.Difficulty + 1), 2) * 20);
+		        return (int)(Math.Pow(Math.Log(bc.Difficulty + 1, 50), 5) * 3.6);
             if (bc is BaseRenowned)
                 return MaxBaseBudget;
 
@@ -98,7 +98,10 @@ namespace Server.Items
             {
                 int budget = Math.Min(MaxBaseBudget, GetBaseBudget(bc));
 
-                BossEntry.CheckBoss(bc, ref budget);
+                if (!NConfig.Loot.Enabled || !NConfig.Loot.LootBudget)
+                {
+	                BossEntry.CheckBoss(bc, ref budget);
+                }
 
                 return Math.Max(MinBaseBudget, budget);
             }
