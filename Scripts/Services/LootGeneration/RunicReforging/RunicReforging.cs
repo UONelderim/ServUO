@@ -1964,7 +1964,7 @@ namespace Server.Items
                     budget = Utility.RandomMinMax(basebudget - (basebudget / divisor), (int)(basebudget + (toAdd * perc))) + budgetBonus;
 
                     // Gives a rare chance for a high end item to drop on a low budgeted monster
-                    if (rawLuck > 0 && !IsPowerful(budget) && LootPack.CheckLuck(luckchance / 6))
+                    if (!NConfig.Loot.Enabled && rawLuck > 0 && !IsPowerful(budget) && LootPack.CheckLuck(luckchance / 6))
                     {
                         budget = Utility.RandomMinMax(600, 1150);
                     }
