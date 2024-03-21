@@ -1,6 +1,5 @@
 ﻿#region References
 
-using System;
 using System.Collections.Generic;
 using Nelderim.Configuration;
 using Server;
@@ -13,6 +12,7 @@ using Server.ACC.CSS.Systems.Ranger;
 using Server.ACC.CSS.Systems.Undead;
 using Server.Items;
 using Server.Mobiles;
+using static System.Math;
 
 #endregion
 
@@ -77,8 +77,8 @@ namespace Nelderim
 
 		private static void GenerateGold(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			var minGold = (int)Math.Ceiling(Math.Pow(bc.Difficulty * 630, 0.49));
-			var maxGold = (int)Math.Ceiling(minGold * 1.3);
+			var minGold = (int)Ceiling(Pow(bc.Difficulty * 10000, 0.4));
+			var maxGold = (int)Ceiling(minGold * 1.3);
 
 			var amount = (int)(Utility.RandomMinMax(minGold, maxGold) * NConfig.Loot.GoldModifier);
 
@@ -87,16 +87,16 @@ namespace Nelderim
 
 		private static void GenerateRecallRunes(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			var count = (int)Math.Min(5, 1 + bc.Difficulty * 0.002);
-			var chance = Math.Pow(bc.Difficulty, 0.6) * 0.025;
+			var count = (int)Min(5, 1 + bc.Difficulty * 0.002);
+			var chance = Pow(bc.Difficulty, 0.6) * 0.025;
 
 			entries.Add(new LootPackEntry(false, true, RecallRune, chance, count));
 		}
 
 		private static void GenerateGems(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			var count = (int)Math.Ceiling(Math.Pow(bc.Difficulty, 0.35));
-			var chance = Math.Max(0.01, Math.Min(1, 0.1 + Math.Pow(bc.Difficulty, 0.3) * 0.05)) * 100;
+			var count = (int)Ceiling(Pow(bc.Difficulty, 0.22));
+			var chance = Max(0.01, Min(1, 0.1 + Pow(bc.Difficulty, 0.25) * 0.05)) * 100;
 
 			for (var i = 0; i < count; i++)
 				entries.Add(new LootPackEntry(false, true,
@@ -124,7 +124,7 @@ namespace Nelderim
 					return;
 			}
 
-			var count = (int)Math.Ceiling(Math.Pow(bc.Difficulty, 0.5));
+			var count = (int)Ceiling(Pow(bc.Difficulty, 0.2)) * 5;
 			entries.Add(new LootPackEntry(false, true, lootItems, 100, count));
 		}
 
@@ -133,7 +133,7 @@ namespace Nelderim
 			BaseRanged weapon = bc.FindItemOnLayer(Layer.TwoHanded) as BaseRanged;
 			if (weapon != null)
 			{
-				var count = (int)Math.Ceiling(Math.Pow(bc.Difficulty, 0.3)) * 20;
+				var count = (int)(Ceiling(Pow(bc.Difficulty, 0.2)) * 10 * (Utility.RandomDouble() + 0.5)); // +/- 50%
 
 				entries.Add(
 					new LootPackEntry(false, true, new[] { new LootPackItem(weapon.AmmoType, 100) }, 100, count));
@@ -142,10 +142,10 @@ namespace Nelderim
 
 		private static void GenerateScrolls(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			var count = (int)Math.Floor(Math.Pow((1 + bc.Difficulty) * 39.0, 0.15));
-			var scrollChance = Math.Max(0.01, Math.Min(0.8, Math.Pow(bc.Difficulty * 0.5, 0.29) * 0.025));
+			var count = (int)Floor(Pow((1 + bc.Difficulty) * 5, 0.15));
+			var scrollChance = Max(0.01, Min(0.8, Pow(bc.Difficulty * 0.5, 0.29) * 0.025));
 
-			var chances = GetChances(Math.Min(1, Math.Pow(bc.Difficulty, 0.9) * 0.0001), 2.0, NL_scrolls.Length);
+			var chances = GetChances(Min(1, Pow(bc.Difficulty, 0.7) * 0.0001), 2.0, NL_scrolls.Length);
 
 			for (var i = 0; i < count; i++)
 			{
@@ -158,8 +158,8 @@ namespace Nelderim
 
 		private static void GeneratePotions(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			var count = (int)Math.Floor(Math.Pow((1 + bc.Difficulty) * 39.0, 0.15));
-			var potionChance = Math.Max(0.01, Math.Min(0.8, Math.Pow(bc.Difficulty * 0.5, 0.29) * 0.1)) * 100;
+			var count = (int)Floor(Pow((1 + bc.Difficulty) * 5, 0.15));
+			var potionChance = Max(0.01, Min(0.8, Pow(bc.Difficulty * 0.5, 0.29) * 0.1)) * 100;
 
 			for (var i = 0; i < count; i++)
 				entries.Add(new LootPackEntry(false, true, LootPack.PotionItems, potionChance, 1));
@@ -167,37 +167,37 @@ namespace Nelderim
 
 		private static void GenerateInstruments(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			var chance = Math.Max(0.01, Math.Min(1, Math.Pow(bc.Difficulty, 0.3) * 0.3)) * 100;
+			var chance = Max(0.01, Min(1, Pow(bc.Difficulty, 0.25) * 0.1)) * 100;
 			entries.Add(new LootPackEntry(false, true, LootPack.Instruments, chance, 1));
 		}
 
 		public static void GenerateMagicItems(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
 			var countModifier = NConfig.Loot.ItemsCountModifier;
-			var itemsMin = (int)Math.Floor(Math.Pow(bc.Difficulty, 0.275) * countModifier);
-			var itemsMax = (int)Math.Max(1, itemsMin + Math.Ceiling((double)itemsMin / 3 * countModifier));
+			var itemsMin = (int)Floor(Pow(bc.Difficulty, 0.22) * countModifier);
+			var itemsMax = (int)Max(1, itemsMin + Ceiling((double)itemsMin / 3 * countModifier));
 			var itemsCount = Utility.RandomMinMax(itemsMin, itemsMax);
 
 			var propsModifier = NConfig.Loot.PropsCountModifier;
-			var minProps = (int)Utility.Clamp(Math.Log(bc.Difficulty * 0.1) * propsModifier, 1, 5);
-			var maxProps = (int)Utility.Clamp(Math.Log(bc.Difficulty) * propsModifier, 1, 5);
+			var minProps = (int)Utility.Clamp(Log(bc.Difficulty * 0.1) * propsModifier, 1, 5);
+			var maxProps = (int)Utility.Clamp(Log(bc.Difficulty) * propsModifier, 1, 5);
 
 			var minIntensityModifier = NConfig.Loot.MinIntensityModifier;
 			var maxIntensityModifier = NConfig.Loot.MaxIntensityModifier;
-			var minIntensity = Utility.Clamp(Math.Pow(bc.Difficulty, 0.6) * minIntensityModifier, 5, 30);
-			var maxIntensity = Utility.Clamp((Math.Pow(bc.Difficulty, 0.75) + 30) * maxIntensityModifier, 50, 100);
-			var reduceStep = (int)Math.Max(1, itemsCount * 0.2); // Po kazdym 20% itemow oslabiamy loot
+			var minIntensity = Utility.Clamp(Pow(bc.Difficulty, 0.6) * minIntensityModifier, 5, 30);
+			var maxIntensity = Utility.Clamp((Pow(bc.Difficulty, 0.75) + 30) * maxIntensityModifier, 50, 100);
+			var reduceStep = (int)Max(1, itemsCount * 0.2); // Po kazdym 20% itemow oslabiamy loot
 			for (var i = 0; i < itemsCount; i++)
 			{
 				if (i % reduceStep == 0)
 					switch (Utility.Random(4))
 					{
 						case 0:
-							minProps = Math.Max(1, minProps - 1);
+							minProps = Max(1, minProps - 1);
 							break;
 						case 1:
 							if (maxProps == minProps) goto case 0;
-							maxProps = Math.Max(1, maxProps - 1);
+							maxProps = Max(1, maxProps - 1);
 							break;
 						case 2:
 							minIntensity *= 0.8;
@@ -220,7 +220,7 @@ namespace Nelderim
 			chances[0] = baseChance;
 			for (var i = 1; i < count; i++)
 			{
-				chances[i] = Math.Min(1 - sum, chances[i - 1] * factor);
+				chances[i] = Min(1 - sum, chances[i - 1] * factor);
 				if (chances[i - 1] < 0.01)
 				{
 					chances[i] += chances[i - 1];
