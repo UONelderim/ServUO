@@ -514,7 +514,7 @@ namespace Server.Nelderim
 			if (m is BaseCreature bc)
 			{
 				RegionsEngineRegion r = GetRegion(m.Region.Name);
-				if (r != null && r.DifficultyLevelWeights.Count != 0 && bc.DifficultyLevel != DifficultyLevelValue.Normal)
+				if (r != null && r.DifficultyLevelWeights.Count != 0 && bc.DifficultyLevel == DifficultyLevelValue.Normal)
 				{
 					bc.DifficultyLevel = Utility.RandomWeigthed(r.DifficultyLevelWeights);
 				}
