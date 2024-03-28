@@ -59,14 +59,14 @@ namespace Nelderim
 			else
 			{
 				//GenerateSpellbooks( bc, ref entries );
-				GenerateRecallRunes(bc, ref entries);
+				GenerateMagicItems(bc, ref entries);
 				GenerateGems(bc, ref entries);
 				GenerateScrolls(bc, ref entries);
 				GeneratePotions(bc, ref entries);
 				GenerateInstruments(bc, ref entries);
-				GenerateMagicItems(bc, ref entries);
 				GenerateReagents(bc, ref entries);
 				GenerateArrows(bc, ref entries);
+				GenerateRecallRunes(bc, ref entries);
 			}
 
 			if (entries.Count > 0)
@@ -174,7 +174,7 @@ namespace Nelderim
 		public static void GenerateMagicItems(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
 			var countModifier = NConfig.Loot.ItemsCountModifier;
-			var itemsMin = (int)Floor(Pow(bc.Difficulty, 0.22) * countModifier);
+			var itemsMin = (int)Floor(Pow(bc.Difficulty, 0.2) * countModifier);
 			var itemsMax = (int)Max(1, itemsMin + Ceiling((double)itemsMin / 3 * countModifier));
 			var itemsCount = Utility.RandomMinMax(itemsMin, itemsMax);
 
