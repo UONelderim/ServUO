@@ -77,6 +77,7 @@ namespace Server.Mobiles
 		public override FoodType FavoriteFood => FoodType.Meat;
 		public override bool BardImmune => false;
 		public override Poison HitPoison => Poison.Deadly;
+		public override PackInstinct PackInstinct{ get{ return PackInstinct.Arachnid; } }
 
 
 		public SkorpionKrolewski(Serial serial) : base(serial)
