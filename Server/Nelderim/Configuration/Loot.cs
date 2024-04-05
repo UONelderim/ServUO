@@ -2,22 +2,26 @@
 // ServUO - LootConfig.cs
 // **********
 
-using static Server.Config;
-
 namespace Nelderim.Configuration
 {
 	public class Loot
 	{
 		internal Loot(){}
 		
-		public bool Enabled => Get("NelderimLoot.Enabled", true);
-		public bool SALootEnabled => Get("NelderimLoot.SALootEnabled", false);
-		public bool ReforgedNamesEnabled => Get("NelderimLoot.ReforgedNamesEnabled", false);
-		public double GoldModifier => Get("NelderimLoot.GoldModifier", 1.0);
-		public double ItemsCountModifier => Get("NelderimLoot.ItemsCountModifier", 1.0);
-		public double PropsCountModifier => Get("NelderimLoot.PropsCountModifier", 1.0);
-		public double MinIntensityModifier => Get("NelderimLoot.MinIntensityModifier", 1.0);
-		public double MaxIntensityModifier => Get("NelderimLoot.MaxIntensityModifier", 1.0);
-		public bool LootBudget => Get("NelderimLoot.LootBudget", true); 
+		public bool Enabled => Get("Enabled", true);
+		public bool SALootEnabled => Get("SALootEnabled", false);
+		public bool ReforgedNamesEnabled => Get("ReforgedNamesEnabled", false);
+		public double GoldModifier => Get("GoldModifier", 1.0);
+		public double ItemsCountModifier => Get("ItemsCountModifier", 1.0);
+		public double PropsCountModifier => Get("PropsCountModifier", 1.0);
+		public double MinIntensityModifier => Get("MinIntensityModifier", 1.0);
+		public double MaxIntensityModifier => Get("MaxIntensityModifier", 1.0);
+		public bool LootBudget => Get("LootBudget", true);
+		public bool DebugDifficulty => Get("DebugDifficulty", false);
+
+		private static T Get<T>(string key, T defaultValue)
+		{
+			return Server.Config.Get($"NelderimLoot.{key}", defaultValue);
+		}
 	}
 }

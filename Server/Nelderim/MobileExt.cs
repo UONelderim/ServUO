@@ -17,5 +17,10 @@ namespace Server
 		//Maska smierci
 
 		public bool MaskOfDeathEffect { get; set; }
+		
+		public virtual void NAddProperties(ObjectPropertyList list)
+		{
+			
+		}
 	}
 }
