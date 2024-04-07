@@ -60,7 +60,7 @@ namespace Server.Items
 			return null;
 		}
 		
-		public static void Initialize()
+		public static void Configure()
 		{
 			//Elghin
 			_CreatureInfo.Add(typeof(DalharukElghinn), new ArtInfo(10, ArtGroup.Elghin));

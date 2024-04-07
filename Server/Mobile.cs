@@ -1119,6 +1119,8 @@ namespace Server
 			{
 				Spawner.GetSpawnProperties(this, list);
 			}
+			
+			NAddProperties(list);
 		}
 
 		public virtual void GetChildProperties(ObjectPropertyList list, Item item)
