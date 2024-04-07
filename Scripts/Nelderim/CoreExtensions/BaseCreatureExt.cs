@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using Nelderim.Configuration;
 using Nelderim.Engines.ChaosChest;
 using Server.Nelderim;
 
@@ -112,6 +113,14 @@ namespace Server.Mobiles
 		public void NGenerateExtraLoot()
 		{
 			ChaosChestQuest.AddLoot(this);
+		}
+
+		public override void NAddProperties(ObjectPropertyList list)
+		{
+			if (NConfig.Loot.DebugDifficulty)
+			{
+				list.Add("Difficulty: " + Difficulty);
+			}
 		}
 	}
 }
