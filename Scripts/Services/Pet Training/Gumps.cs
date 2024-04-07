@@ -735,19 +735,19 @@ namespace Server.Mobiles
             AddECHandleInput();
 
             AddButton(35, 490, 0x9CC8, 0x9CC7, 0, GumpButtonType.Reply, 0);
-            AddHtml(35, 493, 126, 20, Center("CANCEL"), false, false);
+            AddHtml(35, 493, 126, 20, Center("ANULUJ"), false, false);
 
             AddECHandleInput();
             AddECHandleInput();
 
             AddButton(220, 490, 0x9CC8, 0x9CC7, 1, GumpButtonType.Reply, 0);
-            AddHtml(220, 493, 126, 20, Center("PLAN"), false, false);
+            AddHtml(220, 493, 126, 20, Center("PLANUJ"), false, false);
 
             AddECHandleInput();
             AddECHandleInput();
 
             AddButton(410, 490, 0x9CC8, 0x9CC7, 2, GumpButtonType.Reply, 0);
-            AddHtml(410, 493, 126, 20, Center("INFO"), false, false);
+            AddHtml(410, 493, 126, 20, Center("INFORMACJE"), false, false);
 
             int y = 90;
             TrainingDefinition def = PetTrainingHelper.GetTrainingDefinition(Creature);
