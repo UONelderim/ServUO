@@ -22,18 +22,18 @@ namespace Server.Mobiles
 				int avgDamage = (min + max) / 2;
 				double damage = bw.ScaleDamageAOS(this, avgDamage, false);
 
-				return damage / bw.GetDelay(this).TotalSeconds * MeeleeSkillFactor;
+				return damage / bw.GetDelay(this).TotalSeconds * MeleeSkillFactor;
 			}
 		}
 
-		private const double _mdpsMageryScalar = 0.5;
-		private const double _mdpsEvalScalar = 0.003;
-		private const double _mdpsMeditScalar = 0.001;
-		private const double _mdpsManaScalar = 0.0002;
-		private const double _mdpsMaxCircleScalar = 0.05;
-		private const double _mdpsManaCap = 500;
-		private const double _mdpsNecroScalar = 0.4;
-		private const double _mdpsSSScalar = 0.001;
+		public const double MdpsMageryScalar = 0.5;
+		public const double MdpsEvalScalar = 0.003;
+		public const double MdpsMeditScalar = 0.001;
+		public const double MdpsManaScalar = 0.0002;
+		public const double MdpsMaxCircleScalar = 0.05;
+		public const double MdpsManaCap = 500;
+		public const double MdpsNecroScalar = 0.4;
+		public const double MdpsSsScalar = 0.001;
 
 
 		public double MagicDPS
@@ -47,11 +47,11 @@ namespace Server.Mobiles
 					var evalInt = Skills[SkillName.EvalInt].Value;
 					var meditation = Skills[SkillName.Meditation].Value;
 
-					var mageryValue = magery * _mdpsMageryScalar * (1 + maxCircle * _mdpsMaxCircleScalar);
+					var mageryValue = magery * MdpsMageryScalar * (1 + maxCircle * MdpsMaxCircleScalar);
 
-					var evalIntBonus = mageryValue * evalInt * _mdpsEvalScalar;
-					var meditBonus = mageryValue * meditation * _mdpsMeditScalar;
-					var manaBonus = mageryValue * Math.Min(ManaMax, _mdpsManaCap) * _mdpsManaScalar;
+					var evalIntBonus = mageryValue * evalInt * MdpsEvalScalar;
+					var meditBonus = mageryValue * meditation * MdpsMeditScalar;
+					var manaBonus = mageryValue * Math.Min(ManaMax, MdpsManaCap) * MdpsManaScalar;
 
 					var mageryResult = mageryValue + evalIntBonus + meditBonus + manaBonus;
 
@@ -60,8 +60,8 @@ namespace Server.Mobiles
 						var necro = Skills[SkillName.Necromancy].Value;
 						var spiritSpeak = Skills[SkillName.SpiritSpeak].Value;
 
-						var necroBonus = necro * _mdpsNecroScalar;
-						var ssBonus = spiritSpeak * _mdpsSSScalar;
+						var necroBonus = necro * MdpsNecroScalar;
+						var ssBonus = spiritSpeak * MdpsSsScalar;
 
 						return mageryResult + necroBonus + ssBonus;
 					}
@@ -97,11 +97,11 @@ namespace Server.Mobiles
 			}
 		}
 
-		public double Life => Math.Log(HitsMax * AvgResFactor * MagicResFactor * MeeleeSkillFactor / 100) * 100;
+		public double Life => Math.Log((HitsMax * AvgResFactor * MagicResFactor * MeleeSkillFactor / 100) + 1) * 100;
 		
 		// Old formula
 		// Math.Max(0.5, Skills[((BaseWeapon)Weapon).Skill].Value / 120);
-		public double MeeleeSkillFactor => Math.Pow(Math.E, Math.Min(3.0, Skills[((BaseWeapon)Weapon).GetUsedSkill(this, true)].Value / 100)) - 1;
+		public double MeleeSkillFactor => Math.Pow(Math.E, Math.Min(3.0, Skills[((BaseWeapon)Weapon).GetUsedSkill(this, true)].Value / 100)) - 1;
 
 		public double AvgRes =>
 			(double)(PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance) / 5;
@@ -120,7 +120,7 @@ namespace Server.Mobiles
 			return 0;
 		}
 
-		public double HitPoisonBonus => GetPoisonBonus(HitPoison) * HitPoisonChance * MeeleeSkillFactor;
+		public double HitPoisonBonus => GetPoisonBonus(HitPoison) * HitPoisonChance * MeleeSkillFactor;
 		
 		public double WeaponAbilitiesBonus
 		{

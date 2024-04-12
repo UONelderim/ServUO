@@ -6317,6 +6317,8 @@ namespace Server
 			{
 				Spawner.GetSpawnContextEntries(this, from, list);
 			}
+			
+			NContextMenuEntries(from, list);
 		}
 
 		public virtual bool DisplayContextMenu(Mobile from)
