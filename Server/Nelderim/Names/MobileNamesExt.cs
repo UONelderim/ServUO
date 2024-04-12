@@ -24,14 +24,14 @@ namespace Server
 		{
 			if (NConfig.NameSystemEnabled && !UseRealName(m) )
 			{
-				return NameFor.TryGetValue(m, out var assignedName) ? assignedName : DefaultName;
+				return (m != null && NameFor.TryGetValue(m, out var assignedName)) ? assignedName : DefaultName;
 			}
 			return Name;
 		}
 
 		public virtual bool UseRealName(Mobile m)
 		{
-			return m == this || IsStaff() || m.IsStaff();
+			return m != null && (m == this || IsStaff() || m.IsStaff());
 		}
 
 		public virtual string DefaultName => "nieznajomy " + (Race == Race.DefaultRace ? "" : Race.GetName().ToLower());
