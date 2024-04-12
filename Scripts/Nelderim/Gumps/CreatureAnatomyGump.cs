@@ -27,7 +27,7 @@ namespace Server.Mobiles
 
 			AddPage(0);
 			AddBackground(0, 24, 310, 285, 0x24A4); // 285 was 325
-			AddHtml(47, 32, 210, 18, ColorAndCenter("#000080", Creature.Name), false, false);
+			AddHtml(47, 32, 210, 18, ColorAndCenter("#000080", Creature.NGetName(null)), false, false);
 
 			AddButton(140, 0, 0x82D, 0x82D, 0, GumpButtonType.Reply, 0);
 
