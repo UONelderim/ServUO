@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using Nelderim.Configuration;
 using Nelderim.Engines.ChaosChest;
+using Server.ContextMenus;
+using Server.Gumps;
 using Server.Nelderim;
 
 #endregion
@@ -120,6 +122,37 @@ namespace Server.Mobiles
 			if (NConfig.Loot.DebugDifficulty)
 			{
 				list.Add("Difficulty: " + Difficulty);
+				list.Add("DPS:" + DPS);
+				list.Add("Melee DPS: " + MeleeDPS);
+				list.Add("Magic DPS: " + MagicDPS);
+				list.Add("Life: " + Life);
+			}
+		}
+
+		public override void NContextMenuEntries(Mobile from, List<ContextMenuEntry> list)
+		{
+			if (NConfig.Loot.DebugDifficulty && from is PlayerMobile pm && from.IsStaff())
+			{
+				list.Add(new DebugDifficultyEntry(this, pm));
+			}
+		}
+		
+		private class DebugDifficultyEntry : ContextMenuEntry
+		{
+			private readonly PlayerMobile _Player;
+			private readonly BaseCreature _Creature;
+
+			public DebugDifficultyEntry(BaseCreature creature, PlayerMobile player)
+				: base(10008, 12)
+			{
+				_Creature = creature;
+				_Player = player;
+				Color = 0b1_11111_00000_00000;
+			}
+
+			public override void OnClick()
+			{
+				BaseGump.SendGump(new CreatureDifficultyGump(_Player, _Creature));
 			}
 		}
 	}

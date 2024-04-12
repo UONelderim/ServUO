@@ -2,6 +2,9 @@
 
 #endregion
 
+using System.Collections.Generic;
+using Server.ContextMenus;
+
 namespace Server
 {
 	public partial class Mobile
@@ -19,6 +22,11 @@ namespace Server
 		public bool MaskOfDeathEffect { get; set; }
 		
 		public virtual void NAddProperties(ObjectPropertyList list)
+		{
+			
+		}
+
+		public virtual void NContextMenuEntries(Mobile from, List<ContextMenuEntry> list)
 		{
 			
 		}
