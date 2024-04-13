@@ -28,8 +28,6 @@ namespace Server.Mobiles
 			});
 		}
 
-		private readonly int _Label = 0xF424E5;
-
 		public BaseCreature Creature { get; }
 
 		public CreatureDifficultyGump(PlayerMobile pm, BaseCreature bc)
@@ -211,32 +209,6 @@ namespace Server.Mobiles
 			AddButton(217, 288, 0x15E3, 0x15E7, 0, GumpButtonType.Page, 4);
 		}
 
-		public int Pages(AbilityProfile profile)
-		{
-			return 6;
-		}
-
-		private static string FormatString(string s)
-		{
-			return $"<div align=right>{s}</div>";
-		}
-
-		private static string FormatSkill(BaseCreature c, SkillName name)
-		{
-			if (c.Skills[name].Base < 10.0)
-				return "<div align=right>---</div>";
-
-			return String.Format("<div align=right>{0:F1}/{1}</div>", c.Skills[name].Value, c.Skills[name].Cap);
-		}
-
-		private static string FormatAttributes(int cur, int max)
-		{
-			if (max == 0)
-				return "<div align=right>---</div>";
-
-			return String.Format("<div align=right>{0}/{1}</div>", cur, max);
-		}
-
 		private static string FormatStat(int val)
 		{
 			if (val == 0)
@@ -251,50 +223,6 @@ namespace Server.Mobiles
 				return "<div align=right>---</div>";
 
 			return String.Format("<div align=right>{0:F2}</div>", val);
-		}
-
-		public static string FormatDouble(double val, bool dontshowzero = true, bool percentage = false)
-		{
-			if (dontshowzero)
-			{
-				return FormatDouble(val);
-			}
-
-			if (percentage)
-			{
-				return String.Format("<div align=right>{0:F1}%</div>", val);
-			}
-
-			return String.Format("<div align=right>{0:F1}</div>", val);
-		}
-
-		public static string FormatElement(int val, string color)
-		{
-			if (color == null)
-			{
-				if (val <= 0)
-					return "<div align=right>---</div>";
-
-				return String.Format("<div align=right>{0}%</div>", val);
-			}
-
-			if (val <= 0)
-				return String.Format("<BASEFONT COLOR={0}><div align=right>---</div>", color);
-
-			return String.Format("<BASEFONT COLOR={1}><div align=right>{0}%</div>", val, color);
-		}
-
-		public static string FormatDamage(int min, int max)
-		{
-			if (min <= 0 || max <= 0)
-				return "<div align=right>---</div>";
-
-			return String.Format("<div align=right>{0}-{1}</div>", min, max);
-		}
-
-		public string FormatPetSlots(int min, int max)
-		{
-			return String.Format("<BASEFONT COLOR=#57412F>{0} => {1}", min.ToString(), max.ToString());
 		}
 	}
 }
