@@ -927,6 +927,7 @@ namespace Server.Mobiles
                 m_Paragon = value;
 
                 InvalidateProperties();
+                CalculateDifficulty();
             }
         }
 
