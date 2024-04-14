@@ -115,14 +115,14 @@ namespace Server.Mobiles
 		public double GetPoisonBonus(Poison p)
 		{
 			if (p == Poison.Lethal) return 1;
-			if (p == Poison.Deadly) return 0.92;
+			if (p == Poison.Deadly) return 0.9;
 			if (p == Poison.Greater) return 0.70;
 			if (p == Poison.Regular) return 0.40;
-			if (p == Poison.Lesser) return 0.30;
+			if (p == Poison.Lesser) return 0.20;
 			return 0;
 		}
 
-		public double HitPoisonBonus => GetPoisonBonus(HitPoison) * HitPoisonChance * MeleeSkillFactor;
+		public double HitPoisonBonus => GetPoisonBonus(HitPoison) * HitPoisonChance * 0.1;
 		
 		public double WeaponAbilitiesBonus
 		{
