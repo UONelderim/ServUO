@@ -5001,8 +5001,8 @@ namespace Server.Mobiles
 
         public void AdjustSpeeds()
         {
-            double activeSpeed = 0.0;
-            double passiveSpeed = 0.0;
+            double activeSpeed = m_dActiveSpeed;
+            double passiveSpeed = m_dPassiveSpeed;
 
             SpeedInfo.GetSpeeds(this, ref activeSpeed, ref passiveSpeed);
 
