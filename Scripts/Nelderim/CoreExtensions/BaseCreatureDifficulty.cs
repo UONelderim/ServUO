@@ -63,9 +63,9 @@ namespace Server.Mobiles
 						var necroBonus = necro * MdpsNecroScalar;
 						var ssBonus = spiritSpeak * MdpsSsScalar;
 
-						return mageryResult + necroBonus + ssBonus;
+						mageryResult += necroBonus + ssBonus;
 					}
-					return mageryResult;
+					return mageryResult * 0.4;
 				}
 
 				return 0;
@@ -103,7 +103,7 @@ namespace Server.Mobiles
 
 		public double MeleeSkillValue => Skills[((BaseWeapon)Weapon).GetUsedSkill(this, true)].Value;
 		
-		public double MeleeSkillFactor => 1 + (MeleeSkillValue * 0.02);
+		public double MeleeSkillFactor => MeleeSkillValue * 0.02;
 
 		public double AvgRes =>
 			(double)(PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance) / 5;
