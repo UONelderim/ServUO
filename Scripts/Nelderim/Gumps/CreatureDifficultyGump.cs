@@ -38,6 +38,7 @@ namespace Server.Mobiles
 
 		public override void AddGumpLayout()
 		{
+			int y = 0;
 			AddPage(0);
 			AddBackground(0, 24, 310, 285, 0x24A4);
 			AddHtml(47, 32, 210, 18, ColorAndCenter("#000080", Creature.Name), false, false);
@@ -51,9 +52,11 @@ namespace Server.Mobiles
 
 			AddHtml(53, 92, 160, 18, "Difficulty", false, false); 
 			AddHtml(180, 92, 75, 18, FormatDouble(Creature.Difficulty), false, false);
+			AddTooltip("BaseDifficulty * DifficultyScalar");
 
 			AddHtml(53, 110, 160, 18, "BaseDifficulty", false, false);
 			AddHtml(180, 110, 75, 18, FormatDouble(Creature.BaseDifficulty), false, false);
+			AddTooltip("DPS * Life");
 
 			AddHtml(53, 128, 160, 18, "DifficultyScalar", false, false);
 			AddHtml(180, 128, 75, 18, FormatDouble(Creature.DifficultyScalar), false, false);
@@ -68,27 +71,32 @@ namespace Server.Mobiles
 			AddButton(217, 288, 0x15E3, 0x15E7, 0, GumpButtonType.Page, 5);
 
 			AddPage(2);
-			
-			AddHtml(47, 74, 160, 18, "Life",false, false);
-			AddHtml(180, 74, 75, 18, FormatDouble(Creature.Life), false, false);
 
-			AddHtml(53, 92, 160, 18, "HitsMax", false, false);
-			AddHtml(180, 92, 75, 18, FormatStat(Creature.HitsMax), false, false);
+			y = 74;
+			AddHtml(47, y, 160, 18, "Life",false, false);
+			AddHtml(180, y, 75, 18, FormatDouble(Creature.Life), false, false);
+			AddTooltip("All multiplied");
+			y += 18;
 
-			AddHtml(53, 110, 160, 18, "AvgResFactor", false, false);
-			AddHtml(180, 110, 75, 18, FormatDouble(Creature.AvgResFactor), false, false);
+			AddHtml(53, y, 160, 18, $"HitsFactor({Creature.HitsMax})", false, false);
+			AddHtml(180, y, 75, 18, FormatDouble(Creature.HitsFactor), false, false);
+			AddTooltip("Math.Pow(Math.Log(HitsMax), 2)");
+			y += 18;
 
-			AddHtml(53, 128, 160, 18, "MagicResFactor", false, false);
-			AddHtml(180, 128, 75, 18, FormatDouble(Creature.MagicResFactor), false, false);
+			AddHtml(53, y, 160, 18, $"AvgResFactor({Creature.AvgRes}", false, false);
+			AddHtml(180, y, 75, 18, FormatDouble(Creature.AvgResFactor), false, false);
+			AddTooltip("1 + AvgRes * 0.01");
+			y += 18;
 
-			AddHtml(53, 146, 160, 18, "MeleeSkillFactor", false, false);
-			AddHtml(180, 146, 75, 18, FormatDouble(Creature.MeleeSkillFactor), false, false);
+			AddHtml(53, y, 160, 18, $"MeleeSkillFactor({Creature.MeleeSkillValue})", false, false);
+			AddHtml(180, y, 75, 18, FormatDouble(Creature.MeleeSkillFactor), false, false);
+			AddTooltip("1 + (MeleeSkillValue * 0.02)");
+			y += 18;
 
-			AddHtml(53, 182, 160, 18, "Multiplied", false, false);
-			AddHtml(180, 182, 75, 18, FormatDouble(Creature.HitsMax * Creature.AvgResFactor * Creature.MagicResFactor * Creature.MeleeSkillFactor), false, false);
+			AddHtml(53, y, 160, 18, $"MagicResFactor({Creature.Skills[SkillName.MagicResist].Value})", false, false);
+			AddHtml(180, y, 75, 18, FormatDouble(Creature.MagicResFactor), false, false);
+			AddTooltip("1 + Skills[SkillName.MagicResist].Value * 0.001");
 
-			AddHtml(42, 218, 230, 18, "Life=ln((Multiplied / 100) + 1) * 100 ", false, false);
-			
 			AddButton(240, 288, 0x15E1, 0x15E5, 0, GumpButtonType.Page, 3);
 			AddButton(217, 288, 0x15E3, 0x15E7, 0, GumpButtonType.Page, 1);
 
@@ -96,6 +104,7 @@ namespace Server.Mobiles
 			
 			AddHtml(47, 74, 160, 18, "DPS", false, false); 
 			AddHtml(180, 74, 75, 18, FormatDouble(Creature.DPS), false, false);
+			AddTooltip("(MeleeDPS + MagicDPS) * Bonuses");
 
 			AddHtml(53, 92, 160, 18, "Melee DPS", false, false); 
 			AddHtml(180, 92, 75, 18, FormatDouble(Creature.MeleeDPS), false, false);
@@ -103,7 +112,7 @@ namespace Server.Mobiles
 			AddHtml(53, 110, 160, 18, "Magic DPS", false, false); 
 			AddHtml(180, 110, 75, 18, FormatDouble(Creature.MagicDPS), false, false);
 
-			AddHtml(53, 128, 160, 18, "Sum", false, false);
+			AddHtml(53, 128, 160, 18, "Melee+Magic DPS", false, false);
 			AddHtml(180, 128, 75, 18, FormatDouble(Creature.MeleeDPS + Creature.MagicDPS), false, false);
 
 			AddHtml(53, 146, 160, 18, "HitPoisonBonus", false, false);
@@ -128,6 +137,7 @@ namespace Server.Mobiles
 
 			AddHtml(47, 74, 160, 18, "Melee DPS", false, false);
 			AddHtml(180, 74, 75, 18, FormatDouble(Creature.MeleeDPS), false, false);
+			AddTooltip("(ScaledDmg / AttackDelay) * MeleeSkillFactor");
 
 			AddHtml(53, 92, 160, 18, "Min Dmg", false, false);
 			AddHtml(180, 92, 75, 18, FormatStat(Creature.DamageMin), false, false);
@@ -144,14 +154,14 @@ namespace Server.Mobiles
 			
 			AddHtml(53, 146, 160, 18, "Scaled Dmg", false, false); 
 			AddHtml(180, 146, 75, 18, FormatDouble(bw?.ScaleDamageAOS(Creature, avgDamage, false) ?? 0.0), false, false);
+			AddTooltip("Avg Dmg with all the bonuses");
 
 			AddHtml(53, 164, 160, 18, "Attack Delay(s)", false, false);
 			AddHtml(180, 164, 75, 18, FormatDouble(bw?.GetDelay(Creature).TotalSeconds ?? 0.0), false, false);
 
-			AddHtml(53, 182, 160, 18, "MeleeSkillFactor", false, false);
+			AddHtml(53, 182, 160, 18, $"MeleeSkillFactor({Creature.MeleeSkillValue})", false, false);
 			AddHtml(180, 182, 75, 18, FormatDouble(Creature.MeleeSkillFactor), false, false);
-			
-			AddHtml(42, 218, 240, 18, "DPS = (ScaledDmg / AttackDelay) * MeleeSkillFactor", false, false);
+			AddTooltip("1 + (MeleeSkillValue * 0.02)");
 
 			AddButton(240, 288, 0x15E1, 0x15E5, 0, GumpButtonType.Page, 5);
 			AddButton(217, 288, 0x15E3, 0x15E7, 0, GumpButtonType.Page, 3);
@@ -163,7 +173,7 @@ namespace Server.Mobiles
 
 			if (Creature.AIObject is MageAI ai)
 			{
-				var y = 92;
+				y = 92;
 				var magery = Creature.Skills[SkillName.Magery].Value;
 				var mageryValue = magery * BaseCreature.MdpsMageryScalar;
 				
@@ -196,12 +206,14 @@ namespace Server.Mobiles
 				
 				if (Creature.AIObject is NecroMageAI)
 				{
-					AddHtml(53, y, 160, 18, $"+Necromancy*{BaseCreature.MdpsNecroScalar}", false, false);
-					AddHtml(180, y, 75, 18, FormatDouble(Creature.Skills[SkillName.Necromancy].Value), false, false);
+					var necro = Creature.Skills[SkillName.Necromancy].Value;
+					var spiritSpeak = Creature.Skills[SkillName.SpiritSpeak].Value;
+					AddHtml(53, y, 160, 18, $"+Necromancy({necro})", false, false);
+					AddHtml(180, y, 75, 18, FormatDouble(necro * BaseCreature.MdpsNecroScalar), false, false);
 					y += 18;
 
-					AddHtml(53, y, 160, 18, $"+SpiritSpeak*{BaseCreature.MdpsSsScalar}", false, false);
-					AddHtml(180, y, 75, 18, FormatDouble(Creature.Skills[SkillName.SpiritSpeak].Value), false, false);
+					AddHtml(53, y, 160, 18, $"+SpiritSpeak({spiritSpeak})", false, false);
+					AddHtml(180, y, 75, 18, FormatDouble(spiritSpeak * BaseCreature.MdpsSsScalar), false, false);
 				}
 			}
 
@@ -222,7 +234,7 @@ namespace Server.Mobiles
 			if (val == 0)
 				return "<div align=right>---</div>";
 
-			return String.Format("<div align=right>{0:F2}</div>", val);
+			return String.Format("<div align=right>{0:F3}</div>", val);
 		}
 	}
 }

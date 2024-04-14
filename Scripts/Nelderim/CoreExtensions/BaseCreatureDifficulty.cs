@@ -97,18 +97,20 @@ namespace Server.Mobiles
 			}
 		}
 
-		public double Life => Math.Log((HitsMax * AvgResFactor * MagicResFactor * MeleeSkillFactor / 100) + 1) * 100;
+		public double Life => HitsFactor * MeleeSkillFactor * AvgResFactor * MagicResFactor;
+
+		public double HitsFactor => Math.Pow(Math.Log(HitsMax), 2);
+
+		public double MeleeSkillValue => Skills[((BaseWeapon)Weapon).GetUsedSkill(this, true)].Value;
 		
-		// Old formula
-		// Math.Max(0.5, Skills[((BaseWeapon)Weapon).Skill].Value / 120);
-		public double MeleeSkillFactor => Math.Pow(Math.E, Math.Min(3.0, Skills[((BaseWeapon)Weapon).GetUsedSkill(this, true)].Value / 100)) - 1;
+		public double MeleeSkillFactor => 1 + (MeleeSkillValue * 0.02);
 
 		public double AvgRes =>
 			(double)(PhysicalResistance + FireResistance + ColdResistance + PoisonResistance + EnergyResistance) / 5;
 
-		public double AvgResFactor => AvgRes / 100;
+		public double AvgResFactor => 1 + AvgRes * 0.01;
 
-		public double MagicResFactor => (Skills[SkillName.MagicResist].Value / 100) * 0.1;
+		public double MagicResFactor => 1 + Skills[SkillName.MagicResist].Value * 0.001;
 
 		public double GetPoisonBonus(Poison p)
 		{
