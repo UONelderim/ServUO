@@ -83,7 +83,7 @@ namespace Server.Mobiles
 			AddTooltip("Math.Pow(Math.Log(HitsMax), 2)");
 			y += 18;
 
-			AddHtml(53, y, 160, 18, $"AvgResFactor({Creature.AvgRes}", false, false);
+			AddHtml(53, y, 160, 18, $"AvgResFactor({Creature.AvgRes})", false, false);
 			AddHtml(180, y, 75, 18, FormatDouble(Creature.AvgResFactor), false, false);
 			AddTooltip("1 + AvgRes * 0.01");
 			y += 18;
