@@ -108,7 +108,7 @@ namespace Server.Mobiles
 
 		public double AvgResFactor => AvgRes / 100;
 
-		public double MagicResFactor => Skills[SkillName.MagicResist].Value / 100;
+		public double MagicResFactor => (Skills[SkillName.MagicResist].Value / 100) * 0.1;
 
 		public double GetPoisonBonus(Poison p)
 		{
