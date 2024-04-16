@@ -16,6 +16,9 @@ namespace Server.Mobiles
 			get
 			{
 				BaseWeapon bw = (BaseWeapon)Weapon;
+				if (bw == null)
+					return 0;
+				
 				int min, max;
 
 				bw.GetBaseDamageRange(this, out min, out max);
