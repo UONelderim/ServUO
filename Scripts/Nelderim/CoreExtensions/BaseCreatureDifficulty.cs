@@ -104,7 +104,17 @@ namespace Server.Mobiles
 
 		public double HitsFactor => Math.Pow(Math.Log(HitsMax), 2);
 
-		public double MeleeSkillValue => Skills[((BaseWeapon)Weapon).GetUsedSkill(this, true)].Value;
+		public double MeleeSkillValue
+		{
+			get
+			{
+				if (Weapon is BaseWeapon bw)
+				{
+					return Skills[bw.GetUsedSkill(this, true)].Value;
+				}
+				return 0;
+			}
+		} 
 		
 		public double MeleeSkillFactor => MeleeSkillValue * 0.02;
 
