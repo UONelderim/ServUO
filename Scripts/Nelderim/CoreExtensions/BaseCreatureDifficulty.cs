@@ -15,18 +15,18 @@ namespace Server.Mobiles
 		{
 			get
 			{
-				BaseWeapon bw = (BaseWeapon)Weapon;
-				if (bw == null)
-					return 0;
-				
-				int min, max;
+				if (Weapon is BaseWeapon bw)
+				{
+					bw.GetBaseDamageRange(this, out var min, out var max);
+					int avgDamage = (min + max) / 2;
+					double damage = bw.ScaleDamageAOS(this, avgDamage, false);
 
-				bw.GetBaseDamageRange(this, out min, out max);
-				int avgDamage = (min + max) / 2;
-				double damage = bw.ScaleDamageAOS(this, avgDamage, false);
+					return damage / bw.GetDelay(this).TotalSeconds * MeleeSkillFactor;
+				}
 
-				return damage / bw.GetDelay(this).TotalSeconds * MeleeSkillFactor;
+				return 0;
 			}
+				
 		}
 
 		public const double MdpsMageryScalar = 0.5;
