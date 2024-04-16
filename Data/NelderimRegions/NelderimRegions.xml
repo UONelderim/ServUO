@@ -464,10 +464,10 @@
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="25" Greater="10" Strong="5" VeryStrong="0"/>
 	</region>
 	<region name="Hurengrav_Difficult" parent="Default">
-		<difficultyLevel VeryWeak="0" Weak="5" Lesser="20" Normal="25" Greater="10" Strong="20" VeryStrong="20"/>
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="5" Normal="55" Greater="25" Strong="14" VeryStrong="1"/>
 	</region>
 	<region name="Hurengrav_VeryDifficult" parent="Default">
-		<difficultyLevel VeryWeak="0" Weak="0" Lesser="5" Normal="5" Greater="10" Strong="30" VeryStrong="50"/>
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="0" Normal="50" Greater="35" Strong="10" VeryStrong="5"/>
 	</region>
 	
 	
@@ -479,13 +479,45 @@
 		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LochyOphidian_Medium" parent="Default">
-		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="25" Greater="10" Strong="5" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LochyOphidian_Difficult" parent="Default">
 		<difficultyLevel VeryWeak="0" Weak="5" Lesser="20" Normal="25" Greater="10" Strong="20" VeryStrong="20"/>
 	</region>
 	<region name="LochyOphidian_VeryDifficult" parent="Default">
-		<difficultyLevel VeryWeak="0" Weak="0" Lesser="5" Normal="5" Greater="10" Strong="30" VeryStrong="50"/>
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="0" Normal="50" Greater="35" Strong="10" VeryStrong="5"/>
+	</region>
+	
+	<region name="ZwiednietaRoza_VeryEasy" parent="Default">
+		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="ZwiednietaRoza_Easy" parent="Default">
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="ZwiednietaRoza_Medium" parent="Default">
+		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="ZwiednietaRoza_Difficult" parent="Default">
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="5" Normal="55" Greater="25" Strong="14" VeryStrong="1"/>
+	</region>
+	<region name="ZwiednietaRoza_VeryDifficult" parent="Default">
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="0" Normal="50" Greater="35" Strong="10" VeryStrong="5"/>
+	</region>
+	
+	<region name="TylReviaren_VeryEasy" parent="Default">
+		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="TylReviaren_Easy" parent="Default">
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="TylReviaren_Medium" parent="Default">
+		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="TylReviaren_Difficult" parent="Default">
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="5" Normal="55" Greater="25" Strong="14" VeryStrong="1"/>
+	</region>
+	<region name="TylReviaren_VeryDifficult" parent="Default">
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="0" Normal="50" Greater="35" Strong="10" VeryStrong="5"/>
 	</region>
 
 </NelderimRegions>
