@@ -34,6 +34,7 @@ namespace Server.Mobiles
         public virtual bool CanGivePowerscrolls => true;
         public virtual bool RestrictedToFelucca => true;
         public virtual int PowerScrollAmount => ChampionSystem.PowerScrollAmount;
+        public virtual int MasteryPrimerAmount => 1;
 
         public override void Serialize(GenericWriter writer)
         {
@@ -154,7 +155,7 @@ namespace Server.Mobiles
                 toGive[rand] = hold;
             }
 
-            for (int i = 0; i < PowerScrollAmount; ++i)
+            for (int i = 0; i < MasteryPrimerAmount; ++i)
             {
                 Mobile m = toGive[i % toGive.Count];
 
