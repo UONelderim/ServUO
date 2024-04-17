@@ -117,7 +117,7 @@ namespace Server.Mobiles
 	        OnGuardActionWander();
 	        
             if (SmartAI && m_Mobile.Skills[SkillName.Meditation].Base > 0 && m_Mobile.Mana < m_Mobile.ManaMax &&
-                !m_Mobile.Meditating)
+                !m_Mobile.Meditating && m_Mobile.Combatant == null )
             {
                 m_Mobile.DebugSay("I am going to meditate");
 
