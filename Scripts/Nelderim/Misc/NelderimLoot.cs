@@ -77,7 +77,7 @@ namespace Nelderim
 
 		private static void GenerateGold(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			var minGold = (int)Ceiling(Pow(bc.Difficulty * 40, 0.5));
+			var minGold = (int)Ceiling(Pow(bc.Difficulty * 10, 0.5));
 			var maxGold = (int)Ceiling(minGold * 1.3);
 
 			var amount = (int)(Utility.RandomMinMax(minGold, maxGold) * NConfig.Loot.GoldModifier);
