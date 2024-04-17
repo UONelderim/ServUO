@@ -50,7 +50,7 @@ namespace Nelderim
 
 			protected override void OnTarget(Mobile from, object targeted)
 			{
-				if (targeted is Mobile { Player: true } m && from != m)
+				if (from != targeted && targeted is Mobile m )
 				{
 					m.NameFor[from] = _newName;
 					from.SendMessage("Nazwales ta postac " + _newName);
