@@ -172,7 +172,7 @@ namespace Server
                     {
                         m_Mobile.LocalOverheadMessage(MessageType.Emote, 0x3F, 1053092); // * You feel yourself resisting the effects of the poison *
 
-                        m_Mobile.NonlocalOverheadMessage(MessageType.Emote, 0x3F, 1114442, m_Mobile.NGetName(null)); // * ~1_NAME~ seems resistant to the poison *
+                        m_Mobile.NonlocalOverheadMessageWithName(MessageType.Emote, 0x3F, 1114442); // * ~1_NAME~ seems resistant to the poison *
 
                         Stop();
                         return;
