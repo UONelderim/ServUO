@@ -18,6 +18,8 @@ namespace Server.Mobiles
 			Save(args, ModuleName);
 		}
 
+		private const double _DmgScalarExponent = 0.5;
+
 		public static void Apply(BaseCreature bc)
 		{
 			double scalar = 0.25 * (int)bc.DifficultyLevel;
@@ -49,8 +51,9 @@ namespace Server.Mobiles
 			bc.ActiveSpeed /= scalar;
 			bc.CurrentSpeed = bc.PassiveSpeed;
 
-			bc.DamageMin = (int)(bc.DamageMin * scalar);
-			bc.DamageMax = (int)(bc.DamageMax * scalar);
+			var dmgScalar = Math.Pow(scalar, _DmgScalarExponent);
+			bc.DamageMin = (int)(bc.DamageMin * dmgScalar);
+			bc.DamageMax = (int)(bc.DamageMax * dmgScalar);
 
 			if (bc.Fame > 0)
 				bc.Fame = (int)(bc.Fame * scalar);
@@ -99,8 +102,9 @@ namespace Server.Mobiles
 			bc.ActiveSpeed *= scalar;
 			bc.CurrentSpeed = bc.PassiveSpeed;
 
-			bc.DamageMin = (int)(bc.DamageMin / scalar);
-			bc.DamageMax = (int)(bc.DamageMax / scalar);
+			var dmgScalar = Math.Pow(scalar, _DmgScalarExponent);
+			bc.DamageMin = (int)(bc.DamageMin / dmgScalar);
+			bc.DamageMax = (int)(bc.DamageMax / dmgScalar);
 
 			if (bc.Fame > 0)
 				bc.Fame = (int)(bc.Fame / scalar);
