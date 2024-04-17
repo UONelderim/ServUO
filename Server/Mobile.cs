@@ -9388,7 +9388,7 @@ namespace Server
 			if (poison != null)
 			{
 				LocalOverheadMessage(MessageType.Regular, 0x21, 1042857 + (poison.RealLevel * 2));
-				NonlocalOverheadMessage(MessageType.Regular, 0x21, 1042858 + (poison.RealLevel * 2), Name);
+				NonlocalOverheadMessageWithName(MessageType.Regular, 0x21, 1042858 + (poison.RealLevel * 2));
 			}
 		}
 

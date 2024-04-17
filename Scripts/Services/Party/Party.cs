@@ -6,7 +6,7 @@ using Server.Targeting;
 
 namespace Server.Engines.PartySystem
 {
-	public class Party : IParty
+	public partial class Party : IParty
 	{
 		public const int Capacity = 10;
 		private readonly Mobile m_Leader;
@@ -149,7 +149,7 @@ namespace Server.Engines.PartySystem
 
 			//  : You are invited to join the party. Type /accept to join or /decline to decline the offer.
 			target.Send(new MessageLocalizedAffix(target.NetState, Serial.MinusOne, -1, MessageType.Label, 0x3B2, 3,
-				1008089, "", AffixType.Prepend | AffixType.System, from.Name, ""));
+				1008089, "", AffixType.Prepend | AffixType.System, from.NGetName(target), ""));
 
 			from.SendLocalizedMessage(1008090); // You have invited them to join the party.
 
@@ -211,8 +211,8 @@ namespace Server.Engines.PartySystem
 		public void OnAccept(Mobile from, bool force)
 		{
 			//  : joined the party.
-			SendToAll(new MessageLocalizedAffix(Serial.MinusOne, -1, MessageType.Label, 0x3B2, 3, 1008094, "",
-				AffixType.Prepend | AffixType.System, from.Name, ""));
+			NSendToAll(from, s => new MessageLocalizedAffix(Serial.MinusOne, -1, MessageType.Label, 0x3B2, 3, 1008094, "",
+				AffixType.Prepend | AffixType.System, s, ""));
 
 			from.SendLocalizedMessage(1005445); // You have been added to the party.
 
@@ -223,7 +223,7 @@ namespace Server.Engines.PartySystem
 		public void OnDecline(Mobile from, Mobile leader)
 		{
 			//  : Does not wish to join the party.
-			leader.SendLocalizedMessage(1008091, false, from.Name);
+			leader.SendLocalizedMessage(1008091, false, from.NGetName(leader));
 
 			from.SendLocalizedMessage(1008092); // You notify them that you do not wish to join the party.
 
@@ -335,7 +335,7 @@ namespace Server.Engines.PartySystem
 				Mobile mob = m_Listeners[i];
 
 				if (mob.Party != this)
-					m_Listeners[i].SendMessage("[{0}]: {1}", from.Name, text);
+					mob.SendMessage("[{0}]: {1}", from.NGetName(mob), text);
 			}
 
 			SendToStaffMessage(from, "[Party]: {0}", text);
@@ -350,7 +350,7 @@ namespace Server.Engines.PartySystem
 				Mobile mob = m_Listeners[i];
 
 				if (mob.Party != this)
-					m_Listeners[i].SendMessage("[{0}]->[{1}]: {2}", from.Name, to.Name, text);
+					mob.SendMessage("[{0}]->[{1}]: {2}", from.Name, to.NGetName(mob), text);
 			}
 
 			SendToStaffMessage(from, "[Party]->[{0}]: {1}", to.Name, text);

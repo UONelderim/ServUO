@@ -127,5 +127,24 @@ namespace Server
 			OPLs.Clear();
 			OPLInfos.Clear();
 		}
+		
+		public void NonlocalOverheadMessageWithName(MessageType type, int hue, int number)
+		{
+			if (m_Map == null) return;
+			
+			var eable = m_Map.GetClientsInRange(m_Location);
+
+			foreach (var state in eable)
+			{
+				var mobile = state.Mobile;
+
+				if (mobile != null && mobile != this && mobile.CanSee(this))
+				{
+					state.Send(new MessageLocalized(Serial, Body, type, hue, 3, number, NGetName(mobile), NGetName(mobile)));
+				}
+			}
+
+			eable.Free();
+		}
 	}
 }
