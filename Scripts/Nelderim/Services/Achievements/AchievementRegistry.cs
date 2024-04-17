@@ -34,6 +34,7 @@ namespace Nelderim.Achievements
 
 		public void Save()
 		{
+			_IndexFile.EnsureFile();
 			_IndexFile.WriteAllLines(Index.Select(kvp => kvp.Value + "," + kvp.Key));
 		}
 
