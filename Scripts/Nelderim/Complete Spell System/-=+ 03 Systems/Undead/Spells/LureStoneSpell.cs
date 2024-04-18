@@ -87,12 +87,17 @@ namespace Server.ACC.CSS.Systems.Undead
 				Timer.DelayCall(TimeSpan.FromSeconds(20.0), Delete);
 			}
 
+			public override bool HandlesOnMovement => true;
+
 			public LureStone(Serial serial) : base(serial)
 			{
 			}
 
-			public override bool HandlesOnMovement => true;
-
+			public override void Serialize(GenericWriter writer)
+			{
+				base.Serialize(writer);
+			}
+			
 			public override void Deserialize(GenericReader reader)
 			{
 				base.Deserialize(reader);
@@ -143,6 +148,11 @@ namespace Server.ACC.CSS.Systems.Undead
 
 			public Decor(Serial serial) : base(serial)
 			{
+			}
+			
+			public override void Serialize(GenericWriter writer)
+			{
+				base.Serialize(writer);
 			}
 
 			public override void Deserialize(GenericReader reader)

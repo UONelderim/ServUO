@@ -87,6 +87,11 @@ namespace Server.ACC.CSS.Systems.Druid
 			{
 			}
 
+			public override void Serialize(GenericWriter writer)
+			{
+				base.Serialize(writer);
+			}
+
 			public override void Deserialize(GenericReader reader)
 			{
 				base.Deserialize(reader);
