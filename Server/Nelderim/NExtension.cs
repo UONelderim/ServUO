@@ -116,7 +116,7 @@ namespace Nelderim
 				m_BinaryReader.Close();
 				m_FileStream.Close();
 			}
-			Console.WriteLine(moduleName + "Done");
+			Console.WriteLine("Done");
 		}
 	}
 }
