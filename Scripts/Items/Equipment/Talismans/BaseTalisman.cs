@@ -8,6 +8,7 @@ using Server.Spells.Necromancy;
 using Server.Spells.Second;
 using Server.Targeting;
 using System;
+using Nelderim;
 using Nelderim.Configuration;
 
 namespace Server.Items
@@ -76,7 +77,10 @@ namespace Server.Items
 
             for (int i = 0; i < count; i++)
             {
-                m.AddToBackpack(Loot.RandomTalisman());
+	            var talisman = Loot.RandomTalisman();
+	            LabelsConfig.AddCreationMark(talisman, m);
+	            LabelsConfig.AddTamperingMark(talisman, m);
+                m.AddToBackpack(talisman);
             }
         }
 
