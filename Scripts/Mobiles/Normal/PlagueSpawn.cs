@@ -74,6 +74,8 @@ namespace Server.Mobiles
 
             Fame = 1000;
             Karma = -1000;
+
+            NoKillAwards = true;
         }
 
         public PlagueSpawn(Serial serial)
