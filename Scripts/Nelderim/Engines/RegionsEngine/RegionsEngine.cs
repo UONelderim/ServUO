@@ -511,7 +511,7 @@ namespace Server.Nelderim
 		{
 			var m = e.Mobile;
 
-			if (m is BaseCreature bc)
+			if (m is BaseCreature { Tamable: false } bc)
 			{
 				RegionsEngineRegion r = GetRegion(m.Region.Name);
 				if (r != null && r.DifficultyLevelWeights.Count != 0 && bc.DifficultyLevel == DifficultyLevelValue.Normal)
