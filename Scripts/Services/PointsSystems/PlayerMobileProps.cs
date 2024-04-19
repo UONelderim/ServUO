@@ -333,6 +333,7 @@ namespace Server.Mobiles
                         case BODType.Cooking: Cooking = new BODData(kvp.Key, kvp.Value); break;
                         case BODType.Fletching: Fletching = new BODData(kvp.Key, kvp.Value); break;
                         case BODType.Carpentry: Carpentry = new BODData(kvp.Key, kvp.Value); break;
+                        case BODType.Hunter: Hunter = new BODData(kvp.Key, kvp.Value); break;
                     }
                 }
             }
@@ -361,6 +362,9 @@ namespace Server.Mobiles
 
         [CommandProperty(AccessLevel.GameMaster)]
         public BODData Tinkering { get; private set; }
+
+        [CommandProperty(AccessLevel.GameMaster)]
+        public BODData Hunter { get; private set; }
     }
 
     [PropertyObject]
