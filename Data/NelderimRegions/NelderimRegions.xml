@@ -519,5 +519,70 @@
 	<region name="TylReviaren_VeryDifficult" parent="Default">
 		<difficultyLevel VeryWeak="0" Weak="0" Lesser="0" Normal="50" Greater="35" Strong="10" VeryStrong="5"/>
 	</region>
+	
+	
+	<region name="LoenTorech_LVL1_VeryEasy" parent="Default">
+		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="LoenTorech_LVL1_Easy" parent="Default">
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="LoenTorech_LVL1_Medium" parent="Default">
+		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="LoenTorech_LVL1_Difficult" parent="Default">
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="5" Normal="55" Greater="25" Strong="14" VeryStrong="1"/>
+	</region>
+	<region name="LoenTorech_LVL1_VeryDifficult" parent="Default">
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="0" Normal="50" Greater="35" Strong="10" VeryStrong="5"/>
+	</region>
+	
+	<region name="LoenTorech_LVL2_VeryEasy" parent="Default">
+		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="LoenTorech_LVL2_Easy" parent="Default">
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="LoenTorech_LVL2_Medium" parent="Default">
+		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="LoenTorech_LVL2_Difficult" parent="Default">
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="5" Normal="55" Greater="25" Strong="14" VeryStrong="1"/>
+	</region>
+	<region name="LoenTorech_LVL2_VeryDifficult" parent="Default">
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="0" Normal="50" Greater="35" Strong="10" VeryStrong="5"/>
+	</region>
+
+	<region name="HallTorech_LVL1_VeryEasy" parent="Default">
+		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="HallTorech_LVL1_Easy" parent="Default">
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="HallTorech_LVL1_Medium" parent="Default">
+		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="HallTorech_LVL1_Difficult" parent="Default">
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="5" Normal="55" Greater="25" Strong="14" VeryStrong="1"/>
+	</region>
+	<region name="HallTorech_LVL1_VeryDifficult" parent="Default">
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="0" Normal="50" Greater="35" Strong="10" VeryStrong="5"/>
+	</region>
+
+	<region name="HallTorech_LVL2_VeryEasy" parent="Default">
+		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="HallTorech_LVL2_Easy" parent="Default">
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="HallTorech_LVL2_Medium" parent="Default">
+		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
+	</region>
+	<region name="HallTorech_LVL2_Difficult" parent="Default">
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="5" Normal="55" Greater="25" Strong="14" VeryStrong="1"/>
+	</region>
+	<region name="HallTorech_LVL2_VeryDifficult" parent="Default">
+		<difficultyLevel VeryWeak="0" Weak="0" Lesser="0" Normal="50" Greater="35" Strong="10" VeryStrong="5"/>
+	</region>
 
 </NelderimRegions>
