@@ -160,6 +160,7 @@ namespace Server.Engines.BulkOrders
                 case BODType.Fletching: return FletchingRewardCalculator.Instance.RewardCollection;
                 case BODType.Carpentry: return CarpentryRewardCalculator.Instance.RewardCollection;
                 case BODType.Cooking: return CookingRewardCalculator.Instance.RewardCollection;
+                case BODType.Hunter: return HunterRewardCalculator.Instance.RewardCollection;
             }
         }
 
