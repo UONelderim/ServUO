@@ -258,8 +258,8 @@ namespace Nelderim
 			//Ninjitsu
 			new LootPackItem(typeof(AnimalFormScroll)),
 			//Spellweaving
-			new LootPackItem(typeof(ArcaneCircleScroll)), new LootPackItem(typeof(AttuneWeaponScroll)),
-			new LootPackItem(typeof(GiftOfRenewalScroll)), new LootPackItem(typeof(NatureFuryScroll)),
+			//new LootPackItem(typeof(ArcaneCircleScroll)), new LootPackItem(typeof(AttuneWeaponScroll)),
+			//new LootPackItem(typeof(GiftOfRenewalScroll)), new LootPackItem(typeof(NatureFuryScroll)),
 			//Mysticism
 			// new LootPackItem(typeof(HealingStoneScroll)), new LootPackItem(typeof(NetherBoltScroll)),
 		};
@@ -291,7 +291,7 @@ namespace Nelderim
 			//Ninjitsu
 			new LootPackItem(typeof(MirrorImageScroll)),
 			//Spellweaving
-			new LootPackItem(typeof(ImmolatingWeaponScroll)), new LootPackItem(typeof(ThunderstormScroll)),
+			//new LootPackItem(typeof(ImmolatingWeaponScroll)), new LootPackItem(typeof(ThunderstormScroll)),
 			//Mysticism
 			// new LootPackItem(typeof(EagleStrikeScroll)), new LootPackItem(typeof(SleepScroll)),
 		};
@@ -311,8 +311,8 @@ namespace Nelderim
 			//Ninjitsu
 			new LootPackItem(typeof(FocusAttackScroll)),
 			//Spellweaving
-			new LootPackItem(typeof(ArcaneEmpowermentScroll)), new LootPackItem(typeof(EtherealVoyageScroll)),
-			new LootPackItem(typeof(ReaperFormScroll)),
+			//new LootPackItem(typeof(ArcaneEmpowermentScroll)), new LootPackItem(typeof(EtherealVoyageScroll)),
+			//new LootPackItem(typeof(ReaperFormScroll)),
 			//Mysticism
 			// new LootPackItem(typeof(AnimatedWeaponScroll)), new LootPackItem(typeof(StoneFormScroll)),
 		};
@@ -332,8 +332,8 @@ namespace Nelderim
 			//Ninjitsu
 			new LootPackItem(typeof(BackstabScroll)),
 			//Spellweaving
-			new LootPackItem(typeof(GiftOfLifeScroll)), new LootPackItem(typeof(SummonFeyScroll)),
-			new LootPackItem(typeof(SummonFiendScroll)),
+			//new LootPackItem(typeof(GiftOfLifeScroll)), new LootPackItem(typeof(SummonFeyScroll)),
+			//new LootPackItem(typeof(SummonFiendScroll)),
 			//Mysticism
 			// new LootPackItem(typeof(MassSleepScroll)), new LootPackItem(typeof(SpellTriggerScroll)),
 		};
@@ -353,7 +353,7 @@ namespace Nelderim
 			//Ninjitsu
 			new LootPackItem(typeof(ShadowJumpScroll)), new LootPackItem(typeof(SurpriseAttackScroll)),
 			//Spellweaving
-			new LootPackItem(typeof(DryadAllureScroll)), new LootPackItem(typeof(EssenceOfWindScroll)),
+			//new LootPackItem(typeof(DryadAllureScroll)), new LootPackItem(typeof(EssenceOfWindScroll)),
 			//Mysticism
 			// new LootPackItem(typeof(BombardScroll)), new LootPackItem(typeof(CleansingWindsScroll)),
 		};
@@ -371,7 +371,7 @@ namespace Nelderim
 			//Bushido
 			new LootPackItem(typeof(MomentumStrikeScroll)),
 			//Spellweaving
-			new LootPackItem(typeof(WildfireScroll)),
+			//new LootPackItem(typeof(WildfireScroll)),
 			//Mysticism
 			// new LootPackItem(typeof(HailStormScroll)), new LootPackItem(typeof(SpellPlagueScroll)),
 		};
@@ -388,7 +388,7 @@ namespace Nelderim
 			//Ninjitsu
 			new LootPackItem(typeof(KiAttackScroll)), new LootPackItem(typeof(DeathStrikeScroll)),
 			//Spellweaving
-			new LootPackItem(typeof(WordOfDeathScroll)),
+		//	new LootPackItem(typeof(WordOfDeathScroll)),
 			//Mysticism
 			// new LootPackItem(typeof(NetherCycloneScroll)), new LootPackItem(typeof(RisingColossusScroll)),
 		};
