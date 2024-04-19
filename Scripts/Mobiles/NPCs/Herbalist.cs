@@ -12,6 +12,7 @@ namespace Server.Mobiles
             SetSkill(SkillName.Alchemy, 80.0, 100.0);
             SetSkill(SkillName.Cooking, 80.0, 100.0);
             SetSkill(SkillName.TasteID, 80.0, 100.0);
+            SetSkill(SkillName.Herbalism, 80.0, 100.0);
         }
 
         public Herbalist(Serial serial)
