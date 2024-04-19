@@ -62,7 +62,7 @@ namespace Server.Items
             _ValueInfo[1151659] = 0.1;
             _ValueInfo[1151660] = 0.2;
             _ValueInfo[1151661] = 0.3;
-            _ValueInfo[1151662] = 0.4;
+          /*  _ValueInfo[1151662] = 0.4;
             _ValueInfo[1151663] = 0.5;
             _ValueInfo[1151664] = 0.6;
             _ValueInfo[1151665] = 0.7;
@@ -70,7 +70,7 @@ namespace Server.Items
             _ValueInfo[1151667] = 0.9;
             _ValueInfo[1151668] = 1.0;
             _ValueInfo[1151669] = 3.0;
-            _ValueInfo[1151670] = 5.0;
+            _ValueInfo[1151670] = 5.0;*/
         }
     }
 }
