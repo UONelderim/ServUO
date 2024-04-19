@@ -812,5 +812,9 @@
 	<region name="Gorogon_VeryDifficult" parent="Default">
 		<difficultyLevel VeryWeak="0" Weak="0" Lesser="0" Normal="50" Greater="35" Strong="10" VeryStrong="5"/>
 	</region>
+	
+	<region name="OldHaven" parent="Default">
+		<difficultyLevel VeryWeak="100" Weak="0" Lesser="0" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
+	</region>
 
 </NelderimRegions>
