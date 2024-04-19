@@ -174,17 +174,8 @@ namespace Server.Mobiles
 
         public static void GiveArtifactTo(Mobile m)
         {
-            Item item = ArtifactHelper.GetRandomArtifact(ArtGroup.Paragon);
-            LabelsConfig.AddCreationMark(item, m);
-            if (m.IsStaff())
-            {
-	            LabelsConfig.AddTamperingMark(item, m);
-            }
-
-            if (m.AddToBackpack(item))
-                m.SendMessage("As a reward for slaying the mighty paragon, an artifact has been placed in your backpack.");
-            else
-                m.SendMessage("As your backpack is full, your reward for destroying the legendary paragon has been placed at your feet.");
+            Item artifact = ArtifactHelper.GetRandomArtifact(ArtGroup.Paragon);
+            ArtifactHelper.DistributeArtifact(m, artifact);
         }
         
         private static bool IsInParagonRegion(Point3D location, Map map) {

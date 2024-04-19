@@ -180,7 +180,7 @@ namespace Server.Items
 			return Utility.RandomList(rights).m_Mobile;
 		}
 
-		private static void DistributeArtifact(Mobile m, Item artifact)
+		public static void DistributeArtifact(Mobile m, Item artifact)
 		{
 			if (m == null || artifact == null)
 				return;
