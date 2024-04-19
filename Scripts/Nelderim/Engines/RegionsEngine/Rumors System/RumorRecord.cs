@@ -1,25 +1,15 @@
-#region References
-
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Xml;
 using Server.Diagnostics;
 
-#endregion
-
 namespace Server.Nelderim
 {
 	public class RumorRecord : IComparable
 	{
-		#region Fields
-
 		private DateTime m_EndRumor;
 		private DateTime m_StartRumor;
-
-		#endregion
-
-		#region Properties
 
 		public string Title { get; set; }
 
@@ -44,10 +34,6 @@ namespace Server.Nelderim
 		public NewsType Type { get; set; }
 
 		public bool Expired { get { return m_EndRumor < DateTime.Now || m_StartRumor > DateTime.Now; } }
-
-		#endregion
-
-		#region ctor
 
 		public RumorRecord(string title, string coppice, string text, string keyword, PriorityLevel priority,
 			DateTime start, DateTime end, Mobile rumormobile, NewsType type)
@@ -85,8 +71,6 @@ namespace Server.Nelderim
 			Regions = new List<string>();
 			ExcludedRegions = new List<string>();
 
-			#region Title
-
 			try
 			{
 				Title = xNode.Attributes["Title"].Value;
@@ -96,10 +80,6 @@ namespace Server.Nelderim
 			{
 				Title = "";
 			}
-
-			#endregion
-
-			#region Coppice
 
 			try
 			{
@@ -111,10 +91,6 @@ namespace Server.Nelderim
 				Coppice = "";
 			}
 
-			#endregion
-
-			#region KeyWord
-
 			try
 			{
 				KeyWord = xNode.Attributes["KeyWord"].Value;
@@ -125,10 +101,6 @@ namespace Server.Nelderim
 				KeyWord = "";
 			}
 
-			#endregion
-
-			#region Text
-
 			try
 			{
 				Text = xNode.Attributes["Text"].Value;
@@ -138,10 +110,6 @@ namespace Server.Nelderim
 			{
 				Text = "";
 			}
-
-			#endregion
-
-			#region Rumor Mobile
 
 			try
 			{
@@ -159,10 +127,6 @@ namespace Server.Nelderim
 				RumorMobile = null;
 			}
 
-			#endregion
-
-			#region Regions
-
 			try
 			{
 				if (xNode.ChildNodes.Count > 0)
@@ -178,10 +142,6 @@ namespace Server.Nelderim
 			catch
 			{
 			}
-
-			#endregion
-
-			#region ExcludedRegions
 
 			try
 			{
@@ -199,10 +159,6 @@ namespace Server.Nelderim
 			{
 			}
 
-			#endregion
-
-			#region Priority
-
 			try
 			{
 				Priority = (PriorityLevel)(Int32.Parse(xNode.Attributes["Priority"].Value));
@@ -212,10 +168,6 @@ namespace Server.Nelderim
 				Priority = PriorityLevel.None;
 			}
 
-			#endregion
-
-			#region Type
-
 			try
 			{
 				Type = (NewsType)(Int32.Parse(xNode.Attributes["Type"].Value));
@@ -224,10 +176,6 @@ namespace Server.Nelderim
 			{
 				Type = NewsType.Rumor;
 			}
-
-			#endregion
-
-			#region End
 
 			try
 			{
@@ -239,10 +187,6 @@ namespace Server.Nelderim
 				m_EndRumor = DateTime.MinValue;
 			}
 
-			#endregion
-
-			#region Start
-
 			try
 			{
 				m_StartRumor = DateTime.ParseExact(xNode.Attributes["StartRumor"].Value, "dd.MM.yyyy HH:mm:ss",
@@ -252,8 +196,6 @@ namespace Server.Nelderim
 			{
 				m_StartRumor = DateTime.MinValue;
 			}
-
-			#endregion
 		}
 
 		public RumorRecord()
@@ -263,10 +205,6 @@ namespace Server.Nelderim
 			Priority = PriorityLevel.VeryLow;
 			Type = NewsType.Rumor;
 		}
-
-		#endregion
-
-		#region Methods
 
 		public double DoublePriority(RumorType type)
 		{
@@ -410,78 +348,28 @@ namespace Server.Nelderim
 		{
 			XmlNode xNode = dom.CreateElement("Rumor");
 
-			#region Title
-
 			try
 			{
 				XmlAttribute title = dom.CreateAttribute("Title");
 				title.Value = Title;
 				xNode.Attributes.Append(title);
-			}
-			catch
-			{
-			}
-
-			#endregion
-
-			#region Coppice
-
-			try
-			{
 				XmlAttribute coppice = dom.CreateAttribute("Coppice");
 				coppice.Value = Coppice;
 				xNode.Attributes.Append(coppice);
-			}
-			catch
-			{
-			}
-
-			#endregion
-
-			#region KeyWord
-
-			try
-			{
 				XmlAttribute keyword = dom.CreateAttribute("KeyWord");
 				keyword.Value = KeyWord;
 				xNode.Attributes.Append(keyword);
-			}
-			catch
-			{
-			}
-
-			#endregion
-
-			#region Text
-
-			try
-			{
 				XmlAttribute text = dom.CreateAttribute("Text");
 				text.Value = Text;
 				xNode.Attributes.Append(text);
-			}
-			catch
-			{
-			}
-
-			#endregion
-
-			#region Rumor Mobile
-
-			try
-			{
 				XmlAttribute mobile = dom.CreateAttribute("RumorMobile");
-				mobile.Value = RumorMobile.Serial.ToString();
+				mobile.Value = RumorMobile?.Serial.ToString() ?? "";
 				xNode.Attributes.Append(mobile);
 			}
 			catch(Exception e)
 			{
 				ExceptionLogging.LogException(e);
 			}
-
-			#endregion
-
-			#region Regions
 
 			try
 			{
@@ -502,17 +390,7 @@ namespace Server.Nelderim
 
 					xNode.AppendChild(xRegions);
 				}
-			}
-			catch
-			{
-			}
 
-			#endregion
-
-			#region ExcludedRegions
-
-			try
-			{
 				if (Regions.Count > 0)
 				{
 					XmlNode xRegions = dom.CreateElement("ExcludedRegions");
@@ -530,64 +408,24 @@ namespace Server.Nelderim
 
 					xNode.AppendChild(xRegions);
 				}
-			}
-			catch
-			{
-			}
 
-			#endregion
-
-			#region Priority
-
-			try
-			{
 				XmlAttribute priority = dom.CreateAttribute("Priority");
 				priority.Value = ((int)Priority).ToString();
 				xNode.Attributes.Append(priority);
-			}
-			catch { }
-
-			#endregion
-
-			#region Type
-
-			try
-			{
 				XmlAttribute type = dom.CreateAttribute("Type");
 				type.Value = ((int)Type).ToString();
 				xNode.Attributes.Append(type);
-			}
-			catch { }
-
-			#endregion
-
-			#region End
-
-			try
-			{
 				XmlAttribute endrumor = dom.CreateAttribute("EndRumor");
 				endrumor.Value = m_EndRumor.ToString("dd.MM.yyyy HH:mm:ss");
 				xNode.Attributes.Append(endrumor);
-			}
-			catch
-			{
-			}
-
-			#endregion
-
-			#region Start
-
-			try
-			{
 				XmlAttribute startrumor = dom.CreateAttribute("StartRumor");
 				startrumor.Value = m_StartRumor.ToString("dd.MM.yyyy HH:mm:ss");
 				xNode.Attributes.Append(startrumor);
 			}
-			catch
+			catch (Exception e)
 			{
+				ExceptionLogging.LogException(e);
 			}
-
-			#endregion
 
 			return xNode;
 		}
@@ -639,7 +477,5 @@ namespace Server.Nelderim
 
 			return m_EndRumor.CompareTo(rec.EndRumor);
 		}
-
-		#endregion
 	}
 }
