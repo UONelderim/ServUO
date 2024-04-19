@@ -18,7 +18,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 			Register(typeof(AvatarSacredBoonSpell), "Święty znak",
 				"Otoczeni przez magię wydobywajacą się z magicznego znaku, jesteście leczeni przezeń.", null,
 				"Mana: 11; Dziesiecina: 15", 20742, 3500, School.Avatar);
-			Register(typeof(AvatarAngelicFaithSpell), "Awatar Pradawnego Mnicha",
+			Register(typeof(AvatarAngelicFaithSpell), "Awatar Pradawnego",
 				"Rzucający wzywa boskie moce niebios, aby przekształciły się w pradawnego mnicha. Rzucający zyskuje lepsze tempo regeneracji oraz zwiększone statystyki i umiejętności.",
 				null, "Mana: 50; Skill: 80; Dzeisiecina: 100", 2295, 3500, School.Avatar);
 			Register(typeof(AvatarArmysPaeonSpell), "Witalność Armii",
