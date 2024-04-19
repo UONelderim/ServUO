@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ServerRegions>
-	<Facet name="Trammel"></Facet>
+	<Facet name="Trammel">
+		<region type="DungeonRegion" name="OldHaven">
+			<rect x="3574" y="2420" width="237" height="379" />
+			<music name="Gargoyles" />
+		</region>
+	</Facet>
 </ServerRegions>
