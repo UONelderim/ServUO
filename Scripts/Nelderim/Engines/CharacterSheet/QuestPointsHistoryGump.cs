@@ -12,40 +12,70 @@ namespace Server.Gumps
 	public class QuestPointsHistoryGump : Gump
 	{
 		private const int pageSize = 21;
-		private int _page;
+		private PlayerMobile _from;
 		private PlayerMobile _player;
-		public QuestPointsHistoryGump(PlayerMobile player, int page) 
+		private int _page;
+
+		public QuestPointsHistoryGump(PlayerMobile from, PlayerMobile player, int page) 
 			: base(0, 0)
 		{
-			_page = page;
+			_from = from;
 			_player = player;
+			_page = page;
+			var gmRequested = from.AccessLevel > AccessLevel.VIP;
 			Dragable = true;
 			Closable = true;
 			Resizable = false;
 			Disposable = false;
 
 			AddPage(0);
+			var padding = 10;
+			var dateWidth = 85;
+			var gmWidth = 75;
+			var charWidth = 85;
+			var pointsWidth = 50;
 			AddBackground(0, 0, 700, 600, 5054);
-            
-			AddImageTiled(10, 10, 85, 550, 1416); 
-			AddImageTiled(171, 10, 85, 550, 1416); 
-			AddImageTiled(306, 10, 386, 550, 1416); 
+			var x = 10;
+			AddImageTiled(x, 10, 85, 550, 1416);
+			x += dateWidth + (gmRequested ? gmWidth : charWidth); 
+			AddImageTiled(x, 10, gmRequested ? charWidth : pointsWidth, 550, 1416);
+			if (gmRequested)
+			{
+				x += charWidth + pointsWidth;
+				AddImageTiled(x, 10, 386, 550, 1416);
+			}
 
-			AddLabel(13, 13, 0x480, "Kiedy");
-			AddLabel(98, 13, 0x480, "GM");
-			AddLabel(173, 13, 0x480, "Postac");
-			AddLabel(258, 13, 0x480, "Punkty");
-			AddLabel(308, 13, 0x480, "Powód");
+			x = 13;
+			AddLabel(x, 13, 0x480, "Kiedy");
+			x += dateWidth;
+			if (gmRequested)
+			{
+				AddLabel(x, 13, 0x480, "GM");
+				x += gmWidth;
+			}
+			AddLabel(x, 13, 0x480, "Postac");
+			x += charWidth;
+			AddLabel(x, 13, 0x480, "Punkty");
+			x += pointsWidth;
+			AddLabel(x, 13, 0x480, "Powód");
 
 			var y = 38;
 			var startIndex = page * pageSize;
 			foreach (var qphe in player.QuestPointsHistory.Reverse().ToList().GetRange(startIndex, Math.Min(pageSize, player.QuestPointsHistory.Count - startIndex)))
 			{
-				AddLabel(13, y, 0x480, qphe.DateTime.ToShortDateString());
-				AddLabel(98, y, 0x480, qphe.GameMaster);
-				AddLabel(173, y, 0x480, qphe.CharName);
-				AddLabel(258, y, 0x480, qphe.Points.ToString("+#;-#;0")); //Formatting to always add sign
-				AddLabelCropped(308, y, 386, 18, 0x480, qphe.Reason);
+				x = 13;
+				AddLabel(x, y, 0x480, qphe.DateTime.ToShortDateString());
+				x += dateWidth;
+				if(gmRequested)
+				{
+					AddLabel(x, y, 0x480, qphe.GameMaster);
+					x += gmWidth;
+				}
+				AddLabel(x, y, 0x480, qphe.CharName);
+				x += charWidth;
+				AddLabel(x, y, 0x480, qphe.Points.ToString("+#;-#;0")); //Formatting to always add sign
+				x += pointsWidth;
+				AddLabelCropped(x, y, 386, 18, 0x480, qphe.Reason);
 				y += 25;
 			}
 			
@@ -70,11 +100,11 @@ namespace Server.Gumps
 			int buttonId = info.ButtonID;
 			if (buttonId == 1)
 			{
-				sender.Mobile.SendGump(new QuestPointsHistoryGump(_player, _page - 1));
+				sender.Mobile.SendGump(new QuestPointsHistoryGump(_from, _player, _page - 1));
 			}
 			if (buttonId == 2)
 			{
-				sender.Mobile.SendGump(new QuestPointsHistoryGump(_player, _page + 1));
+				sender.Mobile.SendGump(new QuestPointsHistoryGump(_from, _player, _page + 1));
 			}
 		}
 	}

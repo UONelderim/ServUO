@@ -243,7 +243,7 @@ namespace Nelderim
 						case 4:
 						{
 							m_FromPlayer.SendGump(new CharacterSheetGump( m_FromPlayer, m_TargetPlayer, CSPages.General, gmRequested));
-							m_FromPlayer.SendGump(new QuestPointsHistoryGump(m_TargetPlayer, 0));
+							m_FromPlayer.SendGump(new QuestPointsHistoryGump(m_FromPlayer, m_TargetPlayer, 0));
 							return;
 						}
 						default: return;
