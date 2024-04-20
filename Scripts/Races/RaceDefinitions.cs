@@ -31,8 +31,8 @@ namespace Server.Misc
             * 4) Changing or removing any predefined races may cause server instability.
             */
 			RegisterRace(new Human(0, 0));
-			RegisterRace(new Elf(1, 1));
-			RegisterRace(new Gargoyle(2, 2));
+		//	RegisterRace(new Elf(1, 1));
+			//RegisterRace(new Gargoyle(2, 2));
 		}
 
 		public static void RegisterRace(Race race)
@@ -59,14 +59,14 @@ namespace Server.Misc
 		{
 			var race = GetRequiredRace(item);
 
-			if (race == Race.Elf)
-			{
-				list.Add(1075086); // Elves Only
-			}
-			else if (race == Race.Gargoyle)
-			{
-				list.Add(1111709); // Gargoyles Only
-			}
+		//	if (race == Race.Elf)
+		//	{
+		//		list.Add(1075086); // Elves Only
+		//	}
+		//	else if (race == Race.Gargoyle)
+		//	{
+		//		list.Add(1111709); // Gargoyles Only
+		//	}
 		}
 
 		public static bool ValidateEquipment(Mobile from, Item equipment)
