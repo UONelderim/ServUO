@@ -31,6 +31,10 @@ namespace Server.Items
                 {
                     from.SendLocalizedMessage(1155884, string.Format("#{0}", MasteryInfo.GetLocalization(Skill))); // You are already proficient in this level of ~1_MasterySkill~
                 }
+                if (Volume > MasteryInfo.GetMasteryLevel(from, Skill) + 1)
+                {
+	                from.SendMessage("Najpierw musisz opanowac poprzednie tajniki " + Skill);
+                }
                 else if (MasteryInfo.LearnMastery(from, Skill, Volume))
                 {
                     from.SendLocalizedMessage(1155885, string.Format("#{0}", MasteryInfo.GetLocalization(Skill))); // You have increased your proficiency in ~1_SkillMastery~!
