@@ -19,6 +19,7 @@ namespace Nelderim.Configuration
 		public static bool FameTitlesEnabled => Get("Nelderim.FameTitlesEnabled", false);
 		public static bool NameSystemEnabled => Get("Nelderim.NameSystemEnabled", true);
 		public static bool CustomInsuranceCost => Get("Nelderim.CustomInsuranceCost", true);
+		public static double BloodyBandageChance => Get("Nelderim.BloodyBandageChance", 0.75);
 		public static bool BetterAI => Get("Nelderim.BetterAI", true);
 	}
 }
