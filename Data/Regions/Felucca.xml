@@ -3409,8 +3409,9 @@
 			<rect x="5888" y="3146" width="33" height="31" />
 			<rect x="5142" y="1899" width="272" height="240" />
 		</region>
-		<region type="CityRegion" name="MiastoDrowow">
+		<region type="CityRegion" name="L'Delmah">
 			<rect x="5142" y="1899" width="272" height="240" />
+			<go x="5362" y="2086" z="20"/>
 		</region>
 		<region priority="100" name="SwiatyniaLoethe_2">
 			<rect x="5365" y="1926" width="21" height="37" />
@@ -10265,7 +10266,7 @@
 			<rect x="5833" y="58" width="36" height="38" />
 			<music name="Taiko" />
 		</region>
-		<region type="MiningRegion" priority="100" name="MiastoDrowow_Kopalnia">
+		<region type="MiningRegion" priority="100" name="L'Delmah_Kopalnia">
 			<rect x="5836" y="1913" width="118" height="71" />
 			<rect x="5851" y="1984" width="90" height="15" />
 			<rect x="5864" y="1999" width="77" height="15" />
