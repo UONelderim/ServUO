@@ -158,11 +158,12 @@ namespace Server.Mobiles
             }
         }
 
-        private bool NelderimCheckVendorAccess(Mobile from)
+        private bool NelderimCheckVendorAccess(Mobile from, bool verbose)
         {
 	        if (!(from is PlayerMobile))
 	        {
-		        Yell(00505124); // Odejdz!
+		        if(verbose)
+					Yell(00505124); // Odejdz!
 		        return false;
 	        }
 
@@ -175,12 +176,14 @@ namespace Server.Mobiles
 
 	        if (pm.Warmode)
 	        {
-		        Yell(00505125, from.Race.GetName(Cases.Wolacz)); // Odloz bron ~1_RACE~!
+		        if(verbose)
+					Yell(00505125, from.Race.GetName(Cases.Wolacz)); // Odloz bron ~1_RACE~!
 		        return false;
 	        }
 	        
 	        if(!CanSee(pm) || !InLOS(pm)) {
-		        Emote(505163); // Rozglada sie nerwowo
+		        if(verbose)
+					Emote(505163); // Rozglada sie nerwowo
 		        return false;
 	        }
 
@@ -188,22 +191,25 @@ namespace Server.Mobiles
 	        {
 		        if (pm.Mounted)
 		        {
-			        Yell(00505126,
-				        from.Race.GetName(Cases.Wolacz)); // Zejdz z wierzchowca ~1_RACE~ nim sie do mnie odezwiesz!
+			        if(verbose)
+						Yell(00505126,
+							from.Race.GetName(Cases.Wolacz)); // Zejdz z wierzchowca ~1_RACE~ nim sie do mnie odezwiesz!
 			        return false;
 		        }
 	        }
 	        
 	        if ((from.Kills >= 5 || from.Criminal) && !Smuggler)
 	        {
-		        Yell(00505127); // Takich jak ty tu nie obslugujemy!
+		        if(verbose)
+					Yell(00505127); // Takich jak ty tu nie obslugujemy!
 		        return false;
 	        }
 
 	        // Dzialanie budynku
 	        if (!IsAssignedBuildingWorking())
 	        {
-		        Say(1063883); // Miasto nie oplacilo moich uslug. Nieczynne.
+		        if(verbose)
+					Say(1063883); // Miasto nie oplacilo moich uslug. Nieczynne.
 		        return false;
 	        }
 	        
@@ -212,11 +218,13 @@ namespace Server.Mobiles
 		        if (Blocked)
 		        {
 			        new IntoleranceGuardTimer(from).Start();
-			        Yell(00505128, from.Race.GetName(Cases.Biernik)); // Mam dosc brudasow szwendajacych sie po okolicy! Straaaaaz!!! Lapac ~1_RACE~!
+			        if(verbose)
+						Yell(00505128, from.Race.GetName(Cases.Biernik)); // Mam dosc brudasow szwendajacych sie po okolicy! Straaaaaz!!! Lapac ~1_RACE~!
 		        }
 		        else
 		        {
-			        Yell(00505129, from.Race.GetName(Cases.Mianownik)); // Kolejny ~1_RACE~ smie zawracac mi glowe! Won!
+			        if(verbose)
+						Yell(00505129, from.Race.GetName(Cases.Mianownik)); // Kolejny ~1_RACE~ smie zawracac mi glowe! Won!
 
 			        _BlockTimer = new IntoleranceBlockTimer(this);
 			        _BlockTimer.Start();
@@ -229,7 +237,8 @@ namespace Server.Mobiles
 		        _BlockTimer.Stop();
 		        _BlockTimer = new IntoleranceBlockTimer(this);
 		        _BlockTimer.Start();
-		        Yell(00505130, from.Race.GetName(Cases.Wolacz)); // Won! Won! Wooooon! ~1_RACE~!
+		        if(verbose)
+			        Yell(00505130, from.Race.GetName(Cases.Wolacz)); // Won! Won! Wooooon! ~1_RACE~!
 		        return false;
 	        }
 	        
