@@ -27,13 +27,19 @@ namespace Server.Menus.Questions
 	{
 		private static readonly StuckMenuEntry[] m_Entries = {
 			// Tasandora
-			new StuckMenuEntry(1098164, new[] { Map.Felucca.Regions["Tasandora"].GoLocation }),
+			new StuckMenuEntry(1098164, new[] { Map.Felucca.Regions["Orod"].GoLocation }),
 
 			// Garlan
 			new StuckMenuEntry(1098165, new[] { Map.Felucca.Regions["Garlan"].GoLocation }),
 
-			// Wioska Drowow  
-			new StuckMenuEntry(1098166, new[] { Map.Felucca.Regions["LDelmah"].GoLocation })
+			// LDelmah 
+			new StuckMenuEntry(1098166, new[] { Map.Felucca.Regions["LDelmah"].GoLocation }),
+			
+			// Lotharn 
+			new StuckMenuEntry(1098167, new[] { Map.Felucca.Regions["Lotharn"].GoLocation }),
+			
+			// Triassa
+			new StuckMenuEntry(1098168, new[] { Map.Felucca.Regions["Tirassa"].GoLocation })
 		};
 
 		private static readonly StuckMenuEntry[] m_T2AEntries = m_Entries; //Fill me if needed
