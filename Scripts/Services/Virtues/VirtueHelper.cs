@@ -83,6 +83,8 @@ namespace Server.Services.Virtues
             if ((current + amount) >= maxAmount)
                 amount = maxAmount - current;
 
+            amount = (int)(amount * 0.5); //Nelderim
+
             VirtueLevel oldLevel = GetLevel(from, virtue);
 
             from.Virtues.SetValue((int)virtue, current + amount);
