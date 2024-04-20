@@ -112,48 +112,48 @@ namespace Server.Engines.Help
             if (isYoung)
             {
                 AddButton(80, 75, 5540, 5541, 9, GumpButtonType.Reply, 2);
-                AddHtml(110, 75, 450, 58, @"<BODY><BASEFONT COLOR=BLACK><u>Young Player Haven Transport.</u> Select this option if you want to be transported to Haven.</BODY>", true, true);
+                AddHtml(110, 75, 450, 58, @"<BODY><BASEFONT COLOR=BLACK><u>Mlody Gracz - Transport do Nowego Haven.</u> Wybierz te opcje, jesli chcesz zostac przetransportowany do Nowego Haven.</BODY>", true, true);
 
                 AddButton(80, 140, 5540, 5541, 1, GumpButtonType.Reply, 2);
-                AddHtml(110, 140, 450, 58, @"<u>General question about Ultima Online.</u> Select this option if you have a general gameplay question, need help learning to use a skill, or if you would like to search the UO Knowledge Base.", true, true);
+                AddHtml(110, 140, 450, 58, @"<u>Ogólne pytanie dotyczące Ultima Online.</u> Wybierz tę opcję, jeśli masz ogólne pytanie dotyczące rozgrywki, potrzebujesz pomocy w nauce korzystania z umiejętności, lub chcesz przeszukać Bazę Wiedzy UO lub zapytaj na Discord.", true, true);
 
                 AddButton(80, 205, 5540, 5541, 2, GumpButtonType.Reply, 0);
-                AddHtml(110, 205, 450, 58, @"<u>My character is physically stuck in the game.</u> This choice only covers cases where your character is physically stuck in a location they cannot move out of. This option will only work two times in 24 hours.", true, true);
+                AddHtml(110, 205, 450, 58, @"<u>Moj bohater jest fizycznie uwieziony w grze.</u> Ta opcja obejmuje tylko przypadki, gdy twoj bohater jest fizycznie uwieziony w miejscu, z ktorego nie moze sie wydostac. Ta opcja bedzie dzialac tylko dwa razy w ciagu 24 godzin. UWAGA! Naduzycia beda karane wedle regulaminu", true, true);
 
                 AddButton(80, 270, 5540, 5541, 0, GumpButtonType.Page, 3);
-                AddHtml(110, 270, 450, 58, @"<u>Another player is harassing me.</u> Another player is verbally harassing your character. When you select this option you will be sending a text log to Origin Systems. To see what constitutes harassment please visit " + (SupportWebsite == null ? "http://support.uo.com/gm_9.html" : SupportWebsite) + ".", true, true);
+                AddHtml(110, 270, 450, 58, @"<u>Inny gracz mnie neka.</u> Inny gracz werbalnie neka twoja postac Aby dowiedziec sie, co stanowi nekaniem, odwiedz " + (SupportWebsite == null ? "https://nelderim.pl/regulamin-2/" : SupportWebsite) + ", a jesli wiesz co jest problemem, napsiz do nas na Discord na priv.", true, true);
 
                 AddButton(80, 335, 5540, 5541, 0, GumpButtonType.Page, 2);
-                AddHtml(110, 335, 450, 58, @"<u>Other.</u> If you are experiencing a problem in the game that does not fall into one of the other categories or is not addressed on the Support web page (located at  " + (SupportWebsite == null ? "http://support.uo.com" : SupportWebsite) + "), please use this option.", true, true);
+                AddHtml(110, 335, 450, 58, @"<u>Inne.</u> Jesli masz problem w grze, ktory nie pasuje do zadnej z innych kategorii lub nie jest omowiony w regulaminie, napisz do nas na Discordzie (pod adresem  " + (SupportWebsite == null ? "https://discord.gg/GDyGncD" : SupportWebsite) + "), w wiadomosci prywantej do [NT] opisz swoj problem.", true, true);
             }
             else
             {
                 AddButton(80, 90, 5540, 5541, 1, GumpButtonType.Reply, 2);
-                AddHtml(110, 90, 450, 74, @"<u>General question about Ultima Online.</u> Select this option if you have a general gameplay question, need help learning to use a skill, or if you would like to search the UO Knowledge Base.", true, true);
+                AddHtml(110, 90, 450, 74, @"<u><u>Ogolne pytanie dotyczace Ultima Online.</u> Wybierz te opcje, jesli masz ogolne pytanie dotyczace rozgrywki, potrzebujesz pomocy w nauce korzystania z umiejetnosci, lub chcesz przeszukac baze wiedzy UO..", true, true);
 
                 AddButton(80, 170, 5540, 5541, 2, GumpButtonType.Reply, 0);
-                AddHtml(110, 170, 450, 74, @"<u>My character is physically stuck in the game.</u> This choice only covers cases where your character is physically stuck in a location they cannot move out of. This option will only work two times in 24 hours.", true, true);
+                AddHtml(110, 170, 450, 74, @"<u>Moj bohater jest fizycznie uwieziony w grze.</u> Ta opcja obejmuje tylko przypadki, gdy twoj bohater jest fizycznie uwieziony w miejscu, z ktorego nie moze sie wydostac. Ta opcja bedzie dzialac tylko dwa razy w ciagu 24 godzin. UWAGA! Naduzycia beda karane wedle regulaminu""", true, true);
 
                 AddButton(80, 250, 5540, 5541, 0, GumpButtonType.Page, 3);
-                AddHtml(110, 250, 450, 74, @"<u>Another player is harassing me.</u> Another player is verbally harassing your character. When you select this option you will be sending a text log to Origin Systems. To see what constitutes harassment please visit " + (SupportWebsite == null ? "http://support.uo.com/gm_9.html" : SupportWebsite) + ".", true, true);
+                AddHtml(110, 250, 450, 74, @"<u>Inny gracz mnie neka.</u> Inny gracz werbalnie neka twoja postac Aby dowiedziec sie, co stanowi nekaniem, odwiedz " + (SupportWebsite == null ? "https://nelderim.pl/regulamin-2/" : SupportWebsite) + ", a jesli wiesz co jest problemem, napsiz do nas na Discord na priv.", true, true);
 
                 AddButton(80, 330, 5540, 5541, 0, GumpButtonType.Page, 2);
-                AddHtml(110, 330, 450, 74, @"<u>Other.</u> If you are experiencing a problem in the game that does not fall into one of the other categories or is not addressed on the Support web page (located at  " + (SupportWebsite == null ? "http://support.uo.com" : SupportWebsite) + "), please use this option.", true, true);
+                AddHtml(110, 330, 450, 74, @"<u>Inne.</u> Jesli masz problem w grze, ktory nie pasuje do zadnej z innych kategorii lub nie jest omowiony w regulaminie, napisz do nas na Discordzie (pod adresem  " + (SupportWebsite == null ? "https://discord.gg/GDyGncD" : SupportWebsite) + "), w wiadomosci prywantej do [NT] opisz swoj problem.", true, true);
             }
 
             AddPage(2);
 
             AddButton(80, 90, 5540, 5541, 3, GumpButtonType.Reply, 0);
-            AddHtml(110, 90, 450, 74, @"<u>Report a bug or contact Origin.</u> Use this option to launch your web browser and mail in a bug report. Your report will be read by our Quality Assurance Staff. We apologize for not being able to reply to individual reports. ", true, true);
+            AddHtml(110, 90, 450, 74, @"<u>Wszelkie bledy nalezy zglaszac na Discord ekipie [NT]. ", true, true);
 
             AddButton(80, 170, 5540, 5541, 4, GumpButtonType.Reply, 0);
-            AddHtml(110, 170, 450, 74, @"<u>Suggestion for the Game.</u> If you'd like to make a suggestion for the game, it should be directed to the Development Team Members who participate in the discussion forums on the UO.Com web site. Choosing this option will take you to the Discussion Forums. ", true, true);
+            AddHtml(110, 170, 450, 74, @"<u>Sugestia.</u> Nalezy je zgłaszać na Discord w dziale #sugestie. ", true, true);
 
             AddButton(80, 250, 5540, 5541, 5, GumpButtonType.Reply, 0);
-            AddHtml(110, 250, 450, 74, @"<u>Account Management</u> For questions regarding your account such as forgotten passwords, payment options, account activation, and account transfer, please choose this option.", true, true);
+            AddHtml(110, 250, 450, 74, @"<u>Zarzadzenie kontem</u> Zapomniales hasla? Masz problem z kontem? Napisz na Discrd do kogos z [NT].", true, true);
 
             AddButton(80, 330, 5540, 5541, 6, GumpButtonType.Reply, 0);
-            AddHtml(110, 330, 450, 74, @"<u>Other.</u> If you are experiencing a problem in the game that does not fall into one of the other categories or is not addressed on the Support web page (located at " + (SupportWebsite == null ? "http://support.uo.com" : SupportWebsite) + ", and requires in-game assistance, use this option. ", true, true);
+            AddHtml(110, 330, 450, 74, @"<u>Inne.</u> Jesli masz problem w grze, ktory nie pasuje do zadnej z innych kategorii lub nie jest omowiony w regulaminie, napisz do nas na Discordzie (pod adresem " + (SupportWebsite == null ? "https://discord.gg/GDyGncD" : SupportWebsite) + ", w wiadomosci prywantej do [NT] opisz swoj problem. ", true, true);
 
             AddPage(3);
 
@@ -297,7 +297,7 @@ namespace Server.Engines.Help
                             {
                                 from.SendLocalizedMessage(1151733); // You cannot do that while carrying a Trade Order.
                             }
-                            else if (from.Region.IsPartOf("Haven Island"))
+                            else if (from.Region.IsPartOf("Haven"))
                             {
                                 from.SendLocalizedMessage(1041529); // You're already in Haven
                             }
