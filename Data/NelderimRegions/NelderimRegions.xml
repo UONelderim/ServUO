@@ -432,10 +432,10 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Wulkan_LVL2_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Wulkan_LVL2_Easy_2" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Wulkan_LVL2_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -458,7 +458,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Hurengrav_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Hurengrav_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="25" Greater="10" Strong="5" VeryStrong="0"/>
@@ -476,7 +476,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LochyOphidian_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LochyOphidian_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -492,7 +492,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="ZwiednietaRoza_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="ZwiednietaRoza_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -508,7 +508,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="TylReviaren_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="TylReviaren_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -525,7 +525,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LoenTorech_LVL1_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LoenTorech_LVL1_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -541,7 +541,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LoenTorech_LVL2_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LoenTorech_LVL2_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -557,7 +557,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="HallTorech_LVL1_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="HallTorech_LVL1_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -573,7 +573,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="HallTorech_LVL2_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="HallTorech_LVL2_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -589,7 +589,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LezeOgnistychSmokow_LVL1_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LezeOgnistychSmokow_LVL1_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -605,7 +605,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LezeOgnistychSmokow_LVL2_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LezeOgnistychSmokow_LVL2_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -622,7 +622,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Saew_LV1_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Saew_LV1_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -638,7 +638,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Saew_LV2_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Saew_LV2_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -654,7 +654,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="BialyWilk_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="BialyWilk_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -670,8 +670,8 @@
 	<region name="UlnhyrOrbben_LV1_VeryEasy" parent="Default">
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
-	<region name="UlnhyrOrbben_LV1_VeryEasy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+	<region name="UlnhyrOrbben_LV1_Easy" parent="Default">
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="UlnhyrOrbben_LV1_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -687,7 +687,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="UlnhyrOrbben_LV2_VeryEasy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="UlnhyrOrbben_LV2_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -703,7 +703,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="KrysztaloweSmoki_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="KrysztaloweSmoki_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -720,7 +720,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Piramida_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Piramida_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -737,7 +737,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LezeLodowychSmokow_LVL1_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LezeLodowychSmokow_LVL1_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -753,7 +753,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LezeLodowychSmokow_LVL2_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LezeLodowychSmokow_LVL2_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -769,7 +769,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LezeLodowychSmokow_LVL3_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="LezeLodowychSmokow_LVL3_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -785,7 +785,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Gorogon_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Gorogon_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
@@ -801,7 +801,7 @@
 		<difficultyLevel VeryWeak="80" Weak="10" Lesser="10" Normal="0" Greater="0" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Gorogon_Easy" parent="Default">
-		<difficultyLevel VeryWeak="40" Weak="30" Lesser="10" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
+		<difficultyLevel VeryWeak="40" Weak="30" Lesser="15" Normal="10" Greater="5" Strong="0" VeryStrong="0"/>
 	</region>
 	<region name="Gorogon_Medium" parent="Default">
 		<difficultyLevel VeryWeak="10" Weak="20" Lesser="30" Normal="30" Greater="10" Strong="0" VeryStrong="0"/>
