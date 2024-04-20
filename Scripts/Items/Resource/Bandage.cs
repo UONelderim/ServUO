@@ -6,6 +6,7 @@ using Server.Services.Virtues;
 using Server.Targeting;
 using System;
 using System.Collections.Generic;
+using Nelderim.Configuration;
 
 namespace Server.Items
 {
@@ -311,6 +312,12 @@ namespace Server.Items
             int healerNumber = -1, patientNumber = -1;
             bool playSound = true;
             bool checkSkills = false;
+
+            if (NConfig.BloodyBandageChance > Utility.RandomDouble())
+            {
+	            m_Healer.AddToBackpack(new BloodyBandage());
+	            m_Healer.SendMessage("Udalo sie odzyskac bandaz.");
+            }
 
             SkillName primarySkill = GetPrimarySkill(m_Healer, m_Patient);
             SkillName secondarySkill = GetSecondarySkill(m_Healer, m_Patient);
