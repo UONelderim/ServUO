@@ -39,7 +39,7 @@ namespace Server.Engines.Harvest
 
                 // Every bank holds from 20 to 45 logs
                 MinTotal = 20,
-                MaxTotal = 45,
+                MaxTotal = 40,
 
                 // A resource bank will respawn its content every 20 to 30 minutes
                 MinRespawn = TimeSpan.FromMinutes(20.0),
@@ -55,11 +55,11 @@ namespace Server.Engines.Harvest
                 MaxRange = 2,
 
                 // Ten logs per harvest action
-                ConsumedPerHarvest = 10,
-                ConsumedPerFeluccaHarvest = 20,
+                ConsumedPerHarvest = 6,
+                ConsumedPerFeluccaHarvest = 4,
 
                 // The chopping effect
-                EffectActions = new int[] { 7 },
+                EffectActions = new int[] { 13 },
                 EffectSounds = new int[] { 0x13E },
                 EffectCounts = (new int[] { 3 }),
                 EffectDelay = TimeSpan.FromSeconds(1.25),
@@ -85,13 +85,13 @@ namespace Server.Engines.Harvest
 
             veins = new HarvestVein[]
             {
-                new HarvestVein(49.0, 0.0, res[0], null), // Ordinary Logs
-                new HarvestVein(30.0, 0.5, res[1], res[0]), // Oak
-                new HarvestVein(10.0, 0.5, res[2], res[0]), // Ash
-                new HarvestVein(05.0, 0.5, res[3], res[0]), // Yew
-                new HarvestVein(03.0, 0.5, res[4], res[0]), // Heartwood
-                new HarvestVein(02.0, 0.5, res[5], res[0]), // Bloodwood
-                new HarvestVein(01.0, 0.5, res[6], res[0]), // Frostwood
+	            new HarvestVein( 80.0, 0.0, res[0], null ),	// Ordinary Logs				(original chance: 75.6)
+	            new HarvestVein( 07.5, 0.0, res[1], res[0] ), // Oak		Zywiczne		(original chance: 10.0)
+	            new HarvestVein( 05.2, 0.0, res[2], res[0] ), // Ash		Puste			(original chance: 06.0)
+	            new HarvestVein( 03.3, 0.0, res[3], res[0] ), // Yew		Skamieniale		(original chance: 03.5)
+	            new HarvestVein( 02.0, 0.0, res[4], res[0] ), // Heartwood	Gietkie			(original chance: 02.0)
+	            new HarvestVein( 01.0, 0.0, res[5], res[0] ), // Bloodwood	Opalone			(original chance: 01.0)
+	            new HarvestVein( 01.0, 0.0, res[6], res[0] ), // Frostwood	Zmarzniete		(original chance: 01.0)
             };
 
             lumber.BonusResources = new BonusHarvestResource[]
