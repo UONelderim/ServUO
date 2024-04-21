@@ -850,9 +850,8 @@ namespace Server.Mobiles
 				return;
 			}
 
-			if (!CheckVendorAccess(from))
+			if (!CheckVendorAccess(from, true))
 			{
-				//Say(501522); // I shall not treat with scum like thee!
 				return;
 			}
 
@@ -1051,9 +1050,8 @@ namespace Server.Mobiles
 				return;
 			}
 
-			if (!CheckVendorAccess(from))
+			if (!CheckVendorAccess(from, true))
 			{
-				Say(501522); // I shall not treat with scum like thee!
 				return;
 			}
 
@@ -1592,9 +1590,8 @@ namespace Server.Mobiles
 				return false;
 			}
 
-			if (!CheckVendorAccess(buyer))
+			if (!CheckVendorAccess(buyer, true))
 			{
-				Say(501522); // I shall not treat with scum like thee!
 				return false;
 			}
 
@@ -2013,6 +2010,11 @@ namespace Server.Mobiles
 
 		public virtual bool CheckVendorAccess(Mobile from)
 		{
+			return CheckVendorAccess(from, false);
+		}
+		
+		public virtual bool CheckVendorAccess(Mobile from, bool verbose)
+		{
 			var reg = (GuardedRegion)Region.GetRegion(typeof(GuardedRegion));
 
 			if (reg != null && !reg.CheckVendorAccess(this, from))
@@ -2030,7 +2032,7 @@ namespace Server.Mobiles
 				}
 			}
 
-			return NelderimCheckVendorAccess(from);
+			return NelderimCheckVendorAccess(from, verbose);
 		}
 
 		public virtual bool OnSellItems(Mobile seller, List<SellItemResponse> list)
@@ -2045,9 +2047,8 @@ namespace Server.Mobiles
 				return false;
 			}
 
-			if (!CheckVendorAccess(seller))
+			if (!CheckVendorAccess(seller, true))
 			{
-				Say(501522); // I shall not treat with scum like thee!
 				return false;
 			}
 

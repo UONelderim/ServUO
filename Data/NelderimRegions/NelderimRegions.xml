@@ -419,8 +419,8 @@
 <!--	<region name="Kryjowka_Drowow" parent="Podmrok_A"/>-->
 	<region name="SwiatyniaLoethe" parent="Podmrok_A"/>
 	<region name="Podmrok_C" parent="Podmrok_A"/>
-	<region name="MiastoDrowow" parent="Podmrok_A"/>
-	<region name="MiastoDrowow_Kopalnia" parent="MiastoDrowow"/>
+	<region name="L'Delmah" parent="Podmrok_A"/>
+	<region name="L'Delmah_Kopalnia" parent="MiastoDrowow"/>
 	<region name="SwiatyniaLoethe_2" parent="Podmrok_A"/>
 	<region name="KarczmaDrowow" parent="Podmrok_A"/>	
 
