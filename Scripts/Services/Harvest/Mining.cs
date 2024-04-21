@@ -34,16 +34,16 @@ namespace Server.Engines.Harvest
             HarvestDefinition oreAndStone = OreAndStone = new HarvestDefinition();
 
             // Resource banks are every 8x8 tiles
-            oreAndStone.BankWidth = 8;
-            oreAndStone.BankHeight = 8;
+            oreAndStone.BankWidth = 4; // 8;
+            oreAndStone.BankHeight = 4; // 8;
 
             // Every bank holds from 10 to 34 ore
-            oreAndStone.MinTotal = 10;
-            oreAndStone.MaxTotal = 34;
+            oreAndStone.MinTotal = 20;
+            oreAndStone.MaxTotal = 34; // 34;
 
             // A resource bank will respawn its content every 10 to 20 minutes
-            oreAndStone.MinRespawn = TimeSpan.FromMinutes(10.0);
-            oreAndStone.MaxRespawn = TimeSpan.FromMinutes(20.0);
+            oreAndStone.MinRespawn = TimeSpan.FromMinutes( 20.0 ); // 10
+            oreAndStone.MaxRespawn = TimeSpan.FromMinutes( 30.0 ); // 20
 
             // Skill checking is done on the Mining skill
             oreAndStone.Skill = SkillName.Mining;
@@ -55,15 +55,15 @@ namespace Server.Engines.Harvest
             oreAndStone.MaxRange = 2;
 
             // One ore per harvest action
-            oreAndStone.ConsumedPerHarvest = 1;
-            oreAndStone.ConsumedPerFeluccaHarvest = 2;
+            oreAndStone.ConsumedPerHarvest = 3;
+            oreAndStone.ConsumedPerFeluccaHarvest = 3;
 
             // The digging effect
-            oreAndStone.EffectActions = new int[] { 3 };
+            oreAndStone.EffectActions = new int[] { 11 };
             oreAndStone.EffectSounds = new int[] { 0x125, 0x126 };
             oreAndStone.EffectCounts = new int[] { 3 };
-            oreAndStone.EffectDelay = TimeSpan.FromSeconds(1.25);
-            oreAndStone.EffectSoundDelay = TimeSpan.FromSeconds(0.7);
+            oreAndStone.EffectDelay = TimeSpan.FromSeconds( 1.25 );
+            oreAndStone.EffectSoundDelay = TimeSpan.FromSeconds( 0.7 );
 
             oreAndStone.NoResourcesMessage = 503040; // There is no metal here to mine.
             oreAndStone.DoubleHarvestMessage = 503042; // Someone has gotten to the metal before you.
@@ -73,47 +73,70 @@ namespace Server.Engines.Harvest
             oreAndStone.PackFullMessage = 1010481; // Your backpack is full, so the ore you mined is lost.
             oreAndStone.ToolBrokeMessage = 1044038; // You have worn out your tool!
 
-            res = new HarvestResource[]
-            {
-                new HarvestResource(00.0, 00.0, 100.0, 1007072, typeof(IronOre), typeof(Granite)),
-                new HarvestResource(65.0, 25.0, 105.0, 1007073, typeof(DullCopperOre),  typeof(DullCopperGranite), typeof(DullCopperElemental)),
-                new HarvestResource(70.0, 30.0, 110.0, 1007074, typeof(ShadowIronOre),  typeof(ShadowIronGranite), typeof(ShadowIronElemental)),
-                new HarvestResource(75.0, 35.0, 115.0, 1007075, typeof(CopperOre), typeof(CopperGranite), typeof(CopperElemental)),
-                new HarvestResource(80.0, 40.0, 120.0, 1007076, typeof(BronzeOre), typeof(BronzeGranite), typeof(BronzeElemental)),
-                new HarvestResource(85.0, 45.0, 125.0, 1007077, typeof(GoldOre), typeof(GoldGranite), typeof(GoldenElemental)),
-                new HarvestResource(90.0, 50.0, 130.0, 1007078, typeof(AgapiteOre), typeof(AgapiteGranite), typeof(AgapiteElemental)),
-                new HarvestResource(95.0, 55.0, 135.0, 1007079, typeof(VeriteOre), typeof(VeriteGranite), typeof(VeriteElemental)),
-                new HarvestResource(99.0, 59.0, 139.0, 1007080, typeof(ValoriteOre), typeof(ValoriteGranite), typeof(ValoriteElemental))
-            };
+           res = new HarvestResource[]
+                {
+                    new HarvestResource( 00.0, 00.0, 100.0, 1007072, typeof( IronOre ),            typeof( Granite ) ),
+                    new HarvestResource( 65.0, 25.0, 105.0, 1007073, typeof( DullCopperOre ),    typeof( DullCopperGranite ),    typeof( DullCopperElemental ) ),
+                    new HarvestResource( 70.0, 30.0, 110.0, 1007074, typeof( ShadowIronOre ),    typeof( ShadowIronGranite ),    typeof( ShadowIronElemental ) ),
+                    new HarvestResource( 75.0, 35.0, 115.0, 1007075, typeof( CopperOre ),        typeof( CopperGranite ),        typeof( CopperElemental ) ),
+                    new HarvestResource( 80.0, 40.0, 120.0, 1007076, typeof( BronzeOre ),        typeof( BronzeGranite ),        typeof( BronzeElemental ) ),
+                    new HarvestResource( 85.0, 45.0, 125.0, 1007077, typeof( GoldOre ),            typeof( GoldGranite ),            typeof( GoldenElemental ) ),
+                    new HarvestResource( 90.0, 50.0, 130.0, 1007078, typeof( AgapiteOre ),        typeof( AgapiteGranite ),        typeof( AgapiteElemental ) ),
+                    new HarvestResource( 95.0, 55.0, 135.0, 1007079, typeof( VeriteOre ),        typeof( VeriteGranite ),        typeof( VeriteElemental ) ),
+                    new HarvestResource( 99.0, 59.0, 139.0, 1007080, typeof( ValoriteOre ),        typeof( ValoriteGranite ),        typeof( ValoriteElemental ) )
+                };
 
             veins = new HarvestVein[]
-            {
-                new HarvestVein(49.6, 0.0, res[0], null), // Iron
-                new HarvestVein(11.2, 0.5, res[1], res[0]), // Dull Copper
-                new HarvestVein(09.8, 0.5, res[2], res[0]), // Shadow Iron
-                new HarvestVein(08.4, 0.5, res[3], res[0]), // Copper
-                new HarvestVein(07.0, 0.5, res[4], res[0]), // Bronze
-                new HarvestVein(05.6, 0.5, res[5], res[0]), // Gold
-                new HarvestVein(04.2, 0.5, res[6], res[0]), // Agapite
-                new HarvestVein(02.8, 0.5, res[7], res[0]), // Verite
-                new HarvestVein(01.4, 0.5, res[8], res[0]), // Valorite
-            };
+                {
+                    new HarvestVein( 75.0, 0.0, res[0], null   ), // Iron			(original chance: 49.6)
+                    new HarvestVein( 06.1, 0.0, res[1], res[0] ), // Dull Copper	(original chance: 11.2)
+                    new HarvestVein( 04.8, 0.0, res[2], res[0] ), // Shadow Iron	(original chance: 09.8)
+                    new HarvestVein( 04.0, 0.0, res[3], res[0] ), // Copper			(original chance: 08.4)
+                    new HarvestVein( 03.4, 0.0, res[4], res[0] ), // Bronze			(original chance: 07.0)
+                    new HarvestVein( 02.5, 0.0, res[5], res[0] ), // Gold			(original chance: 05.6)
+                    new HarvestVein( 02.0, 0.0, res[6], res[0] ), // Agapite		(original chance: 04.2)
+                    new HarvestVein( 01.4, 0.0, res[7], res[0] ), // Verite			(original chance: 02.8)
+                    new HarvestVein( 00.8, 0.0, res[8], res[0] )  // Valorite		(original chance: 01.4)
+                };
 
             oreAndStone.Resources = res;
             oreAndStone.Veins = veins;
 
-            oreAndStone.BonusResources = new BonusHarvestResource[]
+
+			/* wystepuje veryt i valoryt, odrobine wiecej niz oryginalnie w RunUO
+			HarvestVein[] m_Veins_region001 = new HarvestVein[]	
+			{
+                    new HarvestVein( 49.6, 0.0, res[0], null   ), // Iron
+                    new HarvestVein( 11.2, 0.5, res[1], res[0] ), // Dull Copper
+                    new HarvestVein( 09.8, 0.5, res[2], res[0] ), // Shadow Iron
+                    new HarvestVein( 08.4, 0.5, res[3], res[0] ), // Copper
+                    new HarvestVein( 07.0, 0.5, res[4], res[0] ), // Bronze
+                    new HarvestVein( 05.6, 0.5, res[5], res[0] ), // Gold
+                    new HarvestVein( 04.2, 0.5, res[6], res[0] ), // Agapite
+                    new HarvestVein( 03.2, 0.5, res[7], res[0] ), // Verite
+                    new HarvestVein( 02.8, 0.5, res[8], res[0] )  // Valorite
+			};
+            */
+
+            if ( Core.ML )
             {
-                new BonusHarvestResource(0, 99.2, null, null), //Nothing
-                new BonusHarvestResource(100, .1, 1072562, typeof(BlueDiamond)),
-                new BonusHarvestResource(100, .1, 1072567, typeof(DarkSapphire)),
-                new BonusHarvestResource(100, .1, 1072570, typeof(EcruCitrine)),
-                new BonusHarvestResource(100, .1, 1072564, typeof(FireRuby)),
-                new BonusHarvestResource(100, .1, 1072566, typeof(PerfectEmerald)),
-                new BonusHarvestResource(100, .1, 1072568, typeof(Turquoise)),
-                new BonusHarvestResource(100, .1, 1077180, typeof(SmallPieceofBlackrock)),
-                new BonusHarvestResource(100, .1, 1113344, typeof(CrystallineBlackrock), Map.TerMur)
-            };
+                oreAndStone.BonusResources = new BonusHarvestResource[]
+                {
+                    // !!! uwaga: modyfikujac szanse na wystapienie bonusowego surowca pamietaj,
+                    //            ze liczy sie wartosc wzgledem sumy wszystkich pozostalych bonusow.
+                    //            Zwiekszajac szanse na dany surowiec zmniejsz szanse na "Nothing" (i odwrotnie).
+                    new BonusHarvestResource( 0, 99.8998-5-3, null, null ),    //Nothing    //Note: Rounded the below to .0167 instead of 1/6th of a %.  Close enough
+                    new BonusHarvestResource( 100, .0167, 1072562, typeof( BlueDiamond ) ),
+                    new BonusHarvestResource( 100, .0167, 1072567, typeof( DarkSapphire ) ),
+                    new BonusHarvestResource( 100, .0167, 1072570, typeof( EcruCitrine ) ),
+                    new BonusHarvestResource( 100, .0167, 1072564, typeof( FireRuby ) ),
+                    new BonusHarvestResource( 100, .0167, 1072566, typeof( PerfectEmerald ) ),
+                    new BonusHarvestResource( 100, .0167, 1072568, typeof( Turquoise ) ),
+                    new BonusHarvestResource( 0, 5, 1070060 , typeof( SulfurousAsh ) ),
+                    new BonusHarvestResource( 0, 3, "Przy okazji wykopales nieco soli" , typeof( Salt ) ),
+                    // zombie
+                };
+            }
 
             oreAndStone.RaceBonus = true;
             oreAndStone.RandomizeVeins = true;
@@ -125,16 +148,20 @@ namespace Server.Engines.Harvest
             HarvestDefinition sand = Sand = new HarvestDefinition();
 
             // Resource banks are every 8x8 tiles
-            sand.BankWidth = 8;
-            sand.BankHeight = 8;
+            sand.BankWidth = 4;
+            sand.BankHeight = 4;
 
             // Every bank holds from 6 to 12 sand
-            sand.MinTotal = 6;
-            sand.MaxTotal = 13;
+            // 21.06.2012 :: zombie
+            sand.MinTotal = 2; // 6;
+            sand.MaxTotal = 5; //12;
+            // zombie
 
             // A resource bank will respawn its content every 10 to 20 minutes
-            sand.MinRespawn = TimeSpan.FromMinutes(10.0);
-            sand.MaxRespawn = TimeSpan.FromMinutes(20.0);
+            // 21.06.2012 :: zombie
+            sand.MinRespawn = TimeSpan.FromMinutes( 20.0 ); // 10
+            sand.MaxRespawn = TimeSpan.FromMinutes( 30.0 ); // 20
+            // zombie
 
             // Skill checking is done on the Mining skill
             sand.Skill = SkillName.Mining;
@@ -147,14 +174,15 @@ namespace Server.Engines.Harvest
 
             // One sand per harvest action
             sand.ConsumedPerHarvest = 1;
-            sand.ConsumedPerFeluccaHarvest = 2;
+            sand.ConsumedPerFeluccaHarvest = 1;
 
             // The digging effect
-            sand.EffectActions = new int[] { 3 };
-            sand.EffectSounds = new int[] { 0x125, 0x126 };
-            sand.EffectCounts = new int[] { 3 };
-            sand.EffectDelay = TimeSpan.FromSeconds(1.25);
-            sand.EffectSoundDelay = TimeSpan.FromSeconds(0.7);
+            // 24.06.2012 :: zombie :: wydluzenie animacji kopania
+            sand.EffectActions = new int[]{ 11 };
+            sand.EffectSounds = new int[]{ 0x125, 0x126 };
+            sand.EffectCounts = new int[]{ 3 };
+            sand.EffectDelay = TimeSpan.FromSeconds( 1.25 );
+            sand.EffectSoundDelay = TimeSpan.FromSeconds( 0.7 );
 
             sand.NoResourcesMessage = 1044629; // There is no sand here to mine.
             sand.DoubleHarvestMessage = 1044629; // There is no sand here to mine.
