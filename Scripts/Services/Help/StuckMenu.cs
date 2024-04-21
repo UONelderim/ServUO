@@ -26,19 +26,11 @@ namespace Server.Menus.Questions
 	public class StuckMenu : Gump
 	{
 		private static readonly StuckMenuEntry[] m_Entries = {
-			// Tasandora
 			new StuckMenuEntry(1098164, new[] { Map.Felucca.Regions["Orod"].GoLocation }),
-
-			// Garlan
 			new StuckMenuEntry(1098165, new[] { Map.Felucca.Regions["Garlan"].GoLocation }),
-
-			// LDelmah 
-			new StuckMenuEntry(1098166, new[] { Map.Felucca.Regions["LDelmah"].GoLocation }),
-			
-			// Lotharn 
 			new StuckMenuEntry(1098167, new[] { Map.Felucca.Regions["Lotharn"].GoLocation }),
-			
-			// Triassa
+			new StuckMenuEntry(1098166, new[] { Map.Felucca.Regions["L'Delmah"].GoLocation }),
+			new StuckMenuEntry(1098169, new[] { Map.Felucca.Regions["Twierdza"].GoLocation }),
 			new StuckMenuEntry(1098168, new[] { Map.Felucca.Regions["Tirassa"].GoLocation })
 		};
 
@@ -192,7 +184,7 @@ namespace Server.Menus.Questions
 			private readonly StuckMenuEntry m_Destination;
 			private readonly DateTime m_End;
 
-			public TeleportTimer(Mobile mobile, StuckMenuEntry destination, TimeSpan delay)
+			public  TeleportTimer(Mobile mobile, StuckMenuEntry destination, TimeSpan delay)
 				: base(TimeSpan.Zero, TimeSpan.FromSeconds(1.0))
 			{
 				Priority = TimerPriority.TwoFiftyMS;

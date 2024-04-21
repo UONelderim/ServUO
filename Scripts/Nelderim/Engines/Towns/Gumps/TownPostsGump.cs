@@ -17,7 +17,7 @@ namespace Server.Gumps
 		private readonly Towns m_fromTown;
 		private static Dictionary<Towns, string[]> additionalTownRegions = new()
 		{
-			{ Towns.LDelmah, new[] {"NoamuthQuortek", "NoamuthQuortek_Kopalnia", "MiastoDrowow", "MiastoDrowow_Kopalnia" } },
+			{ Towns.LDelmah, new[] {"NoamuthQuortek", "NoamuthQuortek_Kopalnia", "L'Delmah", "L'Delmah_Kopalnia" } },
 			{ Towns.Garlan, new[] {"Garlan_Kopalnia" } },
 			{ Towns.Tasandora, new[] {"Tasandora_Kopalnia" } },
 			{ Towns.Lotharn, new[] { "Enedh_Kopalnia" } }
