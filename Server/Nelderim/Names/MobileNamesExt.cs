@@ -31,7 +31,7 @@ namespace Server
 
 		public virtual bool UseRealName(Mobile m)
 		{
-			return m != null && (m == this || IsStaff() || m.IsStaff());
+			return m == this || IsStaff() || m.IsStaff();
 		}
 
 		public virtual string DefaultName => "nieznajomy " + (Race == Race.DefaultRace ? "" : Race.GetName().ToLower());
