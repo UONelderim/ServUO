@@ -725,7 +725,7 @@ namespace Server.Accounting
 		{
 			var level = AccountHandler.LockdownLevel;
 
-			if (level >= AccessLevel.Counselor)
+			if (level > AccessLevel.Player)
 			{
 				var hasAccess = false;
 
