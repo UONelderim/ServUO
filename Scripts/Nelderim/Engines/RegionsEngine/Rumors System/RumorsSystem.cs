@@ -13,14 +13,8 @@ namespace Server.Nelderim
 	public class RumorsSystem
 	{
 		private static readonly string SaveFolder = Path.Combine(Core.BaseDirectory, "Data", "NelderimRegions");
-		public static AccessLevel m_AccessLevel = AccessLevel.Administrator;
 
-		public static List<RumorRecord> RumorsList { get; }
-
-		static RumorsSystem()
-		{
-			RumorsList = new List<RumorRecord>();
-		}
+		public static List<RumorRecord> RumorsList { get; } = new();
 
 		public static void Initialize()
 		{
