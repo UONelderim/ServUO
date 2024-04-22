@@ -46,22 +46,22 @@ namespace Server
 			this.AddCheck(55, 390, 210, 211, false, 15);
 			this.AddCheck(55, 415, 210, 211, false, 14);
 			this.AddCheck(55, 440, 210, 211, false, 56);
-			this.AddLabel(80, 65, 0, @"Tactics"); //40
-			this.AddLabel(80, 90, 0, @"Anatomy"); //2
-			this.AddLabel(80, 115, 0, @"Swordsmanship"); //39
-			this.AddLabel(80, 140, 0, @"Fencing"); //36
-			this.AddLabel(80, 165, 0, @"Archery"); //5
-			this.AddLabel(80, 190, 0, @"Macefighting"); //37
-			this.AddLabel(80, 215, 0, @"Parry"); //38
-			this.AddLabel(80, 240, 0, @"Arms Lore"); //6
-			this.AddLabel(80, 265, 0, @"Wrestling"); //41
-			this.AddLabel(80, 290, 0, @"Blacksmithing"); //9
-			this.AddLabel(80, 315, 0, @"Carpentry"); //13
-			this.AddLabel(80, 340, 0, @"Tinkering"); //34
-			this.AddLabel(80, 365, 0, @"Tailoring"); //33
-			this.AddLabel(80, 390, 0, @"Fishing"); //15
-			this.AddLabel(80, 415, 0, @"Cooking"); //14
-			this.AddLabel(80, 440, 0, @"Fletching"); //56
+			this.AddLabel(80, 65, 0, @"Taktyka"); //40
+			this.AddLabel(80, 90, 0, @"Anatomia"); //2
+			this.AddLabel(80, 115, 0, @"Walka mieczami"); //39
+			this.AddLabel(80, 140, 0, @"Szermierka"); //36
+			this.AddLabel(80, 165, 0, @"Lucznictwo"); //5
+			this.AddLabel(80, 190, 0, @"Walka obuchami"); //37
+			this.AddLabel(80, 215, 0, @"Parowanie"); //38
+			this.AddLabel(80, 240, 0, @"Wiedza o broni"); //6
+			this.AddLabel(80, 265, 0, @"Walka piesciami"); //41
+			this.AddLabel(80, 290, 0, @"Kowalstwo"); //9
+			this.AddLabel(80, 315, 0, @"Stolarstwo"); //13
+			this.AddLabel(80, 340, 0, @"Majsterkowanie"); //34
+			this.AddLabel(80, 365, 0, @"Krawiectwo"); //33
+			this.AddLabel(80, 390, 0, @"Rybactwo"); //15
+			this.AddLabel(80, 415, 0, @"Gotowanie"); //14
+			this.AddLabel(80, 440, 0, @"Tworzenie lukow"); //56
 			// ********************************************************
 			this.AddCheck(240, 65, 210, 211, false, 23);
 			this.AddCheck(240, 90, 210, 211, false, 20);
@@ -79,22 +79,22 @@ namespace Server
 			this.AddCheck(240, 390, 210, 211, false, 43);
 			this.AddCheck(240, 415, 210, 211, false, 27);
 			this.AddCheck(240, 440, 210, 211, false, 45);
-			this.AddLabel(265, 65, 0, @"Mining"); //23
-			this.AddLabel(265, 90, 0, @"Lumberjacking"); //20
-			this.AddLabel(265, 115, 0, @"Alchemy"); //1
-			this.AddLabel(265, 140, 0, @"Inscription"); //44
-			this.AddLabel(265, 165, 0, @"Magery"); //21
-			this.AddLabel(265, 190, 0, @"Spirit Speak"); //48
-			this.AddLabel(265, 215, 0, @"Evaluating Intelligence"); //50
-			this.AddLabel(265, 240, 0, @"Meditation"); //22
-			this.AddLabel(265, 265, 0, @"Hiding"); //55
-			this.AddLabel(265, 290, 0, @"Stealth"); //32
-			this.AddLabel(265, 315, 0, @"Snooping"); //29
-			this.AddLabel(265, 340, 0, @"Stealing"); //31
-			this.AddLabel(265, 365, 0, @"Lockpicking"); //19
-			this.AddLabel(265, 390, 0, @"Detecting Hidden"); //43
-			this.AddLabel(265, 415, 0, @"Remove Trap"); //27
-			this.AddLabel(265, 440, 0, @"Tracking"); //45
+			this.AddLabel(265, 65, 0, @"Gornictwo"); //23
+			this.AddLabel(265, 90, 0, @"Drawlstwo"); //20
+			this.AddLabel(265, 115, 0, @"Alchemia"); //1
+			this.AddLabel(265, 140, 0, @"Inskrypcja"); //44
+			this.AddLabel(265, 165, 0, @"Magia"); //21
+			this.AddLabel(265, 190, 0, @"Rozmowa z duchami"); //48
+			this.AddLabel(265, 215, 0, @"Madrosc"); //50
+			this.AddLabel(265, 240, 0, @"Medytacja"); //22
+			this.AddLabel(265, 265, 0, @"Ukrywanie"); //55
+			this.AddLabel(265, 290, 0, @"Skradanie"); //32
+			this.AddLabel(265, 315, 0, @"Zagladanie"); //29
+			this.AddLabel(265, 340, 0, @"Okradanie"); //31
+			this.AddLabel(265, 365, 0, @"Wlamywanie"); //19
+			this.AddLabel(265, 390, 0, @"Wykrywanie"); //43
+			this.AddLabel(265, 415, 0, @"Rozbrajanie"); //27
+			this.AddLabel(265, 440, 0, @"Tropienie"); //45
 			//**********************************************************
 			this.AddCheck(425, 65, 210, 211, false, 46);
 			this.AddCheck(425, 90, 210, 211, false, 4);
@@ -112,22 +112,24 @@ namespace Server
 			this.AddCheck(425, 390, 210, 211, false, 28);
 			this.AddCheck(425, 415, 210, 211, false, 35);
 			this.AddCheck(425, 440, 210, 211, false, 42);
-			this.AddLabel(450, 65, 0, @"Poisoning"); //46
-			this.AddLabel(450, 90, 0, @"Animal Taming"); //4
-			this.AddLabel(450, 115, 0, @"Animal Lore"); //3
-			this.AddLabel(450, 140, 0, @"Camping"); //11
-			this.AddLabel(450, 165, 0, @"Musicianship"); //24
-			this.AddLabel(450, 190, 0, @"Provocation"); //47
-			this.AddLabel(450, 215, 0, @"Peacemaking"); //45
-			this.AddLabel(450, 240, 0, @"Item Identification"); //52
-			this.AddLabel(450, 265, 0, @"Taste Identification"); //53
-			this.AddLabel(450, 290, 0, @"Foresic Evaluation"); //51
-			this.AddLabel(450, 315, 0, @"Begging"); //7
-			this.AddLabel(450, 340, 0, @"Healing"); //17
-			this.AddLabel(450, 365, 0, @"Herding"); //18
-			this.AddLabel(450, 390, 0, @"Resisting Spells"); //28
-			this.AddLabel(450, 415, 0, @"Veterinary"); //35
-			this.AddLabel(450, 440, 0, @"Cartography"); //42
+			this.AddCheck(425, 465, 210, 211, false, 57);
+			this.AddLabel(450, 65, 0, @"Zatruwanie"); //46
+			this.AddLabel(450, 90, 0, @"Oswajanie"); //4
+			this.AddLabel(450, 115, 0, @"Wiedza o zwierzetach"); //3
+			this.AddLabel(450, 140, 0, @"Obozowanie"); //11
+			this.AddLabel(450, 165, 0, @"Muzykalnosc"); //24
+			this.AddLabel(450, 190, 0, @"Prowokacja"); //47
+			this.AddLabel(450, 215, 0, @"Uspokajanie"); //45
+			this.AddLabel(450, 240, 0, @"Mistycyzm"); //52
+			this.AddLabel(450, 265, 0, @"Druidyzm"); //53
+			this.AddLabel(450, 290, 0, @"Zielarstwo"); //51
+			this.AddLabel(450, 315, 0, @"Rzucanie"); //7
+			this.AddLabel(450, 340, 0, @"Leczenie"); //17
+			this.AddLabel(450, 365, 0, @"Pasterstwo"); //18
+			this.AddLabel(450, 390, 0, @"Odpornosc na magie"); //28
+			this.AddLabel(450, 415, 0, @"Weterynaria"); //35
+			this.AddLabel(450, 440, 0, @"Kartografia"); //42
+			this.AddLabel(450, 465, 0, @"Koncentracja"); //57
 			//**********************************************************
 		}
 
@@ -180,7 +182,7 @@ namespace Server
 					if (info.IsSwitched(6))
 						m.Skills[SkillName.ArmsLore].Base = val;
 					if (info.IsSwitched(7))
-						m.Skills[SkillName.Begging].Base = val;
+						m.Skills[SkillName.Throwing].Base = val;
 					if (info.IsSwitched(9))
 						m.Skills[SkillName.Blacksmith].Base = val;
 					if (info.IsSwitched(11))
@@ -256,13 +258,15 @@ namespace Server
 					if (info.IsSwitched(51))
 						m.Skills[SkillName.Herbalism].Base = val;
 					if (info.IsSwitched(52))
-						m.Skills[SkillName.ItemID].Base = val;
+						m.Skills[SkillName.Mysticism].Base = val;
 					if (info.IsSwitched(53))
-						m.Skills[SkillName.TasteID].Base = val;
+						m.Skills[SkillName.Spellweaving].Base = val;
 					if (info.IsSwitched(55))
 						m.Skills[SkillName.Hiding].Base = val;
 					if (info.IsSwitched(56))
 						m.Skills[SkillName.Fletching].Base = val;
+					if (info.IsSwitched(57))
+						m.Skills[SkillName.Focus].Base = val;
 
 
 					m_SkillBall.Delete();
