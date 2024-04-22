@@ -706,7 +706,7 @@ namespace Server.Nelderim
 					while (region.Intolerance == null)
 						region = GetRegion(region.Parent);
 
-					double intolerance = region.Intolerance[Race.AllRaces.IndexOf(target.Race)];
+					double intolerance = region.Intolerance[NRace.AllRaces.IndexOf(target.Race)];
 
 					if (intolerance >= 30)
 					{
