@@ -1082,6 +1082,10 @@ namespace Server.Network
 
 				SendQueue.Gram gram;
 
+				if (m_SendQueue == null)
+				{
+					return false;
+				}
 				lock (m_SendQueue)
 				{
 					if (!m_SendQueue.IsFlushReady)
@@ -1225,7 +1229,10 @@ namespace Server.Network
 				TraceException(ex);
 			}
 
-			ReceiveBuffers.ReleaseBuffer(ref m_RecvBuffer);
+			if (m_RecvBuffer != null)
+			{
+				ReceiveBuffers.ReleaseBuffer(ref m_RecvBuffer);
+			}
 
 			Socket = null;
 
@@ -1249,11 +1256,14 @@ namespace Server.Network
 				m_Disposed.Enqueue(this);
 			}
 
-			lock (m_SendQueue)
+			if (m_SendQueue != null)
 			{
-				if (!m_SendQueue.IsEmpty)
+				lock (m_SendQueue)
 				{
-					m_SendQueue.Clear();
+					if (!m_SendQueue.IsEmpty)
+					{
+						m_SendQueue.Clear();
+					}
 				}
 			}
 		}

@@ -551,7 +551,7 @@ namespace Server.Accounting
 
 				SavePassword(account);
 
-				if (AccessLevel >= AccessLevel.Counselor)
+				if (AccessLevel > AccessLevel.Player)
 				{
 					AppendNode(account, "accessLevel", AccessLevel.ToString());
 				}

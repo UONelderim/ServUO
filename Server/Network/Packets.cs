@@ -1028,7 +1028,7 @@ namespace Server.Network
 
 		public static GlobalLightLevel Instantiate(NetState ns, int level)
 		{
-			level = Math.Max(0x100, level);
+			level = Math.Min(0x100, level);
 
 			return PacketCache<GlobalLightLevel>.Acquire((byte)level, l => new GlobalLightLevel(l));
 		}
