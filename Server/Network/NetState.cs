@@ -1084,7 +1084,7 @@ namespace Server.Network
 
 				lock (m_SendQueue)
 				{
-					if (!m_SendQueue.IsFlushReady)
+					if (m_SendQueue == null || !m_SendQueue.IsFlushReady)
 					{
 						return false;
 					}
