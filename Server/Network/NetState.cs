@@ -1251,7 +1251,7 @@ namespace Server.Network
 
 			lock (m_SendQueue)
 			{
-				if (!m_SendQueue.IsEmpty)
+				if (m_SendQueue != null && !m_SendQueue.IsEmpty)
 				{
 					m_SendQueue.Clear();
 				}
