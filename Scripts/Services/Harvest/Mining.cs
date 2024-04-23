@@ -118,21 +118,18 @@ namespace Server.Engines.Harvest
 			};
             */
 
-            if ( Core.ML )
+            oreAndStone.BonusResources = new BonusHarvestResource[]
             {
-                oreAndStone.BonusResources = new BonusHarvestResource[]
-                {
-                    new BonusHarvestResource( 0, 99.8998-5-3, null, null ),    //Nothing    //Note: Rounded the below to .0167 instead of 1/6th of a %.  Close enough
-                    new BonusHarvestResource( 100, .0167, 1072562, typeof( BlueDiamond ) ),
-                    new BonusHarvestResource( 100, .0167, 1072567, typeof( DarkSapphire ) ),
-                    new BonusHarvestResource( 100, .0167, 1072570, typeof( EcruCitrine ) ),
-                    new BonusHarvestResource( 100, .0167, 1072564, typeof( FireRuby ) ),
-                    new BonusHarvestResource( 100, .0167, 1072566, typeof( PerfectEmerald ) ),
-                    new BonusHarvestResource( 100, .0167, 1072568, typeof( Turquoise ) ),
-                    new BonusHarvestResource( 0, 5, 1070060 , typeof( SulfurousAsh ) ),
-                    new BonusHarvestResource( 0, 3, "Przy okazji wykopales nieco soli" , typeof( Salt ) ),
-                };
-            }
+                new BonusHarvestResource( 0, 99.8998-5-3, null, null ),    //Nothing    //Note: Rounded the below to .0167 instead of 1/6th of a %.  Close enough
+                new BonusHarvestResource( 100, .0167, 1072562, typeof( BlueDiamond ) ),
+                new BonusHarvestResource( 100, .0167, 1072567, typeof( DarkSapphire ) ),
+                new BonusHarvestResource( 100, .0167, 1072570, typeof( EcruCitrine ) ),
+                new BonusHarvestResource( 100, .0167, 1072564, typeof( FireRuby ) ),
+                new BonusHarvestResource( 100, .0167, 1072566, typeof( PerfectEmerald ) ),
+                new BonusHarvestResource( 100, .0167, 1072568, typeof( Turquoise ) ),
+                new BonusHarvestResource( 0, 5, 1070060 , typeof( SulfurousAsh ) ),
+                new BonusHarvestResource( 0, 3, "Przy okazji wykopales nieco soli" , typeof( Salt ) ),
+            };
 
             oreAndStone.RaceBonus = true;
             oreAndStone.RandomizeVeins = true;
