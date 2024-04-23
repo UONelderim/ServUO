@@ -1082,9 +1082,13 @@ namespace Server.Network
 
 				SendQueue.Gram gram;
 
+				if (m_SendQueue == null)
+				{
+					return false;
+				}
 				lock (m_SendQueue)
 				{
-					if (m_SendQueue == null || !m_SendQueue.IsFlushReady)
+					if (!m_SendQueue.IsFlushReady)
 					{
 						return false;
 					}
@@ -1249,11 +1253,14 @@ namespace Server.Network
 				m_Disposed.Enqueue(this);
 			}
 
-			lock (m_SendQueue)
+			if (m_SendQueue != null)
 			{
-				if (m_SendQueue != null && !m_SendQueue.IsEmpty)
+				lock (m_SendQueue)
 				{
-					m_SendQueue.Clear();
+					if (!m_SendQueue.IsEmpty)
+					{
+						m_SendQueue.Clear();
+					}
 				}
 			}
 		}
