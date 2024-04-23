@@ -1229,7 +1229,10 @@ namespace Server.Network
 				TraceException(ex);
 			}
 
-			ReceiveBuffers.ReleaseBuffer(ref m_RecvBuffer);
+			if (m_RecvBuffer != null)
+			{
+				ReceiveBuffers.ReleaseBuffer(ref m_RecvBuffer);
+			}
 
 			Socket = null;
 
