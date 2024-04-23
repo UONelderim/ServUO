@@ -103,7 +103,7 @@ namespace Server.Engines.Harvest
             oreAndStone.Veins = veins;
 
 
-			/* wystepuje veryt i valoryt, odrobine wiecej niz oryginalnie w RunUO
+			/*
 			HarvestVein[] m_Veins_region001 = new HarvestVein[]	
 			{
                     new HarvestVein( 49.6, 0.0, res[0], null   ), // Iron
@@ -118,25 +118,18 @@ namespace Server.Engines.Harvest
 			};
             */
 
-            if ( Core.ML )
+            oreAndStone.BonusResources = new BonusHarvestResource[]
             {
-                oreAndStone.BonusResources = new BonusHarvestResource[]
-                {
-                    // !!! uwaga: modyfikujac szanse na wystapienie bonusowego surowca pamietaj,
-                    //            ze liczy sie wartosc wzgledem sumy wszystkich pozostalych bonusow.
-                    //            Zwiekszajac szanse na dany surowiec zmniejsz szanse na "Nothing" (i odwrotnie).
-                    new BonusHarvestResource( 0, 99.8998-5-3, null, null ),    //Nothing    //Note: Rounded the below to .0167 instead of 1/6th of a %.  Close enough
-                    new BonusHarvestResource( 100, .0167, 1072562, typeof( BlueDiamond ) ),
-                    new BonusHarvestResource( 100, .0167, 1072567, typeof( DarkSapphire ) ),
-                    new BonusHarvestResource( 100, .0167, 1072570, typeof( EcruCitrine ) ),
-                    new BonusHarvestResource( 100, .0167, 1072564, typeof( FireRuby ) ),
-                    new BonusHarvestResource( 100, .0167, 1072566, typeof( PerfectEmerald ) ),
-                    new BonusHarvestResource( 100, .0167, 1072568, typeof( Turquoise ) ),
-                    new BonusHarvestResource( 0, 5, 1070060 , typeof( SulfurousAsh ) ),
-                    new BonusHarvestResource( 0, 3, "Przy okazji wykopales nieco soli" , typeof( Salt ) ),
-                    // zombie
-                };
-            }
+                new BonusHarvestResource( 0, 99.8998-5-3, null, null ),    //Nothing    //Note: Rounded the below to .0167 instead of 1/6th of a %.  Close enough
+                new BonusHarvestResource( 100, .0167, 1072562, typeof( BlueDiamond ) ),
+                new BonusHarvestResource( 100, .0167, 1072567, typeof( DarkSapphire ) ),
+                new BonusHarvestResource( 100, .0167, 1072570, typeof( EcruCitrine ) ),
+                new BonusHarvestResource( 100, .0167, 1072564, typeof( FireRuby ) ),
+                new BonusHarvestResource( 100, .0167, 1072566, typeof( PerfectEmerald ) ),
+                new BonusHarvestResource( 100, .0167, 1072568, typeof( Turquoise ) ),
+                new BonusHarvestResource( 0, 5, 1070060 , typeof( SulfurousAsh ) ),
+                new BonusHarvestResource( 0, 3, "Przy okazji wykopales nieco soli" , typeof( Salt ) ),
+            };
 
             oreAndStone.RaceBonus = true;
             oreAndStone.RandomizeVeins = true;
@@ -151,17 +144,13 @@ namespace Server.Engines.Harvest
             sand.BankWidth = 4;
             sand.BankHeight = 4;
 
-            // Every bank holds from 6 to 12 sand
-            // 21.06.2012 :: zombie
-            sand.MinTotal = 2; // 6;
-            sand.MaxTotal = 5; //12;
-            // zombie
+            // Every bank holds from 2 to 5 sand
+            sand.MinTotal = 2;
+            sand.MaxTotal = 5;
 
             // A resource bank will respawn its content every 10 to 20 minutes
-            // 21.06.2012 :: zombie
-            sand.MinRespawn = TimeSpan.FromMinutes( 20.0 ); // 10
-            sand.MaxRespawn = TimeSpan.FromMinutes( 30.0 ); // 20
-            // zombie
+            sand.MinRespawn = TimeSpan.FromMinutes( 20.0 );
+            sand.MaxRespawn = TimeSpan.FromMinutes( 30.0 );
 
             // Skill checking is done on the Mining skill
             sand.Skill = SkillName.Mining;
@@ -177,10 +166,9 @@ namespace Server.Engines.Harvest
             sand.ConsumedPerFeluccaHarvest = 1;
 
             // The digging effect
-            // 24.06.2012 :: zombie :: wydluzenie animacji kopania
-            sand.EffectActions = new int[]{ 11 };
-            sand.EffectSounds = new int[]{ 0x125, 0x126 };
-            sand.EffectCounts = new int[]{ 3 };
+            sand.EffectActions = new[]{ 11 };
+            sand.EffectSounds = new[]{ 0x125, 0x126 };
+            sand.EffectCounts = new[]{ 3 };
             sand.EffectDelay = TimeSpan.FromSeconds( 1.25 );
             sand.EffectSoundDelay = TimeSpan.FromSeconds( 0.7 );
 

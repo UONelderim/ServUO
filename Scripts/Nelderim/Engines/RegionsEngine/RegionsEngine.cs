@@ -18,23 +18,16 @@ namespace Server.Nelderim
 	{
 		public static readonly string NelderimRegionsDirectory = Path.Combine(Core.BaseDirectory, "Data", "NelderimRegions");
 		public static readonly string NelderimRegionsFile = Path.Combine(NelderimRegionsDirectory, "NelderimRegions.xml");
-		public static List<RegionsEngineRegion> NelderimRegions { get; private set; }
-
-		public RegionsEngine()
-		{
-			Load();
-		}
+		public static List<RegionsEngineRegion> NelderimRegions { get; } = new();
 
 		public static void Initialize()
 		{
-			new RegionsEngine();
-			new RumorsSystem();
+			Load();
 			CommandSystem.Register("RELoad", AccessLevel.Administrator, RELoad_OnCommand);
 			CommandSystem.Register("RESave", AccessLevel.Administrator, RESave_OnCommand);
 			RumorsSystem.Load();
 			EventSink.MobileCreated += OnCreate;
-			EventSink.OnEnterRegion += OnEnterRegion
-				;
+			EventSink.OnEnterRegion += OnEnterRegion;
 		}
 
 		[Usage("RELoad")]
@@ -63,9 +56,8 @@ namespace Server.Nelderim
 
 		public static bool Load()
 		{
-			NelderimRegions = new List<RegionsEngineRegion>();
+			NelderimRegions.Clear();
 			Console.Write("NelderimRegions: Wczytywanie...");
-
 			try
 			{
 				if (!File.Exists(NelderimRegionsFile))
@@ -74,29 +66,26 @@ namespace Server.Nelderim
 					return false;
 				}
 
-				XmlDocument doc = new XmlDocument();
+				var doc = new XmlDocument();
 				doc.Load(NelderimRegionsFile);
 
-				XmlElement root = doc["NelderimRegions"];
+				var root = doc["NelderimRegions"];
 
 				foreach (XmlElement reg in root.GetElementsByTagName("region"))
 				{
-					string name = reg.GetAttribute("name");
-					string parent = reg.GetAttribute("parent");
+					var name = reg.GetAttribute("name");
+					var parent = reg.GetAttribute("parent");
 
-					RegionsEngineRegion newRegion = new RegionsEngineRegion(name, parent);
+					var newRegion = new RegionsEngineRegion(name, parent);
 
 					try
 					{
-						// 
-
-						// sprawdz rude
-						XmlNodeList nodes = reg.GetElementsByTagName("oreveins");
+						var nodes = reg.GetElementsByTagName("oreveins");
 
 						if (nodes.Count > 0)
 						{
-							XmlElement pop = nodes.Item(0) as XmlElement;
-							double[] s = new double[9];
+							var pop = nodes.Item(0) as XmlElement;
+							var s = new double[9];
 
 							s[0] = XmlConvert.ToDouble(pop.GetAttribute("Iron"));
 							s[1] = XmlConvert.ToDouble(pop.GetAttribute("DullCopper"));
@@ -112,12 +101,11 @@ namespace Server.Nelderim
 						}
 						else
 						{
-							// sprawdz drewno
 							nodes = reg.GetElementsByTagName("woodveins");
 							if (nodes.Count > 0)
 							{
-								XmlElement pop = nodes.Item(0) as XmlElement;
-								double[] s = new double[7];
+								var pop = nodes.Item(0) as XmlElement;
+								var s = new double[7];
 
 								s[0] = XmlConvert.ToDouble(pop.GetAttribute("Wood"));
 								s[1] = XmlConvert.ToDouble(pop.GetAttribute("Oak"));
@@ -138,16 +126,16 @@ namespace Server.Nelderim
 
 					try
 					{
-						XmlNodeList nodes = reg.GetElementsByTagName("bannedfollowers");
+						var nodes = reg.GetElementsByTagName("bannedfollowers");
 
 						if (nodes.Count > 0)
 						{
-							XmlElement pop = nodes.Item(0) as XmlElement;
-							bool[] s = new bool[3];
+							var pop = nodes.Item(0) as XmlElement;
+							var s = new bool[3];
 
-							s[0] = (XmlConvert.ToInt32(pop.GetAttribute("summons")) == 1) ? true : false;
-							s[1] = (XmlConvert.ToInt32(pop.GetAttribute("familiars")) == 1) ? true : false;
-							s[2] = (XmlConvert.ToInt32(pop.GetAttribute("tammed")) == 1) ? true : false;
+							s[0] = (XmlConvert.ToInt32(pop.GetAttribute("summons")) == 1);
+							s[1] = (XmlConvert.ToInt32(pop.GetAttribute("familiars")) == 1);
+							s[2] = (XmlConvert.ToInt32(pop.GetAttribute("tammed")) == 1);
 
 							newRegion.TameLimit = XmlConvert.ToInt32(pop.GetAttribute("tammedlimit"));
 							newRegion.BannedFollowers = s;
@@ -160,17 +148,17 @@ namespace Server.Nelderim
 
 					try
 					{
-						XmlNodeList nodes = reg.GetElementsByTagName("bannedschools");
+						var nodes = reg.GetElementsByTagName("bannedschools");
 
 						if (nodes.Count > 0)
 						{
-							XmlElement pop = nodes.Item(0) as XmlElement;
-							bool[] s = new bool[4];
+							var pop = nodes.Item(0) as XmlElement;
+							var s = new bool[4];
 
-							s[0] = (XmlConvert.ToInt32(pop.GetAttribute("magery")) == 1) ? true : false;
-							s[1] = (XmlConvert.ToInt32(pop.GetAttribute("chivalry")) == 1) ? true : false;
-							s[2] = (XmlConvert.ToInt32(pop.GetAttribute("necromancy")) == 1) ? true : false;
-							s[3] = (XmlConvert.ToInt32(pop.GetAttribute("druidism")) == 1) ? true : false;
+							s[0] = (XmlConvert.ToInt32(pop.GetAttribute("magery")) == 1);
+							s[1] = (XmlConvert.ToInt32(pop.GetAttribute("chivalry")) == 1);
+							s[2] = (XmlConvert.ToInt32(pop.GetAttribute("necromancy")) == 1);
+							s[3] = (XmlConvert.ToInt32(pop.GetAttribute("druidism")) == 1);
 
 							newRegion.Schools = s;
 						}
@@ -182,19 +170,16 @@ namespace Server.Nelderim
 
 					try
 					{
-						XmlNodeList nodes = reg.GetElementsByTagName("intolerance");
+						var nodes = reg.GetElementsByTagName("intolerance");
 
 						if (nodes.Count > 0)
 						{
-							XmlElement pop = nodes.Item(0) as XmlElement;
+							var pop = nodes.Item(0) as XmlElement;
+							var intolerance = new int[NRace.AllRaces.Count];
 
-							// Console.WriteLine( "Nietolerancja dla regionu {0}: ", newRegion.Name );
-
-							int[] intolerance = new int[NRace.AllRaces.Count];
-
-							for (int i = 0; i < intolerance.Length; i++)
+							for (var i = 0; i < intolerance.Length; i++)
 							{
-								string attr = pop.GetAttribute(NRace.AllRaces[i].Name);
+								var attr = pop.GetAttribute(NRace.AllRaces[i].Name);
 								intolerance[i] = XmlConvert.ToInt32(attr == "" ? "0" : attr);
 							}
 
@@ -208,24 +193,24 @@ namespace Server.Nelderim
 
 					try
 					{
-						XmlNodeList nodes = reg.GetElementsByTagName("races");
+						var nodes = reg.GetElementsByTagName("races");
 
 						if (nodes.Count > 0)
 						{
-							XmlElement pop = nodes.Item(0) as XmlElement;
+							var pop = nodes.Item(0) as XmlElement;
 
-							double[] population = new double[NRace.AllRaces.Count];
+							var population = new double[NRace.AllRaces.Count];
 							double sum = 0;
 
-							for (int i = 0; i < population.Length; i++)
+							for (var i = 0; i < population.Length; i++)
 							{
-								string attr = pop.GetAttribute(NRace.AllRaces[i].Name);
+								var attr = pop.GetAttribute(NRace.AllRaces[i].Name);
 								population[i] = XmlConvert.ToDouble(attr == "" ? "0" : attr);
 								sum += population[i];
 							}
 
-							string femaleStr = pop.GetAttribute("Female");
-							double female = XmlConvert.ToDouble(femaleStr == "" ? "0.5" : femaleStr);
+							var femaleStr = pop.GetAttribute("Female");
+							var female = XmlConvert.ToDouble(femaleStr == "" ? "0.5" : femaleStr);
 
 							if (sum != 100)
 								Console.WriteLine(
@@ -241,23 +226,23 @@ namespace Server.Nelderim
 
 					try
 					{
-						XmlElement g = reg.GetElementsByTagName("guards").Item(0) as XmlElement;
+						var g = reg.GetElementsByTagName("guards").Item(0) as XmlElement;
 
 						foreach (XmlElement guard in g.GetElementsByTagName("guard"))
 						{
-							int type = XmlConvert.ToInt32(guard.GetAttribute("type"));
-							double factor = XmlConvert.ToDouble(guard.GetAttribute("factor"));
-							double span = XmlConvert.ToDouble(guard.GetAttribute("span"));
-							double female = XmlConvert.ToDouble(guard.GetAttribute("female"));
-							string file = Path.Combine(NelderimRegionsDirectory, "Profiles", $"{guard.GetAttribute("file")}.xml");
-							int[] guards = new int[NRace.AllRaces.Count];
-							int sum = 0;
+							var type = XmlConvert.ToInt32(guard.GetAttribute("type"));
+							var factor = XmlConvert.ToDouble(guard.GetAttribute("factor"));
+							var span = XmlConvert.ToDouble(guard.GetAttribute("span"));
+							var female = XmlConvert.ToDouble(guard.GetAttribute("female"));
+							var file = Path.Combine(NelderimRegionsDirectory, "Profiles", $"{guard.GetAttribute("file")}.xml");
+							var guards = new int[NRace.AllRaces.Count];
+							var sum = 0;
 
-							XmlElement r = guard.GetElementsByTagName("races").Item(0) as XmlElement;
+							var r = guard.GetElementsByTagName("races").Item(0) as XmlElement;
 
-							for (int i = 0; i < guards.Length; i++)
+							for (var i = 0; i < guards.Length; i++)
 							{
-								string attr = r.GetAttribute(NRace.AllRaces[i].Name);
+								var attr = r.GetAttribute(NRace.AllRaces[i].Name);
 								guards[i] = XmlConvert.ToInt32(attr == "" ? "0" : attr);
 								sum += guards[i];
 							}
@@ -274,7 +259,7 @@ namespace Server.Nelderim
 					{
 					}
 
-					XmlElement difficultyLevelXml = reg["difficultyLevel"];
+					var difficultyLevelXml = reg["difficultyLevel"];
 					if (difficultyLevelXml != null)
 					{
 						foreach (DifficultyLevelValue difficultyLevel in Enum.GetValues(typeof(DifficultyLevelValue)))
@@ -309,7 +294,7 @@ namespace Server.Nelderim
 
 			try
 			{
-				XmlTextWriter xml = new XmlTextWriter(NelderimRegionsFile, Encoding.UTF8);
+				var xml = new XmlTextWriter(NelderimRegionsFile, Encoding.UTF8);
 				xml.Indentation = 1;
 				xml.IndentChar = '\t';
 				xml.Formatting = Formatting.Indented;
@@ -317,7 +302,7 @@ namespace Server.Nelderim
 				xml.WriteStartDocument(true);
 				xml.WriteStartElement("NelderimRegions");
 
-				foreach (RegionsEngineRegion reg in NelderimRegions)
+				foreach (var reg in NelderimRegions)
 				{
 					xml.WriteStartElement("region");
 					xml.WriteAttributeString("name", reg.Name);
@@ -405,7 +390,7 @@ namespace Server.Nelderim
 						xml.WriteStartElement("races");
 
 
-						for (int i = 0; i < NRace.AllRaces.Count; i++)
+						for (var i = 0; i < NRace.AllRaces.Count; i++)
 						{
 							xml.WriteAttributeString(NRace.AllRaces[i].Name,
 								XmlConvert.ToString(reg.RegionPopulation.Proportions[i]));
@@ -420,7 +405,7 @@ namespace Server.Nelderim
 					{
 						xml.WriteStartElement("intolerance");
 
-						for (int i = 0; i < NRace.AllRaces.Count; i++)
+						for (var i = 0; i < NRace.AllRaces.Count; i++)
 						{
 							xml.WriteAttributeString(NRace.AllRaces[i].Name, reg.Intolerance[i].ToString());
 						}
@@ -430,11 +415,11 @@ namespace Server.Nelderim
 
 					if (reg.Guards != null)
 					{
-						bool isAnyGuard = false;
+						var isAnyGuard = false;
 
-						for (int i = 0; i < reg.Guards.Length; i++)
+						for (var i = 0; i < reg.Guards.Length; i++)
 						{
-							GuardEngine g = reg.Guards[i];
+							var g = reg.Guards[i];
 
 							if (g != null)
 							{
@@ -454,7 +439,7 @@ namespace Server.Nelderim
 
 								xml.WriteStartElement("races");
 
-								for (int j = 0; j < NRace.AllRaces.Count; j++)
+								for (var j = 0; j < NRace.AllRaces.Count; j++)
 								{
 									xml.WriteAttributeString(NRace.Races[j].Name, XmlConvert.ToString(g.Races[j]));
 								}
@@ -513,7 +498,7 @@ namespace Server.Nelderim
 
 			if (m is BaseCreature { Tamable: false } bc)
 			{
-				RegionsEngineRegion r = GetRegion(m.Region.Name);
+				var r = GetRegion(m.Region.Name);
 				if (r != null && r.DifficultyLevelWeights.Count != 0 && bc.DifficultyLevel == DifficultyLevelValue.Normal)
 				{
 					bc.DifficultyLevel = Utility.RandomWeigthed(r.DifficultyLevelWeights);
@@ -524,8 +509,6 @@ namespace Server.Nelderim
 
 		public static RegionsEngineRegion GetRegion(string regionName)
 		{
-			//Console.WriteLine( "Szukamy ->" + regionName );
-
 			RegionsEngineRegion reg = null;
 
 			try
@@ -534,10 +517,7 @@ namespace Server.Nelderim
 					if (NelderimRegions[i].Name == regionName)
 						reg = NelderimRegions[i];
 
-				if (reg == null)
-					reg = NelderimRegions[0];
-
-				//Console.WriteLine( "Znajdujemy -> " + reg.Name );
+				reg ??= NelderimRegions[0];
 			}
 			catch (Exception e)
 			{
@@ -549,11 +529,11 @@ namespace Server.Nelderim
 
 		public static Race GetRace(string regionName)
 		{
-			Race race = Race.DefaultRace;
+			var race = Race.DefaultRace;
 
 			try
 			{
-				RegionsEngineRegion reg = GetRegion(regionName);
+				var reg = GetRegion(regionName);
 				race = (reg.RegionPopulation == null) ? GetRace(reg.Parent) : reg.GetRace;
 			}
 			catch (Exception e)
@@ -566,26 +546,24 @@ namespace Server.Nelderim
 
 		public static double GetFemaleChance(string regionName)
 		{
-			double femaleChance = 0.5;
-
 			try
 			{
-				RegionsEngineRegion reg = GetRegion(regionName);
-				femaleChance = (reg.RegionPopulation == null) ? GetFemaleChance(reg.Parent) : reg.GetFemaleChance;
+				var reg = GetRegion(regionName);
+				return (reg.RegionPopulation == null) ? GetFemaleChance(reg.Parent) : reg.GetFemaleChance;
 			}
 			catch (Exception e)
 			{
 				Console.WriteLine(e.ToString());
 			}
 
-			return femaleChance;
+			return 0.5;
 		}
 
 		public static void MakeGuard(BaseNelderimGuard guard)
 		{
-			int typ = (int)guard.Type;
+			var typ = (int)guard.Type;
 			GuardEngine guards = null;
-			RegionsEngineRegion region = GetRegion(guard.Region.Name);
+			var region = GetRegion(guard.Region.Name);
 
 			while ((guards = region.Guards[typ]) == null)
 				region = GetRegion(region.Parent);
@@ -595,9 +573,9 @@ namespace Server.Nelderim
 
 		public static bool MakeGuard(BaseNelderimGuard guard, string regionName)
 		{
-			int typ = (int)guard.Type;
-			GuardEngine guards = null;
-			RegionsEngineRegion region = GetRegion(regionName);
+			var typ = (int)guard.Type;
+			GuardEngine guards;
+			var region = GetRegion(regionName);
 
 			if (region.Name == "Default")
 				return false;
@@ -612,14 +590,12 @@ namespace Server.Nelderim
 
 		public static bool CastIsBanned(string regionName, Spell spell)
 		{
-			// Console.WriteLine( "public static bool CastIsBanned( {0}, {1} )",regionName, spell );
 			try
 			{
-				RegionsEngineRegion reg = GetRegion(regionName);
+				var reg = GetRegion(regionName);
 
 				if (reg.Schools == null)
 				{
-					// Console.WriteLine( "reg.Schools == null" );
 					return CastIsBanned(reg.Parent, spell);
 				}
 
@@ -643,14 +619,12 @@ namespace Server.Nelderim
 
 		public static bool PetIsBanned(string regionName, Spell spell)
 		{
-			// Console.WriteLine( "public static bool PetIsBanned ( {0}, {1} )",regionName, spell );
 			try
 			{
-				RegionsEngineRegion reg = GetRegion(regionName);
+				var reg = GetRegion(regionName);
 
 				if (reg.BannedFollowers == null)
 				{
-					// Console.WriteLine( "reg.BannedFollowers == null" );
 					return PetIsBanned(reg.Parent, spell);
 				}
 
@@ -675,7 +649,7 @@ namespace Server.Nelderim
 		{
 			try
 			{
-				RegionsEngineRegion reg = GetRegion(regionName);
+				var reg = GetRegion(regionName);
 
 				if (reg.BannedFollowers == null)
 					return PetIsBanned(reg.Parent, pet);
@@ -695,64 +669,30 @@ namespace Server.Nelderim
 			return false;
 		}
 
-		public static void RandomWarningEmote(Mobile source, Mobile target)
+		private static Func<Race, String>[] IntoleranceEmote =
 		{
-			switch (Utility.Random(4))
-			{
-				case 0:
-					source.Emote(00505152, target.Name); // *mierzy zlowrogim spojrzeniem ~1_NAME~*
-					break;
-				case 1:
-					source.Emote(00505153); // *spluwa*
-					break;
-				case 2:
-					source.Emote(00505154); // *prycha*
-					break;
-				default:
-					source.Emote(00505147, target.Name); // *z odraza sledzi wzrokiem ~1_NAME~*
-					break;
-			}
-		}
+			r => $"*mierzy zlowrogim spojrzeniem {r.GetName(Cases.Biernik)}*",
+			r => $"*z odraza sledzi wzrokiem {r.GetName(Cases.Biernik)}*",
+			_ => "*spluwa*!",
+			_ => "*prycha*",
+		};
 
-		public static void RandomWarningMsg(Mobile source, Mobile target)
+		private static Func<Race, String>[] IntoleranceSaying =
 		{
-			switch (Utility.Random(7))
-			{
-				case 0:
-					source.Yell(00505150,
-						target.Race.GetPluralName(Cases.Mianownik)); // Co za czasy! Wszedzie ~1_RACE~!
-					break;
-				case 1:
-					source.Yell(00505151, target.Race.GetName(Cases.Wolacz)); // Zejdz mi z drogi ~1_RACE~!
-					break;
-				case 2:
-					source.Yell(00505143,
-						target.Race.GetName(Cases
-							.Wolacz)); // Lepiej opusc ta okolice ~1_NAME~! Moze Cie spotkac krzywda!
-					break;
-				case 3:
-					source.Yell(00505145, target.Name); // ~1_NAME~! Psie jeden! Wynos sie z mego rewiru!
-					break;
-				case 4:
-					source.Yell(00505146, target.Race.GetName(Cases.Wolacz)); // Nie chce Cie tu widziec ~1_NAME~!
-					break;
-				case 5:
-					source.Yell(00505149,
-						target.Name); // "~1_NAME~! Psie jeden! To nie jest miejsce dla takich jak TY!"
-					break;
-				default:
-					source.Yell(00505150,
-						target.Race.GetPluralName(Cases.Mianownik)); // Co za czasy! Wszedzie ~1_RACE~!    
-					break;
-			}
-
-			target.SendLocalizedMessage(00505148, target.Race.GetPluralName(Cases.Dopelniacz),
-				0x25); // Zdaje sie, ze w tej okolicy nie lubi sie ~1_RACE~!
-		}
-
-		public static bool ActIntolerativeHarmful(Mobile source, Mobile target)
+			r => $"Co za czasy! Wszedzie {r.GetPluralName(Cases.Mianownik)}",
+			r => $"Zejdz mi z drogi {r.GetName(Cases.Wolacz)}!",
+			r => $"Lepiej opusc ta okolice {r.GetName(Cases.Wolacz)}! Moze Cie spotkac krzywda!",
+			r => $"{r.GetName(Cases.Wolacz)}! Psie jeden! Wynos sie z mego rewiru!",
+			r => $"Nie chce Cie tu widziec {r.GetName(Cases.Wolacz)}!",
+			r => $"{r.GetName(Cases.Wolacz)}! Psie jeden! To nie jest miejsce dla takich jak TY!",
+			r => $"Co za czasy! Wszedzie {r.GetPluralName(Cases.Mianownik)}!"
+		};
+		
+		public static void MentionIntolerance(Mobile source, Mobile target)
 		{
-			return ActIntolerativeHarmful(source, target, true);
+			source.Emote(Utility.RandomList(IntoleranceEmote).Invoke(target.Race));
+			source.Yell(Utility.RandomList(IntoleranceSaying).Invoke(target.Race));
+			target.SendMessage($"Zdaje sie, ze w tej okolicy nie lubi sie {target.Race.GetPluralName(Cases.Dopelniacz)}!",0x25);
 		}
 
 		public static bool ActIntolerativeHarmful(Mobile source, Mobile target, bool msg)
@@ -761,24 +701,18 @@ namespace Server.Nelderim
 			{
 				if (source != null && target != null && source.InLOS(target))
 				{
-					RegionsEngineRegion region = GetRegion(source.Region.Name);
+					var region = GetRegion(source.Region.Name);
 
 					while (region.Intolerance == null)
 						region = GetRegion(region.Parent);
 
-					double intolerance = region.Intolerance[Race.AllRaces.IndexOf(target.Race)];
+					double intolerance = region.Intolerance[NRace.AllRaces.IndexOf(target.Race)];
 
-					if (intolerance <= 29)
+					if (intolerance >= 30)
 					{
-						// nic sie nie dzieje: http://www.youtube.com/watch?v=pe42MNDjxTk
-					}
-					else
-					{
-						// komunikaty
 						if (msg)
 						{
-							RandomWarningEmote(source, target);
-							RandomWarningMsg(source, target);
+							MentionIntolerance(source, target);
 						}
 
 						// szansa na crim
@@ -789,7 +723,7 @@ namespace Server.Nelderim
 							// modyfikator szansy dla strazy w zaleznosci od tego jak daleko stoja od celu
 							if (source is BaseNelderimGuard)
 							{
-								double distance = source.GetDistanceToSqrt(target);
+								var distance = source.GetDistanceToSqrt(target);
 
 								// +10% jesli odleglosc wynosi 0-3
 								// 4-6 bez zmian
@@ -801,10 +735,7 @@ namespace Server.Nelderim
 							}
 
 							double minVal = source is BaseVendor ? 30 : 50;
-							double chance = ((intolerance - minVal) * 2 + distMod) / 100;
-
-							//Console.WriteLine( "int: {0}, minVal: {1}, distMod: {2}, chance: {3}", intolerance, minVal, distMod, chance );
-
+							var chance = ((intolerance - minVal) * 2 + distMod) / 100;
 							return chance >= Utility.RandomDouble();
 						}
 					}
@@ -822,16 +753,13 @@ namespace Server.Nelderim
 		public static void GetResourceVeins(string regionName, out List<double> factors)
 		{
 			factors = null;
-
 			try
 			{
-				RegionsEngineRegion reg = GetRegion(regionName);
-
+				var reg = GetRegion(regionName);
 				if (reg == null || reg.ResourceVeins == null)
 				{
 					return;
 				}
-
 				factors = new List<double>(reg.ResourceVeins);
 			}
 			catch (Exception exc)
