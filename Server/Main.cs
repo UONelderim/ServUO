@@ -89,6 +89,7 @@ namespace Server
 		public static Process Process { get; private set; }
 		public static Thread Thread { get; private set; }
 
+		private static string ConsoleLogFileDateFOrmat = "yyyy_MM_dd";
 		public static MultiTextWriter MultiConsoleOut { get; private set; }
 
 		private static readonly bool _HighRes = Stopwatch.IsHighResolution;
@@ -640,18 +641,21 @@ namespace Server
 
 			try
 			{
+				if (!Directory.Exists("Logs/Console"))
+				{
+					Directory.CreateDirectory("Logs/Console");
+				}
+
+				var logFilename = $"Logs/Console/Console_{DateTime.Now.ToString(ConsoleLogFileDateFOrmat)}.log";
 				if (Service)
 				{
-					if (!Directory.Exists("Logs"))
-					{
-						Directory.CreateDirectory("Logs");
-					}
-
-					Console.SetOut(MultiConsoleOut = new MultiTextWriter(new FileLogger("Logs/Console.log")));
+					Console.SetOut(MultiConsoleOut = new MultiTextWriter(new FileLogger(logFilename)));
 				}
 				else
 				{
-					Console.SetOut(MultiConsoleOut = new MultiTextWriter(Console.Out));
+					MultiConsoleOut = new MultiTextWriter(Console.Out);
+					MultiConsoleOut.Add(new FileLogger(logFilename, true));
+					Console.SetOut(MultiConsoleOut);
 				}
 			}
 			catch (Exception e)
