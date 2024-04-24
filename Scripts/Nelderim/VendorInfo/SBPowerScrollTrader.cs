@@ -32,7 +32,7 @@ namespace Server.Mobiles
 		public class PowerScrollBuyInfo : GenericBuyInfo<PowerScroll>
 		{
 			private static readonly List<SkillName> allowedSkills =
-				PowerScroll.Skills.Where(s => !Utility.CraftSkills.Contains(s)).CastToList<SkillName>();
+				PowerScroll.Skills.Where(s => !Utility.CraftSkills.Contains(s)).ToList();
 
 			private int _powerLevel { get; }
 			

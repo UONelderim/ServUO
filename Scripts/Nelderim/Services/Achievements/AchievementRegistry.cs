@@ -34,8 +34,12 @@ namespace Nelderim.Achievements
 
 		public void Save()
 		{
-			_IndexFile.EnsureFile();
-			_IndexFile.WriteAllLines(Index.Select(kvp => kvp.Value + "," + kvp.Key));
+			if (!_IndexFile.Exists)
+			{
+				using var fs = _IndexFile.Create();
+				fs.Close();
+			}
+			File.WriteAllLines(_IndexFile.FullName, Index.Select(kvp => kvp.Value + "," + kvp.Key));
 		}
 
 		public void Load()
@@ -43,7 +47,7 @@ namespace Nelderim.Achievements
 			Index = new Dictionary<string, int>();
 			if (_IndexFile.Exists)
 			{
-				var lines = _IndexFile.ReadAllLines();
+				var lines = File.ReadAllLines(_IndexFile.FullName);
 				foreach (var line in lines)
 				{
 					var strings = line.Split(new[] { ',' }, 2);

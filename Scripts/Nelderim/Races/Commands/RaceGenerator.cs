@@ -30,7 +30,7 @@ namespace Server
 			else
 			{
 				var name = e.GetString(0);
-				var index = NRace.AllRaces.IndexOf(r => r.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
+				var index = NRace.AllRaces.FindIndex(r => r.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
 				if (index == -1)
 				{
 					e.Mobile.SendMessage("Niepoprawna nazwa rasy");

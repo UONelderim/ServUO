@@ -6,12 +6,21 @@ using Nelderim.Configuration;
 using Server;
 using Server.Items;
 using Server.Network;
-using VitaNex.Network;
 
 #endregion
 
 namespace Nelderim.Time
 {
+	public enum Season
+	{
+		Spring = 0,
+		Summer = 1,
+		Autumn = 2,
+		Winter = 3,
+		Desolation = 4,
+		Fall = Autumn
+	}
+	
 	public enum Months // TODO: Change me to 1-7?
 	{
 		Roztopy = 0,
