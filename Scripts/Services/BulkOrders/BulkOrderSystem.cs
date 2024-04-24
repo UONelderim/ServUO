@@ -319,7 +319,8 @@ namespace Server.Engines.BulkOrders
 	        return pm.Skills
 		        .Where(skill => HunterSkills.Contains(skill.SkillName))
 		        .ToDictionary(skill => skill.SkillName, skill => skill.Base)
-		        .Highest(pair => pair.Value)
+		        .OrderByDescending(pair => pair.Value)
+		        .First()
 		        .Key;
         }
 

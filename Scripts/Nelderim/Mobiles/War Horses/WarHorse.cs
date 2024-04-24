@@ -143,7 +143,7 @@ namespace Server.Mobiles
                 {
 	                Hue = 0;
                     BodyMod = 0;
-                    ItemID = m_IDs[m_IDs.IndexOf(Body) + 1];
+                    ItemID = m_IDs[Array.IndexOf(m_IDs,Body) + 1];
                 }
 
                 InvalidateProperties();

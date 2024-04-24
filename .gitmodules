@@ -1,6 +1,3 @@
 [submodule "Scripts/Nelderim/Services/xmlspawner"]
 	path = Scripts/Nelderim/Services/xmlspawner
 	url = git@github.com:UONelderim/xmlspawner.git
-[submodule "Scripts/VitaNex"]
-	path = Scripts/VitaNex
-	url = git@github.com:UONelderim/VitaNexCore.git

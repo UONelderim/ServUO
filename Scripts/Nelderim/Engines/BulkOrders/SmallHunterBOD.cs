@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Server.Items;
 using Server.Mobiles;
 
@@ -255,7 +256,10 @@ namespace Server.Engines.BulkOrders
 			{
 				if (c.TimeOfDeath + m_HuntProtection > DateTime.Now)
 				{
-					var maxDamage = mob.GetLootingRights().Highest(r => r.m_Damage);
+					var lootingRights = mob.GetLootingRights();
+					if (lootingRights.Count == 0)
+						return false;
+					var maxDamage = lootingRights.OrderByDescending(r => r.m_Damage).First();
 					return from == maxDamage.m_Mobile;
 				}
 				return true;

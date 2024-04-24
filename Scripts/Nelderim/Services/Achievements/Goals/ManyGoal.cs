@@ -15,7 +15,7 @@ namespace Nelderim.Achievements
 
 		protected void Progress(PlayerMobile pm, Type type)
 		{
-			var index = Types.IndexOf(type);
+			var index = Array.IndexOf(Types, type);
 			if (pm != null && index != -1)
 			{
 				pm.SetAchievementProgress(Achievement, pm.GetAchivementProgress(Achievement) & (1 << index));
