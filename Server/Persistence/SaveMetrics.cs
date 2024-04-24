@@ -1,127 +1,50 @@
 using System;
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 
 namespace Server
 {
-	public sealed class SaveMetrics : IDisposable
+	public sealed class SaveMetrics
 	{
-		private const string PerformanceCategoryName = "ServUO";
-		private const string PerformanceCategoryDesc = "Performance counters for ServUO";
+		
+		private static readonly Meter meter = new("ServUO Save");
 
-		private readonly PerformanceCounter numberOfWorldSaves;
+		private static readonly Counter<long> numberOfWorldSaves = meter.CreateCounter<long>("Save - Count", null, "Number of world saves.");
 
-		private readonly PerformanceCounter itemsPerSecond;
-		private readonly PerformanceCounter mobilesPerSecond;
+		private static readonly Counter<long> itemsPerSecond = meter.CreateCounter<long>("Save - Items", null, "Number of items saved");
+		private static readonly Counter<long> mobilesPerSecond = meter.CreateCounter<long>("Save - Mobiles", null, "Number of mobiles saves.");
 
-		private readonly PerformanceCounter serializedBytesPerSecond;
-		private readonly PerformanceCounter writtenBytesPerSecond;
+		private static readonly Counter<long> serializedBytesPerSecond = meter.CreateCounter<long>("Save - Serialized bytes", null, "Amount of world-save bytes serialized per second.");
+		private static readonly Counter<long> writtenBytesPerSecond = meter.CreateCounter<long>("Save - Written bytes", null, "Amount of world-save bytes written to disk per second.");
 
 		public SaveMetrics()
 		{
-			if (!PerformanceCounterCategory.Exists(PerformanceCategoryName))
-			{
-				var counters = new CounterCreationDataCollection
-				{
-					new CounterCreationData(
-					"Save - Count",
-					"Number of world saves.",
-					PerformanceCounterType.NumberOfItems32),
-
-					new CounterCreationData(
-					"Save - Items/sec",
-					"Number of items saved per second.",
-					PerformanceCounterType.RateOfCountsPerSecond32),
-
-					new CounterCreationData(
-					"Save - Mobiles/sec",
-					"Number of mobiles saved per second.",
-					PerformanceCounterType.RateOfCountsPerSecond32),
-
-					new CounterCreationData(
-					"Save - Serialized bytes/sec",
-					"Amount of world-save bytes serialized per second.",
-					PerformanceCounterType.RateOfCountsPerSecond32),
-
-					new CounterCreationData(
-					"Save - Written bytes/sec",
-					"Amount of world-save bytes written to disk per second.",
-					PerformanceCounterType.RateOfCountsPerSecond32)
-				};
-
-				if (!Core.Unix)
-				{
-					try
-					{
-						PerformanceCounterCategory.Create(PerformanceCategoryName, PerformanceCategoryDesc, PerformanceCounterCategoryType.SingleInstance, counters);
-					}
-					catch (Exception ex)
-					{
-						if (Core.Debug)
-							Console.WriteLine("Metrics: Metrics enabled. Performance counters creation requires ServUO to be run as Administrator once!");
-
-						Diagnostics.ExceptionLogging.LogException(ex);
-					}
-				}
-				else
-				{
-					Utility.PushColor(ConsoleColor.Yellow);
-					Console.WriteLine("WARNING: You've enabled SaveMetrics. This is currently not supported on Unix based operating systems. Please disable this option to hide this message.");
-					Utility.PopColor();
-				}
-			}
-
-			numberOfWorldSaves = new PerformanceCounter(PerformanceCategoryName, "Save - Count", false);
-
-			itemsPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Items/sec", false);
-			mobilesPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Mobiles/sec", false);
-
-			serializedBytesPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Serialized bytes/sec", false);
-			writtenBytesPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Written bytes/sec", false);
-
 			// increment number of world saves
-			numberOfWorldSaves.Increment();
+			numberOfWorldSaves.Add(1);
 		}
 
 		public void OnItemSaved(int numberOfBytes)
 		{
-			itemsPerSecond.Increment();
+			itemsPerSecond.Add(1);
 
-			serializedBytesPerSecond.IncrementBy(numberOfBytes);
+			serializedBytesPerSecond.Add(numberOfBytes);
 		}
 
 		public void OnMobileSaved(int numberOfBytes)
 		{
-			mobilesPerSecond.Increment();
+			mobilesPerSecond.Add(1);
 
-			serializedBytesPerSecond.IncrementBy(numberOfBytes);
+			serializedBytesPerSecond.Add(numberOfBytes);
 		}
 
 		public void OnGuildSaved(int numberOfBytes)
 		{
-			serializedBytesPerSecond.IncrementBy(numberOfBytes);
+			serializedBytesPerSecond.Add(numberOfBytes);
 		}
 
 		public void OnFileWritten(int numberOfBytes)
 		{
-			writtenBytesPerSecond.IncrementBy(numberOfBytes);
-		}
-
-		private bool isDisposed;
-
-		public void Dispose()
-		{
-			if (!isDisposed)
-			{
-				isDisposed = true;
-
-				numberOfWorldSaves.Dispose();
-
-				itemsPerSecond.Dispose();
-				mobilesPerSecond.Dispose();
-
-				serializedBytesPerSecond.Dispose();
-				writtenBytesPerSecond.Dispose();
-			}
+			writtenBytesPerSecond.Add(numberOfBytes);
 		}
 	}
 }
