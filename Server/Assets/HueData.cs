@@ -1,7 +1,6 @@
 #region References
 using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -93,78 +92,6 @@ namespace Server
 			return List[0];
 		}
 
-		public static void ApplyTo(Bitmap bmp, int hue, bool onlyHueGrayPixels)
-		{
-			ApplyTo(bmp, GetHue(hue), onlyHueGrayPixels);
-		}
-
-		public static void ApplyTo(Bitmap bmp, Hue hue, bool onlyHueGrayPixels)
-		{
-			ApplyTo(bmp, hue?.Colors, onlyHueGrayPixels);
-		}
-
-		public static unsafe void ApplyTo(Bitmap bmp, Color[] colors, bool onlyHueGrayPixels)
-		{
-			try
-			{
-				var bd = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
-
-				try
-				{
-					var stride = bd.Stride >> 2;
-					var width = bd.Width;
-					var height = bd.Height;
-					var delta = stride - width;
-
-					var pBuffer = (int*)bd.Scan0;
-					var pLineEnd = pBuffer + width;
-					var pImageEnd = pBuffer + (stride * height);
-
-					int c, r, g, b;
-
-					while (pBuffer < pImageEnd)
-					{
-						while (pBuffer < pLineEnd)
-						{
-							c = Convert16(*pBuffer);
-
-							if (c != 0)
-							{
-								r = (c >> 10) & 0x1F;
-
-								if (onlyHueGrayPixels)
-								{
-									g = (c >> 5) & 0x1F;
-									b = c & 0x1F;
-
-									if (r == g && r == b)
-										*pBuffer = colors[r].ToArgb();
-								}
-								else
-								{
-									*pBuffer = colors[r].ToArgb();
-								}
-							}
-
-							++pBuffer;
-						}
-
-						pBuffer += delta;
-						pLineEnd += stride;
-					}
-				}
-				finally
-				{
-					bmp.UnlockBits(bd);
-				}
-			}
-			catch (Exception e)
-			{
-				if (Core.Debug)
-					Console.WriteLine($"[Ultima]: HueData.ApplyTo({nameof(bmp)}:{bmp}, {nameof(onlyHueGrayPixels)}:{onlyHueGrayPixels})\n{e}");
-			}
-		}
-
 		private static int Convert32(ushort value)
 		{
 			int argb;
@@ -214,11 +141,6 @@ namespace Server
 
 				Name = Encoding.Default.GetString(entry.Name, 0, count);
 				Name = Name.Replace("\n", " ");
-			}
-
-			public void ApplyTo(Bitmap bmp, bool onlyHueGrayPixels)
-			{
-				HueData.ApplyTo(bmp, Colors, onlyHueGrayPixels);
 			}
 		}
 

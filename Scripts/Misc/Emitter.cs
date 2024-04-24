@@ -14,7 +14,7 @@ namespace Server
         {
 			m_AssemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName(assemblyName), AssemblyBuilderAccess.RunAndCollect);
 
-			m_ModuleBuilder = m_AssemblyBuilder.DefineDynamicModule(assemblyName, false);
+			m_ModuleBuilder = m_AssemblyBuilder.DefineDynamicModule(assemblyName);
         }
 
         public TypeBuilder DefineType(string typeName, TypeAttributes attrs, Type parentType)

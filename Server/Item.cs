@@ -1174,7 +1174,7 @@ Circle375
 			}
 		}
 
-		public static Bitmap GetBitmap(int itemID)
+		public static ArtInfo GetBitmap(int itemID)
 		{
 			try
 			{
@@ -1188,19 +1188,27 @@ Circle375
 			return null;
 		}
 
-		public static void Measure(Bitmap bmp, out int xMin, out int yMin, out int xMax, out int yMax)
+		public static void Measure(ArtInfo bmp, out int xMin, out int yMin, out int xMax, out int yMax)
 		{
-			ArtData.Measure(bmp, out xMin, out yMin, out xMax, out yMax);
+			xMin = yMin = 0;
+			xMax = yMax = -1;
+			if (bmp != null)
+			{
+				xMin = bmp.Bounds.Left;
+				yMin = bmp.Bounds.Top;
+				xMax = bmp.Bounds.Right;
+				yMax = bmp.Bounds.Bottom;
+			}
 		}
 
-		public static Rectangle MeasureBound(Bitmap bmp)
+		public static Rectangle MeasureBound(ArtInfo bmp)
 		{
 			Measure(bmp, out var xMin, out var yMin, out var xMax, out var yMax);
 
 			return new Rectangle(xMin, yMin, xMax - xMin, yMax - yMin);
 		}
 
-		public static Size MeasureSize(Bitmap bmp)
+		public static Size MeasureSize(ArtInfo bmp)
 		{
 			Measure(bmp, out var xMin, out var yMin, out var xMax, out var yMax);
 

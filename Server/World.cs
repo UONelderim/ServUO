@@ -893,10 +893,7 @@ namespace Server
 
 			if (Metrics)
 			{
-				using (var metrics = new SaveMetrics())
-				{
-					strategy.Save(metrics, permitBackgroundWrite);
-				}
+				strategy.Save(new SaveMetrics(), permitBackgroundWrite);
 			}
 			else
 			{
