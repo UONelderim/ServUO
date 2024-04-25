@@ -45,6 +45,6 @@ namespace Server.Spells.Eighth
             FinishSequence();
         }
         
-        private bool AllowPoisonElemental =>  (Caster.Followers + 4) <  Caster.FollowersMax && ((Caster.Skills.Magery.Fixed + Caster.Skills.Poisoning.Fixed) / 2) >= 1000;
+        private bool AllowPoisonElemental =>  (Caster.Followers + 4) <= Caster.FollowersMax && ((Caster.Skills.Magery.Fixed + Caster.Skills.Poisoning.Fixed) / 2) >= 1000;
     }
 }
