@@ -95,8 +95,8 @@ namespace Nelderim
 
 		private static void GenerateGems(BaseCreature bc, ref List<LootPackEntry> entries)
 		{
-			var count = (int)Ceiling(Pow(bc.Difficulty, 0.22));
-			var chance = Max(0.01, Min(1, 0.1 + Pow(bc.Difficulty, 0.25) * 0.05)) * 100;
+			var count = (int)Ceiling(Pow(bc.Difficulty, 0.25) * 0.5);
+			var chance = Min(1, 0.1 + Pow(bc.Difficulty, 0.25) * 0.05) * 100;
 
 			for (var i = 0; i < count; i++)
 				entries.Add(new LootPackEntry(false, true,
