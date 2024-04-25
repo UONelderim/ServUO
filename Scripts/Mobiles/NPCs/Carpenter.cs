@@ -10,7 +10,7 @@ namespace Server.Mobiles
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Carpenter()
-            : base("stolarz")
+            : base("- stolarz")
         {
             SetSkill(SkillName.Carpentry, 85.0, 100.0);
             SetSkill(SkillName.Lumberjacking, 60.0, 83.0);
