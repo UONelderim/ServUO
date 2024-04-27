@@ -711,18 +711,10 @@ namespace Server
 
 			string dotnet = null;
 
-			if (Type.GetType("Mono.Runtime") != null)
+			if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
 			{
-				var displayName = Type.GetType("Mono.Runtime").GetMethod("GetDisplayName", BindingFlags.NonPublic | BindingFlags.Static);
-
-				if (displayName != null)
-				{
-					dotnet = displayName.Invoke(null, null).ToString();
-
-					Console.WriteLine("Core: Unix environment detected");
-
-					Unix = true;
-				}
+				Console.WriteLine("Core: Unix environment detected");
+				Unix = true;
 			}
 			else
 			{
