@@ -20,14 +20,13 @@ namespace Server.Bounds
                 Utility.PushColor(ConsoleColor.Yellow);
                 Console.Write("Generating Bounds.bin...");
                 Utility.PopColor();
-
-                FileStream fs = new FileStream("Data/Binary/Bounds.bin", FileMode.Create, FileAccess.Write);
-
-                BinaryWriter bin = new BinaryWriter(fs);
+                
+                using FileStream fs = new FileStream("Data/Binary/Bounds.bin", FileMode.Create, FileAccess.Write);
+                using BinaryWriter bin = new BinaryWriter(fs);
 
                 for (int i = 0; i <= ArtData.MaxItemID; ++i)
                 {
-                    ArtData.Measure(Item.GetBitmap(i), out int xMin, out int yMin, out int xMax, out int yMax);
+                    Item.Measure(Item.GetBitmap(i), out int xMin, out int yMin, out int xMax, out int yMax);
 
                     bin.Write((ushort)xMin);
                     bin.Write((ushort)yMin);
