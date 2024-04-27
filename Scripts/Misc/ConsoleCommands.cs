@@ -24,7 +24,7 @@ namespace Server.Misc
         {
             EventSink.ServerStarted += () =>
             {
-                PollCommands();
+                // PollCommands(); //FIXME
 
                 if (_HearConsole)
                 {
