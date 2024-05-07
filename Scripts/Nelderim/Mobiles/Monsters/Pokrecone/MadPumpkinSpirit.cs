@@ -32,9 +32,6 @@ namespace Server.Mobiles
             SetSkill(SkillName.Tactics, 45.6, 54.4);
             SetSkill(SkillName.Wrestling, 50.7, 59.6);
 
-            m_Timer = new InternalTimer(this);
-            m_Timer.Start();
-            
             SetSpecialAbility(SpecialAbility.DragonBreath); //Custom definition?
         }
 
@@ -133,9 +130,20 @@ namespace Server.Mobiles
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-            
-            m_Timer = new InternalTimer(this);
-            m_Timer.Start();
+        }
+
+        public override void OnSectorDeactivate()
+        {
+	        m_Timer?.Stop();
+	        base.OnSectorDeactivate();
+        }
+
+        public override void OnSectorActivate()
+        {
+	        m_Timer ??= new InternalTimer(this);
+		    m_Timer.Start();
+		    
+	        base.OnSectorActivate();
         }
 
         private class InternalTimer : Timer
