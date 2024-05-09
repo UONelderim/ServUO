@@ -1,5 +1,7 @@
 #region References
 
+using System;
+using System.Linq;
 using Server.ACC.CSS.Systems.Ancient;
 using Server.ACC.CSS.Systems.Avatar;
 using Server.ACC.CSS.Systems.Bard;
@@ -269,5 +271,11 @@ namespace Server
 		{
 			new LootPackEntry( false, true,  DeathKnightItems, 30.00, 1 )
 		} );
+		
+		
+		private static Type[] _NelderimExclusiveLootTypes = { typeof(Arrow), typeof(Bolt) };
+
+		public bool IsNelderimLootOnly => m_Entries.Length == 1 && m_Entries[0].Items.Length == 1 &&
+		                                 _NelderimExclusiveLootTypes.Contains(m_Entries[0].Items[0].Type);
 	}
 }

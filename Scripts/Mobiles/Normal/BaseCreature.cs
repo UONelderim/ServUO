@@ -5108,8 +5108,8 @@ namespace Server.Mobiles
 
 			if (NConfig.Loot.Enabled)
 				AddLoot(NelderimLoot.Generate(this, stage));
-			else
-				GenerateLoot();
+			
+			GenerateLoot();
 
             if (m_Paragon)
             {
@@ -5179,6 +5179,10 @@ namespace Server.Mobiles
             if (Summoned || pack == null || (chance < 100.0 && Utility.RandomDouble() > chance / 100))
             {
                 return;
+            }
+            if (pack.IsNelderimLootOnly) //Hacky way to exclude arrows and other single type lootpacks
+            {
+	            return;
             }
 
             Container backpack = Backpack;
