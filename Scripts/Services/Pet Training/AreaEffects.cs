@@ -492,7 +492,7 @@ namespace Server.Mobiles
                 };
                 Definitions.Add(cora);
 
-                fireAura = new AuraDefinition(typeof(FlameElemental), typeof(FireDaemon), typeof(LesserFlameElemental))
+                fireAura = new AuraDefinition(typeof(FlameElemental), typeof(FireDaemon), typeof(LesserFlameElemental), typeof(Feniks))
                 {
                     Damage = 7
                 };
