@@ -39,7 +39,6 @@ namespace Server.ACC.CSS.Systems.Ancient
 			PlaceItemIn(80, 35, new AncientInvisibilityAllScroll());
 			PlaceItemIn(40, 55, new AncientDeathVortexScroll());
 			PlaceItemIn(60, 55, new AncientMassDeathScroll());
-			PlaceItemIn(80, 55, new AncientArmageddonScroll());
 		}
 
 		public BagOfAncientScrolls(Serial serial)
