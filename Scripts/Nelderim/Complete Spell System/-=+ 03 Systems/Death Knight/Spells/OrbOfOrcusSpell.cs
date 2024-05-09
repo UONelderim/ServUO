@@ -1,18 +1,11 @@
 using System;
 using System.Collections;
-using Server;
-using Server.Targeting;
-using Server.Network;
-using Server.Spells;
-using Server.Misc;
-using Server.Mobiles;
-using Server.Items;
 
 namespace Server.Spells.DeathKnight
 {
 	public class OrbOfOrcusSpell : DeathKnightSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static SpellInfo m_Info = new(
 				"Kula Smierci", "Orcus Arma",
 				218,
 				9031
@@ -32,7 +25,7 @@ namespace Server.Spells.DeathKnight
 			return true;
 		}
 
-		private static Hashtable m_Table = new Hashtable();
+		private static Hashtable m_Table = new();
 
 		public override void OnCast()
 		{

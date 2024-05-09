@@ -1,16 +1,13 @@
 using System;
 using System.Collections;
-using Server.Network;
-using Server.Items;
 using Server.Targeting;
-using Server.Regions;
 using Server.Mobiles;
 
 namespace Server.Spells.DeathKnight
 {
 	public class WrathSpell : DeathKnightSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static SpellInfo m_Info = new(
 				"Gniew", "Zagan Ira",
 				233,
 				9042,

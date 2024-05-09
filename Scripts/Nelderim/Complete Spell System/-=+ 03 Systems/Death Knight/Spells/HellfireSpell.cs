@@ -1,15 +1,12 @@
 using System;
 using System.Collections;
 using Server.Targeting;
-using Server.Network;
-using Server.Mobiles;
-using Server.Items;
 
 namespace Server.Spells.DeathKnight
 {
 	public class HellfireSpell : DeathKnightSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static SpellInfo m_Info = new(
 				"Ogien Piekielny", "Flam Infernum",
 				242,
 				9012
@@ -53,7 +50,7 @@ namespace Server.Spells.DeathKnight
 			FinishSequence();
 		}
 
-		private static Hashtable m_Table = new Hashtable();
+		private static Hashtable m_Table = new();
 
 		public static bool IsBurning( Mobile m )
 		{

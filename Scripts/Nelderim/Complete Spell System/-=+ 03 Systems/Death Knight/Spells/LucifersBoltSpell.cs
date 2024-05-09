@@ -1,12 +1,11 @@
 using System;
 using Server.Targeting;
-using Server.Network;
 
 namespace Server.Spells.DeathKnight
 {
 	public class LucifersBoltSpell : DeathKnightSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static SpellInfo m_Info = new(
 				"Promien Smierci", "Lucifer Fulgur",
 				230,
 				9022

@@ -1,13 +1,12 @@
 using System;
 using Server.Mobiles;
-using Server.Network;
 using Server.Targeting;
 
 namespace Server.Spells.DeathKnight
 {
 	public class DevilPactSpell : DeathKnightSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static SpellInfo m_Info = new(
 				"Pakt Ze Smiercia", "Deumus Foedus",
 				269,
 				9050,

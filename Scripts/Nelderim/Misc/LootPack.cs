@@ -11,6 +11,7 @@ using Server.ACC.CSS.Systems.Ranger;
 using Server.ACC.CSS.Systems.Undead;
 using Server.ACC.CSS.Systems.Rogue;
 using Server.Items;
+using Server.Spells.DeathKnight;
 
 #endregion
 
@@ -142,19 +143,20 @@ namespace Server
 
         public static readonly LootPackItem[] DeathKnightItems = new LootPackItem[]
         {
-            new LootPackItem( typeof( DeathKnightSkull750 ), 1 ),
-            new LootPackItem( typeof( DeathKnightSkull751 ), 1 ),
-            new LootPackItem( typeof( DeathKnightSkull752 ), 1 ),
-            new LootPackItem( typeof( DeathKnightSkull753 ), 1 ),
-            new LootPackItem( typeof( DeathKnightSkull754 ), 1 ),
-            new LootPackItem( typeof( DeathKnightSkull755 ), 1 ),
-            new LootPackItem( typeof( DeathKnightSkull756 ), 1 ),
-            new LootPackItem( typeof( DeathKnightSkull757 ), 1 ),
-            new LootPackItem( typeof( DeathKnightSkull758 ), 1 ),
-            new LootPackItem( typeof( DeathKnightSkull759 ), 1 ),
-            new LootPackItem( typeof( DeathKnightSkull760 ), 1 ),
-            new LootPackItem( typeof( DeathKnightSkull761 ), 1 ),
-            new LootPackItem( typeof( DeathKnightSkull762 ), 1 )
+            new LootPackItem( typeof( BanishSkull ), 1 ),
+            new LootPackItem( typeof( DemonicTouchSkull ), 1 ),
+            new LootPackItem( typeof( DevilPactSkull ), 1 ),
+            new LootPackItem( typeof( GrimReaperSkull ), 1 ),
+            new LootPackItem( typeof( HagHandSkull ), 1 ),
+            new LootPackItem( typeof( HellfireSpell ), 1 ),
+            new LootPackItem( typeof( LucifersBoltSkull ), 1 ),
+            new LootPackItem( typeof( OrbOfOrcusSkull ), 1 ),
+            new LootPackItem( typeof( ShieldOfHateSkull ), 1 ),
+            new LootPackItem( typeof( SoulReaperSkull ), 1 ),
+            new LootPackItem( typeof( StrengthOfSteelSkull ), 1 ),
+            new LootPackItem( typeof( StrikeSkull ), 1 ),
+            new LootPackItem( typeof( SuccubusSkinSkull ), 1 ),
+            new LootPackItem( typeof( WrathSkull ), 1 )
 
         };
         
