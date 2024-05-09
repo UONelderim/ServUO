@@ -3097,6 +3097,7 @@ namespace Server.Gumps
 			private int _DelaySeconds;
 			public ShutdownTimer (bool restart, bool save, int delayMinutes) : base (TimeSpan.FromSeconds(1.0), TimeSpan.FromSeconds(10.0))
 			{
+				Priority = TimerPriority.FiftyMS;
 				_Restart = restart;
 				_Save = save;
 				_DelaySeconds = delayMinutes * 60;
