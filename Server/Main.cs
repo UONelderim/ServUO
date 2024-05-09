@@ -173,18 +173,6 @@ namespace Server
 			}
 		}
 
-		public static bool T2A => Expansion >= Expansion.T2A;
-		public static bool UOR => Expansion >= Expansion.UOR;
-		public static bool UOTD => Expansion >= Expansion.UOTD;
-		public static bool LBR => Expansion >= Expansion.LBR;
-		public static bool AOS => Expansion >= Expansion.AOS;
-		public static bool SE => Expansion >= Expansion.SE;
-		public static bool ML => Expansion >= Expansion.ML;
-		public static bool SA => Expansion >= Expansion.SA;
-		public static bool HS => Expansion >= Expansion.HS;
-		public static bool TOL => Expansion >= Expansion.TOL;
-		public static bool EJ => Expansion >= Expansion.EJ;
-
 		[ConfigProperty("Siege.IsSiege")]
 		public static bool IsSiege
 		{
