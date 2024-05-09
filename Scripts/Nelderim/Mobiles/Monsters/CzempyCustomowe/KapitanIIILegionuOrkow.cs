@@ -11,7 +11,7 @@ namespace Server.Mobiles
 	public class KapitanIIILegionuOrkow : BaseCreature
 	{
 		// 10.10.2012 :: zombie
-		public override double DifficultyScalar { get { return 1.05; } }
+		public override double DifficultyScalar => 1.05;
 		// zombie
 
 		[Constructable]
@@ -66,9 +66,9 @@ namespace Server.Mobiles
 			AddLoot(LootPack.Rich);
 		}
 
-		public override bool BardImmune { get { return !Core.AOS; } }
-		public override Poison PoisonImmune { get { return Poison.Lethal; } }
-		public override int Meat { get { return 2; } }
+		public override bool BardImmune => false;
+		public override Poison PoisonImmune => Poison.Lethal;
+		public override int Meat => 2;
 
 		public override bool IsEnemy(Mobile m)
 		{
@@ -93,8 +93,8 @@ namespace Server.Mobiles
 			}
 		}
 
-		public override bool CanRummageCorpses { get { return true; } }
-		public override bool AutoDispel { get { return true; } }
+		public override bool CanRummageCorpses => true;
+		public override bool AutoDispel => true;
 
 		public override void OnDamagedBySpell(Mobile caster)
 		{

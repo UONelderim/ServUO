@@ -27,7 +27,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 		{
 		}
 
-		public override bool DelayedDamage => !Core.AOS;
+		public override bool DelayedDamage => false;
 
 		public override void OnCast()
 		{
@@ -44,7 +44,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 					{
 						if (Caster != m && m.AccessLevel == AccessLevel.Player &&
 						    SpellHelper.ValidIndirectTarget(Caster, m) && Caster.CanBeHarmful(m, false) &&
-						    (!Core.AOS || Caster.InLOS(m)))
+						    Caster.InLOS(m))
 							targets.Add(m);
 					}
 					eable.Free();

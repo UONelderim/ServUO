@@ -230,11 +230,7 @@ namespace Knives.TownHouses
 			if (house == null)
 				return 0;
 
-			int a, b, c, d;
-
-			return (Core.AOS
-				? house.GetAosMaxSecures() - house.GetAosCurSecures(out a, out b, out c, out d)
-				: house.MaxSecures - house.SecureCount) - AllRentalSecures(house);
+			return house.GetAosMaxSecures() - house.GetAosCurSecures(out _, out _, out _, out _);
 		}
 
 		public static int RemainingLocks(BaseHouse house)
@@ -242,9 +238,7 @@ namespace Knives.TownHouses
 			if (house == null)
 				return 0;
 
-			return (Core.AOS
-				? house.GetAosMaxLockdowns() - house.GetAosCurLockdowns()
-				: house.MaxLockDowns - house.LockDownCount) - AllRentalLocks(house);
+			return house.GetAosMaxLockdowns() - house.GetAosCurLockdowns();
 		}
 
 		public static int AllRentalSecures(BaseHouse house)

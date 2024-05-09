@@ -427,12 +427,6 @@ namespace Server.Misc
 					{
 						Container regs = new BagOfNecroReagents(50);
 
-						if (!Core.AOS)
-						{
-							foreach (var item in regs.Items)
-								item.LootType = LootType.Newbied;
-						}
-
 						PackItem(m, regs);
 
 						if (elf || human)
@@ -638,9 +632,6 @@ namespace Server.Misc
 
 		private static void PackItem(Mobile mobile, Item item)
 		{
-			if (!Core.AOS && item.LootType == LootType.Regular)
-				item.LootType = LootType.Newbied;
-
 			var pack = mobile.Backpack;
 
 			if (pack != null)
@@ -1128,12 +1119,6 @@ namespace Server.Misc
 				case SkillName.Necromancy:
 					{
 						Container regs = new BagOfNecroReagents(50);
-
-						if (!Core.AOS)
-						{
-							foreach (var item in regs.Items)
-								item.LootType = LootType.Newbied;
-						}
 
 						PackItem(m, regs);
 

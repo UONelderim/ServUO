@@ -32,7 +32,7 @@ namespace Server.Spells.DeathKnight
 			{
 				Caster.SendLocalizedMessage( 500237 ); // Target can not be seen.
 			}
-			else if ( Core.AOS && (m.Frozen || m.Paralyzed || (m.Spell != null && m.Spell.IsCasting)) )
+			else if (m.Frozen || m.Paralyzed || (m.Spell != null && m.Spell.IsCasting))
 			{
 				Caster.SendLocalizedMessage( 1061923 ); // The target is already frozen.
 			}

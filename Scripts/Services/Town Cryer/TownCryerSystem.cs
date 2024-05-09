@@ -20,7 +20,7 @@ namespace Server.Services.TownCryer
     {
         public static bool Enabled
 		{
-			get => Config.Get("TownCrier.Enabled", Core.TOL);
+			get => Config.Get("TownCrier.Enabled", true);
 			set
 			{
 				Config.Set("TownCrier.Enabled", value);

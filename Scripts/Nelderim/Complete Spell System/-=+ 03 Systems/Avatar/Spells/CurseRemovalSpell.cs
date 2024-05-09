@@ -167,7 +167,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 		{
 			private readonly AvatarCurseRemovalSpell m_Owner;
 
-			public InternalTarget(AvatarCurseRemovalSpell owner) : base(Core.ML ? 10 : 12, false,
+			public InternalTarget(AvatarCurseRemovalSpell owner) : base(10, false,
 				TargetFlags.Beneficial)
 			{
 				m_Owner = owner;

@@ -3437,21 +3437,9 @@ namespace Server.Network
 			{
 				type = 0;
 			}
-			else if (Core.ML && ns.ExtendedStatus)
-			{
-				type = 6;
-			}
-			else if (Core.ML && ns.SupportsExpansion(Expansion.ML))
-			{
-				type = 5;
-			}
-			else if (Core.AOS)
-			{
-				type = 4;
-			}
 			else
 			{
-				type = 3;
+				type = 6;
 			}
 
 			return new MobileStatus(ns.Mobile, beheld, type, ns.IsEnhancedClient);
@@ -3525,14 +3513,8 @@ namespace Server.Network
 
 				m_Stream.Write(m.TotalGold);
 
-				if (Core.AOS)
-				{
-					m_Stream.Write((short)m.PhysicalResistance);
-				}
-				else
-				{
-					m_Stream.Write((short)(m.ArmorRating + 0.5));
-				}
+
+				m_Stream.Write((short)m.PhysicalResistance);
 
 				m_Stream.Write((short)(Mobile.BodyWeight + m.TotalWeight));
 

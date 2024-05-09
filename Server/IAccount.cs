@@ -12,7 +12,7 @@ namespace Server.Accounting
 	public static class AccountGold
 	{
 		[ConfigProperty("Accounts.VirtualGold")]
-		public static bool Enabled { get => Config.Get("Accounts.VirtualGold", Core.TOL); set => Config.Set("Accounts.VirtualGold", value); }
+		public static bool Enabled { get => Config.Get("Accounts.VirtualGold", true); set => Config.Set("Accounts.VirtualGold", value); }
 
 		/// <summary>
 		/// This amount specifies the value at which point Gold turns to Platinum.

@@ -36,7 +36,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			if (!base.CheckCast())
 				return false;
 
-			if ((Caster.Followers + (Core.SE ? 2 : 1)) > Caster.FollowersMax)
+			if ((Caster.Followers + 2) > Caster.FollowersMax)
 			{
 				Caster.SendLocalizedMessage(1049645); // You have too many followers to summon that creature.
 				return false;
@@ -63,12 +63,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			}
 			else if (SpellHelper.CheckTown(p, Caster) && CheckSequence())
 			{
-				TimeSpan duration;
-
-				if (Core.AOS)
-					duration = TimeSpan.FromSeconds(90.0);
-				else
-					duration = TimeSpan.FromSeconds(Utility.Random(80, 40));
+				var duration = TimeSpan.FromSeconds(90.0);
 
 				BaseCreature.Summon(new DeathVortex(), false, Caster, new Point3D(p), 0x212, duration);
 			}

@@ -70,7 +70,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 		{
 			private readonly AvatarBallSpell m_Owner;
 
-			public InternalTarget(AvatarBallSpell owner) : base(Core.ML ? 10 : 12, false, TargetFlags.Harmful)
+			public InternalTarget(AvatarBallSpell owner) : base(10, false, TargetFlags.Harmful)
 			{
 				m_Owner = owner;
 			}

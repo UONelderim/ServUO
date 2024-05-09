@@ -76,7 +76,7 @@ namespace Server.ACC.CSS.Systems.Undead
 
 		public void Effect(Point3D loc, Map map, bool checkMulti)
 		{
-			if (map == null || (!Core.AOS && Caster.Map != map))
+			if (map == null)
 			{
 				Caster.SendLocalizedMessage(1005569); // You can not recall to another facet.
 			}

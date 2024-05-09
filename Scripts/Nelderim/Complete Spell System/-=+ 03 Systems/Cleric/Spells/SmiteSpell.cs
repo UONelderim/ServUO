@@ -47,18 +47,10 @@ namespace Server.ACC.CSS.Systems.Cleric
 
 				SpellHelper.Turn(Caster, m);
 
-				double damage =
-					(Caster.Skills[SkillName.Healing].Value + (Caster.Skills[SkillName.Anatomy].Value) / 10) *
-					ClericDivineFocusSpell.GetScalar(Caster);
+				var baseDamage = Caster.Skills[SkillName.Healing].Value + (Caster.Skills[SkillName.Anatomy].Value) / 10;
+				var damage = baseDamage * ClericDivineFocusSpell.GetScalar(Caster);
 
-				if (Core.AOS)
-				{
-					SpellHelper.Damage(TimeSpan.Zero, m, Caster, damage, 0, 0, 0, 0, 40);
-				}
-				else
-				{
-					SpellHelper.Damage(TimeSpan.Zero, m, Caster, damage);
-				}
+				SpellHelper.Damage(TimeSpan.Zero, m, Caster, damage, 0, 0, 0, 0, 40);
 			}
 
 			FinishSequence();

@@ -77,14 +77,11 @@ namespace Arya.Auction
 			AddCheck(260, 221, 2510, 2511, false, 1);
 			AddLabel(280, 220, Misc.kLabelHue, AuctionSystem.ST[35]);
 
-			if (Core.AOS)
-			{
-				AddCheck(260, 261, 2510, 2511, false, 9);
-				AddLabel(280, 260, Misc.kLabelHue, AuctionSystem.ST[36]);
+			AddCheck(260, 261, 2510, 2511, false, 9);
+			AddLabel(280, 260, Misc.kLabelHue, AuctionSystem.ST[36]);
 
-				AddCheck(260, 241, 2510, 2511, false, 4);
-				AddLabel(280, 240, Misc.kLabelHue, AuctionSystem.ST[37]);
-			}
+			AddCheck(260, 241, 2510, 2511, false, 4);
+			AddLabel(280, 240, Misc.kLabelHue, AuctionSystem.ST[37]);
 
 			AddCheck(260, 201, 2510, 2511, false, 3);
 			AddLabel(280, 200, Misc.kLabelHue, AuctionSystem.ST[38]);
@@ -107,14 +104,11 @@ namespace Arya.Auction
 			AddCheck(90, 261, 2510, 2511, false, 12);
 			AddLabel(110, 260, Misc.kLabelHue, AuctionSystem.ST[44]);
 
-			if (Core.AOS)
-			{
-				AddCheck(90, 280, 2510, 2511, false, 11);
-				AddLabel(110, 279, Misc.kLabelHue, AuctionSystem.ST[45]);
+			AddCheck(90, 280, 2510, 2511, false, 11);
+			AddLabel(110, 279, Misc.kLabelHue, AuctionSystem.ST[45]);
 
-				AddCheck(260, 280, 2510, 2511, false, 10);
-				AddLabel(280, 279, Misc.kLabelHue, AuctionSystem.ST[46]);
-			}
+			AddCheck(260, 280, 2510, 2511, false, 10);
+			AddLabel(280, 279, Misc.kLabelHue, AuctionSystem.ST[46]);
 
 			// BUTTON 1 : Search
 			AddButton(255, 350, 4005, 4006, 1, GumpButtonType.Reply, 0);

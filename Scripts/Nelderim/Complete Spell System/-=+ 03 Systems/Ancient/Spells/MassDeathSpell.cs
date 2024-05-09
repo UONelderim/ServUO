@@ -29,7 +29,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 		{
 		}
 
-		public override bool DelayedDamage => !Core.AOS;
+		public override bool DelayedDamage => false;
 
 		public override void OnCast()
 		{
@@ -47,7 +47,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 					foreach (Mobile m in eable)
 					{
 						if (Caster != m && SpellHelper.ValidIndirectTarget(Caster, m) &&
-						    Caster.CanBeHarmful(m, false) && (!Core.AOS || Caster.InLOS(m)))
+						    Caster.CanBeHarmful(m, false) && (Caster.InLOS(m)))
 							targets.Add(m);
 					}
 					eable.Free();
@@ -59,12 +59,12 @@ namespace Server.ACC.CSS.Systems.Ancient
 				{
 					Mobile m = (Mobile)targets[i];
 
-					double damage = Core.AOS ? m.Hits - (m.Hits / 3.0) : m.Hits * 0.6;
+					double damage = m.Hits - (m.Hits / 3.0);
 
 					if (!m.Player && damage < 10.0)
 						damage = 10.0;
-					else if (damage > (Core.AOS ? 100.0 : 75.0))
-						damage = Core.AOS ? 100.0 : 75.0;
+					else if (damage > 100.0)
+						damage = 100.0;
 
 					Caster.DoHarmful(m);
 					SpellHelper.Damage(TimeSpan.Zero, m, Caster, damage, 100, 0, 0, 0, 0);

@@ -56,13 +56,6 @@ namespace Server.ACC.CSS.Systems.Ancient
 
 				int damage = Utility.Random(5, 10);
 
-				if (!Core.AOS && m.CheckSkill(SkillName.MagicResist, 0.0, 30.0))
-				{
-					damage = Utility.Random(2, 5);
-
-					m.SendLocalizedMessage(501783); // You feel yourself resisting magical energy.
-				}
-
 				AOS.Damage(m, m_Caster, damage, 0, 100, 0, 0, 0);
 				m.PlaySound(0x1DD);
 			}
@@ -187,13 +180,6 @@ namespace Server.ACC.CSS.Systems.Ancient
 								m_Caster.DoHarmful(m);
 
 								int damage = Utility.Random(5, 10);
-
-								if (!Core.AOS && m.CheckSkill(SkillName.MagicResist, 0.0, 30.0))
-								{
-									damage = Utility.Random(2, 5);
-
-									m.SendLocalizedMessage(501783); // You feel yourself resisting magical energy.
-								}
 
 								AOS.Damage(m, m_Caster, damage, 0, 100, 0, 0, 0);
 								m.PlaySound(0x1DD);

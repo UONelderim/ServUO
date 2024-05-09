@@ -207,16 +207,9 @@ namespace Server.Mobiles
 
 							double damage;
 
-							if (Core.AOS)
-							{
-								int baseDamage = 6 + (int)(Skills[SkillName.EvalInt].Value / 5.0);
+							int baseDamage = 6 + (int)(Skills[SkillName.EvalInt].Value / 5.0);
 
-								damage = Utility.RandomMinMax(baseDamage, baseDamage + 3);
-							}
-							else
-							{
-								damage = Utility.Random(12, 9);
-							}
+							damage = Utility.RandomMinMax(baseDamage, baseDamage + 3);
 
 							m.BoltEffect(0);
 

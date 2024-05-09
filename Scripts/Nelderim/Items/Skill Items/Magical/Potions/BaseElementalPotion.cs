@@ -42,7 +42,7 @@ namespace Server.Items
 
 		public override void Drink(Mobile m)
 		{
-			if (Core.AOS && (m.Paralyzed || m.Frozen || (m.Spell != null && m.Spell.IsCasting)))
+			if (m.Paralyzed || m.Frozen || (m.Spell != null && m.Spell.IsCasting))
 			{
 				m.SendMessage("Nie mozesz rzucic mikstury bedac sparalizowanym!");
 				return;

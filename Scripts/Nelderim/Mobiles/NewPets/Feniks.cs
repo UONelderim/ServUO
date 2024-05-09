@@ -127,7 +127,7 @@ namespace Server.Mobiles
 					foreach (Mobile m in eable)
 					{
 						if (m_from != m && SpellHelper.ValidIndirectTarget(m_from, m) &&
-						    m_from.CanBeHarmful(m, false) && (!Core.AOS || m_from.InLOS(m)))
+						    m_from.CanBeHarmful(m, false) && !m_from.InLOS(m))
 							if (m_from.Controlled || m.Player || m is BaseCreature && ((BaseCreature)m).Controlled)
 								targets.Add(m);
 					}

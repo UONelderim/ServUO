@@ -53,7 +53,7 @@ namespace Server.ACC.CSS.Systems.Undead
 			else if (!SpellHelper.CheckTravel(Caster, TravelCheckType.Mark))
 			{
 			}
-			else if (SpellHelper.CheckMulti(Caster.Location, Caster.Map, !Core.AOS))
+			else if (SpellHelper.CheckMulti(Caster.Location, Caster.Map, false))
 			{
 				Caster.SendLocalizedMessage(501942); // That location is blocked.
 			}

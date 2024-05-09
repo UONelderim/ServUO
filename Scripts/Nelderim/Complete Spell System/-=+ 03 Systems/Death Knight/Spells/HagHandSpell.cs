@@ -157,7 +157,7 @@ namespace Server.Spells.DeathKnight
 		{
 			private HagHandSpell m_Owner;
 
-			public InternalTarget( HagHandSpell owner ) : base( Core.ML ? 10 : 12, false, TargetFlags.Beneficial )
+			public InternalTarget( HagHandSpell owner ) : base(10, false, TargetFlags.Beneficial )
 			{
 				m_Owner = owner;
 			}

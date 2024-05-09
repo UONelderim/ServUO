@@ -6,7 +6,7 @@ namespace Server
 {
     public class BuffInfo
     {
-    	public static bool Enabled => Core.ML;
+    	public static bool Enabled => true;
     	
         public static void Initialize()
         {

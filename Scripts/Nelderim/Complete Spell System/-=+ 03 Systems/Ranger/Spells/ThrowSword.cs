@@ -113,7 +113,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 		{
 			private readonly RangerThrowSwordSpell m_Owner;
 
-			public InternalTarget(RangerThrowSwordSpell owner) : base(Core.ML ? 10 : 12, false, TargetFlags.Harmful)
+			public InternalTarget(RangerThrowSwordSpell owner) : base(10, false, TargetFlags.Harmful)
 			{
 				m_Owner = owner;
 			}

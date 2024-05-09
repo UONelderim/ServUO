@@ -12,7 +12,7 @@ namespace Server.Multis
 		private static readonly DecayStageInfo m_DefaultIDOC = new DecayStageInfo(TimeSpan.FromHours(12), TimeSpan.FromHours(24));
 
 		[ConfigProperty("Housing.DynamicDecay")]
-		public static bool Enabled { get => Config.Get("Housing.DynamicDecay", Core.ML); set => Config.Set("Housing.DynamicDecay", value); }
+		public static bool Enabled { get => Config.Get("Housing.DynamicDecay", true); set => Config.Set("Housing.DynamicDecay", value); }
 
 		[ConfigProperty("Housing.DynamicRangeLikeNew")]
 		public static DecayStageInfo LevelLikeNew { get => Config.Get("Housing.DynamicRangeLikeNew", m_DefaultLikeNew); set => Config.Set("Housing.DynamicRangeLikeNew", value); }
