@@ -1,30 +1,18 @@
-using System;
-using Server;
-using Server.Misc;
 using Server.Mobiles;
-using Server.Items;
 
 namespace Server.Items
 {
     public class SoulLantern : MagicLantern
     {
-        public Mobile owner;
-        public int TrappedSouls;
+	    private int _TrappedSouls;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public Mobile Owner
+        public int TrappedSouls
         {
-            get { return owner; }
-            set { owner = value; }
-        }
-
-        [CommandProperty(AccessLevel.Owner)]
-        public int Trapped_Souls
-        {
-            get { return TrappedSouls; }
+            get => _TrappedSouls;
             set
             {
-                TrappedSouls = value;
+                _TrappedSouls = value;
                 InvalidateProperties();
             }
         }
@@ -42,7 +30,7 @@ namespace Server.Items
         public override void AddNameProperties(ObjectPropertyList list)
         {
             base.AddNameProperties(list);
-            if (this.ItemID == 0xA15)
+            if (ItemID == 0xA15)
             {
                 list.Add(1049644, "Wiezienie dla dusz czystych");
             }
@@ -51,20 +39,20 @@ namespace Server.Items
                 list.Add(1049644, "Wiezienie dla dusz potepionych");
             }
 
-            string sPower = string.Format("{0:n0}", TrappedSouls);
-            if (owner != null)
+            if (Owner != null)
             {
-                list.Add(1070722, "Dusze pochwycone przez " + owner.Name + ": " + sPower + "");
+                list.Add(1070722, $"Dusze pochwycone przez {Owner.Name}: {_TrappedSouls:n0}");
             }
         }
 
         public override void OnAdded(IEntity parent)
         {
-            if (owner == null && parent is Item)
+            if (Owner == null && parent is Item itemParent)
             {
-                Item itemParent = (Item) parent;
-                if (itemParent.RootParent is PlayerMobile)
-                    owner = (Mobile) itemParent.RootParent;
+	            if (itemParent.RootParent is PlayerMobile)
+	            {
+		            Owner = (Mobile)itemParent.RootParent;
+	            }
             }
         }
 
@@ -74,7 +62,7 @@ namespace Server.Items
             if (lantern == this)
             {
                 from.AddToBackpack(this);
-                this.ItemID = 0xA18;
+                ItemID = 0xA18;
                 from.PlaySound(0x4BB);
                 base.OnRemoved(from);
             }
@@ -82,7 +70,7 @@ namespace Server.Items
             {
                 from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
             }
-            else if (this.owner == from)
+            else if (Owner == from)
             {
                 if (from.FindItemOnLayer(Layer.TwoHanded) != null)
                 {
@@ -91,7 +79,7 @@ namespace Server.Items
 
                 from.SendMessage("Wkładasz latarnię do lewej ręki.");
                 from.AddItem(this);
-                this.ItemID = 0xA15;
+                ItemID = 0xA15;
                 from.PlaySound(0x47);
                 base.OnEquip(from);
             }
@@ -109,16 +97,16 @@ namespace Server.Items
         {
             base.Serialize(writer);
             writer.Write((int) 1); // version
-            writer.Write((Mobile) owner);
-            writer.Write(TrappedSouls);
+            writer.Write((Mobile) Owner);
+            writer.Write(_TrappedSouls);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-            owner = reader.ReadMobile();
-            TrappedSouls = reader.ReadInt();
+            Owner = reader.ReadMobile();
+            _TrappedSouls = reader.ReadInt();
         }
 
         public static void OnBeforeDeath(BaseCreature killed)
@@ -136,9 +124,9 @@ namespace Server.Items
                     if (lantern is SoulLantern)
                     {
                         SoulLantern soulLantern = (SoulLantern) lantern;
-                        soulLantern.TrappedSouls += killed.TotalGold;
-                        if (soulLantern.TrappedSouls > 100000)
-                            soulLantern.TrappedSouls = 100000;
+                        soulLantern._TrappedSouls += killed.TotalGold;
+                        if (soulLantern._TrappedSouls > 100000)
+                            soulLantern._TrappedSouls = 100000;
 
                         soulLantern.InvalidateProperties();
 

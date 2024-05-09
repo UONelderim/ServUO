@@ -1,15 +1,11 @@
 using System;
-using System.Collections;
 using Server.Targeting;
-using Server.Network;
-using Server.Mobiles;
-using Server.Items;
 
 namespace Server.Spells.DeathKnight
 {
 	public class StrikeSpell : DeathKnightSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static SpellInfo m_Info = new(
 				"Uderzenie", "Naberius Impetus",
 				230,
 				9022

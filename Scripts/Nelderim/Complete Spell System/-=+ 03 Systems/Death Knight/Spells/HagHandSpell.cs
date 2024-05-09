@@ -1,20 +1,16 @@
 using System;
-using System.Collections;
 using Server.Network;
 using Server.Items;
 using Server.Targeting;
 using Server.Spells.Necromancy;
-using Server.Spells.Chivalry;
 using Server.Spells.Fourth;
-using Server.Mobiles;
 using System.Collections.Generic;
-using Server.Misc;
 
 namespace Server.Spells.DeathKnight
 {
 	public class HagHandSpell : DeathKnightSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static SpellInfo m_Info = new(
 				"Reka Wiedzmy", "Haures Manibus",
 				227,
 				9031

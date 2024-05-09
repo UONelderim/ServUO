@@ -1,14 +1,13 @@
 using System;
 using System.Collections;
 using Server.Network;
-using Server.Mobiles;
 using Server.Targeting;
 
 namespace Server.Spells.DeathKnight
 {
 	public class ShieldOfHateSpell : DeathKnightSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static SpellInfo m_Info = new(
 				"Tarcza Nienawisci", "Bael Odi",
 				236,
 				9011
@@ -57,10 +56,10 @@ namespace Server.Spells.DeathKnight
 
 				ResistanceMod[] mods = new ResistanceMod[4]
 					{
-						new ResistanceMod( ResistanceType.Fire, -10 ),
-						new ResistanceMod( ResistanceType.Poison, -20 ),
-						new ResistanceMod( ResistanceType.Cold, -10 ),
-						new ResistanceMod( ResistanceType.Physical, +80 )
+						new( ResistanceType.Fire, -10 ),
+						new( ResistanceType.Poison, -20 ),
+						new( ResistanceType.Cold, -10 ),
+						new( ResistanceType.Physical, +80 )
 					};
 
 				timer = new ExpireTimer( m, mods, duration );
@@ -77,7 +76,7 @@ namespace Server.Spells.DeathKnight
 			FinishSequence();
 		}
 
-		private static Hashtable m_Table = new Hashtable();
+		private static Hashtable m_Table = new();
 
 		public static bool RemoveCurse( Mobile m )
 		{

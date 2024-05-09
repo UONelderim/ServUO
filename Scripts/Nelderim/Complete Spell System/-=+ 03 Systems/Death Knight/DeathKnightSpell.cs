@@ -1,24 +1,20 @@
 using System;
-using Server;
-using Server.Spells;
 using Server.Network;
-using Server.Mobiles;
 using Server.Items;
-using Server.Misc;
-using System.Collections.Generic;
 using System.Collections;
+using Server.ACC.CSS;
 
 namespace Server.Spells.DeathKnight
 {
-	public abstract class DeathKnightSpell : Spell
+	public abstract class DeathKnightSpell : CSpell
 	{
 		public abstract int RequiredTithing { get; }
 		public abstract double RequiredSkill { get; }
 		public abstract int RequiredMana{ get; }
-		public override bool ClearHandsOnCast { get { return false; } }
-		public override SkillName CastSkill { get { return SkillName.Chivalry; } }
-		public override SkillName DamageSkill { get { return SkillName.Chivalry; } }
-		public override int CastRecoveryBase { get { return 7; } }
+		public override bool ClearHandsOnCast => false;
+		public override SkillName CastSkill => SkillName.Chivalry;
+		public override SkillName DamageSkill => SkillName.Chivalry;
+		public override int CastRecoveryBase => 7;
 
 		public DeathKnightSpell( Mobile caster, Item scroll, SpellInfo info ) : base( caster, scroll, info )
 		{
@@ -161,15 +157,14 @@ namespace Server.Spells.DeathKnight
 
 		public static void DrainSoulsInLantern( Mobile from, int tithing )
 		{
-			ArrayList targets = new ArrayList();
 			foreach ( Item item in World.Items.Values )
 			{
 				if ( item is SoulLantern )
 				{
 					SoulLantern lantern = (SoulLantern)item;
-					if ( lantern.owner == from )
+					if ( lantern.Owner == from )
 					{
-						lantern.TrappedSouls = lantern.TrappedSouls - tithing;
+						lantern.TrappedSouls -= tithing;
 						if ( lantern.TrappedSouls < 1 ){ lantern.TrappedSouls = 0; }
 						lantern.InvalidateProperties();
 					}
@@ -187,7 +182,7 @@ namespace Server.Spells.DeathKnight
 				if ( item is SoulLantern )
 				{
 					SoulLantern lantern = (SoulLantern)item;
-					if ( lantern.owner == from )
+					if ( lantern.Owner == from )
 					{
 						souls = lantern.TrappedSouls;
 					}

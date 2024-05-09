@@ -1,15 +1,12 @@
 using System;
 using System.Collections;
 using Server.Targeting;
-using Server.Network;
-using Server.Mobiles;
-using Server.Items;
 
 namespace Server.Spells.DeathKnight
 {
 	public class SoulReaperSpell : DeathKnightSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static SpellInfo m_Info = new(
 				"Zniwarz Dusz", "Xaphan Spiritum",
 				221,
 				9032
@@ -20,7 +17,7 @@ namespace Server.Spells.DeathKnight
 		public override double RequiredSkill => 45.0;
 		public override int RequiredMana => 40;
 
-		private static Hashtable m_Table = new Hashtable();
+		private static Hashtable m_Table = new();
 
 		public SoulReaperSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
 		{

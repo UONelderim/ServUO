@@ -1,15 +1,13 @@
 using System;
-using Server.Misc;
 using Server.Items;
 using Server.Targeting;
-using Server.Network;
 using Server.Mobiles;
 
 namespace Server.Spells.DeathKnight
 {
 	public class BanishSpell : DeathKnightSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static SpellInfo m_Info = new(
 				"Wygnanie", "Izanami Exsilium",
 				215,
 				9031

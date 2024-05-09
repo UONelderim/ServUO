@@ -1,17 +1,11 @@
 using System;
-using System.Collections;
-using Server;
-using Server.Mobiles;
-using Server.Network;
-using Server.Items;
-using Server.Targeting;
 using Server.Spells.Chivalry;
 
 namespace Server.Spells.DeathKnight
 {
 	public class GrimReaperSpell : DeathKnightSpell
 	{
-		private static SpellInfo m_Info = new SpellInfo(
+		private static SpellInfo m_Info = new(
 			"Ponury Zniwiarz", "Astaroth Mortem",
 			-1,
 			9002
