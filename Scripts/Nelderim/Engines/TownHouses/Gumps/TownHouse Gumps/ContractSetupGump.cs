@@ -480,11 +480,8 @@ namespace Knives.TownHouses
 			{
 				Point3D point = c_Contract.ParentHouse.Sign.Location;
 				c_Contract.SignLoc = new Point3D(point.X, point.Y, point.Z - 5);
-				c_Contract.Secures =
-					Core.AOS ? c_Contract.ParentHouse.GetAosMaxSecures() : c_Contract.ParentHouse.MaxSecures;
-				c_Contract.Locks = Core.AOS
-					? c_Contract.ParentHouse.GetAosMaxLockdowns()
-					: c_Contract.ParentHouse.MaxLockDowns;
+				c_Contract.Secures = c_Contract.ParentHouse.GetAosMaxSecures();
+				c_Contract.Locks = c_Contract.ParentHouse.GetAosMaxLockdowns();
 			}
 
 			Owner.SendMessage("You have finalized this rental contract.  Now find someone to sign it!");

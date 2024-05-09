@@ -26,14 +26,14 @@ namespace Server.Spells.DeathKnight
 
 		public override void OnCast()
 		{
-			/*if ( CheckFizzle() ){*/ Caster.Target = new InternalTarget( this );/* }*/
+			Caster.Target = new InternalTarget( this );
 		}
 
 		public class InternalTarget : Target
 		{
 			private BanishSpell m_Owner;
 
-			public InternalTarget( BanishSpell owner ) : base( Core.ML ? 10 : 12, false, TargetFlags.Harmful )
+			public InternalTarget( BanishSpell owner ) : base(10, false, TargetFlags.Harmful )
 			{
 				m_Owner = owner;
 			}

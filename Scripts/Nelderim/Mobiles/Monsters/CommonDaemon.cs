@@ -45,7 +45,7 @@ namespace Server.Mobiles
 			Karma = -15000;
 
 			VirtualArmor = 58;
-			ControlSlots = Core.SE ? 4 : 5;
+			ControlSlots = 4;
 		}
 
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)

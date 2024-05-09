@@ -678,7 +678,7 @@ namespace Server
 
 		public static bool UseStatInfluences
 		{
-			get => Config.Get("Gains.UseStatInfluences", !Core.AOS);
+			get => Config.Get("Gains.UseStatInfluences", false);
 			set
 			{
 				Config.Set("Gains.UseStatInfluences", value);

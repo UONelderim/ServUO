@@ -51,14 +51,7 @@ namespace Server.ACC.CSS.Systems.Rogue
 
 				double damage = Caster.Skills[SkillName.Hiding].Value;
 
-				if (Core.AOS)
-				{
-					SpellHelper.Damage(TimeSpan.Zero, m, Caster, damage, 0, 0, 0, 0, 40);
-				}
-				else
-				{
-					SpellHelper.Damage(TimeSpan.Zero, m, Caster, damage);
-				}
+				SpellHelper.Damage(TimeSpan.Zero, m, Caster, damage, 0, 0, 0, 0, 40);
 			}
 
 			FinishSequence();

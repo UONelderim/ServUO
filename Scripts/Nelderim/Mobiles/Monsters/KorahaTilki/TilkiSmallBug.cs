@@ -9,7 +9,7 @@ namespace Server.Mobiles
 	[CorpseName("zwloki pomniejszej pustynnej pluskwy")]
 	public class TilkiSmallBug : BaseCreature
 	{
-		public override bool IgnoreYoungProtection { get { return Core.ML; } }
+		public override bool IgnoreYoungProtection => true;
 
 		[Constructable]
 		public TilkiSmallBug() : base(AIType.AI_Melee, FightMode.Closest, 12, 1, 0.2, 0.4)

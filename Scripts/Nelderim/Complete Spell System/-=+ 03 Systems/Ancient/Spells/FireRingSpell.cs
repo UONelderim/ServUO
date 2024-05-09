@@ -1,7 +1,7 @@
 #region References
 
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using Server.Misc;
 using Server.Spells;
 using Server.Targeting;
@@ -171,13 +171,6 @@ namespace Server.ACC.CSS.Systems.Ancient
 
 					int damage = Utility.Random(12, 18);
 
-					if (!Core.AOS && m.CheckSkill(SkillName.MagicResist, 0.0, 30.0))
-					{
-						damage = Utility.Random(6, 10);
-
-						m.SendLocalizedMessage(501783); // You feel yourself resisting magical energy.
-					}
-
 					AOS.Damage(m, m_Caster, damage, 0, 100, 0, 0, 0);
 					m.PlaySound(0x1DD);
 				}
@@ -280,7 +273,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			private readonly Mobile m_Caster;
 			private readonly DateTime m_Duration;
 
-			private static readonly Queue m_Queue = new Queue();
+			private static readonly Queue<Mobile> m_Queue = new ();
 
 			public BurnTimer(Item ap, Mobile ca)
 				: base(TimeSpan.FromSeconds(0.25), TimeSpan.FromSeconds(0.5))
@@ -317,20 +310,14 @@ namespace Server.ACC.CSS.Systems.Ancient
 
 						while (m_Queue.Count > 0)
 						{
-							Mobile m = (Mobile)m_Queue.Dequeue();
-
+							Mobile m = m_Queue.Dequeue();
+							
 							if (m_FireRing.Visible && m_Caster != null &&
 							    SpellHelper.ValidIndirectTarget(m_Caster, m) && m_Caster.CanBeHarmful(m, false))
 							{
 								m_Caster.DoHarmful(m);
 
 								int damage = Utility.Random(5, 8);
-
-								if (!Core.AOS && m.CheckSkill(SkillName.MagicResist, 0.0, 30.0))
-								{
-									damage = Utility.Random(1, 3);
-									m.SendLocalizedMessage(501783); // You feel yourself resisting magical energy.
-								}
 
 								AOS.Damage(m, m_Caster, damage, 0, 100, 0, 0, 0);
 								m.PlaySound(0x1DD);

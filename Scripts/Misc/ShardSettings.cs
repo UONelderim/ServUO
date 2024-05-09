@@ -14,14 +14,7 @@ namespace Server
 
 		public static void Invalidate()
 		{
-			if (Core.AOS)
-			{
-				Mobile.AOSStatusHandler = AOS.GetStatus;
-			}
-			else
-			{
-				Mobile.AOSStatusHandler = null;
-			}
+			Mobile.AOSStatusHandler = AOS.GetStatus;
 		}
     }
 }

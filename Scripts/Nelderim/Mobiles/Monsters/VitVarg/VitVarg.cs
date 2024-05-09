@@ -6,10 +6,10 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-	[CorpseName("zwloki bia³ego wilka")]
+	[CorpseName("zwloki bialego wilka")]
 	public class VitVarg : BaseCreature
 	{
-		public override bool IgnoreYoungProtection => Core.ML;
+		public override bool IgnoreYoungProtection => true;
 
 		[Constructable]
 		public VitVarg() : base(AIType.AI_Mage, FightMode.Closest, 14, 1, 0.2, 0.4)

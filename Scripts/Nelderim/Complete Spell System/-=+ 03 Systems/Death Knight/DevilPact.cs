@@ -31,7 +31,7 @@ namespace Server.Mobiles
 			SetDex( 200 );
 			SetInt( 100 );
 
-			SetHits( ( Core.SE ) ? 140 : 70 );
+			SetHits( 140 );
 			SetStam( 250 );
 			SetMana( 0 );
 

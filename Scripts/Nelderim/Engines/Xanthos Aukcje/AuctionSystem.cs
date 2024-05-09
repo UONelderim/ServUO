@@ -223,13 +223,6 @@ namespace Arya.Auction
 				return;
 			}
 
-			if (!CheckIdentified(item))
-			{
-				from.SendMessage(AuctionConfig.MessageHue, ST[195]);
-				from.Target = new AuctionTarget(OnNewAuctionTarget, -1, false);
-				return;
-			}
-
 			if (!item.Movable)
 			{
 				from.SendMessage(AuctionConfig.MessageHue, ST[205]);
@@ -301,46 +294,6 @@ namespace Arya.Auction
 			}
 
 			return true;
-		}
-
-		/// <summary>
-		///     This check is intended for non-AOS only. It verifies whether the item has an Identified
-		///     property and in that case it it's set to true.
-		/// </summary>
-		/// <param name="item">The item being evaluated</param>
-		/// <remarks>This method always returns true if Core.AOS is set to true.</remarks>
-		/// <returns>True if the item can be auctioned, false otherwise</returns>
-		private static bool CheckIdentified(Item item)
-		{
-			if (Core.AOS)
-				return true;
-
-			PropertyInfo prop = item.GetType().GetProperty("Identified"); // Do not translate this!
-
-			if (prop == null)
-				return true;
-
-			bool identified = true;
-
-			try
-			{
-				identified = (bool)prop.GetValue(item, null);
-			}
-			catch { } // Possibly there's an Identified property whose value is not bool - allow auction of this
-
-			if (identified && item.Items.Count > 0)
-			{
-				foreach (Item child in item.Items)
-				{
-					if (!CheckIdentified(child))
-					{
-						identified = false;
-						break;
-					}
-				}
-			}
-
-			return identified;
 		}
 
 		/// <summary>

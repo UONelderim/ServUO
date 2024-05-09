@@ -46,10 +46,6 @@ namespace Server.ACC.CSS.Systems.Ancient
 				"Bloodmoss, Sulfurous Ash, Mandrake Root, Nightshade", null, 21541, 9270, School.Ancient);
 			Register(typeof(AncientMassDeathSpell), "Mass Death", "Kills everything within the mage's sight",
 				"Bloodmoss, Ginseng, Garlic, Mandrake Root, Nightshade", null, 2285, 9270, School.Ancient);
-			Register(typeof(AncientArmageddonSpell), "Armageddon",
-				"Believed to be so powerful that it may be capable of destroying all known living things in the entire world.",
-				"Bloodmoss, Black Pearl, Mandrake Root, Nightshade, Garlic, Ginseng, Sulfurous Ash, Spider's Silk",
-				null, 2300, 9270, School.Ancient);
 			Register(typeof(AncientFireworksSpell), "Fireworks",
 				"Creates an impressive display of multi-colored moving lights.", "Sulfurous Ash", null, 2282, 9270,
 				School.Ancient);

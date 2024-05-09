@@ -67,7 +67,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 
 		public void Effect(Point3D loc, Map map, bool checkMulti)
 		{
-			if (map == null || (!Core.AOS && Caster.Map != map))
+			if (map == null)
 			{
 				Caster.SendLocalizedMessage(1005570); // You can not gate to another facet.
 			}
@@ -201,7 +201,7 @@ namespace Server.ACC.CSS.Systems.Avatar
 		[DispellableField]
 		private class InternalItem : Moongate
 		{
-			public override bool ShowFeluccaWarning => Core.AOS;
+			public override bool ShowFeluccaWarning => true;
 
 			public InternalItem(Point3D target, Map map) : base(target, map)
 			{

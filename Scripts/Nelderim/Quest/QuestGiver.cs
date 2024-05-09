@@ -213,10 +213,7 @@ namespace Server.Mobiles
 
 						Item item;
 
-						if (Core.AOS)
-							item = Loot.RandomArmorOrShieldOrWeaponOrJewelry();
-						else
-							item = Loot.RandomArmorOrShieldOrWeapon();
+						item = Loot.RandomArmorOrShieldOrWeaponOrJewelry();
 
 						if (item is BaseWeapon)
 						{

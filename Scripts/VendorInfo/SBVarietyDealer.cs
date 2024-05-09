@@ -120,14 +120,11 @@ namespace Server.Mobiles
 				Add(typeof(Harp), 2);
 				Add(typeof(Tambourine), 2);
 
-				if (Core.AOS)
-				{
-					Add(typeof(BatWing), 1);
-					Add(typeof(GraveDust), 1);
-					Add(typeof(DaemonBlood), 1);
-					Add(typeof(NoxCrystal), 1);
-					Add(typeof(PigIron), 1);
-				}
+				Add(typeof(BatWing), 1);
+				Add(typeof(GraveDust), 1);
+				Add(typeof(DaemonBlood), 1);
+				Add(typeof(NoxCrystal), 1);
+				Add(typeof(PigIron), 1);
 
 				Add(typeof(Tongs), 1);
 				Add(typeof(IronIngot), 1);
@@ -197,21 +194,18 @@ namespace Server.Mobiles
 				Add(typeof(Bow), 3);
 				Add(typeof(Crossbow), 3);
 
-				if (Core.AOS)
-				{
-					Add(typeof(CompositeBow), 3);
-					Add(typeof(RepeatingCrossbow), 3);
-					Add(typeof(Scepter), 2);
-					Add(typeof(BladedStaff), 2);
-					Add(typeof(Scythe), 2);
-					Add(typeof(BoneHarvester), 2);
-					Add(typeof(Scepter), 2);
-					Add(typeof(BladedStaff), 2);
-					Add(typeof(Pike), 2);
-					Add(typeof(DoubleBladedStaff), 2);
-					Add(typeof(Lance), 2);
-					Add(typeof(CrescentBlade), 2);
-				}
+				Add(typeof(CompositeBow), 3);
+				Add(typeof(RepeatingCrossbow), 3);
+				Add(typeof(Scepter), 2);
+				Add(typeof(BladedStaff), 2);
+				Add(typeof(Scythe), 2);
+				Add(typeof(BoneHarvester), 2);
+				Add(typeof(Scepter), 2);
+				Add(typeof(BladedStaff), 2);
+				Add(typeof(Pike), 2);
+				Add(typeof(DoubleBladedStaff), 2);
+				Add(typeof(Lance), 2);
+				Add(typeof(CrescentBlade), 2);
 
 				Add(typeof(Spear), 2);
 				Add(typeof(Pitchfork), 2);

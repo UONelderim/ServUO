@@ -11,7 +11,7 @@ namespace Server
 	public sealed class ObjectPropertyList : Packet
 	{
 		[ConfigProperty("General.Tooltips")]
-		public static bool Enabled { get => Config.Get("General.Tooltips", Core.AOS); set => Config.Set("General.Tooltips", value); }
+		public static bool Enabled { get => Config.Get("General.Tooltips", true); set => Config.Set("General.Tooltips", value); }
 
 		private int m_Hash;
 		private int m_Strings;

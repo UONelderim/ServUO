@@ -57,7 +57,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 
 					foreach (Mobile m in eable)
 					{
-						if (Core.AOS && m == Caster)
+						if (m == Caster)
 							continue;
 
 						if (SpellHelper.ValidIndirectTarget(Caster, m) && Caster.CanSee(m))

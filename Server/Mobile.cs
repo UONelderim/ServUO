@@ -755,8 +755,8 @@ namespace Server
 		private Race m_Race;
 		#endregion
 
-		private static readonly TimeSpan WarmodeSpamCatch = TimeSpan.FromSeconds(Core.SE ? 1.0 : 0.5);
-		private static readonly TimeSpan WarmodeSpamDelay = TimeSpan.FromSeconds(Core.SE ? 4.0 : 2.0);
+		private static readonly TimeSpan WarmodeSpamCatch = TimeSpan.FromSeconds(1.0);
+		private static readonly TimeSpan WarmodeSpamDelay = TimeSpan.FromSeconds(4.0);
 
 		private const int WarmodeCatchCount = 4;
 		// Allow four warmode changes in 0.5 seconds, any more will be delay for two seconds
@@ -3697,7 +3697,7 @@ namespace Server
 			return item.OnInventoryDeath(this);
 		}
 
-		public virtual bool RetainPackLocsOnDeath => Core.AOS;
+		public virtual bool RetainPackLocsOnDeath => true;
 
 		public virtual void Kill()
 		{
@@ -4111,7 +4111,7 @@ namespace Server
 		}
 
 		[ConfigProperty("Loot.InsuranceEnabled")]
-		public static bool InsuranceEnabled { get => Config.Get("Loot.InsuranceEnabled", Core.AOS && !Core.IsSiege); set => Config.Get("Loot.InsuranceEnabled", value); }
+		public static bool InsuranceEnabled { get => Config.Get("Loot.InsuranceEnabled", !Core.IsSiege); set => Config.Get("Loot.InsuranceEnabled", value); }
 
 		public virtual void Use(Item item)
 		{
@@ -5039,7 +5039,7 @@ namespace Server
 			}
 		}
 
-		public static VisibleDamageType DefaultVisibleDamageType => Core.AOS ? VisibleDamageType.Related : VisibleDamageType.None;
+		public static VisibleDamageType DefaultVisibleDamageType => VisibleDamageType.Related;
 
 		[ConfigProperty("General.VisibleDamage")]
 		public static VisibleDamageType VisibleDamageType { get => Config.GetEnum("General.VisibleDamage", DefaultVisibleDamageType); set => Config.SetEnum("General.VisibleDamage", value); }
@@ -8774,10 +8774,7 @@ namespace Server
 						}
 					}
 
-					if (Core.SA)
-					{
-						NextActionTime = Core.TickCount + ActionDelay;
-					}
+					NextActionTime = Core.TickCount + ActionDelay;
 
 					OnWarmodeChanged();
 				}
@@ -9092,7 +9089,7 @@ namespace Server
 				return false;
 			}
 
-			if (!m.Alive && (!Core.SE || !(Skills.SpiritSpeak.Value >= 100.0)) && Alive && m_AccessLevel < AccessLevel.Counselor && !m.Warmode)
+			if (!m.Alive && Skills.SpiritSpeak.Value >= 100.0 && Alive && m_AccessLevel < AccessLevel.Counselor && !m.Warmode)
 			{
 				return false;
 			}
@@ -11977,29 +11974,24 @@ namespace Server
 
 		public bool CheckBufferedMessage(int number, bool update)
 		{
-			if (Core.AOS)
+			if (!BufferedMessages.TryGetValue(number, out var expire))
 			{
-				if (!BufferedMessages.TryGetValue(number, out var expire))
-				{
-					return false;
-				}
-
-				var now = Core.TickCount;
-
-				if (now >= expire)
-				{
-					if (update)
-					{
-						BufferedMessages[number] = now + 1000;
-					}
-
-					return false;
-				}
-
-				return true;
+				return false;
 			}
 
-			return false;
+			var now = Core.TickCount;
+
+			if (now >= expire)
+			{
+				if (update)
+				{
+					BufferedMessages[number] = now + 1000;
+				}
+
+				return false;
+			}
+
+			return true;
 		}
 
 		public void SendLocalizedMessage(int number)
@@ -12331,12 +12323,12 @@ namespace Server
 
 		private static readonly string[] m_GuildTypes = { "", " (Chaos)", " (Order)" };
 
-		public static bool DisableHiddenSelfClick => Core.AOS;
+		public static bool DisableHiddenSelfClick => true;
 
-		public static bool AsciiClickMessage => !Core.AOS;
-		public static bool GuildClickMessage => !Core.AOS;
+		public static bool AsciiClickMessage => false;
+		public static bool GuildClickMessage => false;
 
-		public static bool OldPropertyTitles => !Core.AOS;
+		public static bool OldPropertyTitles => false;
 
 		public virtual bool CanTarget => true;
 		public virtual bool ClickTitle => true;
