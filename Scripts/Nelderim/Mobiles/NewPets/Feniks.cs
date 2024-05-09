@@ -1,20 +1,10 @@
-﻿#region References
-
-using System;
-using System.Collections.Generic;
-using Server.Items;
-using Server.Spells;
-
-#endregion
+﻿using Server.Items;
 
 namespace Server.Mobiles
 {
 	[CorpseName("zgliszcza feniksa")]
 	public class Feniks : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.15; } }
-		private Timer m_aoeTimer;
-
 		[Constructable]
 		public Feniks() : base(AIType.AI_Mage, FightMode.Closest, 12, 1, 0.3, 0.4)
 		{
@@ -49,11 +39,10 @@ namespace Server.Mobiles
 			ControlSlots = 5;
 			MinTameSkill = 115.0;
 
-			m_aoeTimer = new AoeTimer(this);
-
 			SetWeaponAbility(WeaponAbility.ParalyzingBlow);
 			SetWeaponAbility(WeaponAbility.BleedAttack);
 			SetSpecialAbility(SpecialAbility.DragonBreath);
+			SetAreaEffect(AreaEffect.AuraDamage);
 		}
 
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)
@@ -74,15 +63,16 @@ namespace Server.Mobiles
 			AddLoot(LootPack.UltraRich, 4);
 		}
 
-		public override bool AutoDispel { get { return !Controlled; } }
+		public override bool AutoDispel => !Controlled;
 
-		public override int TreasureMapLevel { get { return 5; } }
-		public override int Feathers { get { return 36; } }
+		public override int TreasureMapLevel => 5;
+		public override int Feathers => 36;
 		public override int GetIdleSound() { return 0x2EF; }
 		public override int GetAttackSound() { return 0x2EE; }
 		public override int GetAngerSound() { return 0x2EF; }
 		public override int GetHurtSound() { return 0x2F1; }
 		public override int GetDeathSound() { return 0x2F2; }
+
 
 		public Feniks(Serial serial) : base(serial)
 		{
@@ -100,51 +90,6 @@ namespace Server.Mobiles
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
-
-			m_aoeTimer = new AoeTimer(this);
-		}
-
-		private class AoeTimer : Timer
-		{
-			readonly Feniks m_from;
-
-			public AoeTimer(Feniks from) : base(TimeSpan.Zero, TimeSpan.FromSeconds(2))
-			{
-				m_from = from;
-				Start();
-			}
-
-			protected override void OnTick()
-			{
-				if (m_from == null || m_from.Deleted)
-					Stop();
-
-				List<Mobile> targets = new List<Mobile>();
-
-				if (m_from.Map != null && m_from.Map != Map.Internal)
-				{
-					var eable = m_from.GetMobilesInRange(2);
-					foreach (Mobile m in eable)
-					{
-						if (m_from != m && SpellHelper.ValidIndirectTarget(m_from, m) &&
-						    m_from.CanBeHarmful(m, false) && !m_from.InLOS(m))
-							if (m_from.Controlled || m.Player || m is BaseCreature && ((BaseCreature)m).Controlled)
-								targets.Add(m);
-					}
-					eable.Free();
-				}
-
-				for (int i = 0; i < targets.Count; ++i)
-				{
-					Mobile m = targets[i];
-
-					int firedmg = Utility.RandomMinMax(5, 15);
-					AOS.Damage(m, m_from, firedmg, true, 0, 100, 0, 0, 0);
-
-					if (m.Player)
-						m.SendLocalizedMessage(1008112, m_from.Name); // : The intense heat is damaging you!
-				}
-			}
 		}
 	}
 }
