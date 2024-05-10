@@ -110,6 +110,14 @@ namespace Server.Spells.DeathKnight
 				20491,
 				5054,
 				School.DeathKnight);
+			Register(typeof(WeakSpotSpell),
+				"Slaby Punkt",
+				"",
+				"Koszt: 10 Dusz",
+				"Mana: 10; Skill: 15",
+				20491,
+				5054,
+				School.DeathKnight);
 			Register(typeof(WrathSpell),
 				"Gniew",
 				"Powoduje obszarowy atak piorunami w promieniu 5 kratek. Siła zależna od ujemnej karmy.",
