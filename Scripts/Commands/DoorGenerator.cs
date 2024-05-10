@@ -354,8 +354,8 @@ namespace Server
             m_Map = Map.Felucca;
             m_Count = 0;
 
-            for (int i = 0; i < m_BritRegions.Length; ++i)
-                Generate(m_BritRegions[i]);
+            // for (int i = 0; i < m_BritRegions.Length; ++i)
+            //     Generate(m_BritRegions[i]);
 
             int feluccaCount = m_Count;
 
