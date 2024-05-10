@@ -112,7 +112,7 @@ namespace Server.Spells.DeathKnight
 				School.DeathKnight);
 			Register(typeof(WeakSpotSpell),
 				"Slaby Punkt",
-				"",
+				"Zaklina bron powodujac ze bedzie zadawac typ obrazen na ktore wrazliwy jest przeciwnik",
 				"Koszt: 10 Dusz",
 				"Mana: 10; Skill: 15",
 				20491,
