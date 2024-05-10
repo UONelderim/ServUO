@@ -1,19 +1,19 @@
-using Server.Items;
 using System;
-using System.Collections.Generic;
+using Server.Items;
+using Server.Spells.Chivalry;
 
-namespace Server.Spells.Chivalry
+namespace Server.Spells.DeathKnight
 {
-    public class ConsecrateWeaponSpell : PaladinSpell
-    {
-        private static readonly SpellInfo m_Info = new SpellInfo(
-            "Consecrate Weapon", "Consecrus Arma",
-            -1,
-            9002);
+	//ConsecrateWeapon
+	public class WeakSpotSpell : DeathKnightSpell
+	{
+		private static SpellInfo m_Info = new SpellInfo(
+				"Slaby Punkt", "Infirma Macula",
+				-1,
+				9002
+			);
 
-        private static readonly Dictionary<Mobile, ConsecratedWeaponContext> m_Table = new Dictionary<Mobile, ConsecratedWeaponContext>();
-
-        public ConsecrateWeaponSpell(Mobile caster, Item scroll)
+		public WeakSpotSpell(Mobile caster, Item scroll)
             : base(caster, scroll, m_Info)
         {
         }
@@ -22,7 +22,6 @@ namespace Server.Spells.Chivalry
         public override double RequiredSkill => 15.0;
         public override int RequiredMana => 10;
         public override int RequiredTithing => 10;
-        public override int MantraNumber => 1060720;// Consecrus Arma
         public override bool BlocksMovement => false;
         public override void OnCast()
         {
@@ -71,17 +70,17 @@ namespace Server.Spells.Chivalry
 
                 int pkarma = Caster.Karma;
 
-                if (pkarma > 5000)
+                if (pkarma < -5000)
                     seconds = 11.0;
-                else if (pkarma >= 4999)
+                else if (pkarma <= -4999)
                     seconds = 10.0;
-                else if (pkarma >= 3999)
+                else if (pkarma <= -3999)
                     seconds = 9.00;
-                else if (pkarma >= 2999)
+                else if (pkarma <= -2999)
                     seconds = 8.0;
-                else if (pkarma >= 1999)
+                else if (pkarma <= -1999)
                     seconds = 7.0;
-                else if (pkarma >= 999)
+                else if (pkarma <= -999)
                     seconds = 6.0;
                 else
                     seconds = 5.0;
@@ -89,9 +88,9 @@ namespace Server.Spells.Chivalry
                 TimeSpan duration = TimeSpan.FromSeconds(seconds);
                 ConsecratedWeaponContext context;
 
-                if (IsUnderEffects(Caster))
+                if (ConsecrateWeaponSpell.IsUnderEffects(Caster))
                 {
-                    context = GetEffect(Caster);
+                    context = ConsecrateWeaponSpell.GetEffect(Caster);
 
                     if (context.Timer != null)
                     {
@@ -107,96 +106,15 @@ namespace Server.Spells.Chivalry
                 }
 
                 weapon.ConsecratedContext = context;
-                context.Timer = Timer.DelayCall(duration, RemoveEffects, Caster);
+                context.Timer = Timer.DelayCall(duration, ConsecrateWeaponSpell.RemoveEffects, Caster);
 
-                AddEffect(Caster, context);
+                ConsecrateWeaponSpell.AddEffect(Caster, context);
 
-                BuffInfo.AddBuff(Caster, new BuffInfo(BuffIcon.ConsecrateWeapon, 1151385, 1151386, duration, Caster, string.Format("{0}\t{1}", context.ConsecrateProcChance, context.ConsecrateDamageBonus)));
+                BuffInfo.AddBuff(Caster, new BuffInfo(BuffIcon.ConsecrateWeapon, 1151385, 1151386, duration, Caster,
+	                $"{context.ConsecrateProcChance}\t{context.ConsecrateDamageBonus}"));
             }
 
             FinishSequence();
         }
-
-        public static bool IsUnderEffects(Mobile m)
-        {
-            return m_Table.ContainsKey(m);
-        }
-
-        public static void RemoveEffects(Mobile m)
-        {
-            if (m_Table.ContainsKey(m))
-            {
-                ConsecratedWeaponContext context = m_Table[m];
-
-                context.Expire();
-
-                m_Table.Remove(m);
-            }
-        }
-
-        public static ConsecratedWeaponContext GetEffect(Mobile m)
-        {
-	        return m_Table[m];
-        }
-
-        public static void AddEffect(Mobile m, ConsecratedWeaponContext context)
-        {
-	        m_Table[m] = context;
-        }
-    }
-
-    public class ConsecratedWeaponContext
-    {
-        public Mobile Owner { get; private set; }
-        public BaseWeapon Weapon { get; set; }
-
-        public Timer Timer { get; set; }
-
-        public int ConsecrateProcChance
-        {
-            get
-            {
-                if (Owner.Skills.Chivalry.Value >= 80)
-                {
-                    return 100;
-                }
-
-                return (int)Owner.Skills.Chivalry.Value;
-            }
-        }
-
-        public int ConsecrateDamageBonus
-        {
-            get
-            {
-                double value = Owner.Skills.Chivalry.Value;
-
-                if (value >= 90)
-                {
-                    return (int)Math.Truncate((value - 90) / 2);
-                }
-
-                return 0;
-            }
-        }
-
-        public ConsecratedWeaponContext(Mobile owner, BaseWeapon weapon)
-        {
-            Owner = owner;
-            Weapon = weapon;
-        }
-
-        public void Expire()
-        {
-            Weapon.ConsecratedContext = null;
-
-            Effects.PlaySound(Weapon.GetWorldLocation(), Weapon.Map, 0x1F8);
-
-            if (Timer != null)
-            {
-                Timer.Stop();
-                Timer = null;
-            }
-        }
-    }
+	}
 }
