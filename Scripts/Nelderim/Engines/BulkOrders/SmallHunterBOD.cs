@@ -181,7 +181,7 @@ namespace Server.Engines.BulkOrders
 		{
 			base.GetProperties(list);
 			
-			list.Add(1060658, "{0}\t{1}", "Zebrane punkty", $"{CollectedPoints:F2}"); // ~1_val~: ~2_val~
+			list.Add(1060658, "{0}\t{1}", "Zebrane punkty", $"{_CollectedPoints:F2}"); // ~1_val~: ~2_val~
 		}
 
 		public SmallHunterBOD(Serial serial) : base(serial)
