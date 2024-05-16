@@ -21,7 +21,7 @@ namespace Server.Engines.BulkOrders
 		
 		private static double ScalePoints(double difficulty)
 		{
-			return Math.Pow(difficulty, 0.625) * 0.1;
+			return Math.Max(1, Math.Pow(difficulty, 0.625) * 0.1);
 		}
 
 		private double _CollectedPoints;
