@@ -24,22 +24,97 @@ namespace Server.Misc
 	public class AccountHandler
 	{
 		[ConfigProperty("Accounts.ProtectPasswords")]
-		public static PasswordProtection ProtectPasswords { get => Config.GetEnum("Accounts.ProtectPasswords", PasswordProtection.SHA512); set => Config.SetEnum("Accounts.ProtectPasswords", value); }
+		public static PasswordProtection ProtectPasswords
+		{
+			get
+			{
+				return Config.GetEnum("Accounts.ProtectPasswords", PasswordProtection.SHA512);
+			}
+			set
+			{
+				Config.SetEnum("Accounts.ProtectPasswords", value);
+			}
+		}
 
 		[ConfigProperty("Accounts.AccountsPerIp")]
-		public static int MaxAccountsPerIP { get => Config.Get("Accounts.AccountsPerIp", 1); set => Config.Set("Accounts.AccountsPerIp", value); }
+		public static int MaxAccountsPerIP
+		{
+			get
+			{
+				return Config.Get("Accounts.AccountsPerIp", 1);
+			}
+			set
+			{
+				Config.Set("Accounts.AccountsPerIp", value);
+			}
+		}
 
 		[ConfigProperty("Accounts.AutoCreateAccounts")]
-		public static bool AutoAccountCreation { get => Config.Get("Accounts.AutoCreateAccounts", true); set => Config.Set("Accounts.AutoCreateAccounts", value); }
+		public static bool AutoAccountCreation
+		{
+			get
+			{
+				return Config.Get("Accounts.AutoCreateAccounts", true);
+			}
+			set
+			{
+				Config.Set("Accounts.AutoCreateAccounts", value);
+			}
+		}
 
 		[ConfigProperty("Accounts.RestrictDeletion")]
-		public static bool RestrictDeletion { get => Config.Get("Accounts.RestrictDeletion", !TestCenter.Enabled); set => Config.Set("Accounts.RestrictDeletion", value); }
+		public static bool RestrictDeletion
+		{
+			get
+			{
+				return Config.Get("Accounts.RestrictDeletion", !TestCenter.Enabled);
+			}
+			set
+			{
+				Config.Set("Accounts.RestrictDeletion", value);
+			}
+		}
 
 		[ConfigProperty("Accounts.DeleteDelay")]
-		public static TimeSpan DeleteDelay { get => Config.Get("Accounts.DeleteDelay", TimeSpan.FromDays(7.0)); set => Config.Set("Accounts.DeleteDelay", value); }
+		public static TimeSpan DeleteDelay
+		{
+			get
+			{
+				return Config.Get("Accounts.DeleteDelay", TimeSpan.FromDays(7.0));
+			}
+			set
+			{
+				Config.Set("Accounts.DeleteDelay", value);
+			}
+		}
 
 		[ConfigProperty("Accounts.PasswordCommandEnabled")]
-		public static bool PasswordCommandEnabled { get => Config.Get("Accounts.PasswordCommandEnabled", false); set => Config.Set("Accounts.PasswordCommandEnabled", value); }
+		public static bool PasswordCommandEnabled
+		{
+			get
+			{
+				return Config.Get("Accounts.PasswordCommandEnabled", false);
+			}
+			set
+			{
+				Config.Set("Accounts.PasswordCommandEnabled", value);
+			}
+		}
+
+		private static StreamWriter m_Output;
+		
+		private static string GetTimeStamp()
+		{
+			DateTime now = DateTime.Now;
+			return String.Format( "{0}-{1}-{2} {3}:{4:D2}:{5:D2}", now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second );
+		}
+		
+		private static string GetTimeStamp_Short()
+		{
+			DateTime now = DateTime.Now;
+			return String.Format( "{0}-{1}-{2}", now.Year, now.Month, now.Day );
+		}
+		private static StreamWriter writer;
 
 		public static CityInfo[] StartingCities = new CityInfo[]
 		{
@@ -61,7 +136,17 @@ namespace Server.Misc
 			new CityInfo("Royal City", "Royal City Inn", 1150169, 738, 3486, -19, Map.TerMur)
 		};
 
-		public static AccessLevel LockdownLevel { get; set; }
+		public static AccessLevel LockdownLevel
+		{
+			get
+			{
+				return _LockdownLevel1;
+			}
+			set
+			{
+				_LockdownLevel1 = value;
+			}
+		}
 
 		private static readonly char[] m_ForbiddenChars = new char[]
 		{
@@ -69,6 +154,8 @@ namespace Server.Misc
 		};
 
 		private static Dictionary<IPAddress, int> m_IPTable;
+		private static AccessLevel _LockdownLevel;
+		private static AccessLevel _LockdownLevel1;
 
 		public static Dictionary<IPAddress, int> IPTable
 		{
@@ -101,16 +188,37 @@ namespace Server.Misc
 			EventSink.DeleteRequest += EventSink_DeleteRequest;
 			EventSink.AccountLogin += EventSink_AccountLogin;
 			EventSink.GameLogin += EventSink_GameLogin;
+			
+			CommandSystem.Register("Haslo", AccessLevel.Player, new CommandEventHandler(Password_OnCommand));
+    
+			if (!Directory.Exists("Logi"))
+				Directory.CreateDirectory("Logi");
 
-			CommandSystem.Register("Password", AccessLevel.Player, Password_OnCommand);
+			string directory = "Logi/Polaczenia";
+
+			if (!Directory.Exists(directory))
+				Directory.CreateDirectory(directory);
+
+			try
+			{
+				m_Output = new StreamWriter(Path.Combine(directory, String.Format("Polaczenia {0}.log", GetTimeStamp_Short())), true);
+
+				m_Output.AutoFlush = true;
+
+				m_Output.WriteLine("##############################");
+				m_Output.WriteLine("Polaczena z Sesji: {0}", DateTime.Now);
+				m_Output.WriteLine();
+			}
+			catch
+			{
+			}
 		}
 
-		[Usage("Password <newPassword> <repeatPassword>")]
-		[Description("Changes the password of the commanding players account. Requires the same C-class IP address as the account's creator.")]
+
+		[Usage( "Haslo <noweHaslo> <powtorzHaslo>" )]
+		[Description( "Changes the password of the commanding players account. Requires the same C-class IP address as the account's creator." )]
 		public static void Password_OnCommand(CommandEventArgs e)
 		{
-			if (!PasswordCommandEnabled)
-				return;
 
 			var from = e.Mobile;
 			var acct = from.Account as Account;
@@ -130,13 +238,13 @@ namespace Server.Misc
 
 			if (e.Length == 0)
 			{
-				from.SendMessage("You must specify the new password.");
+				from.SendMessage( "Musisz podac nowe haslo." );
 				return;
 			}
 			else if (e.Length == 1)
 			{
-				from.SendMessage("To prevent potential typing mistakes, you must type the password twice. Use the format:");
-				from.SendMessage("Password \"(newPassword)\" \"(repeated)\"");
+				from.SendMessage( "Aby zmienic haslo musisz podac nowe i je powtorzyc. Uzyj komendy wedlug przykladu:" );
+				from.SendMessage( "[Haslo \"(noweHaslo)\" \"(powtorzHaslo)\"" );
 				return;
 			}
 
@@ -145,7 +253,7 @@ namespace Server.Misc
 
 			if (pass != pass2)
 			{
-				from.SendMessage("The passwords do not match.");
+				from.SendMessage( "Podane hasla nie pasuja do siebie." );
 				return;
 			}
 
@@ -156,18 +264,27 @@ namespace Server.Misc
 
 			if (!isSafe)
 			{
-				from.SendMessage("That is not a valid password.");
+				from.SendMessage( "Haslo jest niepoprawne." );
 				return;
 			}
 
 			try
 			{
 				var ipAddress = ns.Address;
+				
+				if( !Directory.Exists( "Logi/Zmiana_Hasla" ) )
+					Directory.CreateDirectory( "Logi/Zmiana_Hasla" );
+				
+				string LogPath = Path.Combine( "Logi/Zmiana_Hasla", String.Format( "Zmiana_Hasla {0}.log", GetTimeStamp_Short() ) );
+				
+				var writer = new StreamWriter(LogPath, true);
+				writer.AutoFlush = true;
+				writer.WriteLine("{0}: Uzytkownik: {1}, z adresu IP: {2} zmienil haslo!", GetTimeStamp(), acct, ipAddress);
 
 				if (Utility.IPMatchClassC(accessList[0], ipAddress))
 				{
 					acct.SetPassword(pass);
-					from.SendMessage("The password to your account has changed.");
+					from.SendMessage("Haslo do twojego konta zostalo zmienione.");
 				}
 				else
 				{
