@@ -131,7 +131,7 @@ namespace Server.Mobiles
 
 		public void RemoveDisguise()
 		{
-			Name = "a bake kitsune";
+			Name = "kitsune";
 			Title = null;
 
 			if (IsBodyMod)
