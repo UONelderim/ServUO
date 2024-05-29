@@ -45,7 +45,7 @@ namespace Server.Items
 
     public class FrostCannonball : Cannonball, ICommodity
     {
-        public override int LabelNumber => 1116267;
+        public override int LabelNumber => 1116762;
 
         TextDefinition ICommodity.Description => LabelNumber;
         bool ICommodity.IsDeedable => true;
@@ -174,7 +174,7 @@ namespace Server.Items
 
     public class HeavyCannonball : Item, ICommodity, ICannonAmmo
     {
-        public override int LabelNumber => 1116267;
+        public override int LabelNumber => 3060036;
         public override double DefaultWeight => 1.0;
 
         TextDefinition ICommodity.Description => LabelNumber;
@@ -217,7 +217,7 @@ namespace Server.Items
 
     public class LightFlameCannonball : Cannonball, ICommodity
     {
-        public override int LabelNumber => 1116759;
+        public override int LabelNumber => 3060039;
 
         TextDefinition ICommodity.Description => LabelNumber;
         bool ICommodity.IsDeedable => true;
@@ -253,7 +253,7 @@ namespace Server.Items
 
     public class HeavyFlameCannonball : Cannonball, ICommodity
     {
-        public override int LabelNumber => 1116267;
+        public override int LabelNumber => 30600376;
 
         TextDefinition ICommodity.Description => LabelNumber;
         bool ICommodity.IsDeedable => true;
@@ -291,7 +291,7 @@ namespace Server.Items
 
     public class LightFrostCannonball : Cannonball, ICommodity
     {
-        public override int LabelNumber => 1116759;
+        public override int LabelNumber => 3060049;
 
         TextDefinition ICommodity.Description => LabelNumber;
         bool ICommodity.IsDeedable => true;
@@ -329,7 +329,7 @@ namespace Server.Items
 
     public class HeavyFrostCannonball : Cannonball, ICommodity
     {
-        public override int LabelNumber => 1116267;
+        public override int LabelNumber => 3060038;
 
         TextDefinition ICommodity.Description => LabelNumber;
         bool ICommodity.IsDeedable => true;
