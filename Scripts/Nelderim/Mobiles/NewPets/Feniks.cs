@@ -3,7 +3,7 @@
 namespace Server.Mobiles
 {
 	[CorpseName("zgliszcza feniksa")]
-	public class Feniks : BaseCreature
+	public class Feniks : BaseCreature, IAuraCreature
 	{
 		[Constructable]
 		public Feniks() : base(AIType.AI_Mage, FightMode.Closest, 12, 1, 0.3, 0.4)
@@ -90,6 +90,14 @@ namespace Server.Mobiles
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
+		}
+
+		public void AuraEffect(Mobile m)
+		{
+			m.FixedParticles(0x374A, 10, 30, 5052, 0x489, 0, EffectLayer.Waist);
+			m.PlaySound(0x5C6);
+
+			m.SendLocalizedMessage(1008112, false, Name); //  : The intense heat is damaging you!
 		}
 	}
 }

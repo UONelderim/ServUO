@@ -21,7 +21,7 @@ namespace Server.Engines.BulkOrders
 		
 		private static double ScalePoints(double difficulty)
 		{
-			return Math.Pow(difficulty, 0.625) * 0.1;
+			return Math.Max(1, Math.Pow(difficulty, 0.625) * 0.1);
 		}
 
 		private double _CollectedPoints;
@@ -181,7 +181,7 @@ namespace Server.Engines.BulkOrders
 		{
 			base.GetProperties(list);
 			
-			list.Add(1060658, "{0}\t{1}", "Zebrane punkty", $"{CollectedPoints:F2}"); // ~1_val~: ~2_val~
+			list.Add(1060658, "{0}\t{1}", "Zebrane punkty", $"{_CollectedPoints:F2}"); // ~1_val~: ~2_val~
 		}
 
 		public SmallHunterBOD(Serial serial) : base(serial)

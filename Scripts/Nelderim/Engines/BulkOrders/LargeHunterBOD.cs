@@ -17,11 +17,6 @@ namespace Server.Engines.BulkOrders
 		
 		public override BulkMaterialType Material => (BulkMaterialType)CollectedPoints;
 
-		private static double ScalePoints(double smallPoints)
-		{
-			return smallPoints * 1.2;
-		}
-		
 		private double _CollectedPoints;
 		
 		[CommandProperty(AccessLevel.GameMaster)]
@@ -113,14 +108,14 @@ namespace Server.Engines.BulkOrders
 		public override void OnEndCombine(SmallBOD small)
 		{
 			if (small is SmallHunterBOD hunterBod)
-				_CollectedPoints += ScalePoints(hunterBod.CollectedPoints);
+				_CollectedPoints += hunterBod.CollectedPoints;
 		}
 		
 		public override void GetProperties(ObjectPropertyList list)
 		{
 			base.GetProperties(list);
 			
-			list.Add(1060658, "{0}\t{1}", "Zebrane punkty", $"{CollectedPoints:F2}"); // ~1_val~: ~2_val~
+			list.Add(1060658, "{0}\t{1}", "Zebrane punkty", $"{_CollectedPoints:F2}"); // ~1_val~: ~2_val~
 		}
 
 		public LargeHunterBOD(Serial serial) : base(serial)
