@@ -7,7 +7,7 @@ namespace Server.Items
 	public partial class StealableArtifactsSpawner : Item
 	{
 		private static readonly StealableEntry[] m_OrigEntries = new StealableEntry[]
-		{
+		{/*
 			// Doom - Artifact rarity 1
 			new StealableEntry(Map.Malas, new Point3D(317, 56, -1), 72, 108, typeof(RockArtifact)),
 			new StealableEntry(Map.Malas, new Point3D(360, 31, 8), 72, 108, typeof(SkullCandleArtifact)),
@@ -247,7 +247,7 @@ namespace Server.Items
 			new StealableEntry(Map.Malas, new Point3D(168, 1609, 0), 9216, 13824, typeof(AcademicBooksArtifact)),
 			new StealableEntry(Map.Malas, new Point3D(165, 1650, 0), 9216, 13824, typeof(AcademicBooksArtifact)),
 			new StealableEntry(Map.Malas, new Point3D(85, 1644, 20), 9216, 13824, typeof(AcademicBooksArtifact)),
-		};
+		*/};
 
 		private static Type[] m_TypesOfEntries = null;
 		private static StealableArtifactsSpawner m_Instance;
