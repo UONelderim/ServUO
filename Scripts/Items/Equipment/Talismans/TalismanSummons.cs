@@ -311,7 +311,7 @@ namespace Server.Mobiles
         [Constructable]
         public SummonedBakeKitsune()
         {
-            Name = "a bake kitsune";
+            Name = "kitsune";
             Body = 246;
 
             SetStr(171, 220);

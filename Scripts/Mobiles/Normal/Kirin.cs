@@ -9,7 +9,7 @@ namespace Server.Mobiles
     {
         [Constructable]
         public Kirin()
-            : this("a ki-rin")
+            : this("ki-rin")
         {
         }
 
