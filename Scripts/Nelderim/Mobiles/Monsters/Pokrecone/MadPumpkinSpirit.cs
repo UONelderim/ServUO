@@ -115,9 +115,12 @@ namespace Server.Mobiles
 
         public override void OnDelete()
         {
-            m_Timer.Stop();
+	        if (m_Timer != null)
+	        {
+		        m_Timer.Stop();
+	        }
 
-            base.OnDelete();
+	        base.OnDelete();
         }
 
         public override void Serialize(GenericWriter writer)
