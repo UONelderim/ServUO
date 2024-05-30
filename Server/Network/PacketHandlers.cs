@@ -2694,7 +2694,7 @@ namespace Server.Network
 				}
 			}
 
-			var race = Race.Races[raceID] ?? Race.DefaultRace;
+			var race = Race.Human;
 
 			skinHue = race.ClipSkinHue(skinHue);
 			hairHue = race.ClipHairHue(hairHue);
