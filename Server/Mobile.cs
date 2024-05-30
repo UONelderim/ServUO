@@ -1051,7 +1051,7 @@ namespace Server
 
 		public virtual void SendPropertiesTo(Mobile from)
 		{
-			from.Send(NGetPropertyList(this));
+			from.Send(NGetPropertyList(from));
 		}
 
 		public virtual void OnAosSingleClick(Mobile from)
@@ -1075,7 +1075,7 @@ namespace Server
 					hue = Notoriety.GetHue(Notoriety.Compute(from, this));
 				}
 
-				from.Send(new MessageLocalized(m_Serial, Body, MessageType.Label, hue, 3, opl.Header, Name, opl.HeaderArgs));
+				from.Send(new MessageLocalized(m_Serial, Body, MessageType.Label, hue, 3, opl.Header, NGetName(from), opl.HeaderArgs));
 			}
 		}
 
@@ -4975,7 +4975,7 @@ namespace Server
 
 						if (ns != null)
 						{
-							regp = Packet.Acquire(new UnicodeMessage(m_Serial, Body, type, hue, 3, m_Language, Name, translated));
+							regp = Packet.Acquire(new UnicodeMessage(m_Serial, Body, type, hue, 3, m_Language, NGetName(ns.Mobile), translated));
 							ns.Send(regp);
 							Packet.Release(regp);
 						}
@@ -4990,7 +4990,7 @@ namespace Server
 						{
 							if (mutp == null)
 							{
-								mutp = Packet.Acquire(new UnicodeMessage(m_Serial, Body, type, hue, 3, m_Language, Name, mutatedText));
+								mutp = Packet.Acquire(new UnicodeMessage(m_Serial, Body, type, hue, 3, m_Language, NGetName(ns.Mobile), mutatedText));
 							}
 
 							ns.Send(mutp);
@@ -6825,12 +6825,12 @@ namespace Server
 
 		public void SayTo(Mobile to, int number)
 		{
-			to.Send(new MessageLocalized(m_Serial, Body, MessageType.Regular, m_SpeechHue, 3, number, Name, ""));
+			to.Send(new MessageLocalized(m_Serial, Body, MessageType.Regular, m_SpeechHue, 3, number, NGetName(to), ""));
 		}
 
 		public void SayTo(Mobile to, int number, string args)
 		{
-			to.Send(new MessageLocalized(m_Serial, Body, MessageType.Regular, m_SpeechHue, 3, number, Name, args));
+			to.Send(new MessageLocalized(m_Serial, Body, MessageType.Regular, m_SpeechHue, 3, number, NGetName(to), args));
 		}
 
 		public void SayTo(Mobile to, int number, int hue)
@@ -10136,7 +10136,7 @@ namespace Server
 
 									if (ViewOPL)
 									{
-										ourState.Send(m.NGetOPLPacket(m));
+										ourState.Send(m.NGetOPLPacket(ourState.Mobile));
 									}
 								}
 							}
@@ -10603,7 +10603,7 @@ namespace Server
 
 						if (mobile.ViewOPL)
 						{
-							state.Send(NGetOPLPacket(mobile));
+							state.Send(NGetOPLPacket(state.Mobile));
 						}
 					}
 				}
@@ -11368,7 +11368,7 @@ namespace Server
 
 				if (sendOPLUpdate)
 				{
-					ourState.Send(NGetOPLPacket(m));
+					ourState.Send(NGetOPLPacket(ourState.Mobile));
 				}
 			}
 
@@ -11515,7 +11515,7 @@ namespace Server
 
 						if (sendOPLUpdate)
 						{
-							state.Send(NGetOPLPacket(m));
+							state.Send(NGetOPLPacket(state.Mobile));
 						}
 					}
 				}
@@ -11687,19 +11687,8 @@ namespace Server
 					NPublicOverheadMessage(type, hue, ascii, text, noLineOfSight);
 					return;
 				}
-				Packet p = null;
-
-				if (ascii)
-				{
-					p = new AsciiMessage(Serial, Body, type, hue, 3, Name, text);
-				}
-				else
-				{
-					p = new UnicodeMessage(Serial, Body, type, hue, 3, m_Language, Name, text);
-				}
-
-				p.Acquire();
-
+				Packet p;
+				
 				var eable = m_Map.GetClientsInRange(m_Location);
 
 				foreach (var state in eable)
@@ -11708,11 +11697,17 @@ namespace Server
 
 					if (mobile != null && mobile.CanSee(this) && (noLineOfSight || mobile.InLOS(this)))
 					{
+						if (ascii)
+						{
+							p = new AsciiMessage(Serial, Body, type, hue, 3, NGetName(mobile), text);
+						}
+						else
+						{
+							p = new UnicodeMessage(Serial, Body, type, hue, 3, m_Language, NGetName(mobile), text);
+						}
 						state.Send(p);
 					}
 				}
-
-				Packet.Release(p);
 
 				eable.Free();
 			}
@@ -11732,8 +11727,6 @@ namespace Server
 		{
 			if (m_Map != null)
 			{
-				var p = Packet.Acquire(new MessageLocalized(Serial, Body, type, hue, 3, number, Name, args));
-
 				var eable = m_Map.GetClientsInRange(m_Location);
 
 				foreach (var state in eable)
@@ -11742,12 +11735,9 @@ namespace Server
 
 					if (mobile != null && mobile.CanSee(this) && (noLineOfSight || mobile.InLOS(this)))
 					{
-						state.Send(p);
+						state.Send(new MessageLocalized(Serial, Body, type, hue, 3, number, NGetName(mobile), args));
 					}
 				}
-
-				Packet.Release(p);
-
 				eable.Free();
 			}
 		}
@@ -11774,27 +11764,15 @@ namespace Server
 					{
 						if (state.IsEnhancedClient)
 						{
-							if (ep == null)
-							{
-								ep = Packet.Acquire(new MessageLocalizedAffix(state, Serial, Body, type, hue, 3, number, Name, affixType, affix, args));
-							}
-
-							state.Send(ep);
+							state.Send(new MessageLocalizedAffix(state, Serial, Body, type, hue, 3, number, NGetName(mobile), affixType, affix, args));
 						}
 						else
 						{
-							if (cp == null)
-							{
-								cp = Packet.Acquire(new MessageLocalizedAffix(Serial, Body, type, hue, 3, number, Name, affixType, affix, args));
-							}
-
-							state.Send(cp);
+							state.Send(new MessageLocalizedAffix(Serial, Body, type, hue, 3, number, NGetName(mobile), affixType, affix, args));
 						}
 					}
 				}
 
-				Packet.Release(ep);
-				Packet.Release(cp);
 
 				eable.Free();
 			}
@@ -11809,11 +11787,11 @@ namespace Server
 
 			if (ascii)
 			{
-				state.Send(new AsciiMessage(Serial, Body, type, hue, 3, Name, text));
+				state.Send(new AsciiMessage(Serial, Body, type, hue, 3, NGetName(state.Mobile), text));
 			}
 			else
 			{
-				state.Send(new UnicodeMessage(Serial, Body, type, hue, 3, m_Language, Name, text));
+				state.Send(new UnicodeMessage(Serial, Body, type, hue, 3, m_Language, NGetName(state.Mobile), text));
 			}
 		}
 
@@ -11824,12 +11802,12 @@ namespace Server
 
 		public void PrivateOverheadMessage(MessageType type, int hue, int number, AffixType affixType, string affix, string args, NetState state)
 		{
-			state?.Send(new MessageLocalizedAffix(state, Serial, Body, type, hue, 3, number, Name, affixType, affix, args));
+			state?.Send(new MessageLocalizedAffix(state, Serial, Body, type, hue, 3, number, NGetName(state.Mobile), affixType, affix, args));
 		}
 
 		public void PrivateOverheadMessage(MessageType type, int hue, int number, string args, NetState state)
 		{
-			state?.Send(new MessageLocalized(Serial, Body, type, hue, 3, number, Name, args));
+			state?.Send(new MessageLocalized(Serial, Body, type, hue, 3, number, NGetName(state.Mobile), args));
 		}
 
 		public void LocalOverheadMessage(MessageType type, int hue, bool ascii, string text)
@@ -11840,11 +11818,11 @@ namespace Server
 			{
 				if (ascii)
 				{
-					ns.Send(new AsciiMessage(Serial, Body, type, hue, 3, Name, text));
+					ns.Send(new AsciiMessage(Serial, Body, type, hue, 3, NGetName(ns.Mobile), text));
 				}
 				else
 				{
-					ns.Send(new UnicodeMessage(Serial, Body, type, hue, 3, m_Language, Name, text));
+					ns.Send(new UnicodeMessage(Serial, Body, type, hue, 3, m_Language, NGetName(ns.Mobile), text));
 				}
 			}
 		}
@@ -11860,7 +11838,7 @@ namespace Server
 
 			if (ns != null)
 			{
-				ns.Send(new MessageLocalized(Serial, Body, type, hue, 3, number, Name, args));
+				ns.Send(new MessageLocalized(Serial, Body, type, hue, 3, number, NGetName(ns.Mobile), args));
 			}
 		}
 
@@ -11873,8 +11851,6 @@ namespace Server
 		{
 			if (m_Map != null)
 			{
-				var p = Packet.Acquire(new MessageLocalized(Serial, Body, type, hue, 3, number, Name, args));
-
 				var eable = m_Map.GetClientsInRange(m_Location);
 
 				foreach (var state in eable)
@@ -11883,12 +11859,9 @@ namespace Server
 
 					if (mobile != null && mobile != this && mobile.CanSee(this))
 					{
-						state.Send(p);
+						state.Send(new MessageLocalized(Serial, Body, type, hue, 3, number, NGetName(mobile), args));
 					}
 				}
-
-				Packet.Release(p);
-
 				eable.Free();
 			}
 		}
@@ -11898,17 +11871,7 @@ namespace Server
 			if (m_Map != null)
 			{
 				Packet p = null;
-
-				if (ascii)
-				{
-					p = new AsciiMessage(Serial, Body, type, hue, 3, Name, text);
-				}
-				else
-				{
-					p = new UnicodeMessage(Serial, Body, type, hue, 3, Language, Name, text);
-				}
-
-				p.Acquire();
+				
 
 				var eable = m_Map.GetClientsInRange(m_Location);
 
@@ -11918,11 +11881,17 @@ namespace Server
 
 					if (mobile != null && mobile != this && mobile.CanSee(this))
 					{
+						if (ascii)
+						{
+							p = new AsciiMessage(Serial, Body, type, hue, 3, NGetName(mobile), text);
+						}
+						else
+						{
+							p = new UnicodeMessage(Serial, Body, type, hue, 3, Language, NGetName(mobile), text);
+						}
 						state.Send(p);
 					}
 				}
-
-				Packet.Release(p);
 
 				eable.Free();
 			}
@@ -12400,7 +12369,7 @@ namespace Server
 				hue = Notoriety.GetHue(Notoriety.Compute(from, this));
 			}
 
-			var name = Name;
+			var name = NGetName(from);
 
 			if (name == null)
 			{
