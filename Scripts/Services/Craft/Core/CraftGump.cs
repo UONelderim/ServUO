@@ -105,7 +105,7 @@ namespace Server.Engines.Craft
 
             // Quest item
             AddButton(270, 422, 4005, 4007, GetButtonID(6, 10), GumpButtonType.Reply, 0);
-            AddHtmlLocalized(305, 425, 150, 18, context != null && context.QuestOption == CraftQuestOption.QuestItem ? 1112534 : 1112533, LabelColor, false, false); // QUEST ITEM
+            AddHtmlLocalized(305, 425, 250, 18, context != null && context.QuestOption == CraftQuestOption.QuestItem ? 1112534 : 1112533, LabelColor, false, false); // QUEST ITEM
             // ****************************************
 
             AddButton(270, 442, 4005, 4007, GetButtonID(6, 2), GumpButtonType.Reply, 0);
