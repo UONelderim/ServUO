@@ -1,7 +1,6 @@
 ﻿#region References
 
 using Server.Accounting;
-using Server.Misc;
 
 #endregion
 
@@ -14,7 +13,6 @@ namespace Server.Commands
 			IAccount iacc = Accounts.GetAccount("owner");
 			// iacc.SetPassword("1234");
 			CommandSystem.Register("FixAccessLevel", AccessLevel.Seer, FixAccessLevel_OnCommand);
-			AccountHandler.LockdownLevel = AccessLevel.VIP;
 			EventSink.Login += args =>
 			{
 				var m = args.Mobile;
