@@ -55,6 +55,7 @@ namespace Server.Mobiles
             if (from.Alive)
             {
                 list.Add(new StableEntry(this, from));
+                list.Add(new PetShrinkEntry(this, from));
 
                 if (from.Stabled.Count > 0)
                 {

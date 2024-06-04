@@ -19,7 +19,7 @@ namespace Server.Gumps
 
 		public virtual string Text
 		{
-			get { return _text; }
+			get => _text;
 			set
 			{
 				_text = value;
@@ -31,7 +31,7 @@ namespace Server.Gumps
 
 		public virtual Point2D Size
 		{
-			get { return _size; }
+			get => _size;
 			set
 			{
 				if (270 > value.X || 120 > value.Y)
@@ -45,20 +45,17 @@ namespace Server.Gumps
 
 		protected void Continue(NetState sender, RelayInfo info)
 		{
-			if (OnContinue != null)
-				OnContinue(sender, info);
+			OnContinue?.Invoke(sender, info);
 		}
 
 		protected void Cancel(NetState sender, RelayInfo info)
 		{
-			if (OnCancel != null)
-				OnCancel(sender, info);
+			OnCancel?.Invoke(sender, info);
 		}
 
 		protected void GumpClosed(NetState sender, RelayInfo info)
 		{
-			if (OnGumpClosed != null)
-				OnGumpClosed(sender, info);
+			OnGumpClosed?.Invoke(sender, info);
 		}
 
 		public GeneralConfirmGump(Action<NetState, RelayInfo> onContinue = null,
@@ -78,8 +75,8 @@ namespace Server.Gumps
 
 			_gump.AddPage(0);
 
-			_gump.X = this.Size.X;
-			_gump.Y = this.Size.Y;
+			_gump.X = Size.X;
+			_gump.Y = Size.Y;
 
 			const int margin = 10;
 

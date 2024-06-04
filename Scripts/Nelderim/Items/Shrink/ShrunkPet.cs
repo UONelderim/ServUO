@@ -1,9 +1,9 @@
 #region References
 
-using System;
+using Server.ContextMenus;
 using Server.Gumps;
-using Server.Helpers;
 using Server.Mobiles;
+using Server.Targeting;
 
 #endregion
 
@@ -11,25 +11,15 @@ namespace Server.Items
 {
 	public class ShrunkPet : Item
 	{
-		private static readonly Cliloc _cliloc = new Cliloc(1070040);
-
 		private static readonly int[] _cost = { 50, 200, 800, 2000, 5000 };
 
 		[CommandProperty(AccessLevel.Counselor)]
-		public virtual bool RequiresAnimalTrainer
-		{
-			get { return true; }
-		}
+		public virtual bool RequiresAnimalTrainer => true;
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public int PetHue
 		{
-			get
-			{
-				if (Pet == null)
-					return 0;
-				return Pet.Hue;
-			}
+			get => Pet?.Hue ?? 0;
 			set
 			{
 				if (Pet != null)
@@ -37,136 +27,43 @@ namespace Server.Items
 			}
 		}
 
-		[CommandProperty(AccessLevel.GameMaster)]
-		public string PetName
-		{
-			get
-			{
-				if (Pet == null)
-					return "";
-				return Pet.Name;
-			}
-			set
-			{
-				if (Pet != null)
-					Pet.Name = value;
-			}
-		}
-
-		[CommandProperty(AccessLevel.GameMaster)]
-		public string PetLabel1
-		{
-			get
-			{
-				if (Pet == null)
-					return "";
-				return Pet.Label1;
-			}
-			set
-			{
-				if (Pet != null)
-					Pet.Label1 = value;
-			}
-		}
-
-		[CommandProperty(AccessLevel.GameMaster)]
-		public string PetLabel2
-		{
-			get
-			{
-				if (Pet == null)
-					return "";
-				return Pet.Label2;
-			}
-			set
-			{
-				if (Pet != null)
-					Pet.Label2 = value;
-			}
-		}
-
-		[CommandProperty(AccessLevel.GameMaster)]
-		public string PetLabel3
-		{
-			get
-			{
-				if (Pet == null)
-					return "";
-				return Pet.Label3;
-			}
-			set
-			{
-				if (Pet != null)
-					Pet.Label3 = value;
-			}
-		}
-
-		// Przydatne tylko w celach debug, w razie gdyby zwierze powiazane ze statuetka zniknelo przechowujemy jego Serial osobno.
-		private Serial m_LastSerial;
-
-		[CommandProperty(AccessLevel.GameMaster)]
-		public int LastSerial
-		{
-			get { return m_LastSerial; }
-		}
-
-		// Aby odroznic statuetki stworzone przed naprawa bledu ze znikajacymi zwierzakami:
-		[CommandProperty(AccessLevel.GameMaster)]
-		public bool Deprecated { get; private set; }
+		// In case pet disappears
+		[CommandProperty(AccessLevel.GameMaster, true)]
+		public Serial LastSerial { get; private set; }
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public BaseCreature Pet
 		{
 			get;
 			private set;
-			/*
-		    set
-		    {
-		        if (m_Pet == value)
-		            return;
-
-		        if (m_Pet != null)
-		            m_Pet.Delete();
-		     
-		        m_LastSerial = value.Serial;
-		        m_Pet = value;
-		    }
-		    */
 		}
 
 		public static void Shrink(BaseVendor trainer, PlayerMobile from, BaseCreature target, bool confirmed = false)
 		{
-			// <workaround na bug z miniatorka nie majaca polaczenia z petem>
-			//from.SendMessage("System zminiaturyzowanych zwierzat chwilowo wylaczony, przepraszamy.");
-			//return;
-			// </workaround>
 			if (from == null)
 				return;
 
-			_cliloc.To = from;
-
 			if (target == null || target.ControlSlots > 5 || 1 > target.ControlSlots || target.Allured)
-				_cliloc[1].Send(); // Nie mozesz tego uwiazac.
+				from.SendLocalizedMessage(1070041); // Nie mozesz tego uwiazac.
 			else if (target.ControlMaster != from)
-				_cliloc[2].Send(); // Musisz kontrolowac istote ktora chcesz uwiazac
+				from.SendLocalizedMessage(1070042); // Musisz kontrolowac istote ktora chcesz uwiazac
 			else if (target.Summoned)
-				_cliloc[3].Send(); // Nie mozesz uwiazac przywolanca.
+				from.SendLocalizedMessage(1070043); // Nie mozesz uwiazac przywolanca.
 			else if (target.Combatant != null && target.InRange(target.Combatant, 20))
-				_cliloc[4].Send(); // Nie mozesz przywiazac zwierzecia ktore walczy
+				from.SendLocalizedMessage(1070044); // Nie mozesz przywiazac zwierzecia ktore walczy
 			else if (target.Hits < target.HitsMax || target.Poisoned)
-				_cliloc[5].Send(); // Nie mozesz przywiaza rannego zwierzecia
-
+				from.SendLocalizedMessage(1070045); // Nie mozesz przywiaza rannego zwierzecia
 			else if ((target is PackLlama || target is PackHorse || target is Beetle)
 			         && target.Backpack != null && target.Backpack.Items.Count > 0)
-				_cliloc[6].Send(); // Wpierw musisz rozladowac jego juki
+				from.SendLocalizedMessage(1070046); // Wpierw musisz rozladowac jego juki
 			else if (!target.IsNearBy(trainer, 5))
-				_cliloc[9].Send(); // Jestes zbyt daleko od tresera zwierzat
+				from.SendLocalizedMessage(1070049); // Jestes zbyt daleko od tresera zwierzat
 			else
 			{
 				int cost = _cost[target.ControlSlots - 1];
 
 				if (from.TotalGold < cost)
-					_cliloc[7].FillWith(cost).Send(); // Nie stac Cie, potrzebujesz {0} zlota
+					from.SendLocalizedMessage(1070047, cost.ToString()); // Nie stac Cie, potrzebujesz {0} zlota
 				else
 				{
 					if (confirmed)
@@ -178,17 +75,16 @@ namespace Server.Items
 							target.Map = Map.Internal;
 							target.Blessed = true;
 
-							_cliloc[8].Send();
+							from.SendLocalizedMessage(1070048);
 						}
 						else
-							_cliloc[7].FillWith(cost).Send(); // Nie stac Cie, potrzebujesz {0} zlota
+							from.SendLocalizedMessage(1070047, cost.ToString()); // Nie stac Cie, potrzebujesz {0} zlota
 					}
 					else
 					{
 						var g = new GeneralConfirmGump();
-						g.Text = String.Format(
-							"Usluga bedzie Cie kosztowac {0} centarow.<br /> Po pomniejszeniu zwierze straci pamiec. Czy jestes pewien ze chcesz to zrobic?",
-							cost);
+						g.Text =
+							$"Usluga bedzie Cie kosztowac {cost} centarow.<br /> Po pomniejszeniu zwierze straci pamiec. Czy jestes pewien ze chcesz to zrobic?";
 						g.Size = new Point2D(300, 160);
 						g.OnContinue += (ns, ri) => Shrink(trainer, from, target, true);
 						from.SendGump(g);
@@ -203,37 +99,22 @@ namespace Server.Items
 			{
 				Pet.Delete();
 				Pet = null;
-				m_LastSerial = Serial.Zero;
+				LastSerial = Serial.Zero;
 			}
 
 			if (newPet != null)
 			{
 				Pet = newPet;
-				m_LastSerial = newPet.Serial;
-				Deprecated = false;
-				this.Hue = PetHue;
+				LastSerial = newPet.Serial;
+				Hue = PetHue;
 				ItemID = ShrinkTable.Lookup(Pet.Body);
 			}
 		}
 
 		public override void OnDelete()
 		{
-			if (Pet != null)
-				Pet.Delete();
-
+			Pet?.Delete();
 			base.OnDelete();
-		}
-
-		// Separate pet from the statue to avoid deleting pet along with the statue
-		// Call this method to avoid deleting pet in ShrunkPet.Delete()
-		public void DetachPet()
-		{
-			Pet = null;
-		}
-
-		protected ShrunkPet()
-		{
-			Name = "Statuetka zwierzecia";
 		}
 
 		public ShrunkPet(BaseCreature pet) : base(ShrinkTable.Lookup(pet.Body))
@@ -252,24 +133,19 @@ namespace Server.Items
 		{
 			if (Pet == null || Pet.Deleted)
 			{
-				// Na wszelki wypadek.
-				// Ponadto, statuetki utworzone przed naprawa bledu ze znikajacymi petami pozostaly puste.
 				from.SendMessage(
 					"Wyglada na to, ze dusza tego zwierzecia zdolala sie uwolnic ze statuetki jakis czas temu.");
-
 				return;
 			}
 
-			_cliloc.To = from;
-
-			if (!this.IsChildOf(from.Backpack))
-				_cliloc[11].Send(); // Przedmiot musi znajdowac sie w Twoim plecaku
+			if (!IsChildOf(from.Backpack))
+				from.SendLocalizedMessage(1070051); // Przedmiot musi znajdowac sie w Twoim plecaku
 			else if (!Pet.CanBeControlledBy(from))
-				_cliloc[12].Send(); // Nie potrafisz zapanowac nad ta istota
+				from.SendLocalizedMessage(1070052); // Nie potrafisz zapanowac nad ta istota
 			else if (Pet.ControlSlots + from.Followers > from.FollowersMax)
-				_cliloc[13].Send(); // Masz zbyt wiele zwierzat pod swoja opieka
+				from.SendLocalizedMessage(1070053); // Masz zbyt wiele zwierzat pod swoja opieka
 			else if (!from.Alive)
-				_cliloc[14].Send(); // Nie mozesz tego zrobic gdy jestes duchem
+				from.SendLocalizedMessage(1070054); // Nie mozesz tego zrobic gdy jestes duchem
 			else
 			{
 				if (from.IsNearBy(typeof(AnimalTrainer)) || !RequiresAnimalTrainer)
@@ -281,13 +157,13 @@ namespace Server.Items
 
 					OnAfterUnshrink();
 
-					DetachPet(); // Separate pet from the statue to avoid deleting pet along with the statue
-					this.Delete();
+					Pet = null; // Separate pet from the statue to avoid deleting pet along with the statue
+					Delete();
 
-					_cliloc[15].Send(); // Powiekszyles zwierze
+					from.SendLocalizedMessage(1070055); // Powiekszyles zwierze
 				}
 				else
-					_cliloc[9].Send(); // Jestes zbyt daleko od tresera zwierzat
+					from.SendLocalizedMessage(1070049); // Jestes zbyt daleko od tresera zwierzat
 			}
 		}
 
@@ -295,13 +171,8 @@ namespace Server.Items
 		{
 			base.GetProperties(list);
 
-			if (Deprecated)
-				list.Add("(Przestarzaly przedmiot)");
-
 			if (Pet == null || Pet.Deleted)
 			{
-				// Na wszelki wypadek.
-				// Ponadto, statuetki utworzone przed naprawa bledu ze znikajacymi petami pozostaly puste.
 				list.Add("(Pusta statuetka)");
 				return;
 			}
@@ -313,31 +184,69 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			int version = 2;
-			writer.Write(version);
+			writer.Write(3); //version
+
 			writer.Write(Pet);
-			writer.Write(Deprecated);
-			writer.Write(m_LastSerial.Value);
+			writer.Write(LastSerial.Value);
 		}
 
 		public override void Deserialize(GenericReader reader)
 		{
 			base.Deserialize(reader);
 
-			int version = reader.ReadInt();
+			var version = reader.ReadInt();
 			Pet = (BaseCreature)reader.ReadMobile();
 
-			Deprecated = true;
-			if (version >= 2)
+			if (version < 3)
 			{
-				Deprecated = reader.ReadBool();
-				m_LastSerial = reader.ReadSerial();
+				reader.ReadBool(); //Deprecated prop
 			}
+
+			LastSerial = reader.ReadSerial();
 		}
 
-		public ShrunkPet(Serial serial)
-			: base(serial)
+		public ShrunkPet(Serial serial) : base(serial)
 		{
+		}
+	}
+
+	public class PetShrinkEntry : ContextMenuEntry
+	{
+		private BaseVendor m_Trainer;
+		private Mobile m_From;
+
+		public PetShrinkEntry(BaseVendor trainer, Mobile from)
+			: base(6065, 12)
+		{
+			m_Trainer = trainer;
+			m_From = from;
+		}
+
+		public override void OnClick()
+		{
+			if (!Owner.From.CheckAlive())
+				return;
+
+			if (m_Trainer.CheckVendorAccess(m_From))
+			{
+				m_From.SendLocalizedMessage(1070058);
+				m_From.Target = new ShrinkTarget(m_Trainer);
+			}
+		}
+	}
+
+	public class ShrinkTarget : Target
+	{
+		private readonly BaseVendor m_Trainer;
+
+		public ShrinkTarget(BaseVendor trainer) : base(12, false, TargetFlags.None)
+		{
+			m_Trainer = trainer;
+		}
+
+		protected override void OnTarget(Mobile from, object targeted)
+		{
+			ShrunkPet.Shrink(m_Trainer, from as PlayerMobile, targeted as BaseCreature);
 		}
 	}
 }

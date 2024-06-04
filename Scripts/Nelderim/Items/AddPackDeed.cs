@@ -30,7 +30,7 @@ namespace Server.Items
 			}
 
 			from.SendLocalizedMessage(cliloc + 2); // Wskaz zwierze do ktorego chcesz dodac pakunki.
-			from.Target = new GeneralTarget(2, false, TargetFlags.None, this.OnTarget);
+			from.BeginTarget(2, false, TargetFlags.None, OnTarget);
 		}
 
 		public void OnTarget(Mobile from, object targeted)
