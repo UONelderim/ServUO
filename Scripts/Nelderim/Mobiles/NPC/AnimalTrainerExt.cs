@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using Server.Targets;
+using Server.Items;
 
 namespace Server.Mobiles
 {
 	public partial class AnimalTrainer
 	{
-		private static List<OnSpeechEntry> _OnSpeechActions = new List<OnSpeechEntry>
+		private static List<OnSpeechEntry> _OnSpeechActions = new()
 		{
 			new OnSpeechEntry("opiek", (m, from) =>
 			{
