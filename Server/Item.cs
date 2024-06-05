@@ -6689,6 +6689,8 @@ Circle375
 			{
 				newItem.MoveToWorld(GetWorldLocation(), m_Map);
 			}
+			newItem.IsLockedDown = IsLockedDown;
+			newItem.IsSecure = IsSecure;
 
 			Delete();
 		}
