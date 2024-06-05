@@ -72,10 +72,10 @@ namespace Server.Services.TownCryer
 					break;
 			}
 
-			AddButton(275, 598, Category == GumpCategory.News ? 0x5F6 : 0x5F5, 0x5F6, 1, GumpButtonType.Reply, 0);
-			AddButton(355, 598, Category == GumpCategory.EventModerator ? 0x5F4 : 0x5F3, 0x5F4, 2, GumpButtonType.Reply, 0);
-			AddButton(435, 598, Category == GumpCategory.City ? 0x5F8 : 0x5F7, 0x5F8, 3, GumpButtonType.Reply, 0);
-			AddButton(515, 598, Category == GumpCategory.Guild ? 0x5F2 : 0x5F1, 0x5F2, 4, GumpButtonType.Reply, 0);
+			// AddButton(275, 598, Category == GumpCategory.News ? 0x5F6 : 0x5F5, 0x5F6, 1, GumpButtonType.Reply, 0);
+			// AddButton(355, 598, Category == GumpCategory.EventModerator ? 0x5F4 : 0x5F3, 0x5F4, 2, GumpButtonType.Reply, 0);
+			// AddButton(435, 598, Category == GumpCategory.City ? 0x5F8 : 0x5F7, 0x5F8, 3, GumpButtonType.Reply, 0);
+			// AddButton(515, 598, Category == GumpCategory.Guild ? 0x5F2 : 0x5F1, 0x5F2, 4, GumpButtonType.Reply, 0);
 		}
 
 		private void BuildNewsPage()

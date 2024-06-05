@@ -597,10 +597,10 @@ namespace Server.Mobiles
 
         public override void OnDoubleClick(Mobile from)
         {
-            if (from is PlayerMobile && TownCryerSystem.Enabled)
-            {
-                BaseGump.SendGump(new TownCryerGump((PlayerMobile)from, this));
-            }
+            // if (from is PlayerMobile && TownCryerSystem.Enabled)
+            // {
+            //     BaseGump.SendGump(new TownCryerGump((PlayerMobile)from, this));
+            // }
 
             if (from.AccessLevel >= AccessLevel.GameMaster)
             {
