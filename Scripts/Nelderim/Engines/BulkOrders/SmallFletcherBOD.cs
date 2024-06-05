@@ -265,6 +265,7 @@ namespace Server.Engines.BulkOrders
 					m_Material2 = (BulkMaterialType)reader.ReadInt();
 					break;
 			}
+			ReplaceWith(new SmallFletchingBOD(AmountCur, AmountMax, Type, Number, Graphic, RequireExceptional, Material, GraphicHue));
 		}
 	}
 }

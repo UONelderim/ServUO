@@ -115,6 +115,7 @@ namespace Server.Engines.BulkOrders
 					m_Material2 = (BulkMaterialType)reader.ReadInt();
 					break;
 			}
+			ReplaceWith(new LargeFletchingBOD(AmountMax, RequireExceptional, Material, Entries));
 		}
 
 		public override int ComputeGold()
