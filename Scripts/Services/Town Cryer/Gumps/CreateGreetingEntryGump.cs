@@ -35,7 +35,7 @@ namespace Server.Services.TownCryer
 
 			var headline = _Headline;
 
-			if (Entry?.Title.IsEmpty != true)
+			if (Entry?.Title.IsEmpty == false)
 			{
 				headline = Entry.Title.ToString();
 			}
