@@ -107,7 +107,7 @@ namespace Server.Mobiles
 
 		public override bool UseRealName(Mobile m)
 		{
-			return base.UseRealName(m) || ControlMaster == null || ControlMaster == m;
+			return m != null && m.IsStaff() || ControlMaster == null || ControlMaster == m;
 		}
 
 		public override string DefaultName => "zwierze";
