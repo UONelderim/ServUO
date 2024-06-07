@@ -748,5 +748,10 @@ namespace Server.Mobiles
                 states[1] = index + 1;
             }
         }
+        
+        public override bool UseRealName(Mobile m)
+        {
+	        return true;
+        }
     }
 }
