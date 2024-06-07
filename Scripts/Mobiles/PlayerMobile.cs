@@ -2381,6 +2381,18 @@ namespace Server.Mobiles
                 {
                     list.Add(new CallbackEntry(1113797, EnablePvpWarning));
                 }
+
+                if (Young)
+                {
+	                list.Add(new CallbackEntry(3010029,
+		                () =>
+		                {
+			                if (!HasGump(typeof(RenounceYoungGump)))
+			                {
+				                SendGump(new RenounceYoungGump());
+			                }
+		                }));
+                }
             }
             else
             {
