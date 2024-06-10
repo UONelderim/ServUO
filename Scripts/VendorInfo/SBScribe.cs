@@ -28,23 +28,23 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo(typeof(BrownBook), 15, 50, 0xFEF, 0));
 				Add(new GenericBuyInfo(typeof(TanBook), 15, 50, 0xFF0, 0));
 				Add(new GenericBuyInfo(typeof(BlueBook), 15, 50, 0xFF2, 0));
-				Add(new GenericBuyInfo("1041267", typeof(Runebook), 35000, 10, 0xEFA, 0x461));
+				//Add(new GenericBuyInfo("1041267", typeof(Runebook), 35000, 10, 0xEFA, 0x461));
 
 				AddRange(SBMage.MageryScrolls);
 				AddRange(SBNecromancer.NecromancerSpells);
 				AddRange(SBKeeperOfChivalry.ChivalryScrolls);
 				AddRange(SBKeeperOfBushido.BushidoScrolls);
 				AddRange(SBKeeperOfNinjitsu.NinjitsuScrolls);
-				AddRange(SBSpellWeaver.SpellweaverSpells);
+				//AddRange(SBSpellWeaver.SpellweaverSpells);
 				//!Mistyk!
 				// AddRange(SBMystic.MysticSpells);
 
-				Add(new GenericBuyInfo(typeof(Spellbook), 200, 20, 0x23A0, 0));
-				Add(new GenericBuyInfo(typeof(NecromancerSpellbook), 300, 20, 0x23A0, 0));
+				Add(new GenericBuyInfo(typeof(Spellbook), 200, 20, 3834, 0));
+				Add(new GenericBuyInfo(typeof(NecromancerSpellbook), 300, 20, 8787, 0));
 				Add(new GenericBuyInfo(typeof(BookOfChivalry), 350, 20, 0x23A0, 0));
 				Add(new GenericBuyInfo(typeof(BookOfBushido), 350, 20, 0x238C, 0));
 				Add(new GenericBuyInfo(typeof(BookOfNinjitsu), 350, 20, 0x23A0, 0));
-				Add(new GenericBuyInfo(typeof(SpellweavingBook), 400, 20, 0x2D50, 0));
+				//Add(new GenericBuyInfo(typeof(SpellweavingBook), 400, 20, 0x2D50, 0));
 				//!Mistyk!
 				// Add(new GenericBuyInfo(typeof(MysticBook), 400, 20, 0x2D9D, 0));
 			}
