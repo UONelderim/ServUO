@@ -1879,30 +1879,30 @@ namespace Server.Mobiles
 			{
 				if (buyer.AccessLevel >= AccessLevel.GameMaster)
 				{
-					SayTo(buyer, 0x3B2, "I would not presume to charge thee anything.  Here are the goods you requested.", null, true);
+					SayTo(buyer, 0x3B2, "Nie ma mowy bym wzial do Ciebie jakikolwiek pieniadz. Prosze, oto Twe zakupy!", null, true);
 				}
 				else if (fromBank)
 				{
-					SayTo(buyer, 0x3B2, "The total of thy purchase is {0} gold, which has been withdrawn from your bank account.  My thanks for the patronage.", totalCost.ToString(), true);
+					SayTo(buyer, 0x3B2, "Suma Twych zakupow wynosi {0} zlota i zostala popbrana z Twego konta bankowego.  Dziekuje za Twe wsparcie.", totalCost.ToString(), true);
 				}
 				else
 				{
-					SayTo(buyer, String.Format("The total of thy purchase is {0} gold.  My thanks for the patronage.", totalCost), 0x3B2, true);
+					SayTo(buyer, String.Format("Suma Twych zakupow wynosi {0} zlota.  Dziekuje za Twe wsparcie.", totalCost), 0x3B2, true);
 				}
 			}
 			else
 			{
 				if (buyer.AccessLevel >= AccessLevel.GameMaster)
 				{
-					SayTo(buyer, 0x3B2, "I would not presume to charge thee anything.  Unfortunately, I could not sell you all the goods you requested.", null, true);
+					SayTo(buyer, 0x3B2, "INie ma mowy bym wzial do Ciebie jakikolwiek pieniadz. Prosze, oto Twe zakupy!", null, true);
 				}
 				else if (fromBank)
 				{
-					SayTo(buyer, 0x3B2, "The total of thy purchase is {0} gold, which has been withdrawn from your bank account.  My thanks for the patronage.  Unfortunately, I could not sell you all the goods you requested.", totalCost.ToString(), true);
+					SayTo(buyer, 0x3B2, "Suma Twych zakupow wynosi {0} zlota, jednakze nie moge sprzedac Ci dobr, o ktore prosisz...", totalCost.ToString(), true);
 				}
 				else
 				{
-					SayTo(buyer, 0x3B2, "The total of thy purchase is {0} gold.  My thanks for the patronage.  Unfortunately, I could not sell you all the goods you requested.", totalCost.ToString(), true);
+					SayTo(buyer, 0x3B2, "Suma Twych zakupow wynosi {0} zlota, jednakze nie moge sprzedac Ci dobr, o ktore prosisz..", totalCost.ToString(), true);
 				}
 			}
 
