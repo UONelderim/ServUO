@@ -47,11 +47,11 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo(typeof(HeatingStand), 50, 100, 0x1849, 0));
 				Add(new GenericBuyInfo("1041060", typeof(HairDye), 1000, 100, 0xEFF, 0));
 
-				if (m.Map != Map.TerMur)
+				/*if (m.Map != Map.TerMur)
 				{
 					Add(new GenericBuyInfo(typeof(HairDye), 37, 10, 0xEFF, 0));
 				}
-				else if (m is Zosilem)
+				else*/ if (m is Zosilem)
 				{
 					//  Add(new GenericBuyInfo(typeof(GlassblowingBook), 10637, 30, 0xFF4, 0));
 					Add(new GenericBuyInfo(typeof(SandMiningBook), 10637, 30, 0xFF4, 0));
