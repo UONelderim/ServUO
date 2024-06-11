@@ -19,8 +19,8 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo(typeof(MapmakersPen), 30, 50, 0x0FBF, 0));
 				Add(new GenericBuyInfo(typeof(BlankMap), 10, 50, 0x14EC, 0));
 
-				for (int i = 0; i < PresetMapEntry.Table.Length; ++i)
-					Add(new PresetMapBuyInfo(PresetMapEntry.Table[i], Utility.RandomMinMax(7, 10), 20));
+			//	for (int i = 0; i < PresetMapEntry.Table.Length; ++i)
+			//		Add(new PresetMapBuyInfo(PresetMapEntry.Table[i], Utility.RandomMinMax(7, 10), 20));
 			}
 		}
 
