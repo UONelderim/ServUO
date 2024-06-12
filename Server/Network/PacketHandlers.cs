@@ -2594,7 +2594,8 @@ namespace Server.Network
 
 			for (var i = 0; i < skills.Length; i++)
 			{
-				skills[i] = new SkillNameValue((SkillName)pvSrc.ReadByte(), pvSrc.ReadByte());
+				skills[i] = new SkillNameValue((SkillName)pvSrc.ReadByte(), 0);
+				pvSrc.ReadByte(); //Skill value from client
 			}
 
 			var cityIndex = 0;
