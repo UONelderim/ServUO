@@ -783,6 +783,10 @@ namespace Server
 				if (res == 0)
 				{
 					res = ChildLevel.CompareTo(reg.ChildLevel) * -1;
+					if (res == 0 && Name != null)
+					{
+						res = Name.CompareTo(reg.Name) * -1;
+					}
 				}
 			}
 
