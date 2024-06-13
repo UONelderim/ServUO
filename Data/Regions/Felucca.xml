@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ServerRegions>
 	<Facet name="Felucca">
 		<region type="GreenAcres" priority="100" name="GreenAcres">
@@ -132,34 +132,34 @@
 			<rect x="1180" y="2936" width="30" height="16" />
 			<rect x="2119" y="568" width="232" height="90" />
 		</region>
-		<region type="RaceRoomRegion" priority="10" name="RaceRoomNone" room="None">
+		<region type="RaceRoomRegion" priority="10" name="RaceRoomNone">
 			<rect x="5125" y="179" width="46" height="88" />
 			<rect x="5169" y="200" width="20" height="48" />
 			<go x="5176" y="231" z="0" />
 			<music name="Nujelm" />
 			<logoutDelay active="false" />
 		</region>
-		<region type="RaceRoomRegion" priority="20" name="RaceRoomCzlowiek" room="Czlowiek">
+		<region type="RaceRoomRegion" priority="20" name="RaceRoomCzlowiek">
 			<rect x="5136" y="220" width="16" height="21" />
 			<go x="5149" y="229" z="0" />
 			<logoutDelay active="false" />
 		</region>
-		<region type="RaceRoomRegion" priority="20" name="RaceRoomElf" room="Elf">
+		<region type="RaceRoomRegion" priority="20" name="RaceRoomElf">
 			<rect x="5161" y="203" width="15" height="21" />
 			<go x="5168" y="218" z="0" />
 			<logoutDelay active="false" />
 		</region>
-		<region type="RaceRoomRegion" priority="20" name="RaceRoomKrasnolud" room="Krasnolud">
+		<region type="RaceRoomRegion" priority="20" name="RaceRoomKrasnolud">
 			<rect x="5127" y="198" width="25" height="19" />
 			<go x="5148" y="210" z="0" />
 			<logoutDelay active="false" />
 		</region>
-		<region type="RaceRoomRegion" priority="20" name="RaceRoomDrow" room="Drow">
+		<region type="RaceRoomRegion" priority="20" name="RaceRoomDrow">
 			<rect x="5142" y="181" width="20" height="14" />
 			<go x="5156" y="192" z="0" />
 			<logoutDelay active="false" />
 		</region>
-		<region type="RaceRoomRegion" priority="20" name="RaceRoomTeleport" room="Teleport">
+		<region type="RaceRoomRegion" priority="20" name="RaceRoomTeleport">
 			<rect x="5148" y="244" width="16" height="18" />
 			<go x="5156" y="247" z="0" />
 			<logoutDelay active="false" />
@@ -3411,7 +3411,7 @@
 		</region>
 		<region type="CityRegion" name="L'Delmah">
 			<rect x="5142" y="1899" width="272" height="240" />
-			<go x="5362" y="2086" z="20"/>
+			<go x="5362" y="2086" z="20" />
 		</region>
 		<region priority="100" name="SwiatyniaLoethe_2">
 			<rect x="5365" y="1926" width="21" height="37" />
@@ -10266,13 +10266,16 @@
 			<rect x="5833" y="58" width="36" height="38" />
 			<music name="Taiko" />
 		</region>
-		<region type="MiningRegion" priority="100" name="L'Delmah_Kopalnia">
+		<region type="MiningRegion" priority="99" name="L'Delmah_Kopalnia">
 			<rect x="5836" y="1913" width="118" height="71" />
 			<rect x="5851" y="1984" width="90" height="15" />
 			<rect x="5864" y="1999" width="77" height="15" />
 			<rect x="5866" y="2014" width="55" height="7" />
 			<rect x="5880" y="2021" width="41" height="11" />
 			<go x="5933" y="1991" z="0" />
+		</region>
+		<region type="CanEnterRegion" priority="100" name="CannotEnterRegion_Tasandora"> 
+			<rect x="1502" y="1705" width="168" height="247" />
 		</region>
 	</Facet>
 </ServerRegions>
