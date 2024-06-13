@@ -423,6 +423,10 @@
 	<region name="L'Delmah_Kopalnia" parent="MiastoDrowow"/>
 	<region name="SwiatyniaLoethe_2" parent="Podmrok_A"/>
 	<region name="KarczmaDrowow" parent="Podmrok_A"/>	
+	
+	<region name="CannotEnter" parent="Default"/>
+
+
 
 	<region name="ArtTrader" parent="Default">
 		<races None="100" Tamael="0" Jarling="0" Naur="0" Elf="0" Drow="0" Krasnolud="0" Female="0.5"/>
