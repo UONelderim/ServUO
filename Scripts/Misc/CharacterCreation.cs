@@ -1,6 +1,7 @@
 #region References
 using System;
 using System.Data;
+using Nelderim;
 using Server.Accounting;
 using Server.Items;
 using Server.Mobiles;
@@ -234,6 +235,8 @@ namespace Server.Misc
 
 			var city = AccountHandler.StartingCities[0];
 			var map = Map.Trammel;
+
+			newChar.LanguagesKnown[Language.Powszechny] = 1000;
 
 			newChar.MoveToWorld(city.Location, map);
 
