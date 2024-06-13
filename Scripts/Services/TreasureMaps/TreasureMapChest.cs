@@ -356,7 +356,7 @@ namespace Server.Items
             }
             #endregion
 
-            #region Imbuing Ingreds
+            /*#region Imbuing Ingreds
             if (level > 1)
             {
                 Item item = Loot.Construct(m_ImbuingIngreds[Utility.Random(m_ImbuingIngreds.Length)]);
@@ -364,7 +364,7 @@ namespace Server.Items
                 item.Amount = level;
                 cont.DropItem(item);
             }
-            #endregion
+            #endregion*/
 
             Item arty = null;
             Item special = null;
