@@ -63,7 +63,7 @@ namespace Server
 			}
 		}
 
-		public virtual Dictionary<Language, ushort> DefaultLanguages => new Dictionary<Language, ushort>();
+		public virtual Dictionary<Language, ushort> DefaultLanguages => new() { { Language.Powszechny, 1000 } };
 	}
 
 	public enum Cases

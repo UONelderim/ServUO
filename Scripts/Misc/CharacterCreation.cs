@@ -236,8 +236,6 @@ namespace Server.Misc
 			var city = AccountHandler.StartingCities[0];
 			var map = Map.Trammel;
 
-			newChar.LanguagesKnown[Language.Powszechny] = 1000;
-
 			newChar.MoveToWorld(city.Location, map);
 
 			Utility.WriteLine(ConsoleColor.Green, "Login: {0}: New character being created (account={1})", state, args.Account.Username);
