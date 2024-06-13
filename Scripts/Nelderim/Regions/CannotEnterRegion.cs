@@ -1,20 +1,15 @@
 #region References
 
-using System;
 using System.Xml;
-using Server;
-using Server.Mobiles;
-using Server.Nelderim;
-using Server.Regions;
-using System.Text.RegularExpressions;
+using Server.Spells;
 
 #endregion
 
 namespace Server.Regions
 {
-	public class CanEnterRegion : NelderimRegion
+	public class CannotEnterRegion : NelderimRegion
 	{
-		public CanEnterRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent)
+		public CannotEnterRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent)
 		{
 		}
 
@@ -35,6 +30,11 @@ namespace Server.Regions
 			}
 
 			return base.CanEnter(e);
+		}
+
+		public override bool CheckTravel(Mobile m, Point3D p, TravelCheckType type)
+		{
+			return m.IsStaff();
 		}
 	}
 }

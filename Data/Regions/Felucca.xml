@@ -10242,7 +10242,7 @@
 			<rect x="5880" y="2021" width="41" height="11" />
 			<go x="5933" y="1991" z="0" />
 		</region>
-		<region type="CanEnterRegion" priority="100" name="CannotEnterRegion_Tasandora"> 
+		<region type="CannotEnterRegion" priority="100" name="CannotEnterRegion_Tasandora"> 
 			<rect x="1502" y="1705" width="168" height="247" />
 		</region>
 	</Facet>
