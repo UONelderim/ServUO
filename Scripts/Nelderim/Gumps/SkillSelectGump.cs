@@ -7,19 +7,28 @@ namespace Server.Nelderim.Gumps
 {
 	public class SkillSelectGump : Gump
 	{
-		public static readonly SkillName[] ExcludedSkills =
+		public static readonly SkillName[] DefaultExcludedSkills =
 		{
 			SkillName.ItemID, SkillName.TasteID, SkillName.Begging, SkillName.Spellweaving, SkillName.Mysticism,
 			SkillName.Imbuing
 		};
 
-		private Action<SkillInfo> _callback;
-
-		public SkillSelectGump(Action<SkillInfo> callback) : this(callback, ExcludedSkills)
+		public struct SkillSelectConfiguration
 		{
+			public string Prompt = "Wybierz umiejetnosc";
+			public Action CancelCallback = null;
+			public int[] ExcludedSkills = DefaultExcludedSkills.Select(s => (int)s).ToArray();
+			public int[] DisabledSkills = Array.Empty<int>();
+
+			public SkillSelectConfiguration()
+			{
+			}
 		}
-		
-		public SkillSelectGump(Action<SkillInfo> callback, SkillName[] excludedSkills) : base(0, 0)
+
+		private Action<SkillInfo> _callback;
+		private SkillSelectConfiguration _config;
+
+		public SkillSelectGump(Action<SkillInfo> callback, SkillSelectConfiguration config = default) : base(0, 0)
 		{
 			int ENTRY_WIDTH = 200;
 			int ENTRY_HEIGHT = 25;
@@ -31,6 +40,7 @@ namespace Server.Nelderim.Gumps
 			int BUTTON_SIZE = 25;
 
 			_callback = callback;
+			_config = config;
 
 			Closable = true;
 			Disposable = true;
@@ -44,7 +54,7 @@ namespace Server.Nelderim.Gumps
 				MARGIN * 2 + TEXT_HEIGHT + PADDING * 2 + ROWS * ENTRY_HEIGHT,
 				9200
 			);
-			AddLabel(MARGIN, MARGIN, 1153, "Wybierz umiejetnosc");
+			AddLabel(MARGIN, MARGIN, 1153, config.Prompt);
 			AddBackground(
 				MARGIN,
 				MARGIN + TEXT_HEIGHT,
@@ -55,27 +65,36 @@ namespace Server.Nelderim.Gumps
 
 			var x = 0;
 			var y = 0;
-			for (var index = 0; index < SkillInfo.Table.Length; index++)
+			var filteredSkills = SkillInfo.Table.Where(s => !config.ExcludedSkills.Contains(s.SkillID));
+			var sortedSkills = filteredSkills.OrderBy(s => s.Name).ToArray();
+			foreach (var skill in sortedSkills)
 			{
-				if (excludedSkills.Contains((SkillName)index))
+				if (config.DisabledSkills.Contains(skill.SkillID))
 				{
-					continue;
+					AddImage(
+						MARGIN + PADDING + x * ENTRY_WIDTH,
+						MARGIN + PADDING + TEXT_HEIGHT + y * ENTRY_HEIGHT,
+						211
+					);
+				}
+				else
+				{
+					AddButton(
+						MARGIN + PADDING + x * ENTRY_WIDTH,
+						MARGIN + PADDING + TEXT_HEIGHT + y * ENTRY_HEIGHT,
+						210,
+						211,
+						skill.SkillID + 1,
+						GumpButtonType.Reply,
+						0
+					);
 				}
 
-				AddButton(
-					MARGIN + PADDING + x * ENTRY_WIDTH,
-					MARGIN + PADDING + TEXT_HEIGHT + y * ENTRY_HEIGHT,
-					210,
-					211,
-					index + 1,
-					GumpButtonType.Reply,
-					0
-				);
 				AddLabel(
 					MARGIN + PADDING + BUTTON_SIZE + x * ENTRY_WIDTH,
 					MARGIN + PADDING + TEXT_HEIGHT + y * ENTRY_HEIGHT,
 					0,
-					SkillInfo.Table[index].Name
+					skill.Name
 				);
 				y++;
 				if (y >= ROWS)
@@ -92,7 +111,7 @@ namespace Server.Nelderim.Gumps
 			var button = info.ButtonID;
 			if (button == 0)
 			{
-				m.SendMessage("Wybor anulowany");
+				_config.CancelCallback?.Invoke();
 				return;
 			}
 

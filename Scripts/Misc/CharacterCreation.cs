@@ -187,8 +187,8 @@ namespace Server.Misc
 
 			AddBackpack(newChar);
 
-			SetStats(newChar, state, args.Stats, args.Profession);
-			SetSkills(newChar, args.Skills, args.Profession);
+			// SetStats(newChar, state, args.Stats, args.Profession);
+			// SetSkills(newChar, args.Skills, args.Profession);
 
 			if (race.ValidateHair(newChar, args.HairID))
 			{
