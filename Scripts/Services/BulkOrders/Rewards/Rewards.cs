@@ -1363,7 +1363,7 @@ namespace Server.Engines.BulkOrders
 			RewardCollection.Add(new BODCollectionItem(0x0f52, 3060062, 0x482, 25, AncientScribingTool, 1 ));
 			RewardCollection.Add(new BODCollectionItem(0x0f52, 3060063, 0x482, 50, AncientScribingTool, 3 ));
 			RewardCollection.Add(new BODCollectionItem(0x0f52, 3060064, 0x482, 150, AncientScribingTool, 5 ));
-			RewardCollection.Add(new BODCollectionItem(0x0FBF, 3060066, 0, 200, ScribesDesk));
+			RewardCollection.Add(new BODCollectionItem(0xA8E8, 3060066, 0, 200, ScribesDesk));
 			RewardCollection.Add(new BODCollectionItem(0x2831, 1156443, 0, 210, Recipe, 3));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2741, 250, NaturalDye, 3));
             RewardCollection.Add(new BODCollectionItem(0x9E28, 1157264, 0, 275, CraftsmanTalisman, 10));
