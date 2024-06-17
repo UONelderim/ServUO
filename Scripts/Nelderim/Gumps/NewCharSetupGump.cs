@@ -251,8 +251,9 @@ namespace Server.Nelderim.Gumps
 				if (info.ButtonID == 2)
 				{
 					_From.InitStats(_Info.NewStr, _Info.NewDex, _Info.NewInt);
-					foreach (var infoSkill in _Info.Skills)
+					for (var index = 0; index < 3; index++)
 					{
+						var infoSkill = _Info.Skills[index];
 						var skill = _From.Skills[infoSkill];
 
 						if (skill != null)
