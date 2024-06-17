@@ -1688,13 +1688,13 @@ namespace Server.Engines.BulkOrders
 			RewardCollection.Add(new BODCollectionItem(0x2FB7, "kolczan", 0, 600, Equiver));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157224, CraftResources.GetHue(CraftResource.AshWood), 650, CreateRunicFletcherTools, 1));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152681, CraftResources.GetHue(CraftResource.Frostwood), 750, WoodsmansTalisman, (int)CraftResource.Frostwood));
-            RewardCollection.Add(new BODCollectionItem(0x13f7, 1049802, 0x482, 750, AncientTool,10));
-            RewardCollection.Add(new BODCollectionItem(0x13f7, 1049802, 0x482, 850, AncientTool,15));
+            RewardCollection.Add(new BODCollectionItem(0x13f7, 3060067, 0x482, 750, AncientTool,10));
+            RewardCollection.Add(new BODCollectionItem(0x13f7, 3060068, 0x482, 850, AncientTool,15));
       //    RewardCollection.Add(new BODCollectionItem(0x14EC, 1152672, CraftResources.GetHue(CraftResource.Frostwood), 950, HarvestMap, (int)CraftResource.Frostwood));
-			RewardCollection.Add(new BODCollectionItem(0x13f7, 1049802, 0x482, 950, AncientTool,30));
+			RewardCollection.Add(new BODCollectionItem(0x13f7, 3060069, 0x482, 950, AncientTool,30));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157225, CraftResources.GetHue(CraftResource.YewWood), 1000, CreateRunicFletcherTools, 2));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157226, CraftResources.GetHue(CraftResource.Heartwood), 1100, CreateRunicFletcherTools, 3));
-            RewardCollection.Add(new BODCollectionItem(0x13f7, 1049802, 0x482, 1100, AncientTool,60));
+            RewardCollection.Add(new BODCollectionItem(0x13f7, 3060070, 0x482, 1100, AncientTool,60));
         }
         
         private static Item CreateSturdyAxe(int type) {
