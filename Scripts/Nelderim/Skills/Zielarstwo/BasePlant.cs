@@ -143,7 +143,7 @@ namespace Server.Items.Crops
 				list.Add("obfite");
 
 			if (m_IsFertilized)
-				list.Add("wzmocnione nawozem");
+				list.Add(3010199);
 		}
 
 		public BasePlant(int itemID) : base(itemID)
