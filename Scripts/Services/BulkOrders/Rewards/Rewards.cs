@@ -298,18 +298,18 @@ namespace Server.Engines.BulkOrders
                 RewardCollection.Add(new BODCollectionItem(0x13E3, 1157094, CraftResources.GetHue(CraftResource.Copper), 650, RunicHammer, 3));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157106, 0x481, 675, PowerScroll, 10));
                 RewardCollection.Add(new BODCollectionItem(0x13E3, 1157095, CraftResources.GetHue(CraftResource.Bronze), 700, RunicHammer, 4));
-                RewardCollection.Add(new BODCollectionItem(0x13E3, 1157101, 0x482, 750, AncientHammer, 10));
+                RewardCollection.Add(new BODCollectionItem(0x13E3, 1049028, 0x482, 750, AncientHammer, 10));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157107, 0x481, 800, PowerScroll, 15));
-                RewardCollection.Add(new BODCollectionItem(0x13E3, 1157102, 0x482, 850, AncientHammer, 15));
+                RewardCollection.Add(new BODCollectionItem(0x13E3, 1049029, 0x482, 850, AncientHammer, 15));
                // RewardCollection.Add(new BODCollectionItem(0x14EC, 1152666, CraftResources.GetHue(CraftResource.Agapite), 850, HarvestMap, (int)CraftResource.Agapite));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157108, 0x481, 900, PowerScroll, 20));
                 RewardCollection.Add(new BODCollectionItem(0x9E2A, 1157265, 0, 900, CraftsmanTalisman, 50));
                 RewardCollection.Add(new BODCollectionItem(0x13E3, 1157096, CraftResources.GetHue(CraftResource.Gold), 950, RunicHammer, 5));
                // RewardCollection.Add(new BODCollectionItem(0x14EC, 1152667, CraftResources.GetHue(CraftResource.Verite), 950, HarvestMap, (int)CraftResource.Verite));
-                RewardCollection.Add(new BODCollectionItem(0x13E3, 1157103, 0x482, 1000, AncientHammer, 30));
+                RewardCollection.Add(new BODCollectionItem(0x13E3, 1049030, 0x482, 1000, AncientHammer, 30));
                 RewardCollection.Add(new BODCollectionItem(0x13E3, 1157097, CraftResources.GetHue(CraftResource.Agapite), 1050, RunicHammer, 6));
                // RewardCollection.Add(new BODCollectionItem(0x14EC, 1152668, CraftResources.GetHue(CraftResource.Valorite), 1050, HarvestMap, (int)CraftResource.Valorite));
-                RewardCollection.Add(new BODCollectionItem(0x13E3, 1157104, 0x482, 1100, AncientHammer, 60));
+                RewardCollection.Add(new BODCollectionItem(0x13E3, 1049031, 0x482, 1100, AncientHammer, 60));
                 RewardCollection.Add(new BODCollectionItem(0x13E3, 1157098, CraftResources.GetHue(CraftResource.Verite), 1150, RunicHammer, 7));
                 RewardCollection.Add(new BODCollectionItem(0x13E3, 1157099, CraftResources.GetHue(CraftResource.Valorite), 1200, RunicHammer, 8));
             }
@@ -653,16 +653,16 @@ namespace Server.Engines.BulkOrders
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157118, 0x481, 400, PowerScroll, 5));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157112, 0, 400, Tapestry));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157113, 0, 450, BearRug));
-                RewardCollection.Add(new BODCollectionItem(0x0f52, 1049803, 0x482, 450, AncientSewingKit, 10 ));
+                RewardCollection.Add(new BODCollectionItem(0x0f52, 3060050, 0x482, 450, AncientSewingKit, 10 ));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157119, 0x481, 500, PowerScroll, 10));
-                RewardCollection.Add(new BODCollectionItem(0x0f52, 1049803, 0x482, 550, AncientSewingKit, 15 ));
+                RewardCollection.Add(new BODCollectionItem(0x0f52, 3060051, 0x482, 550, AncientSewingKit, 15 ));
                 RewardCollection.Add(new BODCollectionItem(0x14EF, "Duza Dekoracja", 0x482, 550, DecorGreater));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157114, 0, 550, ClothingBlessDeed));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157120, 0x481, 575, PowerScroll, 15));
                 RewardCollection.Add(new BODCollectionItem(0xF9D, 1157116, CraftResources.GetHue(CraftResource.HornedLeather), 600, RunicKit, 2));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157121, 0x481, 650, PowerScroll, 20));
-                RewardCollection.Add(new BODCollectionItem(0x0f52, 1049803, 0x482, 650, AncientSewingKit, 30 ));
-                RewardCollection.Add(new BODCollectionItem(0x0f52, 1049803, 0x482, 675, AncientSewingKit, 60 ));
+                RewardCollection.Add(new BODCollectionItem(0x0f52, 3060052, 0x482, 650, AncientSewingKit, 30 ));
+                RewardCollection.Add(new BODCollectionItem(0x0f52, 3060053, 0x482, 675, AncientSewingKit, 60 ));
                 RewardCollection.Add(new BODCollectionItem(0xF9D, 1157117, CraftResources.GetHue(CraftResource.BarbedLeather), 700, RunicKit, 3));
             }
             else
@@ -1360,6 +1360,9 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x0FBF, 1157219, 0, 10, ScribesPen));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157194, 0, 25, RewardTitle, 13));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157195, 0, 50, RewardTitle, 14));
+			RewardCollection.Add(new BODCollectionItem(0x0f52, 3060062, 0x482, 25, AncientScribingTool, 1 ));
+			RewardCollection.Add(new BODCollectionItem(0x0f52, 3060063, 0x482, 50, AncientScribingTool, 3 ));
+			RewardCollection.Add(new BODCollectionItem(0x0f52, 3060064, 0x482, 150, AncientScribingTool, 5 ));
 			RewardCollection.Add(new BODCollectionItem(0x2831, 1156443, 0, 210, Recipe, 3));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2741, 250, NaturalDye, 3));
             RewardCollection.Add(new BODCollectionItem(0x9E28, 1157264, 0, 275, CraftsmanTalisman, 10));
@@ -1399,6 +1402,16 @@ namespace Server.Engines.BulkOrders
         {
 	        return new InscriptionPowderOfTemperament(type);
         }
+        
+        private static readonly ConstructCallback AncientScribingTool = new ConstructCallback(CreateAncientScribingTool);
+        
+        private static Item CreateAncientScribingTool(int type) {
+	        if (type == 1 || type == 3 || type == 5)
+		        return new AncientScribingTool(type);
+
+	        throw new InvalidOperationException();
+        }
+
 
         #endregion
         
@@ -1491,9 +1504,12 @@ namespace Server.Engines.BulkOrders
 
             RewardCollection.Add(new BODCollectionItem(0x97F, 1157219, 0, 10, Skillet));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157197, 0, 25, RewardTitle, 13));
+			RewardCollection.Add(new BODCollectionItem(0x13C6, 3060055, 0, 25, CookingGloves, 1));
             RewardCollection.Add(new BODCollectionItem(0x2831, 1031233, 0, 25, Recipe, 4));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157198, 0, 50, RewardTitle, 14));
+	        RewardCollection.Add(new BODCollectionItem(0x13C6, 3060057, 0, 50, CookingGloves, 3));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157199, 0, 210, RewardTitle, 15));
+			RewardCollection.Add(new BODCollectionItem(0x13C6, 3060059, 0, 210, CookingGloves, 5));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157264, 0, 250, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157218, 0, 300, CraftsmanTalisman, 25));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157265, 0, 350, CraftsmanTalisman, 50));
@@ -1531,6 +1547,19 @@ namespace Server.Engines.BulkOrders
             }
 
             return null;
+        }
+        
+        private static readonly ConstructCallback CookingGloves = CreateCookingGloves;
+        private static Item CreateCookingGloves(int type)
+        {
+	        if (type == 1)
+		        return new LeatherGlovesOfCooking(1);
+	        else if (type == 3)
+		        return new StuddedGlovesOfCooking(3);
+	        else if (type == 5)
+		        return new RingmailGlovesOfCooking(5);
+
+	        throw new InvalidOperationException();
         }
 
         #endregion
