@@ -6,7 +6,7 @@ using Server.Engines.Craft;
 
 namespace Server.Items
 {
-	[FlipableAttribute(0x0f51, 0x0f52)]
+	[Flipable(0x0f51, 0x0f52)]
 	public class AncientScribingTool : BaseTool
 	{
 		private int m_Bonus;
@@ -67,8 +67,8 @@ namespace Server.Items
 			m_SkillMod = null;
 		}
 
-		public override CraftSystem CraftSystem { get { return DefTailoring.CraftSystem; } }
-		public override int LabelNumber { get { return 3060061; } } // starozytne narzedzia skryby
+		public override CraftSystem CraftSystem => DefInscription.CraftSystem;
+		public override int LabelNumber => 3060061; // starozytne narzedzia skryby
 
 		[Constructable]
 		public AncientScribingTool(int bonus) : this(bonus, 600)
@@ -89,7 +89,7 @@ namespace Server.Items
 			base.GetProperties(list);
 
 			if (m_Bonus != 0)
-				list.Add(3060065, "#3060065\t{0}", m_Bonus.ToString()); // ~1_skillname~ +~2_val~
+				list.Add(3060065, m_Bonus.ToString()); // Inskrypcja +~1_val~%
 		}
 
 		public AncientScribingTool(Serial serial) : base(serial)
