@@ -653,16 +653,16 @@ namespace Server.Engines.BulkOrders
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157118, 0x481, 400, PowerScroll, 5));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157112, 0, 400, Tapestry));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157113, 0, 450, BearRug));
-                RewardCollection.Add(new BODCollectionItem(0x0f52, 1049803, 0x482, 450, AncientSewingKit, 10 ));
+                RewardCollection.Add(new BODCollectionItem(0x0f52, 3060050, 0x482, 450, AncientSewingKit, 10 ));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157119, 0x481, 500, PowerScroll, 10));
-                RewardCollection.Add(new BODCollectionItem(0x0f52, 1049803, 0x482, 550, AncientSewingKit, 15 ));
+                RewardCollection.Add(new BODCollectionItem(0x0f52, 3060051, 0x482, 550, AncientSewingKit, 15 ));
                 RewardCollection.Add(new BODCollectionItem(0x14EF, "Duza Dekoracja", 0x482, 550, DecorGreater));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157114, 0, 550, ClothingBlessDeed));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157120, 0x481, 575, PowerScroll, 15));
                 RewardCollection.Add(new BODCollectionItem(0xF9D, 1157116, CraftResources.GetHue(CraftResource.HornedLeather), 600, RunicKit, 2));
                 RewardCollection.Add(new BODCollectionItem(0x14F0, 1157121, 0x481, 650, PowerScroll, 20));
-                RewardCollection.Add(new BODCollectionItem(0x0f52, 1049803, 0x482, 650, AncientSewingKit, 30 ));
-                RewardCollection.Add(new BODCollectionItem(0x0f52, 1049803, 0x482, 675, AncientSewingKit, 60 ));
+                RewardCollection.Add(new BODCollectionItem(0x0f52, 3060052, 0x482, 650, AncientSewingKit, 30 ));
+                RewardCollection.Add(new BODCollectionItem(0x0f52, 3060053, 0x482, 675, AncientSewingKit, 60 ));
                 RewardCollection.Add(new BODCollectionItem(0xF9D, 1157117, CraftResources.GetHue(CraftResource.BarbedLeather), 700, RunicKit, 3));
             }
             else
