@@ -1360,6 +1360,9 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x0FBF, 1157219, 0, 10, ScribesPen));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157194, 0, 25, RewardTitle, 13));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157195, 0, 50, RewardTitle, 14));
+			RewardCollection.Add(new BODCollectionItem(0x0f52, 3060062, 0x482, 25, AncientScribingTool, 1 ));
+			RewardCollection.Add(new BODCollectionItem(0x0f52, 3060063, 0x482, 50, AncientScribingTool, 3 ));
+			RewardCollection.Add(new BODCollectionItem(0x0f52, 3060064, 0x482, 150, AncientScribingTool, 5 ));
 			RewardCollection.Add(new BODCollectionItem(0x2831, 1156443, 0, 210, Recipe, 3));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2741, 250, NaturalDye, 3));
             RewardCollection.Add(new BODCollectionItem(0x9E28, 1157264, 0, 275, CraftsmanTalisman, 10));
@@ -1399,6 +1402,16 @@ namespace Server.Engines.BulkOrders
         {
 	        return new InscriptionPowderOfTemperament(type);
         }
+        
+        private static readonly ConstructCallback AncientScribingTool = new ConstructCallback(CreateAncientScribingTool);
+        
+        private static Item CreateAncientScribingTool(int type) {
+	        if (type == 1 || type == 3 || type == 5)
+		        return new AncientScribingTool(type);
+
+	        throw new InvalidOperationException();
+        }
+
 
         #endregion
         
@@ -1491,9 +1504,12 @@ namespace Server.Engines.BulkOrders
 
             RewardCollection.Add(new BODCollectionItem(0x97F, 1157219, 0, 10, Skillet));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157197, 0, 25, RewardTitle, 13));
+			RewardCollection.Add(new BODCollectionItem(0x13C6, 3060055, 0, 25, CookingGloves, 1));
             RewardCollection.Add(new BODCollectionItem(0x2831, 1031233, 0, 25, Recipe, 4));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157198, 0, 50, RewardTitle, 14));
+	        RewardCollection.Add(new BODCollectionItem(0x13C6, 3060057, 0, 50, CookingGloves, 3));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157199, 0, 210, RewardTitle, 15));
+			RewardCollection.Add(new BODCollectionItem(0x13C6, 3060059, 0, 210, CookingGloves, 5));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157264, 0, 250, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157218, 0, 300, CraftsmanTalisman, 25));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157265, 0, 350, CraftsmanTalisman, 50));
@@ -1531,6 +1547,19 @@ namespace Server.Engines.BulkOrders
             }
 
             return null;
+        }
+        
+        private static readonly ConstructCallback CookingGloves = CreateCookingGloves;
+        private static Item CreateCookingGloves(int type)
+        {
+	        if (type == 1)
+		        return new LeatherGlovesOfCooking(1);
+	        else if (type == 3)
+		        return new StuddedGlovesOfCooking(3);
+	        else if (type == 5)
+		        return new RingmailGlovesOfCooking(5);
+
+	        throw new InvalidOperationException();
         }
 
         #endregion
