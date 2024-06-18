@@ -73074,78 +73074,78 @@ Number;Text
 1116361;You sense an island nearby... but are unable to see it. 
 1116362;You cannot imbue this item with the durability property. 
 1116363;You need lava to fish in! 
-1116364;**bob** 
-1116365;stone crab 
-1116366;blue lobster 
-1116367;spider crab 
-1116368;void crab 
-1116369;void lobster 
-1116370;blood lobster 
-1116371;dread lobster 
-1116372;a tunnel crab 
-1116373;dungeness crab 
-1116374;blue crab 
-1116375;king crab 
-1116376;rock crab 
-1116377;snow crab 
-1116378;apple crab 
-1116379;spiney lobster 
-1116380;rock lobster 
-1116381;hummer lobster 
-1116382;fred lobster 
-1116383;crusty lobster 
-1116384;shovel-nose lobster 
+1116364;**rusza sie** 
+1116365;kamienny krab 
+1116366;niebieski homar 
+1116367;krabopajak 
+1116368;krab pustki
+1116369;homar pustki
+1116370;krwawy homar 
+1116371;homar grozy
+1116372;tunelowy krab
+1116373;krab z lochow 
+1116374;niebieski krab 
+1116375;krab krolewski
+1116376;krab skalny
+1116377;krab sniezny
+1116378;krab jablkowy
+1116379;homar kolczasty
+1116380;homar skalny
+1116381;mruczacy homar 
+1116382;homar Fred
+1116383;opancerzony homar 
+1116384;homar lopatoglowy 
 1116385;~1_NAME~'s trap bouy is pulled beneath the waves. 
 1116386;You remove ~1_ITEM~ from the trap and put it in your pack. 
 1116387;Please wait until the session which you participated is finished completely. 
 1116388;The trap is too cumbersome to deploy that far away. 
-1116389;empty lobster trap 
-1116390;~1_NAME~'s lobster trap 
+1116389;pusta pulapka na homara 
+1116390;pulapka na homara nalezaca do ~1_NAME~ 
 1116391;You realize that the trap isn't yours so you leave it alone. 
 1116392;Team: Order (Blue) / Chaos (Red) 
 1116393;This location is too close to another trap. 
-1116394;haddock 
-1116395;cape cod 
-1116396;black seabass 
-1116397;tarpon 
-1116398;red snook 
-1116399;gray snapper 
-1116400;cobia 
-1116401;mahi-mahi 
-1116402;amberjack 
-1116403;shad 
-1116404;yellowfin tuna 
-1116405;bonito 
-1116406;bluefish 
-1116407;red grouper 
-1116408;captain snook 
-1116409;bonefish 
-1116410;red drum 
-1116411;blue grouper 
-1116412;pumpkinseed sunfish 
-1116413;yellow perch 
-1116414;pike 
-1116415;brook trout 
-1116416;rainbow trout 
-1116417;bluegill sunfish 
-1116418;redbelly bream 
-1116419;smallmouth bass 
-1116420;uncommon shiner 
-1116421;green catfish 
-1116422;walleye 
-1116423;kokanee salmon 
-1116424;dungeon chub 
-1116425;demon trout 
-1116426;snaggletooth bass 
-1116427;cutthroat trout 
-1116428;grim cisco 
-1116429;drake fish 
-1116430;orc bass 
-1116431;darkfish 
-1116432;crag snapper 
-1116433;infernal tuna 
-1116434;tormented pike 
-1116435;lurker fish 
+1116394;lupacz
+1116395;dorsz atlantycki
+1116396;czarny okon morski
+1116397;tarpon
+1116398;czerwony snook
+1116399;szary lucjan
+1116400;kobia
+1116401;zlota makrela
+1116402;seriola
+1116403;aloza
+1116404;tuniec zoltopletwy
+1116405;bonito z wod Geriadoru
+1116406;niebieskoryb
+1116407;czerwony granik
+1116408;kapitan zuchwik
+1116409;koscianek
+1116410;czerwony beben
+1116411;niebieski granik
+1116412;slonecznica pstra
+1116413;zolty okon
+1116414;szczupak
+1116415;pstrag zrodlany
+1116416;pstrag teczowy
+1116417;niebieska slonecznica
+1116418;czarnopletwy karas
+1116419;malogebowy bass
+1116420;karas
+1116421;zielony sum
+1116422;sandacz
+1116423;tasandorski losos
+1116424;ryba z Podmroku (nieznana ryba)
+1116425;demoniczny pstrag
+1116426;Podmroczny karas (nieznana ryba)
+1116427;pstrag potokowy
+1116428;wsciekla ryba z Podmroku (nieznana ryba)
+1116429;rybia wiwerna (nieznana ryba)
+1116430;orczy okon (nieznana ryba)
+1116431;ciemnoryb
+1116432;skalny lucjan (nieznana ryba)
+1116433;infernalny tunczyk
+1116434;pokrecony szczupak
+1116435;ryba czyhajaca
 1116436;~1_PROCESS~ ~2_STAPLE~ 
 1116437;dried 
 1116438;salted 
