@@ -23,7 +23,7 @@ namespace Server.Mobiles
             Race = Race.Human;
 
             Name = NameList.RandomName("male");
-            Title = "the fish monger";
+            Title = "- polawiacz ryb";
 
             Hue = Race.RandomSkinHue();
             Race.RandomHair(this);
@@ -53,7 +53,7 @@ namespace Server.Mobiles
                     FishMonger monger = FishQuestHelper.GetRandomMonger(player, this);
 
                     if (monger == null)
-                        SayTo(player, "It seems my fellow fish mongers are on vacation.  Try again later, or perhaps another Facet.");
+                        SayTo(player, "Wydaje mi sie, ze moi znajomi wyplyneli w morze. Nie mam teraz roboty.");
                     else
                     {
                         ProfessionalFisherQuest quest = new ProfessionalFisherQuest(player, monger, this, boat);
@@ -64,7 +64,7 @@ namespace Server.Mobiles
                         player.SendGump(new MondainQuestGump(quest));
 
                         if (boat.IsClassicBoat)
-                            SayTo(player, "Such a weak vessle can only catch a weak line.");
+                            SayTo(player, "Takie chuchro zlapie jedynie chorobe.");
                     }
                 }
             }
