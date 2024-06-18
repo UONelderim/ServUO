@@ -3,7 +3,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a leviathan corpse")]
+    [CorpseName("zwloki lewiatana")]
     public class Leviathan : BaseCreature
     {
         private static readonly Type[] m_Artifacts = new Type[]
@@ -52,7 +52,7 @@ namespace Server.Mobiles
             m_NextWaterBall = DateTime.UtcNow;
 
             // May not be OSI accurate; mostly copied from krakens
-            Name = "a leviathan";
+            Name = "lewiatan";
             Body = 77;
             BaseSoundID = 353;
 
