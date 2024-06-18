@@ -29693,10 +29693,10 @@ Number;Text
 1049025;runiczny mlotek agapitu 
 1049026;runiczny mlotek verytu 
 1049027;runiczny mlotek valorytu 
-1049028;prastary mlotek +10 
-1049029;prastary mlotek +15 
-1049030;prastary mlotek +30 
-1049031;prastary mlotek +60 
+1049028;starozytny mlotek +10 
+1049029;starozytny mlotek +15 
+1049030;starozytny mlotek +30 
+1049031;starozytny mlotek +60 
 1049032;wyjatkowej jakosci krotkie spodnie 
 1049033;wyjatkowej jakosci kosciany helm 
 1049034;wyjatkowej jakosci kosciane rekawice 
@@ -29782,7 +29782,7 @@ Number;Text
 1049114;Sanctuary Gate 
 1049115;You play the horn and a sense of peace overcomes you... 
 1049116;[ Ladunki: ~1_CHARGES~ ] 
-1049117;Horn of Retreat 
+1049117;Rog Odwrotu 
 1049118;a scroll with ancient markings 
 1049119;<I>You give your report to Uzeraan and after a while, he begins to speak...</I><BR><BR>Your report is grim, but all hope is not lost!  It has become apparent that our swords and spells will not drive the evil from Haven.<BR><BR>The head of my order, the High Mage Schmendrick, arrived here shortly after you went into battle with the <I>Horde Minions</I>.  He has brought with him a scroll of great power, that should aid us greatly in our battle.<BR><BR>Unfortunately, the entrance to one of our mining caves collapsed recently, trapping our miners inside.<BR><BR>Schmendrick went to install magical teleporters inside the mines so that the miners would have a way out.  The miners have since returned, but Schmendrick has not. Those who have returned, all seem to have lost their minds to madness 
 1049120;Prepare for battle and step onto the teleporter, located against the wall in the main hall of Uzeraan's mansion.<BR><BR>Find Schmendrick within the mines. 
@@ -30123,47 +30123,47 @@ Number;Text
 1049455;You have been disrupted while attempting to summon your ethereal mount! 
 1049456;You don't have enough mana to do that. 
 1049457;You don't have enough stamina to do that. 
-1049458;Wonderous Scroll (+5 Maximum Stats): 
-1049459;Exalted Scroll (+10 Maximum Stats): 
-1049460;Mythical Scroll (+15 Maximum Stats): 
-1049461;Legendary Scroll (+20 Maximum Stats): 
-1049462;Ultimate Scroll (+25 Maximum Stats): 
-1049463;a wonderous scroll of ~1_type~ (+5 Maximum Stats) 
-1049464;an exalted scroll of ~1_type~ (+10 Maximum Stats) 
-1049465;a mythical scroll of ~1_type~ (+15 Maximum Stats) 
-1049466;a legendary scroll of ~1_type~ (+20 Maximum Stats) 
-1049467;an ultimate scroll of ~1_type~ (+25 Maximum Stats) 
+1049458;Wspanialy Zwoj (+5 do limitu statystyk) : 
+1049459;Idealny Zwoj (+10 do limitu statystyk) : 
+1049460;Mityczny Scroll (+15 do limitu statystyk) : 
+1049461;Legendarny Zwoj (+20 do limitu statystyk) : 
+1049462;Boski Zwoj (+25 do limitu statystyk) : 
+1049463;Wspanialy Zwoj ~1_type~ (+5 do limitu statystyk) 
+1049464;Idealny Zwoj ~1_type~ (+10 do limitu statystyk) 
+1049465;Mityczny Zwoj ~1_type~ (+15 do limitu statystyk) 
+1049466;Legendarny Zwoj ~1_type~ (+20 do limitu statystyk)  
+1049467;Boski Zwoj ~1_type~ (+25 do limitu statystyk) 
 1049468;Your ~1_type~ maximum has increased by ~2_points~ points. 
 1049469;Using a scroll increases the maximum amount of a specific skill or your maximum statistics.  When used, the effect is not immediately seen without a gain of points with that skill or statistics.  You can view your maximum skill values in your skills window.  You can view your maximum statistic value in your statistics window. 
-1049470;mace fighting 
-1049471;resisting spells 
-1049472;animal taming 
-1049473;provocation 
-1049474;discordance 
-1049475;Discordance 
-1049476;power 
-1049477;stats 
+1049470;Walka Obuchami
+1049471;Odpornosc na Magie 
+1049472;Oswajanie
+1049473;Prowokacja
+1049474;Dezorientacja
+1049475;Dezorientacja
+1049476;moc 
+1049477;statystyki 
 1049478;Czy chcesz uzyc zwoju? 
-1049479;skull of power 
-1049480;skull of enlightenment 
-1049481;skull of venom 
-1049482;skull of pain 
-1049483;skull of greed 
-1049484;skull of death 
-1049485;What would you like to sacrifice? 
-1049486;You can only sacrifice items that are in your backpack! 
-1049487;I already have my champions awakening skull! 
-1049488;That is not my champions awakening skull! 
-1049489;Altar of Rikktor 
-1049490;Altar of Lord Oaks 
-1049491;Altar of Mephitis 
-1049492;Altar of Semidar 
-1049493;Altar of Barracoon 
-1049494;Altar of Neira 
-1049495;an evil statue 
-1049496;Champions must be sacrificed to summon enlightenment... 
-1049497;The altars must be used to fulfill the prophecy... 
-1049498;dark moongate 
+1049479;czaszka mocy
+1049480;czaszka oswiecenia 
+1049481;czaszka jadu
+1049482;czaska bolu
+1049483;czaszka chicwosci 
+1049484;czaszka smierci 
+1049485;Co chcialbys poswiecic?
+1049486;Mozesz poswiecic tylko przedmioty znajdujace sie w twoim plecaku! 
+1049487;Juz mam czaszke przebudzenia mojego czempiona! 
+1049488;To nie jest czaszka przebudzenia mojego czempiona! 
+1049489;Oltarz Rikktora 
+1049490;Oltarz Lorda Oaksa 
+1049491;Oltarz Mephitisa 
+1049492;Oltarz Semidara 
+1049493;Oltarz Barracoona 
+1049494;Oltarz Neiry 
+1049495;zla statua 
+1049496;Czempioni musza zostac poswieceni, aby przywolac oswiecenie... 
+1049497;Oltarze musza byc uzywane, aby spelnic proroctwo... 
+1049498;mroczny portal  
 1049499;Behold my true form! 
 1049500;Feel the delicious pain! 
 1049501;You fight like a mongbat! 
@@ -30300,14 +30300,14 @@ Number;Text
 1049632;* zaczyna rzucac bola * 
 1049633;~1_NAME~ zaczyna rzucac bola 
 1049634;bola 
-1049635;Wonderous Scroll (105 Skill): 
-1049636;Exalted Scroll (110 Skill): 
-1049637;Mythical Scroll (115 Skill): 
-1049638;Legendary Scroll (120 Skill): 
-1049639;a wonderous scroll of ~1_type~ (105 Skill) 
-1049640;an exalted scroll of ~1_type~ (110 Skill) 
-1049641;a mythical scroll of ~1_type~ (115 Skill) 
-1049642;a legendary scroll of ~1_type~ (120 Skill) 
+1049635;Wspanialy Zwoj (105 umiejetnosci): 
+1049636;Idealny Zwoj (110 umiejetnosci): 
+1049637;Mityczny Zwoj (115 umiejetnosci): 
+1049638;Legendarny Zwoj (120 umiejetnosci): 
+1049639;Wspanialy Zwoj ~1_type~ (105 umiejetnosci): 
+1049640;Idealny Zwoj ~1_type~ (110 umiejetnosci): 
+1049641;Mityczny Zwoj ~1_type~ (115 umiejetnosci): 
+1049642;Idealny Zwoj ~1_type~ (120 umiejetnosci): 
 1049643;przeklete 
 1049644;[~1_stuff~] 
 1049645;Masz za duzo podopiecznych, zeby przywolac to stworzenie. 
@@ -43403,7 +43403,7 @@ Number;Text
 1072514;Zwiekszona Sila ~1_val~ (lacznie) 
 1072515;~1_name~ wygasl... 
 1072516;~1_name~ wygasnie za ~2_val~ sekund! 
-1072517;Czas Trwania: ~1_val~ sekund 
+1072517;Pozostaly Czas Do Rozpadu: ~1_val~ sekund 
 1072518;Twoj dom zyskal zwiekszone bezpieczne miejsce do przechowywania. 
 1072519;Zwiekszone Miejsce Przechowywania 
 1072520;Runebooks for victory! 
@@ -43514,18 +43514,18 @@ Number;Text
 1072625;As the house owner, you may rename this Parrot. 
 1072626;1 week old 
 1072627;~1_AGE~ weeks old 
-1072628;Oak Runic Fletcher's Tools 
-1072629;Ash Runic Fletcher's Tools 
-1072630;Yew Runic Fletcher's Tools 
-1072631;Heartwood Runic Fletcher's Tools 
-1072632;Bloodwood Runic Fletcher's Tools 
-1072633;Frostwood Runic Fletcher's Tools 
-1072634;Oak Runic Dovetail Saw 
-1072635;Ash Runic Dovetail Saw 
-1072636;Yew Runic Dovetail Saw 
-1072637;Heartwood Runic Dovetail Saw 
-1072638;Bloodwood Runic Dovetail Saw 
-1072639;Frostwood Runic Dovetail Saw 
+1072628;Runiczne Narzedzia Do Wyrabiania Lukow z Zywicznego Drewna 
+1072629;Runiczne Narzedzia Do Wyrabiania Lukow z Pustego Drewna 
+1072630;Runiczne Narzedzia Do Wyrabiania Lukow ze Skamienialego Drewna 
+1072631;Runiczne Narzedzia Do Wyrabiania Lukow z Gietkiego Drewna 
+1072632;Runiczne Narzedzia Do Wyrabiania Lukow z Opalonego Drewna  
+1072633;Runiczne Narzedzia Do Wyrabiania Lukow ze Zmarznietego Drewna 
+1072634;Runiczna Pila z Zywicznego Drewna 
+1072635;Runiczna Pila z Pustego Drewna 
+1072636;Runiczna Pila ze Skamienialego Drewna 
+1072637;Runiczna Pila z Gietkiego Drewna 
+1072638;Runiczna Pila z Opalonego Drewna 
+1072639;Runiczna Pila ze Zmarznietego Drewna  
 1072640;Do you wish to return with your corpse to the start? 
 1072641;You have teleported out of a blackhole. 
 1072642;The mystical forces of the dungeon swirl around you and transport you away. 
@@ -44507,7 +44507,7 @@ Number;Text
 1073618;I think Giant Ice Worms are a myth, don't you? Shh, I don't want to talk about it -- just take the money and be gone. 
 1073619;You've restored the natural balance friend and earned this generous reward.<br> 
 1073620;You have not learned this recipe. 
-1073621;Your reward has been placed in your backpack. 
+1073621;Twoja nagroda zostala umieszczona w Twoim plecaku. 
 1073622;A live aquarium creature 
 1073623;A dead aquarium creature 
 1073624;A Reward Title: Britannia Zoo Contributor 
@@ -68505,15 +68505,15 @@ Number;Text
 1111792;Doom Gauntlet 
 1111793;Bedlam 
 1111794;Bedlam Crypt 
-1111795;Labyrinth 
-1111796;Dull Copper Runic Mallet and Chisels 
-1111797;Shadow Runic Mallet and Chisels 
-1111798;Copper Runic Mallet and Chisels 
-1111799;Bronze Runic Mallet and Chisels 
-1111800;Golden Runic Mallet and Chisels 
-1111801;Agapite Runic Mallet and Chisels 
-1111802;Verite Runic Mallet and Chisels 
-1111803;Valorite Runic Mallet and Chisels 
+1111795;Labirynt 
+1111796;Runiczny Brzeszczot z Matowej Miedzi 
+1111797;Runiczny Brzeszczot z Shadowa 
+1111798;Runiczny Brzeszczot z Miedzi
+1111799;Runiczny Brzeszczot z Brazu
+1111800;Runiczny Brzeszczot ze Zlota
+1111801;Runiczny Brzeszczot z Agapitu
+1111802;Runiczny Brzeszczot z Verytu
+1111803;Runiczny Brzeszczot z Valorytu
 1111804;Shame Level 1 
 1111805;Shame Level 2 
 1111806;Shame Level 3 
@@ -81236,10 +81236,10 @@ Number;Text
 1124523;painting 
 1124524;painting 
 1124525;Lasher 
-1124526;Fermentation Barrel 
-1124527;Fermentation Barrel 
-1124528;plum tree 
-1124529;plum tree 
+1124526;beczka do fermentacji 
+1124527;beczka do fermentacji 
+1124528;sliwa 
+1124529;sliwa 
 1124530; 
 1124531; 
 1124532; 
@@ -81308,8 +81308,8 @@ Number;Text
 1124595; 
 1124596; 
 1124597; 
-1124598;rock hammer 
-1124599;rock hammer 
+1124598;mlot kamieniarski 
+1124599;mlot kamieniarski 
 1124600;sculpture 
 1124601;sculpture 
 1124602;sculpture 
@@ -109219,10 +109219,10 @@ Number;Text
 1152601;Tymczasowy Kowadlo 
 1152602;Magiczny Detektor Ryb 
 1152603;Talizman Przywolywacza 
-1152604;Gorniczy 
-1152605;Drwalowy 
-1152606;Hutniczy 
-1152607;Drwala 
+1152604;dla Gornika 
+1152605;dla Drwala 
+1152606;dl Hutnika 
+1152607;dla Drwala 
 1152608;Lokalizacja: ~1_COORDS~ 
 1152609;Te mapy pokazuja lokalizacje duzej skrytki rzadkich zasobow 
 1152610;Te talizmany gwarantuja sukces podczas przetapiania rudy na odlewy 
@@ -109243,15 +109243,15 @@ Number;Text
 1152625;Magia twojego talizmanu prowadzi twoje rece podczas ciecia drewna. 
 1152626;Moge przyjac tylko przygotowane jednostki Leczenia na te straszna zaraze! 
 1152627;nie wymaga domu 
-1152628;nie mozna zdeedowac ponownie 
+1152628;nie mozna tego zlozyc 
 1152629;trwa ~1_count~ godzin 
 1152630;transmutuje ~1_SOURCE~ na ~2_DEST~ 
 1152631;proporcja ~1_INPUT~ do ~2_OUTPUT~ 
 1152632;To nie jest twoje! 
-1152633;Ten kociol nie moze przetworzyc tego 
-1152634;Nie ma wystarczajaco duzo do przetworzenia 
-1152635;Magia kociola zostala wyczerpana 
-1152636;Kociol przetwarza material 
+1152633;Ten kociol nie moze tego przetworzyc  
+1152634;Nie ma wystarczajaco duzo do wykonania transmutacji 
+1152635;Magiczne wlasciwosci kociola zostala wyczerpana 
+1152636;Kociol transmutuje material 
 1152637;Detektor ryb nic nie pokazuje. 
 1152638;Detektor ryb cie przyciaga w kierunku ~1_DIRECTION~. 
 1152639;polnoc 
@@ -109290,14 +109290,14 @@ Number;Text
 1152672;Lumberjack's Frostwood Map<br>Must Use Within 24 Hours<br>A Map to a Source of Wood<br>Log Type: Frostwood<br><br>To Use:<br>Chop Near Target Coordinates<br>While Holding Map 
 1152673;Laboratory Bench 
 1152674;Zloty talizman przetapiania<br>Nalezy zuzyc w ciagu 24 godzin<br>100% szansy na przetopienie rudy<br>Typ: Zloto<br>Ladunki: 6000 
-1152675;Agapitowy talizman przetapiania<br>Nalezy zuzyc w ciagu 24 godzin<br>100% szansy na przetopienie rudy<br>Typ: Agapi<br>Ladunki:: 3000 
+1152675;Agapitowy talizman przetapiania<br>Nalezy zuzyc w ciagu 24 godzin<br>100% szansy na przetopienie rudy<br>Typ: Agapit<br>Ladunki:: 3000 
 1152676;Verytowy talizman przetapiania<br>Nalezy zuzyc w ciagu 24 godzin<br>100% szansy na przetopienie rudy<br>Typ: Veryt<br>Ladunki:: 1500 
 1152677;Valorytowy talizman przetapiania<br>Nalezy zuzyc w ciagu 24 godzin<br>100% szansy na przetopienie rudy<br>Typ: Valoryt<br>Ladunki: 750 
 1152678;Talizman Lesnika ze skamienialego drewna<br>Nalezy zuzyc w ciagu 24 godzin<br>Dodatkowe klody przy rabainu drewna<br>Typ: Skamieniale drewno<br>Ladunki: 300 
 1152679;Talizman Lesnika z Gietkiego Dewna<br>Nalezy zuzyc w ciagu 24 godzin<br>Dodatkowe klody przy rabainu drewna<br>Typ: Gietkie drewno<br>Ladunki: 250 
 1152680;Talizman Lesnika z Opalonego Drewna<br>Nalezy zuzyc w ciagu 24 godzin<br>Dodatkowe klody przy rabainu drewna<br>Type: Opalone Drewno <br>Ladunki: 200 
 1152681;Talizman Lesnika z Zmarznietego Drewna<br>Nalezy zuzyc w ciagu 24 godzin<br>Dodatkowe klody przy rabainu drewna<br>Typ: Zmarzniete drewno<br>Ladunki:: 150 
-1152682;Temporary Forge (Deed)<br>Must Use Within 24 Hours<br>Does Not Require House<br><br>Temporary Forge<br>Lasts 4 Hours<br>Cannot Re-Deed 
+1152682;Tymaczasowa kuznia (ZWOJ)<br>Nalezy zuzyc w ciagu 24 godzin<br>Does Nie wymaga domu<br><br>Tymczasowa kuznia<br>Czas trwania: 4h<br>Nie mozna ponownie zlozyc 
 1152683;Magical Fish Finder<br>Lasts 4 Hours<br>Use: Find School of Rare Fish 
 1152684;There is no loot on the corpse. 
 1152685;A Commendation from Queen Zhah presented to ~1_val~ 
@@ -109353,7 +109353,7 @@ Number;Text
 1152735;The targeted location has at least one impassable tile adjacent to the structure. 
 1152736;You must stand between 2 and 5 tiles away from the targeted location to attempt to build this. 
 1152737;You can only place this in a ship if you have the captain's permission. 
-1152738;Target ingots in your backpack to transmute them. 
+1152738;Wskaz sztaby w swym plecaku, by dokonac transutacji. 
 1152739;Citizen of Moonglow 
 1152740;Citizen of Moonglow 
 1152741;Knight of Moonglow 
@@ -113231,24 +113231,24 @@ Number;Text
 1156613;Instant Pet Bonding 
 1156614;Mythic Character 
 1156615;Token 
-1156616;The Valley of Eodon is in grave danger while the Myrmidex threat persists... 
-1156617;Bottle of Concentrated Insecticide 
-1156618;Lost...Lost...Lost it all...I can't believe I lost it all... 
-1156619;Fall in now! These Myrmidex aren't going to slay themselves! We've got to squash these bugs! 
-1156620;Bottled Myrmidex Pheremone 
-1156621;Rabbits everywhere eating my lettuces! These wretched beasts must be dealt with! 
-1156622;Time now to crush Britannian invaders! 
-1156623;Stasis Chamber Power Core 
-1156624;Stasis Chamber Activator 
-1156625;So precious, the most precious of stones desired by our Myrmidex overlords... 
-1156626;Stasis Chamber Regulator 
-1156627;Arrr these wretched pirates be plunderin' me trade routes! 
-1156628;Stasis Chamber Stator 
-1156629;The Triumph of the Myrmidex relies on reactivating the chamber... 
-1156630;The Myrmidex are victorious!  If you are allied to the Myrmidex visit the Tinker in the Barrab village to continue the quest!  Otherwise, continue the fight until your team is victorious! 
-1156631;The Eodonians are victorious!  If you are allied to the Eodonians visit Professor Raffkin in Sir Geoffrey's camp to continue the quest! Otherwise, continue the fight until your team is victorious! 
-1156632;You cannot switch allegiance in the midst of the battle field! 
-1156633;You cannot declare allegiance to that side. 
+1156616;Dolina Eodon jest w wielkim niebezpieczenstwie, dopoki zagrozenie Myrmidexow trwa...
+1156617;Butelka skoncentrowanego insektycydu
+1156618;Zgubilem... Zgubilem... Wszystko stracilem... Nie moge uwierzyc, ze wszystko stracilem...
+1156619;Do boju! Te Myrmidexy same sie nie zabija! Musimy rozgniesc te robaki!
+1156620;Butelkowane feromony Myrmidex
+1156621;Krolikow wszedzie pelno, jedza moje salaty! Te przeklete bestie musza zostac powstrzymane!
+1156622;Czas teraz zgniesc najezdzcow z Britannii!
+1156623;Rdzen zasilajacy komory stazy
+1156624;Aktywator komory stazy
+1156625;Tak cenne, najcenniejsze z kamieni pozadane przez naszych wladcow Myrmidex...
+1156626;Regulator komory stazy
+1156627;Arrr, ci przekleci piraci pladruja moje szlaki handlowe!
+1156628;Stator komory stazy
+1156629;Triumf Myrmidex zalezy od ponownego uruchomienia komory...
+1156630;Myrmidex odniesli zwyciestwo! Jesli jestes sprzymierzony z Myrmidex, odwiedz Majsterkowicza w wiosce Barrab, aby kontynuowac misje! W przeciwnym razie kontynuuj walke, az twoja druzyna odniesie zwyciestwo!
+1156631;Eodonczycy odniesli zwyciestwo! Jesli jestes sprzymierzony z Eodonczykami, odwiedz Profesora Raffkina w obozie Sir Geoffrey'a, aby kontynuowac misje! W przeciwnym razie kontynuuj walke, az twoja druzyna odniesie zwyciestwo!
+1156632;Nie mozesz zmienic przynaleznosci na polu bitwy!
+1156633;Nie mozesz zadeklarowac przynaleznosci do tej strony.
 1156634;Myrmidex 
 1156635;Eodonians 
 1156636;You have declared allegiance to the ~1_SIDE~!  You may only change your allegiance once every 2 hours. 
@@ -113605,19 +113605,19 @@ Number;Text
 1156987;Menace of the Myrmidex 
 1156988;Artifacts of the Kotl 
 1156989;Katalkotl's Ring 
-1156990;kotl black rod 
+1156990;czarny kij typu kotl 
 1156991;Dr. Spector's lenses 
-1156992;You do not have sufficient Black Moonstone to make that. 
-1156993;Black Moonstone 
+1156992;Nie masz wystarczajacej ilosci Czarnego Kamienia Ksiezycowego. 
+1156993;Czarny Kamien Ksiezycowy 
 1156994;gargish kotl black rod 
-1156995;Recipe for a Kotl Black Rod 
-1156996;Recipe for Dr. Spector's Lenses 
-1156997;Automaton Actuator 
-1156998;Kotl Automaton 
-1156999;You do not have sufficient Automaton Actuator to make that. 
-1157000;You do not have sufficient Stasis Chamber Power Core to make that. 
-1157001;You do not have enough Inoperative Automaton Heads to make that. 
-1157002;Inoperative Automaton Head 
+1156995;Recptura na czarny kij typu kotl 
+1156996;Receptura na soczewki Dr'a Spectora 
+1156997;Aktuator Automatona 
+1156998;Automaton Kotl  
+1156999;Nie masz wystarczajacej ilosci Aktuatorow Automatona. 
+1157000;Nie masz wystarczajacej ilosci Rdzein zasilajacych komory stazy. 
+1157001;Nie masz wystarczajacej ilosci Niedzialajacych glow automatona. 
+1157002;Niedzialajaca glowa automatona 
 1157003;Konto Zabezpieczone: 
 1157004;Przenies zloto: 
 1157005;Przenies platyne 
@@ -113637,7 +113637,7 @@ Number;Text
 1157019;*You hear a low hum as the door to the Time Room unseals...* 
 1157020;*You set the wheels of time in motion.  The City shifts to a time long ago...* 
 1157021;The wheels of time have already been set in motion. 
-1157022;Odbudowana ~1_MATTYPE~ Glowa Automatona 
+1157022;Odbudowana Glowa Automatona z ~1_MATTYPE~  
 1157023;Power Core Docking Station 
 1157024;The docking station only accepts power cores. 
 1157025;This power station is already active. 
@@ -113793,8 +113793,8 @@ Number;Text
 1157175;Festiwal Rzemiosla rozpoczal sie w Miescie Britain! 
 1157176;Mlotek Skalny 
 1157177;Ulepszony Mlotek Skalny 
-1157178;Podmroczniak 
-1157179;Potrzebujesz 75 sztuk podmroczniaka, aby naprawic ~2_CREATURE~. 
+1157178;Ruda z Podmroku 
+1157179;Potrzebujesz 75 sztuk Rudy z Podmroku, aby naprawic ~2_CREATURE~. 
 1157180;Ten tytul jest uzyskiwany poprzez oddawanie Deedow na Zamowienie Hurtowe. 
 1157181;kowal 
 1157182;zbrojmistrz 
@@ -113835,7 +113835,7 @@ Number;Text
 1157217;Talizman Mistrza Rzemiosla 
 1157218;Talizman Mistrza Rzemiosla<br>Poprawia szanse na wytworzenie przedmiot<br>Zapewnia ochrone przed porazka<br>Ladowania: 25 
 1157219;Otrzymujesz narzedzie rzemieslnicze z wysokim naladowaniem. Narzedzie ma 250 uzyc na poczatku. 
-1157220;Glowa Automatu z Podmroczniaka 
+1157220;Glowa Automatona z Podmrocznej Rudy 
 1157221;Specjalnie wyscielany keg na proszek wzmocnienia. 
 1157222;Dostarczyles wiecej niz zostalo to zazadane przez to zadanie. 
 1157223;Otrzymujesz narzedzie runiczne zywicznego drewna. To narzedzie moze byc uzywane do tworzenia broni i zbroi z magicznymi wlasciwosciami 
