@@ -43273,7 +43273,7 @@ Number;Text
 1072384;cold resist +~1_val~% 
 1072385;poison resist +~1_val~% 
 1072386;energy resist +~1_val~% 
-1072387;~1_NAME~ - Ochrona: +~2_val~% 
+1072387;~1_NAME~ - Ochrona przed: +~2_val~% 
 1072388;~1_NAME~ - Pogromca: +~2_val~% 
 1072389;Talizman ~1_name~ 
 1072390;Usuwanie Ochrony 
@@ -43287,7 +43287,7 @@ Number;Text
 1072398;Niektore przedmioty zostaly usuniete z pojemnika i umieszczone u twoich stop. 
 1072399;Wrzeszczaca Banshee 
 1072400;Talizman ~1_name~ Przywolania 
-1072401;Zwierzak Smiertelny 
+1072401;Magiczny Kroliczek 
 1072402;Twoje ochrony zostaly usuniete! 
 1072403;Ochrony twojego celu zostaly usuniete! 
 1072404;Usuwanie Obrazen 
@@ -43296,54 +43296,54 @@ Number;Text
 1072407;Usuwanie Klatw 
 1072408;Wszelkie klatwy na tobie zostaly zdjete 
 1072409;Klatwy twojego celu zostaly zdjete 
-1072410;Skaut Orkow 
+1072410;Ork Zwiadowca
 1072411;Przerazony Ork 
-1072412;Ork Cieciwowy 
-1072413;Bombarier Orkow 
-1072414;Ork Potezny 
+1072412;Ork Siepacz
+1072413;Ork Bombardier 
+1072414;Dowodca orkow 
 1072415;Przywolany Czarny Niedzwiedz 
 1072416;Przywolany Grizzly 
 1072417;Przywolany Polar 
 1072418;Szczur Sciekowy 
 1072419;Szczur 
-1072420;Gigantyczny Szczur 
+1072420;Ogromny Szczur 
 1072421;Szczuroczlek 
-1072422;Szaman Szczuroczlek 
-1072423;Lucznik Szczuroczlek 
-1072424;Gigantyczny Pajak 
-1072425;Pajak Lodowy 
-1072426;Gigantyczna Czarna Wdowa 
-1072427;Straszliwy Pajak 
+1072422;Mag Szczuroczlekow 
+1072423;Lucznik Szczuroczlekow 
+1072424;Ogromny Pajak 
+1072425;Lodowy pajak 
+1072426;Czarna Wdowa 
+1072427;Tarantula 
 1072428;Ogromny Srebrny Waz 
-1072429;Waz Morza Glebokiego 
-1072430;Gigantyczny Waz 
+1072429;Glebokiego Waz Morski  
+1072430;Ogromny Waz 
 1072431;Waz 
-1072432;Waz Lodowy 
-1072433;Gigantyczny Waz Lodowy 
+1072432;Lodowy Waz  
+1072433;ogromny Lodowy Waz  
 1072434;Waz Latajacy 
-1072435;Waz Lawowy 
-1072436;Przywolany Gigantyczny Waz 
-1072437;Waz Lodowy 
+1072435;ognisty waz 
+1072436;Przywolany ogromnyy Waz 
+1072437;Lodowy Waz  
 1072438;Yamandon 
-1072439;Waz Zguby 
-1072440;Mongbat Wielki 
-1072441;Mongbat 
-1072442;Mroczny Nietoperz Zguby 
-1072443;Mroczny Nietoperz 
-1072444;Liczy 
+1072439;Przywolany Mroczny Waz  
+1072440;Wielki Nietoperz 
+1072441;Nietoperz 
+1072442;Przywolany Nietoperz Wampir 
+1072443;nietoperz wampir 
+1072444;Licz 
 1072445;Zly Mag 
-1072446;Liczy Panow 
-1072447;Zly Mag Panow 
+1072446;Lord Lichy 
+1072447;Lord Zlych Magow  
 1072448;Strzyga 
 1072449;Przeklety Mag 
-1072450;Starozytny Lich 
+1072450;Starozytny Licz 
 1072451;Mag Juka 
-1072452;Mag Meer 
-1072453;Gigantyczny Zuk 
-1072454;Zuk Zguby 
-1072455;Zuk 
-1072456;Zuk Ognia 
-1072457;Pasozyt Zuk Zguby 
+1072452;Mag Meerow 
+1072453;Ogromny Zuk 
+1072454;Szczypawka 
+1072455;Zuk Runiczny
+1072456;Ognisty Zuk 
+1072457;Mloda Szczypawka 
 1072458;Ptak 
 1072459;Kura 
 1072460;Kruk 
@@ -43358,26 +43358,26 @@ Number;Text
 1072469;Dziki Ostard 
 1072470;Ostard Lesny 
 1072471;Wielka Kura 
-1072472;Ptak Wiedzmy 
+1072472;Przywolany Kruk 
 1072473;Zuraw 
-1072474;Pantera Sniezna 
-1072475;Waz Lodowy 
-1072476;Pajak Lodowy 
-1072477;Zly Plomien 
-1072478;Kalosz Lodowy 
-1072479;Troll Lodowy 
+1072474;sniezna leopard 
+1072475;Lodowy Waz  
+1072476;Lodowy Pajak  
+1072477;Lodowy Demon  
+1072478;Lodowy sluz 
+1072479;Lodowy Troll  
 1072480;Zywiolak Lodu 
 1072481;Zywiolak Sniegu 
-1072482;Gigantyczny Waz Lodowy 
-1072483;Gigantyczny Robak Lodowy 
-1072484;Waz Lodowy 
+1072482;Ogromny Waz Lodowy 
+1072483;Wielki Lodowy Robal  
+1072484;Lodowy Waz  
 1072485;Pani Sniegu 
 1072486;Zywiolak Ognia 
 1072487;Ognisty Rumak 
 1072488;Przywolany Zywiolak Ognia 
-1072489;Pies Piekielny 
+1072489;Piekielny Ogar 
 1072490;Kot Piekielny 
-1072491;Bestia Piekielna 
+1072491;Piekielny Lew 
 1072492;Ognista Jaszczurka 
 1072493;Zuk Ognisty 
 1072494;Krowa 
@@ -43390,15 +43390,15 @@ Number;Text
 1072501;Minotaur 
 1072502;~1_skill~ ~2_val~ (lacznie) 
 1072503;Bonus Zrecznosci ~1_val~ (lacznie) 
-1072504;Morderca Niedzwiedzi 
-1072505;Morderca Robakow 
-1072506;Morderca Nietoperzy 
-1072507;Morderca Magow 
-1072508;Morderca Zukow 
-1072509;Morderca Ptakow 
-1072510;Morderca Lodowych Stworow 
-1072511;Morderca Plomieni 
-1072512;Morderca Bydla 
+1072504;Pogromca Niedzwiedzi 
+1072505;Pogromca Robakow 
+1072506;Pogromca Nietoperzy 
+1072507;Pogromca Magow 
+1072508;Pogromca Zukow 
+1072509;Pogromca Ptakow 
+1072510;Pogromca Lodowych Stworow 
+1072511;Pogromca Plomieni 
+1072512;Pogromca Bydla 
 1072513;Odbicie Obrazen Fizycznych ~1_val~% (lacznie) 
 1072514;Zwiekszona Sila ~1_val~ (lacznie) 
 1072515;~1_name~ wygasl... 
