@@ -1522,6 +1522,7 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0xA8EE, 3060079, 0, 310, MuffinShelf));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157265, 0, 350, CraftsmanTalisman, 50));
             RewardCollection.Add(new BODCollectionItem(0x153D, 1157227, 1990, 410, CreateItem, 0));
+            RewardCollection.Add(new BODCollectionItem(0xA8F0, 3060080, 0, 450, HangingSausages));
             RewardCollection.Add(new BODCollectionItem(0x14F0, 1076605, 0, 475, CreateItem, 1));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157278, 2740, 525, NaturalDye, 8));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157278, 2732, 625, NaturalDye, 9));
@@ -1578,6 +1579,11 @@ namespace Server.Engines.BulkOrders
         private static Item MuffinShelf(int type)
         {
 	        return new MuffinShelf();
+        }
+        
+        private static Item HangingSausages(int type)
+        {
+	        return new HangingSausages();
         }
 
         #endregion
