@@ -1896,6 +1896,7 @@ namespace Server.Engines.BulkOrders
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157183, 0, 25, RewardTitle, 20));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157202, 0, 50, RewardTitle, 21));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157203, 0, 210, RewardTitle, 22));
+			RewardCollection.Add(new BODCollectionItem(0xA8EA, "roslina w sloju", 0, 200, CreateItem, 1));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157278, 2741, 225, NaturalDye, 0));
             RewardCollection.Add(new BODCollectionItem(0x975, 1152660, CraftResources.GetHue(CraftResource.AshWood), 250, Cauldron, 0));
             RewardCollection.Add(new BODCollectionItem(0x975, 1152656, CraftResources.GetHue(CraftResource.Bronze), 260, Cauldron, 1));
@@ -1942,6 +1943,18 @@ namespace Server.Engines.BulkOrders
         private static Item CraftsmanTalisman(int type)
         {
             return new MasterCraftsmanTalisman(type, 0x9E26, TalismanSkill.Alchemy);
+        }
+        
+        private static Item CreateItem(int type)
+        {
+	        switch (type)
+	        {
+		        case 0: return new FlowerInGlassA();
+		        case 1: return new FlowerInGlassB();
+		        case 2: return new FlowerInGlassC();
+	        }
+
+	        return null;
         }
         #endregion
 
