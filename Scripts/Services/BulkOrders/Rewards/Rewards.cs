@@ -1519,6 +1519,7 @@ namespace Server.Engines.BulkOrders
 			RewardCollection.Add(new BODCollectionItem(0x13C6, 3060059, 0, 210, CookingGloves, 5));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157264, 0, 250, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157218, 0, 300, CraftsmanTalisman, 25));
+            RewardCollection.Add(new BODCollectionItem(0xA8EE, 3060079, 0, 310, MuffinShelf));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157265, 0, 350, CraftsmanTalisman, 50));
             RewardCollection.Add(new BODCollectionItem(0x153D, 1157227, 1990, 410, CreateItem, 0));
             RewardCollection.Add(new BODCollectionItem(0x14F0, 1076605, 0, 475, CreateItem, 1));
@@ -1572,6 +1573,11 @@ namespace Server.Engines.BulkOrders
         private static Item FilletedFish(int type)
         {
 	        return new FilletedFish();
+        }
+        
+        private static Item MuffinShelf(int type)
+        {
+	        return new MuffinShelf();
         }
 
         #endregion
