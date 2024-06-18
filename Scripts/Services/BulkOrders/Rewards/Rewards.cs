@@ -1515,6 +1515,7 @@ namespace Server.Engines.BulkOrders
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157198, 0, 50, RewardTitle, 14));
 	        RewardCollection.Add(new BODCollectionItem(0x13C6, 3060057, 0, 50, CookingGloves, 3));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157199, 0, 210, RewardTitle, 15));
+			RewardCollection.Add(new BODCollectionItem(0xA8ED, 3060078, 0, 200, FilletedFish));
 			RewardCollection.Add(new BODCollectionItem(0x13C6, 3060059, 0, 210, CookingGloves, 5));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157264, 0, 250, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157218, 0, 300, CraftsmanTalisman, 25));
@@ -1566,6 +1567,11 @@ namespace Server.Engines.BulkOrders
 		        return new RingmailGlovesOfCooking(5);
 
 	        throw new InvalidOperationException();
+        }
+        
+        private static Item FilletedFish(int type)
+        {
+	        return new FilletedFish();
         }
 
         #endregion
