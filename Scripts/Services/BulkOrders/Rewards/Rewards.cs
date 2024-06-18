@@ -1896,6 +1896,7 @@ namespace Server.Engines.BulkOrders
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157183, 0, 25, RewardTitle, 20));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157202, 0, 50, RewardTitle, 21));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157203, 0, 210, RewardTitle, 22));
+			RewardCollection.Add(new BODCollectionItem(0x14F0, 3060074, 0x481, 210, PowerScroll, 5));
 			RewardCollection.Add(new BODCollectionItem(0xA8EA, "roslina w sloju", 0, 200, CreateItem, 1));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157278, 2741, 225, NaturalDye, 0));
             RewardCollection.Add(new BODCollectionItem(0x975, 1152660, CraftResources.GetHue(CraftResource.AshWood), 250, Cauldron, 0));
@@ -1904,6 +1905,7 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x975, 1152661, CraftResources.GetHue(CraftResource.YewWood), 300, Cauldron, 2));
             RewardCollection.Add(new BODCollectionItem(0x975, 1152657, CraftResources.GetHue(CraftResource.Gold), 310, Cauldron, 3));
             RewardCollection.Add(new BODCollectionItem(0x9E26, 1157218, 0, 325, CraftsmanTalisman, 25)); // todo: Get id
+            RewardCollection.Add(new BODCollectionItem(0x14F0, 3060075, 0x481, 325, PowerScroll, 10));
             RewardCollection.Add(new BODCollectionItem(0x975, 1152658, CraftResources.GetHue(CraftResource.Agapite), 350, Cauldron, 4));
             RewardCollection.Add(new BODCollectionItem(0x975, 1152662, CraftResources.GetHue(CraftResource.Heartwood), 360, Cauldron, 5));
             RewardCollection.Add(new BODCollectionItem(0x9E26, 1157265, 0, 375, CraftsmanTalisman, 50)); // todo: Get id
@@ -1911,6 +1913,8 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x975, 1152663, CraftResources.GetHue(CraftResource.Bloodwood), 410, Cauldron, 6));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157278, 2735, 425, NaturalDye, 2));
             RewardCollection.Add(new BODCollectionItem(0x975, 1152659, CraftResources.GetHue(CraftResource.Verite), 450, Cauldron, 7));
+            RewardCollection.Add(new BODCollectionItem(0x14F0, 3060076, 0x481, 600, PowerScroll, 15));
+            RewardCollection.Add(new BODCollectionItem(0x14F0, 3060077, 0x481, 700, PowerScroll, 20));
         }
 
         #region Constructors
@@ -1955,6 +1959,16 @@ namespace Server.Engines.BulkOrders
 	        }
 
 	        return null;
+        }
+        
+        private static readonly ConstructCallback PowerScroll = CreatePowerScroll;
+
+        private static Item CreatePowerScroll(int type)
+        {
+	        if (type == 5 || type == 10 || type == 15 || type == 20)
+		        return new PowerScroll(SkillName.Alchemy, 100 + type);
+
+	        throw new InvalidOperationException();
         }
         #endregion
 
