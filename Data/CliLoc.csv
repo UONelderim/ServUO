@@ -4482,7 +4482,7 @@ Number;Text
 1002067;"To use Detect Hidden, simply use the skill from the skill list, and target the area or object you wish to search. When you successfully detect a trap, you will ""notice something funny"" about the object or area, and it will be revealed to all." 
 1002068;As your skill in Detecting Hidden items increases, you may even begin to see traps automatically. This is a very difficult skill to learn, and may start happening after you have passed a skill level of 80 in this skill. Your ability to detect traps in this manner is dependent on the trap level and difficulty, and should not be relied upon in all situations. 
 1002069;Another useful application for this skill involves the homeowner. If you are the homeowner, or friend to a house, and use the detect hidden skill in your household, you will reveal any players that may be hidden there. 
-1002070;Evaluate Inteligencja 
+1002070;Madrosc 
 1002071;Evaluating intelligence allows you to learn certain things about the mental makeup of the beings you select.  If you need to know how intelligent a being is and get an idea of their potential magic using ability, your will need to learn evaluate intelligence.  A high evaluate intelligence skill also allows mages to successfully overcome the natural resistance of creatures to magic.  Therefore, a high evaluate intelligence skill may make a huge difference to a mage. 
 1002072;In order to use evaluate intelligence, you will need to click on the skill from within your skill menu.  This will bring up a targeting cursor.  Select the person or monster on which you would like to use your evaluate intelligence skill.  If you are successful, you will determine their relative intelligence, and perhaps their current mana level.  You will not be able to use the evaluate intelligence skill on Shopkeepers or Vendors. 
 1002073;Fencing 
@@ -8920,7 +8920,7 @@ Number;Text
 1017407;Pogromca zywiolakow krwi 
 1017408;Pogromca zywiolakow sniegu 
 1017409;Pogromca zywiolakow 
-1017410;Special Fishing Net 
+1017410;Specjalna siec rybacka 
 1017411;gargulcowy kilof 
 1017412;Daemon Bone 
 1017413;Lodowcowa laska 
@@ -32354,7 +32354,7 @@ Number;Text
 1061317;Summons a wall of fire that deals Fire damage to all who walk through it 
 1061318;Heals the target of a medium amount of lost Hit Points. 
 1061319;Strikes the Target with a bolt of lightning, which deals Energy damage. 
-1061320;Temporarily removes an amount of mana from the Target, based on a comparison between the Caster’s Evaluate Inteligencja skill and the Target’s Resist Spells skill. 
+1061320;Temporarily removes an amount of mana from the Target, based on a comparison between the Caster’s Madrosc skill and the Target’s Resist Spells skill. 
 1061321;Caster is transported to the location marked on the Target rune. If a ship key is target, Caster is transported to the boat the key opens. 
 1061322;Summons a whirling pillar of blades that selects a Target to attack based off of its combat strength and proximity.  The Blade Spirit disappears after a set amount of time.  Requires 1 pet control slot. 
 1061323;Destroys one tile of a target Field spell. 
@@ -32376,7 +32376,7 @@ Number;Text
 1061339;Conjures a temporary field of energy on the ground at the Target Location that blocks all movement. 
 1061340;Envelopes the target in a column of magical flame the deals Fire damage. 
 1061341;Targeting a rune marked with the Mark spell opens a temporary portal to the rune’s marked location.  The portal can be used by anyone to travel to that location. 
-1061342;Drains mana from the Target and transfers it to the Caster. The amount of mana drained is determined by a comparison between the Caster’s Evaluate Inteligencja skill and the Target’s Resisting Spells skill 
+1061342;Drains mana from the Target and transfers it to the Caster. The amount of mana drained is determined by a comparison between the Caster’s Madrosc skill and the Target’s Resisting Spells skill 
 1061343;Attempts to dispel any summoned creature within an eight tile radius. 
 1061344;Summons a swarm of fiery meteors that strike all targets within a radius around the Target Location.  The total Fire damage dealt is split between all Targets of the spell. 
 1061345;Temporarily transforms the Caster into a creature selected from a specified list.  While polymorphed, other players will see the Caster as a criminal. 
@@ -44735,7 +44735,7 @@ Number;Text
 1073846;<body>85 Necromancy<br>85 Rozmowa z Duchami<br>85 Resisting Spells<br>70 Fencing<br>70 Meditation<br>80 Strength<br>70 Zrecznosc<br>75 Inteligencja</body> 
 1073847;<body>85 Chivalry<br>85 Resist Spells<br>85 Swordsmanship<br>70 Tactics<br>60 Focus<br>85 Strength<br>85 Zrecznosc<br>55 Inteligencja<br>Title set to trustworthy</body> 
 1073848;<body>85 Lockpicking<br>85 Cartography<br>85 Peacemaking<br>70 Magia<br>70 Musicianship<br>100 Strength<br>25 Zrecznosc<br>100 Inteligencja</body> 
-1073849;<body>85 Magia<br>85 Resist Spells<br>85 Evaluate Inteligencja<br>70 Inscription<br>70 Meditation<br>80 Strength<br>35 Zrecznosc<br>110 Inteligencja</body> 
+1073849;<body>85 Magia<br>85 Resist Spells<br>85 Madrosc<br>70 Inscription<br>70 Meditation<br>80 Strength<br>35 Zrecznosc<br>110 Inteligencja</body> 
 1073850;<body>85 Swordsmanship<br>85 Tactics<br>85 Anatomy<br>70 Leczenie<br>70 Resist Spells<br>110 Strength<br>80 Zrecznosc<br>25 Inteligencja</body> 
 1073851;<body>85 Fencing<br>85 Tactics<br>85 Anatomy<br>70 Leczenie<br>70 Resist Spells<br>110 Strength<br>80 Zrecznosc<br>25 Inteligencja</body> 
 1073852;<body>85 Mace Fighting<br>85 Tactics<br>85 Anatomy<br>70 Leczenie<br>70 Resist Spells<br>110 Strength<br>80 Zrecznosc<br>25 Inteligencja</body> 
@@ -72979,23 +72979,23 @@ Number;Text
 1116266;lekka kula armatnia 
 1116267;kula armatnia 
 1116268;kula armatnia 
-1116269;(Eat to increase hit chance: ~1_val~) 
-1116270;(Eat to increase defense chance: ~1_TOKEN~) 
-1116271;(Eat to soak fire damage: ~1_val~) 
-1116272;(Eat to soak physical damage: ~1_val~) 
-1116273;(Eat to soak cold damage: ~1_val~) 
-1116274;(Eat to soak poison damage: ~1_val~) 
-1116275;(Eat to soak energy damage: ~1_val~) 
-1116276;(Eat to increase weapon damage: ~1_val~) 
-1116277;(Eat to increase spell damage: ~1_val~) 
-1116278;(Eat to increase casting focus: ~1_val~) 
-1116279;(Eat to increase soul charge ability: ~1_val~) 
-1116280;(Eat to increase meditation skill: ~1_val~) 
-1116281;(Eat to increase focus skill: ~1_val~) 
-1116282;(Eat to increase hp regeneration: ~1_val~) 
-1116283;(Eat to increase mana regeneration: ~1_val~) 
-1116284;(Eat to increase stamina regeneration: ~1_val~) 
-1116285;You eat the ~1_val~.  Mmm, tasty! 
+1116269;(Zjedz, aby zwiekszyc szanse na trafienie: ~1_val~)
+1116270;(Zjedz, aby zwiekszyc szanse na uniki: ~1_TOKEN~)
+1116271;(Zjedz, aby wchlonac obrazenia od ognia: ~1_val~)
+1116272;(Zjedz, aby wchlonac obrazenia fizyczne: ~1_val~)
+1116273;(Zjedz, aby wchlonac obrazenia od zimna: ~1_val~)
+1116274;(Zjedz, aby wchlonac obrazenia od trucizny: ~1_val~)
+1116275;(Zjedz, aby wchlonac obrazenia od energii: ~1_val~)
+1116276;(Zjedz, aby zwiekszyc obrazenia broni: ~1_val~)
+1116277;(Zjedz, aby zwiekszyc obrazenia zaklec: ~1_val~)
+1116278;(Zjedz, aby zwiekszyc skupienie na rzucaniu zaklec: ~1_val~)
+1116279;(Zjedz, aby zwiekszyc zdolnosc do ladowania duszy: ~1_val~)
+1116280;(Zjedz, aby zwiekszyc umiejetnosc medytacji: ~1_val~)
+1116281;(Zjedz, aby zwiekszyc umiejetnosc skupienia: ~1_val~)
+1116282;(Zjedz, aby zwiekszyc regeneracje punktow zycia: ~1_val~)
+1116283;(Zjedz, aby zwiekszyc regeneracje many: ~1_val~)
+1116284;(Zjedz, aby zwiekszyc regeneracje staminy: ~1_val~)
+1116285;Zjadasz ~1_val~. Mmm, pyszne!
 1116286;Your new player starter kit has been placed in your bank box. 
 1116287;The new player token's skill gain bonus is only applied outside of the New Haven new player quest area. You will only receive accelerated skill gain bonuses for any new player skill gain quests you are on in the area. 
 1116288;You have disabled your skill gain aura. 
@@ -108910,9 +108910,9 @@ Number;Text
 1152292;If you help me out, I'll help you out. I can replace that bulk order with a better one, but it's gonna cost you ~1_amt~ gold coin. Payment is due immediately. Just hand me the order and I'll pull the old switcheroo. 
 1152293;My business is being watched by the Guild, so I can't be messing with bulk orders right now. Come back when there's less heat on me! 
 1152294;Daj lapowke 
-1152295;So you want to do a little business under the table? 
-1152296;Target a bulk order deed to show to the shopkeeper. 
-1152297;That is not a bulk order deed. 
+1152295;He he, chcesz ubic maly interes "pod stolem", co? 
+1152296;Wskaz zlecenie, ktore chcesz pokazac. 
+1152297;To nie jest zlecenie. 
 1152298;Nie zajmuje sie takimi dobrami 
 1152299;Nie akceptuje czesciowo wypelnionych zamowien 
 1152300;To chyba nie jest Twoje? 
@@ -110556,46 +110556,46 @@ Number;Text
 1153938;Offensive Mode Enabled 
 1153939;Defensive Mode Enabled 
 1153940;You must wait to perform this attack 
-1153941;of Defense 
-1153942;of Shielding 
-1153943;of Guarding 
-1153944;of Protection 
-1153945;of Hardening 
-1153946;of Fortification 
-1153947;of Invulnerability 
-1153948;Cure 
-1153949;Wash 
-1153950;Polish 
-1153951;Scour 
-1153952;Varnish 
-1153953;Gloss 
-1153954;Studded Leather 
-1153955;Studded Samurai 
-1153956;Hide 
-1153957;Bone 
-1153958;Ringmail 
-1153959;Chainmail 
-1153960;Platemail 
-1153961;Platemail Samurai 
+1153941;Obrony 
+1153942;Tarczy 
+1153943;Strzezenia 
+1153944;Protekcji 
+1153945;Wzmacniania 
+1153946;Umocnienia 
+1153947;Niezniszczalnosci 
+1153948;Utwardzacz 
+1153949;Zmywacz 
+1153950;Polerka 
+1153951;Plukanka 
+1153952;Lakier 
+1153953;Blyszczyk 
+1153954;Utwardzana Skora 
+1153955;Utwardzana Skora - Starozytne 
+1153956;Wzmocnione Lesne 
+1153957;Kosciane 
+1153958;Pierscieniowe 
+1153959;Kolcze 
+1153960;Plytowe 
+1153961;Plytowe - starozytne 
 1153962;Gargish Platemail 
-1153963;Dragon 
-1153964;Woodland 
+1153963;Smocze 
+1153964;Inkrustowane 
 1153965;Gargish Stone 
 1153966;~1_OBJTYPE~ ~2_BONUSLEVEL~ 
 1153967;~1_BONUSTYPE~ ~2_OBJTYPE~ ~3_BONUSLEVEL~ 
-1153968;Cured 
-1153969;Washed 
-1153970;Polished 
-1153971;Scoured 
-1153972;Varnished 
-1153973;Glazed 
-1153974;Thread 
-1153975;Plating 
-1153976;Resin 
-1153977;You can only dye cloth with this tub. 
-1153978;You lack the required quantity of raw materials to craft the Armor Refinement. 
-1153979;*You carefully and skillfully craft an Armor Refinement* 
-1153980;*You carefully apply the Refinement to the armor* 
+1153968;utwardzone 
+1153969;potraktowane zmywaczem 
+1153970;wypolerowane 
+1153971;oplukane 
+1153972;lakierowane 
+1153973;emaliowane 
+1153974;gwintowane 
+1153975;platerowane 
+1153976;potraktowane zywica 
+1153977;Mozesz tylko farbowac tkanine tym kapieliskiem.
+1153978;Brakuje ci wymaganej ilosci surowcow do wykonania ulepszenia pancerza.
+1153979;*Starannie i z duzym umiejetnoscia wykonujesz Ulepszenie Pancerza*
+1153980;*Starannie nakladasz Ulepszenie na zbroje*
 1153981;Only a Grandmaster ~1_PROFESSION~ would know what to do with this. 
 1153982;You lack the required raw materials to craft the Armor Refinement. 
 1153983;You would have better results were you to practice your craft within the crafting halls of Ocllo, Buccaneer's Den, or Jhelom. 
@@ -111358,7 +111358,7 @@ Number;Text
 1154740;Soldier's Medal<br>Tactics +10<br> Odzyskiwanie wytrzymalosci 2<br>Hit Chance Increase 5%<br>Damage Increase 20% 
 1154741;Duelist's Edge<br>Anatomy +10<br> Odzyskiwanie wytrzymalosci 2<br>Hit Chance Increase 5%<br>Damage Increase 20% 
 1154742;Necromancer's Phylactery<br>Rozmowa z Duchami +10<br>Odzyskiwanie many 1<br>Spell Damage Increase 5%<br>Lower Reagent Cost 10% 
-1154743;Wizard's Curio<br>Evaluate Inteligencja +10<br>Odzyskiwanie many 1<br>Spell Damage Increase 5%<br>Lower Reagent Cost 10% 
+1154743;Wizard's Curio<br>Madrosc +10<br>Odzyskiwanie many 1<br>Spell Damage Increase 5%<br>Lower Reagent Cost 10% 
 1154744;Mystic's Memento<br>Focus +10<br>Odzyskiwanie many 1<br>Spell Damage Increase 5%<br>Lower Reagent Cost 10% 
 1154745;Presentation Stone 
 1154746;You may only combine pigments of the same type. 
@@ -115362,12 +115362,12 @@ Number;Text
 1158748;The Trinsic Keep Est. 
 1158749;The Gothic Rose Castle 
 1158750;The Elsa Castle 
-1158751;You must name your constellation before submitting it. 
-1158752;I am Khal Ankur! Feel the wrath of my generals! 
-1158753;You enslave your pets to do your bidding? Ha! I shall free them to their true power through my generals! 
-1158754;I AM THE WARRIOR KING! POWER OF THE FALLEN STAR COME TO ME! 
-1158755;You puny attacks matter not! I shall crush you all and drink your soul! 
-1158756;BEHOLD MY POWER! YOU SHALL NEVER DEFEAT ME! 
+1158751;Musisz nazwac swoja konstelacje przed jej zgloszeniem.
+1158752;Jestem Khal Ankur! Poczujcie gniew moich generalow!
+1158753;Zniewalasz swoje zwierzeta, aby spelnialy twoje rozkazy? Ha! Uwolnie je do ich prawdziwej mocy poprzez moich generalow!
+1158754;JESTEM KROLEM WOJOWNIKOW! MOC UPADLEJ GWIAZDY, PRZYJDZ DO MNIE!
+1158755;Twoje marne ataki nic nie znacza! Zmiazdze was wszystkich i wypije wasza dusze!
+1158756;SPOJRZ NA MOJA MOC! NIGDY MNIE NIE POKONASZ!
 1158757;Fall is approaching and strangeness is afoot in Britannia!<br><br>Britannians are looking skyward in search of constellations and other celestial objects using the new telescope!<br><br>The pumpkin patches of Britannia once again bearing fruit as the Grimms hold their carveable pumpkins close!<br><br>Visit a cemetery to battle against the Butchers and carve new Jack o' Lantern designs!<br><br>Beware the skeletons! Zombie skeletons roam the cemeteries!<br><br>Trick or Treat? Shopkeepers and citizens alike have new treats to share!<br><br>Strange events worth investigating? A new article from the Town Cryer on the new Royal Britannian Guard Detective Branch! 
 1158758;You must wait ~1_VAL~ seconds before you can replace this house. 
 1158759;<CENTER>SECURE HOUSE REPLACEMENT</CENTER> 
