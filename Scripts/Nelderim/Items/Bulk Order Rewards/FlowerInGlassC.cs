@@ -1,21 +1,21 @@
 namespace Server.Items
 {
 	[Furniture]
-	public class FlowerInGlassA : Item
+	public class FlowerInGlassC : Item
 	{
 		[Constructable]
-		public FlowerInGlassA()
-			: base(0xA8EA)
+		public FlowerInGlassC()
+			: base(0xA8EC)
 		{
 			Weight = 20.0;
 		}
 
-		public FlowerInGlassA(Serial serial)
+		public FlowerInGlassC(Serial serial)
 			: base(serial)
 		{
 		}
 
-		public override int LabelNumber => 3060071;
+		public override int LabelNumber => 3060073;
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
