@@ -44337,8 +44337,8 @@ Number;Text
 1073448;Folded Steel Section Donation Representative. 
 1073449;Mace and Blade Section Donation Representative. 
 1073450;Songs of Note Section Donation Representative. 
-1073451;You have learned a new recipe: ~1_RECIPE~ 
-1073452;a cookbook 
+1073451;Nauczyles sie nowej receptury: ~1_RECIPE~ 
+1073452;ksiazka kucharska 
 1073453;bransoleta z jaskrawym bursztynem 
 1073454;bransoleta z ogniowym rubinem 
 1073455;bransoleta z ciemnym szafirem 
@@ -118459,12 +118459,12 @@ Number;Text
 3060051;starozytne narzedzia krawieckie +15 
 3060052;starozytne narzedzia krawieckie +30 
 3060053;starozytne narzedzia krawieckie +60 
-3060054;skorzane rekawice do gotowania 
+3060054;rekawice do gotowania 
 3060055;skorzane rekawice do gotowania +1 
 3060056;skorzane utwardzane rekawice do gotowania 
 3060057;skorzane utwardzane rekawice do gotowania +3 
 3060058;pierscienicowe rekawice do gotowania 
-3060059;pierscienicowe rekawice do gotowania +3 
+3060059;pierscienicowe rekawice do gotowania +5 
 3060060;Gotowanie +~1_val~% 
 3060061;starozytne narzedzia skryby 
 3060062;starozytne narzedzia skryby +1 
