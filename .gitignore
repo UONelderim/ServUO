@@ -63,8 +63,11 @@
 *.enu
 
 # Include Data Files
+
 !/Data/*
 !/Data/Binary/*
+!/Data/ClilocGen.exe
 
 # Exclude Data Files
 /Data/PVPTournamentSystemData
+/Data/Cliloc.enu
