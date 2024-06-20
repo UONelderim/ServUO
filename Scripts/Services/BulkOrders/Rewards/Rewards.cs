@@ -1613,7 +1613,7 @@ namespace Server.Engines.BulkOrders
 		        typeof(BottleGoatMilk),
 		        typeof(BottleSheepMilk),
 		        typeof(Eggs),
-		        //typeof(Corn),
+		        typeof(EarOfCorn),
 		        typeof(Cabbage),
 		        typeof(Taint),
 		        typeof(Corruption)
@@ -1639,7 +1639,7 @@ namespace Server.Engines.BulkOrders
 		        typeof(BottleGoatMilk),
 		        typeof(BottleSheepMilk),
 		        typeof(Eggs),
-		        //typeof(Corn),
+		        typeof(EarOfCorn),
 		        typeof(Cabbage),
 
 	        };
