@@ -982,26 +982,44 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x2831, 1157289, 0, 350, Recipe, 2));
             RewardCollection.Add(new BODCollectionItem(0x9E2B, 1157264, 0, 400, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152674, CraftResources.GetHue(CraftResource.Gold), 450, SmeltersTalisman, (int)CraftResource.Gold));
+            RewardCollection.Add(new BODCollectionItem(0x14F0, 3060090, 0x481, 475, PowerScroll, 5));
            // RewardCollection.Add(new BODCollectionItem(0x14EC, 1152665, CraftResources.GetHue(CraftResource.Gold), 500, HarvestMap, (int)CraftResource.Gold));
            RewardCollection.Add(new BODCollectionItem(4102, 1152674, 993, 500, TinkeringPowderOfTemperament));
             RewardCollection.Add(new BODCollectionItem(0x9E2B, 1157218, 0, 550, CraftsmanTalisman, 25)); // todo: Get id
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152675, CraftResources.GetHue(CraftResource.Agapite), 600, SmeltersTalisman, (int)CraftResource.Agapite));
+            RewardCollection.Add(new BODCollectionItem(0x14F0, 3060091, 0x481, 600, PowerScroll, 10));
            // RewardCollection.Add(new BODCollectionItem(0x14EC, 1152666, CraftResources.GetHue(CraftResource.Agapite), 650, HarvestMap, (int)CraftResource.Agapite));
             RewardCollection.Add(new BODCollectionItem(0x1940, 1157221, 0, 700, CreateItem, 0)); // powder of fort keg
+            RewardCollection.Add(new BODCollectionItem(0x14F0, 3060092, 0x481, 700, PowerScroll, 15));
+            RewardCollection.Add(new BODCollectionItem(0x1028, 3060095, 0x482, 750, AncientTinkeringKit, 10 ));
             RewardCollection.Add(new BODCollectionItem(0x9CE9, 1157290, 0, 750, CreateItem, 1)); // automaton actuator
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152676, CraftResources.GetHue(CraftResource.Verite), 800, SmeltersTalisman, (int)CraftResource.Verite));
+            RewardCollection.Add(new BODCollectionItem(0x1028, 3060096, 0x482, 850, AncientTinkeringKit, 15 ));
            // RewardCollection.Add(new BODCollectionItem(0x14EC, 1152667, CraftResources.GetHue(CraftResource.Verite), 850, HarvestMap, (int)CraftResource.Verite));
             RewardCollection.Add(new BODCollectionItem(0x9E2B, 1157265, 0, 900, CraftsmanTalisman, 50));
+            RewardCollection.Add(new BODCollectionItem(0x14F0, 3060093, 0x481, 475, PowerScroll, 20));
             RewardCollection.Add(new BODCollectionItem(0x9E7E, 1157216, 0, 950, RockHammer));
             RewardCollection.Add(new BODCollectionItem(0x9CAA, 1157286, 1175, 1000, CreateItem, 2));
+            RewardCollection.Add(new BODCollectionItem(0x1028, 3060097, 0x482, 1000, AncientTinkeringKit, 30 ));
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152677, CraftResources.GetHue(CraftResource.Valorite), 1050, SmeltersTalisman, (int)CraftResource.Valorite));
           //  RewardCollection.Add(new BODCollectionItem(0x14EC, 1152668, CraftResources.GetHue(CraftResource.Valorite), 1100, HarvestMap, (int)CraftResource.Valorite));
+			RewardCollection.Add(new BODCollectionItem(0x1028, 3060098, 0x482, 1100, AncientTinkeringKit, 60 ));
             RewardCollection.Add(new BODCollectionItem(0x9DB1, 1157220, 1175, 1200, CreateItem, 3));
         }
 
         private Item TinkeringPowderOfTemperament(int type)
         {
 	        return new TinkeringPowderOfTemperament();
+        }
+        
+                
+        private static readonly ConstructCallback AncientTinkeringKit = new ConstructCallback(CreateAncientTinkeringKit);
+        
+        private static Item CreateAncientTinkeringKit(int type) {
+	        if (type == 10 || type == 15 || type == 30 || type == 60)
+		        return new AncientTinkeringKit(type);
+
+	        throw new InvalidOperationException();
         }
 
         #region Constructors
@@ -1034,6 +1052,17 @@ namespace Server.Engines.BulkOrders
         {
             return new MasterCraftsmanTalisman(type, 0x9E2B, TalismanSkill.Tinkering);
         }
+        
+        private static readonly ConstructCallback PowerScroll = CreatePowerScroll;
+
+        private static Item CreatePowerScroll(int type)
+        {
+	        if (type == 5 || type == 10 || type == 15 || type == 20)
+		        return new PowerScroll(SkillName.Tinkering, 100 + type);
+
+	        throw new InvalidOperationException();
+        }
+        
         #endregion
 
         public static readonly TinkeringRewardCalculator Instance = new TinkeringRewardCalculator();
