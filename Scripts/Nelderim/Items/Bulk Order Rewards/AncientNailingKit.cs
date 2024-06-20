@@ -32,7 +32,7 @@ namespace Server.Items
 				}
 				else if (m_SkillMod == null && Parent is Mobile)
 				{
-					m_SkillMod = new DefaultSkillMod(SkillName.Tailoring, true, m_Bonus);
+					m_SkillMod = new DefaultSkillMod(SkillName.Tinkering, true, m_Bonus);
 					((Mobile)Parent).AddSkillMod(m_SkillMod);
 				}
 				else if (m_SkillMod != null)
@@ -51,7 +51,7 @@ namespace Server.Items
 				if (m_SkillMod != null)
 					m_SkillMod.Remove();
 
-				m_SkillMod = new DefaultSkillMod(SkillName.Tailoring, true, m_Bonus);
+				m_SkillMod = new DefaultSkillMod(SkillName.Tinkering, true, m_Bonus);
 				((Mobile)parent).AddSkillMod(m_SkillMod);
 			}
 		}
