@@ -1514,10 +1514,13 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x2831, 1031233, 0, 25, Recipe, 4));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157198, 0, 50, RewardTitle, 14));
 	        RewardCollection.Add(new BODCollectionItem(0x13C6, 3060057, 0, 50, CookingGloves, 3));
+	        RewardCollection.Add(new BODCollectionItem(3854, "Skladniki Do Wywarow x5", 1952, 190, ElixirIngredient2)); 
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157199, 0, 210, RewardTitle, 15));
+			RewardCollection.Add(new BODCollectionItem(3854, "Skladniki Do Wywarow x10", 1952, 150, ElixirIngredient)); 
 			RewardCollection.Add(new BODCollectionItem(0xA8ED, 3060078, 0, 200, FilletedFish));
 			RewardCollection.Add(new BODCollectionItem(0x13C6, 3060059, 0, 210, CookingGloves, 5));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157264, 0, 250, CraftsmanTalisman, 10));
+            RewardCollection.Add(new BODCollectionItem(0x0E7B, "Wiadro na nawoz", 0, 275, DungBucket));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157218, 0, 300, CraftsmanTalisman, 25));
             RewardCollection.Add(new BODCollectionItem(0xA8EE, 3060079, 0, 310, MuffinShelf));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157265, 0, 350, CraftsmanTalisman, 50));
@@ -1585,6 +1588,71 @@ namespace Server.Engines.BulkOrders
         {
 	        return new HangingSausages();
         }
+        
+        private static Item DungBucket(int type)
+        {
+	        DungBucket bucket = new DungBucket
+	        {
+		        DungQuantity = 200,
+		        IsFertilizer = true
+	        };
+    
+	        return bucket;
+        }
+        
+        private static Item ElixirIngredient(int type)
+        {
+
+	        Type[] ingredientTypes = new Type[]
+	        {
+		        typeof(Onion),
+		        typeof(Carrot),
+		        typeof(JarHoneyGryczany),
+		        typeof(JarHoneySpadziowy),
+		        typeof(BottleCowMilk),
+		        typeof(BottleGoatMilk),
+		        typeof(BottleSheepMilk),
+		        typeof(Eggs),
+		        //typeof(Corn),
+		        typeof(Cabbage),
+		        typeof(Taint),
+		        typeof(Corruption)
+	        };
+	        
+	        Type selectedType = ingredientTypes[Utility.Random(ingredientTypes.Length)];
+
+	        // Create an instance of the selected type
+	        Item ingredient = (Item)Activator.CreateInstance(selectedType);
+	        ingredient.Amount = 10;
+
+	        return ingredient;
+        }
+        
+        private static Item ElixirIngredient2(int type)
+        {
+
+	        Type[] ingredientTypes = new Type[]
+	        {
+		        typeof(Onion),
+		        typeof(Carrot),
+		        typeof(BottleCowMilk),
+		        typeof(BottleGoatMilk),
+		        typeof(BottleSheepMilk),
+		        typeof(Eggs),
+		        //typeof(Corn),
+		        typeof(Cabbage),
+
+	        };
+	        
+	        Type selectedType = ingredientTypes[Utility.Random(ingredientTypes.Length)];
+
+	        // Create an instance of the selected type
+	        Item ingredient = (Item)Activator.CreateInstance(selectedType);
+	        ingredient.Amount = 5;
+
+	        return ingredient;
+        }
+
 
         #endregion
 
