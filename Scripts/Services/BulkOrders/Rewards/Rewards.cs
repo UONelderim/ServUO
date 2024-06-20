@@ -1169,21 +1169,29 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x9E2C, 1157264, 0, 300, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152678, CraftResources.GetHue(CraftResource.YewWood), 350, WoodsmansTalisman, (int)CraftResource.YewWood));
             RewardCollection.Add(new BODCollectionItem(0x9E2C, 1157218, 0, 450, CraftsmanTalisman, 25));
+            RewardCollection.Add(new BODCollectionItem(0x14F0, 3060086, 0x481, 500, PowerScroll, 5));
            // RewardCollection.Add(new BODCollectionItem(0x12B3, 1157293, CraftResources.GetHue(CraftResource.DullCopper), 450, RunicMalletAndChisel, 1));
           //  RewardCollection.Add(new BODCollectionItem(0x12B3, 1157294, CraftResources.GetHue(CraftResource.ShadowIron), 450, RunicMalletAndChisel, 2));
      //     RewardCollection.Add(new BODCollectionItem(0x14EC, 1152669, CraftResources.GetHue(CraftResource.YewWood), 500, HarvestMap, (int)CraftResource.YewWood));
             RewardCollection.Add(new BODCollectionItem(0x1029, 1157223, CraftResources.GetHue(CraftResource.OakWood), 550, RunicDovetailSaw, 0));
+            RewardCollection.Add(new BODCollectionItem(0x14F0, 3060087, 0x481, 600, PowerScroll, 10));
           //  RewardCollection.Add(new BODCollectionItem(0x12B3, 1157295, CraftResources.GetHue(CraftResource.Copper), 600, RunicMalletAndChisel, 3));
           //  RewardCollection.Add(new BODCollectionItem(0x12B3, 1157296, CraftResources.GetHue(CraftResource.Bronze), 650, RunicMalletAndChisel, 4));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152679, CraftResources.GetHue(CraftResource.Heartwood), 650, WoodsmansTalisman, (int)CraftResource.Heartwood));
     //      RewardCollection.Add(new BODCollectionItem(0x14EC, 1152670, CraftResources.GetHue(CraftResource.Heartwood), 700, HarvestMap, (int)CraftResource.Heartwood));
+			RewardCollection.Add(new BODCollectionItem(0x14F0, 3060088, 0x481, 700, PowerScroll, 15));
             RewardCollection.Add(new BODCollectionItem(0x1029, 1157224, CraftResources.GetHue(CraftResource.AshWood), 750, RunicDovetailSaw, 1));
+            RewardCollection.Add(new BODCollectionItem(0x1034, 3060082, 0x482, 750, AncientNailingKit, 10 ));
             RewardCollection.Add(new BODCollectionItem(0x9E2C, 1157265, 0, 800, CraftsmanTalisman, 50));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152680, CraftResources.GetHue(CraftResource.Bloodwood), 850, WoodsmansTalisman, (int)CraftResource.Bloodwood));
+            RewardCollection.Add(new BODCollectionItem(0x1034, 3060083, 0x482, 850, AncientNailingKit, 15 ));
     //      RewardCollection.Add(new BODCollectionItem(0x14EC, 1152671, CraftResources.GetHue(CraftResource.Bloodwood), 900, HarvestMap, (int)CraftResource.Bloodwood));
      //       RewardCollection.Add(new BODCollectionItem(0x12B3, 1157297, CraftResources.GetHue(CraftResource.Gold), 900, RunicMalletAndChisel, 5));
             RewardCollection.Add(new BODCollectionItem(0x1029, 1157225, CraftResources.GetHue(CraftResource.YewWood), 950, RunicDovetailSaw, 2));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152681, CraftResources.GetHue(CraftResource.Frostwood), 1000, WoodsmansTalisman, (int)CraftResource.Frostwood));
+            RewardCollection.Add(new BODCollectionItem(0x1034, 3060084, 0x482, 1000, AncientNailingKit, 30 ));
+            RewardCollection.Add(new BODCollectionItem(0x14F0, 3060089, 0x481, 1050, PowerScroll, 20));
+            RewardCollection.Add(new BODCollectionItem(0x1034, 3060085, 0x482, 1100, AncientNailingKit, 60 ));
     //        RewardCollection.Add(new BODCollectionItem(0x12B3, 1157298, CraftResources.GetHue(CraftResource.Agapite), 1000, RunicMalletAndChisel, 6));
      //     RewardCollection.Add(new BODCollectionItem(0x14EC, 1152672, CraftResources.GetHue(CraftResource.Frostwood), 1050, HarvestMap, (int)CraftResource.Frostwood));
     //        RewardCollection.Add(new BODCollectionItem(0x12B3, 1157299, CraftResources.GetHue(CraftResource.Verite), 1100, RunicMalletAndChisel, 7));
@@ -1222,10 +1230,28 @@ namespace Server.Engines.BulkOrders
                 case 3: return new RunicDovetailSaw(CraftResource.Heartwood, 15);
             }
         }
-
+        
         private static Item CraftsmanTalisman(int type)
         {
             return new MasterCraftsmanTalisman(type, 0x9E2C, TalismanSkill.Carpentry);
+        }
+        
+        private static readonly ConstructCallback AncientNailingKit = new ConstructCallback(CreateAncientNailingKit);
+        private static Item CreateAncientNailingKit(int type) {
+	        if (type == 10 || type == 15 || type == 30 || type == 60)
+		        return new AncientNailingKit(type);
+
+	        throw new InvalidOperationException();
+        }
+        
+        private static readonly ConstructCallback PowerScroll = CreatePowerScroll;
+
+        private static Item CreatePowerScroll(int type)
+        {
+	        if (type == 5 || type == 10 || type == 15 || type == 20)
+		        return new PowerScroll(SkillName.Carpentry, 100 + type);
+
+	        throw new InvalidOperationException();
         }
         #endregion
 
