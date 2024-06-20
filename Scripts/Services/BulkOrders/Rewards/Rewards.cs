@@ -1166,6 +1166,11 @@ namespace Server.Engines.BulkOrders
       //    RewardCollection.Add(new BODCollectionItem(0x14F0, 1157191, 0, 25, RewardTitle, 10));
      //     RewardCollection.Add(new BODCollectionItem(0x14F0, 1157192, 0, 50, RewardTitle, 11));
      //     RewardCollection.Add(new BODCollectionItem(0x14F0, 1157193, 0, 250, RewardTitle, 12));
+			RewardCollection.Add(new BODCollectionItem(0x1BD7, "Kolorowa Deska Losowego Typu x5", 0, 50, RandomBoard, 5)); 
+			RewardCollection.Add(new BODCollectionItem(0x1BD7, "Kolorowa Deska Losowego Typu x8", 0, 100, RandomBoard, 8)); 
+			RewardCollection.Add(new BODCollectionItem(0x1BD7, "Kolorowa Deska Losowego Typu x11", 0, 150, RandomBoard, 11)); 
+			RewardCollection.Add(new BODCollectionItem(0x1BD7, "Kolorowa Deska Losowego Typu x14", 0, 200, RandomBoard, 14)); 
+			RewardCollection.Add(new BODCollectionItem(0x1BD7, "Kolorowa Deska Losowego Typu x17", 0, 250, RandomBoard, 17)); //TODO: przeliczyć czy ilości odpowiadają materiałom zużytym na dane zlecenie
             RewardCollection.Add(new BODCollectionItem(0x9E2C, 1157264, 0, 300, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152678, CraftResources.GetHue(CraftResource.YewWood), 350, WoodsmansTalisman, (int)CraftResource.YewWood));
             RewardCollection.Add(new BODCollectionItem(0x9E2C, 1157218, 0, 450, CraftsmanTalisman, 25));
@@ -1252,6 +1257,26 @@ namespace Server.Engines.BulkOrders
 		        return new PowerScroll(SkillName.Carpentry, 100 + type);
 
 	        throw new InvalidOperationException();
+        }
+        
+        private static Item RandomBoard(int type)
+        {
+	        Type[] boardTypes = new Type[]
+	        {
+		        typeof(AshBoard),
+		        typeof(BloodwoodBoard),
+		        typeof(HeartwoodBoard),
+		        typeof(FrostwoodBoard),
+		        typeof(YewBoard),
+		        typeof(OakBoard)
+	        };
+	        
+	        Type selectedType = boardTypes[Utility.Random(boardTypes.Length)];
+	        
+	        Item board = (Item)Activator.CreateInstance(selectedType);
+	        board.Amount = type;
+
+	        return board;
         }
         #endregion
 
