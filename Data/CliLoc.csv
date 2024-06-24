@@ -68843,12 +68843,12 @@ Number;Text
 1112130;a lever 
 1112131;Plant Clippings 
 1112132;pigment do roslin 
-1112133;~1_COLOR~ plant pigment 
-1112134;bright ~1_COLOR~ plant pigment 
+1112133;~1_COLOR~ - pigment do roslin 
+1112134;jasny odcien -  ~1_COLOR~ - pigment do roslin 
 1112135;utrwalacz koloru 
 1112136;naturalny barwnik 
-1112137;~1_COLOR~ natural dye 
-1112138;bright ~1_COLOR~ natural dye 
+1112137;~1_COLOR~ - Naturalny Barwnik 
+1112138;jasny odcien -  ~1_COLOR~ - Naturalny Barwnik 
 1112139;Select the item you wish to dye. 
 1112140;small treasure pile (dull) 
 1112141;small treasure pile (shiny) 
@@ -113892,8 +113892,8 @@ Number;Text
 1157274;Bialy Campion 
 1157275;Siennne Ziemie ELfow 
 1157276;Fiolet Z Podmroku 
-1157277;Azul Wiatru 
-1157278;"Naturalny Barwnik	" 
+1157277;Podmuch Wiatru 
+1157278;Naturalny Barwnik 
 1157279;Ho ho ho! Pan dostarczyl prezenty dla tych, ktorzy byli grzeczni! Skorzystaj z worka z prezentami, aby odebrac swoja nagrode. Mozna to zrobic w miescie! 
 1157280;Worek z Prezentami Pana 
 1157281;Swiety Mikolaj dziekuje za twoje wysilki podczas festiwalu Rzemiosla, ale nie zakwalifikowales sie do nagrody. Sprobuj ponownie w nastepnym miescie! 
