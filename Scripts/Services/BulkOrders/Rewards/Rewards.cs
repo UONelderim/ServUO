@@ -1600,7 +1600,7 @@ namespace Server.Engines.BulkOrders
 			RewardCollection.Add(new BODCollectionItem(0xA8ED, 3060078, 0, 200, FilletedFish));
 			RewardCollection.Add(new BODCollectionItem(0x13C6, 3060059, 0, 210, CookingGloves, 5));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157264, 0, 250, CraftsmanTalisman, 10));
-            RewardCollection.Add(new BODCollectionItem(0x0E7B, "Wiadro na nawoz", 0, 275, DungBucket));
+            RewardCollection.Add(new BODCollectionItem(0x0E7B, "Wiadro na nawoz", 2966, 275, DungBucket));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157218, 0, 300, CraftsmanTalisman, 25));
             RewardCollection.Add(new BODCollectionItem(0xA8EE, 3060079, 0, 310, MuffinShelf));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157265, 0, 350, CraftsmanTalisman, 50));
