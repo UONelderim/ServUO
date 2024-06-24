@@ -113720,10 +113720,10 @@ Number;Text
 1157102;Otrzymaj starozytny mlotek +15. Ten mlotek zwieksza umiejetnosc kowalstwa uzytkownika o 15,0 punktow gdy jest w reku. Mlotek ten podniesie umiejetnosc kowalstwa powyzej limitu umiejetnosci, ale tylko w celu kucia i ulepszania (nie ma wplywu na jakosc zamowien hurtowych, ale zwiekszy jakosc listow naprawczych). Ten mlotek ma 600 uzyc. 
 1157103;Otrzymaj starozytny mlotek +30. Ten mlotek zwieksza umiejetnosc kowalstwa uzytkownika o 30,0 punktow gdy jest w reku. Mlotek ten podniesie umiejetnosc kowalstwa powyzej limitu umiejetnosci, ale tylko w celu kucia i ulepszania (nie ma wplywu na jakosc zamowien hurtowych, ale zwiekszy jakosc listow naprawczych). Ten mlotek ma 600 uzyc. 
 1157104;Otrzymaj starozytny mlotek +60. Ten mlotek zwieksza umiejetnosc kowalstwa uzytkownika o 60,0 punktow gdy jest w reku. Mlotek ten podniesie umiejetnosc kowalstwa powyzej limitu umiejetnosci, ale tylko w celu kucia i ulepszania (nie ma wplywu na jakosc zamowien hurtowych, ale zwiekszy jakosc listow naprawczych). Ten mlotek ma 600 uzyc. 
-1157105;Otrzymaj cudowny zwoj kowalstwa (umiejetnosc 105). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci kowalstwa do 105,0. Zwoj jest zuzywany przy uzyciu. 
-1157106;Otrzymaj wyniosly zwoj kowalstwa (umiejetnosc 110). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci kowalstwa do 110,0. Zwoj jest zuzywany przy uzyciu. 
-1157107;Otrzymaj mityczny zwoj kowalstwa (umiejetnosc 115). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci kowalstwa do 115,0. Zwoj jest zuzywany przy uzyciu. 
-1157108;Otrzymaj legendarny zwoj kowalstwa (umiejetnosc 120). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci kowalstwa do 120,0. Zwoj jest zuzywany przy uzyciu. 
+1157105;Otrzymaj cudowny zwoj kowalstwa (umiejetnosc 105). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci kowalstwa do 105,0. Zwoj jest zuzywany przy uzyciu. 
+1157106;Otrzymaj wyniosly zwoj kowalstwa (umiejetnosc 110). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci kowalstwa do 110,0. Zwoj jest zuzywany przy uzyciu. 
+1157107;Otrzymaj mityczny zwoj kowalstwa (umiejetnosc 115). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci kowalstwa do 115,0. Zwoj jest zuzywany przy uzyciu. 
+1157108;Otrzymaj legendarny zwoj kowalstwa (umiejetnosc 120). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci kowalstwa do 120,0. Zwoj jest zuzywany przy uzyciu. 
 1157109;Otrzymaj stos zabarwionej zlozonej tkaniny. Ta tkanina wystepuje w czterech odcieniach, ktore normalnie nie sa dostepne. Kazdy stos zawiera sto tkanin. 
 1157110;Otrzymaj pare sandalow w zabarwieniu. Sandaly sa zabarwione losowo jednym z osmiu kolorow z czwartego lub piatego poziomu grupy tkanin. Sandaly nie posiadaja innych wlasciwosci. 
 1157111;Otrzymaj dekoracyjna rozciagniete skore. Zwoj malej lub sredniej rozciagnietej skory i moze byc zwrocone na poludnie lub wschod. Wszystko losowo okreslone w momencie otrzymania nagrody. 
@@ -113733,10 +113733,10 @@ Number;Text
 1157115;Otrzymaj runiczny zestaw do szycia z niebieskich skor. Ten zestaw do szycia mozna uzyc do kucia zbroi o wlasciwosciach magicznych 
 1157116;Otrzymaj runiczny zestaw do szycia z czerwonych skor. Ten zestaw do szycia mozna uzyc do kucia zbroi o wlasciwosciach magicznych 
 1157117;Otrzymaj runiczny zestaw do szycia z zielonych skor. Ten zestaw do szycia mozna uzyc do kucia zbroi o wlasciwosciach magicznych 
-1157118;Otrzymaj cudowny zwoj krawiectwa (umiejetnosc 105). Ten zwoj pozwoli uzytkownikowi krawca zwiekszyc swoj limit umiejetnosci krawiectwa do 105,0. Zwoj jest zuzywany przy uzyciu. 
-1157119;Otrzymaj wyniosly zwoj krawiectwa (umiejetnosc 110). Ten zwoj pozwoli uzytkownikowi krawca zwiekszyc swoj limit umiejetnosci krawiectwa do 110,0. Zwoj jest zuzywany przy uzyciu. 
-1157120;Otrzymaj mitologiczny zwoj krawiectwa (umiejetnosc 115). Ten zwoj pozwoli uzytkownikowi krawca zwiekszyc swoj limit umiejetnosci krawiectwa do 115,0. Zwoj jest zuzywany przy uzyciu. 
-1157121;Otrzymaj legendarny zwoj krawiectwa (umiejetnosc 120). Ten zwoj pozwoli uzytkownikowi krawca zwiekszyc swoj limit umiejetnosci krawiectwa do 120,0. Zwoj jest zuzywany przy uzyciu. 
+1157118;Otrzymaj cudowny zwoj krawiectwa (umiejetnosc 105). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci krawiectwa do 105,0. Zwoj jest zuzywany przy uzyciu. 
+1157119;Otrzymaj wyniosly zwoj krawiectwa (umiejetnosc 110). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci krawiectwa do 110,0. Zwoj jest zuzywany przy uzyciu. 
+1157120;Otrzymaj mitologiczny zwoj krawiectwa (umiejetnosc 115). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci krawiectwa do 115,0. Zwoj jest zuzywany przy uzyciu. 
+1157121;Otrzymaj legendarny zwoj krawiectwa (umiejetnosc 120). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci krawiectwa do 120,0. Zwoj jest zuzywany przy uzyciu. 
 1157122;recykling 
 1157123;recykling 
 1157124;Zestaw Mozaikowych Plyt 
@@ -118479,10 +118479,10 @@ Number;Text
 3060071;Stokrotka w Sloju 
 3060072;Kwiatek w Sloju 
 3060073;Roslina w Sloju 
-3060074;Otrzymaj cudowny zwoj alchemii (umiejetnosc 105). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci alchemii do 105,0. Zwoj jest zuzywany przy uzyciu. 
-3060075;Otrzymaj wyniosly zwoj alchemii (umiejetnosc 110). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci alchemii do 110,0. Zwoj jest zuzywany przy uzyciu. 
-3060076;Otrzymaj mityczny zwoj alchemii (umiejetnosc 115). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci alchemii do 115,0. Zwoj jest zuzywany przy uzyciu. 
-3060077;Otrzymaj legendarny zwoj alchemii (umiejetnosc 120). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci alchemii do 120,0. Zwoj jest zuzywany przy uzyciu. 
+3060074;Otrzymaj cudowny zwoj alchemii (umiejetnosc 105). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci alchemii do 105,0. Zwoj jest zuzywany przy uzyciu. 
+3060075;Otrzymaj wyniosly zwoj alchemii (umiejetnosc 110). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci alchemii do 110,0. Zwoj jest zuzywany przy uzyciu. 
+3060076;Otrzymaj mityczny zwoj alchemii (umiejetnosc 115). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci alchemii do 115,0. Zwoj jest zuzywany przy uzyciu. 
+3060077;Otrzymaj legendarny zwoj alchemii (umiejetnosc 120). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci alchemii do 120,0. Zwoj jest zuzywany przy uzyciu. 
 3060078;Wypatroszona Ryba 
 3060079;Polka z bulkami 
 3060080;Zwisajaca kielbasa 
@@ -118491,14 +118491,14 @@ Number;Text
 3060083;starozytne narzedzia stolarskie +15 
 3060084;starozytne narzedzia stolarskie +30 
 3060085;starozytne narzedzia stolarskie +60 
-3060086;Otrzymaj cudowny zwoj stolarstwa (umiejetnosc 105). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci stolarstwa do 105,0. Zwoj jest zuzywany przy uzyciu. 
-3060087;Otrzymaj wyniosly zwoj stolarstwa (umiejetnosc 110). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci stolarstwa do 110,0. Zwoj jest zuzywany przy uzyciu. 
-3060088;Otrzymaj mityczny zwoj stolarstwa (umiejetnosc 115). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci stolarstwa do 115,0. Zwoj jest zuzywany przy uzyciu. 
-3060089;Otrzymaj legendarny zwoj stolarstwa (umiejetnosc 120). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci stolarstwa do 120,0. Zwoj jest zuzywany przy uzyciu. 
-3060090;Otrzymaj cudowny zwoj majsterkowania (umiejetnosc 105). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci majsterkowania do 105,0. Zwoj jest zuzywany przy uzyciu. 
-3060091;Otrzymaj wyniosly zwoj majsterkowania (umiejetnosc 110). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci majsterkowania do 110,0. Zwoj jest zuzywany przy uzyciu. 
-3060092;Otrzymaj mityczny zwoj majsterkowania (umiejetnosc 115). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci majsterkowania do 115,0. Zwoj jest zuzywany przy uzyciu. 
-3060093;Otrzymaj legendarny zwoj majsterkowania (umiejetnosc 120). Ten zwoj pozwoli uzytkownikowi kowala zwiekszyc swoj limit umiejetnosci majsterkowania do 120,0. Zwoj jest zuzywany przy uzyciu. 
+3060086;Otrzymaj cudowny zwoj stolarstwa (umiejetnosc 105). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci stolarstwa do 105,0. Zwoj jest zuzywany przy uzyciu. 
+3060087;Otrzymaj wyniosly zwoj stolarstwa (umiejetnosc 110). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci stolarstwa do 110,0. Zwoj jest zuzywany przy uzyciu. 
+3060088;Otrzymaj mityczny zwoj stolarstwa (umiejetnosc 115). Ten zwoj pozwoli uzytkownikowi swoj limit umiejetnosci stolarstwa do 115,0. Zwoj jest zuzywany przy uzyciu. 
+3060089;Otrzymaj legendarny zwoj stolarstwa (umiejetnosc 120). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci stolarstwa do 120,0. Zwoj jest zuzywany przy uzyciu. 
+3060090;Otrzymaj cudowny zwoj majsterkowania (umiejetnosc 105). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci majsterkowania do 105,0. Zwoj jest zuzywany przy uzyciu. 
+3060091;Otrzymaj wyniosly zwoj majsterkowania (umiejetnosc 110). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci majsterkowania do 110,0. Zwoj jest zuzywany przy uzyciu. 
+3060092;Otrzymaj mityczny zwoj majsterkowania (umiejetnosc 115). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci majsterkowania do 115,0. Zwoj jest zuzywany przy uzyciu. 
+3060093;Otrzymaj legendarny zwoj majsterkowania (umiejetnosc 120). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci majsterkowania do 120,0. Zwoj jest zuzywany przy uzyciu. 
 3060094;starozytne narzedzia majstra 
 3060095;starozytne narzedzia majstra +10 
 3060096;starozytne narzedzia majstra +15 
