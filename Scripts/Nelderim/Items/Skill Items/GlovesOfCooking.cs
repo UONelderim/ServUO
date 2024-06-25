@@ -104,7 +104,7 @@ namespace Server.Items
         public override int InitMaxHits => 50;
         public override int StrReq => 40;
         public override ArmorMaterialType MaterialType => ArmorMaterialType.Ringmail;
-        public override int LabelNumber => 3060059;// ringmail gloves of Cooking
+        public override int LabelNumber => 3060058;// ringmail gloves of Cooking
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
