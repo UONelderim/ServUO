@@ -29685,14 +29685,14 @@ Number;Text
 1049017;Nie 
 1049018;Anulowales zadanie. 
 1049019;Zaakceptowales zadanie. 
-1049020;runiczny mlotek matowej miedzi 
-1049021;runiczny mlotek shadowa 
-1049022;runiczny mlotek miedzi 
-1049023;runiczny mlotek brazu 
-1049024;runiczny mlotek zlota 
-1049025;runiczny mlotek agapitu 
-1049026;runiczny mlotek verytu 
-1049027;runiczny mlotek valorytu 
+1049020;runiczny mlotek z matowej miedzi 
+1049021;runiczny mlotek z shadowa 
+1049022;runiczny mlotek z miedzi 
+1049023;runiczny mlotek z brazu 
+1049024;runiczny mlotek ze zlota 
+1049025;runiczny mlotek z agapitu 
+1049026;runiczny mlotek z verytu 
+1049027;runiczny mlotek z valorytu 
 1049028;starozytny mlotek +10 
 1049029;starozytny mlotek +15 
 1049030;starozytny mlotek +30 
@@ -118504,3 +118504,4 @@ Number;Text
 3060096;starozytne narzedzia majstra +15 
 3060097;starozytne narzedzia majstra +30 
 3060098;starozytne narzedzia majstra +60 
+3060099;~1_skillname~ +~2_val~% 
