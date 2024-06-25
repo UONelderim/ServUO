@@ -40,7 +40,7 @@ namespace Server.Items
             if (_Automaton != null)
             {
                 if (_Automaton is BlackrockAutomaton)
-                    list.Add(1157046, string.Format("{0}\t#{1}", _Automaton.Name, "1157178")); // ~1_NAME~'s Broken ~2_TYPE~ Automaton Head
+                    list.Add(1157046, string.Format("{0}\t#{1}", _Automaton.Name, "Rudy z Podmroku")); // ~1_NAME~'s Broken ~2_TYPE~ Automaton Head
                 else
                     list.Add(1157046, string.Format("{0}\t#{1}", _Automaton.Name, CraftResources.GetLocalizationNumber(_Automaton.Resource).ToString())); // ~1_NAME~'s Broken ~2_TYPE~ Automaton Head
             }
