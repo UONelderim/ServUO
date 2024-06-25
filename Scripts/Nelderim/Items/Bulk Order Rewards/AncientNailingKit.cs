@@ -32,7 +32,7 @@ namespace Server.Items
 				}
 				else if (m_SkillMod == null && Parent is Mobile)
 				{
-					m_SkillMod = new DefaultSkillMod(SkillName.Tinkering, true, m_Bonus);
+					m_SkillMod = new DefaultSkillMod(SkillName.Carpentry, true, m_Bonus);
 					((Mobile)Parent).AddSkillMod(m_SkillMod);
 				}
 				else if (m_SkillMod != null)
@@ -51,7 +51,7 @@ namespace Server.Items
 				if (m_SkillMod != null)
 					m_SkillMod.Remove();
 
-				m_SkillMod = new DefaultSkillMod(SkillName.Tinkering, true, m_Bonus);
+				m_SkillMod = new DefaultSkillMod(SkillName.Carpentry, true, m_Bonus);
 				((Mobile)parent).AddSkillMod(m_SkillMod);
 			}
 		}
@@ -88,7 +88,7 @@ namespace Server.Items
 			base.GetProperties(list);
 
 			if (m_Bonus != 0)
-				list.Add(1060451, "1042381\t{0}", m_Bonus.ToString()); // ~1_skillname~ +~2_val~
+				list.Add(3060099, "3060099", m_Bonus.ToString()); // ~1_skillname~ +~2_val~
 		}
 
 		public AncientNailingKit(Serial serial) : base(serial)
