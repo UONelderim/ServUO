@@ -61,17 +61,17 @@ namespace Server.Items
 
             if (m_Galleon != null)
             {
-                list.Add(1149571, m_Galleon.Owner != null ? m_Galleon.Owner.Name : "Nobody"); //Owner: ~1_NAME~
+                list.Add(1149571, m_Galleon.Owner != null ? m_Galleon.Owner.Name : "Nikogo"); //Owner: ~1_NAME~
 
                 if (m_Galleon.ShipName != null)
                     list.Add(1149572, m_Galleon.ShipName); //Name: the ~1_NAME~
                 else list.Add(1149573);                    //Name: the Unnamed Ship
 
                 if (m_Galleon.Map != Map.Internal)
-                    list.Add(1149574, m_Galleon.Map != null ? m_Galleon.Map.ToString() : "Unknown"); //Location: ~1_FACET~
+                    list.Add(1149574, m_Galleon.Map != null ? m_Galleon.Map.ToString() : "Nieznana"); //Location: ~1_FACET~
                 else
                 {
-                    string name = m_Galleon.ShipName != null && m_Galleon.ShipName != "" ? m_Galleon.ShipName : "Unnamed Ship";
+                    string name = m_Galleon.ShipName != null && m_Galleon.ShipName != "" ? m_Galleon.ShipName : "Nienazwany statek";
                     list.Add(1041644, name); //The ~1_VAL~ (Dry Docked)
                 }
 
