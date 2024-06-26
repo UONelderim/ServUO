@@ -984,7 +984,7 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152674, CraftResources.GetHue(CraftResource.Gold), 450, SmeltersTalisman, (int)CraftResource.Gold));
             RewardCollection.Add(new BODCollectionItem(0x14F0, 3060090, 0x481, 475, PowerScroll, 5));
            // RewardCollection.Add(new BODCollectionItem(0x14EC, 1152665, CraftResources.GetHue(CraftResource.Gold), 500, HarvestMap, (int)CraftResource.Gold));
-           RewardCollection.Add(new BODCollectionItem(4102, 1152674, 993, 500, TinkeringPowderOfTemperament));
+           RewardCollection.Add(new BODCollectionItem(4102, "Proszek wzmocnienia wyrobow majstra", 993, 500, TinkeringPowderOfTemperament));
             RewardCollection.Add(new BODCollectionItem(0x9E2B, 1157218, 0, 550, CraftsmanTalisman, 25)); // todo: Get id
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152675, CraftResources.GetHue(CraftResource.Agapite), 600, SmeltersTalisman, (int)CraftResource.Agapite));
             RewardCollection.Add(new BODCollectionItem(0x14F0, 3060091, 0x481, 600, PowerScroll, 10));
