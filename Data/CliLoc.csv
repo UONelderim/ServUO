@@ -118504,5 +118504,5 @@ Number;Text
 3060096;starozytne narzedzia majstra +15 
 3060097;starozytne narzedzia majstra +30 
 3060098;starozytne narzedzia majstra +60 
-3060099;~1_skillname~ +~2_val~% 
-3060040;~1_skillname~ +~2_val~% 
+3060099;Stolarstwo +~2_val~% 
+3060040;Majsterkowanie +~2_val~% 

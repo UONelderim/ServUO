@@ -75,7 +75,7 @@ namespace Server.Items
 		}
 
 		[Constructable]
-		public AncientNailingKit(int bonus, int uses) : base(uses, 0x1034)
+		public AncientNailingKit(int bonus, int uses) : base(uses, 0x0f52)
 		{
 			m_Bonus = bonus;
 			Weight = 8.0;
@@ -88,7 +88,7 @@ namespace Server.Items
 			base.GetProperties(list);
 
 			if (m_Bonus != 0)
-				list.Add(3060099, "3060099", m_Bonus.ToString()); // ~1_skillname~ +~2_val~
+				list.Add(3060099, m_Bonus.ToString()); // ~1_skillname~ +~2_val~
 		}
 
 		public AncientNailingKit(Serial serial) : base(serial)
