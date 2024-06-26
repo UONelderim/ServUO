@@ -75,7 +75,7 @@ namespace Server.Items
 		}
 
 		[Constructable]
-		public AncientTinkeringKit(int bonus, int uses) : base(uses, 0x1EB8)
+		public AncientTinkeringKit(int bonus, int uses) : base(uses, 2550)
 		{
 			m_Bonus = bonus;
 			Weight = 8.0;
@@ -88,7 +88,7 @@ namespace Server.Items
 			base.GetProperties(list);
 
 			if (m_Bonus != 0)
-				list.Add(1060451, "1042381\t{0}", m_Bonus.ToString()); // ~1_skillname~ +~2_val~
+				list.Add(3060040, "3060040", m_Bonus.ToString()); // ~1_skillname~ +~2_val~
 		}
 
 		public AncientTinkeringKit(Serial serial) : base(serial)

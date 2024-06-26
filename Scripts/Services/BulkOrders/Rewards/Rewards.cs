@@ -991,19 +991,19 @@ namespace Server.Engines.BulkOrders
            // RewardCollection.Add(new BODCollectionItem(0x14EC, 1152666, CraftResources.GetHue(CraftResource.Agapite), 650, HarvestMap, (int)CraftResource.Agapite));
             RewardCollection.Add(new BODCollectionItem(0x1940, 1157221, 0, 700, CreateItem, 0)); // powder of fort keg
             RewardCollection.Add(new BODCollectionItem(0x14F0, 3060092, 0x481, 700, PowerScroll, 15));
-            RewardCollection.Add(new BODCollectionItem(0x1028, 3060095, 0x482, 750, AncientTinkeringKit, 10 ));
+            RewardCollection.Add(new BODCollectionItem(2550, 3060095, 0x482, 750, AncientTinkeringKit, 10 ));
             RewardCollection.Add(new BODCollectionItem(0x9CE9, 1157290, 0, 750, CreateItem, 1)); // automaton actuator
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152676, CraftResources.GetHue(CraftResource.Verite), 800, SmeltersTalisman, (int)CraftResource.Verite));
-            RewardCollection.Add(new BODCollectionItem(0x1028, 3060096, 0x482, 850, AncientTinkeringKit, 15 ));
+            RewardCollection.Add(new BODCollectionItem(2550, 3060096, 0x482, 850, AncientTinkeringKit, 15 ));
            // RewardCollection.Add(new BODCollectionItem(0x14EC, 1152667, CraftResources.GetHue(CraftResource.Verite), 850, HarvestMap, (int)CraftResource.Verite));
             RewardCollection.Add(new BODCollectionItem(0x9E2B, 1157265, 0, 900, CraftsmanTalisman, 50));
             RewardCollection.Add(new BODCollectionItem(0x14F0, 3060093, 0x481, 475, PowerScroll, 20));
             RewardCollection.Add(new BODCollectionItem(0x9E7E, 1157216, 0, 950, RockHammer));
             RewardCollection.Add(new BODCollectionItem(0x9CAA, 1157286, 1175, 1000, CreateItem, 2));
-            RewardCollection.Add(new BODCollectionItem(0x1028, 3060097, 0x482, 1000, AncientTinkeringKit, 30 ));
+            RewardCollection.Add(new BODCollectionItem(2550, 3060097, 0x482, 1000, AncientTinkeringKit, 30 ));
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152677, CraftResources.GetHue(CraftResource.Valorite), 1050, SmeltersTalisman, (int)CraftResource.Valorite));
           //  RewardCollection.Add(new BODCollectionItem(0x14EC, 1152668, CraftResources.GetHue(CraftResource.Valorite), 1100, HarvestMap, (int)CraftResource.Valorite));
-			RewardCollection.Add(new BODCollectionItem(0x1028, 3060098, 0x482, 1100, AncientTinkeringKit, 60 ));
+			RewardCollection.Add(new BODCollectionItem(2550, 3060098, 0x482, 1100, AncientTinkeringKit, 60 ));
             RewardCollection.Add(new BODCollectionItem(0x9DB1, 1157220, 1175, 1200, CreateItem, 3));
         }
 
