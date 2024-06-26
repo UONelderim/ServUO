@@ -118506,3 +118506,10 @@ Number;Text
 3060098;starozytne narzedzia majstra +60 
 3060099;Stolarstwo +~2_val~% 
 3060040;Majsterkowanie +~2_val~% 
+3060041;skorzane drwalnicze rekawice +1
+3060042;cwiekowane drwalnicze rekawice +3
+3060043;pierscieniowe drwalnicze rekawice +5
+3060044;Otrzymaj cudowny zwoj wyrabiania lukow (umiejetnosc 105). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci wyrabiania lukow do 105,0. Zwoj jest zuzywany przy uzyciu. 
+3060045;Otrzymaj idealny zwoj wyrabiania lukow (umiejetnosc 110). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci wyrabiania lukow do 110,0. Zwoj jest zuzywany przy uzyciu. 
+3060046;Otrzymaj mityczny zwoj wyrabiania lukow (umiejetnosc 115). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci wyrabiania lukow do 115,0. Zwoj jest zuzywany przy uzyciu. 
+3060047;Otrzymaj legendarny zwoj wyrabiania lukow (umiejetnosc 120). Ten zwoj pozwoli uzytkownikowi zwiekszyc swoj limit umiejetnosci wyrabiania lukow do 120,0. Zwoj jest zuzywany przy uzyciu. 
