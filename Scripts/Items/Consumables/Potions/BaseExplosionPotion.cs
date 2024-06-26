@@ -4,12 +4,14 @@ using Server.Spells;
 using Server.Targeting;
 using System;
 using System.Linq;
+using System.Collections;
 #endregion
 
 namespace Server.Items
 {
     public abstract class BaseExplosionPotion : BasePotion
     {
+	    private static double CooldownBetweenPotions = 3.5; // sekundy
         private const int ExplosionRange = 2; // How long is the blast radius?
         private Timer m_Timer;
 
@@ -69,6 +71,13 @@ namespace Server.Items
             {
                 from.SendLocalizedMessage(1062725); // You can not use a purple potion while paralyzed.
                 return;
+            }
+            double delay = GetDelay(from);
+
+            if (delay > 0)
+            {
+	            from.SendMessage("Musisz chwile poczekac, aby moc uzyc kolejnej mikstury eksplozji.");
+	            return;
             }
 
             ThrowTarget targ = from.Target as ThrowTarget;
@@ -282,5 +291,46 @@ namespace Server.Items
                     TimeSpan.FromSeconds(1.0), new TimerStateCallback(m_Potion.Reposition_OnTick), new object[] { from, point, map });
             }
         }
+        
+        #region Delay
+        private static Hashtable m_Delay = new Hashtable();
+
+        public static void AddDelay(Mobile m)
+        {
+	        Timer timer = m_Delay[m] as Timer;
+
+	        if (timer != null)
+		        timer.Stop();
+
+	        m_Delay[m] = Timer.DelayCall(TimeSpan.FromSeconds(CooldownBetweenPotions), new TimerStateCallback(EndDelay_Callback), m);
+        }
+
+        public static double GetDelay(Mobile m)
+        {
+	        Timer timer = m_Delay[m] as Timer;
+
+	        if (timer != null && timer.Next > DateTime.Now)
+		        return (timer.Next - DateTime.Now).TotalSeconds;
+
+	        return 0;
+        }
+
+        private static void EndDelay_Callback(object obj)
+        {
+	        if (obj is Mobile)
+		        EndDelay((Mobile)obj);
+        }
+
+        public static void EndDelay(Mobile m)
+        {
+	        Timer timer = m_Delay[m] as Timer;
+
+	        if (timer != null)
+	        {
+		        timer.Stop();
+		        m_Delay.Remove(m);
+	        }
+        }
+        #endregion
     }
 }
