@@ -1834,11 +1834,11 @@ namespace Server.Engines.BulkOrders
 
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157219, 0, 10, FletcherTools));
         //  RewardCollection.Add(new BODCollectionItem(0x14F0, 1157200, 0, 25, RewardTitle, 17));
-			RewardCollection.Add(new BODCollectionItem(0x13C6, 3060045, 0, 50, LumberjackingGloves, 1));
+			RewardCollection.Add(new BODCollectionItem(0x13C6, 3060041, 0, 50, LumberjackingGloves, 1));
 			RewardCollection.Add(new BODCollectionItem(0x0F47, 1046483, 0x973, 50, SturdyAxe));
 			RewardCollection.Add(new BODCollectionItem(0xF43, 3000299, 0x973, 200, TreefellowsAxe));
 			RewardCollection.Add(new BODCollectionItem(0xFB4, 1046493, 0x973, 200, WoodProspectorsTool));
-			RewardCollection.Add(new BODCollectionItem(0x13D5, 3060046, 0, 200, LumberjackingGloves, 3));
+			RewardCollection.Add(new BODCollectionItem(0x13D5, 3060042, 0, 200, LumberjackingGloves, 3));
             RewardCollection.Add(new BODCollectionItem(0x9E29, 1157264, 0, 210, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152678, CraftResources.GetHue(CraftResource.YewWood), 225, WoodsmansTalisman, (int)CraftResource.YewWood));
         //  RewardCollection.Add(new BODCollectionItem(0x14EC, 1152669, CraftResources.GetHue(CraftResource.YewWood), 310, HarvestMap, (int)CraftResource.YewWood));
@@ -1847,7 +1847,7 @@ namespace Server.Engines.BulkOrders
        //   RewardCollection.Add(new BODCollectionItem(0x14EC, 1152670, CraftResources.GetHue(CraftResource.Heartwood), 375, HarvestMap, (int)CraftResource.Heartwood));
             RewardCollection.Add(new BODCollectionItem(0x9E29, 1157265, 0, 410, CraftsmanTalisman, 50));
             RewardCollection.Add(new BODCollectionItem(0x1022, 1157223, CraftResources.GetHue(CraftResource.OakWood), 425, CreateRunicFletcherTools, 0));
-            RewardCollection.Add(new BODCollectionItem(0x13EB, 3060047, 0, 450, LumberjackingGloves, 5));
+            RewardCollection.Add(new BODCollectionItem(0x13EB, 3060043, 0, 450, LumberjackingGloves, 5));
             RewardCollection.Add(new BODCollectionItem(4102, "Proszek wzmocnienia wyrobow lukmistrza", 0x591, 500, BowFletchingPowderOfTemperament));
             RewardCollection.Add(new BODCollectionItem(0x14F0, 3060044, 0x481, 500, PowerScroll, 5));
             RewardCollection.Add(new BODCollectionItem(0x2F5A, 1152680, CraftResources.GetHue(CraftResource.Bloodwood), 510, WoodsmansTalisman, (int)CraftResource.Bloodwood));
