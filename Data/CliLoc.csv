@@ -30123,11 +30123,11 @@ Number;Text
 1049455;You have been disrupted while attempting to summon your ethereal mount! 
 1049456;You don't have enough mana to do that. 
 1049457;You don't have enough stamina to do that. 
-1049458;Wspanialy Zwoj (+5 do limitu statystyk) : 
-1049459;Idealny Zwoj (+10 do limitu statystyk) : 
-1049460;Mityczny Scroll (+15 do limitu statystyk) : 
-1049461;Legendarny Zwoj (+20 do limitu statystyk) : 
-1049462;Boski Zwoj (+25 do limitu statystyk) : 
+1049458;Wspanialy Zwoj (+5 do limitu statystyk) 
+1049459;Idealny Zwoj (+10 do limitu statystyk) 
+1049460;Mityczny Scroll (+15 do limitu statystyk) 
+1049461;Legendarny Zwoj (+20 do limitu statystyk) 
+1049462;Boski Zwoj (+25 do limitu statystyk) 
 1049463;Wspanialy Zwoj ~1_type~ (+5 do limitu statystyk) 
 1049464;Idealny Zwoj ~1_type~ (+10 do limitu statystyk) 
 1049465;Mityczny Zwoj ~1_type~ (+15 do limitu statystyk) 
@@ -30300,14 +30300,14 @@ Number;Text
 1049632;* zaczyna rzucac bola * 
 1049633;~1_NAME~ zaczyna rzucac bola 
 1049634;bola 
-1049635;Wspanialy Zwoj (105 umiejetnosci): 
-1049636;Idealny Zwoj (110 umiejetnosci): 
-1049637;Mityczny Zwoj (115 umiejetnosci): 
-1049638;Legendarny Zwoj (120 umiejetnosci): 
-1049639;Wspanialy Zwoj ~1_type~ (105 umiejetnosci): 
-1049640;Idealny Zwoj ~1_type~ (110 umiejetnosci): 
-1049641;Mityczny Zwoj ~1_type~ (115 umiejetnosci): 
-1049642;Legendarny Zwoj ~1_type~ (120 umiejetnosci): 
+1049635;Wspanialy Zwoj (105 umiejetnosci) 
+1049636;Idealny Zwoj (110 umiejetnosci) 
+1049637;Mityczny Zwoj (115 umiejetnosci) 
+1049638;Legendarny Zwoj (120 umiejetnosci) 
+1049639;Wspanialy Zwoj ~1_type~ (105 umiejetnosci) 
+1049640;Idealny Zwoj ~1_type~ (110 umiejetnosci) 
+1049641;Mityczny Zwoj ~1_type~ (115 umiejetnosci) 
+1049642;Legendarny Zwoj ~1_type~ (120 umiejetnosci) 
 1049643;przeklete 
 1049644;[~1_stuff~] 
 1049645;Masz za duzo podopiecznych, zeby przywolac to stworzenie. 
