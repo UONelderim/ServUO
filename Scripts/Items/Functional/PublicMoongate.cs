@@ -30,23 +30,11 @@ namespace Server.Items
         [Usage("MoonGen")]
         [Description("Generates public moongates. Removes all old moongates.")]
         public static void MoonGen_OnCommand(CommandEventArgs e)
-        {
-            DeleteAll();
-
-            int count = 0;
-
-            if (!Siege.SiegeShard)
-            {
-                count += MoonGen(PMList.Trammel);
-            }
-
-            count += MoonGen(PMList.Felucca);
-            count += MoonGen(PMList.Ilshenar);
-            count += MoonGen(PMList.Malas);
-            count += MoonGen(PMList.Tokuno);
-            count += MoonGen(PMList.TerMur);
-
-            World.Broadcast(0x35, true, "{0} moongates generated.", count);
+		{
+			if (e.Mobile != null)
+			{
+				e.Mobile.SendMessage("Ta komenda jest wylaczona. Uzyj [MoonGenNelderim");
+			}
         }
 
         private static int MoonGen(PMList list)
