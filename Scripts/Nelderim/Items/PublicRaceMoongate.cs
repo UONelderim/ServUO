@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Nelderim.Races;
 using Server;
 using Server.Commands;
+using Server.Engines.CityLoyalty;
 using Server.Gumps;
 using Server.Mobiles;
 using Server.Network;
@@ -213,7 +215,7 @@ namespace Server.Items
 			m_Mobile = mobile;
 			m_Moongate = moongate;
 
-			m_Lists = m_Mobile.Race == Elf.Instance ? PRMLocation.TravelDestinationsElf : PRMLocation.TravelDestinationssNonElf;
+			m_Lists = m_Mobile.Race is NElf ? PRMLocation.TravelDestinationsElf : PRMLocation.TravelDestinationssNonElf;
 
 			AddPage( 0 );
 
@@ -249,42 +251,53 @@ namespace Server.Items
 
 			PRMLocation location = m_Lists[index];
 
-			if ( !m_Mobile.InRange( m_Moongate.GetWorldLocation(), 1 ) || m_Mobile.Map != m_Moongate.Map )
-			{
-				m_Mobile.SendLocalizedMessage( 1019002 ); // You are too far away to use the gate.
-			}
-			else if ( Factions.Sigil.ExistsOn( m_Mobile ) && location.Map != Factions.Faction.Facet )
-			{
-				m_Mobile.SendLocalizedMessage( 1019004 ); // You are not allowed to travel there.
-			}
-			else if ( m_Mobile.Criminal )
-			{
-				m_Mobile.SendLocalizedMessage( 1005561, "", 0x22 ); // Thou'rt a criminal and cannot escape so easily.
-			}
-			else if ( SpellHelper.CheckCombat( m_Mobile ) )
-			{
-				m_Mobile.SendLocalizedMessage( 1005564, "", 0x22 ); // Wouldst thou flee during the heat of battle??
-			}
-			else if ( m_Mobile.Spell != null )
-			{
-				m_Mobile.SendLocalizedMessage( 1049616 ); // You are too busy to do that at the moment.
-			}
-			else if ( m_Mobile.Map == location.Map && m_Mobile.InRange(location.Location, 1 ) )
-			{
-				m_Mobile.SendLocalizedMessage( 1019003 ); // You are already there.
-			}
-			else
-			{
-				BaseCreature.TeleportPets( m_Mobile, location.Location, location.Map );
 
-				m_Mobile.Combatant = null;
-				m_Mobile.Warmode = false;
-				m_Mobile.Hidden = true;
-
-				m_Mobile.MoveToWorld(location.Location, location.Map );
-
-				Effects.PlaySound(location.Location, location.Map, 0x1FE );
+			if (m_Mobile.Map == location.Map && m_Mobile.InRange(location.Location, 1))
+			{
+				m_Mobile.SendLocalizedMessage(1019003); // You are already there.
+				return;
 			}
+			if (m_Mobile.IsStaff())
+			{
+				//Staff can always use a gate!
+			}
+			else if (!m_Mobile.InRange(m_Moongate.GetWorldLocation(), 1) || m_Mobile.Map != m_Moongate.Map)
+			{
+				m_Mobile.SendLocalizedMessage(1019002); // You are too far away to use the gate.
+				return;
+			}
+			else if (Engines.VvV.VvVSigil.ExistsOn(m_Mobile) && location.Map != Engines.VvV.ViceVsVirtueSystem.Facet)
+			{
+				m_Mobile.SendLocalizedMessage(1019004); // You are not allowed to travel there.
+				return;
+			}
+			else if (m_Mobile.Criminal)
+			{
+				m_Mobile.SendLocalizedMessage(1005561, "", 0x22); // Thou'rt a criminal and cannot escape so easily.
+				return;
+			}
+			else if (SpellHelper.CheckCombat(m_Mobile))
+			{
+				m_Mobile.SendLocalizedMessage(1005564, "", 0x22); // Wouldst thou flee during the heat of battle??
+				return;
+			}
+			else if (m_Mobile.Spell != null)
+			{
+				m_Mobile.SendLocalizedMessage(1049616); // You are too busy to do that at the moment.
+				return;
+			}
+
+			BaseCreature.TeleportPets(m_Mobile, location.Location, location.Map);
+
+			m_Mobile.Combatant = null;
+			m_Mobile.Warmode = false;
+			m_Mobile.Hidden = true;
+
+			m_Mobile.MoveToWorld(location.Location, location.Map);
+
+			Effects.PlaySound(location.Location, location.Map, 0x1FE);
+
+			CityTradeSystem.OnQuickTravelUsed(m_Mobile);
 		}
 	}
 }
