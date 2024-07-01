@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServerRegions>
+	<Facet name="Trammel">
+		<region type="SkillTooltipRegion" name="Tailor" tooltip="Tailor">
+			<rect x="3491" y="2545" width="7" height="14" />
+			<go x="3692" y="2609" z="0" />
+		</region>
+		<region type="SkillTooltipRegion" name="Scribe" tooltip="Scribe">
+			<rect x="3478" y="2531" width="6" height="7" />
+		</region>
+		<region type="SkillTooltipRegion" name="Blacksmith" tooltip="Smithy">
+			<rect x="3467" y="2538" width="13" height="5" />
+		</region>
+		<region type="SkillTooltipRegion" name="Healing" tooltip="Healing">
+			<rect x="3465" y="2554" width="6" height="11" />
+		</region>
+		<region type="SkillTooltipRegion" name="Alchemy" tooltip="Alchemy">
+			<rect x="3456" y="2565" width="15" height="6" />
+		</region>
+		<region type="SkillTooltipRegion" name="Herbalism" tooltip="Herbalism">
+			<rect x="3456" y="2572" width="15" height="5" />
+		</region>
+		<region type="SkillTooltipRegion" name="Cooking" tooltip="Cooking">
+			<rect x="3457" y="2578" width="14" height="6" />
+			<rect x="3500" y="2515" width="10" height="16" />
+		</region>
+		<region type="SkillTooltipRegion" name="Camping" tooltip="Camping">
+			<rect x="3441" y="2598" width="8" height="16" />
+		</region>
+		<region type="SkillTooltipRegion" name="Lumberjack" tooltip="Lumberjack">
+			<rect x="3440" y="2631" width="8" height="6" />
+		</region>
+		<region type="SkillTooltipRegion" name="Carpenter" tooltip="Carpenter">
+			<rect x="3437" y="2639" width="12" height="9" />
+		</region>
+		<region type="SkillTooltipRegion" name="Disco" tooltip="Disco">
+			<rect x="3417" y="2597" width="5" height="7" />
+		</region>
+		<region type="SkillTooltipRegion" name="Provo" tooltip="Provocation">
+			<rect x="3413" y="2605" width="9" height="4" />
+		</region>
+		<region type="SkillTooltipRegion" name="Peace" tooltip="Peace">
+			<rect x="3408" y="2597" width="4" height="6" />
+		</region>
+		<region type="SkillTooltipRegion" name="Music" tooltip="Music">
+			<rect x="3408" y="2606" width="5" height="5" />
+		</region>
+		<region type="SkillTooltipRegion" name="Sword" tooltip="Sword">
+			<rect x="3521" y="2550" width="17" height="13" />
+		</region>
+		<region type="SkillTooltipRegion" name="Mace" tooltip="MaceFighting">
+			<rect x="3523" y="2540" width="17" height="8" />
+		</region>
+		<region type="SkillTooltipRegion" name="Fencing" tooltip="Fencing">
+			<rect x="3531" y="2531" width="12" height="10" />
+		</region>
+		<region type="SkillTooltipRegion" name="Tactics" tooltip="Tactics">
+			<rect x="3518" y="2531" width="11" height="11" />
+		</region>
+		<region type="SkillTooltipRegion" name="Anatomy" tooltip="Anatomy">
+			<rect x="3517" y="2552" width="3" height="7" />
+		</region>
+		<region type="SkillTooltipRegion" name="Wrest" tooltip="Wrestling">
+			<rect x="3518" y="2515" width="6" height="6" />
+		</region>
+		<region type="SkillTooltipRegion" name="Chiv" tooltip="Chivalry">
+			<rect x="3520" y="2510" width="13" height="6" />
+		</region>
+		<region type="SkillTooltipRegion" name="Magery" tooltip="Magic">
+			<rect x="3493" y="2525" width="8" height="12" />
+			<rect x="3480" y="2497" width="12" height="9" />
+		</region>
+		<region type="SkillTooltipRegion" name="Eval" tooltip="Eval">
+			<rect x="3469" y="2498" width="15" height="6" />
+		</region>
+		<region type="SkillTooltipRegion" name="Resist" tooltip="Resist">
+			<rect x="3462" y="2487" width="12" height="9" />
+		</region>
+		<region type="SkillTooltipRegion" name="Medit" tooltip="Meditation">
+			<rect x="3480" y="2488" width="11" height="9" />
+		</region>
+		<region type="SkillTooltipRegion" name="Focus" tooltip="Focus">
+			<rect x="3524" y="2510" width="6" height="5" />
+		</region>
+		<region type="SkillTooltipRegion" name="Necro" tooltip="Necromancy">
+			<rect x="3546" y="2446" width="19" height="24" />
+		</region>
+		<region type="SkillTooltipRegion" name="Ninjitsu" tooltip="Ninjitsu">
+			<rect x="3414" y="2522" width="12" height="6" />
+		</region>
+		<region type="SkillTooltipRegion" name="Tracking" tooltip="Tracking">
+			<rect x="3416" y="2513" width="13" height="5" />
+		</region>
+		<region type="SkillTooltipRegion" name="Detect" tooltip="Detect">
+			<rect x="3426" y="2520" width="2" height="4" />
+		</region>
+		<region type="SkillTooltipRegion" name="Stealth" tooltip="Stealth">
+			<rect x="3415" y="2517" width="4" height="3" />
+		</region>
+		<region type="SkillTooltipRegion" name="Hiding" tooltip="Hiding">
+			<rect x="3419" y="2518" width="6" height="4" />
+		</region>
+		<region type="SkillTooltipRegion" name="TrapRemoval" tooltip="TrapRemove">
+			<rect x="3448" y="2565" width="8" height="10" />
+		</region>
+		<region type="SkillTooltipRegion" name="Archery" tooltip="Archery">
+			<rect x="3534" y="2553" width="9" height="10" />
+		</region>
+		<region type="SkillTooltipRegion" name="AT" tooltip="AnimalTaming">
+			<rect x="3517" y="2574" width="10" height="6" />
+		</region>
+		<region type="SkillTooltipRegion" name="AL" tooltip="AnimalLore">
+			<rect x="3527" y="2573" width="7" height="7" />
+		</region>
+		<region type="SkillTooltipRegion" name="Fishing" tooltip="Fishing">
+			<rect x="3499" y="2595" width="25" height="21" />
+		</region>
+	</Facet>
+</ServerRegions>
