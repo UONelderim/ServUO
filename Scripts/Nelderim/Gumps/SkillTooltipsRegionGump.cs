@@ -18,247 +18,247 @@ namespace Server.Gumps
 			{
 				case SkillTooltipType.Tailor:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060048, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060108, true, true);
 					break;
 				}
 				case SkillTooltipType.Smithy:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060049, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060109, true, true);
 					break;
 				}
 				case SkillTooltipType.Carpenter:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060050, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060110, true, true);
 					break;
 				}
 				case SkillTooltipType.Lumberjack:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060051, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060111, true, true);
 					break;
 				}
 				case SkillTooltipType.Tinker:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060052, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060112, true, true);
 					break;
 				}
 				case SkillTooltipType.Lockpick:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060053, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060113, true, true);
 					break;
 				}
 				case SkillTooltipType.TrapRemove:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060054, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060114, true, true);
 					break;
 				}
 				case SkillTooltipType.Peace:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060055, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060115, true, true);
 					break;
 				}
 				case SkillTooltipType.Provocation:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060056, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060116, true, true);
 					break;
 				}
 				case SkillTooltipType.Music:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060057, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060117, true, true);
 					break;
 				}
 				case SkillTooltipType.Detect:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060058, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060118, true, true);
 					break;
 				}
 				case SkillTooltipType.Hiding:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060059, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060119, true, true);
 					break;
 				}
 				case SkillTooltipType.Peak:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060060, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060120, true, true);
 					break;
 				}
 				case SkillTooltipType.Stealing:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060061, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060121, true, true);
 					break;
 				}
 				case SkillTooltipType.Tracking:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060062, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060122, true, true);
 					break;
 				}
 				case SkillTooltipType.Fencing:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060063, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060123, true, true);
 					break;
 				}
 				case SkillTooltipType.Stealth:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060064, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060124, true, true);
 					break;
 				}
 				case SkillTooltipType.Cooking:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060065, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060125, true, true);
 					break;
 				}
 				case SkillTooltipType.Meditation:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060066, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060126, true, true);
 					break;
 				}
 				case SkillTooltipType.Magic:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060067, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060127, true, true);
 					break;
 				}
 				case SkillTooltipType.Scribe:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060068, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060128, true, true);
 					break;
 				}
 				case SkillTooltipType.Eval:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060069, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060129, true, true);
 					break;
 				}
 				case SkillTooltipType.Resist:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060070, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060130, true, true);
 					break;
 				}
 				case SkillTooltipType.Wrestling:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060071, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060131, true, true);
 					break;
 				}
 				case SkillTooltipType.Herbalism:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060072, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060132, true, true);
 					break;
 				}
 				case SkillTooltipType.Alchemy:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060074, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060134, true, true);
 					break;
 				}
 				case SkillTooltipType.Healing:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060075, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060135, true, true);
 					break;
 				}
 				case SkillTooltipType.Anatomy:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060076, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060136, true, true);
 					break;
 				}
 				case SkillTooltipType.SpiritSpeak:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060077, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060137, true, true);
 					break;
 				}
 				case SkillTooltipType.ArmsLore:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060078, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060138, true, true);
 					break;
 				}
 				case SkillTooltipType.MaceFightning:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060079, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060139, true, true);
 					break;
 				}
 				case SkillTooltipType.Sword:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060080, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060140, true, true);
 					break;
 				}
 				case SkillTooltipType.Focus:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060081, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060141, true, true);
 					break;
 				}
 				case SkillTooltipType.Archery:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060082, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060142, true, true);
 					break;
 				}
 				case SkillTooltipType.Fishing:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060083, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060143, true, true);
 					break;
 				}
 				case SkillTooltipType.Cartography:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060084, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060144, true, true);
 					break;
 				}
 				case SkillTooltipType.Necromancy:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060085, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060145, true, true);
 					break;
 				}
 				case SkillTooltipType.Disco:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060086, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060146, true, true);
 					break;
 				}
 				case SkillTooltipType.Chivalry:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060087, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060147, true, true);
 					break;
 				}
 				case SkillTooltipType.Bushido:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060088, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060148, true, true);
 					break;
 				}
 				case SkillTooltipType.Tactics:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060089, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060149, true, true);
 					break;
 				}
 				case SkillTooltipType.Ninjitsu:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060090, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060150, true, true);
 					break;
 				}
 				case SkillTooltipType.Poisoning:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060091, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060151, true, true);
 					break;
 				}
 				case SkillTooltipType.Parry:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060092, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060152, true, true);
 					break;
 				}
 				case SkillTooltipType.Fletching:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060093, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060153, true, true);
 					break;
 				}
 				case SkillTooltipType.AnimalTaming:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060094, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060154, true, true);
 					break;
 				}
 				case SkillTooltipType.AnimalLore:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060095, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060155, true, true);
 					break;
 				}
 				case SkillTooltipType.Vet:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060096, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060156, true, true);
 					break;
 				}
 				case SkillTooltipType.Camping:
 				{
-					this.AddHtmlLocalized(73, 58, 252, 257, 3060097, true, true);
+					this.AddHtmlLocalized(73, 58, 252, 257, 3060157, true, true);
 					break;
 				}
 				case SkillTooltipType.None:
