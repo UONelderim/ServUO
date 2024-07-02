@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServerRegions>
+	<Facet name="Felucca">
+		<region type="TravelRegion" priority="0" name="ObszarPodrozy">
+			<rect x="1292" y="787" width="24" height="24" />
+			<rect x="179" y="734" width="24" height="24" />
+			<rect x="212" y="1626" width="24" height="24" />
+			<rect x="839" y="727" width="24" height="24" />
+			<rect x="1050" y="1378" width="24" height="24" />
+			<rect x="1503" y="2171" width="24" height="24" />
+			<rect x="529" y="1827" width="24" height="24" />
+			<rect x="1404" y="2545" width="24" height="24" />
+			<rect x="1360" y="3097" width="24" height="24" />
+			<rect x="1992" y="2863" width="24" height="24" />
+			<rect x="2310" y="2588" width="24" height="24" />
+			<rect x="2796" y="2302" width="24" height="24" />
+			<rect x="2448" y="1850" width="27" height="20" />
+			<rect x="2878" y="2946" width="24" height="24" />
+			<rect x="3364" y="2256" width="24" height="24" />
+			<rect x="4028" y="2449" width="24" height="24" />
+			<rect x="3671" y="1654" width="20" height="20" />
+			<rect x="3203" y="1405" width="24" height="24" />
+			<rect x="3534" y="1176" width="24" height="24" />
+			<rect x="3431" y="972" width="24" height="24" />
+			<rect x="4352" y="1149" width="24" height="24" />
+			<rect x="2686" y="774" width="24" height="24" />
+		</region>
+	</Facet>
+</ServerRegions>

@@ -4,30 +4,6 @@
 		<region type="GreenAcres" priority="100" name="GreenAcres">
 			<rect x="5597" y="0" width="169" height="66" />
 		</region>
-		<region type="TravelRegion" priority="0" name="ObszarPodrozy">
-			<rect x="1292" y="787" width="24" height="24" />
-			<rect x="179" y="734" width="24" height="24" />
-			<rect x="212" y="1626" width="24" height="24" />
-			<rect x="839" y="727" width="24" height="24" />
-			<rect x="1050" y="1378" width="24" height="24" />
-			<rect x="1503" y="2171" width="24" height="24" />
-			<rect x="529" y="1827" width="24" height="24" />
-			<rect x="1404" y="2545" width="24" height="24" />
-			<rect x="1360" y="3097" width="24" height="24" />
-			<rect x="1992" y="2863" width="24" height="24" />
-			<rect x="2310" y="2588" width="24" height="24" />
-			<rect x="2796" y="2302" width="24" height="24" />
-			<rect x="2448" y="1850" width="27" height="20" />
-			<rect x="2878" y="2946" width="24" height="24" />
-			<rect x="3364" y="2256" width="24" height="24" />
-			<rect x="4028" y="2449" width="24" height="24" />
-			<rect x="3671" y="1654" width="20" height="20" />
-			<rect x="3203" y="1405" width="24" height="24" />
-			<rect x="3534" y="1176" width="24" height="24" />
-			<rect x="3431" y="972" width="24" height="24" />
-			<rect x="4352" y="1149" width="24" height="24" />
-			<rect x="2686" y="774" width="24" height="24" />
-		</region>
 		<region type="JailRegion" priority="90" name="Wiezienie">
 			<rect x="1965" y="1531" width="108" height="102" />
 			<rect x="1974" y="1632" width="50" height="50" />
@@ -482,7 +458,7 @@
 			<go x="1908" y="3665" z="0" />
 			<music name="Vesper" />
 		</region>
-		<region type="VillageRegion" name="Tirassa">
+		<region type="CityRegion" name="Tirassa">
 			<rect x="2025" y="2688" width="36" height="60" />
 			<rect x="2042" y="2669" width="62" height="19" />
 			<rect x="2058" y="2652" width="29" height="17" />
@@ -9540,34 +9516,6 @@
 			<rect x="0" y="3170" width="810" height="925" />
 			<go x="690" y="1060" z="0" />
 		</region>
-		<region type="HousingRegion" name="Tasandora_Housing">
-			<rect x="1362" y="2089" width="51" height="77" />
-			<rect x="1279" y="2065" width="82" height="33" />
-			<rect x="1363" y="2049" width="42" height="36" />
-			<rect x="1423" y="2101" width="64" height="45" />
-			<rect x="1432" y="2049" width="42" height="14" />
-			<rect x="1435" y="2036" width="39" height="12" />
-			<rect x="1497" y="2040" width="12" height="44" />
-			<rect x="1513" y="2021" width="148" height="56" />
-			<rect x="1527" y="1961" width="149" height="59" />
-			<rect x="1272" y="2100" width="25" height="56" />
-			<rect x="1673" y="1929" width="46" height="29" />
-			<rect x="1680" y="1963" width="44" height="62" />
-			<rect x="1728" y="1996" width="81" height="96" />
-			<rect x="1537" y="2080" width="188" height="75" />
-			<rect x="1664" y="2028" width="59" height="48" />
-			<rect x="1735" y="1955" width="77" height="40" />
-			<rect x="1215" y="1700" width="67" height="60" />
-			<rect x="1134" y="1667" width="77" height="111" />
-			<rect x="1072" y="1867" width="76" height="68" />
-			<rect x="1423" y="2069" width="12" height="25" />
-			<rect x="1462" y="2073" width="25" height="23" />
-			<rect x="1487" y="2146" width="46" height="16" />
-			<rect x="1729" y="2112" width="54" height="46" />
-			<rect x="1729" y="2094" width="57" height="12" />
-			<rect x="1355" y="2173" width="64" height="22" />
-			<go x="1420" y="2137" z="0" />
-		</region>
 		<region type="HousingRegion" name="Garlan_Housing">
 			<rect x="810" y="623" width="125" height="151" />
 			<rect x="941" y="715" width="104" height="66" />
@@ -9614,6 +9562,54 @@
 			<rect x="5919" y="2038" width="2" height="4" />
 			<rect x="5992" y="2039" width="1" height="16" />
 			<go x="5938" y="2766" z="0" />
+		</region>
+		<region type="HousingRegion" name="Orod_HousingRegion">
+			<rect x="506" y="2045" width="34" height="25" />
+			<rect x="514" y="2070" width="22" height="15" />
+			<rect x="512" y="2070" width="2" height="5" />
+			<rect x="517" y="2085" width="21" height="6" />
+			<rect x="536" y="2083" width="1" height="2" />
+			<rect x="522" y="2091" width="19" height="4" />
+			<rect x="538" y="2090" width="1" height="1" />
+			<rect x="527" y="2095" width="17" height="4" />
+			<rect x="529" y="2099" width="21" height="5" />
+			<rect x="533" y="2104" width="23" height="9" />
+			<rect x="550" y="2102" width="2" height="2" />
+			<rect x="544" y="2097" width="2" height="2" />
+			<rect x="541" y="2094" width="1" height="1" />
+			<rect x="525" y="2095" width="2" height="2" />
+			<rect x="520" y="2091" width="2" height="1" />
+			<rect x="528" y="2099" width="1" height="2" />
+			<rect x="531" y="2104" width="2" height="1" />
+			<rect x="540" y="2113" width="18" height="10" />
+			<rect x="548" y="2123" width="7" height="2" />
+			<rect x="556" y="2103" width="3" height="10" />
+			<rect x="497" y="2009" width="19" height="36" />
+			<rect x="516" y="2009" width="12" height="20" />
+			<rect x="516" y="2029" width="10" height="7" />
+			<rect x="516" y="2036" width="4" height="3" />
+			<rect x="528" y="2012" width="7" height="17" />
+			<rect x="493" y="1988" width="36" height="21" />
+			<rect x="464" y="1931" width="54" height="30" />
+			<rect x="478" y="1961" width="49" height="27" />
+			<rect x="518" y="1944" width="7" height="17" />
+			<rect x="535" y="1955" width="19" height="26" />
+			<rect x="528" y="1932" width="21" height="23" />
+			<rect x="529" y="1955" width="6" height="10" />
+			<rect x="651" y="1859" width="86" height="25" />
+			<go x="506" y="2045" z="0" />
+		</region>
+		<region type="HousingRegion" name="Tirassa_HousingRegion">
+			<rect x="2007" y="2691" width="21" height="36" />
+			<rect x="2005" y="2740" width="17" height="40" />
+			<rect x="2022" y="2749" width="7" height="17" />
+			<rect x="2047" y="2634" width="24" height="24" />
+			<rect x="2006" y="2780" width="16" height="31" />
+			<rect x="2022" y="2766" width="7" height="11" />
+			<rect x="2029" y="2748" width="6" height="8" />
+			<rect x="2022" y="2738" width="4" height="11" />
+			<rect x="2028" y="2709" width="5" height="15" />
+			<go x="2007" y="2740" z="0" />
 		</region>
 		<region type="DungeonRegion" name="BialyWilk_VeryEasy">
 			<rect x="5275" y="43" width="11" height="23" />
@@ -10138,7 +10134,7 @@
 			<rect x="5880" y="2021" width="41" height="11" />
 			<go x="5933" y="1991" z="0" />
 		</region>
-		<region type="CannotEnterRegion" priority="100" name="CannotEnterRegion_Tasandora"> 
+		<region type="CannotEnterRegion" priority="100" name="CannotEnterRegion_Tasandora">
 			<rect x="1502" y="1705" width="168" height="247" />
 		</region>
 	</Facet>

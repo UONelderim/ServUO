@@ -35,12 +35,7 @@ namespace Nelderim.Factions
 
 		public static Faction Parse(string name)
 		{
-			return AllFactions.Find(f => f.Name == name);
-		}
-		
-		public override string ToString()
-		{
-			return Name;
+			return AllFactions.Find(f => f.Name == name) ?? None;
 		}
 	}
 }
