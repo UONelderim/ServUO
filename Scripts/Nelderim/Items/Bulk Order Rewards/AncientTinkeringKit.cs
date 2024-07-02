@@ -88,7 +88,7 @@ namespace Server.Items
 			base.GetProperties(list);
 
 			if (m_Bonus != 0)
-				list.Add(3060040, m_Bonus.ToString()); // ~1_skillname~ +~2_val~
+				list.Add(3060100, m_Bonus.ToString()); // ~1_skillname~ +~2_val~
 		}
 
 		public AncientTinkeringKit(Serial serial) : base(serial)
