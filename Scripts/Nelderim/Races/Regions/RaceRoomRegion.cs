@@ -2,7 +2,10 @@
 
 using System;
 using System.Xml;
+using Nelderim.Factions;
+using Server.Accounting;
 using Server.Gumps;
+using Server.Nelderim.Gumps;
 
 #endregion
 
@@ -40,6 +43,14 @@ namespace Server.Regions
 			if (m_Room != RaceRoomType.None && m_Room != RaceRoomType.Teleport)
 			{
 				m.SendGump(new RaceRoomGump(m, m_Room));
+			}
+
+			if (m.IsPlayer() && m.Account is Account a)
+			{
+				if (a.Faction == Faction.None)
+				{
+					m.SendGump(new FactionSelectGump(m));
+				}
 			}
 		}
 

@@ -25,7 +25,7 @@ namespace Server.Gumps
 		All = ~None
 	}
 
-	public class Gump
+	public partial class Gump
 	{
 		private static readonly Dictionary<Type, int> m_TypeCodes = new Dictionary<Type, int>(0x100);
 

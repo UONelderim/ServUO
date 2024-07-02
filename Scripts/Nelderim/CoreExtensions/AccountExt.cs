@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Xml;
 using Nelderim;
+using Nelderim.Factions;
 
 namespace Server.Accounting
 {
@@ -12,6 +13,8 @@ namespace Server.Accounting
 		public DateTime LastQuestPointsTime { get; set; }
 		
 		public SortedSet<QuestPointsHistoryEntry> QuestPointsHistory { get; set; } = new SortedSet<QuestPointsHistoryEntry>();
+		
+		public Faction Faction { get; set; }
 
 		private void SaveNelderim(XmlElement account)
 		{
@@ -31,6 +34,7 @@ namespace Server.Accounting
 						);
 				}
 			}
+			AppendNode(account, "faction", Faction.ToString());
 		}
 
 		private void LoadNelderim(XmlElement node)
@@ -56,6 +60,8 @@ namespace Server.Accounting
 				var reason = Utility.GetText(entry, "");
 				QuestPointsHistory.Add(new QuestPointsHistoryEntry(dateTime, gm, points, reason, charName));
 			}
+			
+			Faction = Faction.Parse(Utility.GetText(node["faction"], Faction.None.ToString()));
 		}
 	}
 }
