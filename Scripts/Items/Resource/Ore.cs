@@ -1,4 +1,5 @@
 using Server.Engines.Craft;
+using Server.Misc;
 using Server.Mobiles;
 using Server.Targeting;
 
@@ -150,8 +151,10 @@ namespace Server.Items
             {
                 if (m_Resource >= CraftResource.DullCopper && m_Resource <= CraftResource.Valorite)
                     return 1042845 + (m_Resource - CraftResource.DullCopper);
+				if (m_Resource == CraftResource.Platinum)
+					return 1097282;
 
-                return 1042853; // iron ore;
+				return 1042853; // iron ore;
             }
         }
 
@@ -173,6 +176,25 @@ namespace Server.Items
             {
                 from.SendLocalizedMessage(501976); // The ore is too far away.
             }
+        }
+
+        public double GetSmeltDifficulty()
+        {
+            double difficulty = 0;
+            switch (Resource)
+            {
+                default: difficulty = 50.0; break;
+                case CraftResource.DullCopper: difficulty = 65.0; break;
+                case CraftResource.ShadowIron: difficulty = 70.0; break;
+                case CraftResource.Copper: difficulty = 75.0; break;
+                case CraftResource.Bronze: difficulty = 80.0; break;
+                case CraftResource.Gold: difficulty = 85.0; break;
+                case CraftResource.Agapite: difficulty = 90.0; break;
+                case CraftResource.Verite: difficulty = 95.0; break;
+                case CraftResource.Valorite: difficulty = 99.0; break;
+                case CraftResource.Platinum: difficulty = 800.0; break; // impossible by default
+            }
+            return difficulty;
         }
 
         private class InternalTarget : Target
@@ -302,45 +324,19 @@ namespace Server.Items
 
                 if (IsForge(targeted))
                 {
-                    double difficulty;
+                    double difficulty = m_Ore.GetSmeltDifficulty();
 
-                    #region Void Pool Rewards
-                    bool talisman = false;
+                    if (targeted is ISpecialForge)
+                    {
+                        difficulty = ((ISpecialForge)targeted).GetSmeltDifficulty(from, m_Ore);
+                    }
+
+					#region Void Pool Rewards
+					bool talisman = false;
                     SmeltersTalisman t = from.FindItemOnLayer(Layer.Talisman) as SmeltersTalisman;
                     if (t != null && t.Resource == m_Ore.Resource)
                         talisman = true;
                     #endregion
-
-                    switch (m_Ore.Resource)
-                    {
-                        default:
-                            difficulty = 50.0;
-                            break;
-                        case CraftResource.DullCopper:
-                            difficulty = 65.0;
-                            break;
-                        case CraftResource.ShadowIron:
-                            difficulty = 70.0;
-                            break;
-                        case CraftResource.Copper:
-                            difficulty = 75.0;
-                            break;
-                        case CraftResource.Bronze:
-                            difficulty = 80.0;
-                            break;
-                        case CraftResource.Gold:
-                            difficulty = 85.0;
-                            break;
-                        case CraftResource.Agapite:
-                            difficulty = 90.0;
-                            break;
-                        case CraftResource.Verite:
-                            difficulty = 95.0;
-                            break;
-                        case CraftResource.Valorite:
-                            difficulty = 99.0;
-                            break;
-                    }
 
                     double minSkill = difficulty - 25.0;
                     double maxSkill = difficulty + 25.0;
@@ -801,6 +797,48 @@ namespace Server.Items
         public override BaseIngot GetIngot()
         {
             return new ValoriteIngot();
+        }
+    }
+
+    public class PlatinumOre : BaseOre
+    {
+        protected override CraftResource DefaultResource => CraftResource.Platinum;
+
+        [Constructable]
+        public PlatinumOre()
+            : this(1)
+        {
+        }
+
+        [Constructable]
+        public PlatinumOre(int amount)
+            : base(CraftResource.Platinum, amount)
+        {
+            Weight = 0.2; // bardzo lekka ruda
+        }
+
+        public PlatinumOre(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write(0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+
+        public override BaseIngot GetIngot()
+        {
+            return new PlatinumIngot();
         }
     }
 }
