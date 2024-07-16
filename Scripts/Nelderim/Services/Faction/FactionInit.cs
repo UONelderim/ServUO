@@ -20,7 +20,8 @@ namespace Nelderim.Factions
 
 		private static void CharacterCreated(CharacterCreatedEventArgs e)
 		{
-			if (e.Mobile.Account is Account acc)
+			var acc = e.Mobile.Account;
+			if (acc != null)
 			{
 				e.Mobile.Faction = acc.Faction;
 			}
