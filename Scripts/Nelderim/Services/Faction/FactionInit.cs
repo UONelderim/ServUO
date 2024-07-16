@@ -1,6 +1,7 @@
 ﻿#region References
 
 using Server;
+using Server.Accounting;
 
 #endregion
 
@@ -19,12 +20,9 @@ namespace Nelderim.Factions
 
 		private static void CharacterCreated(CharacterCreatedEventArgs e)
 		{
-			var account = e.Mobile.Account;
-
-			var tag = account?.GetTag("Faction");
-			if (tag != null)
+			if (e.Mobile.Account is Account acc)
 			{
-				e.Mobile.Faction = Faction.Parse(tag);
+				e.Mobile.Faction = acc.Faction;
 			}
 		}
 
