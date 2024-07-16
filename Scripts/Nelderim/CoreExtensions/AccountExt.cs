@@ -14,7 +14,7 @@ namespace Server.Accounting
 		
 		public SortedSet<QuestPointsHistoryEntry> QuestPointsHistory { get; set; } = new SortedSet<QuestPointsHistoryEntry>();
 		
-		public Faction Faction { get; set; }
+		public Faction Faction { get; set; } = Faction.None;
 
 		private void SaveNelderim(XmlElement account)
 		{
