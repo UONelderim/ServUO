@@ -21,7 +21,8 @@ namespace Server.Gumps
 			{ Towns.LDelmah, new[] {"NoamuthQuortek", "NoamuthQuortek_Kopalnia", "L'Delmah", "L'Delmah_Kopalnia" } },
 			{ Towns.Garlan, new[] {"Garlan_Kopalnia" } },
 			{ Towns.Orod, new[] {"Orod_Kopalnia" } },
-			{ Towns.Lotharn, new[] { "Enedh_Kopalnia" } }
+			{ Towns.Lotharn, new[] { "Enedh_Kopalnia" } },
+			{ Towns.Twierdza, new[] { "Twierdza_Kopalnia" } }
 		};
 
 		public void AddButton(int x, int y, int buttonID, int buttonCli)
