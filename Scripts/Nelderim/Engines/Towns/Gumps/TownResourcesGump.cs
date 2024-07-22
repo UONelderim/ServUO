@@ -2459,11 +2459,11 @@ namespace Server.Gumps
 										m_toGive = new PigmentGarlan();
 										from.AddToBackpack(m_toGive);
 										break;
-									// case Towns.Twierdza:
-									//     TownDatabase.GetCitinzeship(from).UseDevotion(1000);
-									//     m_toGive = new MiastowaSzataTwierdza();
-									//     from.AddToBackpack(m_toGive);
-									//     break;
+									 case Towns.Twierdza:
+									     TownDatabase.GetCitinzeship(from).UseDevotion(1000);
+									     m_toGive = new MiastowaSzataTwierdza();
+									     from.AddToBackpack(m_toGive);
+									     break;
 									case Towns.LDelmah:
 										TownDatabase.GetCitinzeship(from).UseDevotion(1000);
 										m_toGive = new PigmentDrow();
