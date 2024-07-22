@@ -2373,6 +2373,11 @@ namespace Server.Gumps
 										m_toGive = new MiastowaSzataLotharn();
 										from.AddToBackpack(m_toGive);
 										break;
+									case Towns.Tirassa:
+										TownDatabase.GetCitinzeship(from).UseDevotion(2000);
+										m_toGive = new MiastowaSzataTirassa();
+										from.AddToBackpack(m_toGive);
+										break;
 									default:
 										from.SendLocalizedMessage(1063973);
 										break;
@@ -2421,6 +2426,11 @@ namespace Server.Gumps
 										m_toGive = new MiastowaSzataZKapturemLotharn();
 										from.AddToBackpack(m_toGive);
 										break;
+									case Towns.Tirassa:
+										TownDatabase.GetCitinzeship(from).UseDevotion(10000);
+										m_toGive = new MiastowaSzataZKapturemTirassa();
+										from.AddToBackpack(m_toGive);
+										break;
 									default:
 										from.SendLocalizedMessage(1063973);
 										break;
@@ -2461,7 +2471,7 @@ namespace Server.Gumps
 										break;
 									 case Towns.Twierdza:
 									     TownDatabase.GetCitinzeship(from).UseDevotion(1000);
-									     m_toGive = new MiastowaSzataTwierdza();
+									     m_toGive = new MiastowaSzataTwierdza(); //TODO: zmienić na PigmentTwierdza, po jego stworzeniu
 									     from.AddToBackpack(m_toGive);
 									     break;
 									case Towns.LDelmah:
@@ -2472,6 +2482,11 @@ namespace Server.Gumps
 									case Towns.Lotharn:
 										TownDatabase.GetCitinzeship(from).UseDevotion(1000);
 										m_toGive = new PigmentLotharn();
+										from.AddToBackpack(m_toGive);
+										break;
+									case Towns.Tirassa:
+										TownDatabase.GetCitinzeship(from).UseDevotion(1000);
+										m_toGive = new PigmentTasandora(); //TODO: zmienić na PigmentTirassa, po jego stworzeniu
 										from.AddToBackpack(m_toGive);
 										break;
 									default:
@@ -3063,6 +3078,7 @@ namespace Server.Gumps
 			AddTownButton(10, 90, Towns.Twierdza);
 			AddTownButton(10, 110, Towns.LDelmah);
 			AddTownButton(10, 130, Towns.Lotharn);
+			AddTownButton(10, 150, Towns.Tirassa);
 		}
 
 		public override void OnResponse(NetState sender, RelayInfo info)

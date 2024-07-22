@@ -95,7 +95,8 @@ namespace Nelderim.Towns
 		Garlan = 2,
 		Twierdza = 3,
 		LDelmah = 4,
-		Lotharn = 5
+		Lotharn = 5,
+		Tirassa = 6
 	}
 
 	public class TownResource

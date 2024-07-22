@@ -221,6 +221,50 @@ namespace Server.Items
 	}
 	
 	[Flipable]
+	public class MiastowaSzataTirassa : MiastowaSzata
+	{
+		public override int BasePoisonResistance => 1;
+		public override int LabelNumber => 1063968; // Szata miasta Magizhaar
+
+		[Constructable]
+		public MiastowaSzataTirassa()
+			: base(2315)
+		{
+			Hue = 1253;
+		}
+
+		public MiastowaSzataTirassa(Serial serial)
+			: base(serial)
+		{
+		}
+
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+
+			writer.Write(0); // version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+
+			int version = reader.ReadInt();
+		}
+
+		public override bool CanEquip(Mobile m)
+		{
+			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Tirassa))
+			{
+				return true;
+			}
+
+			m.SendLocalizedMessage(1063970);
+			return false;
+		}
+	}
+	
+	[Flipable]
 	public class MiastowaSzataLotharn : MiastowaSzata
 	{
 		public override int BaseFireResistance => 1;
@@ -484,6 +528,50 @@ namespace Server.Items
 		public override bool CanEquip(Mobile m)
 		{
 			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Garlan))
+			{
+				return true;
+			}
+
+			m.SendLocalizedMessage(1063970);
+			return false;
+		}
+	}
+	
+	[Flipable(0x2684, 0x2683)]
+	public class MiastowaSzataZKapturemTirassa : MiastowaSzataZKapturem
+	{
+		public override int BasePoisonResistance => 2;
+		public override int LabelNumber => 1063968; // Szata miasta Magizhaar
+
+		[Constructable]
+		public MiastowaSzataZKapturemTirassa()
+			: base(2315)
+		{
+			Hue = 1253; //TODO: zmienić hue
+		}
+
+		public MiastowaSzataZKapturemTirassa(Serial serial)
+			: base(serial)
+		{
+		}
+
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+
+			writer.Write(0); // version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+
+			int version = reader.ReadInt();
+		}
+
+		public override bool CanEquip(Mobile m)
+		{
+			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Tirassa))
 			{
 				return true;
 			}
