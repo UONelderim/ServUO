@@ -152,6 +152,9 @@ namespace Server.Menus.Questions
             {
                 new TeleportTimer(m_Mobile, entry, TimeSpan.Zero).Start();
             }
+            Console.WriteLine( "Abuse (help): {0} [{1}] z lokacji {3} -> {2}", m_Mobile.Name, m_Mobile.Account, entry.Name, m_Mobile.Location );
+            m_Mobile.SendMessage( "Ta opcja nie sluzy teleportacji! Jesli naprawde utknales, zglos to PageGM." );
+            m_Mobile.SendMessage( "Zgloszenie zostalo zarejestrowane, a naduzycie bedzie ukarane." );
         }
 
         private class CloseTimer : Timer
