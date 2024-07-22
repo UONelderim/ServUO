@@ -46,18 +46,18 @@ namespace Server.Items
 	}
 
 	[Flipable]
-	public class MiastowaSzataTasandora : MiastowaSzata
+	public class MiastowaSzataOrod : MiastowaSzata
 	{
 		public override int BaseColdResistance => 1;
 		public override int LabelNumber => 1063965; // Szata miasta Bedwyrgard
 
 		[Constructable]
-		public MiastowaSzataTasandora()
+		public MiastowaSzataOrod()
 			: base(2894)
 		{
 		}
 
-		public MiastowaSzataTasandora(Serial serial)
+		public MiastowaSzataOrod(Serial serial)
 			: base(serial)
 		{
 		}
@@ -78,7 +78,7 @@ namespace Server.Items
 
 		public override bool CanEquip(Mobile m)
 		{
-			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Tasandora))
+			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Orod))
 			{
 				return true;
 			}
@@ -318,19 +318,19 @@ namespace Server.Items
 	}
 
 	[Flipable(0x2684, 0x2683)]
-	public class MiastowaSzataZKapturemTasandora : MiastowaSzataZKapturem
+	public class MiastowaSzataZKapturemOrod : MiastowaSzataZKapturem
 	{
 		public override int BaseColdResistance => 2;
 		public override int LabelNumber => 1063965; // Szata miasta Bedwyrgard
 
 		[Constructable]
-		public MiastowaSzataZKapturemTasandora()
+		public MiastowaSzataZKapturemOrod()
 			: base(1570)
 		{
 			Hue = 327;
 		}
 
-		public MiastowaSzataZKapturemTasandora(Serial serial)
+		public MiastowaSzataZKapturemOrod(Serial serial)
 			: base(serial)
 		{
 		}
@@ -351,7 +351,7 @@ namespace Server.Items
 
 		public override bool CanEquip(Mobile m)
 		{
-			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Tasandora))
+			if (TownDatabase.IsCitizenOfGivenTown(m, Towns.Orod))
 			{
 				return true;
 			}

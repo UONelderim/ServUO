@@ -20,7 +20,7 @@ namespace Server.Gumps
 		{
 			{ Towns.LDelmah, new[] {"NoamuthQuortek", "NoamuthQuortek_Kopalnia", "L'Delmah", "L'Delmah_Kopalnia" } },
 			{ Towns.Garlan, new[] {"Garlan_Kopalnia" } },
-			{ Towns.Tasandora, new[] {"Tasandora_Kopalnia" } },
+			{ Towns.Orod, new[] {"Orod_Kopalnia" } },
 			{ Towns.Lotharn, new[] { "Enedh_Kopalnia" } }
 		};
 

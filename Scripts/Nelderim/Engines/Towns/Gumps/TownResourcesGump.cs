@@ -2348,9 +2348,9 @@ namespace Server.Gumps
 									case Towns.None:
 										from.SendLocalizedMessage(1063972);
 										break;
-									case Towns.Tasandora:
+									case Towns.Orod:
 										TownDatabase.GetCitinzeship(from).UseDevotion(2000);
-										m_toGive = new MiastowaSzataTasandora();
+										m_toGive = new MiastowaSzataOrod();
 										from.AddToBackpack(m_toGive);
 										break;
 									case Towns.Garlan:
@@ -2396,9 +2396,9 @@ namespace Server.Gumps
 									case Towns.None:
 										from.SendLocalizedMessage(1063972);
 										break;
-									case Towns.Tasandora:
+									case Towns.Orod:
 										TownDatabase.GetCitinzeship(from).UseDevotion(10000);
-										m_toGive = new MiastowaSzataZKapturemTasandora();
+										m_toGive = new MiastowaSzataZKapturemOrod();
 										from.AddToBackpack(m_toGive);
 										break;
 									case Towns.Garlan:
@@ -2449,7 +2449,7 @@ namespace Server.Gumps
 									case Towns.None:
 										from.SendLocalizedMessage(1063972);
 										break;
-									case Towns.Tasandora:
+									case Towns.Orod:
 										TownDatabase.GetCitinzeship(from).UseDevotion(1000);
 										m_toGive = new PigmentTasandora();
 										from.AddToBackpack(m_toGive);
@@ -3058,7 +3058,7 @@ namespace Server.Gumps
 			AddBackground(0, 0, 200, 450, 5054); //Increase height for every added city
 
 			AddTownButton(10, 30, Towns.None);
-			AddTownButton(10, 50, Towns.Tasandora);
+			AddTownButton(10, 50, Towns.Orod);
 			AddTownButton(10, 70, Towns.Garlan);
 			AddTownButton(10, 90, Towns.Twierdza);
 			AddTownButton(10, 110, Towns.LDelmah);
