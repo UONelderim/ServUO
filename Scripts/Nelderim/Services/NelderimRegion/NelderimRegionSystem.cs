@@ -25,6 +25,8 @@ namespace Server.Nelderim
         {
             Load();
             RumorsSystem.Load();
+            EventSink.MobileCreated += OnCreate;
+            EventSink.OnEnterRegion += OnEnterRegion;
         }
 
         private static void Load()
@@ -55,6 +57,29 @@ namespace Server.Nelderim
             File.WriteAllText(JsonPath, JsonSerializer.Serialize(NelderimRegions["Default"], SerializerOptions));
             Console.WriteLine("NelderimRegions: Saved!");
         }
+        
+        private static void OnEnterRegion(OnEnterRegionEventArgs e)
+        {
+        	var m = e.From;
+        	if (e.OldRegion == null)
+        		if (m is BaseVendor)
+        			m.Race = GetRegion(e.NewRegion.Name).RandomRace();
+        }
+
+        private static void OnCreate(MobileCreatedEventArgs e)
+        {
+        	var m = e.Mobile;
+
+        	if (m is BaseCreature { Tamable: false } bc)
+        	{
+        		var r = GetRegion(m.Region.Name);
+        		if (r != null && r.DifficultyLevelWeights().Count != 0 && bc.DifficultyLevel == DifficultyLevelValue.Normal)
+        		{
+        			bc.DifficultyLevel = Utility.RandomWeigthed(r.DifficultyLevelWeights());
+        		}
+        	}
+        }
+
 
         public static NelderimRegion GetRegion(string regionName)
         {
@@ -77,6 +102,8 @@ namespace Server.Nelderim
             }
             return GuardProfiles[name];
         }
+        
+        
         
         private static Func<Race, String>[] IntoleranceEmote =
         {

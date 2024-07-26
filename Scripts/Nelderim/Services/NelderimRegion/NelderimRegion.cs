@@ -22,6 +22,7 @@ public class NelderimRegion : IComparable<NelderimRegion>
     [JsonInclude] internal Dictionary<string, double> Intolerance { get; set; } 
     [JsonInclude] internal Dictionary<GuardType, NelderimRegionGuard> Guards { get; set; }
     [JsonInclude] internal Dictionary<CraftResource, double> Resources { get; set; }
+    [JsonInclude] internal Dictionary<DifficultyLevelValue, double> DifficultyLevel { get; set; }
     [JsonInclude] internal List<NelderimRegion> Regions { get; set; }
 
     public bool Validate()
@@ -193,6 +194,21 @@ public class NelderimRegion : IComparable<NelderimRegion>
             return parentResult;
         }
         return new Dictionary<CraftResource, double>();
+    }
+    
+    public Dictionary<DifficultyLevelValue, double> DifficultyLevelWeights()
+    {
+	    if (DifficultyLevel is { Count: > 0 })
+	    {
+		    return DifficultyLevel;
+	    }
+
+	    var parentResult = Parent?.DifficultyLevelWeights();
+	    if (parentResult != null)
+	    {
+		    return parentResult;
+	    }
+	    return new Dictionary<DifficultyLevelValue, double>();
     }
     
     protected bool Equals(NelderimRegion other)
