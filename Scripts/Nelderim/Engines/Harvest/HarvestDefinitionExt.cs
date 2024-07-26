@@ -34,17 +34,16 @@ namespace Server.Engines.Harvest
 			Region harvestReg = here.GetRegion(RegionType);
 			if ( harvestReg?.Name != null )
 			{
-				if (m_RegionVeinCache.TryGetValue(harvestReg.Name, out var regionVeins))
+				if (m_RegionVeinCache.TryGetValue(harvestReg.Name, out var cachedRegionVeins))
 				{
-					veins = regionVeins;
+					veins = cachedRegionVeins;
 				}
 				else
 				{
 					var factors = NelderimRegionSystem.GetRegion(harvestReg.Name).ResourceVeins();
-					if (factors != null && factors.Count > 0)
-					{
-						veins = VeinsFromRegionFactors(factors);
-					}
+					var regionVeins = VeinsFromRegionFactors(factors);
+					if (regionVeins != null && regionVeins.Length > 0)
+						veins = regionVeins;
 
 					// caching veins for this region
 					m_RegionVeinCache.Add(harvestReg.Name, veins);
@@ -54,22 +53,21 @@ namespace Server.Engines.Harvest
 
 		public virtual HarvestVein[] VeinsFromRegionFactors( Dictionary<CraftResource, double> factors )
         {
-            if ( factors.Count == 0 )
-            {
-                return null;
-            }
-            
-            HarvestVein[] veins = new HarvestVein[Resources.Length];
-            
-            for (var i = 0; i < Resources.Length; i++)
-            {
-	            var craftResource = CraftResources.GetFromType(Resources[i].Types[0]);
-	            if (factors.TryGetValue(craftResource, out var factor))
-	            {
-		            veins[i] = new HarvestVein(factor, 0.0, Resources[i], i == 0 ? null : Resources[0]);
-	            }
-            }
-            return veins;
+	        if (factors == null || factors.Count == 0)
+	        {
+		        return null;
+	        }
+
+	        var veins = new List<HarvestVein>();
+	        for (var i = 0; i < Resources.Length; i++)
+	        {
+		        var craftResource = CraftResources.GetFromType(Resources[i].Types[0]);
+		        if (factors.TryGetValue(craftResource, out var factor))
+		        {
+			        veins.Add(new HarvestVein(factor, 0.0, Resources[i], i == 0 ? null : Resources[0]));
+		        }
+	        }
+	        return veins.ToArray();
         }
 	}
 }
