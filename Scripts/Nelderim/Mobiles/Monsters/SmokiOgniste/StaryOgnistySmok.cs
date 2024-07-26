@@ -77,7 +77,7 @@ namespace Server.Mobiles
 		public override int TreasureMapLevel { get { return 4; } }
 		public override int Meat { get { return 8; } }
 		public override int Hides { get { return 15; } }
-		public override HideType HideType { get { return HideType.Barbed; } }
+		public override HideType HideType { get { return HideType.Horned; } }
 		public override int Scales { get { return 6; } }
 		public override ScaleType ScaleType { get { return (Body == 12 ? ScaleType.Yellow : ScaleType.Red); } }
 		public override FoodType FavoriteFood { get { return FoodType.Meat; } }
