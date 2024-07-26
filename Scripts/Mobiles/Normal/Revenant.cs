@@ -12,7 +12,7 @@ namespace Server.Mobiles
         private readonly DateTime m_ExpireTime;
 
         public Revenant(Mobile caster, Mobile target, TimeSpan duration)
-            : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.18, 0.36)
+            : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.1, 0.2)
         {
             Name = "Msciwy duch";
             Body = 400;
@@ -91,7 +91,7 @@ namespace Server.Mobiles
                 Kill();
                 return;
             }
-            else if (Map != m_Target.Map || !InRange(m_Target, 15))
+            else if (Map != m_Target.Map || !InRange(m_Target, 8))
             {
                 Map fromMap = Map;
                 Point3D from = Location;
@@ -101,9 +101,10 @@ namespace Server.Mobiles
 
                 if (toMap != null)
                 {
+                    int dist = 2;
                     for (int i = 0; i < 5; ++i)
                     {
-                        Point3D loc = new Point3D(to.X - 4 + Utility.Random(9), to.Y - 4 + Utility.Random(9), to.Z);
+                        Point3D loc = new Point3D(to.X - dist + Utility.Random(dist*2+1), to.Y - dist + Utility.Random( dist*2+1 ), to.Z);
 
                         if (toMap.CanSpawnMobile(loc))
                         {
