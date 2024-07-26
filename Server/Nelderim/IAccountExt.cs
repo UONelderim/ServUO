@@ -1,4 +1,4 @@
-using Nelderim.Factions;
+using Server.Nelderim;
 
 namespace Server.Accounting
 {

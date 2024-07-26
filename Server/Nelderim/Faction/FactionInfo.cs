@@ -1,6 +1,6 @@
-using Server;
+using Nelderim;
 
-namespace Nelderim.Factions
+namespace Server.Nelderim
 {
 	public class FactionInfo : NExtensionInfo
 	{

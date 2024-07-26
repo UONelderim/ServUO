@@ -235,6 +235,12 @@ public class BaseNelderimGuard : BaseCreature
     
     private bool IsEnemyOfSpider(Mobile m)
     {
+	    if (m == null)
+		    return false;
+        
+	    if (m.Faction.IsEnemy(m))
+		    return true;
+	    
         // Nie atakuj innych straznikow (obszarowka moze triggerowac walke miedzy nimi)
         if (m is BaseNelderimGuard)
             return false;
@@ -273,6 +279,9 @@ public class BaseNelderimGuard : BaseCreature
     {
         if (m == null)
             return false;
+        
+        if (Faction != null && Faction.IsEnemy(m))
+	        return true;
 
         if (m is BaseNelderimGuard)
             return false;

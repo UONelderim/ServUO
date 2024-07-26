@@ -5,7 +5,7 @@ using Server.Accounting;
 
 #endregion
 
-namespace Nelderim.Factions
+namespace Server.Nelderim
 {
 	class FactionInit
 	{

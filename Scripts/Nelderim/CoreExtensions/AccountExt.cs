@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Xml;
 using Nelderim;
-using Nelderim.Factions;
+using Server.Nelderim;
 
 namespace Server.Accounting
 {

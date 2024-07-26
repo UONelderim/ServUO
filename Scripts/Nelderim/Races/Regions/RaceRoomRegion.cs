@@ -2,7 +2,7 @@
 
 using System;
 using System.Xml;
-using Nelderim.Factions;
+using Server.Nelderim;
 using Server.Accounting;
 using Server.Gumps;
 using Server.Nelderim.Gumps;

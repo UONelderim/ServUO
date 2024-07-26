@@ -10,7 +10,7 @@ namespace Nelderim
 	{
 		public KnownLanguages LanguagesKnown { get; set; } = new();
 
-		public Language LanguageSpeaking { get; set; }
+		public NLanguage LanguageSpeaking { get; set; }
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -23,7 +23,7 @@ namespace Nelderim
 		{
 			int version = reader.ReadInt();
 			LanguagesKnown.Deserialize(reader);
-			LanguageSpeaking = (Language)reader.ReadInt();
+			LanguageSpeaking = (NLanguage)reader.ReadInt();
 		}
 	}
 }

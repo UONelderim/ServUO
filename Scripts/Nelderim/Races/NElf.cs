@@ -72,9 +72,9 @@ namespace Nelderim.Races
 			}
 		};
 		
-		public override Dictionary<Language, ushort> DefaultLanguages => new()
+		public override Dictionary<NLanguage, ushort> DefaultLanguages => new()
 		{
-			{ Language.Powszechny, 1000 }, { Language.Elficki, 1000}
+			{ NLanguage.Powszechny, 1000 }, { NLanguage.Elficki, 1000}
 		};
 	}
 }

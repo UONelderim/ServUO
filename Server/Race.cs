@@ -60,7 +60,7 @@ namespace Server
 				}
 			}
 
-			throw new ArgumentException("Invalid race name");
+			throw new ArgumentException($"Invalid race name: {value}");
 		}
 
 		private static void CheckNamesAndValues()

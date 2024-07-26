@@ -21,12 +21,16 @@ namespace Server.Nelderim
 	        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
         };
 
+        public static void Configure()
+        {
+	        Load();
+	        EventSink.MobileCreated += OnCreate;
+	        EventSink.OnEnterRegion += OnEnterRegion;
+        }
+
         public static void Initialize()
         {
-            Load();
             RumorsSystem.Load();
-            EventSink.MobileCreated += OnCreate;
-            EventSink.OnEnterRegion += OnEnterRegion;
         }
 
         private static void Load()
@@ -61,9 +65,13 @@ namespace Server.Nelderim
         private static void OnEnterRegion(OnEnterRegionEventArgs e)
         {
         	var m = e.From;
-        	if (e.OldRegion == null)
-        		if (m is BaseVendor)
-        			m.Race = GetRegion(e.NewRegion.Name).RandomRace();
+	        if (e.OldRegion != null) return;
+	        
+	        if (e.NewRegion != null && m is BaseVendor or BaseNelderimGuard)
+	        {
+		        m.Race = GetRegion(e.NewRegion.Name).RandomRace();
+		        m.Faction = GetRegion(e.NewRegion.Name).GetFaction();
+	        }
         }
 
         private static void OnCreate(MobileCreatedEventArgs e)
@@ -84,7 +92,7 @@ namespace Server.Nelderim
         public static NelderimRegion GetRegion(string regionName)
         {
 	        if(regionName == null)
-		        return null;
+		        return NelderimRegions["Default"];
 	        
             if (NelderimRegions.TryGetValue(regionName, out var result))
             {

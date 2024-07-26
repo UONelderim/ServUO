@@ -13,22 +13,22 @@ namespace Nelderim
 {
 	public static class Translate
 	{
-		public readonly record struct TranslationResult(Language lang, string[] originalWords, string[] translatedWords);
+		public readonly record struct TranslationResult(NLanguage lang, string[] originalWords, string[] translatedWords);
 		
-		public static TranslationResult Apply(string original, Language lang)
+		public static TranslationResult Apply(string original, NLanguage lang)
 		{
 			var originalWords = original.Split(' ');
 			var translatedWords = lang switch
 			{
-				Language.Krasnoludzki => TranslateUsingDict(originalWords, LanguagesDictionary.Krasnoludzki),
-				Language.Elficki => TranslateUsingDict(originalWords, LanguagesDictionary.Elficki),
-				Language.Drowi => TranslateUsingDict(originalWords, LanguagesDictionary.Drowi),
-				Language.Jarlowy => TranslateUsingDict(originalWords, LanguagesDictionary.Jarlowy),
-				Language.Demoniczny => TranslateUsingList(originalWords, LanguagesDictionary.Demoniczny),
-				Language.Orkowy => TranslateUsingDict(originalWords, LanguagesDictionary.Orkowy),
-				Language.Nieumarlych => TranslateUsingLetters(originalWords, LanguagesDictionary.Nieumarlych),
-				Language.Powszechny => RandomWord(originalWords),
-				Language.Belkot => RandomWord(originalWords),
+				NLanguage.Krasnoludzki => TranslateUsingDict(originalWords, LanguagesDictionary.Krasnoludzki),
+				NLanguage.Elficki => TranslateUsingDict(originalWords, LanguagesDictionary.Elficki),
+				NLanguage.Drowi => TranslateUsingDict(originalWords, LanguagesDictionary.Drowi),
+				NLanguage.Jarlowy => TranslateUsingDict(originalWords, LanguagesDictionary.Jarlowy),
+				NLanguage.Demoniczny => TranslateUsingList(originalWords, LanguagesDictionary.Demoniczny),
+				NLanguage.Orkowy => TranslateUsingDict(originalWords, LanguagesDictionary.Orkowy),
+				NLanguage.Nieumarlych => TranslateUsingLetters(originalWords, LanguagesDictionary.Nieumarlych),
+				NLanguage.Powszechny => RandomWord(originalWords),
+				NLanguage.Belkot => RandomWord(originalWords),
 				_ => null
 			};
 

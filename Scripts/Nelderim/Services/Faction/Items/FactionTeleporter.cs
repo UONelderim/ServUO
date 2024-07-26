@@ -1,11 +1,6 @@
-#region References
-
-using Server;
 using Server.Mobiles;
 
-#endregion
-
-namespace Nelderim.Factions
+namespace Server.Nelderim
 {
 	public class FactionTeleporter : Item
 	{

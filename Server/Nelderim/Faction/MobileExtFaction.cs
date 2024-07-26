@@ -1,10 +1,10 @@
-using Nelderim.Factions;
+using Server.Nelderim;
 
 namespace Server
 {
 	public partial class Mobile
 	{
-		[CommandProperty(AccessLevel.Decorator, Server.AccessLevel.Administrator)]
+		[CommandProperty(AccessLevel.Decorator, AccessLevel.Administrator)]
 		public Faction Faction
 		{
 			get => Faction.Get(this).Faction;

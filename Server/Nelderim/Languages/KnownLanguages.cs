@@ -7,7 +7,7 @@ using Server;
 
 namespace Nelderim
 {
-	public enum Language
+	public enum NLanguage
 	{
 		Belkot = -1,
 		Powszechny = 0,
@@ -28,57 +28,57 @@ namespace Nelderim
 		[CommandProperty(AccessLevel.GameMaster)]
 		public ushort Powszechny
 		{
-			get => this[Language.Powszechny];
-			set => this[Language.Powszechny] = value;
+			get => this[NLanguage.Powszechny];
+			set => this[NLanguage.Powszechny] = value;
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public ushort Krasnoludzki
 		{
-			get => this[Language.Krasnoludzki];
-			set => this[Language.Krasnoludzki] = value;
+			get => this[NLanguage.Krasnoludzki];
+			set => this[NLanguage.Krasnoludzki] = value;
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public ushort Elficki
 		{
-			get => this[Language.Elficki];
-			set => this[Language.Elficki] = value;
+			get => this[NLanguage.Elficki];
+			set => this[NLanguage.Elficki] = value;
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public ushort Drowi
 		{
-			get => this[Language.Drowi];
-			set => this[Language.Drowi] = value;
+			get => this[NLanguage.Drowi];
+			set => this[NLanguage.Drowi] = value;
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public ushort Jarlowy
 		{
-			get => this[Language.Jarlowy];
-			set => this[Language.Jarlowy] = value;
+			get => this[NLanguage.Jarlowy];
+			set => this[NLanguage.Jarlowy] = value;
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public ushort Demoniczny
 		{
-			get => this[Language.Demoniczny];
-			set => this[Language.Demoniczny] = value;
+			get => this[NLanguage.Demoniczny];
+			set => this[NLanguage.Demoniczny] = value;
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public ushort Orkowy
 		{
-			get => this[Language.Orkowy];
-			set => this[Language.Orkowy] = value;
+			get => this[NLanguage.Orkowy];
+			set => this[NLanguage.Orkowy] = value;
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public ushort Nieumarlych
 		{
-			get => this[Language.Nieumarlych];
-			set => this[Language.Nieumarlych] = value;
+			get => this[NLanguage.Nieumarlych];
+			set => this[NLanguage.Nieumarlych] = value;
 		}
 
 		public override string ToString()
@@ -86,16 +86,16 @@ namespace Nelderim
 			return "...";
 		}
 
-		public ushort this[Language lang]
+		public ushort this[NLanguage lang]
 		{
 			get
 			{
-				if (lang == Language.Belkot) return 0;
+				if (lang == NLanguage.Belkot) return 0;
 				return _languageValues[(int)lang];
 			}
 			set  
 			{
-				if(lang == Language.Belkot) return;
+				if(lang == NLanguage.Belkot) return;
 				_languageValues[(int)lang] = value;
 			}
 		}
@@ -122,7 +122,7 @@ namespace Nelderim
 
 		public void Clear()
 		{
-			foreach (Language lang in Enum.GetValues(typeof(Language)))
+			foreach (NLanguage lang in Enum.GetValues(typeof(NLanguage)))
 			{
 				this[lang] = 0;
 			}
