@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <export>
-	<nonHuman body="173" sound="1170" hue="2618" name="swiety pajak"/>
+	<nonHuman body="173" sound="1170" hue="2618" name="swiety pajak matka"/>
 	<behavior fightMode="4" guardMode="Spider"/>
 	<skills>
 		<skill index="1" name="Anatomy" base="120" />
@@ -13,12 +13,12 @@
 		<skill index="43" name="Wrestling" base="120" />
 	</skills>
 	<stats>
-		<stat name="str" value="600" />
-		<stat name="dex" value="450" />
-		<stat name="int" value="300" />
+		<stat name="str" value="1000" />
+		<stat name="dex" value="500" />
+		<stat name="int" value="500" />
 	</stats>
-	<hits value="600" />
-	<damage value="40" />
-	<resistances physical="60" fire="60" cold="60" poison="60" energy="60" />
+	<hits value="1200" />
+	<damage value="50" />
+	<resistances physical="100" fire="100" cold="100" poison="100" energy="100" />
 	<mount mounted="false" />
 </export>

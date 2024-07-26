@@ -1,0 +1,301 @@
+using System;
+using Server.Items;
+using Server.Nelderim;
+
+namespace Server.Mobiles;
+
+public enum GuardType
+{
+    StandardGuard,
+    ArcherGuard,
+    HeavyGuard,
+    MageGuard,
+    MountedGuard,
+    EliteGuard,
+    SpecialGuard
+}
+
+public enum WarFlag
+{
+    None,
+    White,
+    Black,
+    Red,
+    Green,
+    Blue
+}
+
+public enum GuardMode
+{
+    Default,
+    Spider
+}
+
+public class BaseNelderimGuard : BaseCreature
+{
+    private GuardType _Type;
+    private GuardMode _GuardMode = GuardMode.Default;
+    private string _RegionName;
+    private WarFlag _Flag = WarFlag.None;
+    private WarFlag _Enemy = WarFlag.None;
+
+    [CommandProperty(AccessLevel.GameMaster)]
+    public GuardType GuardType => _Type;
+    
+    [CommandProperty(AccessLevel.GameMaster)]
+    public GuardMode GuardMode
+    {
+        get => _GuardMode;
+        set => _GuardMode = value;
+    }
+
+    [CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
+    public string HomeRegionName
+    {
+        get => _RegionName;
+        set
+        {
+            _RegionName = value;
+
+            try
+            {
+                NelderimRegionSystem.GetRegion(Region.Name).MakeGuard(this);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                _RegionName = null;
+            }
+        }
+    }
+    
+    public override bool IsEnemy(Mobile m)
+    {
+        return _GuardMode switch
+        {
+            GuardMode.Spider => IsEnemyOfSpider(m),
+            _ => DefaultIsEnemy(m)
+        };
+    }
+
+    public override void CriminalAction(bool message)
+    {
+        // Straznik nigdy nie dostanie krima.
+        // Byl problem, ze gdy straznik atakowal peta/summona gracza-krima to sam dostawal krima.s
+        return;
+    }
+
+    [CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
+    public WarFlag WarSideFlag
+    {
+        get => _Flag;
+        set
+        {
+            _Flag = value;
+
+            if (_Flag != WarFlag.None && _Flag == _Enemy)
+                _Enemy = WarFlag.None;
+        }
+    }
+
+    [CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
+    public WarFlag WarOpponentFlag
+    {
+        get => _Enemy;
+        set
+        {
+            _Enemy = value;
+
+            if (_Enemy != WarFlag.None && _Flag == _Enemy)
+                _Flag = WarFlag.None;
+        }
+    }
+
+    public bool IsHuman => BodyValue == 400 || BodyValue == 401;
+
+
+    public BaseNelderimGuard(GuardType type, AIType aiType = AIType.AI_Melee, int rangePerception = 16, int rangeFight = 1) : 
+        base(aiType, FightMode.Criminal, rangePerception, rangeFight, 0.05, 0.1)
+    {
+        _Type = type;
+        _RegionName = null;
+        Fame = 5000;
+        Karma = 5000;
+        
+        SetWeaponAbility(WeaponAbility.Dismount);
+        SetWeaponAbility(WeaponAbility.BleedAttack);
+
+        new RaceTimer(this).Start();
+    }
+
+    public BaseNelderimGuard(Serial serial) : base(serial)
+    {
+    }
+
+    public override bool AutoDispel => true;
+
+    public override bool Unprovokable => true;
+
+    public override bool Uncalmable => true;
+
+    public override bool BardImmune => true;
+
+    public override Poison PoisonImmune => Poison.Greater;
+
+    public override bool HandlesOnSpeech(Mobile from)
+    {
+        return true;
+    }
+
+    public override bool ShowFameTitle => false;
+    
+    public override double WeaponAbilityChance => 0.4;
+
+    public GuardType Type => _Type;
+
+    public override void Serialize(GenericWriter writer)
+    {
+        base.Serialize(writer);
+        writer.Write((int)4);
+
+        writer.Write((int)_GuardMode);
+        // writer.Write( (string) m_IsEnemyFunction );
+        writer.Write((int)_Flag);
+        writer.Write((int)_Enemy);
+        writer.Write(_RegionName);
+    }
+
+    public override void Deserialize(GenericReader reader)
+    {
+        base.Deserialize(reader);
+
+        int version = reader.ReadInt();
+
+        switch (version)
+        {
+            case 4:
+                _GuardMode = (GuardMode)reader.ReadInt();
+                goto case 2;
+            case 3:
+            {
+                reader.ReadString(); //enemyFunction
+                goto case 2;
+            }
+            case 2:
+            {
+                _Flag = (WarFlag)reader.ReadInt();
+                _Enemy = (WarFlag)reader.ReadInt();
+                goto case 1;
+            }
+            case 1:
+            {
+                if (version < 2)
+                {
+                    _Flag = WarFlag.None;
+                    _Enemy = WarFlag.None;
+                }
+
+                _RegionName = reader.ReadString();
+                break;
+            }
+            default:
+            {
+                if (version < 1)
+                    _RegionName = null;
+                break;
+            }
+        }
+    }
+    
+    private class RaceTimer : Timer
+    {
+        private BaseNelderimGuard _Target;
+
+        public RaceTimer(BaseNelderimGuard target) : base(TimeSpan.FromMilliseconds(250))
+        {
+            _Target = target;
+            Priority = TimerPriority.FiftyMS;
+        }
+
+        protected override void OnTick()
+        {
+            try
+            {
+                if (!_Target.Deleted)
+                {
+                    NelderimRegionSystem.GetRegion(_Target.Region.Name).MakeGuard(_Target);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
+    }
+    
+    private bool IsEnemyOfSpider(Mobile m)
+    {
+        // Nie atakuj innych straznikow (obszarowka moze triggerowac walke miedzy nimi)
+        if (m is BaseNelderimGuard)
+            return false;
+
+        // nie atakuj drowow i obywateli drowiego miasta (oraz ich zwierzat i przywolancow)
+        if (BaseAI.IsSpidersFriend(m))
+            return false;
+
+        // atakuj wszystkich graczy
+        if (m is PlayerMobile)
+            return true;
+
+        if (m is BaseCreature)
+        {
+            BaseCreature bc = m as BaseCreature;
+
+            // atakuj pety i przywolance graczy
+            if ((bc.Controlled && bc.ControlMaster != null && bc.ControlMaster.AccessLevel < AccessLevel.Counselor) ||
+                (bc.Summoned && bc.SummonMaster != null && bc.SummonMaster.AccessLevel < AccessLevel.Counselor))
+                return true;
+
+            // nie atakuj dzikich pajakow
+            if (SlayerGroup.GetEntryByName(SlayerName.SpidersDeath).Slays(m) && !bc.IsChampionSpawn && !(m is NSzeol) &&
+                !(m is Mephitis))
+                return false;
+
+            // atakuj stworzenia red/krim
+            if (bc.AlwaysMurderer || bc.Criminal || (!bc.Controlled && bc.FightMode == FightMode.Closest))
+                return true;
+        }
+
+        return false;
+    }
+
+    private bool DefaultIsEnemy(Mobile m)
+    {
+        if (m == null)
+            return false;
+
+        if (m is BaseNelderimGuard)
+            return false;
+
+        if (m.Criminal || m.Kills >= 5)
+            return true;
+
+        if (WarOpponentFlag != WarFlag.None && WarOpponentFlag == (m as BaseNelderimGuard).WarSideFlag)
+            return true;
+
+        if (m is BaseCreature)
+        {
+            BaseCreature bc = m as BaseCreature;
+            if (bc.AlwaysMurderer || (!bc.Controlled && bc.FightMode == FightMode.Closest))
+                return true;
+
+            if ((bc.Controlled && bc.ControlMaster != null && bc.ControlMaster.AccessLevel < AccessLevel.Counselor &&
+                 (bc.ControlMaster.Criminal || bc.ControlMaster.Kills >= 5)) ||
+                (bc.Summoned && bc.SummonMaster != null && bc.SummonMaster.AccessLevel < AccessLevel.Counselor &&
+                 (bc.SummonMaster.Criminal || bc.SummonMaster.Kills >= 5)))
+                return true;
+        }
+
+        return false;
+    }
+}

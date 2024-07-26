@@ -174,7 +174,7 @@ namespace Server.Mobiles
 						if (!(m as PlayerMobile).Noticed && Utility.Random(m_Mobile.RangePerception - 1) >
 						    m_Mobile.GetDistanceToSqrt(m.Location))
 						{
-							if (RegionsEngine.ActIntolerativeHarmful(m_Mobile, m, true))
+							if (NelderimRegionSystem.ActIntolerativeHarmful(m_Mobile, m, true))
 							{
 								((PlayerMobile)m).Noticed = true;
 								new GuardTimer(m, m_Mobile).Start();
@@ -513,7 +513,7 @@ namespace Server.Mobiles
 			}
 		}
 		
-		private bool IsSpidersFriend(Mobile m)
+		public static bool IsSpidersFriend(Mobile m)
 		{
 			if (m.Race == Race.NDrow || TownDatabase.IsCitizenOfGivenTown(m, Towns.LDelmah))
 				return true;

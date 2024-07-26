@@ -7,6 +7,7 @@ namespace Server
 	{
 		public static readonly int NRaceOffset = 0x20;
 
+		public static Race None => Races[NRaceOffset + 0];
 		public static Race NTamael => Races[NRaceOffset + 1];
 		public static Race NJarling => Races[NRaceOffset + 2];
 		public static Race NNaur => Races[NRaceOffset + 3];

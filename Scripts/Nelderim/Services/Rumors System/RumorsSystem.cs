@@ -160,12 +160,12 @@ namespace Server.Nelderim
 		public static List<RumorRecord> GetRumors(Mobile mobile, PriorityLevel priority, NewsType type)
 		{
 			string regionname = mobile.Region.Name;
-			RegionsEngineRegion reg = RegionsEngine.GetRegion(regionname);
+			NelderimRegion reg = NelderimRegionSystem.GetRegion(regionname);
 
 			return (type == NewsType.All) ? GetRumors(reg, priority, type) : Validate(GetRumors(reg, priority, type));
 		}
 
-		public static List<RumorRecord> GetRumors(RegionsEngineRegion reg, PriorityLevel priority, NewsType type)
+		public static List<RumorRecord> GetRumors(NelderimRegion reg, PriorityLevel priority, NewsType type)
 		{
 			try
 			{
@@ -174,7 +174,7 @@ namespace Server.Nelderim
 				if (reg.Name == "Default")
 					rumorslist = new List<RumorRecord>();
 				else
-					rumorslist = GetRumors(RegionsEngine.GetRegion(reg.Parent), priority, type);
+					rumorslist = GetRumors(reg.Parent, priority, type);
 
 				foreach (RumorRecord r in RumorsList)
 				{

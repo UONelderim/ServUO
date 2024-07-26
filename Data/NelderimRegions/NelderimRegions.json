@@ -1,0 +1,1058 @@
+{
+  "Name": "Default",
+  "Female": 0.5,
+  "Population": {
+    "Tamael": 0.67,
+    "Jarling": 0.15,
+    "Naur": 0.01,
+    "Elf": 0.01,
+    "Drow": 0.01,
+    "Krasnolud": 0.15
+  },
+  "Intolerance": {
+    "Naur": 0.25,
+    "Drow": 0.40,
+    "Krasnolud": 0.15
+  },
+  "Guards": {
+    "StandardGuard": {
+      "Name": "DefaultStandard",
+      "Female": 0.50,
+      "Population": {
+        "None": 1.00
+      }
+    },
+    "ArcherGuard": {
+      "Name": "DefaultArcher",
+      "Female": 0.50,
+      "Population": {
+        "None": 1.00
+      }
+    },
+    "HeavyGuard": {
+      "Name": "DefaultHeavy",
+      "Female": 0.50,
+      "Population": {
+        "None": 1.00
+      }
+    },
+    "MageGuard": {
+      "Name": "DefaultMage",
+      "Female": 0.50,
+      "Population": {
+        "None": 1.00
+      }
+    },
+    "MountedGuard": {
+      "Name": "DefaultMounted",
+      "Female": 0.50,
+      "Population": {
+        "None": 1.00
+      }
+    },
+    "EliteGuard": {
+      "Name": "DefaultElite",
+      "Female": 0.50,
+      "Population": {
+        "None": 1.00
+      }
+    },
+    "SpecialGuard": {
+      "Name": "DefaultSpecial",
+      "Female": 0.50,
+      "Population": {
+        "None": 1.00
+      }
+    }
+  },
+  "Regions": [
+    {
+      "Name": "GreenAcres"
+    },
+    {
+      "Name": "Jail"
+    },
+    {
+      "Name": "Cesarstwo",
+      "Population": {
+        "Tamael": 0.80,
+        "Jarling": 0.10,
+        "Krasnolud": 0.10
+      },
+      "Intolerance": {
+        "Jarling": 0.10,
+        "Naur": 0.25,
+        "Elf": 0.10,
+        "Drow": 1.00,
+        "Krasnolud": 0.10
+      },
+      "Guards": {
+        "StandardGuard": {
+          "Name": "CesarstwoStandard",
+          "Female": 0.50,
+          "Population": {
+            "Tamael": 1.00
+          }
+        },
+        "ArcherGuard": {
+          "Name": "CesarstwoArcher",
+          "Female": 0.50,
+          "Population": {
+            "Tamael": 1.00
+          }
+        },
+        "HeavyGuard": {
+          "Name": "CesarstwoHeavy",
+          "Female": 0.50,
+          "Population": {
+            "Tamael": 1.00
+          }
+        },
+        "MageGuard": {
+          "Name": "CesarstwoMage",
+          "Female": 0.50,
+          "Population": {
+            "Tamael": 1.00
+          }
+        },
+        "MountedGuard": {
+          "Name": "CesarstwoMounted",
+          "Female": 0.50,
+          "Population": {
+            "Tamael": 1.00
+          }
+        },
+        "EliteGuard": {
+          "Name": "CesarstwoElite",
+          "Female": 0.50,
+          "Population": {
+            "Tamael": 1.00
+          }
+        },
+        "SpecialGuard": {
+          "Name": "DefaultSpecial",
+          "Female": 0.50,
+          "Population": {
+            "Tamael": 1.00
+          }
+        }
+      },
+      "Regions": [
+        {
+          "Name": "Tasandora",
+          "Population": {
+            "Tamael": 0.80,
+            "Jarling": 0.10,
+            "Krasnolud": 0.10
+          },
+          "Intolerance": {
+            "Jarling": 0.10,
+            "Naur": 0.25,
+            "Elf": 0.10,
+            "Drow": 1.00,
+            "Krasnolud": 0.10
+          },
+          "Guards": {
+            "StandardGuard": {
+              "Name": "CesarstwoStandard",
+              "Female": 0.50,
+              "Population": {
+                "Tamael": 1.00
+              }
+            },
+            "ArcherGuard": {
+              "Name": "CesarstwoArcher",
+              "Female": 0.50,
+              "Population": {
+                "Tamael": 1.00
+              }
+            },
+            "HeavyGuard": {
+              "Name": "CesarstwoHeavy",
+              "Female": 0.50,
+              "Population": {
+                "Tamael": 1.00
+              }
+            },
+            "MageGuard": {
+              "Name": "CesarstwoMage",
+              "Female": 0.50,
+              "Population": {
+                "Tamael": 1.00
+              }
+            },
+            "MountedGuard": {
+              "Name": "CesarstwoMounted",
+              "Female": 0.50,
+              "Population": {
+                "Tamael": 1.00
+              }
+            },
+            "EliteGuard": {
+              "Name": "CesarstwoElite",
+              "Female": 0.50,
+              "Population": {
+                "Tamael": 1.00
+              }
+            },
+            "SpecialGuard": {
+              "Name": "DefaultSpecial",
+              "Female": 0.50,
+              "Population": {
+                "Tamael": 1.00
+              }
+            }
+          },
+          "Regions": [
+            {
+              "Name": "Tasandora_Kopalnia"
+            },
+            {
+              "Name": "PodGlowaSmoka"
+            },
+            {
+              "Name": "CichySwit"
+            },
+            {
+              "Name": "Mordownia"
+            },
+            {
+              "Name": "BeczulkaRumu"
+            },
+            {
+              "Name": "SwiatyniaStworzenia"
+            },
+            {
+              "Name": "SwiatyniaKonca"
+            },
+            {
+              "Name": "DrzewoZycia"
+            }
+          ]
+        },
+        {
+          "Name": "Ferion",
+          "Population": {
+            "Tamael": 0.80,
+            "Jarling": 0.10,
+            "Krasnolud": 0.10
+          },
+          "Regions": [
+            {
+              "Name": "Bryza"
+            }
+          ]
+        },
+        {
+          "Name": "Tafroel",
+          "Population": {
+            "Tamael": 0.80,
+            "Jarling": 0.10,
+            "Krasnolud": 0.10
+          },
+          "Regions": [
+            {
+              "Name": "PodLisciemKlonu"
+            }
+          ]
+        },
+        {
+          "Name": "Talas",
+          "Population": {
+            "Tamael": 0.80,
+            "Jarling": 0.10,
+            "Krasnolud": 0.10
+          }
+        },
+        {
+          "Name": "Tingref",
+          "Population": {
+            "Tamael": 0.80,
+            "Jarling": 0.10,
+            "Krasnolud": 0.10
+          },
+          "Regions": [
+            {
+              "Name": "PodZdechlymPsem"
+            }
+          ]
+        },
+        {
+          "Name": "Uk",
+          "Population": {
+            "Jarling": 1.00
+          }
+        },
+        {
+          "Name": "Celendir",
+          "Population": {
+            "Tamael": 0.80,
+            "Jarling": 0.10,
+            "Krasnolud": 0.10
+          }
+        },
+        {
+          "Name": "Hirneth"
+        },
+        {
+          "Name": "Orod",
+          "Regions": [
+            {
+              "Name": "Orod_Kopalnia"
+            },
+            {
+              "Name": "SrebrzystyDzban"
+            }
+          ]
+        },
+        {
+          "Name": "Ethrod",
+          "Regions": [
+            {
+              "Name": "Ethrod_Kopalnia"
+            }
+          ]
+        },
+        {
+          "Name": "Elbrind"
+        },
+        {
+          "Name": "BaradDur"
+        },
+        {
+          "Name": "Ruth"
+        },
+        {
+          "Name": "Alcala"
+        },
+        {
+          "Name": "Belegost"
+        },
+        {
+          "Name": "Hurengrav"
+        },
+        {
+          "Name": "SwiatyniaHurengrav"
+        },
+        {
+          "Name": "SwiatyniaHirneth"
+        },
+        {
+          "Name": "Lesniczowka"
+        },
+        {
+          "Name": "Twierdza_Kopalnia"
+        }
+      ]
+    },
+    {
+      "Name": "KryjowkaPrzemytnikow",
+      "Population": {
+        "Tamael": 0.25,
+        "Jarling": 0.25,
+        "Naur": 0.30,
+        "Krasnolud": 0.20
+      },
+      "Regions": [
+        {
+          "Name": "PodWesolymUrwiglowa"
+        },
+        {
+          "Name": "ZagubionaKopalnia"
+        }
+      ]
+    },
+    {
+      "Name": "JaskiniaPrzemytnikow",
+      "Regions": [
+        {
+          "Name": "JaskiniaDrowow"
+        }
+      ]
+    },
+    {
+      "Name": "Twierdza",
+      "Regions": [
+        {
+          "Name": "PodZelaznymMlotem"
+        }
+      ]
+    },
+    {
+      "Name": "Geriador",
+      "Population": {
+        "Tamael": 0.20,
+        "Jarling": 0.60,
+        "Krasnolud": 0.20
+      },
+      "Intolerance": {
+        "Naur": 0.20,
+        "Elf": 0.10,
+        "Drow": 1.00
+      },
+      "Guards": {
+        "StandardGuard": {
+          "Name": "GeriadorStandard",
+          "Female": 0.50,
+          "Population": {
+            "Tamael": 0.20,
+            "Jarling": 0.60,
+            "Krasnolud": 0.20
+          }
+        },
+        "ArcherGuard": {
+          "Name": "GeriadorArcher",
+          "Female": 0.50,
+          "Population": {
+            "Tamael": 0.20,
+            "Jarling": 0.60,
+            "Krasnolud": 0.20
+          }
+        },
+        "HeavyGuard": {
+          "Name": "GeriadorHeavy",
+          "Female": 0.50,
+          "Population": {
+            "Tamael": 0.20,
+            "Jarling": 0.60,
+            "Krasnolud": 0.20
+          }
+        },
+        "MageGuard": {
+          "Name": "GeriadorMage",
+          "Female": 0.50,
+          "Population": {
+            "Tamael": 0.20,
+            "Jarling": 0.60,
+            "Krasnolud": 0.20
+          }
+        },
+        "MountedGuard": {
+          "Name": "GeriadorMounted",
+          "Female": 0.50,
+          "Population": {
+            "Tamael": 0.20,
+            "Jarling": 0.60,
+            "Krasnolud": 0.20
+          }
+        },
+        "EliteGuard": {
+          "Name": "GeriadorElite",
+          "Female": 0.50,
+          "Population": {
+            "Tamael": 0.20,
+            "Jarling": 0.60,
+            "Krasnolud": 0.20
+          }
+        }
+      },
+      "Regions": [
+        {
+          "Name": "Garlan",
+          "Population": {
+            "Jarling": 0.80,
+            "Krasnolud": 0.20
+          },
+          "Guards": {
+            "StandardGuard": {
+              "Name": "GeriadorStandard",
+              "Female": 0.50,
+              "Population": {
+                "Jarling": 0.80,
+                "Krasnolud": 0.20
+              }
+            },
+            "ArcherGuard": {
+              "Name": "GeriadorArcher",
+              "Female": 0.50,
+              "Population": {
+                "Jarling": 0.80,
+                "Krasnolud": 0.20
+              }
+            },
+            "HeavyGuard": {
+              "Name": "GeriadorHeavy",
+              "Female": 0.50,
+              "Population": {
+                "Jarling": 0.80,
+                "Krasnolud": 0.20
+              }
+            },
+            "MageGuard": {
+              "Name": "GeriadorMage",
+              "Female": 0.50,
+              "Population": {
+                "Jarling": 0.80,
+                "Krasnolud": 0.20
+              }
+            },
+            "MountedGuard": {
+              "Name": "GeriadorMounted",
+              "Female": 0.50,
+              "Population": {
+                "Jarling": 0.80,
+                "Krasnolud": 0.20
+              }
+            },
+            "EliteGuard": {
+              "Name": "GeriadorElite",
+              "Female": 0.50,
+              "Population": {
+                "Jarling": 0.80,
+                "Krasnolud": 0.20
+              }
+            }
+          },
+          "Regions": [
+            {
+              "Name": "WesolaMlynareczka"
+            },
+            {
+              "Name": "Garlan_Kopalnia"
+            },
+            {
+              "Name": "AltarPrawosciIHonoru"
+            }
+          ]
+        },
+        {
+          "Name": "SnieznaPrzystan"
+        },
+        {
+          "Name": "CirithDur"
+        },
+        {
+          "Name": "Saew"
+        }
+      ]
+    },
+    {
+      "Name": "Orda",
+      "Population": {
+        "Tamael": 0.10,
+        "Jarling": 0.10,
+        "Naur": 0.70,
+        "Krasnolud": 0.10
+      },
+      "Intolerance": {
+        "Tamael": 0.20,
+        "Jarling": 0.20,
+        "Elf": 0.20,
+        "Drow": 1.00,
+        "Krasnolud": 0.10
+      },
+      "Guards": {
+        "StandardGuard": {
+          "Name": "OrdaStandard",
+          "Female": 0.55,
+          "Population": {
+            "Naur": 1.00
+          }
+        },
+        "ArcherGuard": {
+          "Name": "OrdaMounted",
+          "Female": 0.45,
+          "Population": {
+            "Naur": 1.00
+          }
+        },
+        "HeavyGuard": {
+          "Name": "OrdaArcher",
+          "Female": 0.65,
+          "Population": {
+            "Naur": 1.00
+          }
+        },
+        "MageGuard": {
+          "Name": "OrdaElite",
+          "Female": 0.25,
+          "Population": {
+            "Naur": 1.00
+          }
+        }
+      },
+      "Regions": [
+        {
+          "Name": "Thila",
+          "Regions": [
+            {
+              "Name": "inik"
+            },
+            {
+              "Name": "HarlElghinyrrokOrbb"
+            }
+          ]
+        },
+        {
+          "Name": "Oaza",
+          "Regions": [
+            {
+              "Name": "PlaklaNiar"
+            }
+          ]
+        },
+        {
+          "Name": "GrobowceNaurow"
+        },
+        {
+          "Name": "Naur"
+        }
+      ]
+    },
+    {
+      "Name": "Falas",
+      "Population": {
+        "Tamael": 0.40,
+        "Jarling": 0.30,
+        "Krasnolud": 0.30
+      },
+      "Intolerance": {
+        "Tamael": 0.10,
+        "Naur": 0.10,
+        "Elf": 0.10,
+        "Drow": 0.10,
+        "Krasnolud": 0.10
+      },
+      "Guards": {
+        "StandardGuard": {
+          "Name": "FalasStandard",
+          "Female": 0.55,
+          "Population": {
+            "Jarling": 1.00
+          }
+        },
+        "ArcherGuard": {
+          "Name": "FalasMounted",
+          "Female": 0.45,
+          "Population": {
+            "Jarling": 1.00
+          }
+        },
+        "HeavyGuard": {
+          "Name": "FalasArcher",
+          "Female": 0.65,
+          "Population": {
+            "Jarling": 1.00
+          }
+        },
+        "MageGuard": {
+          "Name": "FalasElite",
+          "Female": 0.25,
+          "Population": {
+            "Jarling": 1.00
+          }
+        }
+      },
+      "Regions": [
+        {
+          "Name": "Shamordar"
+        },
+        {
+          "Name": "Hernport"
+        },
+        {
+          "Name": "Tirassa",
+          "Population": {
+            "Tamael": 0.40,
+            "Jarling": 0.30,
+            "Krasnolud": 0.30
+          },
+          "Guards": {
+            "StandardGuard": {
+              "Name": "FalasStandard",
+              "Female": 0.55,
+              "Population": {
+                "Jarling": 1.00
+              }
+            },
+            "ArcherGuard": {
+              "Name": "FalasMounted",
+              "Female": 0.45,
+              "Population": {
+                "Jarling": 1.00
+              }
+            },
+            "HeavyGuard": {
+              "Name": "FalasArcher",
+              "Female": 0.65,
+              "Population": {
+                "Jarling": 1.00
+              }
+            },
+            "MageGuard": {
+              "Name": "FalasElite",
+              "Female": 0.25,
+              "Population": {
+                "Jarling": 1.00
+              }
+            }
+          }
+        },
+        {
+          "Name": "Nintayl"
+        }
+      ]
+    },
+    {
+      "Name": "Imloth"
+    },
+    {
+      "Name": "Aegas"
+    },
+    {
+      "Name": "ArnadIEdhil",
+      "Population": {
+        "Elf": 1.00
+      },
+      "Intolerance": {
+        "Tamael": 0.20,
+        "Jarling": 0.20,
+        "Naur": 0.20,
+        "Drow": 1.00,
+        "Krasnolud": 0.20
+      },
+      "Guards": {
+        "StandardGuard": {
+          "Name": "ElfyStandard",
+          "Female": 0.50,
+          "Population": {
+            "Elf": 1.00
+          }
+        },
+        "ArcherGuard": {
+          "Name": "ElfyArcher",
+          "Female": 0.50,
+          "Population": {
+            "Elf": 1.00
+          }
+        },
+        "HeavyGuard": {
+          "Name": "ElfyHeavy",
+          "Female": 0.50,
+          "Population": {
+            "Elf": 1.00
+          }
+        },
+        "MageGuard": {
+          "Name": "ElfyMage",
+          "Female": 0.50,
+          "Population": {
+            "Elf": 1.00
+          }
+        },
+        "EliteGuard": {
+          "Name": "ElfyElite",
+          "Female": 0.50,
+          "Population": {
+            "Elf": 1.00
+          }
+        },
+        "SpecialGuard": {
+          "Name": "ElfySpecial",
+          "Female": 0.50,
+          "Population": {
+            "Elf": 1.00
+          }
+        }
+      },
+      "Regions": [
+        {
+          "Name": "EnedhEnGlad",
+          "Regions": [
+            {
+              "Name": "MalthenAmlug"
+            },
+            {
+              "Name": "Enedh_Kopalnia"
+            },
+            {
+              "Name": "DrzewoPoczatku"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Lotharn_Panstwo",
+      "Regions": [
+        {
+          "Name": "Lotharn",
+          "BannedSchools": {
+            "Necromancy": true
+          },
+          "Population": {
+            "Elf": 1.00
+          },
+          "Intolerance": {
+            "Tamael": 0.20,
+            "Jarling": 0.20,
+            "Naur": 0.20,
+            "Drow": 1.00,
+            "Krasnolud": 0.20
+          },
+          "Guards": {
+            "StandardGuard": {
+              "Name": "ElfyStandard",
+              "Female": 0.65,
+              "Population": {
+                "Elf": 1.00
+              }
+            },
+            "ArcherGuard": {
+              "Name": "ElfyArcher",
+              "Female": 0.65,
+              "Population": {
+                "Elf": 1.00
+              }
+            },
+            "HeavyGuard": {
+              "Name": "ElfyHeavy",
+              "Female": 0.35,
+              "Population": {
+                "Elf": 1.00
+              }
+            },
+            "MageGuard": {
+              "Name": "ElfyMage",
+              "Female": 0.65,
+              "Population": {
+                "Elf": 1.00
+              }
+            },
+            "MountedGuard": {
+              "Name": "ElfyMounted",
+              "Female": 0.65,
+              "Population": {
+                "Elf": 1.00
+              }
+            },
+            "EliteGuard": {
+              "Name": "ElfyElite",
+              "Female": 0.15,
+              "Population": {
+                "Elf": 1.00
+              }
+            },
+            "SpecialGuard": {
+              "Name": "ElfySpecial",
+              "Female": 0.15,
+              "Population": {
+                "Elf": 1.00
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Edhil_Panstwo",
+      "Regions": [
+        {
+          "Name": "Edhil"
+        }
+      ]
+    },
+    {
+      "Name": "Pedanin_Panstwo",
+      "Regions": [
+        {
+          "Name": "Pedanin"
+        }
+      ]
+    },
+    {
+      "Name": "Podmrok_A",
+      "BannedSchools": {
+        "Spellweaving": true
+      },
+      "Population": {
+        "Drow": 1.00
+      },
+      "Intolerance": {
+        "Tamael": 0.90,
+        "Jarling": 0.90,
+        "Naur": 0.90,
+        "Elf": 1.00,
+        "Krasnolud": 0.90
+      },
+      "Guards": {
+        "StandardGuard": {
+          "Name": "PodmrokStandard",
+          "Female": 0.50,
+          "Population": {
+            "Drow": 1.00
+          }
+        },
+        "ArcherGuard": {
+          "Name": "PodmrokArcher",
+          "Female": 0.50,
+          "Population": {
+            "Drow": 1.00
+          }
+        },
+        "HeavyGuard": {
+          "Name": "PodmrokHeavy",
+          "Female": 0.50,
+          "Population": {
+            "Drow": 1.00
+          }
+        },
+        "MageGuard": {
+          "Name": "PodmrokMage",
+          "Female": 0.50,
+          "Population": {
+            "Drow": 1.00
+          }
+        },
+        "MountedGuard": {
+          "Name": "PodmrokMounted",
+          "Female": 0.50,
+          "Population": {
+            "Drow": 1.00
+          }
+        },
+        "EliteGuard": {
+          "Name": "PodmrokElite",
+          "Female": 0.50,
+          "Population": {
+            "Drow": 1.00
+          }
+        },
+        "SpecialGuard": {
+          "Name": "PodmrokSpecial",
+          "Female": 0.50,
+          "Population": {
+            "Drow": 1.00
+          }
+        }
+      },
+      "Regions": [
+        {
+          "Name": "NoamuthQuortek",
+          "Regions": [
+            {
+              "Name": "NoamuthQuortek_Kopalnia",
+              "Resources": {
+                "Iron": 74.00,
+                "DullCopper": 6.10,
+                "ShadowIron": 4.80,
+                "Copper": 4.00,
+                "Bronze": 3.40,
+                "Gold": 2.50,
+                "Agapite": 2.00,
+                "Verite": 1.40,
+                "Valorite": 0.80
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Podmroku"
+        },
+        {
+          "Name": "SwiatyniaLoethe"
+        }
+      ]
+    },
+    {
+      "Name": "Podmrok_C",
+      "BannedSchools": {
+        "Spellweaving": true
+      },
+      "Population": {
+        "Drow": 1.00
+      },
+      "Intolerance": {
+        "Tamael": 1.00,
+        "Jarling": 1.00,
+        "Naur": 1.00,
+        "Elf": 1.00,
+        "Krasnolud": 1.00
+      },
+      "Guards": {
+        "StandardGuard": {
+          "Name": "PodmrokStandard",
+          "Female": 0.50,
+          "Population": {
+            "Drow": 1.00
+          }
+        },
+        "ArcherGuard": {
+          "Name": "PodmrokArcher",
+          "Female": 0.50,
+          "Population": {
+            "Drow": 1.00
+          }
+        },
+        "HeavyGuard": {
+          "Name": "PodmrokHeavy",
+          "Female": 0.50,
+          "Population": {
+            "Drow": 1.00
+          }
+        },
+        "MageGuard": {
+          "Name": "PodmrokMage",
+          "Female": 0.50,
+          "Population": {
+            "Drow": 1.00
+          }
+        },
+        "MountedGuard": {
+          "Name": "PodmrokMounted",
+          "Female": 0.50,
+          "Population": {
+            "Drow": 1.00
+          }
+        },
+        "EliteGuard": {
+          "Name": "PodmrokElite",
+          "Female": 0.50,
+          "Population": {
+            "Drow": 1.00
+          }
+        },
+        "SpecialGuard": {
+          "Name": "PodmrokSpecial",
+          "Female": 0.50,
+          "Population": {
+            "Drow": 1.00
+          }
+        }
+      },
+      "Regions": [
+        {
+          "Name": "L'Delmah",
+          "Regions": [
+            {
+              "Name": "L'Delmah_Kopalnia",
+              "Resources": {
+                "Iron": 74.00,
+                "DullCopper": 6.10,
+                "ShadowIron": 4.80,
+                "Copper": 4.00,
+                "Bronze": 3.40,
+                "Gold": 2.50,
+                "Agapite": 2.00,
+                "Verite": 1.40,
+                "Valorite": 0.80
+              }
+            }
+          ]
+        },
+        {
+          "Name": "SwiatyniaLoethe_2"
+        },
+        {
+          "Name": "KarczmaDrowow"
+        }
+      ]
+    },
+    {
+      "Name": "ArtTrader",
+      "Population": {
+        "None": 1.00
+      }
+    }
+  ]
+}

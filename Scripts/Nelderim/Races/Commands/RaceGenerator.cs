@@ -70,10 +70,10 @@ namespace Server
 			{
 				if (!m.Deleted)
 				{
-					m.Female = RegionsEngine.GetFemaleChance(m.Region.Name) > Utility.RandomDouble();
+					m.Female = NelderimRegionSystem.GetRegion(m.Region.Name).FemaleChance() > Utility.RandomDouble();
 
 					if(m.Race == Race.DefaultRace)
-						m.Race = RegionsEngine.GetRace(m.Region.Name);
+						m.Race = NelderimRegionSystem.GetRegion(m.Region.Name).RandomRace();
 					m.Race.MakeRandomAppearance(m);
 					m.Race.AssignDefaultLanguages(m);
 

@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using Server.Items;
 using Server.Nelderim;
 
 #endregion
@@ -31,45 +32,44 @@ namespace Server.Engines.Harvest
 			}
 
 			Region harvestReg = here.GetRegion(RegionType);
-			if (harvestReg != null && harvestReg.Name != null)
+			if ( harvestReg?.Name != null )
 			{
-				if (m_RegionVeinCache.ContainsKey(harvestReg.Name))
+				if (m_RegionVeinCache.TryGetValue(harvestReg.Name, out var regionVeins))
 				{
-					// use cached veins for this region
-					veins = m_RegionVeinCache[harvestReg.Name];
-					return;
+					veins = regionVeins;
 				}
-
-				List<double> factors;
-				RegionsEngine.GetResourceVeins(harvestReg.Name, out factors);
-				if (factors != null && factors.Count > 0)
+				else
 				{
-					veins = VeinsFromRegionFactors(factors);
-				}
+					var factors = NelderimRegionSystem.GetRegion(harvestReg.Name).ResourceVeins();
+					if (factors != null && factors.Count > 0)
+					{
+						veins = VeinsFromRegionFactors(factors);
+					}
 
-				// caching veins for this region
-				m_RegionVeinCache.Add(harvestReg.Name, veins);
+					// caching veins for this region
+					m_RegionVeinCache.Add(harvestReg.Name, veins);
+				}
 			}
 		}
 
-		public virtual HarvestVein[] VeinsFromRegionFactors(List<double> factors)
-		{
-			if (factors.Count == 0)
-			{
-				return null;
-			}
-
-			HarvestVein[] veins = new HarvestVein[factors.Count];
-
-			veins[0] = new HarvestVein(factors[0], 0.0, Resources[0], null);
-			for (int i = 1; i < factors.Count; i++)
-			{
-				if (Resources.Length - 1 < i)
-					break;
-				veins[i] = new HarvestVein(factors[i], 0.0, Resources[i], null /*m_Resources[i-1]*/);
-			}
-
-			return veins;
-		}
+		public virtual HarvestVein[] VeinsFromRegionFactors( Dictionary<CraftResource, double> factors )
+        {
+            if ( factors.Count == 0 )
+            {
+                return null;
+            }
+            
+            HarvestVein[] veins = new HarvestVein[Resources.Length];
+            
+            for (var i = 0; i < Resources.Length; i++)
+            {
+	            var craftResource = CraftResources.GetFromType(Resources[i].Types[0]);
+	            if (factors.TryGetValue(craftResource, out var factor))
+	            {
+		            veins[i] = new HarvestVein(factor, 0.0, Resources[i], i == 0 ? null : Resources[0]);
+	            }
+            }
+            return veins;
+        }
 	}
 }
