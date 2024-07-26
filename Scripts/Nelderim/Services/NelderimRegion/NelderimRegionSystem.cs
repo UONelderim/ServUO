@@ -87,8 +87,7 @@ namespace Server.Nelderim
         		}
         	}
         }
-
-
+        
         public static NelderimRegion GetRegion(string regionName)
         {
 	        if(regionName == null)
