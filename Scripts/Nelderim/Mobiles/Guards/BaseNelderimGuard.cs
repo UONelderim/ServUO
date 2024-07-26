@@ -283,26 +283,24 @@ public class BaseNelderimGuard : BaseCreature
         if (Faction != null && Faction.IsEnemy(m))
 	        return true;
 
-        if (m is BaseNelderimGuard)
-            return false;
+        if (m is BaseNelderimGuard guard)
+            return WarOpponentFlag != WarFlag.None && WarOpponentFlag == guard.WarSideFlag;
 
         if (m.Criminal || m.Kills >= 5)
             return true;
 
-        if (WarOpponentFlag != WarFlag.None && WarOpponentFlag == (m as BaseNelderimGuard).WarSideFlag)
-            return true;
-
-        if (m is BaseCreature)
+        if (m is BaseCreature bc)
         {
-            BaseCreature bc = m as BaseCreature;
             if (bc.AlwaysMurderer || (!bc.Controlled && bc.FightMode == FightMode.Closest))
                 return true;
 
-            if ((bc.Controlled && bc.ControlMaster != null && bc.ControlMaster.AccessLevel < AccessLevel.Counselor &&
-                 (bc.ControlMaster.Criminal || bc.ControlMaster.Kills >= 5)) ||
-                (bc.Summoned && bc.SummonMaster != null && bc.SummonMaster.AccessLevel < AccessLevel.Counselor &&
-                 (bc.SummonMaster.Criminal || bc.SummonMaster.Kills >= 5)))
-                return true;
+            var master = bc switch
+            {
+	            {Controlled: true } => bc.ControlMaster,
+				{Summoned: true} => bc.SummonMaster,
+	            _ => null
+            };
+            return IsEnemy(master);
         }
 
         return false;
