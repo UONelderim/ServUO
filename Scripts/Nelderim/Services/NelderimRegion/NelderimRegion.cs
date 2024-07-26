@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
-using Nelderim.Races;
 using Server.Items;
 using Server.Mobiles;
 using Server.Spells;
@@ -14,16 +13,17 @@ namespace Server.Nelderim;
 
 public class NelderimRegion : IComparable<NelderimRegion>
 {
-    [JsonInclude] internal string Name { get; set; }
-    [JsonIgnore] internal NelderimRegion Parent { get; set; }
-    [JsonInclude] internal NelderimRegionSchools BannedSchools { get; set; }
-    [JsonInclude] internal double? Female { get; set; }
-    [JsonInclude] internal Dictionary<string, double> Population { get; set; }
-    [JsonInclude] internal Dictionary<string, double> Intolerance { get; set; } 
-    [JsonInclude] internal Dictionary<GuardType, NelderimRegionGuard> Guards { get; set; }
-    [JsonInclude] internal Dictionary<CraftResource, double> Resources { get; set; }
-    [JsonInclude] internal Dictionary<DifficultyLevelValue, double> DifficultyLevel { get; set; }
-    [JsonInclude] internal List<NelderimRegion> Regions { get; set; }
+    [JsonInclude] public string Name { get; set; }
+    [JsonIgnore] public NelderimRegion Parent { get; set; }
+    [JsonInclude] public List<NelderimRegion> Regions { get; set; }
+    [JsonInclude] private NelderimRegionSchools BannedSchools { get; set; }
+    [JsonInclude] private double? Female { get; set; }
+    [JsonInclude] private Dictionary<string, double> Population { get; set; }
+    [JsonInclude] private Dictionary<string, double> Intolerance { get; set; } 
+    [JsonInclude] private Dictionary<GuardType, NelderimRegionGuard> Guards { get; set; }
+    [JsonInclude] private Dictionary<CraftResource, double> Resources { get; set; }
+    [JsonInclude] private Dictionary<DifficultyLevelValue, double> DifficultyLevel { get; set; }
+    [JsonInclude] private string Faction { get; set; }
 
     public bool Validate()
     {
@@ -42,11 +42,13 @@ public class NelderimRegion : IComparable<NelderimRegion>
             {
                 var guardType = kvp.Key;
                 var guardDef = kvp.Value;
+                if (guardDef.Population == null) continue;
+                
                 var guardDefPopulationSum = guardDef.Population.Values.Sum();
                 if (Math.Abs(guardDefPopulationSum - 1.0) > 0.001)
                 {
-                    Console.WriteLine(
-                        $"Guard population sum for region {Name} for type {guardType} is incorrect. Expected: 1.0. Acutal: {guardDefPopulationSum}");
+	                Console.WriteLine(
+		                $"Guard population sum for region {Name} for type {guardType} is incorrect. Expected: 1.0. Acutal: {guardDefPopulationSum}");
                 }
             }
         }
@@ -84,6 +86,23 @@ public class NelderimRegion : IComparable<NelderimRegion>
         Console.WriteLine($"Unable to get race for region {Name}");
         return Race.None;
     }
+    
+    public Faction GetFaction()
+    {
+	    if (Faction != null)
+	    {
+		    return Server.Nelderim.Faction.Parse(Faction);
+	    }
+
+	    var parentResult = Parent?.GetFaction();
+	    if (parentResult != null)
+	    {
+		    return parentResult;
+	    }
+	    Console.WriteLine($"Unable to get faction for region {Name}");
+	    return Server.Nelderim.Faction.None;
+    }
+
 
     public double GetIntolerance(Race race)
     {
@@ -171,7 +190,7 @@ public class NelderimRegion : IComparable<NelderimRegion>
         var guardDefinition = GuardDefinition(guard.Type);
         if (guardDefinition != null)
         {
-            guard.Race = Race.Parse(Utility.RandomWeigthed(guardDefinition.Population));
+            guard.Race = Race.Parse(Utility.RandomWeigthed(guardDefinition.Population ?? Population));
             guard.Female = Utility.RandomDouble() < guardDefinition.Female;
             NelderimRegionSystem.GetGuardProfile(guardDefinition.Name).Make(guard);
         }

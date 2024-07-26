@@ -1,4 +1,4 @@
-namespace Nelderim.Factions
+namespace Server.Nelderim
 {
 	public class West : Faction
 	{

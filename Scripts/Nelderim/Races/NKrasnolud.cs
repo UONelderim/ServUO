@@ -50,9 +50,9 @@ namespace Nelderim.Races
 			}
 		};
 		
-		public override Dictionary<Language, ushort> DefaultLanguages => new()
+		public override Dictionary<NLanguage, ushort> DefaultLanguages => new()
 		{
-			{ Language.Powszechny, 1000 }, { Language.Krasnoludzki, 1000}
+			{ NLanguage.Powszechny, 1000 }, { NLanguage.Krasnoludzki, 1000}
 		};
 	}
 }

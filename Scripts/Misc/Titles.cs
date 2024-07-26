@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Nelderim.Configuration;
-using Nelderim.Factions;
+using Server.Nelderim;
 
 namespace Server.Misc
 {

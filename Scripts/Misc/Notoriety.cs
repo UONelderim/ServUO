@@ -275,7 +275,7 @@ namespace Server.Misc
                         return Notoriety.CanBeAttacked;
                 }
 
-                if (target.Owner is PlayerMobile targetPm && source.Faction != null && source.Faction.Enemies.Contains(targetPm.Faction))
+                if (target.Owner is PlayerMobile targetPm && source.Faction != null && source.Faction.IsEnemy(targetPm))
                 {
 	                return Notoriety.Enemy;
                 }

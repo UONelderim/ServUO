@@ -2,11 +2,10 @@ using Server.Engines.CityLoyalty;
 using Server.Gumps;
 using Server.Mobiles;
 using Server.Network;
-using Server.Spells;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using Nelderim.Factions;
+using Server.Nelderim;
 
 namespace Server.Menus.Questions
 {

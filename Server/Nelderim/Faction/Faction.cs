@@ -1,7 +1,8 @@
 using System.Collections.Generic;
-using Server;
+using System.Linq;
+using Nelderim;
 
-namespace Nelderim.Factions
+namespace Server.Nelderim
 {
 	[Parsable]
 	public abstract class Faction : NExtension<FactionInfo>
@@ -33,9 +34,14 @@ namespace Nelderim.Factions
 		
 		public abstract Faction[] Enemies { get; }
 
+		public bool IsEnemy(Mobile target)
+		{
+			return Enemies.Contains(target.Faction);
+		}
+
 		public static Faction Parse(string name)
 		{
-			return AllFactions.Find(f => f.Name == name) ?? None;
+			return AllFactions.Find(f => f.GetType().Name == name) ?? None;
 		}
 	}
 }

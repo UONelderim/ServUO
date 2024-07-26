@@ -8,14 +8,14 @@ namespace Server
 		public virtual bool UseLanguages => false;
 		
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Language LanguageSpeaking
+		public NLanguage LanguageSpeaking
 		{
 			get
 			{
 				var lang = Languages.Get(this).LanguageSpeaking;
 				if (LanguagesKnown[lang] == 0)
 				{
-					LanguageSpeaking = Nelderim.Language.Belkot;
+					LanguageSpeaking = NLanguage.Belkot;
 				}
 				return lang;
 			}

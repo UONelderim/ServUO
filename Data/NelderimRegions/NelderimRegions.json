@@ -1,5 +1,6 @@
 {
   "Name": "Default",
+  "Faction": "None",
   "Female": 0.5,
   "Population": {
     "Tamael": 0.67,
@@ -17,52 +18,31 @@
   "Guards": {
     "StandardGuard": {
       "Name": "DefaultStandard",
-      "Female": 0.50,
-      "Population": {
-        "None": 1.00
-      }
+      "Female": 0.50
     },
     "ArcherGuard": {
       "Name": "DefaultArcher",
-      "Female": 0.50,
-      "Population": {
-        "None": 1.00
-      }
+      "Female": 0.50
     },
     "HeavyGuard": {
       "Name": "DefaultHeavy",
-      "Female": 0.50,
-      "Population": {
-        "None": 1.00
-      }
+      "Female": 0.50
     },
     "MageGuard": {
       "Name": "DefaultMage",
-      "Female": 0.50,
-      "Population": {
-        "None": 1.00
-      }
+      "Female": 0.50
     },
     "MountedGuard": {
       "Name": "DefaultMounted",
-      "Female": 0.50,
-      "Population": {
-        "None": 1.00
-      }
+      "Female": 0.50
     },
     "EliteGuard": {
       "Name": "DefaultElite",
-      "Female": 0.50,
-      "Population": {
-        "None": 1.00
-      }
+      "Female": 0.50
     },
     "SpecialGuard": {
       "Name": "DefaultSpecial",
-      "Female": 0.50,
-      "Population": {
-        "None": 1.00
-      }
+      "Female": 0.50
     }
   },
   "Regions": [
@@ -140,6 +120,7 @@
       "Regions": [
         {
           "Name": "Tasandora",
+          "Faction": "KompaniaHandlowa",
           "Population": {
             "Tamael": 0.80,
             "Jarling": 0.10,
@@ -296,6 +277,7 @@
         },
         {
           "Name": "Orod",
+          "Faction": "West",
           "Regions": [
             {
               "Name": "Orod_Kopalnia"
@@ -372,6 +354,7 @@
     },
     {
       "Name": "Twierdza",
+      "Faction": "East",
       "Regions": [
         {
           "Name": "PodZelaznymMlotem"
@@ -380,6 +363,7 @@
     },
     {
       "Name": "Geriador",
+      "Faction": "West",
       "Population": {
         "Tamael": 0.20,
         "Jarling": 0.60,
@@ -601,6 +585,7 @@
     },
     {
       "Name": "Falas",
+      "Faction": "East",
       "Population": {
         "Tamael": 0.40,
         "Jarling": 0.30,
@@ -1051,7 +1036,7 @@
     {
       "Name": "ArtTrader",
       "Population": {
-        "None": 1.00
+        "Czlowiek": 1.00
       }
     }
   ]

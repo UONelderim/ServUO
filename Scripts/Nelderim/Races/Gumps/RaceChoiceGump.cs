@@ -307,7 +307,7 @@ namespace Server.Gumps
 			{
 				m_From.LanguagesKnown[lang] = langs[lang];
 			}
-			m_From.LanguageSpeaking = Language.Powszechny;
+			m_From.LanguageSpeaking = NLanguage.Powszechny;
 
 			ExtendedResponse(info);
 		}
