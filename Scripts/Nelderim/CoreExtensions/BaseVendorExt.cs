@@ -213,7 +213,7 @@ namespace Server.Mobiles
 		        return false;
 	        }
 	        
-	        if (RegionsEngine.ActIntolerativeHarmful(this, from, false))
+	        if (NelderimRegionSystem.ActIntolerativeHarmful(this, from, false))
 	        {
 		        if (Blocked)
 		        {

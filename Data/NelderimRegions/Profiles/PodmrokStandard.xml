@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <export>
-	<title value="- straznik" />
+	<nonHuman body="28" sound="904" hue="2909" name="pajak straznik"/>
+	<behavior fightMode="4" guardMode="Spider"/>
 	<skills>
 		<skill index="1" name="Anatomy" base="100" />
 		<skill index="5" name="Parrying" base="100" />
@@ -19,16 +20,5 @@
 	<hits value="500" />
 	<damage value="30" />
 	<resistances physical="50" fire="50" cold="50" poison="50" energy="50" />
-	<layers count="11">
-		<layer index="0" item="Server.Items.RingmailArms" hue="1890" loot="0" />
-		<layer index="3" item="Server.Items.Cloak" hue="1" loot="1" />
-		<layer index="6" item="Server.Items.BoneGloves" hue="1890" loot="0" />
-		<layer index="8" item="Server.Items.ChainCoif" hue="1890" loot="0" />
-		<layer index="10" item="Server.Items.ChainChest" hue="1890" loot="0" />
-		<layer index="13" item="Server.Items.Longsword" hue="1105" loot="0" />
-		<layer index="16" item="Server.Items.RingmailLegs" hue="1890" loot="0" />
-		<layer index="19" item="Server.Items.Boots" hue="1890" loot="0" />
-		<layer index="20" item="Server.Items.ChaosShield" hue="1105" loot="0" />
-	</layers>
 	<mount mounted="false" />
 </export>

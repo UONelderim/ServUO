@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <export>
-	<title value="- straznik" />
+	<nonHuman body="11" sound="1170" hue="2909" name="pajak szperacz"/>
+	<behavior fightMode="4" guardMode="Spider"/>
 	<skills>
 		<skill index="1" name="Anatomy" base="100" />
 		<skill index="5" name="Parrying" base="100" />
@@ -19,12 +20,6 @@
 	<hits value="500" />
 	<damage value="35" />
 	<resistances physical="55" fire="55" cold="55" poison="55" energy="55" />
-	<layers count="9">
-		<layer index="3" item="Server.Items.Cloak" hue="237" loot="0" />
-		<layer index="10" item="Server.Items.ChainChest" hue="1890" loot="0" />
-		<layer index="16" item="Server.Items.LeatherLegs" hue="1890" loot="0" />
-		<layer index="19" item="Server.Items.Sandals" hue="1890" loot="0" />
-		<layer index="20" item="Server.Items.Pike" hue="1890" loot="0" />
-	</layers>
-	<mount type="Server.Mobiles.Nightmare" id="16039" hue="0" name="koszmar" />
+	<!-- <mount type="Server.Mobiles.Nightmare" id="16039" hue="0" name="koszmar" /> -->
+	<mount mounted="false" />
 </export>

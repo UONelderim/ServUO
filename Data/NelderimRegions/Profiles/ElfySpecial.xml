@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <export>
-	<title value="- straznik poczatku" />
+	<title value="- straznik" />
 	<skills>
-		<skill index="1" name="Anatomy" base="110" />
-		<skill index="5" name="Parrying" base="110" />
+		<skill index="1" name="Anatomy" base="120" />
+		<skill index="5" name="Parrying" base="120" />
 		<skill index="26" name="Resisting Spells" base="120" />
-		<skill index="27" name="Tactics" base="110" />
-		<skill index="40" name="Swordsmanship" base="110" />
-		<skill index="42" name="Fencing" base="100" />
-		<skill index="43" name="Wrestling" base="100" />
+		<skill index="27" name="Tactics" base="120" />
+		<skill index="40" name="Swordsmanship" base="120" />
+		<skill index="41" name="Mace Fighting" base="120" />
+		<skill index="42" name="Fencing" base="120" />
+		<skill index="43" name="Wrestling" base="120" />
 	</skills>
 	<stats>
-		<stat name="str" value="500" />
-		<stat name="dex" value="300" />
-		<stat name="int" value="300" />
+		<stat name="str" value="1000" />
+		<stat name="dex" value="500" />
+		<stat name="int" value="500" />
 	</stats>
-	<hits value="500" />
-	<damage value="30" />
-	<resistances physical="70" fire="60" cold="60" poison="45" energy="50" />
-	<layers count="12">
+	<hits value="1200" />
+	<damage value="50" />
+	<resistances physical="100" fire="100" cold="100" poison="100" energy="100" />
+	<layers count="10">
 		<layer index="0" item="Server.Items.LeafArms" hue="2702" loot="0" />
 		<layer index="1" item="Server.Items.Backpack" hue="0" loot="0" />
 		<layer index="3" item="Server.Items.Cloak" hue="2702" loot="0" />

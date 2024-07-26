@@ -32,7 +32,7 @@ namespace Server.Nelderim
 		private const int LabelColor32 = 0xFFFFFF;
 		private const char Separator = '#';
 
-		private readonly RegionsEngineRegion m_Region;
+		private readonly NelderimRegion m_Region;
 		private readonly PageName m_Page;
 		private RumorRecord m_Rumor;
 		private readonly List<RumorRecord> m_RumorsList;
@@ -86,27 +86,27 @@ namespace Server.Nelderim
 			AddHtml(x + 35, y, 240, 20, Color(label), false, false);
 		}
 
-		public RumorsEditGump(Mobile from, RegionsEngineRegion region, PageName page) : this(from, region, "", page,
+		public RumorsEditGump(Mobile from, NelderimRegion region, PageName page) : this(from, region, "", page,
 			null, 0)
 		{
 		}
 
-		public RumorsEditGump(Mobile from, RegionsEngineRegion region, string info, PageName page) : this(from, region,
+		public RumorsEditGump(Mobile from, NelderimRegion region, string info, PageName page) : this(from, region,
 			info, page, null, 0)
 		{
 		}
 
-		public RumorsEditGump(Mobile from, RegionsEngineRegion region, PageName page, int listPage) : this(from, region,
+		public RumorsEditGump(Mobile from, NelderimRegion region, PageName page, int listPage) : this(from, region,
 			"", page, null, listPage)
 		{
 		}
 
-		public RumorsEditGump(Mobile from, RegionsEngineRegion region, PageName page, RumorRecord rumor) : this(from,
+		public RumorsEditGump(Mobile from, NelderimRegion region, PageName page, RumorRecord rumor) : this(from,
 			region, "", page, rumor, 0)
 		{
 		}
 
-		public RumorsEditGump(Mobile from, RegionsEngineRegion region, string info, PageName page, RumorRecord rumor,
+		public RumorsEditGump(Mobile from, NelderimRegion region, string info, PageName page, RumorRecord rumor,
 			int listPage) : base(30, 30)
 		{
 			m_Region = region;

@@ -291,7 +291,7 @@ namespace Server.Nelderim
 		{
 			try
 			{
-				RegionsEngineRegion region = RegionsEngine.GetRegion(regionName);
+				var region = NelderimRegionSystem.GetRegion(regionName);
 
 				foreach (string reg in ExcludedRegions)
 				{
@@ -324,7 +324,7 @@ namespace Server.Nelderim
 		{
 			try
 			{
-				RegionsEngineRegion region = RegionsEngine.GetRegion(regionName);
+				var region = NelderimRegionSystem.GetRegion(regionName);
 
 				foreach (string reg in ExcludedRegions)
 				{

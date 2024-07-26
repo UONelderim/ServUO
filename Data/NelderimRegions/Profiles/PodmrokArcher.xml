@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <export>
-	<title value="- kusznik" />
+	<nonHuman body="28" sound="904" hue="2907" name="pajak opluwacz"/>
+	<behavior fightMode="4" guardMode="Spider"/>
 	<skills>
 		<skill index="1" name="Anatomy" base="120" />
 		<skill index="26" name="Resisting Spells" base="100" />
@@ -16,16 +17,11 @@
 	<hits value="300" />
 	<damage value="30" />
 	<resistances physical="30" fire="30" cold="30" poison="30" energy="30" />
-	<layers count="8">
+	<layers count="2">
 		<layer index="1" item="Server.Items.Backpack" hue="1318" loot="0">
-			<item type="Server.Items.Bolt" amount="250" hue="0" id="7163" loot="1" />
-			</layer>
-		<layer index="3" item="Server.Items.Cloak" hue="1" loot="0" />
-		<layer index="8" item="Server.Items.Bandana" hue="1890" loot="0" />
-		<layer index="10" item="Server.Items.ChainChest" hue="1890" loot="0" />
-		<layer index="16" item="Server.Items.RingmailLegs" hue="1890" loot="0" />
-		<layer index="19" item="Server.Items.Boots" hue="1890" loot="0" />
-		<layer index="20" item="Server.Items.RepeatingCrossbow" hue="1890" loot="0" />
+			<item type="Server.Items.Arrow" amount="100" hue="0" id="3903" loot="0" />
+		</layer>
+		<layer index="20" item="Server.Items.CompositeBow" hue="0" loot="0" />
 	</layers>
 	<mount mounted="false" />
 </export>

@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <export>
-	<title value="- lucznik" />
+	<title value="- mag" />
 	<skills>
-		<skill index="1" name="Anatomy" base="120" />
+		<skill index="16" name="EvalInt" base="120" />
 		<skill index="26" name="Resisting Spells" base="100" />
-		<skill index="27" name="Tactics" base="100" />
-		<skill index="31" name="Archery" base="120" />
-		<skill index="43" name="Wrestling" base="100" />
+		<skill index="25" name="Magery" base="100" />
+		<skill index="46" name="Meditation" base="120" />
+		<skill index="41" name="Macing" base="100" />
+		<skill index="5" name="Parrying" base="100" />
 	</skills>
 	<stats>
 		<stat name="str" value="300" />
-		<stat name="dex" value="400" />
-		<stat name="int" value="200" />
+		<stat name="dex" value="300" />
+		<stat name="int" value="500" />
 	</stats>
-	<hits value="300" />
+	<hits value="400" />
 	<damage value="30" />
-	<resistances physical="35" fire="30" cold="30" poison="30" energy="30" />
+	<resistances physical="40" fire="50" cold="50" poison="50" energy="50" />
 	<layers count="10">
 		<layer index="0" item="Server.Items.LeafArms" hue="1642" loot="0" />
-		<layer index="1" item="Server.Items.Backpack" hue="0" loot="0">
-			<item type="Server.Items.Arrow" amount="200" hue="0" id="3903" loot="0" />
-		</layer>
+		<layer index="1" item="Server.Items.Backpack" hue="0" loot="0" />
 		<layer index="3" item="Server.Items.Cloak" hue="1642" loot="0" />
 		<layer index="6" item="Server.Items.LeafGloves" hue="1642" loot="0" />
 		<layer index="8" item="Server.Items.FlowerGarland" hue="1642" loot="0" />
 		<layer index="10" item="Server.Items.LeafChest" hue="1642" loot="0" />
 		<layer index="12" item="Server.Items.LeafGorget" hue="1642" loot="0" />
 		<layer index="16" item="Server.Items.LeafLegs" hue="1642" loot="0" />
-		<layer index="19" item="Server.Items.Boots" hue="11642" loot="0" />
-		<layer index="20" item="Server.Items.CompositeBow" hue="2702" loot="0" />
+		<layer index="19" item="Server.Items.Boots" hue="1642" loot="0" />
+		<layer index="20" item="Server.Items.BlackStaff" hue="1642" loot="0" />
 	</layers>
 	<mount mounted="false" />
 </export>

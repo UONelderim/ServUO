@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <export>
-	<title value="- Straznik" />
+	<title value="- ciezkozbrojny" />
 	<skills>
-		<skill index="1" name="Anatomy" base="120" />
-		<skill index="5" name="Parrying" base="120" />
-		<skill index="26" name="Resisting Spells" base="120" />
-		<skill index="27" name="Tactics" base="120" />
-		<skill index="40" name="Swordsmanship" base="120" />
-		<skill index="41" name="Mace Fighting" base="120" />
-		<skill index="42" name="Fencing" base="120" />
-		<skill index="43" name="Wrestling" base="120" />
+		<skill index="1" name="Anatomy" base="110" />
+		<skill index="5" name="Parrying" base="110" />
+		<skill index="26" name="Resisting Spells" base="110" />
+		<skill index="27" name="Tactics" base="110" />
+		<skill index="40" name="Swordsmanship" base="110" />
+		<skill index="41" name="Mace Fighting" base="110" />
+		<skill index="42" name="Fencing" base="110" />
+		<skill index="43" name="Wrestling" base="110" />
 	</skills>
 	<stats>
-		<stat name="str" value="600" />
-		<stat name="dex" value="400" />
-		<stat name="int" value="300" />
+		<stat name="str" value="500" />
+		<stat name="dex" value="300" />
+		<stat name="int" value="200" />
 	</stats>
 	<hits value="600" />
-	<damage value="40" />
-	<resistances physical="60" fire="60" cold="60" poison="60" energy="60" />
-	<layers count="11">
+	<damage value="30" />
+	<resistances physical="55" fire="55" cold="55" poison="55" energy="55" />
+	<layers count="12">
 		<layer index="0" item="Server.Items.LeafArms" hue="1642" loot="0" />
 		<layer index="1" item="Server.Items.Backpack" hue="0" loot="0" />
 		<layer index="3" item="Server.Items.Cloak" hue="1642" loot="0" />
@@ -30,7 +30,8 @@
 		<layer index="12" item="Server.Items.LeafGorget" hue="1642" loot="0" />
 		<layer index="16" item="Server.Items.LeafLegs" hue="1642" loot="0" />
 		<layer index="19" item="Server.Items.Boots" hue="1642" loot="0" />
-		<layer index="20" item="Server.Items.BladedStaff" hue="2702" loot="0" />
+		<layer index="13" item="Server.Items.Mace" hue="0" loot="0" />
+		<layer index="20" item="Server.Items.HeaterShield" hue="1642" loot="0" />
 	</layers>
 	<mount mounted="false" />
 </export>

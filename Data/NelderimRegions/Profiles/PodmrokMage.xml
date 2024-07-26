@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <export>
-	<title value="- straznik" />
+	<nonHuman body="11" sound="1170" hue="2909" name="pajak mag"/>
+	<behavior fightMode="4" guardMode="Spider"/>
 	<skills>
 		<skill index="16" name="EvalInt" base="120" />
 		<skill index="26" name="Resisting Spells" base="100" />
@@ -10,20 +11,12 @@
 		<skill index="5" name="Parrying" base="100" />
 	</skills>
 	<stats>
-		<stat name="str" value="500" />
+		<stat name="str" value="300" />
 		<stat name="dex" value="300" />
 		<stat name="int" value="500" />
 	</stats>
 	<hits value="400" />
 	<damage value="30" />
-	<resistances physical="50" fire="50" cold="50" poison="50" energy="50" />
-	<layers count="9">
-		<layer index="1" item="Server.Items.Backpack" hue="1318" loot="0">
-		</layer>
-		<layer index="3" item="Server.Items.Cloak" hue="2899" loot="0" />
-		<layer index="19" item="Server.Items.Boots" hue="1502" loot="0" />
-		<layer index="20" item="Server.Items.BlackStaff" hue="2899" loot="0" />
-		<layer index="22" item="Server.Items.Robe" hue="2899" loot="0" />
-	</layers>
+	<resistances physical="40" fire="50" cold="50" poison="50" energy="50" />
 	<mount mounted="false" />
 </export>

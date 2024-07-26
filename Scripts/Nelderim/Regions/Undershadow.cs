@@ -21,16 +21,16 @@ namespace Server.Regions
 
 		public override void OnEnter(Mobile m)
 		{
-			if (this.Name != String.Empty)
-				m.SendMessage("Twym oczom ukazuje sie {0}", this.Name);
+			if (Name != String.Empty)
+				m.SendMessage("Twym oczom ukazuje sie {0}", PrettyName);
 
 			base.OnEnter(m);
 		}
 
 		public override void OnExit(Mobile m)
 		{
-			if (this.Name != String.Empty)
-				m.SendMessage("Opuszczasz teren {0}", this.Name);
+			if (Name != String.Empty)
+				m.SendMessage("Opuszczasz teren {0}", PrettyName);
 
 			base.OnExit(m);
 		}
