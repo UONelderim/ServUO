@@ -1,5 +1,6 @@
 using Server.Items;
 using Server.Mobiles;
+using Server.Regions;
 using Server.Targeting;
 using System;
 using System.Linq;
@@ -32,6 +33,8 @@ namespace Server.Engines.Harvest
 
             #region Mining for ore and stone
             HarvestDefinition oreAndStone = OreAndStone = new HarvestDefinition();
+
+            oreAndStone.RegionType = typeof(MiningRegion);
 
             // Resource banks are every 8x8 tiles
             oreAndStone.BankWidth = 4; // 8;
@@ -320,10 +323,12 @@ namespace Server.Engines.Harvest
         {
             if (tool is GargoylesPickaxe && def == OreAndStone)
             {
-                int veinIndex = Array.IndexOf(def.Veins, vein);
+                HarvestVein[] veinList;
+                def.GetRegionVeins(out veinList, bank.Map, bank.X, bank.Y);
+                int veinIndex = Array.IndexOf(veinList, vein);
 
-                if (veinIndex >= 0 && veinIndex < (def.Veins.Length - 1))
-                    return def.Veins[veinIndex + 1];
+                if (veinIndex >= 0 && veinIndex < (veinList.Length - 1))
+                    return veinList[veinIndex + 1];
             }
 
             return base.MutateVein(from, tool, def, bank, toHarvest, vein);
