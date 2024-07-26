@@ -7,7 +7,7 @@ using Server.Spells;
 
 namespace Server.Regions
 {
-	public class CannotEnterRegion : NelderimRegion
+	public class CannotEnterRegion : NBaseRegion
 	{
 		public CannotEnterRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent)
 		{

@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace Server.Regions
 {
-	public class GeographicRegion : NelderimRegion
+	public class GeographicRegion : NBaseRegion
 	{
 		public GeographicRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent)
 		{

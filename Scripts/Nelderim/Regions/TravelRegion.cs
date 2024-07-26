@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace Server.Regions
 {
-	public class TravelRegion : NelderimRegion
+	public class TravelRegion : NBaseRegion
 	{
 		public TravelRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent)
 		{

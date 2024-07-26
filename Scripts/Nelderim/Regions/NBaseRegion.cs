@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 
 namespace Server.Regions
 {
-	public class NelderimRegion : BaseRegion
+	public class NBaseRegion : BaseRegion
 	{
 		private static ViolationsTimer m_Timer;
 		private readonly bool m_Allowed;
@@ -29,17 +29,13 @@ namespace Server.Regions
 			m_Timer.Start();
 		}
 
-		public NelderimRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent)
+		public NBaseRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent)
 		{
 			string allowedAttrName = "allowed";
 			m_Allowed = xml.HasAttribute(allowedAttrName) && XmlConvert.ToInt32(xml.GetAttribute(allowedAttrName)) == 0 ? false : true;
 		}
 		 
-		public string PrettyName
-		{
-			get { return Regex.Replace(Name.Replace('_', ' '), @"([a-z])([A-Z])", m => string.Format("{0} {1}", m.Groups[1], m.Groups[2])); }
-		}
-		
+		public string PrettyName => Regex.Replace(Name.Replace('_', ' '), @"([a-z])([A-Z])", m => string.Format("{0} {1}", m.Groups[1], m.Groups[2]));
 		
 		public static List<Mobile> FirstWarning { get; private set; }
 
@@ -217,7 +213,7 @@ namespace Server.Regions
 				{
 					Mobile m = SecondWarning[i];
 
-					if (!(m.Region is NelderimRegion))
+					if (!(m.Region is NBaseRegion))
 					{
 						m.SendLocalizedMessage(505617, "", 167);
 						continue;
@@ -241,7 +237,7 @@ namespace Server.Regions
 				{
 					Mobile m = FirstWarning[i];
 
-					if (!(m.Region is NelderimRegion))
+					if (!(m.Region is NBaseRegion))
 					{
 						m.SendLocalizedMessage(505617, "", 167);
 						continue;
