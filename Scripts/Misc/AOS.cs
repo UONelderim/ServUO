@@ -234,7 +234,7 @@ namespace Server
                         {
                             from.FixedParticles(0x376A, 20, 10, 0x2530, EffectLayer.Waist);
                             from.PlaySound(0x2F4);
-                            m.SendAsciiMessage("Your weapon cannot penetrate the creature's magical barrier");
+                            m.SendAsciiMessage("Twoja bron nie moze przebic magicznej bariery tego stworzenia");
                         }
                         else
                         {
