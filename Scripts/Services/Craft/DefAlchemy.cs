@@ -145,7 +145,7 @@ namespace Server.Engines.Craft
             index = AddCraft(typeof(AgilityPotion), 1116349, 1044540, 15.0, 65.0, typeof(Bloodmoss), 1044354, 1, 1044362);
             AddRes(index, typeof(Bottle), 1044529, 1, 500315);
 
-            index = AddCraft(typeof(GreaterAgilityPotion), 1116349, 1044541, 35.0, 85.0, typeof(Bloodmoss), 1044354, 3, 1044362);
+            index = AddCraft(typeof(GreaterAgilityPotion), 1116349, 1044541, 35.0, 85.0, typeof(Bloodmoss), 1044354, 4, 1044362);
             AddRes(index, typeof(Bottle), 1044529, 1, 500315);
             
             index = AddCraft(typeof(NGreaterAgilityPotion), 1116349, "potężna mikstura zręcznośći" , 70.0, 100.0, typeof(GreaterAgilityPotion), 1044541, 10, "Nie masz wystarczającej ilości dużych mikstur zręczności");
@@ -155,10 +155,10 @@ namespace Server.Engines.Craft
             index = AddCraft(typeof(NightSightPotion), 1116349, 1044542, -25.0, 25.0, typeof(SpidersSilk), 1044360, 1, 1044368);
             AddRes(index, typeof(Bottle), 1044529, 1, 500315);
 
-            index = AddCraft(typeof(StrengthPotion), 1116349, 1044546, 25.0, 75.0, typeof(MandrakeRoot), 1044357, 2, 1044365);
+            index = AddCraft(typeof(StrengthPotion), 1116349, 1044546, 25.0, 75.0, typeof(MandrakeRoot), 1044357, 1, 1044365);
             AddRes(index, typeof(Bottle), 1044529, 1, 500315);
 
-            index = AddCraft(typeof(GreaterStrengthPotion), 1116349, 1044547, 45.0, 95.0, typeof(MandrakeRoot), 1044357, 5, 1044365);
+            index = AddCraft(typeof(GreaterStrengthPotion), 1116349, 1044547, 45.0, 95.0, typeof(MandrakeRoot), 1044357, 4, 1044365);
             AddRes(index, typeof(Bottle), 1044529, 1, 500315);
             
             index = AddCraft(typeof(NGreaterStrengthPotion), 1116349, "potężna mikstura siły" , 70.0, 100.0, typeof(GreaterStrengthPotion), 1044547, 10, "Nie masz wystarczającej ilości dużych mikstur siły");
