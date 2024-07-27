@@ -125,22 +125,7 @@ namespace Server.Items
                 {
                     if (this is BaseExplosionPotion && Amount > 1)
                     {
-                        BasePotion pot = (BasePotion)Activator.CreateInstance(GetType());
-
-                        if (pot != null)
-                        {
-                            Amount--;
-
-                            if (from.Backpack != null && !from.Backpack.Deleted)
-                            {
-                                from.Backpack.DropItem(pot);
-                            }
-                            else
-                            {
-                                pot.MoveToWorld(from.Location, from.Map);
-                            }
-                            pot.Drink(from);
-                        }
+                        ((BaseExplosionPotion)this).HandleClick(from);
                     }
                     else
                     {
