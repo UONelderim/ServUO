@@ -50,6 +50,7 @@ namespace Server.Items
 				typeof(CommonMoloch), 
 				typeof(GreaterMoloch),
 				// bossy:
+				typeof(BaronowaFrozen),
 				typeof(NDeloth), typeof(NDzahhar), typeof(NKatrill), typeof(WladcaDemonow), typeof(WladcaJezioraLawy), typeof(Zhoaminth));
 			AddEntryTypes(arachnid, SlayerName.ArachnidDoom, typeof(NSzeol), 
 				typeof(Arachne), typeof(PomiotPajaka), typeof(SkorpionKrolewski));	
