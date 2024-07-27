@@ -29,11 +29,11 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo(typeof(Arrow), 6, 25, 0xF3F, 0));
 
 				Add(new GenericBuyInfo(typeof(BlackPearl), 13, 25, 0xF7A, 0));
-				Add(new GenericBuyInfo(typeof(Bloodmoss), 13, 25, 0xF7B, 0));
-				Add(new GenericBuyInfo(typeof(Garlic), 10, 25, 0xF84, 0));
-				Add(new GenericBuyInfo(typeof(Ginseng), 10, 25, 0xF85, 0));
-				Add(new GenericBuyInfo(typeof(MandrakeRoot), 10, 25, 0xF86, 0));
-				Add(new GenericBuyInfo(typeof(Nightshade), 10, 25, 0xF88, 0));
+				Add(new GenericBuyInfo(typeof(Bloodmoss), SBHerbalist.GlobalHerbsPriceBuyDouble, 25, 0xF7B, 0));
+				Add(new GenericBuyInfo(typeof(Garlic), SBHerbalist.GlobalHerbsPriceBuyDouble, 25, 0xF84, 0));
+				Add(new GenericBuyInfo(typeof(Ginseng), SBHerbalist.GlobalHerbsPriceBuyDouble, 25, 0xF85, 0));
+				Add(new GenericBuyInfo(typeof(MandrakeRoot), SBHerbalist.GlobalHerbsPriceBuyDouble, 25, 0xF86, 0));
+				Add(new GenericBuyInfo(typeof(Nightshade), SBHerbalist.GlobalHerbsPriceBuyDouble, 25, 0xF88, 0));
 				Add(new GenericBuyInfo(typeof(SpidersSilk), 10, 25, 0xF8D, 0));
 				Add(new GenericBuyInfo(typeof(SulfurousAsh), 10, 25, 0xF8C, 0));
 
@@ -85,11 +85,11 @@ namespace Server.Mobiles
 				Add(typeof(Board), 1);
 
 				Add(typeof(BlackPearl), 1);
-				Add(typeof(Bloodmoss), 1);
-				Add(typeof(MandrakeRoot), 1);
-				Add(typeof(Garlic), 1);
-				Add(typeof(Ginseng), 1);
-				Add(typeof(Nightshade), 1);
+				Add(typeof(Bloodmoss), SBHerbalist.GlobalHerbsPriceSellHalf);
+				Add(typeof(MandrakeRoot), SBHerbalist.GlobalHerbsPriceSellHalf);
+				Add(typeof(Garlic), SBHerbalist.GlobalHerbsPriceSellHalf);
+				Add(typeof(Ginseng), SBHerbalist.GlobalHerbsPriceSellHalf);
+				Add(typeof(Nightshade), SBHerbalist.GlobalHerbsPriceSellHalf);
 				Add(typeof(SpidersSilk), 1);
 				Add(typeof(SulfurousAsh), 1);
 
