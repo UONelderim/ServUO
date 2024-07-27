@@ -22,6 +22,7 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo(typeof(RawBird), 9, 50, 0x9B9, 0));
 				Add(new GenericBuyInfo(typeof(RawLambLeg), 9, 50, 0x1609, 0));
 				Add(new GenericBuyInfo(typeof(RawRibs), 16, 50, 0x9F1, 0));
+				Add(new GenericBuyInfo(typeof(Gut), 8, 50, 7407, 0));
 				Add(new GenericBuyInfo(typeof(ButcherKnife), 13, 50, 0x13F6, 0));
 				Add(new GenericBuyInfo(typeof(Cleaver), 13, 50, 0xEC3, 0));
 				Add(new GenericBuyInfo(typeof(SkinningKnife), 13, 50, 0xEC4, 0));
@@ -39,6 +40,7 @@ namespace Server.Mobiles
 				Add(typeof(Bacon), 2);
 				Add(typeof(Sausage), 2);
 				Add(typeof(Ham), 2);
+				Add(typeof(Gut), 1);
 				Add(typeof(ButcherKnife), 3);
 				Add(typeof(Cleaver), 3);
 				Add(typeof(SkinningKnife), 3);

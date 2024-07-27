@@ -301,6 +301,7 @@ namespace Server.Mobiles
 				Add(typeof(Bacon), 1);
 				Add(typeof(Sausage), 1);
 				Add(typeof(Ham), 1);
+				Add(typeof(Gut), 1);
 
 				Add(typeof(Amber), 10);
 				Add(typeof(Amethyst), 10);
