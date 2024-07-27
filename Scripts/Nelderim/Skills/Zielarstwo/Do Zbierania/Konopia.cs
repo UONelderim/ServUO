@@ -4,7 +4,7 @@ namespace Server.Items.Crops
 {
 	public class ZrodloKonopia : ResourceVein
     {
-        public override Type CropType => typeof(SurowiecJedwab);
+        public override Type CropType => typeof(SurowiecKonopia);
 		protected override int MaturePlantGraphics => 0x0CC3;
 
 		public static SkillName[] cannabisSkills = new SkillName[] { SkillName.Herbalism, SkillName.Fletching };

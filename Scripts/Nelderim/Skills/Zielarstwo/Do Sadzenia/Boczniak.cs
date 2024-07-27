@@ -4,26 +4,26 @@ namespace Server.Items.Crops
 {
 
 	
-	public class SzczepkaKrwawyMech : BaseSeedling
-    {
+	public class SzczepkaBoczniak : BaseSeedling
+	{
 		public override bool CanGrowCave => true;
 		public override bool CanGrowDirt => true;
-		public override Type PlantType => typeof(KrzakKrwawyMech);
+		public override Type PlantType => typeof(KrzakBoczniak);
 
 		[Constructable]
-		public SzczepkaKrwawyMech( int amount ) : base( amount, 0x0DCD ) 
+		public SzczepkaBoczniak( int amount ) : base( amount, 0x0F23) // czosnek
 		{
-			Hue = 438;
-			Name = "Szczepka krwawego mchu";
+			Hue = 872;
+			Name = "Zarodniki boczniaka";
 			Stackable = true;
 		}
 
 		[Constructable]
-		public SzczepkaKrwawyMech() : this( 1 )
+		public SzczepkaBoczniak() : this( 1 )
 		{
 		}
 
-		public SzczepkaKrwawyMech( Serial serial ) : base( serial )
+		public SzczepkaBoczniak( Serial serial ) : base( serial )
 		{
 		}
 
@@ -40,22 +40,22 @@ namespace Server.Items.Crops
 		}
 	}
 	
-	public class KrzakKrwawyMech : Plant
+	public class KrzakBoczniak : Plant
     {
-        public override Type SeedType => typeof(SzczepkaKrwawyMech);
-        public override Type CropType => typeof(PlonKrwawyMech);
-		protected override int YoungPlantGraphics => 0x0F3C;
-		protected override int MaturePlantGraphics => 0x0F3B;
+        public override Type SeedType => typeof(SzczepkaBoczniak);
+        public override Type CropType => typeof(PlonBoczniak);
+		protected override int YoungPlantGraphics => 0xD19;
+		protected override int MaturePlantGraphics => 0xD19;
 
 		[Constructable] 
-		public KrzakKrwawyMech() : base(0x0F3C)
+		public KrzakBoczniak() : base(0xD19)
 		{
-			Hue = 0x20;
-			Name = "Krwawy mech";	
+			Hue = 867;
+			Name = "Boczniak";
 			Stackable = true;
 		}
 
-		public KrzakKrwawyMech( Serial serial ) : base( serial ) 
+		public KrzakBoczniak( Serial serial ) : base( serial ) 
 		{ 
 			//m_plantedTime = DateTime.Now;	// ???
 		}
@@ -73,24 +73,31 @@ namespace Server.Items.Crops
 		} 
 	} 
 	
-	public class PlonKrwawyMech : Crop
+	public class PlonBoczniak : Crop
     {
-        public override Type ReagentType => typeof(Bloodmoss);
+        public override Type ReagentType => typeof(Garlic);
 		
 		[Constructable]
-		public PlonKrwawyMech( int amount ) : base( amount, 0x3183 )
+		public PlonBoczniak( int amount ) : base( amount, 0xD19)
 		{
-			Hue = 0x20;
-			Name = "Swiezy krwawy mech";
+			Hue = 867;
+			Name = "Swiezy boczniak";
 			Stackable = true;
 		}
 
+		public override void MutateReagent(Item reagent)
+		{
+			reagent.Hue = 892;
+			reagent.Name = "Suszony boczniak";
+			reagent.ItemID = ItemID;
+		}
+
 		[Constructable]
-		public PlonKrwawyMech() : this( 1 )
+		public PlonBoczniak() : this( 1 )
 		{
 		}
 
-		public PlonKrwawyMech( Serial serial ) : base( serial )
+		public PlonBoczniak( Serial serial ) : base( serial )
 		{
 		}
 

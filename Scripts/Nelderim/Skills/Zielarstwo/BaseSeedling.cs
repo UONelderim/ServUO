@@ -19,7 +19,8 @@ namespace Server.Items.Crops
         public virtual bool CanGrowSand { get { return false; } }
         public virtual bool CanGrowSnow { get { return false; } }
         public virtual bool CanGrowSwamp { get { return false; } }
-        public virtual bool CanGrowGarden { get { return true; } } // ogrod w domku
+		public virtual bool CanGrowDirt { get { return false; } }
+		public virtual bool CanGrowGarden { get { return true; } } // ogrod w domku
 
         public virtual Type PlantType { get { return null; } }
 
@@ -130,19 +131,19 @@ namespace Server.Items.Crops
             Point3D m_pnt = from.Location;
             Map m_map = from.Map;
 
-            if (!WeedHelper.CheckCanGrow(this, m_map, m_pnt.X, m_pnt.Y))
+            if (!WeedHelper.CheckCanGrow(this, m_map, m_pnt))
             {
                 from.SendMessage(msg.BadTerrain);    // Roslina na pewno nie urosnie na tym terenie.
                 return false;
             }
 
-            if (!WeedHelper.CheckSpaceForPlants(m_pnt, m_map))
+            if (!WeedHelper.CheckSpaceForPlants(m_map, m_pnt))
             {
                 from.SendMessage(msg.PlantAlreadyHere);  // W tym miejscu cos juz rosnie.
                 return false;
             }
 
-			if (!WeedHelper.CheckSpaceForObstacles(m_pnt, m_map))
+			if (!WeedHelper.CheckSpaceForObstacles(m_map, m_pnt))
 			{
 				from.SendMessage(msg.Obstacle);  // Cos blokuje to miejsce
 				return false;
@@ -204,13 +205,13 @@ namespace Server.Items.Crops
             else
             {
                 if (WeedHelper.Check(0.8))
-					from.SendMessage(msg.PlantFail); // Nie udalo ci sie zasadzic rosliny. Sprobuj ponownie.
-				else
-					from.SendMessage(msg.PlantFail); // Nie udalo ci sie zasadzic rosliny, zmarnowales szczepke.
-				
+                    from.SendMessage(msg.PlantFail); // Nie udalo ci sie zasadzic rosliny. Sprobuj ponownie.
+                else
+                {
+                    from.SendMessage(msg.PlantFailWithLoss); // Nie udalo ci sie zasadzic rosliny, zmarnowales szczepke.
 
-
-				this.Consume();
+                    this.Consume();
+                }
 			}
 
             Unlock(from);

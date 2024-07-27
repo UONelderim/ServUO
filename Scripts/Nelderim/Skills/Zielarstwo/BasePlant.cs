@@ -124,7 +124,7 @@ namespace Server.Items.Crops
         [CommandProperty(AccessLevel.GameMaster)]
         public virtual double SeedAcquireMaxSkill => 100.0;
         [CommandProperty(AccessLevel.GameMaster)]
-        public virtual double SeedAcquireChanceAtMaxSkill => DestroyChance;
+        public virtual double SeedAcquireChanceAtMaxSkill => 100.0 * DestroyChance;
 
         protected static SkillName[] defaultSkillsRequired = new SkillName[] { WeedHelper.MainWeedSkill };
         public virtual SkillName[] SkillsRequired { get { return defaultSkillsRequired; } }
@@ -349,7 +349,7 @@ namespace Server.Items.Crops
 				return;
 			}
 
-			if (!from.InRange(this.GetWorldLocation(), 2) || !from.InLOS(this))
+			if (!from.InRange(this.GetWorldLocation(), 2) || Math.Abs(from.Z - Z) > 10 || !from.InLOS(this))
 			{
 				from.SendMessage(msg.MustGetCloser); // Musisz podejsc blizej, aby to zebrac.
 				return;
