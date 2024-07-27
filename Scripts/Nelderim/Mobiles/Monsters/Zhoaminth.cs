@@ -66,6 +66,9 @@ namespace Server.Mobiles
 
 			AddItem(new LightSource());
 
+			Fame = 34000;
+			Karma = -34000;
+
 			//SetWeaponAbility(WeaponAbility.BleedAttack);
 		}
 
