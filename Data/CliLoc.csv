@@ -3013,26 +3013,26 @@ Number;Text
 503010;You are hurt! 
 503011;No teleportation set on trap. 
 503012;you stepped on me... 
-503013;The map is too difficult to attempt to decode. 
-503014;This treasure hunt has already been completed. 
-503015;This map seems quite old and can no longer be read. 
-503016;Only the person who decoded this map may actually dig up the treasure. 
-503017;The treasure is marked by the red pin. Grab a shovel and go dig it up! 
-503018;You fail to make anything of the map. 
-503019;You successfully decode a treasure map! 
-503020;You are already digging treasure. 
-503021;You have found the treasure chest but something is keeping it from being dug up. 
-503022;You have found a treasure chest but something is keeping it from being dug up. 
-503023;You cannot move around while digging up treasure. You will need to start digging anew. 
-503024;You stop digging because something is directly on top of the treasure chest. 
-503025;The treasure chest fell apart for some reason.  Try digging it up again. 
-503026;You have found the treasure but something is preventing the chest from being dug up. 
-503027;You have found the treasure but something is preventing the chest from being dug up. 
-503028;The treasure for this map has already been found. 
-503029;You are already digging. 
-503030;The chest can't be dug up because you are standing on top of it. 
-503031;You did not decode this map and have no clue where to look for the treasure. 
-503032;You dig and dig but no treasure seems to be here. 
+503013;Mapa, ktora probujesz rozszyfrowac jest zbyt trudna.
+503014;Ta wyprawa po skarb zostala juz zakonczona.
+503015;Ta mapa wydaje sie bardzo stara i nie da sie jej juz odczytac.
+503016;Tylko osoba, ktora rozszyfrowala te mape, moze faktycznie wykopac skarb.
+503017;Skarb jest oznaczony czerwona pinezka. Wez lopate i idz go wykopac!
+503018;Nie udaje Ci sie nic wywnioskowac z mapy.
+503019;Udalo Ci sie rozszyfrowac mape skarbow!
+503020;Juz kopiesz skarb.
+503021;Znalazles skrzynie skarbow, ale cos powstrzymuje Cie przed wykopaniem jej.
+503022;Znalazles skrzynie skarbow, ale cos powstrzymuje Cie przed wykopaniem jej.
+503023;Nie mozesz sie poruszac podczas kopania skarbu. Musisz zaczac kopac od nowa.
+503024;Przestajesz kopac, poniewaz cos znajduje sie bezposrednio na skrzyni skarbow.
+503025;Skrzynia skarbow z jakiegos powodu sie rozpadla. Sprobuj wykopac ja ponownie.
+503026;Znalazles skarb, ale cos uniemozliwia wykopanie skrzyni.
+503027;Znalazles skarb, ale cos uniemozliwia wykopanie skrzyni.
+503028;Skarb dla tej mapy zostal juz odnaleziony. 
+503029;Juz kopiesz.
+503030;Skrzyni nie mozna wykopac, poniewaz stoisz na niej.
+503031;Nie rozszyfrowales tej mapy i nie masz pojecia, gdzie szukac skarbu.
+503032;Kopiesz i kopiesz, ale nie wydaje sie, zeby tutaj byl skarb.
 503033;Gdzie chcesz kopac? 
 503034;Jestes za daleko. 
 503035;Kopiesz i kopiesz, lecz nie znajdujesz zadnego skarbu. 
@@ -6228,11 +6228,11 @@ Number;Text
 1010473;This must be in a house to be locked down. 
 1010474;The etching on the rune has been changed. 
 1010475;The creature resisted the attempt to dispel it! 
-1010476;This does not look like a valid treasure map spot... but you might be able to mine here. 
-1010477;You will need to decode that map before you can dig up the treasure. 
-1010478;You did not decode that map.  Only the decoder will be able to successfully find and dig up the treasure. 
-1010479;You seem to be in the right place, but may be on the wrong facet! 
-1010480;Where shall you dig for your treasure? 
+1010476;To nie wyglada na odpowiednie miejsce na mapie skarbow... ale mozesz tu sprobowac kopac.
+1010477;Bedziesz musial rozszyfrowac te mape, zanim bedziesz mogl wykopac skarb.
+1010478;Nie rozszyfrowales tej mapy. Tylko osoba, ktora ja rozszyfrowala, bedzie mogla skutecznie znalezc i wykopac skarb.
+1010479;Wyglada na to, ze jestes we wlasciwym miejscu, ale mozesz byc na niewlasciwej plaszczyznie (mapie)!
+1010480;Gdzie zamierzasz kopac swoj skarb?
 1010481;Twoj plecak jest przepelniony, wykopana ruda przepada. 
 1010482;You can't use this if it is locked down. 
 1010483;Someone is already using that net! 
@@ -6383,7 +6383,7 @@ Number;Text
 1010628;You were just passed over for flushing. 
 1010629;Trafficcop: Checkflush:: No severity passed! 
 1010630;Zabranie czyjegos skarbu sprawi, iz zostaniesz kryminalista! 
-1010631;You did not discover this chest! 
+1010631;To nie Ty odkryles ten skarb! 
 1010632;Something is standing in your way. 
 1010633;Something is standing in your way. 
 1010634;You may not take that! 
@@ -26656,19 +26656,19 @@ Number;Text
 1041501;This is half a prize ticket! Find and target another ticket. This ticket will only work for YOU, so don't give it away. 
 1041502;gdzies pod golym niebem 
 1041503;for somewhere in Trammel 
-1041504;unreadable treasuremap 
+1041504;nieczytalna mapa skarbu
 1041505;postrzepiona mapa skarbu 
 1041506;postrzepiona mapa skarbu 
 1041507;odnaleziony przez ~1_val~ 
 1041508;narzedzia do usuwania pulapek 
-1041509;a deed for a vendor named ~1_val~ 
-1041510;wystrzepiona, mlodzienczo naszkicowana mapa do skarbu 
+1041509;kontrakt na sprzedawce ~1_val~ 
+1041510;wystrzepiona, naszkicowana mapa do skarbu 
 1041511;wystrzepiona, prostacko naszkicowana mapa do skarbu 
 1041512;wystrzepiona, fachowo naszkicowana mapa do skarbu 
 1041513;wystrzepiona, mistrzowsko naszkicowana mapa do skarbu 
 1041514;wystrzepiona, pomyslowo naszkicowana mapa do skarbu 
 1041515;wystrzepiona, pokretnie naszkicowana mapa do skarbu 
-1041516;mlodziencza mapa do skarbu 
+1041516;mapa do skarbu 
 1041517;prostacka mapa do skarbu 
 1041518;fachowa mapa do skarbu 
 1041519;mistrzowska mapa do skarbu 
@@ -29408,8 +29408,8 @@ Number;Text
 1046443;That is already trapped. 
 1046444;Use a mapmaker's pen to draw maps. 
 1046445;faction trap removal kit 
-1046446;This is now a level one treasure map. 
-1046447;Only a young player may use this treasure map. 
+1046446;To jest teraz mapa skarbow poziomu pierwszego.
+1046447;Tylko mlody gracz moze uzyc tej mapy skarbow.
 1046448;Zanim otworzysz skrzynie, musisz zabic jej straznikow. 
 1046449;A moongate is North from here 
 1046450;A moongate is North-East from here 
@@ -34351,9 +34351,9 @@ Number;Text
 1063446;Failed to surrender from war. 
 1063447;Failed to remove guild from alliance. 
 1063448;As you drink the potion you sense something approaching you. 
-1063449;recovered from ~1_val~ (Paragon) 
+1063449;pozyskane z ~1_val~ (Paragon) 
 1063450;starozytna wiadomosc SOS 
-1063451;a fabled fishing net 
+1063451;legendarna siec rybacka
 1063452;wystrzepiona, genialnie naszkicowana mapa do skarbu 
 1063453;genialna mapa do skarbu 
 1063454;You have been removed from your guild. 
@@ -73483,7 +73483,7 @@ Number;Text
 1116770;The paint on your ship has faded over time. 
 1116771;You apply a fresh coat of paint to your ship. 
 1116772;You strip a coat of paint from your ship. 
-1116773;A Diabolically Drawn Treasure Map 
+1116773;Pokretna mapa skarbu
 1116774;You have reached this paint color's maximum intensity. 
 1116775;You apply the permanent paint to your ship.  This is now the base color of your ship. 
 1116776;Part ~1_val~ of ~2_val~ 
@@ -73500,7 +73500,7 @@ Number;Text
 1116787;This part is already attached. 
 1116788;You have completed a deed for an Orc Ship! 
 1116789;You did not assist in the capture of this pirate and do not receive a reward. 
-1116790;a tattered, diabolically drawn treasure map 
+1116790;wystrzepiona, pokretnie naszkicowana mapa skarbu
 1116791;You must wait a few minutes before making your sacrifice. 
 1116792; 
 1116793; 
@@ -110086,87 +110086,87 @@ Number;Text
 1153468;Mysterious Wisp 
 1153469;Move 
 1153470;The caverns rumble as your enemy begins channeling strong magic, in preparation to casting the Doom Spell. 
-1153471;Beach Towel 
-1153472;Sun Cream 
-1153473;Tanning Oil 
-1153474;Massage Oil 
-1153475;Dancer's Pole 
-1153476;A Check for 1, 000, 000, 000 Gold 
-1153477;Fiery Ash 
-1153478;Lucky Darts 
-1153479;Dice Games 
-1153480;Disco Tent 
-1153481;Clothing Optional Beyond this Point! 
-1153482;"Stable All Pets Before entering by saying ""Stable""" 
-1153483;This is a no fly zone! Gargoyles must land! 
-1153484;Zero Tolerance For Cheaters or Griefers! 
-1153485;Fortune's Fire Resort & Casino 
-1153486;New Haven Mine - Enter At Own Risk! 
-1153487;To Climb Down the Hole Double Click the Rope 
-1153488;~1_name~'s Bones 
-1153489;Garden Shed (East) 
-1153490;Garden Shed (South) 
-1153491;Garden Shed Deed 
-1153492;garden shed 
-1153493;*Your keen senses detect something hidden in the area...* 
-1153494;House Only 
-1153495;Metallic Leather Dye Tub 
-1153496;15th Anniversary Commemorative Robe 
-1153497;A 15th Anniversary Commemorative Robe has been placed in your backpack. 
-1153498;exodus summoning rite 
-1153499;summon daemon scrolls 
-1153500;exodus sacrificial dagger 
-1153501;ogniwo rdzenia 
-1153502;exodus summoning altar 
-1153503;Horn of Plenty 
-1153504;zloty pyl 
-1153505;roast duck 
-1153506;roast chicken 
-1153507;roast turkey 
-1153508;turkey leg 
-1153509;giblet gravy 
-1153510;robe of rite 
-1153511;*gobble* *gobble* 
-1153512;That one's not cooked! 
-1153513;* ZzzzZzzzZzzzZ * 
-1153514;sweet potato pie 
-1153515;~1_COUNT~ pieces 
-1153516;mashed sweet potatoes 
-1153517;turkey platter 
-1153518;basket of rolls 
-1153519;slice of pie 
-1153520;dinner roll 
-1153521;Scroll of Valiant Commendation [Replica] 
-1153522;Claimed By ~1_name~ 
-1153523;Bracers of Alchemical Devastation [Replica] 
-1153524;Hygieia's Amulet [Replica] 
-1153525;15% Bandage Leczenie Bonus 
-1153526;Asclepius [Replica] 
-1153527;Nauka kamieniarstwa 
-1153528;Nauka wytwarzania szkla 
-1153529;Nauka wicia koszy 
-1153530;Nauka wydobycia kamienia 
-1153531;Nauka kopania piasku 
-1153532;Turkey Dinner 
-1153533;Happy Thanksgiving from Ultima Online! A Horn of Plenty has been placed in your backpack. 
-1153534;Davies' Locker 
-1153535;Deed to Davies' Locker 
-1153536;Clockwork Leggings 
-1153537;Help! Ship going do...n heavy storms...precious cargo...st reach dest...current coordinates ~1_SEXTANT~...ve any survivors...ease! 
-1153538;...was a cad and a boor, no matter what momma s...rew him overboard! Oh, Anna, 'twas so exciting! Unfort...y he grabbe...est, and all his riches went with him! ...sked the captain, and he says we're at ~1_SEXTANT~ ... so maybe ... 
-1153539;...know that the wreck is near ~1_SEXTANT~ but have not found it. Could the message passed down in my family for generations be wrong? No... I swear on the soul of my grandfather, I will find... 
-1153540;...Ar! ~1_SEXTANT~ and, a fair wind! No chance...storms, though--ar! Is that a sea serp...<br><br>uh oh. 
-1153541;WANTED: divers exp...d in shipwre...overy. Must have own vess...pply at ~1_SEXTANT~...good benefits, flexible hours... 
-1153542;...isaster indeed. Capt. McQ...overboard, fear the worst. These are t...ast days of the good ship Norr...ast known position was ~1_SEXTANT~ but ...'re beyond salvag... 
-1153543;...never expected an iceberg...silly woman on bow crushed instantly...send help to ~1_SEXTANT~...ey'll never forget the tragedy of the sinking of the... 
-1153544;...so I threw the treasure overboard, before the curse could get me too. But I was too late. Now I am doomed to wander these seas, a ghost forever. Join me: seek ye at ~1_SEXTANT~ if thou wishest my company... 
-1153545;"...then the ship exploded. A dragon swooped over. The slime swallowed Bertie whole--he screamed, it was amazing. The sky glowed orange...A sextant reading put us at ~1_SEXTANT~. Norma was chattering about sailing over the edge of the world. I looked at my hands and saw through them...""" 
-1153546;...been inside this whale for three days now. I've run out of food I can pick out of his teeth. I took a sextant reading through the blowhole: ~1_SEXTANT~. I'll never see my treasure again... 
-1153547;...grand adventure! Captain Quacklebush had me swab down the decks daily... ...pirates came, I was in the rigging practicing with my sextant. ~1_SEXTANT~ if I am not mistaken... ...scuttled the ship, and our precious cargo went with her and the screaming pirates, down to the bottom of the sea... 
-1153548;"...nobody knew I was a girl. They just assumed I was another sailor...then we met the undine. ~1_SEXTANT~. It demanded sacrifice...I was youngest, they figured...grabbed the captain's treasure, screamed ""It'll go down with me!"" ...they took me up on it." 
-1153549;...trapped on a deserted island with a magic fountain supplying food, fresh water springs, gorgeous scenery, and my lovely young wife. I know the ship with all our life's earnings sank at ~1_SEXTANT ~ but I don't know what our coordinates are...someone has GOT to rescue me before Sunday's finals game or I'll go mad... 
-1153550;...round Jhelom towne we did roam, drinking all night. Got into a fight...hoisted sail on the morn, all crew aboard but the cook...ull breach, last known coordinates ~1_SEXTANT~...be better off in Stone's jail cell! 
-1153551;Dupre's Sword 
+1153471;Ręcznik plażowy
+1153472;Krem do opalania
+1153473;Olej do opalania
+1153474;Olej do masażu
+1153475;Drążek dla tancerzy
+1153476;Czek na 1,000,000,000 złota
+1153477;Ognisty popiół
+1153478;Szczęśliwe rzutki
+1153479;Gry w kości
+1153480;Namiot dyskotekowy
+1153481;Dalej opcjonalne ubranie!
+1153482;"Zabezpiecz wszystkie zwierzęta przed wejściem, mówiąc ""Zabezpiecz"""
+1153483;To jest strefa bez lotów! Gargulce muszą wylądować!
+1153484;Zero tolerancji dla oszustów lub griefersów!
+1153485;Fortune's Fire Resort & Casino
+1153486;Kopalnia Nowego Haven - Wchodzisz na własne ryzyko!
+1153487;Aby zejść w dół, kliknij dwukrotnie linę
+1153488;Kości ~1_name~
+1153489;Szopa ogrodowa (Wschód)
+1153490;Szopa ogrodowa (Południe)
+1153491;Akt własności szopy ogrodowej
+1153492;szopa ogrodowa
+1153493;*Twoje wyczulone zmysły wykrywają coś ukrytego w okolicy...*
+1153494;Tylko dla domu
+1153495;Metaliczna wanna do barwienia skóry
+1153496;Szata pamiątkowa z okazji 15-lecia
+1153497;Szata pamiątkowa z okazji 15-lecia została umieszczona w twoim plecaku.
+1153498;rytuał przywołania exodusa
+1153499;zwoje przywołania demona
+1153500;sacrificial dagger exodusa
+1153501;core link
+1153502;ołtarz przywołania exodusa
+1153503;Róg obfitości
+1153504;złoty pył
+1153505;pieczona kaczka
+1153506;pieczony kurczak
+1153507;pieczony indyk
+1153508;noga indyka
+1153509;sos gibletowy
+1153510;szata rytuału
+1153511;*gulgot* *gulgot*
+1153512;To nie jest ugotowane!
+1153513;* ZzzzZzzzZzzzZ *
+1153514;słodki placek ziemniaczany
+1153515;~1_COUNT~ kawałków
+1153516;puree ze słodkich ziemniaków
+1153517;plater z indykiem
+1153518;kosz z bułkami
+1153519;kawałek placka
+1153520;bułka obiadowa
+1153521;Zwój Walecznej Pochwały [Replika]
+1153522;Zajęte przez ~1_name~
+1153523;Naramienniki Alchemicznej Zguby [Replika]
+1153524;Amulet Hygiei [Replika]
+1153525;15% Premia do Leczenia Bandażami
+1153526;Asklepios [Replika]
+1153527;Nauka kamieniarstwa
+1153528;Nauka wytwarzania szkła
+1153529;Nauka wicia koszy
+1153530;Nauka wydobycia kamienia
+1153531;Nauka kopania piasku
+1153532;Kolacja z indykiem
+1153533;Szczęśliwego Święta Dziękczynienia od Ultima Online! Róg obfitości został umieszczony w twoim plecaku.
+1153534;Skrzynia Daviesa
+1153535;Akt własności skrzyni Daviesa
+1153536;Mechaniczne nogawki
+1153537;Pomocy! Statek plynacy do...w silnych sztormach...cenny ladunek...probowal dotrzec do celu...aktualne wspolrzedne ~1_SEXTANT~...ve jakichkolwiek ocalalych...spokojnie! 
+1153538;...byl lajdakiem i chamem, bez wzgledu na to, co mama...wyrzucila go za burte! Och, Anno, to bylo takie ekscytujace! Niefortunnie zostal zlapany, a cale jego bogactwo poplynelo z nim! zadzwonilem do kapitana, a on powiedzial, ze jestesmy na ~1_SEXTANT~ ... wiec moze ... 
+1153539;...wiem, ze wrak znajduje sie w poblizu ~1_SEXTANT~, ale go nie znalazlem. Czy wiadomosc przekazywana w mojej rodzinie od pokolen moze byc bledna? Nie... Przysiegam na dusze mojego dziadka, ze znajde... 
+1153540;...Arr! ~1_SEXTANT~ i sprzyjajace wiatry! Nie ma szans...burze! Czy to morski waz...<br><br>O nie.... 
+1153541;POSZUKIWANI: nurkowie z doswiadczeniem we wrak... w odzyskiwaniu. Musza miec wlasny statek...zglos sie do ~1_SEXTANT~...dobre swiadczenia, elastyczne godziny... 
+1153542;...rzeczywiscie katastrofa. Kapitan McQ...za burta, obawiaj sie najgorszego. To sa ...ostatnie dni dobrego statku Norr...ostatnia znana pozycja to ~1_SEXTANT~, ale ...nie do uratowania... 
+1153543;...nigdy nie spodziewalem sie gory lodowej...glupia kobieta na dziobie zmiazdzona natychmiast...wyslij pomoc do ~1_SEXTANT~...nigdy nie zapomne tragedii zatoniecia... 
+1153544;...wiec wyrzucilem skarb za burte, zanim klatwa dopadla i mnie. Ale bylo za pozno. Teraz jestem skazany na wieczne blakanie sie po tych morzach jako duch. Przylacz sie do mnie: szukaj w ~1_SEXTANT~, jesli pragniesz mego towarzystwa... 
+1153545;"...wtedy statek eksplodowal. Nadlecial smok. Szlam polknal Bertiego w calosci - krzyknal, to bylo niesamowite. Niebo zajasnialo na pomaranczowo... Sekstant wskazal ~1_SEXTANT~. Norma paplala cos o zeglowaniu przez krawedz swiata. Spojrzalem na swoje dlonie i zobaczylem przez nie...,,"" 
+1153546;...Jestem w tym wielorybie od trzech dni. Skonczylo mi sie jedzenie, ktore moglbym wydlubac z jego zebow. Dokonalem odczytu sekstantem przez otwor wydmuchowy: ~1_SEXTANT~. Juz nigdy nie zobacze mojego skarbu... 
+1153547;...wielka przygoda! Kapitan Quacklebush kazal mi codziennie czyscic poklady... ...pojawili sie piraci, a ja cwiczylem na olinowaniu z moim sekstantem. O ile sie nie myle, ~1_SEXTANT~ ...zatopil statek, a nasz cenny ladunek poszedl wraz z nim i wrzeszczacymi piratami na dno morza... 
+1153548;,,...nikt nie wiedzial, ze jestem dziewczyna. Zakladali tylko, ze jestem kolejnym marynarzem... potem spotkalismy Undine. ~1_SEXTANT~. Zazadala poswiecenia... Bylam najmlodsza, pomysleli... chwycilam skarb kapitana, krzyknelam ,,pojdzie ze mna na dno!" ... przyjeli mnie". 
+1153549;... uwieziony na bezludnej wyspie z magiczna fontanna dostarczajaca jedzenie, zrodlami slodkiej wody, wspaniala sceneria i moja urocza mloda zona. Wiem, ze statek z calym naszym dorobkiem zycia zatonal w ~1_SEXTANT ~, ale nie wiem, jakie sa nasze wspolrzedne... ktos MUSI mnie uratowac przed niedzielnym meczem finalowym albo oszaleje... 
+1153550;...wokol miasteczka wedrowalismy, pijac cala noc. Wdalismy sie w bojke... rano podnieslismy zagle, cala zaloga na pokladzie oprocz kucharza... wylom, ostatnie znane wspolrzedne ~1_SEXTANT~... lepiej bedzie w celi wieziennej! 
+1153551;Miecz Dupre 
 1153552;"<DIV ALIGN=""CENTER"">Davies' Locker</DIV>" 
 1153553;"<DIV ALIGN=""CENTER"">ADD MAPS</DIV>" 
 1153554;"<DIV ALIGN=""CENTER"">Get</DIV>" 
@@ -115586,34 +115586,34 @@ Number;Text
 1158972;You must be at the same elevation as the teleporter in order to change its type. Unlock it and place it on the ground or lower it using an Interior Decorator to change the type. 
 1158973;Pie Safe 
 1158974;China Cabinet 
-1158975;A Tattered Treasure Map Leading to ~1_TYPE~'s Stash 
-1158976;A Tattered Treasure Map Leading to ~1_TYPE~'s Supply 
-1158977;A Tattered Treasure Map Leading to ~1_TYPE~'s Cache 
-1158978;A Tattered Treasure Map Leading to ~1_TYPE~'s Hoard 
-1158979;A Tattered Treasure Map Leading to ~1_TYPE~'s Trove 
-1158980;A Treasure Map Leading to ~1_TYPE~'s Stash 
-1158981;A Treasure Map Leading to ~1_TYPE~'s Supply 
-1158982;A Treasure Map Leading to ~1_TYPE~'s Cache 
-1158983;A Treasure Map Leading to ~1_TYPE~'s Hoard 
-1158984;A Treasure Map Leading to ~1_TYPE~'s Trove 
+1158975;Wystrzepiona mapa skarbu prowadzaca do schowka ~1_TYPE~ 
+1158976;Wystrzepiona mapa skarbu prowadzaca do zapasow  ~1_TYPE~ 
+1158977;Wystrzepiona mapa skarbu prowadzaca do kasetki  ~1_TYPE~  
+1158978;Wystrzepiona mapa skarbu prowadzaca do duzego skladu  ~1_TYPE~ 
+1158979;Wystrzepiona mapa skarbu prowadzaca do wielkiego znaleziska  ~1_TYPE~ 
+1158980;Mapa skarbu prowadzaca do schowka ~1_TYPE~ 
+1158981;Mapa skarbu prowadzaca do zapasow ~1_TYPE~ 
+1158982;Mapa skarbu prowadzaca do kasetki ~1_TYPE~ 
+1158983;Mapa skarbu prowadzaca do duzego skladu ~1_TYPE~ 
+1158984;Mapa skarbu prowadzaca do wielkiego znaleziska ~1_TYPE~ 
 1158985;for somewhere in Eodon 
-1158986;a Mage 
-1158987;an Assassin 
-1158988;a Warrior 
-1158989;an Artisan 
-1158990;a Ranger 
-1158991;a Ranger 
-1158992;Stash 
-1158993;Supply 
-1158994;Cache 
-1158995;Hoard 
-1158996;Trove 
-1158997;Mage's 
-1158998;Assassin's 
-1158999;Warrior's 
-1159000;Artisan's 
-1159001;Ranger's 
-1159002;Ranger's 
+1158986;maga 
+1158987;zabojcy
+1158988;wojownika
+1158989;rzemieslnika
+1158990;straznika lesnego
+1158991;straznika
+1158992;schowek
+1158993;zapasy
+1158994;kasetka
+1158995;duzy sklad
+1158996;wielkie znalezisko
+1158997;maga
+1158998;zabojcy 
+1158999;wojownika
+1159000;rzemieslnika
+1159001;straznika lesnego
+1159002;straznika
 1159003;Display All Public Houses Contents 
 1159004;Shield Engraving Tool 
 1159005;<center>Trap Disarm Mechanism</center> 
