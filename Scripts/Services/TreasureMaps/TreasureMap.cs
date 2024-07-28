@@ -401,17 +401,20 @@ namespace Server.Items
 
         public Map GetRandomMap()
         {
-            switch (Utility.Random(8))
+            switch (Utility.Random(1))
             {
+	            
+	            
                 default:
-                case 0: return Map.Trammel;
-                case 1: return Map.Felucca;
-                case 2:
-                case 3: return Map.Ilshenar;
-                case 4:
-                case 5: return Map.Malas;
-                case 6:
-                case 7: return Map.Tokuno;
+                case 0: return Map.Felucca;
+                /*  case 0: return Map.Trammel;
+                  case 1: return Map.Felucca;
+                  case 2:
+                  case 3: return Map.Ilshenar;
+                  case 4:
+                  case 5: return Map.Malas;
+                  case 6:
+                  case 7: return Map.Tokuno;*/
             }
         }
 
@@ -1183,7 +1186,7 @@ namespace Server.Items
                 }
                 else if (!HasDiggingTool(from))
                 {
-                    from.SendMessage("You must have a digging tool to dig for treasure.");
+                    from.SendMessage("Musisz miec cos przy sobie do kopania, by wykopac skarb.");
                 }
                 else if (from.Map != map)
                 {
@@ -1268,7 +1271,7 @@ namespace Server.Items
                     {
                         if (Utility.InRange(targ3D, chest3D0, 8)) // We're close, but not quite
                         {
-                            from.SendAsciiMessage(0x44, "The treasure chest is very close!");
+                            from.SendAsciiMessage(0x44, "Skrzynia skarbu jest gdzies blisko!");
                         }
                         else
                         {
@@ -1278,32 +1281,32 @@ namespace Server.Items
                             switch (dir)
                             {
                                 case Direction.North:
-                                    sDir = "north";
+                                    sDir = "polnoc";
                                     break;
                                 case Direction.Right:
-                                    sDir = "northeast";
+                                    sDir = "polnocny-wschod";
                                     break;
                                 case Direction.East:
-                                    sDir = "east";
+                                    sDir = "wschod";
                                     break;
                                 case Direction.Down:
-                                    sDir = "southeast";
+                                    sDir = "poludniowy-wschod";
                                     break;
                                 case Direction.South:
-                                    sDir = "south";
+                                    sDir = "poludnie";
                                     break;
                                 case Direction.Left:
-                                    sDir = "southwest";
+                                    sDir = "poludniuwy-zachod";
                                     break;
                                 case Direction.West:
-                                    sDir = "west";
+                                    sDir = "zachod";
                                     break;
                                 default:
-                                    sDir = "northwest";
+                                    sDir = "polnocy-zachod";
                                     break;
                             }
 
-                            from.SendAsciiMessage(0x44, "Try looking for the treasure chest more to the {0}.", sDir);
+                            from.SendAsciiMessage(0x44, "Sprobuj spojrzec w kierunku {0} w poszukiwaniu skrzyni.", sDir);
                         }
                     }
                 }
@@ -1590,7 +1593,7 @@ namespace Server.Items
                 }
                 else
                 {
-                    from.SendMessage("You must have a digging tool to dig for treasure.");
+                    from.SendMessage("Aby wykopac skrzynie ze skarbem musisz miec cos do kopania.");
                 }
             }
         }

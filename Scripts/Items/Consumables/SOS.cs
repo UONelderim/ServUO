@@ -159,7 +159,7 @@ namespace Server.Items
                         m_TargetMap = Map;
 
                         if (m_TargetMap == null || m_TargetMap == Map.Internal)
-                            m_TargetMap = Map.Trammel;
+                            m_TargetMap = Map.Felucca; //bylo Trammel
 
                         m_TargetLocation = FindLocation(m_TargetMap);
                         m_MessageIndex = Utility.Random(MessageEntry.Entries.Length);
@@ -175,7 +175,7 @@ namespace Server.Items
                 UpdateHue();
 
             if (version < 4 && m_TargetMap == Map.Tokuno)
-                m_TargetMap = Map.Trammel;
+                m_TargetMap = Map.Felucca; //bylo Trammel
         }
 
         public override void OnDoubleClick(Mobile from)
@@ -209,9 +209,9 @@ namespace Server.Items
         };
 
         private static readonly Rectangle2D[] m_BritRegions = new Rectangle2D[] { new Rectangle2D(0, 0, 5120, 4096) };
-        private static readonly Rectangle2D[] m_IlshRegions = new Rectangle2D[] { new Rectangle2D(1472, 272, 304, 240), new Rectangle2D(1240, 1000, 312, 160) };
+      /*  private static readonly Rectangle2D[] m_IlshRegions = new Rectangle2D[] { new Rectangle2D(1472, 272, 304, 240), new Rectangle2D(1240, 1000, 312, 160) };
         private static readonly Rectangle2D[] m_MalasRegions = new Rectangle2D[] { new Rectangle2D(1376, 1520, 464, 280) };
-        private static readonly Rectangle2D[] m_TokunoRegions = new Rectangle2D[] { new Rectangle2D(10, 10, 1440, 1440) };
+        private static readonly Rectangle2D[] m_TokunoRegions = new Rectangle2D[] { new Rectangle2D(10, 10, 1440, 1440) };*/
 
         public static Point3D FindLocation(Map map)
         {
@@ -222,13 +222,13 @@ namespace Server.Items
 
             if (map == Map.Felucca || map == Map.Trammel)
                 regions = m_BritRegions;
-            else if (map == Map.Ilshenar)
+            /*else if (map == Map.Ilshenar)
                 regions = m_IlshRegions;
             else if (map == Map.Malas)
                 regions = m_MalasRegions;
             else if (map == Map.Tokuno)
                 regions = m_TokunoRegions;
-            else
+            else*/
                 regions = new Rectangle2D[] { new Rectangle2D(0, 0, map.Width, map.Height) };
 
             if (regions.Length == 0)
@@ -286,7 +286,7 @@ namespace Server.Items
 				string fmt;
 
 				if ( Sextant.Format( loc, map, ref xLong, ref yLat, ref xMins, ref yMins, ref xEast, ref ySouth ) )
-					fmt = String.Format( "{0}°{1}'{2},{3}°{4}'{5}", yLat, yMins, ySouth ? "S" : "N", xLong, xMins, xEast ? "E" : "W" );
+					fmt = String.Format( "{0}°{1}'{2},{3}°{4}'{5}", yLat, yMins, ySouth ? "PD" : "PN", xLong, xMins, xEast ? "WS" : "ZACH" );
 				else
 					fmt = "?????";
 
@@ -307,7 +307,7 @@ namespace Server.Items
                 string fmt;
 
                 if (Sextant.Format(loc, map, ref xLong, ref yLat, ref xMins, ref yMins, ref xEast, ref ySouth))
-                    fmt = string.Format("{0}o {1}'{2}, {3}o {4}'{5}", yLat, yMins, ySouth ? "S" : "N", xLong, xMins, xEast ? "E" : "W");
+                    fmt = string.Format("{0}o {1}'{2}, {3}o {4}'{5}", yLat, yMins, ySouth ? "PD" : "PN", xLong, xMins, xEast ? "WS" : "ZACH");
                 else
                     fmt = "?????";
 
