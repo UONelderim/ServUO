@@ -131,7 +131,7 @@ namespace Server.Items.Crops
             Point3D m_pnt = from.Location;
             Map m_map = from.Map;
 
-            if (!WeedHelper.CheckCanGrow(this, m_map, m_pnt))
+            if (!WeedHelper.CheckSoil(this, m_map, m_pnt))
             {
                 from.SendMessage(msg.BadTerrain);    // Roslina na pewno nie urosnie na tym terenie.
                 return false;
