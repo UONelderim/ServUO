@@ -12,7 +12,7 @@ namespace Server.Items
 		public PigmentTasandora(int uses)
 			: base(PigmentTarget.Cloth, uses, 2894)
 		{
-			Name = "Pigment barw tasandory";
+			Name = "Pigment barw Orod";
 		}
 
 		public PigmentTasandora(Serial serial) : base(serial)
