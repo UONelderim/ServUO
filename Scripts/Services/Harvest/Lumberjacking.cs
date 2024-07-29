@@ -1,5 +1,6 @@
 using Server.Items;
 using Server.Network;
+using Server.Regions;
 using System;
 using System.Linq;
 
@@ -32,6 +33,8 @@ namespace Server.Engines.Harvest
             #region Lumberjacking
             HarvestDefinition lumber = new HarvestDefinition
             {
+
+                RegionType = typeof(LumberRegion),
 
                 // Resource banks are every 4x3 tiles
                 BankWidth = 4,

@@ -222,6 +222,7 @@ namespace Server.Items
 					resourcesAccepted.Add(CraftResource.Agapite);
 					resourcesAccepted.Add(CraftResource.Verite);
 					resourcesAccepted.Add(CraftResource.Valorite);
+					resourcesAccepted.Add(CraftResource.Platinum);
 					return IsInResourceList(resourcesAccepted, i);
 				case PigmentTarget.Leather:
 					resourcesAccepted.Add(CraftResource.RegularLeather);

@@ -2109,6 +2109,7 @@ namespace Server.Items
                 case CraftResource.Agapite: oreType = 1053103; break; // agapite
                 case CraftResource.Verite: oreType = 1053102; break; // verite
                 case CraftResource.Valorite: oreType = 1053101; break; // valorite
+                case CraftResource.Platinum: oreType = 1097280; break; // z platyny
                 case CraftResource.SpinedLeather: oreType = 1061118; break; // spined
                 case CraftResource.HornedLeather: oreType = 1061117; break; // horned
                 case CraftResource.BarbedLeather: oreType = 1061116; break; // barbed

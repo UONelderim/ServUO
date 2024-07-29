@@ -1,5 +1,6 @@
 using Server.Items;
 using Server.Mobiles;
+using Server.Regions;
 using Server.Targeting;
 using System;
 using System.Linq;
@@ -32,6 +33,8 @@ namespace Server.Engines.Harvest
 
             #region Mining for ore and stone
             HarvestDefinition oreAndStone = OreAndStone = new HarvestDefinition();
+
+            oreAndStone.RegionType = typeof(MiningRegion);
 
             // Resource banks are every 8x8 tiles
             oreAndStone.BankWidth = 4; // 8;
@@ -83,7 +86,8 @@ namespace Server.Engines.Harvest
                     new HarvestResource( 85.0, 45.0, 125.0, 1007077, typeof( GoldOre ),            typeof( GoldGranite ),            typeof( GoldenElemental ) ),
                     new HarvestResource( 90.0, 50.0, 130.0, 1007078, typeof( AgapiteOre ),        typeof( AgapiteGranite ),        typeof( AgapiteElemental ) ),
                     new HarvestResource( 95.0, 55.0, 135.0, 1007079, typeof( VeriteOre ),        typeof( VeriteGranite ),        typeof( VeriteElemental ) ),
-                    new HarvestResource( 99.0, 59.0, 139.0, 1007080, typeof( ValoriteOre ),        typeof( ValoriteGranite ),        typeof( ValoriteElemental ) )
+                    new HarvestResource( 99.0, 59.0, 139.0, 1007080, typeof( ValoriteOre ),        typeof( ValoriteGranite ),        typeof( ValoriteElemental ) ),
+                    new HarvestResource( 00.0, 00.0, 100.0, 1097283, typeof( PlatinumOre ),        typeof( Granite ) ) // nie chcemy granitu w kolorze platyny
                 };
 
             veins = new HarvestVein[]
@@ -204,7 +208,7 @@ namespace Server.Engines.Harvest
                 #region Void Pool Items
                 HarvestMap hmap = HarvestMap.CheckMapOnHarvest(from, loc, def);
 
-                if (hmap != null && hmap.Resource >= CraftResource.Iron && hmap.Resource <= CraftResource.Valorite)
+                if (hmap != null && hmap.Resource >= CraftResource.Iron && hmap.Resource <= CraftResource.Platinum)
                 {
                     hmap.UsesRemaining--;
                     hmap.InvalidateProperties();
@@ -319,10 +323,12 @@ namespace Server.Engines.Harvest
         {
             if (tool is GargoylesPickaxe && def == OreAndStone)
             {
-                int veinIndex = Array.IndexOf(def.Veins, vein);
+                HarvestVein[] veinList;
+                def.GetRegionVeins(out veinList, bank.Map, bank.X, bank.Y);
+                int veinIndex = Array.IndexOf(veinList, vein);
 
-                if (veinIndex >= 0 && veinIndex < (def.Veins.Length - 1))
-                    return def.Veins[veinIndex + 1];
+                if (veinIndex >= 0 && veinIndex < (veinList.Length - 1))
+                    return veinList[veinIndex + 1];
             }
 
             return base.MutateVein(from, tool, def, bank, toHarvest, vein);
