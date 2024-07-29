@@ -1,3 +1,4 @@
+using Server.Items;
 using System;
 using System.Collections.Generic;
 
@@ -37,7 +38,6 @@ namespace Server.Engines.Harvest
         public object PackFullMessage { get; set; }
         public object ToolBrokeMessage { get; set; }
         public HarvestResource[] Resources { get; set; }
-        public HarvestVein[] Veins { get; set; }
         public BonusHarvestResource[] BonusResources { get; set; }
         public bool RaceBonus { get; set; }
         public bool RandomizeVeins { get; set; }
@@ -68,16 +68,13 @@ namespace Server.Engines.Harvest
             banks.TryGetValue(key, out HarvestBank bank);
 
             if (bank == null)
-                banks[key] = bank = new HarvestBank(this, GetVeinAt(map, x, y));
+                banks[key] = bank = new HarvestBank(this, map, x, y);
 
             return bank;
         }
 
         public HarvestVein GetVeinAt(Map map, int x, int y)
         {
-            if (Veins.Length == 1)
-                return Veins[0];
-
             double randomValue;
 
             if (RandomizeVeins)
@@ -90,22 +87,33 @@ namespace Server.Engines.Harvest
                 randomValue = random.NextDouble();
             }
 
-            return GetVeinFrom(randomValue);
-        }
+            return GetVeinFrom(randomValue, map, x, y);
+		}
 
-        public HarvestVein GetVeinFrom(double randomValue)
+        public HarvestVein GetVeinFrom(double randomValue, Map map, int x, int y)
         {
-            if (Veins.Length == 1)
-                return Veins[0];
+            // pobierz liste "kolorow" surowca dla zadanej lokacji:
+            HarvestVein[] regionVein;
+            GetRegionVeins( out regionVein, map, x, y );
+            if( regionVein == null )
+                return null;
 
-            randomValue *= 100;
+            if (regionVein.Length == 1)
+                return regionVein[0];
 
-            for (int i = 0; i < Veins.Length; ++i)
+            // suma szans w definicji HarvestVein[] nie musi juz byc rowna 100. Normalizacja nastepuje tutaj:
+            double sum = 0;
+            for (int i = 0; i < regionVein.Length; ++i)
+                sum += regionVein[i].VeinChance;
+
+            randomValue *= sum;
+
+            for (int i = 0; i < regionVein.Length; ++i)
             {
-                if (randomValue <= Veins[i].VeinChance)
-                    return Veins[i];
+                if (randomValue <= regionVein[i].VeinChance)
+                    return regionVein[i];
 
-                randomValue -= Veins[i].VeinChance;
+                randomValue -= regionVein[i].VeinChance;
             }
 
             return null;

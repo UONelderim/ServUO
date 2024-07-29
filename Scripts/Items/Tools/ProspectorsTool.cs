@@ -67,6 +67,15 @@ namespace Server.Items
                 return;
             }
 
+            HarvestVein[] veinList;
+            def.GetRegionVeins(out veinList, map, loc.X, loc.Y);
+
+            if (veinList.Length <= 1)
+            {
+                from.SendLocalizedMessage(1049048); // You cannot use your prospector tool on that.
+                return;
+            }
+
             HarvestBank bank = def.GetBank(map, loc.X, loc.Y);
 
             if (bank == null)
@@ -88,19 +97,19 @@ namespace Server.Items
                 return;
             }
 
-            int veinIndex = Array.IndexOf(def.Veins, vein);
+            int veinIndex = Array.IndexOf(veinList, vein);
 
             if (veinIndex < 0)
             {
                 from.SendLocalizedMessage(1049048); // You cannot use your prospector tool on that.
             }
-            else if (veinIndex >= (def.Veins.Length - 1))
+            else if (veinIndex >= (veinList.Length - 1))
             {
                 from.SendLocalizedMessage(1049061); // You cannot improve valorite ore through prospecting.
             }
             else
             {
-                bank.Vein = def.Veins[veinIndex + 1];
+                bank.Vein = veinList[veinIndex + 1];
                 from.SendLocalizedMessage(1049050 + veinIndex);
 
                 --UsesRemaining;

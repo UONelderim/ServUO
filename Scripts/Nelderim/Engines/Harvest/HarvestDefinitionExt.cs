@@ -14,10 +14,17 @@ namespace Server.Engines.Harvest
 		private readonly Dictionary<string, HarvestVein[]> m_RegionVeinCache = new Dictionary<string, HarvestVein[]>();
 		public Type RegionType { get; set; }
 
+		private HarvestVein[] m_DefaultMapRegionVeins;
+		private HarvestVein[] m_Veins;
+		public HarvestVein[] Veins
+		{
+			get { return m_Veins; }
+			set { m_Veins = m_DefaultMapRegionVeins = value; }
+		}
+
 		public virtual void GetRegionVeins(out HarvestVein[] veins, Map map, int x, int y)
 		{
-			// domsyslna lista surowcow wystepujacych na mapie:
-			veins = null;
+			veins = m_DefaultMapRegionVeins;
 
 			if (RegionType == null)
 			{

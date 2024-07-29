@@ -1,19 +1,30 @@
+using Server.Commands;
+using Server.Items;
 using System;
 
 namespace Server.Engines.Harvest
 {
     public class HarvestBank
     {
+        private int m_X, m_Y;
+        private Map m_Map;
+        public int X => m_X;
+        public int Y => m_Y;
+        public Map Map => m_Map;
+
         private readonly int m_Maximum;
         readonly HarvestDefinition m_Definition;
         private int m_Current;
         private DateTime m_NextRespawn;
         private HarvestVein m_Vein, m_DefaultVein;
-        public HarvestBank(HarvestDefinition def, HarvestVein defaultVein)
+        public HarvestBank(HarvestDefinition def, Map map, int x, int y)
         {
+            m_X = x * def.BankWidth;
+            m_Y = y * def.BankHeight;
+            m_Map = map;
             m_Maximum = Utility.RandomMinMax(def.MinTotal, def.MaxTotal);
             m_Current = m_Maximum;
-            m_DefaultVein = defaultVein;
+            m_DefaultVein = def.GetVeinAt(m_Map, m_X, m_Y);
             m_Vein = m_DefaultVein;
 
             m_Definition = def;
@@ -57,7 +68,7 @@ namespace Server.Engines.Harvest
 
             if (m_Definition.RandomizeVeins)
             {
-                m_DefaultVein = m_Definition.GetVeinFrom(Utility.RandomDouble());
+                m_DefaultVein = m_Definition.GetVeinFrom(Utility.RandomDouble(), m_Map, m_X, m_Y);
             }
 
             m_Vein = m_DefaultVein;

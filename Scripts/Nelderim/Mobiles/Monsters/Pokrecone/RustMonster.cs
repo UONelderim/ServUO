@@ -55,7 +55,7 @@ namespace Server.Mobiles
             else
                 return;
 
-            if (itemMaterial >= CraftResource.Iron && itemMaterial <= CraftResource.Valorite &&
+            if (itemMaterial >= CraftResource.Iron && itemMaterial <= CraftResource.Platinum &&
                 randomItem.HitPoints >= 21)
             {
                 randomItem.HitPoints -= 20;
