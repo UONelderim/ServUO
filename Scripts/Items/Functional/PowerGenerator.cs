@@ -48,7 +48,7 @@ namespace Server.Items
         {
             AddonComponent component = new AddonComponent(itemID)
             {
-                Name = "a power generator",
+                Name = "Generator Mocy",
                 Hue = 0x451
             };
 
@@ -106,7 +106,7 @@ namespace Server.Items
             }
         }
         public Node[] Path => m_Path;
-        public override string DefaultName => "a control panel";
+        public override string DefaultName => "panel kontrolny";
         public void InitPath()
         {
             // Depth-First Search algorithm
@@ -203,7 +203,7 @@ namespace Server.Items
                 }
                 else
                 {
-                    from.SendMessage("Someone is currently using the control panel.");
+                    from.SendMessage("Ktos juz uzywa panelu kontrolnego.");
                     return;
                 }
             }
@@ -216,10 +216,10 @@ namespace Server.Items
 
         public void DoDamage(Mobile to)
         {
-            to.Send(new UnicodeMessage(Serial, ItemID, MessageType.Regular, 0x3B2, 3, "", "", "The generator shoots an arc of electricity at you!"));
+            to.Send(new UnicodeMessage(Serial, ItemID, MessageType.Regular, 0x3B2, 3, "", "", "Generator wystrzeliwuje w ciebie luk elektryczny!"));
             to.BoltEffect(0);
-            to.LocalOverheadMessage(MessageType.Regular, 0xC9, true, "* Your body convulses from electric shock *");
-            to.NonlocalOverheadMessage(MessageType.Regular, 0xC9, true, string.Format("* {0} spasms from electric shock *", to.Name));
+            to.LocalOverheadMessage(MessageType.Regular, 0xC9, true, "* Twoje cialo drga w wyniku porazenia pradem *");
+            to.NonlocalOverheadMessage(MessageType.Regular, 0xC9, true, string.Format("* {0} ma skurcze spowodowane porazeniem pradem *", to.Name));
 
             AOS.Damage(to, to, 60, 0, 0, 0, 0, 100);
 
@@ -246,7 +246,7 @@ namespace Server.Items
             Effects.SendLocationEffect(new Point3D(X - 1, Y - 1, Z + 2), Map, 0x36B0, 4, 4);
             Effects.SendLocationEffect(new Point3D(X - 2, Y - 1, Z + 2), Map, 0x36B0, 4, 4);
 
-            from.SendMessage("You scrounge some gems from the wreckage.");
+            from.SendMessage("Z wraku wydobywasz kilka klejnotow.");
 
             for (int i = 0; i < SideLength; i++)
             {
@@ -352,10 +352,10 @@ namespace Server.Items
 
                 AddBackground(95, 20, 442, 90, 0xA28);
 
-                AddHtml(229, 35, 300, 45, "GENERATOR CONTROL PANEL", false, false);
+                AddHtml(229, 35, 300, 45, "Panel Kontrolny Generatora", false, false);
 
-                AddHtml(223, 60, 300, 70, "Use the Directional Controls to", false, false);
-                AddHtml(253, 75, 300, 85, "Close the Grid Circuit", false, false);
+                AddHtml(223, 60, 300, 70, "Uzyj przyciskow kierunkowych, aby", false, false);
+                AddHtml(253, 75, 300, 85, "Zamknac obwod sieci", false, false);
 
                 AddImage(140, 40, 0x28D3);
                 AddImage(420, 40, 0x28D3);
@@ -425,7 +425,7 @@ namespace Server.Items
                 if (from.Skills.Lockpicking.Value >= 65.0)
                 {
                     AddButton(365, 350, 0xFA6, 0xFA7, 5, GumpButtonType.Reply, 0);
-                    AddHtml(405, 345, 140, 40, "Attempt to Decipher the Circuit Path", false, false);
+                    AddHtml(405, 345, 140, 40, "Proba rozszyfrowania sciezki obwodu", false, false);
                 }
             }
 
@@ -566,8 +566,8 @@ namespace Server.Items
 
                 m_To.PlaySound(0x28);
 
-                m_To.LocalOverheadMessage(MessageType.Regular, 0xC9, true, "* Your body convulses from electric shock *");
-                m_To.NonlocalOverheadMessage(MessageType.Regular, 0xC9, true, string.Format("* {0} spasms from electric shock *", m_To.Name));
+                m_To.LocalOverheadMessage(MessageType.Regular, 0xC9, true, "* Twoje cialo drga w wyniku porazenia pradem *");
+                m_To.NonlocalOverheadMessage(MessageType.Regular, 0xC9, true, string.Format("* {0} ma skurcze spowodowane porazeniem pradem *", m_To.Name));
 
                 AOS.Damage(m_To, m_To, 20, 0, 0, 0, 0, 100);
 

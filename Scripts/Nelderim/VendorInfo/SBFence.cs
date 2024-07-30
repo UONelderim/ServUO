@@ -21,11 +21,11 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo(typeof(Bottle), 10, 50, 0xF0E, 0));
 				Add(new GenericBuyInfo(typeof(SpidersSilk), 8, 50, 0xF8D, 0));
 				Add(new GenericBuyInfo(typeof(SulfurousAsh), 8, 50, 0xF8C, 0));
-				Add(new GenericBuyInfo(typeof(Nightshade), 8, 50, 0xF88, 0));
-				Add(new GenericBuyInfo(typeof(MandrakeRoot), 8, 50, 0xF86, 0));
-				Add(new GenericBuyInfo(typeof(Ginseng), 8, 50, 0xF85, 0));
-				Add(new GenericBuyInfo(typeof(Garlic), 8, 50, 0xF84, 0));
-				Add(new GenericBuyInfo(typeof(Bloodmoss), 9, 50, 0xF7B, 0));
+				Add(new GenericBuyInfo(typeof(Nightshade), SBHerbalist.GlobalHerbsPriceBuyFence, 50, 0xF88, 0));
+				Add(new GenericBuyInfo(typeof(MandrakeRoot), SBHerbalist.GlobalHerbsPriceBuyFence, 50, 0xF86, 0));
+				Add(new GenericBuyInfo(typeof(Ginseng), SBHerbalist.GlobalHerbsPriceBuyFence, 50, 0xF85, 0));
+				Add(new GenericBuyInfo(typeof(Garlic), SBHerbalist.GlobalHerbsPriceBuyFence, 50, 0xF84, 0));
+				Add(new GenericBuyInfo(typeof(Bloodmoss), SBHerbalist.GlobalHerbsPriceBuyFence, 50, 0xF7B, 0));
 				Add(new GenericBuyInfo(typeof(BlackPearl), 9, 50, 0xF7A, 0));
 
 				Add(new GenericBuyInfo(typeof(GraveDust), 12, 50, 0xF8F, 0));

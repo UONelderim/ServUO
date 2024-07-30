@@ -45,7 +45,10 @@ namespace Server.Mobiles
 
             Fame = 4000;
             Karma = -4000;
-        }
+
+            if (0.05 > Utility.RandomDouble())
+                PackItem(new PowerGeneratorKey());
+		}
 
         public GolemController(Serial serial)
             : base(serial)

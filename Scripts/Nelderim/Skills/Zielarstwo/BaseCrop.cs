@@ -3,19 +3,21 @@ using System.Collections;
 using Server.Engines.Craft;
 using Server.Mobiles;
 
+
+
 namespace Server.Items.Crops
 {
 
     // BaseCrop: Zebrany plon - do obrobki w plecaku.
     public abstract class BaseCrop : Item, ICarvable
     {
-		public virtual int DefaulReagentCount => 2;
+        public virtual int DefaulReagentCount => 2;
 
 
-		private double GrandMasterSkillCropBonus => 0.05;
+        private double GrandMasterSkillCropBonus => 0.05;
 
 
-		public virtual CropMsgs msg => new CropMsgs();
+        public virtual CropMsgs msg => new CropMsgs();
 
         protected static SkillName[] defaultSkillsRequired = new SkillName[] { WeedHelper.MainWeedSkill };
         public virtual SkillName[] SkillsRequired { get { return defaultSkillsRequired; } }
@@ -64,16 +66,21 @@ namespace Server.Items.Crops
                 return false;
             }
 
-            Item seed = Activator.CreateInstance(type) as Item;
-            if (seed != null)
+            Item reagent = Activator.CreateInstance(type) as Item;
+            if (reagent != null)
             {
-				int bonus = (WeedHelper.GetMainSkillValue(m) >= 100) ? WeedHelper.Bonus(amount, GrandMasterSkillCropBonus) : 0;
-				seed.Amount = amount + bonus;
-                m.AddToBackpack(seed);
+                MutateReagent(reagent);
+                int bonus = (WeedHelper.GetMainSkillValue(m) >= 100) ? WeedHelper.Bonus(amount, GrandMasterSkillCropBonus) : 0;
+                reagent.Amount = amount + bonus;
+                m.AddToBackpack(reagent);
                 return true;
             }
 
             return false;
+        }
+
+        public virtual void MutateReagent(Item reagent)
+        {
         }
 
         public bool Carve(Mobile from, Item item)

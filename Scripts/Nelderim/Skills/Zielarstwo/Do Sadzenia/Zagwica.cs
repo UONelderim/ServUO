@@ -4,26 +4,26 @@ namespace Server.Items.Crops
 {
 
 	
-	public class SzczepkaKrwawyMech : BaseSeedling
-    {
+	public class SzczepkaZagwica : BaseSeedling
+	{
 		public override bool CanGrowCave => true;
 		public override bool CanGrowDirt => true;
-		public override Type PlantType => typeof(KrzakKrwawyMech);
+		public override Type PlantType => typeof(KrzakZagwica);
 
 		[Constructable]
-		public SzczepkaKrwawyMech( int amount ) : base( amount, 0x0DCD ) 
+		public SzczepkaZagwica( int amount ) : base( amount, 0x0F23)	// zenszen
 		{
-			Hue = 438;
-			Name = "Szczepka krwawego mchu";
+			Hue = 1236;
+			Name = "Zarodniki zagwicy";
 			Stackable = true;
 		}
 
 		[Constructable]
-		public SzczepkaKrwawyMech() : this( 1 )
+		public SzczepkaZagwica() : this( 1 )
 		{
 		}
 
-		public SzczepkaKrwawyMech( Serial serial ) : base( serial )
+		public SzczepkaZagwica( Serial serial ) : base( serial )
 		{
 		}
 
@@ -40,22 +40,22 @@ namespace Server.Items.Crops
 		}
 	}
 	
-	public class KrzakKrwawyMech : Plant
+	public class KrzakZagwica : Plant
     {
-        public override Type SeedType => typeof(SzczepkaKrwawyMech);
-        public override Type CropType => typeof(PlonKrwawyMech);
-		protected override int YoungPlantGraphics => 0x0F3C;
-		protected override int MaturePlantGraphics => 0x0F3B;
+        public override Type SeedType => typeof(SzczepkaZagwica);
+        public override Type CropType => typeof(PlonZagwica);
+		protected override int YoungPlantGraphics => 0xD13;
+		protected override int MaturePlantGraphics => 0xD13;
 
 		[Constructable] 
-		public KrzakKrwawyMech() : base(0x0F3C)
+		public KrzakZagwica() : base(0xD13)
 		{
-			Hue = 0x20;
-			Name = "Krwawy mech";	
+			Hue = 1235;
+			Name = "Zagwica";
 			Stackable = true;
 		}
 
-		public KrzakKrwawyMech( Serial serial ) : base( serial ) 
+		public KrzakZagwica( Serial serial ) : base( serial ) 
 		{ 
 			//m_plantedTime = DateTime.Now;	// ???
 		}
@@ -73,24 +73,31 @@ namespace Server.Items.Crops
 		} 
 	} 
 	
-	public class PlonKrwawyMech : Crop
+	public class PlonZagwica : Crop
     {
-        public override Type ReagentType => typeof(Bloodmoss);
+        public override Type ReagentType => typeof(Ginseng);
 		
 		[Constructable]
-		public PlonKrwawyMech( int amount ) : base( amount, 0x3183 )
+		public PlonZagwica( int amount ) : base( amount, 0xD13)
 		{
-			Hue = 0x20;
-			Name = "Swiezy krwawy mech";
+			Hue = 1235;
+			Name = "Swieza zagwica";
 			Stackable = true;
 		}
 
+		public override void MutateReagent(Item reagent)
+		{
+			reagent.Hue = 1236;
+			reagent.Name = "Suszona zagwica";
+			reagent.ItemID = ItemID;
+		}
+
 		[Constructable]
-		public PlonKrwawyMech() : this( 1 )
+		public PlonZagwica() : this( 1 )
 		{
 		}
 
-		public PlonKrwawyMech( Serial serial ) : base( serial )
+		public PlonZagwica( Serial serial ) : base( serial )
 		{
 		}
 

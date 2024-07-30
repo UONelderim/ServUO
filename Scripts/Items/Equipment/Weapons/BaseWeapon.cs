@@ -2784,7 +2784,8 @@ namespace Server.Items
                 ++count;
 
                 from.DoHarmful(m, true);
-                m.FixedEffect(0x3779, 1, 15, hue, 0);
+                if (!(m is Mobile) || !((Mobile)m).Hidden)
+                    m.FixedEffect(0x3779, 1, 15, hue, 0);
                 AOS.Damage(m, from, damageGiven / 2, phys, fire, cold, pois, nrgy, Server.DamageType.SpellAOE);
             }
 

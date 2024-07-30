@@ -1382,8 +1382,8 @@ namespace Server.Items
                         {
                             BaseAddon vat = ((AddonComponent)targ).Addon;
 
-                            if ( vat.X > 5295 && vat.X < 5302 && vat.Y > 3857 && vat.Y < 3884 &&
-                                 (/*(qs.RedSolen && vat.Map == Map.Trammel) ||*/ (!qs.RedSolen && vat.Map == Map.Felucca)))
+                            if ((qs.RedSolen && (vat.X > 5295 && vat.X < 5302 && vat.Y > 3857 && vat.Y < 3884) && vat.Map == Map.Felucca) ||
+                               (!qs.RedSolen && (vat.X > 5521 && vat.X < 5542 && vat.Y > 3764 && vat.Y < 3781) && vat.Map == Map.Felucca))
                             {
                                 if (obj.CurProgress + Quantity > obj.MaxProgress)
                                 {
