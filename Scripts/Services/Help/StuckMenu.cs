@@ -151,7 +151,7 @@ namespace Server.Menus.Questions
             {
                 new TeleportTimer(m_Mobile, entry, TimeSpan.Zero).Start();
             }
-            Console.WriteLine( "Abuse (help): {0} [{1}] z lokacji {3} -> {2}", m_Mobile.Name, m_Mobile.Account, entry.Name, m_Mobile.Location );
+            Console.WriteLine( $"Abuse (help): {m_Mobile.Name} [{m_Mobile.Account}] z lokacji {m_Mobile.Location} -> {entry.Name}" );
             m_Mobile.SendMessage( "Ta opcja nie sluzy teleportacji! Jesli naprawde utknales, zglos to PageGM." );
             m_Mobile.SendMessage( "Zgloszenie zostalo zarejestrowane, a naduzycie bedzie ukarane." );
         }
