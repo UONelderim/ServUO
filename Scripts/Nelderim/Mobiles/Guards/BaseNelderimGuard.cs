@@ -238,7 +238,7 @@ public class BaseNelderimGuard : BaseCreature
 	    if (m == null)
 		    return false;
         
-	    if (m.Faction.IsEnemy(m))
+	    if (Faction != null && m.Faction.IsEnemy(m))
 		    return true;
 	    
         // Nie atakuj innych straznikow (obszarowka moze triggerowac walke miedzy nimi)
