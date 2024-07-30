@@ -32,12 +32,12 @@ namespace Server.Mobiles
                 Add(new GenericBuyInfo(typeof(LesserCurePotion), 15, 20, 0xF07, 0, true));
 
                 Add(new GenericBuyInfo(typeof(BlackPearl), 5, 20, 0xF7A, 0));
-                Add(new GenericBuyInfo(typeof(Bloodmoss), 5, 20, 0xF7B, 0));
-                Add(new GenericBuyInfo(typeof(Garlic), 3, 20, 0xF84, 0));
-                Add(new GenericBuyInfo(typeof(Ginseng), 3, 20, 0xF85, 0));
-                Add(new GenericBuyInfo(typeof(MandrakeRoot), 3, 20, 0xF86, 0));
-                Add(new GenericBuyInfo(typeof(Nightshade), 3, 20, 0xF88, 0));
-                Add(new GenericBuyInfo(typeof(SpidersSilk), 3, 20, 0xF8D, 0));
+				Add(new GenericBuyInfo(typeof(Bloodmoss), SBHerbalist.GlobalHerbsPriceBuy, 20, 0xF7B, 0));
+				Add(new GenericBuyInfo(typeof(Garlic), SBHerbalist.GlobalHerbsPriceBuy, 20, 0xF84, 0));
+				Add(new GenericBuyInfo(typeof(Ginseng), SBHerbalist.GlobalHerbsPriceBuy, 20, 0xF85, 0));
+				Add(new GenericBuyInfo(typeof(MandrakeRoot), SBHerbalist.GlobalHerbsPriceBuy, 20, 0xF86, 0));
+				Add(new GenericBuyInfo(typeof(Nightshade), SBHerbalist.GlobalHerbsPriceBuy, 20, 0xF88, 0));
+				Add(new GenericBuyInfo(typeof(SpidersSilk), 3, 20, 0xF8D, 0));
                 Add(new GenericBuyInfo(typeof(SulfurousAsh), 3, 20, 0xF8C, 0));
 
                 Type[] types = Loot.MageryScrollTypes;
@@ -61,12 +61,12 @@ namespace Server.Mobiles
             public InternalSellInfo()
             {
                 Add(typeof(BlackPearl), 3);
-                Add(typeof(Bloodmoss), 3);
-                Add(typeof(MandrakeRoot), 2);
-                Add(typeof(Garlic), 2);
-                Add(typeof(Ginseng), 2);
-                Add(typeof(Nightshade), 2);
-                Add(typeof(SpidersSilk), 2);
+				Add(typeof(Bloodmoss), SBHerbalist.GlobalHerbsPriceSell);
+				Add(typeof(MandrakeRoot), SBHerbalist.GlobalHerbsPriceSell);
+				Add(typeof(Garlic), SBHerbalist.GlobalHerbsPriceSell);
+				Add(typeof(Ginseng), SBHerbalist.GlobalHerbsPriceSell);
+				Add(typeof(Nightshade), SBHerbalist.GlobalHerbsPriceSell);
+				Add(typeof(SpidersSilk), 2);
                 Add(typeof(SulfurousAsh), 2);
                 Add(typeof(RecallRune), 8);
                 Add(typeof(Spellbook), 9);

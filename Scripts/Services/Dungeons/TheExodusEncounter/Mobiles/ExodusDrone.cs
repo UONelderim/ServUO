@@ -112,7 +112,7 @@ namespace Server.Mobiles
 
                 PlaySound(0x2F4);
 
-                attacker.SendAsciiMessage("Your weapon cannot penetrate the creature's magical barrier");
+                attacker.SendAsciiMessage("Twoja bron nie moze przebic magicznej bariery tego stworzenia");
             }
 
             if (attacker != null && attacker.Alive && attacker.Weapon is BaseRanged && 0.4 > Utility.RandomDouble())

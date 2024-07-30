@@ -157,6 +157,9 @@ namespace Server.Items
 		{
 			DropItem(new Gold(Utility.RandomMinMax(150, 250)));
 
+			if (0.10 > Utility.RandomDouble())
+				DropItem(new PowerGeneratorKey());
+
 			if (Utility.RandomBool())
 			{
 				if (Utility.RandomBool())
@@ -218,6 +221,10 @@ namespace Server.Items
 		public override void FillChest()
 		{
 			DropItem(new Gold(Utility.RandomMinMax(250, 400)));
+
+			if (0.15 > Utility.RandomDouble())
+				DropItem(new PowerGeneratorKey());
+
 			AddLoot(_LootPack);
 			if (Utility.RandomBool())
 			{
@@ -262,6 +269,10 @@ namespace Server.Items
 		public override void FillChest()
 		{
 			DropItem(new Gold(Utility.RandomMinMax(500, 600)));
+
+			if (0.20 > Utility.RandomDouble())
+				DropItem(new PowerGeneratorKey());
+
 			AddLoot(_LootPack);
 			if (Utility.RandomBool())
 			{
@@ -306,6 +317,10 @@ namespace Server.Items
 		public override void FillChest()
 		{
 			DropItem(new Gold(Utility.RandomMinMax(700, 800)));
+
+			if (0.25 > Utility.RandomDouble())
+				DropItem(new PowerGeneratorKey());
+
 			AddLoot(_LootPack);
 			if (Utility.RandomBool())
 			{

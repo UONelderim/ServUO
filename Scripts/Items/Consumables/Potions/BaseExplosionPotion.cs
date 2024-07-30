@@ -65,6 +65,33 @@ namespace Server.Items
             return this;
         }
 
+		public void HandleClick(Mobile from)
+		{
+			if (from.CanBeginAction(typeof(BaseExplosionPotion)))
+			{
+				BasePotion pot = (BasePotion)Activator.CreateInstance(GetType());
+
+				if (pot != null)
+				{
+					Amount--;
+
+					if (from.Backpack != null && !from.Backpack.Deleted)
+					{
+						from.Backpack.DropItem(pot);
+					}
+					else
+					{
+						pot.MoveToWorld(from.Location, from.Map);
+					}
+					pot.Drink(from);
+				}
+			}
+			else
+			{
+				from.SendMessage("Musisz chwile poczekac, aby moc uzyc kolejnej mikstury eksplozji.");
+			}
+		}
+
         public override void Drink(Mobile from)
         {
             if (from.Paralyzed || from.Frozen || (from.Spell != null && from.Spell.IsCasting))
@@ -72,11 +99,8 @@ namespace Server.Items
                 from.SendLocalizedMessage(1062725); // You can not use a purple potion while paralyzed.
                 return;
             }
-            double delay = GetDelay(from);
-
-            if (delay > 0)
+            if (!from.CanBeginAction(typeof(BaseExplosionPotion)))
             {
-	            from.SendMessage("Musisz chwile poczekac, aby moc uzyc kolejnej mikstury eksplozji.");
 	            return;
             }
 
@@ -265,6 +289,9 @@ namespace Server.Items
                     return;
                 }
 
+                from.BeginAction(typeof(BaseExplosionPotion));
+                Timer.DelayCall(TimeSpan.FromSeconds(CooldownBetweenPotions), from => from.EndAction(typeof(BaseExplosionPotion)), from);
+
                 Map map = from.Map;
 
                 if (map == null)
@@ -291,46 +318,5 @@ namespace Server.Items
                     TimeSpan.FromSeconds(1.0), new TimerStateCallback(m_Potion.Reposition_OnTick), new object[] { from, point, map });
             }
         }
-        
-        #region Delay
-        private static Hashtable m_Delay = new Hashtable();
-
-        public static void AddDelay(Mobile m)
-        {
-	        Timer timer = m_Delay[m] as Timer;
-
-	        if (timer != null)
-		        timer.Stop();
-
-	        m_Delay[m] = Timer.DelayCall(TimeSpan.FromSeconds(CooldownBetweenPotions), new TimerStateCallback(EndDelay_Callback), m);
-        }
-
-        public static double GetDelay(Mobile m)
-        {
-	        Timer timer = m_Delay[m] as Timer;
-
-	        if (timer != null && timer.Next > DateTime.Now)
-		        return (timer.Next - DateTime.Now).TotalSeconds;
-
-	        return 0;
-        }
-
-        private static void EndDelay_Callback(object obj)
-        {
-	        if (obj is Mobile)
-		        EndDelay((Mobile)obj);
-        }
-
-        public static void EndDelay(Mobile m)
-        {
-	        Timer timer = m_Delay[m] as Timer;
-
-	        if (timer != null)
-	        {
-		        timer.Stop();
-		        m_Delay.Remove(m);
-	        }
-        }
-        #endregion
     }
 }

@@ -93,9 +93,9 @@ namespace Server.Mobiles
 		{
 			if (willKill)
 			{
-				SpawnHelper( new Reaper(), 56, 740, 21 );
-				SpawnHelper( new InsaneDryad(), 56, 740, 21  );
-				SpawnHelper( new StoneHarpy(), 56, 740, 21 ); 	
+				SpawnHelper( new Reaper(), 58, 746, 39 );
+				SpawnHelper( new InsaneDryad(), 58, 746, 39);
+				SpawnHelper( new StoneHarpy(), 58, 746, 39 );
 
 				Say(1075118); // Noooooo!  You shall never defeat me.  Even if I should fall, my tree will sustain me and I will rise again.
 			}
@@ -222,10 +222,10 @@ namespace Server.Mobiles
 
 		public void SpawnSatyrs()
 		{
-			SpawnHelper( new EnslavedSatyr(), 56, 740, 21 );
-			SpawnHelper( new EnslavedSatyr(), 60, 751, 21 );
-			SpawnHelper( new EnslavedSatyr(), 50, 749, 21 ); 
-			SpawnHelper( new EnslavedSatyr(), 64, 749, 21 ); 
+			SpawnHelper( new EnslavedSatyr(), 56, 740, 39 );
+			SpawnHelper( new EnslavedSatyr(), 60, 751, 39 );
+			SpawnHelper( new EnslavedSatyr(), 52, 750, 39 ); 
+			SpawnHelper( new EnslavedSatyr(), 62, 751, 39 ); 
 		}
 
 		#endregion

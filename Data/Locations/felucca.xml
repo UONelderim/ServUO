@@ -275,6 +275,11 @@
 			<child name="Alcala" x="665" y="1509" z="40" />
 			<child name="Jaskinia Banitow" x="1057" y="1946" z="0"/>
 			<child name="Twierdza Zwiednietej Rozy" x="5790" y="926" z="4"/>
+			<child name="Velkyn Ato" x="5436" y="3779" z="-25"/>
+			<parent name="Velkyn Ato">
+				<child name="Wejscie" x="5436" y="3779" z="-25"/>
+				<child name="Boss" x="5969" y="1815" z="0"/>
+			</parent>
 			<child name="Zaginiony Fort Orkow" x="962" y="2502" z="40"/>
 			<child name="Swiatynia Hurengrav" x="1017" y="2713" z="10"/>
 			<child name="Garth" x="1145" y="2898" z="35"/>

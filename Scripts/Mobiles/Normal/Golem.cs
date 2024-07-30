@@ -74,6 +74,9 @@ namespace Server.Mobiles
 
                 Fame = 3500;
                 Karma = -3500;
+
+                if (0.05 > Utility.RandomDouble())
+                    PackItem(new PowerGeneratorKey());
             }
 
             SetDamage(13, 24);

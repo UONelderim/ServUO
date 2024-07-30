@@ -227,11 +227,14 @@ namespace Server
 
                     if (reflectPhys != 0)
                     {
-                        if (from is ExodusMinion && ((ExodusMinion)from).FieldActive || from is ExodusOverseer && ((ExodusOverseer)from).FieldActive)
+                        if ((from is ExodusMinion && ((ExodusMinion)from).FieldActive) ||
+                            (from is ExodusOverseer && ((ExodusOverseer)from).FieldActive) ||
+                            (from is ExodusMinionArmored && ((ExodusMinionArmored)from).FieldActive) ||
+                            (from is ExodusBoss && ((ExodusBoss)from).FieldActive))
                         {
                             from.FixedParticles(0x376A, 20, 10, 0x2530, EffectLayer.Waist);
                             from.PlaySound(0x2F4);
-                            m.SendAsciiMessage("Your weapon cannot penetrate the creature's magical barrier");
+                            m.SendAsciiMessage("Twoja bron nie moze przebic magicznej bariery tego stworzenia");
                         }
                         else
                         {

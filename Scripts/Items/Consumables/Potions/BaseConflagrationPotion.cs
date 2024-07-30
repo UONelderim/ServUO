@@ -7,8 +7,9 @@ using System.Collections.Generic;
 namespace Server.Items
 {
     public abstract class BaseConflagrationPotion : BasePotion
-    {
-        public abstract int MinDamage { get; }
+	{
+		private static double CooldownBetweenPotions = 30.0; // sekundy
+		public abstract int MinDamage { get; }
         public abstract int MaxDamage { get; }
 
         public override bool RequireFreeHand => false;
@@ -32,12 +33,10 @@ namespace Server.Items
                 return;
             }
 
-            int delay = GetDelay(from);
-
-            if (delay > 0)
+            if (!from.CanBeginAction(typeof(BaseConflagrationPotion)))
             {
-                from.SendLocalizedMessage(1072529, string.Format("{0}\t{1}", delay, delay > 1 ? "seconds." : "second.")); // You cannot use that for another ~1_NUM~ ~2_TIMEUNITS~
-                return;
+	            from.SendMessage("Musisz chwile poczekac, aby moc uzyc kolejnej mikstury pozogi.");
+	            return;
             }
 
             ThrowTarget targ = from.Target as ThrowTarget;
@@ -108,48 +107,6 @@ namespace Server.Items
             }
         }
 
-        #region Delay
-        private static readonly Hashtable m_Delay = new Hashtable();
-
-        public static void AddDelay(Mobile m)
-        {
-            Timer timer = m_Delay[m] as Timer;
-
-            if (timer != null)
-                timer.Stop();
-
-            m_Delay[m] = Timer.DelayCall(TimeSpan.FromSeconds(30), new TimerStateCallback(EndDelay_Callback), m);
-        }
-
-        public static int GetDelay(Mobile m)
-        {
-            Timer timer = m_Delay[m] as Timer;
-
-            if (timer != null && timer.Next > DateTime.UtcNow)
-                return (int)(timer.Next - DateTime.UtcNow).TotalSeconds;
-
-            return 0;
-        }
-
-        private static void EndDelay_Callback(object obj)
-        {
-            if (obj is Mobile)
-                EndDelay((Mobile)obj);
-        }
-
-        public static void EndDelay(Mobile m)
-        {
-            Timer timer = m_Delay[m] as Timer;
-
-            if (timer != null)
-            {
-                timer.Stop();
-                m_Delay.Remove(m);
-            }
-        }
-
-        #endregion
-
         private class ThrowTarget : Target
         {
             private readonly BaseConflagrationPotion m_Potion;
@@ -175,7 +132,8 @@ namespace Server.Items
                 // Add delay
                 if (from.AccessLevel < AccessLevel.Counselor)
                 {
-                    AddDelay(from);
+                    from.BeginAction(typeof(BaseConflagrationPotion));
+                    Timer.DelayCall(TimeSpan.FromSeconds(CooldownBetweenPotions), from => from.EndAction(typeof(BaseConflagrationPotion)), from);
                 }
 
                 SpellHelper.GetSurfaceTop(ref p);
