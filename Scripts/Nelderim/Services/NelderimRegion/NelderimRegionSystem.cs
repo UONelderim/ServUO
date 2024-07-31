@@ -25,7 +25,6 @@ namespace Server.Nelderim
         {
 	        Load();
 	        EventSink.MobileCreated += OnCreate;
-	        EventSink.OnEnterRegion += OnEnterRegion;
         }
 
         public static void Initialize()
@@ -62,16 +61,13 @@ namespace Server.Nelderim
             Console.WriteLine("NelderimRegions: Saved!");
         }
         
-        private static void OnEnterRegion(OnEnterRegionEventArgs e)
+        public static void OnRegionChange(Mobile m, Region Old, Region New)
         {
-        	var m = e.From;
-	        if (e.OldRegion != null) return;
+	        if (New == null || New.Map == Map.Internal) return;
+	        //Use configured Race as flag if mobile was already initialized. Is it good enough?
+	        if (m.Race != Race.DefaultRace) return;
 	        
-	        if (e.NewRegion != null && m is BaseVendor or BaseNelderimGuard)
-	        {
-		        m.Race = GetRegion(e.NewRegion.Name).RandomRace();
-		        m.Faction = GetRegion(e.NewRegion.Name).GetFaction();
-	        }
+	        InitMobile(m);
         }
 
         private static void OnCreate(MobileCreatedEventArgs e)
@@ -100,6 +96,23 @@ namespace Server.Nelderim
             return NelderimRegions["Default"]; //Fallback to default for non specified regions
         }
 
+        public static void InitMobile(Mobile m)
+        {
+	        if (m.Deleted) return;
+	        
+	        var region = GetRegion(m.Region.Name);
+	        
+	        m.Female = region.RollFemale();
+	        m.BodyValue = m.Female ? 0x191 : 0x190;
+
+		    m.Race = region.RandomRace();
+	        
+	        m.Faction = region.GetFaction();
+
+	        if(String.IsNullOrEmpty(m.Name))
+		        m.Name = NameList.RandomName(m.Race.Name.ToLower() + "_" + (m.Female ? "female" : "male"));
+        }
+
         internal static NelderimGuardProfile GetGuardProfile(string name)
         {
             if (!GuardProfiles.ContainsKey(name))
@@ -109,8 +122,6 @@ namespace Server.Nelderim
             }
             return GuardProfiles[name];
         }
-        
-        
         
         private static Func<Race, String>[] IntoleranceEmote =
         {

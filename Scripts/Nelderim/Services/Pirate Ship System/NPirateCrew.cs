@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
 using Server.Items;
-using Server.ContextMenus;
-using Server.Misc;
-using Server.Network;
+using Server.Nelderim;
 
 namespace Server.Mobiles
 {
@@ -14,19 +10,6 @@ namespace Server.Mobiles
         public NPirateCrew() : base(AIType.AI_Archer, FightMode.Closest, 15, 1, 0.2, 0.4)
         {
             SpeechHue = Utility.RandomDyedHue();
-
-            Hue = Race.Human.RandomSkinHue();
-
-            if (Female == Utility.RandomBool())
-            {
-                Body = 0x191;
-                //Name = NameList.RandomName("female");
-            }
-            else
-            {
-                Body = 0x190;
-                //Name = NameList.RandomName("male");           
-            }
 
             Title = "- pirat";
 
@@ -48,10 +31,6 @@ namespace Server.Mobiles
             SetSkill(SkillName.Archery, 85.0, 87.5);
 
             CantWalk = false;
-
-            Fame = 2000;
-            Karma = -2000;
-            VirtualArmor = 66;
 
             switch (Utility.Random(1))
             {
@@ -107,16 +86,10 @@ namespace Server.Mobiles
             }
         }
 
-        protected override void OnCreate()
+        public override void OnRegionChange(Region Old, Region New)
         {
-	        base.OnCreate();
-	        
-	        RaceGenerator.Init(this);
-        }
-
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.Rich);
+	        base.OnRegionChange(Old, New);
+	        NelderimRegionSystem.OnRegionChange(this, Old, New);
         }
 
         public override bool IsScaredOfScaryThings => false;

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Server.Items;
 using Server.Multis;
+using Server.Nelderim;
 
 namespace Server.Mobiles
 {
@@ -18,17 +19,6 @@ namespace Server.Mobiles
         [Constructable]
         public NPirateCaptain() : base(AIType.AI_Archer, FightMode.Closest, 15, 1, 0.2, 0.4)
         {
-            Hue = Race.Human.RandomSkinHue();
-
-            if (Female == Utility.RandomBool())
-            {
-                Body = 0x191;
-            }
-            else
-            {
-                Body = 0x190;
-            }
-
             Title = "- kapitan piratow";
 
             SpeechHue = Utility.RandomDyedHue();
@@ -65,10 +55,6 @@ namespace Server.Mobiles
 
             CanSwim = true;
             CantWalk = true;
-
-            Fame = 5000;
-            Karma = -5000;
-            VirtualArmor = 66;
 
             switch (Utility.Random(1))
             {
@@ -113,18 +99,11 @@ namespace Server.Mobiles
             }
         }
 
-        protected override void OnCreate()
+        public override void OnRegionChange(Region Old, Region New)
         {
-	        base.OnCreate();
-	        
-            RaceGenerator.Init(this);
+	        base.OnRegionChange(Old, New);
+	        NelderimRegionSystem.OnRegionChange(this, Old, New);
         }
-
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.UltraRich, 2);
-        }
-
         public override bool IsScaredOfScaryThings => false;
 
         public override bool AlwaysMurderer => true;

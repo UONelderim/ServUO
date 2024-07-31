@@ -307,6 +307,7 @@ namespace Server.Mobiles
 
 			Title = title;
 
+			//We need late init from NelderimRegionSystem after mobile enters the region
 			// InitBody();
 			// InitOutfit();
 
@@ -426,12 +427,6 @@ namespace Server.Mobiles
 			InitStats(100, 100, 25);
 
 			SpeechHue = Utility.RandomDyedHue();
-			RaceGenerator.Init(this);
-			// Female = GetGender();
-			// Hue = Race.RandomSkinHue();
-			// Body = Race.Body(this);
-			//
-			// Name = NameList.RandomName(Female ? "female" : "male");
 		}
 
 		public virtual int GetRandomHue()
