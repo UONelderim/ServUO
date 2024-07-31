@@ -230,14 +230,11 @@ namespace Server.Misc
 
             if (beheld is PlayerMobile && ((PlayerMobile)beheld).PaperdollSkillTitle != null)
                 title.Append(", ").Append(((PlayerMobile)beheld).PaperdollSkillTitle);
-           else if (beheld is BaseVendor)
+			else if (beheld is BaseVendor)
                 title.AppendFormat(" {0}", customTitle);
 
-            if (beheld is PlayerMobile pm)
-            {
-	            if (pm.Faction != null && pm.Faction != Faction.None)
-		            title.Append($" [{pm.Faction}]");
-            }
+            if (beheld.Faction != null && beheld.Faction != Faction.None)
+	            title.Append($" [{beheld.Faction.Name}]");
             
             if (beheld is PlayerMobile { RaceMod: not null } pm2)
 	            title.Append($" [{pm2.RaceMod}]");
