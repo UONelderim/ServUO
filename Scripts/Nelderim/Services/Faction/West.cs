@@ -6,7 +6,7 @@ namespace Server.Nelderim
 		{
 		}
 		
-		public override string Name => "Frakcja1";
+		public override string Name => "Zachod";
 
 		public override Faction[] Enemies => new[] { East };
 	}
