@@ -55,20 +55,25 @@ public class NelderimRegion : IComparable<NelderimRegion>
         //TODO: Check Resources
         return true;
     }
-
-    public double FemaleChance()
+    
+    private double FemaleChance()
     {
-        if (Female.HasValue)
-        {
-            return Female.Value;
-        }
+	    if (Female.HasValue)
+	    {
+		     return Female.Value;
+	    }
+	    var parentResult = Parent?.FemaleChance();
+	    if (parentResult.HasValue)
+	    {
+		    return parentResult.Value;
+	    }
+	    
+	    return 0.5;
+    }
 
-        var parentResult = Parent?.FemaleChance();
-        if (parentResult.HasValue)
-        {
-            return parentResult.Value;
-        }
-        return 0.5;
+    public bool RollFemale()
+    {
+        return Utility.RandomDouble() < FemaleChance();
     }
 
     public Race RandomRace()

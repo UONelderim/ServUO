@@ -41,6 +41,17 @@ namespace Nelderim.Races
 			RaceDefinitions.RegisterRace(race);
 		}
 
+		public static void Initialize()
+		{
+			EventSink.RaceChanged += OnRaceChanged;
+		}
+		
+		private static void OnRaceChanged(RaceChangedEventArgs e)
+		{
+			e.NewRace.MakeRandomAppearance(e.Mobile);
+			e.NewRace.AssignDefaultLanguages(e.Mobile);
+		}
+
 		public NRace(int raceId, int raceIndex) : base(raceId + NRaceOffset, raceIndex + NRaceOffset)
 		{
 		}

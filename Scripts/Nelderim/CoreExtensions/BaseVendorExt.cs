@@ -302,14 +302,19 @@ namespace Server.Mobiles
 		        }
 	        }
         }
-
-        protected override void OnCreate()
+        
+        public override void OnRegionChange(Region Old, Region New)
         {
-	        base.OnCreate();
-	        InitBody();
-	        InitOutfit();
+	        base.OnRegionChange(Old, New);
+	        NelderimRegionSystem.OnRegionChange(this, Old, New);
         }
         
+        protected override void OnCreate()
+		{
+	        base.OnCreate();
+	        InitOutfit();
+		}
+
         public override bool UseLanguages => true;
 	}
 }
