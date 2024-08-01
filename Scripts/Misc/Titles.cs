@@ -238,7 +238,7 @@ namespace Server.Misc
             
             if (beheld is PlayerMobile { RaceMod: not null } pm2)
 	            title.Append($" [{pm2.RaceMod}]");
-            else if (beheld.Race != null)
+            else if (beheld.Race != null && beheld.Race != Race.None)
 	            title.Append($" [{beheld.Race}]");
             
             return title.ToString();
