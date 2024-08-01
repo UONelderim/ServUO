@@ -43,7 +43,7 @@ namespace Server.Nelderim.Gumps
 		private static void OnLogin(LoginEventArgs e)
 		{
 			var m = e.Mobile;
-			if (m.RawStr < 10 && m.RawDex < 10 && m.RawInt < 10) //Not initialized
+			if (m.RawStr <= 10 && m.RawDex <= 10 && m.RawInt <= 10) //Not initialized
 			{
 				m.Frozen = true;
 				m.SendGump(new NewCharSetupGump(m));

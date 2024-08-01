@@ -43,7 +43,11 @@ namespace Server.Misc
 			{
 				EquipItem(m, new ElvenShirt(hue), true);
 			}
-			else if (m.Race == Race.Human)
+			else if (m.Race == Race.Gargoyle)
+			{
+				EquipItem(m, new GargishClothChestArmor(hue));
+			}
+			else
 			{
 				switch (Utility.Random(3))
 				{
@@ -58,10 +62,6 @@ namespace Server.Misc
 						break;
 				}
 			}
-			else if (m.Race == Race.Gargoyle)
-			{
-				EquipItem(m, new GargishClothChestArmor(hue));
-			}
 		}
 
 		private static void AddPants(Mobile m, int pantsHue)
@@ -72,7 +72,11 @@ namespace Server.Misc
 			{
 				EquipItem(m, new ElvenPants(hue), true);
 			}
-			else if (m.Race == Race.Human)
+			else if (m.Race == Race.Gargoyle)
+			{
+				EquipItem(m, new GargishClothKiltArmor(hue));
+			}
+			else
 			{
 				if (m.Female)
 				{
@@ -99,17 +103,13 @@ namespace Server.Misc
 					}
 				}
 			}
-			else if (m.Race == Race.Gargoyle)
-			{
-				EquipItem(m, new GargishClothKiltArmor(hue));
-			}
 		}
 
 		private static void AddShoes(Mobile m)
 		{
 			if (m.Race == Race.Elf)
 				EquipItem(m, new ElvenBoots(), true);
-			else if (m.Race == Race.Human)
+			else
 				EquipItem(m, new Shoes(Utility.RandomYellowHue()), true);
 		}
 
@@ -150,12 +150,7 @@ namespace Server.Misc
 			newChar.AccessLevel = args.Account.AccessLevel;
 			newChar.Female = args.Female;
 
-			var race = args.Race;
-
-			if (Core.Expansion < race.RequiredExpansion)
-			{
-				race = Race.DefaultRace;
-			}
+			var race = Race.None;
 
 			newChar.Race = race;
 
@@ -188,6 +183,7 @@ namespace Server.Misc
 			AddBackpack(newChar);
 
 			// SetStats(newChar, state, args.Stats, args.Profession);
+			newChar.InitStats(10, 10, 10); //So it can wear clothes
 			// SetSkills(newChar, args.Skills, args.Profession);
 
 			if (race.ValidateHair(newChar, args.HairID))
@@ -213,12 +209,9 @@ namespace Server.Misc
 				newChar.FaceHue = newChar.Hue;
 			}
 
-			if (args.Profession <= Profession.Blacksmith)
-			{
-				AddShirt(newChar, args.ShirtHue);
-				AddPants(newChar, args.PantsHue);
-				AddShoes(newChar);
-			}
+			AddShirt(newChar, args.ShirtHue);
+			AddPants(newChar, args.PantsHue);
+			AddShoes(newChar);
 
 			if (TestCenter.Enabled)
 				TestCenter.FillBankbox(newChar);
