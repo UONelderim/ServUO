@@ -459,7 +459,8 @@ namespace Server.Items
                 default:
                 case 0: special = new CreepingVine(); break;
                 case 1: special = new MessageInABottle(); break;
-                case 2: special = new ScrollOfAlacrity(PowerScroll.Skills[Utility.Random(PowerScroll.Skills.Count)]); break;
+                case 2: special = GetRandomRecipe(); break; // dodałem recepturę zamiast Scroll Of Alactiy //TODO: później zamienić na coś innego
+	                //ScrollOfAlacrity(PowerScroll.Skills[Utility.Random(PowerScroll.Skills.Count)]); break;
                 case 3: special = new Skeletonkey(); break;
                 case 4: special = new TastyTreat(5); break;
                 case 5: special = new TreasureMap(Utility.RandomMinMax(level, Math.Min(7, level + 1)), map); break;
