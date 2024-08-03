@@ -25,7 +25,7 @@ namespace Server.Engines.Quests.Hag
 
         public override void AddNameProperty(ObjectPropertyList list)
         {
-            list.Add("a charred corpse");
+            list.Add("zweglone cialo");
         }
 
         public override void Open(Mobile from, bool checkSelfLoot)

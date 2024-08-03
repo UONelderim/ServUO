@@ -8,7 +8,7 @@ namespace Server.Engines.Quests.Hag
     {
         [Constructable]
         public Grizelda()
-            : base("the Hag")
+            : base("- wiedzma")
         {
         }
 
