@@ -25,7 +25,7 @@ namespace Server.Engines.Quests.Hag
 
             Female = false;
             Body = 0x190;
-            Name = "Captain Blackheart";
+            Name = "Kapitan Blackheart";
         }
 
         public override void InitOutfit()
