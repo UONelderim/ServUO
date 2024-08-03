@@ -14,14 +14,14 @@ namespace Server.Mobiles
 			{
 				Race.NTamael, new List<Action>
 				{
-					m => m.Say("Dobre czasy nastały."),
+m => m.Say("Dobre czasy nastały."),
 					m => m.Say("On i tak nie był tego wart."),
 					m => m.Say("Psia krew..."),
 					m => m.Say("I co Ci do tego..."),
 					m => m.Say("Miłego dnia!"),
-					m => m.Say("Muszę kupic nowe meble..."),
+					m => m.Say("W najbliższe Sianokosy zjadłbym pieczonego kurczaka... biegał tu kiedyś jakiś."),
 					m => m.Say("Ulice wreszcie czyste, jak zimna żytnia!"),
-					m => m.Say("Chwała wiekiej Tasandorze!"),
+					m => m.Say("Chwała Państwu Tasandorskiemu!"),
 					m => m.Say("Podatki, podatki, więcej podatków. A płaca ta sama."),
 					m => m.Say("Ta straż ciągle tu tylko węszy."),
 					m => m.Say("Cholera... Znów braknie mi na opłaty..."),
@@ -32,7 +32,7 @@ namespace Server.Mobiles
 						m.Say("Teraz to dopiero będzie!");
 						m.Emote("*uśmiecha się delikatnie*");
 					},
-					m => m.Say("Sąsiad cholerny nowego konia sobie kupił... Ciekawe skąd ma na to pieniądze..."),
+					m => m.Say("Jadłem kiedyś w karczmie w Ferion, a później dwie doby spędziłem w wychodku..."),
 					m => m.Say("Tasandora dla Tamaeli!"),
 					m =>
 					{
@@ -41,11 +41,11 @@ namespace Server.Mobiles
 					},
 					m =>
 					{
-						m.Say("Przynieś, podaj, zanieś a co ja kurwa jestem...");
-						m.Emote("*Zagryza zęby w złości*");
+						m.Say("Dobrze, że Relikwia Pana znalazła się w naszej świątyni");
+						m.Emote("*wzdycha*");
 					},
 					m => m.Say("Tych Krasnali to powinni wypierdzielić na zbity pysk... Ochlejmordy cholerne"),
-					m => m.Say("Ten generał to wspaniały cżłowiek, przywódzca narodu."),
+					m => m.Say("Ten Soterios to jednak był dobry człek. A ten nekromanta... ahh zimny typ."),
 					m => m.Emote("*Śmieje sie rubasznie*"),
 					m => m.Emote("*Śpiewa pieśniczkę rozglądając sie w koło*"),
 					m => m.Emote("*Nuci pod nosem*"),
@@ -54,7 +54,7 @@ namespace Server.Mobiles
 					m => m.Say("Pięknie się żyje... lepiej być nie może."),
 					m =>
 					{
-						m.Say("Uważaj jak chodzisz!");
+						m.Say("Soterios to był narcyz, megaloman, skurwysyn i żądny absolutnej władzy, zły władzy, zły człowiek. Nie widzi nic poza końcem swojego nosa. Na pewno steruje ptaszyskami  ...");
 						m.Emote("*Wygraża sie pięścią*");
 					},
 					m => m.Say("A kim Ty kurwa jesteś że dajesz mi rade co..?"),
@@ -66,11 +66,11 @@ namespace Server.Mobiles
 					m => m.Say("Odejdź... Nie mam teraz czasu"),
 					m =>
 					{
-						m.Say("Krasnoludy jeszcze da sie przeżyć, ale te jarlińskie ścierwa...");
+						m.Say("Elfy wyniosły się z Tasandory? I bardzo kurwa dobrze...");
 						m.Emote("*Rzuca kamienień w złości*");
 					},
-					m => m.Say("Generał to może chuj... ale patriota"),
-					m => m.Say("Niech wypieprzają do siebie... a nie smrodzą nasze piękne miasto..."),
+					m => m.Say("Władca Tasandory - Griffith - może i nie jest tolerancyjny, ale za to mamy zadbane miasto"),
+					m => m.Say("Niech te Krasnale wypieprzają do siebie... a nie smrodzą nasze piękne miasto..."),
 				}
 			},
 			{
@@ -82,13 +82,13 @@ namespace Server.Mobiles
 						m.Say("No i tu też zaczynają wiać... tylko, że pustki");
 					},
 					m => m.Emote("*Podrzuca mały sztylecik w dłoni*"),
-					m => m.Say("Mam nadzieję, że jutro będzie lepsza pogoda."),
+					m => m.Say("Soterios to jednak miał rację... Te nekromanty do niczego się nie nadają..."),
 					m => m.Emote("*Patrzy podejrzliwie*"),
 					m => m.Say("Parszywe szczury..."),
 					m =>
 					{
 						m.Emote("*Mamrocze pod nosem*");
-						m.Say("...a ja i tak wiem, że to wina Krasnoludów...");
+						m.Say("Frozen to jednak władcą być nie umie. W Tasandorze, to jest dopiero życie!");
 					},
 					m =>
 					{
@@ -99,8 +99,8 @@ namespace Server.Mobiles
 						"Śnieg, mróz i srogie zimy... dziadek mi o nich opowiadał. Geriador usłany był płatkami śniegu."),
 					m =>
 					{
-						m.Emote("*Parska*");
-						m.Say("...i to niby ma nam pomóc? Jak?!");
+						m.Emote("*zerka w niebo*");
+						m.Say("Soterios to był narcyz, megaloman, skurwysyn i żądny absolutnej władzy, zły władzy, zły człowiek. Nie widzi nic poza końcem swojego nosa. Na pewno steruje ptaszyskami ...");
 					},
 					m => m.Say("Tamaele? A chuj im w dupę..."),
 					m => m.Emote("*Spluwa*"),
@@ -132,13 +132,13 @@ namespace Server.Mobiles
 					},
 					m => m.Say("Ty Psi synu..."),
 					m => m.Emote("*Przeciąga się*"),
-					m => m.Say("A skąd ja mam niby to wiedzieć?"),
+					m => m.Say("Dobrze, że Relikwia Pana znalazła się w naszej świątyni"),
 					m => m.Say("Żaden Jarling nie powinien się tu zapuszczać. Tu jest zbyt gorąco."),
-					m => m.Say("Śmierć Krasnoludom, śmierć Tamaelom"),
+					m => m.Say("Krasnoludy, ELfy, Tamaele... nie ma znaczenia z kim grywam w szachy... byle nie z Drowami..."),
 					m => m.Emote("*Podrzuca złotą monetę*"),
 					m => m.Emote("*Wybucha śmiechem*"),
 					m => m.Say(
-						"...i wtedy ja mu mówię 'Lepiej się cofnij'... i wiesz co? Cofnął się... Głupi Krasnal..."),
+						"...i wtedy ja mu mówię 'Lepiej się cofnij'... i wiesz co? Cofnął się... Głupi Elf..."),
 					m => m.Emote("*Wydmuchuje nos*"),
 					m => m.Say(
 						"...zioła... zaklęcia ...i.. tłuczek... miecza nie ma na tej liście? Jak ja mam niby walczyć?!"),
@@ -156,19 +156,18 @@ namespace Server.Mobiles
 					m =>
 					{
 						m.Emote("*Spogląda na niebo*");
-						m.Say("Karwasz barabasz...");
+						m.Say("Soterios to był narcyz, megaloman, skurwysyn i żądny absolutnej władzy, zły władzy, zły człowiek. Nie widzi nic poza końcem swojego nosa. Na pewno steruje ptaszyskami ...");
 					},
 					m =>
 					{
-						m.Say("Wina, wina, wina dajcie! A jak umre pochowajcie!");
-						m.Emote("*Śpiewa tańcząc i bawiąc się przy tym*");
+						m.Say("Jadłem kiedyś na mieście w Garlan, a później dwie doby spędziłem w wychodku...");
 					},
 					m =>
 					{
-						m.Say("Panie, ześlij mnie jeno buteleczke spirytusu");
-						m.Emote("*Składa ręce ku niebiosom*");
+						m.Say("Jest dobrze!");
+						m.Emote("*wskazuje kciuk i mówi lekko przepitym głosem*");
 					},
-					m => m.Say("Jak leziesz kurwisynu!"),
+					m => m.Say("Jadłem kiedyś w karczmie w Tafroel, a później dwie doby spędziłem w wychodku..."),
 					m =>
 					{
 						m.Say("Krasnal?! Który  to powiedział?! Cholerne wielkoludy!");
@@ -213,7 +212,7 @@ namespace Server.Mobiles
 					m => m.Say("Nie chce mi sie gadać... Idź już sobie"),
 					m => m.Say("Ci strażnicy to by mogli zacząć łapać kogo trzeba, a nie biednych mieszkańców męczą"),
 					m => m.Say(
-						"Póki Krasnoludy nie zaczną rządzić tym wypizdowiem to będzie tu ciągle te same gówno..."),
+						"Kumoterstwo to nie tylko piwo i tańce w karczmie..."),
 					m => m.Say("A idź do diabła pieprzony tamelski kurwisynu..."),
 					m => m.Emote("*Klnie pod nosem*"),
 					m =>
@@ -228,7 +227,7 @@ namespace Server.Mobiles
 						m.Emote("*Śmieje się gromko*");
 						m.Say("...Stare kurwy nie chcą zdychać");
 					},
-					m => m.Say("Była tam, przysięgam, bestia wielka jak dąb... no albo sosna"),
+					m => m.Say("Dobrze, że Relikwia Pana znalazła się w naszej świątyni"),
 					m => m.Say("Bez nas... to by te całe rycerzyki z gołymi dupskami biegały!"),
 					m => m.Say("Problem... Dobre sobie, w czarnej dupie kurwa jesteśmy a nie mamy problem..."),
 					m =>
@@ -237,6 +236,68 @@ namespace Server.Mobiles
 						m.Say("Cholerny kapuśniak... ugh");
 					}
 				}
+			},
+			{
+				Race.NDrow, new List<Action>
+				{
+					m => m.Say("Dobre czasy nastały. To wszystko dzięki Matronie."),
+					m => m.Say("On i tak nie był tego wart."),
+					m => m.Say("Na Loethe..."),
+					m => m.Say("I co Ci do tego..."),
+					m => m.Say("Podmrok dla Drowów, a reszta won!"),
+					m => m.Say("Zabiłbym jakiegoś naziemca."),
+					m => m.Say("Ulice wreszcie czyste! Chwała L'Delmah i Noamuth Quortek!"),
+					m => m.Say("Chwała L'Delmah, Chwała Loethe!"),
+					m => m.Say("Podatki, podatki, więcej podatków. A płaca ta sama."),
+					m => m.Say("Ehhhh..."),
+					m => m.Say("Cholera... Znów braknie mi na opłaty..."),
+					m => m.Say("Na Loethe... Co to?!"),
+					m => m.Say("Najważniejsze, że nic złego się nie stało."),
+					m =>
+					{
+						m.Say("Chwała Lotharn, Chwała Naneth!.... Eh... jebać Elfy!");
+						m.Emote("*śmiesznym głosem naśladuje Elfa w akompaniamencie bardzo zniewieściałych gestów*");
+					},
+					m => m.Say("Jadłem kiedyś w karczmie w Noamuth Quortek..."),
+					m => m.Say("Dzięki nam, Podmrok jest bezpieczny!"),
+					m =>
+					{
+						m.Say("Cholipka...");
+						m.Emote("*Rozgląda się powoli wzdychając*");
+					},
+				}
+				
+			},
+			{
+				Race.NElf, new List<Action>
+				{
+					m => m.Say("Dobre czasy nastały. Naneth niechaj błogosławi tę wyspę."),
+					m => m.Say("On i tak nie był tego wart."),
+					m => m.Say("Na Naneth..."),
+					m => m.Say("I co Ci do tego..."),
+					m => m.Say("Miłego dnia, mellon!"),
+					m => m.Say("W najbliższe Sianokosy zjadłbym coś z naszych lokalnych upraw..."),
+					m => m.Say("Ulice wreszcie czyste! Chwała Galadowi!"),
+					m => m.Say("Chwała Lotharn, Chwała Naneth!"),
+					m => m.Say("Podatki, podatki, więcej podatków. A płaca ta sama."),
+					m => m.Say("Ehhhh..."),
+					m => m.Say("Cholera... Znów braknie mi na opłaty..."),
+					m => m.Say("Na Naneth... Co to?!"),
+					m => m.Say("Najważniejsze, że nic złego się nie stało."),
+					m =>
+					{
+						m.Say("Teraz to dopiero będzie!");
+						m.Emote("*uśmiecha się delikatnie*");
+					},
+					m => m.Say("Jadłem kiedyś w karczmie w Ferion, a później dwie doby spędziłem w wychodku..."),
+					m => m.Say("Dzięki Elfom, Lotharn jest bezpieczne!"),
+					m =>
+					{
+						m.Say("Cholipka...");
+						m.Emote("*Rozgląda się powoli wzdychając*");
+					},
+				}
+				
 			}
 		};
 
