@@ -346,9 +346,9 @@ namespace Server.Items
 
             #region Gems
             if (level == 0)
-                count = 2;
+                count = 1; //bylo 2
             else
-                count = (level * 3) + 1;
+                count = (level * 1); //bylo count = (level * 3) + 1;
 
             for (int i = 0; i < count; i++)
             {
