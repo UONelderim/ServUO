@@ -3030,8 +3030,7 @@ namespace Server.Mobiles
 
                             if (master != null && master == from) //So friends can't start the bonding process
                             {
-                                if (m_CurrentTameSkill <= 29.1 || master.Skills[SkillName.AnimalTaming].Base >= m_CurrentTameSkill ||
-                                    OverrideBondingReqs() || (master.Skills[SkillName.AnimalTaming].Value >= m_CurrentTameSkill))
+                                if (CanStartBonding)
                                 {
                                     if (BondingBegin == DateTime.MinValue)
                                     {
@@ -3061,6 +3060,11 @@ namespace Server.Mobiles
             return false;
         }
         #endregion
+
+        public bool CanStartBonding => m_CurrentTameSkill <= 29.1 ||
+                                       m_ControlMaster.Skills[SkillName.AnimalTaming].Base >= m_CurrentTameSkill ||
+                                       OverrideBondingReqs() ||
+                                       (m_ControlMaster.Skills[SkillName.AnimalTaming].Value >= m_CurrentTameSkill);
 
         public virtual bool OverrideBondingReqs()
         {

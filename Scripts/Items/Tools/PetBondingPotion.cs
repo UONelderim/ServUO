@@ -5,7 +5,7 @@ namespace Server.Items
 {
     public class PetBondingPotion : Item
     {
-        public override int LabelNumber => 1152921;  // Pet Bonding Potion
+        public override int LabelNumber => 1152921;  // Wywar oswajacza
 
         [Constructable]
         public PetBondingPotion() : base(0x0F04)
@@ -13,10 +13,9 @@ namespace Server.Items
             Weight = 1.0;
             LootType = LootType.Blessed;
             Hue = 2629;
-            Name = "Wywar Oswajacza";
         }
 
-        public override void OnDoubleClick(Mobile from) // Override double click of the deed to call our target 
+        public override void OnDoubleClick(Mobile from)
         {
             if (!IsChildOf(from.Backpack))
             {
@@ -24,7 +23,7 @@ namespace Server.Items
             }
             else
             {
-                from.SendLocalizedMessage(1152922); // Target the pet you wish to bond with. Press ESC to cancel. This item is consumed on successful use, so choose wisely!
+                from.SendLocalizedMessage(1152922); // Wskaz zwierze do uwiernienia
                 from.Target = new BondingTarget(this);
             }
         }
@@ -48,48 +47,50 @@ namespace Server.Items
 
     public class BondingTarget : Target
     {
-        private readonly PetBondingPotion m_Potion;
+        private readonly Item m_Item;
 
-        public BondingTarget(PetBondingPotion potion) : base(1, false, TargetFlags.None)
+        public BondingTarget(Item item) : base(1, false, TargetFlags.None)
         {
-            m_Potion = potion;
+            m_Item = item;
         }
 
         protected override void OnTarget(Mobile from, object target)
         {
-            if (m_Potion == null || m_Potion.Deleted || !m_Potion.IsChildOf(from.Backpack))
+            if (m_Item == null || m_Item.Deleted || !m_Item.IsChildOf(from.Backpack))
                 return;
 
-            if (target is BaseCreature)
+            if (target is BaseCreature bc)
             {
-                BaseCreature t = (BaseCreature)target;
-
-                if (t.IsBonded == true)
+                if (bc.IsBonded)
                 {
-                    from.SendLocalizedMessage(1152925); // That pet is already bonded to you.
+                    from.SendLocalizedMessage(1152925); // To zwierze jest juz wierne
                 }
-                else if (t.ControlMaster != from)
+                else if (bc.ControlMaster != from)
                 {
-                    from.SendLocalizedMessage(1114368); // This is not your pet!
+                    from.SendLocalizedMessage(1114368); // To nie twoje zwierze!
                 }
-                else if (t.Allured || t.Summoned)
+                else if (bc.Allured || bc.Summoned)
                 {
-                    from.SendLocalizedMessage(1152924); // That is not a valid pet.
+                    from.SendLocalizedMessage(1152924); // Nie mozesz tego uwiernic.
                 }
                 else if (target is BaseTalismanSummon)
                 {
-                    from.SendLocalizedMessage(1152924); // That is not a valid pet.
+                    from.SendLocalizedMessage(1152924); // Nie mozesz tego uwiernic.
+                }
+                else if (!bc.CanStartBonding)
+                {
+	                from.SendLocalizedMessage(1075268); // Twoje zwierze nie bedzie ci wierne bez odpowiednich umiejetnosci.
                 }
                 else
                 {
-                    t.IsBonded = !t.IsBonded;
-                    from.SendLocalizedMessage(1049666); // Your pet has bonded with you!
-                    m_Potion.Delete();
+                    bc.IsBonded = true;
+                    from.SendLocalizedMessage(1049666); // Twoje zwierze jest ci teraz wierne!
+                    m_Item.Consume();
                 }
             }
             else
             {
-                from.SendLocalizedMessage(1152924);  // That is not a valid pet.
+                from.SendLocalizedMessage(1152924);  // Nie mozesz tego uwiernic.
             }
         }
     }
