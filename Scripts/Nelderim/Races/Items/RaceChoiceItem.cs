@@ -22,16 +22,21 @@ namespace Server.Items
 
 		public override void OnDoubleClick(Mobile from)
 		{
-			if (from.InRange(this.GetWorldLocation(), 2))
+			if (m_Race == null)
 			{
-				from.CloseGump(typeof(RaceChoiceGump));
-
-				if (m_Race != null)
-					from.SendGump(new RaceChoiceGump(from, m_Race));
+				from.SendMessage("Artefakt nie jest skonfigurowany poprawnie.");
+			}
+			if (!from.InRange(this.GetWorldLocation(), 2))
+			{
+				from.SendLocalizedMessage(500295); // Jestes za daleko, zeby to zrobic.
+			}
+			if (from.Faction == null || !from.Faction.IsFactionRace(m_Race))
+			{
+				from.SendMessage("Nie mozesz wybrac tej rasy.");
 			}
 			else
 			{
-				from.SendLocalizedMessage(500295); // Jestes za daleko, zeby to zrobic.
+				from.SendGump(new RaceChoiceGump(from, m_Race));
 			}
 		}
 

@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.JavaScript;
 using Nelderim;
 
 namespace Server.Nelderim
@@ -33,6 +35,10 @@ namespace Server.Nelderim
 		public abstract string Name { get; }
 		
 		public abstract Faction[] Enemies { get; }
+
+		public virtual Race[] Races => Array.Empty<Race>();
+
+		public bool IsFactionRace(Race race) => Races.Contains(race);
 
 		public bool IsEnemy(Mobile target)
 		{

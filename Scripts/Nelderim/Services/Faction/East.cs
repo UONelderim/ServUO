@@ -8,6 +8,8 @@ namespace Server.Nelderim
 		
 		public override string Name => "Wschod";
 
+		public override Race[] Races => new[] { Race.NTamael, Race.NKrasnolud, Race.NDrow };
+
 		public override Faction[] Enemies => new[] { West };
 	}
 }

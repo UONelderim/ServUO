@@ -217,6 +217,7 @@ namespace Server.Gumps
 		public RaceChoiceGump(Mobile from, Race race, int skinHue, int hairHue, int hairItemID, int facialHairItemID) :
 			base(40, 40)
 		{
+			from.CloseGump(typeof(RaceChoiceGump));
 			m_From = from;
 
 			if (!AllowAppearanceChange())
