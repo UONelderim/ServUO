@@ -28,13 +28,14 @@ public enum WarFlag
 public enum GuardMode
 {
     Default,
-    Spider
+    Spider,
+    Harmless,
 }
 
 public class BaseNelderimGuard : BaseCreature
 {
     private GuardType _Type;
-    private GuardMode _GuardMode = GuardMode.Default;
+    private GuardMode _GuardMode = GuardMode.Harmless;
     private string _RegionName;
     private WarFlag _Flag = WarFlag.None;
     private WarFlag _Enemy = WarFlag.None;
@@ -74,6 +75,7 @@ public class BaseNelderimGuard : BaseCreature
         return _GuardMode switch
         {
             GuardMode.Spider => IsEnemyOfSpider(m),
+            GuardMode.Harmless => false,
             _ => DefaultIsEnemy(m)
         };
     }
@@ -119,8 +121,15 @@ public class BaseNelderimGuard : BaseCreature
     {
         _Type = type;
         _RegionName = null;
-        Fame = 5000;
-        Karma = 5000;
+        // Make it somewhat resistant, so it doesn't die by accident before receiving properties and behaviour from region profile:
+        SetHits(500);
+        SetDamage(1);
+        SetSkill(SkillName.Wrestling, 90);
+        SetResistance(ResistanceType.Physical, 45);
+        SetResistance(ResistanceType.Fire, 45);
+        SetResistance(ResistanceType.Cold, 45);
+        SetResistance(ResistanceType.Poison, 45);
+        SetResistance(ResistanceType.Energy, 45);
         
         SetWeaponAbility(WeaponAbility.Dismount);
         SetWeaponAbility(WeaponAbility.BleedAttack);
