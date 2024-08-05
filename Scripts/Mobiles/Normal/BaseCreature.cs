@@ -2985,45 +2985,68 @@ namespace Server.Mobiles
         {
             if (!IsDeadPet && Controlled && (ControlMaster == from || IsPetFriend(from)))
             {
-                Item f = dropped;
-
-                if (CheckFoodPreference(f))
+                if (CheckFoodPreference(dropped))
                 {
-                    int amount = f.Amount;
-
-                    if (amount > 0)
+                    if (dropped.Amount > 0)
                     {
-                        bool happier = false;
-
-                        int stamGain;
-
-                        if (f is Gold)
+                        var happier = false;
+                        var foodForStamina = 0;
+                        var reqStam = StamMax - Stam;
+                        if (reqStam > 0)
                         {
-                            stamGain = amount - 50;
+	                        double stamPerFood = dropped is Gold ? 1 : 15;
+	                        
+	                        var stamGain = (int)Math.Round(stamPerFood * dropped.Amount - 50);
+	                        foodForStamina = dropped.Amount;
+	                        
+	                        if (stamGain > reqStam)
+	                        {
+		                        stamGain = reqStam;
+		                        foodForStamina = (int)Math.Ceiling((stamGain + 50) / stamPerFood);
+	                        }
+	                        if (stamGain > 0)
+	                        {
+		                        Stam += stamGain;
+	                        }
+                        }
+
+                        var reqLoyalty = MaxLoyalty - m_Loyalty;
+                        var foodForLoyalty = 0;
+                        if (reqLoyalty > 0)
+                        {
+	                        var loyaltyPerFood = 10.0;
+	                        
+	                        var loyaltyGain = (int)Math.Round(loyaltyPerFood * dropped.Amount);
+	                        foodForLoyalty = dropped.Amount;
+	                        if (loyaltyGain > reqLoyalty)
+	                        {
+		                        loyaltyGain = reqLoyalty;
+		                        foodForLoyalty = (int)Math.Ceiling(reqLoyalty / loyaltyPerFood);
+	                        }
+	                        if (loyaltyGain > 0)
+	                        {
+		                        m_Loyalty += loyaltyGain;
+		                        happier = true;
+	                        }
+                        }
+
+                        var consumedAmount = foodForLoyalty > foodForStamina ? foodForLoyalty : foodForStamina;
+
+                        if (consumedAmount > 0)
+                        {
+	                        dropped.Consume(consumedAmount);
+	                        Animate(AnimationType.Eat, 0);
                         }
                         else
                         {
-                            stamGain = (amount * 15) - 50;
-                        }
-
-                        if (stamGain > 0)
-                        {
-                            Stam += stamGain;
-                        }
-
-                        if (m_Loyalty < MaxLoyalty)
-                        {
-                            m_Loyalty = MaxLoyalty;
-                            happier = true;
+	                        from.SendMessage("To zwierze nie jest glodne");
                         }
 
                         if (happier)
                         {
                             SayTo(from, 502060); // Your pet looks happier.
                         }
-
-                        Animate(AnimationType.Eat, 0);
-
+                        
                         if (IsBondable && !IsBonded)
                         {
                             Mobile master = m_ControlMaster;
@@ -3050,9 +3073,7 @@ namespace Server.Mobiles
                                 }
                             }
                         }
-
-                        dropped.Delete();
-                        return true;
+                        return false;
                     }
                 }
             }
@@ -3112,10 +3133,10 @@ namespace Server.Mobiles
                 return true;
             }
 
-            if (!canDrop)
-            {
-                PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1043257, from.NetState); // The animal shies away.
-            }
+            // if (!canDrop)
+            // {
+                // PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1043257, from.NetState); // The animal shies away.
+            // }
 
             return canDrop;
         }
