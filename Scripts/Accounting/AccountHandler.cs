@@ -103,6 +103,7 @@ namespace Server.Misc
 			EventSink.GameLogin += EventSink_GameLogin;
 
 			CommandSystem.Register("Password", AccessLevel.Player, Password_OnCommand);
+			CommandSystem.Register("Haslo", AccessLevel.Player, Password_OnCommand);
 		}
 
 		[Usage("Password <newPassword> <repeatPassword>")]
@@ -130,13 +131,13 @@ namespace Server.Misc
 
 			if (e.Length == 0)
 			{
-				from.SendMessage("You must specify the new password.");
+				from.SendMessage("Musisz podac nowe haslo.");
 				return;
 			}
-			else if (e.Length == 1)
+			if (e.Length == 1)
 			{
-				from.SendMessage("To prevent potential typing mistakes, you must type the password twice. Use the format:");
-				from.SendMessage("Password \"(newPassword)\" \"(repeated)\"");
+				from.SendMessage("Aby zmienic haslo musisz podac nowe i je powtorzyc. Uzyj komendy wedlug przykladu:");
+				from.SendMessage("[Haslo \"(noweHaslo)\" \"(powtorzHaslo)\"");
 				return;
 			}
 
@@ -145,7 +146,7 @@ namespace Server.Misc
 
 			if (pass != pass2)
 			{
-				from.SendMessage("The passwords do not match.");
+				from.SendMessage("Podane hasla nie pasuja do siebie.");
 				return;
 			}
 
@@ -156,7 +157,7 @@ namespace Server.Misc
 
 			if (!isSafe)
 			{
-				from.SendMessage("That is not a valid password.");
+				from.SendMessage("Haslo jest niepoprawne.");
 				return;
 			}
 
@@ -167,7 +168,8 @@ namespace Server.Misc
 				if (Utility.IPMatchClassC(accessList[0], ipAddress))
 				{
 					acct.SetPassword(pass);
-					from.SendMessage("The password to your account has changed.");
+					from.SendMessage("Haslo do twojego konta zostalo zmienione.");
+					CommandLogging.WriteLine(from, "{0} {1} changing password of account {2}", from.AccessLevel, CommandLogging.Format(from), acct.Username);
 				}
 				else
 				{
