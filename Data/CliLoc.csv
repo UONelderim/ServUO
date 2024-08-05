@@ -46154,7 +46154,7 @@ Number;Text
 1075265;Amunicja: ~1_QUANTITY~/~2_CAPACITY~ strzal 
 1075266;Amunicja: ~1_QUANTITY~/~2_CAPACITY~ beltow 
 1075267;Player is already in jail. 
-1075268;Your pet cannot form a bond with you until your animal taming ability has risen. 
+1075268;Twoje zwierze nie bedzie ci wierne bez odpowiednich umiejetnosci. 
 1075269;Destroyed when dropped 
 1075270;That ship is not in a valid recall location. 
 1075271;You cannot lock down this item because it was automatically locked down when placed. 
@@ -71078,7 +71078,7 @@ Number;Text
 1114365;I don't think that player would appreciate that. Good try though. 
 1114366;This is not a tame creature. 
 1114367;You cannot dye dead pets. 
-1114368;This is not your pet! 
+1114368;To nie twoje zwierze! 
 1114369;This seed has already been identified. 
 1114370;Short Term Murders: ~1_SHORT~ Long Term Murders: ~2_LONG~ 
 1114371;You may not honor someone whose karma is locked. 
@@ -109536,11 +109536,11 @@ Number;Text
 1152918;random slayer 
 1152919;random damage eater ~1_val~% 
 1152920;Metallic Cloth Dye Tub 
-1152921;Pet Bonding Potion 
-1152922;Target the pet you wish to bond with. Press ESC to cancel. This item is consumed on successful use, so choose wisely! 
-1152923;Pet bonding canceled. 
-1152924;That is not a valid pet. 
-1152925;That pet is already bonded to you. 
+1152921;Wywar oswajacza
+1152922;Wskaz zwierze do uwiernienia.
+1152923;Uwiernianie anulowane
+1152924;Nie mozesz tego uwiernic. 
+1152925;To zwierze jest juz wierne. 
 1152926;The City thanks you for your generosity! 
 1152927;Your generosity is appreciated but the City does not require this item. 
 1152928;If you wish to donate to the City simply drop the items into the crate. 

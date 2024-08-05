@@ -1,13 +1,6 @@
-#region References
-
-using Server.Mobiles;
-using Server.Targeting;
-
-#endregion
-
 namespace Server.Items
 {
-	public class PetBondingDeed : Item // Create the item class which is derived from the base item class 
+	public class PetBondingDeed : Item
 	{
 		[Constructable]
 		public PetBondingDeed() : base(0x14F0)
@@ -37,66 +30,18 @@ namespace Server.Items
 			int version = reader.ReadInt();
 		}
 
-		public override bool DisplayLootType { get { return false; } }
+		public override bool DisplayLootType => false;
 
-		public override void OnDoubleClick(Mobile from) // Override double click of the deed to call our target 
+		public override void OnDoubleClick(Mobile from)
 		{
-			if (!IsChildOf(from.Backpack)) // Make sure its in their pack 
+			if (!IsChildOf(from.Backpack))
 			{
 				from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it. 
 			}
 			else
 			{
-				from.SendMessage("Choose the pet you wish to bond with.");
-				from.Target = new BondingDeedTarget(this); // Call our target 
-			}
-		}
-	}
-
-	public class BondingDeedTarget : Target
-	{
-		private readonly PetBondingDeed m_Deed;
-
-		public BondingDeedTarget(PetBondingDeed deed) : base(1, false, TargetFlags.None)
-		{
-			m_Deed = deed;
-		}
-
-		protected override void OnTarget(Mobile from, object target)
-		{
-			if (m_Deed == null || m_Deed.Deleted || !m_Deed.IsChildOf(from.Backpack))
-				return;
-
-			if (target is BaseCreature)
-			{
-				BaseCreature t = (BaseCreature)target;
-
-				if (t.IsBonded)
-				{
-					from.SendLocalizedMessage(1152925); // That pet is already bonded to you.
-				}
-				else if (t.ControlMaster != from)
-				{
-					from.SendLocalizedMessage(1114368); // This is not your pet!
-				}
-				else if (t.Allured || t.Summoned)
-				{
-					from.SendLocalizedMessage(1152924); // That is not a valid pet.
-				}
-				else if (target is BaseTalismanSummon)
-				{
-					from.SendLocalizedMessage(1152924); // That is not a valid pet.
-				}
-				else
-				{
-					t.IsBonded = !t.IsBonded;
-					from.SendLocalizedMessage(1049666); // Your pet has bonded with you!
-					m_Deed.Delete();
-				}
-			}
-			else
-			{
-				from.SendLocalizedMessage(1152924); // That is not a valid pet.
+				from.SendLocalizedMessage(1152922); // Wskaz zwierze do uwiernienia
+				from.Target = new BondingTarget(this); // Call our target 
 			}
 		}
 	}
