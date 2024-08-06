@@ -166,8 +166,8 @@ namespace Server.Engines.Harvest
             sand.MaxRange = 2;
 
             // One sand per harvest action
-            sand.ConsumedPerHarvest = 1;
-            sand.ConsumedPerFeluccaHarvest = 1;
+            sand.ConsumedPerHarvest = 3;
+            sand.ConsumedPerFeluccaHarvest = 3;
 
             // The digging effect
             sand.EffectActions = new[]{ 11 };
