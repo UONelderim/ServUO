@@ -89,7 +89,7 @@ namespace Server.Items
 
         [Constructable]
         public SOS()
-            : this(Map.Trammel)
+            : this(Map.Felucca) //bylo Trammel
         {
         }
 
@@ -220,7 +220,7 @@ namespace Server.Items
 
             Rectangle2D[] regions;
 
-            if (map == Map.Felucca || map == Map.Trammel)
+            if (map == Map.Felucca /*|| map == Map.Trammel*/)
                 regions = m_BritRegions;
             /*else if (map == Map.Ilshenar)
                 regions = m_IlshRegions;

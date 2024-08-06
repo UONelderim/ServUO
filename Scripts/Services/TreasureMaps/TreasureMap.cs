@@ -430,7 +430,7 @@ namespace Server.Items
             int x = 0;
             int y = 0;
 
-            if (map == Map.Trammel || map == Map.Felucca)
+            if (/*map == Map.Trammel ||*/ map == Map.Felucca)
                 recs = m_FelTramWrap;
             else if (map == Map.Tokuno)
                 recs = m_TokunoWrap;
@@ -529,7 +529,7 @@ namespace Server.Items
 
         public void GetWidthAndHeight(Map map, out int width, out int height)
         {
-            if (map == Map.Trammel || map == Map.Felucca)
+            if (/*map == Map.Trammel ||*/ map == Map.Felucca)
             {
                 width = 600;
                 height = 600;
@@ -556,7 +556,7 @@ namespace Server.Items
             x2 = x1 + width;
             y2 = y1 + height;
 
-            if (map == Map.Trammel || map == Map.Felucca)
+            if (/*map == Map.Trammel ||*/ map == Map.Felucca)
             {
                 if (x2 >= 5120)
                     x2 = 5119;
@@ -655,7 +655,7 @@ namespace Server.Items
         {
             Type[][] spawns;
 
-            if (map == Map.Trammel || map == Map.Felucca)
+            if (/*map == Map.Trammel ||*/ map == Map.Felucca)
                 spawns = m_SpawnTypes;
             else if (map == Map.Tokuno)
                 spawns = m_TokunoSpawnTypes;
@@ -1002,13 +1002,13 @@ namespace Server.Items
 
             switch (facet)
             {
-                case TreasureFacet.Trammel: list.Add(1041503); break;
+                //case TreasureFacet.Trammel: list.Add(1041503); break;
                 case TreasureFacet.Felucca: list.Add(1041502); break;
-                case TreasureFacet.Ilshenar: list.Add(1060850); break;
+              /*  case TreasureFacet.Ilshenar: list.Add(1060850); break;
                 case TreasureFacet.Malas: list.Add(1060851); break;
                 case TreasureFacet.Tokuno: list.Add(1115645); break;
                 case TreasureFacet.TerMur: list.Add(1115646); break;
-                case TreasureFacet.Eodon: list.Add(1158985); break;
+                case TreasureFacet.Eodon: list.Add(1158985); break;*/
             }
 
             if (m_Completed)
