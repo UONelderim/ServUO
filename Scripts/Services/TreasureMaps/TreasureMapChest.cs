@@ -205,10 +205,10 @@ namespace Server.Items
                 {
                     switch (level)
                     {
-                        default: count = 20; break;
+                        default: count = 10; break; //bylo 20
                         case 0:
-                        case 1: count = Utility.RandomMinMax(2, 5); break;
-                        case 2: count = Utility.RandomMinMax(10, 15); break;
+                        case 1: count = Utility.RandomMinMax(1, 3); break; //bylo 2-5
+                        case 2: count = Utility.RandomMinMax(5, 7); break; // bylo 10-15
                     }
                 }
                 else
