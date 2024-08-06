@@ -221,7 +221,7 @@ namespace Server.Items
                 #endregion
 
                 #region Magical Items
-                double propsScale = 1.0;
+                double propsScale = 1.5; //bylo 1.0
 
                 switch (level)
                 {
