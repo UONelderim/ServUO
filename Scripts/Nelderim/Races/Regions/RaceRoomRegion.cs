@@ -52,6 +52,11 @@ namespace Server.Regions
 					m.SendGump(new FactionSelectGump(m));
 				}
 			}
+
+			if (m_Room == RaceRoomType.Teleport)
+			{
+				ProfileSetupGump.Apply(m);
+			}
 		}
 
 		public override void OnExit(Mobile m)
