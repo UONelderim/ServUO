@@ -40,6 +40,9 @@ namespace Server.Misc
 
 		[ConfigProperty("Accounts.PasswordCommandEnabled")]
 		public static bool PasswordCommandEnabled { get => Config.Get("Accounts.PasswordCommandEnabled", false); set => Config.Set("Accounts.PasswordCommandEnabled", value); }
+		
+		[ConfigProperty("Accounts.PasswordCommandIPCheck")]
+		public static bool PasswordCommandIPCheck { get => Config.Get("Accounts.PasswordCommandIPCheck", false); set => Config.Set("Accounts.PasswordCommandIPCheck", value); }
 
 		public static CityInfo[] StartingCities = new CityInfo[]
 		{
@@ -165,7 +168,7 @@ namespace Server.Misc
 			{
 				var ipAddress = ns.Address;
 
-				if (Utility.IPMatchClassC(accessList[0], ipAddress))
+				if (!PasswordCommandIPCheck || Utility.IPMatchClassC(accessList[0], ipAddress))
 				{
 					acct.SetPassword(pass);
 					from.SendMessage("Haslo do twojego konta zostalo zmienione.");
