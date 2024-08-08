@@ -100,8 +100,8 @@ namespace Server.Items
 			{
 				pet.BardingExceptional = Exceptional;
 				pet.BardingCrafter = Crafter;
-				pet.BardingHP = pet.BardingMaxHP;
 				pet.BardingResource = Resource;
+				pet.BardingHP = pet.BardingMaxHP;
 				pet.HasBarding = true;
 
 				Delete();
