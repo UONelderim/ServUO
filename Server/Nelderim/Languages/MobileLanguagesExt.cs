@@ -47,11 +47,11 @@ namespace Server
 						var translated = ShouldTranslate(type) ? Translate.Combine(translationResult, this, mobile) : text;
 						if (ascii)
 						{
-							p = new AsciiMessage(Serial, Body, type, hue, 3, Name, translated);
+							p = new AsciiMessage(Serial, Body, type, hue, 3, NGetName(mobile), translated);
 						}
 						else
 						{
-							p = new UnicodeMessage(Serial, Body, type, hue, 3, m_Language, Name, translated);
+							p = new UnicodeMessage(Serial, Body, type, hue, 3, m_Language, NGetName(mobile), translated);
 						}
 
 						p.Acquire();
