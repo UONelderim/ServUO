@@ -10,8 +10,8 @@ namespace Server.Mobiles
     {
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
 
-	        public BaseGuildmaster(string sufffix)
-		        : base($"- mistrz gildii {sufffix}")
+	        public BaseGuildmaster(string suffix)
+		        : base($"- mistrz gildii {suffix}")
 	        {
 	        }
 
@@ -164,6 +164,12 @@ namespace Server.Mobiles
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
+        }
+
+        public override void OnGenderChanged(bool oldFemale)
+        {
+	        Title = oldFemale ? Title.Replace("- mistrzyni", "- mistrz") : Title.Replace("- mistrz", "- mistrzyni");
+	        base.OnGenderChanged(oldFemale);
         }
     }
 }
