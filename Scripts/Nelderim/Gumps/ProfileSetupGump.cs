@@ -15,7 +15,7 @@ namespace Server.Nelderim.Gumps
 		public static void Apply(Mobile m)
 		{
 			m.CloseGump<ProfileSetupGump>();
-			if (m.Region is not RaceRoomRegion)
+			if (m.IsStaff() || m.Region is not RaceRoomRegion)
 				return;
 			
 			if (m.Profile == null || m.Profile.Trim().Length < 50 )

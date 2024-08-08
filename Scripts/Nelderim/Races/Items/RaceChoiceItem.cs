@@ -30,7 +30,7 @@ namespace Server.Items
 			{
 				from.SendLocalizedMessage(500295); // Jestes za daleko, zeby to zrobic.
 			}
-			if (from.Faction == null || !from.Faction.IsFactionRace(m_Race))
+			if (from.IsPlayer() && (from.Faction == null || !from.Faction.IsFactionRace(m_Race)))
 			{
 				from.SendMessage("Nie mozesz wybrac tej rasy.");
 			}
