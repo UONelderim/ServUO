@@ -3058,6 +3058,7 @@ namespace Server.Mobiles
                                     if (BondingBegin == DateTime.MinValue)
                                     {
                                         BondingBegin = DateTime.UtcNow;
+                                        from.SendLocalizedMessage( 1005008 ); // Zwierze zaczyna sie do Ciebie przywiazywac.
                                     }
                                     else if ((BondingBegin + BondingDelay) <= DateTime.UtcNow)
                                     {
