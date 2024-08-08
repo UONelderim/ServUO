@@ -18,10 +18,11 @@ namespace Server.Nelderim.Gumps
 			if (m.Region is not RaceRoomRegion)
 				return;
 			
-			if (m.Profile.Trim().Length < 50 )
+			if (m.Profile == null || m.Profile.Trim().Length < 50 )
 			{
 				m.Frozen = true;
-				if(m.Profile.Trim().Length == 0)
+				if(m.Profile == null || m.Profile.Trim().Length == 0)
+					
 					m.Profile = "...";
 				m.SendGump(new ProfileSetupGump(m));
 			}
