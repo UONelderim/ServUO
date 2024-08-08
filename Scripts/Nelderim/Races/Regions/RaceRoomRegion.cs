@@ -47,7 +47,7 @@ namespace Server.Regions
 
 			if (m.IsPlayer() && m.Account is Account a)
 			{
-				if (a.Faction == Faction.None)
+				if (a.Faction == null || a.Faction == Faction.None)
 				{
 					m.SendGump(new FactionSelectGump(m));
 				}
