@@ -17,6 +17,18 @@ namespace Server.Mobiles
 			return BasePrice * PowerScrollPrice(value) * 2;
 		}
 		
+		private static string GetName(int powerLevel)
+		{
+			return powerLevel switch
+			{
+				105 => "Wspanialy Zwoj (105 umiejetnosci)",
+				110 => "Idealny Zwoj (110 umiejetnosci)",
+				115 => "Mityczny Zwoj (115 umiejetnosci)",
+				120 => "Legendarny Zwoj (120 umiejetnosci)",
+				_ => "Invalid item"
+			};
+		}
+		
 		private static int PowerScrollPrice(double psValue)
 		{
 			return psValue switch
@@ -46,6 +58,16 @@ namespace Server.Mobiles
 			{
 				powerScroll.Value = _powerLevel;
 				powerScroll.Skill = Utility.RandomList(allowedSkills);
+			}
+			
+			public override IEntity GetEntity()
+			{
+				return new Item //Just a dummy to hack in the name
+				{
+					ItemID = 0x14F0,
+					Hue = 0x481,
+					Name = GetName(_powerLevel)
+				};
 			}
 		}
 		
