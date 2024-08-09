@@ -328,15 +328,15 @@ namespace Server.Items
             {
                 switch (level)
                 {
-                    default: count = Utility.RandomMinMax(45, 60); break;
+                    default: count = Utility.RandomMinMax(25, 30); break; //bylo 45, 60)
                     case 0:
-                    case 1: count = Utility.RandomMinMax(15, 20); break;
-                    case 2: count = Utility.RandomMinMax(25, 40); break;
+                    case 1: count = Utility.RandomMinMax(5, 10); break; //bylo (15, 20)
+                    case 2: count = Utility.RandomMinMax(10, 20); break; //bylo (25, 40)
                 }
             }
             else
             {
-                count = level == 0 ? 12 : Utility.RandomMinMax(40, 60) * (level + 1);
+                count = level == 0 ? 12 : Utility.RandomMinMax(40, 60) * (level + 1); //bylo (40, 60)
             }
 
             for (int i = 0; i < count; i++)
