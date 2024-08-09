@@ -197,7 +197,7 @@ namespace Server.Items
 
                 #region Gold
                 //cont.DropItem(new Gold(isSos ? level * 10000 : level * 5000)); //tak bylo
-                cont.DropItem(new Gold(isSos ? level * 500 : level * 1000));
+                cont.DropItem(new Gold(isSos ? level * 50 : level * 100));
                 #endregion
 
                 #region Scrolls
