@@ -576,7 +576,7 @@ namespace Server.Items
                 null, // ilsh
                 new Type[] { typeof(LuminescentFungi), typeof(BarkFragment), typeof(Blight), typeof(Corruption), typeof(Muculent), typeof(Putrefaction), typeof(Scourge), typeof(Taint)  }, // malas
                 null, // tokuno
-                TreasureMapChest.ImbuingIngreds, // ter
+                //TreasureMapChest.ImbuingIngreds, // ter
                 null, // eodon
             };
 
