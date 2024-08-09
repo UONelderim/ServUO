@@ -74,17 +74,17 @@ namespace Server.Engines.PartySystem
 
 				if (p == null)
 				{
-					from.SendMessage("They are not in a party.");
+					from.SendMessage("Nie jestes w druzynie.");
 				}
 				else if (p.m_Listeners.Contains(from))
 				{
 					p.m_Listeners.Remove(from);
-					from.SendMessage("You are no longer listening to that party.");
+					from.SendMessage("Juz nie sluchasz tej druzyny.");
 				}
 				else
 				{
 					p.m_Listeners.Add(from);
-					from.SendMessage("You are now listening to that party.");
+					from.SendMessage("Teraz sluchasz tej druzyny.");
 				}
 			}
 		}
