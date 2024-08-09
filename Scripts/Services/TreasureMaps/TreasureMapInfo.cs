@@ -338,9 +338,9 @@ namespace Server.Items
 
             switch (quality)
             {
-                case ChestQuality.Rusty: baseAmount = 7; break;
-                case ChestQuality.Standard: baseAmount = Utility.RandomBool() ? 7 : 9; break;
-                case ChestQuality.Gold: baseAmount = Utility.RandomList(7, 9, 11); break;
+                case ChestQuality.Rusty: baseAmount = 2; break; //bylo 7
+                case ChestQuality.Standard: baseAmount = Utility.RandomBool() ? 2 : 4; break; // bylo 7 : 9
+                case ChestQuality.Gold: baseAmount = Utility.RandomList(2, 4, 6); break;  //bylo (7, 9, 11)
             }
 
             return baseAmount + ((int)level * 5);
