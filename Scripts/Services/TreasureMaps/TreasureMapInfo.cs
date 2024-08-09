@@ -855,8 +855,8 @@ namespace Server.Items
                         switch (random.Item1)
                         {
                             case 1: chest.DropItem(new ScrollOfTranscendence(random.Item2, Utility.RandomMinMax(1.0, chest.Map == Map.Felucca ? 7.0 : 5.0) / 10)); break;
-                            case 2: chest.DropItem(new ScrollOfAlacrity(random.Item2)); break;
-                            case 3: chest.DropItem(new PowerScroll(random.Item2, 110.0)); break;
+                           // case 2: chest.DropItem(new ScrollOfAlacrity(random.Item2)); break;
+                            case 2: chest.DropItem(new PowerScroll(random.Item2, 110.0)); break;
                         }
                     }
                 }
