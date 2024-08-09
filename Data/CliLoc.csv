@@ -115620,11 +115620,11 @@ Number;Text
 1159006;<center>disarm the trap</center> 
 1159007;Attempt to discern the next node 
 1159008;To wydaje sie byc zablokowane. Uzyj umiejetnosci Rozbrajanie Pulapek, by podjac probe rozbrojenia pulapki zabezpieczajacej skrzynie... 
-1159009;You successfully disarm the trap! 
+1159009;*rozbrajanie pulapki zakonczylo sie sukcesem*  
 1159010;That is not your chest! 
-1159011;Recovered from the Shipwreck of ~1_NAME~ 
-1159012;You failed your attempt to disarm the trap! 
-1159013;You fail to disarm the trap and reset it. 
+1159011;Pozyskane z wraku ~1_NAME~ 
+1159012;*nie udaje sie rozbroic pupaki* 
+1159013;*nie udalo sie rozbroic pulapki i restartujesz ja*  
 1159014;Circuit Trap Training Kit 
 1159015;Cylinder Trap Training Kit 
 1159016;Slider Trap Training Kit 

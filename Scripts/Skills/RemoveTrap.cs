@@ -65,11 +65,11 @@ namespace Server.SkillHandlers
                     {
                         TreasureMapChest tChest = (TreasureMapChest)targ;
 
-                        if (tChest.Owner != from)
+                      /*  if (tChest.Owner != from)
                         {
                             from.SendLocalizedMessage(1159010); // That is not your chest!
                         }
-                        else if (IsDisarming(from, tChest))
+                        else*/ if (IsDisarming(from, tChest))
                         {
                             from.SendLocalizedMessage(1159059); // You are already manipulating the trigger mechanism...
                         }
