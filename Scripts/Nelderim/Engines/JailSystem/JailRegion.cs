@@ -1,6 +1,7 @@
 #region References
 
 using System.Xml;
+using Server.Nelderim.Gumps;
 
 #endregion
 
@@ -36,6 +37,7 @@ namespace Server.Regions
 		public override void OnEnter(Mobile m)
 		{
 			m.SendLocalizedMessage(505611, "wiezienia"); // Wkroczyles na teren ~1_NAME~
+			ProfileSetupGump.Check(m);
 		}
 
 		public override void OnExit(Mobile m)

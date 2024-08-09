@@ -55,7 +55,7 @@ namespace Server.Regions
 
 			if (m_Room == RaceRoomType.Teleport)
 			{
-				ProfileSetupGump.Apply(m);
+				ProfileSetupGump.Check(m, true);
 			}
 		}
 
