@@ -351,11 +351,11 @@ namespace Server.Items
             switch (level)
             {
                 default:
-                case TreasureLevel.Stash: return Utility.RandomMinMax(10000, 40000);
-                case TreasureLevel.Supply: return Utility.RandomMinMax(20000, 50000);
-                case TreasureLevel.Cache: return Utility.RandomMinMax(30000, 60000);
-                case TreasureLevel.Hoard: return Utility.RandomMinMax(40000, 70000);
-                case TreasureLevel.Trove: return Utility.RandomMinMax(50000, 70000);
+                case TreasureLevel.Stash: return Utility.RandomMinMax(1000, 4000);
+                case TreasureLevel.Supply: return Utility.RandomMinMax(2000, 5000);
+                case TreasureLevel.Cache: return Utility.RandomMinMax(3000, 6000);
+                case TreasureLevel.Hoard: return Utility.RandomMinMax(4000, 7000);
+                case TreasureLevel.Trove: return Utility.RandomMinMax(5000, 7000);
             }
         }
 
