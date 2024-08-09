@@ -44,6 +44,9 @@ namespace Server.Items
 		
 		public static Item GetRandomArtifact(ArtGroup group)
 		{
+			if (group == ArtGroup.None)
+				return Loot.Construct(Utility.RandomList(_AllArtifactsCurrentSeason));
+			
 			if (_Artifacts.TryGetValue(group, out var groupArtifacts))
 			{
 				if (groupArtifacts.TryGetValue(_CurrentSeason, out var seasonArtifacts))

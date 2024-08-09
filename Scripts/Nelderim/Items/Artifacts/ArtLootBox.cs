@@ -55,7 +55,9 @@ namespace Server
 				return;
 			}
 
-			from.AddToBackpack(ArtifactHelper.GetRandomArtifact(_LootType));
+			var artifact = ArtifactHelper.GetRandomArtifact(_LootType);
+			from.AddToBackpack(artifact);
+			from.SendMessage($"Skrzynia Artefaktu zawierała {artifact.Name ?? artifact.GetType().Name}");
 			Delete();
 
 			base.OnDoubleClick(from);
