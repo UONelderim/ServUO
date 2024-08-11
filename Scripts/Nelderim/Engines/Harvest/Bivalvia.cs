@@ -133,13 +133,13 @@ namespace Server.Engines.Harvest
 
 			if (from.Mounted)
 			{
-				from.SendLocalizedMessage(1071120); // Nie mozesz wykonywac tej czynnosci bedac konno!
+				from.SendLocalizedMessage(1072018); // Nie mozesz wykonywac tej czynnosci bedac konno!
 				return false;
 			}
 
 			if (from.IsBodyMod && !from.Body.IsHuman)
 			{
-				from.SendLocalizedMessage(1071121); // Musisz przybrac ludzka forme, aby moc wykonac ta czynnosc!
+				from.SendLocalizedMessage(1072019); // Musisz przybrac ludzka forme, aby moc wykonac ta czynnosc!
 				return false;
 			}
 
