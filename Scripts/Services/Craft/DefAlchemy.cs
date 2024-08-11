@@ -247,6 +247,24 @@ namespace Server.Engines.Craft
 
             index = AddCraft(typeof(GreaterConfusionBlastPotion), 1116351, 1072109, 70.0, 120.0, typeof(Bottle), 1044529, 1, 500315);
             AddRes(index, typeof(PigIron), 1023978, 10, 1044253);
+            
+            index = AddCraft(typeof(MaskOfDeathPotion), 1044109, 1072101, 55.0, 105.0, typeof(Bottle), 1044529, 1, 1044558);
+            AddRes(index, typeof(DaemonBlood), 1023965, 5, 1042081);
+            
+            index = AddCraft(typeof(GreaterMaskOfDeathPotion), 1044109, 1072104, 85.0, 135.0, typeof(Bottle), 1044529, 1, 1044558);
+            AddRes(index, typeof(DaemonBlood), 1023965, 10, 1042081);
+            
+            index = AddCraft(typeof(WaterElementalPotion), 1072003, 1072004, 95.0, 100.0, typeof(Bottle), 1044529, 1, 1044558);
+            AddRes(index, typeof(BatWing), 1023960, 5, 1042081);
+            AddRes(index, typeof(BlackPearl), 1044353, 15, 1042081);
+            
+            index = AddCraft(typeof(FireElementalPotion), 1072003, 1072005, 95.0, 100.0, typeof(Bottle), 1044529, 1, 1044558);
+            AddRes(index, typeof(NoxCrystal), 1023982, 5, 1042081);
+            AddRes(index, typeof(SulfurousAsh), 1044359, 15, 1042081);
+            
+            index = AddCraft(typeof(EarthElementalPotion), 1072003, 1072006, 95.0, 100.0, typeof(Bottle), 1044529, 1, 1044558);
+            AddRes(index, typeof(PigIron), 1023978, 5, 1042081);
+            AddRes(index, typeof(MandrakeRoot), 1044357, 15, 1042081);
 
             index = AddCraft(typeof(BlackPowder), 1116351, 1095826, 65.0, 115.0, typeof(SulfurousAsh), 1023980, 1, 1044253);
             AddRes(index, typeof(Saltpeter), 1116302, 6, 1044253);
