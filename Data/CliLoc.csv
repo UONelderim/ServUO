@@ -41953,980 +41953,980 @@ Number;Text
 1071064;Baza 
 1071065;Centrum Informacji 
 1071066;Witamy! 
-1071067; 
-1071068;Magia: 1-2 krag 
-1071069;Magia: 3-4 krag 
-1071070;Magia: 5-6 krag 
-1071071;Magia: 7-8 krag 
-1071072; 
-1071073; 
-1071074; 
-1071075; 
-1071076; 
-1071077; 
-1071078; 
-1071079; 
-1071080; 
-1071081; 
-1071082; 
-1071083; 
-1071084; 
-1071085; 
-1071086;Potezna mikstura zrecznosci 
-1071087;Potezna mikstura sily 
-1071088;Starozytna alchemia 
-1071089;Mikstura zywiolaka wody 
-1071090;Mikstura zywiolaka ognia 
-1071091;Mikstura zywiolaka ziemi 
-1071092;Mikstura niewidzialnosci 
-1071093;Mikstura witalnosci 
-1071094;Mikstura bogow 
-1071095;Mikstura wskrzeszenia zwierzat 
-1071096; 
-1071097;Keg mikstury zywiolaka wody 
-1071098;Keg mikstury zywiolaka ognia 
-1071099;Keg mikstury zywiolaka ziemi 
-1071100;Keg mikstury niewidzialnosci 
-1071101;Keg mikstury witalnosci 
-1071102;Keg mikstury bogow 
-1071103;Keg mikstury wskrzeszania zwierzat 
-1071104; 
-1071105; 
-1071106; 
-1071107; 
-1071108; 
-1071109; 
-1071110; 
-1071111; 
-1071112; 
-1071113; 
-1071114; 
-1071115; 
-1071116; 
-1071117; 
-1071118; 
-1071119; 
-1071120;Nie mozesz wykonywac tej czynnosci bedac konno! 
-1071121;Musisz przybrac ludzka forme, aby moc wykonac ta czynnosc! 
-1071122;Co chcesz wyrabac toporem? 
-1071123; 
-1071124; 
-1071125; 
-1071126; 
-1071127; 
-1071128;<BASEFONT COLOR=#~1_val~>Super pogromca stworzen<BASEFONT COLOR=#FFFFFF> 
-1071129;<BASEFONT COLOR=#~1_val~>Pogromca stworzen<BASEFONT COLOR=#FFFFFF> 
-1071130;Uzywa najlepiej znanego stylu walki 
-1071131;<BASEFONT COLOR=#~1_val~>Zwiekszenie obrazen<BASEFONT COLOR=#FFFFFF> 
-1071132;zwiekszenie obrazen 
-1071133;obrazenia fizyczne 
-1071134;obrazenia od zimna 
-1071135;obrazenia od ognia 
-1071136;obrazenia od trucizny 
-1071137;obrazenia od energii 
-1071138;<BASEFONT COLOR=#~1_val~>Zwieksza szanse na unikniecie ciosu<BASEFONT COLOR=#FFFFFF> 
-1071139;<BASEFONT COLOR=#~1_val~>Zwieksza zrecznosc<BASEFONT COLOR=#FFFFFF> 
-1071140;<BASEFONT COLOR=#~1_val~>Zwiekszona wytrzymalosc<BASEFONT COLOR=#FFFFFF> 
-1071141;<BASEFONT COLOR=#~1_val~>Wzmocnienie mikstur<BASEFONT COLOR=#FFFFFF> 
-1071142;<BASEFONT COLOR=#~1_val~>Szybsze ukonczenie zaklecia<BASEFONT COLOR=#FFFFFF> 
-1071143;<BASEFONT COLOR=#~1_val~>Szybsze rzucanie zaklec<BASEFONT COLOR=#FFFFFF> 
-1071144;wiecej zlota 
-1071145;<BASEFONT COLOR=#~1_val~>Zwieksza szanse na trafienie<BASEFONT COLOR=#FFFFFF> 
-1071146;<BASEFONT COLOR=#~1_val~>Obszarowe obrazenia od zimna<BASEFONT COLOR=#FFFFFF> 
-1071147;<BASEFONT COLOR=#~1_val~>Rzuca czar odwolania<BASEFONT COLOR=#FFFFFF> 
-1071148;<BASEFONT COLOR=#~1_val~>Obszarowe obrazenia od energii<BASEFONT COLOR=#FFFFFF> 
-1071149;<BASEFONT COLOR=#~1_val~>Obszarowe obrazenia od ognia<BASEFONT COLOR=#FFFFFF> 
-1071150;<BASEFONT COLOR=#~1_val~>Rzucenie czaru magiczna kula<BASEFONT COLOR=#FFFFFF> 
-1071151;<BASEFONT COLOR=#~1_val~>Rzucenie czaru krzywdy<BASEFONT COLOR=#FFFFFF> 
-1071152;<BASEFONT COLOR=#~1_val~>Wysysa zycie<BASEFONT COLOR=#FFFFFF> 
-1071153;<BASEFONT COLOR=#~1_val~>Rzucenie czaru blyskawicy<BASEFONT COLOR=#FFFFFF> 
-1071154;<BASEFONT COLOR=#~1_val~>Obniza zdolnosc ataku przeciwnika<BASEFONT COLOR=#FFFFFF> 
-1071155;<BASEFONT COLOR=#~1_val~>Obniza zdolnosc obrony przeciwnika<BASEFONT COLOR=#FFFFFF> 
-1071156;<BASEFONT COLOR=#~1_val~>Rzucenie czaru magiczna strzala<BASEFONT COLOR=#FFFFFF> 
-1071157;<BASEFONT COLOR=#~1_val~>Wyssanie many<BASEFONT COLOR=#FFFFFF> 
-1071158;<BASEFONT COLOR=#~1_val~>Obszarowe obrazenia fizyczne<BASEFONT COLOR=#FFFFFF> 
-1071159;<BASEFONT COLOR=#~1_val~>Obszarowe obrazenia od trucizny<BASEFONT COLOR=#FFFFFF> 
-1071160;<BASEFONT COLOR=#~1_val~>Wyssanie staminy<BASEFONT COLOR=#FFFFFF> 
-1071161;<BASEFONT COLOR=#~1_val~>Zwieksza zywotnosc<BASEFONT COLOR=#FFFFFF> 
-1071162;<BASEFONT COLOR=#~1_val~>Zwieksza inteligencje<BASEFONT COLOR=#FFFFFF> 
-1071163;<BASEFONT COLOR=#~1_val~>Zmniejsza koszt many<BASEFONT COLOR=#FFFFFF> 
-1071164;<BASEFONT COLOR=#~1_val~>Zmniejsza ilosc wymaganych ziol<BASEFONT COLOR=#FFFFFF> 
-1071165;<BASEFONT COLOR=#~1_val~>Zmniejszone wymagania<BASEFONT COLOR=#FFFFFF> 
-1071166;<BASEFONT COLOR=#~1_val~>Szczescie<BASEFONT COLOR=#FFFFFF> 
-1071167;<BASEFONT COLOR=#~1_val~>Zbroja maga<BASEFONT COLOR=#FFFFFF> 
-1071168;Bron maga 
-1071169;<BASEFONT COLOR=#~1_val~>Zwieksza mane<BASEFONT COLOR=#FFFFFF> 
-1071170;<BASEFONT COLOR=#~1_val~>Odzyskiwanie many<BASEFONT COLOR=#FFFFFF> 
-1071171;zapewnia widzenie w ciemnosciach 
-1071172;<BASEFONT COLOR=#~1_val~>Odbijanie obrazen fizycznych<BASEFONT COLOR=#FFFFFF> 
-1071173;<BASEFONT COLOR=#~1_val~>Odzyskiwanie staminy<BASEFONT COLOR=#FFFFFF> 
-1071174;<BASEFONT COLOR=#~1_val~>Odzyskiwanie zywotnosci<BASEFONT COLOR=#FFFFFF> 
-1071175;odpornosc na zimno 
-1071176;odpornosc na energie 
-1071177;odpornosc na ogien 
-1071178;odpornosc fizyczna 
-1071179;odpornosc na trucizne 
-1071180;<BASEFONT COLOR=#~1_val~>Samonaprawianie<BASEFONT COLOR=#FFFFFF> 
-1071181;<BASEFONT COLOR=#~1_rgb~>zwieksza umiejetnosc ~2_skillname~<BASEFONT COLOR=#FFFFFF> 
-1071182;<BASEFONT COLOR=#~1_rgb~>zwieksza umiejetnosc ~2_skillname~<BASEFONT COLOR=#FFFFFF> 
-1071183;<BASEFONT COLOR=#~1_rgb~>zwieksza umiejetnosc ~2_skillname~<BASEFONT COLOR=#FFFFFF> 
-1071184;<BASEFONT COLOR=#~1_rgb~>zwieksza umiejetnosc ~2_skillname~<BASEFONT COLOR=#FFFFFF> 
-1071185;<BASEFONT COLOR=#~1_rgb~>zwieksza umiejetnosc ~2_skillname~<BASEFONT COLOR=#FFFFFF> 
-1071186;<BASEFONT COLOR=#~1_val~>Zwieksza obrazenia czarow<BASEFONT COLOR=#FFFFFF> 
-1071187;<BASEFONT COLOR=#~1_val~>Zwieksza stamine<BASEFONT COLOR=#FFFFFF> 
-1071188;<BASEFONT COLOR=#~1_val~>Zwieksza sile<BASEFONT COLOR=#FFFFFF> 
-1071189;<BASEFONT COLOR=#~1_val~>Zwieksza szybkosc broni<BASEFONT COLOR=#FFFFFF> 
-1071190;ladunki fireball 
-1071191;ladunki greater healing 
-1071192;ladunki harm 
-1071193;ladunki healing 
-1071194;ladunki lightning 
-1071195;ladunki magic arrow 
-1071196;<BASEFONT COLOR=#~1_val~>Spowalnia rzucanie zaklec<BASEFONT COLOR=#FFFFFF> 
-1071197;<BASEFONT COLOR=#~1_val~>Odpornosc fizyczna<BASEFONT COLOR=#FFFFFF> 
-1071198;<BASEFONT COLOR=#~1_val~>Odpornosc na ogien<BASEFONT COLOR=#FFFFFF> 
-1071199;<BASEFONT COLOR=#~1_val~>Odpornosc na zimno<BASEFONT COLOR=#FFFFFF> 
-1071200;<BASEFONT COLOR=#~1_val~>Odpornosc na trucizne<BASEFONT COLOR=#FFFFFF> 
-1071201;<BASEFONT COLOR=#~1_val~>Odpornosc na energie<BASEFONT COLOR=#FFFFFF> 
-1071202;<BASEFONT COLOR=#~1_val~>Uzywa najlepiej znanego stylu walki<BASEFONT COLOR=#FFFFFF> 
-1071203;<BASEFONT COLOR=#~1_val~>Bron maga<BASEFONT COLOR=#FFFFFF> 
-1071204; 
-1071205; 
-1071206; 
-1071207; 
-1071208; 
-1071209; 
-1071210; 
-1071211; 
-1071212; 
-1071213; 
-1071214; 
-1071215; 
-1071216; 
-1071217; 
-1071218; 
-1071219; 
-1071220; 
-1071221; 
-1071222; 
-1071223; 
-1071224; 
-1071225; 
-1071226; 
-1071227; 
-1071228; 
-1071229; 
-1071230; 
-1071231; 
-1071232; 
-1071233; 
-1071234; 
-1071235; 
-1071236; 
-1071237; 
-1071238; 
-1071239; 
-1071240; 
-1071241; 
-1071242; 
-1071243; 
-1071244; 
-1071245; 
-1071246; 
-1071247; 
-1071248; 
-1071249; 
-1071250; 
-1071251; 
-1071252; 
-1071253; 
-1071254; 
-1071255; 
-1071256; 
-1071257; 
-1071258; 
-1071259; 
-1071260; 
-1071261; 
-1071262; 
-1071263; 
-1071264; 
-1071265; 
-1071266; 
-1071267; 
-1071268; 
-1071269; 
-1071270; 
-1071271; 
-1071272; 
-1071273; 
-1071274; 
-1071275; 
-1071276; 
-1071277; 
-1071278; 
-1071279; 
-1071280; 
-1071281; 
-1071282; 
-1071283; 
-1071284; 
-1071285; 
-1071286; 
-1071287; 
-1071288; 
-1071289; 
-1071290; 
-1071291; 
-1071292; 
-1071293; 
-1071294; 
-1071295; 
-1071296; 
-1071297; 
-1071298; 
-1071299; 
-1071300; 
-1071301; 
-1071302; 
-1071303; 
-1071304; 
-1071305; 
-1071306; 
-1071307; 
-1071308; 
-1071309; 
-1071310; 
-1071311; 
-1071312; 
-1071313; 
-1071314; 
-1071315; 
-1071316; 
-1071317; 
-1071318; 
-1071319; 
-1071320; 
-1071321; 
-1071322; 
-1071323; 
-1071324; 
-1071325; 
-1071326; 
-1071327; 
-1071328; 
-1071329; 
-1071330; 
-1071331; 
-1071332; 
-1071333; 
-1071334; 
-1071335; 
-1071336; 
-1071337; 
-1071338; 
-1071339; 
-1071340; 
-1071341; 
-1071342; 
-1071343; 
-1071344; 
-1071345; 
-1071346; 
-1071347; 
-1071348; 
-1071349; 
-1071350; 
-1071351; 
-1071352; 
-1071353; 
-1071354; 
-1071355; 
-1071356; 
-1071357; 
-1071358; 
-1071359; 
-1071360; 
-1071361; 
+1071067;No snowball fighting here please.
+1071068;Have a good time! Do not fight anyway please.
+1071069;Counselor's Guild
+1071070;Counselor of the Season
+1071071;Counselor of the Season, Spring
+1071072;Counselor of the Season, Summer
+1071073;Counselor of the Season, Autumn
+1071074;Counselor of the Season, Winter
+1071075;Counselor of the Season
+1071076;Counselor of the Season
+1071077;Counselor of the Season
+1071078;Counselor of the Season
+1071079;Counselor of the Season
+1071080;Counselor of the Season
+1071081;Counselor of the Season
+1071082;Counselor of the Season
+1071083;Lead Counselors
+1071084;Senior Counselors
+1071085;Counselors
+1071086;Kosz na smieci (Uwaga: Przedmioty zostana usuniete natychmiastowo.)
+1071087;Please put your garbage in here. Thank you!
+1071088;Powalona kloda
+1071089;Lamp Post (Round Style)
+1071090;Slupek do przywiazywania
+1071091;Kolczyki Ochrony (Fizyczny)
+1071092;Kolczyki Ochrony (Ogień)
+1071093;Kolczyki Ochrony (Zimno)
+1071094;Kolczyki Ochrony (Trucizna)
+1071095;Kolczyki Ochrony (Energia)
+1071096;Ancestral Gravestone
+1071097;Okladka ksiegi zamówień (Normalna Skora)
+1071098;Okladka ksiegi zamówień (Niebieska Skora)
+1071099;Okladka ksiegi zamówień (Czerwona Skora)
+1071100;Okladka ksiegi zamówień (Zielona Skora)
+1071101;Okladka ksiegi zamówień (Matowa Miedz)
+1071102;Drewniany regał na książki
+1071103;Drzewo Śnieżne 
+1071104;Drzewo Klonowe
+1071105;Wierzba
+1071106;Torba na biżuterie
+1071107;Okladka ksiegi zamówień (Shadow Iron)
+1071108;Okladka ksiegi zamówień (Copper)
+1071109;Okladka ksiegi zamówień (Bronze)
+1071110;Yamato Dynamarket
+1071111;Hokuto Matsuri
+1071112;Okladka ksiegi zamówień (Gold)
+1071113;Okladka ksiegi zamówień (Agapite)
+1071114;Okladka ksiegi zamówień (Verite)
+1071115;Okladka ksiegi zamówień (Valorite)
+1071116;Torba z okładkami na ksiegi zamówień
+1071117;Nie możesz tego na tym użyć.
+1071118;Ta okładka jest tylko na księge zamówień.
+1071119;Udało ci się nałożyć okładkę na księge zamówień.
+1071120;Zużyłeś wszystkie okładki.
+1071121;Wskaż księgę zamówień, na która chcesz nałożyć okładkę.
+1071122;Nie możesz nałożyć okładki o tym samym kolorze.
+1071123;Nie możesz użyć okładki na zużytej księdze.
+1071124;Lina do przywiązywania
+1071125;ustaw domyślny kolor
+1071126;Kolor wraca do domyślnego.
+1071127;Slupek do przywiazywania (replika)
+1071128;
+1071129;
+1071130;Praying…
+1071131;Praying…
+1071132;Praying…
+1071133;Praying…
+1071134;Praying…
+1071135;Do you think you are not dead?
+1071136;This is a long long time sleepin' I feel…
+1071137;Why you can be resurrected while we cannot?
+1071138;Feel the skill, kid…
+1071139;Hear ye! Hear ye! I am dead!!
+1071140;You have nothing I would be interested in.
+1071141;I can give you something special offer to you, kid…
+1071142;Why you are not dead my love…
+1071143;Special offer is nothing for some reason, you moron!
+1071144;It is *NOT* your conventional fortune cookie, kid!
+1071145;In order to summon an undead again, you have to wait for at least 90 minutes.
+1071146;Your sense goes to normal.
+1071147;You feel your sense is still keen for something…
+1071148;You feel a greater sense.
+1071149;30 gold per pet is charged for stable time. I will withdraw it from thy bank account. Which animal wouldst thou like to stable here?
+1071150;But, you have no animals stabled at the moment.
+1071151;There is insufficient hitching rope. You must resupply it.
+1071152;You can't stable a human.
+1071153;You can't stable a dead pet.
+1071154;You can't stable summoned creatures.
+1071155;Your pet seems to be busy.
+1071156;It seems that stables are full!
+1071157;This ~1_POST~ is damaged and can no longer be used.
+1071158;You have successfully resupplied the ~1_POST~ with the hitching rope.
+1071159;Target the object that you wish to supply with the hitching rope.
+1071160;<center>Fallen Log</center>
+1071161;<center>Lamp Post (Round Style)</center>
+1071162;<center>Hitching Post</center>
+1071163;<center>Armor Engraving Tool</center>
+1071164;<center>Ancestral Gravestone</center>
+1071165;<center>Bag of bulk order covers</center>
+1071166;<center>Wooden Bookcase</center>
+1071167;<center>Snow Tree</center>
+1071168;<center>Maple Tree</center>
+1071169;<center>Willow Tree</center>
+1071170;<center>Bulk Order Cover</center>
+1071171;<center>Jewelry Bag</center>
+1071172;<center>Earring of Protection</center>
+1071173;Earring of Protection
+1071174;Bulk Order Cover
+1071175;Please select your item
+1071176;You can't maintain your special form anymore.
+1071177;That book doesn't have enough pages.
+1071178;You cannot cast this on a trashcan.
+1071179;That target is preparing for teleport. You can't resurrect that.
+1071180;You were unable to finish you work before he prepared for teleport.
+1071181;Your pet can't see the target!
+1071182;The cow nimbly escapes your attempts to milk.
+1071183;You don't have the ingredients yet?  Please, I need them soon!  Fresh Ginger should be available from a farmer if you ask and I hear that Tribal Berries are used by some of the savages for their ceremonies! *gurk*  More food is on its way, so hurry!
+1071184;11th Year Collection (Master)
+1071185;<center>11th Year Collection (Master)</center>
+1071186;11th Year Collection (Addons)
+1071187;<center>11th Year Collection (Addons)</center>
+1071188;11th Year Collection (Deco Items)
+1071189;<center>11th Year Collection (Deco Items)</center>
+1071190;11th Year Collection (Miscs)
+1071191;<center>11th Year Collection (Miscs)</center>
+1071192;Fallen Log (East)
+1071193;Fallen Log (South)
+1071194;You have failed your escort quest...
+1071195;You must rest ~1_minsleft~ minutes before we set out on this journey.
+1071196;You now bear the markings of the savage tribe.  Your body paint will last about a week or you can remove it with an oil cloth.
+1071197;You have lost a lot of karma.
+1071198;Your body paint has worn off!
+1071199;Your skin is scorched as the tribal paint burns away!
+1071200;animal pheromone
+1071201;
+1071202;academic books
+1071203;* Acid slime changes its body color *
+1071204;* Acid slime changes its body color *
+1071205;You filled the basin with deep acid!!
+1071206;Apprentice's Goods
+1071207;<center>Apprentice's Goods</center>
+1071208;Apprentice Warrior Set
+1071209;Apprentice Mage Set
+1071210;Apprentice Craftsman Set
+1071211;The basin is already filled with deep acid!!
+1071212;
+1071213;academic bookcase
+1071214;* The rabbit begins to dig a tunnel back to its underground lair *
+1071215;Rechargeable Number: ~1_val~
+1071216;* ~1_name~ flaps its wings *
+1071217;* ~1_name~ dives and attacks you *
+1071218;Are you sure you want to use honor points on yourself?
+1071219;As you were too far away from the player you protect, you couldn't get the reward.
+1071220;Pursuit
+1071221;Oh, I beg your pardon! I am Lyla, assistant to the Zoologist Iakas. I'm searching for samples from the gelatinous family of slimes - such an amazing species! - for him. They have some monetary value as well, as they excrete a pigment that can be used as a dye. Yet I can't even seem to catch one! They're moving so... well, I've never seen anything like it. If you think you can do better, would you collect three samples and deliver them to Iakas as the Royal Britannian Zoo? Use these basins - they can hold the slime safely.
+1071222;Use the slimes to dye three specimen basins
+1071223;A Token of the Zoologists’ Gratitude
+1071224;Oh, you’re collecting the samples for Lyla? Do you have three?
+1071225;You found Iakas!
+1071226;Specimen Basin
+1071227;A Certificate of Capture
+1071228;Use this to redeem the Reward Title: "~1_TITLE~"
+1071229;You don't have the qualifications to use.
+1071230;<center>Do you wish to receive this Reward Title?<br><br>"Slime Hunter"</center>
+1071231;Slime Hunter
+1071232;It seems that there is no slime anymore...
+1071233;Big Chocolate Muffin
+1071234;Low Quality Finnigan's Bracelet
+1071235;Wooden Cow
+1071236;Furisode Embroidered with "Tree Growing Project"
+1071237;Haori and Nagagi Embroidered with "Tree Growing Project"
+1071238;Furisode (Female Kimono)
+1071239;Haori and Nagagi (Male Kimono)
+1071240;You couldn't receive the bracelet because it is too heavy. To receive, you need to have a power to carry another 100 stones...
+1071241;It’s unsafe to use this gate at this time.
+1071242;There is already a gate there.
+1071243;Do you really wish to dismiss this vendor?
+1071244;Pretty Pink
+1071245;Yellow
+1071246;Ninja Black
+1071247;Dark Reddish Brown
+1071248;Midnight Blue
+1071249;Haochi's Pigments
+1071250;~1_USED~/~2_MAX~ stable stalls used.
+1071251;
+1071252;A Big Chocolate Muffin has been placed in your backpack.
+1071253;A Low Quality Finnigan's Bracelet has been placed in your backpack.
+1071254;An Wooden Cow has been placed in your backpack.
+1071255;Furisode Embroidered with "Tree Growing Project" has been placed in your backpack.
+1071256;Haori and Nagagi Embroidered with "Tree Growing Project" has been placed in your backpack.
+1071257;You see the heavy bracelet, and feel you need a training for yourself.
+1071258;Please select your item.
+1071259;You don't have enough room in your backpack!
+1071260;You can receive *ONLY* ONE item per character. Once you select, you will receive it and there is no chance to revert the process. Please consider if it be good for you again, when you select the item.
+1071261;You can't place the multi-tile addon on the location.
+1071262;You can't place the multi-tile addon at the entrance!
+1071263;You cannot receive the item any more!
+1071264;Magical Rabbit Hat
+1071265;Kill Point: ~1_val~
+1071266;Exp: ~1_val~
+1071267;Magical Rabbit
+1071268;* Rank Up! *
+1071269;His magic will become stronger when you summon him next time.
+1071270;Rank: ~1_val~
+1071271;Exp: ~1_val~ k
+1071272;You can choose a new ability!!
+1071273;Learned Abilities:
+1071274;Ability Select - ON
+1071275;Ability Select - OFF
+1071276;Physical Damage 100%
+1071277;Fire Damage 100%
+1071278;Cold Damage 100%
+1071279;Poison Damage 100%
+1071280;Energy Damage 100%
+1071281;Random Damage (All 20%)
+1071282;Magery
+1071283;Necromancy
+1071284;Spellweaving
+1071285;Melee Skill +5.0
+1071286;Magic Skill +5.0
+1071287;Level 3 Poison
+1071288;Double Strike
+1071289;Bandage
+1071290;HP +50
+1071291;Stamina +50
+1071292;Mana +50
+1071293;Your buddy learned the following new ability: 
+1071294;Your ability toggle is turned on.
+1071295;Your ability toggle is turned off.
+1071296;This item is Account Bound and your character is not bound to it. You cannot use this item.
+1071297;<center>Magical Rabbit Hat</center>
+1071298;It seems that your buddy is very tired.
+1071299;Uses Remaining: ~1_val~/~2_val~ (~3_val~)
+1071300;Snow Tree (trunk)
+1071301;Maple Tree (trunk)
+1071302;Donator: ~1_name~
+1071303;I'm here to deliver a message of love from ~1_name~
+1071304;Farewell
+1071305;First Poem Line
+1071306;Second Poem Line
+1071307;Third Poem Line
+1071308;Fourth Poem Line
+1071309;Fifth Poem Line
+1071310;Sixth Poem Line
+1071311;Seventh Poem Line
+1071312;Eighth Poem Line
+1071313;Nineth Poem Line
+1071314;Tenth Poem Line
+1071315;Eleventh Poem Line
+1071316;Twelveth Poem Line
+1071317;Sorry but you alreary donated so many times. Thank you for donating again but you don't have to this time.
+1071318;Sorry, the box is closed for submission!
+1071319;Your submission remain: ~1_count~
+1071320;Warning: Your item cannot be returned to you for any reason. Once you submitted, it be removed from your inventory so please check again!
+1071321;Scroll of Alacrity 2
+1071322;Please use this box before trying submission.
+1071323;Sorry, we cannot accept this item...
+1071324;Thank you for your donation!
+1071325;Your submission time is end.
+1071326;Sui-Ken
+1071327;Chidori-Bijin
+1071328;Chi-Zakura
+1071329;Ki-Sei
+1071330;Holy-N
+1071331;Muffinishiki
+1071332;Mugen
+1071333;Companion Hall
+1071334;Haven Eight Virtue School
+1071335;Haven Eight Virtue School and Companion Hall
+1071336;Teacher List
+1071337;Blackboard
+1071338;Haven Eight Virtue School Museum
+1071339;Skill 2x-5x, For 15 minutes
+1071340;Note: ~1_desc~
+1071341;Scroll of Alacrity 3
+1071342;Scroll of Alacrity 4
+1071343;Skill multiplier 2x for 180 minutes
+1071344;Skill multiplier 3x for 60 minutes
+1071345;Skill: ~1_val~
+1071346;Duration: ~1_val~ minutes
+1071347;
+1071348;Which skill do you wish to learn?
+1071349;Click to edit Profanity List
+1071350;Nanji ha Jinrou Nariya?
+1071351;Lucky Earrings
+1071352;Lantern of Umbra
+1071353;Cat's Eye Earrings
+1071354;Deed for an Abyss Ankh
+1071355;Abyss Ankh
+1071356;You can only harvest magical resources once every 24 hours.
+1071357;You've harvested the following magical resources:
+1071358;Magical Harvester
+1071359;Imbued Mystic Crystal
+1071360;Gargoyles' Treasure
+1071361;<center>Gargoyles' Treasure</center>
 1071362; 
-1071363; 
-1071364; 
-1071365; 
-1071366; 
-1071367; 
-1071368; 
-1071369; 
-1071370; 
-1071371; 
-1071372; 
-1071373; 
-1071374; 
-1071375; 
-1071376; 
-1071377; 
-1071378; 
-1071379; 
-1071380; 
-1071381; 
-1071382; 
-1071383; 
-1071384; 
-1071385; 
-1071386; 
-1071387; 
-1071388; 
-1071389; 
-1071390; 
-1071391; 
-1071392; 
-1071393; 
-1071394; 
-1071395; 
-1071396; 
-1071397; 
-1071398; 
-1071399; 
-1071400; 
-1071401; 
-1071402; 
-1071403; 
-1071404; 
-1071405; 
-1071406; 
-1071407; 
-1071408; 
-1071409; 
-1071410; 
-1071411; 
-1071412; 
-1071413; 
-1071414; 
-1071415; 
-1071416; 
-1071417; 
-1071418; 
-1071419; 
-1071420; 
-1071421; 
-1071422; 
-1071423; 
-1071424; 
-1071425; 
-1071426; 
-1071427; 
-1071428; 
-1071429; 
-1071430; 
-1071431; 
-1071432; 
-1071433; 
-1071434; 
-1071435; 
-1071436; 
-1071437; 
-1071438; 
-1071439; 
-1071440; 
-1071441; 
-1071442; 
-1071443; 
-1071444; 
-1071445; 
-1071446; 
-1071447; 
-1071448; 
-1071449; 
-1071450; 
-1071451; 
-1071452; 
-1071453; 
-1071454; 
-1071455; 
-1071456; 
-1071457; 
-1071458; 
-1071459; 
-1071460; 
-1071461; 
-1071462; 
-1071463; 
-1071464; 
-1071465; 
-1071466; 
-1071467; 
-1071468; 
-1071469; 
-1071470; 
-1071471; 
-1071472; 
-1071473; 
-1071474; 
-1071475; 
-1071476; 
-1071477; 
-1071478; 
-1071479; 
-1071480; 
-1071481; 
-1071482; 
-1071483; 
-1071484; 
-1071485; 
-1071486; 
-1071487; 
-1071488; 
-1071489; 
-1071490; 
-1071491; 
-1071492; 
-1071493; 
-1071494; 
-1071495; 
-1071496; 
+1071363;Metallic Golem
+1071364;* Magical Residue x~1_val~
+1071365;* Enchanted Essence x~1_val~
+1071366;* Relic Fragments x~1_val~
+1071367;Promotion system couldn't create an item....please try to log out and log in.
+1071368;The following item has been placed into your backpack:
+1071369;Master of Guardians
+1071370;Guardian Lock
+1071371;~1_name~ (~2_skill~ - ~3_category~)
+1071372;It's covered with treasure guardian's magical power. To touch it, you need to beat them!
+1071373;You take ~1_ITEM~.
+1071374;You purchase ~1_ITEM~ for ~2_GOLD~ gold.
+1071375;You purchase the following item for ~1_GOLD~ gold:
+1071376;Thou'rt a criminal and cannot use the stables...
+1071377;You cannot control that while dead. They can't hear your voice.
+1071378;You can make the following items from this resource:
+1071379;You can acquire five pieces of small rug.
+1071380;Small Rug (Red Plain)
+1071381;Small Rug (Blue Plain)
+1071382;Small Rug (Golden Decorative)
+1071383;Small Rug (Cinnamon Fancy)
+1071384;Small Rug (Blue Fancy)
+1071385;Small Rug (Blue Decorative)
+1071386;Small Rug (Pink Decorative)
+1071387;Natural Hair Dye
+1071388;Bulk Order Cover 2
+1071389;Leather Dye Bottle
+1071390;Magical Resource Box
+1071391;Mystic Bark Fragment
+1071392;Mystic Gem Bit
+1071393;chest of drawers
+1071394;bamboo stool
+1071395;peg board
+1071396;ornate elven tapestry
+1071397;small elven tapestry
+1071398;Discount Rate of Vendor Charge: ~1_val~%
+1071399;Merchant's Trinket
+1071400;Large Glowing Lady Bug
+1071401;Fresh Green Lady Bug
+1071402;Bag of Small Rugs
+1071403;<center>Small Rug (Red Plain)</center>
+1071404;<center>Small Rug (Blue Plain)</center>
+1071405;<center>Small Rug (Golden Decorative)</center>
+1071406;<center>Small Rug (Cinnamon Fancy)</center>
+1071407;<center>Small Rug (Blue Fancy)</center>
+1071408;<center>Small Rug (Blue Decorative)</center>
+1071409;<center>Small Rug (Pink Decorative)</center>
+1071410;Bulk Order Cover (Oak)
+1071411;Bulk Order Cover (Ash)
+1071412;Bulk Order Cover (Yew)
+1071413;Bulk Order Cover (Heartwood)
+1071414;Bulk Order Cover (Bloodwood)
+1071415;Bulk Order Cover (Frostwood)
+1071416;Bulk Order Cover (Shadow Dancer Black)
+1071417;Bulk Order Cover (Ice Blue)
+1071418;Bulk Order Cover (Dragon's Red)
+1071419;Bulk Order Cover (Wyrm's White)
+1071420;Bulk Order Cover (Pretty Pink)
+1071421;Bulk Order Cover (Deep Sea Blue)
+1071422;<center>Bulk Order Cover 2 (Random)</center>
+1071423;Ice Blue
+1071424;Dragon's Red
+1071425;Wyrm's White
+1071426;Pretty Pink
+1071427;Deep Sea Blue
+1071428;Oak
+1071429;Ash
+1071430;Yew
+1071431;Bloodwood
+1071432;Heartwood
+1071433;Frostwood
+1071434;You can acquire 1 bulk order cover<br>from 12 colors at random.
+1071435;You can acquire 1 natural hair dye<br>from 13 colors at random.
+1071436;<center>Natural Hair Dye (Random)</center>
+1071437;Bitter Brown
+1071438;Vivid Blue
+1071439;Lemon Lime
+1071440;Fiery Blonde
+1071441;Dusk Black
+1071442;Gnaw's Twisted Blue
+1071443;You can acquire 1 leather dye bottle<br>from 10 major tokuno colors at random.
+1071444;<center>Leather Dye Bottle (Random)</center>
+1071445;<center>Magical Resource Box</center>
+1071446;WARNING WHEN USING EARINGS ON RENTAL VENDORS: When the rental contract terminates, get your items from the house (via the house sign) as quickly as possible.  After a period of time, the ownership of all items moves to the landlord.<br><br>* Note: To protect your investment, visit your rented merchant often and keep up with your rental contracts.  Your contract will terminate at the end of the rental period if you don't have it set to "auto renew," if you or the landlord turns off "auto renew", if the house becomes condemned or if the amount of gold on the merchant is not enough to pay the rent renewal.
+1071447;There is a promotional item which wasn't created properly. Please log out and log in.
+1071448;
+1071449;
+1071450;Fresh Plum
+1071451;Silver
+1071452;Deep Brown
+1071453;Burnt Brown
+1071454;Light Green
+1071455;Fresh Rose
+1071456;Pale Blue
+1071457;Noble Gold
+1071458;Pale Orange
+1071459;Chaos Blue
+1071460;Leurocian's Mempo of Fortune
+1071461;Subdued Coal
+1071462;Supreme Maestro
+1071463;Cap of Supreme Maestro
+1071464;Maestro
+1071465;Cap of Maestro
+1071466;
+1071467;<center>Do you wish to receive Reward Title shown as Item Properties?</center>
+1071468;Oak Blonde
+1071469;Ash Blonde
+1071470;Yew Brown
+1071471;Bloodwood Red
+1071472;Heartwood Green
+1071473;Frostwood Ice Green
+1071474;Sacred White
+1071475;Supreme Architect
+1071476;Bracelet of Supreme Architect
+1071477;Architect
+1071478;Bracelet of Architect
+1071479;
+1071480;Santy’s Costume Set
+1071481;Santy's Hat
+1071482;Santy's Surcoat
+1071483;Santy's Chainmail
+1071484;Santy's Fancy Shirts
+1071485;Santy's Long Pants
+1071486;Santy's Boots
+1071487;Santy's Hammer Pick
+1071488;Santy Kit
+1071489;Do you want to deliver toys to children by anonymity?
+1071490;Yes, I wanna be Santy!
+1071491;Yes. And I have Santy’s costumes!
+1071492;Santy time's coming!!
+1071493;Gargoyles can’t use it.
+1071494;See you next happy holiday!!
+1071495;Santy time's over!!
+1071496;Only Santy can use the magical power!
 1071497; 
-1071498; 
-1071499; 
-1071500; 
-1071501; 
-1071502; 
-1071503; 
-1071504; 
-1071505; 
-1071506; 
-1071507; 
-1071508; 
-1071509; 
-1071510; 
-1071511; 
-1071512; 
-1071513; 
-1071514; 
-1071515; 
-1071516; 
-1071517; 
-1071518; 
-1071519; 
-1071520; 
-1071521; 
-1071522; 
-1071523; 
-1071524; 
-1071525; 
-1071526; 
-1071527; 
-1071528; 
-1071529; 
-1071530; 
-1071531; 
-1071532; 
-1071533; 
-1071534; 
-1071535; 
-1071536; 
-1071537; 
-1071538; 
-1071539; 
-1071540; 
-1071541; 
-1071542; 
-1071543; 
-1071544; 
-1071545; 
-1071546; 
-1071547; 
-1071548; 
-1071549; 
-1071550; 
-1071551; 
-1071552; 
-1071553; 
-1071554; 
-1071555; 
-1071556; 
-1071557; 
-1071558; 
-1071559; 
-1071560; 
-1071561; 
-1071562; 
-1071563; 
-1071564; 
-1071565; 
-1071566; 
-1071567; 
-1071568; 
-1071569; 
-1071570; 
-1071571; 
-1071572; 
-1071573; 
-1071574; 
-1071575; 
-1071576; 
-1071577; 
-1071578; 
-1071579; 
-1071580; 
-1071581; 
-1071582; 
-1071583; 
-1071584; 
-1071585; 
-1071586; 
-1071587; 
-1071588; 
-1071589; 
-1071590; 
-1071591; 
-1071592; 
-1071593; 
-1071594; 
-1071595; 
-1071596; 
-1071597; 
-1071598; 
-1071599; 
-1071600; 
-1071601; 
-1071602; 
-1071603; 
-1071604; 
-1071605; 
-1071606; 
-1071607; 
-1071608; 
-1071609; 
-1071610; 
-1071611; 
-1071612; 
-1071613; 
-1071614; 
-1071615; 
-1071616; 
-1071617; 
-1071618; 
-1071619; 
-1071620; 
-1071621; 
-1071622; 
-1071623; 
-1071624; 
-1071625; 
-1071626; 
-1071627; 
-1071628; 
-1071629; 
-1071630; 
-1071631; 
-1071632; 
-1071633; 
-1071634; 
-1071635; 
-1071636; 
-1071637; 
-1071638; 
-1071639; 
-1071640; 
-1071641; 
-1071642; 
-1071643; 
-1071644; 
-1071645; 
-1071646; 
-1071647; 
-1071648; 
-1071649; 
-1071650; 
-1071651; 
-1071652; 
-1071653; 
-1071654; 
-1071655; 
-1071656; 
-1071657; 
-1071658; 
-1071659; 
-1071660; 
-1071661; 
-1071662; 
-1071663; 
-1071664; 
-1071665; 
-1071666; 
-1071667; 
-1071668; 
-1071669; 
-1071670; 
-1071671; 
-1071672; 
-1071673; 
-1071674; 
-1071675; 
-1071676; 
-1071677; 
-1071678; 
-1071679; 
-1071680; 
-1071681; 
-1071682; 
-1071683; 
-1071684; 
-1071685; 
-1071686; 
-1071687; 
-1071688; 
-1071689; 
-1071690; 
-1071691; 
-1071692; 
-1071693; 
-1071694; 
-1071695; 
-1071696; 
-1071697; 
-1071698; 
-1071699; 
-1071700; 
-1071701; 
-1071702; 
-1071703; 
-1071704; 
-1071705; 
-1071706; 
-1071707; 
-1071708; 
-1071709; 
-1071710; 
-1071711; 
-1071712; 
-1071713; 
-1071714; 
-1071715; 
-1071716; 
-1071717; 
-1071718; 
-1071719; 
-1071720; 
-1071721; 
-1071722; 
-1071723; 
-1071724; 
-1071725; 
-1071726; 
-1071727; 
-1071728; 
-1071729; 
-1071730; 
-1071731; 
-1071732; 
-1071733; 
-1071734; 
-1071735; 
-1071736; 
-1071737; 
-1071738; 
-1071739; 
-1071740; 
-1071741; 
-1071742; 
-1071743; 
-1071744; 
-1071745; 
-1071746; 
-1071747; 
-1071748; 
-1071749; 
-1071750; 
-1071751; 
-1071752; 
-1071753; 
-1071754; 
-1071755; 
-1071756; 
-1071757; 
-1071758; 
-1071759; 
-1071760; 
-1071761; 
-1071762; 
-1071763; 
-1071764; 
-1071765; 
-1071766; 
-1071767; 
-1071768; 
-1071769; 
-1071770; 
-1071771; 
-1071772; 
-1071773; 
-1071774; 
-1071775; 
-1071776; 
-1071777; 
-1071778; 
-1071779; 
-1071780; 
-1071781; 
-1071782; 
-1071783; 
-1071784; 
-1071785; 
-1071786; 
-1071787; 
-1071788; 
-1071789; 
-1071790; 
-1071791; 
-1071792; 
-1071793; 
-1071794; 
-1071795; 
-1071796; 
-1071797; 
-1071798; 
-1071799; 
-1071800; 
-1071801; 
-1071802; 
-1071803; 
-1071804; 
-1071805; 
-1071806; 
-1071807; 
-1071808; 
-1071809; 
-1071810; 
-1071811; 
-1071812; 
-1071813; 
-1071814; 
-1071815; 
-1071816; 
-1071817; 
-1071818; 
-1071819; 
-1071820; 
-1071821; 
-1071822; 
-1071823; 
-1071824; 
-1071825; 
-1071826; 
-1071827; 
-1071828; 
-1071829; 
-1071830; 
-1071831; 
-1071832; 
-1071833; 
-1071834; 
-1071835; 
-1071836; 
-1071837; 
-1071838; 
-1071839; 
-1071840; 
-1071841; 
-1071842; 
-1071843; 
-1071844; 
-1071845; 
-1071846; 
-1071847; 
-1071848; 
-1071849; 
-1071850; 
-1071851; 
-1071852; 
-1071853; 
-1071854; 
-1071855; 
-1071856; 
-1071857; 
-1071858; 
-1071859; 
-1071860; 
-1071861; 
-1071862; 
-1071863; 
-1071864; 
-1071865; 
-1071866; 
-1071867; 
-1071868; 
-1071869; 
-1071870; 
-1071871; 
-1071872; 
-1071873; 
-1071874; 
-1071875; 
-1071876; 
-1071877; 
-1071878; 
-1071879; 
-1071880; 
-1071881; 
-1071882; 
-1071883; 
-1071884; 
-1071885; 
-1071886; 
-1071887; 
-1071888; 
-1071889; 
-1071890; 
-1071891; 
-1071892; 
-1071893; 
-1071894; 
-1071895; 
-1071896; 
-1071897; 
-1071898; 
-1071899; 
-1071900; 
-1071901; 
-1071902; 
-1071903; 
-1071904; 
-1071905; 
-1071906; 
-1071907; 
-1071908; 
-1071909; 
-1071910; 
-1071911; 
-1071912; 
-1071913; 
-1071914; 
-1071915; 
-1071916; 
-1071917; 
-1071918; 
-1071919; 
-1071920; 
-1071921; 
-1071922; 
-1071923; 
-1071924; 
-1071925; 
-1071926; 
-1071927; 
-1071928; 
-1071929; 
-1071930; 
-1071931; 
-1071932; 
-1071933; 
-1071934; 
-1071935; 
-1071936; 
-1071937; 
-1071938; 
-1071939; 
-1071940; 
-1071941; 
-1071942; 
-1071943; 
-1071944; 
-1071945; 
-1071946; 
-1071947; 
-1071948; 
-1071949; 
-1071950; 
-1071951; 
-1071952; 
-1071953; 
-1071954; 
-1071955; 
-1071956; 
-1071957; 
-1071958; 
-1071959; 
-1071960; 
-1071961; 
-1071962; 
-1071963; 
-1071964; 
-1071965; 
-1071966; 
-1071967; 
-1071968; 
-1071969; 
-1071970; 
-1071971; 
-1071972; 
-1071973; 
-1071974; 
-1071975; 
-1071976; 
-1071977; 
-1071978; 
-1071979; 
-1071980; 
-1071981; 
-1071982; 
-1071983; 
-1071984; 
-1071985; 
-1071986; 
-1071987;Zerwij kontrakt 
-1071988;Odbierz zloto 
-1071989; 
-1071990; 
-1071991; 
-1071992; 
-1071993; 
-1071994; 
-1071995; 
-1071996; 
-1071997; 
-1071998; 
-1071999; 
-1072000; 
-1072001; 
-1072002; 
-1072003; 
-1072004; 
-1072005; 
-1072006; 
-1072007; 
-1072008; 
-1072009; 
-1072010; 
-1072011; 
-1072012; 
-1072013; 
-1072014; 
-1072015; 
-1072016; 
-1072017; 
-1072018; 
-1072019; 
-1072020; 
-1072021; 
-1072022; 
-1072023; 
-1072024; 
-1072025; 
-1072026; 
-1072027; 
-1072028; 
-1072029; 
-1072030; 
-1072031; 
-1072032; 
-1072033; 
-1072034; 
-1072035; 
-1072036; 
-1072037; 
-1072038; 
-1072039; 
-1072040; 
+1071498;Undertaker's Staff
+1071499;Smuggler's Edge
+1071500;Monster Stealing
+1071501;Your left hand must be free to steal an item from the creature.
+1071502;Woodworker's Bench (South)
+1071503;Woodworker's Bench (East)
+1071504;Carpentry will go smoothly now...
+1071505;In order to get a buff again, you have to wait for at least ~1_VAL~ minutes.
+1071506;Your carpentry bonus was removed...
+1071507;Summon Most Recent Corpse Only
+1071508;Summon All Corpses
+1071509;The staff has been reduced to pieces!
+1071510;You are a criminal and cannot use this item...
+1071511;The staff glows slightly, then fades. Its magic is unable to locate a corpse of yours to recover.
+1071512;...but the corpse is too far away!
+1071513;...but one of them is too far away!
+1071514;You cannot use this item during the heat of battle.
+1071515;...but not enough time has passed since you were slain in battle!
+1071516;...but one of them deflects the magic because of the stain of war!
+1071517;...but the corpse has already been summoned too many times!
+1071518;Current Setting: ~1_VAL~
+1071519;...but one of them has already been summoned too many times!
+1071520;Smuggler's Tool Box
+1071521;Smuggler's Lantern
+1071522;You already have the bench's buff. Time remaining of the buff: ~1_VAL~ min ~2_VAL~ sec
+1071523;You are a criminal and cannot use this item.
+1071524;You cannot use this item during the heat of battle.
+1071525;You have been disrupted while attempting to pull your corpse!
+1071526;You take some lockpicks from the tool box.
+1071527;The staff reaches out to ~1_COUNT~ of your corpses and tries to draw them to you...
+1071528;The staff reaches out to your corpse and tries to draw it to you...
+1071529;...and succeeds in the summoning of it!
+1071530;...and succeeds in summoning ~1_COUNT~ of them!
+1071531;Arch Companion
+1071532;Senior Companion
+1071533;Your last word: ~1_VAL~
+1071534;Set Last Word
+1071535;Please enter your last word (Press a space and enter = Clean up):
+1071536;Your last word has been set up.  You will speak this word when you die.
+1071537;Endless Journey account players cannot get reward items.
+1071538;You don't have enough room in your backpack or you are carrying too much weight. Please check your backpack and weight.
+1071539;Sorry. You cannot receive an item at this time.
+1071540;Please try again after login at an inn or at your house.
+1071541;Sorry, we cannot accept blessed items...
+1071542;Please finish entry at first.
+1071543;Sorry, the submission period was ended.
+1071544;You have already finished the entry procedures. You don't need to do it again.
+1071545;I accepted your entry. Thank you for your cooperation!
+1071546;Thank you for participating again.
+1071547;Last time, you obtained great cooperation and we grateful to you very much.
+1071548;Your most recent corpse has been transported with you and now lies your feet.
+1071549;Ignore Cupids
+1071550;Do you wish to start ignoring Cupids summoned by ~1_NAME~ ?
+1071551;You are ignoring Cupids summoned by ~1_NAME~ .
+1071552;Stop ignoring Cupids
+1071553;Do you wish to stop ignoring Cupids summoned by ~1_NAME~ ?
+1071554;You are no longer ignoring Cupids summoned by ~1_NAME~ .
+1071555;Canceled operation.
+1071556;Lenort's Gargish Robe
+1071557;Lenort's Mystic Spellbook
+1071558;Lenort's Gargish Watch
+1071559;Silver Horse Statue
+1071560;~1_VAL~, aren't you exhausted? I'm exhausted, too.....and I'm too sleepy..., ~1_VAL~....
+1071561;Lantern of Counselor (Legend)
+1071562;Wedding Book
+1071563;Memorial Stone
+1071564;
+1071565;
+1071566;
+1071567;
+1071568;
+1071569;
+1071570;
+1071571;
+1071572;
+1071573;
+1071574;
+1071575;
+1071576;
+1071577;
+1071578;
+1071579;
+1071580;
+1071581;
+1071582;
+1071583;
+1071584;
+1071585;
+1071586;
+1071587;
+1071588;
+1071589;
+1071590;
+1071591;
+1071592;
+1071593;
+1071594;
+1071595;
+1071596;
+1071597;
+1071598;
+1071599;
+1071600;
+1071601;
+1071602;
+1071603;
+1071604;
+1071605;
+1071606;
+1071607;
+1071608;
+1071609;
+1071610;
+1071611;
+1071612;
+1071613;
+1071614;
+1071615;
+1071616;
+1071617;
+1071618;
+1071619;
+1071620;
+1071621;
+1071622;
+1071623;
+1071624;
+1071625;
+1071626;
+1071627;
+1071628;
+1071629;
+1071630;
+1071631;
+1071632;
+1071633;
+1071634;
+1071635;
+1071636;
+1071637;
+1071638;
+1071639;
+1071640;
+1071641;
+1071642;
+1071643;
+1071644;
+1071645;
+1071646;
+1071647;
+1071648;
+1071649;
+1071650;
+1071651;
+1071652;
+1071653;
+1071654;
+1071655;
+1071656;
+1071657;
+1071658;
+1071659;
+1071660;
+1071661;
+1071662;
+1071663;
+1071664;
+1071665;
+1071666;
+1071667;
+1071668;
+1071669;
+1071670;
+1071671;
+1071672;
+1071673;
+1071674;
+1071675;
+1071676;
+1071677;
+1071678;
+1071679;
+1071680;
+1071681;
+1071682;
+1071683;
+1071684;
+1071685;
+1071686;
+1071687;
+1071688;
+1071689;
+1071690;
+1071691;
+1071692;
+1071693;
+1071694;
+1071695;
+1071696;
+1071697;
+1071698;
+1071699;
+1071700;
+1071701;
+1071702;
+1071703;
+1071704;
+1071705;
+1071706;
+1071707;
+1071708;
+1071709;
+1071710;
+1071711;
+1071712;
+1071713;
+1071714;
+1071715;
+1071716;
+1071717;
+1071718;
+1071719;
+1071720;
+1071721;
+1071722;
+1071723;
+1071724;
+1071725;
+1071726;
+1071727;
+1071728;
+1071729;
+1071730;
+1071731;
+1071732;
+1071733;
+1071734;
+1071735;
+1071736;
+1071737;
+1071738;
+1071739;
+1071740;
+1071741;
+1071742;
+1071743;
+1071744;
+1071745;
+1071746;
+1071747;
+1071748;
+1071749;
+1071750;
+1071751;
+1071752;
+1071753;
+1071754;
+1071755;
+1071756;
+1071757;
+1071758;
+1071759;
+1071760;
+1071761;
+1071762;
+1071763;
+1071764;
+1071765;
+1071766;
+1071767;
+1071768;
+1071769;
+1071770;
+1071771;
+1071772;
+1071773;
+1071774;
+1071775;
+1071776;
+1071777;
+1071778;
+1071779;
+1071780;
+1071781;
+1071782;
+1071783;
+1071784;
+1071785;
+1071786;
+1071787;
+1071788;
+1071789;
+1071790;
+1071791;
+1071792;
+1071793;
+1071794;
+1071795;
+1071796;
+1071797;
+1071798;
+1071799;
+1071800;
+1071801;
+1071802;
+1071803;
+1071804;
+1071805;
+1071806;
+1071807;
+1071808;
+1071809;
+1071810;
+1071811;
+1071812;
+1071813;
+1071814;
+1071815;
+1071816;
+1071817;
+1071818;
+1071819;
+1071820;
+1071821;
+1071822;
+1071823;
+1071824;
+1071825;
+1071826;
+1071827;
+1071828;
+1071829;
+1071830;
+1071831;
+1071832;
+1071833;
+1071834;
+1071835;
+1071836;
+1071837;
+1071838;
+1071839;
+1071840;
+1071841;
+1071842;
+1071843;
+1071844;
+1071845;
+1071846;
+1071847;
+1071848;
+1071849;
+1071850;
+1071851;
+1071852;
+1071853;
+1071854;
+1071855;
+1071856;
+1071857;
+1071858;
+1071859;
+1071860;
+1071861;
+1071862;
+1071863;
+1071864;
+1071865;
+1071866;
+1071867;
+1071868;
+1071869;
+1071870;
+1071871;
+1071872;
+1071873;
+1071874;
+1071875;
+1071876;
+1071877;
+1071878;*cough*
+1071879;*hack*
+1071880;*growrif*
+1071881;*gag*
+1071882;* The plague beast's plague spores enter your bloodstream. You've contracted the plague! *
+1071883;* You've contracted the plague by coming into contact with this person's diseased flesh! *
+1071884;* You feel yourself resisting the effects of the plague! *
+1071885;a fibrous plant sac
+1071886;plague tree core
+1071887;
+1071888;
+1071889;This resource has already been applied towards the curing of the plague tree.
+1071890;* You place the item inside the plague tree core. *
+1071891;This item would not be of any use towards curing the plague tree!
+1071892;This type of seed will not be of any use!
+1071893;This potion is not strong enough to be of any use!
+1071894;Choose the object you wish to place inside the plague tree core.
+1071895;* You remove the diseased gland from the organ *
+1071896;This is too crude an implement for such a procedure.
+1071897;You carefully cut into the organ.
+1071898;You have already cut this organ open.
+1071899;You begin cutting through the vein.
+1071900;This vein has already been cut.
+1071901;* As you cut the vein, a cloud of poison is expelled from the plague beast's organ, and the plague beast dissolves into a puddle of goo *
+1071902;* You cry out in agony as your brain begins to boil *
+1071903;* Your skin begins to itch as hideous boils cover your flesh *
+1071904;* You slice through the plague beast's amorphous tissue *
+1071905;* The swarm of insects bites and stings your flesh! *
+1071906;* You remove the plague mutation core from the plague beast, causing it to dissolve into a pile of goo *
+1071907;* The plague spawn burbles incoherently *
+1071908;* The plague spawn begins to dissolve *
+1071909;* ~1_VAL~ emits a hideous scream of pain! *
+1071910;* Your skin burns and bubbles, creating a horrible stench *
+1071911;* Your hair begins to fall out, and your skin feels hot to the touch *
+1071912;* ~1_Val~ is covered with hideous boils! *
+1071913;You place the organ in the fleshy receptacle near the core.
+1071914;* You rip the organ out of the plague beast's flesh *
+1071915;This seems to be in an acceptable location. You decide not to move it.
+1071916;* You patch up the wound with a bandage *
+1071917;* You attempt to tear open the amorphous flesh, but it resists *
+1071918;You can't cut through the plague beast's amorphous skin with scissors!
+1071919;* ~1_VAL~ slices through the plague beast's amorphous tissue *
+1071920;* The plague beast's amorphous flesh hardens and becomes immobilized *
+1071921;* The plague beast begins to bubble and dissolve! *
+1071922;The plague beast is still bleeding from open wounds.  You must seal any bleeding wounds before the core will open!
+1071923;*begins to fall apart due to lack of maintenance*
+1071924;* ~1_VAL~ is stung by a swarm of insects *
+1071925;* The open flame begins to scatter the swarm of insects! *
+1071926;* The swarm of insects extinguishes your flame! *
+1071927;* This creature remains loyal, but seems shaken *
+1071928;* This creature is charmed and confused, as it cannot see its master *
+1071929;* This creature is charmed by the meer's power! *
+1071930;Creature of nature, I command thee to revolt against thy master!
+1071931;I call a plague of insects to sting your flesh!
+1071932;Creatures of the forest, I call to thee!  Aid me in the fight against all that is evil!
+1071933;That is not a faction guard!
+1071934;Target the guard you wish to dismiss
+1071935;The item could not fit in your backpack or bank box
+1071936;You cannot equip that.
+1071937;You cannot use that while your pet is fighting.
+1071938;
+1071939;
+1071940;You are not quite sure how to use this.
+1071941;You failed to create the golem.
+1071942;You are too drained to make another golem.  You must wait approximately one day to construct another.
+1071943;You must be a Journeyman or higher Tinker to construct a golem.
+1071944;The clockwork assembly must be in your backpack to construct a golem.
+1071945;You need a power crystal to construct a golem.
+1071946;You need more gears to construct a golem.
+1071947;You need more bronze ingots to construct a golem.
+1071948;You need more iron ingots to construct a golem.
+1071949;You cannot buy this item right now.  Please wait one minute and try again.
+1071950;I'm sorry, but I'm only holding ~1_VAL~ gold for you.
+1071951;Very well. I will hold on to the money for now then.
+1071952;The vendor is too far away.  You may attempt to access it via the house sign.  To do so, stand on the ground outisde the house within 5 steps of the house sign and open the context-sensitive menu on the sign.
+1071953;The vendor is too far away and cannot be temporarily moved to your location right now.
+1071954;
+1071955;You cannot teleport while dragging an object.
+1071956;You cannot provoke a creature that is ignoring you.
+1071957;
+1071958;* ~1_VAL~ seems resist to the poison *
+1071959;* You feel yourself resisting the effects of the plague! *
+1071960;This bowl of dirt already has a seed in it!
+1071961;This song has been added to the musicbox.
+1071962;This song track is already in the musicbox.
+1071963;Missing song track on the gear.
+1071964;Gears can only be put into a musicbox.
+1071965;Please select a musicbox to put this song track in.
+1071966;The solen's damaged acid sac squirts acid! 
+1071967;The corruption of your armor has worn off
+1071968;You can't throw snowballs while riding.
+1071969;The snow must be in your backpack to use.
+1071970;You should only pour water in there!
+1071971;Thou art giving me ~1_VAL~?
+1071972;You must be in a faction to tame a war horse!
+1071973;Guild website not yet set.
+1071974;The guild leader has not yet set the guild charter.
+1071975;You need some iron or bronze ingots to repair the golem.
+1071976;You must have a basic understanding of tinkering to attempt to repair a golem.
+1071977;The golem doesn't appear to be damaged.
+1071978;You must move closer to attempt to repair the golem.
+1071979;You must wait a moment before attempting to repair the golem again.
+1071980;You have worn out your ancient smithy hammer.
+1071981;Your boots allow you to mount the Cu Sidhe.
+1071982;FREE
+1071983;You cannot offer a contract in a condemned house.
+1071984;That is not a valid target for a rental contract!
+1071985;I'm sorry, but that is too heavy for me.
+1071986;You cannot price items above 175,000,000 gold. The price has been set to the maximum. Note that if you price an item above 125,000,000 gold, players without expanded bank storage may not be able to purchase the item.
+1071987;Dismiss Vendor
+1071988;Collect Gold
+1071989;Your resurrections through Sacrifice have been reset.
+1071990;Remember to claim your vendor's belongings from the house sign!
+1071991;You can't tell anything about this golem's creator.
+1071992;The skill of a tinker who creates this golem:
+1071993;little
+1071994;some
+1071995;fair
+1071996;great
+1071997;superior
+1071998;extraordinary
+1071999;unknown
+1072000;
+1072001;Potezna mikstura zrecznosci 
+1072002;Potezna mikstura sily 
+1072003;Starozytna alchemia 
+1072004;Mikstura zywiolaka wody 
+1072005;Mikstura zywiolaka ognia 
+1072006;Mikstura zywiolaka ziemi 
+1072007;
+1072008;
+1072009;
+1072010;
+1072011;Keg mikstury zywiolaka wody 
+1072012;Keg mikstury zywiolaka ognia 
+1072013;Keg mikstury zywiolaka ziemi 
+1072014;
+1072015;
+1072016;
+1072017;Keg mikstury wskrzeszania zwierzat 
+1072018;Nie mozesz wykonywac tej czynnosci bedac konno! 
+1072019;Musisz przybrac ludzka forme, aby moc wykonac ta czynnosc! 
+1072020;Co chcesz wyrabac toporem? 
+1072021;
+1072022;
+1072023;
+1072024;
+1072025;
+1072026;
+1072027;
+1072028;
+1072029;
+1072030;
+1072031;
+1072032;
+1072033;
+1072034;
+1072035;
+1072036;
+1072037;
+1072038;
+1072039;
+1072040;
 1072041; 
 1072042;The caster and up to four participating arcanists must stand inside an arcane circle, pentagram or abbatoir. When the caster invokes this spell, a magically charged emerald (called an arcane focus) is created for the caster and each participating arcanist. The arcane focus increases duration, spell damage, healing spell effectiveness, and area of effect for the activator’s Spellweaving spells. 
 1072043;The arcanist taps into the regenerative forces of nature to deliver healing pulses for the duration of the spell. 
@@ -43827,7 +43827,7 @@ Number;Text
 1072938;Missing Package 
 1072939;Lost in Transit 
 1072940;scrapper's compendium 
-1072941;Potion of Invisibility 
+1072941;Mikstura niewidzialnosci
 1072942;pasozytnicza 
 1072943;ciemnej poswiaty 
 1072944;Spirited Away 
