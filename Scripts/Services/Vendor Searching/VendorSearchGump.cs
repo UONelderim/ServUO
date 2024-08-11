@@ -124,7 +124,7 @@ namespace Server.Engines.VendorSearching
             AddHtmlLocalized(630, 570, 100, 20, 1114514, "#1154641", LabelColor, false, false); // Search
 
             AddButton(740, 550, 30533, 30533, 2, GumpButtonType.Reply, 0);
-            AddHtmlLocalized(630, 550, 100, 20, 1114514, "#1154588", LabelColor, false, false); // Clear Search Criteria
+            AddHtmlLocalized(580, 550, 150, 20, 1114514, "#1154588", LabelColor, false, false); // Clear Search Criteria
 
             int buttonIdx = 50;
 
