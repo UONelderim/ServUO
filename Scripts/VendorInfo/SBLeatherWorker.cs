@@ -59,11 +59,8 @@ namespace Server.Mobiles
 			{
 				Add(typeof(Hides), 3);
 
-				// 15.08.2012 :: zombie :: 28 -> 7
 				Add(typeof(ThighBoots), 7);
-				// zombie
 				Add(typeof(Leather), 3);
-				// zombie
 				Add(typeof(SkinningKnife), 6);
 
 				Add(typeof(LeatherArms), 18);

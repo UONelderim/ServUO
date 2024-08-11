@@ -11,9 +11,7 @@ namespace Server.Mobiles
 	[CorpseName("zwloki Arachne")]
 	public class Arachne : BaseCreature
 	{
-		// 10.10.2012 :: zombie
 		public override double DifficultyScalar { get { return 1.05; } }
-		// zombie
 
 		[Constructable]
 		public Arachne() : base(AIType.AI_Mage, FightMode.Closest, 12, 1, 0.2, 0.4)

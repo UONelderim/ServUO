@@ -97,10 +97,8 @@ namespace Server.Mobiles
 				{
 					m_Wet.SayTo(from, 1063883); // Miasto nie oplacilo moich uslug. Nieczynne.
 				}
-				// 01.07.2012 :: zombie :: dodanie sprawdzenia ranga
 				else if (targeted is Mobile && m_Wet.GetDistanceToSqrt((Mobile)targeted) > 7)
 					from.SendLocalizedMessage(500446); // Za daleko.
-				// zombie
 				else if (targeted is BaseCreature)
 				{
 					m_Wet.EndRes(from, (BaseCreature)targeted);

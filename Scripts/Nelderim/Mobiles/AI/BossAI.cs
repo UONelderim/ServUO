@@ -319,24 +319,6 @@ namespace Server.Mobiles
 					}
 				}
 
-				// 23.06.2012 :: zombie :: Sprawdzamy czy nie podejsc do przeciwnika
-				/* wyłączam modyfikacje RangeFight:
-		        if ( DateTime.Now > m_NextRangeChange && !m_Mobile.Controlled )
-		        {
-		            int defRange = m_DefaultRange;
-	
-		            if ( m_Mobile.Hits > m_Mobile.HitsMax * 0.5 && c.Hits < c.HitsMax * 0.2 )
-		                m_Mobile.RangeFight = 1;
-		            else if ( Utility.RandomDouble() <= 0.15 || m_Mobile.Hits <= m_Mobile.HitsMax * 0.3 || ( CanMeditate && m_Mobile.Mana < m_Mobile.ManaMax * 0.1 ) )
-		                m_Mobile.RangeFight = 12;
-		            else
-		                m_Mobile.RangeFight = defRange;
-	
-		            m_NextRangeChange = DateTime.Now + TimeSpan.FromSeconds( 3 );
-		        }
-				*/
-				// zombie
-
 				if (CanDoBossAbility && DoBossAbility())
 					return true;
 

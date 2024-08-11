@@ -10,11 +10,9 @@ namespace Server.Items
 	{
 		public override int DexOffset { get { return 20; } }
 
-		// 06.07.2012 :: zombie :: czas dzialania pota wynosi 5 min (wczesniej 2)
 		public override TimeSpan Duration { get { return TimeSpan.FromMinutes(20.0); } }
-		// zombie
 
-		public override int LabelNumber { get { return 1071086; } }
+		public override int LabelNumber { get { return 1072001; } }
 
 		[Constructable]
 		public NGreaterAgilityPotion(int amount) : base(PotionEffect.NAgilityGreater)
