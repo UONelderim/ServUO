@@ -5,5 +5,9 @@
 			<rect x="3574" y="2420" width="237" height="379" />
 			<music name="Gargoyles" />
 		</region>
+		<region type="CityRegion" name="NewHaven">
+			<rect x="3650" y="2592" width="237" height="379" />
+			<music name="Gargoyles" />
+		</region>
 	</Facet>
 </ServerRegions>
