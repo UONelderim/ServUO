@@ -96,10 +96,14 @@ namespace Server.Items
                         case PotionEffect.Invisibility: number = 1080071; break; // A keg of Invisibility potions
                         case PotionEffect.Parasitic: number = 1080067; break; // A Keg of Murky Liquid.
                         case PotionEffect.Darkglow: number = 1080068; break; // A Keg of Baneful Liquid.
-                        case PotionEffect.NStrengthGreater:	number = 1041600; break; // + (int) m_Type - (int) PotionEffect.NAgilityGreater;
-                        case PotionEffect.NAgilityGreater:	number = 1041599; break; // + (int) m_Type - (int) PotionEffect.NStrengthGreater;
+                        case PotionEffect.NStrengthGreater:	number = 1041614; break; // A keg of white liquid.
+                        case PotionEffect.NAgilityGreater:	number = 1041613; break; // A keg of blue liquid.
+                        case PotionEffect.WaterElemental: number = 1072011; break;
+                        case PotionEffect.FireElemental: number = 1072012; break;
+                        case PotionEffect.EarthElemental: number = 1072013; break;
+                        case PotionEffect.PetResurrect: number = 1072017; break;
+                        }
                     }
-                }
                 else
                 {
                     switch (m_Type)
@@ -111,6 +115,12 @@ namespace Server.Items
                         case PotionEffect.Invisibility: number = 1080071; break; // A keg of Invisibility potions
                         case PotionEffect.Parasitic: number = 1080069; break; // A keg of Parasitic Poison potions
                         case PotionEffect.Darkglow: number = 1080070; break; // A keg of Darkglow Poison potions
+                        case PotionEffect.NStrengthGreater:	number = 1041600; break; // Keg poteznej mikstury sily
+                        case PotionEffect.NAgilityGreater:	number = 1041599; break; // Keg poteznej mikstury zrecznosci
+                        case PotionEffect.WaterElemental: number = 1072011; break;
+                        case PotionEffect.FireElemental: number = 1072012; break;
+                        case PotionEffect.EarthElemental: number = 1072013; break;
+                        case PotionEffect.PetResurrect: number = 1072017; break;
                         default: number = 1041620 + (int)m_Type; break;
                     }
                 }

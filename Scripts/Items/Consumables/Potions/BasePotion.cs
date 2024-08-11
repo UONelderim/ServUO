@@ -49,8 +49,8 @@ namespace Server.Items
         WaterElemental,
         FireElemental,
         EarthElemental,
-        Revitalize,
-        SuperPotion,
+        UNUSED1,
+        UNUSED2,
         PetResurrect,
 
         NAgilityGreater,
