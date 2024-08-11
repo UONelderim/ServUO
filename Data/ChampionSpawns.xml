@@ -84,13 +84,26 @@
     <spawn name="Spirituality" type="ForestLord">
         <location x="1645" y="1107" z="8" map="Ilshenar" radius="50"/>
     </spawn>
-    <spawn name="Glade" type="Glade" killsMod="0.5" spawnMod="0.5">
-        <location x="2212" y="1260" z="25" map="Ilshenar" radius="25"/>
-    </spawn>
     <spawn name="Dragon" type="SleepingDragon">
         <location x="948" y="434" z="29" map="Tokuno" radius="60"/>
     </spawn>
     <spawn name="Bedlam" type="Corrupt" killsMod="0.5" spawnMod="0.5">
         <location x="174" y="1629" z="8" map="Malas" radius="25"/>
     </spawn>
+	<!-- Custom Champs-->
+	<spawn name="Pyre" group="FelOpenWorld" type="Pyre">
+        <location x="4113" y="1223" z="0" map="Felucca" radius="35" killsMod="0.5" spawnMod="0.5"/>	
+	</spawn>
+	<spawn name="Glade" group="FelOpenWorld" type="Glade">
+        <location x="3119" y="1251" z="0" map="Felucca" radius="25" killsMod="0.5" spawnMod="0.5"/>	
+	</spawn>
+	<spawn name="MeraktusTheTormented" group="FelOpenWorld" type="MeraktusTheTormented">
+        <location x="3200" y="2676" z="0" map="Felucca" radius="25" killsMod="0.5" spawnMod="0.5"/>	
+	</spawn>
+	<spawn name="Morena" group="FelDungeons" type="Morena">
+        <location x="5519" y="13654" z="0" map="Felucca" radius="25" killsMod="0.5" spawnMod="0.5"/>	
+	</spawn>
+	<spawn name="OrcCommander" group="FelOpenWorld" type="OrcCommander">
+        <location x="2840" y="1238" z="0" map="Felucca" radius="35" killsMod="0.5" spawnMod="0.5"/>	
+	</spawn>
 </championSystem>
