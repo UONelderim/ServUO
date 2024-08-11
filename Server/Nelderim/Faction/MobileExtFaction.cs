@@ -22,6 +22,13 @@ namespace Server
 			}
 		}
 
+		[CommandProperty(AccessLevel.GameMaster, AccessLevel.Administrator)]
+		public Faction AccountFaction //I don't know how to access it directly through account.faction ingame
+		{
+			get => Account.Faction;
+			set => Account.Faction = value;
+		}
+
 		private void OnFactionChange(Faction oldFaction)
 		{
 		}

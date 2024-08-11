@@ -47,7 +47,10 @@ namespace Server.Nelderim
 
 		public static Faction Parse(string name)
 		{
-			return AllFactions.Find(f => f.GetType().Name == name) ?? None;
+			return AllFactions.Find(f => 
+				f.GetType().Name.Equals(name, StringComparison.InvariantCultureIgnoreCase) || 
+				f.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase)
+				) ?? None;
 		}
 	}
 }
