@@ -1,6 +1,5 @@
 #region References
 
-using System.Linq;
 using Server.Items;
 
 #endregion
@@ -10,9 +9,7 @@ namespace Server.Mobiles
 	[CorpseName("zwloki dowodcy orkow")]
 	public class KapitanIIILegionuOrkow : BaseCreature
 	{
-		// 10.10.2012 :: zombie
 		public override double DifficultyScalar => 1.05;
-		// zombie
 
 		[Constructable]
 		public KapitanIIILegionuOrkow() : base(AIType.AI_Melee, FightMode.Closest, 12, 1, 0.2, 0.4)

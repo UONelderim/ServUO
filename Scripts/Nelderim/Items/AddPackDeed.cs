@@ -8,7 +8,6 @@ using Server.Targeting;
 
 #endregion
 
-// szczaw :: 2013.01.14 :: przeniesienie tekstow do cliloca
 namespace Server.Items
 {
 	class AddPackDeed : Item
