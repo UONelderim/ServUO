@@ -34,7 +34,7 @@ namespace Server.Accounting
 						);
 				}
 			}
-			AppendNode(account, "faction", Faction.ToString());
+			AppendNode(account, "faction", Faction.GetType().Name);
 		}
 
 		private void LoadNelderim(XmlElement node)
@@ -44,21 +44,19 @@ namespace Server.Accounting
 			
 			var xmlqph = node["questPointsHistory"];
 
-			if (xmlqph == null)
+			if (xmlqph != null)
 			{
-				return;
-			}
-
-			var elements = xmlqph.GetElementsByTagName("entry");
+				var elements = xmlqph.GetElementsByTagName("entry");
 			
-			foreach (XmlElement entry in elements)
-			{
-				var dateTime = Utility.GetXMLDateTime(Utility.GetAttribute(entry,"dateTime", ""), DateTime.MinValue);
-				var gm = Utility.GetAttribute(entry,"gm", "");
-				var points = Utility.GetXMLInt32(Utility.GetAttribute(entry,"points", "0"),0);
-				var charName = Utility.GetAttribute(entry, "charName", "");
-				var reason = Utility.GetText(entry, "");
-				QuestPointsHistory.Add(new QuestPointsHistoryEntry(dateTime, gm, points, reason, charName));
+				foreach (XmlElement entry in elements)
+				{
+					var dateTime = Utility.GetXMLDateTime(Utility.GetAttribute(entry,"dateTime", ""), DateTime.MinValue);
+					var gm = Utility.GetAttribute(entry,"gm", "");
+					var points = Utility.GetXMLInt32(Utility.GetAttribute(entry,"points", "0"),0);
+					var charName = Utility.GetAttribute(entry, "charName", "");
+					var reason = Utility.GetText(entry, "");
+					QuestPointsHistory.Add(new QuestPointsHistoryEntry(dateTime, gm, points, reason, charName));
+				}
 			}
 			
 			Faction = Faction.Parse(Utility.GetText(node["faction"], Faction.None.ToString()));
