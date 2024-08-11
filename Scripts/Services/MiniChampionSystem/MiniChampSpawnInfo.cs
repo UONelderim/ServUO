@@ -80,10 +80,10 @@ namespace Server.Engines.MiniChamps
                 bc.OnBeforeSpawn(loc, map);
                 bc.MoveToWorld(loc, map);
 
-                if (bc.Fame > Utility.Random(100000) || bc is BaseRenowned)
+             /*   if (bc.Fame > Utility.Random(100000) || bc is BaseRenowned)
                 {
                     DropEssence(bc);
-                }
+                }*/
 
                 Creatures.Add(bc);
 
@@ -95,7 +95,7 @@ namespace Server.Engines.MiniChamps
             return spawned;
         }
 
-        private void DropEssence(BaseCreature bc)
+      /*  private void DropEssence(BaseCreature bc)
         {
             Type essenceType = MiniChampInfo.GetInfo(Owner.Type).EssenceType;
 
@@ -105,7 +105,7 @@ namespace Server.Engines.MiniChamps
             {
                 bc.PackItem(essence);
             }
-        }
+        }*/
 
         public void AddProperties(ObjectPropertyList list, int cliloc)
         {
