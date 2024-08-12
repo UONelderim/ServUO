@@ -1,6 +1,7 @@
 using Server.Network;
 using System;
 using System.Collections.Generic;
+// EvalInt zamiast Imbuing
 
 namespace Server.Spells.Mysticism
 {
@@ -124,7 +125,7 @@ namespace Server.Spells.Mysticism
             if (TransformationSpellHelper.UnderTransformation(m, typeof(StoneFormSpell)))
             {
                 int prim = (int)m.Skills[SkillName.Mysticism].Value;
-                int sec = (int)m.Skills[SkillName.Imbuing].Value;
+                int sec = (int)m.Skills[SkillName.EvalInt].Value;
 
                 if (m.Skills[SkillName.Focus].Value > sec)
                     sec = (int)m.Skills[SkillName.Focus].Value;
@@ -140,7 +141,7 @@ namespace Server.Spells.Mysticism
         private static int GetResBonus(Mobile m)
         {
             int prim = (int)m.Skills[SkillName.Mysticism].Value;
-            int sec = (int)m.Skills[SkillName.Imbuing].Value;
+            int sec = (int)m.Skills[SkillName.EvalInt].Value;
 
             if (m.Skills[SkillName.Focus].Value > sec)
                 sec = (int)m.Skills[SkillName.Focus].Value;
@@ -154,7 +155,7 @@ namespace Server.Spells.Mysticism
                 return 0;
 
             int prim = (int)m.Skills[SkillName.Mysticism].Value;
-            int sec = (int)m.Skills[SkillName.Imbuing].Value;
+            int sec = (int)m.Skills[SkillName.EvalInt].Value;
 
             if (m.Skills[SkillName.Focus].Value > sec)
                 sec = (int)m.Skills[SkillName.Focus].Value;
@@ -165,7 +166,7 @@ namespace Server.Spells.Mysticism
         private static int GetDamBonus(Mobile m)
         {
             int prim = (int)m.Skills[SkillName.Mysticism].Value;
-            int sec = (int)m.Skills[SkillName.Imbuing].Value;
+            int sec = (int)m.Skills[SkillName.EvalInt].Value;
 
             if (m.Skills[SkillName.Focus].Value > sec)
                 sec = (int)m.Skills[SkillName.Focus].Value;
@@ -178,7 +179,7 @@ namespace Server.Spells.Mysticism
             if (TransformationSpellHelper.UnderTransformation(from, typeof(StoneFormSpell)))
             {
                 int prim = (int)from.Skills[SkillName.Mysticism].Value;
-                int sec = (int)from.Skills[SkillName.Imbuing].Value;
+                int sec = (int)from.Skills[SkillName.EvalInt].Value;
 
                 if (from.Skills[SkillName.Focus].Value > sec)
                     sec = (int)from.Skills[SkillName.Focus].Value;
