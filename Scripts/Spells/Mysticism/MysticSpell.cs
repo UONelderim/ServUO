@@ -39,8 +39,8 @@ namespace Server.Spells.Mysticism
         {
             get
             {
-                if (Caster.Skills[SkillName.Imbuing].Value >= Caster.Skills[SkillName.Focus].Value)
-                    return SkillName.Imbuing;
+                if (Caster.Skills[SkillName.EvalInt].Value >= Caster.Skills[SkillName.Focus].Value) //EvalInt zamiast Imbuing
+                    return SkillName.EvalInt;
                 return SkillName.Focus;
             }
         }

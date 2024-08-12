@@ -151,7 +151,7 @@ namespace Server.Spells.Mysticism
 
         public static int BonusDamage(Mobile caster)
         {
-            var skill = Math.Max(caster.Skills[SkillName.Focus].Value, caster.Skills[SkillName.Imbuing].Value);
+            var skill = Math.Max(caster.Skills[SkillName.Focus].Value, caster.Skills[SkillName.EvalInt].Value); //zamiast Imbuing
 
             if (skill <= 20)
             {
