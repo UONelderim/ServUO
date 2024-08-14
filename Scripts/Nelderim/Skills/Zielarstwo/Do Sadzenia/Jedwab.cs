@@ -39,6 +39,7 @@ namespace Server.Items.Crops
 
 	public class KrzakJedwab : Plant
 	{
+		public override Type SeedType => typeof(SzczepkaJedwab);
 		public override Type CropType => typeof(PlonJedwab);
 
 		protected override int YoungPlantGraphics => Utility.Random(0xC51, 2);

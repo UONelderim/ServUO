@@ -39,6 +39,7 @@ namespace Server.Items.Crops
 
 	public class KrzakKonopia : Plant
 	{
+		public override Type SeedType => typeof(SzczepkaKonopia);
 		public override Type CropType => typeof(PlonKonopia);
 
 		protected override int YoungPlantGraphics => 0xCC7;
