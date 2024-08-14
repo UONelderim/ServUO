@@ -17,10 +17,6 @@ namespace Server.Mobiles
 	{
 		private DateTime m_NextBossAbility;
 
-		public virtual bool BossAbilityDefined { get { return false; } }
-		public virtual TimeSpan BossAbilityDelay { get { return TimeSpan.FromSeconds(120); } }
-		public virtual bool CanDoBossAbility { get { return BossAbilityDefined && DateTime.Now > m_NextBossAbility; } }
-
 		public BossAI(BaseCreature m) : base(m)
 		{
 		}
@@ -28,13 +24,6 @@ namespace Server.Mobiles
 		public override double HealChance { get { return 0.20; } }
 		public virtual double DetectHiddenChance { get { return 0.20; } }
 		public virtual double HideChance { get { return 0.20; } }
-
-		public virtual bool DoBossAbility()
-		{
-			m_NextBossAbility = DateTime.Now + BossAbilityDelay;
-
-			return true;
-		}
 
 		public override void OnActionChanged()
 		{
@@ -319,9 +308,6 @@ namespace Server.Mobiles
 					}
 				}
 
-				if (CanDoBossAbility && DoBossAbility())
-					return true;
-
 				if (m_Mobile.Spell == null && DateTime.Now > NextCastTime && m_Mobile.InRange(c, 12))
 				{
 					// We are ready to cast a spell
@@ -370,16 +356,7 @@ namespace Server.Mobiles
 
 					RunTo(c);
 
-					if (spell != null)
-					{
-						if (spell.Cast())
-						{
-							if (m_Combo != -1)
-							{
-								m_Combo++;
-							}
-						}
-					}
+					spell?.Cast();
 
 					TimeSpan delay;
 
