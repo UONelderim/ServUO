@@ -239,7 +239,7 @@ namespace Server.Gumps
                             Item item = items[i];
 
                             if (item.Layer != Layer.Hair && item.Layer != Layer.FacialHair && item.Movable)
-                                pack.DropItem(item);
+                                pack.AddItem(item);
                         }
                     }
                 }
