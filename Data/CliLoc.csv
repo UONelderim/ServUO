@@ -5268,7 +5268,7 @@ Number;Text
 1005623;Various tools have been placed into your bank. 
 1005624;Various raw materials like ingots, logs, feathers, hides, bottles, etc. have been placed into your bank. 
 1005625;One of each level of treasure map has been placed in your bank box. 
-1005626;5 unmarked recall runes, 5 Felucca moonstones and 5 Trammel moonstones have been placed into your bank box. 
+1005626;5 unmarked runas, 5 Felucca moonstones and 5 Trammel moonstones have been placed into your bank box. 
 1005627;Something went wrong.  Could not place spellbook and reagents into your bank box. 
 1005628;Stats range between 10 and 125 
 1005629;You cannot exceed the stat cap.  Try setting another stat lower first. 
@@ -26225,7 +26225,7 @@ Number;Text
 1041070;Lysander's Notebook 
 1041071;Journal: Discovery of the Tomb 
 1041072;kapelusz maga 
-1041073;prized fish 
+1041073;cenny fish 
 1041074;wondrous fish 
 1041075;truly rare fish 
 1041076;highly peculiar fish 
@@ -29024,14 +29024,14 @@ Number;Text
 1046059;The horrid phantasms still haunt us on a nightly basis using MY teleporter to get here. We have no way to get into the cave! 
 1046060;Well - there is one way. Let me tell you something of magic travel... 
 1046061;MAGIC TRAVEL: 
-1046062;To begin with, you need what is called a recall rune.  Blank recall runes can be purchased at most any magic supply shop. 
+1046062;To begin with, you need what is called a runa.  Blank runas can be purchased at most any magic supply shop. 
 1046063;Then, you need either in your spellbook, or inscribed on a scroll a 'Mark' spell. 'Tis a spell of the 6th circle. 
-1046064;You then cast the Mark spell and target the recall rune. This inscribes the rune with the location at which you are standing. 
+1046064;You then cast the Mark spell and target the runa. This inscribes the rune with the location at which you are standing. 
 1046065;To instantly return to the location where the rune was marked, you employ the 'Recall' spell. 
 1046066;This spell is of the 4th circle and you should have little trouble with it. 
-1046067;Simply cast the Recall spell and target the marked recall rune of the location you wish to travel to. 
+1046067;Simply cast the Recall spell and target the marked runa of the location you wish to travel to. 
 1046068;There is also another, called 'Gate Travel' which operates on the same principles as the Recall spell. 
-1046069;Gate Travel allows you to open a magical gate to the location of your marked recall rune. This way, others can travel with you. 
+1046069;Gate Travel allows you to open a magical gate to the location of your marked runa. This way, others can travel with you. 
 1046070;Gate Travel is of the 7th circle however, and you will not be able to weave such intricate magic for a while. 
 1046071;Now - to get back to the subject at hand.  Whilst I was working in the caves, installing the teleporter, I marked a rune. 
 1046072;This would, in theory, allow us to travel into the cave to investigate the condition of our mining resources. 
@@ -29042,7 +29042,7 @@ Number;Text
 1046077;Please hurry - time is short and so is our supply of fighters to fend off the wicked creatures. 
 1046078;Uzeraan nods at you with approval and begins to speak: 
 1046079;Thank you stranger. You are not a moment too soon. For your help I have placed a few scrolls in your pack to aid you. 
-1046080;Just a few Mark and Recall scrolls for you to try out. I've also given you some blank recall runes. 
+1046080;Just a few Mark and Recall scrolls for you to try out. I've also given you some blank runas. 
 1046081;Now I can send the few remaining soldiers in to the cave to investigate the state of affairs. 
 1046082;On second thought, *YOU* would do much better against the wretched wraiths than any of our soldiers. 
 1046083;Go and gather any other supplies you think you will need and then return here. I will transport you below upon your return. 
@@ -29075,7 +29075,7 @@ Number;Text
 1046110;’Tis a bad omen, as this was one of the few apprentices who knew of my new spell formulas. 
 1046111;No doubt the mysterious dark force is behind the abduction of my most valuable student. 
 1046112;I must ask you to go after the evil undead that abducted my apprentice and return him to safety. 
-1046113;In their haste to escape, one of the abductors dropped a marked recall rune. 
+1046113;In their haste to escape, one of the abductors dropped a marked runa. 
 1046114;No doubt it leads to the place where they are holding my young wizard captive. 
 1046115;I have the rune right here. No?  Maybe in this pocket? No. Well - this is most embarrassing. 
 1046116;Go and fetch yourself some supplies for the forthcoming battle and I will continue my search for the rune. 
@@ -29172,8 +29172,8 @@ Number;Text
 1046207;Go forth and kill at least 6 of these 'Headless' creatures. See if you can find any evidence of our missing men. 
 1046208;Well done! You have completed your task of slaying the 'Headless'. 
 1046209;You however, have shown great valor in your battle against the 'Headless'! 
-1046210;Well there is *ONE* way - Yes! That is it. Whilst I was installing the teleporter I marked a recall rune in the cave! 
-1046211;I can use this recall rune to transport you directly into the caverns. Alas, you must find your own way out. 
+1046210;Well there is *ONE* way - Yes! That is it. Whilst I was installing the teleporter I marked a runa in the cave! 
+1046211;I can use this runa to transport you directly into the caverns. Alas, you must find your own way out. 
 1046212;Go and gather supplies for battle. I suggest you take your weapon, some armor and at least 25 bandages to be safe. 
 1046213;Return here when you are ready to depart and I will transport you into the caverns below the island. 
 1046214;It's a treasure map I received from a dragon tamer a long time ago. I have neither the time nor the patience to find the treasure. 
@@ -31339,7 +31339,7 @@ Number;Text
 1060218;The Paladin’s <I>Holy Light</I> ability is the only direct-damage ability that the Paladin possesses.  Calling on the powers of his faith, he may call forth a magnificent beacon of holy light which damages all enemies in a small radius around the caster. 
 1060219;The Paladin’s <I>Noble Sacrifice</I> ability allows him to sacrifice himself for the greater good of those in the area.  When the ability is used, the Paladin is taken down to one (1) Hit Point, one (1) Stamina, and one (1) Mana.<BR><BR>In response to the Paladin's sacrifice, all of the dead in the affected area are offered resurrection, while all of the living are Cured and Healed. 
 1060220;The Paladin’s <I>Remove Curse</I> ability allows him to remove all <I>Curse</I> type effects from a single target.  Curses include all Necromancer curses, as well as the spells Feeblemind, Clumsy, Weaken, and Paralyze. 
-1060221;The Paladin ability <I>Sacred Journey</I> mimics the mage spell of <I>Recall</I> almost exactly, in that it allows a Paladin to instantly travel to any location for which he has a marked recall rune.<BR><BR>The Paladin cannot take a <I>Sacred Journey</I> if he is targeting or is being targeted by any creature, or is in combat. 
+1060221;The Paladin ability <I>Sacred Journey</I> mimics the mage spell of <I>Recall</I> almost exactly, in that it allows a Paladin to instantly travel to any location for which he has a marked runa.<BR><BR>The Paladin cannot take a <I>Sacred Journey</I> if he is targeting or is being targeted by any creature, or is in combat. 
 1060222;Tithing points are gained by tithing gold to the Virtue Shrines.  A Paladin who tithes gold to the shrine is making manifest his devotion to the concepts and beliefs that the Shrines exemplify.<BR><BR>Once gained through an act of tithing, these 'points' may be used by the Paladin to summon the divine abilities granted to his class.<BR><BR>Each use of a Paladin Ability consumes Tithing Points in addition to the pure energy of Mana. 
 1060223;"Players may tithe gold to the Virtue Shrines by opening the context sensitive menu interface on the shrine's Ankh.  There they may choose the <a href=""?ForceTopic109"">Tithe Gold</a> option, which will bring up the Tithing Interface.  The Tithing Interface lists the amount of gold the player is currently holding.  The player may then use the four arrows to convert Gold into Tithing points and vice versa.<BR><BR>When the <I>OK</I> button is clicked, the player's tithed Gold will be converted into the listed amount of Tithing Points." 
 1060224;The Paladin has many special abilities he can call forth through the use of his <I>Book of Chivalry</I>.<BR><BR>The Book Of Chivalry can be thought of as the Paladin's spell book.  To use an ability, simply open the Book of Chivalry to the appropriate page and double click the icon of the ability you wish to activate<BR><BR>The following abilities are available to the Paladin at various points of his development:<BR><BR>* Cleanse by Fire<BR>* Close Wounds<BR>* Consecreate Weapon<BR>* Dispel Evil<BR>* Divine Fury<BR>* Enemy of One<BR>* Holy Light<BR>* Noble Sacrifice<BR>* Remove Curse<BR>* Sacred Journey 
@@ -31694,8 +31694,8 @@ Number;Text
 1060573; 
 1060574; 
 1060575; 
-1060576;"Instead of using the teleporter, use your <a href=""?ForceTopic108"">Sacred Journey</a> Paladin ability.<BR><BR>There is a <a href=""?ForceTopic94"">marked</a> recall rune on the table <a href=""?ForceTopic13"">North</a> of where Uzeraan is standing. The rune will take you to your quest destination." 
-1060577;Recall Rune 
+1060576;"Instead of using the teleporter, use your <a href=""?ForceTopic108"">Sacred Journey</a> Paladin ability.<BR><BR>There is a <a href=""?ForceTopic94"">marked</a> runa on the table <a href=""?ForceTopic13"">North</a> of where Uzeraan is standing. The rune will take you to your quest destination." 
+1060577;runa 
 1060578;"Use your Paladin ability <a href=""?ForceTopic108"">Sacred Journey</a> to get to the graveyard.<BR><BR>Slay the undead until you find a <I>Daemon Bone</I>." 
 1060579;That is already a firebomb! 
 1060580;You prepare a firebomb. 
@@ -31785,7 +31785,7 @@ Number;Text
 1060664;This house is currently blocked for administrative purposes. 
 1060665;This house is currently in design mode or blocked for some other reason. 
 1060666;You manage to evade the wrath of the Paladin forces.  Seek out Mardoth for your reward. 
-1060667;a recall rune for a Haunted Graveyard west of here 
+1060667;a runa for a Haunted Graveyard west of here 
 1060668;INFORMACJE 
 1060669;WSPOLMIESZKANCY 
 1060670;WYPOSAZENIE 
@@ -45152,7 +45152,7 @@ Number;Text
 1074263;pieces of crystal 
 1074264;scattered crystals 
 1074265;jagged crystal shards 
-1074266;shattered crystal 
+1074266;roztrzaskane krysztaly
 1074267;a decorative bright ~1_COLOR~ ~2_TYPE~ 
 1074268;As you examine the column, your surroundings mysteriously change! 
 1074269;prismatic crystal 
@@ -46447,12 +46447,12 @@ Number;Text
 1075559;ech? Znajdz sobie wedke i zbliz sie do wody. Po prostu rzuc zylke i miejmy nadzieje, ze nie zaczepisz komus starych butow! Pamietaj, ze bedziemy potrzebowac dwudziestu zielonych ryb, wiec wroc, kiedy je zdobedziesz, dobrze? 
 1075560;Jeszcze chwila, przyjacielu, chwila! *szpera w swoim plecaku* Tutaj jestes! *wyciaga woreczek zza pazuchy* Moja sekretna mieszanka papryki zawsze sie sprawdza, nigdy nie zawodzi, nie, ani razu. Wypelni Twoj brzuch znacznie szybciej niz flaczki, ktore sprzedaja na karczmie! 
 1075561;"Clicking OK will permanently change your character's name. Reversing this requires the purchase of an additional name change token. For more details, <A HREF=""http://www.nelderim.pl"">visit our web site</A>." 
-1075562;An antique house placement tool 
+1075562;An Starozytny house placement tool 
 1075563;A house warming gift any cook will love 
 1075564;Bringing small daily gifts of reagents 
 1075565;An intricately detailed room divider 
 1075566;A comfortable addition to any room 
-1075567;An antique sextant, find your own path 
+1075567;An Starozytny sextant, find your own path 
 1075568;Bring warmth and light to your home 
 1075569;A hand crafted house decoration 
 1075570;A simple, hand crafted gift box. ***NOT BLESSED*** 
@@ -46745,7 +46745,7 @@ Number;Text
 1075857;You can not use that while paralyzed. 
 1075858;You can only use this with melee attacks. 
 1075859;Human Shield 
-1075860;Fire Eater 
+1075860;Pochlanianie obrazen od ognia 
 1075861;Ice Dancer 
 1075862;Lighting Rider 
 1075863;Snake Handler 
@@ -47070,7 +47070,7 @@ Number;Text
 1076184;Medium 
 1076185;Light 
 1076186;Deep Dark 
-1076187;Antique 
+1076187;Starozytny 
 1076188;Jade Character Statue Maker 
 1076189;Marble Character Statue Maker 
 1076190;Bronze Character Statue Maker 
@@ -69567,7 +69567,7 @@ Number;Text
 1112854;You have offered nothing! 
 1112855;Begin Mad Scientist Quest 
 1112856;You have a limited amount of time to complete the recipe. Start now? 
-1112857;splintering weapon ~1_val~% 
+1112857;bron rozszczepiajaca ~1_val~% 
 1112858;~1_TYPE~ clockwork mechanism 
 1112859;leather wolf 
 1112860;vollem 
@@ -70302,13 +70302,13 @@ Number;Text
 1113589;You may not continue while flying. 
 1113590;You have been grounded by ~1_NAME~! 
 1113591;Blood Drinker 
-1113592;Soul Charge ~1_VAL~% Damage 
-1113593;Fire Eater ~1_Val~% 
-1113594;Cold Eater ~1_Val~% 
-1113595;Poison Eater ~1_Val~% 
-1113596;Energy Eater ~1_Val~% 
-1113597;Kinetic Eater ~1_Val~% 
-1113598;Damage Eater ~1_Val~% 
+1113592;Naladowanie duszy ~1_VAL~% Damage 
+1113593;Pochlanianie obrazen od ognia ~1_Val~% 
+1113594;Pochlanianie obrazen od zimna ~1_Val~% 
+1113595;Pochlanianie obrazen od trucizny ~1_Val~% 
+1113596;Pochlanianie obrazen od energii ~1_Val~% 
+1113597;Pochlanianie obrazen kinetycznych ~1_Val~% 
+1113598;Pochlanianie obrazen ~1_Val~% 
 1113599;The soul shield effect has reduced some of the damage done to you at the cost of using your mana. 
 1113600;Soul Shield ~1_val~% 
 1113601;soul well 
@@ -70340,13 +70340,13 @@ Number;Text
 1113627;Primeval Lich Statuette 
 1113628;Abyssal Infernal Statuette 
 1113629;A Vollem Held in Crystal 
-1113630;Soul Charge ~1_val~% 
-1113631;Soul Charge : Fire : ~1_val~% 
-1113632;Soul Charge : Cold : ~1_val~% 
-1113633;Soul Charge : Poison : ~1_val~% 
-1113634;Soul Charge : Energy : ~1_val~% 
-1113635;Soul Charge : Kinetic : ~1_val~% 
-1113636;The soul charge effect converts some of the damage you received into mana. 
+1113630;Naladowanie duszy ~1_val~% 
+1113631;Naladowanie duszy : Fire : ~1_val~% 
+1113632;Naladowanie duszy : Cold : ~1_val~% 
+1113633;Naladowanie duszy : Poison : ~1_val~% 
+1113634;Naladowanie duszy : Energy : ~1_val~% 
+1113635;Naladowanie duszy : Kinetic : ~1_val~% 
+1113636;The Naladowanie duszy effect converts some of the damage you received into mana. 
 1113637;kneading bowl 
 1113638;dusty pillow 
 1113639;floured bread board 
@@ -70406,11 +70406,11 @@ Number;Text
 1113693;Poison Resonance ~1_val~% 
 1113694;Energy Resonance ~1_val~% 
 1113695;Kinetic Resonance ~1_val~% 
-1113696;Casting Focus ~1_val~% 
+1113696;skupienie ~1_val~% 
 1113697;(Golem) 
 1113698;(Dyed) 
-1113699;Hit Mana Drain ~1_val~% 
-1113700;Hit Fatigue ~1_val~% 
+1113699;Odsysanie Many ~1_val~% 
+1113700;Zmeczenie ~1_val~% 
 1113701;You have received a glowing key fragment. 
 1113702;You attempt to retrieve a key fragment but your bag is too full. The master key vanishes. 
 1113703;Shroud of the Condemned 
@@ -70420,7 +70420,7 @@ Number;Text
 1113707;You must have at lease ~1_MIN~ loyalty to the Gargoyle Queen to place a house in Ter Mur. 
 1113708;You have proven thyself worthy, and may now enter the Abyss. 
 1113709;The key vanishes. 
-1113710;Battle Lust 
+1113710;Glod walki 
 1113711;The incubator must be secured for the egg to grow, not locked down. 
 1113712;Hit Curse ~1_val~% 
 1113713;You must rise to the rank of noble in the eyes of the Gargoyle Queen before her majesty will allow you to build a house in her lands. 
@@ -72069,12 +72069,12 @@ Number;Text
 1115356;Use shift-right click (instead of left click) to open context menus for creatures and objects in the world. This does not affect user interface context menus, which still use right click. 
 1115357;Gardener's Toolbox 
 1115358;Pen of Wisdom 
-1115359;Please select the source runebook. Recall runes and Mark scrolls at the base level of your backpack are consumed. 
+1115359;Please select the source runebook. runas and Mark scrolls at the base level of your backpack are consumed. 
 1115360;You can't select the same runebook! 
 1115361;Someone else is using this runebook. 
 1115362;Can't copy an empty runebook. 
 1115363;Please select the destination runebook. 
-1115364;You don't have enough recall runes and Mark scrolls to do that. 
+1115364;You don't have enough runas and Mark scrolls to do that. 
 1115365; 
 1115366;The pen's magical power is consumed and it crumbles to dust. 
 1115367;Display Pop-Up Window for Party Invitations 
@@ -72366,7 +72366,7 @@ Number;Text
 1115653;spined ~1_item~ 
 1115654;horned ~1_item~ 
 1115655;barbed ~1_item~ 
-1115656;This quest is the single quest required for a player to unlock the provocation mastery abilities for bards. This quest can be completed multiple times to reinstate the provocation mastery. To prove yourself worthy, you must be able to incite even the most peaceful to frenzied battle lust. 
+1115656;This quest is the single quest required for a player to unlock the provocation mastery abilities for bards. This quest can be completed multiple times to reinstate the provocation mastery. To prove yourself worthy, you must be able to incite even the most peaceful to frenzied Glod walki. 
 1115657;Indoctrination of a Battle Rouser 
 1115658;Incite rabbits into battle with 5 wandering healers. 
 1115659;Recognition for mastery of battle rousing. 
@@ -72402,7 +72402,7 @@ Number;Text
 1115689;This is  a battle hymn interwoven with magical energy. It increases the confidence and focus of party members giving them bonuses to their offensive combat prowess. Party hit chance increase by up to 15%, melee damage increased by up to 40%, Spell Damage increased by up to 15% 
 1115690;This is  an invigorating tune interwoven with magical energy. It increases the alertness of party members and makes them feel empowered, giving them bonuses to their stats. Party hit points increased by up to 20, strength, intelligence and dexterity increased by up to 8. All party members healed for 7-16 damage every 4 seconds. 
 1115691;This is  a song of fortitude interwoven with magical energy. It increases the natural resilience of party members giving them bonuses to regeneration and resistance to detrimental effects. Party hit point regeneration, stamina regeneration, and mana regeneration increased by up to 8, reduced duration on curses, bleed, and mortal wound. Increased resistance to poison. 
-1115692;This is  a song of protection interwoven with magical energy. It envelopes party members in protective magical energy. Party defense chance increase by up to 16%, damage taken reduced by up to 16%, casting focus increased by up to 4%. 
+1115692;This is  a song of protection interwoven with magical energy. It envelopes party members in protective magical energy. Party defense chance increase by up to 16%, damage taken reduced by up to 16%, skupienie increased by up to 4%. 
 1115693;This is a bard spellsong which disrupts the target's ability to concentrate, reducing their hit chance and spell damage. The spell song also has the chance of causing any damage taken by the target to cause a burst of physical damage proportional to the damage taken. The amount of physical damage is proportional to the discord skill of the bard, and the chance for the physical damage to take effect is proportional to the musicianship skill of the bard. 
 1115694;This is a bard spellsong which will reduce the target's strength and periodically inflict physical damage on the target, as long as the target remains in range, and the bard has enough mana to sustain the effect. The damage inflicted is proportional to the bards Discord and Musicianship skills. 
 1115695;This bag has no questid. 
@@ -72442,7 +72442,7 @@ Number;Text
 1115729;+~1_HCI~% Hit Chance Increase.<br>+~2_SDI~% Spell Damage Increase.<br>+~3_DI~% Damage Increase.<br> 
 1115730;+~1_HPI~ Hit Point Increase.<br>+~2_STR~ Strength.<br>+~3_INT~ Inteligencja.<br>+~4_DEX~ Zrecznosc.<br> 
 1115731;+~1_HPR~ Odzyskiwanie zywotnosci.<br>+~2_SR~ Odzyskiwanie wytrzymalosci.<br>+~3_MR~ Odzyskiwanie many.<br>Curse Durations Reduced.<br>Resistance to Poison.<br>Bleed Duration Reduced.<br>Mortal Wound Duration Reduced. 
-1115732;+~1_DCI~% Defense Chance Increase.<br>~2_DAM~% Damage Taken.<br>+~3_CF~% Casting Focus.<br> 
+1115732;+~1_DCI~% Defense Chance Increase.<br>~2_DAM~% Damage Taken.<br>+~3_CF~% skupienie.<br> 
 1115733;Ophidian 
 1115734;Bane Chosen 
 1115735;Neutral 
@@ -73245,8 +73245,8 @@ Number;Text
 1116532;Soak Energy 
 1116533;Melee Damage 
 1116534;Spell Damage 
-1116535;Casting Focus 
-1116536;Soul Charge 
+1116535;skupienie 
+1116536;Naladowanie duszy 
 1116537;Meditation Skill 
 1116538;Focus Skill 
 1116539;HP Regeneration 
@@ -106668,7 +106668,7 @@ Number;Text
 1149955;A large fishing net 
 1149956;A magical aura surrounds you and you feel your next item enhancing attempt will most certainly be successful. 
 1149957;Bronzed Armor of the Valkyrie 
-1149958;An antique wedding dress 
+1149958;An Starozytny wedding dress 
 1149959;A ship's strongbox 
 1149960;Enchanted Kelp Woven Leggings 
 1149961;Runed Driftwood Bow 
@@ -107168,7 +107168,7 @@ Number;Text
 1150455;Odpornosc bakteryjna: ~1_VAL~ 
 1150456;BUY RUNE 
 1150457;The ground here is not good for gardening. 
-1150458;For a charge of 100gp, you will receive a recall rune marked for your bazaar stall. 
+1150458;For a charge of 100gp, you will receive a runa marked for your bazaar stall. 
 1150459;Time remaining to plant on the Isle of Magincia again: ~1_val~ days ~2_val~ hours ~3_val~ minutes. 
 1150460;New Magincia Housing Lottery 
 1150461;This Facet: 
@@ -107193,12 +107193,12 @@ Number;Text
 1150480;Purchase of ~1_COUNT~ ticket(s) at ~2_PRICE~gp each costs a total of ~3_TOTAL~. The funds have been withdrawn from your bank box and your ticket purchase has been recorded. 
 1150481;Your ticket purchase price of ~3_PRICE~ has been withdrawn from your bank box. 
 1150482;hoe 
-1150483;"This deed entitles the bearer to build a house on the plot of land designated ""~1_PLOT~"" (located at ~5_SEXTANT~) in the City of New Magincia on the ~2_FACET~ facet of the ~3_SHARD~ shard.<br><br>The deed will expire once it is used to construct a house, and thereafter the indicated plot of land will be subject to normal house construction rules. The deed will expire after ~4_DAYS~ more days have passed, and at that time the right to place a house reverts to normal house construction rules.<br><br>This deed functions as a recall rune marked for the location of the plot it represents.<br><br>To place a house on the deeded plot, you must simply have this deed in your backpack or bank box when using a House Placement Tool there." 
+1150483;"This deed entitles the bearer to build a house on the plot of land designated ""~1_PLOT~"" (located at ~5_SEXTANT~) in the City of New Magincia on the ~2_FACET~ facet of the ~3_SHARD~ shard.<br><br>The deed will expire once it is used to construct a house, and thereafter the indicated plot of land will be subject to normal house construction rules. The deed will expire after ~4_DAYS~ more days have passed, and at that time the right to place a house reverts to normal house construction rules.<br><br>This deed functions as a runa marked for the location of the plot it represents.<br><br>To place a house on the deeded plot, you must simply have this deed in your backpack or bank box when using a House Placement Tool there." 
 1150484;WRIT OF LEASE 
 1150485;Unknown Lands 
 1150486;[Marked Item] 
 1150487;[Expired] 
-1150488;"This deed once entitled the bearer to build a house on the plot of land designated ""~1_PLOT~"" (located at ~5_SEXTANT~) in the City of New Magincia on the ~2_FACET~ facet of the ~3_SHARD~ shard.<br><br>The deed has expired, and now the indicated plot of land is subject to normal house construction rules.<br><br>This deed was won by lottery, and while it is no longer valid for land ownership it does serve to commemorate the winning of land during the Rebuilding of Magincia.<br><br>This deed functions as a recall rune marked for the location of the plot it represents." 
+1150488;"This deed once entitled the bearer to build a house on the plot of land designated ""~1_PLOT~"" (located at ~5_SEXTANT~) in the City of New Magincia on the ~2_FACET~ facet of the ~3_SHARD~ shard.<br><br>The deed has expired, and now the indicated plot of land is subject to normal house construction rules.<br><br>This deed was won by lottery, and while it is no longer valid for land ownership it does serve to commemorate the winning of land during the Rebuilding of Magincia.<br><br>This deed functions as a runa marked for the location of the plot it represents." 
 1150489;a writ of lease 
 1150490;Date harvested: ~1_val~ 
 1150491;There are too many objects in this area to plant (limit 34 per 17x17 area). 
@@ -107843,7 +107843,7 @@ Number;Text
 1151225;Boots of the Ice Wyrm<br>Cold Resist 2% 
 1151226;Boots of the Crystal Hydra<br>Energy Resist 2% 
 1151227;Boots of the Thrasher<br>Physical Resist 2% 
-1151228;Aka-Sabi<br>Brittle<br>Hit Curse 50%<br>Splintering Weapon 20%<br>Reactive Paralyze<br>Hit Chance Increase 15%<br>Damage Increase 50%<br>Poison Damage 100%<br>Durability 120 
+1151228;Aka-Sabi<br>Brittle<br>Hit Curse 50%<br>bron rozszczepiajaca 20%<br>Reactive Paralyze<br>Hit Chance Increase 15%<br>Damage Increase 50%<br>Poison Damage 100%<br>Durability 120 
 1151229;Bestial Helm<br>(can be imbued)<br>Berserk 1<br>Physical Resist 8%<br>Fire Resist 6%<br>Cold Resist 22%<br>Poison Resist 7%<br>Energy Resist 7%<br>Durability 125 / 125<br>Part of an Armor Set (4 Pieces)<br>Set Bonus:<br>Berserk 5 (total) 
 1151230;Bestial Gloves<br>(can be imbued)<br>Berserk 1<br>Physical Resist 4%<br>Fire Resist 19%<br>Cold Resist 5%<br>Poison Resist 5%<br>Energy Resist 5%<br>Durability 125 / 125<br>Part of an Armor Set (4 Pieces)<br>Set Bonus:<br>Berserk 5 (total) 
 1151231;Bestial Leggings<br>(can be imbued)<br>Berserk 1<br>Physical Resist 4%<br>Fire Resist 19%<br>Cold Resist 5%<br>Poison Resist 5%<br>Energy Resist 5%<br>Durability 125 / 125<br>Part of an Armor Set (4 Pieces)<br>Set Bonus:<br>Berserk 5 (total) 
@@ -108123,7 +108123,7 @@ Number;Text
 1151505;So, still trying to get up the nerve to do what must be done?  Well, don't be hangin around here, someone might see us together. 
 1151506;Ye done a good thing, mate, here's a little somethin' from the guild.  Now get out of here before someone thinks I know ye. 
 1151507;This bag belongs to Slick Shoe Pete, if anyone else has it, they stole it. 
-1151508;Shop Recall Rune 
+1151508;Shop runa 
 1151509;You have reached the Clean Up Britannia turn-in point cap. You may not receive more points until you spend some to reduce your point total. 
 1151510;Your ~1_COUNT~ points for Spring Cleaning 2008 have been converted into points for Clean Up Britannia! 
 1151511;Your power in the Virtues decays with time. 
@@ -109000,18 +109000,18 @@ Number;Text
 1152382;This property converts a percentage of the damage inflicted to a player into mana replenishment.  This effect can only be triggered once every 40 seconds.  This property is only found on shields. 
 1152383;This property provides additional bonus damage when the attacker is facing the same direction as the target.  The bonus damage is based on the weapons original swing speed.  Ranged weapons have a 50% chance to proc.  The maximum bonus is 73% while minimum bonus 13%.  This property can be found on most weapon types. 
 1152384;This property is only available on archery weapons.  This property allows a player to use a two handed weapon as if it were a one handed weapon.  You can perform any action that normally requires a free hand, such as drinking a potion or throwing a shuriken. 
-1152385;This property initiates a damage increase that is modified by several factors.  Significant damage received from opponents will be added to the attacker's Battle Lust, causing them to do more damage to all opponents the attacker engages.  This damage bonus is further modified by how many opponents the attacker is aggressed against.  The damage bonus is 15% per opponent, with a cap of 45% in PvP and 90% in PvM.  Battle Lust is gained every two seconds and decays at a rate of one point every six seconds.  This property can be found on most weapon types. 
+1152385;This property initiates a damage increase that is modified by several factors.  Significant damage received from opponents will be added to the attacker's Glod walki, causing them to do more damage to all opponents the attacker engages.  This damage bonus is further modified by how many opponents the attacker is aggressed against.  The damage bonus is 15% per opponent, with a cap of 45% in PvP and 90% in PvM.  Glod walki is gained every two seconds and decays at a rate of one point every six seconds.  This property can be found on most weapon types. 
 1152386;An item with this property will remain with a character when they die and are placed into the character's backpack upon resurrection.   These items can neither be stolen by using the stealing skill nor can they be insured. 
 1152387;This property will allow an attacker to gain hit points when using the bleed attack special move.  All of the damage inflicted through the bleed attack is directly transferred back to the attacker's health.  This property is only found on weapons that allow use of the bleed attack special move. 
 1152388;This property indicates that an item cannot be fortified by use of powder of fortification and therefore can never have its durability increased. 
 1152389;This property provides a chance to resist any interruptions while casting spells.  It has a cumulative cap of 12%.  The inscription skill can also grant up to a 5% additional bonus which can exceed the item cap. 
-1152390;"This property converts a small portion of damage dealt to a player back as health.  The damage inflicted must be the same type of damage as the eater for the property to function.  Similar eater properties stack with other but are capped at 30%.  The ""damage all"" type of eater is capped at 18%.  The property stores up to 20 healing charges and converts charges every three second from the last time damage was received.  The ""damage all"" type of damage eater does not stack with specific eaters.  This property is generally only found on armor and shields." 
+1152390;"This property converts a small portion of damage dealt to a player back as health.  The damage inflicted must be the same type of damage as the eater for the property to function.  Similar eater properties stack with other but are capped at 30%.  The ""damage all"" type of eater is capped at 18%.  The property stores up to 20 healing charges and converts charges every three second from the last time damage was received.  The ""damage all"" type of Pochlanianie obrazen does not stack with specific eaters.  This property is generally only found on armor and shields." 
 1152391;This property provides a chance to resist interruptions while casting spells if the damage received is the same damage type as the resonance.  This property can only be found on two handed weapons and shields. 
 1152392;This property provides a chance for a ranged weapon to inflict additional damage.  The additional damage is increased by 3 points for each tile that the attacker is away from the target up to a maximum of 30 points of damage.  The damage inflicted is physical damage that can be lessened by a targets physical resistance.  This property can only be found on ranged weapons. 
 1152393;This property allows a player to use a weapon as long as they have a weapon skill (fencing, mace fighting or swordsmanship).  The weapon functions as if the player's highest weapon skill is the appropriate skill.  The wrestling, archery and throwing skills are excluded from this property.  This property is only found on melee weapons. 
 1152394;This property increases the specified regeneration (hit point, mana or stamina) by 10 for 20 seconds when one charge is consumed.  The item must be equipped to allow the charge to be used.  This increase allows a player to bypass the standard regeneration caps for the duration of the effect.  This property is currently only found on shields. 
 1152395;This property adds to the user's maximum stamina.  The stamina is not instantly gained when the item is equipped 
-1152396;This property provides a chance to apply a bleed effect and a four second duration forced walk to the target.  Each application of the splintering weapons reduces the durability of the weapon.  This property can be found on melee weapons. 
+1152396;This property provides a chance to apply a bleed effect and a four second duration forced walk to the target.  Each application of the bron rozszczepiajacas reduces the durability of the weapon.  This property can be found on melee weapons. 
 1152397;This property increases the damage for most magical attacks that are casted.  While the property is normally capped at 15% in PvP, the cap can be further increased to 30% for focused templates.  Focus templates have no more than 30 modified skill points in more than one primary skill such as magery, necromancy, mysticism, ninjitsu, bushido, animal taming, musicianship, chivalry or spellweaving.  Also no more than 30 modified skill points in the associated secondary skill such as evaluate intelligence, spirit speaking, focus, imbuing.   There is no cap to spell damage increase in PvM.  This property is most commonly found on accessories and spellbooks. 
 1152398;This property allows all spell casting to occur without the equipped item being unequipped.  It is always accompanied by a faster casting penalty of -1 which does not count as an additional property.  This faster casting penalty can be negated if the item also has a positive faster casting property as well.  This property is only found on weapons and shields. 
 1152399;This property reflects physical damage back onto an attacker.  This property is only triggered by physical damage 
@@ -109329,7 +109329,7 @@ Number;Text
 1152711;Raw Yeast 
 1152712;a decorative ~1_COLOR~ vanilla 
 1152713;Your ~1_itemname~ has evaporated into the ether. 
-1152714;Antique 
+1152714;Starozytny 
 1152715;Thundrous Roar 
 1152716;Prismatic Lenses 
 1152717;Reptile's Kiss 
@@ -109534,7 +109534,7 @@ Number;Text
 1152916;Next Battle: 
 1152917;Starts in ~1_MIN~ min. 
 1152918;random slayer 
-1152919;random damage eater ~1_val~% 
+1152919;random Pochlanianie obrazen ~1_val~% 
 1152920;Metallic Cloth Dye Tub 
 1152921;Wywar oswajacza
 1152922;Wskaz zwierze do uwiernienia.
@@ -110444,7 +110444,7 @@ Number;Text
 1153826;All of your skills have been reduced by one third. 
 1153827;You are in the heat of battle. 
 1153828;You have committed a criminal act. 
-1153829;+~1_PR~% physical resist.<br>-~2_ER~% energy resist.<br>-~3_FR~% fire resist.<br>~4_ML~% hit mana drain. 
+1153829;+~1_PR~% physical resist.<br>-~2_ER~% energy resist.<br>-~3_FR~% fire resist.<br>~4_ML~% Odsysanie Many. 
 1153830;a corroded box 
 1153831;Magic Party Teleporter 
 1153832;Talisman of the Horse Lord 
@@ -111277,15 +111277,15 @@ Number;Text
 1154659;Kinetic Resonance 
 1154660;Reactive Paralyze 
 1154661;Faction Item 
-1154662;Fire Eater 
-1154663;Cold Eater 
-1154664;Poison Eater 
-1154665;Energy Eater 
-1154666;Kinetic Eater 
-1154667;Damage Eater 
-1154668;Hit Fatigue 
-1154669;Hit Mana Drain 
-1154670;Splintering Weapon 
+1154662;Pochlanianie obrazen od ognia 
+1154663;Pochlanianie obrazen od zimna 
+1154664;Pochlanianie obrazen od trucizny 
+1154665;Pochlanianie obrazen od energii 
+1154666;Pochlanianie obrazen kinetycznych 
+1154667;Pochlanianie obrazen 
+1154668;Zmeczenie 
+1154669;Odsysanie Many 
+1154670;bron rozszczepiajaca 
 1154671;Bane 
 1154672;You cannot afford to teleport to the vendor. 
 1154673;Hit Curse 
@@ -111525,7 +111525,7 @@ Number;Text
 1154907;Trade Orders Delivered: ~1_val~ 
 1154908;Fill From Backpack 
 1154909;Unwieldly 
-1154910;Prized 
+1154910;cenny 
 1154911;Headlines from throughout the Realm... 
 1154912;Set New Announcement 
 1154913;Set Headline 
@@ -112245,7 +112245,7 @@ Number;Text
 1155627;Ancient Parchment 
 1155628;*The parchment appears heavily worn and in need of restoration by a skilled Scribe...* 
 1155629;"*The vase shatters as you cut away the sealing wax!""" 
-1155630;Antique Documents Kit 
+1155630;Starozytny Documents Kit 
 1155631;Prophetic Manuscript 
 1155632;"     I was a boy of nine when I had my first vision. As I slept, I dreamt of darkness, studded with<br>brilliant gems reflecting a wondrous light. A thousand swirls of shimmering dust appeared, dancing<br>across the field before me. I reached for them, and suddenly the dust came together and there was<br>a great flash, and then for a moment, nothing. I became aware of a whispering voice as a form<br>slowly resolved in front of me - it was a man whose appearance was at once imperceptible and<br>unforgettable, wonderful and ordinary, inspriring and terrifying. Gradually, I became able to<br>understand the whispering, which came to me as though it were an echo from somewhere else. It<br>was the being in front of me, and after so many years, so many visits, I still remember <br>everything he said:<br><br>     ""Owain. Long has your family had a gift of sight, and long so it shall be. I come to you<br>from the past to show you the future, and from the future shall I come with memories of the<br>past. I will be your Guide, once you are ready to see.""<br><br>     When I awoke, I was frightened - too frightened to even speak of it. As one year turned into<br>the next, however, I gradually learned to forget the dream. Some years later, when I was still a<br>young man, I fell terribly ill. The healers were unable to explain this malady, and as a result,<br>I lost the use of my eyes. I knew fear once again. It was then that I was visited in my dreams<br>for the second time:<br>	<br>     ""It is time, Owain. There is much work to be done, now that you are ready to see.""<br><br>     I have been shown many things in my dreams - things that once were, and those that have yet<br>to be. Here, at the end of my life, at the beginning of a Golden Age in the realm, I shall <br>recount in secret the most important events that I have received glimpses of. While they may <br>need to remain secret for some time, the day will come when the realm will need to know what <br>I have seen." 
 1155633;I cannot describe in detail the being that has visited my dreams. Try as I might,<br>his specific nature eludes me, and the harder I try to envision him in my mind, the <br>less it seems I am able to do so. He did not accompany during all of the visions I <br>have experienced, but he guided me through the most important ones - the ones I now<br>record. <br><br>   Many generations from now, the world will be fractured. The land I know will grow <br>darker, and a powerful Enchantress will wage constant war. Wishing to provide his<br>people an escape from death and mayhem, a Noble King will lead his subjects to a new<br>land, created by powerful magic and being a mirror image of the one which they<br>fled from. There they will be free from the turmoil that had taken hold in their<br>former home, if only for a short time. New conflicts will happen, even as the old ones <br>persist in the lands left behind. The King will depart for distant lands, and new <br>powers will rise and fall until the kingdom will be in danger of collapse.<br><br>   Without leadership, the cities will turn against one another as citizens take<br>to the streets in protest and bandits roam the land unimpeded. Into this will arrive<br>a Healer, whose face will be revealed to be that of a demon to many, and whose motive <br>will be endlessly questioned. But he shall ascend the throne, and reunite the people<br>of the realm once again, giving them more power over their lives in the process.<br><br>   Not all wounds can be healed, however. In the Old Lands a long struggle will enter<br>its final stage as the factions who remained in the wake of the Great Exodus dwindle<br>in number. The Enchantress, having seduced a powerful Mage, will have an advantage<br>over her remaining enemy - the Knight who stayed behind to protect those unwilling to<br>leave their homes and lives, perilous though those lives may be.<br><br>   With the Enchantress gaining strength, bolstered by the warriors of her defeated<br>enemies, she will be on the cusp of taking control of the Old Lands. Then, something<br>unforseen shall occur. 
@@ -112271,7 +112271,7 @@ Number;Text
 1155653;What is the crest? 
 1155654;You can see for yourself inside, just off the chamber where that kooky sorceress peddles her wares.  We've also unearthed some ancient clay vases that appear to have some value, but those are items of great historical importance and I must insist they be left undisturbed! 
 1155655;So you're saying I can't have them... 
-1155656;No you cannot have them! I cannot condone the theft of antiques that have been claimed by the research team here! 
+1155656;No you cannot have them! I cannot condone the theft of Starozytnys that have been claimed by the research team here! 
 1155657;As far as we can tell, the crest is associated in some way with the Dungeon Doom.  It appears to bear a striking resemblance to a scepter and a crook crossed on a circle.  We are still investigating the origins.  The artifacts themselves seem to have some power and we've determined they have no other sinister effects.  You are welcome to collect them, I've even instructed my research assistants to trade artifacts for items you may find valuable to further our research. 
 1155658;*You reveal something hidden about the object...* 
 1155659;*The wooden sign seems in oddly good condition for how old the sarcophagus is. Most of the inscription is worn away...* 
@@ -112508,7 +112508,7 @@ Number;Text
 1155890;*Probujesz przeksztalcic swoje mistrzostwo zapasnicze w napad wscieklosci!* 
 1155891;You have already learned that level of ~1_SkillMastery~! 
 1155892;Rampage 
-1155893;Each successful hit or offensive spell grants:<br>+~1_VAL~ Odzyskiwanie zywotnosci<br>+~2_VAL~ Odzyskiwanie wytrzymalosci<br>+~3_VAL~ Swing Speed Increase.<br>+~4_VAL~ Casting Focus.<br>(Once you miss your target this buff will end)<br>Current totals:<br>+~5_VAL~ Odzyskiwanie zywotnosci<br>+~6_VAL~ Odzyskiwanie wytrzymalosci<br>+~7_VAL~ Swing Speed Increase.<br>+~8_VAL~ Casting Focus.<br> 
+1155893;Each successful hit or offensive spell grants:<br>+~1_VAL~ Odzyskiwanie zywotnosci<br>+~2_VAL~ Odzyskiwanie wytrzymalosci<br>+~3_VAL~ Swing Speed Increase.<br>+~4_VAL~ skupienie.<br>(Once you miss your target this buff will end)<br>Current totals:<br>+~5_VAL~ Odzyskiwanie zywotnosci<br>+~6_VAL~ Odzyskiwanie wytrzymalosci<br>+~7_VAL~ Swing Speed Increase.<br>+~8_VAL~ skupienie.<br> 
 1155894;You unleash the fury of your fists on your opponent! 
 1155895;Przygotowujesz sie do uderzenia! 
 1155896;Death Ray 
@@ -112586,7 +112586,7 @@ Number;Text
 1155968;Toggle ability that grants the poisoner a reduction to poison level when poisoned at a stamina cost based on mastery level. 
 1155969;When activated the poisoner will apply a poison resistance debuff to their target for a duration based on poisoning skill, anatomy skill, and mastery level.  Any poisons applied to the poisoner's weapon will also be applied to the target. 
 1155970;While the poisoning mastery is active, the poisoner has  a chance to not consume poison charges when using infected strike based on poisoning skill, anatomy skill, and mastery level. 
-1155971;The wrestler attempts to continually hit their opponent where with each successful hit the wrestler receives a bonus to hit point regeneration, stamina regeneration, casting focus, and swing speed increase based on mastery level.  The effect is lost if the wrestler misses, the wrestler's opponent parries the attack, or fails to cast a spell. 
+1155971;The wrestler attempts to continually hit their opponent where with each successful hit the wrestler receives a bonus to hit point regeneration, stamina regeneration, skupienie, and swing speed increase based on mastery level.  The effect is lost if the wrestler misses, the wrestler's opponent parries the attack, or fails to cast a spell. 
 1155972;The wrestler attempts to land three hits in rapid succession to the next target that damages you within a 2 tile radius. If successful the third hit will deal direct damage based on the wrestler's mastery level. The duration of this ability is based on wrestling skill and anatomy skill or evaluating intelligence skill. 
 1155973;While the wrestling mastery is active the wrestler receives a damage bonus to each hit based on mastery level. 
 1155974;The animal tamer attempts to guide their pet on the path of skill gain, increasing the pet's skill gains based on the tamer's animal taming skill, animal lore skill, and mastery level.  This ability functions similarly to a scroll of alacrity. 
@@ -113094,7 +113094,7 @@ Number;Text
 1156476;This title is obtained by completing the Valley of One Quest in the Valley of Eodon. 
 1156477;Dinosaur Hunter 
 1156478;The auction safe map has been placed in your backpack. 
-1156479;Not Antique 
+1156479;Not Starozytny 
 1156480;Banana Horde 
 1156481;Tiger Rug 
 1156482;Black Tiger Rug 
@@ -113187,10 +113187,10 @@ Number;Text
 1156569;On the Tribes of Eodon: Jukari 
 1156570;On the Tribes of Eodon: Kurak 
 1156571;On the Tribes of Eodon: Barako 
-1156572;"Written of in the most aged of manuscripts is a reference to a creature described as ""an aquatic dragon that inhabits the seas and are considered an even greater menace to mariners than the winds of a typhoon.  They are protected by a shell tougher than enchanted plate armor, and thus are extraordinarily difficult to defeat in combat""  The Dragon Turtle prefers a sandy habitat and any who have been fortunate enough to catch a glimpse of the creature are almost certain to take note of its uncanny speed for its massive size, surely the result of the strong flippers it uses to move about.  The Urali revere the dragon turtle and view it as a gift from the heavens, a protector and near-deity among their people.  The Urali adorn allow themselves to sacrifice one dragon turtle every solar cycle to provide food and resources to their tribe.  The Urali are fine craftsman and have fashioned armor and adornments from the shells and sinews of the dragon turtle.  It is unfortunate that with the introduction of the Britannians to Eodon the Urali fear future generations of dragon turtles are in peril as their eggs have become quite prized.  A dragon turtle nest is in a sandy area, not far from a source of water.  A single female can lay many eggs, the hatchlings are then left to fend for themselves at the conclusion of their gestation.  I have observed Britannian poachers laying in wait for others to approach the nest so no others can try and make claim to the egg.  One member of our party was stealthy enough to sneak past the poachers and was able to return with samples of a hatched egg, as well as nesting materials." 
+1156572;"Written of in the most aged of manuscripts is a reference to a creature described as ""an aquatic dragon that inhabits the seas and are considered an even greater menace to mariners than the winds of a typhoon.  They are protected by a shell tougher than enchanted plate armor, and thus are extraordinarily difficult to defeat in combat""  The Dragon Turtle prefers a sandy habitat and any who have been fortunate enough to catch a glimpse of the creature are almost certain to take note of its uncanny speed for its massive size, surely the result of the strong flippers it uses to move about.  The Urali revere the dragon turtle and view it as a gift from the heavens, a protector and near-deity among their people.  The Urali adorn allow themselves to sacrifice one dragon turtle every solar cycle to provide food and resources to their tribe.  The Urali are fine craftsman and have fashioned armor and adornments from the shells and sinews of the dragon turtle.  It is unfortunate that with the introduction of the Britannians to Eodon the Urali fear future generations of dragon turtles are in peril as their eggs have become quite cenny.  A dragon turtle nest is in a sandy area, not far from a source of water.  A single female can lay many eggs, the hatchlings are then left to fend for themselves at the conclusion of their gestation.  I have observed Britannian poachers laying in wait for others to approach the nest so no others can try and make claim to the egg.  One member of our party was stealthy enough to sneak past the poachers and was able to return with samples of a hatched egg, as well as nesting materials." 
 1156573;"The Northern stretches of Eodon are cut through by flowing streams and a vast swamp.  Lizard like beasts of fantastic origins inhabit these lands.  Our escorts have more than once attempted to best of these beasts, their armor and weapons showing the wear of such a challenge.  Protected from these creatures by tall stone walls - and displaying the most advanced building and farming technologies we have thus encountered in the Valley - are the Sakkhra.  The Sakkhra worship these lizard-like creatures which they refer to in a native word ""Di-no-saur"".  The towering walls of their village protect them from the Dinosaurs, but still the Sakkhra, adorned in colors as vibrant and varied as the reptiles they worship venture beyond the safety of their village to hunt the greatest of the dinosaurs, Tyrannosaurus Rex.  I have yet to encounter, and am almost thankful for it, the beast but in my exchanges with the Sakkrah I have learned the the Tyrannosaurus Rex is vicious animal that has an appetite for other dinosaurs which it feeds on to grow stronger.  I have urged my escorts to allow us to venture into the swamps in an effort to better study the creatures - alas they say it is too dangerous." 
 1156574;In the southern lowlands of the Valley of Eodon we encountered nimble jungle cats that hunt by the dim moonlight each night.  Several of our party were unfortunate enough to encounter these animals before our escorts were able to secure a perimeter.  The cats are worshiped by the Kurak Tribe.  The Kurak are a caring people with shared morals and beliefs of the Urali, but in relation to the tiger.  The Kurak adorn themselves in a variety of colors - matching the rarity in which one may encounter tigers in the wild with orange being the most common, with black and white being progressively more uncommon.  Wealthy homesteads in Britannia covet the furs of the tigers, particularly those of the juvenile tiger cubs.  Trappers have taken to the practice of enclosing the cubs before they can transport them for skinning.  Our escorts had a nasty encounter with several of the trappers, and antidotes to powerful poisons were required to save several who were injured.  The Kurak have attempted to free the cubs, the intricate locking mechanisms of the enclosures, has unfortunately proved to complex for them.  Care should be taken in the lowlands as the native tiger population does not take kindly to intruders given the circumstances. 
-1156575;"A large volcano sits solemnly in the southern reaches of the Valley of Eodon.  Our expedition into this area of the Valley was met with litte in the way of encounters.  I had begun to dissect the native tongue of the indiginous peoples and had become somewhat proficient at modest communication with the wandering shaman we ocassionally encountered.  As we made our way deeper into the jungle we passed the temple complex that my escort refused further exploration until we knew more of the Valley's secrets.  It was nearing dusk when we first encountered the Jukari.  The deep crimson hue of their skin struck me as peculiar as first.  My apprehension from their appearance was quickly quelled as we began our exchange.  The Jukari are a faithful people and view the Volcano as a great sleeping giant.  Of particular note is their custom of proving bravery among their kin.  Hidden deep within the caldera of the volcano is a sacred rock the Jukari call the lava rock.  The lava rock pulses with an inner fire, and the Jukari covet the shards of this stone as prized possessions.  Only the bravest of their tribe venture into the most fertile grounds closest to the lava flow.  The Jukari have described a process by which the Volcano ""eats"" those who are not fast enough, alas I can only surmise this refers to the unfortunate seekers who are trapped within the scorching lava flows and do not seek refuge within the outcroppings of the lava tubes where I am told the flow gets diverted." 
+1156575;"A large volcano sits solemnly in the southern reaches of the Valley of Eodon.  Our expedition into this area of the Valley was met with litte in the way of encounters.  I had begun to dissect the native tongue of the indiginous peoples and had become somewhat proficient at modest communication with the wandering shaman we ocassionally encountered.  As we made our way deeper into the jungle we passed the temple complex that my escort refused further exploration until we knew more of the Valley's secrets.  It was nearing dusk when we first encountered the Jukari.  The deep crimson hue of their skin struck me as peculiar as first.  My apprehension from their appearance was quickly quelled as we began our exchange.  The Jukari are a faithful people and view the Volcano as a great sleeping giant.  Of particular note is their custom of proving bravery among their kin.  Hidden deep within the caldera of the volcano is a sacred rock the Jukari call the lava rock.  The lava rock pulses with an inner fire, and the Jukari covet the shards of this stone as cenny possessions.  Only the bravest of their tribe venture into the most fertile grounds closest to the lava flow.  The Jukari have described a process by which the Volcano ""eats"" those who are not fast enough, alas I can only surmise this refers to the unfortunate seekers who are trapped within the scorching lava flows and do not seek refuge within the outcroppings of the lava tubes where I am told the flow gets diverted." 
 1156576;During our exploration of the Northeastern reaches of the Valley we encountered a dense forest with a tall, expansive canopy.  Bananas grow in mass within the forest, a welcome surprise to our escorts who somehow manage to continue to eat whatever nightly concoction our cooks manage to prepare.  I was unaware bananas could be prepared with such variety, and I must admit while the sound of a warm banana salad left little to be desired on my starving palate I was pleasantly surprised how delicious the dish was.  As one might suspect, bananas in the Valley of Eodon are similar to what one might encounter in Britannia, albeit they are somewhat longer and more slender.  It seemed to matter little to the indigenous gorilla population who when approached can be quite aggressive and possess great strength and accuracy, particularly when targeting someone with a recently picked banana.  In huts nestled high in the trees are the Barako tribe.  The Barako, much like the other tribes of Eodon, worship the gorilla and are in awe of their strength.  The Barako are battle tested and their dress reflects their readiness for a fight.  Most interestingly enough, however, was what the Chief of the Barako described to me as the Great Ape.  As the legend goes a great ape lives in a cave, surround by a hoard of bananas the ape's lesser gorilla accomplices gather, not far from the Barako.  The Chief also went on to describe the few encounters their people had with the Great Ape, particularly mentioned the strength and throwing accuracy of the Ape itself.  Some scouts in our party ventured into the cave only to report what appeared to be man made trusses with barrels resting on top.  While the barrels appeared massive and likely requiring the effort of several men to move, they would be little challenge for a creature of the size and stature of the Great Ape.  Our scouts did not stay long, however, as the number of gorillas within the cave quickly swelled with their presence before the scouts retreated out of a fear for their safety. 
 1156577;The dim light from the campfire flickered against the canvass tent.  In the still of night the jungle was alive with the howls of monkeys and the singing of crickets.  A gentle breeze rustled the fronds of nearby palms.  Even though it had been months since I'd left the Lyceum, the jungles of Eodon still made me uneasy.  I had seen such beauty in the Valley during my time here.  Brilliant fauna gave Eodon character and intimacy.  Meandering streams cutting through the verdant landscape made it feel alive and fertile.  In the distance the towering caldera of a great volcano smoked confidently, owing to its wise past.  On the surface, Eodon appeared inviting and warm, but a foreign and present danger lay hidden beneath.  I had been fortunate enough to only encounter the Myrmidex once. 
 1156578;A gleam of sunshine had caught my eye, the reflection from their chitonous exoskeleton.  Before I could focus on what I was seeing my escort let out a bellowing war cry and brought his axe down in front of me.  The axe cut through the air and landed squarely in the thorax of the Myrmidex warrior.  Greenish hemolymph oozed from the wound as the creature struggled and writhed.  I tried to turn away but my curiosity drew me in.  The creature was large, nearly twice the size of a man.  Insectoid in appearance with elongated, jointed appendages.  The unmistakable crimson of blood spattered a pair of pincers protruding from the head.  As I moved closer to get a better look my escort cleaved his axe through the air once again, this time decapitating the beast.  More greenish ooze leaked from the creature's neck and pooled onto the jungle floor.  I had not seen a Myrmidex since that day.  I would come to learn the Myrmidex were a mostly subterranean species, coming to the surface only on occasion to hunt for food to return to the hive.  Eodon was full of surprises and each day was rich with discovery.  Such work had made me tired, a welcome benefit as it made it easier to fall asleep and assuage my unease.  Just as I felt my mind begin to drift to the land of nod the jungle fell silent.  Seconds later a chilling scream echoed throughout the Valley. 
@@ -113284,7 +113284,7 @@ Number;Text
 1156666;Receive Merchant's Trinket earrings.  These earrings when equipped on a player run vendor will provide a 5% discount to that vendor's daily charges.  The earrings start with 90 uses and each day these earrings are equipped on the vendor will consume one use. The earrings function with non-commission vendors only. 
 1156667;Receive Merchant's Trinket earrings.  These earrings when equipped on a player run vendor will provide a 10% discount to that vendor's daily charges.  The earrings start with 40 uses and each day these earrings are equipped on the vendor will consume one use. The earrings function with non-commission vendors only. 
 1156668;Receive a bag containing two linked house teleporter tiles.  These teleporter tiles allow players to teleport between two home in which the player has the appropriate security access.  One tile must be locked down in each home to form the link.  The tiles may be recharged with Gate Travel scrolls. 
-1156669;Receive a Pen of Wisdom which when used in conjunction with specific ingredients (recall runes, mark scrolls and runebook) will allows a player to copy one filled runebook (including contained runes) into a second duplicate runebook.  The Pen of Wisdom starts with 100 uses and each runebook copied will consume one use. 
+1156669;Receive a Pen of Wisdom which when used in conjunction with specific ingredients (runas, mark scrolls and runebook) will allows a player to copy one filled runebook (including contained runes) into a second duplicate runebook.  The Pen of Wisdom starts with 100 uses and each runebook copied will consume one use. 
 1156670;Receive a deed which when used will create a decorative woodworker's bench.  The bench may be placed with a south or an east facing in a home.  This decorative bench can also provide a player with a short term 5.0 skill boost to their Carpentry skill with a 30 minute duration.  The woodworker's bench must be placed inside of your home to use. 
 1156671;Receive a jar of Haochi's Pigments.  These pigments are dyes that may be used on artifacts and enhanced equipment 
 1156672;Receive a Britannian Ship deed.  This deed will allow you to place the luxurious Britannian Ship which is the largest ship in game.  This ship boasts nine weapon pads, 28,000 stones worth of storage and two single tile house add-on pads.  Also receive a decorative Pilot's Wheel deed and two special ship paints.  Both the Weathered and the Two-Tone ship paint tubs start with 3 uses. (HIGH SEAS ENTITLEMENT REQUIRED) 
@@ -113399,7 +113399,7 @@ Number;Text
 1156781;I cannot believe these wretched pests!  I can't even manage to plant a single head of lettuce without these rascals chomping them up!  *She pauses for a moment and looks at you quizzically*  Oh, hello there!  What is it I can do for you?  Roses?  Watermelons? Lettuces?  We've got them all...well maybe not lettuces but...Myrmidex Pheremone?  Well that is certainly a special request - say, how about this?  You take care of my rabbit problem and I'll give you the pheremone.  Sounds fair to me! 
 1156782;Well if you're afraid of a little bunny then you haven't much business tackling a Myrmidex.  Hrmph! 
 1156783;There's no time to lose!  My lettuces won't grow until you deal with the dastardly bunnies wreaking havoc on my gardens! Get a green thorn and plant it in the garden's dirt to drive them out! 
-1156784;Well done! With these pests out of my gardens I can finally get on with growing a prized lettuce!  Here's your Pheromone as I promised! 
+1156784;Well done! With these pests out of my gardens I can finally get on with growing a cenny lettuce!  Here's your Pheromone as I promised! 
 1156785;Pest Control 
 1156786;You there! Secure that ballista!  And you, fall in!  Hup-two! Hup-two!  Double time now, recruits!  Time to squash these bugs *hic*  You eye-ballin me pal?  I haven't got any time to pixie foot around, I've got a deadline to deliver this population report to Professor Rafkin showing we've thinned the Myrmidex swarm so much so the Queen has to start ploppin' out these little buggers again.  I suggest you grab something sharp or heavy and get to bug huntin! *hic* 
 1156787;I knew it, you must be yellar!  Get out of my sight! 
@@ -113416,7 +113416,7 @@ Number;Text
 1156798;Luck be a lady tonight! Winner-winner chicken dinner! I'm back in the game, don't need this poison anymore - here you go! 
 1156799;Sea Serpent or Dragon Scales 
 1156800;Hidden Treasures 
-1156801;Hello there, looking to buy? Sell? Perhaps a pearl necklace for your lover - or maybe a fine ring to accompany your finest evening wear?  We've got it all - just let me know what we can do for you and I'm sure we can accomodate!  Activator? Stasis Chamber!  Why I haven't an idea what you are talking about! *leans in and whispers*  Not so loud - can't be too sure who's listening in these days.  Listen if you want to get your hands on that item I know where you might be able to find one.  I was able to acquire a treasure map that'll get you where you need to go but I need something first.  My supply of prized gemstones has run low - you bring me those gem stones and I'll supply you with the map to what you're seeking. 
+1156801;Hello there, looking to buy? Sell? Perhaps a pearl necklace for your lover - or maybe a fine ring to accompany your finest evening wear?  We've got it all - just let me know what we can do for you and I'm sure we can accomodate!  Activator? Stasis Chamber!  Why I haven't an idea what you are talking about! *leans in and whispers*  Not so loud - can't be too sure who's listening in these days.  Listen if you want to get your hands on that item I know where you might be able to find one.  I was able to acquire a treasure map that'll get you where you need to go but I need something first.  My supply of cenny gemstones has run low - you bring me those gem stones and I'll supply you with the map to what you're seeking. 
 1156802;A Special Treasure Map 
 1156803;Acquire the gemstones I've asked for and I'll give you a map that will take you to the item you seek.  It's very simple - now move along I've got customers to tend to! 
 1156804;Well if you don't want to do it, you shouldn't have asked. Hrmph. 
@@ -114362,7 +114362,7 @@ Number;Text
 1157748;"His Royal Highness Lord Blackthorn was on site in the City of Trinsic to announce a reduction in tariffs on trade orders throughout the realm. Feeling the pressure from merchants and citizens alike, representatives of the Britannian Tax Council hope the reduction in tariffs will spur trade and bolster local treasuries. Addressing a small crowd of Trinsic's merchants, artisans, and paladins, The King stated firmly the Crown's commitment to the fiscal prosperity of all of Britannia's cities. ""We must remember Britannia is only as strong as her people and cities, so I am pleased to announce my government will do more with less and stretch every coin that goes into funding the safety, security, and prosperity of a functioning Kingdom!"", his Royal Highness announced. When pressed by questions from the crowd regarding reports of trade carts burdened with casks of wine, ale, and liquors being delivered to His Majesty's castle and the need for paying a large standing army in these relatively peaceful times the King was ushered off by his agents as he waved to the on looking crowd. Following the announcement of the tariff reduction, His Majesty took a tour of Trinsic with representatives from the local government and visited with leaders of local guilds. During his tour the King sampled baked goods from Baked Delights before attending a magic demonstration at Encyclopedia Magika and taking in an evening concert at Meeting Hall Park. Some seemed optimistic while others took the visit of the King with contempt, ""I dun' understand why we have to pay for these trade deals anyway! Who's the Governor think they are to pick? I got the coin, why should I pay it to a bunch of corrupt artisans who are going to waste it anyway! Not to mention all the coin they spend on booze in that castle! Bunch of drunkards they are!"" Janet Boggerby of Trinsic's barrier island commented. Still, the reduction in tariffs are sure to spur trade deliveries across the realm and citizens are advised to take caution while making deliveries on Britannia's roads." 
 1157749;Classifieds: Yearning for Adventure?  HUGE Treasure Map Sale! 
 1157750;Al Harrington 
-1157751;Thanks to a recent operation by the Royal Britannian Guard we have come into possession of a number of treasure maps ready to make you rich, and we're passing the savings on to you!  Want to buy your special someone a prized diamond?  Looking to upgrade that tattered and worn out armor?  Does the old blade look a little worse for wear?  Finally time to move out of your bankbox and build your dream home?  Vendor salaries drying up your coin purse?  Whatever it is, the lucrative profession of treasure hunting can have you swimming in fat stacks of coin before Trammel and Felucca are full again!  We've got all the supplies necessary for your budding treasure hunting career covered at Needful Things, just Northeast of the central teleporters in Jhelom!  Picks, shovels, lockpicks, bolts and even chickens!  Anything and everything is on sale and we need to move inventory fast!  So come on down to Needful Things and see us about our Introductory Treasure Hunter special - complete with a treasure map and everything you need to strike it rich!  Don't delay! Act now! 
+1157751;Thanks to a recent operation by the Royal Britannian Guard we have come into possession of a number of treasure maps ready to make you rich, and we're passing the savings on to you!  Want to buy your special someone a cenny diamond?  Looking to upgrade that tattered and worn out armor?  Does the old blade look a little worse for wear?  Finally time to move out of your bankbox and build your dream home?  Vendor salaries drying up your coin purse?  Whatever it is, the lucrative profession of treasure hunting can have you swimming in fat stacks of coin before Trammel and Felucca are full again!  We've got all the supplies necessary for your budding treasure hunting career covered at Needful Things, just Northeast of the central teleporters in Jhelom!  Picks, shovels, lockpicks, bolts and even chickens!  Anything and everything is on sale and we need to move inventory fast!  So come on down to Needful Things and see us about our Introductory Treasure Hunter special - complete with a treasure map and everything you need to strike it rich!  Don't delay! Act now! 
 1157752;Extra! Extra! Breakin at the Lycaeum! Read the latest Town Cryer for more! 
 1157753;Recent Events 
 1157754;Rumors have been circulating of increased bandit activity on trade routes across Britannia and treasure hunters are encountering strange objects buried in the countryside. Neither of these seem terribly out of the ordinary, but they are curious to say the least.  It's just another day in Britannia, and while you hunger for adventure you are quite content with the relative calm across the realm.  Seems like a good day to take in the sunshine and check out the latest edition of the Town Cryer. 
@@ -114708,7 +114708,7 @@ Number;Text
 1158094;The Town Cryer recently caught up with Waylon the Huntmaster at the Ranger's Guild in Skara Brae to learn more about this elite monthly tournament.<br><br>TC: How does one enter the Huntmaster's Challenge?<br><br>W: Well, pretty simple really. Visit the Skara Brae Ranger's Guild and speak to the Huntmaster. For 5,000 gold you can purchase a hunting permit that can be used on any of the creatures showcased within the guild. Use the hunting permit on any kill of those species to document the size.<br><br>TC: Once a hunter has a documented kill, what can they do with the permit?<br><br>W: If a hunter is fortunate enough to have the largest kill for the month they'll win the contest for that species! A skilled crafter can also create trophies from any permit.<br><br>TC: What species are eligible for hunting?<br><br>W: Oh, we've got quite a few quarry! Everything from bears to turkeys. We even have some more exotic quarry like Myrmidex and Triceratops from Eodon!<br><br>TC: That's incredible! Such exotic creatures, what is the largest triceratops that has ever been hunted - our readers must know!<br><br>W: Once had a triceratops weigh in over 20,000 stones. Took several of us and more than a couple greater strength potions to lift into the hall!<br><br>The Town Cryer wishes to thank the Ranger's Guild for taking the time to inform us on the Huntmaster's Challenge. The Challenge runs monthly from the Ranger's Guild on the mainland in Skara Brae. 
 1158095;Capital City Gets a New Look! Britain Commons Opens With Expanded Services! 
 1158096;Another who wishes to walk the path of the Paladins of Trinsic? Well you should know the path is not an easy one to walk, and only those with the courage to pursue truth are admitted to the order. If you prove you are honorable, then you shall join our ranks and gain the prestigious title of Paladin of Trinsic. We are bound by Honor, and thus we stand against Shame! To prove yourself you must venture deep within the dungeon Shame and slay the vile within. Succeed in this task and you will prove your worth, fail and you will bring to your name what you hope to defeat - Shame. 
-1158097;The Britain Commons is now open for business! The planned redevelopment of the area southeast of the first Bank of Britain has now become a reality. Long known as one of the seedier sections of the City, the Commons now boasts a full complement of amenities. Most notable of these new amenities are the Vaults which are housed in the brand new City Vault. Citizens may now rent space in these vaults to store their most prized possessions. The bank does warn customers, however, that any unpaid vault rental fees will be auctioned off to the highest bidder at the newly constructed auction gazebo. The new commons also brings a full crafter suite with nearby stable services and a large plaza to meet new friends and conduct business. The Town Cryer is happy to report that one of our dedicated staff will be stationed at the commons to keep Britannia updated on all the latest goings on in the realm. 
+1158097;The Britain Commons is now open for business! The planned redevelopment of the area southeast of the first Bank of Britain has now become a reality. Long known as one of the seedier sections of the City, the Commons now boasts a full complement of amenities. Most notable of these new amenities are the Vaults which are housed in the brand new City Vault. Citizens may now rent space in these vaults to store their most cenny possessions. The bank does warn customers, however, that any unpaid vault rental fees will be auctioned off to the highest bidder at the newly constructed auction gazebo. The new commons also brings a full crafter suite with nearby stable services and a large plaza to meet new friends and conduct business. The Town Cryer is happy to report that one of our dedicated staff will be stationed at the commons to keep Britannia updated on all the latest goings on in the realm. 
 1158098;Trade Booms as Bulk Orders Expanded to New Disciplines 
 1158099;Becoming a Paladin of Trinsic 
 1158100;Crafters throughout the realm rejoice as the Guild of Arcane Arts, Society of Cooks and Chefs, Order of Engineers, and League of Rangers announce their member merchants will now offer bulk order deeds to the Kingdom's crafters. This news was heralded by scribes and bowyers alike who now have the same avenues for business previously reserved for smiths and tailors. In a joint statement by the guilds, which also includes the Society of Clothiers and the Society of Smiths, they have announced access to new incentives available to crafters who participate in the bulk order deed program as well as new options to make obtaining those rewards easier. Crafters interested in taking advantage of new bulk order deeds should visit their local merchants today! 
@@ -114771,7 +114771,7 @@ Number;Text
 1158157;Well then, I guess you aren't as useless as you look. Made quick work of the Lizards, that's fine work indeed! Your next test is going to require you travel deeper into the prison. Seems there is an ogre who has taken to mastering his cooking skills at the expense of the former prisoners. The Guard can't have that, so you need to go in there and make sure this cook is prepping his last meal! 
 1158158;Go inside the prison dungeon Wrong and slay Fezzik the Ogre Cook 
 1158159;Royal Britannian Guard Orders 
-1158160;ROYAL BRITANNIAN GUARD<br>MINISTRY OF PRISONS DETACHMENT<br><br>ORIGINAL ORDERS<br>ROYAL BRITANNIAN GUARD<br>WRONG PRISON DIVISION<br><br>From: COMMAND, RBG Yew<br>To: Lieutenant Bennet Yardley, RBG Yew<br><br>Subject: Wrong Prison Treasure Expedition<br><br>1. RBG Inteligencja has indicated the presence of highly prized cache of weapons stashed within the deepest confinements of the Prison Dungeon Wrong. Inteligencja indicates these weapons were confiscated at the time of various assassination attempts among the prisoners before the prison was lost.<br><br>2. Official cover story remains in place - no outside interference expected and only official RBG personnel are permitted entry.<br><br>3. Interview with former prison officials indicate weapons under heavy lock and key, suggest specialist assignment of lock picking skills and tools.<br><br>*The remainder of the document is illegible* 
+1158160;ROYAL BRITANNIAN GUARD<br>MINISTRY OF PRISONS DETACHMENT<br><br>ORIGINAL ORDERS<br>ROYAL BRITANNIAN GUARD<br>WRONG PRISON DIVISION<br><br>From: COMMAND, RBG Yew<br>To: Lieutenant Bennet Yardley, RBG Yew<br><br>Subject: Wrong Prison Treasure Expedition<br><br>1. RBG Inteligencja has indicated the presence of highly cenny cache of weapons stashed within the deepest confinements of the Prison Dungeon Wrong. Inteligencja indicates these weapons were confiscated at the time of various assassination attempts among the prisoners before the prison was lost.<br><br>2. Official cover story remains in place - no outside interference expected and only official RBG personnel are permitted entry.<br><br>3. Interview with former prison officials indicate weapons under heavy lock and key, suggest specialist assignment of lock picking skills and tools.<br><br>*The remainder of the document is illegible* 
 1158161;Warden of Wrong 
 1158162;"This title is obtained by completing the Righting Wrong Quest.	" 
 1158163;Looks like Fezzik won't be making anymore stew! Hah! Well done! Your final task is going to require you to learn the most important lesson of being a Guardsman - we never leave a man behind. One of our comrades was captured by the demonic jailers and taken to the prison. You need to get yourself captured by the jailers and taken inside the deepest part of the prison. Once inside, find our fallen comrade and escape. Here's a copy of his orders to help you find his corpse. 
@@ -114838,7 +114838,7 @@ Number;Text
 1158224;A step closer to becoming a treasure hunter. 
 1158225;The Cartographer 
 1158226;The Cartographer seems busy at her desk pouring over stacks of rolled parchment. You decide to break the silence with courteous *Ahem* 
-1158227;A treasure seeker then? There is no telling the lengths someone will go to protect their most prized possessions. Over time maps to certain treasure troves have been found and their bounties recovered. The bounty within a treasure chest is directly related to the difficulty of deciphering the map and overcoming the protections of the chest itself. Cartographers use a variety of terms to describe the difficulty of a map that is drawn. This includes maps that lead to a stash, supply, cache, hoarde, and trove. Even the most basically trained cartographer can decode a map leading to a stash. The Cartographer can also discern the type of loot they might find based on the profession of whom the map belongs. Beyond that, however, some training in cartography is required. Once deciphered, the cartographer must find the location within the world and use a digging tool, such as a pickaxe or shovel to dig up the chest. Those skilled at mining will have a much easier time finding the chest, but it is not a requirement. The chest will be no doubt locked and trapped, so some skill with lockpicking and trap removal is suggested, although mages skilled enough may use magical means to unlock lower end treasure chests. Removing the trap with limited training will take more time. Finally, the chest is likely to be guarded by a variety of creatures that will attempt to defend the treasure at all costs, both following the unearthing of the chest and during the remove trap process. Combat skills are imperative to dispatch those creatures safely! Sounds like a challenge? Well it can be, but alas it is also incredibly rewarding and you will have a much easier time of it if you recruit other adventures into your budding treasure seeking business. Alas, here's a map I had lying around. You can visit the Adventurer's Supplies just on the mainland of Vesper to get some basic supplies. 
+1158227;A treasure seeker then? There is no telling the lengths someone will go to protect their most cenny possessions. Over time maps to certain treasure troves have been found and their bounties recovered. The bounty within a treasure chest is directly related to the difficulty of deciphering the map and overcoming the protections of the chest itself. Cartographers use a variety of terms to describe the difficulty of a map that is drawn. This includes maps that lead to a stash, supply, cache, hoarde, and trove. Even the most basically trained cartographer can decode a map leading to a stash. The Cartographer can also discern the type of loot they might find based on the profession of whom the map belongs. Beyond that, however, some training in cartography is required. Once deciphered, the cartographer must find the location within the world and use a digging tool, such as a pickaxe or shovel to dig up the chest. Those skilled at mining will have a much easier time finding the chest, but it is not a requirement. The chest will be no doubt locked and trapped, so some skill with lockpicking and trap removal is suggested, although mages skilled enough may use magical means to unlock lower end treasure chests. Removing the trap with limited training will take more time. Finally, the chest is likely to be guarded by a variety of creatures that will attempt to defend the treasure at all costs, both following the unearthing of the chest and during the remove trap process. Combat skills are imperative to dispatch those creatures safely! Sounds like a challenge? Well it can be, but alas it is also incredibly rewarding and you will have a much easier time of it if you recruit other adventures into your budding treasure seeking business. Alas, here's a map I had lying around. You can visit the Adventurer's Supplies just on the mainland of Vesper to get some basic supplies. 
 1158228;Visit the Adventurer's Supplies in Northern Vesper, just across the bridge, and speak to the Master Provisioner to get some basic treasure hunting equipment. 
 1158229;A mysterious treasure map personally given to you by the Legendary Cartographer in Vesper 
 1158230;Buried Riches 
@@ -114980,7 +114980,7 @@ Number;Text
 1158366;To redeem this token visit the Vesper Museum, Moonglow Zoo, or Britain Library collection of your choice. This token is worth ~1_val~ collection points and will be consumed upon redemption at the community collection of your choice. 
 1158367;This account bound item can only be used by the account it was redeemed on. 
 1158368;Deluxe Starter Pack 
-1158369;This starter pack is a perfect way to jumpstart your journey in Britannia!  This starter pack includes, <br>A Runic Atlas (a high capacity runebook) that comes pre-loaded with recall runes to Britannia's Vaults, Banks, and Points of Interest<br>A Runic Hunter's Atlas that allows recalling to a variety of hunting grounds friendly to the training adventurer, complete with location descriptions and tips<br>A full complement of full spellbooks for all magic schools including Bushido, Chivalry, Magia, Mysticism, Necromancy, and Ninjitsu<br>A Token of Skill Alacrity that allows you and your party members to experience an increased rate of skill gain for an entire week 
+1158369;This starter pack is a perfect way to jumpstart your journey in Britannia!  This starter pack includes, <br>A Runic Atlas (a high capacity runebook) that comes pre-loaded with runas to Britannia's Vaults, Banks, and Points of Interest<br>A Runic Hunter's Atlas that allows recalling to a variety of hunting grounds friendly to the training adventurer, complete with location descriptions and tips<br>A full complement of full spellbooks for all magic schools including Bushido, Chivalry, Magia, Mysticism, Necromancy, and Ninjitsu<br>A Token of Skill Alacrity that allows you and your party members to experience an increased rate of skill gain for an entire week 
 1158370;A Bag of Journeyman's Armor 
 1158371;recycle 
 1158372;Deluxe Journeyman's Armor Set Token (Account-Bound) 
@@ -116074,7 +116074,7 @@ Number;Text
 1159460;Your weapon seems to have no effect. 
 1159461;You cannot damage this because it would put you over your weight limit or item count. 
 1159462;Decorative Wine Rack 
-1159463;This decorative container will hold all of your prized possessions and display as either empty or full of wine bottles based on if the container is empty or full.  Can be hued with regular, natural, pigment, and Ultima Store dyes. 
+1159463;This decorative container will hold all of your cenny possessions and display as either empty or full of wine bottles based on if the container is empty or full.  Can be hued with regular, natural, pigment, and Ultima Store dyes. 
 1159464;Decorative Garden Sculpture 
 1159465;This decorative garden sculpture is sure to bring an extra bit of beauty to your garden!  Can be hued with regular, natural, pigment, and Ultima Store dyes. 
 1159466;The Anvil of Artifacts allows a player to set the value of all exceptional resist bonuses provided when crafting an exceptional piece of armor.  When crafting with a runic tool the resulting armor is still subject to random magic item properties. (18 charges) 
