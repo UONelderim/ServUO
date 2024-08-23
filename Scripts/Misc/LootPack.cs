@@ -605,8 +605,8 @@ namespace Server
         public static readonly LootPack HighScrolls =  NConfig.Loot.Enabled ? Empty : new LootPack(new[] { new LootPackEntry(false, true, HighScrollItems, 100.00, 1) });
         public static readonly LootPack MageryScrolls =  NConfig.Loot.Enabled ? Empty : new LootPack(new[] { new LootPackEntry(false, true, MageryScrollItems, 100.00, 1) });
         public static readonly LootPack NecroScrolls =  NConfig.Loot.Enabled ? Empty : new LootPack(new[] { new LootPackEntry(false, true, NecroScrollItems, 100.00, 1) });
-        public static readonly LootPack ArcanistScrolls =  NConfig.Loot.Enabled ? Empty : new LootPack(new[] { new LootPackEntry(false, true, ArcanistScrollItems, 100.00, 1) });
-        public static readonly LootPack MysticScrolls =  NConfig.Loot.Enabled ? Empty : new LootPack(new[] { new LootPackEntry(false, true, MysticScrollItems, 100.00, 1) });
+        public static readonly LootPack ArcanistScrolls =  NConfig.Loot.Enabled ? Empty : new LootPack(new[] { new LootPackEntry(false, true, ArcanistScrollItems, 30.00, 1) });
+        public static readonly LootPack MysticScrolls =  NConfig.Loot.Enabled ? Empty : new LootPack(new[] { new LootPackEntry(false, true, MysticScrollItems, 30.00, 1) });
 
         public static readonly LootPack MageryRegs =  NConfig.Loot.Enabled ? Empty : new LootPack(new[] { new LootPackEntry(false, true, MageryRegItems, 100.00, 1) });
         public static readonly LootPack NecroRegs =  NConfig.Loot.Enabled ? Empty : new LootPack(new[] { new LootPackEntry(false, true, NecroRegItems, 100.00, 1) });

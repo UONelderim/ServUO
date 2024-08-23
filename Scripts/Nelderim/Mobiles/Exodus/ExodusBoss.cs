@@ -69,6 +69,12 @@ namespace Server.Mobiles
 			AddLoot( LootPack.Average );
 			AddLoot( LootPack.Rich );
 		}
+		
+		public override bool OnBeforeDeath()
+		{
+			AddLoot(LootPack.MysticScrolls);
+			return base.OnBeforeDeath();
+		}
 
 		public override bool AutoDispel{ get{ return true; } }
 		public override Poison PoisonImmune{ get{ return Poison.Lethal; } }

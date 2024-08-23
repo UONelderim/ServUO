@@ -97,6 +97,12 @@ namespace Server.Mobiles
 
             corpse.Carved = true;
         }
+        
+        public override bool OnBeforeDeath()
+        {
+	        AddLoot(LootPack.ArcanistScrolls);
+	        return base.OnBeforeDeath();
+        }
 
         public override void OnGotMeleeAttack(Mobile m)
         {

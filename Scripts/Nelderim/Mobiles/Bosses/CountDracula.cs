@@ -2,6 +2,7 @@ using System;
 using Server.Items;
 using Server.Spells.Seventh;
 using Server.Spells.Fifth;
+using Server.Engines.XmlSpawner2;
 
 namespace Server.Mobiles
 {
@@ -13,15 +14,15 @@ namespace Server.Mobiles
 		{
 			Name = "Wyższy Wampir";
 		    Body = 0x190;
-			
+		    
 			SetStr( 305, 425 );
 			SetDex( 72, 150 );
 			SetInt( 505, 750 );
 
-			SetHits( 4200 );
+			SetHits( 8000 );
 			SetStam( 102, 300 );
 
-			SetDamage( 25, 35 );
+			SetDamage( 20, 30 );
 
 			SetDamageType( ResistanceType.Physical, 100 );
 
@@ -34,14 +35,25 @@ namespace Server.Mobiles
 			SetSkill( SkillName.MagicResist, 100.0 );
 			SetSkill( SkillName.Tactics, 97.6, 100.0 );
 			SetSkill( SkillName.Wrestling, 97.6, 100.0 );
+			SetSkill( SkillName.Necromancy, 97.6, 100.0 );
+			SetSkill( SkillName.SpiritSpeak, 100.0, 100.0 );
 
 			AddItem( new FancyShirt() );
 			AddItem( new LongPants() );
 			AddItem( new BodySash( Utility.RandomRedHue() ) );
 			AddItem( new Cloak( Utility.RandomBlueHue() ) );
 			AddItem( new Boots() );
+			
+			XmlLifeDrain lifeDrainAttachment = new XmlLifeDrain(20, 5); 
+			XmlAttach.AttachTo(this, lifeDrainAttachment);
         }
-
+		
+		public override bool OnBeforeDeath()
+		{
+			AddLoot(LootPack.ArcanistScrolls);
+			return base.OnBeforeDeath();
+		}
+		
 		public override bool AlwaysMurderer => true;
 		public override bool AutoDispel => true;
 		public override double AutoDispelChance => 1.0;
@@ -78,7 +90,7 @@ namespace Server.Mobiles
 					m.AddToBackpack( disarm );
 
 				m.BodyMod = 317;
-				m.HueMod = 1;
+				m.HueMod = 0;
 
 				new ExpirePolymorphTimer( m ).Start();
 			}
