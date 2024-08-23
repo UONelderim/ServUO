@@ -127,6 +127,8 @@ namespace Server.Mobiles
 
             if (IsSoulboundEnemies)
                 EtherealSandShower.Do(Location, Map, 50, 100, 500);
+            
+            AddLoot(LootPack.MysticScrolls);
 
             return base.OnBeforeDeath();
         }

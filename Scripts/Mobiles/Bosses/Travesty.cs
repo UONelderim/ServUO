@@ -37,7 +37,7 @@ namespace Server.Mobiles
         public Travesty()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-			Name = "Travesty - Oszust";
+			Name = "Zniennoksztalstny Vox Populi";
 			Body = 0xF7;
 
             BaseSoundID = 0x46E;
@@ -171,7 +171,7 @@ namespace Server.Mobiles
             HueMod = attacker.Hue;
             NameMod = attacker.Name;
             Female = attacker.Female;
-            Title = "(Travesty)";
+            Title = "(Vox Populi)";
             HairItemID = attacker.HairItemID;
             HairHue = attacker.HairHue;
             FacialHairItemID = attacker.FacialHairItemID;
@@ -309,6 +309,7 @@ namespace Server.Mobiles
         public override bool OnBeforeDeath()
         {
             RestoreBody();
+            AddLoot(LootPack.ArcanistScrolls);
 
             return base.OnBeforeDeath();
         }
