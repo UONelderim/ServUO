@@ -50998,7 +50998,7 @@ Number;Text
 1080112;This area is temporarily unavailable for house placement. 
 1080113;Your account can place safely in this area for a limited time. 
 1080114;Thou art a criminal and may not be granted life at this time. 
-1080115;A Leczenie Stone appears in your backpack. 
+1080115;Kamien leczenia pojawia sie w twym plecaku.
 1080116;You must have a free hand to use a Leczenie Stone. 
 1080117;Your ~1_ABILITY_NAME~ has been purged. 
 1080118;Your target's ~1_ABILITY_NAME~ has been purged. 
@@ -70825,7 +70825,7 @@ Number;Text
 1114112;What a fine specimen this is!! Thank you and please accept this for your trouble! 
 1114113;You take a bottle from the cornucopia. 
 1114114;You take some food from the cornucopia. 
-1114115;Arcane Gem 
+1114115;Tajemniczy kamien
 1114116;You hear a loud rumble as something seems to happen! 
 1114117;The mechanism appears to be locked. 
 1114118;PAPERDOLL ITEMS 
@@ -71984,7 +71984,7 @@ Number;Text
 1115271;Displays the window frame around the game client. Only applicable when full-screen mode is turned off. 
 1115272;Adjusts the brightness level of the environment. 
 1115273;The enchantment on your weapon has expired. 
-1115274;Leczenie Points: ~1_Val~ 
+1115274;Punkty leczenia: ~1_Val~ 
 1115275;Displays the foliage on trees. 
 1115276;Displays shadows underneath mobiles. 
 1115277;Fixes screen tearing issues (if any). Turning this option on will reduce performance. 
@@ -118563,3 +118563,28 @@ Number;Text
 3060155;Wiedza o Zwierzetach pozwala nam podgladac statystyki i szczescie istot oswojonych. Zwieksza kontrole nad zwierzetami, jesli korzystamy z Oswajania. Mozemy sie tej umiejetnosci nauczyc u Tresera Zwierzat. Aby nauczyc sie umiejetnosci, nalezy porozmawiac z jednym z kupcow (kliknac na niego lewym przyciskiem myszy, a gdy wysunie sie menu kontekstowe, wybrac pozadana umiejetnosc) i zaplacic zlotem za nia (przeniesc na NPC wymagana przez niego ilosc zlota). 
 3060156;Weterynaria pozwala nam opatrywac rany niektorych kontrolowanych przez nas istot. Te istoty, ktore oswoilismy, mozemy uleczyc za pomoca bandazy. Bandaze mozna zakupic u Tresera Zwierzat lub pozyskac tnac wytworzony z welny material lub zakupic material u Krawca.  Aby nauczyc sie umiejetnosci, nalezy porozmawiac z jednym z kupcow (kliknac na niego lewym przyciskiem myszy, a gdy wysunie sie menu kontekstowe, wybrac pozadana umiejetnosc) i zaplacic zlotem za nia (przeniesc na NPC wymagana przez niego ilosc zlota). Umiejetnosci uczy Treser Zwierzat 
 3060157;Obozowanie pozwala nam stworzyc bezpieczny oboz (szybkie wylogowanie) oraz zwieksza ilosci pozyskiwanych skor, kosci oraz innych wycinanych ze zwlok surowcow. Cwiczyc mozna te umiejetnosc na 2 sposoby - poprzez wyciananie z cial surowcow lub poprzez rozpalanie chrustu, ktory mozna zakupic u Dostawcy. 
+3060158;Szansa poznania drogi Mistyka.
+3060159;Mistyk
+3060160;Nauka zaklec to jedno. Aby zostac prawdziwym mistykiem, nalezy wykazac sie prawdziwa wiedza i madroscia. Nie nauczamy tych, ktorzy sa niegodnymi wiedzy mistycznej. Twym pierwszym zadaniem bedzie zidentyfikowanie w ziemi Nelderim ogromnych zukow i pozbycie sie 20 sztuk owej bestyji. 
+3060161;No wiesz... juz myslalem, ze mi pomozesz.
+3060162;Marnujesz moj czas. Zabij 20 ogromnych zukow. To chyba nie takie trudne?
+3060163;Wazny skladnik
+3060164;Mistycyzm to nie czary z powietrza. Aby wyczarowac potezne zaklecia mistyczne, potrzebne sa pewne skladniki. Aby rozpoczac sciezke mistyka, bedziesz musial zdobyc dla mnie 1 serce smoka, ktore pozwoli mi rzucic zaklecie, ktore otworzy Twoj umysl i ukryty potencjal. 
+3060165;Zagrazasz sciezce rozwoju Mistykow. Precz...
+3060166;No dalej, przyniesc to serce smoka.
+3060167;No i gdzie to serce smoka?
+3060168;Ksiega Mistyka
+3060169;Teraz musimy stworzyc Twoja ksiege. Niestety, zuzylem ostatnie zwoje na kilka zaklec dla moich uczniow. Czy mozesz zdbobyc kilka sztuk?
+3060170;No przestan. To tylko kilka zwojow...
+3060171;Jak Ci idzie z tymi zwojami?
+3060172;Oh, pieknie. Teraz moge przygotowac dla Ciebie ksiege.
+3060173;Wiecej zapasow
+3060174;Aby napisac dla Ciebie ksiege, potrzebuje duzo wiecej, niz tylko zwoje. Ostantie zapasy zostaly zrabowane przez rzezimieszkow, wiec trzeba zdobyc kilka rzeczy. Potrzebujemy 1 sztuke pylu artefaktowego, 20 winogron na tusz i 1 pioro skryby.
+3060175;Ahh, tracisz moj czas, czy cos?
+3060176;Dlugo mam jeszcze czekac na te zapasy?
+3060177;Oh! Swietnie! Kolejny krok blizej utworzenia Twej ksiegi!
+3060178;Tajemnice
+3060179;Mistyk nie tylko tworzy ksiegi czy zabija stwory, ktore sluza Smierci. Mistyk, przede wszystkim, zglebia swa wiedze. W zwiazku z tym, poprosze Cie o zbadanie tajemniczych kamieni. Najczesciej posiadaja je jukowie. W szczegvolnosci Lordowie Juka. Kazdy kamien kryje w sobie pewna tajemnice zakleta w sobie. Warto je poznac. Zdobac 30 sztuk takich kamieni i przynies je tu. 
+3060180;I teraz chcesz mnie opusicic?!
+3060181;Te tajemnice musza byc odkryte!
+3060182;O, widze, ze przyniosles te tajemnicze kamienie, o ktore prosilem.
