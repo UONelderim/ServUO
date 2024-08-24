@@ -9,7 +9,7 @@ namespace Server.Engines.Quests
         public DisciplineQuest()
             : base()
         {
-            AddObjective(new SlayObjective(typeof(Rat), "rats", 50, "Sanctuary"));
+            AddObjective(new SlayObjective(typeof(GiantRat), "Ogromne szczury", 50, "Tasandora_Kanaly"));
 
             AddReward(new BaseReward(1074872)); // The opportunity to learn the ways of the Arcanist.
         }
