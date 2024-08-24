@@ -10,6 +10,7 @@ namespace Server.Mobiles
 		{
 			None = 0x00000000,
 			Mysticism = 0x00000001,
+			Cleric = 0x00000002,
 		}
 		
 		public bool NGetFlag(NPlayerFlag flag)
@@ -33,6 +34,12 @@ namespace Server.Mobiles
 		public bool Mysticism { 
 			get => NGetFlag(NPlayerFlag.Mysticism);
 			set => NSetFlag(NPlayerFlag.Mysticism, value);
+		}
+		
+		[CommandProperty(AccessLevel.GameMaster)]
+		public bool Cleric { 
+			get => NGetFlag(NPlayerFlag.Cleric);
+			set => NSetFlag(NPlayerFlag.Cleric, value);
 		}
 	}
 	
