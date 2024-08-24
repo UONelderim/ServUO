@@ -52,7 +52,7 @@ namespace Server.Engines.Quests
         public NeedsOfTheManySanctuaryQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(Cotton), "bale of cotton", 10, 0xDF9));
+            AddObjective(new ObtainObjective(typeof(Cotton), "bela bawelny", 10, 0xDF9));
 
             AddReward(new BaseReward(1074872)); // The opportunity to learn the ways of the Arcanist.
         }
@@ -96,7 +96,7 @@ namespace Server.Engines.Quests
         public MakingContributionSanctuaryQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(Board), "boards", 250, 0x1BD7));
+            AddObjective(new ObtainObjective(typeof(Board), "deski", 250, 0x1BD7));
 
             AddReward(new BaseReward(1074872)); // The opportunity to learn the ways of the Arcanist.
         }
@@ -139,9 +139,9 @@ namespace Server.Engines.Quests
         public SuppliesForSanctuaryQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(SackFlour), "sack of flour", 1, 0x1039));
-            AddObjective(new ObtainObjective(typeof(JarHoney), "jar of honey", 10, 0x9EC));
-            AddObjective(new ObtainObjective(typeof(FishSteak), "fish steak", 20, 0x97B));
+            AddObjective(new ObtainObjective(typeof(SackFlour), "worek maki", 1, 0x1039));
+            AddObjective(new ObtainObjective(typeof(JarHoney), "miod", 10, 0x9EC));
+            AddObjective(new ObtainObjective(typeof(FishSteak), "stek z ryby", 20, 0x97B));
 
             AddReward(new BaseReward(1074872)); // The opportunity to learn the ways of the Arcanist.
         }
@@ -187,7 +187,7 @@ namespace Server.Engines.Quests
         public TheHumanBlightQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(SeveredHumanEars), "severed human ears", 30, 0x312F));
+            AddObjective(new ObtainObjective(typeof(SeveredHumanEars), "obciete uszy", 30, 0x312F));
 
             AddReward(new BaseReward(typeof(ArcaneCircleScroll), 1071026)); // Arcane Circle			
             AddReward(new BaseReward(typeof(GiftOfRenewalScroll), 1071027)); // Gift of Renewal
