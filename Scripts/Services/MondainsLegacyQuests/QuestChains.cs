@@ -36,7 +36,9 @@ namespace Server.Engines.Quests
         AnimalTraining = 26,
         PaladinsOfTrinsic = 27,
         RightingWrong = 28,
-        Ritual = 29
+        Ritual = 29,
+        //SpecialSKills
+        Mystic = 30
     }
 
     public class BaseChain
