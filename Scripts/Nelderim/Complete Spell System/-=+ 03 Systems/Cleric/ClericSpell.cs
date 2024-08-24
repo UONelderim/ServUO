@@ -1,6 +1,7 @@
 #region References
 
 using System;
+using Server.Mobiles;
 using Server.Network;
 using Server.Spells;
 
@@ -73,6 +74,12 @@ namespace Server.ACC.CSS.Systems.Cleric
 			{
 				Caster.SendMessage("Musisz mieć przynajmniej " + RequiredSkill +
 				                   " dziesięciny by aktywować tę umiejętnosć..");
+				return false;
+			}
+			
+			if (Caster is PlayerMobile && !((PlayerMobile)Caster).Cleric)
+			{
+				Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
 				return false;
 			}
 

@@ -38,7 +38,8 @@ namespace Server.Engines.Quests
         RightingWrong = 28,
         Ritual = 29,
         //SpecialSKills
-        Mystic = 30
+        Mystic = 30,
+        Cleric = 31
     }
 
     public class BaseChain
