@@ -16,6 +16,7 @@ namespace Server.Items
             Stackable = true;
             Amount = amount;
             Weight = 1;
+            Name = "obciete uszy";
         }
 
         public SeveredHumanEars(Serial serial)
