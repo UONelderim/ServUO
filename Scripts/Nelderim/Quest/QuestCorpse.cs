@@ -20,7 +20,20 @@ namespace Server.Items
 		{
 		}
 
-        public override void Serialize( GenericWriter writer )
+		public override void OnSpeech(SpeechEventArgs e)
+		{
+			base.OnSpeech(e);
+			
+			BaseQuest quest = QuestHelper.GetQuest((PlayerMobile)e.Mobile, typeof(ClericPhase4Quest));
+
+			if (quest != null)
+			{
+				foreach (BaseObjective objective in quest.Objectives)
+					objective.Update(e.Speech);
+			}
+		}
+
+		public override void Serialize( GenericWriter writer )
 		{
 			base.Serialize( writer );
 

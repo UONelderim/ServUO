@@ -125,7 +125,8 @@ namespace Server.Items
                     if (lantern is SoulLantern)
                     {
                         SoulLantern soulLantern = (SoulLantern) lantern;
-                        soulLantern._TrappedSouls += killed.TotalGold;
+                        var soulsToAdd = killed.TotalGold;
+                        soulLantern._TrappedSouls += soulsToAdd;
                         if (soulLantern._TrappedSouls > 100000)
                             soulLantern._TrappedSouls = 100000;
 
