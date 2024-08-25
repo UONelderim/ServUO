@@ -1,6 +1,8 @@
 using System;
 using Server;
+using Server.Engines.Quests;
 using Server.Items;
+using Server.Mobiles;
 
 namespace Server.Items
 {
