@@ -1,6 +1,7 @@
 using Server.Items;
 using Server.Mobiles;
 using System;
+using System.Collections.Generic;
 using Server.ACC.CSS.Systems.Cleric;
 
 namespace Server.Engines.Quests
@@ -94,6 +95,7 @@ namespace Server.Engines.Quests
             AddObjective(new ObtainObjective(typeof(ZoogiFungus), "grzyby zoogi", 50, 0x26B7));
             AddObjective(new ObtainObjective(typeof(SulfurousAsh), "siarka", 200, 0xF8C));
             AddObjective(new ObtainObjective(typeof(Pitcher), "dzban", 1, 0x9A7));
+            AddObjective(new ClericPhase5Quest.SayObjective());
 
             AddReward(new BaseReward(3060192)); // Krok blizej od poznania tajemnic Herdeizmu.
         }
@@ -104,7 +106,7 @@ namespace Server.Engines.Quests
         public override object Title => 3060193;
         /* To jeszcze nie wszystko. Potrzebne jeszcze beda siarka w ilości 200, dzban wody i 50 grzybów zoogi. Podane składniki należy oddać Kapłanowi, który remedium sporządzi na oczach adeptów,
          by Ci mogli uczyć się od mistrza.
-         Następnie, tuż przy samym okaleczonym, nakładając remedium na rany, mają wyrzec trzykrotnie „Chwalmy Pana”. . */ //TODO: zrobic spawn corpse ktory regauje na "Chwalmy Pana"??
+         Następnie, tuż przy samym okaleczonym, nakładając remedium na rany, mają wyrzec trzykrotnie „Chwalmy Pana”. . */
         public override object Description => 3060194;
         /* No nie. Teraz rezygnujesz?! */
         public override object Refuse => 3060195;
@@ -134,9 +136,9 @@ namespace Server.Engines.Quests
         public ClericPhase4Quest()
             : base()
         {
-	        AddObjective(new SlayObjective(typeof(GargoyleDestroyer), "gergulec niszczyciel", 10, "Hurengrav_VeryDifficult"));
+	        AddObjective(new SlayObjective(typeof(GargoyleDestroyer), "gargulec niszczyciel", 10, "Hurengrav_VeryDifficult"));
 
-            AddReward(new BaseReward(3060158)); // Szansa poznania drogi Mistyka.
+            AddReward(new BaseReward(3060192)); // Szansa poznania drogi Herdeisty.
         }
 
         public override QuestChain ChainID => QuestChain.Cleric;
@@ -213,6 +215,37 @@ namespace Server.Engines.Quests
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
+        }
+        
+        public class SayObjective : SimpleObjective
+        {
+	        private readonly List<string> m_Descr = new List<string>();
+	        public override List<string> Descriptions => m_Descr;
+
+	        public SayObjective()
+		        : base(1, -1)
+	        {
+		        m_Descr.Add("Wypowiedz \"Chwalmy Pana\" w poblizu zwlok.");
+	        }
+
+	        public override bool Update(object obj)
+	        {
+		        if (obj is string text && text.Trim().Equals("Chwalmy pana"))
+		        {
+			        CurProgress++;
+
+			        if (Completed)
+				        Quest.OnCompleted();
+			        else
+			        {
+				        Quest.Owner.PlaySound(Quest.UpdateSound);
+			        }
+
+			        return true;
+		        }
+
+		        return false;
+	        }
         }
     }
 }
