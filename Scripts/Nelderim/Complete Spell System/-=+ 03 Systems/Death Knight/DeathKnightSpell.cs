@@ -3,6 +3,7 @@ using Server.Network;
 using Server.Items;
 using System.Collections;
 using Server.ACC.CSS;
+using Server.Mobiles;
 
 namespace Server.Spells.DeathKnight
 {
@@ -26,6 +27,12 @@ namespace Server.Spells.DeathKnight
 
 			if ( !base.CheckCast( ) )
 				return false;
+			
+			if (Caster is PlayerMobile && !((PlayerMobile)Caster).DeathKnight)
+			{
+				Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
+				return false;
+			}
 
 			if ( Caster.Karma > 0 )
 			{

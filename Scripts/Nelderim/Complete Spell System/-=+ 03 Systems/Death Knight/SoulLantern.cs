@@ -1,4 +1,5 @@
 using Server.Mobiles;
+using Server.Engines.Quests;
 
 namespace Server.Items
 {
@@ -140,6 +141,16 @@ namespace Server.Items
                                 EffectItem.Create(deathknight.Location, deathknight.Map,
                                     EffectItem.DefaultDuration), 0x376A, 9, 32, 5008);
                             Effects.PlaySound(deathknight.Location, deathknight.Map, 0x1ED);
+                            
+                            #region Death Knight Quest
+                            BaseQuest quest = QuestHelper.GetQuest((PlayerMobile)deathknight, typeof(DeathKnightPhase2Quest));
+
+                            if (quest != null)
+                            {
+	                            foreach (BaseObjective objective in quest.Objectives)
+		                            objective.Update(soulsToAdd);
+                            }
+                            #endregion
                         }
                     }
                 }

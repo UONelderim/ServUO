@@ -39,7 +39,8 @@ namespace Server.Engines.Quests
         Ritual = 29,
         //SpecialSKills
         Mystic = 30,
-        Cleric = 31
+        Cleric = 31,
+        DeathKnight = 32
     }
 
     public class BaseChain

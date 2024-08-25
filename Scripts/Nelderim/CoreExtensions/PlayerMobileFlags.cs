@@ -11,6 +11,7 @@ namespace Server.Mobiles
 			None = 0x00000000,
 			Mysticism = 0x00000001,
 			Cleric = 0x00000002,
+			DeathKnight = 0x00000003,
 		}
 		
 		public bool NGetFlag(NPlayerFlag flag)
@@ -40,6 +41,12 @@ namespace Server.Mobiles
 		public bool Cleric { 
 			get => NGetFlag(NPlayerFlag.Cleric);
 			set => NSetFlag(NPlayerFlag.Cleric, value);
+		}
+		
+		[CommandProperty(AccessLevel.GameMaster)]
+		public bool DeathKnight { 
+			get => NGetFlag(NPlayerFlag.DeathKnight);
+			set => NSetFlag(NPlayerFlag.DeathKnight, value);
 		}
 	}
 	
