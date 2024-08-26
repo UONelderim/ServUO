@@ -116,8 +116,8 @@ public class BaseNelderimGuard : BaseCreature
     public bool IsHuman => BodyValue == 400 || BodyValue == 401;
 
 
-    public BaseNelderimGuard(GuardType type, AIType aiType = AIType.AI_Melee, int rangePerception = 16, int rangeFight = 1) : 
-        base(aiType, FightMode.Criminal, rangePerception, rangeFight, 0.05, 0.1)
+    public BaseNelderimGuard(GuardType type, AIType aiType = AIType.AI_Melee, int rangePerception = 16, int rangeFight = 1, double activeSpeed = 0.05, double passiveSpeed = 0.1) : 
+        base(aiType, FightMode.Criminal, rangePerception, rangeFight, activeSpeed, passiveSpeed)
     {
         _Type = type;
         _RegionName = null;
