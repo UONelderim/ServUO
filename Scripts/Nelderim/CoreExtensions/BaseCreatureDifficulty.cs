@@ -337,8 +337,10 @@ namespace Server.Mobiles
 			}
 		}
 
+		[CommandProperty(AccessLevel.Decorator)]
 		public override int Fame => NConfig.CustomFameKarma ? NelderimFame : base.Fame;
 
+		[CommandProperty(AccessLevel.Decorator)]
 		public override int Karma => NConfig.CustomFameKarma ? NelderimKarma : base.Karma;
 		
 		[CommandProperty(AccessLevel.GameMaster)]
