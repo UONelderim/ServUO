@@ -6,7 +6,7 @@ namespace Server.Mobiles
 	public class StandardNelderimGuard : BaseNelderimGuard
 	{
 		[Constructable]
-		public StandardNelderimGuard() : base(GuardType.StandardGuard)
+		public StandardNelderimGuard() : base(GuardType.StandardGuard, activeSpeed: 0.1, passiveSpeed: 0.2)
 		{
 			PackGold(20, 80);
 		}
@@ -131,7 +131,7 @@ namespace Server.Mobiles
 		public override double WeaponAbilityChance => 0.4;
 		
 		[Constructable]
-		public ArcherNelderimGuard() : base(GuardType.ArcherGuard, AIType.AI_Archer,  rangeFight: 6)
+		public ArcherNelderimGuard() : base(GuardType.ArcherGuard, AIType.AI_Archer,  rangeFight: 6, activeSpeed: 0.2, passiveSpeed: 0.4)
 		{
 			SetWeaponAbility(WeaponAbility.ParalyzingBlow);
 			SetWeaponAbility(WeaponAbility.ArmorIgnore);
