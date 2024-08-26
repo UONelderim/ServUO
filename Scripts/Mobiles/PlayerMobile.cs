@@ -2304,10 +2304,10 @@ namespace Server.Mobiles
                 }
                 #endregion
 
-                if (Alive)
-                {
-                    list.Add(new SearchVendors(this));
-                }
+                // if (Alive)
+                // {
+                //     list.Add(new SearchVendors(this));
+                // }
 
                 BaseHouse house = BaseHouse.FindHouseAt(this);
 
