@@ -6,7 +6,7 @@ namespace Server.Mobiles
 	public class StandardNelderimGuard : BaseNelderimGuard
 	{
 		[Constructable]
-		public StandardNelderimGuard() : base(GuardType.StandardGuard, activeSpeed: 0.1, passiveSpeed: 0.2)
+		public StandardNelderimGuard() : base(GuardType.StandardGuard)
 		{
 			PackGold(20, 80);
 		}
@@ -99,7 +99,7 @@ namespace Server.Mobiles
 		public override double WeaponAbilityChance => 0.4;
 		
 		[Constructable]
-		public MountedNelderimGuard() : base(GuardType.MountedGuard)
+		public MountedNelderimGuard() : base(GuardType.MountedGuard, activeSpeed: 0.1, passiveSpeed: 0.2)
 		{
 			SetWeaponAbility(WeaponAbility.Disarm);
 			SetWeaponAbility(WeaponAbility.BleedAttack);
@@ -131,7 +131,7 @@ namespace Server.Mobiles
 		public override double WeaponAbilityChance => 0.4;
 		
 		[Constructable]
-		public ArcherNelderimGuard() : base(GuardType.ArcherGuard, AIType.AI_Archer,  rangeFight: 6, activeSpeed: 0.2, passiveSpeed: 0.4)
+		public ArcherNelderimGuard() : base(GuardType.ArcherGuard, AIType.AI_Archer,  rangeFight: 6, activeSpeed: 0.25, passiveSpeed: 0.4)
 		{
 			SetWeaponAbility(WeaponAbility.ParalyzingBlow);
 			SetWeaponAbility(WeaponAbility.ArmorIgnore);
@@ -195,7 +195,7 @@ namespace Server.Mobiles
 		public override double WeaponAbilityChance => 1.0;
 
 		[Constructable]
-		public SpecialNelderimGuard() : base(GuardType.SpecialGuard, rangePerception: 20)
+		public SpecialNelderimGuard() : base(GuardType.SpecialGuard, rangePerception: 20, activeSpeed: 0.1, passiveSpeed: 0.4)
 		{
 			PackGold(60, 100);
 			SetWeaponAbility(WeaponAbility.Disarm);
