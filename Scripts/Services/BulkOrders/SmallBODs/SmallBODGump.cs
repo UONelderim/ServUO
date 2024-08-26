@@ -74,7 +74,7 @@ namespace Server.Engines.BulkOrders
 
             if (deed.Material != BulkMaterialType.None)
             {
-                AddHtmlLocalized(75, y, 300, 20, GetMaterialNumberFor(deed.Material), 0x7FFF, false, false); // All items must be made with x material.
+                AddHtmlLocalized(75, y, 370, 20, GetMaterialNumberFor(deed.Material), 0x7FFF, false, false); // All items must be made with x material.
                 y += 24;
             }
 
@@ -99,7 +99,7 @@ namespace Server.Engines.BulkOrders
                 y += 24;
 
                 AddButton(125, y, 4005, 4007, 4, GumpButtonType.Reply, 0);
-                AddHtmlLocalized(160, y, 300, 20, 1157304, 0x7FFF, false, false); // Combine this deed with contained items.
+                AddHtmlLocalized(160, y, 350, 20, 1157304, 0x7FFF, false, false); // Combine this deed with contained items.
                 y += 24;
             }
             else
