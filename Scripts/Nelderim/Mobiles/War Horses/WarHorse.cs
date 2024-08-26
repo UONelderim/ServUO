@@ -242,6 +242,7 @@ namespace Server.Mobiles
 					int absorbed = AOS.Scale(amount, percent);
 
 					amount -= absorbed;
+					BardingHP -= absorbed;
 
 					if (BardingHP < 0)
 					{
