@@ -1,6 +1,7 @@
 #region References
 
 using System;
+using Server.Mobiles;
 using Server.Spells;
 
 #endregion
@@ -26,10 +27,20 @@ namespace Server.ACC.CSS.Systems.Ancient
 			min = RequiredSkill;
 			max = RequiredSkill;
 		}
-
-		public override int GetMana()
+		
+		public override bool CheckFizzle()
 		{
-			return RequiredMana;
+			if (!base.CheckFizzle())
+				return false;
+			
+			if (Caster is PlayerMobile && !((PlayerMobile)Caster).Ancient)
+			{
+				Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
+				return false;
+			}
+
+
+			return true;
 		}
 
 		public override TimeSpan GetCastDelay()
