@@ -172,8 +172,8 @@ namespace Server.Engines.Quests
         {
             AddObjective(new ObtainObjective(typeof(ArcaneGem), "tajemniczy kamien", 30, 0x1EA7));
 
-            AddReward(new BaseReward(typeof(HealingStoneSpell), 1031679)); // Kamień Leczenia 		
-            AddReward(new BaseReward(typeof(NetherBoltSpell), 1031678)); // Mistczny Promień 
+		
+            AddReward(new BaseReward(typeof(NetherBoltScroll), 1031678)); // Mistczny Promień 
             AddReward(new BaseReward(typeof(MysticBook), 1031677)); // Ksiega Mistycyzmu
         }
 

@@ -179,7 +179,7 @@ namespace Server.Engines.Quests
             AddObjective(new ObtainObjective(typeof(Gold), "zloto", 20000, 3821));
 
             
-            AddReward(new BaseReward(typeof(ClericSacrificeSpell), "Poswiecenie")); // Poswiecenie
+            AddReward(new BaseReward(typeof(ClericSacrificeScroll), "Poswiecenie")); // Poswiecenie
             AddReward(new BaseReward(typeof(ClericSpellbook), "Ksiega Herdeizmu")); // Ksiega Herdeizmu
         }
 
