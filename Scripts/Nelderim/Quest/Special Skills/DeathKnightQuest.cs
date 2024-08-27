@@ -187,8 +187,8 @@ namespace Server.Engines.Quests
             AddObjective(new ObtainObjective(typeof(VolcanicAsh), "pyl wulkaniczny", 20, 3983));
 
             
-            AddReward(new BaseReward(typeof(DemonicTouchSpell), "Poswiecenie")); // Dotyk Demona
-            AddReward(new BaseReward(typeof(DeathKnightSpellbook), "Ksiega Herdeizmu")); // Ksiega Herdeizmu
+            AddReward(new BaseReward(typeof(DemonicTouchSkull), "Dotyk Demona")); // Dotyk Demona
+            AddReward(new BaseReward(typeof(DeathKnightSpellbook), "Ksiega Mrocznego Rycerza")); // Ksiega 
         }
 
         public override QuestChain ChainID => QuestChain.DeathKnight;
