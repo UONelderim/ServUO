@@ -9,19 +9,18 @@ namespace Server.Engines.Quests
         public TroubleOnTheWingQuest()
             : base()
         {
-            AddObjective(new SlayObjective(typeof(Gargoyle), "gargoyles", 12, "Sanctuary"));
+            AddObjective(new SlayObjective(typeof(Gargoyle), "gargulce", 12));
 
             AddReward(new BaseReward(typeof(TrinketBag), 1072341));
         }
 
-        /* Trouble on the Wing */
+        /* Skrzydlaty problem  */
         public override object Title => 1072371;
-        /* Those gargoyles need to get knocked down a peg or two, if you ask me.  They're always flying 
-        over here and lobbing things at us. What a nuisance.  Drop a dozen of them for me, would you? */
+        /* Te przeklete gargulce lataja po ziemi Naneth... Ehh.. zajmiesz sie nimi? Czesto tu lataja i nekaja adeptow. Zgladz ich z tuzin. To powinno je skutecznie odstraszyc */
         public override object Description => 1072593;
-        /* Don't tell me you're a gargoyle sympathizer?  *spits* */
+        /* No nie mow, ze jestes sympatykiem gargulcow *spluwa* */
         public override object Refuse => 1072594;
-        /* Those blasted gargoyles hang around the old tower.  That's the best place to hunt them down. */
+        /* Cholerne gargulce. Trzeba je zniszczyc */
         public override object Uncomplete => 1072595;
         public override bool CanOffer()
         {
@@ -47,7 +46,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Koole()
-            : base("Koole", "the arcanist")
+            : base("Koole", "- druid")
         {
         }
 
@@ -59,7 +58,7 @@ namespace Server.Engines.Quests
         public override Type[] Quests => new Type[]
                 {
                     typeof(TroubleOnTheWingQuest),
-                    typeof(MaraudersQuest),
+                  //  typeof(MaraudersQuest),
                     typeof(DisciplineQuest)
                 };
         public override void InitBody()
