@@ -42,6 +42,7 @@ namespace Server.Engines.Quests
         Cleric = 31,
         DeathKnight = 32,
         Nature = 33,
+        Ancient = 34,
         
     }
 
