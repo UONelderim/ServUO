@@ -179,7 +179,7 @@ namespace Server.Engines.Quests
             AddObjective(new ObtainObjective(typeof(SzczepkaBoczniak), "Zarodniki boczniaka", 10, 0x0F23));
 
             
-            AddReward(new BaseReward(typeof(DruidHollowReedSpell), "Sila Natury")); // Siła Natury
+            AddReward(new BaseReward(typeof(DruidHollowReedScroll), "Sila Natury")); // Siła Natury
             AddReward(new BaseReward(typeof(DruidSpellbook), "Ksiega Magii Natury")); // Ksiega Magii Natury
         }
 
