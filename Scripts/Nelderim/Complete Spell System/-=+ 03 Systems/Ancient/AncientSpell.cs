@@ -33,7 +33,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 			if (!base.CheckFizzle())
 				return false;
 			
-			if (Caster is PlayerMobile && !((PlayerMobile)Caster).Ancient)
+			if (Caster is PlayerMobile && !((PlayerMobile)Caster).Nature)
 			{
 				Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
 				return false;
@@ -41,6 +41,11 @@ namespace Server.ACC.CSS.Systems.Ancient
 
 
 			return true;
+		}
+		
+		public override int GetMana()
+		{
+			return RequiredMana;
 		}
 
 		public override TimeSpan GetCastDelay()
