@@ -82,7 +82,7 @@ namespace Server.Spells.Mysticism
             
             if (Caster is PlayerMobile && !((PlayerMobile)Caster).Mysticism)
             {
-	            Caster.SendMessage("Tylko prawdziwy mistyk może rzucić to zaklęcie");
+	            Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
 	            return false;
             }
 
