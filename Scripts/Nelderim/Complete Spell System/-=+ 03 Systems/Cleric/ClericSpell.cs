@@ -31,6 +31,13 @@ namespace Server.ACC.CSS.Systems.Cleric
 		{
 			if (!base.CheckCast())
 				return false;
+			
+						
+			if (Caster is PlayerMobile && !((PlayerMobile)Caster).Cleric)
+			{
+				Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
+				return false;
+			}
 
 			if (Caster.Skills[CastSkill].Value < RequiredSkill)
 			{
@@ -74,12 +81,6 @@ namespace Server.ACC.CSS.Systems.Cleric
 			{
 				Caster.SendMessage("Musisz mieć przynajmniej " + RequiredSkill +
 				                   " dziesięciny by aktywować tę umiejętnosć..");
-				return false;
-			}
-			
-			if (Caster is PlayerMobile && !((PlayerMobile)Caster).Cleric)
-			{
-				Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
 				return false;
 			}
 
