@@ -1,6 +1,7 @@
 #region References
 
 using System;
+using Server.Mobiles;
 using Server.Spells;
 
 #endregion
@@ -38,6 +39,12 @@ namespace Server.ACC.CSS.Systems.Avatar
 				Caster.SendLocalizedMessage(1060172,
 					RequiredSkill
 						.ToString("F1")); // You must have at least ~1_SKILL_REQUIREMENT~ Chivalry to use this ability,
+				return false;
+			}
+			
+			if (Caster is PlayerMobile && !((PlayerMobile)Caster).Avatar)
+			{
+				Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
 				return false;
 			}
 

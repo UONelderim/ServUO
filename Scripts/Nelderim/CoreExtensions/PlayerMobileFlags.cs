@@ -14,6 +14,7 @@ namespace Server.Mobiles
 			DeathKnight = 0x00000003,
 			Nature = 0x00000004,
 			Ancient = 0x00000005,
+			Avatar = 0x00000006,
 		}
 		
 		public bool NGetFlag(NPlayerFlag flag)
@@ -61,6 +62,12 @@ namespace Server.Mobiles
 		public bool Ancient { 
 			get => NGetFlag(NPlayerFlag.Ancient);
 			set => NSetFlag(NPlayerFlag.Ancient, value);
+		}
+		
+		[CommandProperty(AccessLevel.GameMaster)]
+		public bool Avatar { 
+			get => NGetFlag(NPlayerFlag.Avatar);
+			set => NSetFlag(NPlayerFlag.Avatar, value);
 		}
 	}
 	
