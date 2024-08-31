@@ -44,6 +44,7 @@ namespace Server.Engines.Quests
         Nature = 33,
         Ancient = 34,
         Avatar = 35,
+        Bard = 36,
     }
 
     public class BaseChain
@@ -92,6 +93,7 @@ namespace Server.Engines.Quests
             Chains[(int)QuestChain.Nature] = new Type[] { typeof(NaturePhase2Quest), typeof(NaturePhase3Quest), typeof(NaturePhase4Quest), typeof(NaturePhase5Quest) };
             Chains[(int)QuestChain.Ancient] = new Type[] { typeof(AncientPhase2Quest), typeof(AncientPhase3Quest), typeof(AncientPhase4Quest), typeof(AncientPhase5Quest) };
             Chains[(int)QuestChain.Avatar] = new Type[] { typeof(AvatarPhase2Quest), typeof(AvatarPhase3Quest), typeof(AvatarPhase4Quest), typeof(AvatarPhase5Quest) };
+            Chains[(int)QuestChain.Bard ] = new Type[] { typeof(BardPhase2Quest), typeof(BardPhase3Quest), typeof(BardPhase4Quest), typeof(BardPhase5Quest) };
         }
 
         public Type CurrentQuest { get; set; }
