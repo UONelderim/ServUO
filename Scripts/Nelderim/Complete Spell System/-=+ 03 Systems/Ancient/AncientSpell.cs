@@ -28,9 +28,9 @@ namespace Server.ACC.CSS.Systems.Ancient
 			max = RequiredSkill;
 		}
 		
-		public override bool CheckFizzle()
+		public override bool CheckCast()
 		{
-			if (!base.CheckFizzle())
+			if (!base.CheckCast())
 				return false;
 			
 			if (Caster is PlayerMobile && !((PlayerMobile)Caster).Nature)
