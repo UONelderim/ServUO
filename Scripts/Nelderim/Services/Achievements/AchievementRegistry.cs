@@ -16,7 +16,7 @@ namespace Nelderim.Achievements
 		public AchievementRegistry(string name)
 		{
 			_Name = name;
-			_IndexFile = new FileInfo($"Saves/Nelderim/{_Name}.csv");
+			_IndexFile = new FileInfo($"{NExtension.BasePath}/{_Name}.csv");
 		}
 
 		public T Register(T entry)
@@ -34,6 +34,10 @@ namespace Nelderim.Achievements
 
 		public void Save()
 		{
+			if (!Directory.Exists(NExtension.BasePath))
+			{
+				Directory.CreateDirectory(NExtension.BasePath);
+			}
 			if (!_IndexFile.Exists)
 			{
 				using var fs = _IndexFile.Create();
