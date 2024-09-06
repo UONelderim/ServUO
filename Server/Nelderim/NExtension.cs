@@ -5,15 +5,19 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using Server;
+using static Nelderim.NExtension;
 
 #endregion
 
 namespace Nelderim
 {
-	public abstract class NExtension<T> where T : NExtensionInfo, new()
+	public static class NExtension
 	{
 		public const string BasePath = "Saves/Nelderim";
-		
+	}
+	
+	public abstract class NExtension<T> where T : NExtensionInfo, new()
+	{
 		protected static ConcurrentDictionary<Serial, T> m_ExtensionInfo = new ConcurrentDictionary<Serial, T>();
 
 		public static bool Delete(IEntity entity)
