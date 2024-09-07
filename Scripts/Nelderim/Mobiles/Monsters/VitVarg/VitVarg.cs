@@ -1,5 +1,6 @@
 #region References
 
+using Nelderim;
 using Server.Items;
 
 #endregion
@@ -44,39 +45,19 @@ namespace Server.Mobiles
 			SetSkill(SkillName.Wrestling, 120.0);
 			SetSkill(SkillName.Swords, 120.0);
 
-			Fame = 15000;
-			Karma = -15000;
-
-			VirtualArmor = 55;
-
 			SetWeaponAbility(WeaponAbility.BleedAttack);
 			SetWeaponAbility(WeaponAbility.CrushingBlow);
 		}
 
 		public override void GenerateLoot()
 		{
-			AddLoot(LootPack.UltraRich, 2);
+			AddLoot(NelderimLoot.ClericScrolls);
 		}
 
-		public override int GetIdleSound()
-		{
-			return 0x2CE;
-		}
-
-		public override int GetDeathSound()
-		{
-			return 0x2C1;
-		}
-
-		public override int GetHurtSound()
-		{
-			return 0x2D1;
-		}
-
-		public override int GetAttackSound()
-		{
-			return 0x2C8;
-		}
+		public override int GetIdleSound() => 0x2CE;
+		public override int GetDeathSound() => 0x2C1;
+		public override int GetHurtSound() => 0x2D1;
+		public override int GetAttackSound() => 0x2C8;
 
 
 		public override bool BardImmune => false;

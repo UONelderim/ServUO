@@ -3,6 +3,7 @@ using Server.Mobiles;
 using Server.Network;
 using System;
 using System.Collections.Generic;
+using Nelderim;
 
 namespace Server.Mobiles
 {
@@ -96,12 +97,6 @@ namespace Server.Mobiles
             base.OnCarve(from, corpse, with);
 
             corpse.Carved = true;
-        }
-        
-        public override bool OnBeforeDeath()
-        {
-	        AddLoot(LootPack.ArcanistScrolls);
-	        return base.OnBeforeDeath();
         }
 
         public override void OnGotMeleeAttack(Mobile m)
@@ -530,6 +525,8 @@ namespace Server.Mobiles
             AddLoot(LootPack.SuperBoss, 8);
             AddLoot(LootPack.LootItem<Arrow>(100, 200, true));
             AddLoot(LootPack.LootItem<MedusaStatue>(2.5));
+            
+            AddLoot(NelderimLoot.ArcanistScrolls);
         }
 
         public override void OnAfterDelete()

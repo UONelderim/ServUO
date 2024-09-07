@@ -1,5 +1,6 @@
 #region References
 
+using Nelderim;
 using Server.Items;
 
 #endregion
@@ -47,18 +48,13 @@ namespace Server.Mobiles
 			SetSkill(SkillName.Tactics, 90.1, 100.0);
 			SetSkill(SkillName.Wrestling, 90.1, 100.0);
 
-			Fame = 15000;
-			Karma = -15000;
-
-			VirtualArmor = 70;
 
 			SetWeaponAbility(WeaponAbility.CrushingBlow);
 		}
 
 		public override void GenerateLoot()
 		{
-			AddLoot(LootPack.SuperBoss);
-			AddLoot(LootPack.Gems, 6);
+			AddLoot(NelderimLoot.BardScrolls);
 		}
 
 		public override void OnDamagedBySpell(Mobile caster)

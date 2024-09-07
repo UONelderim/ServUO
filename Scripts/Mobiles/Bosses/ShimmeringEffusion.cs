@@ -1,3 +1,4 @@
+using Nelderim;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -60,6 +61,8 @@ namespace Server.Mobiles
 
             AddLoot(LootPack.LootItem<FerretImprisonedInCrystal>(5.0));
             AddLoot(LootPack.LootItem<CrystallineRing>(2.25));
+            
+            AddLoot(NelderimLoot.DruidScrolls);
         }
 
         public override bool AutoDispel => true;

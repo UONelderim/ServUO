@@ -1,4 +1,5 @@
 using System;
+using Nelderim;
 using Server.Engines.Plants;
 using Server.Items;
 
@@ -47,40 +48,6 @@ namespace Server.Mobiles
 			if (Utility.RandomDouble() < .25)
 				PackItem(Seed.RandomBonsaiSeed());
 
-			switch (Utility.Random(10))
-			{
-				case 0:
-					PackItem(new LeftArm());
-					break;
-				case 1:
-					PackItem(new RightArm());
-					break;
-				case 2:
-					PackItem(new Torso());
-					break;
-				case 3:
-					PackItem(new Bone());
-					break;
-				case 4:
-					PackItem(new RibCage());
-					break;
-				case 5:
-					PackItem(new RibCage());
-					break;
-				case 6:
-					PackItem(new BonePile());
-					break;
-				case 7:
-					PackItem(new BonePile());
-					break;
-				case 8:
-					PackItem(new BonePile());
-					break;
-				case 9:
-					PackItem(new BonePile());
-					break;
-			}
-
 			Tamable = false;
 			ControlSlots = 3;
 			MinTameSkill = 93.9;
@@ -89,31 +56,22 @@ namespace Server.Mobiles
 			SetSpecialAbility(SpecialAbility.RuneCorruption);
 		}
 
-		public override int GetAngerSound()
+		public override void GenerateLoot()
 		{
-			return 0x4E8;
+			AddLoot(LootPack.BodyPartsAndBones);
+			AddLoot(NelderimLoot.DruidScrolls);
 		}
 
-		public override int GetIdleSound()
-		{
-			return 0x4E7;
-		}
+		public override int GetAngerSound() => 0x4E8;
 
-		public override int GetAttackSound()
-		{
-			return 0x4E6;
-		}
+		public override int GetIdleSound() => 0x4E7;
 
-		public override int GetHurtSound()
-		{
-			return 0x4E9;
-		}
+		public override int GetAttackSound() => 0x4E6;
 
-		public override int GetDeathSound()
-		{
-			return 0x4E5;
-		}
-		
+		public override int GetHurtSound() => 0x4E9;
+
+		public override int GetDeathSound() => 0x4E5;
+
 		public override Poison PoisonImmune => Poison.Greater;
 		public override Poison HitPoison => Poison.Greater;
 		public override FoodType FavoriteFood => FoodType.FruitsAndVegies | FoodType.GrainsAndHay;

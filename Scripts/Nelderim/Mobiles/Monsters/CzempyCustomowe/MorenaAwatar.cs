@@ -1,7 +1,9 @@
 #region References
 
 using System;
-using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Nelderim;
 using Server.Items;
 
 #endregion
@@ -11,9 +13,9 @@ namespace Server.Mobiles
 	[CorpseName("resztki awatara nekromantki")]
 	public class MorenaAwatar : BaseCreature
 	{
-		public override bool BleedImmune { get { return true; } }
-		public override double SwitchTargetChance { get { return 0.5; } }
-		public override double AttackMasterChance { get { return 0.5; } }
+		public override bool BleedImmune => true;
+		public override double SwitchTargetChance => 0.5;
+		public override double AttackMasterChance => 0.5;
 
 		private static readonly bool OverrideRules = true;
 
@@ -28,7 +30,7 @@ namespace Server.Mobiles
 
 		private DateTime m_NextReturnTime;
 
-		private readonly ArrayList m_Minions;
+		private readonly List<Mobile> m_Minions;
 
 		[Constructable]
 		public MorenaAwatar() : base(AIType.AI_Boss, FightMode.Strongest, 12, 1, 0.2, 0.4)
@@ -39,10 +41,7 @@ namespace Server.Mobiles
 			BaseSoundID = 412;
 			Kills = 50;
 
-			HoodedShroudOfShadows rob = new HoodedShroudOfShadows(Utility.RandomNeutralHue());
-			rob.Movable = false;
-			AddItem(rob);
-
+			AddItem(new HoodedShroudOfShadows(Utility.RandomNeutralHue()) { Movable = false });
 			AddItem(new BlackStaff());
 
 			SetStr(324, 458);
@@ -73,16 +72,11 @@ namespace Server.Mobiles
 			SetSkill(SkillName.Tactics, 90.1, 110.0);
 			SetSkill(SkillName.Wrestling, 75.1, 110.0);
 
-			Fame = 3000;
-			Karma = -30000;
-
-			VirtualArmor = 60;
-
 			PackItem(new GnarledStaff());
 
-			m_Minions = new ArrayList();
-
 			SetWeaponAbility(WeaponAbility.BleedAttack);
+
+			m_Minions = [];
 		}
 
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)
@@ -96,121 +90,62 @@ namespace Server.Mobiles
 			base.OnCarve(from, corpse, with);
 		}
 
-		public override int GetIdleSound()
-		{
-			return 0x19D;
-		}
-
-		public override int GetAngerSound()
-		{
-			return 0x175;
-		}
-
-		public override int GetDeathSound()
-		{
-			return 0x108;
-		}
-
-		public override int GetAttackSound()
-		{
-			return 0xE2;
-		}
-
-		public override int GetHurtSound()
-		{
-			return 0x28B;
-		}
+		public override int GetIdleSound() => 0x19D;
+		public override int GetAngerSound() => 0x175;
+		public override int GetDeathSound() => 0x108;
+		public override int GetAttackSound() => 0xE2;
+		public override int GetHurtSound() => 0x28B;
 
 		public override void GenerateLoot()
 		{
-			AddLoot(LootPack.FilthyRich, 3);
-			AddLoot(LootPack.UltraRich);
-			AddLoot(LootPack.HighScrolls, 2);
-			AddLoot(LootPack.NecroRegs, 150, 200);
+			AddLoot(NelderimLoot.ClericScrolls);
 		}
 
-		public override bool Unprovokable { get { return true; } }
-		public override Poison PoisonImmune { get { return Poison.Lethal; } }
-		public override int TreasureMapLevel { get { return 5; } }
+		public override bool Unprovokable => true;
+		public override Poison PoisonImmune => Poison.Lethal;
+		public override int TreasureMapLevel => 5;
 
-		public override bool CanPaperdollBeOpenedBy(Mobile from)
-		{
-			return false;
-		}
-
-		private int CountAliveMinions()
-		{
-			int alive = 0;
-
-			foreach (Mobile m in m_Minions)
-			{
-				if (m.Alive && !m.Deleted) alive++;
-			}
-
-			return alive;
-		}
+		public override bool CanPaperdollBeOpenedBy(Mobile from) => false;
 
 		private void SpawnMinions()
 		{
-			if (CountAliveMinions() != 0) return;
+			if (m_Minions.Any(m => !m.Deleted && m.Alive)) return;
 
 			m_Minions.Clear();
 
-			Map map = this.Map;
+			if (Map == null) return;
 
-			if (map == null) return;
-
-			int type = Utility.Random(2);
+			var isSkeleton = Utility.RandomBool();
 
 			ShowMorphEffect();
+			
+			BodyMod = isSkeleton ? Utility.RandomList(50, 56) : 3;
 
-			switch (type)
+			var minionsCount = Utility.RandomMinMax(5, 8);
+
+			for (int i = 0; i < minionsCount; ++i)
 			{
-				default:
-				case 0:
-					BodyMod = Utility.RandomList(50, 56);
-					break;
-				case 1:
-					BodyMod = 3;
-					break;
-			}
+				BaseCreature minion = isSkeleton ? new Skeleton() : new Zombie();
 
-			int minions = Utility.RandomMinMax(5, 8);
-
-			for (int i = 0; i < minions; ++i)
-			{
-				BaseCreature minion;
-
-				switch (type)
-				{
-					default:
-					case 0:
-						minion = new Skeleton();
-						break;
-					case 1:
-						minion = new Zombie();
-						break;
-				}
-
-				minion.Team = this.Team;
+				minion.Team = Team;
 
 				bool validLocation = false;
 
-				Point3D loc = this.Location;
+				Point3D loc = Location;
 
 				for (int j = 0; !validLocation && j < 5; ++j)
 				{
 					int x = X + Utility.Random(8) - 4;
 					int y = Y + Utility.Random(8) - 4;
-					int z = map.GetAverageZ(x, y);
+					int avgZ = Map.GetAverageZ(x, y);
 
-					if (validLocation = map.CanFit(x, y, this.Z, 16, false, false))
+					if (validLocation = Map.CanFit(x, y, Z, 16, false, false))
 						loc = new Point3D(x, y, Z);
-					else if (validLocation = map.CanFit(x, y, z, 16, false, false))
-						loc = new Point3D(x, y, z);
+					else if (validLocation = Map.CanFit(x, y, avgZ, 16, false, false))
+						loc = new Point3D(x, y, avgZ);
 				}
 
-				minion.MoveToWorld(loc, map);
+				minion.MoveToWorld(loc, Map);
 				minion.Combatant = Combatant;
 
 				m_Minions.Add(minion);
@@ -224,9 +159,7 @@ namespace Server.Mobiles
 			Combatant.FixedParticles(0x374A, 10, 15, 5021, EffectLayer.Waist);
 			Combatant.PlaySound(0x474);
 
-			Mobile m = Combatant as Mobile;
-
-			if (m != null)
+			if (Combatant is Mobile m)
 				m.ApplyPoison(this, Poison.GetPoison(4));
 		}
 
@@ -234,7 +167,7 @@ namespace Server.Mobiles
 		{
 			if (BodyMod != 0)
 			{
-				if (CountAliveMinions() == 0 || DateTime.Now > m_NextReturnTime)
+				if (m_Minions.All(m => m.Deleted || !m.Alive) || DateTime.Now > m_NextReturnTime)
 				{
 					m_Minions.Clear();
 
@@ -269,15 +202,15 @@ namespace Server.Mobiles
 
 		public void ShowMorphEffect()
 		{
-			Effects.SendLocationParticles(EffectItem.Create(this.Location, this.Map, EffectItem.DefaultDuration),
+			Effects.SendLocationParticles(EffectItem.Create(Location, Map, EffectItem.DefaultDuration),
 				0x3728, 8, 20, 5042);
 
-			Effects.PlaySound(this, this.Map, 0x201);
+			Effects.PlaySound(this, Map, 0x201);
 		}
 
 		public MorenaAwatar(Serial serial) : base(serial)
 		{
-			m_Minions = new ArrayList();
+			m_Minions = [];
 		}
 
 		public override void Serialize(GenericWriter writer)

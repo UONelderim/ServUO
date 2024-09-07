@@ -1,5 +1,6 @@
 #region References
 
+using Nelderim;
 using Server.Items;
 
 #endregion
@@ -61,6 +62,8 @@ namespace Server.Mobiles
 		{
 			AddLoot(LootPack.FilthyRich);
 			AddLoot(LootPack.Rich);
+			
+			AddLoot(NelderimLoot.AvatarScrolls);
 		}
 
 		public override bool BardImmune => false;

@@ -1,6 +1,7 @@
 using Server.Items;
 using System;
 using System.Collections.Generic;
+using Nelderim;
 
 namespace Server.Mobiles
 {
@@ -106,6 +107,8 @@ namespace Server.Mobiles
             AddLoot(LootPack.LootItem<ImprisonedDog>(5.0));
             AddLoot(LootPack.LootItem<MarkOfTravesty>(5.0));
             AddLoot(LootPack.LootItem<MalekisHonor>(2.5));
+            
+            AddLoot(NelderimLoot.ArcanistScrolls);
         }
 
         public Travesty(Serial serial)
@@ -309,8 +312,6 @@ namespace Server.Mobiles
         public override bool OnBeforeDeath()
         {
             RestoreBody();
-            AddLoot(LootPack.ArcanistScrolls);
-
             return base.OnBeforeDeath();
         }
 

@@ -1,8 +1,8 @@
-using Server.Engines.CannedEvil;
 using Server.Items;
 using Server.Network;
 using System;
 using System.Collections.Generic;
+using Nelderim;
 
 namespace Server.Mobiles
 {
@@ -65,10 +65,9 @@ namespace Server.Mobiles
         public override Poison PoisonImmune => Poison.Lethal;
         public override int TreasureMapLevel => 5;
         
-    	public override bool OnBeforeDeath()
+    	public override void GenerateLoot()
 		{
-			AddLoot( LootPack.DeathKnightScrolls );
-			return base.OnBeforeDeath( );
+			AddLoot( NelderimLoot.DeathKnightScrolls );
 		}
 
         public override void OnDamage(int amount, Mobile from, bool willKill)

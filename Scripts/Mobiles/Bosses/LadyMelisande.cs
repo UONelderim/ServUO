@@ -1,4 +1,5 @@
 using System;
+using Nelderim;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -65,6 +66,8 @@ namespace Server.Mobiles
 					typeof(MelisandesHairDye), typeof(MelisandesCorrodedHatchet),
 					typeof(AlbinoSquirrelImprisonedInCrystal)
 				}, 22.25, 1));
+			
+			AddLoot(NelderimLoot.DruidScrolls);
 		}
 
 		public override void OnThink()

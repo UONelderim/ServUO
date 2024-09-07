@@ -1,5 +1,6 @@
 #region References
 
+using Nelderim;
 using Server.Items;
 
 #endregion
@@ -9,14 +10,14 @@ namespace Server.Mobiles
 	[CorpseName("zgliszcza gorogona")]
 	public class NGorogon : BaseCreature
 	{
-		public override bool BardImmune { get { return true; } }
-		public override double AttackMasterChance { get { return 0.15; } }
-		public override double SwitchTargetChance { get { return 0.15; } }
-		public override double DispelDifficulty { get { return 135.0; } }
-		public override double DispelFocus { get { return 45.0; } }
-		public override bool AutoDispel { get { return true; } }
-		public override Poison PoisonImmune { get { return Poison.Lethal; } }
-		public override Poison HitPoison { get { return Poison.Deadly; } }
+		public override bool BardImmune => true;
+		public override double AttackMasterChance => 0.15;
+		public override double SwitchTargetChance => 0.15;
+		public override double DispelDifficulty => 135.0;
+		public override double DispelFocus => 45.0;
+		public override bool AutoDispel => true;
+		public override Poison PoisonImmune => Poison.Lethal;
+		public override Poison HitPoison => Poison.Deadly;
 
 		[Constructable]
 		public NGorogon() : base(AIType.AI_Melee, FightMode.Closest, 12, 1, 0.25, 0.5)
@@ -71,6 +72,7 @@ namespace Server.Mobiles
 		public override void GenerateLoot()
 		{
 			AddLoot(LootPack.SuperBoss);
+			AddLoot(NelderimLoot.UndeadScrolls);
 		}
 
 		public NGorogon(Serial serial) : base(serial)

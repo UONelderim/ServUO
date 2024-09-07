@@ -1,5 +1,6 @@
 #region References
 
+using Nelderim;
 using Server.Items;
 
 #endregion
@@ -9,13 +10,13 @@ namespace Server.Mobiles
 	[CorpseName("resztki wladcy piaskow")]
 	public class WladcaPiaskow : BaseCreature
 	{
-		public override double DifficultyScalar { get { return 1.05; } }
-		public override double AttackMasterChance { get { return 0.75; } }
-		public override double SwitchTargetChance { get { return 0.15; } }
-		public override Poison PoisonImmune { get { return Poison.Deadly; } }
-		public override int Meat { get { return 2; } }
-		public override bool CanRummageCorpses { get { return true; } }
-		public override bool AutoDispel { get { return true; } }
+		public override double DifficultyScalar => 1.05;
+		public override double AttackMasterChance => 0.75;
+		public override double SwitchTargetChance => 0.15;
+		public override Poison PoisonImmune => Poison.Deadly;
+		public override int Meat => 2;
+		public override bool CanRummageCorpses => true;
+		public override bool AutoDispel => true;
 
 		[Constructable]
 		public WladcaPiaskow() : base(AIType.AI_Melee, FightMode.Closest, 13, 1, 0.25, 0.5)
@@ -49,11 +50,6 @@ namespace Server.Mobiles
 			SetSkill(SkillName.Tactics, 90.1, 100.0);
 			SetSkill(SkillName.Wrestling, 90.1, 100.0);
 
-			Fame = 15000;
-			Karma = -15000;
-
-			VirtualArmor = 70;
-
 			SetWeaponAbility(WeaponAbility.CrushingBlow);
 			SetWeaponAbility(WeaponAbility.Feint);
 			SetWeaponAbility(WeaponAbility.ForceOfNature);
@@ -61,8 +57,7 @@ namespace Server.Mobiles
 
 		public override void GenerateLoot()
 		{
-			AddLoot(LootPack.SuperBoss);
-			AddLoot(LootPack.Gems, 6);
+			AddLoot(NelderimLoot.AncientScrolls);
 		}
 
 		public override void OnDamagedBySpell(Mobile caster)

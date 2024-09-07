@@ -77,7 +77,7 @@ namespace Server.Items
 			_CreatureInfo.Add(typeof(NDeloth), new ArtInfo(5, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(NDzahhar), new ArtInfo(5, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(NSarag), new ArtInfo(6, ArtGroup.Boss));
-			_CreatureInfo.Add(typeof(NelderimSkeletalDragon), new ArtInfo(7, ArtGroup.Boss));
+			_CreatureInfo.Add(typeof(NSkeletalDragon), new ArtInfo(7, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(NStarozytnyLodowySmok), new ArtInfo(8, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(StarozytnyDiamentowySmok), new ArtInfo(8, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(NStarozytnySmok), new ArtInfo(8, ArtGroup.Boss));

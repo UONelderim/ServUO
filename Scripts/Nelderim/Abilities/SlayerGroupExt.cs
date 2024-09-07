@@ -65,7 +65,7 @@ namespace Server.Items
 				typeof(EmeraldDragon), typeof(EmeraldDrake), typeof(RubyDragon), typeof(RubyDrake),
 				typeof(SapphireDragon), typeof(SapphireDrake), typeof(GreaterDragon),
 				typeof(StarozytnyDiamentowySmok), //boss
-				typeof(NelderimSkeletalDragon), // boss
+				typeof(NSkeletalDragon), // boss
 				typeof(Rikktor), typeof(NChimera)); // champion
 			AddEntryTypes(reptilian,SlayerName.DragonSlaying, typeof(NelderimDragon), typeof(Reptalon),
 				typeof(LodowySmok),
@@ -78,7 +78,7 @@ namespace Server.Items
 				typeof(StaryOgnistySmok), typeof(GreaterDragon),  typeof(NStarozytnyLodowySmok), // boss
 				typeof(NStarozytnySmok), // boss
 				typeof(StarozytnyDiamentowySmok), //boss
-				typeof(NelderimSkeletalDragon), // boss
+				typeof(NSkeletalDragon), // boss
 				typeof(Rikktor), // champion
 				typeof(AmethystDragon), typeof(AmethystDrake), typeof(DiamondDragon), typeof(DiamondDrake), typeof(EmeraldDragon), typeof(EmeraldDrake), typeof(RubyDragon), typeof(RubyDrake), typeof(SapphireDragon),  typeof(SapphireDrake)
 			);

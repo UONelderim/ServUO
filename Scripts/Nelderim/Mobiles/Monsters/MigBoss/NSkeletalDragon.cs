@@ -1,5 +1,6 @@
 #region References
 
+using Nelderim;
 using Server.Items;
 
 #endregion
@@ -7,23 +8,23 @@ using Server.Items;
 namespace Server.Mobiles
 {
 	[CorpseName("resztki krwawego koscianego smoka")]
-	public class NelderimSkeletalDragon : BaseCreature
+	public class NSkeletalDragon : BaseCreature
 	{
-		public override bool BardImmune { get { return true; } }
-		public override double AttackMasterChance { get { return 0.15; } }
-		public override double SwitchTargetChance { get { return 0.15; } }
-		public override bool BleedImmune { get { return true; } }
-		public override double DispelDifficulty { get { return 135.0; } }
-		public override double DispelFocus { get { return 45.0; } }
-		public override bool AutoDispel { get { return true; } }
-		public override Poison PoisonImmune { get { return Poison.Lethal; } }
-		public override bool Unprovokable { get { return true; } }
-		public override int Meat { get { return 19; } } // where's it hiding these? :)
-		public override int Hides { get { return 20; } }
-		public override HideType HideType { get { return HideType.Barbed; } }
+		public override bool BardImmune => true;
+		public override double AttackMasterChance => 0.15;
+		public override double SwitchTargetChance => 0.15;
+		public override bool BleedImmune => true;
+		public override double DispelDifficulty => 135.0;
+		public override double DispelFocus => 45.0;
+		public override bool AutoDispel => true;
+		public override Poison PoisonImmune => Poison.Lethal;
+		public override bool Unprovokable => true;
+		public override int Meat => 19; // where's it hiding these? :)
+		public override int Hides => 20;
+		public override HideType HideType => HideType.Barbed;
 
 		[Constructable]
-		public NelderimSkeletalDragon() : base(AIType.AI_Boss, FightMode.Closest, 12, 1, 0.25, 0.5)
+		public NSkeletalDragon() : base(AIType.AI_Boss, FightMode.Closest, 12, 1, 0.25, 0.5)
 		{
 			Name = "krwawy kosciany smok";
 			Body = 104;
@@ -76,9 +77,11 @@ namespace Server.Mobiles
 		public override void GenerateLoot()
 		{
 			AddLoot(LootPack.SuperBoss);
+			
+			AddLoot(NelderimLoot.AvatarScrolls);
 		}
 
-		public NelderimSkeletalDragon(Serial serial) : base(serial)
+		public NSkeletalDragon(Serial serial) : base(serial)
 		{
 		}
 

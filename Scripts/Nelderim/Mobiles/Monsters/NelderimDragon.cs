@@ -1,5 +1,6 @@
 ﻿#region References
 
+using Nelderim;
 using Server.Items;
 
 #endregion
@@ -9,8 +10,8 @@ namespace Server.Mobiles
 	[CorpseName("zwloki smoczyska")]
 	public class NelderimDragon : BaseCreature
 	{
-		public override double AttackMasterChance { get { return 0.15; } }
-		public override double SwitchTargetChance { get { return 0.15; } }
+		public override double AttackMasterChance => 0.15;
+		public override double SwitchTargetChance => 0.15;
 
 		[Constructable]
 		public NelderimDragon() : base(AIType.AI_Mage, FightMode.Closest, 11, 1, 0.2, 0.4)
@@ -44,11 +45,6 @@ namespace Server.Mobiles
 			SetSkill(SkillName.Tactics, 100.1, 120.0);
 			SetSkill(SkillName.Wrestling, 100.1, 120.0);
 
-			Fame = 20000;
-			Karma = -20000;
-
-			VirtualArmor = 60;
-
 			SetSpecialAbility(SpecialAbility.DragonBreath);
 		}
 
@@ -63,27 +59,19 @@ namespace Server.Mobiles
 			base.OnCarve(from, corpse, with);
 		}
 
-		public override bool OnBeforeDeath()
-		{
-			AddLoot(LootPack.ClericScrolls);
-			return base.OnBeforeDeath();
-		}
-
 		public override void GenerateLoot()
 		{
-			AddLoot(LootPack.UltraRich, 2);
-			AddLoot(LootPack.Gems, 5);
-			AddLoot(LootPack.MageryRegs, 30);
+			AddLoot(NelderimLoot.ClericScrolls);
 		}
 
-		public override bool AutoDispel { get { return true; } }
-		public override int TreasureMapLevel { get { return 5; } }
-		public override int Meat { get { return 8; } }
-		public override int Hides { get { return 20; } }
-		public override HideType HideType { get { return HideType.Barbed; } }
-		public override int Scales { get { return 5; } }
-		public override ScaleType ScaleType { get { return (Body == 12 ? ScaleType.Yellow : ScaleType.Red); } }
-		public override FoodType FavoriteFood { get { return FoodType.Meat; } }
+		public override bool AutoDispel => true;
+		public override int TreasureMapLevel => 5;
+		public override int Meat => 8;
+		public override int Hides => 20;
+		public override HideType HideType => HideType.Barbed;
+		public override int Scales => 5;
+		public override ScaleType ScaleType => (Body == 12 ? ScaleType.Yellow : ScaleType.Red);
+		public override FoodType FavoriteFood => FoodType.Meat;
 
 		public NelderimDragon(Serial serial) : base(serial)
 		{

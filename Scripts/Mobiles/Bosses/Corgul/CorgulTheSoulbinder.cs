@@ -5,6 +5,7 @@ using Server.Engines.CannedEvil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim;
 
 namespace Server.Mobiles
 {
@@ -128,8 +129,6 @@ namespace Server.Mobiles
             if (IsSoulboundEnemies)
                 EtherealSandShower.Do(Location, Map, 50, 100, 500);
             
-            AddLoot(LootPack.MysticScrolls);
-
             return base.OnBeforeDeath();
         }
 
@@ -358,6 +357,8 @@ namespace Server.Mobiles
         {
             AddLoot(LootPack.SuperBoss, 6);
             AddLoot(LootPack.LootItemCallback(RandomRecipe, 10.0, 1, false, false));
+            
+            AddLoot(NelderimLoot.MysticScrolls);
         }
 
         private Item RandomRecipe(IEntity e)

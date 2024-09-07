@@ -2,6 +2,7 @@ using Server.Engines.CannedEvil;
 using Server.Items;
 using System;
 using System.Collections;
+using Nelderim;
 
 namespace Server.Mobiles
 {
@@ -80,6 +81,8 @@ namespace Server.Mobiles
             AddLoot(LootPack.LootItem<TormentedChains>(50.0, 1));
             AddLoot(LootPack.LootItem<CrimsonCincture>(2.25, 1));
             AddLoot(LootPack.ArcanistScrolls, 1);
+            
+            AddLoot(NelderimLoot.AncientScrolls);
         }
 
         public override int GetAngerSound()

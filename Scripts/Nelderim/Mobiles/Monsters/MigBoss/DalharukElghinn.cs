@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Nelderim;
 using Server.Items;
 using Server.Spells;
 using Server.Spells.Sixth;
@@ -66,11 +67,6 @@ namespace Server.Mobiles
 			SetSkill(SkillName.DetectHidden, 90.1, 120.5);
 			SetSkill(SkillName.Focus, 20.2, 30.0);
 
-			Fame = 25000;
-			Karma = -25000;
-
-			VirtualArmor = 65;
-
 			m_Change = DateTime.Now;
 			m_Stomp = DateTime.Now;
 
@@ -79,10 +75,9 @@ namespace Server.Mobiles
 			SetWeaponAbility(WeaponAbility.WhirlwindAttack);
 		}
 
-		public override bool OnBeforeDeath()
+		public override void GenerateLoot()
 		{
-			AddLoot( LootPack.DeathKnightScrolls );
-			return base.OnBeforeDeath( );
+			AddLoot( NelderimLoot.DeathKnightScrolls );
 		}
 
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)

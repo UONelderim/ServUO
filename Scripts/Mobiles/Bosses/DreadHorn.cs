@@ -2,6 +2,7 @@ using Server.Items;
 using Server.Spells;
 using System;
 using System.Linq;
+using Nelderim;
 
 namespace Server.Mobiles
 {
@@ -70,6 +71,8 @@ namespace Server.Mobiles
             AddLoot(LootPack.LootItem<PristineDreadHorn>(5.0));
             AddLoot(LootPack.LootItem<DreadFlute>(5.0));
             AddLoot(LootPack.LootItem<DreadsRevenge>(5.0));
+            
+            AddLoot(NelderimLoot.RangerScrolls);
         }
 
         public override void OnThink()
