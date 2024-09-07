@@ -1,6 +1,7 @@
 using Server.Engines.CannedEvil;
 using Server.Items;
 using System;
+using Nelderim;
 
 namespace Server.Mobiles
 {
@@ -81,6 +82,8 @@ namespace Server.Mobiles
             AddLoot(LootPack.Average);
             AddLoot(LootPack.Gems);
             AddLoot(LootPack.LootItem<Arrow>(Utility.RandomMinMax(500, 700)));
+            
+            AddLoot(NelderimLoot.BardScrolls);
         }
 
         public void SpawnPixies(Mobile target)

@@ -1,5 +1,6 @@
 #region References
 
+using Nelderim;
 using Server.Items;
 
 #endregion
@@ -9,14 +10,14 @@ namespace Server.Mobiles
 	[CorpseName("zgliszcza burugha")]
 	public class NBurugh : BaseCreature
 	{
-		public override bool BardImmune { get { return true; } }
-		public override double AttackMasterChance { get { return 0.15; } }
-		public override double SwitchTargetChance { get { return 0.15; } }
-		public override double DispelDifficulty { get { return 135.0; } }
-		public override double DispelFocus { get { return 45.0; } }
-		public override bool AutoDispel { get { return true; } }
-		public override Poison PoisonImmune { get { return Poison.Lethal; } }
-		public override Poison HitPoison { get { return Poison.Lethal; } }
+		public override bool BardImmune => true;
+		public override double AttackMasterChance => 0.15;
+		public override double SwitchTargetChance => 0.15;
+		public override double DispelDifficulty => 135.0;
+		public override double DispelFocus => 45.0;
+		public override bool AutoDispel => true;
+		public override Poison PoisonImmune => Poison.Lethal;
+		public override Poison HitPoison => Poison.Lethal;
 
 		[Constructable]
 		public NBurugh() : base(AIType.AI_Boss, FightMode.Closest, 12, 1, 0.25, 0.5)
@@ -49,10 +50,6 @@ namespace Server.Mobiles
 			SetSkill(SkillName.EvalInt, 120.0, 120.0);
 			SetSkill(SkillName.Magery, 120.0, 120.0);
 
-			Fame = 22500;
-			Karma = -22500;
-
-			VirtualArmor = 80;
 			AddItem(new LightSource());
 
 			SetWeaponAbility(WeaponAbility.ConcussionBlow);
@@ -69,15 +66,10 @@ namespace Server.Mobiles
 			base.OnCarve(from, corpse, with);
 		}
 
-		public override bool OnBeforeDeath()
-		{
-			AddLoot(LootPack.UndeadScrolls);
-			return base.OnBeforeDeath();
-		}
-
 		public override void GenerateLoot()
 		{
 			AddLoot(LootPack.SuperBoss);
+			AddLoot(NelderimLoot.UndeadScrolls);
 		}
 
 		public NBurugh(Serial serial) : base(serial)

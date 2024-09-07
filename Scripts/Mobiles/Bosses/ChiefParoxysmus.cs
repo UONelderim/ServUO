@@ -1,5 +1,6 @@
 using Server.Items;
 using System;
+using Nelderim;
 
 namespace Server.Mobiles
 {
@@ -63,6 +64,8 @@ namespace Server.Mobiles
             AddLoot(LootPack.LootItem<SweatOfParoxysmus>(50.0));
             AddLoot(LootPack.LootItem<ParoxysmusSwampDragonStatuette>(5.0));
             AddLoot(LootPack.LootItem<ScepterOfTheChief>(5.0));
+            
+            AddLoot(NelderimLoot.RogueScrolls);
         }
 
         public override int GetDeathSound()

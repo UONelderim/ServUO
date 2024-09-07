@@ -1,4 +1,4 @@
-using Server.Items;
+using Nelderim;
 
 namespace Server.Mobiles
 {
@@ -49,7 +49,7 @@ namespace Server.Mobiles
 
 		public override void GenerateLoot()
 		{
-			AddLoot(LootPack.UltraRich, 2);
+			AddLoot(NelderimLoot.AncientScrolls);
 		}
 
 		public override bool BardImmune => false;

@@ -1,5 +1,6 @@
 #region References
 
+using Nelderim;
 using Server.Items;
 
 #endregion
@@ -51,54 +52,33 @@ namespace Server.Mobiles
 			SetWeaponAbility(WeaponAbility.ParalyzingBlow);
 		}
 
-		public override bool OnBeforeDeath()
-		{
-			AddLoot(LootPack.RangerScrolls);
-			return base.OnBeforeDeath();
-		}
-
 		public override void GenerateLoot()
 		{
-			AddLoot(LootPack.UltraRich, 2);
+			AddLoot(NelderimLoot.RangerScrolls);
 		}
 
-		public override bool BardImmune { get { return true; } }
-		public override Poison PoisonImmune { get { return Poison.Lethal; } }
-		public override double AttackMasterChance { get { return 0.10; } }
-		public override double SwitchTargetChance { get { return 0.10; } }
-		public override double DispelDifficulty { get { return 120.0; } }
-		public override double DispelFocus { get { return 45.0; } }
-		public override bool AutoDispel { get { return true; } }
-		public override bool CanRummageCorpses { get { return true; } }
-		public override bool Unprovokable { get { return true; } }
-		public override bool Uncalmable { get { return true; } }
+		public override bool BardImmune => true;
+		public override Poison PoisonImmune => Poison.Lethal;
+		public override double AttackMasterChance => 0.10;
+		public override double SwitchTargetChance => 0.10;
+		public override double DispelDifficulty => 120.0;
+		public override double DispelFocus => 45.0;
+		public override bool AutoDispel => true;
+		public override bool CanRummageCorpses => true;
+		public override bool Unprovokable => true;
+		public override bool Uncalmable => true;
 
-		public override int TreasureMapLevel { get { return 1; } }
+		public override int TreasureMapLevel => 1;
 
-		public override int GetAttackSound()
-		{
-			return 0x34C;
-		}
+		public override int GetAttackSound() => 0x34C;
 
-		public override int GetHurtSound()
-		{
-			return 0x354;
-		}
+		public override int GetHurtSound() => 0x354;
 
-		public override int GetAngerSound()
-		{
-			return 0x34C;
-		}
+		public override int GetAngerSound() => 0x34C;
 
-		public override int GetIdleSound()
-		{
-			return 0x34C;
-		}
+		public override int GetIdleSound() => 0x34C;
 
-		public override int GetDeathSound()
-		{
-			return 0x354;
-		}
+		public override int GetDeathSound() => 0x354;
 
 		public TilkiBug(Serial serial) : base(serial)
 		{

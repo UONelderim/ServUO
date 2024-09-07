@@ -1,5 +1,6 @@
 #region References
 
+using Nelderim;
 using Server.Items;
 
 #endregion
@@ -9,15 +10,15 @@ namespace Server.Mobiles
 	[CorpseName("zgliszcza sfinksa")]
 	public class Sfinks : BaseCreature
 	{
-		public override bool BardImmune { get { return true; } }
-		public override double AttackMasterChance { get { return 0.15; } }
-		public override double SwitchTargetChance { get { return 0.15; } }
-		public override double DispelDifficulty { get { return 135.0; } }
-		public override double DispelFocus { get { return 45.0; } }
-		public override bool AutoDispel { get { return true; } }
+		public override bool BardImmune => true;
+		public override double AttackMasterChance => 0.15;
+		public override double SwitchTargetChance => 0.15;
+		public override double DispelDifficulty => 135.0;
+		public override double DispelFocus => 45.0;
+		public override bool AutoDispel => true;
 
 		[Constructable]
-		public Sfinks(string name) : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
+		public Sfinks() : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
 		{
 			Name = "Stary Sfinks";
 
@@ -44,10 +45,6 @@ namespace Server.Mobiles
 			SetSkill(SkillName.Tactics, 130.6, 150.0);
 			SetSkill(SkillName.Wrestling, 130.6, 150.0);
 
-			Fame = 22500;
-			Karma = -22500;
-
-			VirtualArmor = 80;
 			AddItem(new LightSource());
 
 			SetWeaponAbility(WeaponAbility.WhirlwindAttack);
@@ -66,7 +63,7 @@ namespace Server.Mobiles
 
 		public override void GenerateLoot()
 		{
-			AddLoot(LootPack.SuperBoss);
+			AddLoot(NelderimLoot.BardScrolls);
 		}
 
 		public Sfinks(Serial serial) : base(serial)

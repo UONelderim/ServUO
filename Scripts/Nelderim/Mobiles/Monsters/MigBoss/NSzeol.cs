@@ -1,7 +1,6 @@
 #region References
 
-using System;
-using System.Collections;
+using Nelderim;
 using Server.Items;
 
 #endregion
@@ -49,12 +48,12 @@ namespace Server.Mobiles
 			SetSkill(SkillName.Tactics, 97.6, 100.0);
 			SetSkill(SkillName.Wrestling, 97.6, 100.0);
 
-			Fame = 22500;
-			Karma = -22500;
-
-			VirtualArmor = 80;
-			
 			SetSpecialAbility(SpecialAbility.Webbing);
+		}
+
+		public override void GenerateLoot()
+		{
+			AddLoot(NelderimLoot.UndeadScrolls);
 		}
 
 		public override void OnCarve(Mobile from, Corpse corpse, Item with)

@@ -3,6 +3,7 @@ using Server.Items;
 using Server.Mobiles;
 using System;
 using Nelderim.Configuration;
+using static Nelderim.NelderimLoot;
 
 #endregion
 
@@ -775,6 +776,9 @@ namespace Server
 
             return null;
         }
+        
+        public bool IsNelderimLootOnly => m_Entries.Length == 1 && m_Entries[0].Items.Length == 1 &&
+                                          _NelderimExclusiveLootTypes.Contains(m_Entries[0].Items[0].Type);
     }
 
     public class LootPackEntry

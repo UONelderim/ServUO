@@ -1,3 +1,4 @@
+using Nelderim;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -66,6 +67,8 @@ namespace Server.Mobiles
         {
             AddLoot(LootPack.UltraRich, 3);
             AddLoot(LootPack.ArcanistScrolls);
+            
+            AddLoot(NelderimLoot.AvatarScrolls);
         }
 
         public override void Serialize(GenericWriter writer)

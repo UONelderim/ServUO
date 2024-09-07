@@ -1,5 +1,5 @@
 using System;
-using Server;
+using Nelderim;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -66,9 +66,6 @@ namespace Server.Mobiles
 
 			AddItem(new LightSource());
 
-			Fame = 34000;
-			Karma = -34000;
-
 			//SetWeaponAbility(WeaponAbility.BleedAttack);
 		}
 
@@ -85,11 +82,14 @@ namespace Server.Mobiles
 
 		public override bool OnBeforeDeath()
 		{
-			AddLoot(LootPack.DeathKnightScrolls);
-
 			RemoveItem(m_Bow);
 
 			return base.OnBeforeDeath();
+		}
+
+		public override void GenerateLoot()
+		{
+			AddLoot(NelderimLoot.DeathKnightScrolls);
 		}
 
 		public override void OnThink()

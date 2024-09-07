@@ -1,6 +1,5 @@
-using System;
+using Nelderim;
 using Server.Items;
-using Server.Network;
 
 namespace Server.Mobiles
 {
@@ -8,17 +7,12 @@ namespace Server.Mobiles
 	public class ExodusBoss : BaseCreature
 	{
 		private bool m_FieldActive;
-		public bool FieldActive{ get{ return m_FieldActive; } }
-		public bool CanUseField
-		{
-			get
-			{
-				return (Hits - 1) % 2500 > 2240;
-			}
-		}
+		public bool FieldActive => m_FieldActive;
 
-		public override bool IsScaredOfScaryThings{ get{ return false; } }
-		public override bool IsScaryToPets{ get{ return true; } }
+		public bool CanUseField => (Hits - 1) % 2500 > 2240;
+
+		public override bool IsScaredOfScaryThings => false;
+		public override bool IsScaryToPets => true;
 
 		[Constructable]
 		public ExodusBoss() : base( AIType.AI_Melee, FightMode.Closest, 12, 1, 0.2, 0.4 )
@@ -66,18 +60,11 @@ namespace Server.Mobiles
 
 		public override void GenerateLoot()
 		{
-			AddLoot( LootPack.Average );
-			AddLoot( LootPack.Rich );
+			AddLoot(NelderimLoot.MysticScrolls);
 		}
 		
-		public override bool OnBeforeDeath()
-		{
-			AddLoot(LootPack.MysticScrolls);
-			return base.OnBeforeDeath();
-		}
-
-		public override bool AutoDispel{ get{ return true; } }
-		public override Poison PoisonImmune{ get{ return Poison.Lethal; } }
+		public override bool AutoDispel => true;
+		public override Poison PoisonImmune => Poison.Lethal;
 
 		public override int GetIdleSound()
 		{
