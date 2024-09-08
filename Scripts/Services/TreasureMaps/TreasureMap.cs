@@ -480,8 +480,10 @@ namespace Server.Items
             //no-go in towns, houses, dungeons and champspawns
             if (reg != null)
             {
-                if (reg.IsPartOf<TownRegion>() || reg.IsPartOf<DungeonRegion>() ||
-                    reg.IsPartOf<ChampionSpawnRegion>() || reg.IsPartOf<HouseRegion>())
+                if (reg.IsPartOf<CityRegion>() || reg.IsPartOf<VillageRegion>() || 
+                    reg.IsPartOf<DungeonRegion>() || reg.IsPartOf<ChampionSpawnRegion>() || 
+                    reg.IsPartOf<HousingRegion>() || reg.IsPartOf<JailRegion>())
+	                
                 {
                     return false;
                 }
@@ -489,7 +491,7 @@ namespace Server.Items
 
             string n = (ld.Name ?? string.Empty).ToLower();
 
-            if (n != "dirt" && n != "grass" && n != "jungle" && n != "forest" && n != "snow")
+            if (n != "dirt" && n != "grass" && n != "jungle" && n != "forest" && n != "snow" && n != "sand")
             {
                 return false;
             }
@@ -506,7 +508,7 @@ namespace Server.Items
 
                 n = (td.Name ?? string.Empty).ToLower();
 
-                if (n != "dirt" && n != "grass" && n != "jungle" && n != "forest" && n != "snow")
+                if (n != "dirt" && n != "grass" && n != "jungle" && n != "forest" && n != "snow" && n != "sand")
                 {
                     return false;
                 }
