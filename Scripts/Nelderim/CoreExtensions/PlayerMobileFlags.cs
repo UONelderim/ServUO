@@ -16,6 +16,7 @@ namespace Server.Mobiles
 			Ancient = 0x00000005,
 			Avatar = 0x00000006,
 			Bard = 0x00000007,
+			Ranger = 0x00000008,
 		}
 		
 		public bool NGetFlag(NPlayerFlag flag)
@@ -75,6 +76,12 @@ namespace Server.Mobiles
 		public bool Bard { 
 			get => NGetFlag(NPlayerFlag.Bard);
 			set => NSetFlag(NPlayerFlag.Bard, value);
+		}
+		
+		[CommandProperty(AccessLevel.GameMaster)]
+		public bool Ranger { 
+			get => NGetFlag(NPlayerFlag.Ranger);
+			set => NSetFlag(NPlayerFlag.Ranger, value);
 		}
 	}
 	
