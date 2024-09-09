@@ -31,6 +31,8 @@ namespace UltimaLive
 {
 	public class UltimaLiveSettings
 	{
+		public static bool Enabled => Config.Get("UltimaLive.Enabled", true);
+		
 		public const string UNIQUE_SHARD_IDENTIFIER = "Nelderim4"; //Must be 28 characters or less
 
 		public const string ULTIMA_LIVE_ROOT_FOLDER_NAME = "UltimaLive";

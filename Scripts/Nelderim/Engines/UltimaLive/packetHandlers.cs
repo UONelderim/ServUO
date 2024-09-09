@@ -39,7 +39,10 @@ namespace UltimaLive
 	{
 		public static void Configure()
 		{
-			EventSink.Disconnected += EventSink_Disconnected;
+			if (UltimaLiveSettings.Enabled)
+			{
+				EventSink.Disconnected += EventSink_Disconnected;
+			}
 		}
 
 		static void EventSink_Disconnected(DisconnectedEventArgs e)
