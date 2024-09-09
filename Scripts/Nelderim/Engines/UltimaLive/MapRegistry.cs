@@ -70,20 +70,23 @@ namespace UltimaLive
 
 		public static void Configure()
 		{
-			AddMapDefinition(0, 0, new Point2D(7168, 4096), new Point2D(5120, 4096)); //felucca
-			AddMapDefinition(1, 1, new Point2D(7168, 4096), new Point2D(5120, 4096)); //trammel
-			AddMapDefinition(2, 2, new Point2D(2304, 1600), new Point2D(2304, 1600)); //Ilshenar
-			AddMapDefinition(3, 3, new Point2D(2560, 2048), new Point2D(2560, 2048)); //Malas
-			AddMapDefinition(4, 4, new Point2D(1448, 1448), new Point2D(1448, 1448)); //Tokuno
-			AddMapDefinition(5, 5, new Point2D(1280, 4096), new Point2D(1280, 4096)); //TerMur
+			if (UltimaLiveSettings.Enabled)
+			{
+				AddMapDefinition(0, 0, new Point2D(7168, 4096), new Point2D(5120, 4096)); //felucca
+				AddMapDefinition(1, 1, new Point2D(7168, 4096), new Point2D(5120, 4096)); //trammel
+				AddMapDefinition(2, 2, new Point2D(2304, 1600), new Point2D(2304, 1600)); //Ilshenar
+				AddMapDefinition(3, 3, new Point2D(2560, 2048), new Point2D(2560, 2048)); //Malas
+				AddMapDefinition(4, 4, new Point2D(1448, 1448), new Point2D(1448, 1448)); //Tokuno
+				AddMapDefinition(5, 5, new Point2D(1280, 4096), new Point2D(1280, 4096)); //TerMur
 
-			//those are sample maps that use same original map...
-			//AddMapDefinition(32, 0, new Point2D(7168, 4096), new Point2D(5120, 4096));
-			//AddMapDefinition(33, 0, new Point2D(7168, 4096), new Point2D(5120, 4096));
-			//AddMapDefinition(34, 1, new Point2D(7168, 4096), new Point2D(5120, 4096));
+				//those are sample maps that use same original map...
+				//AddMapDefinition(32, 0, new Point2D(7168, 4096), new Point2D(5120, 4096));
+				//AddMapDefinition(33, 0, new Point2D(7168, 4096), new Point2D(5120, 4096));
+				//AddMapDefinition(34, 1, new Point2D(7168, 4096), new Point2D(5120, 4096));
 
-			EventSink.ServerList += EventSink_OnServerList;
-			EventSink.Login += EventSink_Login;
+				EventSink.ServerList += EventSink_OnServerList;
+				EventSink.Login += EventSink_Login;
+			}
 		}
 
 		private static void EventSink_OnServerList(ServerListEventArgs args)
