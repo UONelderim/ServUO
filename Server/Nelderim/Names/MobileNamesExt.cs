@@ -59,7 +59,7 @@ namespace Server
 		[MethodImpl(MethodImplOptions.Synchronized)]
 		public ObjectPropertyList NGetPropertyList(Mobile m)
 		{
-			if (!NConfig.NameSystemEnabled)
+			if (!NConfig.NameSystemEnabled || m == null)
 				return PropertyList;
 			if (OPLs.TryGetValue(m, out var opl))
 			{
