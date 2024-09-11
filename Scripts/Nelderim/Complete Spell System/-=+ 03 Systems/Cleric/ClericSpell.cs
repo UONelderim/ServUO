@@ -1,6 +1,7 @@
 #region References
 
 using System;
+using Server.Mobiles;
 using Server.Network;
 using Server.Spells;
 
@@ -30,6 +31,13 @@ namespace Server.ACC.CSS.Systems.Cleric
 		{
 			if (!base.CheckCast())
 				return false;
+			
+						
+			if (Caster is PlayerMobile && !((PlayerMobile)Caster).Cleric)
+			{
+				Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
+				return false;
+			}
 
 			if (Caster.Skills[CastSkill].Value < RequiredSkill)
 			{
