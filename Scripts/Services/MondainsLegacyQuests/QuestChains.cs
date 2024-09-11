@@ -38,7 +38,17 @@ namespace Server.Engines.Quests
         RightingWrong = 28,
         Ritual = 29,
         //SpecialSKills
-        Mystic = 30
+        Mystic = 30,
+        Cleric = 31,
+        DeathKnight = 32,
+        Nature = 33,
+        Ancient = 34,
+        Avatar = 35,
+        Bard = 36,
+        Ranger = 37,
+        Rogue = 38,
+		Undead = 39
+        
     }
 
     public class BaseChain
@@ -80,6 +90,16 @@ namespace Server.Engines.Quests
             Chains[(int)QuestChain.PaladinsOfTrinsic] = new Type[] { typeof(PaladinsOfTrinsic), typeof(PaladinsOfTrinsic2) };
             Chains[(int)QuestChain.RightingWrong] = new Type[] { typeof(RightingWrongQuest2), typeof(RightingWrongQuest3), typeof(RightingWrongQuest4) };
             Chains[(int)QuestChain.Ritual] = new Type[] { typeof(RitualQuest.ScalesOfADreamSerpentQuest), typeof(RitualQuest.TearsOfASoulbinderQuest), typeof(RitualQuest.PristineCrystalLotusQuest) };
+            //SpecialSkills
+            Chains[(int)QuestChain.Mystic] = new Type[] { typeof(MysticPhase2Quest), typeof(MysticPhase3Quest), typeof(MysticPhase4Quest), typeof(MysticPhase5Quest) };
+            Chains[(int)QuestChain.Cleric] = new Type[] { typeof(ClericPhase2Quest), typeof(ClericPhase3Quest), typeof(ClericPhase4Quest), typeof(ClericPhase5Quest) };
+            Chains[(int)QuestChain.DeathKnight] = new Type[] { typeof(DeathKnightPhase2Quest), typeof(DeathKnightPhase3Quest), typeof(DeathKnightPhase4Quest), typeof(DeathKnightPhase5Quest) };
+            Chains[(int)QuestChain.Nature] = new Type[] { typeof(NaturePhase2Quest), typeof(NaturePhase3Quest), typeof(NaturePhase4Quest), typeof(NaturePhase5Quest) };
+            Chains[(int)QuestChain.Ancient] = new Type[] { typeof(AncientPhase2Quest), typeof(AncientPhase3Quest), typeof(AncientPhase4Quest), typeof(AncientPhase5Quest) };
+            Chains[(int)QuestChain.Avatar] = new Type[] { typeof(AvatarPhase2Quest), typeof(AvatarPhase3Quest), typeof(AvatarPhase4Quest), typeof(AvatarPhase5Quest) };
+            Chains[(int)QuestChain.Bard ] = new Type[] { typeof(BardPhase2Quest), typeof(BardPhase3Quest), typeof(BardPhase4Quest), typeof(BardPhase5Quest) };
+            Chains[(int)QuestChain.Ranger ] = new Type[] { typeof(RangerPhase2Quest), typeof(RangerPhase3Quest), typeof(RangerPhase4Quest), typeof(RangerPhase5Quest) };
+            Chains[(int)QuestChain.Rogue ] = new Type[] { typeof(RoguePhase2Quest), typeof(RoguePhase3Quest), typeof(RoguePhase4Quest), typeof(RoguePhase5Quest) };
         }
 
         public Type CurrentQuest { get; set; }
