@@ -1,6 +1,7 @@
 #region References
 
 using System;
+using Server.Mobiles;
 using Server.Spells;
 
 #endregion
@@ -26,6 +27,20 @@ namespace Server.ACC.CSS.Systems.Rogue
 			min = RequiredSkill;
 			max = RequiredSkill;
 		}
+		
+				public override bool CheckCast()
+        		{
+        			if (!base.CheckCast())
+        				return false;
+                    
+        			if (Caster is PlayerMobile && !((PlayerMobile)Caster).Rogue)
+        			{
+        				Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
+        				return false;
+        			}
+        
+        			return true;
+        		}
 
 		public override int GetMana()
 		{
