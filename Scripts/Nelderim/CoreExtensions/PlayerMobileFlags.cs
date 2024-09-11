@@ -18,6 +18,7 @@ namespace Server.Mobiles
 			Bard = 0x00000007,
 			Ranger = 0x00000008,
 			Rogue = 0x00000009,
+			Undead = 0x0000000A
 		}
 		
 		public bool NGetFlag(NPlayerFlag flag)
@@ -88,6 +89,11 @@ namespace Server.Mobiles
 		public bool Rogue { 
 			get => NGetFlag(NPlayerFlag.Rogue);
 			set => NSetFlag(NPlayerFlag.Rogue, value);
+		}
+		[CommandProperty(AccessLevel.GameMaster)]
+		public bool Undead { 
+			get => NGetFlag(NPlayerFlag.Undead);
+			set => NSetFlag(NPlayerFlag.Undead, value);
 		}
 	}
 	

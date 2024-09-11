@@ -47,6 +47,7 @@ namespace Server.Engines.Quests
         Bard = 36,
         Ranger = 37,
         Rogue = 38,
+		Undead = 39
         
     }
 
