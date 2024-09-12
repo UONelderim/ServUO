@@ -225,7 +225,7 @@ namespace Server.Engines.Quests
 
         public override void GiveRewards()
         {
-            Owner.Spellweaving = true;
+            Owner.SpecialSkills.Spellweaving = true;
 
             base.GiveRewards();
         }

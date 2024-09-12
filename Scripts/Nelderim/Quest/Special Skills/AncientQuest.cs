@@ -190,7 +190,7 @@ właściwą: W Labiryncie Minotaurów ponoc slyszano o tym, ze owa kostka moze b
 
         public override void GiveRewards()
         {
-            Owner.Ancient = true;
+            Owner.SpecialSkills.Ancient = true;
 
             base.GiveRewards();
         }

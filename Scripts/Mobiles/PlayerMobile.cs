@@ -686,8 +686,8 @@ namespace Server.Mobiles
         [CommandProperty(AccessLevel.GameMaster)]
         public bool LibraryFriend { get { return GetFlag(PlayerFlag.LibraryFriend); } set { SetFlag(PlayerFlag.LibraryFriend, value); } }
 
-        [CommandProperty(AccessLevel.GameMaster)]
-        public bool Spellweaving { get { return GetFlag(PlayerFlag.Spellweaving); } set { SetFlag(PlayerFlag.Spellweaving, value); } }
+        // [CommandProperty(AccessLevel.GameMaster)]
+        // public bool Spellweaving { get { return GetFlag(PlayerFlag.Spellweaving); } set { SetFlag(PlayerFlag.Spellweaving, value); } }
         #endregion
 
         [CommandProperty(AccessLevel.GameMaster)]

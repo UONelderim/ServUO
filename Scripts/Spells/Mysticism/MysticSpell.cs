@@ -80,7 +80,7 @@ namespace Server.Spells.Mysticism
             if (!base.CheckCast())
                 return false;
             
-            if (Caster is PlayerMobile && !((PlayerMobile)Caster).Mysticism)
+            if (Caster is PlayerMobile && !((PlayerMobile)Caster).SpecialSkills.Mysticism)
             {
 	            Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
 	            return false;

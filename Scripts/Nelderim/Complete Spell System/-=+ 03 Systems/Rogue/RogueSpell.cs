@@ -33,7 +33,7 @@ namespace Server.ACC.CSS.Systems.Rogue
         			if (!base.CheckCast())
         				return false;
                     
-        			if (Caster is PlayerMobile && !((PlayerMobile)Caster).Rogue)
+        			if (Caster is PlayerMobile && !((PlayerMobile)Caster).SpecialSkills.Rogue)
         			{
         				Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
         				return false;

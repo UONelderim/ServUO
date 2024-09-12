@@ -33,7 +33,7 @@ namespace Server.ACC.CSS.Systems.Cleric
 				return false;
 			
 						
-			if (Caster is PlayerMobile && !((PlayerMobile)Caster).Cleric)
+			if (Caster is PlayerMobile && !((PlayerMobile)Caster).SpecialSkills.Cleric)
 			{
 				Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
 				return false;
