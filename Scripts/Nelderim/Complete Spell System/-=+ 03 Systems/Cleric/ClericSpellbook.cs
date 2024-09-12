@@ -11,17 +11,17 @@ namespace Server.ACC.CSS.Systems.Cleric
 		public override School School { get { return School.Cleric; } }
 
 		[Constructable]
-		public ClericSpellbook() : this(0, CSSettings.FullSpellbooks)
+		public ClericSpellbook(Mobile owner) : this(owner, 0, CSSettings.FullSpellbooks)
 		{
 		}
 
 		[Constructable]
-		public ClericSpellbook(bool full) : this(0, full)
+		public ClericSpellbook(Mobile owner, bool full) : this(owner,0, full)
 		{
 		}
 
 		[Constructable]
-		public ClericSpellbook(ulong content, bool full) : base(content, 0xEFA, full)
+		public ClericSpellbook(Mobile owner, ulong content, bool full) : base(owner, content, 0xEFA, full)
 		{
 			Hue = 0x1F0;
 			Name = "Księga Herdeizmu";

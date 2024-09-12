@@ -11,17 +11,17 @@ namespace Server.ACC.CSS.Systems.Bard
 		public override School School { get { return School.Bard; } }
 
 		[Constructable]
-		public BardSpellbook() : this(0, CSSettings.FullSpellbooks)
+		public BardSpellbook(Mobile owner) : this(owner, 0, CSSettings.FullSpellbooks)
 		{
 		}
 
 		[Constructable]
-		public BardSpellbook(bool full) : this(0, full)
+		public BardSpellbook(Mobile owner, bool full) : this(owner, 0, full)
 		{
 		}
 
 		[Constructable]
-		public BardSpellbook(ulong content, bool full) : base(content, 0xEFA, full)
+		public BardSpellbook(Mobile owner, ulong content, bool full) : base(owner, content, 0xEFA, full)
 		{
 			Name = "Księga Pieśni Bojowych";
 			Hue = 0x96;

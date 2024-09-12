@@ -59,6 +59,7 @@ namespace Server.ACC.CSS
 		public virtual int BookCount { get { return SchoolSpells.Count; } }
 
 		private ulong m_Content;
+		private Mobile m_Owner;
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public int SpellCount { get; private set; }
@@ -91,22 +92,22 @@ namespace Server.ACC.CSS
 		[CommandProperty(AccessLevel.GameMaster)]
 		public bool Full { get; set; }
 
-		public CSpellbook()
-			: this(0, CSSettings.FullSpellbooks)
+		public CSpellbook(Mobile owner)
+			: this(owner, 0, CSSettings.FullSpellbooks)
 		{
 		}
 
-		public CSpellbook(bool full)
-			: this(0, full)
+		public CSpellbook(Mobile owner, bool full)
+			: this(owner, 0, full)
 		{
 		}
 
-		public CSpellbook(ulong content, bool full)
-			: this(content, 0xEFA, full)
+		public CSpellbook(Mobile owner, ulong content, bool full)
+			: this(owner, content, 0xEFA, full)
 		{
 		}
 
-		public CSpellbook(ulong content, int itemID, bool full)
+		public CSpellbook(Mobile owner, ulong content, int itemID, bool full)
 			: base(itemID)
 		{
 			Name = "Arcane Tome";
@@ -116,6 +117,8 @@ namespace Server.ACC.CSS
 			LootType = LootType.Blessed;
 
 			Content = content;
+			m_Owner = owner;
+			BlessedFor = owner;
 
 			if (full)
 				Fill();
@@ -124,6 +127,14 @@ namespace Server.ACC.CSS
 		public CSpellbook(Serial serial)
 			: base(serial)
 		{
+		}
+		
+		public override bool CanEquip(Mobile m)
+		{
+			if (m != m_Owner)
+				return false;
+
+			return true;
 		}
 
 		public void Fill()
@@ -262,6 +273,7 @@ namespace Server.ACC.CSS
 			writer.Write(Full);
 			writer.Write(m_Content);
 			writer.Write(SpellCount);
+			writer.Write(m_Owner);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -278,6 +290,7 @@ namespace Server.ACC.CSS
 					Full = reader.ReadBool();
 					m_Content = reader.ReadULong();
 					SpellCount = reader.ReadInt();
+					m_Owner = reader.ReadMobile();
 
 					break;
 				}

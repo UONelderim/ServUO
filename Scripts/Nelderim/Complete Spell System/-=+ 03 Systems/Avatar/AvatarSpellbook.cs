@@ -11,17 +11,17 @@ namespace Server.ACC.CSS.Systems.Avatar
 		public override School School { get { return School.Avatar; } }
 
 		[Constructable]
-		public AvatarSpellbook() : this(0, CSSettings.FullSpellbooks)
+		public AvatarSpellbook(Mobile owner) : this(owner, 0, CSSettings.FullSpellbooks)
 		{
 		}
 
 		[Constructable]
-		public AvatarSpellbook(bool full) : this(0, full)
+		public AvatarSpellbook(Mobile owner, bool full) : this(owner, 0, full)
 		{
 		}
 
 		[Constructable]
-		public AvatarSpellbook(ulong content, bool full) : base(content, 0xEFA, full)
+		public AvatarSpellbook(Mobile owner, ulong content, bool full) : base(owner, content, 0xEFA, full)
 		{
 			Hue = 1174;
 			Name = "Księga Zaklęć Mnicha";

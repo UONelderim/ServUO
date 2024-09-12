@@ -11,17 +11,17 @@ namespace Server.ACC.CSS.Systems.Undead
 		public override School School { get { return School.Undead; } }
 
 		[Constructable]
-		public UndeadSpellbook() : this(0, CSSettings.FullSpellbooks)
+		public UndeadSpellbook(Mobile owner) : this(owner, 0, CSSettings.FullSpellbooks)
 		{
 		}
 
 		[Constructable]
-		public UndeadSpellbook(bool full) : this(0, full)
+		public UndeadSpellbook(Mobile owner, bool full) : this(owner, 0, full)
 		{
 		}
 
 		[Constructable]
-		public UndeadSpellbook(ulong content, bool full) : base(content, 0xEFA, full)
+		public UndeadSpellbook(Mobile owner, ulong content, bool full) : base(owner, content, 0xEFA, full)
 		{
 			Hue = 38;
 			Name = "Księga Okultyzmu";

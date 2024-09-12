@@ -8,17 +8,17 @@ namespace Server.Items
 		public override School School => School.DeathKnight;
 
 		[Constructable]
-		public DeathKnightSpellbook() : this(0, CSSettings.FullSpellbooks)
+		public DeathKnightSpellbook(Mobile owner) : this(owner, 0, CSSettings.FullSpellbooks)
 		{
 		}
 
 		[Constructable]
-		public DeathKnightSpellbook(bool full) : this(0, full)
+		public DeathKnightSpellbook(Mobile owner, bool full) : this(owner, 0, full)
 		{
 		}
 
 		[Constructable]
-		public DeathKnightSpellbook(ulong content, bool full) : base(content, 0xEFA, full)
+		public DeathKnightSpellbook(Mobile owner, ulong content, bool full) : base(owner, content, 0xEFA, full)
 		{
 			Hue = 2001;
 			Name = "Księga Mrocznego Rycerza";

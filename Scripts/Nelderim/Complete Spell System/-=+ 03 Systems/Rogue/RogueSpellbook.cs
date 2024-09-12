@@ -11,17 +11,17 @@ namespace Server.ACC.CSS.Systems.Rogue
 		public override School School { get { return School.Rogue; } }
 
 		[Constructable]
-		public RogueSpellbook() : this(0, CSSettings.FullSpellbooks)
+		public RogueSpellbook(Mobile owner) : this(owner, 0, CSSettings.FullSpellbooks)
 		{
 		}
 
 		[Constructable]
-		public RogueSpellbook(bool full) : this(0, full)
+		public RogueSpellbook(Mobile owner, bool full) : this(owner, 0, full)
 		{
 		}
 
 		[Constructable]
-		public RogueSpellbook(ulong content, bool full) : base(content, 0xEFA, full)
+		public RogueSpellbook(Mobile owner, ulong content, bool full) : base(owner, content, 0xEFA, full)
 		{
 			Hue = 0x20;
 			Name = "Księga Podstępnych Sztuczek";

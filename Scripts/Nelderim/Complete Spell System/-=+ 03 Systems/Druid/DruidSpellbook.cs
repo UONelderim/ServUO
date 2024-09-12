@@ -11,17 +11,17 @@ namespace Server.ACC.CSS.Systems.Druid
 		public override School School { get { return School.Druid; } }
 
 		[Constructable]
-		public DruidSpellbook() : this(0, CSSettings.FullSpellbooks)
+		public DruidSpellbook(Mobile owner) : this(owner, 0, CSSettings.FullSpellbooks)
 		{
 		}
 
 		[Constructable]
-		public DruidSpellbook(bool full) : this(0, full)
+		public DruidSpellbook(Mobile owner, bool full) : this(owner, 0, full)
 		{
 		}
 
 		[Constructable]
-		public DruidSpellbook(ulong content, bool full) : base(content, 0xEFA, full)
+		public DruidSpellbook(Mobile owner, ulong content, bool full) : base(owner, content, 0xEFA, full)
 		{
 			Hue = 0x48C;
 			Name = "Księga Magii Natury";

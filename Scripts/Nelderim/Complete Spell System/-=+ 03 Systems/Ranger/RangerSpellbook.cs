@@ -11,17 +11,17 @@ namespace Server.ACC.CSS.Systems.Ranger
 		public override School School { get { return School.Ranger; } }
 
 		[Constructable]
-		public RangerSpellbook() : this(0, CSSettings.FullSpellbooks)
+		public RangerSpellbook(Mobile owner) : this(owner, 0, CSSettings.FullSpellbooks)
 		{
 		}
 
 		[Constructable]
-		public RangerSpellbook(bool full) : this(0, full)
+		public RangerSpellbook(Mobile owner, bool full) : this(owner, 0, full)
 		{
 		}
 
 		[Constructable]
-		public RangerSpellbook(ulong content, bool full) : base(content, 0xEFA, full)
+		public RangerSpellbook(Mobile owner, ulong content, bool full) : base(owner, content, 0xEFA, full)
 		{
 			Hue = 2001;
 			Name = "Poradnik Strażnika Leśnego";
