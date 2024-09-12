@@ -9,7 +9,7 @@
         public AncientShipModelOfTheHMSCape()
             : base(0x14F3)
         {
-            Name = "an Ancient Ship Model Of The HMS Cape";
+            Name = "Model pierwszego statku przybyszow do ziem Nelderim";
             Hue = 0x37B;
         }
 
