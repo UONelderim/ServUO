@@ -198,7 +198,7 @@ namespace Server.Engines.Quests
 
         public override void GiveRewards()
         {
-            Owner.Cleric = true;
+            Owner.SpecialSkills.Cleric = true;
 
             base.GiveRewards();
         }

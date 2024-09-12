@@ -214,7 +214,7 @@ ksiege kandydat otrzyma. Zabij 20 pajakow i 10 ettinow, do tego 10 lordow orkow
 
         public override void GiveRewards()
         {
-            Owner.Ranger = true;
+            Owner.SpecialSkills.Ranger = true;
 
             base.GiveRewards();
         }

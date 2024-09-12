@@ -208,7 +208,7 @@ namespace Server.Engines.Quests
 
         public override void GiveRewards()
         {
-            Owner.Rogue = true;
+            Owner.SpecialSkills.Rogue = true;
 
             base.GiveRewards();
         }

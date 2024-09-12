@@ -307,7 +307,7 @@ namespace Server.Items
                         return false;
                 }
 
-                if (skill == SkillName.Spellweaving && !User.Spellweaving)
+                if (skill == SkillName.Spellweaving && !User.SpecialSkills.Spellweaving)
                     return false;
 
                 if (skill == SkillName.Throwing && User.Race != Race.Gargoyle)

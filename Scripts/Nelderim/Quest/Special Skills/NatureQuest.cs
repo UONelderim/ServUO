@@ -198,7 +198,7 @@ namespace Server.Engines.Quests
 
         public override void GiveRewards()
         {
-            Owner.Nature = true;
+            Owner.SpecialSkills.Nature = true;
 
             base.GiveRewards();
         }

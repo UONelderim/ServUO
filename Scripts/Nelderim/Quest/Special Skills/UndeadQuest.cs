@@ -197,7 +197,7 @@ Jak wyroznic sie wsrod zwyczajnych wiernych, zapytasz? Otoz, najpierw trzeba pod
 
         public override void GiveRewards()
         {
-            Owner.Undead = true;
+            Owner.SpecialSkills.Undead = true;
 
             base.GiveRewards();
         }

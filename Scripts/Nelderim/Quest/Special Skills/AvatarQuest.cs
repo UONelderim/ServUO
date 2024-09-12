@@ -193,7 +193,7 @@ Swiatyni Stworzenia w Tasandorze i dostarczyc tam 10 krysztalow mocy.. */
 
         public override void GiveRewards()
         {
-            Owner.Avatar = true;
+            Owner.SpecialSkills.Avatar = true;
 
             base.GiveRewards();
         }

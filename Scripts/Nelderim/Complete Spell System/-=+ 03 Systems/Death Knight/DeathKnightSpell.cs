@@ -28,7 +28,7 @@ namespace Server.Spells.DeathKnight
 			if ( !base.CheckCast( ) )
 				return false;
 			
-			if (Caster is PlayerMobile && !((PlayerMobile)Caster).DeathKnight)
+			if (Caster is PlayerMobile && !((PlayerMobile)Caster).SpecialSkills.DeathKnight)
 			{
 				Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
 				return false;

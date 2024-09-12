@@ -194,7 +194,7 @@ namespace Server.Engines.Quests
 
         public override void GiveRewards()
         {
-            Owner.Mysticism = true;
+            Owner.SpecialSkills.Mysticism = true;
 
             base.GiveRewards();
         }

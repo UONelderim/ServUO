@@ -206,7 +206,7 @@ wyczyn mlody bardzie? */
 
         public override void GiveRewards()
         {
-            Owner.Bard = true;
+            Owner.SpecialSkills.Bard = true;
 
             base.GiveRewards();
         }

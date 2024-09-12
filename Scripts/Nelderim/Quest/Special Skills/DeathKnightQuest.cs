@@ -207,7 +207,7 @@ namespace Server.Engines.Quests
 
         public override void GiveRewards()
         {
-            Owner.DeathKnight = true;
+            Owner.SpecialSkills.DeathKnight = true;
 
             base.GiveRewards();
         }

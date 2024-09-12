@@ -65,7 +65,7 @@ namespace Server.ACC.CSS.Systems.Undead
                 			if (!base.CheckCast())
                 				return false;
                             
-                			if (Caster is PlayerMobile && !((PlayerMobile)Caster).Undead)
+                			if (Caster is PlayerMobile && !((PlayerMobile)Caster).SpecialSkills.Undead)
                 			{
                 				Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
                 				return false;
