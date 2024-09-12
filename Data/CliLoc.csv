@@ -52224,16 +52224,16 @@ Number;Text
 1095511; 
 1095512; 
 1095513; 
-1095514;pirate's chest 
-1095515;pirate's chest 
-1095516;pirate's chest 
-1095517;pirate's chest 
-1095518;pirate's chest 
-1095519;pirate's chest 
-1095520;pirate's chest 
-1095521;pirate's chest 
-1095522;skeleton key 
-1095523;master skeleton key 
+1095514;Piracka skrzynia
+1095515;Piracka skrzynia
+1095516;Piracka skrzynia
+1095517;Piracka skrzynia
+1095518;Piracka skrzynia
+1095519;Piracka skrzynia
+1095520;Piracka skrzynia
+1095521;Piracka skrzynia 
+1095522;szkieletowy klucz 
+1095523;wiekszy szkieletowy klucz
 1095524;gargish door 
 1095525;gargish door 
 1095526;gargish door 
@@ -69484,7 +69484,7 @@ Number;Text
 1112771;Staff of Shattered Dreams 
 1112772;a Ter Mur vendor rental contract 
 1112773;Endless Journey accounts cannot participate in this event. 
-1112774;Tasty Treats 
+1112774;Pyszne przekaski
 1112775;All That Glitters 
 1112776;Metal Head 
 1112777;Pink is the New Black 
@@ -72940,11 +72940,11 @@ Number;Text
 1116227;kamienny placek z kraba 
 1116228;niebieskie ciasto z homarem 
 1116229;ciasto z pajeczego kraba 
-1116230;Mana Phasing Orb 
-1116231;Runed Sash of Warding 
-1116232;Surge Shield 
+1116230;Kula Fazujaca Mane
+1116231;Szarfa Ochrony oznaczona runami 
+1116232;Oslona
 1116233;You must defeat the guardians of the chest before you can open it. 
-1116234;A Forged Pardon 
+1116234;Sfalszowane dokumenty
 1116235;Using this pardon again will remove one murder count from your character and consume the pardon. 
 1116236;Farba do lodzi 
 1116237;Obtain 20 power crystals and return for your reward. Power crystals can be found in various places in Ilshenar including in the Meer village. The reward for this quest is food for the bane dragon, it is the only known thing that they eat.<br><br><center>-----</center><br><br>What are you standing around for recruit?! You want to be a dragon rider? Well, you have to do work!<br><br>Getting your own bane dragon takes guts and brawn but keeping one takes some of my special stew. Here's the deal, you give me twenty power crystals, I'll give you some stew.  I don't care how you get them, you can get them from Blackthorn's golems or you can get them from the Meer.  I hear those furball hocking misfits have been collecting them, planning to make a new cat toy I suppose. Heh-heh.<br><br>Just remember, before you go getting all soft for the cat people, remember what their magics did to Yew.  The Meer are a threat to Britannia and there is no two ways about it!  Now, get going and make yourself useful! 
@@ -82527,15 +82527,15 @@ Number;Text
 1125814;ancient weapon 
 1125815;ancient weapon 
 1125816;ancient weapon 
-1125817;skull longsword 
-1125818;skull longsword 
-1125819;skull gnarled staff 
-1125820;skull gnarled staff 
+1125817;kosciany dlugi miecz
+1125818;kosciany dlugi miecz
+1125819;kosciana sekata laska
+1125820;kosciana sekata laska
 1125821;gargish skull longsword 
 1125822;gargish skull longsword 
 1125823;gargish skull gnarled staff 
 1125824;gargish skull gnarled staff 
-1125825;octopus necklace 
+1125825;naszyjnik osmiornicy 
 1125826;gargish octopus necklace 
 1125827;floor 
 1125828;floor 
@@ -115615,7 +115615,7 @@ Number;Text
 1159001;straznika lesnego
 1159002;straznika
 1159003;Display All Public Houses Contents 
-1159004;Shield Engraving Tool 
+1159004;Narzedzia do grawerowania tarczy
 1159005;<center>Trap Disarm Mechanism</center> 
 1159006;<center>disarm the trap</center> 
 1159007;Attempt to discern the next node 
@@ -115629,12 +115629,12 @@ Number;Text
 1159015;Cylinder Trap Training Kit 
 1159016;Slider Trap Training Kit 
 1159017;A Cylinder Trap 
-1159018;~1_type~ octopus necklace 
+1159018;~1_type~ naszyjnik osmiornicy
 1159019;~1_type~ gargish octopus necklace 
 1159020;Skull Tiled Floor 
 1159021;You breathe a sigh of relief as the the contents of the chest remain unscathed! 
 1159022;Cartography Bonus +~1_val~ 
-1159023;Legendary Mapmaker's Glasses 
+1159023;Legendarne Okulary Kartofrafa
 1159024;You hear the click of a mechanism as the trap arms itself. You have ~1_seconds~ before the countermeasures activate! 
 1159025;mysterious fragment 
 1159026;Recovered from a Treasure Chest 

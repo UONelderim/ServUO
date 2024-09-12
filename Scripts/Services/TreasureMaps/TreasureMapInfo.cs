@@ -218,7 +218,7 @@ namespace Server.Items
             return _TranscendenceTable[(int)package];
         }
 
-        public static SkillName[] GetAlacrityList(TreasureLevel level, TreasurePackage package, TreasureFacet facet)
+       /* public static SkillName[] GetAlacrityList(TreasureLevel level, TreasurePackage package, TreasureFacet facet)
         {
             if (level == TreasureLevel.Stash || (facet == TreasureFacet.Felucca && level == TreasureLevel.Cache))
             {
@@ -239,7 +239,7 @@ namespace Server.Items
             }
 
             return null;
-        }
+        }*/
 
         public static Type[] GetCraftingMaterials(TreasureLevel level, TreasurePackage package, ChestQuality quality)
         {
@@ -338,9 +338,9 @@ namespace Server.Items
 
             switch (quality)
             {
-                case ChestQuality.Rusty: baseAmount = 2; break; //bylo 7
-                case ChestQuality.Standard: baseAmount = Utility.RandomBool() ? 2 : 4; break; // bylo 7 : 9
-                case ChestQuality.Gold: baseAmount = Utility.RandomList(2, 4, 6); break;  //bylo (7, 9, 11)
+                case ChestQuality.Rusty: baseAmount = 1; break; //bylo 7
+                case ChestQuality.Standard: baseAmount = Utility.RandomBool() ? 1 : 2; break; // bylo 7 : 9
+                case ChestQuality.Gold: baseAmount = Utility.RandomList(1, 2, 3); break;  //bylo (7, 9, 11)
             }
 
             return baseAmount + ((int)level * 5);
@@ -351,11 +351,11 @@ namespace Server.Items
             switch (level)
             {
                 default:
-                case TreasureLevel.Stash: return Utility.RandomMinMax(1000, 4000);
-                case TreasureLevel.Supply: return Utility.RandomMinMax(2000, 5000);
-                case TreasureLevel.Cache: return Utility.RandomMinMax(3000, 6000);
-                case TreasureLevel.Hoard: return Utility.RandomMinMax(4000, 7000);
-                case TreasureLevel.Trove: return Utility.RandomMinMax(5000, 7000);
+                case TreasureLevel.Stash: return Utility.RandomMinMax(1000, 2000); //było (1000, 4000);
+                case TreasureLevel.Supply: return Utility.RandomMinMax(2000, 3000); // było (2000, 5000);
+                case TreasureLevel.Cache: return Utility.RandomMinMax(3000, 4000); //było (3000, 6000)
+                case TreasureLevel.Hoard: return Utility.RandomMinMax(4000, 5000); // było (4000, 7000)
+                case TreasureLevel.Trove: return Utility.RandomMinMax(5000, 6000); // było (5000, 7000)
             }
         }
 
@@ -374,8 +374,8 @@ namespace Server.Items
         {
             switch (level)
             {
-                case TreasureLevel.Stash: return 50;
-                case TreasureLevel.Supply: return 100;
+                case TreasureLevel.Stash: return 25; //bylo 50
+                case TreasureLevel.Supply: return 50; //bylo 100
             }
 
             return 0;
@@ -386,9 +386,9 @@ namespace Server.Items
             switch (quality)
             {
                 default:
-                case ChestQuality.Rusty: return 20;
-                case ChestQuality.Standard: return 40;
-                case ChestQuality.Gold: return 60;
+                case ChestQuality.Rusty: return 5; //bylo 20
+                case ChestQuality.Standard: return 10; //bylo 40
+                case ChestQuality.Gold: return 20; //bylo 60
             }
         }
 
@@ -817,8 +817,8 @@ namespace Server.Items
             if (amount > 0)
             {
                 SkillName[] transList = GetTranscendenceList(level, package);
-                SkillName[] alacList = GetAlacrityList(level, package, facet);
-                SkillName[] pscrollList = GetPowerScrollList(level, package, facet);
+                //SkillName[] alacList = GetAlacrityList(level, package, facet);
+               // SkillName[] pscrollList = GetPowerScrollList(level, package, facet);
 
                 List<Tuple<int, SkillName>> scrollList = new List<Tuple<int, SkillName>>();
 
@@ -830,7 +830,7 @@ namespace Server.Items
                     }
                 }
 
-                if (alacList != null)
+             /*   if (alacList != null)
                 {
                     foreach (SkillName sk in alacList)
                     {
@@ -844,7 +844,7 @@ namespace Server.Items
                     {
                         scrollList.Add(new Tuple<int, SkillName>(3, sk));
                     }
-                }
+                }*/
 
                 if (scrollList.Count > 0)
                 {
@@ -856,7 +856,7 @@ namespace Server.Items
                         {
                             case 1: chest.DropItem(new ScrollOfTranscendence(random.Item2, Utility.RandomMinMax(1.0, chest.Map == Map.Felucca ? 7.0 : 5.0) / 10)); break;
                            // case 2: chest.DropItem(new ScrollOfAlacrity(random.Item2)); break;
-                            case 2: chest.DropItem(new PowerScroll(random.Item2, 110.0)); break;
+                           // case 2: chest.DropItem(new PowerScroll(random.Item2, 110.0)); break;
                         }
                     }
                 }
