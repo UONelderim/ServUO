@@ -1,58 +1,54 @@
 using Server.Items;
-using Server.Mobiles;
 using System;
 
 namespace Server.Engines.Quests
 {
+	public class EroganDrath : MondainQuester
+	{
+		[Constructable]
+		public EroganDrath()
+			: base("Erogan Drath", "- Mroczny Rycerz")
+		{
+		}
 
-    public class EroganDrath : MondainQuester
-    {
-        [Constructable]
-        public EroganDrath()
-            : base("Erogan Drath", "- Mroczny Rycerz")
-        {
-        }
+		public EroganDrath(Serial serial)
+			: base(serial)
+		{
+		}
 
-        public EroganDrath(Serial serial)
-            : base(serial)
-        {
-        }
+		public override Type[] Quests => new Type[] { typeof(DeathKnightQuest) };
 
-        public override Type[] Quests => new Type[]
-                {
-                    typeof(DeathKnightQuest)
-                };
-        public override void InitBody()
-        {
-            InitStats(100, 100, 25);
+		public override void InitBody()
+		{
+			InitStats(100, 100, 25);
 
-            Female = false;
-            Race = Race.NTamael;
-            
-            HairHue = 1150;
-        }
+			Female = false;
+			Race = Race.NTamael;
 
-        public override void InitOutfit()
-        {
-            SetWearable(new Boots(), 0x901, 1);
-            SetWearable(new NorseHelm(), dropChance: 1);
-            SetWearable(new PlateArms(), dropChance: 1);
+			HairHue = 1150;
+		}
+
+		public override void InitOutfit()
+		{
+			SetWearable(new Boots(), 0x901, 1);
+			SetWearable(new NorseHelm(), dropChance: 1);
+			SetWearable(new PlateArms(), dropChance: 1);
 			SetWearable(new PlateChest(), 0, 1);
 			SetWearable(new PlateLegs(), 0, 1);
-        }
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            writer.Write(0); // version
-        }
+			writer.Write(0); // version
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-            int version = reader.ReadInt();
-        }
-    }
+			int version = reader.ReadInt();
+		}
+	}
 }
