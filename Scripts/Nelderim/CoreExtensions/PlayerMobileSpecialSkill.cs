@@ -174,7 +174,7 @@ namespace Server.Mobiles
 
 		public override void Deserialize(GenericReader reader)
 		{
-			int version = 0;
+			int version = reader.ReadInt();
 			SpecialSkills = new SpecialSkills();
 			SpecialSkills.Deserialize(reader);
 		}
