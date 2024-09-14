@@ -10,12 +10,12 @@ namespace Server.Mobiles
 	[CorpseName("zwloki konia bojowego")]
 	public class WarHorse : BaseMount
 	{
-		private static int[] m_IDs =
+		private static (int,int)[] _IDs =
 		{
-			0x76, 0x3EB2,
-			0x77, 0x3EB1,
-			0x78, 0x3EAF,
-			0x79, 0x3EB0
+			(0x76, 0x3EB2),
+			(0x77, 0x3EB1),
+			(0x78, 0x3EAF),
+			(0x79, 0x3EB0)
 		};
 		
 		[Constructable]
@@ -26,10 +26,10 @@ namespace Server.Mobiles
 		public WarHorse(string name) : base(name, 0x76, 0x3EB2, AIType.AI_Melee,
 			FightMode.Aggressor, 10, 1, 0.2, 0.4)
 		{
-			int random = Utility.Random( 4 );
-
-			Body = m_IDs[random * 2];
-			ItemID = m_IDs[random * 2 + 1];
+			_Type = Utility.Random( 4 );
+			
+			Body = _IDs[_Type].Item1;
+			ItemID = _IDs[_Type].Item2;
 			BaseSoundID = 0xA8;
 
 			SetStr(400);
@@ -60,7 +60,7 @@ namespace Server.Mobiles
 			ControlSlots = 1;
 			MinTameSkill = 29.1;
 
-			switch (random)
+			switch (_Type)
 			{
 				case 0: 
 					SetResistance( ResistanceType.Energy, 55, 65 );
@@ -77,6 +77,7 @@ namespace Server.Mobiles
 			}
 		}
 
+		private int _Type;
 		private bool m_BardingExceptional;
 		private Mobile m_BardingCrafter;
 		private int m_BardingHP;
@@ -136,14 +137,14 @@ namespace Server.Mobiles
                 if (m_HasBarding)
                 {
 	                Hue = CraftResources.GetHue(m_BardingResource);
-	                BodyMod = 0x11C;
+	                BodyValue = 0x11C;
 	                ItemID = 0x3E92;
                 }
                 else
                 {
 	                Hue = 0;
-                    BodyMod = 0;
-                    ItemID = m_IDs[Array.IndexOf(m_IDs,Body) + 1];
+                    BodyValue = _IDs[_Type].Item1;
+                    ItemID = _IDs[_Type].Item2;
                 }
 
                 InvalidateProperties();
@@ -277,8 +278,10 @@ namespace Server.Mobiles
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write(0); // version
+			writer.Write(1); // version
 
+			writer.Write(_Type);
+			
 			writer.Write(m_BardingExceptional);
 			writer.Write(m_BardingCrafter);
 			writer.Write(m_HasBarding);
@@ -292,11 +295,19 @@ namespace Server.Mobiles
 
 			int version = reader.ReadInt();
 
-			m_BardingExceptional = reader.ReadBool();
-			m_BardingCrafter = reader.ReadMobile();
-			m_HasBarding = reader.ReadBool();
-			m_BardingHP = reader.ReadInt();
-			m_BardingResource = (CraftResource)reader.ReadInt();
+			switch (version)
+			{
+				case 1:
+					_Type = reader.ReadInt();
+					goto case 0;
+				case 0:
+					m_BardingExceptional = reader.ReadBool();
+					m_BardingCrafter = reader.ReadMobile();
+					m_HasBarding = reader.ReadBool();
+					m_BardingHP = reader.ReadInt();
+					m_BardingResource = (CraftResource)reader.ReadInt();
+					break;
+			}
 			
 			if (Hue == 0 && !m_HasBarding)
 				Hue = 0;
