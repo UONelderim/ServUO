@@ -1241,7 +1241,7 @@ namespace Server.Network
 				}
 				else if (item is IMountItem mi && mi.Mount is Mobile m)
 				{
-					hue = m.BodyHue;
+					hue = m.Hue;
 
 					if (m.SolidHueOverride >= 0)
 					{
@@ -1574,7 +1574,7 @@ namespace Server.Network
 			m_Stream.Write((short)beheld.Y);
 			m_Stream.Write((sbyte)beheld.Z);
 			m_Stream.Write((byte)beheld.Direction);
-			m_Stream.Write((short)(beheld.BodyHue | beheld.HueFlags));
+			m_Stream.Write((short)(beheld.Hue | beheld.HueFlags));
 			m_Stream.Write((byte)beheld.GetPacketFlags());
 			m_Stream.Write((byte)beheld.GetNotoriety(beholder));
 
@@ -2579,7 +2579,7 @@ namespace Server.Network
 			: base(0x77, 17)
 		{
 			var loc = m.Location;
-			var hue = m.BodyHue;
+			var hue = m.Hue;
 
 			if (m.SolidHueOverride >= 0)
 			{
@@ -3664,7 +3664,7 @@ namespace Server.Network
 		private MobileUpdate(Mobile m, int flags)
 			: base(0x20, 19)
 		{
-			var hue = m.BodyHue;
+			var hue = m.Hue;
 
 			if (m.SolidHueOverride >= 0)
 			{
@@ -3672,7 +3672,7 @@ namespace Server.Network
 			}
 			else
 			{
-				hue |= m.HueFlags;
+				// hue |= m.HueFlags;
 			}
 
 			m_Stream.Write(m.Serial);
@@ -3739,7 +3739,7 @@ namespace Server.Network
 
 			EnsureCapacity(23 + (count * 9));
 
-			var hue = beheld.BodyHue;
+			var hue = beheld.Hue;
 
 			if (beheld.SolidHueOverride >= 0)
 			{
@@ -3778,7 +3778,7 @@ namespace Server.Network
 					}
 					else if (item is IMountItem mi && mi.Mount is Mobile m)
 					{
-						hue = m.BodyHue;
+						hue = m.Hue;
 
 						if (m.SolidHueOverride >= 0)
 						{
