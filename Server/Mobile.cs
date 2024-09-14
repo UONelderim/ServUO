@@ -12582,7 +12582,7 @@ namespace Server
 		public virtual bool Meditating { get; set; }
 
 		[CommandProperty(AccessLevel.Decorator)]
-		public bool CanSwim { get => m_CanSwim; set => m_CanSwim = value; }
+		public bool CanSwim { get => m_CanSwim || Mount is Mobile { CanSwim: true }; set => m_CanSwim = value; }
 
 		[CommandProperty(AccessLevel.Decorator)]
 		public bool CantWalk { get => m_CantWalk; set => m_CantWalk = value; }
