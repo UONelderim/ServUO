@@ -187,8 +187,8 @@ właściwą: W Labiryncie Minotaurów ponoc slyszano o tym, ze owa kostka moze b
 		{
 			AddObjective(new ObtainObjective(typeof(ArcaneGem), "tajemniczy kamien", 30, 0x1EA7));
 
-			AddReward(new BaseReward(typeof(AncientIgniteScroll), "Zwój podpalenia")); // Zwój podpalenia		
-			AddReward(new BaseReward(typeof(AncientSpellbook), "Ksiega Starozytnej Magii")); // Ksiega Starozytnej Magii
+			AddReward(new BaseReward(typeof(AncientIgniteScroll), "Zwój podpalenia"));		
+			AddReward(new BaseReward("Ksiega Starozytnej Magii"));
 		}
 
 		public override QuestChain ChainID => QuestChain.Ancient;
@@ -210,6 +210,7 @@ właściwą: W Labiryncie Minotaurów ponoc slyszano o tym, ze owa kostka moze b
 
 		public override void GiveRewards()
 		{
+			Owner.AddToBackpack(new AncientSpellbook { BlessedFor = Owner });
 			Owner.SpecialSkills.Ancient = true;
 
 			base.GiveRewards();

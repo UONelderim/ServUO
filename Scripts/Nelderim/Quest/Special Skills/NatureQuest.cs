@@ -193,8 +193,8 @@ namespace Server.Engines.Quests
 			AddObjective(new ObtainObjective(typeof(SzczepkaBoczniak), "Zarodniki boczniaka", 10, 0x0F23));
 
 
-			AddReward(new BaseReward(typeof(DruidHollowReedScroll), "Sila Natury")); // Siła Natury
-			AddReward(new BaseReward(typeof(DruidSpellbook), "Ksiega Magii Natury")); // Ksiega Magii Natury
+			AddReward(new BaseReward(typeof(DruidHollowReedScroll), "Sila Natury"));
+			AddReward(new BaseReward("Ksiega Magii Natury"));
 		}
 
 		public override QuestChain ChainID => QuestChain.Nature;
@@ -216,6 +216,7 @@ namespace Server.Engines.Quests
 
 		public override void GiveRewards()
 		{
+			Owner.AddToBackpack(new DruidSpellbook() { BlessedFor = Owner });
 			Owner.SpecialSkills.Nature = true;
 
 			base.GiveRewards();

@@ -200,9 +200,8 @@ namespace Server.Engines.Quests
 		{
 			AddObjective(new SlayObjective(typeof(PlayerMobile), "dowolne osoby (gracze)", 5));
 
-			AddReward(new BaseReward(typeof(RogueFalseCoinScroll), "Falszywa Moneta")); // Falszywa Monet
-			AddReward(new BaseReward(typeof(RogueSpellbook),
-				"Księga Podstępnych Sztuczek")); // Księga Podstępnych Sztuczek
+			AddReward(new BaseReward(typeof(RogueFalseCoinScroll), "Falszywa Moneta"));
+			AddReward(new BaseReward("Księga Podstępnych Sztuczek"));
 		}
 
 		public override QuestChain ChainID => QuestChain.Rogue;
@@ -224,6 +223,7 @@ namespace Server.Engines.Quests
 
 		public override void GiveRewards()
 		{
+			Owner.AddToBackpack(new RogueSpellbook() { BlessedFor = Owner });
 			Owner.SpecialSkills.Rogue = true;
 
 			base.GiveRewards();

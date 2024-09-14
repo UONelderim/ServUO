@@ -199,8 +199,8 @@ namespace Server.Engines.Quests
 			AddObjective(new ObtainObjective(typeof(VolcanicAsh), "pyl wulkaniczny", 20, 3983));
 
 
-			AddReward(new BaseReward(typeof(DemonicTouchSkull), "Dotyk Demona")); // Dotyk Demona
-			AddReward(new BaseReward(typeof(DeathKnightSpellbook), "Ksiega Mrocznego Rycerza")); // Ksiega 
+			AddReward(new BaseReward(typeof(DemonicTouchSkull), "Dotyk Demona"));
+			AddReward(new BaseReward("Ksiega Mrocznego Rycerza"));
 		}
 
 		public override QuestChain ChainID => QuestChain.DeathKnight;
@@ -223,6 +223,7 @@ namespace Server.Engines.Quests
 
 		public override void GiveRewards()
 		{
+			Owner.AddToBackpack(new DeathKnightSpellbook() { BlessedFor = Owner });
 			Owner.SpecialSkills.DeathKnight = true;
 
 			base.GiveRewards();

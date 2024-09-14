@@ -200,8 +200,8 @@ wyczyn mlody bardzie? */
 			AddObjective(new ObtainObjective(typeof(BlankScroll), "Czysty zwoj", 30, 0xEF3));
 
 
-			AddReward(new BaseReward(typeof(BardArmysPaeonScroll), "Śpiew Armii")); // Śpiew Armii
-			AddReward(new BaseReward(typeof(BardSpellbook), "Księga Pieśni Bojowych")); // Księga Pieśni Bojowych
+			AddReward(new BaseReward(typeof(BardArmysPaeonScroll), "Śpiew Armii"));
+			AddReward(new BaseReward("Księga Pieśni Bojowych"));
 		}
 
 		public override QuestChain ChainID => QuestChain.Bard;
@@ -223,6 +223,7 @@ wyczyn mlody bardzie? */
 
 		public override void GiveRewards()
 		{
+			Owner.AddToBackpack(new BardSpellbook() { BlessedFor = Owner });
 			Owner.SpecialSkills.Bard = true;
 
 			base.GiveRewards();

@@ -186,8 +186,8 @@ namespace Server.Engines.Quests
 			AddObjective(new ObtainObjective(typeof(ArcaneGem), "tajemniczy kamien", 30, 0x1EA7));
 
 
-			AddReward(new BaseReward(typeof(NetherBoltScroll), 1031678)); // Mistczny Promień 
-			AddReward(new BaseReward(typeof(MysticBook), 1031677)); // Ksiega Mistycyzmu
+			AddReward(new BaseReward(typeof(NetherBoltScroll), 1031678));
+			AddReward(new BaseReward(1031677)); // MysticBook
 		}
 
 		public override QuestChain ChainID => QuestChain.Mystic;
@@ -211,6 +211,7 @@ namespace Server.Engines.Quests
 
 		public override void GiveRewards()
 		{
+			Owner.AddToBackpack(new MysticBook() { BlessedFor = Owner });
 			Owner.SpecialSkills.Mysticism = true;
 
 			base.GiveRewards();
