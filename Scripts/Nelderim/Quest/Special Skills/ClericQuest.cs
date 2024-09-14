@@ -194,8 +194,8 @@ namespace Server.Engines.Quests
 			AddObjective(new ObtainObjective(typeof(Gold), "zloto", 20000, 3821));
 
 
-			AddReward(new BaseReward(typeof(ClericSacrificeScroll), "Poswiecenie")); // Poswiecenie
-			AddReward(new BaseReward(typeof(ClericSpellbook), "Ksiega Herdeizmu")); // Ksiega Herdeizmu
+			AddReward(new BaseReward(typeof(ClericSacrificeScroll), "Poswiecenie"));
+			AddReward(new BaseReward( "Ksiega Herdeizmu"));
 		}
 
 		public override QuestChain ChainID => QuestChain.Cleric;
@@ -217,6 +217,7 @@ namespace Server.Engines.Quests
 
 		public override void GiveRewards()
 		{
+			Owner.AddToBackpack(new ClericSpellbook() { BlessedFor = Owner });
 			Owner.SpecialSkills.Cleric = true;
 
 			base.GiveRewards();

@@ -190,8 +190,8 @@ Swiatyni Stworzenia w Tasandorze i dostarczyc tam 10 krysztalow mocy.. */
 				0x1F49));
 
 
-			AddReward(new BaseReward(typeof(AvatarCurseRemovalScroll), "Sila Natury")); // Reka Mnicha
-			AddReward(new BaseReward(typeof(AvatarSpellbook), "Księga Zaklęć Mnicha")); // Księga Zaklęć Mnicha
+			AddReward(new BaseReward(typeof(AvatarCurseRemovalScroll), "Sila Natury"));
+			AddReward(new BaseReward("Księga Zaklęć Mnicha"));
 		}
 
 		public override QuestChain ChainID => QuestChain.Avatar;
@@ -213,6 +213,7 @@ Swiatyni Stworzenia w Tasandorze i dostarczyc tam 10 krysztalow mocy.. */
 
 		public override void GiveRewards()
 		{
+			Owner.AddToBackpack(new AvatarSpellbook() { BlessedFor = Owner });
 			Owner.SpecialSkills.Avatar = true;
 
 			base.GiveRewards();

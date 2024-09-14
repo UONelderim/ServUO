@@ -192,9 +192,8 @@ Jak wyroznic sie wsrod zwyczajnych wiernych, zapytasz? Otoz, najpierw trzeba pod
 			AddObjective(new SlayObjective(typeof(Pixie), "wrozka", 15));
 
 
-			AddReward(new BaseReward(typeof(UndeadHammerOfFaithScroll), "Sierp Wiary Smierci")); // Sierp Wiary Smierci
-			AddReward(new BaseReward(typeof(UndeadSpellbook),
-				"Księga Podstępnych Sztuczek")); // Księga Podstępnych Sztuczek
+			AddReward(new BaseReward(typeof(UndeadHammerOfFaithScroll), "Sierp Wiary Smierci"));
+			AddReward(new BaseReward("Księga Okultyzmu"));
 		}
 
 		public override QuestChain ChainID => QuestChain.Undead;
@@ -216,6 +215,7 @@ Jak wyroznic sie wsrod zwyczajnych wiernych, zapytasz? Otoz, najpierw trzeba pod
 
 		public override void GiveRewards()
 		{
+			Owner.AddToBackpack(new UndeadSpellbook() { BlessedFor = Owner });
 			Owner.SpecialSkills.Undead = true;
 
 			base.GiveRewards();
