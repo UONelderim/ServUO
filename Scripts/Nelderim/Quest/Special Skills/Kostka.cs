@@ -34,7 +34,7 @@ namespace Server.Items
 			int version = reader.ReadInt();
 		}
 	}
-	
+
 	[FlipableAttribute(0xA5DC)]
 	public class KostkaAncientQuestItem2 : Item
 	{
