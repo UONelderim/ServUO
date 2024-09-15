@@ -156,8 +156,9 @@ namespace Server.SkillHandlers
                 {
                     Mobile targ = (Mobile)target;
 
-                    if (targ == from || !from.CanBeHarmful(targ, false, false, true) ||
-                        (targ is BaseCreature && ((BaseCreature)targ).BardImmune && ((BaseCreature)targ).ControlMaster != from))
+                    if (targ == from || !from.CanBeHarmful(targ, false, false, true) 
+                    // || (targ is BaseCreature && ((BaseCreature)targ).BardImmune && ((BaseCreature)targ).ControlMaster != from)
+                        )
                     {
                         from.SendLocalizedMessage(1049535); // A song of discord would have no effect on that.
                     }
@@ -224,6 +225,11 @@ namespace Server.SkillHandlers
                                 if (BaseInstrument.GetBaseDifficulty(targ) >= 160.0)
                                 {
                                     effect /= 2;
+                                }
+
+                                if (targ is BaseCreature bc && bc.BardImmune)
+                                {
+	                                effect /= 4;
                                 }
 
                                 var scalar = (double)effect / 100;
