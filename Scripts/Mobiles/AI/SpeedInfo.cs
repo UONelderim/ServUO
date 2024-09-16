@@ -54,7 +54,6 @@ namespace Server
 
         public static double TransformMoveDelay(BaseCreature bc, double delay)
         {
-	        return delay; //Don't adjust
             double adjusted = bc.IsMonster ? MaxDelayWild : MaxDelay;
 
             if (!bc.IsDeadPet && (bc.ReduceSpeedWithDamage || bc.IsSubdued))
@@ -63,7 +62,7 @@ namespace Server
 
                 if (offset < 1.0)
                 {
-                    delay = delay + ((adjusted - delay) * (1.0 - offset));
+                    delay += ((adjusted - delay) * (1.0 - offset));
                 }
             }
 
