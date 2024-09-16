@@ -428,6 +428,9 @@ namespace Server.Engines.Craft
             InitNelderimSpells();
             
             MarkOption = true;
+            Recycle = true;
+            RecycleAction = RecycleBook.Do;
+            RecycleText = "ODZYSKAJ ZWOJE";
         }
     }
 }
