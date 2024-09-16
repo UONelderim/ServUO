@@ -3,6 +3,7 @@ using Server.Mobiles;
 using Server.Network;
 using System;
 using System.Collections.Generic;
+using Nelderim.Towns;
 
 namespace Server.Gumps
 {
@@ -41,7 +42,9 @@ namespace Server.Gumps
         private static readonly int NextLabelOffsetY = 0;
         private static readonly int EntryWidth = 180;
         private static readonly int EntryCount = 15;
-        private static readonly int TotalWidth = OffsetSize + EntryWidth + OffsetSize + SetWidth + OffsetSize;
+        private static readonly int TotalWidth = OffsetSize + SetWidth + OffsetSize + EntryWidth + OffsetSize + GoWidth + 
+                                                 RaceEntryWidth + OffsetSize + TownEntryWidth + OffsetSize + GuildEntryWidth + 
+                                                 OffsetSize + BringWidth;
         private static readonly int TotalHeight = OffsetSize + ((EntryHeight + OffsetSize) * (EntryCount + 1));
         private static readonly int BackWidth = BorderSize + TotalWidth + BorderSize;
         private static readonly int BackHeight = BorderSize + TotalHeight + BorderSize;
@@ -50,6 +53,20 @@ namespace Server.Gumps
         private int m_Page;
 
         public bool EC => m_Owner != null && m_Owner.NetState != null && m_Owner.NetState.IsEnhancedClient;
+        
+        private const int RaceEntryWidth = 100;
+
+        private const int GoWidth = 24;
+        public const int GoButtonID1 = 2224;
+        public const int GoButtonID2 = 2224;
+
+        private const int BringWidth = 24;
+        public const int BringButtonID1 = 2223;
+        public const int BringButtonID2 = 2223;
+
+        private const int TownEntryWidth = 80;
+
+        private const int GuildEntryWidth = 80;
 
         public WhoGump(Mobile owner, string filter)
             : this(owner, BuildList(owner, filter), 0)
@@ -165,17 +182,52 @@ namespace Server.Gumps
                 y += EntryHeight + OffsetSize;
 
                 Mobile m = m_Mobiles[index];
+                
+                if (SetGumpID != 0)
+	                AddImageTiled(x, y, SetWidth, EntryHeight, SetGumpID);
+
+                if (m.NetState != null && !m.Deleted)
+	                AddButton(x + SetOffsetX, y + SetOffsetY, SetButtonID1, SetButtonID2, i + 3, GumpButtonType.Reply, 0);
+
+                x += SetWidth + OffsetSize;
 
                 AddImageTiled(x, y, EntryWidth, EntryHeight, EntryGumpID);
                 AddLabelCropped(x + TextOffsetX, y, EntryWidth - TextOffsetX, EntryHeight, GetHueFor(m), m.Deleted ? "(deleted)" : m.Name);
 
                 x += EntryWidth + OffsetSize;
-
+                
                 if (SetGumpID != 0)
-                    AddImageTiled(x, y, SetWidth, EntryHeight, SetGumpID);
+	                AddImageTiled(x, y, GoWidth, EntryHeight, SetGumpID);
 
                 if (m.NetState != null && !m.Deleted)
-                    AddButton(x + SetOffsetX, y + SetOffsetY, SetButtonID1, SetButtonID2, i + 3, GumpButtonType.Reply, 0);
+	                AddButton(x + SetOffsetX, y + SetOffsetY + 2, GoButtonID1, GoButtonID2, i + 3 + EntryCount, GumpButtonType.Reply, 0);
+
+                x += GoWidth + OffsetSize;
+                
+                
+                AddImageTiled(x, y, RaceEntryWidth, EntryHeight, SetGumpID);
+                AddLabelCropped(x + TextOffsetX, y, EntryWidth - TextOffsetX, EntryHeight, GetRaceHueFor(m), m.Race.Name);
+
+                // Obywatelstwo
+                x += RaceEntryWidth + OffsetSize;
+
+                AddImageTiled(x, y, TownEntryWidth, EntryHeight, SetGumpID);
+                AddLabelCropped(x + TextOffsetX, y, EntryWidth - TextOffsetX, EntryHeight, GetTownHueFor(m), GetTownFor(m));
+
+                x += TownEntryWidth + OffsetSize;
+
+                //Gildia
+                AddImageTiled(x, y, GuildEntryWidth, EntryHeight, SetGumpID);
+                AddLabelCropped(x + TextOffsetX, y, EntryWidth - TextOffsetX, EntryHeight, GetGuildHueFor(m), GetGuildFor(m));
+
+                x += GuildEntryWidth + OffsetSize;
+
+                // Bring
+                if (SetGumpID != 0)
+	                AddImageTiled(x, y, BringWidth, EntryHeight, SetGumpID);
+
+                if (m.NetState != null && !m.Deleted)
+	                AddButton(x + SetOffsetX, y + SetOffsetY + 2, BringButtonID1, BringButtonID2, i + 3 + (2 * EntryCount), GumpButtonType.Reply, 0);
             }
         }
 
@@ -272,6 +324,75 @@ namespace Server.Gumps
                         return EC ? 0x5C : 0x58;
                     }
             }
+        }
+        
+        public static int GetRaceHueFor(Mobile m)
+        {
+	        if (m.Deleted)
+		        return 945;
+	        
+	        if ( m.Race == Race.None)
+		        return 945;
+	        if ( m.Race == Race.NTamael )
+		        return 88;
+	        if ( m.Race == Race.NJarling )
+		        return 54;
+	        if ( m.Race == Race.NNaur )
+		        return 36;
+	        if ( m.Race == Race.NElf )
+		        return 945;
+	        if ( m.Race == Race.NDrow )
+		        return 945;
+	        if ( m.Race == Race.NKrasnolud )
+		        return 945;
+
+	        return 945;
+        }
+        
+        public static int GetTownHueFor(Mobile m)
+        {
+	        if (m.Deleted)
+		        return 945;
+
+	        return TownDatabase.IsCitizenOfWhichTown(m) switch
+	        {
+		        Towns.None => 902,
+		        Towns.Orod => 84,
+		        Towns.Garlan => 51,
+		        Towns.Twierdza => 65,
+		        Towns.LDelmah => 35,
+		        Towns.Lotharn => 2702,
+		        Towns.Tirassa => 0,
+		        _ => 945
+	        };
+        }
+        
+        public static string GetTownFor(Mobile m)
+        {
+	        if (m.Deleted)
+		        return "(deleted)";
+
+	        var mobileTown = TownDatabase.IsCitizenOfWhichTown(m);
+	        if (mobileTown == Towns.None)
+		        return "------";
+	        
+	        return mobileTown.ToString();
+        }
+        
+        public static int GetGuildHueFor(Mobile m)
+        {
+	        if (m.Deleted || m.Guild == null)
+		        return 945;
+	        
+	        return 167;
+        }
+        
+        public static string GetGuildFor(Mobile m)
+        {
+	        if (m.Deleted || m.Guild == null)
+		        return "( --- )";
+	        
+		    return $"[ {m.Guild.Abbreviation} ]";
         }
 
         private class InternalComparer : IComparer<Mobile>
