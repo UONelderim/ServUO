@@ -98,8 +98,8 @@ namespace Server.Engines.Craft
             // Alter option
             if (m_CraftSystem.CanAlter)
             {
-                AddButton(270, 402, 4005, 4007, GetButtonID(6, 9), GumpButtonType.Reply, 0);
-                AddHtmlLocalized(304, 405, 250, 18, 1094726, LabelColor, false, false); // ALTER ITEM (Gargoyle)
+                // AddButton(270, 402, 4005, 4007, GetButtonID(6, 9), GumpButtonType.Reply, 0);
+                // AddHtmlLocalized(304, 405, 250, 18, 1094726, LabelColor, false, false); // ALTER ITEM (Gargoyle)
             }
             // ****************************************
 
@@ -729,12 +729,13 @@ namespace Server.Engines.Craft
                                 {
                                     if (system.CanAlter)
                                     {
-                                        if (SkillHandlers.Imbuing.CheckSoulForge(m_From, 1, false))
-                                        {
-                                            AlterItem.BeginTarget(m_From, system, m_Tool);
-                                        }
-                                        else
-                                            m_From.SendLocalizedMessage(1111867); // You must be near a soulforge to alter an item.
+	                                    m_From.SendMessage("Altering is disabled");
+                                        // if (SkillHandlers.Imbuing.CheckSoulForge(m_From, 1, false))
+                                        // {
+                                        //     AlterItem.BeginTarget(m_From, system, m_Tool);
+                                        // }
+                                        // else
+                                        //     m_From.SendLocalizedMessage(1111867); // You must be near a soulforge to alter an item.
                                     }
                                     break;
                                 }
