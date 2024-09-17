@@ -15,6 +15,7 @@
     "Drow": 0.40,
     "Krasnolud": 0.15
   },
+  "AllowPvp": true,
   "Guards": {
     "StandardGuard": {
       "Name": "DefaultStandard",
@@ -133,6 +134,7 @@
             "Drow": 1.00,
             "Krasnolud": 0.10
           },
+          "AllowPvp": false,
           "Guards": {
             "StandardGuard": {
               "Name": "CesarstwoStandard",

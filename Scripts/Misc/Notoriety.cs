@@ -11,6 +11,8 @@ using Server.Spells.Chivalry;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Server.Nelderim;
+
 #endregion
 
 namespace Server.Misc
@@ -437,6 +439,12 @@ namespace Server.Misc
                 }
             }
 
+            var sourceRegion = NelderimRegionSystem.GetRegion(source.Region.Name);
+            var targetRegion = NelderimRegionSystem.GetRegion(target.Region.Name);
+            if (!sourceRegion.IsPvpAllowed() || !targetRegion.IsPvpAllowed())
+            {
+	            return Notoriety.Innocent;
+            }
             if (source.Faction != null && source.Faction.Enemies.Contains(target.Faction) )
             {
 	            return Notoriety.Enemy;

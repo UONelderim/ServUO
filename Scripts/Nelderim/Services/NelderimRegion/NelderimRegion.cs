@@ -24,6 +24,7 @@ public class NelderimRegion : IComparable<NelderimRegion>
     [JsonInclude] private Dictionary<CraftResource, double> Resources { get; set; }
     [JsonInclude] private Dictionary<DifficultyLevelValue, double> DifficultyLevel { get; set; }
     [JsonInclude] private string Faction { get; set; }
+    [JsonInclude] private bool? AllowPvp { get; set; }
 
     public bool Validate()
     {
@@ -146,6 +147,22 @@ public class NelderimRegion : IComparable<NelderimRegion>
 
         Console.WriteLine($"Unable to get guard profile for {guardType} for region {Name}");
         return default;
+    }
+    
+    public bool IsPvpAllowed()
+    {
+	    if (AllowPvp != null)
+	    {
+		    return AllowPvp.Value;
+	    }
+
+	    var parentResult = Parent?.IsPvpAllowed();
+	    if (parentResult != null)
+	    {
+		    return parentResult.Value;
+	    }
+	    Console.WriteLine($"Unable to get allowPvp for region {Name}");
+	    return false;
     }
     
     public bool CastIsBanned(ISpell spell)
