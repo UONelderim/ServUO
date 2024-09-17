@@ -50,6 +50,13 @@ namespace Server.Regions
 
 		public override void OnEnter(Mobile m)
 		{
+			var eable = m.GetMobilesInRange(Core.GlobalUpdateRange);
+			foreach (var mobile in eable)
+			{
+				mobile.Delta(MobileDelta.Noto);
+			}
+			eable.Free();
+			
 			if (m.Player && m.AccessLevel == AccessLevel.Player)
 			{
 				bool violator = Violator(m);
@@ -119,6 +126,12 @@ namespace Server.Regions
 
 		public override void OnExit(Mobile m)
 		{
+			var eable = m.GetMobilesInRange(Core.GlobalUpdateRange);
+			foreach (var mobile in eable)
+			{
+				mobile.Delta(MobileDelta.Noto);
+			}
+			eable.Free();
 		}
 
 		public override void OnSpellCast(Mobile m, ISpell s)
