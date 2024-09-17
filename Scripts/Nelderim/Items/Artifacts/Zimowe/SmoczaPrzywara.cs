@@ -2,8 +2,8 @@ namespace Server.Items
 {
 	public class SmoczaPrzywara : DragonLegs
 	{
-		public override int InitMinHits { get { return 60; } }
-		public override int InitMaxHits { get { return 60; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		public override int BaseColdResistance { get { return -15; } }
 		public override int BaseEnergyResistance { get { return 11; } }

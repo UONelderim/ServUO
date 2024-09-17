@@ -3,8 +3,8 @@ namespace Server.Items
 	[FlipableAttribute(0x171C, 0x171C)]
 	public class HelmMagaBojowego : LeatherCap
 	{
-		public override int InitMinHits => 60;
-		public override int InitMaxHits => 60;
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		public override int BasePhysicalResistance => 10;
 		public override int BaseFireResistance => 5;

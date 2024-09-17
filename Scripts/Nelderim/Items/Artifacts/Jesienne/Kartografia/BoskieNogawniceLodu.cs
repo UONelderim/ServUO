@@ -2,8 +2,8 @@ namespace Server.Items
 {
 	public class BoskieNogawniceLodu : RingmailLegs
 	{
-		public override int InitMinHits { get { return 60; } }
-		public override int InitMaxHits { get { return 60; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 		public override int BaseFireResistance { get { return 10; } }
 		public override int BaseColdResistance { get { return 30; } }
 		public override int BasePhysicalResistance { get { return 5; } }

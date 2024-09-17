@@ -3,8 +3,8 @@
 	public class PocalunekBoginii : SilverRing
 	{
 		public override int LabelNumber { get { return 1065747; } } // Pocalunek Boginii
-		public override int InitMinHits { get { return 60; } }
-		public override int InitMaxHits { get { return 60; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		[Constructable]
 		public PocalunekBoginii()

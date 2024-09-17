@@ -3,8 +3,8 @@
 	public class SpodnieOswiecenia : LeafLegs
 	{
 		public override int LabelNumber { get { return 1065783; } } // Spodnie Oswiecenia
-		public override int InitMinHits { get { return 50; } }
-		public override int InitMaxHits { get { return 50; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		public override int BaseFireResistance { get { return 9; } }
 		public override int BasePoisonResistance { get { return 12; } }

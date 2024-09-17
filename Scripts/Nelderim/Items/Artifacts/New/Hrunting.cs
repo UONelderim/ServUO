@@ -3,8 +3,8 @@
 	public class Hrunting : VikingSword
 	{
 		public override int LabelNumber { get { return 1065770; } } // Hrunting
-		public override int InitMinHits { get { return 60; } }
-		public override int InitMaxHits { get { return 60; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		[Constructable]
 		public Hrunting()

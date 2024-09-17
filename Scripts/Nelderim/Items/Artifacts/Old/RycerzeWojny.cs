@@ -3,8 +3,8 @@ namespace Server.Items
 	public class RycerzeWojny : BronzeShield
 	{
 		public override int LabelNumber { get { return 1065816; } } // Rycerze Wojny
-		public override int InitMinHits { get { return 60; } }
-		public override int InitMaxHits { get { return 60; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		public override int BasePhysicalResistance { get { return 6; } }
 		public override int BaseFireResistance { get { return 4; } }

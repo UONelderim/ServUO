@@ -3,9 +3,8 @@
 	public class MieczeAmrIbnLuhajj : Daisho
 	{
 		public override int LabelNumber => 1065795; // Miecze Amr Ibn Luhajj
-		public override int InitMinHits => 60;
-		public override int InitMaxHits => 60;
-
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 		[Constructable]
 		public MieczeAmrIbnLuhajj()
 		{

@@ -5,8 +5,8 @@ namespace Server.Items
 		public override SpellbookType SpellbookType { get { return SpellbookType.Regular; } }
 
 		public override int LabelNumber { get { return 1065804; } } // Arkana Zywiolow
-		public override int InitMinHits { get { return 50; } }
-		public override int InitMaxHits { get { return 50; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		[Constructable]
 		public ArkanaZywiolow()

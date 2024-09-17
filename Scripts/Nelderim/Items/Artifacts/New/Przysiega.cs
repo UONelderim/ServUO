@@ -3,8 +3,8 @@
 	public class Przysiega : PlateChest
 	{
 		public override int LabelNumber { get { return 1065763; } } // Przysiega
-		public override int InitMinHits { get { return 60; } }
-		public override int InitMaxHits { get { return 60; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		public override int BasePhysicalResistance { get { return 8; } }
 		public override int BaseFireResistance { get { return 12; } }

@@ -3,8 +3,8 @@
 	public class PiecioMiloweSandaly : Sandals
 	{
 		public override int LabelNumber { get { return 1065740; } } // Pieciomilowe Sandaly
-		public override int InitMinHits { get { return 50; } }
-		public override int InitMaxHits { get { return 50; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		public override int BasePhysicalResistance { get { return 2; } }
 
