@@ -2,8 +2,8 @@ namespace Server.Items
 {
 	public class StudniaOdnowy : GoldRing
 	{
-		public override int InitMinHits { get { return 45; } }
-		public override int InitMaxHits { get { return 45; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		[Constructable]
 		public StudniaOdnowy()

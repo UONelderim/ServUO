@@ -3,8 +3,8 @@
 	public class PrzysiegaTriamPergi : WoodlandBelt
 	{
 		public override int LabelNumber { get { return 1065741; } } // Przysiega Triam Pergi
-		public override int InitMinHits { get { return 50; } }
-		public override int InitMaxHits { get { return 50; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		[Constructable]
 		public PrzysiegaTriamPergi()

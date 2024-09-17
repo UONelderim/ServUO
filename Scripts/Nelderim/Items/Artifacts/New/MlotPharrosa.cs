@@ -3,8 +3,8 @@
 	public class MlotPharrosa : HammerPick
 	{
 		public override int LabelNumber { get { return 1065749; } } // Mlot Pharrosa
-		public override int InitMinHits { get { return 60; } }
-		public override int InitMaxHits { get { return 60; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		[Constructable]
 		public MlotPharrosa()

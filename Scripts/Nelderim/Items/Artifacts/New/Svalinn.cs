@@ -3,8 +3,8 @@
 	public class Svalinn : Buckler
 	{
 		public override int LabelNumber { get { return 1065851; } } // Svalinn
-		public override int InitMinHits { get { return 50; } }
-		public override int InitMaxHits { get { return 50; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		[Constructable]
 		public Svalinn()

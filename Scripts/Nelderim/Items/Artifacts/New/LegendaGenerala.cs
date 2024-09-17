@@ -3,8 +3,8 @@
 	public class LegendaGenerala : GoldBracelet
 	{
 		public override int LabelNumber { get { return 1065754; } } // Legenda Generala
-		public override int InitMinHits { get { return 45; } }
-		public override int InitMaxHits { get { return 45; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		[Constructable]
 		public LegendaGenerala()

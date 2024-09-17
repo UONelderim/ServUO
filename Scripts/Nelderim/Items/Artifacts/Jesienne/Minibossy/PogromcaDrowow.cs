@@ -2,8 +2,8 @@ namespace Server.Items
 {
 	public class PogromcaDrowow : RepeatingCrossbow
 	{
-		public override int InitMinHits { get { return 60; } }
-		public override int InitMaxHits { get { return 60; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		[Constructable]
 		public PogromcaDrowow()

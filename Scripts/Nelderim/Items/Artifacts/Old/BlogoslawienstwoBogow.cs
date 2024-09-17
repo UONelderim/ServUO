@@ -3,8 +3,8 @@ namespace Server.Items
 	public class BlogoslawienstwoBogow : GoldBracelet
 	{
 		public override int LabelNumber { get { return 1065806; } } // Blogoslawienstwo Bogow
-		public override int InitMinHits { get { return 45; } }
-		public override int InitMaxHits { get { return 45; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		[Constructable]
 		public BlogoslawienstwoBogow()

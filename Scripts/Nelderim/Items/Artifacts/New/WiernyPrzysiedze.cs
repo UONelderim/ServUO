@@ -3,8 +3,8 @@
 	public class WiernyPrzysiedze : PlateGorget
 	{
 		public override int LabelNumber { get { return 1065762; } } // Wierny Przysiedze
-		public override int InitMinHits { get { return 50; } }
-		public override int InitMaxHits { get { return 50; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		public override int BaseColdResistance { get { return 8; } }
 		public override int BaseEnergyResistance { get { return 8; } }

@@ -3,8 +3,8 @@ namespace Server.Items
 	public class ArmsOfToxicity : LeafArms
 	{
 		public override int ArtifactRarity { get { return 15; } }
-		public override int InitMinHits { get { return 60; } }
-		public override int InitMaxHits { get { return 60; } }
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 
 		public override int BaseColdResistance { get { return 6; } }
