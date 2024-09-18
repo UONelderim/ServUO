@@ -343,7 +343,7 @@ namespace Server.Items
                 case ChestQuality.Gold: baseAmount = Utility.RandomList(1, 2, 3); break;  //bylo (7, 9, 11)
             }
 
-            return baseAmount + ((int)level * 5);
+            return baseAmount + ((int)level * 1); //bylo 5
         }
 
         public static int GetGoldCount(TreasureLevel level)
