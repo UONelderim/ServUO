@@ -9,7 +9,7 @@ namespace Server.Engines.Quests
 			//Won't offer if have any special skill quest in progress
 			if (Owner.Quests
 			    .Where(s => GetType().IsSubclassOf(typeof(BaseSpecialSkillQuest)))
-			    .All(q => q.Completed || q.Failed))
+			    .Any(q => !q.Completed || !q.Failed))
 			{
 				return false;
 			}
