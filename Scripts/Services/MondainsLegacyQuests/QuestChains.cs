@@ -1,5 +1,7 @@
 #region References
 using System;
+using System.Collections.Generic;
+
 #endregion
 
 namespace Server.Engines.Quests
@@ -57,7 +59,7 @@ namespace Server.Engines.Quests
 
         static BaseChain()
         {
-            Chains = new Type[30][];
+            Chains = new Type[40][];
 
             Chains[(int)QuestChain.None] = new Type[] { };
 
