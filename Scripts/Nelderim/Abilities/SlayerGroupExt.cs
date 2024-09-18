@@ -32,7 +32,7 @@ namespace Server.Items
 			AddEntryTypes(elemental, SlayerName.EarthShatter, typeof(AgapiteColossus), typeof(BronzeColossus),
 				typeof(BronzeColossus), typeof(DullCopperColossus), typeof(GoldenColossus), typeof(ShadowIronColossus),
 				typeof(ValoriteColossus), typeof(VeriteColossus));
-			AddEntryTypes(undead, SlayerName.Exorcism, 
+			AddEntryTypes(abyss, SlayerName.Exorcism, 
 				typeof(LesserArcaneDaemon), 
 				typeof(xCommonArcaneDaemon), 
 				typeof(GreaterArcaneDaemon), 
