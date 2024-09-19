@@ -901,7 +901,7 @@ namespace Server.Mobiles
 					}
 					else if (disp is Mobile)
 					{
-						opls.Add(((Mobile)disp).NGetPropertyList(null));
+						opls.Add(((Mobile)disp).NGetPropertyList(this));
 					}
 				}
 			}
