@@ -23,8 +23,6 @@ public class NelderimRegion : IComparable<NelderimRegion>
     [JsonInclude] private Dictionary<string, double> Intolerance { get; set; } 
     [JsonInclude] private Dictionary<GuardType, NelderimRegionGuard> Guards { get; set; }
     [JsonInclude] private Dictionary<CraftResource, double> Resources { get; set; }
-    [JsonInclude] private string DifficultyPreset { get; set; }
-    [JsonInclude] private Dictionary<DifficultyLevelValue, double> DifficultyLevel { get; set; }
     [JsonInclude] private string Faction { get; set; }
     [JsonInclude] private bool? AllowPvp { get; set; }
 
@@ -237,29 +235,6 @@ public class NelderimRegion : IComparable<NelderimRegion>
             return parentResult;
         }
         return new Dictionary<CraftResource, double>();
-    }
-    
-    public Dictionary<DifficultyLevelValue, double> DifficultyLevelWeights()
-    {
-	    if (DifficultyLevel is { Count: > 0 })
-	    {
-		    return DifficultyLevel;
-	    }
-	    if(DifficultyPreset != null)
-	    {
-		    var preset = DifficultyPresets.Get(DifficultyPreset);
-		    if (preset != null)
-		    {
-			    return preset;
-		    }
-	    }
-
-	    var parentResult = Parent?.DifficultyLevelWeights();
-	    if (parentResult != null)
-	    {
-		    return parentResult;
-	    }
-	    return new Dictionary<DifficultyLevelValue, double>();
     }
     
     protected bool Equals(NelderimRegion other)

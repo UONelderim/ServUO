@@ -25,7 +25,6 @@ namespace Server.Nelderim
         public static void Configure()
         {
 	        Load();
-	        EventSink.MobileCreated += OnCreate;
         }
 
         public static void Initialize()
@@ -70,20 +69,6 @@ namespace Server.Nelderim
 	        if (m.Race != Race.DefaultRace) return;
 	        
 	        InitMobile(m);
-        }
-
-        private static void OnCreate(MobileCreatedEventArgs e)
-        {
-        	var m = e.Mobile;
-
-        	if (m is BaseCreature { Tamable: false } bc)
-        	{
-        		var r = GetRegion(m.Region.Name);
-        		if (r != null && r.DifficultyLevelWeights().Count != 0 && bc.DifficultyLevel == DifficultyLevelValue.Normal)
-        		{
-        			bc.DifficultyLevel = Utility.RandomWeigthed(r.DifficultyLevelWeights());
-        		}
-        	}
         }
         
         public static NelderimRegion GetRegion(string regionName)

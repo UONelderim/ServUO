@@ -1,7 +1,4 @@
 {
-  "default": {
-    "normal": 100
-  },
   "veryeasy": {
     "veryweak": 80,
     "weak": 10,
@@ -48,5 +45,8 @@
     "greater": 35,
     "strong": 10,
     "verystrong": 5
+  },
+  "oldhaven": {
+    "veryweak": 100
   }
 }
