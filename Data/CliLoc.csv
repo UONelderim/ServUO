@@ -30861,13 +30861,13 @@ Number;Text
 1054030;Otrzymales cnote Mestwa! 
 1054031;Nie jestes godnym przeciwnikiem, by wyzwac tego wladce! 
 1054032;Twoje mestwo wzroslo o wiele bardziej niz zwykle 
-1054033;Valor is the courage to take actions in support of one's convictions. You gain in Valor by slaying creatures spawned in regions controlled by Champions of Evil. 
-1054034;Ktorego czempiona chcialbys wyzwac na pojedynek? Wskaz go prosze: 
-1054035;You must target a Champion Idol to challenge the Champion's spawn! 
-1054036;You must be a Knight of Valor to summon the champion's spawn in this manner! 
-1054037;Your challenge is heard by the Champion of this region! Beware its wrath! 
-1054038;The Champion of this region has already been challenged! 
-1054039;The Champion of this region ignores your challenge. You must further prove your valor. 
+1054033; Walecznosc to odwaga do podejmowania dzialan wspierajacych wlasne przekonania. Zyskujesz walecznosc, zabijajac stwory pojawiajace sie w regionach kontrolowanych przez Czempionow Zla.  
+1054034; Ktorego czempiona chcialbys wyzwac na pojedynek? Wskaz go prosze:  
+1054035; Musisz wycelowac w Idol Czempiona, aby wyzwac Czempiona na pojedynek!  
+1054036; Musisz byc Rycerzem Walecznosci, aby w ten sposob przywolac stwory czempiona!  
+1054037; Twoje wyzwanie zostalo uslyszane przez Czempiona tego regionu! Strzez sie jego gniewu!  
+1054038; Czempion tego regionu zostal juz wyzwany!  
+1054039; Czempion tego regionu ignoruje twoje wyzwanie. Musisz bardziej udowodnic swoja walecznosc.
 1054040;Straciles troche Mestwa. 
 1054041;Badania mrowczego gniazda 
 1054042;<I>Przyrodnik odrywa spojrzenie od swoich zapiskow i skupia pelen nadziei wzrok na Tobie.</I><BR><BR>Hmm...tak...przepraszam. Zastanawialem sie wlasnie czy bylbys w stanie mi pomoc. Bo widzisz, jestem znanym przyrodnikiem - dzentelmenem i naukowcem, zajmujacym sie glownie badaniem owadow i pajeczakow. Napisalem kilka interesujacych ksiag opisujacych cudowna rase Thretanow i ich niesamowita kulture. Ostatnio slyszalem plotki o czyms, co moze byc nieslychanie waznym odkryciem!<BR><BR>Najwyrazniej na swiecie pojawila sie nieznanego pochodzenia rasa mrowkopodobnych istot! Dasz wiare?! Zaprawde zyjemy w niesamowitych czasach! Dla naukowca takiego jak Ja to naprawde wyjatkowa okazja!<BR><BR>Mimo, ze jestem geniuszem w swojej dziedzinie, wyjatkowo bieglym w sztuce pisma z niechecia przyznaje, ze nie jestem typem lowcy przygod. Mimo, ze pomagano mi juz wczesniej nadal pozostalo wiele niewyjasnionych zagadnien.<BR><BR>Jestem szczegolnie zainteresowany zawistnie bronionymi przez robotnice mrowczymi wylegarniami. Jesli zgodzisz sie mi pomoc, poprosze Cie o zapuszczenie sie w glab gniazda mrowek i przebadanie wszystkich znajdujacych sie tam mrowczych wylegarni. W kazdej z nich bedziesz musial spedzic troche czasu na badaniach i obserwacji, co pozwoli na zebranie potrzebnych mi danych. Kiedy skonczysz zglos sie do mnie a ja wynagrodze Cie za twoj zacny uczynek.<BR><BR>Czy zgodzisz sie mi pomoc? 
@@ -43037,10 +43037,10 @@ Number;Text
 1072148;Invading forces destroyed ~1_val~ times. 
 1072149;Benefactor of Britain 
 1072150;Dedicated Spring of 2005 
-1072151;narzedzie do grawerowania w ksiegach czarow 
-1072152;narzedzie do grawerowania na skorzanych pojemnikach 
-1072153;narzedzie do grawerowania na drewnianych pojemnikach 
-1072154;narzedzie do grawerowania na metalowych pojemnikach 
+1072151;grawer do ksiag
+1072152;grawer do skorzanych pojemnikow
+1072153;grawer do drewnianych pojemnikow
+1072154;grawer do metalowych pojemnikow 
 1072155;Shimmering Effusion Statue 
 1072156;Fetid Essence Statue 
 1072157;Mantra Effervescence 
@@ -43826,7 +43826,7 @@ Number;Text
 1072937;Wisior Trzech Kroli 
 1072938;Missing Package 
 1072939;Lost in Transit 
-1072940;scrapper's compendium 
+1072940;Kompendium Wszelkiej Wiedzy 
 1072941;Mikstura niewidzialnosci
 1072942;pasozytnicza 
 1072943;ciemnej poswiaty 
@@ -82536,7 +82536,7 @@ Number;Text
 1125823;gargish skull gnarled staff 
 1125824;gargish skull gnarled staff 
 1125825;naszyjnik osmiornicy 
-1125826;gargish octopus necklace 
+1125826;gargulcowy naszyjnik osmiornicy 
 1125827;floor 
 1125828;floor 
 1125829;floor 
@@ -115630,7 +115630,7 @@ Number;Text
 1159016;Slider Trap Training Kit 
 1159017;A Cylinder Trap 
 1159018;~1_type~ naszyjnik osmiornicy
-1159019;~1_type~ gargish octopus necklace 
+1159019;~1_type~ gargulcowy naszyjnij osmiornicy 
 1159020;Skull Tiled Floor 
 1159021;You breathe a sigh of relief as the the contents of the chest remain unscathed! 
 1159022;Cartography Bonus +~1_val~ 
