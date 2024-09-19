@@ -144,6 +144,11 @@ namespace Server.Mobiles
 			int version = reader.ReadInt();
 			_SpecialSkills = (NSpecialSkill)reader.ReadInt();
 		}
+		
+		public override string ToString()
+		{
+			return "...";
+		}
 	}
 
 	class PlayerSpeciallSkillsExt : NExtension<PlayerSpeciallSkillsExtInfo>
@@ -164,7 +169,7 @@ namespace Server.Mobiles
 
 	class PlayerSpeciallSkillsExtInfo : NExtensionInfo
 	{
-		public SpecialSkills SpecialSkills { get; set; }
+		public SpecialSkills SpecialSkills { get; set; } = new();
 
 		public override void Serialize(GenericWriter writer)
 		{
