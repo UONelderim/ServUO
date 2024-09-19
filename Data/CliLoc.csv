@@ -2085,55 +2085,61 @@ Number;Text
 502082;You will not be asked again about this poll. 
 502083;You will be given the chance to vote the next time you log in. 
 502084;Opening web browser for more details on Siege Perilous... 
-502085;You have chosen to renounce your `Young' player status. 
-502086;You have chosen not to renounce your `Young' player status. 
-502087;You have been ejected from this house! 
-502088;A special gift has been placed in your backpack. 
-502089;You cannot be a member of the Thieves' Guild while you are Young. 
-502090;Click on the player whom you wish to honor. 
-502091;Your words fall silently to the floor. 
-502092;You must be in your house to do this. 
-502093;Your words fall silently to the floor. 
-502094;You must be in your house to do this. 
-502095;You must be in your house to do this. 
-502096;You must own the house to do this. 
-502097;Co chcesz zablokowac? 
-502098;You must be in your house to do this. 
-502099;You must own the house to do this. 
-502100;Wskaz przedmiot do odblokowania: 
-502101;You must be in your house to do this. 
-502102;You must own the house to do this. 
-502103;Wskaz przedmiot do zabezpieczenia: 
-502104;You must be in your house to do this. 
-502105;You must own the house to do this. 
-502106;Wskaz przedmiot do odbezpieczenia: 
-502107;You must be in your house to do this. 
-502108;You are not a co-owner of this hosue. 
-502109;Owners do not get a strongbox of their own. 
-502110;You cannot place a strong box there! 
-502111;This is not a valid location. 
-502112;You already have a strongbox! 
-502113;You cannot place a strongbox near a door or near steps. 
-502114;You have a new strongbox. Only you and the houseowner may access this box.  You may place up to 25 items in the strongbox 
-502115;You must be in your house to do this. 
-502116;You must own the house to do this. 
-502117;Masz juz kosz na smieci! 
-502118;Nie mozesz tutaj postawic kosza. 
-502119;This is not a valid location. 
-502120;Nie mozesz postawic kosza na smieci tak blisko drzwi lub schodow. 
-502121;Postawiles kosz na smieci. Trzy minuty po wrzucenia do niego przedmiotu, kosz zostanie oprozniony. Oproznianie jest nieodwracalne! 
-502122;Fear not, thou hast not slain the innocent. 
-502123;Thou art known throughout the land as a murderous brigand. 
-502124;Fear not, thou hast not slain the innocent in some time... 
-502125;Although thou hast slain the innocent, thy deeds shall not bring retribution upon thy return to the living. 
-502126;If thou should return to the land of the living, the innocent shall wreak havoc upon thy soul. 
-502127;You can only honor players. 
-502128;You flatter yourself. 
-502129;no grant occurs--you are at less than 50 karma 
-502130;You are no longer qualified to be a member of your guild. 
-502131;Guild message: Your guild has been disbanded! 
-502132;It would not be wise to place a bounty in this land, but you report the knave for murderer anyway. 
-502133;You have been suspended by the Thieves Guild. 
+502079; Instrument zagral swoja ostatnia melodie.  
+502080; Dziekujemy za udzial. Twoje opinie sa dla nas wazne.  
+502081; Dziekujemy za udzial. Twoje opinie sa dla nas wazne.  
+502082; Nie zostaniesz juz zapytany o te ankiete.  
+502083; Otrzymasz mozliwosc glosowania przy nastepnym logowaniu.  
+502084; Otwieranie przegladarki internetowej w celu uzyskania wiecej informacji o Siege Perilous...  
+502085; Wybrales rezygnacje ze statusu 'Mlodego' gracza.  
+502086; Wybrales, ze nie rezygnujesz ze statusu 'Mlodego' gracza.  
+502087; Zostales wyrzucony z tego domu!  
+502088; Specjalny prezent zostal umieszczony w twoim plecaku.  
+502089; Nie mozesz byc czlonkiem Gildii Zlodziei, bedac Mlodym graczem.  
+502090; Kliknij na gracza, ktorego chcesz uhonorowac.  
+502091; Twoje slowa spadaja cicho na podloge.  
+502092; Musisz byc w swoim domu, aby to zrobic.  
+502093; Twoje slowa spadaja cicho na podloge.  
+502094; Musisz byc w swoim domu, aby to zrobic.  
+502095; Musisz byc w swoim domu, aby to zrobic.  
+502096; Musisz byc wlascicielem domu, aby to zrobic.  
+502097; Co chcesz zablokowac?  
+502098; Musisz byc w swoim domu, aby to zrobic.  
+502099; Musisz byc wlascicielem domu, aby to zrobic.  
+502100; Wskaz przedmiot do odblokowania:  
+502101; Musisz byc w swoim domu, aby to zrobic.  
+502102; Musisz byc wlascicielem domu, aby to zrobic.  
+502103; Wskaz przedmiot do zabezpieczenia:  
+502104; Musisz byc w swoim domu, aby to zrobic.  
+502105; Musisz byc wlascicielem domu, aby to zrobic.  
+502106; Wskaz przedmiot do odbezpieczenia:  
+502107; Musisz byc w swoim domu, aby to zrobic.  
+502108; Nie jestes wspolwlascicielem tego domu.  
+502109; Wlasciciele nie dostaja wlasnej skrzyni na skarby.  
+502110; Nie mozesz umiescic tutaj skrzyni na skarby!  
+502111; To nie jest prawidlowa lokalizacja.  
+502112; Juz masz skrzynie na skarby!  
+502113; Nie mozesz postawic skrzyni na skarby blisko drzwi ani schodow.  
+502114; Masz nowa skrzynie na skarby. Tylko ty i wlasciciel domu macie do niej dostep. Mozesz umiescic w niej do 25 przedmiotow.  
+502115; Musisz byc w swoim domu, aby to zrobic.  
+502116; Musisz byc wlascicielem domu, aby to zrobic.  
+502117; Masz juz kosz na smieci!  
+502118; Nie mozesz tutaj postawic kosza.  
+502119; To nie jest prawidlowa lokalizacja.  
+502120; Nie mozesz postawic kosza na smieci tak blisko drzwi lub schodow.  
+502121; Postawiles kosz na smieci. Trzy minuty po wrzuceniu do niego przedmiotu, kosz zostanie oprozniony. Oproznianie jest nieodwracalne!  
+502122; Nie lekaj sie, nie zabiles niewinnych.  
+502123; Jestes znany w calej krainie jako morderczy rozbojnik.  
+502124; Nie lekaj sie, nie zabiles niewinnych od jakiegos czasu...  
+502125; Chociaz zabiles niewinnych, twoje czyny nie sprowadza zemsty po twoim powrocie do zywych.  
+502126; Jesli wrocisz do krainy zywych, niewinni beda siac spustoszenie na twojej duszy.  
+502127; Mozesz honorowac tylko graczy.  
+502128; Pochlebiasz sobie.  
+502129; Nie przyznano nagrody -- masz mniej niz 50 karmy.  
+502130; Nie kwalifikujesz sie juz do bycia czlonkiem swojej gildii.  
+502131; Wiadomosc gildii: Twoja gildia zostala rozwiazana!  
+502132; Nie byloby madre ustanowic nagrody w tej krainie, ale mimo to zglaszasz lotra za morderstwo.  
+502133; Zostales zawieszony przez Gildie Zlodziei.
 502134;Zgloszono cie na morderce! 
 502135;You now own the house that you claimed! 
 502136;Trucizna skonczyla dzialac. 
@@ -8954,7 +8960,7 @@ Number;Text
 1018027;Typ twojej gildii zmienil sie na: 
 1018028;Nie jestes juz czlonkiem gildii 
 1018029;Wpisz nowa nazwe gildii (do 40 liter): 
-1018030;Warning: monsters may attack you on site down here in the dungeons! 
+1018030;Uwaga! W tym obszarze potwory moga Cie zaatakowac 
 1018031;Ze wzgledu na stabilnosc systemu, ta frakcja nie przyjmuje wiekszej liczby czlonkow. 
 1018032;Ten dom jest odpowiednio wybudowany. 
 1018033;Ten dom jest nieodpowiednio wybudowany. 
@@ -29249,14 +29255,14 @@ Number;Text
 1046284;Bandages are very cost-effective. Of course, you could also drink a healing potion (yellow) to heal your damage. 
 1046285;Potions, however, can be costly and require a free hand to drink.  Purchasing any of these items is easy. 
 1046286;Simply walk up to the appropriate vendor and say the words 'Vendor Buy', or use the vendor's context menu. 
-1046287;You have died. 
-1046288;As a ghost you cannot interact with the world. You cannot touch items nor can you use them. 
-1046289;You can pass through doors as though they do not exist.  However, you cannot pass through walls. 
-1046290;No one can understand what you say whilst you are dead, unless they are using the 'Rozmowa z Duchami' skill to understand your words. 
-1046291;Since you are a new player, any items you had on your person at the time of your death will be in your backpack upon resurrection. 
-1046292;To be resurrected you must find a healer in town or wandering in the wilderness.  Some powerful players may also be able to resurrect you. 
-1046293;While you are still in young status, you will be transported to the nearest healer (along with your items) at the time of your death. 
-1046294;To rejoin the world of the living simply walk near one of the NPC healers, and they will resurrect you as long as you are not marked as a criminal. 
+1046287;Umarles. Szaryyy swiaaaat.... 
+1046288;Jako duch nie mozesz wchodzic w interakcje ze swiatem. Nie mozesz dotykac przedmiotow ani ich uzywac.  
+1046289;Mozesz przechodzic przez drzwi, jakby nie istnialy. Jednak nie mozesz przechodzic przez sciany.  
+1046290;Nikt nie zrozumie, co mowisz, gdy jestes martwy, chyba ze uzywaja umiejetnosci 'Rozmowa z Duchami', aby zrozumiec twoje slowa.  
+1046291;Poniewaz jestes nowym graczem, wszystkie przedmioty, ktore miales przy sobie w momencie smierci, beda w twoim plecaku po wskrzeszeniu.  
+1046292;Aby zostac wskrzeszonym, musisz znalezc uzdrowiciela w miescie lub wedrujacego po dziczy. Niektorzy potezni gracze moga rowniez byc w stanie cie wskrzesic.  
+1046293;Dopoki jestes w statusie mlodego gracza, po smierci zostaniesz przeniesiony do najblizszego uzdrowiciela (razem z twoimi przedmiotami).  
+1046294;Aby powrocic do swiata zywych, po prostu podejdz do jednego z uzdrowicieli NPC, a oni cie wskrzesza, o ile nie jestes oznaczony jako przestepca.  
 1046295;Wybierz ksiazke do skopiowania. 
 1046296;To nie jest ksiazka 
 1046297;You may not loot this mongbat. Find the one that took your gold. 
