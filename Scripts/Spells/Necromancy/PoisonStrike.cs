@@ -3,6 +3,7 @@ using Server.Mobiles;
 using Server.Spells.SkillMasteries;
 using Server.Targeting;
 using System;
+using Nelderim.Configuration;
 
 namespace Server.Spells.Necromancy
 {
@@ -21,7 +22,7 @@ namespace Server.Spells.Necromancy
 
         public override DamageType SpellDamageType => DamageType.SpellAOE;
 
-        public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(2.0);
+        public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(NConfig.ReducedCastDelay ? 1.75 : 2.0);
         public override double RequiredSkill => 50.0;
         public override int RequiredMana => 17;
         public override bool DelayedDamage => false;

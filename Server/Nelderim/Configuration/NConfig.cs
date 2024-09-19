@@ -21,5 +21,6 @@ namespace Nelderim.Configuration
 		public static bool CustomInsuranceCost => Get("Nelderim.CustomInsuranceCost", true);
 		public static double BloodyBandageChance => Get("Nelderim.BloodyBandageChance", 0.75);
 		public static bool BetterAI => Get("Nelderim.BetterAI", true);
+		public static bool ReducedCastDelay => Get("Nelderim.ReducedCastDelay", true);
 	}
 }
