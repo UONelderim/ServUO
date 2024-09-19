@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
+using Nelderim;
 using Server.Items;
 using Server.Mobiles;
 using Server.Spells;
@@ -22,6 +23,7 @@ public class NelderimRegion : IComparable<NelderimRegion>
     [JsonInclude] private Dictionary<string, double> Intolerance { get; set; } 
     [JsonInclude] private Dictionary<GuardType, NelderimRegionGuard> Guards { get; set; }
     [JsonInclude] private Dictionary<CraftResource, double> Resources { get; set; }
+    [JsonInclude] private string DifficultyPreset { get; set; }
     [JsonInclude] private Dictionary<DifficultyLevelValue, double> DifficultyLevel { get; set; }
     [JsonInclude] private string Faction { get; set; }
     [JsonInclude] private bool? AllowPvp { get; set; }
@@ -242,6 +244,14 @@ public class NelderimRegion : IComparable<NelderimRegion>
 	    if (DifficultyLevel is { Count: > 0 })
 	    {
 		    return DifficultyLevel;
+	    }
+	    if(DifficultyPreset != null)
+	    {
+		    var preset = DifficultyPresets.Get(DifficultyPreset);
+		    if (preset != null)
+		    {
+			    return preset;
+		    }
 	    }
 
 	    var parentResult = Parent?.DifficultyLevelWeights();

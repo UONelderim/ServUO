@@ -4,6 +4,7 @@ using System.IO;
 using Server.Mobiles;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Server.Commands;
 
 namespace Server.Nelderim
 {
@@ -29,6 +30,7 @@ namespace Server.Nelderim
 
         public static void Initialize()
         {
+	        CommandSystem.Register("NRSLoad", AccessLevel.Administrator, e => Load());
             RumorsSystem.Load();
         }
 

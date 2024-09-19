@@ -1,0 +1,52 @@
+{
+  "default": {
+    "normal": 100
+  },
+  "veryeasy": {
+    "veryweak": 80,
+    "weak": 10,
+    "lesser": 10
+  },
+  "easy": {
+    "veryweak": 40,
+    "weak": 30,
+    "lesser": 15,
+    "normal": 10,
+    "greater": 5
+  },
+  "medium": {
+    "veryweak": 10,
+    "weak": 20,
+    "lesser": 30,
+    "normal": 30,
+    "greater": 10
+  },
+  "medium+": {
+    "veryweak": 10,
+    "weak": 20,
+    "lesser": 30,
+    "normal": 25,
+    "greater": 10,
+    "strong": 5
+  },
+  "hard": {
+    "weak": 5,
+    "lesser": 15,
+    "normal": 60,
+    "greater": 15,
+    "strong": 5
+  },
+  "hard+": {
+    "lesser": 5,
+    "normal": 55,
+    "greater": 25,
+    "strong": 14,
+    "verystrong": 1
+  },
+  "veryhard": {
+    "normal": 50,
+    "greater": 35,
+    "strong": 10,
+    "verystrong": 5
+  }
+}
