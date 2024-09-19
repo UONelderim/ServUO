@@ -71024,7 +71024,7 @@ Number;Text
 1114311;Ubezpieczony 
 1114312;You cannot imbue faction items. 
 1114313;Endless Journey accounts may not participate in custom channels. 
-1114314;You are too young to get a gift. 
+1114314;Jestes zbyt mlody, by otrzymac ten prezent.  
 1114315;You can only combine runes of the same type and material. 
 1114316;You cannot combine Vas runes. 
 1114317;The runes meld together. 
@@ -71043,7 +71043,7 @@ Number;Text
 1114330;Some void essences have been placed in your backpack. 
 1114331;Some silver serpent venom has been placed in your backpack. 
 1114332;Some Medusa blood has been placed in your backpack. 
-1114333;You must be young to have this item recharged. 
+1114333;Musisz byc mlody, by zregenerowac ten przedmiot. 
 1114334;You should only use water on this! 
 1114335;You fill the container. 
 1114336;The control device has been overloaded. Shutdown is impossible. 
@@ -71056,85 +71056,85 @@ Number;Text
 1114343;A copy of the book 'The Shattering' has been added to your bank box. 
 1114344;Tried to put a copy of the book 'The Shattering' into your bank box, but there was no room. 
 1114345;Zeby to zrobic, pewnie musialbys wytatuowac sobie mape wiezienia na calym ciele. A skoro jej nie masz, to siedz  grzecznie i czekaj na koniec swojej kary! 
-1114346;You must complete your current quest before going to Haven. 
-1114347;Invalid level selected for your house. 
-1114348;You are already at the max level of your house. 
-1114349;You are already at the ground level of your house. 
-1114350;This house is being traded. Please wait. 
-1114351;Some gossamer has been placed in your backpack. 
-1114352;You cannot steal the sigil while disguised in savage paint. 
-1114353;You cannot steal the sigil while carrying the plague! 
-1114354;The required time has not passed to steal the sigil! 
-1114355;You are still missing ~1_ETCHING~ etchings. 
-1114356;You are missing ~1_GOSSAMER~ gossamers to complete your web. 
-1114357;You must make room in your backpack before painting. 
-1114358;Having no further use for the paints, you decide to throw them away. 
-1114359;Your attack has no effect on the creature's armor. 
-1114360;Your weapon cannot penetrate the creature's magical barrier. 
-1114361;Thank you for purchasing Ultima Online: Age of Shadows! A mini-house deed has been added to your bank. 
-1114362;You charm the snake.  Select a target to attack. 
-1114363;Select the pet that you wish to dye. 
-1114364;This is not a living creature. 
-1114365;I don't think that player would appreciate that. Good try though. 
-1114366;This is not a tame creature. 
-1114367;You cannot dye dead pets. 
-1114368;To nie twoje zwierze! 
-1114369;This seed has already been identified. 
-1114370;Short Term Murders: ~1_SHORT~ Long Term Murders: ~2_LONG~ 
-1114371;You may not honor someone whose karma is locked. 
-1114372;This looks like part of a larger contraption. 
-1114373;Please select the pet that you wish to freshen up! 
-1114374;Love that new Pet smell err look. 
-1114375;That is not your pet. You can only freshen up your own pet. 
-1114376;You can't throw snowballs while riding or flying. 
-1114377;Rations and Grobu's Furs must be submitted in stacks of 1, 10, or 100. 
-1114378;Ropes, Wires and Brightly Colored Eggs must be submitted in stacks of 1, 10, or 100. 
-1114379;Easter Eggs & Halloween Candy must be submitted in stacks of 1, 10, or 100. 
-1114380;Vet Rewards have been added to your bank. 
-1114381;Unable to add vet rewards to the bank. 
-1114382;Unable to place ammo in your bank. 
-1114383;Unable to place potion bag in your bank. 
-1114384;Unable to place Treasure Maps in your bank. 
-1114385;Unable to place tool bag in your bank. 
-1114386;Unable to place runic tool bag in your bank. 
-1114387;Unable to place reagents in your bank. 
-1114388;Unable to place reagents in your bank. 
-1114389;Unable to place raw materials bag in your bank. 
-1114390;Unable to put elven materials in your bank. 
-1114391;Unable to put imbuing materials in your bank. 
-1114392;Unable to place wood in your bank. 
-1114393;Armor sets added to bank. 
-1114394;Unable to add armor sets to bank. 
-1114395;Unable to place elven recipes in your bank. 
-1114396;Artifacts added to your bank. 
-1114397;Unable to add armor sets to bank. 
-1114398;Unable to place Ethy's in your bank. 
-1114399;A bag of plant spawners has been created at your feet. 
-1114400;A bag of plant spawners has been placed in your backpack. 
-1114401;A box of seeds has been placed into your bank box. 
-1114402;Unable to place Seed Box in your bank. 
-1114403;You have already buffed yourself. 
-1114404;You have successfully buffed your mage Skills and stats. Items are in your inventory. 
-1114405;You have successfully buffed your warrior skills and stats. Items are in your inventory. 
-1114406;A bag of crafting resource spawners has been created. 
-1114407;A bag of crafting resource spawners has been placed in your backpack. 
-1114408;You have successfully adjusted your ~1_SKILL~ skill. 
-1114409;Resources have been added to your bank. 
-1114410;Unable to place resources in your bank. 
-1114411;A token to test your own Personal Attendants has been carefully placed in your bank box. 
-1114412;I'm going to give you ~1_VALUE~ tickets. 
-1114413;This text has been added to this town crier: 
-1114414;This text has been added to all town criers: 
-1114415;The name of the destination is now: ~1_TILENAME~ 
-1114416;You must have a digging tool to dig for treasure. 
-1114417;You seem to have the wrong number of items. 
-1114418;Congratulations! Your submission has been entered! <3 
-1114419;Sorry! This box is now full! 
-1114420;You have lost some Compassion. 
-1114421;Your resurrectons through Sacrifice have been reset. 
-1114422;You are already asking a young player to be your squire. 
-1114423;A holiday statue has been placed in your backpack. 
-1114424;Your squire has renounced young player status. 
+1114346; Musisz ukonczyc obecne zadanie, zanim udasz sie do Przystani.  
+1114347; Wybrano nieprawidlowy poziom dla twojego domu.  
+1114348; Osiagnales juz maksymalny poziom swojego domu.  
+1114349; Jestes juz na poziomie gruntu swojego domu.  
+1114350; Ten dom jest w trakcie wymiany. Prosze czekac.  
+1114351; Kilka pajeczych nici zostalo umieszczonych w twoim plecaku.  
+1114352; Nie mozesz ukrasc pieczeci, bedac przebrany w farby dzikich.  
+1114353; Nie mozesz ukrasc pieczeci, bedac nosicielem zarazy!  
+1114354; Nie minal jeszcze wymagany czas, aby ukrasc pieczec!  
+1114355; Nadal brakuje ci ~1_ETCHING~ rycin.  
+1114356; Brakuje ci ~1_GOSSAMER~ pajeczych nici do ukonczenia twojej sieci.  
+1114357; Musisz zrobic miejsce w plecaku przed malowaniem.  
+1114358; Nie majac juz wiecej uzycia dla farb, decydujesz sie je wyrzucic.  
+1114359; Twoj atak nie ma wplywu na zbroje stworzenia.  
+1114360; Twoja bron nie moze przebic magicznej bariery stworzenia.  
+1114361; Dziekujemy za zakup Ultima Online: Age of Shadows! Akt wlasnosci mini-domu zostal dodany do twojego banku.  
+1114362; Uroczysz weza. Wybierz cel do ataku.  
+1114363; Wybierz zwierzaka, ktorego chcesz pofarbowac.  
+1114364; To nie jest zywa istota.  
+1114365; Nie sadze, ze ten gracz by to docenil. Ale dobry probuj dalej.  
+1114366; To nie jest oswojone stworzenie.  
+1114367; Nie mozesz farbowac martwych zwierzat.  
+1114368; To nie jest twoje zwierze!  
+1114369; To nasiono zostalo juz zidentyfikowane.  
+1114370; Morderstwa krotkoterminowe: ~1_SHORT~ Dlugoterminowe morderstwa: ~2_LONG~  
+1114371; Nie mozesz uhonorowac kogos, kto ma zablokowana karme.  
+1114372; To wyglada na czesc wiekszego urzadzenia.  
+1114373; Wybierz zwierzaka, ktorego chcesz odswiezyc!  
+1114374; Kocham ten nowy zapach... znaczy wyglad zwierzaka.  
+1114375; To nie jest twoj zwierzak. Mozesz odswiezyc tylko swojego wlasnego.  
+1114376; Nie mozesz rzucac sniezkami, jadac lub lecac.  
+1114377; Racje i Futra Grobu musza byc dostarczone w stosach 1, 10 lub 100.  
+1114378; Liny, druty i jaskrawo kolorowe jajka musza byc dostarczone w stosach 1, 10 lub 100.  
+1114379; Pisanki i halloweenowe cukierki musza byc dostarczone w stosach 1, 10 lub 100.  
+1114380; Nagrody dla weteranow zostaly dodane do twojego banku.  
+1114381; Nie udalo sie dodac nagrod dla weteranow do banku.  
+1114382; Nie mozna dodac amunicji do banku.  
+1114383; Nie mozna dodac torby na mikstury do banku.  
+1114384; Nie mozna dodac map skarbow do banku.  
+1114385; Nie mozna dodac torby z narzedziami do banku.  
+1114386; Nie mozna dodac torby z narzedziami runicznymi do banku.  
+1114387; Nie mozna dodac reagentow do banku.  
+1114388; Nie mozna dodac reagentow do banku.  
+1114389; Nie mozna dodac torby z surowcami do banku.  
+1114390; Nie mozna dodac elfickich materialow do banku.  
+1114391; Nie mozna dodac materialow do imbuingu do banku.  
+1114392; Nie mozna dodac drewna do banku.  
+1114393; Zestawy zbroi zostaly dodane do banku.  
+1114394; Nie udalo sie dodac zestawow zbroi do banku.  
+1114395; Nie mozna dodac elfickich przepisow do banku.  
+1114396; Artefakty zostaly dodane do twojego banku.  
+1114397; Nie udalo sie dodac zestawow zbroi do banku.  
+1114398; Nie mozna dodac Ethy's do twojego banku.  
+1114399; Torba z sadzonkami zostala stworzona przy twoich stopach.  
+1114400; Torba z sadzonkami zostala umieszczona w twoim plecaku.  
+1114401; Skrzynka z nasionami zostala umieszczona w twoim banku.  
+1114402; Nie mozna dodac skrzynki z nasionami do banku.  
+1114403; Juz otrzymales wzmocnienie.  
+1114404; Pomyslnie wzmocniles swoje umiejetnosci i statystyki maga. Przedmioty sa w twoim ekwipunku.  
+1114405; Pomyslnie wzmocniles swoje umiejetnosci i statystyki wojownika. Przedmioty sa w twoim ekwipunku.  
+1114406; Torba z zasobami rzemieslniczymi zostala stworzona.  
+1114407; Torba z zasobami rzemieslniczymi zostala umieszczona w twoim plecaku.  
+1114408; Pomyslnie dostosowales swoja umiejetnosc ~1_SKILL~.  
+1114409; Zasoby zostaly dodane do twojego banku.  
+1114410; Nie mozna dodac zasobow do twojego banku.  
+1114411; Token do testowania wlasnych osobistych asystentow zostal starannie umieszczony w twoim banku.  
+1114412; Dam ci ~1_VALUE~ bilety.  
+1114413; Ten tekst zostal dodany do tego herolda miasta:  
+1114414; Ten tekst zostal dodany do wszystkich heroldow miast:  
+1114415; Nazwa miejsca docelowego to teraz: ~1_TILENAME~  
+1114416; Musisz miec narzedzie do kopania, aby wykopac skarb.  
+1114417; Wyglada na to, ze masz zla liczbe przedmiotow.  
+1114418; Gratulacje! Twoje zgloszenie zostalo zaakceptowane! <3  
+1114419; Przepraszam! Ta skrzynka jest juz pelna!  
+1114420; Straciles troche wspolczucia.  
+1114421; Twoje wskrzeszenia przez Poswiecenie zostaly zresetowane.  
+1114422; Juz prosisz mlodego gracza, aby zostal twoim giermkiem.  
+1114423; Swiateczna statuetka zostala umieszczona w twoim plecaku.  
+1114424; Twoj giermek zrzekl sie statusu mlodego gracza.  
 1114425;dook 
 1114426;dook dook 
 1114427;dook dook dook! 
