@@ -989,14 +989,14 @@ namespace Server.Items
 
         private static Type MutateType(Type type, TreasureFacet facet)
         {
-            if (type == typeof(SkullGnarledStaff))
-            {
-                type = typeof(GargishSkullGnarledStaff);
-            }
-            else if (type == typeof(SkullLongsword))
-            {
-                type = typeof(GargishSkullLongsword);
-            }
+            // if (type == typeof(SkullGnarledStaff))
+            // {
+            //     type = typeof(GargishSkullGnarledStaff);
+            // }
+            // else if (type == typeof(SkullLongsword))
+            // {
+            //     type = typeof(GargishSkullLongsword);
+            // }
 
             return type;
         }
