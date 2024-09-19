@@ -150,7 +150,7 @@ namespace Server.Items
 
                 if (item != null && RandomItemGenerator.Enabled)
                 {
-                    TreasureMapChest.GetRandomItemStat(out int min, out int max);
+                    TreasureMapChest.GetBudgetForLevel(level, out int min, out int max);
 
                     RunicReforging.GenerateRandomItem(item, 0, min, max);
 
