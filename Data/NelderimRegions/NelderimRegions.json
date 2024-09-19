@@ -1042,44 +1042,6 @@
       "Population": {
         "Czlowiek": 1.00
       }
-    },
-    {
-      "Name": "Wulkan_LVL1_VeryEasy",
-      "DifficultyPreset": "veryhard"
-    },
-    {
-      "Name": "Wulkan_LVL2_Easy",
-      "DifficultyPreset": "easy"
-    },
-    {
-      "Name": "Wulkan_LVL2_Easy_2",
-      "DifficultyPreset": "easy"
-    },
-    {
-      "Name": "Wulkan_LVL2_Medium",
-      "DifficultyPreset": "medium"
-    },
-    {
-      "Name": "Wulkan_LVL2_Medium_2",
-      "DifficultyPreset": "medium"
-    },
-    {
-      "Name": "Wulkan_LVL3_Difficult",
-      "DifficultyPreset": "hard"
-    },
-    {
-      "Name": "Wulkan_LVL3_Difficult_2",
-      "DifficultyPreset": "hard+"
-    },
-    {
-      "Name": "Wulkan_LVL3_VeryDifficult",
-      "DifficultyPreset": "veryhard"
-    },
-    {
-      "Name": "OldHaven",
-      "DifficultyLevel": {
-        "VeryEasy": 100
-      }
     }
   ]
 }
