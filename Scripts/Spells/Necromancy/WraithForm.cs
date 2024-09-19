@@ -1,5 +1,6 @@
 using Server.Mobiles;
 using System;
+using Nelderim.Configuration;
 
 namespace Server.Spells.Necromancy
 {
@@ -16,7 +17,7 @@ namespace Server.Spells.Necromancy
         {
         }
 
-        public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(2.25);
+        public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(NConfig.ReducedCastDelay ? 2.0 : 2.25);
         public override double RequiredSkill => 20.0;
         public override int RequiredMana => 17;
         public override int Body => 748;

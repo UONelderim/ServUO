@@ -2,6 +2,7 @@ using Server.Spells.SkillMasteries;
 using Server.Targeting;
 using System;
 using System.Collections;
+using Nelderim.Configuration;
 
 namespace Server.Spells.Necromancy
 {
@@ -20,7 +21,7 @@ namespace Server.Spells.Necromancy
         {
         }
 
-        public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(1.75);
+        public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(NConfig.ReducedCastDelay ? 1.5 : 1.75);
         public override double RequiredSkill => 30.0;
         public override int RequiredMana => 17;
         public static void ClearMindRotScalar(Mobile m)

@@ -1,6 +1,7 @@
 using Server.Items;
 using System;
 using System.Collections.Generic;
+using Nelderim.Configuration;
 
 namespace Server.Spells.Necromancy
 {
@@ -19,7 +20,7 @@ namespace Server.Spells.Necromancy
         {
         }
 
-        public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(1.0);
+        public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(NConfig.ReducedCastDelay ? 0.75 : 1.0);
         public override double RequiredSkill => 0.0;
         public override int RequiredMana => 7;
         public override void OnCast()
