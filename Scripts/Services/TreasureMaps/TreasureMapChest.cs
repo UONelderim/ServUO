@@ -262,8 +262,7 @@ namespace Server.Items
 
                     if (item != null && RandomItemGenerator.Enabled)
                     {
-                        int min, max;
-                        GetRandomItemStat(out min, out max, propsScale);
+                        GetBudgetForLevel(level, out var min, out var max);
 
                         RunicReforging.GenerateRandomItem(item, luck, min, max, map);
 
@@ -471,7 +470,7 @@ namespace Server.Items
 
             return special;
         }
-
+        
         public static void GetRandomItemStat(out int min, out int max, double scale = 1.0)
         {
             int rnd = Utility.Random(100);
@@ -499,6 +498,15 @@ namespace Server.Items
 
             min = (int)(min * scale);
             max = (int)(max * scale);
+        }
+
+        public static void GetBudgetForLevel(int level, out int min, out int max)
+        {
+	        var maxLevel = TreasureMapInfo.NewSystem ? 4 : 7;
+	        level = Math.Clamp(level, 0, maxLevel);
+
+	        max = level * 200 + 100;
+	        min = max / 2;
         }
 
         public static Item GetRandomRecipe()

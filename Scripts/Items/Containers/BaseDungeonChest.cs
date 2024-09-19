@@ -81,7 +81,7 @@ namespace Server.Items
             if (RandomItemGenerator.Enabled)
             {
                 int min, max;
-                TreasureMapChest.GetRandomItemStat(out min, out max);
+                TreasureMapChest.GetRandomItemStat(out min, out max, 0.6);
 
                 RunicReforging.GenerateRandomItem(item, 0, min, max);
             }
