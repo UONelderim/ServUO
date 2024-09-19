@@ -187,7 +187,7 @@ namespace Server.Gumps
 	                AddImageTiled(x, y, SetWidth, EntryHeight, SetGumpID);
 
                 if (m.NetState != null && !m.Deleted)
-	                AddButton(x + SetOffsetX, y + SetOffsetY, SetButtonID1, SetButtonID2, i + 3, GumpButtonType.Reply, 0);
+	                AddButton(x + SetOffsetX, y + SetOffsetY, SetButtonID1, SetButtonID2, 3 + (i * 3) + 0, GumpButtonType.Reply, 0);
 
                 x += SetWidth + OffsetSize;
 
@@ -200,7 +200,7 @@ namespace Server.Gumps
 	                AddImageTiled(x, y, GoWidth, EntryHeight, SetGumpID);
 
                 if (m.NetState != null && !m.Deleted)
-	                AddButton(x + SetOffsetX, y + SetOffsetY + 2, GoButtonID1, GoButtonID2, i + 3 + EntryCount, GumpButtonType.Reply, 0);
+	                AddButton(x + SetOffsetX, y + SetOffsetY + 2, GoButtonID1, GoButtonID2, 3 + (i * 3) + 1, GumpButtonType.Reply, 0);
 
                 x += GoWidth + OffsetSize;
                 
@@ -227,7 +227,7 @@ namespace Server.Gumps
 	                AddImageTiled(x, y, BringWidth, EntryHeight, SetGumpID);
 
                 if (m.NetState != null && !m.Deleted)
-	                AddButton(x + SetOffsetX, y + SetOffsetY + 2, BringButtonID1, BringButtonID2, i + 3 + (2 * EntryCount), GumpButtonType.Reply, 0);
+	                AddButton(x + SetOffsetX, y + SetOffsetY + 2, BringButtonID1, BringButtonID2, 3 + (i * 3) + 2, GumpButtonType.Reply, 0);
             }
         }
 
@@ -257,7 +257,8 @@ namespace Server.Gumps
                     }
                 default:
                     {
-                        int index = (m_Page * EntryCount) + (info.ButtonID - 3);
+                        int index = (m_Page * EntryCount) + (info.ButtonID - 3) / 3;
+                        var button = (info.ButtonID - 3) % 3;
 
                         if (index >= 0 && index < m_Mobiles.Count)
                         {
@@ -275,7 +276,18 @@ namespace Server.Gumps
                             }
                             else if (m == from || !m.Hidden || from.AccessLevel >= m.AccessLevel || (m is PlayerMobile && ((PlayerMobile)m).VisibilityList.Contains(from)))
                             {
-                                from.SendGump(new ClientGump(from, m.NetState));
+	                            switch (button)
+	                            {
+		                            case 0:
+			                            from.SendGump(new ClientGump(from, m.NetState));
+			                            break;
+		                            case 1: 
+			                            from.MoveToWorld(m.Location, m.Map);
+			                            break;
+		                            case 2:
+			                            m.MoveToWorld(from.Location, from.Map);
+			                            break;
+	                            }
                             }
                             else
                             {
