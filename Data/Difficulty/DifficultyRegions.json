@@ -1,5 +1,5 @@
 {
-  "Wulkan_LVL1_VeryEasy": "veryhard",
+  "Wulkan_LVL1_VeryEasy": "veryeasy",
   "Wulkan_LVL2_Easy": "easy",
   "Wulkan_LVL2_Easy_2" : "easy",
   "Wulkan_LVL2_Medium": "medium",
@@ -7,6 +7,165 @@
   "Wulkan_LVL3_Difficult": "hard",
   "Wulkan_LVL3_Difficult_2": "hard+",
   "Wulkan_LVL3_VeryDifficult": "veryhard",
+
+
+  "Shimmering_LV1_VeryEasy": "veryeasy",
+  "Shimmering_LV1_Easy": "easy",
+
+  "Shimmering_LV2_Difficult": "hard",
+  "Shimmering_LV2_VeryDifficult": "veryhard",
+  
+  "Melisande_VeryEasy": "veryeasy",
+  "Melisande_Easy": "easy",
+  "Melisande_Medium": "medium",
+  "Melisande_Difficult": "hard",
+  "Melisande_VeryDifficult": "veryhard",
+  
+  "Paroxymus_VeryEasy": "veryeasy",
+  "Paroxymus_Easy": "easy",
+  "Paroxysmus_Medium": "medium",
+  "Paroxysmus_Difficult": "hard",
+  "Paroxysmus_VeryDifficult": "veryhard",
+  
+  "Voxy_VeryEasy": "veryeasy",
+  "Voxy_Easy": "easy",
+  "Voxy_Medium": "medium",
+  "Voxy_Difficult": "hard",
+  "Voxy_VeryDifficult": "veryhard",
+
+  "Tasandora_Kanaly": "easy",
+  
+  "BaradDur_LV1_VeryEasy": "veryeasy",
+  "BaradDur_LVL1_Easy": "easy",
+  "BaradDur_LVL1_Medium": "medium",
+  
+  "BaradDur_LVL2_Medium": "medium",
+  "BaradDur_LVL2_Difficult": "hard+",
+  "BaradDur_LVL2_VeryDifficult": "veryhard",
+  
+  "Garth_LVL1_VeryEasy": "veryeasy",
+  "Garth_LVL1_Easy": "easy",
+  "Garth_LVL1_Medium": "medium",
+  
+  "Garth_LVL2_Medium": "medium",
+  "Garth_LVL2_Difficult": "hard+",
+  "Garth_LVL2_VeryDifficult": "veryhard",
+
+  "VelkynAto_Outskirts": "medium",
+  "VelkynAto_Difficult": "hard+",
+  "VelkynAto_VeryDifficult": "veryhard",
+  
+  "Hurengrav_VeryEasy": "veryeasy",
+  "Hurengrav_Easy": "easy",
+  "Hurengrav_Medium": "medium",
+  "Hurengrav_Difficult": "hard",
+  "Hurengrav_VeryDifficult": "veryhard",
+  
+  "LochyOphidian_VeryEasy": "veryeasy",
+  "LochyOphidian_Easy": "easy",
+  "LochyOphidian_Medium": "medium",
+  "LochyOphidian_Difficult": "hard+",
+  "LochyOphidian_VeryDifficult": "veryhard",
+  
+  "ZwiednietaRoza_VeryEasy": "veryeasy",
+  "ZwiednietaRoza_Easy": "easy",
+  "ZwiednietaRoza_Medium": "medium",
+  "ZwiednietaRoza_Difficult": "hard",
+  "ZwiednietaRoza_VeryDifficult": "veryhard",
+
+  "TylReviaren_VeryEasy": "veryeasy",
+  "TylReviaren_Easy": "easy",
+  "TylReviaren_Medium": "medium",
+  "TylReviaren_Difficult": "hard+",
+  "TylReviaren_VeryDifficult": "veryhard",
+  
+  "LoenTorech_LVL1_VeryEasy": "veryeasy",
+  "LoenTorech_LVL1_Easy": "easy",
+  "LoenTorech_LVL1_Medium": "easy",
+  "LoenTorech_LVL1_Difficult" : "medium",
+  "LoenTorech_LVL1_VeryDifficult": "medium",
+  
+  "LoenTorech_LVL2_VeryEasy": "easy",
+  "LoenTorech_LVL2_Easy": "medium",
+  "LoenTorech_LVL2_Medium": "medium",
+  "LoenTorech_LVL2_Difficult" : "hard+",
+  "LoenTorech_LVL2_VeryDifficult": "veryhard",
+  
+  
+  "HallTorech_LVL1_VeryEasy": "veryeasy",
+  "HallTorech_LVL1_Easy": "easy",
+  "HallTorech_LVL1_Medium": "easy",
+  
+  "HallTorech_LVL2_Medium": "medium",
+  "HallTorech_LVL2_Difficult": "hard+",
+  "HallTorech_LVL2_VeryDifficult": "veryhard",
+  
+  
+  "LezeOgnistychSmokow_LVL1_VeryEasy": "veryeasy",
+  "LezeOgnistychSmokow_LVL1_Easy": "easy",
+  
+  "LezeOgnistychSmokow_LVL2_Medium": "medium",
+  "LezeOgnistychSmokow_LVL2_Difficult": "hard+",
+  "LezeOgnistychSmokow_LVL2_VeryDifficult": "veryhard",
+  
+  "Saew_LV1_VeryEasy": "veryeasy",
+  "Saew_LV1_Easy": "easy",
+  "Saew_LV1_Medium": "medium",
+  
+  "Saew_LV2_Difficult": "hard",
+  "Saew_LV2_VeryDifficult": "veryhard",
+  
+  "BialyWilk_VeryEasy": "veryeasy",
+  "BialyWilk_Easy": "easy",
+  "BialyWilk_Medium": "medium",
+  "BialyWilk_Diifficult": "hard",
+  "BialyWilk_VeryDiifficult": "veryhard",
+
+  "UlnhyrOrbben_LV1_VeryEasy": "veryeasy",
+  "UlnhyrOrbben_LV1_Easy": "easy",
+  "UlnhyrOrbben_LV1_Medium": "medium",
+
+  "UlnhyrOrbben_LV2_Medium": "medium",
+  "UlnhyrOrbben_LV2_Difficult": "hard+",
+  "UlnhyrOrbben_LV2_VeryDifficult": "veryhard",
+
+  "WielkaPokracznaBestia_LVL1_VeryEasy": "veryeasy",
+  "WielkaPokracznaBestia_LVL1_Easy": "easy",
+
+
+  "WielkaPokracznaBestia_LVL2_Medium": "medium",
+  "WielkaPokracznaBestia_LVL2_Difficult": "hard",
+  "WielkaPokracznaBestia_LVL2_VeryDifficult": "veryhard",
+
+  "KrysztaloweSmoki_VeryEasy": "veryeasy",
+  "KrysztaloweSmoki_Easy": "easy",
+  "KrysztaloweSmoki_Medium": "medium",
+  "KrysztaloweSmoki_Difficult": "hard+",
+  "KrysztaloweSmoki_VeryDifficult": "veryhard",
+
+  "Piramida_VeryEasy": "veryeasy",
+  "Piramida_Easy": "easy",
+  "Piramida_Medium": "medium",
+  "Piramida_Difficult": "hard",
+  "Piramida_VeryDifficult": "veryhard",
+
+  "LezeLodowychSmokow_LVL1_VeryEasy": "veryeasy",
+  "LezeLodowychSmokow_LVL1_Easy": "easy",
+
+
+  "LezeLodowychSmokow_LVL2_Medium": "medium",
+  "LezeLodowychSmokow_LVL2_Difficult": "hard",
+  "LezeLodowychSmokow_LVL2_VeryDifficult": "veryhard",
+  
+  "LezeLodowychSmokow_LVL3_Difficult": "hard+",
+  "LezeLodowychSmokow_LVL3_VeryDifficult": "veryhard",
+  
+
+  "Gorogon_VeryEasy": "veryeasy",
+  "Gorogon_Easy": "easy",
+  "Gorogon_Medium": "medium",
+  "Gorogon_Difficult": "hard",
+  "Gorogon_VeryDifficult": "veryhard",
   
   "OldHaven": "oldhaven"
 }
