@@ -3260,12 +3260,12 @@
 			<rect x="5291" y="1980" width="14" height="29" />
 			<logoutDelay active="false" />
 		</region>
-		<region type="DungeonRegion" name="LezeOgnistychSmokow_LVL1_VeryEasy">
+		<region type="DungeonRegion" priority="0" name="LezeOgnistychSmokow_LVL1_VeryEasy">
 			<rect x="5714" y="1992" width="19" height="11" />
 			<rect x="5718" y="1982" width="11" height="10" />
 			<music name="OldUlt04" />
 		</region>
-		<region type="DungeonRegion" name="LezeOgnistychSmokow_LVL1_Easy">
+		<region type="DungeonRegion" priority="0" name="LezeOgnistychSmokow_LVL1_Easy">
 			<rect x="5720" y="1979" width="7" height="3" />
 			<rect x="5716" y="1972" width="12" height="7" />
 			<rect x="5712" y="1951" width="4" height="21" />
@@ -3287,7 +3287,7 @@
 			<go x="5723" y="1994" z="0" />
 			<music name="OldUlt04" />
 		</region>
-		<region name="LezeOgnistychSmokow_LVL1_Difficult">
+		<region type="DungeonRegion" priority="0" name="LezeOgnistychSmokow_LVL1_Difficult">
 			<rect x="5662" y="2062" width="9" height="6" />
 			<rect x="5658" y="2063" width="4" height="6" />
 			<rect x="5671" y="2063" width="8" height="14" />
@@ -9563,7 +9563,7 @@
 			<rect x="5992" y="2039" width="1" height="16" />
 			<go x="5938" y="2766" z="0" />
 		</region>
-		<region type="HousingRegion" name="Orod_HousingRegion">
+		<region type="HousingRegion" name="Orod_Housing">
 			<rect x="506" y="2045" width="34" height="25" />
 			<rect x="514" y="2070" width="22" height="15" />
 			<rect x="512" y="2070" width="2" height="5" />
@@ -9599,7 +9599,7 @@
 			<rect x="651" y="1859" width="86" height="25" />
 			<go x="506" y="2045" z="0" />
 		</region>
-		<region type="HousingRegion" name="Tirassa_HousingRegion">
+		<region type="HousingRegion" name="Tirassa_Housing">
 			<rect x="2007" y="2691" width="21" height="36" />
 			<rect x="2005" y="2740" width="17" height="40" />
 			<rect x="2022" y="2749" width="7" height="17" />
