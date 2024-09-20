@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using Server;
 using Server.Commands;
@@ -18,7 +19,7 @@ namespace Nelderim
 		private static Dictionary<string, Dictionary<DifficultyLevelValue, double>> _presets = new();
 		private static Dictionary<string, string> _regions = new();
 		
-		public static void Configure()
+		public static void Initialize()
 		{
 			Load();
 			CommandSystem.Register("RegionDifficultyLoad", AccessLevel.Administrator, e => Load());
@@ -32,6 +33,13 @@ namespace Nelderim
 			_presets = JsonSerializer.Deserialize<Dictionary<string, Dictionary<DifficultyLevelValue, double>>>(File.ReadAllText(PresetsPath));
 			_regions.Clear();
 			_regions = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(RegionsPath));
+			foreach (var regionName in _regions.Keys)
+			{
+				if(Region.Regions.All(r => r.Name != regionName))
+				{
+					Console.WriteLine("[WARN] RegionDifficulty: Invalid region name: " + regionName);
+				}
+			}
 			Console.WriteLine("RegionDifficulty: Loaded.");
 		}
 		
