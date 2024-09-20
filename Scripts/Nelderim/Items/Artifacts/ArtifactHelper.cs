@@ -92,6 +92,7 @@ namespace Server.Items
 			_CreatureInfo.Add(typeof(AncientRuneBeetle), new ArtInfo(7, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(Serado), new ArtInfo(40, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(BetrayerBoss), new ArtInfo(5, ArtGroup.Boss));
+			_CreatureInfo.Add(typeof(HalrandBoss), new ArtInfo(5, ArtGroup.Boss));
 			//Mini Bossy
 			_CreatureInfo.Add(typeof(WladcaJezioraLawy), new ArtInfo(7, ArtGroup.Miniboss));
 			_CreatureInfo.Add(typeof(BagusGagakCreeper), new ArtInfo(7, ArtGroup.Miniboss));
@@ -106,6 +107,7 @@ namespace Server.Items
 			// m_CreatureInfo.Add(typeof(IceDragon), new ArtInfo(5, ArtGroup.Miniboss));
 			_CreatureInfo.Add(typeof(EvilSpellbook), new ArtInfo(5, ArtGroup.Miniboss));
 			_CreatureInfo.Add(typeof(ExodusBoss), new ArtInfo(12, ArtGroup.Miniboss));
+			_CreatureInfo.Add(typeof(CountDracula), new ArtInfo(4, ArtGroup.Miniboss));
 			//Custom champy
 			_CreatureInfo.Add(typeof(KapitanIIILegionuOrkow), new ArtInfo(30, ArtGroup.CustomChamp));
 			_CreatureInfo.Add(typeof(MorenaAwatar), new ArtInfo(30, ArtGroup.CustomChamp));
