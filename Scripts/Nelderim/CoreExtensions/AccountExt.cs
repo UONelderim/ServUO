@@ -19,7 +19,7 @@ namespace Server.Accounting
 		private void SaveNelderim(XmlElement account)
 		{
 			AppendNode(account, "questPoints", XmlConvert.ToString(QuestPoints));
-			AppendNode(account, "lastQuestPointsTime", XmlConvert.ToString(LastQuestPointsTime));
+			AppendNode(account, "lastQuestPointsTime", XmlConvert.ToString(LastQuestPointsTime, XmlDateTimeSerializationMode.Utc));
 			if (QuestPointsHistory?.Count > 0)
 			{
 				var xmlqph = AppendNode(account, "questPointsHistory", null, ("count", XmlConvert.ToString(QuestPointsHistory.Count)));
@@ -28,7 +28,7 @@ namespace Server.Accounting
 				{
 					AppendNode(xmlqph, "entry", qph.Reason, 
 						("gm", qph.GameMaster), 
-						("dateTime", qph.DateTime.ToString()),
+						("dateTime", XmlConvert.ToString(qph.DateTime, XmlDateTimeSerializationMode.Utc)),
 						("points", qph.Points.ToString()),
 						("charName", qph.CharName)
 						);
