@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 using Nelderim;
 using Server.Items;
 using Server.Mobiles;
+using Server.Regions;
 using Server.Spells;
 using Server.Spells.Chivalry;
 using Server.Spells.Necromancy;
@@ -108,8 +109,29 @@ public class NelderimRegion : IComparable<NelderimRegion>
 	    Console.WriteLine($"Unable to get faction for region {Name}");
 	    return Server.Nelderim.Faction.None;
     }
+    
+    public static void CheckUndershadowRules(Mobile m, ref int global, ref int personal)
+    {
+	    if (IsWithinUndershadow(m))
+	    {
+		    global = LightCycle.DungeonLevel;
+	    }
+    }
+    private static bool IsWithinUndershadow(Mobile m)
+    {
+	    foreach (var region in m.Map.Regions.Values)
+	    {
+		    if (!region.Contains(m.Location))
+			    continue;
 
-
+		    if (region.GetType() == typeof(Undershadow))
+		    {
+			    return true;
+		    }
+	    }
+	    return false;
+    }
+    
     public double GetIntolerance(Race race)
     {
         if (Intolerance != null)
