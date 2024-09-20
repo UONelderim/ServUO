@@ -4,7 +4,7 @@ namespace Server.Nelderim
 {
 	public class FactionInfo : NExtensionInfo
 	{
-		public Faction Faction { get; set; }
+		public Faction Faction { get; set; } = Faction.None;
 
 		public override void Serialize(GenericWriter writer)
 		{
