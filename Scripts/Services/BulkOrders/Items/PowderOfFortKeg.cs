@@ -1,53 +1,75 @@
+using System;
+
 namespace Server.Items
 {
     public class PowderOfFortKeg : Item
     {
         private int _Charges;
+        private Type _CurrentPowderType;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int Charges { get { return _Charges; } set { _Charges = value; InvalidateProperties(); } }
+        public int Charges 
+        { 
+            get { return _Charges; } 
+            set { _Charges = value; InvalidateProperties(); } 
+        }
+
+        [CommandProperty(AccessLevel.GameMaster)]
+        public Type CurrentPowderType 
+        { 
+            get { return _CurrentPowderType; } 
+            set { _CurrentPowderType = value; InvalidateProperties(); } 
+        }
 
         public override int LabelNumber => 1157221;  // A specially lined keg for powder of fortification.
 
         [Constructable]
-        public PowderOfFortKeg()
-            : this(0)
-        {
-        }
+        public PowderOfFortKeg() : this(0, null) { }
 
         [Constructable]
-        public PowderOfFortKeg(int uses)
-            : base(0x1940)
+        public PowderOfFortKeg(int charges, Type powderType) : base(0x1940)
         {
-            _Charges = uses;
-
+            _Charges = charges;
+            _CurrentPowderType = powderType;
             Hue = 2419;
             Weight = 15.0;
         }
 
-        public override bool OnDragDrop(Mobile m, Item dropped)
+        public override bool OnDragDrop(Mobile from, Item dropped)
         {
-            if (dropped is PowderOfTemperament)
+            if (dropped is SpecializedPowderOfTemperament powder)
             {
-                PowderOfTemperament powder = dropped as PowderOfTemperament;
+                if (_CurrentPowderType == null)
+                {
+                    _CurrentPowderType = powder.GetType();
+                }
+                else if (_CurrentPowderType != powder.GetType())
+                {
+                    from.SendMessage("Ten keg zawiera juz jeden rodzaj proszkow wzocnienia. Aby wlozyc tu inny rodzaj proszkow, musisz go oproznic.");
+                    return false;
+                }
 
                 if (_Charges < 250)
                 {
                     if (powder.UsesRemaining + _Charges > 250)
                     {
                         int add = 250 - _Charges;
-
                         powder.UsesRemaining -= add;
-
-                        Charges = 250;
+                        _Charges = 250;
                     }
                     else
                     {
-                        Charges += powder.UsesRemaining;
+                        _Charges += powder.UsesRemaining;
                         powder.Delete();
                     }
 
-                    m.PlaySound(0x247);
+                    from.PlaySound(0x247);
+                    InvalidateProperties();
+                    return true;
+                }
+                else
+                {
+                    from.SendMessage("Keg jest pelny");
                 }
             }
 
@@ -56,31 +78,35 @@ namespace Server.Items
 
         public override void OnDoubleClick(Mobile from)
         {
-            if (from.Backpack != null && IsChildOf(from.Backpack) && Charges > 0)
+            if (from.Backpack != null && IsChildOf(from.Backpack))
             {
-                PowderOfTemperament powder = from.Backpack.FindItemByType(typeof(PowderOfTemperament)) as PowderOfTemperament;
-
-                if (powder != null)
+                if (_Charges > 0 && _CurrentPowderType != null)
                 {
-                    powder.UsesRemaining++;
-                    Charges--;
+                    SpecializedPowderOfTemperament powder = (SpecializedPowderOfTemperament)Activator.CreateInstance(_CurrentPowderType, new object[] { 1 });
+
+                    if (powder != null && from.Backpack.TryDropItem(from, powder, false))
+                    {
+                        _Charges--;
+                        from.PlaySound(0x247);
+                        from.SendMessage($"Wyciagasz 1 {_CurrentPowderType.Name} z kega.");
+
+                        if (_Charges == 0)
+                        {
+                            _CurrentPowderType = null;
+                        }
+                    }
+                    else
+                    {
+                        from.SendLocalizedMessage(1080016); // That container cannot hold more weight.
+                        powder?.Delete();
+                    }
+
+                    InvalidateProperties();
                 }
                 else
                 {
-                    powder = new PowderOfTemperament(1);
-
-                    if (!from.Backpack.TryDropItem(from, powder, false))
-                    {
-                        from.SendLocalizedMessage(1080016); // That container cannot hold more weight.
-                        powder.Delete();
-
-                        return;
-                    }
-
-                    Charges--;
+                    from.SendMessage("Keg jest pusty.");
                 }
-
-                from.PlaySound(0x247);
             }
         }
 
@@ -88,51 +114,47 @@ namespace Server.Items
         {
             base.GetProperties(list);
 
-            list.Add(1060584, _Charges.ToString());
-
-            int perc = (int)(((double)_Charges / 250) * 100);
-            int number = 0;
-
-            if (perc <= 0)
-                number = 502246; // The keg is empty.
-            else if (perc < 5)
-                number = 502248; // The keg is nearly empty.
-            else if (perc < 20)
-                number = 502249; // The keg is not very full.
-            else if (perc < 30)
-                number = 502250; // The keg is about one quarter full.
-            else if (perc < 40)
-                number = 502251; // The keg is about one third full.
-            else if (perc < 47)
-                number = 502252; // The keg is almost half full.
-            else if (perc < 54)
-                number = 502254; // The keg is approximately half full.
-            else if (perc < 70)
-                number = 502253; // The keg is more than half full.
-            else if (perc < 80)
-                number = 502255; // The keg is about three quarters full.
-            else if (perc < 90)
-                number = 502256; // The keg is very full.
-            else if (perc < 100)
-                number = 502257; // The liquid is almost to the top of the keg.
+            if (_CurrentPowderType != null)
+            {
+                list.Add($"{_CurrentPowderType.Name}: {_Charges}");
+            }
             else
-                number = 502258; // The keg is completely full.
+            {
+                list.Add("*keg nalezy wypelnic jednym z rodzajow proszkow wzmocnienia*");
+            }
 
+            int number = GetFullnessNumber(_Charges);
             list.Add(number);
         }
 
-        public PowderOfFortKeg(Serial serial)
-            : base(serial)
+        private int GetFullnessNumber(int charges)
         {
+            int percentage = (int)((double)charges / 250 * 100);
+
+            if (percentage <= 0) return 502246; // The keg is empty.
+            if (percentage < 5) return 502248; // The keg is nearly empty.
+            if (percentage < 20) return 502249; // The keg is not very full.
+            if (percentage < 30) return 502250; // The keg is about one quarter full.
+            if (percentage < 40) return 502251; // The keg is about one third full.
+            if (percentage < 47) return 502252; // The keg is almost half full.
+            if (percentage < 54) return 502254; // The keg is approximately half full.
+            if (percentage < 70) return 502253; // The keg is more than half full.
+            if (percentage < 80) return 502255; // The keg is about three quarters full.
+            if (percentage < 90) return 502256; // The keg is very full.
+            if (percentage < 100) return 502257; // The liquid is almost to the top of the keg.
+            return 502258; // The keg is completely full.
         }
+
+        public PowderOfFortKeg(Serial serial) : base(serial) { }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
-            writer.Write(1); // version
+            writer.Write(3); // version
 
             writer.Write(_Charges);
+            writer.Write(_CurrentPowderType?.FullName);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -141,7 +163,23 @@ namespace Server.Items
 
             int version = reader.ReadInt();
 
-            _Charges = reader.ReadInt();
+            if (version >= 3)
+            {
+                _Charges = reader.ReadInt();
+                string typeName = reader.ReadString();
+                _CurrentPowderType = typeName != null ? Type.GetType(typeName) : null;
+            }
+            else if (version == 2 || version == 1)
+            {
+                // Handle previous versions if needed
+                _Charges = reader.ReadInt();
+                _CurrentPowderType = typeof(BlacksmithyPowderOfTemperament); // Default to Blacksmithy for older versions
+            }
+            else
+            {
+                _Charges = 0;
+                _CurrentPowderType = null;
+            }
 
             if (version == 0)
                 ItemID = 0x1940;
