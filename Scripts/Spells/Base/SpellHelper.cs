@@ -15,6 +15,8 @@ using Server.Targeting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim.Races;
+using Nelderim.Towns;
 
 namespace Server.Spells
 {
@@ -766,6 +768,58 @@ namespace Server.Spells
             IsSAEntrance,
             IsEodon,
         };
+        
+        private static TravelValidator[] m_ValidatorsUnderSun = new TravelValidator[]
+        {
+	        new TravelValidator( NonTravelRegion )
+        };
+
+        private static TravelValidator[] m_ValidatorsUndershadow = new TravelValidator[]
+        {
+	        new TravelValidator( NonUndershadowRegion )
+        };
+
+        private static bool NonUndershadowRegion(Map map, Point3D loc)
+        {
+	        return !IsUndershadowRegion(map, loc);
+        }
+        private static bool IsUndershadowRegion(Map map, Point3D loc)
+        {
+	        foreach (var region in map.Regions.Values)
+	        {
+		        if (region is Undershadow && region.Contains(loc)) return true;
+	        }
+	        return false;
+        }
+
+        private static bool IsDrowTraveler(Mobile m)
+        {
+	        return m.Race.Equals(Race.NDrow) || TownDatabase.IsCitizenOfGivenTown(m, Towns.LDelmah);
+        }
+
+        private static bool[,] m_RulesUnderSun = new bool[,]
+        {
+	        /* NonTravelRegion */
+/* Recall From */ { false },
+/* Recall To */   { false },
+/* Gate From */   { false },
+/* Gate To */     { false },
+/* Mark In */     { false },
+/* Tele From */   { true },
+/* Tele To */     { true }
+        };
+
+        private static bool[,] m_RulesUndershadow = new bool[,]
+        {
+	        /* NonUndershadowRegion */
+/* Recall From */ { false },
+/* Recall To */   { false },
+/* Gate From */   { false },
+/* Gate To */     { false },
+/* Mark In */     { false },
+/* Tele From */   { true },
+/* Tele To */     { true }
+        };
 
         private static readonly bool[,] m_Rules = new bool[,]
         {
@@ -874,6 +928,9 @@ namespace Server.Spells
                     return false;
 
             }
+            
+            bool[,] rules = IsDrowTraveler(caster) ? m_RulesUndershadow : m_RulesUnderSun;
+            TravelValidator[] validators = IsDrowTraveler(caster) ? m_ValidatorsUndershadow : m_ValidatorsUnderSun;
 
             for (int i = 0; isValid && i < m_Validators.Length; ++i)
                 isValid = (m_Rules[v, i] || !m_Validators[i](map, loc));
@@ -903,6 +960,20 @@ namespace Server.Spells
             }
 
             return true;
+        }
+        
+        private static bool NonTravelRegion(Map map, Point3D loc)
+        {
+	        return !IsTravelRegion(map, loc);
+        }
+
+        private static bool IsTravelRegion( Map map, Point3D loc )
+        {
+	        foreach (var region in map.Regions.Values)
+	        {
+		        if (region is TravelRegion && region.Contains(loc)) return true;
+	        }
+	        return false;
         }
 
         public static bool IsWindLoc(Point3D loc)
