@@ -8,7 +8,11 @@ namespace Server.Items
 {
 	public abstract class SpecializedPowderOfTemperament : PowderOfTemperament
 	{
-		public SpecializedPowderOfTemperament(int uses) : base(uses)
+		protected SpecializedPowderOfTemperament() : this(1)
+		{
+		}
+		
+		protected SpecializedPowderOfTemperament(int uses) : base(uses)
 		{
 		}
 
