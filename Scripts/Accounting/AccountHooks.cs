@@ -48,7 +48,7 @@ namespace Server.Accounting
 				var ts = YoungDuration - acc.TotalGameTime;
 				var hours = Math.Max((int)ts.TotalHours, 0);
 
-				m.SendAsciiMessage("You will enjoy the benefits and relatively safe status of a young player for {0} more hour{1}.", hours, hours != 1 ? "s" : "");
+				m.SendAsciiMessage($"Twoj status mlodego gracza wygasnie za {hours} godzin.");
 			}
 		}
 	}

@@ -3850,10 +3850,10 @@ namespace Server.Mobiles
 
             if (Young)
             {
-                if (YoungDeathTeleport())
-                {
+                // if (YoungDeathTeleport())
+                // {
                     Timer.DelayCall(TimeSpan.FromSeconds(2.5), SendYoungDeathNotice);
-                }
+                // }
             }
 
             Guilds.Guild.HandleDeath(this, killer);
@@ -5792,11 +5792,11 @@ namespace Server.Mobiles
             {
                 if (suffix.Length == 0)
                 {
-                    suffix = "(Young)";
+                    suffix = "(Mlody)";
                 }
                 else
                 {
-                    suffix = string.Concat(suffix, " (Young)");
+                    suffix = string.Concat(suffix, " (Mlody)");
                 }
             }
 
