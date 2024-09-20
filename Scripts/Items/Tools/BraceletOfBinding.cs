@@ -287,11 +287,11 @@ namespace Server.Items
             {
                 return false;
             }
-            else if (boundRoot.Map == Map.Felucca && from is PlayerMobile && ((PlayerMobile)from).Young)
-            {
-                from.SendLocalizedMessage(1049543); // You decide against traveling to Felucca while you are still young.
-                return false;
-            }
+            // else if (boundRoot.Map == Map.Felucca && from is PlayerMobile && ((PlayerMobile)from).Young)
+            // {
+            //     from.SendLocalizedMessage(1049543); // You decide against traveling to Felucca while you are still young.
+            //     return false;
+            // }
             else if (SpellHelper.RestrictRedTravel && from.Murderer && boundRoot.Map != Map.Felucca)
             {
                 from.SendLocalizedMessage(1019004); // You are not allowed to travel there.
