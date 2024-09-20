@@ -69,10 +69,10 @@ namespace Server.Items
                 }
                 else
                 {
-                    from.SendMessage("Keg jest pelny");
+	                from.SendLocalizedMessage(502233); // The keg will not hold any more!
                 }
             }
-
+            from.SendLocalizedMessage(502232); // The keg is not designed to hold that type of object.
             return false;
         }
 
@@ -82,7 +82,7 @@ namespace Server.Items
             {
                 if (_Charges > 0 && _CurrentPowderType != null)
                 {
-                    SpecializedPowderOfTemperament powder = (SpecializedPowderOfTemperament)Activator.CreateInstance(_CurrentPowderType, new object[] { 1 });
+                    var powder = (SpecializedPowderOfTemperament)Activator.CreateInstance(_CurrentPowderType);
 
                     if (powder != null && from.Backpack.TryDropItem(from, powder, false))
                     {
@@ -105,8 +105,12 @@ namespace Server.Items
                 }
                 else
                 {
-                    from.SendMessage("Keg jest pusty.");
+	                from.SendLocalizedMessage(502246); // The keg is empty.
                 }
+            }
+            else
+            {
+	            from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
             }
         }
 
@@ -151,10 +155,10 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write(3); // version
+            writer.Write(2); // version
 
+            writer.WriteObjectType(_CurrentPowderType);
             writer.Write(_Charges);
-            writer.Write(_CurrentPowderType?.FullName);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -163,22 +167,17 @@ namespace Server.Items
 
             int version = reader.ReadInt();
 
-            if (version >= 3)
+            if (version >= 2)
             {
-                _Charges = reader.ReadInt();
-                string typeName = reader.ReadString();
-                _CurrentPowderType = typeName != null ? Type.GetType(typeName) : null;
+	            _CurrentPowderType = reader.ReadObjectType();
             }
-            else if (version == 2 || version == 1)
+            if (version >= 1)
             {
-                // Handle previous versions if needed
-                _Charges = reader.ReadInt();
-                _CurrentPowderType = typeof(BlacksmithyPowderOfTemperament); // Default to Blacksmithy for older versions
+	            _Charges = reader.ReadInt();
             }
-            else
+            if (version < 2 && _Charges > 0)
             {
-                _Charges = 0;
-                _CurrentPowderType = null;
+	            _CurrentPowderType = typeof(BlacksmithyPowderOfTemperament);
             }
 
             if (version == 0)
