@@ -395,11 +395,11 @@ namespace Server.Engines.Craft
             index = AddCraft(typeof(ScrollBinderDeed), otherGroup, 1113135, 75.0, 125.0, typeof(WoodPulp), 1113136, 1, 1044253);
             SetItemHue(index, 1641);
 
-            index = AddCraft(typeof(GargoyleBook100), otherGroup, 1113290, 60.0, 100.0, typeof(BlankScroll), 1044377, 40, 1044378);
-            AddRes(index, typeof(Beeswax), 1025154, 2, 1053098);
+          // index = AddCraft(typeof(GargoyleBook100), otherGroup, 1113290, 60.0, 100.0, typeof(BlankScroll), 1044377, 40, 1044378);
+          //  AddRes(index, typeof(Beeswax), 1025154, 2, 1053098);
 
-            index = AddCraft(typeof(GargoyleBook200), otherGroup, 1113291, 72.0, 100.0, typeof(BlankScroll), 1044377, 40, 1044378);
-            AddRes(index, typeof(Beeswax), 1025154, 4, 1053098);
+         //   index = AddCraft(typeof(GargoyleBook200), otherGroup, 1113291, 72.0, 100.0, typeof(BlankScroll), 1044377, 40, 1044378);
+        //    AddRes(index, typeof(Beeswax), 1025154, 4, 1053098);
 
             index = AddCraft(typeof(RunicAtlas), otherGroup, 1156443, 45.0, 95.0, typeof(BlankScroll), 1044377, 24, 1044378);
             AddRes(index, typeof(RecallRune), 1044447, 3, 1044253);

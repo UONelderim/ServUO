@@ -13000,7 +13000,7 @@ Number;Text
 1023612;plansza do tryk traka 
 1023613;przedza 
 1023614;przedza 
-1023615;przedza 
+1023615;ciemna przedza 
 1023616;zakrwawiony bandaz 
 1023617;czyste bandaze 
 1023618;zakrwawiony bandaz 
@@ -20958,7 +20958,7 @@ Number;Text
 1031570;rune blade 
 1031571;wielki falchion 
 1031572;zdobiony topor 
-1031573;elven machete 
+1031573;elficka maczeta 
 1031574;archway 
 1031575;archway 
 1031576;wooden floor 
@@ -22060,18 +22060,18 @@ Number;Text
 1032672;lesna spodniczka 
 1032673;damska lesna tunika 
 1032674; 
-1032675;blight 
-1032676;corruption 
-1032677;scourge 
-1032678;putrefaction 
-1032679;taint 
-1032680;muculent 
-1032681;lard of Paroxysmus 
-1032682;dread horn mane 
-1032683;diseased bark 
-1032684;grizzled bones 
-1032685;eye of the travesty 
-1032686;captured essence 
+1032675;zaraza  
+1032676;korupcja  
+1032677;plaga  
+1032678;gnicie  
+1032679;skaza  
+1032680;sluz 
+1032681;smalec Paroksyzmusa  
+1032682;grzywa Spaczonego Jednorozca 
+1032683;chorowita kora  
+1032684;posiwiale kosci  
+1032685;oko Nasladowcy Vox Populi
+1032686;pochwycona esencja 
 1032687;fragment kory 
 1032688;pasozytnicza roslina 
 1032689;luminescencyjne grzyby 
@@ -43026,12 +43026,12 @@ Number;Text
 1072131;An Unknown Substance 
 1072132;An Unusual Mixture of Leaves 
 1072133;Towards which navpoint shall I sail, sir? 
-1072134;Blight 
-1072135;Corruption 
-1072136;Scourge 
-1072137;Putrefaction 
-1072138;Taint 
-1072139;Muculent 
+1072134;Zaraza  
+1072135;Zepsucie  
+1072136;Plaga  
+1072137;Gnicie  
+1072138;Skazenie  
+1072139;Sluz  
 1072140;Commissioned by the Security Consultant 
 1072141;Value appraised at ~1_val~ gold 
 1072142;~1_val~ Generals killed 
@@ -43785,9 +43785,9 @@ Number;Text
 1072890;Writing Feather 
 1072891;tattered wall map (south) 
 1072892;tattered wall map (east) 
-1072893;enchanted switch 
+1072893;magiczna dzwignia 
 1072894;klejnotowy filigran 
-1072895;hollow prism 
+1072895;zapadnietny pryzmat 
 1072896;runed switch 
 1072897;Circlet 
 1072898;elegancka koszula 
@@ -43834,8 +43834,8 @@ Number;Text
 1072939;Lost in Transit 
 1072940;Kompendium Wszelkiej Wiedzy 
 1072941;Mikstura niewidzialnosci
-1072942;pasozytnicza 
-1072943;ciemnej poswiaty 
+1072942;pasozytnicza trucizna
+1072943;mikstura ciemnej poswiaty 
 1072944;Spirited Away 
 1072945;Illegal Aquisition 
 1072946;Wood Stain 
@@ -44357,94 +44357,94 @@ Number;Text
 1073462;Spools of Thread 
 1073463;You don't have enough thread. 
 1073464;Przelacznik 
-1073465;runed prism 
+1073465;pryzmat oznaczony runami
 1073466;Mikstura Wiekszej Sily 
-1073467;Greater Heal Potion 
-1073468;Grapes 
-1073469;You don't have enough grapes. 
-1073470;Bananas 
-1073471;You don't have enough bananas. 
-1073472;Wooden Bowl 
-1073473;You don't have an empty wooden bowl. 
-1073474;pasozytnicza roslina 
-1073475;luminescencyjne grzyby 
-1073476;You must complete the arcanist quest before you can absorb these spellweaving skill points. 
-1073477;Fragmenty kory 
-1073478;You don't have enough bark. 
-1073479;You activate your arcane focus. 
-1073480;Your arcane focus disappears. 
-1073481;Darkwood Crown 
-1073482;Darkwood Chest 
-1073483;Darkwood Gorget 
-1073484;Darkwood Leggings 
-1073485;Darkwood Pauldrons 
-1073486;Darkwood Gauntlets 
-1073487;parrot perch 
-1073488;lower mana cost ~1_val~% (total) 
-1073489;luck ~1_val~% (total) 
-1073490;hit chance increase ~1_val~% (total) 
-1073491;Part of a Weapon/Armor Set (~1_val~ pieces) 
-1073492;Full Weapon/Armor Set Present 
-1073493;defense chance increase ~1_val~% (total) 
-1073494;Level 1 Treasure Maps 
-1073495;You need more level 1 treasure maps that have been completed by you. 
-1073496;Level 2 Treasure Maps 
-1073497;You need more level 2 treasure maps that have been completed by you. 
-1073498;Level 3 Treasure Maps 
-1073499;You need more level 3 treasure maps that have been completed by you. 
-1073500;Level 4 Treasure Maps 
-1073501;You need more level 4 treasure maps that have been completed by you. 
-1073502;Level 5 Treasure Maps 
-1073503;You need more level 5 treasure maps that have been completed by you. 
-1073504;You recover ~1_NUM~ ~2_AMMO~. 
-1073505;barbed longbow 
-1073506;slayer longbow 
-1073507;frozen longbow 
-1073508;longbow of might 
-1073509;ranger's shortbow 
-1073510;lightweight shortbow 
-1073511;mystical shortbow 
-1073512;assassin's shortbow 
+1073467;Mikstura wiekszego leczenia  
+1073468;Winogrona  
+1073469;Nie masz wystarczajacej ilosci winogron.  
+1073470;Banany  
+1073471;Nie masz wystarczajacej ilosci bananow.  
+1073472;Drewniana miska  
+1073473;Nie masz pustej drewnianej miski.  
+1073474;Pasozytnicza roslina  
+1073475;Luminescencyjne grzyby  
+1073476;Musisz ukonczyc zadanie arkanisty, zanim bedziesz mogl przyswoic te punkty umiejetnosci tkania zaklec.  
+1073477;Fragmenty kory  
+1073478;Nie masz wystarczajacej ilosci kory.  
+1073479;Aktywujesz swoje magiczne skupienie.  
+1073480;Twoje magiczne skupienie znika.  
+1073481;Korona z ciemnego drewna  
+1073482;Pancerz z ciemnego drewna  
+1073483;Karwasz z ciemnego drewna  
+1073484;Nagolenniki z ciemnego drewna  
+1073485;Naramienniki z ciemnego drewna  
+1073486;Rekawice z ciemnego drewna  
+1073487;Grzeda dla papugi  
+1073488;obnizenie kosztu many ~1_val~% (razem)  
+1073489;szczescie ~1_val~% (razem)  
+1073490;zwiekszenie szansy trafienia ~1_val~% (razem)  
+1073491;Czesc zestawu broni/zbroi (~1_val~ sztuk)  
+1073492;Zestaw broni/zbroi kompletny  
+1073493;zwiekszenie szansy obrony ~1_val~% (razem)  
+1073494;Mapy skarbow poziomu 1  
+1073495;Potrzebujesz wiecej map skarbow poziomu 1, ktore zostaly przez ciebie ukonczone.  
+1073496;Mapy skarbow poziomu 2  
+1073497;Potrzebujesz wiecej map skarbow poziomu 2, ktore zostaly przez ciebie ukonczone.  
+1073498;Mapy skarbow poziomu 3  
+1073499;Potrzebujesz wiecej map skarbow poziomu 3, ktore zostaly przez ciebie ukonczone.  
+1073500;Mapy skarbow poziomu 4  
+1073501;Potrzebujesz wiecej map skarbow poziomu 4, ktore zostaly przez ciebie ukonczone.  
+1073502;Mapy skarbow poziomu 5  
+1073503;Potrzebujesz wiecej map skarbow poziomu 5, ktore zostaly przez ciebie ukonczone.  
+1073504;Odzyskujesz ~1_NUM~ ~2_AMMO~. 
+1073505;kolczasty dlugi luk  
+1073506;dlugi luk pogromcy  
+1073507;mrozny dlugi luk  
+1073508;dlugi luk mocy  
+1073509;krotki luk tropiciela  
+1073510;lekki krotki luk  
+1073511;mistyczny krotki luk  
+1073512;krotki luk zabojcy  
 1073513;prawdziwy sztylet rytualny 
 1073514;lodowy sztylet rytualny 
 1073515;ognisty sztylet rytualny 
-1073516;spellblade of defense 
-1073517;prawdziwy kozik 
-1073518;naladowany kozik 
-1073519;magekiller assassin spike 
-1073520;ostry kozik 
-1073521;true leafblade 
-1073522;luckblade 
-1073523;magekiller leafblade 
-1073524;leafblade of ease 
-1073525;knight's war cleaver 
-1073526;butcher's war cleaver 
-1073527;serrated war cleaver 
-1073528;true war cleaver 
-1073529;ruby mace 
-1073530;emerald mace 
-1073531;sapphire mace 
-1073532;silver-etched mace 
-1073533;adventurer's machete 
-1073534;Orcish Machete 
-1073535;machete of defense 
-1073536;Diseased Machete 
-1073537;runesabre 
-1073538;mage's rune blade 
-1073539;rune blade of knowledge 
-1073540;Corrupted Rune Blade 
-1073541;true radiant scimitar 
-1073542;darkglow scimitar 
-1073543;icy scimitar 
-1073544;twinkling scimitar 
-1073545;guardian axe 
-1073546;singing axe 
-1073547;thundering axe 
-1073548;heavy ornate axe 
-1073549;arcanist's wild staff 
-1073550;ancient wild staff 
-1073551;thorned wild staff 
-1073552;hardened wild staff 
+1073516;czarnoostrze obrony  
+1073517;prawdziwy kozik  
+1073518;naladowany kozik  
+1073519;szpikulec zabojcy magow  
+1073520;ostry kozik  
+1073521;prawdziwa maczeta   
+1073522;szczesliwy miecz  
+1073523;maczeta zabojcy magow  
+1073524;maczeta lekkosci  
+1073525;rycerski tasak bojowy  
+1073526;rzeznicki tasak bojowy  
+1073527;zabkowany tasak bojowy  
+1073528;prawdziwy tasak bojowy  
+1073529;rubinowa bulawa  
+1073530;szmaragdowa bulawa  
+1073531;szafirowa bulawa  
+1073532;bulawa  ze srebrnymi zdobieniami
+1073533;macheta podroznika  
+1073534;orkowa maczeta  
+1073535;macheta obrony  
+1073536;zarazona maczeta  
+1073537;runiczne ostrze  
+1073538;runiczne ostrze maga  
+1073539;runiczne ostrze wiedzy  
+1073540;skazona runiczne ostrze    
+1073541;prawdziwa promienista szabla  
+1073542;ciemnoglowa szabla  
+1073543;lodowa szabla  
+1073544;migoczaca szabla  
+1073545;topor straznika  
+1073546;spiewajacy topor  
+1073547;grzmiacy topor  
+1073548;ciezki ozdobny topor  
+1073549;dziki kostur arkanisty  
+1073550;starozytny dziki kostur  
+1073551;kolczasty dziki kostur  
+1073552;wzmocniony dziki kostur 
 1073553; 
 1073554; 
 1073555;You skin it and place the cut-up hides in your backpack. 
@@ -45752,7 +45752,7 @@ Number;Text
 1074857;I understand.  A Master of Bedlam, even one entirely off his rocker, is too much for you to handle. 
 1074858;You had better get going.  Master Theophilus isn't likely to kill himself just to save me this embarrassment. 
 1074859;You look a bit worse for wear!  He put up a good fight did he?  Hah!  That's the spirit … a Master of Bedlam is a match for most. 
-1074860;niewidzialnosc 
+1074860;mikstura niewidzialnosc i
 1074861;You do not have everything you need! 
 1074862;<CENTER>NOTICE</CENTER> 
 1074863;The house can not be customized when add-on containers such as aquariums or elven furniture containers are present in the house.  Please re-deed the add-on containers before customizing the house. 
@@ -45987,7 +45987,7 @@ Number;Text
 1075092;Travesty's Party Tankards 
 1075093;Travesty's Sushi Preparations 
 1075094;Travesty's Fine Teakwood Tray 
-1075095;Shimmering Crystals 
+1075095;Skrzacy sie krysztal
 1075096;Crystalline Ring 
 1075097;Your rope is severely damaged by the acidic environment.  You're lucky to have made it safely to the ground. 
 1075098;Your rope has been weakened by the acidic environment. 
@@ -52075,12 +52075,12 @@ Number;Text
 1095356;gargish cloth kilt 
 1095357;gargish cloth leggings 
 1095358;gargish cloth leggings 
-1095359;boomerang 
+1095359;czakram
 1095360;dual short axes 
 1095361;Animated Weapon 
 1095362;gargish dagger 
-1095363;soul glaive 
-1095364;cyclone 
+1095363;gwiezdzisty czakram
+1095364;cyklon
 1095365;dual pointed spear 
 1095366;disc mace 
 1095367;serpentstone staff 
@@ -68845,9 +68845,9 @@ Number;Text
 1112126;Twoje nozyczki sie psuja, gdy zuzywaja sie ostatnie naladowanie. 
 1112127;Flame of Order 
 1112128;Flame of Chaos 
-1112129;a lever (unusable) 
-1112130;a lever 
-1112131;Plant Clippings 
+1112129;dzwignia (nie nadaje sie do uzytku) 
+1112130;dziwngnia
+1112131;Odnozki
 1112132;pigment do roslin 
 1112133;~1_COLOR~ - pigment do roslin 
 1112134;jasny odcien -  ~1_COLOR~ - pigment do roslin 
@@ -68855,123 +68855,123 @@ Number;Text
 1112136;naturalny barwnik 
 1112137;~1_COLOR~ - Naturalny Barwnik 
 1112138;jasny odcien -  ~1_COLOR~ - Naturalny Barwnik 
-1112139;Select the item you wish to dye. 
-1112140;small treasure pile (dull) 
-1112141;small treasure pile (shiny) 
-1112142;small treasure pile (glittering) 
-1112143;small treasure pile (sparkling) 
-1112144;treasure pile (dull) 
-1112145;treasure pile (shiny) 
-1112146;treasure pile (glittering) 
-1112147;treasure pile (sparkling) 
-1112148;large treasure pile (dull) 
-1112149;large treasure pile (shiny) 
-1112150;large treasure pile (glittering) 
-1112151;large treasure pile (sparkling) 
-1112152;overflowing treasure pile (dull) 
-1112153;overflowing treasure pile (shiny) 
-1112154;overflowing treasure pile (glittering) 
-1112155;overflowing treasure pile (sparkling) 
-1112156;small treasure pile 
-1112157;treasure pile 
-1112158;large treasure pile 
-1112159;overflowing treasure pile 
-1112160;dark grey 
-1112161;dark orange 
-1112162;dark red 
-1112163;dark green 
-1112164;dark blue 
-1112165;dark yellow 
-1112166;dark purple 
-1112167;ice green 
-1112168;ice blue 
-1112169;ice red 
-1112170;ice orange 
-1112171;ice yellow 
-1112172;ice purple 
-1112173;silver serpent venom 
-1112174;snake charmer flute 
-1112175;Target the serpent you wish to entice. 
-1112176;That is not a snake or serpent. 
-1112177;You broke your snake charmer flute. 
-1112178;Ter Mur 
-1112179;Tomb of Kings 
-1112180;The animal cannot find a path to the indicated location. 
-1112181;The charm seems to wear off. 
-1112182;You have been returned to the antechamber of the tomb, directly in front of the Serpent's Breath. 
-1112183;Strong Back 
-1112184;Tough 
-1112185;Workhorse 
-1112186;Jack of All Trades 
-1112187;Night Sight 
-1112188;Infused with Magic 
-1112189;Knowledge of Nature 
-1112190;Difficult to Track 
-1112191;Perception 
-1112192;Wisdom 
-1112193;Flying 
-1112194;Berserk 
-1112195;Master Artisan 
-1112196;Deadly Aim 
-1112197;Mystic Insight 
-1112198;Humans have an increased carrying capacity above what is determined by their strength. 
-1112199;Humans regenerate hit points faster than normal. 
-1112200;Humans have a better chance at finding more resources while gathering hides, ore and lumber. 
-1112201;Humans have a basic ability in all skills, even untrained ones. 
-1112202;Elves always have the effect of a full strength Night Sight spell. 
-1112203;Elves have an increased energy resistance cap. Elven players must still increase their actual resistances through normal means (i.e. through equipment and magical effects). 
-1112204;Elves receive an increase to their chance of acquiring special resources such as colored ore when mining or special boards when lumberjacking. 
-1112205;Elves are more difficult to track than other races. 
-1112206;Elves gain an increased chance to passively detect hidden monsters and enemies. 
-1112207;Elves receive a bonus to their maximum mana. 
-1112208;A Gargoyle's powerful wings carry them over land as fast as a galloping horse and grant them access to special Gargoyle-only areas. 
-1112209;In situations of great danger, a Gargoyle's natural ferocity will take over, granting speed and power at the cost of defenses. 
-1112210;A strong cultural emphasis on art and craftsmanship grants the Gargoyles an increased chance to imbue and unravel magical items. 
-1112211;All Gargoyles are trained from childhood in the skill of Throwing, giving them a basic competence with missile weapons. 
-1112212;Gargoyles have an intuitive understanding of Mysticism, allowing them to cast basic Mysticism spells without further training. 
-1112213;You lack the alchemy or cooking skills to mix so unstable a pigment. 
-1112214;You lack the alchemy or cooking skills to mix plant pigments. 
-1112215;empty venom vial 
-1112216;Order shall steal the Serpent's strength 
-1112217;Chaos shall quell the Serpent's wrath 
-1112218;You handle the creature but fail to harvest any resources from it. 
-1112219;You skillfully extract additional resources from the creature. 
-1112220;You manage to extract some resources from the creature. 
-1112221;You may only use this on a silver serpent. 
-1112222;Which creature do you wish to extract resources from? 
-1112223;This serpent has already been drained of all its venom. 
-1112224;off white 
-1112225;The Serpent's Breath burns brighter than ever, blocking your escape! You shall have to venture further into the tomb in search of an exit. 
-1112226;Thou must be on a Sacred Quest to pass through. 
-1112227;May the Virtues guide thine quest. 
-1112228;Character Abilities 
-1112229;WEAPON 
-1112230;RACIAL 
-1112231;Active 
-1112232;(Passive) 
-1112233;You carefully extract a glistening gem from the vein! 
-1112234;You have not learned how to mine gems or you do not have enough skill! 
-1112235;You are already set to mine both ore and gems! 
-1112236;You are now set to mine both ore and gems. 
-1112237;Set to Ore and Gems 
-1112238;You have learned to mine for gems.  Target mountains when mining to find gems. 
-1112239;Mining : Ore and Gems 
-1112240;Mining for Quality Gems 
-1112241;This pigment is too diluted to be faded further. 
-1112242;You decide not to waste pigments by mixing two identical colors. 
-1112243;You decide not to waste pigments by mixing variations of the same hue. 
-1112244;BASKET WEAVING MENU 
-1112245;Basket Weaver Pliers 
-1112246;You don't have enough wooden shafts to make that. 
-1112247;wooden shafts 
-1112248;dry reeds 
-1112249;zmiekczone stroiki 
-1112250;You don't have enough of this type of dry reeds to make that. 
-1112251;You don't have enough of this type of softened reeds to make that. 
-1112252;Requires basket weaving (carpentry and tinkering specialization) 
-1112253;You haven't learned basket weaving. Perhaps studying a book would help! 
-1112254;You have learned to make baskets. You will need gardeners to make reeds out of plants for you to make these items. 
-1112255;Only a Grandmaster Tinker can learn from this book. 
+1112139;Wybierz przedmiot, ktory chcesz zafarbowac.  
+1112140;mala sterta skarbow (matowa)  
+1112141;mala sterta skarbow (blyszczaca)  
+1112142;mala sterta skarbow (lsniaca)  
+1112143;mala sterta skarbow (iskrzaca)  
+1112144;sterta skarbow (matowa)  
+1112145;sterta skarbow (blyszczaca)  
+1112146;sterta skarbow (lsniaca)  
+1112147;sterta skarbow (iskrzaca)  
+1112148;duza sterta skarbow (matowa)  
+1112149;duza sterta skarbow (blyszczaca)  
+1112150;duza sterta skarbow (lsniaca)  
+1112151;duza sterta skarbow (iskrzaca)  
+1112152;przepelniona sterta skarbow (matowa)  
+1112153;przepelniona sterta skarbow (blyszczaca)  
+1112154;przepelniona sterta skarbow (lsniaca)  
+1112155;przepelniona sterta skarbow (iskrzaca)  
+1112156;mala sterta skarbow  
+1112157;sterta skarbow  
+1112158;duza sterta skarbow  
+1112159;przepelniona sterta skarbow  
+1112160;ciemnoszary  
+1112161;ciemnopomaranczowy  
+1112162;ciemnoczerwony  
+1112163;ciemnozielony  
+1112164;ciemnoniebieski  
+1112165;ciemnozolty  
+1112166;ciemnopurpurowy  
+1112167;lodowata zielen  
+1112168;lodowaty blekit  
+1112169;lodowata czerwien  
+1112170;lodowaty pomarancz  
+1112171;lodowata zolc  
+1112172;lodowy fiolet  
+1112173;jad srebrnego weza  
+1112174;flet zaklinacza wezy  
+1112175;Wskaz weza, ktorego chcesz zwabic.  
+1112176;To nie jest waz ani zmija.  
+1112177;Zlamales swoj flet zaklinacza wezy.  
+1112178;Ter Mur  
+1112179;Grobowiec Krolow  
+1112180;Zwierze nie moze znalezc drogi do wskazanej lokalizacji.  
+1112181;Urok zdaje sie zanikac.  
+1112182;Zostales przeniesiony do przedsionka grobowca, bezposrednio przed Oddechem Weza.  
+1112183;Silny Kregoslup  
+1112184;Wytrzymaly  
+1112185;Konie robocze  
+1112186;Czlowiek orkiestra  
+1112187;Widzenie w ciemnosci  
+1112188;Nasycony magia  
+1112189;Wiedza o naturze  
+1112190;Trudny do wytropienia  
+1112191;Percepcja  
+1112192;Madrosc  
+1112193;Latanie  
+1112194;Szal bitewny  
+1112195;Mistrz rzemieslnik  
+1112196;Zabojcza celnosc  
+1112197;Mistyczny wglad
+1112198;Ludzie maja zwiekszona pojemnosc ladunkowa ponad to, co jest okreslane przez ich sile.  
+1112199;Ludzie regeneruja punkty zycia szybciej niz normalnie.  
+1112200;Ludzie maja wieksza szanse na znalezienie wiekszej ilosci zasobow podczas zbierania skor, rudy i drewna.  
+1112201;Ludzie maja podstawowa umiejetnosc we wszystkich zdolnosciach, nawet w tych, ktorych nie trenowali.  
+1112202;Elfy zawsze maja efekt pelnej mocy zaklecia Widzenia w Ciemnosci.  
+1112203;Elfy maja zwiekszony limit odpornosci na energie. Elfowie musza nadal zwiekszac swoje rzeczywiste odpornosci za pomoca normalnych srodkow (tj. przez ekwipunek i efekty magiczne).  
+1112204;Elfy otrzymuja zwiekszona szanse na zdobycie specjalnych zasobow, takich jak kolorowa ruda podczas kopania lub specjalne deski podczas scinania drzew.  
+1112205;Elfy sa trudniejsze do wytropienia niz inne rasy.  
+1112206;Elfy zyskuja zwiekszona szanse na pasywne wykrywanie ukrytych potworow i wrogow.  
+1112207;Elfy otrzymuja premie do maksymalnej ilosci many.  
+1112208;Potezne skrzydla Gargulcow niosa je po ziemi tak szybko, jak galopujacy kon, a takze umozliwiaja im dostep do obszarow przeznaczonych wylacznie dla Gargulcow.  
+1112209;W sytuacjach wielkiego zagrozenia naturalna dzikosc Gargulcow przejmuje kontrole, dajac im predkosc i sile kosztem obrony.  
+1112210;Silne kulturalne nastawienie na sztuke i rzemioslo daje Gargulcom zwiekszona szanse na nasycanie i rozwijanie magicznych przedmiotow.  
+1112211;Wszyscy Gargulce sa szkoleni od dziecinstwa w rzucaniu, co daje im podstawowa bieglosc w broni dystansowej.  
+1112212;Gargulce maja intuicyjne zrozumienie Mistycyzmu, co pozwala im rzucac podstawowe zaklecia Mistycyzmu bez dodatkowego szkolenia.  
+1112213;Nie masz wystarczajacych umiejetnosci alchemii ani gotowania, aby zmieszac tak niestabilny pigment.  
+1112214;Nie masz wystarczajacych umiejetnosci alchemii ani gotowania, aby zmieszac pigmenty roslinne.  
+1112215;pusty fiolki z jadem  
+1112216;Porzadek ukradnie Wezowi sile  
+1112217;Chaos poskromi gniew Weza  
+1112218;Obejmujesz stworzenie, ale nie udaje ci sie wydobyc z niego zadnych zasobow.  
+1112219;Zrecznie wyciagasz dodatkowe zasoby ze stworzenia.  
+1112220;Udaje ci sie wydobyc troche zasobow ze stworzenia.  
+1112221;Mozesz uzywac tego tylko na srebrnym wezu.  
+1112222;Z ktorego stworzenia chcesz wydobyc zasoby?  
+1112223;Ten waz zostal juz calkowicie osuszony z jadu.  
+1112224;brudnobialy  
+1112225;Oddech Weza plonie jasniej niz kiedykolwiek, blokujac ci ucieczke! Bedziesz musial podazyc dalej w glab grobowca, szukajac wyjscia.  
+1112226;Musisz byc na Swietej Misji, aby przejsc.  
+1112227;Niech Cnoty poprowadza twoja misje.  
+1112228;Umiejetnosci postaci  
+1112229;BRON  
+1112230;RASOWE  
+1112231;Aktywne  
+1112232;(Pasywne)  
+1112233;Ostroznie wyciagasz lsniacy klejnot z zyly!  
+1112234;Nie nauczyles sie, jak wydobywac klejnoty, lub nie masz wystarczajacych umiejetnosci!  
+1112235;Jestes juz ustawiony na wydobywanie rudy i klejnotow!  
+1112236;Jestes teraz ustawiony na wydobywanie rudy i klejnotow.  
+1112237;Ustaw na Rude i Klejnoty  
+1112238;Nauczyles sie wydobywac klejnoty. Celuj w gory podczas kopania, aby znalezc klejnoty.  
+1112239;Gornictwo: Ruda i Klejnoty  
+1112240;Gornictwo dla Jakosciowych Klejnotow  
+1112241;Ten pigment jest zbyt rozcienczony, by mozna go bylo bardziej wyblaknac.  
+1112242;Decydujesz sie nie marnowac pigmentow, mieszajac dwa identyczne kolory.  
+1112243;Decydujesz sie nie marnowac pigmentow, mieszajac wariacje tego samego odcienia.  
+1112244;MENU WYPLATANIA KOSZY  
+1112245;Cegi Koszykarza  
+1112246;Nie masz wystarczajacej liczby drewnianych trzonkow, aby to zrobic.  
+1112247;drewniane drazki  
+1112248;suche trzciny  
+1112249;zmiekczone stroiki  
+1112250;Nie masz wystarczajacej ilosci tego rodzaju suchych trzcin, aby to zrobic.  
+1112251;Nie masz wystarczajacej ilosci tego rodzaju zmiekczonych stroikow, aby to zrobic.  
+1112252;Wymaga wyplatania koszy (specjalizacja stolarstwo i majsterkowanie)  
+1112253;Nie nauczyles sie wyplatania koszy. Moze studiowanie ksiazki by pomoglo!  
+1112254;Nauczyles sie robic kosze. Bedziesz potrzebowal ogrodnikow, aby przeksztalcili rosliny w trzciny, ktorych uzyjesz do wykonania tych przedmiotow.  
+1112255;Tylko Mistrzowy Majsterkowicz moze nauczyc sie tego z ksiazki.
 1112256;Gargish Carved Green Door 
 1112257;Gargish Brown Door 
 1112258;Sun Door 
@@ -69006,16 +69006,16 @@ Number;Text
 1112287;You are already set to cut reeds! 
 1112288;bright ~1_COLOR~ reeds 
 1112289;~1_COLOR~ reeds 
-1112290;Basket Weaving 
+1112290;Wicie koszy 
 1112291;toxic venom sac 
-1112292;palacej toksyny 
-1112293;round basket 
-1112294;basket 
-1112295;square basket 
-1112296;small square basket 
-1112297;tall round basket 
-1112298;small round basket 
-1112299;tall basket 
+1112292;mikstura palacej toksyny 
+1112293;okragly koszyk
+1112294;koszyk
+1112295;kwadratowy koszyk 
+1112296;maly kwadratowy koszyk 
+1112297;wysoki okragly koszyk
+1112298;maly okragly koszyk
+1112299;wysoki koszyk
 1112300;Navrey's Lair 
 1112301;Shrine of Truth 
 1112302;Underworld 
@@ -69043,7 +69043,7 @@ Number;Text
 1112324;SELECT REEDS 
 1112325;<center>New Hornstyle</center> 
 1112326;You do not have enough scouring toxins to make that! 
-1112327;Void Essence 
+1112327;esencja pustki 
 1112328;pyl krysztalowy 
 1112329;krysztalowe granulki 
 1112330;Particle Filter 
@@ -69851,7 +69851,7 @@ Number;Text
 1113132;The leather wolf howls for help 
 1113133;Thoughts of the Arisen distract you from your meditation. 
 1113134;You can only redeed items in your own house! 
-1113135;Scroll Binder 
+1113135;Zwoj laczenia
 1113136;pulpa drzewna 
 1113137;Necklace of Diligence 
 1113138;Target the powerscroll you wish to bind. 
@@ -70067,9 +70067,9 @@ Number;Text
 1113348;lodestone 
 1113349;delicate scales 
 1113350;abyssal cloth 
-1113351;crushed glass 
+1113351;rozgniecione szklo 
 1113352;tajemny kamien runiczny 
-1113353;powdered iron 
+1113353;zelazo w proszku
 1113354;kula pustki 
 1113355;skora z boury 
 1113356;chaga mushroom 
@@ -106732,7 +106732,7 @@ Number;Text
 1150013;Have you retrieved the ingredients-s-s?  Do not wait, or the Bane Chos-s-sen will des-s-stroy all.  Remember, I need five small blackrock pieces, one bowl of rotworm s-s-stew, and the arms of a Terethan Avenger. 
 1150014;*** Salis takes the ingredients and slithers to the table to experiment.  After a few minutes of experimenting and tasting it slithers back to you. ***<br><br>I have discovered the recipe to blackrock stew, the secret to the bane dragon's power.  As-s-s promised, I will share it with you.  Thank you for your assis-s-stance. 
 1150015;Your backpack is too full for switching language of the book! Please make room and try again. 
-1150016;a small piece of blackrock 
+1150016;maly kawalek podmroczniaka
 1150017;Britannian Ship Deed 
 1150018;Focus 
 1150019;Otis' Original Homemade Brew 
@@ -110121,8 +110121,8 @@ Number;Text
 1153497;Szata pamiątkowa z okazji 15-lecia została umieszczona w twoim plecaku.
 1153498;rytuał przywołania exodusa
 1153499;zwoje przywołania demona
-1153500;sacrificial dagger exodusa
-1153501;core link
+1153500;sztylet poswiecenia exodusa
+1153501;glowne zlacze
 1153502;ołtarz przywołania exodusa
 1153503;Róg obfitości
 1153504;złoty pył
@@ -112251,12 +112251,12 @@ Number;Text
 1155627;Ancient Parchment 
 1155628;*The parchment appears heavily worn and in need of restoration by a skilled Scribe...* 
 1155629;"*The vase shatters as you cut away the sealing wax!""" 
-1155630;Starozytny Documents Kit 
-1155631;Prophetic Manuscript 
-1155632;"     I was a boy of nine when I had my first vision. As I slept, I dreamt of darkness, studded with<br>brilliant gems reflecting a wondrous light. A thousand swirls of shimmering dust appeared, dancing<br>across the field before me. I reached for them, and suddenly the dust came together and there was<br>a great flash, and then for a moment, nothing. I became aware of a whispering voice as a form<br>slowly resolved in front of me - it was a man whose appearance was at once imperceptible and<br>unforgettable, wonderful and ordinary, inspriring and terrifying. Gradually, I became able to<br>understand the whispering, which came to me as though it were an echo from somewhere else. It<br>was the being in front of me, and after so many years, so many visits, I still remember <br>everything he said:<br><br>     ""Owain. Long has your family had a gift of sight, and long so it shall be. I come to you<br>from the past to show you the future, and from the future shall I come with memories of the<br>past. I will be your Guide, once you are ready to see.""<br><br>     When I awoke, I was frightened - too frightened to even speak of it. As one year turned into<br>the next, however, I gradually learned to forget the dream. Some years later, when I was still a<br>young man, I fell terribly ill. The healers were unable to explain this malady, and as a result,<br>I lost the use of my eyes. I knew fear once again. It was then that I was visited in my dreams<br>for the second time:<br>	<br>     ""It is time, Owain. There is much work to be done, now that you are ready to see.""<br><br>     I have been shown many things in my dreams - things that once were, and those that have yet<br>to be. Here, at the end of my life, at the beginning of a Golden Age in the realm, I shall <br>recount in secret the most important events that I have received glimpses of. While they may <br>need to remain secret for some time, the day will come when the realm will need to know what <br>I have seen." 
-1155633;I cannot describe in detail the being that has visited my dreams. Try as I might,<br>his specific nature eludes me, and the harder I try to envision him in my mind, the <br>less it seems I am able to do so. He did not accompany during all of the visions I <br>have experienced, but he guided me through the most important ones - the ones I now<br>record. <br><br>   Many generations from now, the world will be fractured. The land I know will grow <br>darker, and a powerful Enchantress will wage constant war. Wishing to provide his<br>people an escape from death and mayhem, a Noble King will lead his subjects to a new<br>land, created by powerful magic and being a mirror image of the one which they<br>fled from. There they will be free from the turmoil that had taken hold in their<br>former home, if only for a short time. New conflicts will happen, even as the old ones <br>persist in the lands left behind. The King will depart for distant lands, and new <br>powers will rise and fall until the kingdom will be in danger of collapse.<br><br>   Without leadership, the cities will turn against one another as citizens take<br>to the streets in protest and bandits roam the land unimpeded. Into this will arrive<br>a Healer, whose face will be revealed to be that of a demon to many, and whose motive <br>will be endlessly questioned. But he shall ascend the throne, and reunite the people<br>of the realm once again, giving them more power over their lives in the process.<br><br>   Not all wounds can be healed, however. In the Old Lands a long struggle will enter<br>its final stage as the factions who remained in the wake of the Great Exodus dwindle<br>in number. The Enchantress, having seduced a powerful Mage, will have an advantage<br>over her remaining enemy - the Knight who stayed behind to protect those unwilling to<br>leave their homes and lives, perilous though those lives may be.<br><br>   With the Enchantress gaining strength, bolstered by the warriors of her defeated<br>enemies, she will be on the cusp of taking control of the Old Lands. Then, something<br>unforseen shall occur. 
-1155634;"   I should say that I have been exceptionally lucky in my life. By the time of the <br>third visit from my Guide, I had wed and even had two children - a son and a daughter.<br>The regret of never having been able to see their faces pales in comparison to the joy<br>they have brought to me. It is to them I leave this final account, with instructions<br>to hide it well.<br><br>   On his third arrival, I spoke to my Guide for the first time - I asked his name. <br>He responded only with cryptic remarks, saying he had and will be called many things. <br>When I asked why he was helping me to see the things I had seen, he said that he is only<br>concerned with keeping ""order"" and that one day my words would help him do so. It was then<br>that he showed me something that which, hundreds of years from now, would surprise all<br>who lived - the return of the Noble King.<br><br>   Upon his return to the Kingdom he had created, the Noble King will be surprised to find<br>the Healer, a dear friend but also an ideological rival, alive and on the throne. Seeing<br>the people happy as citizens rather than subjects, and largely content with his old friend's<br>rule, the King will lay to rest their old rivalry and resolve to stay for a short time<br>before returning to the distant lands he had arrived from. It will not be long however, <br>before the King's attention is drawn towards the Old Lands and those who elected to stay <br>when he led the Great Exodus. In doing so, he will be sad, as he will see naught but turmoil<br>as the forces of the Enchantress seem poised to overtake at last the stalwart Knight.<br><br>   It is then that he will make a decision that will change the course of all lands - he <br>will call for all those who followed him once before, to do so again. Charging them with<br>the protection of the Old Lands, he will encourage them them to uphold the virtuous<br>philosophy he had ruled and lived by. In response, the Enchantress will amass an army of wickedness <br>the likes of which the world has never seen. Thus, a war of control will turn into a war of <br>ideology." 
-1155635;"   It is a curious thing, to be blind and to write. My mother taught me to write<br>when I was very young - I was well practiced by the time I had lost the use of<br>my eyes. I maintained the skill through the years with careful practice. I know<br>one day these will be found and read - I have foreseen it.<br><br>   I was past midaged by the time of my Guide's final visit. It was then that he<br>showed me what the lands I knew of as home would one day come to look like, as <br>the clash of two opposing ideologies will cause blood to be shed in every city.<br>This will not be a war of control for territory, however, but rather a battle<br>for the soul of the world taking place in a land once forsaken but now remembered.<br><br>   It will not only be the forces of the Enchantress and the Noble King and his Knight <br>who enter into the fight, however. Many will be drawn into violence, from all<br>corners of the world. And through this conflict and strife, a forgotten<br>secret will be rediscovered. My Guide's final words to me were:<br><br>   ""The greatest treasure of a long-dead king will have the power to save all lands. <br>Look for salvation in the shadows of the Old Lands, and in the ruins in the stars."" <br><br>   Then, turning back into a thousand swirls of dust, he disappeared, never to <br>enter into my dreams again." 
+1155630;Starozytny Zestaw dokumentow 
+1155631;Proroczy Rekopis  
+1155632;"     Mialem dziewiec lat, kiedy po raz pierwszy mialem wizje. We snie widzialem ciemnosc, usiana<br>lsniacymi klejnotami odbijajacymi cudowne swiatlo. Tysiac wirujacych drobinek pylu pojawilo sie,<br>tanczac przede mna. Wyciagnalem reke, a pyl nagle sie polaczyl, po czym nastapil wielki blysk,<br>a potem przez chwile nic. Uslyszalem szept, gdy postac powoli wylaniala sie przede mna - byl<br>to mezczyzna, ktorego wyglad byl jednoczesnie nieuchwytny i niezapomniany, cudowny i zwyczajny,<br>inspirujacy i przerazajacy. Stopniowo zaczalem rozumiec szept, ktory do mnie dochodzil, jakby<br>to byl odglos echa. Byla to postac przede mna, i po tylu latach, tylu wizytach, wciaz pamietam <br>wszystko, co powiedzial:<br><br>     ""Owain. Twoja rodzina od dawna ma dar widzenia i tak bedzie przez dlugi czas. Przybywam<br>do ciebie z przeszlosci, by pokazac ci przyszlosc, a z przyszlosci przybede z pamiecia o<br>przeszlosci. Bede twoim Przewodnikiem, gdy bedziesz gotowy, by zobaczyc.""<br><br>     Obudzilem sie przerazony - zbyt przerazony, by o tym mowic. Gdy lata mijaly, stopniowo<br>nauczylem sie zapominac o tym snie. Kilka lat pozniej, gdy bylem jeszcze mlodym czlowiekiem,<br>zachorowalem ciezko. Uzdrowiciele nie potrafili wyjasnic tej choroby, a w wyniku tego stracilem<br>wzrok. Znowu poczulem strach. Wtedy po raz drugi odwiedzil mnie we snie:<br><br>     ""To juz czas, Owain. Czeka nas wiele pracy, teraz gdy jestes gotow, by zobaczyc.""<br><br>     Widzialem we snie wiele rzeczy - te, ktore byly, i te, ktore jeszcze nadejda. Teraz, u<br>schylku mojego zycia, na poczatku Zlotej Ery w krolestwie, w tajemnicy opowiem o<br>najwazniejszych wydarzeniach, ktorych bylem swiadkiem. Chociaz moga one pozostac<br>tajemnica przez jakis czas, nadejdzie dzien, gdy krolestwo bedzie musialo wiedziec, co<br>widzialem."  
+1155633;Nie potrafie opisac szczegolowo istoty, ktora odwiedzala moje sny. Jak bardzo bym sie<br>staral, jego prawdziwa natura umyka mi, a im bardziej probuje sobie ja wyobrazic, tym<br>mniej jestem w stanie to zrobic. Nie towarzyszyl mi we wszystkich wizjach, jakie<br>przezylem, ale prowadzil mnie przez te najwazniejsze - te, ktore teraz zapisuje.<br><br>   Wiele pokolen stad swiat zostanie rozbity. Kraina, ktora znam, stanie sie<br>ciemniejsza, a potezna Czarodziejka bedzie prowadzic nieustanna wojne. Krol-Szlachcic,<br>pragnac zapewnic swojemu ludowi ucieczke przed smiercia i zniszczeniem, poprowadzi<br>podwladnych do nowej krainy, stworzonej za pomoca poteznej magii i bedacej lustrzanym<br>odbiciem tej, z ktorej uciekli. Tam beda wolni od chaosu, ktory ogarnal ich<br>poprzednie miejsce, choc tylko na krotko. Nowe konflikty wybuchna, nawet gdy stare<br>beda nadal trwac w pozostawionych ziemiach. Krol wyruszy na odlegle ziemie, a nowe<br>moce beda powstawac i upadac, az krolestwo stanie w obliczu zaglady.<br><br>   Bez przywodztwa miasta zwroca sie przeciwko sobie, gdy obywatele wyjda na ulice<br>protestujac, a bandyci beda swobodnie grasowac. Wtedy pojawi sie Uzdrowiciel,<br>ktorego twarz wielu wyda sie demoniczna, a jego motywy beda nieustannie<br>kwestionowane. Jednak zasiadzie na tronie i zjednoczy lud krolestwa na nowo,<br>dajac im wieksza wladze nad ich wlasnym zyciem.<br><br>   Nie wszystkie rany moga jednak zostac uleczone. W Starych Krainach dluga walka wejdzie<br>w swoja ostatnia faze, gdy frakcje, ktore pozostaly po Wielkim Exodusie, beda<br>zanikac. Czarodziejka, ktora uwiodla poteznego Maga, zyska przewage nad swoim<br>ostatnim wrogiem - Rycerzem, ktory pozostal, by chronic tych, ktorzy nie chcieli<br>opuscic swoich domow i zycia, chocby bylo ono pelne niebezpieczenstw.<br><br>   Gdy Czarodziejka zyska sile, wzmocniona wojownikami swoich pokonanych<br>wrogow, bedzie na progu zdobycia wladzy nad Starymi Krainami. Wtedy wydarzy sie<br>cos nieprzewidzianego."  
+1155634;"   Powinienem powiedziec, ze mialem w zyciu wyjatkowe szczescie. Do czasu trzeciej<br>wizyty mojego Przewodnika bylem juz zonaty i mialem dwoje dzieci - syna i corke.<br>Zal, ze nigdy nie moglem zobaczyc ich twarzy, blednie w porownaniu z radoscia,<br>jaka mi przyniosly. To im zostawiam ten ostatni zapis, z instrukcjami,<br>by dobrze go ukryli.<br><br>   Podczas trzeciej wizyty po raz pierwszy rozmawialem z moim Przewodnikiem - zapytalem<br>go o imie. Odpowiedzial jedynie zagadkami, mowiac, ze nazywano go i beda nazywac<br>wieloma imionami. Gdy zapytalem, dlaczego pomaga mi zobaczyc to, co widzialem,<br>odpowiedzial, ze interesuje go tylko ""porzadek"" i ze pewnego dnia moje slowa<br>pomoga mu go zachowac. Wtedy pokazal mi cos, co, jak powiedzial, zdziwi<br>wszystkich, ktorzy beda zyc za setki lat - powrot Krola-Szlachcica.<br><br>   Po powrocie do Krolestwa, ktore stworzyl, Krol-Szlachcic zdziwi sie, widzac<br>Uzdrowiciela, drogiego przyjaciela, ale takze ideologicznego rywala, na tronie.<br>Widzac ludzi zadowolonych jako obywatele, a nie poddani, i w wiekszosci zadowolonych<br>z rzadow swojego starego przyjaciela, Krol polozy kres ich dawnej rywalizacji<br>i postanowi zostac na krotki czas, zanim ponownie wyruszy do odleglych<br>ziem, z ktorych przybyl. Nie minie jednak dlugo, zanim jego uwaga<br>zwroci sie ku Starym Krainom i tym, ktorzy wybrali pozostanie, gdy<br>poprowadzil Wielki Exodus. W tym momencie bedzie smutny, gdy zobaczy<br>nic innego, jak tylko chaos, gdyz sily Czarodziejki wydaja sie gotowe<br>do ostatecznego pokonania niezlomnego Rycerza.<br><br>   Wtedy podejmie decyzje, ktora zmieni losy wszystkich krain - wezwie<br>wszystkich, ktorzy raz juz za nim podazyli, by zrobili to ponownie. Zleci im<br>ochrone Starych Krain, zachecajac ich do podtrzymywania cnotliwej<br>filozofii, wedlug ktorej rzadzil i zyl. W odpowiedzi Czarodziejka zgromadzi<br>armie zla, jakiej swiat jeszcze nie widzial. Tak wiec wojna o wladze stanie sie<br>wojna ideologii."  
+1155635;"   Ciekawa rzecza jest byc slepym i pisac. Moja matka nauczyla mnie pisac, gdy<br>bylem bardzo mlody - bylem dobrze wycwiczony, zanim stracilem wz
 1155636;The Time Lord. That is how he will be known when the events I <br>have spoken of will transpire. In my sleep last night I had a<br>vision of this name being spoken, and of an image of <br>the being who has acted as my Guide for all my life.<br><br>   Though he never visited me again, I continued to have visions<br>of the future. It was in one of these that I saw the most troubling<br>events of all, for I believe I saw things that the Time Lord would not<br>have liked me to see.<br><br>   One day, these words will be found in the darkest, most dangerous<br>depths imaginable. On this day I shall walk upon the world once more,<br>if in spirit only. The secret of which I have spoken will be discovered,<br>and the path to the greatest treasure of a dead king will be revealed.<br>Of this I am certain, even if I do not know what, or where it is.<br><br>   Not all may be as the Time Lord showed me, however. For while I saw<br>the salvation he spoke of, I now believe that this treasure also has<br>the power to destroy our world, along with countless others. This<br>may come as a surprise to any who read this, but it is one of the <br>possibilities I have foreseen. Not all things that are meant to happen, will.<br><br>   Now I come to the end of it. I will not be much longer for this world,<br>and I am at peace. I have done my part, and these pages will now lie in wait <br>until the time is right.<br><br>   Until the world is ready to see. 
 1155637;Owain the Blind Prophet 
 1155638;The Bridge of Two Ships 
@@ -113346,7 +113346,7 @@ Number;Text
 1156722;You need more of Professor Ellie Rafkin's Unabridged Atlas of Eodon. 
 1156723;"The geography of the Eodon is standard for what one might expect in a sub tropical Volcanic valley.  The most pronounced feature that one might encounter upon initial entry into the Valley is the unique topography surrounding the Moongate. It is my guess the being known as Hawkwind's peculiar relationship with time is responsible for the concentric circles etched into the terrain. While some scholars may view this as uninspired I find it adds to the enchantment of the region.  Each of the tribes of Eodon inhabit a unique sub-biome within the Valley mostly related to that tribes chosen deity of worship.  to the southeast the Jukari are in closest proximity to the Volcano, a lowlands defined by lava flows and twisting veins of igneous rock and earth.  To the southwest the Kurak tribe inhabit the grasslands suited to the tigers that use the tall grasses as cover whilst hunting and the nearby streams as a source of water.  Further to the southwest the Barrab sit high atop rocky mesas surrounded by sandy pits where Myrmidex tunnels breach the surface.  To the north of the Moongate the Barako sit atop the Valley floor in the canopy of a wide variety of hard and softwood rainforest trees.  To the west are the Urali, which have made the sandy shores and marshlands of the many rivers their home.  Finally, to the northwest the Sakkhra are at the base of the great swamps, an area bordered by great plains to which the many species of large reptiles called ""Dinosaurs"" can be found.  " 
 1156724;Koncentrat z limfy myrmidexow 
-1156725;Myrmidex Eggsac 
+1156725;Worek jajowy Myrmidexa
 1156726;oklad na oparzenia 
 1156727;Lava Berry 
 1156728;esencja napastnika 
@@ -113954,24 +113954,24 @@ Number;Text
 1157330;Sparks 
 1157331;Large Fancy Buffet Table 
 1157332;Some of the items could not be created because there is not enough empty space in the container.  Empty the container and try again. 
-1157333;Bride Set 
-1157334;Groom Set 
-1157335;Please make a selection: 
-1157336;Magical Cake Batter 
-1157337;Magical Botanical Archway Seed 
-1157338;Magical Wedding Sewing Kit 
-1157339;Wedding Package Token 
-1157340;Small Fancy Buffet Table 
-1157341;*You cut a slice from the cake.* 
-1157342;Wedding Package Addon Token 
-1157343;Blood of the Dark Father 
-1157344;the deceiver 
-1157345;britches of warding 
-1157346;glenda 
-1157347;bow of the infinite swarm 
-1157348;cuffs of the archmage 
-1157349;gloves of feudal grip 
-1157350;bracelet of primal consumption 
+1157333;Zestaw Panny Mlodej  
+1157334;Zestaw Pana Mlodego  
+1157335;Prosze dokonac wyboru:  
+1157336;Magiczne Ciasto  
+1157337;Magiczne Nasiono Botanicznego Luku  
+1157338;Magiczny Zestaw Krawiecki Slubny  
+1157339;Zeton Pakietu Slubnego  
+1157340;Maly Elegancki Stol Bufetowy  
+1157341;*Odkrajasz kawalek ciasta.*  
+1157342;Zeton Dodatku Pakietu Slubnego  
+1157343;Krew Mrocznego Ojca  
+1157344;oszust  
+1157345;spodnie ochrony  
+1157346;glenda  
+1157347;luk nieskonczonego roju  
+1157348;mankiety arcymaga  
+1157349;rekawice feudalnego uscisku  
+1157350;bransoleta prymitywnej konsumpcji  
 1157351;You need ~1_SKILL_REQUIREMENT~ tactics skill to perform that attack 
 1157352;You need ~1_SKILL_REQUIREMENT~ weapon skill to perform that attack 
 1157353;Sklep Ultimy 
