@@ -22017,12 +22017,12 @@ Number;Text
 1032629;Arcane Focus 
 1032630;mangled head of dread horn 
 1032631;mangled head of dread horn 
-1032632;mounted dread horn 
-1032633;mounted dread horn 
-1032634;pristine dread horn 
-1032635;pristine dread horn 
-1032636;horn of dread horn 
-1032637;horn of dread horn 
+1032632;przytwierdzony spaczony jednorozec 
+1032633;przytwierdzony spaczony jednorozec  
+1032634;nienaruszony rog spaczonego jednorozca
+1032635;nienaruszony rog spaczonego jednorozca
+1032636;rog spaczonego jednorozca
+1032637;rog spaczonego jednorozca
 1032638;lesny napiersnik 
 1032639;lesny pas 
 1032640;lesny karczek 
@@ -43727,69 +43727,69 @@ Number;Text
 1072832;*giggle*  So serious, so grim!  *tickle*  Enjoy life!  Have fun!  Laugh!  Be merry!  *giggle*  Find three of my baubles ... *giggle* I hid them! *giggles hysterically*  Hid them!  La la la!  Bring them quickly!  They are magical and will hide themselves again if you are too slow. 
 1072833;*giggle* Too serious.  Too thinky! 
 1072834;Magical baubles hidden, find them as you're bidden!  *giggle* 
-1072835;Community Collection 
-1072836;Current Tier: 
-1072837;Current Points: 
-1072838;Points Until Next Tier: 
-1072839;<center>Advanced Character</center> 
-1072840;Donations Accepted: 
-1072841;You weave your blade to execute a ~1_attack~. 
-1072842;Nagrody 
-1072843;Twoje punkty: 
-1072844;Wybierz nagrode: 
-1072845;Status 
-1072846;obrazenia chaosu ~1_val~% 
-1072847;Musisz nauczyc sie receptury ze zwoju. 
-1072848;Parasitic Poison 
-1072849;Darkglow Poison 
-1072850;Darkglow poison increases your damage! 
-1072851;Test String 
-1072852;parasitic poison charges: ~1_val~ 
-1072853;darkglow poison charges: ~1_val~ 
-1072854;<div align=right>Next</div> 
-1072855;Previous Rewards 
-1072856;A Sample Reward Title! 
-1072857;Abandon Reward Title 
-1072858;tall elven bed (south) 
-1072859;tall elven bed (east) 
-1072860;elven bed (south) 
-1072861;elven bed (east) 
-1072862;ornate elven chest (south) 
-1072863;elven chest 
-1072864;elven dresser (south) 
-1072865;elven wash basin (south) 
-1072866;elven armoire (fancy) 
-1072867;elven loveseat (south) 
-1072868;Table Chest 
-1072869;ornate table (south) 
-1072870;ornate elven chair 
-1072871;arcane bookshelf (south) 
-1072872;cozy elven chair 
-1072873;elven reading chair 
-1072874;Book Stand 
-1072875;elven forge 
-1072876;stone anvil (south) 
-1072877;elven bow stringer 
-1072878;elven spinning wheel (south) 
-1072879;elven oven 
-1072880;Alchemy Table 
-1072881;zawisajacy kosmyk 
-1072882;Hovering Wisp (green) 
-1072883;Hovering Wisp (white) 
-1072884;squirrel statue (south) 
-1072885;arcanist statue (south) 
-1072886;arcanist statue (east) 
-1072887;warrior statue (south) 
-1072888;warrior statue (east) 
-1072889;giant replica acorn 
-1072890;Writing Feather 
-1072891;tattered wall map (south) 
-1072892;tattered wall map (east) 
-1072893;magiczna dzwignia 
-1072894;klejnotowy filigran 
-1072895;zapadnietny pryzmat 
-1072896;runed switch 
-1072897;Circlet 
+1072835;Kolekcja Spolecznosci  
+1072836;Obecny Poziom:  
+1072837;Obecne Punkty:  
+1072838;Punkty do Nastepnego Poziomu:  
+1072839;<center>Zaawansowana Postac</center>  
+1072840;Darowizny Akceptowane:  
+1072841;Przeplatasz swoj miecz, aby wykonac ~1_atak~.  
+1072842;Nagrody  
+1072843;Twoje punkty:  
+1072844;Wybierz nagrode:  
+1072845;Status  
+1072846;obrazenia chaosu ~1_val~%  
+1072847;Musisz nauczyc sie receptury ze zwoju.  
+1072848;Parazytyczna trucizna  
+1072849;Trucizna Darkglow  
+1072850;Ta tuczina zwieksza twoje obrazenia!  
+1072851;Testowy tekst  
+1072852;ladunki parazytycznej trucizny: ~1_val~  
+1072853;ladunki trucizny darkglow: ~1_val~  
+1072854;<div align=right>Nastepny</div>  
+1072855;Poprzednie Nagrody  
+1072856;Tytul Przykladowej Nagrody!  
+1072857;Porzuc Tytul Nagrody  
+1072858;wysokie elfickie lozko (poludnie)  
+1072859;wysokie elfickie lozko (wschod)  
+1072860;elfickie lozko (poludnie)  
+1072861;elfickie lozko (wschod)  
+1072862;ornamentowana elficka skrzynia (poludnie)  
+1072863;elficka skrzynia  
+1072864;elficka komoda (poludnie)  
+1072865;elficka umywalka (poludnie)  
+1072866;elficka szafa (fancy)  
+1072867;elficka kanapa dwuosobowa (poludnie)  
+1072868;Skrzynia Stolowa  
+1072869;ornamentowany stol (poludnie)  
+1072870;ornamentowane elfickie krzeslo  
+1072871;magiczny regal na ksiazki (poludnie)  
+1072872;przytulne elfickie krzeslo  
+1072873;elfickie krzeslo do czytania  
+1072874;Stojak na Ksiazki  
+1072875;elficka kuznia  
+1072876;kamienne kowadlo (poludnie)  
+1072877;elficki naciagacz lukow  
+1072878;elfickie kolo przedzalnicze (poludnie)  
+1072879;elficki piec  
+1072880;Stol Alchemika  
+1072881;zawieszajacy sie kosmyk  
+1072882;Latajacy Wisk (zielony)  
+1072883;Latajacy Wisk (bialy)  
+1072884;statua wiewiorki (poludnie)  
+1072885;statua arkanisty (poludnie)  
+1072886;statua arkanisty (wschod)  
+1072887;statua wojownika (poludnie)  
+1072888;statua wojownika (wschod)  
+1072889;gigantyczna replika zoledzia  
+1072890;Pioro do Pisania  
+1072891;postrzepiony mape scienna (poludnie)  
+1072892;postrzepiony mape scienna (wschod)  
+1072893;magiczna dzwignia  
+1072894;klejnotowy filigran  
+1072895;zapadniety pryzmat  
+1072896;dzwignia oznaczona runami 
+1072897;Obrecz  
 1072898;elegancka koszula 
 1072899;eleganckie spodnie 
 1072900;elegancka spodnica 
@@ -44263,52 +44263,52 @@ Number;Text
 1073368;"A minotaur captain barks an order to his fellow scouts, ""Aid the others! Kill the invaders!""" 
 1073369;"A minotaur captain bellows, ""Meraktus has arrived!""" 
 1073370;"A minotaur bellows, ""I see invaders! Must warn the others!""" 
-1073371;arcane bookshelf (east) 
-1073372;elven loveseat (east) 
-1073373;Treasures and Trinkets Reading Glasses 
-1073374;Wizard's Crystal Reading Glasses 
-1073375;Magnifying Glasses 
-1073376;Poisoned Reading Glasses 
-1073377;Necromantic Reading Glasses 
-1073378;Light of Way Reading Glasses 
-1073379;Anthropomorphist Reading Glasses 
-1073380;Folded Steel Reading Glasses 
-1073381;Mace and Shield Reading Glasses 
-1073382;Lyrical Reading Glasses 
-1073383;ornate elven chest (east) 
-1073384;ornate table (east) 
-1073385;hardwood table (south) 
-1073386;hardwood table (east) 
-1073387;elven wash basin (east) 
-1073388;elven dresser (east) 
-1073389;Please target the item you wish to donate. 
-1073390;The item you selected to donate is not of the type you picked. 
-1073391;Friends of the Library Honored Member 
-1073392;stone anvil (east) 
-1073393;elven spinning wheel (east) 
-1073394;elven oven (south) 
-1073395;elven oven (east) 
-1073396;alchemist table (south) 
-1073397;alchemist table (east) 
-1073398;squirrel statue (east) 
-1073399;elven podium 
-1073400;elven podium (east) 
-1073401;elven armoire (simple) 
-1073402;rarewood chest 
-1073403;decorative box 
-1073404;Select an object to turn. 
-1073405;Select an object to increase its height. 
-1073406;Select an object to lower its height. 
-1073407;Please Contribute to the public Museum of Vesper. 
-1073408;The Necromantic Arts 
-1073409;The Paladin 
-1073410;Whimsical Momentos 
-1073411;Flora and Fauna of Faraway Lands 
-1073412;May the Cards Guide Thee 
-1073413;Notable Villains 
-1073414;Notable Events 
-1073415;Swords and Silk 
-1073416;Nature's Children 
+1073371;magiczny regal na ksiazki (wschod)  
+1073372;elficka kanapa dwuosobowa (wschod)  
+1073373;Okulary do czytania Skarbow i Blyskotek  
+1073374;Krysztalowe okulary do czytania czarodzieja  
+1073375;Okulary powiekszajace  
+1073376;Zatrute okulary do czytania  
+1073377;Nekromantyczne okulary do czytania  
+1073378;Okulary do czytania Swiatla Drogi  
+1073379;Antropomorficzne okulary do czytania  
+1073380;Skladane stalowe okulary do czytania  
+1073381;Okulary do czytania maczugi i tarczy  
+1073382;Liryczne okulary do czytania  
+1073383;ornamentowana elficka skrzynia (wschod)  
+1073384;ornamentowany stol (wschod)  
+1073385;stol z twardego drewna (poludnie)  
+1073386;stol z twardego drewna (wschod)  
+1073387;elficka umywalka (wschod)  
+1073388;elficka komoda (wschod)  
+1073389;Prosze wskaz przedmiot, ktory chcesz przekazac.  
+1073390;Wybrany przez ciebie przedmiot nie jest tego typu, ktory wybrales.  
+1073391;Honorowy czlonek Przyjaciol Biblioteki  
+1073392;kamienne kowadlo (wschod)  
+1073393;elfickie kolo przedzalnicze (wschod)  
+1073394;elficki piec (poludnie)  
+1073395;elficki piec (wschod)  
+1073396;stol alchemika (poludnie)  
+1073397;stol alchemika (wschod)  
+1073398;statua wiewiorki (wschod)  
+1073399;elfickie podium  
+1073400;elfickie podium (wschod)  
+1073401;elficka szafa (prosta)  
+1073402;skrzynia z rzadkiego drewna  
+1073403;pudelko dekoracyjne  
+1073404;Wybierz obiekt do obrocenia.  
+1073405;Wybierz obiekt, aby zwiekszyc jego wysokosc.  
+1073406;Wybierz obiekt, aby zmniejszyc jego wysokosc.  
+1073407;Prosze, przyczyn sie do publicznego Muzeum Vesper.  
+1073408;Nekromantyczne Sztuki  
+1073409;Paladyn  
+1073410;Kaprysne pamiatki  
+1073411;Flora i fauna dalekich krain  
+1073412;Niech karty cie prowadza  
+1073413;Znani zloczyncy  
+1073414;Znane wydarzenia  
+1073415;Miecze i jedwab  
+1073416;Dzieci natury  
 1073417;Of Chaos 
 1073418;Of Order 
 1073419;There once ruled a great king over these lands. 
@@ -45778,7 +45778,7 @@ Number;Text
 1074883;W pelni naladowany 
 1074884;Pozostaly czas naladowania: ~1_val~ 
 1074885;You have ~1_val~ item(s) but require ~2_val~ 
-1074886;Acid Proof Rope 
+1074886;Lina odporna na kwas 
 1074887;Library Talisman - A Primer on Arms Damage Removal 
 1074888;Library Talisman - Talking to Wisps Ward Removal 
 1074889;Library Talisman - A Primer on Arms Damage Removal 
@@ -51984,65 +51984,64 @@ Number;Text
 1095265; 
 1095266; 
 1095267; 
-1095268;gargish cot 
-1095269;gargish cot 
-1095270;gargish cot 
-1095271;gargish cot 
-1095272;large gargish bed 
-1095273;large gargish bed 
-1095274;large gargish bed 
-1095275;large gargish bed 
-1095276;large gargish bed 
-1095277;large gargish bed 
-1095278;large gargish bed 
-1095279;large gargish bed 
-1095280;large gargish bed 
-1095281;large gargish bed 
-1095282;large gargish bed 
-1095283;large gargish bed 
-1095284;large gargish bed 
-1095285;large gargish bed 
-1095286;large gargish bed 
-1095287;large gargish bed 
-1095288;large gargish bed 
-1095289;large gargish bed 
-1095290; 
-1095291;Ter-Mur style chair 
-1095292;Ter-Mur style chair 
-1095293;gargish chest 
-1095294;gargish chest 
-1095295;gargish couch 
-1095296;gargish couch 
-1095297;gargish couch 
-1095298;gargish couch 
-1095299;Ter-Mur style dresser 
-1095300;Ter-Mur style dresser 
-1095301;Ter-Mur style dresser 
-1095302;Ter-Mur style dresser 
-1095303;long table 
-1095304;long table 
-1095305;long table 
-1095306;long table 
-1095307;short table 
-1095308;short table 
-1095309;short table 
-1095310;short table 
-1095311;gargish banner 
-1095312;gargish banner 
-1095313;Ter-Mur style candelabra 
-1095314;Ter-Mur style floor mirror 
-1095315;aud-char 
-1095316;aud-char 
-1095317;gargish painting 
-1095318;gargish painting 
-1095319;gargish sculpture 
-1095320;gargish sculpture 
-1095321;Ter-Mur style table 
-1095322;gargish vase 
-1095323;gargish vase 
-1095324;Ter-Mur style wall mirror 
-1095325;Ter-Mur style wall mirror 
-1095326;Ter-Mur style floor mirror 
+1095268;gargulcowe lozko  
+1095269;gargulcowe lozko  
+1095270;gargulcowe lozko  
+1095271;gargulcowe lozko  
+1095272;duze gargulcowe lozko  
+1095273;duze gargulcowe lozko  
+1095274;duze gargulcowe lozko  
+1095275;duze gargulcowe lozko  
+1095276;duze gargulcowe lozko  
+1095277;duze gargulcowe lozko  
+1095278;duze gargulcowe lozko  
+1095279;duze gargulcowe lozko  
+1095280;duze gargulcowe lozko  
+1095281;duze gargulcowe lozko  
+1095282;duze gargulcowe lozko  
+1095283;duze gargulcowe lozko  
+1095284;duze gargulcowe lozko  
+1095285;duze gargulcowe lozko  
+1095286;duze gargulcowe lozko  
+1095287;duze gargulcowe lozko  
+1095288;duze gargulcowe lozko  
+1095289;  
+1095290;krzeslo w stylu Ter-Mur  
+1095291;krzeslo w stylu Ter-Mur  
+1095292;gargulcowa skrzynia  
+1095293;gargulcowa skrzynia  
+1095294;gargulcowa kanapa  
+1095295;gargulcowa kanapa  
+1095296;gargulcowa kanapa  
+1095297;gargulcowa kanapa  
+1095298;komoda w stylu Ter-Mur  
+1095299;komoda w stylu Ter-Mur  
+1095300;komoda w stylu Ter-Mur  
+1095301;komoda w stylu Ter-Mur  
+1095302;dlugi stol  
+1095303;dlugi stol  
+1095304;dlugi stol  
+1095305;dlugi stol  
+1095306;krotki stol  
+1095307;krotki stol  
+1095308;krotki stol  
+1095309;krotki stol  
+1095310;gargulcowy sztandar  
+1095311;gargulcowy sztandar  
+1095312;swiecznik w stylu Ter-Mur  
+1095313;lustro stojace w stylu Ter-Mur  
+1095314;aud-char  
+1095315;aud-char  
+1095316;gargulcowy obraz  
+1095317;gargulcowy obraz  
+1095318;gargulcowa rzezba  
+1095319;gargulcowa rzezba  
+1095320;stol w stylu Ter-Mur  
+1095321;gargulcowa waza  
+1095322;gargulcowa waza  
+1095323;lustro scienne w stylu Ter-Mur  
+1095324;lustro scienne w stylu Ter-Mur  
+1095325;lustro stojace w stylu Ter-Mur  
 1095327;gargish leather arms 
 1095328;gargish leather arms 
 1095329;gargish leather chest 
@@ -69160,53 +69159,53 @@ Number;Text
 1112441;Target Nearest Object 
 1112442;Target Nearest Mobile 
 1112443;Eternal Guardian Staff 
-1112444;Egg Hatching 
-1112445;Hatching a non-mature or burnt egg will likely destroy it. Do you wish to proceed? 
-1112446;Do you wish to hatch your egg now? 
-1112447;You hatch the egg but it crumbles in your hands! 
-1112448;UPDATE 
-1112449;Macros from the Classic Client have been detected for this character. Would you like to import these macros now?<br><br> - Any macro action that is not supported will not be imported and skipped over.<br> - Key bindings will not be imported due to the possibility of key binding conflicts.<br> - This process will not alter the macro settings for the Classic Client. 
-1112450;You're a bit too frightened to touch that yet. 
-1112451;After what happened last time, you're too afraid to try again. 
-1112452;This axe is really sharp! 
-1112453;You can't fly in your current form! 
-1112454;You must heal before flying. 
-1112455;You cannot fly while recovering from a bola throw. 
-1112456;You cannot fly while recovering from a dismount maneuver. 
-1112457;You are still too dazed to fly. 
-1112458;MRRGLGRRGL! ARRGH! 
-1112459;Thank you! Give me a moment to recover, and I'll see what I can do to help. 
-1112460;I thought they were going to sacrifice me! Here, take this, I'm getting out of here! 
-1112461;You pour some water on the egg, moistening its shell. 
-1112462;a moist egg 
-1112463;a dry egg 
-1112464;a parched egg 
-1112465;a dehydrated egg 
-1112466;a burnt egg 
-1112467;a mature egg 
-1112468;a mature battle chicken lizard egg 
-1112469;an egg 
-1112470;You may not use Valor on this Champion Idol. The Champion has already spawned. 
-1112471;Bald (You will lose your horn color.) 
-1112472;You've suffered a vicious bite! 
-1112473;Your vicious wound is festering! 
-1112474;A hairstylist cannot style your horns! 
-1112475;You cannot use this. You have no beard to dye. 
-1112476;Gargoyles cannot use the services of a body sculptor. 
-1112477;You hatch a chicken lizard. 
-1112478;You hatch a battle chicken lizard!! 
-1112479;an incubator 
-1112480;a scale collar 
-1112481;Which battle chicken do you wish to ensnare? 
-1112482;The chicken frees itself of the collar!! 
-1112483;The collar falls to the ground as the chicken deftly avoids it. 
-1112484;You successfully ensnare the chicken! You best hurry before it frees itself from it! 
-1112485;Your chicken has laid an egg!! 
-1112486;A shard of the brittle weapon has become lodged in you! 
-1112487;The shard is successfully removed. 
-1112488;Please free me! 
-1112489;I see you, yes I do! 
-1112490;A cat in a box. Does it yet live? 
+1112444;Wyleganie Jajka  
+1112445;Wylegniecie niematurego lub spalonego jajka prawdopodobnie je zniszczy. Czy chcesz kontynuowac?  
+1112446;Czy chcesz teraz wylegnac swoje jajko?  
+1112447;Wylegles jajko, ale kruszy sie w twoich rekach!  
+1112448;AKTUALIZACJA  
+1112449;Zauwazono makra z klasycznego klienta dla tej postaci. Czy chcesz teraz zaimportowac te makra?<br><br>- Kazda akcja makra, ktora nie jest wspierana, nie zostanie zaimportowana i zostanie pominieta.<br>- Przypisania klawiszy nie zostana zaimportowane z powodu mozliwosci konfliktow przypisania klawiszy.<br>- Ten proces nie zmieni ustawien makr dla klasycznego klienta.  
+1112450;Jestes zbyt przestraszony, zeby to dotknac.  
+1112451;Po tym, co wydarzylo sie ostatnim razem, boisz sie sprobowac ponownie.  
+1112452;Ta siekiera jest naprawde ostra!  
+1112453;Nie mozesz latac w swojej obecnej formie!  
+1112454;Musisz sie wyleczyc przed lataniem.  
+1112455;Nie mozesz latac, gdy dochodzisz do siebie po rzucie bola.  
+1112456;Nie mozesz latac, gdy dochodzisz do siebie po manewrze zsiadania.  
+1112457;Wciaz jestes zbyt oszolomiony, by latac.  
+1112458;MRRGLGRRGL! ARRGH!  
+1112459;Dziekuje! Daj mi chwile na regeneracje, a zobacze, co moge zrobic, zeby pomoc.  
+1112460;Myslalem, ze mnie poswieca! Wez to, uciekam stad!  
+1112461;Polewasz jajko woda, nawilzajac jego skorupke.  
+1112462;moist jajko  
+1112463;suche jajko  
+1112464;spalone jajko  
+1112465;odwodnione jajko  
+1112466;spalone jajko  
+1112467;dojrzale jajko  
+1112468;dojrzale jajko jaszczurki bojowej  
+1112469;jajko  
+1112470;Nie mozesz uzyc Valor na tym Idolu Mistrza. Mistrz juz sie pojawil.  
+1112471;Lysy (Stracisz kolor rogow.)  
+1112472;Doznales okropnego ugryzienia!  
+1112473;Twoja okropna rana sie ropnie!  
+1112474;Fryzjer nie moze ulozyc twoich rogow!  
+1112475;Nie mozesz tego uzyc. Nie masz brody do farbowania.  
+1112476;Gargulce nie moga korzystac z uslug rzezbiarza ciala.  
+1112477;Wylegles jaszczurke kurza.  
+1112478;Wylegles jaszczurke bojowa kurza!!  
+1112479;inkubator  
+1112480;kolia z lusek  
+1112481;Jaka kurza bojowa chcesz zlapac?  
+1112482;Kura uwalnia sie z obrozy!!  
+1112483;Obroza spada na ziemie, gdy kura sprytnie jej unika.  
+1112484;Sukcesem lapiesz kure! Musisz sie spieszyc, zanim sie uwolni!  
+1112485;Twoja kura zniosla jajko!!  
+1112486;Odlamek kruchej broni utkwil w tobie!  
+1112487;Odlamek zostal pomyslnie usuniety.  
+1112488;Prosze, uwolnij mnie!  
+1112489;Widze cie, tak, widze cie!  
+1112490;Kot w pudelku. Czy jeszcze zyje?  
 1112491;How long must I suffer? 
 1112492;Stop saying that! 
 1112493;No. 
@@ -69286,7 +69285,7 @@ Number;Text
 1112567;You are flying. 
 1112568;Crystal Ball of Knowledge 
 1112569;You cannot use the Crystal Ball of Knowledge right now. 
-1112570;a chicken coop 
+1112570;kurnik
 1112571;Royal City 
 1112572;Holy City 
 1112573;This must be locked down or secured in order to use it. 
@@ -112455,51 +112454,51 @@ Number;Text
 1155831;You cannot gain more Spirituality. 
 1155832;You have gained in Spirituality. 
 1155833;You have gained a path in Spirituality! 
-1155834;Rough Inset Steps 
-1155835;You have lost some Spirituality. 
-1155836;They are already embraced by Spirituality. 
-1155837;You can only embrace players and pets with Spirituality. 
-1155838;Rough Rounded Inset Steps 
-1155839;Your spirit has been embraced! You feel more powerful! 
-1155840;Your spirit is no longer embraced. You feel less powerful. 
-1155841;You can't use a bladed item on a wall safe with a balance. 
-1155842;Small Display Case (South) 
-1155843;Small Display Case (East) 
-1155844;You may not build any higher. 
-1155845;Large Display Case (South) 
-1155846;Large Display Case (East) 
-1155847;Thy current transfer balance is ~1_AMOUNT~ platinum and ~2_AMOUNT~ gold. 
-1155848;Thy current secure balance is ~1_AMOUNT~ gold. 
-1155849;Dark Wooden Sign Hanger 
-1155850;Light Wooden Sign Hanger 
-1155851;Curled Metal Sign Hanger 
-1155852;Flourished Metal Sign Hanger 
-1155853;Inward Curled Metal Sign Hanger 
-1155854;End Curled Metal Sign Hanger 
-1155855;Thy current bank balance is ~1_AMOUNT~ platinum and ~2_AMOUNT~ gold. 
-1155856;~1_AMOUNT~ gold has been removed from your bank box. 
-1155857;Currency Wall Safe 
-1155858;"You are now on a Humility Hunt. For each kill while you forgo the protection of resists, you shall continue on your path to Humility.  You may end your Hunt by speaking ""Lum Lum Lum"" at any time." 
-1155859;Gold Deposited: ~1_AMOUNT~ 
-1155860;Currency Wall Safe 
-1155861;Deposit 
-1155862;Withdraw 
-1155863;Safe Transactions: 
-1155864;~1_NAME~'s Secure Account: ~2_AMOUNT~ 
-1155865;Ile chcesz zdeponowac: 
-1155866;Ile chcesz wyplacic: 
-1155867;Wpisana kwota jest nieprawidlowa. Sprawdz, czy masz wystarczajace srodki na sfinalizowanie tej transakcji. 
-1155868;Unable to modify a trade marked as accepted. 
-1155869;~1_AMOUNT~ platinum has been deposited into your bank box. 
-1155870;Thy current transfer balance is ~1_AMOUNT~ platinum and ~2_AMOUNT~ gold. 
-1155871;Enter amount of gold to add to shard transfer balance from current account balance of ~1_AMOUNT~: 
-1155872;Enter amount of platinum to add to shard transfer balance from current account balance of ~1_AMOUNT~: 
-1155873;Your shard transfer balance is been reset. 
-1155874;You do not have enough mana to keep your death ray active. 
-1155875;You must have the Time of Legends expansion to use this feature. 
-1155876;"* Requires the ""Time of Legends"" expansion." 
-1155877;Stone Floor 
-1155878;Light Paver 
+1155834;Surowe wbudowane stopnie  
+1155835;Straciles troche duchowosci.  
+1155836;Sa juz objeci duchowoscia.  
+1155837;Mozesz obejmowac tylko graczy i zwierzeta domowe z duchowoscia.  
+1155838;Surowe zaokraglone wbudowane stopnie  
+1155839;Twoj duch zostal objety! Czujesz sie silniejszy!  
+1155840;Twoj duch nie jest juz objety. Czujesz sie slabszy.  
+1155841;Nie mozesz uzyc przedmiotu z ostrzem na skarbcu sciennym z balansem.  
+1155842;Mala witryna (poludnie)  
+1155843;Mala witryna (wschod)  
+1155844;Nie mozesz budowac wyzej.  
+1155845;Duza witryna (poludnie)  
+1155846;Duza witryna (wschod)  
+1155847;Twoje aktualne saldo transferowe to ~1_AMOUNT~ platyny i ~2_AMOUNT~ zlota.  
+1155848;Twoje aktualne zabezpieczone saldo to ~1_AMOUNT~ zlota.  
+1155849;Ciemne drewniane zawieszki na znaki  
+1155850;Jasne drewniane zawieszki na znaki  
+1155851;Zawieszka na znak z wygietego metalu  
+1155852;Zawieszka na znak z ozdobnego metalu  
+1155853;Zawieszka na znak z wygietego metalu (do wewnatrz)  
+1155854;Zawieszka na znak z wygietego metalu (na koncu)  
+1155855;Twoje aktualne saldo bankowe to ~1_AMOUNT~ platyny i ~2_AMOUNT~ zlota.  
+1155856;Z Twojego skarbca usunieto ~1_AMOUNT~ zlota.  
+1155857;Skarbiec walutowy  
+1155858;"Teraz jestes na Polowaniu na Pokore. Za kazde zabicie, gdy zrezygnujesz z ochrony przed odpornosciami, bedziesz kontynuowac swoja droge do pokory. Mozesz zakonczyc swoje Polowanie, mowiac ""Lum Lum Lum"" w dowolnym momencie."  
+1155859;Zloto zdeponowane: ~1_AMOUNT~  
+1155860;Skarbiec walutowy  
+1155861;Wplata  
+1155862;Wyplata  
+1155863;Bezpieczne transakcje:  
+1155864;Zabezpieczone konto ~1_NAME~: ~2_AMOUNT~  
+1155865;Ile chcesz zdeponowac:  
+1155866;Ile chcesz wyplacic:  
+1155867;Wpisana kwota jest nieprawidlowa. Sprawdz, czy masz wystarczajace srodki na sfinalizowanie tej transakcji.  
+1155868;Nie mozna zmodyfikowac handlu oznaczonego jako zaakceptowany.  
+1155869;Do Twojego skarbca wplacono ~1_AMOUNT~ platyny.  
+1155870;Twoje aktualne saldo transferowe to ~1_AMOUNT~ platyny i ~2_AMOUNT~ zlota.  
+1155871;Wpisz kwote zlota, ktora chcesz dodac do salda transferowego z aktualnego salda konta ~1_AMOUNT~:  
+1155872;Wpisz kwote platyny, ktora chcesz dodac do salda transferowego z aktualnego salda konta ~1_AMOUNT~:  
+1155873;Twoje saldo transferowe zostalo zresetowane.  
+1155874;Nie masz wystarczajaco many, aby utrzymac aktywna swoja promien smierci.  
+1155875;Musisz miec dodatek "Czas Legend", aby uzyc tej funkcji.  
+1155876;"* Wymaga dodatku ""Czas Legend""."  
+1155877;Kamienna podloga  
+1155878;Jasna plyta 
 1155879;Medium Paver 
 1155880;Dark Paver 
 1155881;mystic weapon -~1_val~ skill 
