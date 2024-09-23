@@ -5,14 +5,14 @@ namespace Server.Items
 
 	public class NobleTobaccoApple : BaseTobaccoFlavoured
 	{
-		public override void OnSmoke(Mobile m)
+		public static void OnSmoke(Mobile m)
 		{
 			m.SendMessage("Jablkowy dym tytoniowy napelnia twoje pluca, czujesz przyjemne mrowienie w ustach.");
 
 			m.Emote("*wypuszcza z ust wirujace kleby fajkowego dymu roztaczajac jablkowy aromat*");
 
 			m.PlaySound(0x226);
-			SmokeTimer a = new SmokeTimer(m, TimeSpan.FromSeconds(10), SmokeHue);
+			SmokeTimer a = new SmokeTimer(m, TimeSpan.FromSeconds(10), 41); // color 41 = apple
 			a.Start();
 
 			m.RevealingAction();
@@ -52,15 +52,15 @@ namespace Server.Items
 
 	public class NobleTobaccoPear : BaseTobaccoFlavoured
 	{
-		public override void OnSmoke(Mobile m)
+		public static void OnSmoke(Mobile m)
 		{
 			m.SendMessage("Gruszkowy dym tytoniowy napelnia twoje pluca, czujesz przyjemne mrowienie w ustach.");
 
 			m.Emote("*wypuszcza z ust wirujace kleby fajkowego dymu roztaczajac gruszkowy aromat*");
 
 			m.PlaySound(0x226);
-			SmokeTimer a = new SmokeTimer(m, TimeSpan.FromSeconds(10), SmokeHue);
-			a.Start();
+			SmokeTimer a = new SmokeTimer(m, TimeSpan.FromSeconds(10), 51);  // color 51 = pear
+            a.Start();
 
 			m.RevealingAction();
 		}
@@ -100,15 +100,15 @@ namespace Server.Items
 
 	public class NobleTobaccoLemon : BaseTobaccoFlavoured
 	{
-		public override void OnSmoke(Mobile m)
+		public static void OnSmoke(Mobile m)
 		{
 			m.SendMessage("Cytrusowy dym tytoniowy napelnia twoje pluca, czujesz przyjemne mrowienie w ustach.");
 
 			m.Emote("*wypuszcza z ust wirujace kleby fajkowego dymu roztaczajac cytrusowy aromat*");
 
 			m.PlaySound(0x226);
-			SmokeTimer a = new SmokeTimer(m, TimeSpan.FromSeconds(10), SmokeHue);
-			a.Start();
+			SmokeTimer a = new SmokeTimer(m, TimeSpan.FromSeconds(10), 55); // color 55 = lemon
+            a.Start();
 
 			m.RevealingAction();
 		}
