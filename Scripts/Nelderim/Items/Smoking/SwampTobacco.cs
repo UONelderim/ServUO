@@ -5,7 +5,7 @@ namespace Server.Items
 
 	public class SwampTobacco : BaseTobacco
 	{
-		public override void OnSmoke(Mobile m)
+		public static void OnSmoke(Mobile m)
 		{
 			m.SendMessage("Dym z bagiennego ziela napelnia twoje pluca, czujesz niesamowita lekkosc.");
 
@@ -22,7 +22,7 @@ namespace Server.Items
 			m.RevealingAction();
 		}
 
-		private void CoughEffect(Mobile smoker, int hue)
+		private static void CoughEffect(Mobile smoker, int hue)
 		{
 			if (smoker.Female)
 				smoker.PlaySound(785);

@@ -2,9 +2,21 @@ namespace Server.Items
 {
 
 	public class PlainTobacco : BaseTobacco
-	{
+    {
+        public static void OnSmoke(Mobile m)
+        {
+            m.SendMessage("Dym tytoniowy napelnia twoje pluca.");
 
-		[Constructable]
+            m.Emote("*wypuszcza z ust kleby fajkowego dymu*");
+
+            m.PlaySound(0x226);
+            SmokeTimer a = new SmokeTimer(m);
+            a.Start();
+
+            m.RevealingAction();
+        }
+
+        [Constructable]
 		public PlainTobacco() : this(1)
 		{
 		}
