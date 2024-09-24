@@ -31,7 +31,8 @@ namespace Server.Regions
 			m_Allowed = xml.HasAttribute(allowedAttrName) && XmlConvert.ToInt32(xml.GetAttribute(allowedAttrName)) == 0 ? false : true;
 		}
 		 
-		public string PrettyName => Regex.Replace(Name.Replace('_', ' '), @"([a-z])([A-Z])", m => string.Format("{0} {1}", m.Groups[1], m.Groups[2]));
+		public string PrettyName => Regex.Replace(Name.Replace('_', ' '), @"([a-z])([A-Z])", m =>
+			$"{m.Groups[1]} {m.Groups[2]}");
 		
 		public static List<Mobile> FirstWarning { get; private set; }
 
