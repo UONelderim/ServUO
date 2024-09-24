@@ -26,6 +26,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Nelderim.Configuration;
 using Server;
 
 #endregion
@@ -63,8 +64,11 @@ namespace UltimaLive
 				m_StaticsChanges[i] = new Hashtable();
 			}
 
-			EventSink.WorldLoad += OnLoad;
-			EventSink.WorldSave += OnSave;
+			if (UltimaLiveSettings.Enabled)
+			{
+				EventSink.WorldLoad += OnLoad;
+				EventSink.WorldSave += OnSave;
+			}
 		}
 
 		public static void MarkStaticsBlockForSave(int map, Point2D block)
