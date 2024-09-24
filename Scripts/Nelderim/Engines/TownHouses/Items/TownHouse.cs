@@ -12,6 +12,8 @@ namespace Knives.TownHouses
 {
 	public class TownHouse : BaseHouse
 	{
+		private static TimeSpan TimeUntilCondemned = TimeSpan.FromDays(30); 
+		
 		public static ArrayList AllTownHouses { get; } = new ArrayList();
 
 		private Item c_Hanger;
@@ -206,6 +208,19 @@ namespace Knives.TownHouses
 			AllTownHouses.Remove(this);
 
 			base.OnDelete();
+		}
+
+		public override DecayType DecayType
+		{
+			get
+			{
+				if (DateTime.UtcNow - TimeUntilCondemned > Owner.Account.LastLogin)
+				{
+					return DecayType.Condemned;
+				}
+
+				return base.DecayType;
+			}
 		}
 
 		public TownHouse(Serial serial)
