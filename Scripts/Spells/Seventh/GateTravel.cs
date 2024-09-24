@@ -5,6 +5,7 @@ using Server.Multis;
 using Server.Network;
 using Server.Targeting;
 using System;
+using Server.Regions;
 
 namespace Server.Spells.Seventh
 {
@@ -206,6 +207,12 @@ namespace Server.Spells.Seventh
 
                 if (ShowFeluccaWarning && map == Map.Felucca)
                     ItemID = 0x0F6C;
+
+                if (Undershadow.Contains(map, target))
+                {
+	                ItemID = 0xDDA;
+	                Hue = 0x685;
+                }
 
                 Dispellable = true;
 
