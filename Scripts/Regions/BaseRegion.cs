@@ -4,6 +4,7 @@ using Server.Mobiles;
 using System;
 using System.Collections.Generic;
 using System.Xml;
+using Server.Spells;
 
 namespace Server.Regions
 {
@@ -604,7 +605,7 @@ namespace Server.Regions
 
         public virtual bool CheckTravel(Mobile traveller, Point3D p, Spells.TravelCheckType type)
         {
-            return true;
+            return type is TravelCheckType.TeleportFrom or TravelCheckType.TeleportTo;
         }
 
         public virtual bool CanSee(Mobile m, IEntity e)

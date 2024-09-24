@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Server.Commands
 {
 	public class RegionInfo
@@ -14,9 +16,14 @@ namespace Server.Commands
 
 			from.SendMessage("Aktywny region: " + from.Region);
 			from.SendMessage("Wszystkie regiony w tym miejscu:");
+			SortedSet<Region> regions = [];
 			foreach (var region in from.Map.Regions.Values)
 			{
-				if (region.Contains(from.Location)) from.SendMessage(region.Name);
+				if (region.Contains(from.Location)) regions.Add(region);
+			}
+			foreach (var region in regions)
+			{
+				from.SendMessage(region.Name);
 			}
 		}
 	}

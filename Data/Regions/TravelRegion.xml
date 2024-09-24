@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ServerRegions>
 	<Facet name="Felucca">
-		<region type="TravelRegion" priority="0" name="ObszarPodrozy">
+		<region type="TravelRegion" priority="100" name="ObszarPodrozy">
 			<rect x="1292" y="787" width="24" height="24" />
 			<rect x="179" y="734" width="24" height="24" />
 			<rect x="212" y="1626" width="24" height="24" />
@@ -24,6 +24,9 @@
 			<rect x="3431" y="972" width="24" height="24" />
 			<rect x="4352" y="1149" width="24" height="24" />
 			<rect x="2686" y="774" width="24" height="24" />
+		</region>
+		<region type="UndershadowTravelRegion" priority="100" name="ObszarPodrozyPodmrok">
+			<rect x="5755" y="2427" width="14" height="14" />
 		</region>
 	</Facet>
 </ServerRegions>

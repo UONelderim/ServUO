@@ -29,7 +29,7 @@ namespace Server.Spells
         TeleportTo
     }
 
-    public class SpellHelper
+    public partial class SpellHelper
     {
         #region Spell Focus and SDI Calculations
         private static readonly SkillName[] _Schools =
@@ -770,7 +770,7 @@ namespace Server.Spells
         private static readonly bool[,] m_Rules = new bool[,]
         {
 					/*T2A(Fel),	Khaldun,	Ilshenar,	Wind(Tram),	Wind(Fel),	Dungeons(Fel),	Solen(Tram),	Solen(Fel),	Gauntlet(Malas),	Gauntlet(Ferry),	SafeZone,	ChampionSpawn,	Dungeons(Tokuno[Malas]),	LampRoom(Doom),	GuardianRoom(Doom),	Heartwood,	MLDungeons, SA Dungeons		Tomb of Kings	Maze of Death	SA Entrance,    Eodon*/
-/* Recall From */	{ false, false,      true,       true,       false,      false,          true,           false,      false,              false,              true,       false,          true,                       false,          false,              false,      false,      true,           true,           false,          false,          true} ,
+/* Recall From */	{ false,    false,      true,       true,       false,      false,          true,           false,      false,              false,              true,       false,          true,                       false,          false,              false,      false,      true,           true,           false,          false,          true} ,
 /* Recall To */		{ false,    false,      false,      false,      false,      false,          false,          false,      false,              false,              false,      false,          false,                      false,          false,              false,      false,      false,          false,          false,          false,          false },
 /* Gate From */		{ false,    false,      false,      false,      false,      false,          false,          false,      false,              false,              false,      false,          false,                      false,          false,              false,      false,      false,          false,          false,          false,          false },
 /* Gate To */		{ false,    false,      false,      false,      false,      false,          false,          false,      false,              false,              false,      false,          false,                      false,          false,              false,      false,      false,          false,          false,          false,          false },
@@ -875,8 +875,8 @@ namespace Server.Spells
 
             }
 
-            for (int i = 0; isValid && i < m_Validators.Length; ++i)
-                isValid = (m_Rules[v, i] || !m_Validators[i](map, loc));
+            for (int i = 0; isValid && i < _NValidators.Length; ++i)
+                isValid = (_NRules[v, i] || !_NValidators[i](map, loc));
 
             if (!isValid && caster != null)
                 SendInvalidMessage(caster, type);
