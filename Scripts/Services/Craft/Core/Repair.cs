@@ -220,6 +220,11 @@ namespace Server.Engines.Craft
 
                             return;
                         }
+                        
+                        var craftItem = m_CraftSystem.CraftItems.SearchFor(targeted.GetType());
+                        int resHue = 0;
+                        int maxAmount = 0;
+                        object message = null;
 
                         if (m_CraftSystem.CanCraft(from, m_Tool, targeted.GetType()) == 1044267)
                         {
@@ -236,6 +241,7 @@ namespace Server.Engines.Craft
                         {
                             BaseWeapon weapon = (BaseWeapon)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
+                            var typeRes = CraftResources.GetInfo(weapon.Resource).ResourceTypes[0];
                             int toWeaken = 1;
 
                             if (m_CraftSystem.CraftItems.SearchForSubclass(weapon.GetType()) == null && !CheckSpecial(weapon))
@@ -258,35 +264,46 @@ namespace Server.Engines.Craft
                             {
                                 number = 1044277; // That item cannot be repaired.
                             }
-                            else
+                            else if (!craftItem.ConsumeRes(from,
+	                                     typeRes,
+	                                     m_CraftSystem,
+	                                     ref resHue,
+	                                     ref maxAmount,
+	                                     ConsumeType.Half,
+	                                     ref message))
                             {
-                                if (CheckWeaken(from, skill, weapon.HitPoints, weapon.MaxHitPoints))
-                                {
-                                    weapon.MaxHitPoints -= toWeaken;
-                                    weapon.HitPoints = Math.Max(0, weapon.HitPoints - toWeaken);
-                                }
+	                            number = message is int i ? i : 0;
+                            }
+							else
+							{
+								if (CheckWeaken(from, skill, weapon.HitPoints, weapon.MaxHitPoints))
+	                            {
+		                            weapon.MaxHitPoints -= toWeaken;
+		                            weapon.HitPoints = Math.Max(0, weapon.HitPoints - toWeaken);
+	                            }
 
-                                if (CheckRepairDifficulty(from, skill, weapon.HitPoints, weapon.MaxHitPoints))
-                                {
-                                    number = 1044279; // You repair the item.
-                                    m_CraftSystem.PlayCraftEffect(from);
-                                    weapon.HitPoints = weapon.MaxHitPoints;
+	                            if (CheckRepairDifficulty(from, skill, weapon.HitPoints, weapon.MaxHitPoints))
+	                            {
+		                            number = 1044279; // You repair the item.
+		                            m_CraftSystem.PlayCraftEffect(from);
+		                            weapon.HitPoints = weapon.MaxHitPoints;
 
-                                    m_CraftSystem.OnRepair(from, m_Tool, m_Deed, m_Addon, weapon);
-                                }
-                                else
-                                {
+		                            m_CraftSystem.OnRepair(from, m_Tool, m_Deed, m_Addon, weapon);
+	                            }
+	                            else
+	                            {
                                     number = (usingDeed) ? 1061137 : 1044280; // You fail to repair the item. [And the contract is destroyed]
-                                    m_CraftSystem.PlayCraftEffect(from);
-                                }
+		                            m_CraftSystem.PlayCraftEffect(from);
+	                            }
 
-                                toDelete = true;
+	                            toDelete = true;
                             }
                         }
                         else if (targeted is BaseArmor)
                         {
                             BaseArmor armor = (BaseArmor)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
+                            var typeRes = CraftResources.GetInfo(armor.Resource).ResourceTypes[0];
                             int toWeaken = 1;
 
                             if (m_CraftSystem.CraftItems.SearchForSubclass(armor.GetType()) == null && !CheckSpecial(armor))
@@ -308,6 +325,16 @@ namespace Server.Engines.Craft
                             else if (armor.NegativeAttributes.NoRepair > 0)
                             {
                                 number = 1044277; // That item cannot be repaired.
+                            }
+                            else if (!craftItem.ConsumeRes(from,
+	                                      typeRes,
+	                                      m_CraftSystem,
+	                                      ref resHue,
+	                                      ref maxAmount,
+	                                      ConsumeType.Half,
+	                                      ref message))
+                            {
+	                            number = message is int i ? i : 0;
                             }
                             else
                             {
@@ -338,6 +365,7 @@ namespace Server.Engines.Craft
                         {
                             BaseJewel jewel = (BaseJewel)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
+                            var typeRes = CraftResources.GetInfo(jewel.Resource).ResourceTypes[0];
                             int toWeaken = 1;
 
                             if (m_CraftSystem.CraftItems.SearchForSubclass(jewel.GetType()) == null && !CheckSpecial(jewel))
@@ -359,6 +387,16 @@ namespace Server.Engines.Craft
                             else if (jewel.NegativeAttributes.NoRepair > 0)
                             {
                                 number = 1044277; // That item cannot be repaired.
+                            }
+                            else if (!craftItem.ConsumeRes(from,
+	                                     typeRes,
+	                                     m_CraftSystem,
+	                                     ref resHue,
+	                                     ref maxAmount,
+	                                     ConsumeType.Half,
+	                                     ref message))
+                            {
+	                            number = message is int i ? i : 0;
                             }
                             else
                             {
@@ -389,6 +427,7 @@ namespace Server.Engines.Craft
                         {
                             BaseClothing clothing = (BaseClothing)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
+                            var typeRes = CraftResources.GetInfo(clothing.Resource).ResourceTypes[0];
                             int toWeaken = 1;
 
                             if (m_CraftSystem.CraftItems.SearchForSubclass(clothing.GetType()) == null && !CheckSpecial(clothing))
@@ -410,6 +449,16 @@ namespace Server.Engines.Craft
                             else if (clothing.NegativeAttributes.NoRepair > 0)// quick fix
                             {
                                 number = 1044277; // That item cannot be repaired.
+                            }
+                            else if (!craftItem.ConsumeRes(from,
+	                                     typeRes,
+	                                     m_CraftSystem,
+	                                     ref resHue,
+	                                     ref maxAmount,
+	                                     ConsumeType.Half,
+	                                     ref message))
+                            {
+	                            number = message is int i ? i : 0;
                             }
                             else
                             {
