@@ -564,7 +564,7 @@ namespace Server.Items
         }
     }
 
-    public class CraftResources
+    public partial class CraftResources
     {
         private static readonly CraftResourceInfo[] m_MetalInfo = new[]
         {
