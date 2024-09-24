@@ -165,8 +165,8 @@ namespace Server.Items
         public bool VerifyRegion(Mobile m)
         {
             //TODO: When the entire region system data is in, convert to that instead of a proximity thing.
-            if (!m.Region.IsPartOf<TownRegion>())
-                return false;
+            // if (!m.Region.IsPartOf<TownRegion>())
+                // return false;
 
             return IsNearType(m, RepairSkillInfo.GetInfo(m_Skill).NearbyTypes, 6);
         }
