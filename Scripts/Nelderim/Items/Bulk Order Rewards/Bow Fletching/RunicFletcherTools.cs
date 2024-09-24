@@ -24,14 +24,12 @@ namespace Server.Items
 			}
 		}
 
-		[Constructable]
 		public RunicFletcherTools(CraftResource resource) : base(resource, 4130)
 		{
 			Weight = 4.0;
 			Hue = CraftResources.GetHue(resource);
 		}
 
-		[Constructable]
 		public RunicFletcherTools(CraftResource resource, int uses) : base(resource, uses, 4130)
 		{
 			Weight = 4.0;
@@ -54,6 +52,8 @@ namespace Server.Items
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
+			
+			ReplaceWith(new RunicFletcherTool(Resource, UsesRemaining));
 		}
 	}
 }

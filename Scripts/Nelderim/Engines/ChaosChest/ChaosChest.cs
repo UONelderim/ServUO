@@ -127,7 +127,7 @@ namespace Nelderim.Engines.ChaosChest
 					{
 						case 2: return new RunicHammer(CraftResource.Valorite, 1);
 						case 1: return new RunicSewingKit(CraftResource.BarbedLeather, 1);
-						default: return new RunicFletcherTools(CraftResource.Frostwood, 1);
+						default: return new RunicFletcherTool(CraftResource.Frostwood, 1);
 					}
 				}
 				default:
@@ -136,7 +136,7 @@ namespace Nelderim.Engines.ChaosChest
 					{
 						case 2: return new RunicHammer(CraftResource.Agapite, 3);
 						case 1: return new RunicSewingKit(CraftResource.HornedLeather, 3);
-						default: return new RunicFletcherTools(CraftResource.Heartwood, 3);
+						default: return new RunicFletcherTool(CraftResource.Heartwood, 3);
 					}
 				}
 			}
