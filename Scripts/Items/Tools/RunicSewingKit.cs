@@ -28,19 +28,10 @@ namespace Server.Items
         public override CraftSystem CraftSystem => DefTailoring.CraftSystem;
         public override void AddNameProperty(ObjectPropertyList list)
         {
-            string v = " ";
+	        var num = CraftResources.GetNameSuffixNumber(Resource);
+            var param = $"#{num}";
 
-            if (!CraftResources.IsStandard(Resource))
-            {
-                int num = CraftResources.GetLocalizationNumber(Resource);
-
-                if (num > 0)
-                    v = string.Format("#{0}", num);
-                else
-                    v = CraftResources.GetName(Resource);
-            }
-
-            list.Add(1061119, v); // ~1_LEATHER_TYPE~ runic sewing kit
+            list.Add(1061119, param); // ~1_LEATHER_TYPE~ runic sewing kit
         }
 
         public override void Serialize(GenericWriter writer)
