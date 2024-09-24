@@ -6,7 +6,8 @@
 			<music name="Gargoyles" />
 		</region>
 		<region type="CityRegion" name="NewHaven">
-			<rect x="3650" y="2592" width="237" height="379" />
+			<rect x="3334" y="2362" width="238" height="444" />
+			<go x="3768" y="2781" z="0" />
 			<music name="Gargoyles" />
 		</region>
 	</Facet>
