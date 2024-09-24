@@ -55103,10 +55103,10 @@ Number;Text
 1098385;fancy wooden shelf 
 1098386;plain wooden shelf 
 1098387;plain wooden shelf 
-1098388;trumpet 
-1098389;trumpet 
-1098390;cello 
-1098391;cello 
+1098388;trabka
+1098389;trabka 
+1098390;wiolaczela
+1098391;wiolaczela
 1098392;dragon lantern 
 1098393;dragon lantern 
 1098394;dragon lantern 
@@ -55133,8 +55133,8 @@ Number;Text
 1098415;tall double lamp 
 1098416;tall double lamp 
 1098417;tall double lamp 
-1098418;cowbell 
-1098419;cowbell 
+1098418;dzwonek 
+1098419;dzwonek 
 1098420;wall mounted bell 
 1098421;wall mounted bell 
 1098422;ship bell 
@@ -68452,64 +68452,64 @@ Number;Text
 1111734;Ice Level 3 
 1111735;Orc Cave Level 1 
 1111736;Orc Cave Level 2 
-1111737;Orc Cave Level 3 
-1111738;Wrong Level 1 
-1111739;Wrong Level 2 
-1111740;Wrong Level 3 
-1111741;The Painted Caves 
-1111742;The Delucia Passage 
-1111743;Fire Level 1 
-1111744;Fire Level 2 
-1111745;Glass Weapons 
-1111746;Sanctuary Caves 
-1111747;Koszule i Spodnie 
-1111748;Zbroja materialowa 
-1111749;Solen Hive 
-1111750;Solen Hive NE 
-1111751;Solen Hive NW 
-1111752;Solen Hive SE 
-1111753;Solen Hive SW 
-1111754;Secret Area, Solen Hive 
-1111755;The Star Room 
-1111756;The Terathan Keep Underground 
-1111757;Wind 
-1111758;Khaldun 
-1111759;Blighted Grove 
-1111760;Britain Sewers 
-1111761;large gargish bed (south) 
-1111762;large gargish bed (east) 
-1111763;Ankh Dungeon 
-1111764;Cyclops Dungeon 
-1111765;Exodus Dungeon 
-1111766;The Kirin Passage 
-1111767;The Lizardman Passage 
-1111768;The Meer Catacombs 
-1111769;The Mushroom Caves 
-1111770;Ratman Mine Level 1 
-1111771;Ratman Mine Level 2 
-1111772;The Ratmen's Cellar 
-1111773;Rock Dungeon Level 1 
-1111774;Rock Dungeon Level 2 
-1111775;gargish couch (south) 
-1111776;gargish couch (east) 
-1111777;Sorcerer Dungeon Level 1 
-1111778;Sorcerer Dungeon Level 2 
-1111779;Sorcerer Dungeon Level 3 
-1111780;Sorcerer Dungeon Level 4 
-1111781;long table (south) 
-1111782;long table (east) 
-1111783;Ter-Mur style dresser (south) 
-1111784;Ter-Mur style dresser (east) 
-1111785;Spectre Dungeon 
-1111786;Spider Cave 
-1111787;Volcanic Lair 
-1111788;Wisp Dungeon Level 1 
-1111789;Wisp Dungeon Level 2 
-1111790;Wisp Dungeon Level 3 
-1111791;Wisp Dungeon Level 4 
-1111792;Doom Gauntlet 
-1111793;Bedlam 
-1111794;Bedlam Crypt 
+1111737;Orkowa Jaskinia Poziom 3  
+1111738;Zly Poziom 1  
+1111739;Zly Poziom 2  
+1111740;Zly Poziom 3  
+1111741;Malowane Jaskinie  
+1111742;Przejscie Delucii  
+1111743;Ogien Poziom 1  
+1111744;Ogien Poziom 2  
+1111745;Szklana Bron  
+1111746;Jaskinie Sanktuarium  
+1111747;Koszule i Spodnie  
+1111748;Zbroja Materialowa  
+1111749;Ul Solen  
+1111750;Ul Solen NE  
+1111751;Ul Solen NW  
+1111752;Ul Solen SE  
+1111753;Ul Solen SW  
+1111754;Tajny Obszar, Ul Solen  
+1111755;Pokoj Gwiazd  
+1111756;Podziemia Twierdzy Terathan  
+1111757;Wiatr  
+1111758;Khaldun  
+1111759;Zgnily Gaj  
+1111760;Kanaly Britanii  
+1111761;duze gargulcowe lozko (poludnie)  
+1111762;duze gargulcowe lozko (wschod)  
+1111763;Lochy Ankh  
+1111764;Lochy Cyklopow  
+1111765;Lochy Exodusa  
+1111766;Przejscie Kirina  
+1111767;Przejscie Jaszczurow  
+1111768;Katakumby Meerow  
+1111769;Jaskinie Grzybow  
+1111770;Kopalnia Szczuroczlekow Poziom 1  
+1111771;Kopalnia Szczuroczlekow Poziom 2  
+1111772;Piwnica Szczuroczlekow  
+1111773;Lochy Skal Poziom 1  
+1111774;Lochy Skal Poziom 2  
+1111775;gargulcowa kanapa (poludnie)  
+1111776;gargulcowa kanapa (wschod)  
+1111777;Lochy Czarownikow Poziom 1  
+1111778;Lochy Czarownikow Poziom 2  
+1111779;Lochy Czarownikow Poziom 3  
+1111780;Lochy Czarownikow Poziom 4  
+1111781;dlugi stol (poludnie)  
+1111782;dlugi stol (wschod)  
+1111783;komoda w stylu Ter-Mur (poludnie)  
+1111784;komoda w stylu Ter-Mur (wschod)  
+1111785;Lochy Widm  
+1111786;Jaskinia Pajakow  
+1111787;Wulkaniczne Legowisko  
+1111788;Lochy Wispow Poziom 1  
+1111789;Lochy Wispow Poziom 2  
+1111790;Lochy Wispow Poziom 3  
+1111791;Lochy Wispow Poziom 4  
+1111792;Rekawica Zaglady  
+1111793;Bedlam  
+1111794;Krypta Bedlam
 1111795;Labirynt 
 1111796;Runiczny Brzeszczot z Matowej Miedzi 
 1111797;Runiczny Brzeszczot z Shadowa 
@@ -107301,43 +107301,43 @@ Number;Text
 1150583;You are still bidding on Stall ~2_NEWSTALL~. 
 1150584;You are now bidding on the next available stall. 
 1150585;You are now bidding on Stall ~1_NEWSTALL~. 
-1150586;a dead plant 
-1150587;CHANGE MATCH BID 
-1150588;Your attempt to increase your Match Bid from ~1_OLDBID~gp to ~2_NEWBID~gp failed. The difference of ~3_CHANGE~gp could not be withdrawn from your bank account balance. Your current bank balance is ~5_NEWBAL~gp. 
-1150589;You have increased your Match Bid from ~1_OLDBID~gp to ~2_NEWBID~gp. The difference of ~3_CHANGE~gp has been withdrawn from your bank account balance. Your previous bank balance was ~4_OLDBAL~gp and your current bank balance is ~5_NEWBAL~gp. 
-1150590;Your attempt to decrease your Match Bid from ~1_OLDBID~gp to ~2_NEWBID~gp failed. The difference of ~3_CHANGE~gp could not be deposited into your bank box. Your current bank balance is ~5_NEWBAL~gp. 
-1150591;You have decreased your Match Bid from ~1_OLDBID~gp to ~2_NEWBID~gp. The difference of ~3_CHANGE~gp has been deposited into your bank box. Your previous bank balance was ~4_OLDBAL~gp and your current bank balance is ~5_NEWBAL~gp. 
-1150592;You have not changed your Match Bid. 
-1150593;rustic bench (south) 
-1150594;rustic bench (east) 
-1150595;advanced training dummy (south) 
-1150596;advanced training dummy (east) 
-1150597;Select the item you wish to send to your bank box. 
-1150598;auto recharge 
-1150599;Select the target you wish to associate. 
-1150600;It's already registered into the master list. 
-1150601;It's already registered into the follower list. 
-1150602;Your skill in parry cannot improve any further by simply practicing with a dummy. 
-1150603;The dummy's sword swings at you! Defend yourself! 
-1150604;You need a training dummy (east) deed to make that. 
-1150605;You need a training dummy (south) deed to make that. 
-1150606;You need a platemail tunic to craft that (human male, non-magic). 
-1150607;Total Inventory: 
-1150608;Total Sales: 
-1150609;Fees Collected: 
-1150610;Commissions Collected: 
-1150611;Total Deposits: 
-1150612;Total Withdrawals: 
-1150613;Board and Batten Arches 
-1150614;Your Pet Broker charges a weekly fee of 5% of the total sales price of all pets in its inventory. Fees are effective immediately upon placing pets up for sale. Fees are recalculated immediately when pet prices are changed. Once a pet is sold or removed from inventory, no more fees are charged for that pet. For example, if a pet is priced at 10,000gp, the weekly fee is 500gp. If the pet is sold 24 hours after being placed up for sale, the total fee paid for that pet will be 71gp. Fees are charged incrementally over time.<br><br>In addition, the Pet Broker charges a 5% commission on each sale. This commission is in addition to the weekly fee.<br><br>It is possible for your account balance with your Pet Broker to become negative due to fees charged. To prevent this, you must deposit sufficient funds in advance to cover fees. If your pet broker does not have sufficient funds to cover fees charged, you will be required to pay the back fees before you may alter pet pricing or adjust the shop inventory. 
-1150615;This broker's account balance is negative, because its weekly fees have not been paid and sales have not been sufficient to cover those fees. Before you may continue, you MUST deposit funds to cover these fees. 
-1150616;You need a close helmet to craft that (human, non-magic). 
-1150617;You need a metal sheild to craft that (human, non-magic). 
-1150618;You need a broadsword to craft that (human, non-magic). 
-1150619;You don't need to water it. 
-1150620;Garden Bed (Large) 
-1150621;Garden Bed (Small) 
-1150622;A Plain Grey Wing 
+1150586;martwa roslina  
+1150587;ZMIANA OFERTY  
+1150588;Twoja proba zwiekszenia oferty z ~1_OLDBID~gp do ~2_NEWBID~gp nie powiodla sie. Roznica ~3_CHANGE~gp nie mogla zostac wyplacona z twojego konta bankowego. Twoj obecny stan konta wynosi ~5_NEWBAL~gp.  
+1150589;Zwiekszyles swoja oferte z ~1_OLDBID~gp do ~2_NEWBID~gp. Roznica ~3_CHANGE~gp zostala pobrana z twojego konta bankowego. Poprzedni stan konta wynosil ~4_OLDBAL~gp, a obecny stan konta to ~5_NEWBAL~gp.  
+1150590;Twoja proba zmniejszenia oferty z ~1_OLDBID~gp do ~2_NEWBID~gp nie powiodla sie. Roznica ~3_CHANGE~gp nie mogla zostac wplacona do twojej skrzynki bankowej. Twoj obecny stan konta wynosi ~5_NEWBAL~gp.  
+1150591;Zmniejszyles swoja oferte z ~1_OLDBID~gp do ~2_NEWBID~gp. Roznica ~3_CHANGE~gp zostala wplacona do twojej skrzynki bankowej. Poprzedni stan konta wynosil ~4_OLDBAL~gp, a obecny stan konta to ~5_NEWBAL~gp.  
+1150592;Nie zmieniles swojej oferty.  
+1150593;rustykalna lawka (poludnie)  
+1150594;rustykalna lawka (wschod)  
+1150595;zaawansowany manekin treningowy (poludnie)  
+1150596;zaawansowany manekin treningowy (wschod)  
+1150597;Wybierz przedmiot, ktory chcesz wyslac do swojej skrzynki bankowej.  
+1150598;automatyczne ladowanie  
+1150599;Wybierz cel, ktory chcesz przypisac.  
+1150600;Jest juz zarejestrowany na glownej liscie.  
+1150601;Jest juz zarejestrowany na liscie towarzyszy.  
+1150602;Twoja umiejetnosc parowania nie moze sie juz bardziej poprawic przez proste cwiczenia z manekinem.  
+1150603;Manekin wymachuje mieczem! Bron sie!  
+1150604;Potrzebujesz aktu na manekin treningowy (wschod), aby to zrobic.  
+1150605;Potrzebujesz aktu na manekin treningowy (poludnie), aby to zrobic.  
+1150606;Potrzebujesz tuniki z plytowej zbroi, aby to wykuc (czlowiek, bez magii).  
+1150607;Calkowity stan magazynu:  
+1150608;Calkowita sprzedaz:  
+1150609;Zebrane oplaty:  
+1150610;Zebrane prowizje:  
+1150611;Calkowite wplaty:  
+1150612;Calkowite wyplaty:  
+1150613;Luki z desek i listew  
+1150614;Twoj broker zwierzat pobiera tygodniowa oplate w wysokosci 5% od calkowitej ceny sprzedazy wszystkich zwierzat w swoim inwentarzu. Oplaty sa naliczane od razu po wystawieniu zwierzat na sprzedaz i sa ponownie kalkulowane, gdy zmieniaja sie ceny zwierzat. Gdy zwierze zostanie sprzedane lub usuniete z inwentarza, dalsze oplaty za to zwierze nie beda pobierane. Na przyklad, jesli zwierze jest wycenione na 10,000gp, tygodniowa oplata wynosi 500gp. Jesli zwierze zostanie sprzedane 24 godziny po wystawieniu na sprzedaz, calkowita oplata za to zwierze wyniesie 71gp. Oplaty sa naliczane stopniowo w czasie.<br><br>Dodatkowo broker zwierzat pobiera 5% prowizji od kazdej sprzedazy. Ta prowizja jest naliczana niezaleznie od tygodniowej oplaty.<br><br>Twoje saldo na koncie brokera zwierzat moze stac sie ujemne z powodu naliczonych oplat. Aby temu zapobiec, musisz wplacic wystarczajace srodki z wyprzedzeniem na pokrycie oplat. Jesli broker nie ma wystarczajacych srodkow na pokrycie oplat, bedziesz musial oplacic zalegle oplaty, zanim bedziesz mogl zmienic ceny zwierzat lub zaktualizowac inwentarz sklepu.  
+1150615;Saldo tego brokera jest ujemne, poniewaz nie zaplacono tygodniowych oplat, a sprzedaz nie byla wystarczajaca, aby je pokryc. Zanim bedziesz mogl kontynuowac, MUSISZ wplacic srodki na pokrycie tych oplat.  
+1150616;Potrzebujesz helmu zamknietego, aby to wykuc (czlowiek, bez magii).  
+1150617;Potrzebujesz metalowej tarczy, aby to wykuc (czlowiek, bez magii).  
+1150618;Potrzebujesz miecza jednorecznego, aby to wykuc (czlowiek, bez magii).  
+1150619;Nie musisz tego podlewac.  
+1150620;Ogrod (duzy)  
+1150621;Ogrod (maly)  
+1150622;Szare Skrzydlo
 1150623;NEGATIVE BALANCE 
 1150624;Gothic Arches 
 1150625;EDIT PET PRICES 
@@ -110734,60 +110734,60 @@ Number;Text
 1154111;~1_NAME~ nie akceptuje wymian. 
 1154112;Pozwol na wymiany 
 1154113;Odmow wymian 
-1154114;Convert Mage Armor 
-1154115;So you would like to add or remove mage armor from your armor at the cost of 250,000 gold? 
-1154116;Target a piece of armor to show to the guild master. 
-1154117;Ah yes, I will convert this piece of armor but it's gonna cost you 250,000 gold coin. Payment is due immediately. Just hand me the armor. 
-1154118;Your armor has been converted. 
-1154119;This action would exceed a stat cap. 
-1154120;Mother of Pearl Pigment 
-1154121;Star Blue Pigment 
-1154122;Deflecting 
-1154123;Reinforced 
-1154124;Bonus Type: ~1_TYPE~ 
-1154125;You must be carrying that in order to combine them. 
-1154126;This item is impermissible and can not be vended. 
-1154127;King's Collection Theme Pack 
-1154128;<center>King's Collection Theme Pack</center> 
-1154129;15th Anniversary Lithograph 
-1154130;15th Anniversary Lithograph (East) 
-1154131;Four Post Bed 
-1154132;Four Post Bed (East) 
-1154133;Ornate Bed 
-1154134;Ornate Bed (East) 
-1154135;Plush Loveseat (South) 
-1154136;Plush Loveseat (East) 
-1154137;Fancy Loveseat (South) 
-1154138;Fancy Loveseat (East) 
-1154139;Fancy Couch (South) 
-1154140;Fancy Couch (East) 
-1154141;Monastery Bell 
-1154142;Monastery Bell (East) 
-1154143;Embroidered Tapestry 
-1154144;Embroidered Tapestry 
-1154145;The King's Collection has been delivered to your bank box. 
-1154146;Plant Tapestry (South) 
-1154147;Plant Tapestry (East) 
-1154148;Bull Tapestry 
-1154149;Bull Tapestry 
-1154150;Golden Table 
-1154151;Golden Table (East) 
-1154152;Marble Table 
-1154153;Marble Table (East) 
-1154154;Metal Table (South) 
-1154155;Metal Table (East) 
-1154156;Wooden Table (South) 
-1154157;Wooden Table (East) 
-1154158;Fancy Wooden Shelf (South) 
-1154159;Fancy Wooden Shelf (East) 
-1154160;Plain Wooden Shelf (South) 
-1154161;Plain Wooden Shelf (East) 
-1154162;Wall Mounted Bell (South) 
-1154163;Wall Mounted Bell (East) 
-1154164;Long Metal Table (South) 
-1154165;Long Metal Table (East) 
-1154166;Long Wooden Table (South) 
-1154167;Long Wooden Table (East) 
+1154114;Zmien Pancerz Maga  
+1154115;Czy chcesz dodac lub usunac pancerz maga z twojej zbroi za 250,000 zlota?  
+1154116;Wskaz element zbroi, ktory chcesz pokazac mistrzowi gildii.  
+1154117;Ach tak, zmienie ten element zbroi, ale bedzie cie to kosztowac 250,000 zlotych monet. Platnosc jest wymagana natychmiast. Po prostu podaj mi zbroje.  
+1154118;Twoja zbroja zostala zmieniona.  
+1154119;Ta akcja przekroczylaby limit statystyk.  
+1154120;Barwnik Matka Perla  
+1154121;Barwnik Gwiazdzisty Niebieski  
+1154122;Odbijajacy  
+1154123;Wzmocniony  
+1154124;Typ Bonusu: ~1_TYPE~  
+1154125;Musisz to miec przy sobie, aby je polaczyc.  
+1154126;Ten przedmiot jest niedozwolony i nie moze byc sprzedawany.  
+1154127;Zestaw Tematyczny Kolekcja Krola  
+1154128;<center>Zestaw Tematyczny Kolekcja Krola</center>  
+1154129;Litografia na 15-lecie  
+1154130;Litografia na 15-lecie (Wschod)  
+1154131;Lozko z czterema slupkami  
+1154132;Lozko z czterema slupkami (Wschod)  
+1154133;Ozdobne Lozko  
+1154134;Ozdobne Lozko (Wschod)  
+1154135;Luksusowa Kanapa (Poludnie)  
+1154136;Luksusowa Kanapa (Wschod)  
+1154137;Fantazyjna Kanapa (Poludnie)  
+1154138;Fantazyjna Kanapa (Wschod)  
+1154139;Fantazyjna Sofa (Poludnie)  
+1154140;Fantazyjna Sofa (Wschod)  
+1154141;Dzwon Klasztorny  
+1154142;Dzwon Klasztorny (Wschod)  
+1154143;Haftowany Gobelin  
+1154144;Haftowany Gobelin  
+1154145;Kolekcja Krola zostala dostarczona do twojej skrzynki bankowej.  
+1154146;Gobelin Roslinny (Poludnie)  
+1154147;Gobelin Roslinny (Wschod)  
+1154148;Gobelin z Bykiem  
+1154149;Gobelin z Bykiem  
+1154150;Zloty Stol  
+1154151;Zloty Stol (Wschod)  
+1154152;Marmurowy Stol  
+1154153;Marmurowy Stol (Wschod)  
+1154154;Metalowy Stol (Poludnie)  
+1154155;Metalowy Stol (Wschod)  
+1154156;Drewniany Stol (Poludnie)  
+1154157;Drewniany Stol (Wschod)  
+1154158;Fantazyjna Drewniana Polka (Poludnie)  
+1154159;Fantazyjna Drewniana Polka (Wschod)  
+1154160;Zwykla Drewniana Polka (Poludnie)  
+1154161;Zwykla Drewniana Polka (Wschod)  
+1154162;Dzwon Montowany na Scianie (Poludnie)  
+1154163;Dzwon Montowany na Scianie (Wschod)  
+1154164;Dlugi Metalowy Stol (Poludnie)  
+1154165;Dlugi Metalowy Stol (Wschod)  
+1154166;Dlugi Drewniany Stol (Poludnie)  
+1154167;Dlugi Drewniany Stol (Wschod)
 1154168;City Trade Deal Buff 
 1154169;Buff Type: ~1_TYPE~ 
 1154170;workable glass 
@@ -113022,30 +113022,30 @@ Number;Text
 1156399;Juo'nar the Lich 
 1156400;Description: 
 1156401;slodkie maslo kakaowe 
-1156402;You don't have any foil. 
-1156403;You don't have any sweet cocoa butter. 
-1156404;Time Remaining: 
-1156405;Your Current Gold Bid: 
-1156406;Your Current Platinum Bid: 
-1156407;Place Bid 
-1156408;Buy Now Price: 
-1156409;Buy Now 
-1156410;Item Starting Bid Plat: 
-1156411;Item Starting Gold Bid: 
-1156412;Buy Now Gold Price: 
-1156413;Buy Now Plat Price: 
-1156414;Start Auction 
-1156415;Stop Auction 
-1156416;Set Starting Bids 
-1156417;Set Buy Now Price 
-1156418;Three Days 
-1156419;Five Days 
-1156420;Seven Days 
-1156421;Select New Auction Item 
-1156422;History 
-1156423;Platinum Bid: 
-1156424;Gold Bid: 
-1156425;Bid Time: 
+1156402;Nie masz zadnej folii.  
+1156403;Nie masz zadnego slodkiego masla kakaowego.  
+1156404;Pozostaly czas:  
+1156405;Twoja biezaca oferta w zlocie:  
+1156406;Twoja biezaca oferta w platynie:  
+1156407;Zloz oferte  
+1156408;Cena Kup Teraz:  
+1156409;Kup Teraz  
+1156410;Cena wywolawcza przedmiotu w platynie:  
+1156411;Cena wywolawcza przedmiotu w zlocie:  
+1156412;Cena Kup Teraz za zloto:  
+1156413;Cena Kup Teraz za platyne:  
+1156414;Rozpocznij aukcje  
+1156415;Zatrzymaj aukcje  
+1156416;Ustaw ceny wywolawcze  
+1156417;Ustaw cene Kup Teraz  
+1156418;Trzy dni  
+1156419;Piec dni  
+1156420;Siedem dni  
+1156421;Wybierz nowy przedmiot na aukcje  
+1156422;Historia  
+1156423;Oferta w platynie:  
+1156424;Oferta w zlocie:  
+1156425;Czas oferty:
 1156426;You have won an auction for ~1_ITEMNAME~! Your bid amount of ~2_BIDAMT~plat and ~3_BIDAMT~gp won the auction. You have 3 days from the end of the auction to claim your item or it will be lost. 
 1156427;You have been out bid in an auction for ~1_ITEMNAME~. The current winning bid amount is ~2_BIDAMT~plat and ~3_BIDAMT~gp. 
 1156428;Your auction for ~1_ITEMNAME~ has ended with a winning bid of ~2_BIDAMT~plat and ~3_BIDAMT~gp. The winning bid has been deposited into your currency account. 
@@ -113301,77 +113301,77 @@ Number;Text
 1156678;Receive one potion that will allow you to bypass the standard seven day waiting period to bond a single pet. 
 1156679;Receive a token which will allow you to select 5 skills at 90.0 and set your stats to equal 225 (or more, depending on potential power scroll usage).  To use this item the character must have less than 200 combined skill points. 
 1156680;Receive three Raised Garden Bed deeds which when placed in your home will allow you to plant up to nine plant seeds that will grow without the usual necessary care. (RUSTIC THEME PACK ENTITLEMENT REQUIRED) 
-1156681;(Merchant Fee Reduction) 
-1156682;(Merchant Fee Reduction) 
-1156683;Rechargeable House 
-1156684;Britannia Ship 
-1156685;Captain's Bundle 
-1156686;10 charges 
-1156687;5 charges 
-1156688;Set of 3 
-1156689;Recipe for a Kotl Power Coil 
-1156690;Wall Map of Eodon 
-1156691;Defender of Eodon 
-1156692;Defender of the Myrmidex 
-1156693;Flame of the Jukari 
-1156694;Ambusher of the Kurak 
-1156695;Trooper of the Barako 
-1156696;Thunder of the Urali 
-1156697;`Herde`r of the Sakkhra 
-1156698;Colonizer of the Barrab 
-1156699;Sakkrhan Bird of Prey 
-1156700;Myrmidex Larvae Pet 
-1156701;You need moonstone crystal shards to craft that. 
-1156702;Raw Moonstone - Small 
-1156703;Raw Moonstone - Large 
-1156704;Select your destination: 
-1156705;Eodon Moongate 
-1156706;Barako Village 
-1156707;Jukari Village 
-1156708;Kurak Village 
-1156709;Sakkhra Village 
-1156710;Urali Village 
-1156711;Barrab Village 
-1156712;Shadowguard 
-1156713;The Great Ape Cave 
-1156714;The Volcano 
-1156715;Dragon Turtle Habitat 
-1156716;Britannian Encampment 
-1156717;This title is obtained by completing the Myrmidex Threat quest in the Valley of Eodon. 
-1156718;Select a reward title deed: 
-1156719;Reward Title Scroll 
-1156720;The Myrmidex Threat Quest 
-1156721;Unabridged Atlas of Eodon 
-1156722;You need more of Professor Ellie Rafkin's Unabridged Atlas of Eodon. 
-1156723;"The geography of the Eodon is standard for what one might expect in a sub tropical Volcanic valley.  The most pronounced feature that one might encounter upon initial entry into the Valley is the unique topography surrounding the Moongate. It is my guess the being known as Hawkwind's peculiar relationship with time is responsible for the concentric circles etched into the terrain. While some scholars may view this as uninspired I find it adds to the enchantment of the region.  Each of the tribes of Eodon inhabit a unique sub-biome within the Valley mostly related to that tribes chosen deity of worship.  to the southeast the Jukari are in closest proximity to the Volcano, a lowlands defined by lava flows and twisting veins of igneous rock and earth.  To the southwest the Kurak tribe inhabit the grasslands suited to the tigers that use the tall grasses as cover whilst hunting and the nearby streams as a source of water.  Further to the southwest the Barrab sit high atop rocky mesas surrounded by sandy pits where Myrmidex tunnels breach the surface.  To the north of the Moongate the Barako sit atop the Valley floor in the canopy of a wide variety of hard and softwood rainforest trees.  To the west are the Urali, which have made the sandy shores and marshlands of the many rivers their home.  Finally, to the northwest the Sakkhra are at the base of the great swamps, an area bordered by great plains to which the many species of large reptiles called ""Dinosaurs"" can be found.  " 
-1156724;Koncentrat z limfy myrmidexow 
-1156725;Worek jajowy Myrmidexa
-1156726;oklad na oparzenia 
-1156727;Lava Berry 
-1156728;esencja napastnika 
-1156729;wywar potegi 
-1156730;Perfect Bananas 
-1156731;River Moss 
-1156732;mikstura profilaktyczna 
-1156733;Blue Corn 
-1156734;tonik transu 
-1156735;Lava Berry Bush 
-1156736;*You gather some ~1_ingredient~* 
-1156737;corn 
-1156738;+~1_VAL~ Odzyskiwanie zywotnosci for ~2_VAL~ seconds<br>+~3_VAL~ Hit Point Increase for ~4_VAL~ minutes 
-1156739;+~1_VAL~ Fire Resist for ~2_VAL~ minutes<br>+~3_VAL~ Stamina Increase for ~4_VAL~ minutes 
-1156740;+~1_VAL~% Damage to Enemy Eodon Team 
-1156741;+~1_VAL~ Physical Resist for ~2_VAL~ minutes<br>+~3_VAL~ Cold Resist for ~4_VAL~ minutes 
-1156742;+~1_VAL~ Odzyskiwanie many for ~2_VAL~ seconds<br>+~3_VAL~ Mana Increase for ~4_VAL~ minutes<br>Your casting speed is decreased 
-1156743;+~1_VAL~ Poison Resist for ~2_VAL~ minutes<br>+~3_VAL~ Energy Resist for ~4_VAL~ minutes 
-1156744;Myrmidex Pits 
-1156745;Your store cart is currently full. 
-1156746;This transaction cannot be completed due to insufficient funds available. Visit the Origin store to purchase sovereigns. 
-1156747;Insufficient Funds 
-1156748;Add Funds 
-1156749;Are you sure you want to complete this purchase? 
-1156750;Purchase Confirmation 
-1156751;The Zealotry of Zipactriotl 
+1156681;(Obnizka Oplaty Kupieckiej)  
+1156682;(Obnizka Oplaty Kupieckiej)  
+1156683;Dom z mozliwoscia doladowania  
+1156684;Statek Brytanii  
+1156685;Pakiet Kapitana  
+1156686;10 ladunkow  
+1156687;5 ladunkow  
+1156688;Zestaw 3  
+1156689;Przepis na Cewke Zasilajaca Kotl  
+1156690;Mapa Scienna Eodon  
+1156691;Obronca Eodon  
+1156692;Obronca Myrmidex  
+1156693;Plomien Jukari  
+1156694;Napastnik Kurak  
+1156695;Zolnierz Barako  
+1156696;Grzmot Urali  
+1156697;Pasterz Sakkhra  
+1156698;Kolonizator Barrab  
+1156699;Sakkrhanski Drapieznik  
+1156700;Myrmidexowe Larwy jako Zwierzak  
+1156701;Potrzebujesz odlamkow krysztalu ksiezycowego, aby to stworzyc.  
+1156702;Surowy Ksiezycowy Kamien - Maly  
+1156703;Surowy Ksiezycowy Kamien - Duzy  
+1156704;Wybierz swoje miejsce docelowe:  
+1156705;Brama Ksiezycowa Eodon  
+1156706;Wioska Barako  
+1156707;Wioska Jukari  
+1156708;Wioska Kurak  
+1156709;Wioska Sakkhra  
+1156710;Wioska Urali  
+1156711;Wioska Barrab  
+1156712;Straz Cienia  
+1156713;Jaskinia Wielkiej Malpy  
+1156714;Wulkan  
+1156715;Siedlisko Zolwia Smoka  
+1156716;Oboz Brytanii  
+1156717;Ten tytul mozna uzyskac, konczac zadanie "Zagrozenie Myrmidex" w Dolinie Eodon.  
+1156718;Wybierz zwoj tytulu nagrody:  
+1156719;Zwoj Tytulu Nagrody
+1156720;Zadanie "Zagrozenie Myrmidex"  
+1156721;Nieokrojony Atlas Eodon  
+1156722;Potrzebujesz wiecej egzemplarzy Nieokrojonego Atlasu Eodon autorstwa Profesor Ellie Rafkin.  
+1156723;"Geografia Eodon jest standardowa dla tego, czego mozna by oczekiwac od subtropikalnej doliny wulkanicznej. Najbardziej wyrazista cecha, ktora mozna napotkac po wejsciu do Doliny, jest unikalna topografia wokol Bramy Ksiezycowej. Przypuszczam, ze za koncentryczne kregi wyryte w terenie odpowiada szczegolna relacja istoty znanej jako Hawkwind z czasem. Chociaz niektorzy uczeni moga to uznac za malo inspirujace, uwazam, ze dodaje to uroku temu regionowi. Kazde z plemion Eodon zamieszkuje unikalny sub-biom w Dolinie, glownie zwiazany z bostwem, ktore czci dane plemie. Na poludniowym wschodzie Jukari znajduja sie najblizej Wulkanu, w nizinie definiowanej przez strumienie lawy i skrecajace sie zyly skal i ziemi wulkanicznej. Na poludniowym zachodzie plemie Kurak zamieszkuje trawiaste rowniny, ktore sluza tygrysom jako zaslona podczas polowania, a pobliskie strumienie dostarczaja wode. Jeszcze dalej na poludniowy zachod, Barrab osiedlilo sie na szczycie skalistych mes, otoczonych piaszczystymi dolami, gdzie tunele Myrmidexow przebijaja sie na powierzchnie. Na polnoc od Bramy Ksiezycowej plemie Barako mieszka na dnie doliny, wsrod roznorodnych drzew deszczowych o twardym i miekkim drewnie. Na zachodzie znajduja sie Urali, ktorzy zamieszkuja piaszczyste brzegi i bagna wielu rzek. Na koniec, na polnocnym zachodzie, plemie Sakkhra znajduje sie u podstawy wielkich bagien, obszaru otoczonego rowninami, na ktorych mozna spotkac wiele gatunkow duzych gadow, zwanych 'dinozaurami'."  
+1156724;Koncentrat z limfy Myrmidexow  
+1156725;Worek jajowy Myrmidexa  
+1156726;Oklad na oparzenia  
+1156727;Jagoda Lawy  
+1156728;Esencja Napastnika  
+1156729;Wywar Potegi  
+1156730;Perfekcyjne Banany  
+1156731;Mech Rzeczny  
+1156732;Mikstura Profilaktyczna  
+1156733;Niebieska Kukurydza  
+1156734;Tonik Transu  
+1156735;Krzew Jagod Lawy  
+1156736;*Zbierasz troche ~1_skladnik~*  
+1156737;kukurydza  
+1156738;+~1_VAL~ Odzyskiwanie Zywotnosci na ~2_VAL~ sekund<br>+~3_VAL~ Zwiekszenie Punktow Zycia na ~4_VAL~ minut  
+1156739;+~1_VAL~ Odpornosc na Ogien na ~2_VAL~ minut<br>+~3_VAL~ Zwiekszenie Wytrzymalosci na ~4_VAL~ minut  
+1156740;+~1_VAL~% Obrazenia zadawane druzynie wroga Eodon  
+1156741;+~1_VAL~ Odpornosc Fizyczna na ~2_VAL~ minut<br>+~3_VAL~ Odpornosc na Zimno na ~4_VAL~ minut  
+1156742;+~1_VAL~ Odzyskiwanie Many na ~2_VAL~ sekund<br>+~3_VAL~ Zwiekszenie Many na ~4_VAL~ minut<br>Twoja szybkosc rzucania czarow jest zmniejszona  
+1156743;+~1_VAL~ Odpornosc na Trucizny na ~2_VAL~ minut<br>+~3_VAL~ Odpornosc na Energie na ~4_VAL~ minut  
+1156744;Tunele Myrmidex  
+1156745;Twoj wozek sklepowy jest obecnie pelny.  
+1156746;Transakcja nie moze zostac zakonczona z powodu niewystarczajacych srodkow. Odwiedz sklep Origin, aby zakupic suwereny.  
+1156747;Niewystarczajace Srodki  
+1156748;Dodaj Srodki  
+1156749;Czy na pewno chcesz sfinalizowac ten zakup?  
+1156750;Potwierdzenie Zakupu  
+1156751;Zelota Zipactriotl
 1156752;"All hail our Myrmidex Overlords! Now that the Britannians and the rest of Eodon have been stopped from their offensive against the Myrmidex it is time for the Barrab to restore the Myrmidex to power!  Long ago the Kotl came to Eodon.  Their technology was far advanced and they built many creations.  Before long they decided they needed servents to tend to them beyond the metal giants they called ""Automatons"" and so they created the Myrmidex.  The Myrmidex would not stand for their oppression and rose up against their reptilian masters!  The Kotl unleashed a great weapon called Zipactriotl to abolish the Myrmidex.  In time the Myrmidex were reduced in numbers and the Kotl placed Zipactriotl in stasis until such time the Myrmidex were once again a threat. The alien technology of the Kotl has spread throughout the realm in the eons since their arrival - we must recover that technology so we may release Zipactriotl and destroy it once and for all!   The time is now for Myrmidex rule with the Barrabian at their side!  All hail the Myrmidex!  All hail the Barrab!" 
 1156753;I must question your commitment to the Myrmidex - are you satisfied with these Britannian invaders and their Eodonian allies? 
 1156754;You must acquire the Activator from the Gemologist at the Shimmering Jewel in Vesper, the Regulator from the Ship Captain at the Horse's Head in Jhelom, the Stator from the Golem Maker at the Tinker's Guild in Britain, and Power Core from the Oddities Collector at the Lycaeum in Moonglow before the Stasis Chamber can be activated and Zipactriotl can be destroyed! 
@@ -115109,7 +115109,7 @@ Number;Text
 1158490;DEC 
 1158491;You peer into the heavens and see...only empty space... 
 1158492;You peer into the heavens and see...a constellation! 
-1158493;star chart 
+1158493;mapa gwiazd
 1158494;Which telescope do you wish to create the star chart from? 
 1158495;There is nothing to chart at these coordinates at this time. 
 1158496;You successfully map the time-coordinate of the constellation. 
@@ -115694,106 +115694,106 @@ Number;Text
 1159075;Mapa Skarbow Prowadzaca do Zasobow 
 1159076;Receive one Field Garden Bed deed which when placed in your home will allow you to plant up to nine plant seeds that will grow without the usual necessary care. (RUSTIC THEME PACK ENTITLEMENT REQUIRED) 
 1159077;Receive a decorative farm set that includes a decorative butter churn, decorative feed trough, functioning well, decorative hanging farm tools, decorative plow, and magical milk pale! 
-1159078;Ancient Aquarium Net 
-1159079;Moorish Idol 
-1159080;Sergeant Major 
-1159081;Queen Triggerfish 
-1159082;Clownfish 
-1159083;Humpback Grouper 
-1159084;Spotted Parrotfish 
-1159085;Squirrelfish 
-1159086;Pajama Cardinalfish 
-1159087;Banggai Cardinalfish 
-1159088;Magnificent Shrimpgoby 
-1159089;Mandarinfish 
-1159090;Frogfish 
-1159091;Scorpionfish 
-1159092;Clown Triggerfish 
-1159093;Black Durgeon 
-1159094;Picasso Triggerfish 
-1159095;Filefish 
-1159096;Porcupinefish 
-1159097;Yellow Boxfish 
-1159098;Pygmy Seahorse 
-1159099;Eagle Ray 
-1159100;Spotted Blue Ray 
-1159101;Gray Angelfish 
-1159102;Rock Beauty 
-1159103;French Angelfish 
-1159104;Beaugregory 
-1159105;Spadefish 
-1159106;Spiny Lobster 
-1159107;Banded Coral Shrimp 
-1159108;Cleaner Shrimp 
-1159109;Mantis Shrimp 
-1159110;Arrow Crab 
-1159111;Blue Hermit Crab 
-1159112;Horseshoe Crab 
-1159113;Feather Duster 
-1159114;Flamingo Tongue 
-1159115;Squid 
-1159116;Octopus 
-1159117;Fire Clam 
-1159118;Giant Anemone 
-1159119;Lion's Mane Jelly 
-1159120;Sea Urchin 
-1159121;Orange Elephant Ear Sponge 
-1159122;Barrel Sponge 
-1159123;Fire Coral 
-1159124;Sea Fan 
-1159125;Staghorn Coral 
-1159126;Elkhorn Coral 
-1159127;Tree Coral 
-1159128;Leafy Sea Dragon 
-1159129;Hippo Tang 
-1159130;Chironex Jelly 
-1159131;Chocolate Chip Seastar 
-1159132;You don't have enough live rock to make that. 
-1159133;Live Rock 
-1159134;small elegant aquarium 
-1159135;wall mounted aquarium 
-1159136;large elegant aquarium 
-1159137;How much whilst thou tithe? 
-1159138;Displays all public house contents without entering houses. 
-1159139;Tithe Maximum 
-1159140;You have entered an invalid entry. You must enter a number between 1 and 100,000. 
-1159141;22nd Anniversary Gift Bag 
-1159142;Happy 22nd Anniversary! We have placed a gift for you in your backpack. 
-1159143;Happy 22nd Anniversary! We have placed a gift for you in your bank box. 
-1159144;Happy 22nd Anniversary! To get your gift, please remove some items from your backpack or bank and log back in. 
-1159145;22nd Anniversary Gift Token 
-1159146;Copper Wings 
-1159147;Copper Portraits 
-1159148;Copper Ship Relief 
-1159149;Copper Sunflower 
-1159150;<BASEFONT COLOR=#FFD24D>Cast from Flowers Grown in The Warm Sun of ~1_NAME~<BASEFONT COLOR=#FFFFFF> 
-1159151;<BASEFONT COLOR=#FFD24D>Relief of ~1_NAME~<BASEFONT COLOR=#FFFFFF> 
-1159152;<BASEFONT COLOR=#FFD24D>Depicting the Maiden Voyage of ~1_NAME~<BASEFONT COLOR=#FFFFFF> 
-1159153;<BASEFONT COLOR=#FFD24D>Symbolizing Glory During the ~1_NAME~<BASEFONT COLOR=#FFFFFF> 
-1159154;Copper Portrait 
-1159155;In Commemoration Of Twenty-two Amazing Years! Thank You And Happy Anniversary! 
-1159156;Kontrakt na wynajecie sprzedawcy 
-1159157;My commission per sale: 
-1159158;Relocate Container 
-1159159;This container has been released and is no longer secure. 
-1159160;Target the location that you wish to relocate this container. Once selected the container will no longer be secured. 
-1159161;Alliance Members 
-1159162;szafir oceanow 
-1159163;solony stek z weza morskiego 
-1159164;przyneta charybdy 
-1159165;Coconut Crab 
-1159166;Receive a Coconut Crab statuette. This blessed statuette may be used to create a coconut crab mount. 
-1159167;ethereal soulbinder 
-1159168;ethereal sand 
-1159169;You don't have any ethereal sand. 
-1159170;The machine only accepts filled ethereal soulbinders. 
-1159171;Submitting this soulbinder would put you over the maximum allowable amount of Fellowship Silver you may hold. Spend some and try again. 
-1159172;Mythical 
-1159173;Legendary 
-1159174;Exalted 
-1159175;Grand 
-1159176;Meager 
-1159177;An Empty Soulbinder 
+1159078;Starozytna Siec Akwariowa  
+1159079;Idol Morz  
+1159080;Sierzant Major  
+1159081;Krolewska Ryba Trigger  
+1159082;Blazenek  
+1159083;Grupa Garbatka  
+1159084;Papugoryba w Kropki  
+1159085;Ryba Wiewiorka  
+1159086;Kardynalek w Pizamie  
+1159087;Kardynalek Banggai  
+1159088;Wspaniala Krewetkoryba  
+1159089;Mandarynka  
+1159090;Zaboryba  
+1159091;Ryba Skorpion  
+1159092;Blazen Trigger  
+1159093;Czarny Durgeon  
+1159094;Trigger Picasso  
+1159095;Ryba Pilnik  
+1159096;Kolczak  
+1159097;Zolta Ryba Pudelkowa  
+1159098;Krasnaja Konik Morski  
+1159099;Orlenik  
+1159100;Niebieska Plaszczka w Kropki  
+1159101;Szara Ryba Aniol  
+1159102;Pieknosc Skal  
+1159103;Francuska Ryba Aniol  
+1159104;Beaugregory  
+1159105;Ryba Skrzydla  
+1159106;Kolczasty Homar  
+1159107;Pasiasty Krewetkowiec Koralowy  
+1159108;Krewetka Czysciciel  
+1159109;Krewetka Modliszka  
+1159110;Krab Strzala  
+1159111;Niebieski Pustelnik  
+1159112;Krab Podkowa  
+1159113;Pioropusz  
+1159114;Flamingowy Jezyk  
+1159115;Kalamarnica  
+1159116;Osmiornica  
+1159117;Malz Ognisty  
+1159118;Gigantyczna Anemonia  
+1159119;Meduza Grzywa Lwa  
+1159120;Jezowiec  
+1159121;Pomaranczowa Gabka Sloniowata  
+1159122;Gabka Beczka  
+1159123;Koral Ognisty  
+1159124;Wachlarz Morski  
+1159125;Koral Rogaty  
+1159126;Koral Losiowaty  
+1159127;Koral Drzewiasty  
+1159128;Lisciasty Konik Morski  
+1159129;Pokolec Hepatus  
+1159130;Meduza Chironex  
+1159131;Rozgwiazda Czekoladowy Chip  
+1159132;Nie masz wystarczajacej ilosci zywej skaly, aby to stworzyc.  
+1159133;Zywa Skala  
+1159134;male eleganckie akwarium  
+1159135;akwarium montowane na scianie  
+1159136;duze eleganckie akwarium  
+1159137;Ile chcesz ofiarowac?  
+1159138;Wyswietla cala publiczna zawartosc domow bez wchodzenia do srodka.  
+1159139;Maksymalne ofiarowanie  
+1159140;Wprowadziles nieprawidlowa wartosc. Musisz wprowadzic liczbe pomiedzy 1 a 100,000.  
+1159141;Torba Prezentowa na 22. Rocznice  
+1159142;Szczesliwej 22. rocznicy! Umiescilismy prezent w twoim plecaku.  
+1159143;Szczesliwej 22. rocznicy! Umiescilismy prezent w twojej skrzynce bankowej.  
+1159144;Szczesliwej 22. rocznicy! Aby odebrac prezent, usun niektore przedmioty z plecaka lub banku i zaloguj sie ponownie.  
+1159145;Token Prezentowy na 22. Rocznice  
+1159146;Skrzydla z Miedzi  
+1159147;Portrety z Miedzi  
+1159148;Relief Statku z Miedzi  
+1159149;Miedziany Slonecznik  
+1159150;<BASEFONT COLOR=#FFD24D>Odlew wykonany z kwiatow wyhodowanych w cieplym sloncu ~1_NAME~<BASEFONT COLOR=#FFFFFF>  
+1159151;<BASEFONT COLOR=#FFD24D>Relief ~1_NAME~<BASEFONT COLOR=#FFFFFF>  
+1159152;<BASEFONT COLOR=#FFD24D>Ukazujacy Dziewiczy Rejs ~1_NAME~<BASEFONT COLOR=#FFFFFF>  
+1159153;<BASEFONT COLOR=#FFD24D>Symbolizujacy Chwale Podczas ~1_NAME~<BASEFONT COLOR=#FFFFFF>  
+1159154;Miedziany Portret  
+1159155;Na pamiatke Dwudziestu dwoch Niesamowitych Lat! Dziekujemy i Szczesliwej Rocznicy!  
+1159156;Kontrakt na wynajecie sprzedawcy  
+1159157;Moja prowizja za sprzedaz:  
+1159158;Przenies pojemnik  
+1159159;Ten pojemnik zostal zwolniony i nie jest juz zabezpieczony.  
+1159160;Wskaz miejsce, w ktorym chcesz przeniesc ten pojemnik. Po wybraniu nie bedzie on juz zabezpieczony.  
+1159161;Czlonkowie Sojuszu  
+1159162;szafir oceanow  
+1159163;solony stek z weza morskiego  
+1159164;przyneta charybdy  
+1159165;Krab Kokosowy  
+1159166;Odbierz figurke Kraba Kokosowego. Ta poblogoslawiona figurka moze zostac uzyta do stworzenia wierzchowca kraba kokosowego.  
+1159167;eteryczny lapacz dusz  
+1159168;eteryczny piasek  
+1159169;Nie masz zadnego eterycznego piasku.  
+1159170;Maszyna przyjmuje tylko wypelnione eteryczne lapacze dusz.  
+1159171;Przekazanie tego lapacza dusz przekroczyloby maksymalna dopuszczalna ilosc srebra Bractwa, jaka mozesz posiadac. Wydaj troche i sprobuj ponownie.  
+1159172;Mityczny  
+1159173;Legendarny  
+1159174;Wyniesiony  
+1159175;Wielki  
+1159176;Skromny  
+1159177;Pusty Lapacz Dusz
 1159178;Contains a ~1_TYPE~ Soul 
 1159179;You have ~1_COUNT~ Fellowship Silver! 
 1159180;I can sell you items from the Fellowship for Fellowship Silver! 
