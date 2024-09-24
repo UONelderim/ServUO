@@ -214,7 +214,7 @@ namespace Knives.TownHouses
 		{
 			get
 			{
-				if (DateTime.UtcNow - TimeUntilCondemned > Owner.Account.LastLogin)
+				if (DateTime.UtcNow - TimeUntilCondemned > Owner.Account?.LastLogin)
 				{
 					return DecayType.Condemned;
 				}
