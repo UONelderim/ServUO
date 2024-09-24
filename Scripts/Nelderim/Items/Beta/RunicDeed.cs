@@ -82,7 +82,7 @@ namespace Server.Items
 			DropItem(new RunicSaw(CraftResource.Valorite, 10000));
 			DropItem(new RunicTinkerTools(CraftResource.Valorite, 10000));
 			// ID 0000149: Dodac runicfletchertools do bag of runics 
-			DropItem(new RunicFletcherTools(CraftResource.Valorite, 10000));
+			DropItem(new RunicFletcherTool(CraftResource.Valorite, 10000));
 		}
 
 		public RunicBag(Serial serial)
