@@ -19,7 +19,7 @@ namespace Server.Mobiles
 		public override Poison PoisonImmune { get { return Poison.Lethal; } }
 
 		[Constructable]
-		public NKatrill() : base(AIType.AI_Boss, FightMode.Closest, 11, 1, 0.25, 0.5)
+		public NKatrill() : base(AIType.AI_Mage, FightMode.Closest, 11, 1, 0.25, 0.5)
 		{
 			Name = "Katrill - ksiaze demonow, pan mordu";
 			Body = 10;

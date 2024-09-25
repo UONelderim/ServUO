@@ -16,7 +16,7 @@ namespace Server.Mobiles.Swiateczne
 		private DateTime m_NextAbilityTime;
 
 		[Constructable]
-		public MikolajBoss() : base(AIType.AI_Boss, FightMode.Closest, 12, 1, 0.25, 0.5)
+		public MikolajBoss() : base(AIType.AI_Mage, FightMode.Closest, 12, 1, 0.25, 0.5)
 		{
 			Name = "Jołakim";
 

@@ -33,7 +33,7 @@ namespace Server.Mobiles
 		public virtual int StrikingRange => 12;
 
 		[Constructable]
-		public DalharukElghinn() : base(AIType.AI_Boss, FightMode.Closest, 11, 1, 0.25, 0.5)
+		public DalharukElghinn() : base(AIType.AI_Mage, FightMode.Closest, 11, 1, 0.25, 0.5)
 		{
 			Name = "Dalharuk Elghinn";
 

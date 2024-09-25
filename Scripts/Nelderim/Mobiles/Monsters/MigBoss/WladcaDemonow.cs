@@ -19,7 +19,7 @@ namespace Server.Mobiles
 		public override Poison PoisonImmune => Poison.Lethal;
 
 		[Constructable]
-		public WladcaDemonow() : base(AIType.AI_Boss, FightMode.Closest, 11, 1, 0.25, 0.5)
+		public WladcaDemonow() : base(AIType.AI_Mage, FightMode.Closest, 11, 1, 0.25, 0.5)
 		{
 			Name = "azatoth - wladca demonow ";
 			Body = 0x310;

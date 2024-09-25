@@ -19,7 +19,7 @@ namespace Server.Mobiles
 		public override Poison PoisonImmune { get { return Poison.Lethal; } }
 
 		[Constructable]
-		public NDzahhar() : base(AIType.AI_Boss, FightMode.Closest, 11, 1, 0.25, 0.5)
+		public NDzahhar() : base(AIType.AI_Mage, FightMode.Closest, 11, 1, 0.25, 0.5)
 		{
 			Name = "Dzahhar  - ksiaze demonow, pan cierpienia";
 			Body = 102;

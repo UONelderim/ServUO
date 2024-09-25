@@ -20,7 +20,7 @@ namespace Server.Mobiles
 		public override Poison HitPoison => Poison.Lethal;
 
 		[Constructable]
-		public NBurugh() : base(AIType.AI_Boss, FightMode.Closest, 12, 1, 0.25, 0.5)
+		public NBurugh() : base(AIType.AI_Mage, FightMode.Closest, 12, 1, 0.25, 0.5)
 		{
 			Body = 256;
 			Hue = 2207;
