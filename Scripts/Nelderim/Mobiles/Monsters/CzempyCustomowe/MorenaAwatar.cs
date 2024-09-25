@@ -33,7 +33,7 @@ namespace Server.Mobiles
 		private readonly List<Mobile> m_Minions;
 
 		[Constructable]
-		public MorenaAwatar() : base(AIType.AI_Mage, FightMode.Strongest, 12, 1, 0.2, 0.4)
+		public MorenaAwatar() : base(AIType.AI_Necro, FightMode.Strongest, 12, 1, 0.2, 0.4)
 		{
 			Name = "Morena - Awatar";
 			Female = true;
