@@ -25,7 +25,7 @@ namespace Server.Mobiles
 		public override FoodType FavoriteFood { get { return FoodType.Meat; } }
 
 		[Constructable]
-		public NStarozytnySmok() : base(AIType.AI_Mage, FightMode.Closest, 11, 1, 0.25, 0.5)
+		public NStarozytnySmok() : base(AIType.AI_Mystic, FightMode.Closest, 11, 1, 0.25, 0.5)
 		{
 			Name = "Starozytny Ognisty Smok";
 

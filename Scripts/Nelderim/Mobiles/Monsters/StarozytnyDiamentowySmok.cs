@@ -26,7 +26,7 @@ namespace Server.Mobiles
 
 
 		[Constructable]
-		public StarozytnyDiamentowySmok() : base(AIType.AI_Mage, FightMode.Closest, 11, 1, 0.25, 0.5)
+		public StarozytnyDiamentowySmok() : base(AIType.AI_Mystic, FightMode.Closest, 11, 1, 0.25, 0.5)
 		{
 			Name = "starozytny diamentowy smok";
 
