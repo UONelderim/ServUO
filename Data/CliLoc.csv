@@ -48324,7 +48324,7 @@ Number;Text
 1077432;Pets 
 1077433;Housing 
 1077434;Lost item 
-1077435;Other 
+1077435;Inn 
 1077436;Exploit 
 1077437;Character Sheet 
 1077438;Map 
@@ -107434,7 +107434,7 @@ Number;Text
 1150716;Twoj broker otworzyl sklep. Kliknij dwukrotnie na NPC brokera, aby rozpoczac prace w twoim nowym sklepie. 
 1150717;Narzedzie do Etykietowania Napojow Alkoholowych 
 1150718;Oznakowano: ~1_MESSAGE~ 
-1150719;Mocny Whiskey 
+1150719;Mocne Whiskey 
 1150720;Mocny Bourbon 
 1150721;Mocny Spirytus 
 1150722;Mocny Cassis 
@@ -107442,14 +107442,109 @@ Number;Text
 1150724;Mocna Mgla 
 1150725;Mocny Aquavit 
 1150726;Mocny Arak 
-1150727;Mocny Whiskey z Kukurydzy 
-1150728;Mocny Bandy 
+1150727;Mocna Whiskey z Kukurydzy 
+1150728;Mocne Bandy 
 1150729;Standardowa Destylacja 
 1150730;Podwojna Destylacja 
 1150731;Znakowanie Nazwy Destylatora 
 1150732;Nie Znakowac 
 1150733;~1_NAME~ : ~2_NUMBER~ 
 1150734;Wpisz tekst, ktory chcesz umiescic na
+11150735;<center>Skladniki ~1_NAME~</center>  
+1150736;Na bazie pszenicy  
+1150737;Na bazie wody  
+1150738;pusty metalowy keg  
+1150739;Juz destylujesz.  
+1150740;Wybrales drozdze.  
+1150741;To nie sa drozdze.  
+1150742;Wybrales juz inne drozdze.  
+1150743;Nie wybierasz juz tych drozdzy.  
+1150744;Wystapil nieznany blad. Prosze wybierz drozdze ponownie.  
+1150745;Nie udala ci sie proba destylacji i skladniki zostaly utracone.  
+1150746;Odniosles sukces przy pierwszej probie destylacji, ale dodatkowa proba nie powiodla sie.  
+1150747;Nie masz wystarczajacej ilosci skladnikow.  
+1150748;Etykieta:  
+1150749;To strata! To twoje!  
+1150750;Och... to niegrzeczne!  
+1150751;On juz ma drinka.  
+1150752;Nie trafilem!  
+1150753;Butelka rzucona przez ~1_NAME~ uderzyla mnie w glowe, a plyn z butelki wylal sie!  
+1150754;Nie, dziekuje!  
+1150755;Slodko!  
+1150756;Hej kochanie. To na moj koszt!  
+1150757;Czesc przystojniaku. To na moj koszt!  
+1150758;Dzieki dziewczyno!  
+1150759;To na moj koszt!  
+1150760;Wow!  
+1150761;Otrzymales drinka od ~1_NAME~!  
+1150762;Nie masz wystarczajacej ilosci pustych butelek, aby stworzyc ten przedmiot.  
+1150763;Nie masz wystarczajacej ilosci pustych drewnianych kegow, aby stworzyc ten przedmiot.  
+1150764;Nie masz wystarczajacej ilosci pokryw do beczek, aby stworzyc ten przedmiot.  
+1150765;Nie masz wystarczajacej ilosci kurek do beczek, aby stworzyc ten przedmiot.  
+1150766;Jego rece sa teraz pelne!  
+1150767;Jej rece sa teraz pelne!  
+1150768;Ona juz ma drinka.  
+1150769;poczestunek od ~1_NAME~  
+1150770;<center>Opcje destylarni</center>  
+1150771;Wykonaj destylacje  
+1150772;Odniosles sukces przy probie destylacji.  
+1150773;Musisz ulepszyc swoje konto o pakiet motywow Rustic, aby umiescic te kafelki.  
+1150774;Musisz ulepszyc swoje konto o pakiet motywow Gothic, aby umiescic te kafelki.  
+1150775;Nazwy sklepow sa ograniczone do 40 znakow. Nazwy sklepow musza przejsc test filtrowania wulgaryzmow. Wprowadzony tekst jest nieprawidlowy.  
+1150776;Wprowadziles nieprawidlowa wartosc liczbowa. Wartosci ujemne nie sa dozwolone. Ilosci transakcyjne sa ograniczone do 60 000 na transakcje.  
+1150777;Tego zwierzecia nie mozna sprzedawac przez posrednika zwierzat.  
+1150778;~1_name~ : Brak wybranego  
+1150779;~1_name~ : Wybrano  
+1150780;Nie, dziekuje!  
+1150781;Och, to szkoda.  
+1150782;To na moj koszt!  
+1150783;On juz odmowil drinka.  
+1150784;Ona juz odmowila drinka.  
+1150785;Nie mozesz przeniesc zwierzat do stajni, poniewaz nie masz wolnych miejsc.  
+1150786;~1_name~ celuje w glowe!  
+1150787;~1_name~ trafia w serce!  
+1150788;~1_name~ trafia w cialo.  
+1150789;~1_name~ trafia w konczyne.  
+1150790;Twoje konto nie ma uprawnien do korzystania z tego.  
+1150791;Musisz posiadac pakiet motywow Rustic lub Gothic, aby korzystac z tej funkcji.  
+1150792;Minimalna oferta 1,000gp. Oferty sa zaokraglane w dol do najblizszego 1,000gp (1,999gp staje sie 1,000gp).  
+1150793;Aby zwolnic swojego posrednika, musisz odzyskac caly swoj towar i wyplacic wszystkie srodki z jego konta. Gdy inwentarz posrednika bedzie pusty, a saldo konta wyniesie zero, wroc do menu MOJA UMOWA NA STRAGAN i sprobuj ponownie.  
+1150794;Twoj posrednik zwinal interes, a twoj stragan jest teraz pusty. Mozesz teraz zatrudnic innego posrednika lub porzucic umowe najmu.  
+1150795;Jesli zdecydujesz sie porzucic swoja umowe najmu, nie otrzymasz zwrotu zadnych wplaconych oplat. Stragan zostanie ponownie wystawiony na aukcje w celu zawarcia nowej umowy najmu w ciagu 12 godzin. Pamietaj, ze mozesz zlozyc oferte na nowa umowe najmu na innym straganie bez porzucania obecnej.<br><br>Jesli jestes pewien, ze chcesz porzucic umowe najmu, kliknij przycisk POTWIERDZ ponizej.  
+1150796;Jesli zdecydujesz sie porzucic swoja umowe najmu, nie otrzymasz zwrotu zadnych wplaconych oplat. Stragan zostanie ponownie wystawiony na aukcje w celu zawarcia nowej umowy najmu w ciagu 12 godzin. Nie mozesz porzucic umowy najmu w tej chwili, poniewaz zatrudniasz posrednika na straganie. Aby porzucic umowe najmu, zwolnij posrednika i wroc tutaj, aby sprobowac ponownie.  
+1150797;Porzuciles swoja umowe najmu na tym straganie. Nie masz juz kontroli nad tym miejscem. Zostanie ono wystawione na aukcje w celu zawarcia nowej umowy najmu w ciagu 12 godzin.  
+1150798;Nie mozesz handlowac martwym zwierzeciem.  
+1150799;Mozesz rzucac tylko butelkami.  
+1150800;Nie mozesz rzucac w gracza w trakcie walki!  
+1150801;Ten rodzaj alkoholu wymaga czasu na<br>dojrzewanie.  
+1150802;Zauwazasz, ze alkohol jest w trakcie dojrzewania, wiec zostawiasz go w spokoju.  
+1150803;Zaczynasz zdejmowac swoje ubrania.  
+1150804;dojrzaly: ~1_NAME~  
+1150805;data rozpoczecia: ~1_NAME~  
+1150806;Musisz poczekac, az alkohol w beczce dojrzeje.  
+1150807;beczka na alkohol  
+1150808;Ta beczka sluzy do destylacji.  
+1150809;Wybierz rodzaj alkoholu, ktory chcesz wyprodukowac.  
+1150810;Wskaz pusta beczke na alkohol w swoim plecaku. Jesli jeszcze jej nie masz, mozesz uzyc umiejetnosci stolarstwa, aby ja wykonac.  
+1150811;Ta beczka na alkohol juz zawiera alkohol.  
+1150812;dojrzewa: ~1_NAME~  
+1150813;Pozostaly czas: okolo ~1_HOURS~ godzin(a)  
+1150814;Pozostaly czas: okolo ~1_DAYS~ dzien(dni) ~2_HOURS~ godzin(a)  
+1150815;Przelales dojrzaly plyn do butelki.  
+1150816;pusta beczka na alkohol  
+1150817;Robie sie bardzo senny...  
+1150818;Obudziles sie, czujac sie otumaniony...  
+1150819;Zzzzzzzzz....  
+1150820;Jestem wolny!  
+1150821;Goraco tu...  
+1150822;Hej wszyscy. Posluchajcie mojej piosenki!  
+1150823;~1_NAME~ zaczyna spiewac ~2_SONGNAME~  
+1150824;Zaraz bedzie ci niedobrze...  
+1150825;...Nie jestem pijany...  
+1150826;...Nie jestem pijany...  
+1150827;The broker is not able to store any more of that item.;Custom
+1150828;You have poured liquor into the bottle.;Custom
+1150829;Remaining Time: within 1 hour;Custom
 1150830;Set Ability: good healing burst 
 1150831;Set Ability: evil healing burst 
 1150832;Helm of Virtuous Regeneration 
