@@ -15,7 +15,7 @@ namespace Server.Items
 		{
             Name = "Proch zombie";
 			Stackable = true;
-            Hue = 2553;
+            Hue = 2280;
 			Amount = amount;
 		}
 

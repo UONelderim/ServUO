@@ -51,7 +51,7 @@ namespace Server.Items.Crops
 		[Constructable] 
 		public KrzakJedwab() : base(Utility.Random(0xC51, 2))
 		{ 
-			Hue = 1946;
+			Hue = 2082;
 			Name = "Roslina z jedwabnikiem"; // 1032611
 			Stackable = true;
 		}

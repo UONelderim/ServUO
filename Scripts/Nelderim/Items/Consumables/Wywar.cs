@@ -86,7 +86,7 @@ namespace Server.Items
 		public WywarZrecznosci()
 		{
 			Name = "Wywar Zrecznosci";
-			Hue = 1952;
+			Hue = 2088;
 		}
 
 		public WywarZrecznosci(Serial serial) : base(serial)

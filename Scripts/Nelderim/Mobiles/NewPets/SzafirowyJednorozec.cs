@@ -1,6 +1,4 @@
 using System;
-using Server.Mobiles;
-using Server.Network;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -61,7 +59,7 @@ namespace Server.Mobiles
 		public SzafirowyJednorozec( string name ) : base( name, 0x7A, 0x3EB4, AIType.AI_Mage, FightMode.Evil, 12, 1, 0.2, 0.4 )
 		{
 			BaseSoundID = 0x4BC;
-			Hue = 2688;
+			Hue = 1558;
 
 			SetStr( 296, 325 );
 			SetDex( 96, 115 );

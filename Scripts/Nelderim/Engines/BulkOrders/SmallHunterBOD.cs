@@ -166,7 +166,7 @@ namespace Server.Engines.BulkOrders
 
 		public SmallHunterBOD(int amountCur, int amountMax, Type type, int number, int graphic, bool reqExceptional, BulkMaterialType mat, int hue)
 		{
-			Hue = 0xA8E;
+			Hue = 1182;
 			AmountMax = amountMax;
 			AmountCur = amountCur;
 			Type = type;

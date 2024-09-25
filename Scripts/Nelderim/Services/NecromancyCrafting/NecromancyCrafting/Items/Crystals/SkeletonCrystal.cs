@@ -21,7 +21,7 @@ namespace Server.Items
 		[Constructable]
 		public SkeletonCrystal()
 		{
-			Hue = 1965;
+			Hue = 1293;
 		}
 
 		public SkeletonCrystal( Serial serial ) : base( serial )

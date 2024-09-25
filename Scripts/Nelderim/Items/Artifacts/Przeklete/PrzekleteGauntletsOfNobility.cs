@@ -38,9 +38,6 @@ namespace Server.Items
 
 			if (version < 1)
 			{
-				if (Hue == 2700)
-					Hue = 2700;
-
 				PhysicalBonus = 0;
 				PoisonBonus = 0;
 			}

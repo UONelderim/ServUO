@@ -55,7 +55,7 @@ namespace Server.Mobiles
 			AddItem(Cloa);
 
 			WarMace sword = new WarMace();
-			sword.Hue = 1948;
+			sword.Hue = 2084;
 			EquipItem(sword);
 
 

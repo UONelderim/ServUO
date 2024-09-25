@@ -19,7 +19,7 @@ namespace Server.Items
 		public InscriptionPowderOfTemperament(int uses) : base(uses)
 		{
 			Name = "Proszek wzmocnienia wyrobow skryby";
-			Hue = 0xA26;
+			Hue = 1083;
 		}
 
 		public InscriptionPowderOfTemperament(Serial serial) : base(serial)
