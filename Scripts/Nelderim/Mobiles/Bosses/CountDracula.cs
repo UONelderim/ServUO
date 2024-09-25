@@ -10,7 +10,7 @@ namespace Server.Mobiles
 	{
 
 		[Constructable]
-		public CountDracula() : base( AIType.AI_Boss, FightMode.Closest, 12, 1, 0.2, 0.4 )
+		public CountDracula() : base( AIType.AI_Mage, FightMode.Closest, 12, 1, 0.2, 0.4 )
 		{
 			Name = "Wyższy Wampir";
 		    Body = 0x190;

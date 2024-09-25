@@ -26,7 +26,7 @@ namespace Server.Mobiles
 		AI_Healer,
 		AI_Vendor,
 		AI_Mage,
-		AI_Boss, // !NELDERIM!
+		AI_UNUSED4,
 		AI_UNUSED3,
 		AI_UNUSED2,
 		AI_NecroMage,

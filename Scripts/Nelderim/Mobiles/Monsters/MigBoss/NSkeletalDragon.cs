@@ -24,7 +24,7 @@ namespace Server.Mobiles
 		public override HideType HideType => HideType.Barbed;
 
 		[Constructable]
-		public NSkeletalDragon() : base(AIType.AI_Boss, FightMode.Closest, 12, 1, 0.25, 0.5)
+		public NSkeletalDragon() : base(AIType.AI_Mage, FightMode.Closest, 12, 1, 0.25, 0.5)
 		{
 			Name = "krwawy kosciany smok";
 			Body = 104;

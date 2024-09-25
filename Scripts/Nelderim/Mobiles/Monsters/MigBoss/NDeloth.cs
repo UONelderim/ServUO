@@ -19,7 +19,7 @@ namespace Server.Mobiles
 		public override Poison PoisonImmune { get { return Poison.Lethal; } }
 
 		[Constructable]
-		public NDeloth() : base(AIType.AI_Boss, FightMode.Closest, 11, 1, 0.25, 0.5)
+		public NDeloth() : base(AIType.AI_Mage, FightMode.Closest, 11, 1, 0.25, 0.5)
 		{
 			Name = "Deloth  - ksiaze demonow, pan mroku";
 			Body = 38;

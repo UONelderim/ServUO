@@ -19,7 +19,7 @@ namespace Server.Mobiles
 		public override Poison PoisonImmune => Poison.Lethal;
 
 		[Constructable]
-		public NSarag() : base(AIType.AI_Boss, FightMode.Closest, 12, 1, 0.2, 0.4)
+		public NSarag() : base(AIType.AI_Mage, FightMode.Closest, 12, 1, 0.2, 0.4)
 		{
 			Body = 308;
 			Hue = 1182;

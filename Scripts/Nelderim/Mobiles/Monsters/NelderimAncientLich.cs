@@ -29,7 +29,7 @@ namespace Server.Mobiles
 		private ArrayList m_Minions;
 
 		[Constructable]
-		public NelderimAncientLich() : base(AIType.AI_Boss, FightMode.Strongest, 12, 1, 0.2, 0.4)
+		public NelderimAncientLich() : base(AIType.AI_Mage, FightMode.Strongest, 12, 1, 0.2, 0.4)
 		{
 			Name = NameList.RandomName("ancient lich");
 			Body = 78;

@@ -10,7 +10,7 @@ namespace Server.Mobiles
 	public class LesserArcaneDaemon : BaseCreature
 	{
 		[Constructable]
-		public LesserArcaneDaemon() : base(AIType.AI_Boss, FightMode.Closest, 12, 2, 0.2, 0.4)
+		public LesserArcaneDaemon() : base(AIType.AI_Mage, FightMode.Closest, 12, 2, 0.2, 0.4)
 		{
 			Name = "mniejszy demon cienia";
 			Body = 4;
