@@ -46,39 +46,39 @@ namespace Server.Mobiles
 
 
 			LeatherCap Helm = new LeatherCap();
-			Helm.Hue = 2707;
+			Helm.Hue = 1187;
 			Helm.LootType = LootType.Blessed;
 			Helm.ItemID = 5445;
 			Helm.Name = "wilcza maska";
 			AddItem(Helm);
 
 			StuddedChest Chest = new StuddedChest();
-			Chest.Hue = 2707;
+			Chest.Hue = 1187;
 			Chest.LootType = LootType.Blessed;
 			AddItem(Chest);
 
 			StuddedGorget Gorget = new StuddedGorget();
-			Gorget.Hue = 2707;
+			Gorget.Hue = 1187;
 			Gorget.LootType = LootType.Blessed;
 			AddItem(Gorget);
 
 			BoneLegs Legs = new BoneLegs();
-			Legs.Hue = 2707;
+			Legs.Hue = 1187;
 			Legs.LootType = LootType.Blessed;
 			AddItem(Legs);
 
 			BoneArms Arms = new BoneArms();
-			Arms.Hue = 2707;
+			Arms.Hue = 1187;
 			Arms.LootType = LootType.Blessed;
 			AddItem(Arms);
 
 			Cloak Cloak = new Cloak();
-			Cloak.Hue = 2707;
+			Cloak.Hue = 1187;
 			Cloak.LootType = LootType.Blessed;
 			AddItem(Cloak);
 
 			Kilt Pants = new Kilt();
-			Pants.Hue = 2707;
+			Pants.Hue = 1187;
 			Pants.LootType = LootType.Blessed;
 			AddItem(Pants);
 
@@ -89,7 +89,7 @@ namespace Server.Mobiles
 			new FrenziedOstard().Rider = this;
 			Hue = 33885;
 
-			Item hair = new Item(Utility.RandomList(0x203C));
+			Item hair = new Item(0x203C);
 			hair.Hue = Race.RandomHairHue();
 			hair.Layer = Layer.Hair;
 			hair.Movable = false;

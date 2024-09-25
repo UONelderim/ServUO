@@ -45,35 +45,35 @@ namespace Server.Mobiles
 
 
 			LeatherCap Helm = new LeatherCap();
-			Helm.Hue = 2707;
+			Helm.Hue = 1187;
 			Helm.LootType = LootType.Blessed;
 			Helm.ItemID = 5445;
 			Helm.Name = "wilcza maska";
 			AddItem(Helm);
 			LeatherChest Chest = new LeatherChest();
-			Chest.Hue = 2707;
+			Chest.Hue = 1187;
 			Chest.LootType = LootType.Blessed;
 			AddItem(Chest);
 			LeatherGorget Gorget = new LeatherGorget();
-			Gorget.Hue = 2707;
+			Gorget.Hue = 1187;
 			Gorget.LootType = LootType.Blessed;
 			AddItem(Gorget);
 			StuddedGloves Gloves = new StuddedGloves();
-			Gloves.Hue = 2707;
+			Gloves.Hue = 1187;
 			Gloves.LootType = LootType.Blessed;
 			AddItem(Gloves);
 			StuddedArms Arms = new StuddedArms();
-			Arms.Hue = 2707;
+			Arms.Hue = 1187;
 			Arms.LootType = LootType.Blessed;
 			AddItem(Arms);
 			StuddedLegs Legs = new StuddedLegs();
-			Legs.Hue = 2707;
+			Legs.Hue = 1187;
 			Legs.LootType = LootType.Blessed;
 			AddItem(Legs);
 
 
 			Cloak Cloa = new Cloak();
-			Cloa.Hue = 2707;
+			Cloa.Hue = 1187;
 			Cloa.LootType = LootType.Blessed;
 			AddItem(Cloa);
 
@@ -81,7 +81,7 @@ namespace Server.Mobiles
 			PackItem(new Arrow(Utility.Random(20, 30)));
 
 
-			Item hair = new Item(Utility.RandomList(0x203C));
+			Item hair = new Item(0x203C);
 			hair.Hue = Race.RandomHairHue();
 			hair.Layer = Layer.Hair;
 			hair.Movable = false;

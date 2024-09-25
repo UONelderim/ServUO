@@ -15,7 +15,7 @@ namespace Server.Items
 		{
             Name = "Proch szkieleta";
 			Stackable = true;
-            Hue = 1965;
+            Hue = 1293;
 			Amount = amount;
 		}
 

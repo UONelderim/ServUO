@@ -16,7 +16,7 @@ namespace Server.Mobiles
 			0.4)
 		{
 			BaseSoundID = 0x3F3;
-			Hue = 1569;
+			Hue = 1388;
 
 			SetStr(400);
 			SetDex(120);
@@ -24,7 +24,6 @@ namespace Server.Mobiles
 
 			SetHits(250);
 			SetMana(0);
-			Hue = 2956;
 
 
 			SetDamage(5, 7);

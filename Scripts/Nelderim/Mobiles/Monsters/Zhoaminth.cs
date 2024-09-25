@@ -27,7 +27,7 @@ namespace Server.Mobiles
 		{
 			Name = "Zhoaminth - zapomniane zlo";
 			Body = 0x310;
-			Hue = 2947;
+			Hue = 1379;
 			BaseSoundID = 357;
 
 			SetStr(1286, 1385);

@@ -46,26 +46,26 @@ namespace Server.Mobiles
 			VirtualArmor = 26;
 
 			LeatherCap Helm = new LeatherCap();
-			Helm.Hue = 2707;
+			Helm.Hue = 1187;
 			Helm.LootType = LootType.Blessed;
 			Helm.ItemID = 5445;
 			Helm.Name = "wilcza maska";
 			AddItem(Helm);
 			Cloak Cloa = new Cloak();
-			Cloa.Hue = 2707;
+			Cloa.Hue = 1187;
 			Cloa.LootType = LootType.Blessed;
 			AddItem(Cloa);
 			Sandals Boot = new Sandals();
-			Boot.Hue = 2707;
+			Boot.Hue = 1187;
 			Boot.LootType = LootType.Blessed;
 			AddItem(Boot);
 			Kilt Pants = new Kilt();
-			Pants.Hue = 2707;
+			Pants.Hue = 1187;
 			Pants.LootType = LootType.Blessed;
 			AddItem(Pants);
 
 
-			Item hair = new Item(Utility.RandomList(0x203C));
+			Item hair = new Item(0x203C);
 			hair.Hue = Race.RandomHairHue();
 			hair.Layer = Layer.Hair;
 			hair.Movable = false;

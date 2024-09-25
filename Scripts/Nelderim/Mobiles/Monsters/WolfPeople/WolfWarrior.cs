@@ -45,15 +45,15 @@ namespace Server.Mobiles
 			Karma = -3000;
 
 
-			EquipItem(new LeatherCap { Hue = 2707, LootType = LootType.Blessed, ItemID = 5445, Name = "wilcza maska" });
-			EquipItem(new StuddedChest { Hue = 2707, LootType = LootType.Blessed });
-			EquipItem(new StuddedGorget { Hue = 2707, LootType = LootType.Blessed });
-			EquipItem(new BoneGloves { Hue = 2707, LootType = LootType.Blessed });
-			EquipItem(new BoneArms { Hue = 2707, LootType = LootType.Blessed });
-			EquipItem(new BoneLegs { Hue = 2707, LootType = LootType.Blessed });
+			EquipItem(new LeatherCap { Hue = 1187, LootType = LootType.Blessed, ItemID = 5445, Name = "wilcza maska" });
+			EquipItem(new StuddedChest { Hue = 1187, LootType = LootType.Blessed });
+			EquipItem(new StuddedGorget { Hue = 1187, LootType = LootType.Blessed });
+			EquipItem(new BoneGloves { Hue = 1187, LootType = LootType.Blessed });
+			EquipItem(new BoneArms { Hue = 1187, LootType = LootType.Blessed });
+			EquipItem(new BoneLegs { Hue = 1187, LootType = LootType.Blessed });
 			EquipItem(new Katana { Hue = 424, Movable = false, LootType = LootType.Blessed });
 			EquipItem(new MetalShield { Hue = 424, Movable = false, LootType = LootType.Blessed });
-			EquipItem(new Cloak { Hue = 2707, LootType = LootType.Blessed });
+			EquipItem(new Cloak { Hue = 1187, LootType = LootType.Blessed });
 			
 			HairItemID = 0x203C;
 			HairHue = Race.RandomHairHue();

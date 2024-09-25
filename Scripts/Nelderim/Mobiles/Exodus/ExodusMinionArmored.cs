@@ -19,7 +19,7 @@ namespace Server.Mobiles
 		{
 			Name = "mechaniczny straznik - opancerzony";
 			Body = 0x2F5;
-			Hue = 2072;
+			Hue = 1795;
 
 			SetStr( 851, 950 );
 			SetDex( 71, 80 );
