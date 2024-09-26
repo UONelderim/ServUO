@@ -15,7 +15,7 @@ namespace Server.Spells.Mysticism
 
         private static readonly int[] m_ManaTable = new int[] { 4, 6, 9, 11, 14, 20, 40, 50 };
 
-        public override TimeSpan CastDelayBase => TimeSpan.FromMilliseconds(((NConfig.ReducedCastDelay ? 3 : 4 + (int)Circle) * CastDelaySecondsPerTick) * 1000);
+        public override TimeSpan CastDelayBase => TimeSpan.FromMilliseconds((((NConfig.ReducedCastDelay ? 3 : 4) + (int)Circle) * CastDelaySecondsPerTick) * 1000);
         public override double CastDelayFastScalar => 1.0;
 
         public double ChanceOffset => Caster is Mobiles.PlayerMobile ? 20.0 : 30.0;
