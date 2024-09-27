@@ -81,7 +81,7 @@ namespace Server.Items
 			_CreatureInfo.Add(typeof(NGorogon), new ArtInfo(3, Rolls.One, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(Sfinks), new ArtInfo(3, Rolls.One, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(NSzeol), new ArtInfo(3, Rolls.One, ArtGroup.Boss));
-			_CreatureInfo.Add(typeof(NBurugh), new ArtInfo(8, Rolls.Three, ArtGroup.Boss));
+			_CreatureInfo.Add(typeof(NBurugh), new ArtInfo(3.5, Rolls.One, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(NKatrill), new ArtInfo(6, Rolls.Two, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(NDeloth), new ArtInfo(6, Rolls.Two, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(NDzahhar), new ArtInfo(6, Rolls.Two, ArtGroup.Boss));
