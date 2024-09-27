@@ -262,11 +262,11 @@ namespace Server.Items
             switch (skill)
             {
                 case 4:
-                    return "a Novice";
+                    return "Nowicjusza";
                 case 3:
-                    return "a Neophyte";
+                    return "Pocatkujacego";
                 default:
-                    return "a Newbie";		//On OSI, it shouldn't go below 50, but, this is for 'custom' support.
+                    return "Swiezaka";		//On OSI, it shouldn't go below 50, but, this is for 'custom' support.
             }
         }
     }
