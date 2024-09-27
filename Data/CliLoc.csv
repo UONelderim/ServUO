@@ -12366,10 +12366,10 @@ Number;Text
 1022978;metalowy hak 
 1022979;Bakery 
 1022980;Bakery 
-1022981;Tailor 
-1022982;Tailor 
-1022983;Tinker 
-1022984;Tinker 
+1022981;Krawiec
+1022982;Krawiec 
+1022983;Majster
+1022984;Majster
 1022985;Butcher 
 1022986;Butcher 
 1022987;Healer 
@@ -28439,9 +28439,9 @@ Number;Text
 1044276;Wskaz przedmiot do naprawienia: 
 1044277;Ten przedmiot nie moze byc naprawiony. 
 1044278;Ten przedmiot byl naprawiony wiele razy i zostanie zniszczony przy kolejnej probie naprawy. 
-1044279;You repair the item. 
-1044280;You fail to repair the item. 
-1044281;That item is in full repair 
+1044279;Naprawiasz przedmiot.  
+1044280;Nie udalo ci sie naprawic przedmiotu.  
+1044281;Ten przedmiot jest w pelni naprawiony.
 1044282;Musisz byc obok paleniska i kowadla, zeby naprawiac przedmioty. 
 1044283;Nie mozesz tego naprawic. 
 1044284;Potrzebujesz narzedzi stolarza, zeby to zrobic. 
@@ -41771,23 +41771,23 @@ Number;Text
 1070860;You must wait a moment for the wand to recharge. 
 1070861;Happy Holidays from the entire Ultima Online team.  We have placed a gift box for you in your backpack. 
 1070862;Happy Holidays from the entire Ultima Online team.  We have placed a gift box for you in your bank box. 
-1070864;Kill them!  Kill them all! 
-1070865;Bring me back their heads! 
-1070866;Tear them to pieces! 
-1070867;Attack! Crush! Smash! 
-1070868;Kill or be killed my minions! 
-1070869;Stomp them to dust! 
-1070870;Don’t come back until you or them are dead! 
-1070871;Return with their heads or don’t return at all! 
-1070872;Onward! To battle! 
-1070873;Britain is ours!  Victory for Despise! 
-1070874;a Pile of Glacial Snow 
-1070875;Light of the Winter Solstice 
-1070876;Mistletoe 
-1070877;a Snowy Tree 
-1070878;a Decorative Topiary 
-1070879;a Festive Cactus 
-1070880;Winter 2004 
+1070864;Zabij ich! Zabij ich wszystkich!  
+1070865;Przynies mi ich glowy!  
+1070866;Rozszarp ich na kawalki!  
+1070867;Atak! Zmiazdz! Roztrzaskaj!  
+1070868;Zabijajcie albo zgincie, moje slugi!  
+1070869;Zdepcz ich na pyl!  
+1070870;Nie wracaj, dopoki ty albo oni nie zgina!  
+1070871;Wroc z ich glowami albo nie wracaj wcale!  
+1070872;Naprzod! Do boju!  
+1070873;Britain jest nasze! Zwyciestwo dla Despise!  
+1070874;Stos lodowego sniegu  
+1070875;Swiatlo Zimowego Przesilenia  
+1070876;Jemiola  
+1070877;Sniezne drzewo  
+1070878;Dekoracyjne topiary  
+1070879;Swiateczny kaktus  
+1070880;Zima 2004
 1070881;Hand Dipped by ~1_name~ 
 1070882;Mistletoe Deed 
 1070883;The mistletoe must be placed next to a wall. 
@@ -41855,44 +41855,44 @@ Number;Text
 1070960;You may select up to three players as the targets of this complaint. 
 1070961;Select Complaint Targets 
 1070962;Complaint Target: 
-1070963;Swords of Prosperity 
-1070964;Sword of the Stampede 
-1070965;Wind's Edge 
-1070966;Darkened Sky 
-1070967;The Horselord 
-1070968;Rune Beetle Carapace 
-1070969;Kasa of the Raj-in 
-1070970;Stormgrip 
-1070971;Tome of Lost Knowledge 
-1070972;"Click ""OKAY"" to redeem the following promotional item:" 
-1070973;dekoracyjna ~2_TYPE~ ~1_COLOR~ 
-1070974;You have used up your soulstone fragment. 
-1070975;That soulstone fragment has no more uses. 
-1070976;A soulstone fragment has been created in your bank box. 
-1070977;No ferrets were harmed in the making of this game. 
-1070978;"<body><basefont color=""#ffff00"">Sword of the Stampede<basefont color=""#ffffff""><br>Hit Harm 100%<br>Hit Chance Increase 10%<br>Damage Increase 60%<br>Cold Damage 100%</basefont></basefont></body>" 
-1070979;I'm sorry, I only accept authentic treasures of Tokuno. 
-1070980;Congratulations! You have turned in enough minor treasures to earn a greater reward. 
-1070981;You have turned in ~1_COUNT~ minor artifacts. Turn in ~2_NUM~ to receive a reward. 
-1070982;When you wish to choose your reward, you have but to approach me again. 
-1070983;You have given me enough treasures already. Go and meditate on this, and when you return I will offer you another chance to choose your reward. 
-1070984;You have earned the gratitude of the Empire. I have placed the ~1_OBJTYPE~ in your backpack. 
-1070985;Choose your reward. 
-1070986;Choose a pigment color. 
-1070987;Paragon Gold 
-1070988;Violet Courage Purple 
-1070989;Invulnerability Blue 
-1070990;Luna White 
-1070991;Dryad Green 
-1070992;Shadow Dancer Black 
-1070993;Berserker Red 
-1070994;Nox Green 
-1070995;Rum Red 
-1070996;Fire Orange 
-1070997;A promotional token 
-1070998;Use this to redeem your ~1_PROMO~ 
-1070999;<center>Soulstone Fragment</center> 
-1071000;soulstone fragment 
+1070963;Miecze Dobrobytu  
+1070964;Miecz Szarzy  
+1070965;Krawedz Wiatru  
+1070966;Pociemnione Niebo  
+1070967;Pan Koni  
+1070968;Pancerz Runa Zuka  
+1070969;Kasa Raj-in  
+1070970;Chwyt Burzy  
+1070971;Tom Utraconej Wiedzy  
+1070972;Kliknij ,,OKAY", aby odebrac nastepujacy przedmiot promocyjny:  
+1070973;dekoracyjna ~2_TYPE~ ~1_COLOR~  
+1070974;Wykorzystales fragment kamienia duszy.  
+1070975;Ten fragment kamienia duszy nie ma juz wiecej uzyc.  
+1070976;Fragment kamienia duszy zostal umieszczony w twojej skrzynce bankowej.  
+1070977;Zaden fretka nie ucierpiala podczas tworzenia tej gry.  
+1070978;,,<body><basefont color=""#ffff00"">Miecz Szarzy<basefont color=""#ffffff""><br>Uderzenie Harm 100%<br>Wzrost Szans na Trafienie 10%<br>Wzrost Obrazen 60%<br>Obrazenia od Zimna 100%</basefont></basefont></body>"  
+1070979;Przepraszam, akceptuje tylko autentyczne skarby Tokuno.  
+1070980;Gratulacje! Oddales wystarczajaco duzo mniejszych skarbow, aby zdobyc wieksza nagrode.  
+1070981;Oddales ~1_COUNT~ mniejszych artefaktow. Oddaj ~2_NUM~, aby otrzymac nagrode.  
+1070982;Kiedy zechcesz wybrac swoja nagrode, wystarczy, ze ponownie do mnie podejdziesz.  
+1070983;Dales mi juz wystarczajaco duzo skarbow. Idz i medytuj nad tym, a gdy wrocisz, dam ci kolejna szanse na wybor nagrody.  
+1070984;Zasluzyles na wdziecznosc Imperium. Umiescilem ~1_OBJTYPE~ w twoim plecaku.  
+1070985;Wybierz swoja nagrode.  
+1070986;Wybierz kolor pigmentu.  
+1070987;Zloto Paragona  
+1070988;Fioletowa Odwaga  
+1070989;Niebieska Niezwyciezonosc  
+1070990;Bialy Luna  
+1070991;Zielony Dryad  
+1070992;Czarny Cieniowy Tancerz  
+1070993;Czerwony Berserk  
+1070994;Zielony Nox  
+1070995;Czerwony Rum  
+1070996;Pomaranczowy Ogien  
+1070997;Zeton promocyjny  
+1070998;Uzyj tego, aby odebrac swoj ~1_PROMO~  
+1070999;<center>Fragment Kamienia Duszy</center>  
+1071000;fragment kamienia duszy
 1071001;character transfer 
 1071002;"<body><basefont color=""#ffff00"">Swords of Prosperity<basefont color=""#ffffff""><br>Spell Channeling<br>Mage Weapon -0 Skill<br>Luck 200<br>Faster Casting 1<br>Fire Damage 100%</basefont></basefont></body>" 
 1071003;"<body><basefont color=""#ffff00"">Wind's Edge<basefont color=""#ffffff""><br>Defense Chance Increase 10%<br>Swing Speed Increase 50%<br>Damage Increase 50%<br>Energy Damage 100%</basefont></basefont></body>" 
@@ -41906,8 +41906,8 @@ Number;Text
 1071011;"<body><basefont color=""#ffff00"">Pigments of Tokuno<basefont color=""#ffffff""><br>Use to dye artifacts and enhanced metal items<br>50 charges<br>Click to choose a color</basefont></basefont></body>" 
 1071012;Click a minor artifact to give it to Ihara Soko. 
 1071013;Bring me 10 of the lost treasures of Tokuno and I will reward you with a valuable item. 
-1071014;Ancient Urn 
-1071015;Honorable Swords 
+1071014;Stara urna
+1071015;Miecze hnoru
 1071016;Guild Message Color 
 1071017;Alliance Message Color 
 1071018;Ignore Guild Messages 
@@ -51663,46 +51663,46 @@ Number;Text
 1094883;I wish to undo the horrors that have beset Magincia but I need help.   There are some souls whose burden is so great that they have become corrupted and bound by the Threads of Fate.  Go to Magincia and cut the Corrupted Souls free by any means necessary, and gather the threads that they leave behind. 
 1094884;Fight the corrupted souls with sword and spell, and gather the Threads of Fate they leave behind! 
 1094885;Thank you so very much.  All we can offer is the rubble that was left behind in the wake of Magicinia's destruction.  Cherish life and be thoughtful in your actions, lest you become humbled by the threads of fate that you weave upon yourself. 
-1094886;Threads of Life 
-1094887;Threads of Thought 
-1094888;Threads of Fate 
-1094889;Bare Tree (rubble) 
-1094890;Broken Furniture (rubble) 
-1094891;Piece of Building (rubble) 
-1094892;Fang of Ractus [Replica] 
-1094893;The Most Knowledge Person [Replica] 
-1094894;Legendary Detective of the Royal Guard [Replica] 
-1094895;Elder Detective of the Royal Guard [Replica] 
-1094896;Mythical Detective of the Royal Guard [Replica] 
-1094901;Embroidered Oak Leaf Cloak [Replica] 
-1094902;Gauntlets of Anger [Replica] 
-1094903;Crown of Tal'Keesh [Replica] 
-1094909;Brave Knight of The Britannia [Replica] 
-1094910;Lieutenant of the Britannian Royal Guard [Replica] 
-1094911;Captain John's Hat [Replica] 
-1094912;Tattered Ancient Mummy Wrapping [Replica] 
-1094913;A Necromancer Shroud [Replica] 
-1094914;Shroud of Deceit [Replica] 
-1094915;Calm [Replica] 
-1094916;Oblivion's Needle [Replica] 
-1094917;Gladiator's Collar [Replica] 
-1094918;Royal Guard Survival Knife [Replica] 
-1094921;Warzone bonus: ~1_VALUE~ kill points 
-1094922;Thine heroic efforts in capturing the sigil has yielded ~1_POINTS~ kill points and ~2_SILVER~ silver. 
-1094923;Items cannot be traded directly between vendors. 
-1094924;Orc Chieftain Helm [Replica] 
-1094925;Wind Spirit [Replica] 
-1094926;Good Samaritan of Britannia [Replica] 
-1094927;Djinni's Ring [Replica] 
-1094928;Quell [Replica] 
-1094929;Pacify [Replica] 
-1094930;Subdue [Replica] 
-1094931;"The Robe of Britannia ""Ari"" [Replica]" 
-1094932;Red Death 
-1094933;Using a Scroll of Transcendence for a given skill will permanently increase your current level in that skill by the amount of points displayed on the scroll. As you may not gain skills beyond your maximum skill cap, any excess points will be lost. 
-1094934;Scroll of Transcendence 
-1094935;You cannot increase this skill at this time. The skill may be locked or set to lower in your skill menu. If you are at your total skill cap, you must use a Powerscroll to increase your current skill cap. 
-1094936;You have received a Scroll of Transcendence! 
+1094886;Nici Zycia  
+1094887;Nici Mysli  
+1094888;Nici Przeznaczenia  
+1094889;Nagie Drzewo (gruz)  
+1094890;Zniszczone Meble (gruz)  
+1094891;Fragment Budynku (gruz)  
+1094892;Kiel Ractusa [Replika]  
+1094893;Najbardziej Wiedzaca Osoba [Replika]  
+1094894;Legendarny Detektyw Krolewskiej Strazy [Replika]  
+1094895;Starszy Detektyw Krolewskiej Strazy [Replika]  
+1094896;Mityczny Detektyw Krolewskiej Strazy [Replika]  
+1094901;Plaszcz z Haftowanym Lisciem Debu [Replika]  
+1094902;Rekawice Gniewu [Replika]  
+1094903;Korona Tal'Keesh [Replika]  
+1094909;Dzielny Rycerz Brytanii [Replika]  
+1094910;Porucznik Krolewskiej Strazy Brytyjskiej [Replika]  
+1094911;Kapelusz Kapitana Johna [Replika]  
+1094912;Postrzepione Starodawne Owijacze Mumii [Replika]  
+1094913;Szata Nekromanty [Replika]  
+1094914;Szata Oszustwa [Replika]  
+1094915;Spokoj [Replika]  
+1094916;Igla Zapomnienia [Replika]  
+1094917;Obroza Gladiatora [Replika]  
+1094918;Noz Przetrwania Krolewskiej Strazy [Replika]  
+1094921;Bonus za strefe wojenna: ~1_VALUE~ punktow zabojstw  
+1094922;Twoje heroiczne wysilki w zdobyciu sygnetu przyniosly ~1_POINTS~ punktow zabojstw i ~2_SILVER~ srebra.  
+1094923;Przedmioty nie moga byc bezposrednio wymieniane miedzy sprzedawcami.  
+1094924;Helm Wodza Orkow [Replika]  
+1094925;Duch Wiatru [Replika]  
+1094926;Dobry Samarytanin Brytanii [Replika]  
+1094927;Pierscien Dzina [Replika]  
+1094928;Stlumienie [Replika]  
+1094929;Uspokojenie [Replika]  
+1094930;Ujarzmienie [Replika]  
+1094931;Szata Nelderimu ""Ari"" [Replika]  
+1094932;czerwona smierc 
+1094933;Uzycie zwoju transcendencji dla danej umiejetnosci na stale zwiekszy Twoj obecny poziom w tej umiejetnosci o liczbe punktow wyswietlana na zwoju. Poniewaz nie mozesz zdobyc umiejetnosci powyzej maksymalnego limitu umiejetnosci, wszelkie dodatkowe punkty zostana utracone.\
+1094934;Zwoj Transcendencji
+1094935;Nie mozesz teraz zwiekszyc tej umiejetnosci. Umiejetnosc moze byc zablokowana lub ustawiona na nizsza w menu umiejetnosci. Jesli osiagnales swoj calkowity limit umiejetnosci, musisz uzyc Powerscrolla, aby zwiekszyc swoj obecny limit umiejetnosci.
+1094936;Otrzymales Zwoj Transcendencji!
 1094937;Seed of Life 
 1094938;Mana Draught 
 1094939;Gem of Salvation 
@@ -70306,7 +70306,7 @@ Number;Text
 1113588;a gaping hole 
 1113589;You may not continue while flying. 
 1113590;You have been grounded by ~1_NAME~! 
-1113591;Blood Drinker 
+1113591;Efekt pijawki 
 1113592;Naladowanie duszy ~1_VAL~% Damage 
 1113593;Pochlanianie obrazen od ognia ~1_Val~% 
 1113594;Pochlanianie obrazen od zimna ~1_Val~% 
@@ -70320,37 +70320,37 @@ Number;Text
 1113602;Ter Mur & Eodon 
 1113603;Royal City 
 1113604;<BASEFONT COLOR=#2DDC1B>Ter Mur & Eodon</BASEFONT> 
-1113605;A tangling root emerges from the hole! 
-1113606;The blood drinker effect heals you. 
-1113607;an empty bottle of Flint's Pungent Brew 
-1113608;a keg of Flint's Pungent Brew 
-1113609;You refill the special bottle with Flint's Pungent Brew.  Boy, it's lucky you kept that bottle! 
-1113610;"A foggy memory is recalled and you have to ask yourself, ""Why is the Pungent Brew always gone?""" 
-1113611;You must wait a moment before attempting to repair ~1_CREATURE~ again. 
-1113612;You must move closer to attempt to repair ~1_CREATURE~. 
-1113613;~1_CREATURE~ doesn't appear to be damaged. 
-1113614;You must have some tinkering skills to attempt to repair a ~1_CREATURE~. 
-1113615;You need some iron or bronze ingots to repair the ~1_CREATURE~. 
-1113616;You repair ~1_CREATURE~. 
-1113617;Some of the damage you received has been converted to heal you. 
-1113618;Font of Fortune 
-1113619;Where is your special bottle for Flint's brew? 
-1113620;~1_type~ transcendence: ~2_given~/5.0 
-1113621;square goza 
-1113622;Reimbue Last - Repeats the last imbuing attempt 
-1113623;Human settler camp entrance 
-1113624;Slasher of Veils Statuette 
-1113625;Stygian Dragon Statuette 
-1113626;Medusa Statuette 
-1113627;Primeval Lich Statuette 
-1113628;Abyssal Infernal Statuette 
-1113629;A Vollem Held in Crystal 
+1113605;Z ziemi wylania sie splatany korzen!  
+1113606;Efekt pijawki krwi leczy cie.  
+1113607;Pusta butelka Piekielnego Napoju Flinta  
+1113608;Beczka Piekielnego Napoju Flinta  
+1113609;Napelniasz specjalna butelke Piekielnym Napojem Flinta. Alez masz szczescie, ze ja zachowales!  
+1113610;,,Zamglone wspomnienie powraca i musisz zapytac siebie: ,Dlaczego Piekielny Napoj zawsze znika?'"  
+1113611;Musisz chwile poczekac przed kolejna proba naprawienia ~1_CREATURE~.  
+1113612;Musisz podejsc blizej, aby sprobowac naprawic ~1_CREATURE~.  
+1113613;Wyglada na to, ze ~1_CREATURE~ nie jest uszkodzony.  
+1113614;Potrzebujesz umiejetnosci majsterkowania, aby sprobowac naprawic ~1_CREATURE~.  
+1113615;Potrzebujesz zelaznych lub brazowych sztabek, aby naprawic ~1_CREATURE~.  
+1113616;Naprawiasz ~1_CREATURE~.  
+1113617;Czesc otrzymanych obrazen zostala przeksztalcona, aby cie uleczyc.  
+1113618;Zrodlo Fortuny  
+1113619;Gdzie jest twoja specjalna butelka na napoj Flinta?  
+1113620;~1_type~ transcendencja: ~2_given~/5,0  
+1113621;Kwadratowa goza  
+1113622;Reimbue Last - Powtarza ostatnia probe nasaczenia  
+1113623;Wejscie do obozu osadnikow ludzi  
+1113624;Statuetka Rzeznika Zaslon  
+1113625;Statuetka Stygijskiego Smoka  
+1113626;Statuetka Meduzy  
+1113627;Statuetka Pradawnego Licza  
+1113628;Statuetka Otchlannego Inferna  
+1113629;Vollem Trzymany w Krysztale  
 1113630;Naladowanie duszy ~1_val~% 
-1113631;Naladowanie duszy : Fire : ~1_val~% 
-1113632;Naladowanie duszy : Cold : ~1_val~% 
-1113633;Naladowanie duszy : Poison : ~1_val~% 
-1113634;Naladowanie duszy : Energy : ~1_val~% 
-1113635;Naladowanie duszy : Kinetic : ~1_val~% 
+1113631;Naladowanie duszy : Ogien : ~1_val~% 
+1113632;Naladowanie duszy : Zimno : ~1_val~% 
+1113633;Naladowanie duszy : Trucizna : ~1_val~% 
+1113634;Naladowanie duszy : Energia : ~1_val~% 
+1113635;Naladowanie duszy : Kinetyczne : ~1_val~% 
 1113636;The Naladowanie duszy effect converts some of the damage you received into mana. 
 1113637;kneading bowl 
 1113638;dusty pillow 
