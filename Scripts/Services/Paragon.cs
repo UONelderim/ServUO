@@ -175,7 +175,7 @@ namespace Server.Mobiles
         public static void GiveArtifactTo(Mobile m)
         {
             Item artifact = ArtifactHelper.GetRandomArtifact(ArtGroup.Paragon);
-            ArtifactHelper.DistributeArtifact(m, artifact);
+            ArtifactHelper.GiveArtifact(m, artifact);
         }
         
         private static bool IsInParagonRegion(Point3D location, Map map) {
