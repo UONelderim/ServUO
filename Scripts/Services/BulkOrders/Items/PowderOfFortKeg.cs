@@ -69,7 +69,7 @@ namespace Server.Items
                 }
                 else
                 {
-	                from.SendLocalizedMessage(502233); // The keg will not hold any more!
+                    from.SendLocalizedMessage(502233); // The keg will not hold any more!
                 }
             }
             from.SendLocalizedMessage(502232); // The keg is not designed to hold that type of object.
@@ -88,7 +88,7 @@ namespace Server.Items
                     {
                         _Charges--;
                         from.PlaySound(0x247);
-                        from.SendMessage($"Wyciagasz 1 {_CurrentPowderType.Name} z kega.");
+                        from.SendMessage($"Wyciagasz 1 {GetPowderName(_CurrentPowderType)} z kega.");
 
                         if (_Charges == 0)
                         {
@@ -105,12 +105,12 @@ namespace Server.Items
                 }
                 else
                 {
-	                from.SendLocalizedMessage(502246); // The keg is empty.
+                    from.SendLocalizedMessage(502246); // The keg is empty.
                 }
             }
             else
             {
-	            from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
+                from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
             }
         }
 
@@ -120,7 +120,7 @@ namespace Server.Items
 
             if (_CurrentPowderType != null)
             {
-                list.Add($"{_CurrentPowderType.Name}: {_Charges}");
+                list.Add($"{_Charges} {GetPowderName(_CurrentPowderType)}");
             }
             else
             {
@@ -129,6 +129,24 @@ namespace Server.Items
 
             int number = GetFullnessNumber(_Charges);
             list.Add(number);
+        }
+
+        private string GetPowderName(Type powderType)
+        {
+            if (powderType == typeof(TinkeringPowderOfTemperament))
+                return "Proszkow wyrobow majstra";
+            else if (powderType == typeof(BlacksmithyPowderOfTemperament))
+                return "Proszkow wyrobow kowala";
+            else if (powderType == typeof(TailoringPowderOfTemperament))
+                return "Proszkow do skor";
+            else if (powderType == typeof(InscriptionPowderOfTemperament))
+                return "Proszkow do ksiag";
+            else if (powderType == typeof(BowFletchingPowderOfTemperament))
+                return "Proszkow wyrobow lukmistrza";
+            else if (powderType == typeof(CarpentryPowderOfTemperament))
+                return "Proszkow wyrobow stolarza";
+            else
+                return "Proszkow wzmocnienia";
         }
 
         private int GetFullnessNumber(int charges)
@@ -169,15 +187,15 @@ namespace Server.Items
 
             if (version >= 2)
             {
-	            _CurrentPowderType = reader.ReadObjectType();
+                _CurrentPowderType = reader.ReadObjectType();
             }
             if (version >= 1)
             {
-	            _Charges = reader.ReadInt();
+                _Charges = reader.ReadInt();
             }
             if (version < 2 && _Charges > 0)
             {
-	            _CurrentPowderType = typeof(BlacksmithyPowderOfTemperament);
+                _CurrentPowderType = typeof(BlacksmithyPowderOfTemperament);
             }
 
             if (version == 0)
