@@ -3206,6 +3206,9 @@ namespace Server.Mobiles
                 case AIType.AI_Necro:
                     m_AI = new NecroAI(this);
                     break;
+                case AIType.AI_UNUSED4: //Temporary fix
+	                m_AI = new MageAI(this);
+	                break;
                 default:
 	                Console.WriteLine("AIType not found: " + NewAI);
 	                m_AI = new MeleeAI(this);
