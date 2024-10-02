@@ -37,7 +37,6 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo("1024115", typeof(Key), 11, 50, 0x1013, 0));
 				Add(new GenericBuyInfo(typeof(KeyRing), 8, 50, 0x1010, 0));
 				Add(new GenericBuyInfo(typeof(Lockpick), 12, 50, 0x14FC, 0));
-				Add(new GenericBuyInfo(typeof(TinkeringPowderOfTemperament), 50000, 20, 4102, 0));
 
 				Add(new GenericBuyInfo(typeof(TinkerTools), 15, 50, 0x1EB8, 0));
 				Add( new GenericBuyInfo( typeof( Board ), 5, 20, 0x1BD7, 0 ) );

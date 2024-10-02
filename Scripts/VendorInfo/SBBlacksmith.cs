@@ -49,7 +49,6 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo(typeof(RingmailArms), 85, 50, 0x13EE, 0));
 				Add(new GenericBuyInfo(typeof(RingmailGloves), 93, 50, 0x13eb, 0));
 				Add(new GenericBuyInfo(typeof(DragonBardingDeed), 30000, 20, 0x14F0, 0));
-				Add(new GenericBuyInfo(typeof(BlacksmithyPowderOfTemperament), 50000, 20, 4102, 0));
 
 				Add(new GenericBuyInfo(typeof(ExecutionersAxe), 48, 50, 0xF45, 0));
 				Add(new GenericBuyInfo(typeof(Bardiche), 60, 50, 0xF4D, 0));

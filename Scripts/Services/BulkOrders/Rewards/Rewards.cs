@@ -408,7 +408,7 @@ namespace Server.Engines.BulkOrders
 
         private static Item CreatePowderOfTemperament(int type)
         {
-            return new BlacksmithyPowderOfTemperament();
+            return new BlacksmithyPowderOfTemperament(5);
         }
 
         private static Item CreateRunicHammer(int type)
@@ -705,7 +705,7 @@ namespace Server.Engines.BulkOrders
 
         private static Item TailoringPowderOfTemperament(int type)
         {
-	        return new TailoringPowderOfTemperament();
+	        return new TailoringPowderOfTemperament(5);
         }
 
         private static Item CreateSewingKit(int type)
@@ -1009,7 +1009,7 @@ namespace Server.Engines.BulkOrders
 
         private Item TinkeringPowderOfTemperament(int type)
         {
-	        return new TinkeringPowderOfTemperament();
+	        return new TinkeringPowderOfTemperament(5);
         }
         
                 
@@ -1914,7 +1914,7 @@ namespace Server.Engines.BulkOrders
 
         private Item BowFletchingPowderOfTemperament(int type)
         {
-	        return new BowFletchingPowderOfTemperament();
+	        return new BowFletchingPowderOfTemperament(5);
         }
 
         #region Constructors

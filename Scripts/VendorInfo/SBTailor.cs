@@ -35,7 +35,6 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo(typeof(Doublet), 13, 5, 0x1F7B, 0));
 				Add(new GenericBuyInfo(typeof(Tunic), 18, 5, 0x1FA1, 0));
 				Add(new GenericBuyInfo(typeof(JesterSuit), 38, 5, 0x1F9F, 0));
-				Add(new GenericBuyInfo(typeof(TailoringPowderOfTemperament), 50000, 20, 4102, 0));
 
 				Add(new GenericBuyInfo(typeof(JesterHat), 24, 5, 0x171C, 0));
 				Add(new GenericBuyInfo(typeof(FloppyHat), 18, 5, 0x1713, Utility.RandomDyedHue()));

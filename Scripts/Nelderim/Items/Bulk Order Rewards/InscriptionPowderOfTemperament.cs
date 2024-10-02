@@ -11,7 +11,7 @@ namespace Server.Items
 		public override CraftSystem CraftSystem => DefInscription.CraftSystem;
 
 		[Constructable]
-		public InscriptionPowderOfTemperament() : this(5)
+		public InscriptionPowderOfTemperament() : this(1)
 		{
 		}
 

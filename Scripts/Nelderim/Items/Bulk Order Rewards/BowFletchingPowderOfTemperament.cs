@@ -11,7 +11,7 @@ namespace Server.Items
 		public override CraftSystem CraftSystem => DefBowFletching.CraftSystem;
 
 		[Constructable]
-		public BowFletchingPowderOfTemperament() : this(5)
+		public BowFletchingPowderOfTemperament() : this(1)
 		{
 		}
 
