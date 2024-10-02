@@ -51,7 +51,7 @@ namespace Server.Engines.Quests
 		public AncientPhase2Quest()
 		{
 			AddObjective(new DeliverObjective(typeof(KostkaAncientQuestItem), "Pierwsza Czesc Starozytnej Kosci", 1,
-				typeof(DungeonRegion), "Labitynt"));
+				typeof(DungeonRegion), "Labirynt"));
 
 			AddReward(new BaseReward(3060243)); // Krok blizej do poznania tajnikow starozytnej magii
 		}
@@ -96,7 +96,7 @@ właściwą: W Labiryncie Minotaurów ponoc slyszano o tym, ze owa kostka moze b
 		public AncientPhase3Quest()
 		{
 			AddObjective(new DeliverObjective(typeof(KostkaAncientQuestItem2), "Druga Czesc Starozytnej Kosci", 1,
-				typeof(DungeonRegion), "Labitynt"));
+				typeof(DungeonRegion), "Labirynt"));
 
 			AddReward(new BaseReward(3060243)); // Krok blizej do poznania tajnikow starozytnej magii
 		}
