@@ -11,7 +11,7 @@ namespace Server.Items
 		public override CraftSystem CraftSystem => DefBlacksmithy.CraftSystem;
 
 		[Constructable]
-		public BlacksmithyPowderOfTemperament() : this(5)
+		public BlacksmithyPowderOfTemperament() : this(1)
 		{
 		}
 

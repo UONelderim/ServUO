@@ -152,7 +152,7 @@ namespace Nelderim.Engines.ChaosChest
 				typeof(TinkeringPowderOfTemperament));
 			if (reward != null)
 			{
-				return (Item)Activator.CreateInstance(reward);
+				return (Item)Activator.CreateInstance(reward, 5);
 			}
 
 			return null;

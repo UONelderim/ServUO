@@ -11,7 +11,7 @@ namespace Server.Items
 		public override CraftSystem CraftSystem => DefTinkering.CraftSystem;
 
 		[Constructable]
-		public TinkeringPowderOfTemperament() : this(5)
+		public TinkeringPowderOfTemperament() : this(1)
 		{
 		}
 
