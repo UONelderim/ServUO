@@ -270,7 +270,9 @@ namespace Server.Engines.Craft
 	                                     ref resHue,
 	                                     ref maxAmount,
 	                                     ConsumeType.Half,
-	                                     ref message))
+	                                     ref message,
+	                                     false,
+	                                     value))
                             {
 	                            number = message is int i ? i : 0;
                             }
@@ -332,7 +334,9 @@ namespace Server.Engines.Craft
 	                                      ref resHue,
 	                                      ref maxAmount,
 	                                      ConsumeType.Half,
-	                                      ref message))
+	                                      ref message,
+	                                      false,
+	                                      value))
                             {
 	                            number = message is int i ? i : 0;
                             }
@@ -394,7 +398,9 @@ namespace Server.Engines.Craft
 	                                     ref resHue,
 	                                     ref maxAmount,
 	                                     ConsumeType.Half,
-	                                     ref message))
+	                                     ref message,
+	                                     false,
+	                                     value))
                             {
 	                            number = message is int i ? i : 0;
                             }
@@ -456,7 +462,9 @@ namespace Server.Engines.Craft
 	                                     ref resHue,
 	                                     ref maxAmount,
 	                                     ConsumeType.Half,
-	                                     ref message))
+	                                     ref message,
+	                                     false,
+	                                     value))
                             {
 	                            number = message is int i ? i : 0;
                             }
