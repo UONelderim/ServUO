@@ -9257,7 +9257,7 @@ Number;Text
 1018324;Podnoszenie 
 1018325;Obnizanie 
 1018326;Ta wiadomosc zostala naskrobana w pospiechu przez pasazera tonacego statku.  Jako, ze juz prawdopobnie jest juz zbyt pozno by ocalic pasazerow i zloge, moze jakies skarby zostaly ukryte w tym statku! 
-1018327;Location 
+1018327;Lokacja 
 1018328;You can only re-deed a skull if you placed it or you are the owner of the house. 
 1018329;Do you wish to re-deed this skull? 
 1018330;You can only re-deed a banner if you placed it or you are the owner of the house. 
@@ -28246,7 +28246,7 @@ Number;Text
 1044083;Inskrypcja 
 1044084;Otwieranie Zamkow 
 1044085;Magia 
-1044086;odpornosc na Magie 
+1044086;Odpornosc na Magie 
 1044087;Taktyka 
 1044088;Zagladanie 
 1044089;Kunszt Muzyczny 
@@ -28998,15 +28998,15 @@ Number;Text
 1046027;Uzeraan says: 
 1046028;Aegis says: 
 1046029;Apprentice says: 
-1046030;Page Back 
-1046031;Page Forward 
-1046032;Step number: 
-1046033;Completed 
-1046034;Incomplete 
-1046035;View Quest Log 
-1046036;View Directions 
-1046037;Quest Directions 
-1046038;Cancel Quest 
+1046030;Poprzednia 
+1046031;Nastepna
+1046032;Krok NR: 
+1046033;Zakonczony 
+1046034;Niezakonczony 
+1046035;Pokaz Opis 
+1046036;Pokaz wskazowki 
+1046037;Wskazowki zadania 
+1046038;Anuluj 
 1046039;Find Uzeraan.  Uzeraan will explain what you need to do next. 
 1046040;Uzeraan says:  Hello! I am the grand Conjurer, Uzeraan. I have a few tasks for you to perform. 
 1046041;You have arrived not a moment too soon, stranger.  Terrible things have happened and we need your help! 
@@ -33346,7 +33346,7 @@ Number;Text
 1062376;~1_NAME~ has accepted your vendor rental offer.  Rental contract details and options may be viewed on this vendor via the 'Contract Options' context menu. 
 1062377;You have accepted the offer and now own a vendor in this house.  Rental contract options and details may be viewed on this vendor via the 'Contract Options' context menu. 
 1062378;You do not have enough gold in your bank account to cover the cost of the contract. 
-1062379;Est. time remaining: 
+1062379;Szacowany pozostaly czas: 
 1062380;You decide against offering the contract to anyone. 
 1062381;Ksiazka jest pusta. 
 1062382;The deed selected is not available. 
@@ -43271,7 +43271,7 @@ Number;Text
 1072376;Part of an Armor Set (~1_val~ pieces) 
 1072377;Full Armor Set Present 
 1072378;<br>Only when full set is present: 
-1072379;Deliver to 
+1072379;Dostarcz do  
 1072380;spell damage increase ~1_val~% (total) 
 1072381;intelligence bonus ~1_val~ (total) 
 1072382;physical resist +~1_val~% 
@@ -45669,14 +45669,14 @@ Number;Text
 1074774;You weave powerful magic, protecting yourself from death. 
 1074775;You weave powerful magic, protecting your pet from death. 
 1074776;You are no longer protected with Gift of Life. 
-1074777;A quest objective has failed! 
+1074777;Nie udalo Ci sie zaliczyc celu zadania! 
 1074778;Sanctuary Entrance 
 1074779;Bravehorn's drinking pool 
 1074780;Palace Entrance 
 1074781;Sheep Farm 
-1074782;Return to 
-1074783;Value: 
-1074784;Value: ~1_val~ 
+1074782;Wroc do 
+1074783;Wartosc: 
+1074784;Wartosc: ~1_val~ 
 1074785;Type Names of Involved Players 
 1074786;Select Names of Involved Players From List 
 1074787;Type the names of up to three players involved in this complaint. 
@@ -116351,7 +116351,7 @@ Number;Text
 3000084;Skills 
 3000085;Peace 
 3000086;War 
-3000087;Total 
+3000087;Calkowicie 
 3000088;Amt 
 3000089;Item 
 3000090;Apply 
