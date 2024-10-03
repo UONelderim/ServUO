@@ -10,8 +10,8 @@ namespace Server.Engines.Quests
 	{
 		public BardQuest()
 		{
-			AddObjective(new DeliverObjective(typeof(AdmiralsHeartyRum), "krasnoludzki rum", 1, typeof(CityRegion),
-				"Tasandora"));
+			AddObjective(new DeliverObjective(typeof(AdmiralsHeartyRum), "krasnoludzki rum", 1, typeof(BaseCreature),
+				"An-Galad Ellontheron"));
 
 			AddReward(new BaseReward(3060225)); // Coraz blizej wielkich piesni bardowskich
 		}
@@ -51,9 +51,8 @@ namespace Server.Engines.Quests
 	{
 		public BardPhase2Quest()
 		{
-			AddObjective(new DeliverObjective(typeof(Gold), "Zloto", 5000, typeof(CityRegion), "Tasandora"));
-			AddObjective(new DeliverObjective(typeof(ZapomnianaPiesn), "Zapomniana piesn", 1, typeof(CityRegion),
-				"Tasandora"));
+			AddObjective(new ObtainObjective(typeof(Gold), "Zloto", 10, 3821));
+			AddObjective(new ObtainObjective(typeof(ZapomnianaPiesn), "Zapomniana piesn", 10, 5358));
 
 			AddReward(new BaseReward(3060225)); // Coraz blizej wielkich piesni bardowskich
 		}
@@ -65,7 +64,7 @@ namespace Server.Engines.Quests
 		/* Moc Pana */
 		public override object Title => 3060258;
 
-		/* CChcesz wiedziec wiecej na temat tych slawnych piesi... TO ja ich nie znam. Znal je Odon.. ehh... Odon jak zwykle wieczor spedzal w Karczmie.
+		/* Chcesz wiedziec wiecej na temat tych slawnych piesi... TO ja ich nie znam. Znal je Odon.. ehh... Odon jak zwykle wieczor spedzal w Karczmie.
 		 Nie to ze pijanstwo, chociaz zdarzalo sie i to... Zarechotal na samo wspomnienie. Lazil do Karczmy, bo graniem na zycie zarabial.
 		 Wlasciwie przypadkiem kiedys wzial do reki lutnie i dalej juz poszlo. Slowa wymyslane na poczekaniu, zartobliwe uwagi, dramatyczne pozy. Niezbyt wyszukana publika karczmy od razu to pokochala.
 		 Wczoraj jednak trafila mu sie okazja. Zarobek wiekszy niz przy spiewach. Ale od poczatku zacznijmy. Kiedy Karczma powoli pustoszala, a przy barze dosypialo kilku gosci, zas barman scyzorykiem dlubal
@@ -76,7 +75,7 @@ namespace Server.Engines.Quests
 		 Zatem zadanie bylo nastepujace - mial odzyskac nuty pewnej piesni, ktora w posiadaniu rodziny nieznajomego byla.
 		 Podobno gdzies na bagnach zlodzieje ukryli skradzione zloto, oraz ostatni egzemplarz piesni. Ponoc tam bylo 5000 centarow. */
 		//TODO: Na bagnach kolo Ophi dac spawn piesni
-		public override object Description => 3060257;
+		public override object Description => 3060270;
 
 		/* Nie chcesz pomoc, to nie zawracaj mi glowy. Potrzebujacy czekaja... */
 		public override object Refuse => 3060189;
