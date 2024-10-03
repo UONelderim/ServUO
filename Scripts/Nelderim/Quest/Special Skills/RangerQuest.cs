@@ -10,7 +10,7 @@ namespace Server.Engines.Quests
 	{
 		public RangerQuest()
 		{
-			AddObjective(new DeliverObjective(typeof(Arrow), "strzaly", 200, typeof(CityRegion), "Tasandora"));
+			AddObjective(new ObtainObjective(typeof(Arrow), "strzaly", 200, 0xF3F));
 
 			AddReward(new BaseReward(3060283)); // Coraz blizej opanowania sztuczek Straznika Lesnego
 		}
@@ -161,7 +161,7 @@ ksiege kandydat otrzyma. Zabij 20 pajakow i 10 ettinow, do tego 10 lordow orkow
 		public RangerPhase4Quest()
 		{
 			AddObjective(
-				new DeliverObjective(typeof(ZoogiFungus), "grzyby zoogi", 200, typeof(CityRegion), "Tasandora"));
+				new ObtainObjective(typeof(ZoogiFungus), "grzyby zoogi", 200, 0x26B7));
 
 			AddReward(new BaseReward(3060283)); // Coraz blizej opanowania sztuczek Straznika Lesnego
 		}
