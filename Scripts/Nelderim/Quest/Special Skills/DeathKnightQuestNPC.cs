@@ -31,10 +31,10 @@ namespace Server.Engines.Quests
 		public override void InitOutfit()
 		{
 			SetWearable(new Boots(), 0x901, 1);
-			SetWearable(new NorseHelm(), dropChance: 1);
-			SetWearable(new PlateArms(), dropChance: 1);
-			SetWearable(new PlateChest(), 0, 1);
-			SetWearable(new PlateLegs(), 0, 1);
+			SetWearable(new NorseHelm(),1151, dropChance: 1);
+			SetWearable(new PlateArms(),1151, dropChance: 1);
+			SetWearable(new PlateChest(), 1151, 1);
+			SetWearable(new PlateLegs(), 1151, 1);
 		}
 
 		public override void Serialize(GenericWriter writer)
