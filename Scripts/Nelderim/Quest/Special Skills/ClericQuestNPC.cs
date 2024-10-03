@@ -33,8 +33,8 @@ namespace Server.Engines.Quests
 			SetWearable(new Boots(), 0x901, 1);
 			SetWearable(new NorseHelm(), dropChance: 1);
 			SetWearable(new PlateArms(), dropChance: 1);
-			SetWearable(new PlateChest(), 1150, 1);
-			SetWearable(new PlateLegs(), 1150, 1);
+			SetWearable(new PlateChest(), 1);
+			SetWearable(new PlateLegs(), 1);
 		}
 
 		public override void Serialize(GenericWriter writer)

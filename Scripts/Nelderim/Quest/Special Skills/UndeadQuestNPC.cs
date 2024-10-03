@@ -29,7 +29,7 @@ namespace Server.Engines.Quests
 		public override void InitOutfit()
 		{
 			SetWearable(new Boots(), 0x901, 1);
-			SetWearable(new Robe(), 2129, dropChance: 1);
+			SetWearable(new Robe(), 1156, dropChance: 1);
 		}
 
 		public override void Serialize(GenericWriter writer)
