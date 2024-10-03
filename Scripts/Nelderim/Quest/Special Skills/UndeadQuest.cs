@@ -55,9 +55,8 @@ Jak wyroznic sie wsrod zwyczajnych wiernych, zapytasz? Otoz, najpierw trzeba pod
 		public UndeadPhase2Quest()
 		{
 			AddObjective(
-				new DeliverObjective(typeof(SpidersSilk), "Pajecza siec", 100, typeof(CityRegion), "Tasandora"));
-			AddObjective(new DeliverObjective(typeof(DestroyingAngel), "Niszczejacy aniol", 100, typeof(CityRegion),
-				"Tasandora"));
+				new ObtainObjective(typeof(SpidersSilk), "Pajecza siec", 100, 0xF8D));
+			AddObjective(new ObtainObjective(typeof(DestroyingAngel), "Niszczejacy aniol", 100, 0xE1F));
 
 			AddReward(new BaseReward(3060307)); // Coraz blizej wejscia w posiadanie umiejetnosci okultystycznych
 		}
@@ -100,7 +99,8 @@ Jak wyroznic sie wsrod zwyczajnych wiernych, zapytasz? Otoz, najpierw trzeba pod
 	{
 		public UndeadPhase3Quest()
 		{
-			AddObjective(new SlayObjective(typeof(Sheep), "owca", 20));
+			AddObjective(new SlayObjective(typeof(Lich), "licz", 20));
+			AddObjective(new SlayObjective(typeof(SkeletalDragon), "kosciany smok", 10));
 
 			AddReward(new BaseReward(3060307)); // Coraz blizej wejscia w posiadanie umiejetnosci okultystycznych
 		}
@@ -144,7 +144,7 @@ Jak wyroznic sie wsrod zwyczajnych wiernych, zapytasz? Otoz, najpierw trzeba pod
 		public UndeadPhase4Quest()
 		{
 			AddObjective(
-				new DeliverObjective(typeof(BonerPowder), "Proch kościeja", 1, typeof(CityRegion), "Tasandora"));
+				new ObtainObjective(typeof(BonerPowder), "Proch kościeja", 1, 0xF8F));
 
 
 			AddReward(new BaseReward(3060307)); // Coraz blizej wejscia w posiadanie umiejetnosci okultystycznych
