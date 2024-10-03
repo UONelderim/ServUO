@@ -877,8 +877,12 @@ namespace Server.Engines.Craft
             ref int maxAmount,
             ConsumeType consumeType,
             ref object message,
-            bool isFailure)
+            bool isFailure,
+            double skillValue = Double.NaN)
         {
+	        if (double.IsNaN(skillValue))
+		        skillValue = from.Skills[craftSystem.MainSkill].Base;
+	        
             Container ourPack = from.Backpack;
 
             if (ourPack == null)
@@ -960,7 +964,7 @@ namespace Server.Engines.Craft
 
                     CraftSubRes subResource = resCol.SearchFor(baseType);
 
-                    if (subResource != null && from.Skills[craftSystem.MainSkill].Base < subResource.RequiredSkill)
+                    if (subResource != null && skillValue < subResource.RequiredSkill)
                     {
                         message = subResource.Message;
                         return false;
