@@ -10,7 +10,7 @@ namespace Server.Engines.Quests
 	{
 		public RogueQuest()
 		{
-			AddObjective(new DeliverObjective(typeof(Head), "glowa", 10, typeof(CityRegion), "Tasandora"));
+			AddObjective(new DeliverObjective(typeof(Head), "glowa", 10, typeof(BaseCreature), "Edward"));
 
 			AddReward(new BaseReward(3060294)); // Coraz blizej opanowania Podstepnych Sztuczek
 		}
@@ -154,8 +154,8 @@ namespace Server.Engines.Quests
 	{
 		public RoguePhase4Quest()
 		{
-			AddObjective(new DeliverObjective(typeof(PowerGeneratorKey), "Klucz deszyfrujacy", 1, typeof(CityRegion),
-				"Tasandora"));
+			AddObjective(new DeliverObjective(typeof(PowerGeneratorKey), "Klucz deszyfrujacy", 1, typeof(BaseCreature),
+				"Edward"));
 
 			AddReward(new BaseReward(3060294)); // Coraz blizej opanowania Podstepnych Sztuczek
 		}
