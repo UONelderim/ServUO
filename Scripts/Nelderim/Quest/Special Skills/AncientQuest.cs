@@ -51,7 +51,7 @@ namespace Server.Engines.Quests
 		public AncientPhase2Quest()
 		{
 			AddObjective(new DeliverObjective(typeof(KostkaAncientQuestItem), "Pierwsza Czesc Starozytnej Kosci", 1,
-				typeof(DungeonRegion), "Labirynt"));
+				typeof(BaseCreature), "Gordon"));
 
 			AddReward(new BaseReward(3060243)); // Krok blizej do poznania tajnikow starozytnej magii
 		}
@@ -63,8 +63,7 @@ namespace Server.Engines.Quests
 		/* Wazny skladnik */
 		public override object Title => 3060163;
 
-		/* Doniesiono mi, że kostki można szukać w kilku miejscach, lecz nie wiadomo, która z nich jest tą
-właściwą: W Labiryncie Minotaurów ponoc slyszano o tym, ze owa kostka moze byc. Sprawdz to miejsce. */
+		/* Doniesiono mi, ze kostki mozna szukac w kilku miejscach, lecz nie wiadomo, ktora z nich jest ta wlasciwa: W Labiryncie Minotaurow ponoc slyszano o tym, ze owa kostka moze byc. Sprawdz to miejsce. A potem przynies Gordonowi w Tasandorze ja. Dobra? */
 		public override object Description => 3060246;
 
 		/* No wiesz? Juz rezygnujesz... */
@@ -96,7 +95,7 @@ właściwą: W Labiryncie Minotaurów ponoc slyszano o tym, ze owa kostka moze b
 		public AncientPhase3Quest()
 		{
 			AddObjective(new DeliverObjective(typeof(KostkaAncientQuestItem2), "Druga Czesc Starozytnej Kosci", 1,
-				typeof(DungeonRegion), "Labirynt"));
+				typeof(BaseCreature), "Gordon"));
 
 			AddReward(new BaseReward(3060243)); // Krok blizej do poznania tajnikow starozytnej magii
 		}

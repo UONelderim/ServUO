@@ -34,7 +34,8 @@ namespace Server.Engines.Quests
         public override void InitOutfit()
         {
             SetWearable(new Boots(), 0x901, 1);
-            SetWearable(new HoodedShroudOfShadows(),2129, dropChance: 1);
+            SetWearable(new Robe(),1150, dropChance: 1);
+            SetWearable(new ClothNinjaHood(),1150, dropChance: 1);
 
         }
 
