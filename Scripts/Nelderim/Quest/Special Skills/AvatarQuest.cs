@@ -50,8 +50,8 @@ namespace Server.Engines.Quests
 	{
 		public AvatarPhase2Quest()
 		{
-			AddObjective(new DeliverObjective(typeof(PowerCrystal), "Krysztal mocy", 10, typeof(DungeonRegion),
-				"SwiatyniaStworzenia"));
+			AddObjective(new DeliverObjective(typeof(PowerCrystal), "Krysztal mocy", 10, typeof(BaseCreature),
+				"Hemmington"));
 
 			AddReward(new BaseReward(3060259)); // Krok blizej od poznania tajemnic Mnicha
 		}
@@ -190,7 +190,7 @@ Swiatyni Stworzenia w Tasandorze i dostarczyc tam 10 krysztalow mocy.. */
 				0x1F49));
 
 
-			AddReward(new BaseReward(typeof(AvatarCurseRemovalScroll), "Sila Natury"));
+			AddReward(new BaseReward(typeof(AvatarCurseRemovalScroll), "Reka Mnicha"));
 			AddReward(new BaseReward("Księga Zaklęć Mnicha"));
 		}
 
