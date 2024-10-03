@@ -43160,12 +43160,12 @@ Number;Text
 1072265;Mighty creatures they are, aye.  Fierce and strong, can't blame 'em for wanting to feed themselves an' all.  Blame or no, they're eating all the fish up, so they got to go.  Lend a hand? 
 1072266;An arrow imbeds itself into your flesh! 
 1072267;I just can't bear it any longer.  Sure, it's my job to thin the deer out so they don't overeat the area and starve themselves come winter time.  Sure, I know we killed off the predators that would do this naturally so now we have to make up for it.  But they're so graceful and innocent.  I just can't do it.  Will you? 
-1072268;A small bag of trinkets. 
+1072268;Mala sakiew z roznosciami. 
 1072269;*ma dla Ciebie zadanie* 
-1072270;Well, okay. But if you decide you are up for it after all, c'mon back and see me. 
+1072270;No dobrze. Ale jesli jednak zdecydujesz, że jestes na to gotowy, wroc i mnie zagadaj.
 1072271;Jeszcze nie skonczyles.  Wracaj do roboty! 
-1072272;Thanks for helping me out.  Here's the reward I promised you. 
-1072273;You've completed a quest!  Don't forget to collect your reward. 
+1072272;Dziekuje za pomoc.  Oto Twa nagroda.. 
+1072273;Ukonczyles zadanie!  Nie zapomnij odebrac nagrody. 
 1072274;The acrid air is poisonous! 
 1072275;An escort to Yew 
 1072276;An escort to Vesper 
@@ -45901,8 +45901,8 @@ Number;Text
 1075006;You have learned how to smith a bone handled machete! 
 1075007;Your bone handled machete snaps in half as you force your way through the poisonous undergrowth. 
 1075008;Your bone handled machete has grown dull but you still manage to force your way past the venomous branches. 
-1075009;skeletons 
-1075010;zombies 
+1075009;szkielety
+1075010;zombies
 1075011;A quest that asks you to defend a human in need. 
 1075012;this item 
 1075013;Bank Checks. Point Value Ratio is the same as that of Gold. 
@@ -45915,19 +45915,19 @@ Number;Text
 1075020;Dangerous Creatures Replica: Meer Captain - Museum of Vesper 
 1075021;Dangerous Creatures Replica: Meer Eternal - Museum of Vesper 
 1075022;Dangerous Creatures Replica: Solen Queen - Museum of Vesper 
-1075023;Yes, I want to quit this entire chain! 
+1075023;Tak, chce porzucic caly lancuch zadan. 
 1075024;Opis (sklada sie z kilku zadan) 
-1075025;dire wolves 
+1075025;dzikie wilki
 1075026;Are you sure you wish to teleport? 
-1075027;bog things 
+1075027;bagniaki
 1075028;A step closer to learning to summon and control fiends. 
 1075029;Szpon 
 1075030;Miazdzyciel Kosci 
-1075031;Windsong 
-1075032;Boomstick 
+1075031;Piesn wiatru
+1075032;Wybuchowy Patyk
 1075033;Ostrze Tanca 
-1075034;Bloodwood Spirit 
-1075035;Totem of the Void 
+1075034;Duch Czerwonej Kory
+1075035;Totem Pustki
 1075036;Chwala 
 1075037;Helm of Swiftness 
 1075038;Kolczan Szalu 
@@ -45942,8 +45942,8 @@ Number;Text
 1075047;Chwala Aegis 
 1075048;Opuszki Cu Sidhe 
 1075049;Sprawiedliwy Gniew 
-1075050;You have killed all the required quest creatures of this type. 
-1075051;You have killed a quest creature. ~1_val~ more left. 
+1075050;Zgladziles wszystkie kreatury, ktore sa przedmiotem zadania. 
+1075051;Zabiles kreature, ktora jest przedmiotem zadania. ~1_val~ zostalo jeszcze do zgladzenia. 
 1075052;deski zywicznego drewna 
 1075053;deski pustego drewna 
 1075054;deski skamienialego drewna 
@@ -113300,14 +113300,14 @@ Number;Text
 1156582;Fancy Couch (North) 
 1156583;Fancy Couch (West) 
 1156584;Ahhhh-OOOO! Ahhh-OOOO! 
-1156585;You've completed a quest! 
+1156585;Ukonczyles zadanie! 
 1156586;Before using the in game store, you must be in a safe log-out location (such as an inn or a house which has you on its Owner, Co-owner, or Friends list). 
 1156587;Featured 
 1156588;Character 
 1156589;Promotional Code 
 1156590;Newest 
 1156591;Oldest 
-1156592;Filter 
+1156592;Filtr 
 1156593;Cart: ~1_val~/~2_val~ 
 1156594;Subtotal: 
 1156595;Price ^ 
@@ -114019,7 +114019,7 @@ Number;Text
 1157301;Warte ~1_POINTS~ PKT /  ~2_POINTS~PKT do banku. 
 1157302;Skladanie punktow w banku Wlaczone 
 1157303;Skladanie punktow w banku Wylaczone 
-1157304;Polacz to zamowienie ze skladowanymi przedmiotami. 
+1157304;Polacz to zamowienie z przedmiotami z plecaka. 
 1157305;Otrzymaj statuetke Lashera. Ta pobblogoslawiona statuetka moze byc uzyta do stworzenia wierzchowca jednorozca.<br> 
 1157306;Otrzymaj mlotek do skalowania, ktory gwarantuje 100% szanse na wydobycie granitu. 
 1157307;Otrzymaj maly, 3x3 dodatek do domu na plytke drzewa swiata. 
@@ -115031,7 +115031,7 @@ Number;Text
 1158317;You have proven yourself honorable and the Lord Commander has invited you to join the elite order of the Paladin of Trinsic! Congratulations, Paladin! 
 1158318;The story of the brothers Andros and Adrian is troubling, yet fascinates you. You have heard rumor of items traded by the mysterious wisps. Despite the dangers you decide you should venture to the dungeon Despise. 
 1158319;*The wisp offers to trade with you* 
-1158320;You've completed a quest objective! 
+1158320;Ukonczyles cel zadania! 
 1158321;The wisp orb can be used to control your creature. Battling your creature against creatures of opposite alignment will make them more powerful, while battling your creature against creatures of similar alignment will make them less so. Different creatures have different abilities. When you feel as though you have trained your creature to maximum effectiveness, answer the call to battle and defeat the Brothers! 
 1158322;You have successfully slayed the brother and freed Despise from their eternal feud! Return to the Wisp outside the dungeon to claim your reward! 
 1158323;You have successfully freed Despise from the eternal feud between Andros and Adrian. Despite your efforts, you no doubt believe their strong magics will compel them to battle once again. You rejoice, however, in your small albeit short lived victory! The wisp seems eternally grateful and grants you a generous gift! 
