@@ -257,9 +257,16 @@ namespace Server.Multis
 
             if (!Deleted && DecayLevel == DecayLevel.Collapsed)
             {
-	            CommandLogging.WriteLine(Owner, "Deleting house of {0} [{1}] due to decay. Location: {2}", Owner.Name,
-					Owner.Account.Username, Location.ToString());
-				Timer.DelayCall(Decay_Sandbox);
+	            if (Owner.Account != null)
+	            {
+		            CommandLogging.WriteLine(Owner,
+			            "Deleting house of {0} [{1}] due to decay. Location: {2}",
+			            Owner.Name,
+			            Owner.Account.Username,
+			            Location.ToString());
+	            }
+
+	            Timer.DelayCall(Decay_Sandbox);
 				return true;
             }
 
@@ -289,9 +296,8 @@ namespace Server.Multis
             _ = new TempNoHousingRegion(this, null);
 
             KillVendors();
-            Delete();
-
             Timer.DelayCall(OnAfterDecay, m_Region.Area, Map);
+            Delete();
         }
 
         public virtual void OnAfterDecay(Rectangle3D[] recs, Map map)
