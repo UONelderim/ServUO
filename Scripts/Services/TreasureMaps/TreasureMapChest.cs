@@ -500,14 +500,24 @@ namespace Server.Items
             max = (int)(max * scale);
         }
 
+        //Math.Pow(level, 1.5) * 75 + 100
         public static void GetBudgetForLevel(int level, out int min, out int max)
         {
 	        var maxLevel = TreasureMapInfo.NewSystem ? 4 : 7;
 	        level = Math.Clamp(level, 0, maxLevel);
-
-	        max = (int)(Math.Pow(level, 1.5) * 75 + 100);
+	        
+	        max = level switch
+	        {
+		        0 => 100,
+		        1 => 175,
+		        2 => 315,
+		        3 => 490,
+		        4 => 700,
+		        _ => 700
+	        };
 	        min = max / 2;
         }
+
 
         public static Item GetRandomRecipe()
         {
