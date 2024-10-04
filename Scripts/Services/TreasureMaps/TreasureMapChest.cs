@@ -505,7 +505,7 @@ namespace Server.Items
 	        var maxLevel = TreasureMapInfo.NewSystem ? 4 : 7;
 	        level = Math.Clamp(level, 0, maxLevel);
 
-	        max = level * 200 + 100;
+	        max = (int)(Math.Pow(level, 1.5) * 75 + 100);
 	        min = max / 2;
         }
 
