@@ -20,7 +20,7 @@ namespace Server.Engines.Quests
 		public override Type NextQuest => typeof(ClericPhase2Quest);
 
 		/* Herdeizm */
-		public override object Title => 33060183;
+		public override object Title => 3060183;
 
 		/* Umiejetne leczenie ran to jedno, ale by byc prawdziwie przygotowanym do boju i walczyc w imie Pana,
 		 nalezy wiernie podazac za jego wartosciami, a wtedy on zesle na nas wiedze potrzebna, by poslac Mlot Pana wprost na ich glupie lby!.  */
