@@ -132,6 +132,10 @@ namespace Server.SkillHandlers
 			{
 				src.SendLocalizedMessage(500817); // Nie wykryles tu nikogo.
 			}
+			else
+			{
+				src.SendMessage("Udalo ci sie cos wykryc!");
+			}
 
 			// przyrost umiejetnosci:
 			if (!passive)
