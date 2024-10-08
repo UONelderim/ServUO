@@ -131,6 +131,10 @@ namespace Server.SkillHandlers
                 {
                     src.SendLocalizedMessage(500817); // You can see nothing hidden there.
                 }
+                else
+                {
+                    src.SendMessage("Udalo ci sie cos wykryc!");
+                }
             }
         }
 
