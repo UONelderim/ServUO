@@ -1105,6 +1105,15 @@ namespace Server.Items
                 m_NegativeAttributes = new NegativeAttributes(this);
             }
 
+            if (m_AosAttributes.IsEmpty && m_AosSkillBonuses.IsEmpty)
+            {
+	            LootType = LootType.Blessed;
+            }
+            else
+            {
+	            LootType = LootType.Regular;
+            }
+
             if (Parent is Mobile)
             {
                 m_AosSkillBonuses.AddTo((Mobile)Parent);
@@ -1210,6 +1219,7 @@ namespace Server.Items
                 }
 
                 BaseRunicTool.ApplyAttributesTo(this, true, 0, propertyCount, minIntensity, maxIntensity);
+                LootType = LootType.Regular;
             }
 
             if (makersMark)
