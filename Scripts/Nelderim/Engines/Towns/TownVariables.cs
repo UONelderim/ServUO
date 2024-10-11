@@ -91,12 +91,13 @@ namespace Nelderim.Towns
 	public enum Towns
 	{
 		None = 0,
-		Orod = 1,
+		Tasandora = 1,
 		Garlan = 2,
 		Twierdza = 3,
 		LDelmah = 4,
 		Lotharn = 5,
-		Tirassa = 6
+		Tirassa = 6,
+		Orod = 7
 	}
 
 	public class TownResource
