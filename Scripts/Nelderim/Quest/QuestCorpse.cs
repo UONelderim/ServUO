@@ -24,7 +24,7 @@ namespace Server.Items
 		{
 			base.OnSpeech(e);
 			
-			BaseQuest quest = QuestHelper.GetQuest((PlayerMobile)e.Mobile, typeof(ClericPhase4Quest));
+			BaseQuest quest = QuestHelper.GetQuest((PlayerMobile)e.Mobile, typeof(ClericPhase3Quest));
 
 			if (quest != null)
 			{

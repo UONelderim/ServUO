@@ -101,7 +101,7 @@ namespace Server.Engines.Quests
 			AddObjective(new ObtainObjective(typeof(ZoogiFungus), "grzyby zoogi", 50, 0x26B7));
 			AddObjective(new ObtainObjective(typeof(SulfurousAsh), "siarka", 200, 0xF8C));
 			AddObjective(new ObtainObjective(typeof(Pitcher), "dzban", 1, 0x9A7));
-			AddObjective(new ClericPhase5Quest.SayObjective());
+			AddObjective(new SayObjective());
 
 			AddReward(new BaseReward(3060192)); // Krok blizej od poznania tajemnic Herdeizmu.
 		}
@@ -236,36 +236,35 @@ namespace Server.Engines.Quests
 
 			int version = reader.ReadInt();
 		}
+	}
+	public class SayObjective : SimpleObjective
+	{
+		private readonly List<string> m_Descr = new List<string>();
+		public override List<string> Descriptions => m_Descr;
 
-		public class SayObjective : SimpleObjective
+		public SayObjective()
+			: base(1, -1)
 		{
-			private readonly List<string> m_Descr = new List<string>();
-			public override List<string> Descriptions => m_Descr;
+			m_Descr.Add("Wypowiedz \"Chwalmy Pana\" w poblizu zwlok.");
+		}
 
-			public SayObjective()
-				: base(1, -1)
+		public override bool Update(object obj)
+		{
+			if (obj is string text && text.Trim().Equals("Chwalmy pana"))
 			{
-				m_Descr.Add("Wypowiedz \"Chwalmy Pana\" w poblizu zwlok.");
-			}
+				CurProgress++;
 
-			public override bool Update(object obj)
-			{
-				if (obj is string text && text.Trim().Equals("Chwalmy pana"))
+				if (Completed)
+					Quest.OnCompleted();
+				else
 				{
-					CurProgress++;
-
-					if (Completed)
-						Quest.OnCompleted();
-					else
-					{
-						Quest.Owner.PlaySound(Quest.UpdateSound);
-					}
-
-					return true;
+					Quest.Owner.PlaySound(Quest.UpdateSound);
 				}
 
-				return false;
+				return true;
 			}
+
+			return false;
 		}
 	}
 }
