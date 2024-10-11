@@ -164,17 +164,15 @@ namespace Server.Spells.DeathKnight
 
 		public static void DrainSoulsInLantern( Mobile from, int tithing )
 		{
-			foreach ( Item item in World.Items.Values )
+			var item = from.FindItemOnLayer(Layer.TwoHanded);
+			if ( item is SoulLantern )
 			{
-				if ( item is SoulLantern )
+				SoulLantern lantern = (SoulLantern)item;
+				if ( lantern.Owner == from )
 				{
-					SoulLantern lantern = (SoulLantern)item;
-					if ( lantern.Owner == from )
-					{
-						lantern.TrappedSouls -= tithing;
-						if ( lantern.TrappedSouls < 1 ){ lantern.TrappedSouls = 0; }
-						lantern.InvalidateProperties();
-					}
+					lantern.TrappedSouls -= tithing;
+					if ( lantern.TrappedSouls < 1 ){ lantern.TrappedSouls = 0; }
+					lantern.InvalidateProperties();
 				}
 			}
 		}
@@ -183,16 +181,13 @@ namespace Server.Spells.DeathKnight
 		{
 			int souls = 0;
 
-			ArrayList targets = new ArrayList();
-			foreach ( Item item in World.Items.Values )
+			var item = from.FindItemOnLayer(Layer.TwoHanded);
+			if ( item is SoulLantern )
 			{
-				if ( item is SoulLantern )
+				SoulLantern lantern = (SoulLantern)item;
+				if ( lantern.Owner == from )
 				{
-					SoulLantern lantern = (SoulLantern)item;
-					if ( lantern.Owner == from )
-					{
-						souls = lantern.TrappedSouls;
-					}
+					souls = lantern.TrappedSouls;
 				}
 			}
 
