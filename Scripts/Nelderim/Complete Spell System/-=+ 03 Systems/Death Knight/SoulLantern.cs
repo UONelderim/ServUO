@@ -7,6 +7,11 @@ namespace Server.Items
     {
 	    private int _TrappedSouls;
 
+	    public static void Initialize()
+	    {
+		    EventSink.CreatureDeath += e => OnBeforeDeath(e.Creature);
+	    }
+
         [CommandProperty(AccessLevel.GameMaster)]
         public int TrappedSouls
         {
@@ -110,32 +115,33 @@ namespace Server.Items
             _TrappedSouls = reader.ReadInt();
         }
 
-        public static void OnBeforeDeath(BaseCreature killed)
+        public static void OnBeforeDeath(Mobile killed)
         {
-            //if (SlayerGroup.GetEntryByName(SlayerName.Repond).Slays(killed))
+	        if(killed is BaseCreature bc)
             {
-                Mobile deathknight = killed.LastKiller;
+	            //if (SlayerGroup.GetEntryByName(SlayerName.Repond).Slays(killed))
+                Mobile deathknight = bc.LastKiller;
                 if (deathknight is BaseCreature)
                     deathknight = ((BaseCreature) deathknight).GetMaster();
                 
-                if (deathknight != null && deathknight is PlayerMobile && killed.TotalGold > 0)
+                if (deathknight != null && deathknight is PlayerMobile && bc.TotalGold > 0)
                 {
                     Item lantern = deathknight.FindItemOnLayer(Layer.TwoHanded);
 
                     if (lantern is SoulLantern)
                     {
                         SoulLantern soulLantern = (SoulLantern) lantern;
-                        var soulsToAdd = killed.TotalGold;
+                        var soulsToAdd = bc.TotalGold;
                         soulLantern._TrappedSouls += soulsToAdd;
                         if (soulLantern._TrappedSouls > 100000)
                             soulLantern._TrappedSouls = 100000;
 
                         soulLantern.InvalidateProperties();
 
-                        Item deathpack = killed.FindItemOnLayer(Layer.Backpack);
+                        Item deathpack = bc.FindItemOnLayer(Layer.Backpack);
                         if (deathpack != null)
                         {
-                            Item gold = killed.Backpack.FindItemByType(typeof(Gold));
+                            Item gold = bc.Backpack.FindItemByType(typeof(Gold));
                             gold.Delete();
                             deathknight.SendMessage("Odebrano duszę.");
                             Effects.SendLocationParticles(

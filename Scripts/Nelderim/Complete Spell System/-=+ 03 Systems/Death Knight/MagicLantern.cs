@@ -18,14 +18,7 @@ namespace Server.Items
 		public override void AddNameProperties(ObjectPropertyList list)
 		{
 			base.AddNameProperties(list);
-			if (ItemID == 0xA15)
-			{
-				list.Add(1049644, "Wiezienie dla dusz");
-			}
-			else
-			{
-				list.Add(1049644, "Wiezienie dla dusz");
-			}
+			list.Add(1049644, "Wiezienie dla dusz");
 		}
 
 		public override bool AllowEquipedCast(Mobile from)
