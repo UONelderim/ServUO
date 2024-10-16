@@ -11,19 +11,6 @@ namespace Server.Items
 
 	public abstract class BaseTobaccoFlavoured : BaseTobacco
 	{
-		public override void OnSmoke(Mobile m)
-		{
-			m.SendMessage("Wspaniale pachnacy dym tytoniowy napelnia twoje pluca.");
-
-			m.Emote("*wypuszcza z ust kleby aromatycznego fajkowego dymu");
-
-			m.PlaySound(0x226);
-			SmokeTimer a = new SmokeTimer(m);
-			a.Start();
-
-			m.RevealingAction();
-		}
-
 		private TobaccoFlavour m_Flavour;
 		public TobaccoFlavour Flavour
 		{
@@ -38,18 +25,15 @@ namespace Server.Items
 			}
 		}
 
-		protected int SmokeHue
+		static protected int SmokeHue(TobaccoFlavour flavour)
 		{
-			get
+			switch (flavour)
 			{
-				switch (Flavour)
-				{
-					case TobaccoFlavour.None: return 0;
-					case TobaccoFlavour.Apple: return 41;
-					case TobaccoFlavour.Pear: return 51;
-					case TobaccoFlavour.Lemon: return 55;
-					default: return 0;
-				}
+				case TobaccoFlavour.None: return 0;
+				case TobaccoFlavour.Apple: return 41;
+				case TobaccoFlavour.Pear: return 51;
+				case TobaccoFlavour.Lemon: return 55;
+				default: return 0;
 			}
 		}
 

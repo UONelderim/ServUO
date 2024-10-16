@@ -4,24 +4,11 @@ namespace Server.Items
 {
 	public interface ISmokable
 	{
-		void OnSmoke(Mobile m);
+		//void OnSmoke(Mobile m);
 	}
 
 	public abstract class BaseTobacco : Item, ISmokable
 	{
-		public virtual void OnSmoke(Mobile m)
-		{
-			m.SendMessage("Dym tytoniowy napelnia twoje pluca.");
-
-			m.Emote("*wypuszcza z ust kleby fajkowego dymu*");
-
-			m.PlaySound(0x226);
-			SmokeTimer a = new SmokeTimer(m);
-			a.Start();
-
-			m.RevealingAction();
-		}
-
 		protected class SmokeTimer : Timer
 		{
 			private static TimeSpan ParticlesDuration => TimeSpan.FromMilliseconds(500);
