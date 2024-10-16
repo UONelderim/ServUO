@@ -60,6 +60,10 @@ namespace Server.Spells.Ninjitsu
             {
                 Caster.SendLocalizedMessage(1063087); // You must be in stealth mode to use this ability.
             }
+            else if (Caster.Mounted)
+            {
+                Caster.SendLocalizedMessage(1063132); // You cannot use this ability while mounted.
+            }
             else if (Misc.WeightOverloading.IsOverloaded(Caster))
             {
                 Caster.SendLocalizedMessage(502359, "", 0x22); // Thou art too encumbered to move.
