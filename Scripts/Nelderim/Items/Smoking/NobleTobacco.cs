@@ -4,7 +4,7 @@ namespace Server.Items
 {
 	public class NobleTobacco : BaseTobacco
 	{
-		public override void OnSmoke(Mobile m)
+		public static void OnSmoke(Mobile m)
 		{
 			m.SendMessage("Dym tytoniowy napelnia twoje pluca, czujesz przyjemne mrowienie w ustach.");
 
