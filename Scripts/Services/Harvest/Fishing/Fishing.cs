@@ -492,6 +492,11 @@ namespace Server.Engines.Harvest
 
                         sos.Delete();
 
+                        if (from is PlayerMobile pm)
+                        {
+	                        pm.Statistics.SOSChestsFound++;
+                        }
+
                         return chest;
                     }
                 }

@@ -121,6 +121,10 @@ namespace Server.Items
 					new SmokeTimer(this, from);
 					from.SendMessage("Zaczynasz zaciagac sie dymem z fajki.");
 					from.Emote("*wciaga powietrze przez fajke*");
+					if (from is PlayerMobile pm)
+					{
+						pm.Statistics.TobaccoSmoked.Increment(TobaccoType);
+					}
 				}
 				else
 					from.SendMessage("Fajka jest pusta.");

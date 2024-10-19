@@ -783,6 +783,10 @@ namespace Server.Items
                     grubber.PrivateOverheadMessage(MessageType.Regular, 33, 1159062, from.NetState); // *A grubber appears and ganks a piece of your loot!*
                 }
             }
+            if (from is PlayerMobile pm)
+            {
+	            pm.Statistics.TreasureMapChestsOpened++;
+            }
         }
 
         public override void DisplayTo(Mobile to)

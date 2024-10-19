@@ -1,5 +1,6 @@
 using System;
 using Server.Engines.Craft;
+using Server.Mobiles;
 
 namespace Server.Items.Crops
 {
@@ -442,6 +443,10 @@ namespace Server.Items.Crops
 				{
 					CreateSeed(from);
 					from.SendMessage(msg.GotSeed);   // Udalo ci sie zebrac szczepke rosliny!
+					if (from is PlayerMobile pm1)
+					{
+						pm1.Statistics.ResourceHarvested.Increment(SeedType);
+					}
 				}
 
 				if (!m_CropRespawn || WeedHelper.Check(DestroyChance))
@@ -449,6 +454,12 @@ namespace Server.Items.Crops
 					StopCropRespawnTimer();
 					Delete();
 					from.SendMessage(msg.PlantDestroyed);    // Zniszczyles surowiec.
+				}
+
+				if (from is PlayerMobile pm2)
+				{
+					pm2.Statistics.ResourceHarvested.Increment(CropType);
+					//TODO: Can we create a harvest system for plants and utilis HarvestSucess event?
 				}
 			}
 			else

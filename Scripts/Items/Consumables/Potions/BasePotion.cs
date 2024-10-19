@@ -1,6 +1,6 @@
 using Server.Engines.Craft;
 using System;
-using System.Collections.Generic;
+using Server.Mobiles;
 
 namespace Server.Items
 {
@@ -130,6 +130,11 @@ namespace Server.Items
                     else
                     {
                         Drink(from);
+                    }
+
+                    if (from is PlayerMobile pm)
+                    {
+	                    pm.Statistics.PotionsUsed.Increment(GetType());
                     }
                 }
                 else

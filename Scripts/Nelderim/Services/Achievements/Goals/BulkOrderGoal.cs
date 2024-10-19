@@ -17,7 +17,7 @@ namespace Nelderim.Achievements
 
 		private void Progress(BODCompletedEventArgs e)
 		{
-			if (e.User is PlayerMobile pm && e.Deed is IBOD bod && bod.BODType == _BodType)
+			if (e.User is PlayerMobile pm && e.BOD is IBOD bod && bod.BODType == _BodType)
 			{
 				pm.SetAchievementProgress(Achievement, pm.GetAchivementProgress(Achievement) + 1);
 			}

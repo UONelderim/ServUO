@@ -1,5 +1,6 @@
 ﻿using System;
 using Nelderim;
+using Server.Mobiles;
 
 namespace Server.Items
 {
@@ -17,6 +18,15 @@ namespace Server.Items
 			Locked = true;
 			FillChest();
 			InvalidateProperties();
+		}
+
+		public override void LockPick(Mobile from)
+		{
+			base.LockPick(from);
+			if (from is PlayerMobile pm)
+			{
+				pm.Statistics.DungeonTreasureChestsOpened++;
+			}
 		}
 
 		public DungeonTreasureChest(Serial serial) : base(serial)

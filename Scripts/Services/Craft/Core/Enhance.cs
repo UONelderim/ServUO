@@ -302,6 +302,7 @@ namespace Server.Engines.Craft
                         {
                             ((FishingPole)item).DistributeMaterialBonus(attributes);
                         }
+                        EventSink.InvokeEnhanceSuccess(new EnhanceSuccessEventArgs(from, tool, item));
                         break;
                     }
                 case EnhanceResult.Failure:

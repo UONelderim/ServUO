@@ -3479,6 +3479,8 @@ namespace Server.Mobiles
 
             UndertakersStaff.TryRemoveTimer(this);
 
+            Statistics.DamageTakenTotal += amount;
+
             base.OnDamage(amount, from, willKill);
         }
 

@@ -2172,6 +2172,7 @@ namespace Server.Mobiles
                 }
 
                 corpse.Carved = true;
+                EventSink.InvokeCreatureCarved(new CreatureCarvedEventArgs(from, this, with));
 
                 if (corpse.IsCriminalAction(from))
                 {
@@ -3065,6 +3066,10 @@ namespace Server.Mobiles
                                         IsBonded = true;
                                         BondingBegin = DateTime.MinValue;
                                         from.SendLocalizedMessage(1049666); // Your pet has bonded with you!
+                                        if (from is PlayerMobile pm)
+                                        {
+	                                        pm.Statistics.AnimalsBonded.Increment(GetType());
+                                        }
                                     }
                                 }
                                 else
@@ -6429,6 +6434,10 @@ namespace Server.Mobiles
             creature.HitsMaxSeed += MasteryInfo.EnchantedSummoningBonus(creature);
             creature.Hits = creature.HitsMaxSeed;
 
+            if (caster is PlayerMobile pm)
+            {
+	            pm.Statistics.CreaturesSummoned[creature.GetType()]++;
+            }
             return true;
         }
 

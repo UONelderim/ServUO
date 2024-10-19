@@ -142,6 +142,11 @@ namespace Server.Items
                         BaseMount.Dismount(to);
 
                         BaseMount.SetMountPrevention(to, BlockMountType.Dazed, TimeSpan.FromSeconds(10.0));
+                        if (from is PlayerMobile pm)
+                        {
+	                        pm.Statistics.BolasThrown++;
+                        }
+                        //TODO: achievement if killed by bola
                     }
                 }
             }

@@ -125,6 +125,7 @@ namespace Server.Items
 			if (o is Mobile)
 				m_mobile = (Mobile)o;
 
+			//TODO: Rewrite and plug in to player statistics
 			if ((m_varsaut.m_laitage == 0) && (m_varsaut.m_bestiole == 0) && m_mobile != null)
 			{
 				if (m_mobile is Sheep)
