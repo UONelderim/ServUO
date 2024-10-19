@@ -197,6 +197,11 @@ namespace Server.Items
 					if (loot != null && pack == null || !pack.TryDropItem(from, loot, false))
 						loot.MoveToWorld(from.Location, from.Map);
 				}
+
+				if (from is PlayerMobile pm)
+				{
+					pm.Statistics.GravesDigged++;
+				}
 			}
 			else if (Hits <= 0)
 			{

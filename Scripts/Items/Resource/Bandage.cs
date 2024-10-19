@@ -136,6 +136,10 @@ namespace Server.Items
                         {
                             NegativeAttributes.OnCombatAction(from);
                             m_Bandage.Consume();
+                            if (from is PlayerMobile pm)
+                            {
+	                            pm.Statistics.BandagesUsed++;
+                            }
                         }
                     }
                     else
@@ -149,6 +153,10 @@ namespace Server.Items
                     {
                         NegativeAttributes.OnCombatAction(from);
                         m_Bandage.Consume();
+                        if (from is PlayerMobile pm)
+                        {
+	                        pm.Statistics.BandagesUsed++;
+                        }
                     }
                 }
                 else

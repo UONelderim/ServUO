@@ -415,7 +415,10 @@ namespace Server.SkillHandlers
                             PetTrainingHelper.GetAbilityProfile(m_Creature, true).OnTame();
 
                             EventSink.InvokeTameCreature(new TameCreatureEventArgs(m_Tamer, m_Creature));
-
+                            if (!alreadyOwned && m_Tamer is PlayerMobile pm)
+                            {
+	                            pm.Statistics.AnimalsTamed.Increment(m_Creature.GetType());
+                            }
                         }
                         else
                         {

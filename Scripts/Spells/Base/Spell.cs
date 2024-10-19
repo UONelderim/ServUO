@@ -1037,9 +1037,13 @@ namespace Server.Spells
                 m_Caster.Spell = null;
             }
 
-            if (m_Caster.FindItemOnLayer(Layer.OneHanded) is Spellbook spellbook)
+            if (_SequencePassed) //We sucessfully cast our spell
             {
-	            spellbook.OnSequenceFinished();
+	            if (m_Caster.FindItemOnLayer(Layer.OneHanded) is Spellbook spellbook)
+	            {
+		            spellbook.OnSequenceFinished();
+	            }
+	            EventSink.InvokeSpellCasted(new SpellCastedEventArgs(m_Caster, this));
             }
         }
 
@@ -1144,6 +1148,7 @@ namespace Server.Spells
                     }
                 }
 
+                _SequencePassed = true; //Spell should be sucessfully cast 
                 return true;
             }
             else

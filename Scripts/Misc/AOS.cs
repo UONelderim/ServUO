@@ -351,6 +351,11 @@ namespace Server
                 from.RegisterDamage(totalDamage / 4, m);
             }
 
+            if (from is PlayerMobile fromPm)
+            {
+	            fromPm.Statistics.DamageDealtTotal += totalDamage;
+            }
+
             SpiritSpeak.CheckDisrupt(m);
 
             if (m.Spell != null)
