@@ -6,7 +6,7 @@ namespace Server.Spells.Chivalry
     public class CleanseByFireSpell : PaladinSpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-            "Cleanse By Fire", "Expor Flamus",
+	        "Wrzaca krew", "Postac staje w plomieniach, a jego krew oczyszcza sie z trucizn",
             -1,
             9002);
         public CleanseByFireSpell(Mobile caster, Item scroll)

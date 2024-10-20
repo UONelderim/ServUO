@@ -7,7 +7,7 @@ namespace Server.Spells.Chivalry
     public class EnemyOfOneSpell : PaladinSpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-            "Enemy of One", "Forul Solum",
+	        "Obsesja", "Gniewnie wpatruje się w cel",
             -1,
             9002);
 

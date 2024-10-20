@@ -8,7 +8,7 @@ namespace Server.Spells.Chivalry
     public class CloseWoundsSpell : PaladinSpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-            "Close Wounds", "Obsu Vulni",
+	        "Usmierzenie bolu", "Składa dłonie na ranie",
             -1,
             9002);
         public CloseWoundsSpell(Mobile caster, Item scroll)
