@@ -1,6 +1,7 @@
 using Server.Items;
 using Server.Mobiles;
 using System;
+using Server.ACC.CSS.Systems.Ancient;
 
 namespace Server.Engines.Quests
 {
@@ -22,6 +23,7 @@ namespace Server.Engines.Quests
                 {
                     typeof(AncientQuest)
                 };
+		
         public override void InitBody()
         {
             InitStats(100, 100, 25);
@@ -33,10 +35,10 @@ namespace Server.Engines.Quests
 
         public override void InitOutfit()
         {
-            SetWearable(new Boots(), 0x901, 1);
-            SetWearable(new Robe(),1150, dropChance: 1);
-            SetWearable(new ClothNinjaHood(),1150, dropChance: 1);
-
+			SetWearable(new Boots(), 0, 1);
+			SetWearable(new CommemorativeRobe(), 0, dropChance: 1);
+			SetWearable(new AncientSpellbook(), 1355, dropChance: 1);
+			SetWearable(new Obi(), 1355, dropChance: 1);
         }
 
         public override void Serialize(GenericWriter writer)
