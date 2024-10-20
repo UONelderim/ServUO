@@ -50,8 +50,7 @@ namespace Server.Engines.Quests
 	{
 		public AncientPhase2Quest()
 		{
-			AddObjective(new DeliverObjective(typeof(KostkaAncientQuestItem), "Pierwsza Czesc Starozytnej Kosci", 1,
-				typeof(BaseCreature), "Gordon"));
+			AddObjective(new ObtainObjective(typeof(KostkaAncientQuestItem), "Pierwsza Czesc Starozytnej Kosci", 1, 0xA5DB));
 
 			AddReward(new BaseReward(3060243)); // Krok blizej do poznania tajnikow starozytnej magii
 		}
@@ -94,8 +93,7 @@ namespace Server.Engines.Quests
 	{
 		public AncientPhase3Quest()
 		{
-			AddObjective(new DeliverObjective(typeof(KostkaAncientQuestItem2), "Druga Czesc Starozytnej Kosci", 1,
-				typeof(BaseCreature), "Gordon"));
+			AddObjective(new ObtainObjective(typeof(KostkaAncientQuestItem2), "Druga Czesc Starozytnej Kosci", 1, 0xA5DB));
 
 			AddReward(new BaseReward(3060243)); // Krok blizej do poznania tajnikow starozytnej magii
 		}

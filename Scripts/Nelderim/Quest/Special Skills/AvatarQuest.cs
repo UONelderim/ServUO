@@ -50,8 +50,8 @@ namespace Server.Engines.Quests
 	{
 		public AvatarPhase2Quest()
 		{
-			AddObjective(new DeliverObjective(typeof(PowerCrystal), "Krysztal mocy", 10, typeof(BaseCreature),
-				"Hemmington"));
+			AddObjective(new ObtainObjective(typeof(PowerCrystal), "Krysztal mocy", 10,
+				0x1F49));
 
 			AddReward(new BaseReward(3060259)); // Krok blizej od poznania tajemnic Mnicha
 		}

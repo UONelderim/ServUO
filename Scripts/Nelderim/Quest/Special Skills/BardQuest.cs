@@ -10,8 +10,8 @@ namespace Server.Engines.Quests
 	{
 		public BardQuest()
 		{
-			AddObjective(new DeliverObjective(typeof(AdmiralsHeartyRum), "krasnoludzki rum", 1, typeof(BaseCreature),
-				"An-Galad Ellontheron"));
+			
+			AddObjective(new ObtainObjective(typeof(AdmiralsHeartyRum), "krasnoludzki rum", 10, 0xE9C));
 
 			AddReward(new BaseReward(3060225)); // Coraz blizej wielkich piesni bardowskich
 		}

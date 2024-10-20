@@ -8765,7 +8765,7 @@ Number;Text
 1017246;wyjatkowej jakosci polka na ksiazki 
 1017247;wyjatkowej jakosci szafka 
 1017248;wyjatkowej jakosci szafka 
-1017249;exceptional plate armor 
+1017249;Wyjatkowej jakosci plate armor 
 1017250;wyjatkowej jakosci drewniana tarcza 
 1017251;wyjatkowej jakosci sztaluga z plotnem 
 1017252;wyjatkowej jakosci sztaluga z plotnem 
@@ -8789,7 +8789,7 @@ Number;Text
 1017270;wyjatkowej jakosci nozyczki 
 1017271;wyjatkowej jakosci mozdzierz 
 1017272;wyjatkowej jakosci skrobak 
-1017273;exceptional tool kit 
+1017273;Wyjatkowej jakosci tool kit 
 1017274;wyjatkowej jakosci siekiera 
 1017275;wyjatkowej jakosci pila dwureczna 
 1017276;wyjatkowej jakosci narzedzia krawieckie 
@@ -8822,11 +8822,11 @@ Number;Text
 1017303;wyjatkowej jakosci latarnia 
 1017304;wyjatkowej jakosci lichtarz 
 1017305;wyjatkowej jakosci pila 
-1017306;exceptional tongs 
+1017306;Wyjatkowej jakosci tongs 
 1017307;wyjatkowej jakosci lopata 
 1017308;wyjatkowej jakosci mlotek 
 1017309;wyjatkowej jakosci mlotek kowalski 
-1017310;exceptional sledge hammer 
+1017310;Wyjatkowej jakosci sledge hammer 
 1017311;wyjatkowej jakosci dluto stolarskie 
 1017312;wyjatkowej jakosci kilof 
 1017313;wyjatkowej jakosci duzy hebel 
@@ -29441,7 +29441,7 @@ Number;Text
 1046470;Use a fletcher's toolkit to make bows and ammunition. 
 1046471;Chance of Failure: 
 1046472;Average Quality: 
-1046473;Exceptional Quality: 
+1046473;Wyjatkowej jakosci Quality: 
 1046474;We believe vile 'Horde Minions' are responsible for these disappearances. 
 1046475;Go forth and kill at least 6 of these 'Horde Minions'. See if you can find any evidence of our missing men. 
 1046476;You, however, have shown great Valor in your battle against the wretched 'Horde Minions'. I am pleased. 
@@ -29903,84 +29903,84 @@ Number;Text
 1049229;kosciane naramienniki z zielonej skory 
 1049230;kosciane nakolanniki z zielonej skory 
 1049231;kosciana tunika z zielonej skory 
-1049232;exceptional spined sandals 
-1049233;exceptional spined shoes 
-1049234;exceptional spined boots 
-1049235;exceptional spined thigh boots 
-1049236;exceptional spined leather gorget 
-1049237;exceptional spined leather cap 
-1049238;exceptional spined leather gloves 
-1049239;exceptional spined leather sleeves 
-1049240;exceptional spined leather leggings 
-1049241;exceptional spined leather tunic 
-1049242;exceptional spined studded gorget 
-1049243;exceptional spined studded gloves 
-1049244;exceptional spined studded sleeves 
-1049245;exceptional spined studded leggings 
-1049246;exceptional spined studded tunic 
-1049247;exceptional spined leather shorts 
-1049248;exceptional spined leather skirt 
-1049249;exceptional spined leather bustier 
-1049250;exceptional spined studded bustier 
-1049251;exceptional spined female leather armor 
-1049252;exceptional spined female studded armor 
-1049253;exceptional spined bone helmet 
-1049254;exceptional spined bone gloves 
-1049255;exceptional spined bone arms 
-1049256;exceptional spined bone leggings 
-1049257;exceptional spined bone armor 
-1049258;exceptional horned sandals 
-1049259;exceptional horned shoes 
-1049260;exceptional horned boots 
-1049261;exceptional horned thigh boots 
-1049262;exceptional horned leather gorget 
-1049263;exceptional horned leather cap 
-1049264;exceptional horned leather gloves 
-1049265;exceptional horned leather sleeves 
-1049266;exceptional horned leather leggings 
-1049267;exceptional horned leather tunic 
-1049268;exceptional horned studded gorget 
-1049269;exceptional horned studded gloves 
-1049270;exceptional horned studded sleeves 
-1049271;exceptional horned studded leggings 
-1049272;exceptional horned studded tunic 
-1049273;exceptional horned leather shorts 
-1049274;exceptional horned leather skirt 
-1049275;exceptional horned leather bustier 
-1049276;exceptional horned studded bustier 
-1049277;exceptional horned female leather armor 
-1049278;exceptional horned female studded armor 
-1049279;exceptional horned bone helmet 
-1049280;exceptional horned bone gloves 
-1049281;exceptional horned bone arms 
-1049282;exceptional horned bone leggings 
-1049283;exceptional horned bone armor 
-1049284;exceptional barbed sandals 
-1049285;exceptional barbed shoes 
-1049286;exceptional barbed boots 
-1049287;exceptional barbed thigh boots 
-1049288;exceptional barbed leather gorget 
-1049289;exceptional barbed leather cap 
-1049290;exceptional barbed leather gloves 
-1049291;exceptional barbed leather sleeves 
-1049292;exceptional barbed leather leggings 
-1049293;exceptional barbed leather tunic 
-1049294;exceptional barbed studded gorget 
-1049295;exceptional barbed studded gloves 
-1049296;exceptional barbed studded sleeves 
-1049297;exceptional barbed studded leggings 
-1049298;exceptional barbed studded tunic 
-1049299;exceptional barbed leather shorts 
-1049300;exceptional barbed leather skirt 
-1049301;exceptional barbed leather bustier 
-1049302;exceptional barbed studded bustier 
-1049303;exceptional barbed female leather armor 
-1049304;exceptional barbed female studded armor 
-1049305;exceptional barbed bone helmet 
-1049306;exceptional barbed bone gloves 
-1049307;exceptional barbed bone arms 
-1049308;exceptional barbed bone leggings 
-1049309;exceptional barbed bone armor 
+1049232;Wyjatkowej jakosci spined sandals 
+1049233;Wyjatkowej jakosci spined shoes 
+1049234;Wyjatkowej jakosci spined boots 
+1049235;Wyjatkowej jakosci spined thigh boots 
+1049236;Wyjatkowej jakosci spined leather gorget 
+1049237;Wyjatkowej jakosci spined leather cap 
+1049238;Wyjatkowej jakosci spined leather gloves 
+1049239;Wyjatkowej jakosci spined leather sleeves 
+1049240;Wyjatkowej jakosci spined leather leggings 
+1049241;Wyjatkowej jakosci spined leather tunic 
+1049242;Wyjatkowej jakosci spined studded gorget 
+1049243;Wyjatkowej jakosci spined studded gloves 
+1049244;Wyjatkowej jakosci spined studded sleeves 
+1049245;Wyjatkowej jakosci spined studded leggings 
+1049246;Wyjatkowej jakosci spined studded tunic 
+1049247;Wyjatkowej jakosci spined leather shorts 
+1049248;Wyjatkowej jakosci spined leather skirt 
+1049249;Wyjatkowej jakosci spined leather bustier 
+1049250;Wyjatkowej jakosci spined studded bustier 
+1049251;Wyjatkowej jakosci spined female leather armor 
+1049252;Wyjatkowej jakosci spined female studded armor 
+1049253;Wyjatkowej jakosci spined bone helmet 
+1049254;Wyjatkowej jakosci spined bone gloves 
+1049255;Wyjatkowej jakosci spined bone arms 
+1049256;Wyjatkowej jakosci spined bone leggings 
+1049257;Wyjatkowej jakosci spined bone armor 
+1049258;Wyjatkowej jakosci horned sandals 
+1049259;Wyjatkowej jakosci horned shoes 
+1049260;Wyjatkowej jakosci horned boots 
+1049261;Wyjatkowej jakosci horned thigh boots 
+1049262;Wyjatkowej jakosci horned leather gorget 
+1049263;Wyjatkowej jakosci horned leather cap 
+1049264;Wyjatkowej jakosci horned leather gloves 
+1049265;Wyjatkowej jakosci horned leather sleeves 
+1049266;Wyjatkowej jakosci horned leather leggings 
+1049267;Wyjatkowej jakosci horned leather tunic 
+1049268;Wyjatkowej jakosci horned studded gorget 
+1049269;Wyjatkowej jakosci horned studded gloves 
+1049270;Wyjatkowej jakosci horned studded sleeves 
+1049271;Wyjatkowej jakosci horned studded leggings 
+1049272;Wyjatkowej jakosci horned studded tunic 
+1049273;Wyjatkowej jakosci horned leather shorts 
+1049274;Wyjatkowej jakosci horned leather skirt 
+1049275;Wyjatkowej jakosci horned leather bustier 
+1049276;Wyjatkowej jakosci horned studded bustier 
+1049277;Wyjatkowej jakosci horned female leather armor 
+1049278;Wyjatkowej jakosci horned female studded armor 
+1049279;Wyjatkowej jakosci horned bone helmet 
+1049280;Wyjatkowej jakosci horned bone gloves 
+1049281;Wyjatkowej jakosci horned bone arms 
+1049282;Wyjatkowej jakosci horned bone leggings 
+1049283;Wyjatkowej jakosci horned bone armor 
+1049284;Wyjatkowej jakosci barbed sandals 
+1049285;Wyjatkowej jakosci barbed shoes 
+1049286;Wyjatkowej jakosci barbed boots 
+1049287;Wyjatkowej jakosci barbed thigh boots 
+1049288;Wyjatkowej jakosci barbed leather gorget 
+1049289;Wyjatkowej jakosci barbed leather cap 
+1049290;Wyjatkowej jakosci barbed leather gloves 
+1049291;Wyjatkowej jakosci barbed leather sleeves 
+1049292;Wyjatkowej jakosci barbed leather leggings 
+1049293;Wyjatkowej jakosci barbed leather tunic 
+1049294;Wyjatkowej jakosci barbed studded gorget 
+1049295;Wyjatkowej jakosci barbed studded gloves 
+1049296;Wyjatkowej jakosci barbed studded sleeves 
+1049297;Wyjatkowej jakosci barbed studded leggings 
+1049298;Wyjatkowej jakosci barbed studded tunic 
+1049299;Wyjatkowej jakosci barbed leather shorts 
+1049300;Wyjatkowej jakosci barbed leather skirt 
+1049301;Wyjatkowej jakosci barbed leather bustier 
+1049302;Wyjatkowej jakosci barbed studded bustier 
+1049303;Wyjatkowej jakosci barbed female leather armor 
+1049304;Wyjatkowej jakosci barbed female studded armor 
+1049305;Wyjatkowej jakosci barbed bone helmet 
+1049306;Wyjatkowej jakosci barbed bone gloves 
+1049307;Wyjatkowej jakosci barbed bone arms 
+1049308;Wyjatkowej jakosci barbed bone leggings 
+1049309;Wyjatkowej jakosci barbed bone armor 
 1049310;WYBIERZ RODZAJ SKOR 
 1049311;Nie wiesz jak uszyc cos z tej skory. 
 1049312;You have no idea how to work this leather. 
@@ -30014,7 +30014,7 @@ Number;Text
 1049340;Uzeraan hands you a finely crafted sword which you immediately place into your backpack. 
 1049341;You rummage through the bones and find a Daemon Bone!  You quickly place the item in your pack. 
 1049342;Rummaging through the bones you find a Daemon Bone, but can't pick it up because your pack is too full.  Come back when you have more room in your pack. 
-1049343;You can only drop quest items into the top-most level of your backpack while you still need them for your quest. 
+1049343;You can only drop Przedmiot Zadanias into the top-most level of your backpack while you still need them for your quest. 
 1049344;You decide against trading the item.  You still need it for your quest. 
 1049345;"You've lost the scroll?  Argh!  I will have to try and re-construct the scroll from memory.  Bring me a blank scroll, which you can <a href = ""?ForceTopic33"">purchase from the mage shop</a> just <a href = ""?ForceTopic13"">East</a> of Uzeraan's mansion in Haven.<BR><BR>Return the scroll to me and I will try to make another scroll for you.<BR><BR>When you return, be sure to hand me the scroll (drag and drop)." 
 1049346;Schmendrick scribbles on the scroll for a few moments and hands you the finished product. 
@@ -34249,7 +34249,7 @@ Number;Text
 1063338;common 
 1063339;uncommon 
 1063340;rare 
-1063341;exceptional 
+1063341;Wyjatkowej jakosci 
 1063342;exotic 
 1063343;Only males can wear this. 
 1063344;May the town of Zento prosper.  Memorial tree planted by Dept and maha. 
@@ -34392,7 +34392,7 @@ Number;Text
 1063481;Pocalunek Lodu 
 1063482;Wlocznia Tytanow 
 1063483;~1_MATERIAL~ ~2_ITEMNAME~ 
-1063484;exceptional ~1_MATERIAL~ ~2_ITEMNAME~ 
+1063484;Wyjatkowej jakosci ~1_MATERIAL~ ~2_ITEMNAME~ 
 1063485;Zadlo 
 1063486;Halabarda Smierci 
 1063487;Unfortunately you are playing on a *NON-Samurai-Empire* game installation and cannot be transported to Tokuno. You will not be able to take your new player quest in Tokuno without an SE client. You are now being taken to the city of Haven on the Trammel facet. 
@@ -43105,7 +43105,7 @@ Number;Text
 1072210;Redukcja wagi: ~1_PERCENTAGE~% 
 1072211;Toggle sex<br>Sex has no effect on abilities or traits. 
 1072212;<div align=left>Protectors of Britannia, <b><i>Humans</i></b> have adapted to their environment, improving many beneficial traits and abilities:<br>- Years of hard work allow more weight to be carried on strong backs.<br>- Adept at recovering from adversity, humans regain health more quickly than in times past.<br>- Enterprising techniques have led to breakthroughs in resource recovery.<br>- Diverse inclinations attune humans to a base understanding of nearly all learned behaviors.<br>- The Mondain's Legacy Expansion Pack is required to gain these abilities.</div> 
-1072213;<div align=left>Founders of Heartwood and attuned to nature, <b><i>Elves</i></b> have special traits and abilities:<br>- Exceptional vision, even at night.<br>- Resilient skin has an increased capacity to resist damage from energy attacks.<br>- Increased perception of both hidden creatures and resources.<br>- Difficult to track.<br>- Wise in nature 
+1072213;<div align=left>Founders of Heartwood and attuned to nature, <b><i>Elves</i></b> have special traits and abilities:<br>- Wyjatkowej jakosci vision, even at night.<br>- Resilient skin has an increased capacity to resist damage from energy attacks.<br>- Increased perception of both hidden creatures and resources.<br>- Difficult to track.<br>- Wise in nature 
 1072214;Church at Night 
 1072215;Contest 2004 winning house design 
 1072216;Mini House: Contest 2004 Winning House Design 
@@ -43243,10 +43243,10 @@ Number;Text
 1072348;Weapons courier. 
 1072349;I need you to deliver some weapons on my behalf.  You will be rewarded when the items are received. 
 1072350;Deliver the weapons as instructed.  Only then will you be rewarded. 
-1072351;Quest Item 
-1072352;Target the item you wish to toggle Quest Item status on <ESC> to cancel 
-1072353;You set the item to Quest Item status 
-1072354;You remove Quest Item status from the item 
+1072351;Przedmiot Zadania 
+1072352;Target the item you wish to toggle Przedmiot Zadania status on <ESC> to cancel 
+1072353;You set the item to Przedmiot Zadania status 
+1072354;You remove Przedmiot Zadania status from the item 
 1072355;That item does not match any of your quest criteria 
 1072356;What happened to the items I was expecting?  You have failed us, now go away! 
 1072357;Select an object to engrave. 
@@ -43258,7 +43258,7 @@ Number;Text
 1072363;The object was not engraved. 
 1072364;delete me 
 1072365;Crafting Bonus ~1_val~% 
-1072366;Craft Exceptional Bonus ~1_val~% 
+1072366;Craft Wyjatkowej jakosci Bonus ~1_val~% 
 1072367;Freedom! 
 1072368;Moug-Guur Must Die 
 1072369;Brotherly Love 
@@ -44068,7 +44068,7 @@ Number;Text
 1073173;The food was not decorated. 
 1073174;You decorate the food. 
 1073175;You can not access the decoration tool. 
-1073176;You can only decorate exceptional cakes, cookies, and cooked pizzas. 
+1073176;You can only decorate Wyjatkowej jakosci cakes, cookies, and cooked pizzas. 
 1073177;The selected item is not accessible to decorate. 
 1073178;Please enter how much of that item you wish to donate: 
 1073179;The decoration attempt failed. 
@@ -45661,7 +45661,7 @@ Number;Text
 1074766;Your weapon is no longer cursed with attune weapon. 
 1074767;Charmed humanoids are loyal only to their masters. 
 1074768;You cannot transfer ownership of a charmed humanoid. 
-1074769;An item must be in your backpack (and not in a container within) to be toggled as a quest item. 
+1074769;An item must be in your backpack (and not in a container within) to be toggled as a Przedmiot Zadania. 
 1074770;You are now under the effects of Ethereal Voyage. 
 1074771;You are no longer under the effects of Ethereal Voyage. 
 1074772;GM 
@@ -45760,7 +45760,7 @@ Number;Text
 1074865;UO Seventh Anniversary gift 
 1074866;Exchange it 
 1074867;I notice that you have a character transfer token. Since you cannot use a transfer token on this shard, would you like me to exchange it for one that can be redeemed for a UO Seventh Anniversary gift? 
-1074868;Stacks of quest items cannot be unstacked. 
+1074868;Stacks of Przedmiot Zadanias cannot be unstacked. 
 1074869;The answer to the riddle. 
 1074870;This item must be unlocked/unsecured before re-deeding it. 
 1074871;A step closer to having sealing wax. 
@@ -45785,7 +45785,7 @@ Number;Text
 1074890;Library Talisman - a Grammar of Orchish (Summoner) 
 1074891;Library Talisman - The Life of a Traveling Minstrel Curse Remover 
 1074892;Library Talisman - Birds of Britannia Random Summoner 
-1074893;You need to mark your quest items so I don't take the wrong object.  Then speak to me. 
+1074893;You need to mark your Przedmiot Zadanias so I don't take the wrong object.  Then speak to me. 
 1074894;Common brigands 
 1074895;elven bookcase (south) 
 1074896;elven bookcase (east) 
@@ -48541,7 +48541,7 @@ Number;Text
 1077649;Excellent!<br><br>Now approach Hogarth the Keeper of Old Haven in the building to the East of you. He is the Keeper of Old Haven, and he has a task for you.<br><br>A glowing light toward the East marks his location. 
 1077650;To speak with the Keeper, Double Left click on him.<br><br>Please read the quest text and accept the quest to proceed. 
 1077651;Great! You are on your first quest.<br><br>It's a small one, but I'm sure you will be rewarded nonetheless.<br><br>Remember to pick up the Worn Katana and then talk to the Keeper to complete the quest. 
-1077652;You found the Worn Katana. You need to toggle it as a quest item.<br><br>Hold down the Shift key, Right click on yourself, and select 'Toggle Quest Item' from the context menu. A 'Targeting Cursor' will appear.<br><br>Left click on the Worn Katana, press the Esc key, and then talk to Hogarth. 
+1077652;You found the Worn Katana. You need to toggle it as a Przedmiot Zadania.<br><br>Hold down the Shift key, Right click on yourself, and select 'Toggle Przedmiot Zadania' from the context menu. A 'Targeting Cursor' will appear.<br><br>Left click on the Worn Katana, press the Esc key, and then talk to Hogarth. 
 1077653;Great! The Keeper has given you a weapon. You need to equip it.<br><br>Left click on the Paperdoll icon on the lower right of your screen.<br><br>Drag the Worn Katana from your backpack to your hand slot in the Paperdoll. 
 1077654;You will use this same method to put on weapons, armor, and clothing. The slot has to be clear of any other items. So if you are wearing a hat, and want to put on a helmet, you will have to take off the hat, first.<br><br>Left click the Next button to continue. 
 1077655;Well, well. Another youngling. You are here to prove your mettle. I think you have none. But there is some persistence in you. You may learn to master that weapon someday.<br><br>When you get some training under your belt and feel you have mastered your arts, come find me, so I can eliminate those who seek to keep this world from dark clutches.<br><br>Take this Rune. When you feel you have mastered your skills, come and find me. I will be waiting. 
@@ -50340,7 +50340,7 @@ Number;Text
 1079448;Items 
 1079449;Info 
 1079450;Select Material 
-1079451;Toggle as Quest Item 
+1079451;Toggle as Przedmiot Zadania 
 1079452;Mark Item 
 1079453;Make: 
 1079454;Make Number 
@@ -51012,7 +51012,7 @@ Number;Text
 1080120;Your target has no magic that can be purged. 
 1080121;Royal Britannian Guard 
 1080122;Snake Skin Boots 
-1080123;Quest items may not be used in that manner. 
+1080123;Przedmiot Zadanias may not be used in that manner. 
 1080124;Snake Skin Boots 
 1080125;Enchanted 
 1080126;Enchant 
@@ -51938,7 +51938,7 @@ Number;Text
 1095219;Your adept skills have allowed you to increase the effectiveness of your attack. 
 1095220;Which seed do you wish to identify? 
 1095221;a sugar cane seed 
-1095222;You do not have enough room in your backpack. The quest item is destroyed. 
+1095222;You do not have enough room in your backpack. The Przedmiot Zadania is destroyed. 
 1095223;poppies dust 
 1095224;Your magically enhanced accuracy has returned to normal. 
 1095225;Your magically enhanced damage has returned to normal. 
@@ -69079,7 +69079,7 @@ Number;Text
 1112361;boura tail shield 
 1112362;You will burn to a pile of ash! 
 1112363;The creature sacrifices itself! 
-1112364;reactive paralyze 
+1112364;Pralizujaca Reakcja
 1112365;Flammable goo sprays into the air! 
 1112366;The flammable goo covering you bursts into flame! 
 1112367;You've been ambushed! 
@@ -70448,7 +70448,7 @@ Number;Text
 1113730;You may not initiate combat while flying over such precarious terrain. 
 1113731;* Do not want! * 
 1113732;* nom nom nom * 
-1113733;You found the Worn Katana. You need to toggle it as a quest item.<br><br>Left click on yourself, and select 'Toggle Quest Item' from the context menu. A 'Targeting Cursor' will appear.<br><br>Left click on the Worn Katana, press the Esc key, and then talk to Hogarth. 
+1113733;You found the Worn Katana. You need to toggle it as a Przedmiot Zadania.<br><br>Left click on yourself, and select 'Toggle Przedmiot Zadania' from the context menu. A 'Targeting Cursor' will appear.<br><br>Left click on the Worn Katana, press the Esc key, and then talk to Hogarth. 
 1113734;Do you wish to join your companions? 
 1113735;Your party has gained entrance to Medusa's Lair. If you choose to join the fight, you will be teleported to the battle. 
 1113736;You must rise to the rank of noble in the eyes of the Gargoyle Queen before her majesty will allow you to use this soulforge. 
@@ -70498,7 +70498,7 @@ Number;Text
 1113780;Remember, I need five pieces of white chocolate, and one dark sapphire. Please do hurry! 
 1113781;Oh, thank you so very much! I cannot begin to thank you enough for helping me find these presents. Here is your reward. You'll have to excuse me while I set this dark sapphire in a setting that will best highlight the cut. Farewell! 
 1113782;A Worthy Proposition 
-1113783;Hello, welcome to the shop. I don't own it, but the gargoyles here are as keen to learn from me as I am from them. They've been helping me with the work on my latest invention, but I am short some parts. Perhaps you could help me?<br><br>I have heard that the bamboo flutes of the Tokuno Islands are exceptionally strong for their weight, and nothing can beat elven fletching for strength in holding them together. If you would bring me, say, ten bamboo flutes and some elven fletching, I have some valuable imbuing ingredients I'll give you in exchange. What do you say? 
+1113783;Hello, welcome to the shop. I don't own it, but the gargoyles here are as keen to learn from me as I am from them. They've been helping me with the work on my latest invention, but I am short some parts. Perhaps you could help me?<br><br>I have heard that the bamboo flutes of the Tokuno Islands are Wyjatkowej jakoscily strong for their weight, and nothing can beat elven fletching for strength in holding them together. If you would bring me, say, ten bamboo flutes and some elven fletching, I have some valuable imbuing ingredients I'll give you in exchange. What do you say? 
 1113784;Well, if you change your mind, I'll be here. 
 1113785;Hmm, what is that? Oh yes, I would like you to bring me ten bamboo flutes and some elven fletching for my fly' er, my invention. 
 1113786;These are of fine quality! I think they will work just fine to reinforce the floor of the basket. What's that? Did I say basket? I meant, bakery! Yes, I am inventing a, um, floor for a bakery. There is a great need for that, you know! Ok, now please leave so I can get back to work. Thank you, bye, bye! 
@@ -70777,8 +70777,8 @@ Number;Text
 1114059;You decide not to touch it until you have a better idea what it is. 
 1114060;SELECT A LOCATION 
 1114061;If you wish to destroy that item, you must unlock it first. 
-1114062;The quest item this was used with is no longer available. 
-1114063;You cannot receive a quest item while dragging an object. 
+1114062;The Przedmiot Zadania this was used with is no longer available. 
+1114063;You cannot receive a Przedmiot Zadania while dragging an object. 
 1114064;Corporeal Essence 
 1114065;Which patient would you like to heal? 
 1114066;~1_NAME~ knocked you out of animal form! 
@@ -71434,7 +71434,7 @@ Number;Text
 1114716;<br> 
 1114717;<br> 
 1114718;The WREN is a tiny insect-eating bird with a loud voice. The cheerful trills of Wrens are extraordinarily varied and melodious.<br><br> The SWALLOW is easily 
-1114719;recognized by its forked tail. Swallows catch insects in flight, and have squeaky, twittering songs.<br><br> The WARBLER is an exceptional singer, whose extensive songs combine 
+1114719;recognized by its forked tail. Swallows catch insects in flight, and have squeaky, twittering songs.<br><br> The WARBLER is an Wyjatkowej jakosci singer, whose extensive songs combine 
 1114720;the best qualities of Wrens and Swallows.<br><br> The NUTHATCH climbs down trees head first, searching for insects in the bark. It sings a repetitive series of notes 
 1114721;"with a nasal tone quality.<br><br> The agile CHICKADEE has a buzzy ""chick-a-dee-dee"" call, from which its name is derived. Its song is a series of whistled notes." 
 1114722;The THRUSH is a brown bird with a spotted breast, which eats worms and snails, and has a beautiful singing voice. Thrushes use a stone as an anvil to smash the shells of snails. 
@@ -107930,7 +107930,7 @@ Number;Text
 1151212;~1_skill~ ~2_val~ (total) 
 1151213;Hit the Dream Serpent 6 times before the time is up. 
 1151214;~1_NAME~ Bonus: ~2_val~% (total) 
-1151215;~1_NAME~ Exceptional Bonus: ~2_val~% (total) 
+1151215;~1_NAME~ Wyjatkowej jakosci Bonus: ~2_val~% (total) 
 1151216;damage increase ~1_val~% (total) 
 1151217;mana cost increase ~1_val~% (total) 
 1151218;Lily Pad 
@@ -108251,7 +108251,7 @@ Number;Text
 1151533;Your rage grows! 
 1151534;Your rage recedes. 
 1151535;Your berserk rage has subsided. 
-1151536;You have three hours to turn this item in for Honesty credit, otherwise it will cease to be a quest item. 
+1151536;You have three hours to turn this item in for Honesty credit, otherwise it will cease to be a Przedmiot Zadania. 
 1151537;This decoration must be placed next to a wall. 
 1151538;Virtue Tapestry Deed 
 1151539;In your rage, you shrug off ~1_VALUE~ points of damage. 
@@ -108551,8 +108551,8 @@ Number;Text
 1151833;You may not get confirmation from this player at this time. 
 1151834;Resources: ~1_val~ 
 1151835;Sheep Statue Deed 
-1151836;You may not dye toggled quest items. 
-1151837;You may not scour toggled quest items. 
+1151836;You may not dye toggled Przedmiot Zadanias. 
+1151837;You may not scour toggled Przedmiot Zadanias. 
 1151838;This item cannot be stored in the seed box. 
 1151839;There is not enough room in the box. 
 1151840;Remove: 1 
@@ -109171,7 +109171,7 @@ Number;Text
 1152453;mana burst 
 1152454;Spell Consumption 
 1152455;Weight reduction 
-1152456;This property indicates that an item has been crafted by a crafter of exceptional skill.  Exceptionally crafted items can carry their maker's mark and also provide various additional bonuses depending on whether they are armor or weapons.  The bonuses include increased basic resistances for armor, increased damage increase for weapons and increased imbuing potential for both weapons and armor.  Some of these bonuses can be further increased by a crafter's arms lore skill. 
+1152456;This property indicates that an item has been crafted by a crafter of Wyjatkowej jakosci skill.  Wyjatkowej jakoscily crafted items can carry their maker's mark and also provide various additional bonuses depending on whether they are armor or weapons.  The bonuses include increased basic resistances for armor, increased damage increase for weapons and increased imbuing potential for both weapons and armor.  Some of these bonuses can be further increased by a crafter's arms lore skill. 
 1152457;This property provides a cumulative percentage bonus that increases the effectiveness of any fishing bait that is used by the wearer. 
 1152458;This property indicates that the item is a reward from the faction system.  Items with this property require that the user be in a faction to equip the item and in some cases these faction items will only be equippable by the owner of the item. 
 1152459;This property provides a reduction in the amount of arrows or bolts an archer uses.  The reduction is based on a random chance that an arrow or bolt shot from a weapon will not be consumed. 
@@ -109419,10 +109419,10 @@ Number;Text
 1152701;decorative vanilla 
 1152702;~1_HEALTH~ Vanilla Plant 
 1152703;Bracers of Alchemical Devastation 
-1152704;<B>Scroll of Valiant Commendation</B><BR>Presented for exceptional bravery during the siege of Exodus City. As a token of our appreciation, your stat cap will be increased. 
+1152704;<B>Scroll of Valiant Commendation</B><BR>Presented for Wyjatkowej jakosci bravery during the siege of Exodus City. As a token of our appreciation, your stat cap will be increased. 
 1152705;Scroll of Valiant Commendation 
 1152706;Rewarded to ~1_name~ 
-1152707;Presented for Exceptional Bravery During the Siege of Exodus City. 
+1152707;Presented for Wyjatkowej jakosci Bravery During the Siege of Exodus City. 
 1152708;Double click to permanently gain +5 to your maximum stats 
 1152709;a ~1_val~ of ~2_val~ dirt with a ~3_val~ vanilla seed 
 1152710;~1_HEALTH~ Vanilla 
@@ -111204,14 +111204,14 @@ Number;Text
 1154486;You may not transfer a character on an Endless Journey account. 
 1154487;You may not copy a character on an Endless Journey account. 
 1154488;Your last character transfer or copy attempt was too recent.  You may not start a new character transfer or copy for another ~1_NUMBER~ minutes. 
-1154489;You received a Quest Item! 
+1154489;You received a Przedmiot Zadania! 
 1154490;What have I done...what...I cannot...these vile creatures...I have managed to lock them away within the central cargo hold and I have destroyed the winch assembly needed to remove the cargo hold's cover. I can only hope my efforts to lock away the repair parts will deter any foolish enough to start smashing the supply barrels in an attempt to recover the locker keys...they're all gone now...it is only I now, forever damned to this watery grave.... 
 1154491;<I>One day later....</I>The weather has become increasingly ominous over the past twelve hours. Given our current location in the Southern Latitudes one would expect relatively calm seas and pleasant weather, yet that is not the case. Navigation officer puts the Ararat south of the Isle of Ocllo, yet the weather is what one would expect in the Northern latitudes. Morale officer further reports the crew is becoming uncharacteristically irritable for as soon into our voyage as we are.<BR><BR><I>Later that evening....</I><BR>The Weather seems to be holding for now. As is customary I dined with my officers on a meal of salted pork and stewed corn. I was happy to see Garrity was able enough procure a small ration of donuts from Baked Delights before our departure, although since then have become a bit tough to the bite. Garrity is a good friend in that regard and a fine officer as well. If not for my years of friendship with him I would be none the wiser to the torment he lives with inside. Even though he is my friend, I have a greater responsibility to the crew of this ship. Given the unfortunate events of the days just before our departure a lesser man would nay be fit for duty at sea, but not Garrity. He is a professional through and through, still I shall keep mind of him closely.<BR><BR><I>The next morning...</I><BR>Just as the sun peeked from beneath the Horizon the Ararat passed within a short distance of the Serpent's Pillar. It never ceases to amaze, it's coiled facade cutting through the waves. The weather, while unexplainable thus far, continues to hold. 
 1154492;Use the rope to return to the surface 
-1154493;You can only reclaim lost quest items once per real world week. 
-1154494;You cannot reclaim lost quest items if you have not completed the quest. 
-1154495;Lost Quest Item Replacement 
-1154496;Double Click to Reclaim Lost Quest Items 
+1154493;You can only reclaim lost Przedmiot Zadanias once per real world week. 
+1154494;You cannot reclaim lost Przedmiot Zadanias if you have not completed the quest. 
+1154495;Lost Przedmiot Zadania Replacement 
+1154496;Double Click to Reclaim Lost Przedmiot Zadanias 
 1154497;Your backpack was full so the item was lost. 
 1154498;This item is impermissible. 
 1154499;<I>Midday...</I>The winds have picked up considerably, although I must admit I welcome the added speed it brings the Ararat. I am told there is an uneasiness amongst the crew with regard to the Serpent's Pillar. An old sailor's myth no doubt, but ask any man worth his salt on the sea and they'll embellish a tail of misfortune and mishap almost always blamed on some way to the pillar. I received a report of a minor fray amongst some of the men regarding one of these myths. Cobb has informed me he dealt with the issue swiftly and it should not be a problem again. Amongst my officers I have sailed with Rogers the least, yet the high remarks of other Captains allowed my decision to bring him aboard with little hesitation. He has proven himself as courageous as the stories say...to think any man would be brave enough to wrestle a Kraken! 
@@ -111375,7 +111375,7 @@ Number;Text
 1154657;Poison Resonance 
 1154658;Energy Resonance 
 1154659;Kinetic Resonance 
-1154660;Reactive Paralyze 
+1154660;Paralizujaca Reakcja
 1154661;Faction Item 
 1154662;Pochlanianie obrazen od ognia 
 1154663;Pochlanianie obrazen od zimna 
@@ -113777,7 +113777,7 @@ Number;Text
 1157059;History of the Great Work IV 
 1157060;The Great Moonstone and the Destruction of the First Home<br><br>Spoken by the Memory of Katalkotl<br><br>Transcribed by Professor Ellie Rafkin<br><br>Eodon was not the cradle of the Kotl. Before, there was Akaktolan, the First Home. While much is forgotten, it was there where the Kotl learned the fundamentals of magic and lore. The First Home was struck by a great meteorite, and the world slipped into an ice age. Those Kotl who survived traveled across the wastes, seeking the source of their suffering. In the center of a huge crater, they found a large tenebrous moonstone. The blackrock artifact bent the very shadows around it. All the Kotl recognized the raw magic before them. Some shunned the moonstone, turning and walking back into the cold, never to be seen again. They were the Mixkotl, the Lost. The rest remained with the moonstone, hoping to unlock its secrets before the end came. In the frozen crater, each day of study claimed another life, but eventually, the Kotl learned to wield the moonstone's power. They used it to grasp and manipulate frayed threads of existence. They knit together pieces from before the First Home's destruction into a new world - Eodon. Eodon presented refuge from the cold desolation Akaktolan had become, so the Kotl stepped across the threshold into the new reality. When they left, they took the Great Moonstone with them, thus closing the door to the First Home forever. 
 1157061;The Founding of Kotlan and the Myrmidex<br><br>Spoken by the Memory of Katalkotl<br><br>Transcribed by Professor Ellie Rafkin<br><br>While the valley of Eodon was warm and filled with bountiful life and food, it was still untamed and wild. The Kotl wished to rebuild their civilization, so they bored into the earth to tap veins of iron and gold. These tunnels became the oldest parts of their city, running for miles under Eodon.  To help with the work, they constructed huge golden golems. Powered by the Great Moonstone, the Kotl automatons were tireless workers. Soon, the city of Kotlan was a shining marvel at the heart of Eodon. After the city was completed, the Kotl settled into a life made easier by the magic of the moonstone. However, they wished to be free of all toil. They could never construct or empower enough automatons to take care of every task in the city, so they searched for new servants. Finding no intelligent creatures in the world, they decided to create a servitor race. Using the Nowlotl crystal to tap into the moonstone's power and select distant future variations, the Kotl bred such servants from ants. The Myrmidex were this failed experiment. The Kotl thought that the Myrmidex might inherit the industrious nature of the ants, but instead, they gained only the ants, warlike nature. The Myrmidex broke free of their captivity and fled the city of the Kotl. Thus, the World-Builders were forced to look elsewhere for their labor. 
-1157062;The Worldwalker and Humanity<br><br>Spoken by the Memory of Katalkotl<br><br>Transcribed by Professor Ellie Rafkin<br><br>After the failure of the Myrmidex, the Kotl took more care in their manipulation of living things. They turned the power of the moonstone outward beyond Eodon. They constructed the Moon Chamber as a focal point for all of Eodon's mana. The artificial origin of Eodon made travel across the void between worlds difficult. However, with the awesome power of the Great Moonstone, it was possible. The Kotl sent their bravest general out across the Ethereal Void: Katalkotl the Worldwalker. He and his warriors traveled to dozens of worlds, bringing treasures and curiosities back to Eodon. Eventually, Katalkotl found several worlds with an intelligent, but less civilized, species called humans. With unrivalled magic and martial power, Katalkotl's forces brought back humans to be servants to the Kotl. Because of the mercurial connection between Eodon and the outer worlds, the humans were from many different times and places. Since the Kotl language could not be spoken by the human voice box (and so the Kotl could keep the secrets of their power), the Kotl created a single language from various human tongues to communicate with their new servants. Out of awe and fear, most of the humans revered and served the World-Builders without complaint. Those of exceptional courage and honor even served as defenders of Kotlan. Still some humans rebelled against servitude. Many managed to flee the city of the Kotl. Some tried to resist openly and directly, only to be stopped by the automatons. A few succeeded in undermining the rulers of Eodon in secret. 
+1157062;The Worldwalker and Humanity<br><br>Spoken by the Memory of Katalkotl<br><br>Transcribed by Professor Ellie Rafkin<br><br>After the failure of the Myrmidex, the Kotl took more care in their manipulation of living things. They turned the power of the moonstone outward beyond Eodon. They constructed the Moon Chamber as a focal point for all of Eodon's mana. The artificial origin of Eodon made travel across the void between worlds difficult. However, with the awesome power of the Great Moonstone, it was possible. The Kotl sent their bravest general out across the Ethereal Void: Katalkotl the Worldwalker. He and his warriors traveled to dozens of worlds, bringing treasures and curiosities back to Eodon. Eventually, Katalkotl found several worlds with an intelligent, but less civilized, species called humans. With unrivalled magic and martial power, Katalkotl's forces brought back humans to be servants to the Kotl. Because of the mercurial connection between Eodon and the outer worlds, the humans were from many different times and places. Since the Kotl language could not be spoken by the human voice box (and so the Kotl could keep the secrets of their power), the Kotl created a single language from various human tongues to communicate with their new servants. Out of awe and fear, most of the humans revered and served the World-Builders without complaint. Those of Wyjatkowej jakosci courage and honor even served as defenders of Kotlan. Still some humans rebelled against servitude. Many managed to flee the city of the Kotl. Some tried to resist openly and directly, only to be stopped by the automatons. A few succeeded in undermining the rulers of Eodon in secret. 
 1157063;The Fall of the World-Builders<br><br>Spoken by the Memory of Katalkotl<br><br>Transcribed by Professor Ellie Rafkin<br><br>Initially, the Kotl viewed the escaped Myrmidex as a minor nuisance, like any other beast of Eodon. The Myrmidex should have been no threat to the Kotl, who protected their settlements with energy fields powered by the Great Moonstone. Still, the Myrmidex were persistent in their aggression. Eventually, the Kotl began planning to exterminate the ant hybrids. The Kotl attempted to grow a new version of the Myrmidex, hoping to breed passivity into the species. They planned to send empowered humans directly against the insects. The first of these was called Zipactriotl. While the weapon initially killed a countless number of the insects, the human mind inside grew dangerously unstable. Still, it was believed that beyond a few scattered insects in the wilds of Eodon, the species was extinct. Unfortunately, the Myrmidex queen had simply gone into hiding. In a subterranean hive, she produced a million eggs that hatched into an army. The intelligent insects had studied the Kotl and knew the source of their power. Mysteriously, the Myrmidex raided inside Kotlan and stole the Great Moonstone. If this initial strike disarmed the Kotl, the Myrmidex then proceeded to break the back of Kotl civilization. The surface portions of Kotlan were destroyed, so the World-Builders barricaded themselves in the city's tunnels. Expecting to withstand the Myrmidex for months, the Kotl found themselves facing the Myrmidex in days. The insects destroyed everything in their path: every crystal, every relic, and any trace of Kotl magic. The Myrmidex killed everyone in the city, Kotl and human. Then the Myrmidex left, and the city closed up behind them. 
 1157064;"Terms of Use Agreement<br>1. YOU MUST AGREE TO THIS TERMS OF USE AGREEMENT BEFORE USING OUR WEBSITE AND/OR PLAYING OUR GAMES<br>This Terms of Use Agreement (""Agreement"") informs you of the terms, conditions, disclaimers, notices and policies (collectively the ""Terms"") that apply to your access and use of the website of Broadsword Online Games Inc. (""Broadsword"") located at the URL http://www.broadsword.com (""Site""), and any and all games provided by Broadsword on any platform, including without being limited to Ultima Online and Dark Age of Camelot (collectively ""Games""). Collectively, the Site and Games are referred to as the ""Services"" in this Agreement. Many of these Games may be playable by one or more persons simultaneously (""Users""), and the conduct of all such Users while playing the Games or using the Site is governed by this Agreement. This Agreement is a binding contract between you and Broadsword that provides for important rights and obligations. By accessing, browsing, and/or using the Services and/or playing, downloading or browsing our Games you represent to Broadsword that you have read, understood and agree to be bound by this Agreement and all applicable local, state, national and international laws and conventions, including without limitation all intellectual property laws. Broadsword reserves the right, at its sole and absolute discretion, to deny any user access to the Services, without notice. If you violate any of the Terms, we may, at our option, give you a warning notice of violation or terminate your account immediately for violation of the Terms. IF YOU DO NOT AGREE TO ALL OF THESE TERMS, YOU MUST NOT ACCESS OR USE THE SITE OR ACCESS OR USE OUR GAMES.<br>2. ELIGIBILITY TO AKCEPTUJ AGREEMENT AND USE SITE<br>You must be at least 13 years of age to access and use the Services. There is no exception to this requirement. Broadsword does not knowingly collect any personal information from children under the age of 13 that falls within the Children's Online Privacy Protection Act and Rule. By your use of the Services, you agree that you are either 18 years of age or older, or an emancipated minor, or possess legal parental or guardian consent, and that you are fully able and competent to understand and accept this Agreement as a binding contract and to abide by all Terms.<br>3. BROADSWORD'S RIGHT TO MODIFY AGREEMENT<br>Broadsword may modify this Agreement at any time, with or without notice to you, by posting the modified Agreement on the Site. Your continued use of the Services after such modification shall be deemed to be your acceptance of any such modification. Any such modification will only apply to matters and events that occur following the date of modification. You may not modify this Agreement without the prior written authorization of an officer of Broadsword. It is your responsibility to check this Agreement regularly to determine whether the Agreement has been modified. IF YOU DO NOT AGREE TO ANY MODIFICATION OF THIS AGREEMENT YOU MUST IMMEDIATELY CEASE USE OF THE SITE AND UNINSTALL ANY GAMES YOU MAY HAVE INSTALLED ON YOUR COMPUTER AND SOCIAL NETWORK PROFILES.<br>4. POLICY ON PRIVACY<br>The Services include the Privacy Policy relating to the collection, use and disclosure of your information. Please read the Privacy Policy carefully. By using the Services, you are consenting to the Privacy Policy.<br>5. BROADSWORD'S OWNERSHIP OF THE SERVICES AND PROPRIETARY MATERIALS<br>The Services contain copyrighted material, technology, trademarks, service marks, trade secrets and other proprietary information, which may include computer code, text, data, video, images, illustrations, animations, sounds, musical compositions and recordings, audiovisual effects, color schemes, business methods and methods of operation, concepts, ideas, know-how, moral rights, and any related documentation (collectively the ""Proprietary Material""). All intellectual property rights to the Proprietary Material, including patent, copyright, trademark and trade secret rights, are owned or licensed by Broadsword. You agree not to copy, download, reproduce, republish, upload, post, transmit, perform, display, distribute or sell, or in any other way exploit the Proprietary Material, or to participate with or to encourage others to engage in such acts, without the prior written consent of Broadsword. Moreover, you may not reverse engineer, disassemble, decompile, or translate any computer software programs that comprise Proprietary Material, or otherwise attempt to derive the source code of such programs, except to the extent allowed under any applicable law. If applicable law permits such activities, any information so discovered must be promptly disclosed to Broadsword and shall be deemed to be the confidential proprietary information of Broadsword. Nor may the Proprietary Material, or any portion thereof, be modified or used for any purpose other than as expressly authorized in this Agreement. The Proprietary Material may include materials licensed by Broadsword from third parties, and the licensors of those materials may enforce their rights in the event of any violation of this Agreement. ALL RIGHTS NOT EXPRESSLY GRANTED TO YOU IN THIS AGREEMENT ARE RESERVED BY BROADSWORD AND ITS LICENSORS.<br>6. OWNERSHIP OF IDEAS INVENTIONS AND USER SUBMISSIONS INCLUDING USER-GENERATED CONTENT<br>The Services provide you with access to a variety of resources, materials and downloads, and may allow you access content made available by Broadsword and other Users. Such content may include, without limitation, game levels, content creation tools, audio, video, film, music, text, communications, software, graphics, images, and information. All such content made available by you or by other users of the Services is referred to in this Agreement as ""User-Generated Content."" As between Broadsword and you, you own the copyright in any User-Generated Content that is exclusively created by you. You expressly acknowledge and agree that any User-Generated Content that you make available through the Services may be made freely available by Broadsword to others, including without limitation for download by others.<br>You further acknowledge and agree that this permission is made and granted by you in consideration of your use of the Services, and that this permission constitutes a world-wide, nonexclusive, perpetual, royalty-free, irrevocable and transferable license to Broadsword to use, copy, perform, display and distribute such User-Generated Content, and to grant and authorize sublicenses of such User-Generated Content to others.<br>All comments, feedback, suggestions, gameplay features, level designs, and other submissions (""User Ideas"") disclosed, submitted, or offered to Broadsword shall be the exclusive property of Broadsword. Unless otherwise prohibited by law, Broadsword may use, sell, exploit, or create derivative works from these User Ideas and, further, Broadsword may disclose these User Ideas to third parties or the general public, without compensation to you.<br>YOU ACKNOWLEDGE THAT USER IDEAS AND USER-GENERATED CONTENT ARE PROVIDED BY YOU ON A COMPLETELY VOLUNTARY BASIS. SHOULD YOU NOT WISH TO HAVE YOUR USER IDEAS AND USER-GENERATED CONTENT INCORPORATED INTO ANY GAME OR WEBSITE FUNCTIONS, YOU MAY CHOOSE NOT TO SHARE THEM WITH BROADSWORD ON THE SITE." 
 1157065;7. PROHIBITED USER-GENERATED CONTENT<br>You are solely responsible and liable for any User-Generated Content that you upload, post, input, publish or otherwise distribute using the Services. As a condition of your use of the Services, you agree not to use the Services for any unlawful or prohibited purpose. User-Generated Content prohibited from upload, display or posting on the Services includes, without limitation, User-Generated Content that Broadsword determines in its sole and absolute discretion:<br>(a) constitutes or includes any illegal or unauthorized copy, in whole or in part, of another person's copyrighted or copyrightable work, discloses trade secrets without authorization, or otherwise violates the proprietary rights of a third party 
@@ -116157,12 +116157,12 @@ Number;Text
 1159443;Anvil of Artifacts (South) 
 1159444;Anvil of Artifacts (East) 
 1159445;metal ladder 
-1159446;*CAUTION* You are under the following EXCEPTIONAL ITEM buff. Do you want to remove it? 
-1159447;The next time that you try to craft an exceptional piece of armor the bonus resists will be the values input below. The required materials to craft will be increased while this buff is active. One charge on this item will be consumed per use and only one instance of this buff can be active at any time. 
-1159448;The magical aura that surrounded you dissipates and you feel that your exceptional item resist chances have returned to normal. 
-1159449;A magical aura surrounds you and you feel that your next attempt to craft an exceptional piece of armor will have favorable bonus resists. 
-1159450;Runic Exceptional Bonus 
-1159451;Exceptional Bonus 
+1159446;*CAUTION* You are under the following Wyjatkowej jakosci ITEM buff. Do you want to remove it? 
+1159447;The next time that you try to craft an Wyjatkowej jakosci piece of armor the bonus resists will be the values input below. The required materials to craft will be increased while this buff is active. One charge on this item will be consumed per use and only one instance of this buff can be active at any time. 
+1159448;The magical aura that surrounded you dissipates and you feel that your Wyjatkowej jakosci item resist chances have returned to normal. 
+1159449;A magical aura surrounds you and you feel that your next attempt to craft an Wyjatkowej jakosci piece of armor will have favorable bonus resists. 
+1159450;Runic Wyjatkowej jakosci Bonus 
+1159451;Wyjatkowej jakosci Bonus 
 1159452;Shrine Battle Virtue Title 
 1159453;You are about to renounce your Shrine Battle virtue title. You may recover the title by placing a mysterious fragment at any shrine. Do you wish to proceed? 
 1159454;The Royal Engineers have warned of a structure in danger of collapsing near ~2_where~ at ~1_coords~! 
@@ -116177,7 +116177,7 @@ Number;Text
 1159463;This decorative container will hold all of your cenny possessions and display as either empty or full of wine bottles based on if the container is empty or full.  Can be hued with regular, natural, pigment, and Ultima Store dyes. 
 1159464;Decorative Garden Sculpture 
 1159465;This decorative garden sculpture is sure to bring an extra bit of beauty to your garden!  Can be hued with regular, natural, pigment, and Ultima Store dyes. 
-1159466;The Anvil of Artifacts allows a player to set the value of all exceptional resist bonuses provided when crafting an exceptional piece of armor.  When crafting with a runic tool the resulting armor is still subject to random magic item properties. (18 charges) 
+1159466;The Anvil of Artifacts allows a player to set the value of all Wyjatkowej jakosci resist bonuses provided when crafting an Wyjatkowej jakosci piece of armor.  When crafting with a runic tool the resulting armor is still subject to random magic item properties. (18 charges) 
 1159467;decorative dungeon bull 
 1159468;Decorative Dungeon Set 
 1159469;decorative dungeon wall hook 
@@ -118694,7 +118694,7 @@ Number;Text
 3060185;No wiesz... juz myslalem, ze mi pomozesz
 3060186;Nie trac mego czasu. Zadanie jest proste - masz zabic 20 nietoperzy wampirow
 3060187;Misja Kaplana Cumberlanda
-3060188;Kaplan Cumberliand nakazal opatrzyc rany lezacych w izbie. Jedna z rannych osob, pomimo iz wydawala sie byc jedynie lekko ranna, jej rany zamienialy sie w czarna jak smola maz. Owa maz nie byla czyms co w tych stronach byloby znane uzdrowicielom. Jedynie wyposazony w odpowiednia Herdeista mogl temu zaradzic. Jednakze, mlodzi adepci tej sztuki widzac to pierwszy raz w swym, miejmy nadzieje, dlugim zyciu, nie wiedza jakie remedium moze tutaj pomoc. Stad, Cumberliand wyslal ich po zebranie kilku skladnikow, by takie remedium sporzadzic. Potrzebne sa: woda wiosenna, sztuk 50, spetryfikowane drzewo.
+3060188;Kaplan Cumberliand nakazal opatrzyc rany lezacych w izbie. Jedna z rannych osob, pomimo iz wydawala sie byc jedynie lekko ranna, jej rany zamienialy sie w czarna jak smola maz. Owa maz nie byla czyms co w tych stronach byloby znane uzdrowicielom. Jedynie pisadajacy odpowiednia Herdeista mogl temu zaradzic. Jednakze, mlodzi adepci tej sztuki widzac to pierwszy raz w swym, miejmy nadzieje, dlugim zyciu, nie wiedza jakie remedium moze tutaj pomoc. Stad, Cumberliand wyslal ich po zebranie kilku skladnikow, by takie remedium sporzadzic. Potrzebne sa: woda wiosenna, sztuk 50, spetryfikowane drzewo.
 3060189;Nie chcesz pomoc, to nie zawracaj mi glowy. Potrzebujacy czekaja
 3060190;No dalej,pomoz nam pomoc innym
 3060191;I jak? Masz pierwsza transze skladnikow?
@@ -118705,7 +118705,7 @@ Number;Text
 3060196;Jak Ci idzie z tymi skladnikami?
 3060197;No swietnie, mamy wszystko co trzeba! *podskakuje z radosci*
 3060198;Wycieczka do Hurengrav
-3060199;Kolejnym krokiem bedzie udanie sie do Hurengrav i wytepienie tam poplecznikow Smierci. Zabicie 10 gargulcow niszczycieli pokaze Panu, iz nie tylko wiedza, ale i sila przepelnia mlodych Herdeistow. Musza one zginac na samym koncu dawnej swiatyni. Przy stolach, nieopodal pentagramu. Tylko tak przypodobasz sie Panu.
+3060199;Kolejnym krokiem bedzie udanie sie do Hurengrav i wytepienie tam poplecznikow Smierci. Zabicie 10 gargulcow niszczycieli pokaze Panu, iz nie tylko wiedza, ale i sila przepelnia mlodych Herdeistow.
 3060200;I jak Ci idzie gromienie gargulcow? Chyba slabo....
 3060201;Zlote a skromne
 3060202;Poswiecenie, to najwieksza cnota Herdeisty. No, moze z wyjatkiem zlota poswiecanego na swiatynie. Aby zostac przyjety do tego waskiego grona wybranych, nalezy zlozyc ofiare na Pana w wysokosci 20000 centarow
@@ -118752,7 +118752,7 @@ Number;Text
 3060243;Krok blizej do poznania tajnikow starozytnej magii
 3060244;Starozytna Magia jest zarezerwowana dla waskiej grupy smialkow gotowych poswiecic swe zycie na zglebianie tajnikow magii. Niewielu dostapilo zaszczytu przegladania Ksiag Moreny. Zanim zwrocila sie do Smierci, zglebiala bowiem Starozytna Magie dniami i nocami. Aby odblokowac potencjal Twego umyslu, sama wola nie wystarczy. Bedziesz musial odszukac magiczna kostke, ktora zdejmie kajdany z Twego umyslu i pozwoli Ci pojac misterium Starozytnych. Magie, ktora ongis jedynie Bogowie wladali. Najpierw trzeba bedzie zabic 15 impow, by zyskac wystarczajaco duzo esencji magicznej, aby wykonac rytula
 3060245;No wiesz? Juz rezygnujesz...
-3060246;Doniesiono mi, ze kostki mozna szukac w kilku miejscach, lecz nie wiadomo, ktora z nich jest ta wlasciwa: W Labiryncie Minotaurow ponoc slyszano o tym, ze owa kostka moze byc. Sprawdz to miejsce. A potem przynies Gordonowi w Tasandorze ja. Dobra?
+3060246;Doniesiono mi, ze kostki mozna szukac w kilku miejscach, lecz nie wiadomo, ktora z nich jest ta wlasciwa: W Labiryncie Minotaurow ponoc slyszano o tym, ze owa kostka moze byc. Sprawdz to miejsce i poszukaj tam tego artefaktu.
 3060247;Ahh... no pospiesz sie...
 3060248;*entuzjastycznie bije brawo*
 3060249;Kolejny krok
@@ -118773,7 +118773,7 @@ Number;Text
 3060264;Pan sprzyja tez tepicielom zla - kazdy kto zgladzi kreature w jego imieniu, poczuje spoczywajacy na swoich plecach wzrok Pana, ktory z usmiechem spoglada na swych heroldow. Z tego wzgledu, musimy sprawdzic czy jestes godzien jego spojrzenia. Musisz wytropic i zabic: 10 sukkubow, 10 smokow, 10 zdrajcow, 10 impow
 3060265;Uzdrowiciel poprosil o kolejna dostawe. Poprosil o zebranie  30 zwojow wiekszego leczenia. Musimy pomoc tym biednym ludziom
 3060266;Coraz blizej wielkich piesni bardowskich
-3060267;*ledwo trzyma sie na nogach* Kuuuuuuuuurrrwaaanckaa...., ale mnie leb boli. Cholera... *spoglada kaprawymi oczetami na postac przed soba* ....przynies tu troche krasnoludzkiego rumu, prosze... inaczej nie dam rady prowadzic rozmowy *czka*. Ale daj to Elfowi tu niepodal. Jego imie to An-Galad.
+3060267;*ledwo trzyma sie na nogach* Kuuuuuuuuurrrwaaanckaa...., ale mnie leb boli. Cholera... *spoglada kaprawymi oczetami na postac przed soba* ....przynies tu troche krasnoludzkiego rumu, prosze... inaczej nie dam rady prowadzic rozmowy *czka*. 
 3060268;Bardo dobrze
 3060269;Kras-noo-luuuudzkiiii rum. Ile razy mam mowic?
 3060270;Chcesz wiedziec wiecej na temat tych slawnych piesi... TO ja ich nie znam. Znal je Odon.. ehh... Odon jak zwykle wieczor spedzal w Karczmie. Nie to ze pijanstwo, chociaz zdarzalo sie i to... Zarechotal na samo wspomnienie. Lazil do Karczmy, bo graniem na zycie zarabial. Wlasciwie przypadkiem kiedys wzial do reki lutnie i dalej juz poszlo. Slowa wymyslane na poczekaniu, zartobliwe uwagi, dramatyczne pozy. Niezbyt wyszukana publika karczmy od razu to pokochala. Wczoraj jednak trafila mu sie okazja. Zarobek wiekszy niz przy spiewach. Ale od poczatku zacznijmy. Kiedy Karczma powoli pustoszala, a przy barze dosypialo kilku gosci, zas barman scyzorykiem dlubal w zebie otworzyly sie drzwi. Barczysta postac, ledwie mieszczaca sie w framudze. Jakis cien ledwie widoczny w miejscu twarzy. Rosly czlowiek, jak okazalo sie po zdjeciu kaptura ledwie mrugnal do barmana, ktory przerwal swoje czynnosci i cichutko pogwizdujac odwrocil sie do okna. Od razu podszedl do Odona. Witaj grajku, nie bede czasu tracil - powiedzial basowym glosem - Chcesz zarobic wiecej jak w tej zapomnianej przez Bogow dziurze? Odon zgodzil sie wysluchac jego propozycji, przez glowe przelecialy mu bowiem wyobrazenia o worach pelnych zlota i kosztownosci. Nieznajomy zaczal opowiadac. W miare opowiesci oczy Odona najpierw robily sie wielkie, potem ich ksztalt przypominal waskie szczeliny - nieznajomy bowiem przeszedl do czesci wynagrodzenia. Zatem zadanie bylo nastepujace - mial odzyskac nuty pewnej piesni, ktora w posiadaniu rodziny nieznajomego byla. Podobno gdzies na bagnach zlodzieje ukryli skradzione zloto, oraz ostatni egzemplarz piesni. Ponoc tam bylo 5000 centarow.
