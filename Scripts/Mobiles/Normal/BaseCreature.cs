@@ -6436,7 +6436,7 @@ namespace Server.Mobiles
 
             if (caster is PlayerMobile pm)
             {
-	            pm.Statistics.CreaturesSummoned[creature.GetType()]++;
+	            pm.Statistics.CreaturesSummoned.Increment(creature.GetType());
             }
             return true;
         }
