@@ -9,7 +9,7 @@ namespace Server.Spells.Chivalry
     public class DispelEvilSpell : PaladinSpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-            "Dispel Evil", "Dispiro Malas",
+	        "Przeciwna wola", "Postac odgania zle moce",
             -1,
             9002);
         public DispelEvilSpell(Mobile caster, Item scroll)

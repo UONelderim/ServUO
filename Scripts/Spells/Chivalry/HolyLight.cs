@@ -8,7 +8,7 @@ namespace Server.Spells.Chivalry
         public override DamageType SpellDamageType => DamageType.SpellAOE;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-            "Holy Light", "Augus Luminos",
+	        "Energia woli", "Powietrze wokół zaczyna drzeć",
             -1,
             9002);
 
