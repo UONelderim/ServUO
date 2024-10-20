@@ -21,8 +21,7 @@ namespace Server.Engines.Quests
 		public override void InitBody()
 		{
 			InitStats(100, 100, 25);
-
-			Female = true;
+			
 			Race = Race.NTamael;
 		}
 
