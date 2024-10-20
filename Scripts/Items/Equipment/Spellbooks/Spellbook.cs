@@ -1219,7 +1219,14 @@ namespace Server.Items
                 }
 
                 BaseRunicTool.ApplyAttributesTo(this, true, 0, propertyCount, minIntensity, maxIntensity);
-                LootType = LootType.Regular;
+                if (m_AosAttributes.IsEmpty && m_AosSkillBonuses.IsEmpty)
+                {
+	                LootType = LootType.Blessed;
+                }
+                else
+                {
+	                LootType = LootType.Regular;
+                }
             }
 
             if (makersMark)
