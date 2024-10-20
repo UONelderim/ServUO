@@ -9,7 +9,7 @@ namespace Server.Items
 
 	    public static void Initialize()
 	    {
-		    EventSink.CreatureDeath += e => OnBeforeDeath(e.Creature);
+		    // EventSink.CreatureDeath += e => OnBeforeDeath(e.Creature);
 	    }
 
         [CommandProperty(AccessLevel.GameMaster)]
