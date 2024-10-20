@@ -562,7 +562,7 @@ namespace Server.Items
 
         public static Type[][] _DecorativeTable = new Type[][]
             {
-                new Type[] { typeof(carpet11m) }, //bylo SkullTiledFloorAddonDee
+                new Type[] { typeof(carpet11mDeed) }, //bylo SkullTiledFloorAddonDee
                 new Type[] { typeof(AncientWeapon3) },
                 new Type[] { typeof(DecorativeHourglass) },
                 new Type[] { typeof(AncientWeapon1), typeof(CreepingVine) },
