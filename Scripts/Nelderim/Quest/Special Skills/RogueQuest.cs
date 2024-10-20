@@ -154,8 +154,7 @@ namespace Server.Engines.Quests
 	{
 		public RoguePhase4Quest()
 		{
-			AddObjective(new DeliverObjective(typeof(PowerGeneratorKey), "Klucz deszyfrujacy", 1, typeof(BaseCreature),
-				"Edward"));
+			AddObjective(new ObtainObjective(typeof(PowerGeneratorKey), "Klucz deszyfrujacy", 1, 0x32F8));
 
 			AddReward(new BaseReward(3060294)); // Coraz blizej opanowania Podstepnych Sztuczek
 		}

@@ -142,8 +142,7 @@ namespace Server.Engines.Quests
 	{
 		public NaturePhase4Quest()
 		{
-			AddObjective(new SlayObjective(typeof(GargoyleEnforcer), "gargulec niewolnik", 10,
-				"VelkynAto_VeryDifficult"));
+			AddObjective(new SlayObjective(typeof(GargoyleEnforcer), "gargulec niewolnik", 10));
 			AddObjective(new ObtainObjective(typeof(Gold), "zloto", 4000, 3821));
 
 			AddReward(new BaseReward(3060228)); // Krok blizej od poznania tajemnic Magii Natury

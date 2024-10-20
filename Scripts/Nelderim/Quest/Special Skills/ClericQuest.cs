@@ -146,8 +146,7 @@ namespace Server.Engines.Quests
 	{
 		public ClericPhase4Quest()
 		{
-			AddObjective(new SlayObjective(typeof(GargoyleDestroyer), "gargulec niszczyciel", 10,
-				"Hurengrav_VeryDifficult"));
+			AddObjective(new SlayObjective(typeof(GargoyleDestroyer), "gargulec niszczyciel", 10));
 
 			AddReward(new BaseReward(3060192)); // Szansa poznania drogi Herdeisty.
 		}
