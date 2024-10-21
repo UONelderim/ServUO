@@ -83,9 +83,6 @@ namespace Knives.TownHouses
 
 			foreach (Sector sector in c_Sectors)
 				sector.OnMultiEnter(this);
-
-			Components.Resize(maxX - minX, maxY - minY);
-			Components.Add(0x520, Components.Width - 1, Components.Height - 1, -5);
 		}
 
 		public override Rectangle2D[] Area
