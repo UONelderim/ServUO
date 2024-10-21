@@ -249,7 +249,7 @@ namespace Server.Engines.Quests
 
 		public override bool Update(object obj)
 		{
-			if (obj is string text && text.Trim().Equals("Chwalmy pana"))
+			if (obj is string text && text.Trim().Equals("Chwalmy pana", StringComparison.InvariantCultureIgnoreCase))
 			{
 				CurProgress++;
 

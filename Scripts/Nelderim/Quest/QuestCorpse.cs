@@ -20,6 +20,8 @@ namespace Server.Items
 		{
 		}
 
+		public override bool HandlesOnSpeech => true;
+
 		public override void OnSpeech(SpeechEventArgs e)
 		{
 			base.OnSpeech(e);
