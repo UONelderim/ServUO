@@ -5586,7 +5586,6 @@ namespace Server.Mobiles
 
                         PackItem(new TreasureMap(treasureLevel, map, SpellHelper.IsEodon(map, Location)));
                     }
-                    SoulLantern.OnBeforeDeath(this);
                 }
 
                 if (m_Paragon && Paragon.ChocolateIngredientChance > Utility.RandomDouble())

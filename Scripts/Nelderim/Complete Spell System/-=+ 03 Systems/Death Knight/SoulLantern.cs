@@ -9,7 +9,7 @@ namespace Server.Items
 
 	    public static void Initialize()
 	    {
-		    // EventSink.CreatureDeath += e => OnBeforeDeath(e.Creature);
+		    EventSink.CreatureDeath += CreatureDeath;
 	    }
 
         [CommandProperty(AccessLevel.GameMaster)]
@@ -19,6 +19,8 @@ namespace Server.Items
             set
             {
                 _TrappedSouls = value;
+                if (_TrappedSouls > 100000)
+	                _TrappedSouls = 100000;
                 InvalidateProperties();
             }
         }
@@ -115,49 +117,37 @@ namespace Server.Items
             _TrappedSouls = reader.ReadInt();
         }
 
-        public static void OnBeforeDeath(Mobile killed)
+        public static void CreatureDeath(CreatureDeathEventArgs e)
         {
-	        if(killed is BaseCreature bc)
+	        if(e.Creature is BaseCreature bc && e.Corpse != null)
             {
 	            //if (SlayerGroup.GetEntryByName(SlayerName.Repond).Slays(killed))
-                Mobile deathknight = bc.LastKiller;
-                if (deathknight is BaseCreature)
-                    deathknight = ((BaseCreature) deathknight).GetMaster();
+                var deathknight = e.Killer;
+                if (deathknight is BaseCreature killerBc)
+                    deathknight = killerBc.GetMaster();
                 
-                if (deathknight != null && deathknight is PlayerMobile && bc.TotalGold > 0)
+                if (deathknight is PlayerMobile && e.Corpse.TotalGold > 0)
                 {
-                    Item lantern = deathknight.FindItemOnLayer(Layer.TwoHanded);
-
-                    if (lantern is SoulLantern)
+                    if (deathknight.FindItemOnLayer(Layer.TwoHanded) is SoulLantern soulLantern) 
                     {
-                        SoulLantern soulLantern = (SoulLantern) lantern;
-                        var soulsToAdd = bc.TotalGold;
-                        soulLantern._TrappedSouls += soulsToAdd;
-                        if (soulLantern._TrappedSouls > 100000)
-                            soulLantern._TrappedSouls = 100000;
-
-                        soulLantern.InvalidateProperties();
-
-                        Item deathpack = bc.FindItemOnLayer(Layer.Backpack);
-                        if (deathpack != null)
+                        var soulsToAdd = e.Corpse.TotalGold;
+                        soulLantern.TrappedSouls += soulsToAdd;
+                        
+                        foreach (var gold in e.Corpse.FindItemsByType<Gold>())
                         {
-                            Item gold = bc.Backpack.FindItemByType(typeof(Gold));
-                            gold.Delete();
-                            deathknight.SendMessage("Odebrano duszę.");
-                            Effects.SendLocationParticles(
-                                EffectItem.Create(deathknight.Location, deathknight.Map,
-                                    EffectItem.DefaultDuration), 0x376A, 9, 32, 5008);
-                            Effects.PlaySound(deathknight.Location, deathknight.Map, 0x1ED);
-                            
-                            #region Death Knight Quest
-                            BaseQuest quest = QuestHelper.GetQuest((PlayerMobile)deathknight, typeof(DeathKnightPhase2Quest));
-
-                            if (quest != null)
-                            {
-	                            foreach (BaseObjective objective in quest.Objectives)
-		                            objective.Update(soulsToAdd);
-                            }
-                            #endregion
+	                        gold.Delete();
+                        }
+                        deathknight.SendMessage("Odebrano duszę.");
+                        Effects.SendLocationParticles(
+                            EffectItem.Create(deathknight.Location, deathknight.Map,
+                                EffectItem.DefaultDuration), 0x376A, 9, 32, 5008);
+                        Effects.PlaySound(deathknight.Location, deathknight.Map, 0x1ED);
+                        
+                        BaseQuest quest = QuestHelper.GetQuest((PlayerMobile)deathknight, typeof(DeathKnightPhase2Quest));
+                        if (quest != null)
+                        {
+                            foreach (var objective in quest.Objectives)
+	                            objective.Update(soulsToAdd);
                         }
                     }
                 }
