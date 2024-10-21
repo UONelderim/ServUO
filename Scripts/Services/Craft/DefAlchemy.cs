@@ -328,6 +328,24 @@ namespace Server.Engines.Craft
 
             index = AddCraft(typeof(GoldDust), 1044495, 1153504, 90.0, 120.0, typeof(Gold), 3000083, 1000, 1150747);
             ForceNonExceptional(index);
+			
+			index = AddCraft(typeof(PlainTobaccoApple), 1071088, 1061202, 0.0, 0.0, typeof(PlainTobacco), 1061208, 1, 1061210);
+			AddRes(index, typeof(Apple), 1044479, 1, 1061211);
+            
+			index = AddCraft(typeof(PlainTobaccoPear), 1071088, 1061203, 0.0, 0.0, typeof(PlainTobacco), 1061208, 1, 1061210);
+			AddRes(index, typeof(Pear), 1044481, 1, 1061211);
+            
+			index = AddCraft(typeof(PlainTobaccoLemon), 1071088, 1061204, 0.0, 0.0, typeof(PlainTobacco), 1061208, 1, 1061210);
+			AddRes(index, typeof(Lemon), 1025929, 1, 1061211);
+            
+			index = AddCraft(typeof(NobleTobaccoApple), 1071088, 1061205, 0.0, 0.0, typeof(NobleTobacco), 1061209, 1, 1061210);
+			AddRes(index, typeof(Apple), 1044479, 1, 1061211);
+            
+			index = AddCraft(typeof(NobleTobaccoPear), 1071088, 1061206, 0.0, 0.0, typeof(NobleTobacco), 1061209, 1, 1061210);
+			AddRes(index, typeof(Pear), 1044481, 1, 1061211);
+            
+			index = AddCraft(typeof(NobleTobaccoLemon), 1071088, 1061207, 0.0, 0.0, typeof(NobleTobacco), 1061209, 1, 1061210);
+			AddRes(index, typeof(Lemon), 1025929, 1, 1061211);
         }
     }
 }
