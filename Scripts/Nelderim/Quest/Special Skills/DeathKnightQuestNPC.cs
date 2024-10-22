@@ -41,7 +41,7 @@ namespace Server.Engines.Quests
 			SetWearable(new SwordBelt(), 2680, dropChance: 1);
 			SetWearable(new Epaulette(), 2680, dropChance: 1);
 			SetWearable(new Lantern(), 2980, dropChance: 1);
-			SetWearable(new BroadSword(), 2680, dropChance: 1);
+			SetWearable(new Broadsword(), 2680, dropChance: 1);
 		}
 
 		public override void Serialize(GenericWriter writer)
