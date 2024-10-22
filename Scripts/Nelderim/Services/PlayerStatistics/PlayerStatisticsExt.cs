@@ -31,8 +31,7 @@ namespace Server.Mobiles
 					TargetFlags.None,
 					(from, targeted) =>
 					{
-						if (targeted is PlayerMobile pm)
-							pm.Statistics.Print();
+						from.SendMessage("Not implemented");
 					});
 			});
 			Load(ModuleName);
@@ -189,53 +188,14 @@ namespace Server.Mobiles
 		public long BandagesUsed;
 
 		//Other
-		public long DungeonTreasureChestsOpened;
-		public long TreasureMapChestsOpened;
-		public long SOSChestsFound;
+		public Dictionary<Type, long> DungeonTreasureChestsOpened;
+		public Dictionary<int, long> TreasureMapChestsDigged = new();
+		public Dictionary<int, long> SOSChestsFished;
 		public long ParagonChestsLooted;
 		public long GoldLooted;
 		public long StepsTakenTotal;
 		public long DamageDealtTotal;
 		public long DamageTakenTotal;
-
-		public void Print()
-		{
-			Console.WriteLine("Creatures Killed:");
-			CreaturesKilled.Print();
-			ParagonsKilled.Print();
-			PlayerKillsFaction.Print();
-			PlayerKillsRace.Print();
-			SpellsCast.Print();
-			CreaturesSummoned.Print();
-			ItemsCrafted.Print();
-			ItemsEnhanced.Print();
-			ItemsRepaired.Print();
-			BulkOrderDeedsCompleted.Print();
-			ResourceHarvested.Print();
-			CreaturesCarved.Print();
-			Console.WriteLine($"Graves Digged: {GravesDigged}");
-			AnimalsTamed.Print();
-			AnimalsBonded.Print();
-			NecromancySummonsCrafted.Print();
-			PotionsUsed.Print();
-			Console.WriteLine($"Bolas Thrown: {BolasThrown}");
-			FoodConsumed.Print();
-			TobaccoSmoked.Print();
-			Console.WriteLine("Skills Mastered:");
-			foreach (var skill in SkillsMastered)
-			{
-				Console.WriteLine(skill);
-			}
-			Console.WriteLine($"Bandages Used: {BandagesUsed}");
-			Console.WriteLine($"Dungeon Treasure Chests Opened: {DungeonTreasureChestsOpened}");
-			Console.WriteLine($"Treasure Map Chests Opened: {TreasureMapChestsOpened}");
-			Console.WriteLine($"SOS Chests Found: {SOSChestsFound}");
-			Console.WriteLine($"Paragon Chests Looted: {ParagonChestsLooted}");
-			Console.WriteLine($"Gold Looted: {GoldLooted}");
-			Console.WriteLine($"Steps Taken Total: {StepsTakenTotal}");
-			Console.WriteLine($"Damage Dealt Total: {DamageDealtTotal}");
-			Console.WriteLine($"Damage Taken Total: {DamageTakenTotal}");
-		}
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -267,9 +227,9 @@ namespace Server.Mobiles
 			}
 
 			writer.Write(BandagesUsed);
-			writer.Write(DungeonTreasureChestsOpened);
-			writer.Write(TreasureMapChestsOpened);
-			writer.Write(SOSChestsFound);
+			writer.WriteTypeLongDict(DungeonTreasureChestsOpened);
+			writer.WriteIntLongDict(TreasureMapChestsDigged);
+			writer.WriteIntLongDict(SOSChestsFished);
 			writer.Write(ParagonChestsLooted);
 			writer.Write(GoldLooted);
 			writer.Write(StepsTakenTotal);
@@ -307,9 +267,9 @@ namespace Server.Mobiles
 			}
 
 			BandagesUsed = reader.ReadLong();
-			DungeonTreasureChestsOpened = reader.ReadLong();
-			TreasureMapChestsOpened = reader.ReadLong();
-			SOSChestsFound = reader.ReadLong();
+			DungeonTreasureChestsOpened = reader.ReadTypeLongDict();
+			TreasureMapChestsDigged = reader.ReadIntLongDict();
+			SOSChestsFished = reader.ReadIntLongDict();
 			ParagonChestsLooted = reader.ReadLong();
 			GoldLooted = reader.ReadLong();
 			StepsTakenTotal = reader.ReadLong();
@@ -336,6 +296,30 @@ namespace Server.Mobiles
 			}
 		}
 
+		public static void WriteIntLongDict(this GenericWriter writer, Dictionary<int, long> dict)
+		{
+			writer.Write(dict.Count);
+			foreach (var pair in dict)
+			{
+				writer.Write(pair.Key);
+				writer.Write(pair.Value);
+			}
+		}
+		
+		public static Dictionary<int, long> ReadIntLongDict(this GenericReader reader)
+		{
+			var dict = new Dictionary<int, long>();
+			var count = reader.ReadInt();
+			for (var i = 0; i < count; i++)
+			{
+				var type = reader.ReadInt();
+				var value = reader.ReadLong();
+				dict.Add(type, value);
+			}
+
+			return dict;
+		}
+		
 		public static void WriteTypeLongDict(this GenericWriter writer, Dictionary<Type, long> dict)
 		{
 			writer.Write(dict.Count);

@@ -643,6 +643,10 @@ namespace Server.Items
 
         public virtual void OnMapComplete(Mobile from, TreasureMapChest chest)
         {
+	        if (from is PlayerMobile pm)
+	        {
+		        pm.Statistics.TreasureMapChestsDigged.Increment(Level);
+	        }
         }
 
         public virtual void OnChestOpened(Mobile from, TreasureMapChest chest)

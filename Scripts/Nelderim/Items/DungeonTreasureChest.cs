@@ -25,7 +25,7 @@ namespace Server.Items
 			base.LockPick(from);
 			if (from is PlayerMobile pm)
 			{
-				pm.Statistics.DungeonTreasureChestsOpened++;
+				pm.Statistics.DungeonTreasureChestsOpened.Increment(GetType());
 			}
 		}
 
