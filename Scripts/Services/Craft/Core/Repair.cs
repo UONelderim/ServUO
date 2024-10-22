@@ -210,8 +210,10 @@ namespace Server.Engines.Craft
 
                             return;
                         }
+                        
+                        var craftItem = m_CraftSystem.CraftItems.SearchFor(targeted.GetType());
 
-                        if (!AllowsRepair(targeted, m_CraftSystem))
+                        if (!AllowsRepair(targeted, m_CraftSystem) || craftItem == null)
                         {
                             from.SendLocalizedMessage(500426); // You can't repair that.
 
@@ -221,7 +223,6 @@ namespace Server.Engines.Craft
                             return;
                         }
                         
-                        var craftItem = m_CraftSystem.CraftItems.SearchFor(targeted.GetType());
                         int resHue = 0;
                         int maxAmount = 0;
                         object message = null;
