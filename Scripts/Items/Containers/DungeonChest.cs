@@ -3,6 +3,7 @@ namespace Server.Items
     public class TreasureLevel1 : BaseDungeonChest
     {
         public override int DefaultGumpID => 0x49;
+        public override int TreasureLevel => 1;
 
         [Constructable]
         public TreasureLevel1() : base(Utility.RandomList(0xE3C, 0xE3E, 0x9a9)) // Large, Medium and Small Crate
@@ -46,6 +47,8 @@ namespace Server.Items
 
     public class TreasureLevel2 : BaseDungeonChest
     {
+	    public override int TreasureLevel => 2;
+	    
         [Constructable]
         public TreasureLevel2() : base(Utility.RandomList(0xe3c, 0xE3E, 0x9a9, 0xe42, 0x9ab, 0xe40, 0xe7f, 0xe77)) // various container IDs
         {
@@ -95,6 +98,8 @@ namespace Server.Items
     public class TreasureLevel3 : BaseDungeonChest
     {
         public override int DefaultGumpID => 0x4A;
+        
+        public override int TreasureLevel => 3;
 
         [Constructable]
         public TreasureLevel3() : base(Utility.RandomList(0x9ab, 0xe40, 0xe42)) // Wooden, Metal and Metal Golden Chest
@@ -165,6 +170,8 @@ namespace Server.Items
 
     public class TreasureLevel4 : BaseDungeonChest
     {
+	    public override int TreasureLevel => 4;
+	    
         [Constructable]
         public TreasureLevel4() : base(Utility.RandomList(0xe40, 0xe42, 0x9ab)) // Wooden, Metal and Metal Golden Chest
         {

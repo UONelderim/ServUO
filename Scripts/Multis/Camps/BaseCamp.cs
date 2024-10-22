@@ -342,7 +342,7 @@ namespace Server.Multis
 				Locked = false
 			}, 2, 2, 0);
 
-			AddItem(Treasure2 = new TreasureLevel3(), -2, -2, 0);
+			AddItem(Treasure2 = new TreasureLevel2(), -2, -2, 0);
 		}
 
 		public void CheckPrisoner()
