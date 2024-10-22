@@ -489,13 +489,13 @@ namespace Server.Engines.Harvest
                         chest.TrapLevel = 0;
 
                         chest.IsShipwreckedItem = true;
-
-                        sos.Delete();
-
+                        
                         if (from is PlayerMobile pm)
                         {
-	                        pm.Statistics.SOSChestsFound++;
+	                        pm.Statistics.SOSChestsFished.Increment(sos.Level);
                         }
+
+                        sos.Delete();
 
                         return chest;
                     }
