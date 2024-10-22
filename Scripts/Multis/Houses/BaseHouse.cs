@@ -259,11 +259,7 @@ namespace Server.Multis
             {
 	            if (Owner.Account != null)
 	            {
-		            CommandLogging.WriteLine(Owner,
-			            "Deleting house of {0} [{1}] due to decay. Location: {2}",
-			            Owner.Name,
-			            Owner.Account.Username,
-			            Location.ToString());
+		            Console.WriteLine($"Deleting house of {Owner.Name} [{Owner.Account.Username}] due to decay. Location: {Location.ToString()}");
 	            }
 
 	            Timer.DelayCall(Decay_Sandbox);
