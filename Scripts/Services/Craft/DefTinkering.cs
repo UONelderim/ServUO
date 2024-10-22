@@ -163,6 +163,9 @@ namespace Server.Engines.Craft
 
             int index = AddCraft(typeof(GoldRing), 1044049, 1044176 + offset, 40.0, 90.0, typeof(IronIngot), 1044036, 2, 1044037);
             AddRes(index, itemType, 1044231 + offset, 1, 1044240);
+            
+            index = AddCraft(typeof(SilverRing), 1044049, 1044176 + offset, 40.0, 90.0, typeof(IronIngot), 1044036, 2, 1044037);
+            AddRes(index, itemType, 1044231 + offset, 1, 1044240);
 
             index = AddCraft(typeof(SilverBeadNecklace), 1044049, 1044185 + offset, 40.0, 90.0, typeof(IronIngot), 1044036, 2, 1044037);
             AddRes(index, itemType, 1044231 + offset, 1, 1044240);
@@ -179,6 +182,8 @@ namespace Server.Engines.Craft
             index = AddCraft(typeof(GoldBracelet), 1044049, 1044221 + offset, 40.0, 90.0, typeof(IronIngot), 1044036, 2, 1044037);
             AddRes(index, itemType, 1044231 + offset, 1, 1044240);
 
+            index = AddCraft(typeof(SilverBracelet), 1044049, 1044221 + offset, 40.0, 90.0, typeof(IronIngot), 1044036, 2, 1044037);
+            AddRes(index, itemType, 1044231 + offset, 1, 1044240);
         }
 
         public override void InitCraftList()
@@ -187,7 +192,9 @@ namespace Server.Engines.Craft
 
             #region Jewelry
             AddCraft(typeof(GoldRing), 1044049, 1024234, 65.0, 115.0, typeof(IronIngot), 1044036, 3, 1044037);
+            AddCraft(typeof(SilverRing), 1044049, 1024234, 65.0, 115.0, typeof(IronIngot), 1044036, 3, 1044037);
             AddCraft(typeof(GoldBracelet), 1044049, 1024230, 55.0, 105.0, typeof(IronIngot), 1044036, 3, 1044037);
+            AddCraft(typeof(SilverBracelet), 1044049, 1024230, 55.0, 105.0, typeof(IronIngot), 1044036, 3, 1044037);
 
           //  index = AddCraft(typeof(GargishNecklace), 1044049, 1095784, 60.0, 110.0, typeof(IronIngot), 1044036, 3, 1044037);
 
