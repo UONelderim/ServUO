@@ -310,6 +310,7 @@ namespace Server.Mobiles
 			DungeonTreasureChestsOpened = reader.ReadLong();
 			TreasureMapChestsOpened = reader.ReadLong();
 			SOSChestsFound = reader.ReadLong();
+			ParagonChestsLooted = reader.ReadLong();
 			GoldLooted = reader.ReadLong();
 			StepsTakenTotal = reader.ReadLong();
 			DamageDealtTotal = reader.ReadLong();
