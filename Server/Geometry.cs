@@ -556,6 +556,11 @@ namespace Server
 		{
 			return !a.Equals(b);
 		}
+
+		public Rectangle2D ExtendedBy(int value)
+		{
+			return new Rectangle2D(X - value, Y - value, Width + value * 2, Height + value * 2);
+		}
 	}
 
 	[NoSort, Parsable, PropertyObject]

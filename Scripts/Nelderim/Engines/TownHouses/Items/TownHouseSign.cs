@@ -587,6 +587,26 @@ namespace Knives.TownHouses
 					m.SendMessage("Nie masz tyle pieniedzy w banku, aby wynajac ten dom.");
 					return;
 				}
+				
+				foreach (Rectangle2D rect in Blocks)
+				{
+					var doorOpen = false;
+					var eable = Map.GetItemsInBounds(rect.ExtendedBy(1));
+					foreach (var item in eable)
+					{
+						if (item is BaseDoor door && door.Open)
+						{
+							doorOpen = true;
+							break;
+						}
+					}
+					eable.Free();
+					if (doorOpen)
+					{
+						m.SendMessage("Musisz zamknac wszystkie drzwi w domu przed zakupem.");
+						return;
+					}
+				}
 
 				if (m.AccessLevel == AccessLevel.Player)
 					m.SendLocalizedMessage(1060398,
@@ -616,7 +636,10 @@ namespace Knives.TownHouses
 				House = new TownHouse(m, this, c_Locks, c_Secures);
 				int signId = (int)(northSouth ? SignIDs.HouseSignNS : SignIDs.HouseSignWE);
 				House.ChangeSignType(signId);
-
+				
+				House.Components.Resize(maxX - minX, maxY - minY);
+				House.Components.Add(0x520, House.Components.Width - 1, House.Components.Height - 1, -5);
+				
 				House.Location = new Point3D(minX, minY, c_MinZ);
 				House.Map = Map;
 				House.Region.GoLocation = c_BanLoc;
