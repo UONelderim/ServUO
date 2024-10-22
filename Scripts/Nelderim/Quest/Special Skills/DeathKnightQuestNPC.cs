@@ -30,11 +30,18 @@ namespace Server.Engines.Quests
 
 		public override void InitOutfit()
 		{
-			SetWearable(new Boots(), 0x901, 1);
-			SetWearable(new NorseHelm(),1151, dropChance: 1);
-			SetWearable(new PlateArms(),1151, dropChance: 1);
-			SetWearable(new PlateChest(), 1151, 1);
-			SetWearable(new PlateLegs(), 1151, 1);
+			SetWearable(new DragonArms(), 2680, dropChance: 1);
+			SetWearable(new DragonHelm(), 2680, dropChance: 1);
+			SetWearable(new DragonLegs(), 2680, dropChance: 1);
+			SetWearable(new DragonGloves(), 2680, dropChance: 1);
+			SetWearable(new DragonChest(), 2680, dropChance: 1);
+			SetWearable(new LeafGorget(), 2886, dropChance: 1);
+			SetWearable(new Cloak(), 2894, dropChance: 1);
+			SetWearable(new Boots(), 2894, dropChance: 1);
+			SetWearable(new SwordBelt(), 2680, dropChance: 1);
+			SetWearable(new Epaulette(), 2680, dropChance: 1);
+			SetWearable(new Lantern(), 2980, dropChance: 1);
+			SetWearable(new BroadSword(), 2680, dropChance: 1);
 		}
 
 		public override void Serialize(GenericWriter writer)
