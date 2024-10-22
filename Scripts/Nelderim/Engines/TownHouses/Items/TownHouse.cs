@@ -23,6 +23,9 @@ namespace Knives.TownHouses
 
 		public override Point3D BaseBanLocation { get { return Point3D.Zero; } }
 
+		public MultiComponentList _Components = new([]);
+		public override MultiComponentList Components => _Components;
+
 		public Item Hanger
 		{
 			get
@@ -83,6 +86,9 @@ namespace Knives.TownHouses
 
 			foreach (Sector sector in c_Sectors)
 				sector.OnMultiEnter(this);
+			
+			Components.Resize(maxX - minX, maxY - minY);
+			Components.Add(0x520, Components.Width - 1, Components.Height - 1, -5);
 		}
 
 		public override Rectangle2D[] Area
