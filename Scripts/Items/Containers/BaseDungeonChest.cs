@@ -10,6 +10,7 @@ namespace Server.Items
         public override int DefaultDropSound => 0x42;
         public override Rectangle2D Bounds => new Rectangle2D(20, 105, 150, 180);
         public override bool IsDecoContainer => false;
+        public virtual int TreasureLevel => 0;
 
         public BaseDungeonChest(int itemID) : base(itemID)
         {
@@ -80,8 +81,7 @@ namespace Server.Items
 
             if (RandomItemGenerator.Enabled)
             {
-                int min, max;
-                TreasureMapChest.GetRandomItemStat(out min, out max, 0.6);
+	            TreasureMapChest.GetBudgetForLevel(TreasureLevel, out var min, out var max);
 
                 RunicReforging.GenerateRandomItem(item, 0, min, max);
             }
