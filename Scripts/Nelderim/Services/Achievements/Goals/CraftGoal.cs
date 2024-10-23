@@ -1,24 +1,24 @@
 ﻿using Server;
 using Server.Mobiles;
 using System;
+using System.Collections.Generic;
 
 namespace Nelderim.Achievements
 {
-	public class CraftGoal : Goal
+	public class CraftGoal : BasicPlayerStatisticGoal
 	{
-		private readonly Type _CraftedType;
+		protected override Dictionary<Type, long> GoalStatistic(PlayerMobile pm) => pm.Statistics.ItemsCrafted;
 
-		public CraftGoal(Type craftedType, int amount): base(amount)
+		public CraftGoal(Type craftedType, int amount): base(craftedType, amount)
 		{
-			_CraftedType = craftedType;
-			EventSink.CraftSuccess += Progress;
+			EventSink.CraftSuccess += Check;
 		}
 
-		private void Progress(CraftSuccessEventArgs e)
+		private void Check(CraftSuccessEventArgs e)
 		{
-			if (e.Crafter is PlayerMobile pm && e.CraftedItem.GetType() == _CraftedType)
+			if (e.Crafter is PlayerMobile pm && e.CraftedItem.GetType() == Type)
 			{
-				pm.SetAchievementProgress(Achievement, pm.GetAchivementProgress(Achievement) + e.CraftedItem.Amount);
+				InternalCheck(pm);
 			}
 		}
 	}

@@ -1,25 +1,24 @@
 ﻿using Server;
 using Server.Mobiles;
 using System;
-using Server.Engines.BulkOrders;
+using System.Collections.Generic;
 
 namespace Nelderim.Achievements
 {
-	public class BulkOrderGoal : Goal
+	public class BulkOrderGoal : BasicPlayerStatisticGoal
 	{
-		private readonly BODType _BodType;
+		protected override Dictionary<Type, long> GoalStatistic(PlayerMobile pm) => pm.Statistics.BulkOrderDeedsCompleted;
 
-		public BulkOrderGoal(BODType bodType, int amount) : base(amount)
+		public BulkOrderGoal(Type bodType, int amount) : base(bodType, amount)
 		{
-			_BodType = bodType;
-			EventSink.BODCompleted += Progress;
+			EventSink.BODCompleted += Check;
 		}
-
-		private void Progress(BODCompletedEventArgs e)
+		
+		private void Check(BODCompletedEventArgs e)
 		{
-			if (e.User is PlayerMobile pm && e.BOD is IBOD bod && bod.BODType == _BodType)
+			if (e.User is PlayerMobile pm && e.BOD.GetType() == Type)
 			{
-				pm.SetAchievementProgress(Achievement, pm.GetAchivementProgress(Achievement) + 1);
+				InternalCheck(pm);
 			}
 		}
 	}

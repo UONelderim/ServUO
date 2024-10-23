@@ -1,24 +1,24 @@
 ﻿using Server;
 using Server.Mobiles;
 using System;
+using System.Collections.Generic;
 
 namespace Nelderim.Achievements
 {
-	public class HarvestGoal : Goal
+	public class HarvestGoal : BasicPlayerStatisticGoal
 	{
-		private readonly Type _HarvestedType;
+		protected override Dictionary<Type, long> GoalStatistic(PlayerMobile pm) => pm.Statistics.ResourceHarvested;
 
-		public HarvestGoal(Type harvestedType, int amount): base(amount)
+		public HarvestGoal(Type harvestedType, int amount): base(harvestedType, amount)
 		{
-			_HarvestedType = harvestedType;
-			EventSink.ResourceHarvestSuccess += Progress;
+			EventSink.ResourceHarvestSuccess += Check;
 		}
 
-		private void Progress(ResourceHarvestSuccessEventArgs e)
+		private void Check(ResourceHarvestSuccessEventArgs e)
 		{
-			if (e.Harvester is PlayerMobile pm && e.Resource.GetType() == _HarvestedType)
+			if (e.Harvester is PlayerMobile pm && e.Resource.GetType() == Type)
 			{
-				pm.SetAchievementProgress(Achievement, pm.GetAchivementProgress(Achievement) + e.Resource.Amount);
+				InternalCheck(pm);
 			}
 		}
 	}

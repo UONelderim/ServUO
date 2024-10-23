@@ -42,47 +42,43 @@ namespace Server.Mobiles
 
 		public int GetAchivementProgress(Achievement achievement)
 		{
-			if (Achievements.TryGetValue(achievement, out var value))
-			{
-				return value.Progress;
-			}
-			return 0;
+			return achievement.Goal.GetProgress(this);
 		}
 
-		public void SetAchievementProgress(Achievement achievement, int progress)
+		public bool IsCompleted(Achievement achievement)
+		{
+			return Achievements.ContainsKey(achievement) && Achievements[achievement].Completed;
+		}
+
+		public void Complete(Achievement achievement)
 		{
 			if (!Achievements.ContainsKey(achievement))
 			{
-				Achievements.Add(achievement, new AchievementStatus());
+				Achievements.Add(achievement, new AchievementStatus{Id = achievement.Id});
 			}
 			
 			if (Achievements[achievement].Completed)
 				return;
 
-			Achievements[achievement].Progress = progress;
-			if (Achievements[achievement].Progress >= achievement.Goal.Amount)
+			Achievements[achievement].CompletedOn = DateTime.UtcNow;
+			AchievementPoints += achievement.Points;
+			SendGump(new AchievementObtainedGump(achievement));
+			SendAsciiMessage("Otrzymales nagrode za zdobycie tego osiagniecia!");
+			
+			if (achievement.Rewards == null || achievement.Rewards.Length <= 0) return;
+
+			try
 			{
-				SendGump(new AchievementObtainedGump(achievement));
-				Achievements[achievement].CompletedOn = DateTime.UtcNow;
-
-				AchievementPoints += achievement.Points;
-
-				if (achievement.Rewards == null || achievement.Rewards.Length <= 0) return;
-
-				try
+				foreach (var rewardFunc in achievement.Rewards)
 				{
-					SendAsciiMessage("Otrzymales nagrode za zdobycie tego osiagniecia!");
-					foreach (var rewardFunc in achievement.Rewards)
-					{
-						var item = rewardFunc.Invoke();
-						AddToBackpack(item);
-					}
+					var item = rewardFunc.Invoke();
+					AddToBackpack(item);
 				}
-				catch (Exception e)
-				{
-					Console.WriteLine("Exception in achievement system");
-					Console.WriteLine(e);
-				}
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Exception in achievement system");
+				Console.WriteLine(e);
 			}
 		}
 	}

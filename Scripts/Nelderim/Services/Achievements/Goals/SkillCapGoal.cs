@@ -1,5 +1,4 @@
 ﻿using Server;
-using System;
 using System.Linq;
 using Server.Mobiles;
 
@@ -18,10 +17,15 @@ namespace Nelderim.Achievements
 
 		private void Progress(SkillCapChangeEventArgs e)
 		{
-		    if (e.Mobile is PlayerMobile pm)
+		    if (e.Mobile is PlayerMobile pm && GetProgress(pm) >= Amount)
 		    {
-			    pm.SetAchievementProgress(Achievement, pm.Skills.Count(s => s.CapFixedPoint >= _Cap));
+			    pm.Complete(Achievement);
 		    }
+		}
+
+		public override int GetProgress(PlayerMobile pm)
+		{
+			return pm.Skills.Count(s => s.CapFixedPoint >= _Cap);
 		}
 	}
 }
