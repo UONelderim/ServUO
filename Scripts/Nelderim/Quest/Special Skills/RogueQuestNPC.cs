@@ -28,10 +28,13 @@ namespace Server.Engines.Quests
 
 		public override void InitOutfit()
 		{
-			SetWearable(new Boots(), 0x901, 1);
-			SetWearable(new Shirt(), 1, dropChance: 1);
-			SetWearable(new LongPants(), 1, dropChance: 1);
-			SetWearable(new LeatherNinjaHood(), 1, dropChance: 1);
+			SetWearable(new DragonTurtleHideArms(), 2680, dropChance: 1);
+			SetWearable(new DaggerBelt(), 2680, dropChance: 1);
+			SetWearable(new LeatherNinjaJacket(), 1672, dropChance: 1);
+			SetWearable(new LeatherNinjaPants(), 1672, dropChance: 1);
+			SetWearable(new Boots(), 2680, dropChance: 1);
+			SetWearable(new Cloak(), 2680, dropChance: 1);
+			SetWearable(new MagesHood(), 2680, dropChance: 1);
 		}
 
 		public override void Serialize(GenericWriter writer)

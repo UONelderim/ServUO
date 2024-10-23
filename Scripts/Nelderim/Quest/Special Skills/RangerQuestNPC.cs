@@ -28,9 +28,14 @@ namespace Server.Engines.Quests
 
 		public override void InitOutfit()
 		{
-			SetWearable(new Boots(), 0x901, 1);
-			SetWearable(new ElvenShirt(), 2129, dropChance: 1);
-			SetWearable(new ElvenPants(), 1153, dropChance: 1);
+			SetWearable(new CompositeBow(), 1421, dropChance: 1);
+			SetWearable(new Epaulette(), 1421, dropChance: 1);
+			SetWearable(new QuiverOfInfinity(), 0, dropChance: 1);
+			SetWearable(new LeafChest(), 1190, dropChance: 1);
+			SetWearable(new Boots(), 1421, dropChance: 1);
+			SetWearable(new DragonTurtleHideArms(), 1190, dropChance: 1);
+			SetWearable(new DragonTurtleHideLegs(), 0, dropChance: 1);
+			SetWearable(new LeafGloves(), 1421, dropChance: 1);
 		}
 
 		public override void Serialize(GenericWriter writer)

@@ -28,8 +28,11 @@ namespace Server.Engines.Quests
 
 		public override void InitOutfit()
 		{
-			SetWearable(new Boots(), 0x901, 1);
-			SetWearable(new Robe(), 2129, dropChance: 1);
+			SetWearable(new Cloak(), 2527, dropChance: 1);
+			SetWearable(new WildStaff(), 2537, dropChance: 1);
+			SetWearable(new GargishNecklace(), 0, dropChance: 1);
+			SetWearable(new HawkwindsRobe(), 2538, dropChance: 1);
+			SetWearable(new Boots(), 0, dropChance: 1);
 		}
 
 		public override void Serialize(GenericWriter writer)
