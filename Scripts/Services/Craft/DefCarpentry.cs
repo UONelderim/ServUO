@@ -631,7 +631,8 @@ namespace Server.Engines.Craft
             AddSkill(index, SkillName.Magery, 50.0, 55.0);
             AddRes(index, typeof(IronIngot), 1044036, 40, 1044037);
 			
-			index = AddCraft( typeof( SmokingPipe ), 1044290, "Fajka do palenia", 11.7, 30.1, typeof( Log ), 1044041, 1, 1044351 );
+			index = AddCraft( typeof( SmokingPipe ), 1044290, "Fajka do palenia", 11.7, 30.1, typeof( Board ), 1044041, 1, 1044351 );
+			
 			index = AddCraft(typeof(ParrotPerchAddonDeed), 1044290, 1072617, 50.0, 85.0, typeof(Board), 1044041, 100, 1044351);
 			ForceNonExceptional(index);
 
