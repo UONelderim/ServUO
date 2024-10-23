@@ -1,23 +1,28 @@
-﻿using Server;
+﻿using System.Collections.Generic;
+using Server;
 using Server.Mobiles;
-using System;
 
 namespace Nelderim.Achievements
 {
-	public class SameFactionKillGoal : Goal
+	public class SameFactionKillGoal : PlayerStatisticGoal
 	{
-		public SameFactionKillGoal(int amount): base(amount)
+		public override int GetProgress(PlayerMobile pm)
 		{
-			EventSink.OnKilledBy += Progress;
+			return (int)pm.Statistics.PlayerKillsFaction.GetValueOrDefault(pm.Faction, 0);
 		}
 
-		private void Progress(OnKilledByEventArgs e)
+		public SameFactionKillGoal(int amount): base(amount)
 		{
-			if (e.KilledBy is PlayerMobile pm && 
-			    e.Killed is PlayerMobile killed && 
-			    pm.Faction.Equals(killed.Faction))
+			EventSink.PlayerDeath += Check;
+		}
+
+		private void Check(PlayerDeathEventArgs e)
+		{
+			if (e.Killer is PlayerMobile killer && 
+			    e.Mobile is PlayerMobile killed && 
+			    killer.Faction == killed.Faction)
 			{
-				pm.SetAchievementProgress(Achievement, pm.GetAchivementProgress(Achievement) + 1);
+				InternalCheck(killer);
 			}
 		}
 	}

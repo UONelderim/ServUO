@@ -1,6 +1,5 @@
 using Server;
 using Server.Mobiles;
-using System;
 
 namespace Nelderim.Achievements
 {
@@ -11,17 +10,22 @@ namespace Nelderim.Achievements
 		public DiscoverGoal(string region) : base(1)
 		{
 			_Region = region;
-			EventSink.OnEnterRegion += Progress;
+			EventSink.OnEnterRegion += Check;
 		}
 
-		private void Progress(OnEnterRegionEventArgs e)
+		private void Check(OnEnterRegionEventArgs e)
 		{
 			if (e?.NewRegion?.Name == null || e.From == null)
 				return;
-			if (e.NewRegion.Name.Contains(_Region) && e.From is PlayerMobile pm)
+			if (e.From is PlayerMobile pm && e.NewRegion.Name.Contains(_Region))
 			{
-				pm.SetAchievementProgress(Achievement, 1);
+				pm.Complete(Achievement);
 			}
+		}
+		
+		public override int GetProgress(PlayerMobile pm)
+		{
+			return pm.IsCompleted(Achievement) ? 1 : 0;
 		}
 	}
 }

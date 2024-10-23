@@ -1,26 +1,28 @@
 ﻿using Server;
 using Server.Mobiles;
-using System;
 using System.Linq;
 
 namespace Nelderim.Achievements
 {
-	public class EnemyFactionKillGoal : Goal
+	public class EnemyFactionKillGoal : PlayerStatisticGoal
 	{
-		private readonly Type _MobileType;
+		public override int GetProgress(PlayerMobile pm)
+		{
+			return (int)pm.Statistics.PlayerKillsFaction.Where(kvp => pm.Faction.Enemies.Contains(kvp.Key)).Sum(kvp => kvp.Value);
+		}
 
 		public EnemyFactionKillGoal(int amount): base(amount)
 		{
-			EventSink.OnKilledBy += Progress;
+			EventSink.PlayerDeath += Check;
 		}
 
-		private void Progress(OnKilledByEventArgs e)
+		private void Check(PlayerDeathEventArgs e)
 		{
-			if (e.KilledBy is PlayerMobile pm && 
-			    e.Killed is PlayerMobile killed && 
-			    pm.Faction.Enemies.Contains(killed.Faction))
+			if (e.Killer is PlayerMobile killer && 
+			    e.Mobile is PlayerMobile killed && 
+			    killer.Faction.Enemies.Contains(killed.Faction))
 			{
-				pm.SetAchievementProgress(Achievement, pm.GetAchivementProgress(Achievement) + 1);
+				InternalCheck(killer);
 			}
 		}
 	}

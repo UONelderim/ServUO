@@ -1,5 +1,4 @@
 ﻿using Server;
-using System;
 using Server.Mobiles;
 
 namespace Nelderim.Achievements
@@ -13,10 +12,15 @@ namespace Nelderim.Achievements
 
 		private void Progress(SkillGainEventArgs e)
 		{
-		    if (e.From is PlayerMobile pm)
+		    if (e.From is PlayerMobile pm && GetProgress(pm) >= Amount)
 		    {
-			    pm.SetAchievementProgress(Achievement, e.From.SkillsTotal);
+			    pm.Complete(Achievement);
 		    }
+		}
+
+		public override int GetProgress(PlayerMobile pm)
+		{
+			return pm.SkillsTotal;
 		}
 	}
 }

@@ -5,9 +5,8 @@ namespace Nelderim.Achievements
 {
 	public class AchievementStatus
 	{
-		public static AchievementStatus Empty = new ();
+		public static AchievementStatus Empty = new();
 		public int Id { get; set; }
-		public int Progress { get; set; }
 		public DateTime CompletedOn { get; set; }
 		public bool Completed => CompletedOn != default;
 
@@ -15,7 +14,6 @@ namespace Nelderim.Achievements
 		{
 			writer.Write(0); // version
 			writer.Write(Id);
-			writer.Write(Progress);
 			writer.Write(CompletedOn);
 		}
 
@@ -23,7 +21,6 @@ namespace Nelderim.Achievements
 		{
 			int version = reader.ReadInt();
 			Id = reader.ReadInt();
-			Progress = reader.ReadInt();
 			CompletedOn = reader.ReadDateTime();
 		}
 	}

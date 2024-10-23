@@ -30,7 +30,7 @@ namespace Nelderim.Achievements.Gumps
 			AddBackground(341, 522, 353, 26, 9200);
 
 			int cnt = 0;
-			if (AchievementSystem.Categories.TryGetValue(category, out var reqCat))
+			if (!AchievementSystem.Categories.TryGetValue(category, out var reqCat))
 			{
 				Console.WriteLine("Couldnt find Achievement category: " + category);
 				reqCat = AchievementSystem.Categories.Values.First();
@@ -98,27 +98,21 @@ namespace Nelderim.Achievements.Gumps
 				AddButton(345, 524, 4014, 4015, 0, GumpButtonType.Page, i / 4);
 			}
 
-			var bg = 9350;
-			if (status.Completed)
-				bg = 9300;
-			AddBackground(340, 122 + (index * 100), 347, 97, bg);
+			AddBackground(340, 122 + (index * 100), 347, 97, status.Completed ? 9300 : 9350);
 			AddLabel(414, 131 + (index * 100), 49, achievement.Name);
 			if (achievement.Icon > 0)
 				AddItem(357, 147 + (index * 100), achievement.Icon);
 			AddImageTiled(416, 203 + (index * 100), 95, 9, 9750);
 
 			var step = 95.0 / achievement.Goal.Amount;
-			var progress = 0;
-			if (status.Completed)
-				progress = achievement.Goal.GetProgress(status);
+			var progress = Math.Min(achievement.Goal.GetProgress(_target), achievement.Goal.Amount);
 
 			AddImageTiled(416, 203 + (index * 100), (int)(progress * step), 9, 9752);
-			AddHtml(413, 152 + (index * 100), 194, 47, achievement.Description, (bool)true, (bool)true);
+			AddHtml(413, 152 + (index * 100), 194, 47, achievement.Description, true, true);
 			if (status.Completed)
 				AddLabel(566, 127 + (index * 100), 32, status.CompletedOn.ToShortDateString());
 
-			if (achievement.Goal.Amount > 1)
-				AddLabel(522, 196 + (index * 100), 0, progress + @" / " + achievement.Goal.Amount);
+			AddLabel(522, 196 + (index * 100), 0, $"{progress} / {achievement.Goal.Amount}");
 
 			AddBackground(628, 149 + (index * 100), 48, 48, 9200);
 			AddLabel(648, 163 + (index * 100), 32, achievement.Points.ToString());

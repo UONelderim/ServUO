@@ -4,6 +4,7 @@ using Nelderim;
 using Server.Commands;
 using Server.Engines.BulkOrders;
 using Server.Items;
+using Server.Nelderim;
 using Server.Targeting;
 
 namespace Server.Mobiles
@@ -53,8 +54,8 @@ namespace Server.Mobiles
 				if (e.Mobile is PlayerMobile killed && e.Killer is PlayerMobile killer)
 				{
 					//Implement death tracker
-					killer.Statistics.PlayerKillsFaction.Increment(killed.Faction.GetType());
-					killer.Statistics.PlayerKillsRace.Increment(killed.Race.GetType());
+					killer.Statistics.PlayerKillsFaction.Increment(killed.Faction);
+					killer.Statistics.PlayerKillsRace.Increment(killed.Race);
 				}
 			};
 			EventSink.SpellCast += e =>
@@ -143,6 +144,23 @@ namespace Server.Mobiles
 					pm.Statistics.StepsTakenTotal++;
 				}
 			};
+			EventSink.SkillGain += e =>
+			{
+				if (e.From is PlayerMobile pm)
+				{
+					if (pm.Statistics.MaxSkillGained.TryGetValue(e.Skill.SkillName, out var value))
+					{
+						if (e.Skill.BaseFixedPoint > value) ;
+						{
+							pm.Statistics.MaxSkillGained[e.Skill.SkillName] = e.Skill.BaseFixedPoint;
+						}
+					}
+					else
+					{
+						pm.Statistics.MaxSkillGained[e.Skill.SkillName] = e.Skill.BaseFixedPoint;
+					}
+				}
+			};
 		}
 
 		public static void Save(WorldSaveEventArgs args)
@@ -156,8 +174,8 @@ namespace Server.Mobiles
 		//Kills
 		public Dictionary<Type, long> CreaturesKilled = new();
 		public Dictionary<Type, long> ParagonsKilled = new();
-		public Dictionary<Type, long> PlayerKillsFaction = new();
-		public Dictionary<Type, long> PlayerKillsRace = new();
+		public Dictionary<Faction, long> PlayerKillsFaction = new();
+		public Dictionary<Race, long> PlayerKillsRace = new();
 
 		//Magery
 		public Dictionary<Type, long> SpellsCast = new();
@@ -184,7 +202,7 @@ namespace Server.Mobiles
 		public long BolasThrown;
 		public Dictionary<Type, long> FoodConsumed = new();
 		public Dictionary<Type, long> TobaccoSmoked = new();
-		public HashSet<SkillName> SkillsMastered = new();
+		public Dictionary<SkillName, long> MaxSkillGained = new();
 		public long BandagesUsed;
 
 		//Other
@@ -202,8 +220,18 @@ namespace Server.Mobiles
 			writer.Write((int)0); //version
 			writer.WriteTypeLongDict(CreaturesKilled);
 			writer.WriteTypeLongDict(ParagonsKilled);
-			writer.WriteTypeLongDict(PlayerKillsFaction);
-			writer.WriteTypeLongDict(PlayerKillsRace);
+			writer.Write(PlayerKillsFaction.Count);
+			foreach (var pair in PlayerKillsFaction)
+			{
+				writer.Write(pair.Key);
+				writer.Write(pair.Value);
+			}
+			writer.Write(PlayerKillsRace.Count);
+			foreach (var pair in PlayerKillsRace)
+			{
+				writer.Write(pair.Key);
+				writer.Write(pair.Value);
+			}
 			writer.WriteTypeLongDict(SpellsCast);
 			writer.WriteTypeLongDict(CreaturesSummoned);
 			writer.WriteTypeLongDict(ItemsCrafted);
@@ -220,12 +248,12 @@ namespace Server.Mobiles
 			writer.Write(BolasThrown);
 			writer.WriteTypeLongDict(FoodConsumed);
 			writer.WriteTypeLongDict(TobaccoSmoked);
-			writer.Write(SkillsMastered.Count);
-			foreach (var skill in SkillsMastered)
+			writer.Write(MaxSkillGained.Count);
+			foreach (var pair in MaxSkillGained)
 			{
-				writer.Write((int)skill);
+				writer.Write((int)pair.Key);
+				writer.Write(pair.Value);
 			}
-
 			writer.Write(BandagesUsed);
 			writer.WriteTypeLongDict(DungeonTreasureChestsOpened);
 			writer.WriteIntLongDict(TreasureMapChestsDigged);
@@ -242,8 +270,20 @@ namespace Server.Mobiles
 			var version = reader.ReadInt();
 			CreaturesKilled = reader.ReadTypeLongDict();
 			ParagonsKilled = reader.ReadTypeLongDict();
-			PlayerKillsFaction = reader.ReadTypeLongDict();
-			PlayerKillsRace = reader.ReadTypeLongDict();
+			var count = reader.ReadInt();
+			for (var i = 0; i < count; i++)
+			{
+				var faction = reader.ReadFaction();
+				var value = reader.ReadLong();
+				PlayerKillsFaction.Add(faction, value);
+			}
+			count = reader.ReadInt();
+			for (var i = 0; i < count; i++)
+			{
+				var faction = reader.ReadRace();
+				var value = reader.ReadLong();
+				PlayerKillsRace.Add(faction, value);
+			}
 			SpellsCast = reader.ReadTypeLongDict();
 			CreaturesSummoned = reader.ReadTypeLongDict();
 			ItemsCrafted = reader.ReadTypeLongDict();
@@ -260,12 +300,13 @@ namespace Server.Mobiles
 			BolasThrown = reader.ReadLong();
 			FoodConsumed = reader.ReadTypeLongDict();
 			TobaccoSmoked = reader.ReadTypeLongDict();
-			var count = reader.ReadInt();
+			count = reader.ReadInt();
 			for (var i = 0; i < count; i++)
 			{
-				SkillsMastered.Add((SkillName)reader.ReadInt());
+				var skillName = (SkillName)reader.ReadInt();
+				var value = reader.ReadLong();
+				MaxSkillGained.Add(skillName, value);
 			}
-
 			BandagesUsed = reader.ReadLong();
 			DungeonTreasureChestsOpened = reader.ReadTypeLongDict();
 			TreasureMapChestsDigged = reader.ReadIntLongDict();
