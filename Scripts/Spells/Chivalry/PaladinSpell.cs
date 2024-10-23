@@ -95,6 +95,8 @@ namespace Server.Spells.Chivalry
 
         public override void SayMantra()
         {
+	        base.SayMantra();
+	        return;
             if (Caster.Player)
                 Caster.PublicOverheadMessage(MessageType.Regular, 0x3B2, MantraNumber, "", false);
         }
