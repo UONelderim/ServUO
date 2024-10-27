@@ -11,12 +11,12 @@ namespace Nelderim.Achievements
 
 		public KillCreatureGoal(Type mobileType, int amount): base(mobileType, amount)
 		{
-			EventSink.OnKilledBy += Check;
+			EventSink.CreatureDeath += Check;
 		}
 
-		private void Check(OnKilledByEventArgs e)
+		private void Check(CreatureDeathEventArgs e)
 		{
-			if (e.KilledBy is PlayerMobile pm && e.Killed.GetType() == Type)
+			if (e.Killer is PlayerMobile pm && e.Creature.GetType() == Type)
 			{
 				InternalCheck(pm);
 			}
