@@ -6,6 +6,7 @@ namespace Server
 	public delegate void SpellCastedEventHandler(SpellCastedEventArgs e);
 	public delegate void EnhanceSuccessEventHandler(EnhanceSuccessEventArgs e);
 	public delegate void CreatureCarvedEventHandler(CreatureCarvedEventArgs e);
+	public delegate void BolaThrownEventHandler(BolaThrownEventArgs e);
 	
 	public class BODCompletedEventArgs : EventArgs
 	{
@@ -58,6 +59,18 @@ namespace Server
 			Tool = tool;
 		}
 	}
+	
+	public class BolaThrownEventArgs : EventArgs
+	{
+		public Mobile From { get; }
+		public Mobile Target { get; }
+
+		public BolaThrownEventArgs(Mobile m, Mobile target)
+		{
+			From = m;
+			Target = target;
+		}
+	}
 
 	public static partial class EventSink
 	{
@@ -65,6 +78,7 @@ namespace Server
 		public static event SpellCastedEventHandler SpellCast;
 		public static event EnhanceSuccessEventHandler EnhanceSuccess;
 		public static event CreatureCarvedEventHandler CreatureCarved;
+		public static event BolaThrownEventHandler BolaThrown;
 		
 		public static void InvokeBODCompleted(BODCompletedEventArgs e)
 		{
@@ -84,6 +98,10 @@ namespace Server
 		public static void InvokeCreatureCarved(CreatureCarvedEventArgs e)
 		{
 			CreatureCarved?.Invoke(e);
+		}
+		public static void InvokeBolaThrown(BolaThrownEventArgs e)
+		{
+			BolaThrown?.Invoke(e);
 		}
 	}
 }

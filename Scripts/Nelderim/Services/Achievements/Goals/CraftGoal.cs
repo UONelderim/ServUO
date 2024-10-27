@@ -9,7 +9,7 @@ namespace Nelderim.Achievements
 	{
 		protected override Dictionary<Type, long> GoalStatistic(PlayerMobile pm) => pm.Statistics.ItemsCrafted;
 
-		public CraftGoal(Type craftedType, int amount): base(craftedType, amount)
+		public CraftGoal(int amount, Type craftedType): base(amount, craftedType)
 		{
 			EventSink.CraftSuccess += Check;
 		}

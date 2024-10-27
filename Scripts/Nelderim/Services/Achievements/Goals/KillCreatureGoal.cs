@@ -9,7 +9,7 @@ namespace Nelderim.Achievements
 	{
 		protected override Dictionary<Type, long> GoalStatistic(PlayerMobile pm) => pm.Statistics.CreaturesKilled;
 
-		public KillCreatureGoal(Type mobileType, int amount): base(mobileType, amount)
+		public KillCreatureGoal(int amount, Type mobileType): base(amount, mobileType)
 		{
 			EventSink.CreatureDeath += Check;
 		}
