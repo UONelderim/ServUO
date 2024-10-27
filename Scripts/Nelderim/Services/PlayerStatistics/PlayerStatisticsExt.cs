@@ -175,6 +175,13 @@ namespace Server.Mobiles
 					}
 				}
 			};
+			EventSink.BolaThrown += e =>
+			{
+				if (e.From is PlayerMobile pm)
+				{
+					pm.Statistics.BolasThrown++;
+				}
+			};
 		}
 
 		public static void Save(WorldSaveEventArgs args)

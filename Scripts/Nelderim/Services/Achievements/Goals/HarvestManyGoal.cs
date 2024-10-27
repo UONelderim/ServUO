@@ -2,14 +2,15 @@
 using Server.Mobiles;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Nelderim.Achievements
 {
-	public class HarvestGoal : BasicPlayerStatisticGoal
+	public class HarvestManyGoal : ManyPlayerStatisticGoal
 	{
 		protected override Dictionary<Type, long> GoalStatistic(PlayerMobile pm) => pm.Statistics.ResourceHarvested;
 
-		public HarvestGoal(int amount, Type harvestedType): base(amount, harvestedType)
+		public HarvestManyGoal(int amount, params Type[] mobileTypes) : base(amount, mobileTypes)
 		{
 			EventSink.ResourceHarvestSuccess += Check;
 		}
@@ -18,9 +19,9 @@ namespace Nelderim.Achievements
 		{
 			if (e.Harvester is PlayerMobile pm)
 			{
-				if(e.Resource.GetType() == Type)
+				if(Types.Contains(e.Resource.GetType()))
 					InternalCheck(pm);
-				if (e.BonusResource != null && e.BonusResource.GetType() == Type)
+				if (e.BonusResource != null && Types.Contains(e.BonusResource.GetType()))
 				{
 					InternalCheck(pm);
 				}

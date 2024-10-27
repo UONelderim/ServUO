@@ -4,7 +4,7 @@ using Server.Mobiles;
 
 namespace Nelderim.Achievements
 {
-	public abstract class BasicPlayerStatisticGoal(Type type, int amount) : PlayerStatisticGoal(amount)
+	public abstract class BasicPlayerStatisticGoal(int amount, Type type) : PlayerStatisticGoal(amount)
 	{
 		protected Type Type = type;
 		protected abstract Dictionary<Type, long> GoalStatistic(PlayerMobile pm);

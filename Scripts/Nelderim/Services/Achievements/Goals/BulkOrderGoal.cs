@@ -9,7 +9,7 @@ namespace Nelderim.Achievements
 	{
 		protected override Dictionary<Type, long> GoalStatistic(PlayerMobile pm) => pm.Statistics.BulkOrderDeedsCompleted;
 
-		public BulkOrderGoal(Type bodType, int amount) : base(bodType, amount)
+		public BulkOrderGoal(int amount, Type bodType) : base(amount, bodType)
 		{
 			EventSink.BODCompleted += Check;
 		}
