@@ -213,7 +213,7 @@ namespace Server.Engines.Craft
                         
                         var craftItem = m_CraftSystem.CraftItems.SearchFor(targeted.GetType());
 
-                        if (!AllowsRepair(targeted, m_CraftSystem) || craftItem == null)
+                        if (!AllowsRepair(targeted, m_CraftSystem) || (craftItem == null && targeted is not BlankScroll && targeted is not BrokenAutomatonHead))
                         {
                             from.SendLocalizedMessage(500426); // You can't repair that.
 
