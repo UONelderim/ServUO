@@ -307,8 +307,8 @@ namespace Server.Mobiles
 
 			Title = title;
 
-			//We need late init from NelderimRegionSystem after mobile enters the region
-			// InitBody();
+			InitBody();
+			//We need late initOutfit since gender is applied from NelderimRegionSystem
 			// InitOutfit();
 
 			Container pack;
