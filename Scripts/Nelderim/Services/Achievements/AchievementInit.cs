@@ -19,6 +19,7 @@ namespace Nelderim.Achievements
 			var alchemia = Register(new AchievementCategory(rzemioslo, "Alchemia"));
 			var kowalstwo = Register(new AchievementCategory(rzemioslo, "Kowalstwo"));
 			var majsterkowanie = Register(new AchievementCategory(rzemioslo, "Majsterkowanie"));
+			
 			var zlecenia = Register(new AchievementCategory(rzemioslo, "Zlecenia"));
 
 			var surowce = Register(new AchievementCategory(null, "Surowce"));
@@ -26,6 +27,7 @@ namespace Nelderim.Achievements
 			var stworzenia = Register(new AchievementCategory(null, "Stworzenia"));
 			var potwory = Register(new AchievementCategory(stworzenia, "Potwory"));
 			var bossy = Register(new AchievementCategory(stworzenia, "Bossy"));
+			var przywolance = Register(new AchievementCategory(stworzenia, "Przywołańce"));
 			
 			var frakcje = Register(new AchievementCategory(null, "Frakcje"));
 			var rozwoj = Register(new AchievementCategory(null, "Rozwoj postaci"));
@@ -34,8 +36,22 @@ namespace Nelderim.Achievements
 			//Discovery
 			Register(new Achievement(interesujace, "Teren zakazany", "Odwiedz Green Acres", 0, 1, 
 				false, null, new DiscoverGoal("GreenAcres")));
-			Register(new Achievement(miastaWioski, "Centrum Wszystkiego", "Odwiedź Tasandore", 0, 1, 
+			Register(new Achievement(miastaWioski, "Na starych śmieciach", "Odwiedź Tasandore", 0, 1, 
 				false, null, new DiscoverGoal("Tasandora")));
+			Register(new Achievement(miastaWioski, "Niezbezpieczne tereny", "Odwiedź L'Delmah", 0, 1, 
+				false, null, new DiscoverGoal("L'Delmah")));
+			Register(new Achievement(miastaWioski, "Nie lubię piasku", "Odwiedź Tirassę", 0, 1,
+				false, null, new DiscoverGoal("Tirassa")));
+			Register(new Achievement(miastaWioski, "Nowe tereny", "Odwiedź Orod", 0, 1,
+				false, null, new DiscoverGoal("Orod")));
+			Register(new Achievement(miastaWioski, "Nie lubię piasku", "Odwiedź Tirassę", 0, 1,
+				false, null, new DiscoverGoal("Tirassa")));
+			Register(new Achievement(miastaWioski, "Wyspiarskie życie", "Odwiedź Lotharn", 0, 1,
+				false, null, new DiscoverGoal("Lotharn")));
+			Register(new Achievement(miastaWioski, "Zimno, zimnoooo", "Odwiedź Garlan", 0, 1,
+				false, null, new DiscoverGoal("Garlan")));
+			Register(new Achievement(miastaWioski, "Długie brody i ciemne komnaty", "Odwiedź Twierdzę", 0, 1,
+				false, null, new DiscoverGoal("Twierdza")));
 
 			//Kill
 			Register(new Achievement(potwory, "Bojka za barakami 1", "Zabij 10 razy Barracoona", 0, 1, false,
@@ -115,24 +131,62 @@ namespace Nelderim.Achievements
 					typeof(KhalAnkur)),
 				() => new Silver(20)
 			));
+			Register(new Achievement(stworzenia, "Pogromca Przedwiecznego Zła ", "Zabij Przedwiecznego", 0, 1, false,
+				null, new KillCreatureGoal(1, typeof(Harrower))));
+			Register(new Achievement(stworzenia, "Pogromca Przedwiecznego Zła 2", "Zabij 10x Przedwiecznego", 0, 1, false,
+				null, new KillCreatureGoal(10, typeof(Harrower))));
 			Register(new Achievement(stworzenia, "Pierwszy kompan", "Oswój 1 zwierzę", 0, 1, false,
 				null, new TamedTypesGoal(1)));
 			Register(new Achievement(stworzenia, "Zaklinacz zwierząt", "Oswój 50 różnych zwierząt", 0, 1, false,
 				null, new TamedTypesGoal(50)));
 			Register(new Achievement(stworzenia, "Złap je wszystkie", "Oswój 200 różnych zwierząt", 0, 1, false,
 				null, new TamedTypesGoal(200)));
+			Register(new Achievement(stworzenia, "Koniobijca", "Zabij 100 koni", 0, 1, false,
+				null, new KillCreatureGoal(100, typeof(Horse))));
 			Register(new Achievement(potwory, "Myśliwy", "Zabij 100 Jeleni", 0, 1, false,
 				null, new KillCreatureGoal(100, typeof(GreatHart))));
 			Register(new Achievement(potwory, "Paragony grozy", "Zabij 1000 paragonow", 0, 1, false,
 				null, new ParagonKillGoal(1000)));
+			Register(new Achievement(przywolance, "Może i zimna, ale za to sztywna 1", "Stwórz 10 szkieletów", 0, 1, false,
+				null, new CraftNecromancySummon(10, typeof(Skeleton))));
+			Register(new Achievement(przywolance, "Może i zimna, ale za to sztywna 2", "Stwórz 10 zombie", 0, 1, false,
+				null, new CraftNecromancySummon(10, typeof(Zombie))));
+			Register(new Achievement(przywolance, "Może i zimna, ale za to sztywna 3", "Stwórz 10 ghuli", 0, 1, false,
+				null, new CraftNecromancySummon(10, typeof(Ghoul))));
+			Register(new Achievement(przywolance, "Może i zimna, ale za to sztywna 4", "Stwórz 10 kościanych rycerzy", 0, 1, false,
+				null, new CraftNecromancySummon(10, typeof(BoneKnight))));
+			Register(new Achievement(przywolance, "Może i zimna, ale za to sztywna 5", "Stwórz 10 kościanych magów", 0, 1, false,
+				null, new CraftNecromancySummon(10, typeof(BoneMagi))));
+			Register(new Achievement(przywolance, "Może i zimna, ale za to sztywna 6", "Stwórz 10 liczy", 0, 1, false,
+				null, new CraftNecromancySummon(10, typeof(Lich))));
+			Register(new Achievement(przywolance, "Może i zimna, ale za to sztywna 7", "Stwórz 10 starożytnych liczy", 0, 1, false,
+				null, new CraftNecromancySummon(10, typeof(AncientLich))));
+			Register(new Achievement(przywolance, "Może i zimna, ale za to sztywna 8", "Stwórz 10 kościejów", 0, 1, false,
+				null, new CraftNecromancySummon(10, typeof(Boner))));
+			
+			//Frakcje
 			Register(new Achievement(frakcje, "Zdrajca", "Zabij czlonka swojej frakcji", 0, 1, false,
 				null, new SameFactionKillGoal(1)));
 			Register(new Achievement(frakcje, "Zasłużony", "Zabij 20 czlonkow wrogiej frakcji", 0, 1, false,
 				null, new EnemyFactionKillGoal(20)));
 
 			//rzemioslo
-			Register(new Achievement(zlecenia, "Na zamowienie 1", "Wykonaj 100 zlecen krawca", 0, 1,
+			Register(new Achievement(zlecenia, "Na zamowienie 1", "Wykonaj 100 malych zlecen krawca", 0, 1,
 				false, null, new BulkOrderGoal(100, typeof(SmallTailorBOD))));
+			Register(new Achievement(zlecenia, "Na zamowienie 2", "Wykonaj 100 malych zlecen kowala", 0, 1,
+				false, null, new BulkOrderGoal(100, typeof(SmallSmithBOD))));
+			Register(new Achievement(zlecenia, "Na zamowienie 3", "Wykonaj 100 malych zlecen kucharza", 0, 1,
+				false, null, new BulkOrderGoal(100, typeof(SmallCookingBOD))));
+			Register(new Achievement(zlecenia, "Na zamowienie 4", "Wykonaj 100 malych zlecen alchemika", 0, 1, 
+				false, null, new BulkOrderGoal(100, typeof(SmallAlchemyBOD))));
+			Register(new Achievement(zlecenia, "Na zamowienie 5", "Wykonaj 100 malych zlecen stolarza", 0, 1,
+				false, null, new BulkOrderGoal(100, typeof(SmallCarpentryBOD))));
+			Register(new Achievement(zlecenia, "Na zamowienie 6", "Wykonaj 100 malych zlecen łukmistrza", 0, 1,
+				false, null, new BulkOrderGoal(100, typeof(SmallFletcherBOD))));
+			Register(new Achievement(zlecenia, "Na zamowienie 7", "Wykonaj 100 malych zlecen skryby", 0, 1,
+				false, null, new BulkOrderGoal(100, typeof(SmallInscriptionBOD))));
+			Register(new Achievement(zlecenia, "Na zamowienie 8", "Wykonaj 100 malych zlecen myśliwego", 0, 1,
+				false, null, new BulkOrderGoal(100, typeof(SmallHunterBOD))));
 
 			//surowce
 			Register(new Achievement(surowce, "Skórkowany 1", "Zbierz 1000 skór", 0, 1,
@@ -182,7 +236,7 @@ namespace Nelderim.Achievements
 				0, 1, false, null, new TotalSkillProgressGoal(7200)));
 			
 			//inne
-			Register(new Achievement(inne, "Rzuc bolą 10 razy", "Rzuc 10 razy Bole", 0, 1, false,
+			Register(new Achievement(inne, "Ale boli", "Rzuc 10 razy Bole", 0, 1, false,
 				null, new ThrowBolaGoal(10)));
 			Register(new Achievement(inne, "Alkoholik", "Wypij 1000 butelek wina", 0, 1, false,
 				null, new ConsumeFoodGoal(1000, typeof(BottleOfWine))));
