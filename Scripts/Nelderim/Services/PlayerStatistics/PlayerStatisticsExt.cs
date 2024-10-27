@@ -206,9 +206,9 @@ namespace Server.Mobiles
 		public long BandagesUsed;
 
 		//Other
-		public Dictionary<Type, long> DungeonTreasureChestsOpened;
+		public Dictionary<Type, long> DungeonTreasureChestsOpened = new();
 		public Dictionary<int, long> TreasureMapChestsDigged = new();
-		public Dictionary<int, long> SOSChestsFished;
+		public Dictionary<int, long> SOSChestsFished = new();
 		public long ParagonChestsLooted;
 		public long GoldLooted;
 		public long StepsTakenTotal;
