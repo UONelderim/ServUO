@@ -182,6 +182,13 @@ namespace Server.Mobiles
 					pm.Statistics.BolasThrown++;
 				}
 			};
+			EventSink.NecromancySummonCrafted += e =>
+			{
+				if (e.Crafter is PlayerMobile pm)
+				{
+					pm.Statistics.NecromancySummonsCrafted.Increment(e.Summon.GetType());
+				}
+			};
 		}
 
 		public static void Save(WorldSaveEventArgs args)

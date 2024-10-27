@@ -99,6 +99,7 @@ namespace Server.Items
 				bc.MoveToWorld(from.Location, from.Map);
 				from.PlaySound(0x241);
 				Consume();
+				EventSink.InvokeNecromancySummonCrafted(new NecromancySummonCraftedEventArgs(from, bc));
 				if (from is PlayerMobile pm)
 				{
 					pm.Statistics.NecromancySummonsCrafted.Increment(SummonType);
