@@ -124,7 +124,10 @@ namespace Server.Mobiles
 			};
 			EventSink.CorpseLoot += e =>
 			{
-				if (e.Mobile is PlayerMobile pm)
+				if (e.Mobile is PlayerMobile pm && 
+				    e.Looted != null && 
+				    e.Corpse is Corpse corpse &&
+				    corpse.Owner is BaseCreature) // Only count loot from creatures
 				{
 					if (e.Looted is Gold)
 					{
@@ -134,6 +137,17 @@ namespace Server.Mobiles
 					if (e.Looted is ParagonChest)
 					{
 						pm.Statistics.ParagonChestsLooted++;
+					}
+					
+					var craftResource = CraftResources.GetFromType(e.Looted.GetType());
+					if(craftResource != CraftResource.None)
+					{
+						var resourceType = CraftResources.GetType(craftResource) switch
+						{
+							CraftResourceType.Metal => CraftResources.GetInfo(craftResource).ResourceTypes[1],
+							_ => CraftResources.GetInfo(craftResource).ResourceTypes[0],
+						};
+						pm.Statistics.ResourceHarvested.Increment(resourceType, e.Looted.Amount);
 					}
 				}
 			};
