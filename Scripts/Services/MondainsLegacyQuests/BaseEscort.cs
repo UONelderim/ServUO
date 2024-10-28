@@ -234,7 +234,7 @@ namespace Server.Engines.Quests
 			{
 				var minutes = (int)Math.Ceiling((p.LastEscortTime + m_EscortDelay - DateTime.UtcNow).TotalMinutes);
 
-				Say("You must rest {0} minute{1} before we set out on this journey.", minutes, minutes == 1 ? "" : "s");
+				Say("Musisz odpoczac {0} klepsydr {1} zanim wyruszysz w kolejna podroz.", minutes, minutes == 1 ? "" : "y");
 				return false;
 			}
 
