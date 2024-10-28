@@ -421,18 +421,7 @@ namespace Server.Engines.Quests
 
         private static readonly string[] m_Destinations =
         {
-            "Yew",
-            "Vesper",
-            "Trinsic",
-            "Skara Brae",
-            "Serpent's Hold",
-            "Nujel'm",
-            "Moonglow",
-            "Minoc",
-            "Magincia",
-            "Jhelom",
-            "Cove",
-            "Britain"
+			"Tasandora"
         };
 
         private int m_Quest;

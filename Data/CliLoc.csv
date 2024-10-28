@@ -896,13 +896,13 @@ Number;Text
 500893;It was you playing that lovely music! 
 500894;That sounded spooky. 
 500895;That sounded spooky. 
-500896;Już ktoś Cię eskortuje 
-500897;I am already being led! 
-500898;I am sorry, but I do not wish to go anywhere. 
-500899;I am already being led! 
-500900;I am sorry, but I do not wish to go anywhere. 
-500901;Ack!  My escort has come to haunt me! 
-500902;My escort seems to have abandoned me! 
+500896;Już kogos eksortujesz
+500897;Juz mnie ktos prowadzi 
+500898;Wybacz, ale nie mam ochoty nigdzie isc. 
+500899;Już kogos eksortujesz
+500900;Wybacz, ale nie mam ochoty nigdzie isc. 
+500901;Ach! Moja eskorta przyszla mnie przesladowac!
+500902;Wyglada na to, ze moj opiekun mnie porzucil!
 500903;adding quantity 
 500904;I fear that I lied about a reward, however. I lack any funds. 
 500905;gave item 
@@ -27277,7 +27277,7 @@ Number;Text
 1042470;Has map 14 
 1042471;Has map 15 
 1042472;Is 3d compatible client 
-1042473;You have lost the person you were escorting. 
+1042473;Straciles eskortowanego podroznika. 
 1042474;The bag rejects that item. 
 1042475;A magical aura surrounds you and prevents from burying the stone 
 1042476;A magical aura surrounds you and prevents from burying the stone 
@@ -27613,7 +27613,7 @@ Number;Text
 1042806;Lead on! Payment will be made when we arrive at ~1_DESTINATION~! 
 1042807;I'm looking to go somewhere: 
 1042808;You must rest ~1_MINUTES~ minutes before we set out on this journey. 
-1042809;We have arrived! I thank thee, ~1_PLAYER_NAME~! I have no further need of thy services. Here is thy pay. 
+1042809;Jestesmy na miejscu! Dziekuje Ci! Juz nie potrza mnie Twych uslug, wiec oto Twa zaplata. 
 1042810;<Say 'I will take thee' to accept quest.> 
 1042811;Lead on! Payment will be made when we arrive at the Alchemist's Shop. 
 1042812;Lead on! Payment will be made when we arrive at the music center. 
@@ -42086,10 +42086,10 @@ Number;Text
 1071191;<center>11th Year Collection (Miscs)</center>
 1071192;Fallen Log (East)
 1071193;Fallen Log (South)
-1071194;You have failed your escort quest...
-1071195;You must rest ~1_minsleft~ minutes before we set out on this journey.
+1071194;Nie udalo Ci sie odeskortowac tego podroznika...
+1071195;Musisz odpoczac ~1_minsleft~ klepsydr zanim wyruszysz ponownie.
 1071196;You now bear the markings of the savage tribe.  Your body paint will last about a week or you can remove it with an oil cloth.
-1071197;You have lost a lot of karma.
+1071197;Straciles duzo karmy.
 1071198;Your body paint has worn off!
 1071199;Your skin is scorched as the tribal paint burns away!
 1071200;animal pheromone
@@ -45841,7 +45841,7 @@ Number;Text
 1074946;You have demonstrated your ingenuity!  Humans are jacks of all trades and know a little about a lot of things.  You are one step closer to achieving humanity. 
 1074947;You have demonstrated your toughness!  Humans are able to endure unimaginable hardships in pursuit of their goals.  You are one step closer to achieving humanity. 
 1074948;You have demonstrated your physical strength!  Humans can carry vast loads without complaint.  You are one step closer to achieving humanity. 
-1074949;You have demonstrated your compassion!  Humans defend their own with all of their power.  You are one step closer to achieving humanity. 
+1074949;Wykazales sie wspolczuciem! Ludzie bronia swoich z cala swoja moca. Jestes o krok blizej osiagniecia czlowieczenstwa.
 1074950;Vile Poison 
 1074951;A Rock and a Hard Place 
 1074952;Sympathetic Magic 
