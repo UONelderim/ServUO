@@ -7,6 +7,7 @@ namespace Server
 	public delegate void EnhanceSuccessEventHandler(EnhanceSuccessEventArgs e);
 	public delegate void CreatureCarvedEventHandler(CreatureCarvedEventArgs e);
 	public delegate void BolaThrownEventHandler(BolaThrownEventArgs e);
+	public delegate void NecromancySummonCraftedEventHandler(NecromancySummonCraftedEventArgs e);
 	
 	public class BODCompletedEventArgs : EventArgs
 	{
@@ -71,6 +72,18 @@ namespace Server
 			Target = target;
 		}
 	}
+	
+	public class NecromancySummonCraftedEventArgs : EventArgs
+	{
+		public Mobile Crafter { get; }
+		public Mobile Summon { get; }
+
+		public NecromancySummonCraftedEventArgs(Mobile crafter, Mobile summon)
+		{
+			Crafter = crafter;
+			Summon = summon;
+		}
+	}
 
 	public static partial class EventSink
 	{
@@ -79,6 +92,7 @@ namespace Server
 		public static event EnhanceSuccessEventHandler EnhanceSuccess;
 		public static event CreatureCarvedEventHandler CreatureCarved;
 		public static event BolaThrownEventHandler BolaThrown;
+		public static event NecromancySummonCraftedEventHandler NecromancySummonCrafted;
 		
 		public static void InvokeBODCompleted(BODCompletedEventArgs e)
 		{
@@ -102,6 +116,10 @@ namespace Server
 		public static void InvokeBolaThrown(BolaThrownEventArgs e)
 		{
 			BolaThrown?.Invoke(e);
+		}
+		public static void InvokeNecromancySummonCrafted(NecromancySummonCraftedEventArgs e)
+		{
+			NecromancySummonCrafted?.Invoke(e);
 		}
 	}
 }
