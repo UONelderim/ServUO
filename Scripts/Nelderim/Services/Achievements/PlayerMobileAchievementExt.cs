@@ -64,6 +64,7 @@ namespace Server.Mobiles
 			AchievementPoints += achievement.Points;
 			SendGump(new AchievementObtainedGump(achievement));
 			SendAsciiMessage("Otrzymales nagrode za zdobycie tego osiagniecia!");
+			EventSink.InvokeAchievementCompleted(new AchievementCompletedEventArgs(this, achievement.Id));
 			
 			if (achievement.Rewards == null || achievement.Rewards.Length <= 0) return;
 

@@ -1,5 +1,6 @@
 using Server;
 using Server.Engines.BulkOrders;
+using Server.Engines.Quests.Doom;
 using Server.Items;
 using Server.Mobiles;
 
@@ -36,20 +37,29 @@ namespace Nelderim.Achievements
 			//Discovery
 			Register(new Achievement(interesujace, "Teren zakazany", "Odwiedz Green Acres", 0, 1, 
 				false, null, new DiscoverGoal("GreenAcres")));
-			Register(new Achievement(miastaWioski, "Na starych śmieciach", "Odwiedź Tasandore", 0, 1, 
-				false, null, new DiscoverGoal("Tasandora")));
-			Register(new Achievement(miastaWioski, "Niezbezpieczne tereny", "Odwiedź L'Delmah", 0, 1, 
-				false, null, new DiscoverGoal("L'Delmah")));
-			Register(new Achievement(miastaWioski, "Nie lubię piasku", "Odwiedź Tirassę", 0, 1,
-				false, null, new DiscoverGoal("Tirassa")));
-			Register(new Achievement(miastaWioski, "Nowe tereny", "Odwiedź Orod", 0, 1,
-				false, null, new DiscoverGoal("Orod")));
-			Register(new Achievement(miastaWioski, "Wyspiarskie życie", "Odwiedź Lotharn", 0, 1,
-				false, null, new DiscoverGoal("Lotharn")));
-			Register(new Achievement(miastaWioski, "Zimno, zimnoooo", "Odwiedź Garlan", 0, 1,
-				false, null, new DiscoverGoal("Garlan")));
-			Register(new Achievement(miastaWioski, "Długie brody i ciemne komnaty", "Odwiedź Twierdzę", 0, 1,
-				false, null, new DiscoverGoal("Twierdza")));
+			
+			var citiesAchievments = new[]
+			{
+				Register(new Achievement(miastaWioski, "Na starych śmieciach", "Odwiedź Tasandore", 0, 1, 
+					false, null, new DiscoverGoal("Tasandora"))),
+				Register(new Achievement(miastaWioski, "Niezbezpieczne tereny", "Odwiedź L'Delmah", 0, 1, 
+					false, null, new DiscoverGoal("L'Delmah"))),
+				Register(new Achievement(miastaWioski, "Nie lubię piasku", "Odwiedź Tirassę", 0, 1,
+					false, null, new DiscoverGoal("Tirassa"))),
+				Register(new Achievement(miastaWioski, "Nowe tereny", "Odwiedź Orod", 0, 1,
+					false, null, new DiscoverGoal("Orod"))),
+				Register(new Achievement(miastaWioski, "Wyspiarskie życie", "Odwiedź Lotharn", 0, 1,
+					false, null, new DiscoverGoal("Lotharn"))),
+				Register(new Achievement(miastaWioski, "Zimno, zimnoooo", "Odwiedź Garlan", 0, 1,
+					false, null, new DiscoverGoal("Garlan"))),
+				Register(new Achievement(miastaWioski, "Długie brody i ciemne komnaty", "Odwiedź Twierdzę", 0, 1,
+					false, null, new DiscoverGoal("Twierdza")))
+			};
+			Register(new Achievement(miastaWioski, "Obieżyświat", "Odwiedź wszystkie miasta", 0, 1, false, null,
+				new ManyAchievementsGoal(citiesAchievments)));
+			
+			//Podziemia
+			
 
 			//Kill
 			Register(new Achievement(potwory, "Bojka za barakami 1", "Zabij 10 razy Barracoona", 0, 1, false,
@@ -238,6 +248,8 @@ namespace Nelderim.Achievements
 				null, new ThrowBolaGoal(10)));
 			Register(new Achievement(inne, "Alkoholik", "Wypij 1000 butelek wina", 0, 1, false,
 				null, new ConsumeFoodGoal(1000, typeof(BottleOfWine))));
+			Register(new Achievement(inne, "Złote, lecz skromne", "Zbierz 100 złotych czaszek", 0, 1, false,
+				null, new QuestCompletedGoal(100, typeof(VanquishDaemonObjective))));
 		}
 	}
 }
