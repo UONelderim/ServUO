@@ -8,6 +8,7 @@ namespace Server
 	public delegate void CreatureCarvedEventHandler(CreatureCarvedEventArgs e);
 	public delegate void BolaThrownEventHandler(BolaThrownEventArgs e);
 	public delegate void NecromancySummonCraftedEventHandler(NecromancySummonCraftedEventArgs e);
+	public delegate void AchievementCompletedEventHandler(AchievementCompletedEventArgs e);
 	
 	public class BODCompletedEventArgs : EventArgs
 	{
@@ -84,6 +85,18 @@ namespace Server
 			Summon = summon;
 		}
 	}
+	
+	public class AchievementCompletedEventArgs : EventArgs
+	{
+		public Mobile Mobile { get; }
+		public int AchievementId { get; }
+
+		public AchievementCompletedEventArgs(Mobile m, int achievementId)
+		{
+			Mobile = m;
+			AchievementId = achievementId;
+		}
+	}
 
 	public static partial class EventSink
 	{
@@ -93,6 +106,7 @@ namespace Server
 		public static event CreatureCarvedEventHandler CreatureCarved;
 		public static event BolaThrownEventHandler BolaThrown;
 		public static event NecromancySummonCraftedEventHandler NecromancySummonCrafted;
+		public static event AchievementCompletedEventHandler AchievementCompleted;
 		
 		public static void InvokeBODCompleted(BODCompletedEventArgs e)
 		{
@@ -120,6 +134,10 @@ namespace Server
 		public static void InvokeNecromancySummonCrafted(NecromancySummonCraftedEventArgs e)
 		{
 			NecromancySummonCrafted?.Invoke(e);
+		}
+		public static void InvokeAchievementCompleted(AchievementCompletedEventArgs e)
+		{
+			AchievementCompleted?.Invoke(e);
 		}
 	}
 }

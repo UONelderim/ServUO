@@ -189,6 +189,13 @@ namespace Server.Mobiles
 					pm.Statistics.NecromancySummonsCrafted.Increment(e.Summon.GetType());
 				}
 			};
+			EventSink.QuestComplete += e =>
+			{
+				if (e.Mobile is PlayerMobile pm)
+				{
+					pm.Statistics.QuestsCompleted.Increment(e.QuestType);
+				}
+			};
 		}
 
 		public static void Save(WorldSaveEventArgs args)
@@ -242,6 +249,7 @@ namespace Server.Mobiles
 		public long StepsTakenTotal;
 		public long DamageDealtTotal;
 		public long DamageTakenTotal;
+		public Dictionary<Type, long> QuestsCompleted = new();
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -291,6 +299,7 @@ namespace Server.Mobiles
 			writer.Write(StepsTakenTotal);
 			writer.Write(DamageDealtTotal);
 			writer.Write(DamageTakenTotal);
+			writer.WriteTypeLongDict(QuestsCompleted);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -344,6 +353,7 @@ namespace Server.Mobiles
 			StepsTakenTotal = reader.ReadLong();
 			DamageDealtTotal = reader.ReadLong();
 			DamageTakenTotal = reader.ReadLong();
+			QuestsCompleted = reader.ReadTypeLongDict();
 		}
 	}
 
