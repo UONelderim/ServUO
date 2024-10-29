@@ -1,3 +1,4 @@
+using System;
 using Server;
 using Server.Mobiles;
 
@@ -9,6 +10,10 @@ namespace Nelderim.Achievements
 
 		public DiscoverGoal(string region) : base(1)
 		{
+			if(!Region.Regions.Exists(r => r.Name == region))
+			{
+				Console.WriteLine("DiscoverGoal: Region not found: " + region);
+			}
 			_Region = region;
 			EventSink.OnEnterRegion += Check;
 		}
