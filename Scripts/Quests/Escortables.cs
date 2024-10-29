@@ -5,6 +5,38 @@ using System;
 
 namespace Server.Engines.Quests
 {
+	
+	public class EscortToTasandoraQuest : BaseQuest
+	{
+		public EscortToTasandoraQuest()
+			: base()
+		{
+			AddObjective(new EscortObjective("Tasandora"));
+			AddReward(new BaseReward(typeof(Gold), 500, 1062577));
+		}
+
+		/* Eskorta do Tasandory */
+		public override object Title => 3060315;
+		/* Szukam godnej eskorty. Moge zaoferowac niewielka zaplate kazdemu sprawnemu fizycznie poszukiwaczowi przygod, ktory moze mi pomoc. Konieczne jest, abym dotarl do celu. */
+		public override object Description => 3060316;
+		/* Chcialbym, zebys rozwazyl moja oferte. Bede czekal tutaj na kogos na tyle odwaznego, zeby mi pomoc. */
+		public override object Refuse => 3060317;
+		/* Jeszcze nie dotarlismy do Tasandory. Idzmy dalej. */
+		public override object Uncomplete => 3060318;
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+
+			writer.WriteEncodedInt(0); // version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+
+			int version = reader.ReadEncodedInt();
+		}
+	}
     public class EscortToYewQuest : BaseQuest
     {
         public EscortToYewQuest()
