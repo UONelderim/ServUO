@@ -44,8 +44,6 @@ namespace Nelderim.Achievements
 				false, null, new DiscoverGoal("Tirassa")));
 			Register(new Achievement(miastaWioski, "Nowe tereny", "Odwiedź Orod", 0, 1,
 				false, null, new DiscoverGoal("Orod")));
-			Register(new Achievement(miastaWioski, "Nie lubię piasku", "Odwiedź Tirassę", 0, 1,
-				false, null, new DiscoverGoal("Tirassa")));
 			Register(new Achievement(miastaWioski, "Wyspiarskie życie", "Odwiedź Lotharn", 0, 1,
 				false, null, new DiscoverGoal("Lotharn")));
 			Register(new Achievement(miastaWioski, "Zimno, zimnoooo", "Odwiedź Garlan", 0, 1,

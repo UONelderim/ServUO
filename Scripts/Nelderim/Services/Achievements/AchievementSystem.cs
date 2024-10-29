@@ -11,8 +11,8 @@ namespace Nelderim.Achievements
 	{
 		public static string ModuleName = "Achievements";
 
-		public static AchievementRegistry<AchievementCategory> CategoryRegistry = new("achievementCategories");
-		public static AchievementRegistry<Achievement> AchievementRegistry = new("achievements");
+		public static AchievementRegistry<AchievementCategory> CategoryRegistry = new("achievementCategoriesIndex");
+		public static AchievementRegistry<Achievement> AchievementRegistry = new("achievementsIndex");
 		
 		public static Dictionary<int, Achievement> Achievements => AchievementRegistry.Entries;
 		public static Dictionary<int, AchievementCategory> Categories => CategoryRegistry.Entries;
