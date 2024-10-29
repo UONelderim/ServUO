@@ -59,7 +59,21 @@ namespace Nelderim.Achievements
 				new ManyAchievementsGoal(citiesAchievments)));
 			
 			//Podziemia
-			
+			var dungeonAchievements = new[]
+			{
+				Register(new Achievement(podziemia, "Kryształowe jaskinie", "Odwiedź Kryształowe Jaksinie", 0, 1, 
+					false, null, new DiscoverGoal("Gorogon_VeryEasy"))),
+				Register(new Achievement(podziemia, "Leże lodowych smoków", "Odwiedź Leże Odowych Smoków", 0, 1,
+					false, null, new DiscoverGoal("LezeLodowychSmokow_LVL1_VeryEasy"))),
+				Register(new Achievement(podziemia, "Piramida", "Odwiedź Piramidę", 0, 1,
+					false, null, new DiscoverGoal("Piramida_VeryEasy"))),
+				Register(new Achievement(podziemia, "Siedziba Demonów", "Odwiedź Siedzibę Demonów", 0, 1,
+					false, null, new DiscoverGoal("Demonowo"))),
+				Register(new Achievement(podziemia, "Leże Kryształowych Smoków", "Odwiedź Leże Kryształowych Smoków", 0, 1,
+					false, null, new DiscoverGoal("KrysztaloweSmoki_VeryEasy"))),
+			};
+			Register(new Achievement(podziemia, "Penetruję lochy", "Odwiedź wszystkie podziemia", 0, 1, 
+				false, null, new ManyAchievementsGoal(dungeonAchievements)));
 
 			//Kill
 			Register(new Achievement(potwory, "Bojka za barakami 1", "Zabij 10 razy Barracoona", 0, 1, false,
