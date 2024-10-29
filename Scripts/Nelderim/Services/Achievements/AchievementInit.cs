@@ -264,6 +264,10 @@ namespace Nelderim.Achievements
 				null, new ConsumeFoodGoal(1000, typeof(BottleOfWine))));
 			Register(new Achievement(inne, "Złote, lecz skromne", "Zbierz 100 złotych czaszek", 0, 1, false,
 				null, new QuestCompletedGoal(100, typeof(VanquishDaemonObjective))));
+			Register(new Achievement(inne, "Artysta", "Namaluj 10x każdy typ obrazu", 0, 1, false,
+				null, new CreateManyPaintingsGoal(10, typeof(MalePortrait), typeof(FemalePortrait), 
+					typeof(StillLifeSmall1), typeof(StillLifeSmall2), typeof(StillLifeLarge1), typeof(StillLifeLarge2), 
+					typeof(AbstractPainting1), typeof(AbstractPainting2), typeof(AbstractPainting3))));
 		}
 	}
 }

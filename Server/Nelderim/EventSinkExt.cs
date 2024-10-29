@@ -9,6 +9,7 @@ namespace Server
 	public delegate void BolaThrownEventHandler(BolaThrownEventArgs e);
 	public delegate void NecromancySummonCraftedEventHandler(NecromancySummonCraftedEventArgs e);
 	public delegate void AchievementCompletedEventHandler(AchievementCompletedEventArgs e);
+	public delegate void PaintingCreatedEventHandler(PaintingCreatedEventArgs e);
 	
 	public class BODCompletedEventArgs : EventArgs
 	{
@@ -97,6 +98,18 @@ namespace Server
 			AchievementId = achievementId;
 		}
 	}
+	
+	public class PaintingCreatedEventArgs : EventArgs
+	{
+		public Mobile Artist { get; }
+		public Item Painting { get; }
+
+		public PaintingCreatedEventArgs(Mobile artist, Item painting)
+		{
+			Artist = artist;
+			Painting = painting;
+		}
+	}
 
 	public static partial class EventSink
 	{
@@ -107,6 +120,7 @@ namespace Server
 		public static event BolaThrownEventHandler BolaThrown;
 		public static event NecromancySummonCraftedEventHandler NecromancySummonCrafted;
 		public static event AchievementCompletedEventHandler AchievementCompleted;
+		public static event PaintingCreatedEventHandler PaintingCreated;
 		
 		public static void InvokeBODCompleted(BODCompletedEventArgs e)
 		{
@@ -138,6 +152,10 @@ namespace Server
 		public static void InvokeAchievementCompleted(AchievementCompletedEventArgs e)
 		{
 			AchievementCompleted?.Invoke(e);
+		}
+		public static void InvokePaintingCreated(PaintingCreatedEventArgs e)
+		{
+			PaintingCreated?.Invoke(e);
 		}
 	}
 }

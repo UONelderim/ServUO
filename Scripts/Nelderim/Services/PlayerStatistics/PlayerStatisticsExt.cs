@@ -196,6 +196,13 @@ namespace Server.Mobiles
 					pm.Statistics.QuestsCompleted.Increment(e.QuestType);
 				}
 			};
+			EventSink.PaintingCreated += e =>
+			{
+				if (e.Artist is PlayerMobile pm)
+				{
+					pm.Statistics.PaintingsCreated.Increment(e.Painting.GetType());
+				}
+			};
 		}
 
 		public static void Save(WorldSaveEventArgs args)
@@ -250,6 +257,7 @@ namespace Server.Mobiles
 		public long DamageDealtTotal;
 		public long DamageTakenTotal;
 		public Dictionary<Type, long> QuestsCompleted = new();
+		public Dictionary<Type, long> PaintingsCreated = new();
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -300,6 +308,7 @@ namespace Server.Mobiles
 			writer.Write(DamageDealtTotal);
 			writer.Write(DamageTakenTotal);
 			writer.WriteTypeLongDict(QuestsCompleted);
+			writer.WriteTypeLongDict(PaintingsCreated);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -354,6 +363,7 @@ namespace Server.Mobiles
 			DamageDealtTotal = reader.ReadLong();
 			DamageTakenTotal = reader.ReadLong();
 			QuestsCompleted = reader.ReadTypeLongDict();
+			PaintingsCreated = reader.ReadTypeLongDict();
 		}
 	}
 

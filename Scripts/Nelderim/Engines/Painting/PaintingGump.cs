@@ -106,14 +106,12 @@ namespace Server.Gumps
 			{
 				if (targeted is PlayerMobile pm)
 				{
-					if (pm.Female)
-					{
-						from.AddToBackpack(new FemalePortrait(from.Name, pm.Name));
-					}
-					else
-					{
-						from.AddToBackpack(new MalePortrait(from.Name, pm.Name));
-					}
+					Item painting = pm.Female
+						? new FemalePortrait(from.Name, pm.Name)
+						: new MalePortrait(from.Name, pm.Name);
+					from.AddToBackpack(painting);
+					EventSink.InvokePaintingCreated(new PaintingCreatedEventArgs(from, painting));
+					
 					from.Backpack.FindItemByType<Canvas>().Consume(1);
 					from.Backpack.FindItemByType<PaintBucket>().Consume(1);
 				}
@@ -152,10 +150,13 @@ namespace Server.Gumps
 			{
 				try
 				{
-					from.AddToBackpack((Item)Activator.CreateInstance(paintingType, from.Name, subject));
+					var painting = (Item)Activator.CreateInstance(paintingType, from.Name, subject);
+					from.AddToBackpack(painting);
+					EventSink.InvokePaintingCreated(new PaintingCreatedEventArgs(from, painting));
 
 					from.Backpack.FindItemByType<Canvas>().Consume(1);
 					from.Backpack.FindItemByType<PaintBucket>().Consume(1);
+					
 				}
 				catch (Exception e)
 				{
