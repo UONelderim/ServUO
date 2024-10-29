@@ -1,5 +1,8 @@
 using System.Linq;
 using Server.Items;
+using Server.Misc;
+using Server.Mobiles;
+using Server.Nelderim;
 using Server.Nelderim.Misc;
 
 namespace Server.Commands
@@ -14,11 +17,49 @@ namespace Server.Commands
 
 		private static void DoMigrate(CommandEventArgs e)
 		{
-			CreateMoongates(e.Mobile);
-		}
+			var from = e.Mobile;
+			var players = World.Mobiles.Values.OfType<PlayerMobile>();
+			
+			foreach (var pm in players)
+			{
+				if(pm.IsStaff())
+					continue;
+				
+				pm.Kills = 0;
+				pm.Race = Race.None;
+				pm.Faction = Faction.None;
+				
+				pm.LogoutMap = Map.Trammel;
+				pm.LogoutLocation = AccountHandler.StartingCities[0].Location;
+				BaseMount.Dismount(pm);
+				//Stable all pets
+				if (pm.AllFollowers.Count > 0)
+				{
+					for (int i = pm.AllFollowers.Count - 1; i >= 0; --i)
+					{
+						BaseCreature pet = pm.AllFollowers[i] as BaseCreature;
 
-		private static void CreateMoongates(Mobile from)
-		{
+						if (pet == null || pet.CanAutoStable)
+						{
+							continue;
+						}
+
+						pet.ControlTarget = null;
+						pet.ControlOrder = OrderType.Stay;
+						pet.Internalize();
+
+						pet.SetControlMaster(null);
+						pet.SummonMaster = null;
+
+						pet.IsStabled = true;
+						pet.StabledBy = null;
+
+						pm.Stabled.Add(pet);
+					}
+				}
+
+			}
+			
 			//New Haven -> RaceRoom
 			var newHavenMap = Map.Trammel;
 			var newHavenPortalLocation = new Point3D(3506, 2574, 18);
