@@ -1,4 +1,6 @@
+using System;
 using System.Linq;
+using Nelderim;
 using Server.Items;
 using Server.Misc;
 using Server.Mobiles;
@@ -24,7 +26,7 @@ namespace Server.Commands
 			{
 				if(pm.IsStaff())
 					continue;
-				
+				RefundLanguages(pm);
 				pm.Kills = 0;
 				pm.Race = Race.None;
 				pm.Faction = Faction.None;
@@ -37,9 +39,9 @@ namespace Server.Commands
 				{
 					for (int i = pm.AllFollowers.Count - 1; i >= 0; --i)
 					{
-						BaseCreature pet = pm.AllFollowers[i] as BaseCreature;
+						var pet = pm.AllFollowers[i] as BaseCreature;
 
-						if (pet == null || pet.CanAutoStable)
+						if (pet == null)
 						{
 							continue;
 						}
@@ -100,6 +102,26 @@ namespace Server.Commands
 				Target = raceRoomPortalLocation
 			};
 			raceRoomMoongate.MoveToWorld(raceRoomPortalLocation, raceRoomMap);
+		}
+
+		private static void RefundLanguages(PlayerMobile pm)
+		{
+			foreach (var lang in Enum.GetValues<NLanguage>())
+			{
+				if (lang is NLanguage.Belkot or NLanguage.Powszechny)
+					continue;
+				if (pm.Race.DefaultLanguages.ContainsKey(lang))
+					continue;
+				var value = pm.LanguagesKnown[lang];
+				if (value == 1000)
+				{
+					pm.LanguagesKnown[lang] = 0;
+					pm.QuestPoints += 150;
+					pm.QuestPointsHistory.Add(
+						new QuestPointsHistoryEntry(
+							DateTime.Now, "Nelderim", 150, $"Zwrot PD za jezyk: {lang}", pm.Name));
+				}
+			}
 		}
 	}
 }
