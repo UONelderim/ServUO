@@ -1,15 +1,9 @@
-#region References
-
 using Server.Gumps;
-
-#endregion
 
 namespace Server.Items
 {
 	public class PaintBrush : Item
 	{
-		//public override CraftSystem CraftSystem{ get{ return DefPainting.CraftSystem; } }
-
 		[Constructable]
 		public PaintBrush() : base(0xFC1)
 		{
@@ -22,14 +16,13 @@ namespace Server.Items
 		{
 			if (IsChildOf(from.Backpack))
 			{
-				from.SendGump(new PaintingGump(from, this));
+				from.SendGump(new PaintingGump());
 			}
 			else
 			{
 				from.SendLocalizedMessage(1042001); // This must be in your backpack to use it
 			}
 		}
-
 
 		public PaintBrush(Serial serial) : base(serial)
 		{
