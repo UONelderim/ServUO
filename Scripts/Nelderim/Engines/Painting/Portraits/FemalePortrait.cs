@@ -12,7 +12,7 @@ namespace Server.Items
 			}
 			else
 			{
-				Name = $"Portret {artistName} namalowany przez {subject}";
+				Name = $"Portret {subject} namalowany przez {artistName}";
 			}
 			Weight = 3.0;
 			Hue = 0;
