@@ -437,7 +437,9 @@ namespace Server.Engines.Quests
     {
         private static readonly Type[] m_Quests =
         {
-            typeof(EscortToYewQuest),
+	        
+	        typeof(EscortToTasandoraQuest)
+            /*typeof(EscortToYewQuest),
             typeof(EscortToVesperQuest),
             typeof(EscortToTrinsicQuest),
             typeof(EscortToSkaraQuest),
@@ -448,7 +450,7 @@ namespace Server.Engines.Quests
             typeof(EscortToMaginciaQuest),
             typeof(EscortToJhelomQuest),
             typeof(EscortToCoveQuest),
-            typeof(EscortToBritainQuest)
+            typeof(EscortToBritainQuest)*/
         };
 
         private static readonly string[] m_Destinations =
