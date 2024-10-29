@@ -16,7 +16,7 @@ namespace Server.Nelderim.Misc
 			TitleNumber = 1124185;
 			MessageNumber = 1124186;
 		}
-
+		
 		public override void OnGateUsed(Mobile m)
 		{
 			var target = m.Race switch
@@ -42,6 +42,10 @@ namespace Server.Nelderim.Misc
 
 			m.MoveToWorld(target, Map.Felucca);
 			m.PlaySound(0x66C);
+		}
+
+		public RaceRoomMoongate(Serial serial) : base(serial)
+		{
 		}
 	}
 }
