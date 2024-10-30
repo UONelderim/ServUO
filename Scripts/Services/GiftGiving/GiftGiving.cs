@@ -47,8 +47,6 @@ namespace Server.Misc
 
                 giver.DelayGiveGift(TimeSpan.FromSeconds(5.0), e.Mobile);
             }
-
-            acct.LastLogin = now;
         }
     }
 

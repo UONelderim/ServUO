@@ -2508,6 +2508,7 @@ namespace Server.Network
 			state.Send(new CurrentTime());
 
 			EventSink.InvokeLogin(new LoginEventArgs(m));
+			m.Account.LastLogin = DateTime.UtcNow;
 
 			Utility.WriteLine(ConsoleColor.Green, "Client: {0}: Entered World ({1})", state, m);
 		}
