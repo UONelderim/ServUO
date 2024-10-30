@@ -502,7 +502,8 @@ namespace Server.Engines.Quests
 
         public override string GetDestination()
         {
-            return QuestHelper.ValidateRegion(m_Destinations[m_Quest]) ? m_Destinations[m_Quest] : null;
+	        //TODO: Fixme
+	        return "Tasandora";
         }
 
         public override void Serialize(GenericWriter writer)
