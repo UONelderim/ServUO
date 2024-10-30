@@ -14,13 +14,18 @@ namespace Server.Misc
             Mobile beholder = e.Beholder;
             Mobile beheld = e.Beheld;
 
-            beholder.Send(new DisplayPaperdoll(beheld, Titles.ComputeTitle(beholder, beheld), beheld.AllowEquipFrom(beholder)));
+            Send(beholder, beheld);
+        }
 
-            foreach (Item item in beheld.Items)
-                beholder.Send(item.OPLPacket);
+        public static void Send(Mobile beholder, Mobile beheld)
+        {
+	        beholder.Send(new DisplayPaperdoll(beheld, Titles.ComputeTitle(beholder, beheld), beheld.AllowEquipFrom(beholder)));
 
-            // NOTE: OSI sends MobileUpdate when opening your own paperdoll.
-            // It has a very bad rubber-banding affect. What positive affects does it have?
+	        foreach (Item item in beheld.Items)
+		        beholder.Send(item.OPLPacket);
+
+	        // NOTE: OSI sends MobileUpdate when opening your own paperdoll.
+	        // It has a very bad rubber-banding affect. What positive affects does it have?
         }
     }
 }

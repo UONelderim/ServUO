@@ -14,19 +14,8 @@ namespace Server.Nelderim
 		public static void Initialize()
 		{
 			EventSink.WorldSave += Save;
-			EventSink.CharacterCreated += CharacterCreated;
 			Faction.Load(ModuleName);
 		}
-
-		private static void CharacterCreated(CharacterCreatedEventArgs e)
-		{
-			var acc = e.Mobile.Account;
-			if (acc != null)
-			{
-				e.Mobile.Faction = acc.Faction;
-			}
-		}
-
 		public static void Save(WorldSaveEventArgs args)
 		{
 			Faction.Save(args, ModuleName);

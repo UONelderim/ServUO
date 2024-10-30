@@ -5,6 +5,7 @@ using System.Xml;
 using Server.Nelderim;
 using Server.Accounting;
 using Server.Gumps;
+using Server.Mobiles;
 using Server.Nelderim.Gumps;
 
 #endregion
@@ -44,12 +45,16 @@ namespace Server.Regions
 			{
 				m.SendGump(new RaceRoomGump(m, m_Room));
 			}
-
-			if (m.IsPlayer() && m.Account is Account a)
+			
+			if (m is PlayerMobile && m.IsPlayer() && m.Account is Account a)
 			{
 				if (a.Faction == null || a.Faction == Faction.None)
 				{
 					m.SendGump(new FactionSelectGump(m));
+				}
+				else
+				{
+					m.Faction = a.Faction;
 				}
 			}
 
