@@ -1339,13 +1339,13 @@ namespace Server
 		public Item BonusResource { get; }
 		public object HarvestSystem { get; }
 
-		public ResourceHarvestSuccessEventArgs(Mobile m, Item i, Item r, Item b, object o)
+		public ResourceHarvestSuccessEventArgs(Mobile mobile, Item tool, Item resource, Item bonus, object system)
 		{
-			Harvester = m;
-			Tool = i;
-			Resource = r;
-			BonusResource = b;
-			HarvestSystem = o;
+			Harvester = mobile;
+			Tool = tool;
+			Resource = resource;
+			BonusResource = bonus;
+			HarvestSystem = system;
 		}
 	}
 
@@ -1355,11 +1355,11 @@ namespace Server
 		public Item Tool { get; }
 		public Item CraftedItem { get; }
 
-		public CraftSuccessEventArgs(Mobile m, Item i, Item t)
+		public CraftSuccessEventArgs(Mobile mobile, Item item, Item tool)
 		{
-			Crafter = m;
-			Tool = t;
-			CraftedItem = i;
+			Crafter = mobile;
+			Tool = tool;
+			CraftedItem = item;
 		}
 	}
 
