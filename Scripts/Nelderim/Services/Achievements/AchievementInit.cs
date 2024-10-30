@@ -155,6 +155,14 @@ namespace Nelderim.Achievements
 					typeof(KhalAnkur)),
 				() => new Silver(20)
 			));
+			Register(new Achievement(bossy, "Morskie Opowieści", "Zabij 1x wszystkie championy morskie", 0,
+				5, false, null,
+				new KillManyCreatureGoal(1, 
+					typeof(Charydbis),
+					typeof(CorgulTheSoulBinder),
+					typeof(Osiredon)),
+				() => new Silver(20)
+			));
 			Register(new Achievement(stworzenia, "Pogromca Przedwiecznego Zła ", "Zabij Przedwiecznego", 0, 1, false,
 				null, new KillCreatureGoal(1, typeof(Harrower))));
 			Register(new Achievement(stworzenia, "Pogromca Przedwiecznego Zła 2", "Zabij 10x Przedwiecznego", 0, 1, false,
@@ -214,15 +222,15 @@ namespace Nelderim.Achievements
 			
 			Register(new Achievement(gotowanie, "Ser UO 1", "Zfermentuj 1000 serów z owczego mleka", 0, 1, 
 				false, null, new CraftGoal(1000, typeof(FromageDeBrebis))));
-			Register(new Achievement(gotowanie, "Ser UO 1", "Zfermentuj 1000 serów z koziego mleka", 0, 1, 
+			Register(new Achievement(gotowanie, "Ser UO 2", "Zfermentuj 1000 serów z koziego mleka", 0, 1, 
 				false, null, new CraftGoal(1000, typeof(FromageDeChevre))));
-			Register(new Achievement(gotowanie, "Ser UO 1", "Zfermentuj 1000 serów z krowiego mleka", 0, 1, 
+			Register(new Achievement(gotowanie, "Ser UO 3", "Zfermentuj 1000 serów z krowiego mleka", 0, 1, 
 				false, null, new CraftGoal(1000, typeof(FromageDeVache))));
-			Register(new Achievement(gotowanie, "Ser UO 1", "Zfermentuj 1000 magicznych serów z owczego mleka", 0, 1, 
+			Register(new Achievement(gotowanie, "Ser UO 4", "Zfermentuj 1000 magicznych serów z owczego mleka", 0, 1, 
 				false, null, new CraftGoal(1000, typeof(FromageDeBrebisMagic))));
-			Register(new Achievement(gotowanie, "Ser UO 1", "Zfermentuj 1000 magicznych serów z koziego mleka", 0, 1, 
+			Register(new Achievement(gotowanie, "Ser UO 5", "Zfermentuj 1000 magicznych serów z koziego mleka", 0, 1, 
 				false, null, new CraftGoal(1000, typeof(FromageDeChevreMagic))));
-			Register(new Achievement(gotowanie, "Ser UO 1", "Zfermentuj 1000 magicznych serów z krowiego mleka", 0, 1, 
+			Register(new Achievement(gotowanie, "Ser UO 6", "Zfermentuj 1000 magicznych serów z krowiego mleka", 0, 1, 
 				false, null, new CraftGoal(1000, typeof(FromageDeVacheMagic))));
 			
 
