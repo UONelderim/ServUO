@@ -1,6 +1,7 @@
 using Server.Accounting;
 using Server.Commands;
 using Server.Gumps;
+using Server.Misc;
 using Server.Network;
 using Server.Targeting;
 
@@ -91,6 +92,8 @@ namespace Server.Nelderim.Gumps
 				}
 			}
 			_from.Frozen = false;
+			_from.SendMessage("Należysz teraz do frakcji {0}", fac.Name);
+			Paperdoll.Send(_from, _from);
 			base.OnResponse(sender, info);
 		}
 	}

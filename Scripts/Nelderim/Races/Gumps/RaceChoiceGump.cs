@@ -1,6 +1,7 @@
 #region References
 
 using Nelderim;
+using Server.Misc;
 using Server.Network;
 
 #endregion
@@ -270,6 +271,7 @@ namespace Server.Gumps
 			m_From.FacialHairHue = m_HairHue;
 
 			m_From.SendMessage(0x20, "Od teraz jestes {0}.", m_Race.GetName(Cases.Narzednik));
+			Paperdoll.Send(m_From, m_From);
 		}
 
 		public virtual void ExtendedResponse(RelayInfo info)
