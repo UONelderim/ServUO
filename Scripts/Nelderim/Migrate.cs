@@ -5,6 +5,7 @@ using Server.Items;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Nelderim;
+using Server.Nelderim.Gumps;
 using Server.Nelderim.Misc;
 
 namespace Server.Commands
@@ -28,10 +29,17 @@ namespace Server.Commands
 					continue;
 				RefundLanguages(pm);
 				pm.Kills = 0;
+				pm.Fame = 0;
+				pm.Karma = 0;
+				pm.Name = "Czlowiek";
+				pm.Profile = "";
+				var characterSheet = CharacterSheet.Get(pm);
+				characterSheet.AppearanceAndCharacteristic = "";
+				characterSheet.HistoryAndProfession = "";
 				pm.Race = Race.None;
 				pm.Faction = Faction.None;
-				
-				pm.LogoutMap = Map.Trammel;
+
+				pm.LogoutMap = AccountHandler.StartingCities[0].Map;
 				pm.LogoutLocation = AccountHandler.StartingCities[0].Location;
 				BaseMount.Dismount(pm);
 				//Stable all pets
