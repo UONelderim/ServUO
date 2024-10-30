@@ -10,7 +10,7 @@ namespace Server.Engines.Quests
 	{
 		public RogueQuest()
 		{
-			AddObjective(new DeliverObjective(typeof(Head), "glowa", 10, typeof(BaseCreature), "Edward"));
+			AddObjective(new ObtainObjective(typeof(Head), "glowa", 10, 50, 0x1DA0));
 
 			AddReward(new BaseReward(3060294)); // Coraz blizej opanowania Podstepnych Sztuczek
 		}
