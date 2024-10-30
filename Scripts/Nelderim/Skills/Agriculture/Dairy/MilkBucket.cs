@@ -131,6 +131,7 @@ namespace Server.Items
 							m.Stam -= 3;
 							from.PlaySound(0X4D1);
 							from.SendMessage(0x96D, "Zebrales litr mleka.");
+							EventSink.InvokeResourceHarvestSuccess(new ResourceHarvestSuccessEventArgs(from, null, milkBucket, null, null));
 						}
 						else
 						{

@@ -70,41 +70,42 @@ namespace Server.Items
 					{
 						from.SendMessage(0x84C, "Fermetacja sie nie udala, mleko przepadlo.");
 					}
-					if ((skillBonus > 95) && Utility.RandomBool())
-					{
-						if (_MilkType == MilkType.Sheep)
-						{
-							from.SendMessage(0x84C, "Otrzymales wspanialy twarog z formy.");
-							from.AddToBackpack(new FromageDeBrebisMagic());
-						}
-						else if (_MilkType == MilkType.Goat)
-						{
-							from.SendMessage(0x84C, "Uzyskales wspanialy Chavignol z formy.");
-							from.AddToBackpack(new FromageDeChevreMagic());
-						}
-						else
-						{
-							from.SendMessage(0x84C, "Uzyskales wspanialy Maroille z formy.");
-							from.AddToBackpack(new FromageDeVacheMagic());
-						}
-					}
 					else
 					{
-						if (_MilkType == MilkType.Sheep)
+						Item cheese;
+						if ((skillBonus > 95) && Utility.RandomBool())
 						{
-							from.SendMessage(0x84C, "Uzyskales wspanialy owczy ser z formy.");
-							from.AddToBackpack(new FromageDeBrebis());
-						}
-						else if (_MilkType == MilkType.Goat)
-						{
-							from.SendMessage(0x84C, "Uzyskales wspanialy kozi ser z formy.");
-							from.AddToBackpack(new FromageDeChevre());
+							if (_MilkType == MilkType.Sheep)
+							{
+								cheese = new FromageDeBrebisMagic();
+							}
+							else if (_MilkType == MilkType.Goat)
+							{
+								cheese = new FromageDeChevreMagic();
+							}
+							else
+							{
+								cheese = new FromageDeVacheMagic();
+							}
 						}
 						else
 						{
-							from.SendMessage(0x84C, "Uzyskales wspanialy krowi ser z formy.");
-							from.AddToBackpack(new FromageDeVache());
+							if (_MilkType == MilkType.Sheep)
+							{
+								cheese = new FromageDeBrebis();
+							}
+							else if (_MilkType == MilkType.Goat)
+							{
+								cheese = new FromageDeChevre();
+							}
+							else
+							{
+								cheese = new FromageDeVache();
+							}
 						}
+						from.SendMessage(0x84C, $"Uzyskales {cheese.Name} z formy.");
+						from.AddToBackpack(cheese);
+						EventSink.InvokeCraftSuccess(new CraftSuccessEventArgs(from, cheese, null));
 					}
 					FermentationProgress = 0;
 					CheeseQuality = 0;

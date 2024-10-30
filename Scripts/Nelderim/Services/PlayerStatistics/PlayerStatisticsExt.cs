@@ -98,7 +98,7 @@ namespace Server.Mobiles
 			};
 			EventSink.ResourceHarvestSuccess += e =>
 			{
-				//Ore,Wood,Fish,Clams
+				//Ore,Wood,Fish,Clams,Milk
 				if (e.Harvester is PlayerMobile pm)
 				{
 					pm.Statistics.ResourceHarvested.Increment(e.Resource.GetType(), e.Resource.Amount);

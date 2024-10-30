@@ -20,6 +20,7 @@ namespace Nelderim.Achievements
 			var alchemia = Register(new AchievementCategory(rzemioslo, "Alchemia"));
 			var kowalstwo = Register(new AchievementCategory(rzemioslo, "Kowalstwo"));
 			var majsterkowanie = Register(new AchievementCategory(rzemioslo, "Majsterkowanie"));
+			var gotowanie = Register(new AchievementCategory(rzemioslo, "Gotowanie"));
 			
 			var zlecenia = Register(new AchievementCategory(rzemioslo, "Zlecenia"));
 
@@ -209,6 +210,20 @@ namespace Nelderim.Achievements
 				false, null, new BulkOrderGoal(100, typeof(SmallInscriptionBOD))));
 			Register(new Achievement(zlecenia, "Na zamowienie 8", "Wykonaj 100 malych zlecen myśliwego", 0, 1,
 				false, null, new BulkOrderGoal(100, typeof(SmallHunterBOD))));
+			
+			Register(new Achievement(gotowanie, "Ser UO 1", "Zfermentuj 1000 serów z owczego mleka", 0, 1, 
+				false, null, new CraftGoal(1000, typeof(FromageDeBrebis))));
+			Register(new Achievement(gotowanie, "Ser UO 1", "Zfermentuj 1000 serów z koziego mleka", 0, 1, 
+				false, null, new CraftGoal(1000, typeof(FromageDeChevre))));
+			Register(new Achievement(gotowanie, "Ser UO 1", "Zfermentuj 1000 serów z krowiego mleka", 0, 1, 
+				false, null, new CraftGoal(1000, typeof(FromageDeVache))));
+			Register(new Achievement(gotowanie, "Ser UO 1", "Zfermentuj 1000 magicznych serów z owczego mleka", 0, 1, 
+				false, null, new CraftGoal(1000, typeof(FromageDeBrebisMagic))));
+			Register(new Achievement(gotowanie, "Ser UO 1", "Zfermentuj 1000 magicznych serów z koziego mleka", 0, 1, 
+				false, null, new CraftGoal(1000, typeof(FromageDeChevreMagic))));
+			Register(new Achievement(gotowanie, "Ser UO 1", "Zfermentuj 1000 magicznych serów z krowiego mleka", 0, 1, 
+				false, null, new CraftGoal(1000, typeof(FromageDeVacheMagic))));
+			
 
 			//surowce
 			Register(new Achievement(surowce, "Skórkowany 1", "Zbierz 1000 skór", 0, 1,
@@ -248,6 +263,9 @@ namespace Nelderim.Achievements
 			
 			Register(new Achievement(surowce, "Wycinka 1", "Pozyskaj 1000 klod", 0, 1,
 				false, null, new HarvestGoal(1000, typeof(Log))));
+			
+			Register(new Achievement(surowce, "Z mlekiem matki", "Pozyskaj 1000 litrów mleka", 0, 1,
+				false, null, new HarvestGoal(1000, typeof(MilkBucket))));
 
 			//rozwoj
 			Register(new Achievement(rozwoj, "Dokonanie prawdziwnego alchemika", "Wytrenuj 120 alchemii",
