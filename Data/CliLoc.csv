@@ -43650,9 +43650,9 @@ Number;Text
 1072755;Wklad w spolecznosc
 1072756;Zapasy dla Druidow
 1072757;Ludzka Zguba
-1072758;Unnatural Creations 
-1072759;The Way of the Arcanist 
-1072760;Supplies for The Heartwood 
+1072758;Nienaturalne twory
+1072759;Droga druida
+1072760;Zapasy druidow
 1072761;Nauka rzucania zaklec i kontrolowania sil natury wymaga poswiecenia, dyscypliny, skupienia i niezachwianego oddania samej ziemi Nelderim. Nie uczymy niegodnych. Oni nie rozumieja lekcji ani wymaganego oddania. Jesli chcesz kroczyc sciezka druidow, musisz zrobic to, czego wymagam, bez wahania i pytan. Twoim pierwszym zadaniem jest pozbycie sie z naszego domu szczurow... 50 z nich w ciagu nastepnej godziny.
 1072762;Nauka splatania zaklec i kontrolowania sil natury wymaga poswiecenia, dyscypliny, skupienia oraz niezlomnego oddania samej Sosarii. Nie uczymy niegodnych. Nie pojmuja oni ani lekcji, ani wymaganego zaangazowania. Jesli chcesz kroczyc sciezka Arkanisty, musisz wykonywac moje polecenia bez wahania i bez pytan. Twoim pierwszym zadaniem jest zebranie miniaturowych grzybow... 20 z nich z galezi naszego poteznego domu. Daje ci na to jedna godzine.
 1072763;Droga druida obejmuje wspolprace z innymi i silne zaangazowanie we wspolnote twojego ludu. Skonczyla nam sie bawelna, ktorej uzywamy do opatrywania ran, a nasz lud jej potrzebuje. Przynies mi 10 bel bawelny.
@@ -43664,7 +43664,7 @@ Number;Text
 1072769;Ludzie potrzebuja tych rzeczy. Udowodnisz, ze nie jestes w stanie sprostac wymaganiom czlonka tej spolecznosci?
 1072770;Nie wahaj sie teraz. Obiecales przeciez... 
 1072771;Musisz sluzyc swej frakcji calym sercem i sila. Twoja niechec nie rzuca na ciebie dobrego swiatla. 
-1072772;Spellweaving Skill. 
+1072772;Druidyzm 
 1072773;Marnujesz mój czas. Zadanie jest proste. Zabij 50 ogromnych szczurów w miesiac.
 1072774;Grzyby, ktorych szukam, mozna znalezc rosnace tutaj, w Tasandorze. Odnajdz je i zbierz. Czas ci sie konczy.
 1072775;Nie obchodzi mnie, skad bierzesz bawelne, wazne, zebys ja dostarczal. Najlepiej, gdy ubedzie jej Drowom... *zasmial sie lekko, po czym rozglada sie za siebie i powaznie patrzy przed siebie*
@@ -45250,11 +45250,11 @@ Number;Text
 1074355;Strong Back 
 1074356;gift for arielle 
 1074357;Well, I don't mind saying it -- I'm flabbergasted!  Absolutely astonished.  I just heard that some elves want to convert themselves to humans through some magical process.  My cousin Nedrick does whatever needs doing.  I guess you could check it out for yourself if you're curious.  Anyway, I wonder if you'll bring my cousin, Drithen, this here treat my wife baked up for him special. 
-1074358;No reward is pending. 
-1074359;The reward would not fit in your pack. 
-1074360;You receive a reward: ~1_REWARD~ 
-1074361;The reward could not be given.  Make sure you have room in your pack. 
-1074362;A reward is available! 
+1074358;Brak oczekujacych nagrod do odebrania. 
+1074359;Nagroda jest jak przyrodzenie Soteriosa... nie zmiesci Ci sie do plecaka. 
+1074360;Otrzymujesz nagrode: ~1_REWARD~ 
+1074361;Nie masz miejsca w swym plecaku, wiec nagroda nie mogla byc Ci dana.
+1074362;Mozesz odebrac nagrode! 
 1074363;Zabawkowa lodka 
 1074364;Waterlogged boots 
 1074365;A new creature has hatched overnight in the tank. 
