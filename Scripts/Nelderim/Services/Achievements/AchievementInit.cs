@@ -282,7 +282,7 @@ namespace Nelderim.Achievements
 				false, null, new HarvestGoal(1000, typeof(HeartwoodLog))));
 			Register(new Achievement(surowce, "Wycinka 6", "Pozyskaj 1000 klod z opalonego drewna", 0, 1,
 				false, null, new HarvestGoal(1000, typeof(BloodwoodLog))));
-			Register(new Achievement(surowce, "Wycinka 6", "Pozyskaj 1000 klod ze zmarznietego drewna", 0, 1,
+			Register(new Achievement(surowce, "Wycinka 7", "Pozyskaj 1000 klod ze zmarznietego drewna", 0, 1,
 				false, null, new HarvestGoal(1000, typeof(FrostwoodLog))));
 			Register(new Achievement(surowce, "Im dalej w las, tym więcej drzew", "Pozyskaj 5000 klod kazdego typu", 0, 1,
 				false, null, new HarvestManyGoal(5000, 
