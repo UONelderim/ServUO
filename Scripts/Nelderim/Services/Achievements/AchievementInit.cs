@@ -264,6 +264,22 @@ namespace Nelderim.Achievements
 			
 			Register(new Achievement(surowce, "Wycinka 1", "Pozyskaj 1000 klod", 0, 1,
 				false, null, new HarvestGoal(1000, typeof(Log))));
+			Register(new Achievement(surowce, "Wycinka 2", "Pozyskaj 1000 klod z zywicznego drewna", 0, 1,
+				false, null, new HarvestGoal(1000, typeof(OakLog))));
+			Register(new Achievement(surowce, "Wycinka 3", "Pozyskaj 1000 klod z pustego drewna ", 0, 1,
+				false, null, new HarvestGoal(1000, typeof(AshLog))));
+			Register(new Achievement(surowce, "Wycinka 4", "Pozyskaj 1000 klod ze skamienialego drewna", 0, 1,
+				false, null, new HarvestGoal(1000, typeof(YewLog))));
+			Register(new Achievement(surowce, "Wycinka 5", "Pozyskaj 1000 klod z gietkiego drewna", 0, 1,
+				false, null, new HarvestGoal(1000, typeof(HeartwoodLog))));
+			Register(new Achievement(surowce, "Wycinka 6", "Pozyskaj 1000 klod z opalonego drewna", 0, 1,
+				false, null, new HarvestGoal(1000, typeof(BloodwoodLog))));
+			Register(new Achievement(surowce, "Wycinka 6", "Pozyskaj 1000 klod ze zmarznietego drewna", 0, 1,
+				false, null, new HarvestGoal(1000, typeof(FrostwoodLog))));
+			Register(new Achievement(surowce, "Im dalej w las, tym więcej drzew", "Pozyskaj 5000 klod kazdego typu", 0, 1,
+				false, null, new HarvestManyGoal(5000, 
+					typeof(Log), typeof(OakLog), typeof(AshLog), typeof(YewLog), 
+					typeof(HeartwoodLog), typeof(BloodwoodLog), typeof(FrostwoodLog))));
 			
 			Register(new Achievement(surowce, "Zielone, zielone 1", "Zbierz 1000 czosnku", 0, 1,
 				false, null, new HarvestGoal(1000, typeof(KrzakCzosnek))));
