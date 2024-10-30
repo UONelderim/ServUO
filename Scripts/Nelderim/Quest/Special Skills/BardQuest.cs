@@ -11,7 +11,7 @@ namespace Server.Engines.Quests
 		public BardQuest()
 		{
 			
-			AddObjective(new ObtainObjective(typeof(AdmiralsHeartyRum), "krasnoludzki rum", 10, 0xE9C));
+			AddObjective(new ObtainObjective(typeof(BottleCowMilk), "Butelka krowiego mleka", 10, 0x0f09));
 
 			AddReward(new BaseReward(3060225)); // Coraz blizej wielkich piesni bardowskich
 		}

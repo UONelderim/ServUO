@@ -7,7 +7,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Aeluva()
-            : base("Aeluva", "the arcanist")
+            : base("Aeluva", "- nauczyciel druidow")
         {
             SetSkill(SkillName.Meditation, 60.0, 83.0);
             SetSkill(SkillName.Focus, 60.0, 83.0);
