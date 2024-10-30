@@ -1,9 +1,5 @@
-#region References
-
 using System.Collections.Generic;
 using Server.Items;
-
-#endregion
 
 namespace Server.Mobiles
 {

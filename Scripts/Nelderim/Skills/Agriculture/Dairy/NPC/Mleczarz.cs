@@ -1,16 +1,12 @@
-#region References
-
 using System.Collections.Generic;
 using Server.Items;
-
-#endregion
 
 namespace Server.Mobiles
 {
 	public class Mleczarz : BaseVendor
 	{
-		private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
-		protected override List<SBInfo> SBInfos { get { return m_SBInfos; } }
+		private readonly List<SBInfo> m_SBInfos = new();
+		protected override List<SBInfo> SBInfos => m_SBInfos;
 
 		[Constructable]
 		public Mleczarz() : base("- Mleczarz")
@@ -24,10 +20,7 @@ namespace Server.Mobiles
 			m_SBInfos.Add(new SBMleczarz());
 		}
 
-		public override VendorShoeType ShoeType
-		{
-			get { return Utility.RandomBool() ? VendorShoeType.Sandals : VendorShoeType.Shoes; }
-		}
+		public override VendorShoeType ShoeType => Utility.RandomBool() ? VendorShoeType.Sandals : VendorShoeType.Shoes;
 
 		public override void InitOutfit()
 		{
