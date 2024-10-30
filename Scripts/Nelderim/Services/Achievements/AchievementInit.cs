@@ -323,6 +323,13 @@ namespace Nelderim.Achievements
 				null, new CreateManyPaintingsGoal(10, typeof(MalePortrait), typeof(FemalePortrait), 
 					typeof(StillLifeSmall1), typeof(StillLifeSmall2), typeof(StillLifeLarge1), typeof(StillLifeLarge2), 
 					typeof(AbstractPainting1), typeof(AbstractPainting2), typeof(AbstractPainting3))));
+			Register(new Achievement(inne, "Powrót po latach 1", "Zaloguj ponownie po 1 miesiącu", 0, 1, false,
+				null, new LastLoginGoal(30)));
+			Register(new Achievement(inne, "Powrót po latach 2", "Zaloguj ponownie po 6 miesiącach", 0, 1, false,
+				null, new LastLoginGoal(180)));
+			Register(new Achievement(inne, "Długowieczny", "Osiągnij 2000 dni konta", 0, 1, false,
+				null, new AccountAgeGoal(2000)));
+			
 		}
 	}
 }
