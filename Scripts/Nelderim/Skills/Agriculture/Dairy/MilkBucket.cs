@@ -117,7 +117,7 @@ namespace Server.Items
 				}
 				else
 				{
-					if (m.Stam <= 3)
+					if (m.Mana < 3)
 					{
 						from.SendMessage(0x84B, "To zwierze jest zbyt zmeczone by dac ci wiecej mleka!");
 					}
@@ -128,7 +128,7 @@ namespace Server.Items
 						    ((m is Cow) && (milkBucket.MilkType == MilkType.Cow)))
 						{
 							++milkBucket.Held;
-							m.Stam -= 3;
+							m.Mana -= 3;
 							from.PlaySound(0X4D1);
 							from.SendMessage(0x96D, "Zebrales litr mleka.");
 							EventSink.InvokeResourceHarvestSuccess(new ResourceHarvestSuccessEventArgs(from, null, milkBucket, null, null));
@@ -186,8 +186,6 @@ namespace Server.Items
 	
 	public class MilkBucketHelpGump : Gump
 	{
-		private object m_State;
-
 		public MilkBucketHelpGump() : base(30, 30)
 		{
 			Closable = true;
