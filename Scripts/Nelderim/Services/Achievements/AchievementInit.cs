@@ -2,6 +2,7 @@ using Server;
 using Server.Engines.BulkOrders;
 using Server.Engines.Quests.Doom;
 using Server.Items;
+using Server.Items.Crops;
 using Server.Mobiles;
 
 namespace Nelderim.Achievements
@@ -263,6 +264,26 @@ namespace Nelderim.Achievements
 			
 			Register(new Achievement(surowce, "Wycinka 1", "Pozyskaj 1000 klod", 0, 1,
 				false, null, new HarvestGoal(1000, typeof(Log))));
+			
+			Register(new Achievement(surowce, "Zielone, zielone 1", "Zbierz 1000 czosnku", 0, 1,
+				false, null, new HarvestGoal(1000, typeof(KrzakCzosnek))));
+			Register(new Achievement(surowce, "Zielone, zielone 2", "Zbierz 1000 krwawego mchu", 0, 1,
+				false, null, new HarvestGoal(1000, typeof(KrzakKrwawyMech))));
+			Register(new Achievement(surowce, "Zielone, zielone 3", "Zbierz 1000 mandragory", 0, 1,
+				false, null, new HarvestGoal(1000, typeof(KrzakMandragora))));
+			Register(new Achievement(surowce, "Zielone, zielone 4", "Zbierz 1000 wilczej jagody", 0, 1,
+				false, null, new HarvestGoal(1000, typeof(KrzakWilczaJagoda))));
+			Register(new Achievement(surowce, "Zielone, zielone 5", "Zbierz 1000 żeńszenia", 0, 1,
+				false, null, new HarvestGoal(1000, typeof(KrzakZenszen))));
+			Register(new Achievement(surowce, "Zielone, zielone 6", "Zbierz 1000 Siarki", 0, 1,
+				false, null, new HarvestGoal(1000, typeof(ZrodloSiarka))));
+			Register(new Achievement(surowce, "Zielone, zielone 7", "Zbierz 1000 Pajeczyny", 0, 1,
+				false, null, new HarvestGoal(1000, typeof(ZrodloPajeczyna))));
+			Register(new Achievement(surowce, "Bo po najlepsze trzeba się schylić", "Zbierz 5000 każdego typu zioła", 0, 1,
+				false, null, new HarvestManyGoal(5000, 
+					typeof(KrzakCzosnek), typeof(KrzakKrwawyMech), typeof(KrzakMandragora), typeof(KrzakWilczaJagoda), 
+					typeof(KrzakZenszen), typeof(ZrodloSiarka), typeof(ZrodloPajeczyna))));
+			
 			
 			Register(new Achievement(surowce, "Z mlekiem matki", "Pozyskaj 1000 litrów mleka", 0, 1,
 				false, null, new HarvestGoal(1000, typeof(MilkBucket))));
