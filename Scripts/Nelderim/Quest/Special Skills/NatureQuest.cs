@@ -142,7 +142,7 @@ namespace Server.Engines.Quests
 	{
 		public NaturePhase4Quest()
 		{
-			AddObjective(new SlayObjective(typeof(GargoyleEnforcer), "gargulec niewolnik", 10));
+			AddObjective(new SlayObjective(typeof(GargoyleEnforcer), "gargulec msciciel", 10));
 			AddObjective(new ObtainObjective(typeof(Gold), "zloto", 4000, 3821));
 
 			AddReward(new BaseReward(3060228)); // Krok blizej od poznania tajemnic Magii Natury
@@ -202,7 +202,7 @@ namespace Server.Engines.Quests
 		public override object Title => 3060238;
 
 		/* Uzdrowiciel poprosil o kolejna dostawe. Poprosil o zebranie 10 zarodnikow boczniakow i 20 zwojow wiekszego leczenia. Musimy pomoc tym biednym ludziom. */
-		public override object Description => 3060202;
+		public override object Description => 3060239;
 
 		/* I teraz chcesz mnie opusicic?!. */
 		public override object Refuse => 3060180;
