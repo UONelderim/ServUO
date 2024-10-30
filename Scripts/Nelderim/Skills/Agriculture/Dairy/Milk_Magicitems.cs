@@ -1,9 +1,4 @@
-#region References
-
 using System;
-using Server.Spells;
-
-#endregion
 
 namespace Server.Items
 {
