@@ -159,7 +159,7 @@ namespace Nelderim
 			return translatedWords;
 		}
 
-		private static string CapitalizeFirstLetter(string text)
+		public static string CapitalizeFirstLetter(string text)
 		{
 			return text.Remove(0, 1).Insert(0, Char.ToUpper(text[0]).ToString());
 		}
