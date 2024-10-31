@@ -4,7 +4,7 @@ using System;
 
 namespace Server.Engines.Quests
 {
-    public class PatienceQuest : BaseQuest
+    public class PatienceQuest : BaseSpecialSkillQuest
     {
         public PatienceQuest()
             : base()
@@ -80,7 +80,9 @@ namespace Server.Engines.Quests
         public override object Complete => 1074110;
         public override bool CanOffer()
         {
-            return MondainsLegacy.Spellweaving;
+	        if (Owner.SpecialSkills.Spellweaving)
+		        return false;
+	        return base.CanOffer();
         }
 
         public override void Serialize(GenericWriter writer)
