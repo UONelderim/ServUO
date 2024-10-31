@@ -4,7 +4,7 @@ using System;
 
 namespace Server.Engines.Quests
 {
-    public class DisciplineQuest : BaseQuest
+    public class DisciplineQuest : BaseSpecialSkillQuest
     {
         public DisciplineQuest()
             : base()
@@ -29,7 +29,9 @@ namespace Server.Engines.Quests
         public override object Uncomplete => 1072773;
         public override bool CanOffer()
         {
-            return MondainsLegacy.Spellweaving;
+	        if (Owner.SpecialSkills.Spellweaving)
+		        return false;
+	        return base.CanOffer();
         }
 
         public override void Serialize(GenericWriter writer)
