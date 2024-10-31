@@ -1,11 +1,12 @@
 using System;
 using System.Linq;
 using Nelderim;
+using Server.Accounting;
+using Server.Gumps;
 using Server.Items;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Nelderim;
-using Server.Nelderim.Gumps;
 using Server.Nelderim.Misc;
 
 namespace Server.Commands
@@ -31,7 +32,21 @@ namespace Server.Commands
 				pm.Kills = 0;
 				pm.Fame = 0;
 				pm.Karma = 0;
-				pm.Name = "Czlowiek";
+				if (pm.Account is Account a)
+				{
+					for (int i = 0; i < a.Length; i++)
+					{
+						if (a[i] == pm)
+						{
+							pm.Name = $"{RenameGump.DEFAULT_PREFIX} {i + 1}";
+							break;
+						}
+					}
+				}
+				if (!pm.Name.StartsWith(RenameGump.DEFAULT_PREFIX))
+				{
+					pm.Name = RenameGump.DEFAULT_PREFIX;
+				}
 				pm.Profile = "";
 				var characterSheet = CharacterSheet.Get(pm);
 				characterSheet.AppearanceAndCharacteristic = "";
