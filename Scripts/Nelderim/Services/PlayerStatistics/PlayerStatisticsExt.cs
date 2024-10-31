@@ -144,8 +144,9 @@ namespace Server.Mobiles
 					{
 						var resourceType = CraftResources.GetType(craftResource) switch
 						{
-							CraftResourceType.Metal => CraftResources.GetInfo(craftResource).ResourceTypes[1],
-							_ => CraftResources.GetInfo(craftResource).ResourceTypes[0],
+							//Scales have only one resources, all others have raw resource at index 1
+							CraftResourceType.Scales => CraftResources.GetInfo(craftResource).ResourceTypes[0],
+							_ => CraftResources.GetInfo(craftResource).ResourceTypes[1],
 						};
 						pm.Statistics.ResourceHarvested.Increment(resourceType, e.Looted.Amount);
 					}
