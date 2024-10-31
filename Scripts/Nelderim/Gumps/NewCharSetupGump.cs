@@ -31,37 +31,39 @@ namespace Server.Nelderim.Gumps
 				NewStr = 0;
 				NewDex = 0;
 				NewInt = 0;
-				Skills = new[] { -1, -1, -1 };
+				Skills = [-1, -1, -1];
 			}
 		};
 
 		public static void Initialize()
 		{
-			EventSink.Login += OnLogin;
+			EventSink.Login += e => Check(e.Mobile);
 		}
 
-		private static void OnLogin(LoginEventArgs e)
+		public static void Check(Mobile m)
 		{
-			var m = e.Mobile;
-			if (m.RawStr <= 10 && m.RawDex <= 10 && m.RawInt <= 10) //Not initialized
+			if (m.Name.StartsWith(RenameGump.DEFAULT_PREFIX))
 			{
 				m.Frozen = true;
-				m.SendGump(new NewCharSetupGump(m));
+				m.SendGump(new RenameGump());
+			}
+			else if (m.RawStr <= 10 && m.RawDex <= 10 && m.RawInt <= 10) //Not initialized
+			{
+				m.Frozen = true;
+				m.SendGump(new NewCharSetupGump());
 			}
 		}
 
-		private Mobile _From;
 		private NewCharPage _Page;
 		private string _Status;
 		private NewCharInfo _Info;
 
-		public NewCharSetupGump(Mobile from) : this(from, NewCharPage.Stat, "", new NewCharInfo())
+		public NewCharSetupGump() : this(NewCharPage.Stat, "", new NewCharInfo())
 		{
 		}
 
-		private NewCharSetupGump(Mobile from, NewCharPage page, string status, NewCharInfo info) : base(50, 50)
+		private NewCharSetupGump(NewCharPage page, string status, NewCharInfo info) : base(50, 50)
 		{
-			_From = from;
 			_Page = page;
 			_Status = status;
 			_Info = info;
@@ -153,43 +155,44 @@ namespace Server.Nelderim.Gumps
 
 		public override void OnResponse(NetState sender, RelayInfo info)
 		{
+			var m = sender.Mobile;
 			if (_Page == NewCharPage.Stat)
 			{
 				if (!Int32.TryParse(info.GetTextEntry(0).Text, out var newStr))
 				{
-					Resend(_Page, "Nieprawodilowa wartosc sily.");
+					Resend(m, _Page, "Nieprawodilowa wartosc sily.");
 					return;
 				}
 				_Info.NewStr = newStr;
 				
 				if (!Int32.TryParse(info.GetTextEntry(1).Text, out var newDex))
 				{
-					Resend(_Page, "Nieprawodilowa wartosc zrecznosci.");
+					Resend(m, _Page, "Nieprawodilowa wartosc zrecznosci.");
 					return;
 				}
 				_Info.NewDex = newDex;
 				
 				if (!Int32.TryParse(info.GetTextEntry(2).Text, out var newInt))
 				{
-					Resend(_Page, "Nieprawodilowa wartosc inteligencji.");
+					Resend(m, _Page, "Nieprawodilowa wartosc inteligencji.");
 					return;
 				}
 				_Info.NewInt = newInt;
 				
 				if (newStr is < MIN_SINGLE_STAT or > MAX_SINGLE_STAT)
 				{
-					Resend(_Page, $"Wartosc sily musi byc pomiedzy {MIN_SINGLE_STAT}-{MAX_SINGLE_STAT}");
+					Resend(m, _Page, $"Wartosc sily musi byc pomiedzy {MIN_SINGLE_STAT}-{MAX_SINGLE_STAT}");
 					return;
 				}
 				if (newDex is < MIN_SINGLE_STAT or > MAX_SINGLE_STAT)
 				{
-					Resend(_Page,
+					Resend(m, _Page,
 						$"Wartosc zrecznosci musi byc pomiedzy {MIN_SINGLE_STAT}-{MAX_SINGLE_STAT}");
 					return;
 				}
 				if (newInt is < MIN_SINGLE_STAT or > MAX_SINGLE_STAT)
 				{
-					Resend(_Page,
+					Resend(m, _Page,
 						$"Wartosc inteligencji musi byc pomiedzy {MIN_SINGLE_STAT}-{MAX_SINGLE_STAT}");
 					return;
 				}
@@ -198,11 +201,11 @@ namespace Server.Nelderim.Gumps
 				var sum = newStr + newDex + newInt;
 				if (sum != MAX_TOTAL_STATS)
 				{
-					Resend(_Page, $"Niewlasciwa suma statystyk: {sum}");
+					Resend(m, _Page, $"Niewlasciwa suma statystyk: {sum}");
 					return;
 				}
 
-				Resend(info.ButtonID == 0 ? NewCharPage.Stat : NewCharPage.Skill);
+				Resend(m, info.ButtonID == 0 ? NewCharPage.Stat : NewCharPage.Skill);
 				return;
 			}
 
@@ -210,87 +213,87 @@ namespace Server.Nelderim.Gumps
 			{
 				if (info.ButtonID == 1)
 				{
-					Resend(NewCharPage.Stat);
+					Resend(m, NewCharPage.Stat);
 					return;
 				}
 
 				if (info.ButtonID == 11)
 				{
-					SendSkillSelectGump(0);
+					SendSkillSelectGump(m, 0);
 					return;
 				}
 
 				if (info.ButtonID == 12)
 				{
-					SendSkillSelectGump(1);
+					SendSkillSelectGump(m, 1);
 					return;
 				}
 
 				if (info.ButtonID == 13)
 				{
-					SendSkillSelectGump(2);
+					SendSkillSelectGump(m, 2);
 					return;
 				}
 				if (_Info.Skills.Any(s => s == -1))
 				{
-					Resend(_Page, "Musisz wybrac 3 umiejetnosci.");
+					Resend(m, _Page, "Musisz wybrac 3 umiejetnosci.");
 					return;
 				}
 
-				Resend(info.ButtonID == 0 ? NewCharPage.Skill : NewCharPage.Summary);
+				Resend(m, info.ButtonID == 0 ? NewCharPage.Skill : NewCharPage.Summary);
 			}
 
 			if (_Page == NewCharPage.Summary)
 			{
 				if (info.ButtonID == 1)
 				{
-					Resend(NewCharPage.Skill);
+					Resend(m, NewCharPage.Skill);
 					return;
 				}
 
 				if (info.ButtonID == 2)
 				{
-					_From.InitStats(_Info.NewStr, _Info.NewDex, _Info.NewInt);
+					m.InitStats(_Info.NewStr, _Info.NewDex, _Info.NewInt);
 					for (var index = 0; index < 3; index++)
 					{
 						var infoSkill = _Info.Skills[index];
-						var skill = _From.Skills[infoSkill];
+						var skill = m.Skills[infoSkill];
 
 						if (skill != null)
 						{
 							skill.BaseFixedPoint = 500;
-							CharacterCreation.AddSkillItems(skill.SkillName, _From);
+							CharacterCreation.AddSkillItems(skill.SkillName, m);
 						}
 					}
 
-					_From.Frozen = false;
-					_From.SendMessage(0x40, "Inicjalizacja postaci zakonczona");
+					m.Frozen = false;
+					m.SendMessage(0x40, "Inicjalizacja postaci zakonczona");
 					return;
 				}
-				Resend(_Page);
+				Resend(m, _Page);
 			}
 		}
 
-		private void Resend(NewCharPage page, string status = "")
+		private void Resend(Mobile m, NewCharPage page, string status = "")
 		{
-			_From.CloseGump<NewCharSetupGump>();
-			_From.SendGump(new NewCharSetupGump(_From, page, status, _Info));
+			m.CloseGump<NewCharSetupGump>();
+			m.SendGump(new NewCharSetupGump(page, status, _Info));
 		}
 
-		private void SendSkillSelectGump(int index)
+		private void SendSkillSelectGump(Mobile m, int index)
 		{
 			var config = new SkillSelectGump.SkillSelectConfiguration();
-			config.CancelCallback = () => Resend(NewCharPage.Skill);
+			config.CancelCallback = () => Resend(m, NewCharPage.Skill);
 			config.DisabledSkills = _Info.Skills;
 			var gump = new SkillSelectGump(
 				s =>
 				{
 					_Info.Skills[index] = s.SkillID;
-					Resend(NewCharPage.Skill);
+					Resend(m, NewCharPage.Skill);
 				},
 				config
 			);
-			_From.SendGump(gump);
+			m.SendGump(gump);
 		}
 	}
 }
