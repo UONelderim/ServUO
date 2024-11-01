@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using Server;
 using static Nelderim.NExtension;
@@ -50,13 +51,13 @@ namespace Nelderim
 
 		public static void Save(WorldSaveEventArgs args, string moduleName)
 		{
+			var start = Stopwatch.GetTimestamp();
 			Cleanup();
 			if (!Directory.Exists(BasePath))
 				Directory.CreateDirectory(BasePath);
 
 			string pathNfile = $"{BasePath}/{moduleName}.sav";
 
-			Console.WriteLine(moduleName + ": Zapisywanie...");
 			try
 			{
 				using (FileStream m_FileStream = new FileStream(pathNfile, FileMode.OpenOrCreate, FileAccess.Write))
@@ -79,6 +80,9 @@ namespace Nelderim
 			{
 				Console.WriteLine("Failed. Exception: " + err);
 			}
+
+			var end = Stopwatch.GetTimestamp();
+			Console.WriteLine($"Module {moduleName} saved in {Stopwatch.GetElapsedTime(start, end)}");;
 		}
 
 		public static void Load(string moduleName)
