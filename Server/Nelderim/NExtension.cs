@@ -25,10 +25,6 @@ namespace Nelderim
 		{
 			foreach (var extension in m_Extensions)
 				extension.Load();
-			EventSink.WorldSave += _ =>
-			{
-				SaveAll();
-			};
 		}
 		
 		public static void SaveAll()
@@ -88,7 +84,6 @@ namespace Nelderim
 
 		public override void Save()
 		{
-			var start = Stopwatch.GetTimestamp();
 			Cleanup();
 			if (!Directory.Exists(BasePath))
 				Directory.CreateDirectory(BasePath);
@@ -117,9 +112,6 @@ namespace Nelderim
 			{
 				Console.WriteLine("Failed. Exception: " + err);
 			}
-
-			var end = Stopwatch.GetTimestamp();
-			Console.WriteLine($"Module {ModuleName} saved in {Stopwatch.GetElapsedTime(start, end)}");;
 		}
 
 		public override void Load()

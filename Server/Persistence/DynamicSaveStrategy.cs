@@ -2,7 +2,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using Nelderim;
 using Server.Guilds;
 
 namespace Server
@@ -38,11 +38,13 @@ namespace Server
 
 			OpenFiles();
 
-			var saveTasks = new Task[3];
-
-			saveTasks[0] = SaveItems();
-			saveTasks[1] = SaveMobiles();
-			saveTasks[2] = SaveGuilds();
+			Task[] saveTasks =
+			[
+				SaveItems(),
+				SaveMobiles(),
+				SaveGuilds(),
+				Task.Factory.StartNew(NExtension.SaveAll)
+			];
 
 			SaveTypeDatabases();
 
