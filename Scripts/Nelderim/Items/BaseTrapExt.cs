@@ -70,19 +70,11 @@ namespace Server.Items
 		}
 	}
 
-	class BaseTrapExt : NExtension<BaseTrapExtInfo>
+	class BaseTrapExt() : NExtension<BaseTrapExtInfo>("BaseTrap")
 	{
-		public static string ModuleName = "BaseTrap";
-
-		public static void Initialize()
+		public static new void Initialize()
 		{
-			EventSink.WorldSave += Save;
-			Load(ModuleName);
-		}
-
-		public static void Save(WorldSaveEventArgs args)
-		{
-			Save(args, ModuleName);
+			Register(new BaseTrapExt());
 		}
 	}
 

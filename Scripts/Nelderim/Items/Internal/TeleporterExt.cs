@@ -17,19 +17,11 @@ namespace Server.Items
 		}
 	}
 
-	class TeleporterExt : NExtension<TeleporterExtInfo>
+	class TeleporterExt() : NExtension<TeleporterExtInfo>("Teleporter")
 	{
-		public static string ModuleName = "Teleporter";
-
-		public static void Initialize()
+		public static new void Initialize()
 		{
-			EventSink.WorldSave += Save;
-			Load(ModuleName);
-		}
-
-		public static void Save(WorldSaveEventArgs args)
-		{
-			Save(args, ModuleName);
+			Register(new TeleporterExt());
 		}
 	}
 

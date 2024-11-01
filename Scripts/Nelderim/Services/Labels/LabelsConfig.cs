@@ -13,19 +13,6 @@ namespace Nelderim
 {
 	class LabelsConfig
 	{
-		public static string ModuleName = "Labels";
-
-		public static void Initialize()
-		{
-			EventSink.WorldSave += Save;
-			Labels.Load(ModuleName);
-		}
-
-		public static void Save(WorldSaveEventArgs args)
-		{
-			Labels.Save(args, ModuleName);
-		}
-
 		public static void AddCreationMark(IEntity entity, Mobile from)
 		{
 			if (ShouldMark(entity, from))

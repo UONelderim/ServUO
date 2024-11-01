@@ -8,8 +8,8 @@ namespace Server.Mobiles
 		[CommandProperty(AccessLevel.GameMaster)]
 		public SpecialSkills SpecialSkills
 		{
-			get => PlayerSpeciallSkillsExt.Get(this).SpecialSkills;
-			set => PlayerSpeciallSkillsExt.Get(this).SpecialSkills = value;
+			get => PlayerSpeciallSkills.Get(this).SpecialSkills;
+			set => PlayerSpeciallSkills.Get(this).SpecialSkills = value;
 		}
 	}
 	
@@ -151,23 +151,15 @@ namespace Server.Mobiles
 		}
 	}
 
-	class PlayerSpeciallSkillsExt : NExtension<PlayerSpeciallSkillsExtInfo>
+	class PlayerSpeciallSkills() : NExtension<PlayerSpeciallSkillsInfo>("PlayerSpecialSkills")
 	{
-		public static string ModuleName = "PlayerSpecialSkills";
-
-		public static void Initialize()
+		public static new void Initialize()
 		{
-			EventSink.WorldSave += Save;
-			Load(ModuleName);
-		}
-
-		public static void Save(WorldSaveEventArgs args)
-		{
-			Save(args, ModuleName);
+			Register(new PlayerSpeciallSkills());
 		}
 	}
 
-	class PlayerSpeciallSkillsExtInfo : NExtensionInfo
+	class PlayerSpeciallSkillsInfo : NExtensionInfo
 	{
 		public SpecialSkills SpecialSkills { get; set; } = new();
 

@@ -17,13 +17,11 @@ namespace Server.Mobiles
 		}
 	}
 
-	public class PlayerStatistics : NExtension<PlayerStatisticsInfo>
+	public class PlayerStatistics() : NExtension<PlayerStatisticsInfo>("PlayerStatistics")
 	{
-		public static string ModuleName = "PlayerStatistics";
-
 		public static void Initialize()
 		{
-			EventSink.WorldSave += Save;
+			Register(new PlayerStatistics());
 			RegisterMetrics();
 			CommandSystem.Register("printStats", AccessLevel.Player, e =>
 			{
@@ -35,7 +33,6 @@ namespace Server.Mobiles
 						from.SendMessage("Not implemented");
 					});
 			});
-			Load(ModuleName);
 		}
 
 		private static void RegisterMetrics()
@@ -204,11 +201,6 @@ namespace Server.Mobiles
 					pm.Statistics.PaintingsCreated.Increment(e.Painting.GetType());
 				}
 			};
-		}
-
-		public static void Save(WorldSaveEventArgs args)
-		{
-			Save(args, ModuleName);
 		}
 	}
 

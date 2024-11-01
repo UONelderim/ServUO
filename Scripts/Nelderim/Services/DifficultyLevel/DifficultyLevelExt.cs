@@ -3,21 +3,13 @@ using Nelderim;
 
 namespace Server.Mobiles
 {
-	class DifficultyLevelExt : NExtension<DifficultyLevelExtInfo>
+	class DifficultyLevelExt() : NExtension<DifficultyLevelExtInfo>("DifficultyLevel")
 	{
-		public static string ModuleName = "DifficultyLevel";
-
-		public static void Initialize()
+		public static new void Initialize()
 		{
-			EventSink.WorldSave += Save;
-			Load(ModuleName);
+			Register(new DifficultyLevelExt());
 		}
-
-		public static void Save(WorldSaveEventArgs args)
-		{
-			Save(args, ModuleName);
-		}
-
+		
 		private const double _DmgScalarExponent = 0.5;
 
 		public static void Apply(BaseCreature bc)
