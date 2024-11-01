@@ -43,6 +43,8 @@ namespace Nelderim
 		private static NExtension<T> Instance;
 		public NExtension(string moduleName)
 		{
+			if(Instance != null)
+				throw new Exception("Only one instance of NExtension allowed!");
 			ModuleName = moduleName;
 			Instance = this;
 		}
