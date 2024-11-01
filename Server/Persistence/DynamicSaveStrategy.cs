@@ -38,7 +38,7 @@ namespace Server
 
 			OpenFiles();
 
-			var saveTasks = new Task[4];
+			var saveTasks = new Task[3];
 
 			saveTasks[0] = SaveItems();
 			saveTasks[1] = SaveMobiles();
