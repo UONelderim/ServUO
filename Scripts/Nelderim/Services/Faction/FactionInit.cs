@@ -1,26 +1,7 @@
-﻿#region References
-
-using Server;
-using Server.Accounting;
-
-#endregion
-
-namespace Server.Nelderim
+﻿namespace Server.Nelderim
 {
 	class FactionInit
 	{
-		public static string ModuleName = "Faction";
-
-		public static void Initialize()
-		{
-			EventSink.WorldSave += Save;
-			Faction.Load(ModuleName);
-		}
-		public static void Save(WorldSaveEventArgs args)
-		{
-			Faction.Save(args, ModuleName);
-		}
-
 		public static void Configure()
 		{
 			RegisterFaction(new None(0));

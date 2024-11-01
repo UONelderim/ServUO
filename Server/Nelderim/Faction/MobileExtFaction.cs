@@ -7,14 +7,14 @@ namespace Server
 		[CommandProperty(AccessLevel.Decorator, AccessLevel.Administrator)]
 		public Faction Faction
 		{
-			get => Faction.Get(this).Faction;
+			get => FactionExt.Get(this).Faction;
 			set
 			{
 				var oldFaction = Faction;
 
 				var newFaction = value ?? Faction.Default;
 
-				Faction.Get(this).Faction = newFaction;
+				FactionExt.Get(this).Faction = newFaction;
 
 				Delta(MobileDelta.Race);
 

@@ -1,26 +1,36 @@
 ﻿#region References
 
-using System.Collections.Generic;
 using Server;
 using Server.Items;
 
 #endregion
 
-namespace Nelderim.ExtraCraftResource
+namespace Nelderim
 {
-	class ExtraCraftResource : NExtension<ExtraCraftResourceInfo>
+	class ExtraCraftResource() : NExtension<ExtraCraftResourceInfo>("ExtraCraftResource")
 	{
-		public static string ModuleName = "ExtraCraftResource";
-
-		public static void Initialize()
+		public static new void Initialize()
 		{
-			EventSink.WorldSave += Save;
-			Load(ModuleName);
+			Register(new ExtraCraftResource());
+		}
+	}
+	
+	class ExtraCraftResourceInfo : NExtensionInfo
+	{
+		public CraftResource Resource2 { get; set; }
+
+		public override void Serialize(GenericWriter writer)
+		{
+			writer.Write( (int)0 ); //version
+			writer.Write((int)Resource2);
 		}
 
-		public static void Save(WorldSaveEventArgs args)
+		public override void Deserialize(GenericReader reader)
 		{
-			Save(args, ModuleName);
+			int version = 0;
+			if (Fix)
+				version = reader.ReadInt(); //version
+			Resource2 = (CraftResource)reader.ReadInt();
 		}
 	}
 }

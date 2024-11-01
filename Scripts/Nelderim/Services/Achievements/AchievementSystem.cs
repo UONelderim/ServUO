@@ -7,10 +7,8 @@ using Server.Targeting;
 
 namespace Nelderim.Achievements
 {
-	public partial class AchievementSystem : NExtension<AchievementsInfo>
+	public partial class AchievementSystem() : NExtension<AchievementsInfo>("Achievements")
 	{
-		public static string ModuleName = "Achievements";
-
 		public static AchievementRegistry<AchievementCategory> CategoryRegistry = new("achievementCategoriesIndex");
 		public static AchievementRegistry<Achievement> AchievementRegistry = new("achievementsIndex");
 		
@@ -18,16 +16,16 @@ namespace Nelderim.Achievements
 		public static Dictionary<int, AchievementCategory> Categories => CategoryRegistry.Entries;
 
 		
-		public static void Initialize()
+		public static new void Initialize()
 		{
+			Register(new AchievementSystem());
+			
 			CategoryRegistry.Load();
 			AchievementRegistry.Load();
 
 			RegisterAchievements();
 
 			CommandSystem.Register("achievements", AccessLevel.Player, AchievementsCommand);
-			EventSink.WorldSave += Save;
-			Load(ModuleName);
 
 			CategoryRegistry.Save();
 			AchievementRegistry.Save();
@@ -41,11 +39,6 @@ namespace Nelderim.Achievements
 		private static Achievement Register(Achievement achievement)
 		{
 			return AchievementRegistry.Register(achievement);
-		}
-		
-		public static void Save(WorldSaveEventArgs args)
-		{
-			Save(args, ModuleName);
 		}
 		
 		private static void AchievementsCommand(CommandEventArgs e)

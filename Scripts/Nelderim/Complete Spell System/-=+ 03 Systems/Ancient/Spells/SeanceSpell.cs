@@ -176,20 +176,11 @@ namespace Server.ACC.CSS.Systems.Ancient
 			}
 		}
 
-		public class SeanceSpellExt : NExtension<SeanceSpellExtInfo>
+		public class SeanceSpellExt() : NExtension<SeanceSpellExtInfo>("SeanceSpell")
 		{
-			public static string ModuleName = "SeanceSpell";
-
-			public static void Initialize()
+			public static new void Initialize()
 			{
-				EventSink.WorldSave += Save;
-				Load(ModuleName);
-				m_ExtensionInfo.Clear();
-			}
-
-			public static void Save(WorldSaveEventArgs args)
-			{
-				Save(args, ModuleName);
+				Register(new SeanceSpellExt());
 			}
 		}
 

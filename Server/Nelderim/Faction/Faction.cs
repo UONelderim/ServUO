@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.JavaScript;
-using Nelderim;
 
 namespace Server.Nelderim
 {
 	[Parsable]
-	public abstract class Faction : NExtension<FactionInfo>
+	public abstract class Faction(int index) 
 	{
 		public static Faction[] Factions = new Faction[0x100];
 		
@@ -24,14 +22,9 @@ namespace Server.Nelderim
 		public static Faction KompaniaHandlowa => Factions[3];
 
 		public static Faction VoxPopuli => Factions[4];
-		
-		protected Faction(int index)
-		{
-			Index = index;
-		}
-		
-		public int Index { get; }
-		
+
+		public int Index { get; } = index;
+
 		public abstract string Name { get; }
 		
 		public abstract Faction[] Enemies { get; }

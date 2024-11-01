@@ -9,10 +9,8 @@ using Server.Mobiles;
 
 namespace Nelderim.Gains
 {
-	class Gains : NExtension<GainsInfo>
+	class Gains() : NExtension<GainsInfo>("Gains")
 	{
-		public static string ModuleName = "Gains";
-
 		private static double GlobalGainFactor { get; set; } = 1.0;
 
 		private static Timer _PhTimer;
@@ -41,12 +39,11 @@ namespace Nelderim.Gains
 
 		public static void Initialize()
 		{
+			Register(new Gains());
 			CommandSystem.Register("GainInfo", AccessLevel.Player, GainInfo);
 			CommandSystem.Register("GainFactor", AccessLevel.GameMaster, GainFactor);
 			CommandSystem.Register("PowerHour", AccessLevel.GameMaster, PowerHour);
 			EventSink.Login += OnPlayerLogin;
-			EventSink.WorldSave += Save;
-			Load(ModuleName);
 		}
 
 		private static void OnPlayerLogin(LoginEventArgs e)
@@ -151,11 +148,6 @@ namespace Nelderim.Gains
 				GlobalGainFactor = gainFactor;
 				PhEndDate = DateTime.Now + duration;
 			}
-		}
-
-		public static void Save(WorldSaveEventArgs args)
-		{
-			Save(args, ModuleName);
 		}
 	}
 }

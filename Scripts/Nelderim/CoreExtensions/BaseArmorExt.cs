@@ -1,6 +1,6 @@
 #region References
 
-using Nelderim.ExtraCraftResource;
+using Nelderim;
 
 #endregion
 

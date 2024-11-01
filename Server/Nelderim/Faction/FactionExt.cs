@@ -2,6 +2,13 @@ using Nelderim;
 
 namespace Server.Nelderim
 {
+	public class FactionExt() : NExtension<FactionInfo>("Faction")
+	{
+		public static new void Initialize()
+		{
+			Register(new FactionExt());
+		}
+	}
 	public class FactionInfo : NExtensionInfo
 	{
 		public Faction Faction { get; set; } = Faction.None;

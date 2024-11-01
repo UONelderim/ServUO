@@ -1,6 +1,5 @@
 ﻿#region References
 
-using System.Collections.Generic;
 using Nelderim;
 
 #endregion
@@ -42,19 +41,11 @@ namespace Server.Items
 		}
 	}
 
-	class TaxidermyKitExt : NExtension<TaxidermyKitExtInfo>
+	class TaxidermyKitExt() : NExtension<TaxidermyKitExtInfo>("TaxidermyKitExt")
 	{
-		public static string ModuleName = "TaxidermyKitExt";
-
-		public static void Initialize()
+		public static new void Initialize()
 		{
-			EventSink.WorldSave += Save;
-			Load(ModuleName);
-		}
-
-		public static void Save(WorldSaveEventArgs args)
-		{
-			Save(args, ModuleName);
+			Register(new TaxidermyKitExt());
 		}
 	}
 
