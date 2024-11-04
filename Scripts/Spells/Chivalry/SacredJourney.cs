@@ -10,7 +10,7 @@ namespace Server.Spells.Chivalry
     public class SacredJourneySpell : PaladinSpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-	        "Lotem ptaka", "Powoli rozpływa się w powietrzu",
+	        "Lotem ptaka", "*Powoli rozpływa się w powietrzu*",
             -1,
             9002);
 

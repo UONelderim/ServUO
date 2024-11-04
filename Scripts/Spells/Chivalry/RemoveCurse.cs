@@ -11,7 +11,7 @@ namespace Server.Spells.Chivalry
     public class RemoveCurseSpell : PaladinSpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-            "Oczyszczenie umyslu", "Oczyszcza swoj umysl",
+            "Oczyszczenie umyslu", "*Oczyszcza swoj umysl*",
             -1,
             9002);
         public RemoveCurseSpell(Mobile caster, Item scroll)

@@ -9,7 +9,7 @@ namespace Server.Spells.Chivalry
     public class NobleSacrificeSpell : PaladinSpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-	        "Ostateczny wysilek", "Zamyka oczy oddając swe siły witalne",
+	        "Ostateczny wysilek", "*Zamyka oczy oddając swe siły witalne*",
             -1,
             9002);
         public NobleSacrificeSpell(Mobile caster, Item scroll)
