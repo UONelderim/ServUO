@@ -7,7 +7,7 @@ namespace Server.Spells.Chivalry
     public class ConsecrateWeaponSpell : PaladinSpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-	        "Jednosc z orezem", "Oręż zapłonął boskim płomieniem",
+	        "Jednosc z orezem", "*Oręż zapłonął boskim płomieniem*",
             -1,
             9002);
 

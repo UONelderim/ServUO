@@ -8,7 +8,7 @@ namespace Server.Spells.Chivalry
         public override DamageType SpellDamageType => DamageType.SpellAOE;
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-	        "Energia woli", "Powietrze wokół zaczyna drzeć",
+	        "Energia woli", "*Powietrze wokół zaczyna drzeć*",
             -1,
             9002);
 

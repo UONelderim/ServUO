@@ -6,7 +6,7 @@ namespace Server.Spells.Chivalry
     public class DivineFurySpell : PaladinSpell
     {
         private static readonly SpellInfo m_Info = new SpellInfo(
-	        "Gniew", "Postać wpada w bitewny szał",
+	        "Gniew", "*Postać wpada w bitewny szał*",
             -1,
             9002);
 
