@@ -32242,12 +32242,12 @@ Number;Text
 1061199; 
 1061200; 
 1061201; 
-1061202; 
-1061203; 
-1061204; 
-1061205; 
-1061206; 
-1061207; 
+1061202;Zwykly tyton jablkowy
+1061203;Zwykly tyton gruszkowy
+1061204;Zwykly tyton cytrynowy 
+1061205;Szlachetny tyton jablkowy 
+1061206;Szlachetny tyton gruszkowy
+1061207;Szlachetny tyton cytrynowy
 1061208; 
 1061209; 
 1061210; 
@@ -118825,4 +118825,4 @@ Number;Text
 3060316;Szukam godnej eskorty. Moge zaoferowac niewielka zaplate kazdemu sprawnemu fizycznie poszukiwaczowi przygod, ktory moze mi pomoc. Konieczne jest, abym dotarl do celu
 3060317;Chcialbym, zebys rozwazyl moja oferte. Bede czekal tutaj na kogos na tyle odwaznego, zeby mi pomoc.
 3060318;Jeszcze nie dotarlismy do Tasandory. Idzmy dalej.
-3060319;
+3060319;Tyton
