@@ -75,7 +75,9 @@ namespace Server.Engines.Quests
         public override object Complete => 1074110;
         public override bool CanOffer()
         {
-            return MondainsLegacy.Spellweaving;
+	        if (Owner.SpecialSkills.Spellweaving)
+		        return false;
+	        return base.CanOffer();
         }
 
         public override void Serialize(GenericWriter writer)
@@ -118,7 +120,9 @@ namespace Server.Engines.Quests
         public override object Complete => 1074152;
         public override bool CanOffer()
         {
-            return MondainsLegacy.Spellweaving;
+	        if (Owner.SpecialSkills.Spellweaving)
+		        return false;
+	        return base.CanOffer();
         }
 
         public override void Serialize(GenericWriter writer)
@@ -166,7 +170,9 @@ namespace Server.Engines.Quests
         public override object Complete => 1074158;
         public override bool CanOffer()
         {
-            return MondainsLegacy.Spellweaving;
+	        if (Owner.SpecialSkills.Spellweaving)
+		        return false;
+	        return base.CanOffer();
         }
 
         public override void Serialize(GenericWriter writer)
@@ -213,7 +219,9 @@ namespace Server.Engines.Quests
         public override object Complete => 1074160;
         public override bool CanOffer()
         {
-            return MondainsLegacy.Spellweaving;
+	        if (Owner.SpecialSkills.Spellweaving)
+		        return false;
+	        return base.CanOffer();
         }
 
         public override void GiveRewards()
