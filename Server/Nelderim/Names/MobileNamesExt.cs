@@ -20,11 +20,14 @@ namespace Server
 			}
 		}
 		
+		[CommandProperty(AccessLevel.GameMaster)]
+		public bool IdentityHidden { get; set; }
+		
 		public string NGetName(Mobile m)
 		{
 			if (NConfig.NameSystemEnabled && !UseRealName(m) )
 			{
-				return (m != null && NameFor.TryGetValue(m, out var assignedName)) ? assignedName : DefaultName;
+				return (m != null && NameFor.TryGetValue(m, out var assignedName)) && !IdentityHidden ? assignedName : DefaultName;
 			}
 			return Name;
 		}
