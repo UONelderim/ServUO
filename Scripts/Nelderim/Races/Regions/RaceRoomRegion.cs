@@ -5,6 +5,7 @@ using System.Xml;
 using Server.Nelderim;
 using Server.Accounting;
 using Server.Gumps;
+using Server.Misc;
 using Server.Mobiles;
 using Server.Nelderim.Gumps;
 
@@ -55,6 +56,7 @@ namespace Server.Regions
 				else
 				{
 					m.Faction = a.Faction;
+					Paperdoll.Send(m,m);
 				}
 			}
 
