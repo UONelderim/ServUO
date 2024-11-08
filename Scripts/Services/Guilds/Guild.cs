@@ -183,11 +183,6 @@ namespace Server.Guilds
 
             writer.WriteGuildList(Members, true);
             writer.WriteGuildList(m_PendingMembers, true);
-
-            if (!Alliances.ContainsKey(Name.ToLower()))
-            {
-                Alliances.Add(Name.ToLower(), this);
-            }
         }
 
         public AllianceInfo(GenericReader reader)
@@ -207,6 +202,8 @@ namespace Server.Guilds
                         break;
                     }
             }
+
+            Timer.DelayCall(() => Alliances.TryAdd(Name.ToLower(), this));
         }
 
         public void AddPendingGuild(Guild g)
