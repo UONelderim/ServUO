@@ -29,6 +29,11 @@ namespace Nelderim.Achievements
 
 			CategoryRegistry.Save();
 			AchievementRegistry.Save();
+			EventSink.WorldSave += _ =>
+			{
+				CategoryRegistry.Save();
+				AchievementRegistry.Save();
+			};
 		}
 
 		private static AchievementCategory Register(AchievementCategory category)
