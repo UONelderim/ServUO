@@ -32,6 +32,14 @@ namespace Server.Engines.Quests
 
 		/* Nie trac mego czasu. Zadanie jest proste - masz zabic 20 nietoperzy wampirow */
 		public override object Uncomplete => 3060186;
+		
+		public override bool CanOffer()
+		{
+			if(Owner.Skills[SkillName.Necromancy].Base > 30.0)
+				return false;
+			
+			return base.CanOffer();
+		}
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -76,6 +84,14 @@ namespace Server.Engines.Quests
 
 		/* Swietenie, ze udalo Ci sie je zebrac */
 		public override object Complete => 3060231;
+		
+		public override bool CanOffer()
+		{
+			if(Owner.Skills[SkillName.Necromancy].Base > 30.0)
+				return false;
+			
+			return base.CanOffer();
+		}
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -122,6 +138,14 @@ namespace Server.Engines.Quests
 
 		/* No swietnie, mamy wszystko co trzeba! *podskakuje z radosci* */
 		public override object Complete => 3060197;
+		
+		public override bool CanOffer()
+		{
+			if(Owner.Skills[SkillName.Necromancy].Base > 30.0)
+				return false;
+			
+			return base.CanOffer();
+		}
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -167,6 +191,14 @@ namespace Server.Engines.Quests
 
 		/* *podskakuje z radosci* */
 		public override object Complete => 3060237;
+		
+		public override bool CanOffer()
+		{
+			if(Owner.Skills[SkillName.Necromancy].Base > 30.0)
+				return false;
+			
+			return base.CanOffer();
+		}
 
 		public override void Serialize(GenericWriter writer)
 		{
@@ -212,6 +244,14 @@ namespace Server.Engines.Quests
 
 		/* *usmiecha sie* Swietene! Mozemy pomoc tym biednym ludziom. */
 		public override object Complete => 3060241;
+		
+		public override bool CanOffer()
+		{
+			if(Owner.Skills[SkillName.Necromancy].Base > 30.0)
+				return false;
+			
+			return base.CanOffer();
+		}
 
 		public override void GiveRewards()
 		{
