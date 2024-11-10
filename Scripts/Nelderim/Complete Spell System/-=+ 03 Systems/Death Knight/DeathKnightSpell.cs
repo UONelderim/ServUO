@@ -164,7 +164,12 @@ namespace Server.Spells.DeathKnight
 		
 		private static SoulLantern FindSoulLantern(Mobile from)
 		{
-			return (SoulLantern)from.Items.FirstOrDefault(i => i is SoulLantern soulLantern && soulLantern.Owner == from);
+			var item = from.FindItemOnLayer(Layer.TwoHanded) as SoulLantern;
+			if (item == null)
+			{
+				item = from.Backpack.FindItemByType<SoulLantern>(true);
+			}
+			return item;
 		}
 
 		private static void DrainSoulsInLantern( Mobile from, int tithing )
