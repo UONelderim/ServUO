@@ -37,6 +37,8 @@ namespace Server.Engines.Quests
         {
 	        if (Owner.SpecialSkills.Spellweaving)
 		        return false;
+	        if(Owner.Skills[SkillName.Necromancy].Base > 30.0)
+		        return false;
 	        return base.CanOffer();
         }
 
@@ -84,6 +86,8 @@ namespace Server.Engines.Quests
         {
 	        if (Owner.SpecialSkills.Spellweaving)
 		        return false;
+	        if(Owner.Skills[SkillName.Necromancy].Base > 30.0)
+		        return false;
 	        return base.CanOffer();
         }
 
@@ -128,6 +132,8 @@ namespace Server.Engines.Quests
         public override bool CanOffer()
         {
 	        if (Owner.SpecialSkills.Spellweaving)
+		        return false;
+	        if(Owner.Skills[SkillName.Necromancy].Base > 30.0)
 		        return false;
 	        return base.CanOffer();
         }
@@ -179,6 +185,8 @@ namespace Server.Engines.Quests
         {
 	        if (Owner.SpecialSkills.Spellweaving)
 		        return false;
+	        if(Owner.Skills[SkillName.Necromancy].Base > 30.0)
+		        return false;
 	        return base.CanOffer();
         }
 
@@ -229,6 +237,8 @@ namespace Server.Engines.Quests
         public override bool CanOffer()
         {
 	        if (Owner.SpecialSkills.Spellweaving)
+		        return false;
+	        if(Owner.Skills[SkillName.Necromancy].Base > 30.0)
 		        return false;
 	        return base.CanOffer();
         }
