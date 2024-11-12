@@ -145,7 +145,7 @@
 			<rect x="753" y="1873" width="14" height="10" />
 			<rect x="786" y="1856" width="42" height="36" />
 			<rect x="767" y="1870" width="19" height="16" />
-			<go x="704" y="2046" z="0" />
+			<go x="700" y="2046" z="0" />
 			<music name="Cove" />
 		</region>
 		<region type="MiningRegion" priority="100" name="Orod_Kopalnia">
@@ -464,7 +464,7 @@
 			<rect x="2058" y="2652" width="29" height="17" />
 			<rect x="2061" y="2688" width="43" height="29" />
 			<rect x="2061" y="2717" width="26" height="24" />
-			<go x="2026" y="2731" z="0" />
+			<go x="2038" y="2730" z="-7" />
 			<music name="Cove" />
 		</region>
 		<region type="VillageRegion" name="Nintayl">
