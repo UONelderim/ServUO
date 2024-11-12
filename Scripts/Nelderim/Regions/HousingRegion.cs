@@ -1,6 +1,7 @@
 ﻿#region References
 
 using System.Xml;
+using Server.Nelderim;
 
 #endregion
 
@@ -14,7 +15,11 @@ namespace Server.Regions
 
 		public override bool AllowHousing(Mobile from, Point3D p)
 		{
-			return true;
+			if (from.IsStaff())
+				return true;
+			
+			var regionFaction = NelderimRegionSystem.GetRegion(Name).GetFaction();
+			return regionFaction != Faction.None && from.Faction == regionFaction;
 		}
 	}
 }
