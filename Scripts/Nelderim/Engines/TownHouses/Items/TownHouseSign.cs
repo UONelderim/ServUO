@@ -8,6 +8,7 @@ using Server.Gumps;
 using Server.Items;
 using Server.Mobiles;
 using Server.Multis;
+using Server.Nelderim;
 using Server.Network;
 
 #endregion
@@ -1211,6 +1212,12 @@ namespace Knives.TownHouses
 
 			if (c_Murderers == Intu.No && m.Kills >= 5)
 				return false;
+
+			var houseFaction = NelderimRegionSystem.GetRegion(GetRegion().Name).GetFaction();
+			if (houseFaction != Faction.None)
+			{
+				return m.Faction == houseFaction;
+			}
 
 			return true;
 		}
