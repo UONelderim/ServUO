@@ -143,7 +143,10 @@ namespace Server.Menus.Questions
             if (m_MarkUse)
             {
                 m_Mobile.SendLocalizedMessage(1010589); // You will be teleported within the next two minutes.
-
+                Console.WriteLine( $"Abuse (help): {m_Mobile.Name} [{m_Mobile.Account}] z lokacji {m_Mobile.Location} -> {entry.Name}" );
+                m_Mobile.SendMessage( 0x20, "Ta opcja nie sluzy teleportacji! Uzywaj jej tylko, jesli naprawde utknales" );
+                m_Mobile.SendMessage( 0x20, "Zgloszenie zostalo zarejestrowane, a naduzycie bedzie ukarane." );
+                
                 new TeleportTimer(m_Mobile, entry, TimeSpan.FromSeconds(10.0 + (Utility.RandomDouble() * 110.0)))
                     .Start();
             }
@@ -151,9 +154,7 @@ namespace Server.Menus.Questions
             {
                 new TeleportTimer(m_Mobile, entry, TimeSpan.Zero).Start();
             }
-           // Console.WriteLine( $"Abuse (help): {m_Mobile.Name} [{m_Mobile.Account}] z lokacji {m_Mobile.Location} -> {entry.Name}" );
-            m_Mobile.SendMessage( "Ta opcja nie sluzy teleportacji! Jesli naprawde utknales, zglos to na Discordzie lub uzyj opcji Stuck Menu." );
-         //   m_Mobile.SendMessage( "Zgloszenie zostalo zarejestrowane, a naduzycie bedzie ukarane." );
+            
         }
 
         private class CloseTimer : Timer
