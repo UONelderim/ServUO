@@ -26,6 +26,8 @@ public class NamelessHood : BaseHat
 		: base(0x278F, hue)
 	{
 		Name = "Kaptur Ukrywajacy Tozsamosc";
+		Layer = Layer.Earrings;
+		Label1 = "(kaptur naciagany na uszy; kolczyki i nakrycie glowy moga przeszkadzac w jego noszeniu)";
 	}
 
 	public NamelessHood(Serial serial)
