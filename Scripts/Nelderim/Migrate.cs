@@ -22,69 +22,14 @@ namespace Server.Commands
 		private static void DoMigrate(CommandEventArgs e)
 		{
 			var from = e.Mobile;
-			var players = World.Mobiles.Values.OfType<PlayerMobile>();
 			
-			foreach (var pm in players)
-			{
-				if(pm.IsStaff())
-					continue;
-				RefundLanguages(pm);
-				pm.Kills = 0;
-				pm.Fame = 0;
-				pm.Karma = 0;
-				if (pm.Account is Account a)
-				{
-					for (int i = 0; i < a.Length; i++)
-					{
-						if (a[i] == pm)
-						{
-							pm.Name = $"{RenameGump.DEFAULT_PREFIX} {i + 1}";
-							break;
-						}
-					}
-				}
-				if (!pm.Name.StartsWith(RenameGump.DEFAULT_PREFIX))
-				{
-					pm.Name = RenameGump.DEFAULT_PREFIX;
-				}
-				pm.Profile = "";
-				var characterSheet = CharacterSheet.Get(pm);
-				characterSheet.AppearanceAndCharacteristic = "";
-				characterSheet.HistoryAndProfession = "";
-				pm.Race = Race.None;
-				pm.Faction = Faction.None;
+			RenamePlayers();
+			ConfigureMoongates(from);
+			MigrateMalasDungeons(from);
+		}
 
-				pm.LogoutMap = AccountHandler.StartingCities[0].Map;
-				pm.LogoutLocation = AccountHandler.StartingCities[0].Location;
-				BaseMount.Dismount(pm);
-				//Stable all pets
-				if (pm.AllFollowers.Count > 0)
-				{
-					for (int i = pm.AllFollowers.Count - 1; i >= 0; --i)
-					{
-						var pet = pm.AllFollowers[i] as BaseCreature;
-
-						if (pet == null)
-						{
-							continue;
-						}
-
-						pet.ControlTarget = null;
-						pet.ControlOrder = OrderType.Stay;
-						pet.Internalize();
-
-						pet.SetControlMaster(null);
-						pet.SummonMaster = null;
-
-						pet.IsStabled = true;
-						pet.StabledBy = null;
-
-						pm.Stabled.Add(pet);
-					}
-				}
-
-			}
-			
+		private static void ConfigureMoongates(Mobile from)
+		{
 			//New Haven -> RaceRoom
 			var newHavenMap = Map.Trammel;
 			var newHavenPortalLocation = new Point3D(3506, 2574, 18);
@@ -145,6 +90,74 @@ namespace Server.Commands
 							DateTime.Now, "Nelderim", 150, $"Zwrot PD za jezyk: {lang}", pm.Name));
 				}
 			}
+		}
+
+		private static void RenamePlayers()
+		{
+			foreach (var pm in PlayerMobile.Instances)
+			{
+				if(pm.IsStaff())
+					continue;
+				RefundLanguages(pm);
+				pm.Kills = 0;
+				pm.Fame = 0;
+				pm.Karma = 0;
+				if (pm.Account is Account a)
+				{
+					for (int i = 0; i < a.Length; i++)
+					{
+						if (a[i] == pm)
+						{
+							pm.Name = $"{RenameGump.DEFAULT_PREFIX} {i + 1}";
+							break;
+						}
+					}
+				}
+				if (!pm.Name.StartsWith(RenameGump.DEFAULT_PREFIX))
+				{
+					pm.Name = RenameGump.DEFAULT_PREFIX;
+				}
+				pm.Profile = "";
+				var characterSheet = CharacterSheet.Get(pm);
+				characterSheet.AppearanceAndCharacteristic = "";
+				characterSheet.HistoryAndProfession = "";
+				pm.Race = Race.None;
+				pm.Faction = Faction.None;
+
+				pm.LogoutMap = AccountHandler.StartingCities[0].Map;
+				pm.LogoutLocation = AccountHandler.StartingCities[0].Location;
+				BaseMount.Dismount(pm);
+				//Stable all pets
+				if (pm.AllFollowers.Count > 0)
+				{
+					for (int i = pm.AllFollowers.Count - 1; i >= 0; --i)
+					{
+						var pet = pm.AllFollowers[i] as BaseCreature;
+
+						if (pet == null)
+						{
+							continue;
+						}
+
+						pet.ControlTarget = null;
+						pet.ControlOrder = OrderType.Stay;
+						pet.Internalize();
+
+						pet.SetControlMaster(null);
+						pet.SummonMaster = null;
+
+						pet.IsStabled = true;
+						pet.StabledBy = null;
+
+						pm.Stabled.Add(pet);
+					}
+				}
+			}
+		}
+
+		private static void MigrateMalasDungeons(Mobile from)
+		{
+			
 		}
 	}
 }
