@@ -19,8 +19,8 @@ namespace Server.Items
 			Name = "Wrota Elghin";
 			Hue = 2892;
 			Dispellable = false;
-			TargetMap = Map.Malas;
-			Target = new Point3D(206, 11, -1);
+			TargetMap = Map.Felucca;
+			Target = new Point3D(6350, 11, -1);
 		}
 
 		public WrotaElghin(Serial serial)
