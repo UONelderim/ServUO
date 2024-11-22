@@ -467,6 +467,22 @@
 			<go x="2026" y="2731" z="0" />
 			<music name="Cove" />
 		</region>
+		<region type="MiningRegion" priority="100" name="Tirassa_Kopalnia">
+			<rect x="5431" y="1507" width="178" height="123" />
+			<go x="5582" y="1584" z="0" />
+		</region>
+		<region type="HousingRegion" name="Tirassa_Housing">
+			<rect x="2007" y="2691" width="21" height="36" />
+			<rect x="2005" y="2740" width="17" height="40" />
+			<rect x="2022" y="2749" width="7" height="17" />
+			<rect x="2047" y="2634" width="24" height="24" />
+			<rect x="2006" y="2780" width="16" height="31" />
+			<rect x="2022" y="2766" width="7" height="11" />
+			<rect x="2029" y="2748" width="6" height="8" />
+			<rect x="2022" y="2738" width="4" height="11" />
+			<rect x="2028" y="2709" width="5" height="15" />
+			<go x="2007" y="2740" z="0" />
+		</region>
 		<region type="VillageRegion" name="Nintayl">
 			<rect x="1861" y="3116" width="48" height="46" />
 			<rect x="1890" y="3162" width="66" height="33" />
@@ -9599,18 +9615,6 @@
 			<rect x="651" y="1859" width="86" height="25" />
 			<go x="506" y="2045" z="0" />
 		</region>
-		<region type="HousingRegion" name="Tirassa_Housing">
-			<rect x="2007" y="2691" width="21" height="36" />
-			<rect x="2005" y="2740" width="17" height="40" />
-			<rect x="2022" y="2749" width="7" height="17" />
-			<rect x="2047" y="2634" width="24" height="24" />
-			<rect x="2006" y="2780" width="16" height="31" />
-			<rect x="2022" y="2766" width="7" height="11" />
-			<rect x="2029" y="2748" width="6" height="8" />
-			<rect x="2022" y="2738" width="4" height="11" />
-			<rect x="2028" y="2709" width="5" height="15" />
-			<go x="2007" y="2740" z="0" />
-		</region>
 		<region type="DungeonRegion" name="BialyWilk_VeryEasy">
 			<rect x="5275" y="43" width="11" height="23" />
 			<rect x="5286" y="51" width="9" height="5" />
@@ -10893,6 +10897,96 @@
 			<rect x="6441" y="71" width="2" height="2" />
 			<go x="6441" y="57" z="0" />
 			<music name="MelisandesLair" />
+		</region>
+		<region type="DungeonRegion" name="MechanicznaKrypta_VeryEasy">
+			<rect x="5499" y="337" width="21" height="2" />
+			<rect x="5499" y="339" width="4" height="21" />
+			<rect x="5499" y="360" width="18" height="4" />
+			<rect x="5513" y="351" width="4" height="9" />
+			<rect x="5517" y="351" width="11" height="4" />
+			<rect x="5524" y="355" width="4" height="9" />
+			<rect x="5528" y="360" width="19" height="4" />
+			<rect x="5520" y="334" width="9" height="12" />
+			<music name="Mountn_a" />
+		</region>
+		<region type="DungeonRegion" name="MechanicznaKrypta_Easy">
+			<rect x="5499" y="300" width="39" height="4" />
+			<rect x="5499" y="304" width="4" height="33" />
+			<rect x="5503" y="319" width="11" height="2" />
+			<rect x="5487" y="272" width="22" height="21" />
+			<rect x="5509" y="273" width="3" height="1" />
+			<rect x="5511" y="274" width="1" height="16" />
+			<rect x="5512" y="289" width="3" height="1" />
+			<rect x="5514" y="273" width="1" height="16" />
+			<rect x="5515" y="273" width="3" height="1" />
+			<rect x="5517" y="274" width="1" height="16" />
+			<rect x="5518" y="289" width="3" height="1" />
+			<rect x="5520" y="273" width="1" height="16" />
+			<rect x="5521" y="273" width="3" height="1" />
+			<rect x="5523" y="274" width="1" height="16" />
+			<rect x="5524" y="289" width="3" height="1" />
+			<rect x="5527" y="287" width="11" height="13" />
+			<music name="Mountn_a" />
+		</region>
+		<region type="DungeonRegion" name="MechanicznaKrypta_Medium">
+			<rect x="5497" y="256" width="13" height="5" />
+			<rect x="5530" y="268" width="4" height="15" />
+			<rect x="5534" y="279" width="5" height="4" />
+			<rect x="5539" y="279" width="4" height="44" />
+			<rect x="5506" y="264" width="28" height="4" />
+			<rect x="5528" y="319" width="11" height="4" />
+			<rect x="5520" y="316" width="8" height="11" />
+			<go x="5504" y="259" z="0" />
+			<music name="Mountn_a" />
+		</region>
+		<region type="DungeonRegion" name="MechanicznaKrypta_Difficult">
+			<rect x="5497" y="235" width="13" height="12" />
+			<rect x="5520" y="235" width="9" height="9" />
+			<rect x="5524" y="244" width="5" height="15" />
+			<rect x="5520" y="250" width="4" height="9" />
+			<rect x="5514" y="235" width="6" height="24" />
+			<rect x="5497" y="250" width="13" height="6" />
+			<go x="5504" y="241" z="0" />
+			<music name="Mountn_a" />
+		</region>
+		<region type="DungeonRegion" name="MechanicznaKrypta_VeryDifficult">
+			<rect x="5488" y="208" width="19" height="19" />
+			<rect x="5511" y="209" width="19" height="20" />
+			<music name="Mountn_a" />
+		</region>
+		<region type="DungeonRegion" name="MechanicznaKrypta_Outskirts">
+			<rect x="5507" y="210" width="4" height="4" />
+			<rect x="5520" y="229" width="10" height="6" />
+			<rect x="5510" y="237" width="4" height="3" />
+			<rect x="5499" y="247" width="3" height="3" />
+			<rect x="5520" y="244" width="4" height="6" />
+			<rect x="5506" y="261" width="3" height="3" />
+			<rect x="5547" y="360" width="9" height="4" />
+			<rect x="5518" y="356" width="6" height="10" />
+			<rect x="5489" y="314" width="10" height="15" />
+			<rect x="5522" y="327" width="11" height="7" />
+			<rect x="5514" y="319" width="6" height="3" />
+			<music name="Mountn_a" />
+		</region>
+		<region type="DungeonRegion" name="Zywioly_outskirts">
+			<rect x="5121" y="3520" width="75" height="75" />
+			<rect x="5183" y="3595" width="13" height="8" />
+			<rect x="5196" y="3587" width="57" height="16" />
+			<rect x="5230" y="3583" width="19" height="4" />
+			<rect x="5253" y="3588" width="18" height="15" />
+			<rect x="5271" y="3590" width="3" height="13" />
+			<rect x="5274" y="3593" width="2" height="10" />
+			<rect x="5192" y="3603" width="86" height="4" />
+			<rect x="5198" y="3607" width="80" height="2" />
+			<rect x="5200" y="3609" width="78" height="2" />
+			<rect x="5203" y="3611" width="74" height="4" />
+			<rect x="5205" y="3615" width="72" height="3" />
+			<rect x="5207" y="3618" width="70" height="3" />
+			<rect x="5209" y="3621" width="9" height="2" />
+			<rect x="5234" y="3621" width="43" height="2" />
+			<rect x="5236" y="3623" width="41" height="2" />
+			<rect x="5196" y="3585" width="19" height="2" />
+			<rect x="5121" y="3513" width="71" height="7" />
 		</region>
 	</Facet>
 </ServerRegions>
