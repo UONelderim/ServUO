@@ -145,7 +145,7 @@
 			<rect x="753" y="1873" width="14" height="10" />
 			<rect x="786" y="1856" width="42" height="36" />
 			<rect x="767" y="1870" width="19" height="16" />
-			<go x="700" y="2046" z="0" />
+			<go x="704" y="2046" z="0" />
 			<music name="Cove" />
 		</region>
 		<region type="MiningRegion" priority="100" name="Orod_Kopalnia">
@@ -464,7 +464,7 @@
 			<rect x="2058" y="2652" width="29" height="17" />
 			<rect x="2061" y="2688" width="43" height="29" />
 			<rect x="2061" y="2717" width="26" height="24" />
-			<go x="2038" y="2730" z="-7" />
+			<go x="2026" y="2731" z="0" />
 			<music name="Cove" />
 		</region>
 		<region type="VillageRegion" name="Nintayl">
@@ -10136,6 +10136,763 @@
 		</region>
 		<region type="CannotEnterRegion" priority="100" name="CannotEnterRegion_Tasandora">
 			<rect x="1502" y="1705" width="168" height="247" />
+		</region>
+		<region type="DungeonRegion" name="VoxPopuli_Entrance">
+			<rect x="6986" y="129" width="9" height="21" />
+			<go x="7000" y="139" z="0" />
+			<music name="Vesper" />
+		</region>
+		<region type="DungeonRegion" name="VoxPopuli_VeryEasy">
+			<rect x="6995" y="128" width="23" height="22" />
+			<rect x="7018" y="135" width="4" height="9" />
+			<go x="7016" y="139" z="0" />
+			<music name="Vesper" />
+		</region>
+		<region type="DungeonRegion" name="VoxPopuli_Easy">
+			<rect x="7022" y="137" width="23" height="5" />
+			<rect x="7039" y="123" width="6" height="14" />
+			<rect x="7026" y="115" width="13" height="9" />
+			<rect x="7039" y="115" width="6" height="8" />
+			<rect x="7037" y="106" width="7" height="9" />
+			<rect x="7032" y="104" width="5" height="11" />
+			<rect x="7027" y="105" width="5" height="7" />
+			<rect x="7039" y="104" width="6" height="2" />
+			<rect x="7034" y="100" width="11" height="4" />
+			<rect x="7033" y="100" width="1" height="4" />
+			<rect x="7027" y="104" width="5" height="1" />
+			<rect x="7044" y="106" width="1" height="9" />
+			<rect x="7045" y="107" width="8" height="10" />
+			<go x="7043" y="139" z="0" />
+			<music name="Vesper" />
+		</region>
+		<region type="DungeonRegion" name="VoxPopuli_Medium">
+			<rect x="7032" y="83" width="11" height="17" />
+			<rect x="7032" y="73" width="9" height="10" />
+			<rect x="7018" y="83" width="14" height="8" />
+			<rect x="7018" y="91" width="10" height="7" />
+			<rect x="7017" y="91" width="1" height="8" />
+			<rect x="7017" y="70" width="11" height="13" />
+			<rect x="7011" y="83" width="7" height="8" />
+			<rect x="7001" y="75" width="10" height="26" />
+			<rect x="7000" y="76" width="1" height="8" />
+			<rect x="7000" y="91" width="1" height="9" />
+			<rect x="6980" y="82" width="20" height="9" />
+			<rect x="6968" y="91" width="18" height="11" />
+			<rect x="6968" y="89" width="12" height="2" />
+			<rect x="6966" y="72" width="21" height="10" />
+			<rect x="6966" y="82" width="14" height="1" />
+			<rect x="7000" y="100" width="1" height="1" />
+			<go x="7047" y="91" z="0" />
+			<music name="Vesper" />
+		</region>
+		<region type="DungeonRegion" name="VoxPopuli_Difficult">
+			<rect x="6989" y="62" width="8" height="20" />
+			<rect x="6989" y="56" width="40" height="6" />
+			<rect x="6997" y="62" width="32" height="1" />
+			<rect x="7017" y="63" width="12" height="7" />
+			<go x="7003" y="72" z="0" />
+			<music name="Vesper" />
+		</region>
+		<region type="DungeonRegion" name="VoxPopuli_VeryDifficult">
+			<rect x="7006" y="29" width="23" height="17" />
+			<rect x="7020" y="46" width="9" height="10" />
+			<rect x="7029" y="46" width="17" height="5" />
+			<rect x="7006" y="21" width="1" height="4" />
+			<rect x="7042" y="41" width="14" height="5" />
+			<rect x="7047" y="40" width="9" height="1" />
+			<rect x="7049" y="35" width="10" height="5" />
+			<rect x="7056" y="40" width="4" height="4" />
+			<rect x="7052" y="29" width="10" height="6" />
+			<rect x="7058" y="22" width="9" height="7" />
+			<rect x="7062" y="29" width="3" height="4" />
+			<rect x="7056" y="28" width="2" height="1" />
+			<rect x="6982" y="2" width="8" height="9" />
+			<rect x="6990" y="7" width="3" height="5" />
+			<rect x="6987" y="11" width="3" height="3" />
+			<rect x="6990" y="12" width="3" height="2" />
+			<rect x="6993" y="11" width="7" height="7" />
+			<rect x="6997" y="22" width="5" height="3" />
+			<rect x="7000" y="17" width="2" height="1" />
+			<rect x="6992" y="14" width="1" height="4" />
+			<rect x="7059" y="35" width="3" height="1" />
+			<rect x="7046" y="46" width="5" height="3" />
+			<rect x="6997" y="18" width="5" height="4" />
+			<rect x="7002" y="21" width="4" height="7" />
+			<rect x="7000" y="25" width="2" height="3" />
+			<rect x="7006" y="25" width="5" height="4" />
+			<go x="7027" y="37" z="0" />
+			<music name="Vesper" />
+		</region>
+		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL2_Entrance">
+			<rect x="6817" y="99" width="7" height="13" />
+			<music name="GrizzleDungeon" />
+		</region>
+		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL2_VeryEasy">
+			<rect x="6822" y="93" width="17" height="6" />
+			<rect x="6817" y="112" width="16" height="7" />
+			<rect x="6834" y="99" width="5" height="13" />
+			<rect x="6838" y="112" width="1" height="7" />
+			<rect x="6839" y="98" width="7" height="11" />
+			<rect x="6834" y="112" width="4" height="7" />
+			<rect x="6833" y="112" width="1" height="6" />
+			<rect x="6817" y="93" width="5" height="6" />
+			<go x="6840" y="96" z="0" />
+			<music name="GrizzleDungeon" />
+		</region>
+		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL2_Easy">
+			<rect x="6846" y="98" width="9" height="18" />
+			<rect x="6840" y="116" width="20" height="13" />
+			<rect x="6855" y="98" width="21" height="8" />
+			<go x="6860" y="107" z="0" />
+			<music name="GrizzleDungeon" />
+		</region>
+		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL2_Medium">
+			<rect x="6876" y="89" width="18" height="23" />
+			<rect x="6886" y="74" width="7" height="15" />
+			<rect x="6905" y="60" width="13" height="19" />
+			<go x="6895" y="100" z="0" />
+			<music name="GrizzleDungeon" />
+		</region>
+		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL2_Difficult">
+			<rect x="6877" y="65" width="27" height="9" />
+			<rect x="6867" y="50" width="10" height="26" />
+			<rect x="6877" y="50" width="1" height="15" />
+			<rect x="6877" y="74" width="1" height="2" />
+			<go x="6900" y="69" z="0" />
+			<music name="GrizzleDungeon" />
+		</region>
+		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL2_VeryDifficult">
+			<rect x="6848" y="30" width="22" height="19" />
+			<rect x="6854" y="49" width="6" height="27" />
+			<rect x="6860" y="68" width="7" height="8" />
+			<go x="6869" y="39" z="0" />
+			<music name="GrizzleDungeon" />
+		</region>
+		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL2_Boss">
+			<rect x="6840" y="2" width="34" height="20" />
+			<go x="6867" y="12" z="0" />
+			<music name="GrizzleDungeon" />
+		</region>
+		<region type="DungeonRegion" name="Parox_Entrance">
+			<rect x="6784" y="216" width="5" height="2" />
+			<rect x="6784" y="218" width="5" height="1" />
+			<rect x="6785" y="219" width="5" height="2" />
+			<rect x="6787" y="221" width="3" height="2" />
+			<rect x="6790" y="219" width="7" height="5" />
+			<rect x="6792" y="217" width="5" height="2" />
+			<rect x="6797" y="219" width="5" height="7" />
+			<rect x="6792" y="224" width="5" height="2" />
+			<rect x="6794" y="226" width="2" height="1" />
+			<rect x="6797" y="218" width="1" height="1" />
+			<go x="6795" y="217" z="0" />
+			<music name="ParoxysmusLair" />
+		</region>
+		<region type="DungeonRegion" name="Parox_VeryEasy">
+			<rect x="6802" y="217" width="11" height="9" />
+			<rect x="6802" y="226" width="11" height="1" />
+			<go x="6817" y="221" z="0" />
+			<music name="ParoxysmusLair" />
+		</region>
+		<region type="DungeonRegion" name="Parox_Easy">
+			<rect x="6813" y="206" width="42" height="31" />
+			<rect x="6865" y="216" width="2" height="9" />
+			<go x="6844" y="221" z="0" />
+			<music name="ParoxysmusLair" />
+		</region>
+		<region type="DungeonRegion" name="Parox_Medium">
+			<rect x="6821" y="237" width="8" height="7" />
+			<rect x="6823" y="244" width="9" height="6" />
+			<rect x="6829" y="242" width="1" height="2" />
+			<rect x="6825" y="250" width="7" height="2" />
+			<rect x="6834" y="250" width="2" height="7" />
+			<rect x="6831" y="252" width="3" height="3" />
+			<rect x="6836" y="250" width="6" height="7" />
+			<rect x="6842" y="249" width="3" height="7" />
+			<rect x="6845" y="246" width="3" height="8" />
+			<rect x="6848" y="247" width="3" height="6" />
+			<rect x="6851" y="248" width="5" height="4" />
+			<rect x="6851" y="246" width="4" height="2" />
+			<rect x="6855" y="241" width="3" height="7" />
+			<rect x="6852" y="243" width="3" height="3" />
+			<rect x="6854" y="238" width="4" height="3" />
+			<rect x="6865" y="238" width="3" height="1" />
+			<rect x="6858" y="237" width="3" height="5" />
+			<rect x="6862" y="234" width="3" height="8" />
+			<rect x="6859" y="234" width="3" height="3" />
+			<rect x="6861" y="231" width="4" height="3" />
+			<rect x="6866" y="228" width="2" height="4" />
+			<rect x="6864" y="224" width="5" height="4" />
+			<rect x="6864" y="229" width="2" height="2" />
+			<rect x="6865" y="218" width="5" height="4" />
+			<rect x="6865" y="222" width="2" height="2" />
+			<rect x="6857" y="218" width="8" height="5" />
+			<rect x="6865" y="214" width="7" height="4" />
+			<rect x="6863" y="185" width="10" height="14" />
+			<rect x="6865" y="199" width="6" height="9" />
+			<rect x="6865" y="208" width="5" height="6" />
+			<rect x="6873" y="190" width="3" height="5" />
+			<rect x="6876" y="189" width="5" height="7" />
+			<rect x="6881" y="181" width="24" height="19" />
+			<rect x="6887" y="200" width="22" height="6" />
+			<rect x="6905" y="187" width="21" height="13" />
+			<rect x="6926" y="186" width="3" height="13" />
+			<rect x="6929" y="189" width="6" height="7" />
+			<rect x="6832" y="248" width="2" height="4" />
+			<rect x="6829" y="252" width="2" height="1" />
+			<rect x="6833" y="255" width="1" height="1" />
+			<rect x="6841" y="249" width="1" height="1" />
+			<rect x="6843" y="247" width="2" height="2" />
+			<rect x="6856" y="248" width="1" height="1" />
+			<rect x="6854" y="241" width="1" height="2" />
+			<rect x="6861" y="237" width="1" height="5" />
+			<rect x="6865" y="231" width="1" height="3" />
+			<rect x="6862" y="229" width="2" height="2" />
+			<rect x="6864" y="228" width="2" height="1" />
+			<rect x="6863" y="201" width="2" height="7" />
+			<rect x="6884" y="179" width="21" height="2" />
+			<rect x="6905" y="180" width="1" height="4" />
+			<rect x="6905" y="185" width="21" height="2" />
+			<rect x="6916" y="182" width="5" height="3" />
+			<rect x="6935" y="169" width="21" height="33" />
+			<go x="6835" y="240" z="0" />
+			<music name="ParoxysmusLair" />
+		</region>
+		<region type="DungeonRegion" name="Parox_Difficult">
+			<rect x="6935" y="202" width="21" height="19" />
+			<rect x="6931" y="202" width="4" height="21" />
+			<rect x="6935" y="221" width="2" height="2" />
+			<rect x="6917" y="204" width="14" height="17" />
+			<rect x="6895" y="211" width="22" height="8" />
+			<go x="6955" y="192" z="0" />
+			<music name="ParoxysmusLair" />
+		</region>
+		<region type="DungeonRegion" name="Parox_VeryDifficult">
+			<rect x="6880" y="211" width="15" height="45" />
+			<rect x="6895" y="217" width="1" height="11" />
+			<rect x="6895" y="228" width="4" height="5" />
+			<rect x="6899" y="224" width="25" height="13" />
+			<rect x="6895" y="233" width="1" height="23" />
+			<rect x="6900" y="237" width="24" height="19" />
+			<rect x="6899" y="241" width="1" height="8" />
+			<rect x="6899" y="249" width="1" height="7" />
+			<rect x="6896" y="246" width="3" height="5" />
+			<music name="ParoxysmusLair" />
+		</region>
+		<region type="DungeonRegion" name="Parox_Boss">
+			<rect x="6928" y="229" width="28" height="28" />
+			<rect x="6924" y="246" width="4" height="5" />
+			<music name="ParoxysmusLair" />
+		</region>
+		<region type="DungeonRegion" name="Shimmering_LV2_Entrance">
+			<rect x="6641" y="14" width="9" height="26" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Shimmering_LV2_VeryEasy">
+			<rect x="6641" y="0" width="19" height="14" />
+			<rect x="6660" y="7" width="3" height="7" />
+			<rect x="6650" y="14" width="11" height="27" />
+			<rect x="6661" y="14" width="2" height="11" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Shimmering_LV2_Easy">
+			<rect x="6663" y="7" width="17" height="18" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Shimmering_LV2_Medium">
+			<rect x="6679" y="7" width="25" height="13" />
+			<rect x="6695" y="20" width="9" height="18" />
+			<rect x="6695" y="38" width="38" height="9" />
+			<rect x="6704" y="36" width="30" height="2" />
+			<rect x="6720" y="24" width="10" height="12" />
+			<rect x="6733" y="38" width="1" height="8" />
+			<rect x="6733" y="46" width="1" height="1" />
+			<rect x="6722" y="47" width="12" height="14" />
+			<rect x="6734" y="39" width="17" height="11" />
+			<rect x="6734" y="50" width="17" height="1" />
+			<rect x="6752" y="42" width="24" height="6" />
+			<rect x="6751" y="42" width="1" height="6" />
+			<rect x="6764" y="48" width="12" height="15" />
+			<rect x="6776" y="50" width="26" height="14" />
+			<rect x="6783" y="64" width="19" height="9" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Shimmering_LV2_Difficult">
+			<rect x="6749" y="63" width="27" height="16" />
+			<rect x="6764" y="79" width="12" height="4" />
+			<rect x="6733" y="69" width="16" height="6" />
+			<rect x="6749" y="62" width="16" height="1" />
+			<go x="6764" y="72" z="-1" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Shimmering_LV2_VeryDifficult">
+			<rect x="6719" y="63" width="15" height="23" />
+			<rect x="6707" y="67" width="12" height="15" />
+			<rect x="6707" y="82" width="5" height="23" />
+			<go x="6724" y="74" z="-1" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Shimmering_LV2_Boss">
+			<rect x="6693" y="118" width="29" height="39" />
+			<go x="6697" y="308" z="0" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Shimmering_LV1_VeryDifficult">
+			<rect x="6652" y="102" width="17" height="29" />
+			<rect x="6669" y="107" width="2" height="6" />
+			<rect x="6669" y="123" width="3" height="6" />
+			<rect x="6651" y="104" width="1" height="4" />
+			<rect x="6651" y="111" width="1" height="17" />
+			<rect x="6656" y="131" width="6" height="1" />
+			<rect x="6634" y="116" width="17" height="9" />
+			<rect x="6648" y="114" width="3" height="2" />
+			<rect x="6635" y="125" width="16" height="2" />
+			<rect x="6636" y="127" width="14" height="1" />
+			<rect x="6637" y="128" width="12" height="1" />
+			<rect x="6639" y="129" width="8" height="1" />
+			<rect x="6641" y="130" width="3" height="2" />
+			<rect x="6630" y="115" width="4" height="12" />
+			<rect x="6627" y="116" width="3" height="11" />
+			<rect x="6619" y="116" width="5" height="12" />
+			<rect x="6624" y="117" width="3" height="10" />
+			<rect x="6624" y="127" width="8" height="1" />
+			<rect x="6626" y="73" width="24" height="24" />
+			<rect x="6624" y="76" width="2" height="7" />
+			<rect x="6598" y="77" width="15" height="13" />
+			<rect x="6613" y="80" width="9" height="15" />
+			<rect x="6622" y="84" width="4" height="10" />
+			<rect x="6612" y="90" width="1" height="2" />
+			<rect x="6599" y="108" width="14" height="26" />
+			<rect x="6607" y="106" width="7" height="2" />
+			<rect x="6613" y="108" width="1" height="2" />
+			<rect x="6613" y="114" width="1" height="12" />
+			<rect x="6614" y="116" width="1" height="9" />
+			<rect x="6615" y="117" width="1" height="8" />
+			<rect x="6616" y="118" width="1" height="8" />
+			<rect x="6614" y="125" width="1" height="1" />
+			<rect x="6617" y="117" width="2" height="11" />
+			<rect x="6623" y="128" width="8" height="2" />
+			<rect x="6598" y="113" width="1" height="12" />
+			<rect x="6597" y="117" width="1" height="6" />
+			<rect x="6596" y="119" width="1" height="3" />
+			<rect x="6598" y="128" width="1" height="6" />
+			<rect x="6597" y="129" width="1" height="4" />
+			<rect x="6613" y="137" width="3" height="3" />
+			<rect x="6607" y="134" width="5" height="4" />
+			<rect x="6624" y="130" width="7" height="8" />
+			<rect x="6588" y="87" width="9" height="8" />
+			<rect x="6590" y="85" width="8" height="2" />
+			<rect x="6597" y="87" width="1" height="4" />
+			<rect x="6592" y="80" width="6" height="5" />
+			<rect x="6626" y="138" width="6" height="14" />
+			<rect x="6631" y="136" width="1" height="2" />
+			<rect x="6632" y="142" width="2" height="9" />
+			<rect x="6626" y="152" width="5" height="2" />
+			<rect x="6624" y="141" width="2" height="13" />
+			<rect x="6622" y="143" width="2" height="12" />
+			<rect x="6620" y="145" width="2" height="11" />
+			<rect x="6622" y="155" width="1" height="1" />
+			<rect x="6607" y="138" width="6" height="7" />
+			<rect x="6607" y="145" width="6" height="1" />
+			<rect x="6613" y="140" width="4" height="17" />
+			<rect x="6617" y="143" width="1" height="13" />
+			<rect x="6618" y="144" width="2" height="12" />
+			<rect x="6619" y="156" width="1" height="1" />
+			<rect x="6608" y="146" width="5" height="13" />
+			<rect x="6613" y="157" width="3" height="2" />
+			<rect x="6609" y="159" width="3" height="1" />
+			<rect x="6588" y="95" width="7" height="1" />
+			<rect x="6588" y="96" width="4" height="1" />
+			<rect x="6588" y="97" width="2" height="1" />
+			<rect x="6588" y="98" width="1" height="1" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Shimmering_LV1_Difficult">
+			<rect x="6592" y="138" width="15" height="8" />
+			<rect x="6595" y="137" width="4" height="1" />
+			<rect x="6591" y="140" width="1" height="4" />
+			<rect x="6592" y="146" width="8" height="13" />
+			<rect x="6592" y="159" width="8" height="1" />
+			<rect x="6595" y="160" width="5" height="1" />
+			<rect x="6600" y="146" width="6" height="1" />
+			<rect x="6600" y="149" width="3" height="9" />
+			<rect x="6600" y="158" width="1" height="1" />
+			<rect x="6603" y="150" width="5" height="9" />
+			<rect x="6605" y="149" width="3" height="1" />
+			<rect x="6588" y="153" width="4" height="6" />
+			<rect x="6591" y="149" width="1" height="4" />
+			<rect x="6587" y="154" width="1" height="7" />
+			<rect x="6588" y="159" width="1" height="1" />
+			<rect x="6573" y="80" width="15" height="24" />
+			<rect x="6569" y="84" width="4" height="14" />
+			<rect x="6567" y="86" width="2" height="9" />
+			<rect x="6571" y="81" width="2" height="3" />
+			<rect x="6570" y="98" width="3" height="6" />
+			<rect x="6568" y="99" width="2" height="5" />
+			<rect x="6567" y="103" width="1" height="1" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Shimmering_LV1_Medium">
+			<rect x="6567" y="104" width="11" height="6" />
+			<rect x="6565" y="106" width="2" height="4" />
+			<rect x="6564" y="108" width="1" height="2" />
+			<rect x="6564" y="110" width="12" height="3" />
+			<rect x="6576" y="110" width="1" height="1" />
+			<rect x="6563" y="113" width="13" height="3" />
+			<rect x="6563" y="111" width="1" height="2" />
+			<rect x="6563" y="116" width="12" height="7" />
+			<rect x="6561" y="120" width="2" height="3" />
+			<rect x="6561" y="123" width="12" height="9" />
+			<rect x="6573" y="125" width="2" height="7" />
+			<rect x="6575" y="127" width="1" height="3" />
+			<rect x="6558" y="124" width="3" height="7" />
+			<rect x="6561" y="132" width="15" height="3" />
+			<rect x="6559" y="133" width="2" height="2" />
+			<rect x="6559" y="135" width="14" height="6" />
+			<rect x="6583" y="153" width="4" height="8" />
+			<rect x="6581" y="152" width="2" height="9" />
+			<rect x="6559" y="141" width="16" height="8" />
+			<rect x="6573" y="137" width="1" height="4" />
+			<rect x="6574" y="139" width="1" height="2" />
+			<rect x="6575" y="140" width="2" height="5" />
+			<rect x="6565" y="149" width="16" height="11" />
+			<rect x="6581" y="150" width="1" height="2" />
+			<rect x="6567" y="160" width="11" height="1" />
+			<rect x="6567" y="161" width="9" height="1" />
+			<rect x="6569" y="162" width="7" height="1" />
+			<rect x="6574" y="163" width="1" height="1" />
+			<rect x="6559" y="149" width="2" height="2" />
+			<rect x="6525" y="138" width="21" height="10" />
+			<rect x="6546" y="140" width="2" height="8" />
+			<rect x="6548" y="142" width="11" height="6" />
+			<rect x="6553" y="148" width="6" height="3" />
+			<rect x="6550" y="140" width="9" height="2" />
+			<rect x="6555" y="138" width="4" height="2" />
+			<rect x="6534" y="148" width="12" height="1" />
+			<rect x="6536" y="149" width="8" height="2" />
+			<rect x="6525" y="148" width="5" height="3" />
+			<rect x="6523" y="138" width="2" height="8" />
+			<rect x="6521" y="129" width="11" height="9" />
+			<rect x="6532" y="130" width="2" height="7" />
+			<rect x="6520" y="108" width="11" height="21" />
+			<rect x="6531" y="109" width="1" height="7" />
+			<rect x="6519" y="120" width="1" height="2" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Shimmering_LV1_Easy">
+			<rect x="6519" y="102" width="28" height="6" />
+			<rect x="6536" y="108" width="10" height="2" />
+			<rect x="6537" y="110" width="6" height="1" />
+			<rect x="6531" y="108" width="5" height="1" />
+			<rect x="6532" y="109" width="2" height="1" />
+			<rect x="6538" y="101" width="9" height="1" />
+			<rect x="6547" y="101" width="3" height="3" />
+			<rect x="6547" y="104" width="2" height="2" />
+			<rect x="6543" y="98" width="4" height="3" />
+			<rect x="6542" y="100" width="1" height="1" />
+			<rect x="6547" y="98" width="4" height="3" />
+			<rect x="6550" y="101" width="1" height="1" />
+			<rect x="6545" y="96" width="8" height="2" />
+			<rect x="6551" y="98" width="1" height="1" />
+			<rect x="6546" y="90" width="8" height="6" />
+			<rect x="6544" y="85" width="3" height="5" />
+			<rect x="6544" y="90" width="2" height="2" />
+			<rect x="6547" y="85" width="9" height="5" />
+			<rect x="6554" y="90" width="2" height="1" />
+			<rect x="6556" y="85" width="2" height="2" />
+			<rect x="6556" y="87" width="1" height="1" />
+			<rect x="6548" y="65" width="12" height="20" />
+			<rect x="6560" y="66" width="2" height="13" />
+			<rect x="6562" y="74" width="1" height="5" />
+			<rect x="6560" y="79" width="1" height="2" />
+			<rect x="6544" y="70" width="4" height="15" />
+			<rect x="6546" y="67" width="2" height="3" />
+			<rect x="6535" y="72" width="9" height="10" />
+			<rect x="6535" y="82" width="4" height="3" />
+			<rect x="6535" y="85" width="3" height="8" />
+			<rect x="6535" y="93" width="3" height="1" />
+			<rect x="6535" y="94" width="2" height="1" />
+			<rect x="6520" y="99" width="16" height="3" />
+			<rect x="6520" y="97" width="14" height="2" />
+			<rect x="6520" y="95" width="15" height="2" />
+			<rect x="6520" y="80" width="15" height="15" />
+			<rect x="6522" y="79" width="13" height="1" />
+			<rect x="6523" y="76" width="8" height="3" />
+			<rect x="6531" y="77" width="1" height="2" />
+			<rect x="6532" y="78" width="3" height="1" />
+			<rect x="6534" y="76" width="1" height="2" />
+			<rect x="6524" y="74" width="5" height="2" />
+			<rect x="6514" y="85" width="4" height="10" />
+			<rect x="6518" y="85" width="2" height="13" />
+			<rect x="6515" y="95" width="3" height="1" />
+			<rect x="6511" y="84" width="3" height="11" />
+			<rect x="6508" y="83" width="3" height="11" />
+			<rect x="6508" y="82" width="1" height="1" />
+			<rect x="6507" y="80" width="1" height="13" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Shimmering_LV1_VeryEasy">
+			<rect x="6483" y="76" width="23" height="16" />
+			<rect x="6506" y="76" width="1" height="16" />
+			<rect x="6483" y="92" width="23" height="1" />
+			<rect x="6485" y="93" width="17" height="4" />
+			<rect x="6502" y="93" width="3" height="2" />
+			<rect x="6502" y="95" width="1" height="1" />
+			<rect x="6485" y="97" width="12" height="2" />
+			<rect x="6486" y="99" width="9" height="2" />
+			<rect x="6487" y="101" width="6" height="2" />
+			<rect x="6480" y="78" width="3" height="11" />
+			<rect x="6482" y="89" width="1" height="2" />
+			<rect x="6481" y="72" width="2" height="5" />
+			<rect x="6482" y="71" width="1" height="1" />
+			<rect x="6483" y="69" width="19" height="7" />
+			<rect x="6502" y="72" width="1" height="4" />
+			<rect x="6503" y="73" width="1" height="3" />
+			<rect x="6504" y="74" width="2" height="2" />
+			<rect x="6501" y="68" width="1" height="1" />
+			<rect x="6481" y="54" width="3" height="10" />
+			<rect x="6483" y="64" width="1" height="1" />
+			<rect x="6501" y="56" width="3" height="8" />
+			<rect x="6501" y="64" width="1" height="1" />
+			<rect x="6494" y="54" width="20" height="2" />
+			<rect x="6492" y="52" width="22" height="2" />
+			<rect x="6490" y="46" width="3" height="6" />
+			<rect x="6504" y="52" width="46" height="4" />
+			<rect x="6507" y="56" width="9" height="4" />
+			<rect x="6516" y="56" width="3" height="1" />
+			<rect x="6494" y="40" width="10" height="4" />
+			<rect x="6507" y="39" width="10" height="5" />
+			<rect x="6517" y="43" width="1" height="1" />
+			<rect x="6522" y="41" width="12" height="3" />
+			<rect x="6507" y="60" width="8" height="1" />
+			<rect x="6508" y="61" width="7" height="1" />
+			<rect x="6509" y="62" width="7" height="1" />
+			<rect x="6516" y="61" width="7" height="6" />
+			<rect x="6509" y="63" width="7" height="8" />
+			<rect x="6516" y="67" width="5" height="2" />
+			<rect x="6516" y="69" width="2" height="2" />
+			<rect x="6509" y="71" width="5" height="1" />
+			<rect x="6511" y="72" width="2" height="1" />
+			<rect x="6506" y="65" width="3" height="6" />
+			<rect x="6523" y="56" width="27" height="2" />
+			<rect x="6527" y="58" width="4" height="1" />
+			<rect x="6534" y="58" width="7" height="5" />
+			<rect x="6544" y="58" width="5" height="1" />
+			<rect x="6550" y="51" width="1" height="4" />
+			<rect x="6548" y="44" width="2" height="8" />
+			<rect x="6551" y="52" width="1" height="2" />
+			<rect x="6536" y="42" width="14" height="2" />
+			<rect x="6539" y="41" width="10" height="1" />
+			<rect x="6538" y="19" width="11" height="22" />
+			<rect x="6549" y="26" width="4" height="5" />
+			<rect x="6553" y="27" width="1" height="3" />
+			<rect x="6549" y="31" width="2" height="3" />
+			<rect x="6549" y="34" width="1" height="3" />
+			<rect x="6537" y="34" width="1" height="6" />
+			<rect x="6527" y="19" width="11" height="7" />
+			<rect x="6528" y="26" width="10" height="2" />
+			<rect x="6530" y="28" width="8" height="3" />
+			<rect x="6532" y="31" width="6" height="1" />
+			<rect x="6533" y="32" width="4" height="1" />
+			<rect x="6534" y="33" width="2" height="1" />
+			<rect x="6549" y="22" width="1" height="2" />
+			<rect x="6537" y="9" width="9" height="10" />
+			<rect x="6546" y="10" width="4" height="9" />
+			<rect x="6550" y="11" width="2" height="6" />
+			<rect x="6552" y="12" width="1" height="4" />
+			<rect x="6541" y="7" width="6" height="2" />
+			<rect x="6517" y="6" width="18" height="8" />
+			<rect x="6528" y="14" width="9" height="5" />
+			<rect x="6535" y="7" width="2" height="7" />
+			<rect x="6524" y="5" width="9" height="1" />
+			<rect x="6517" y="14" width="11" height="3" />
+			<rect x="6484" y="54" width="10" height="15" />
+			<rect x="6483" y="45" width="7" height="9" />
+			<rect x="6480" y="41" width="8" height="4" />
+			<rect x="6482" y="45" width="1" height="1" />
+			<rect x="6482" y="52" width="1" height="2" />
+			<rect x="6488" y="42" width="2" height="3" />
+			<rect x="6490" y="43" width="3" height="3" />
+			<rect x="6482" y="40" width="4" height="1" />
+			<rect x="6490" y="52" width="2" height="2" />
+			<rect x="6494" y="56" width="7" height="13" />
+			<rect x="6493" y="44" width="55" height="8" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Shimmering_LV1_Entrance">
+			<rect x="6504" y="5" width="10" height="8" />
+			<rect x="6514" y="8" width="3" height="8" />
+			<rect x="6510" y="13" width="4" height="3" />
+			<rect x="6513" y="16" width="3" height="1" />
+			<rect x="6503" y="13" width="5" height="2" />
+			<rect x="6500" y="9" width="3" height="4" />
+			<music name="MelisandesLair" />
+		</region>
+		<region type="DungeonRegion" name="Melisande_Entrance">
+			<rect x="6390" y="169" width="19" height="11" />
+			<music name="MelisandesLair" />
+		</region>
+		<region type="DungeonRegion" name="Melisande_VeryEasy">
+			<rect x="6409" y="173" width="3" height="4" />
+			<rect x="6409" y="177" width="1" height="1" />
+			<rect x="6412" y="172" width="3" height="5" />
+			<rect x="6413" y="177" width="2" height="1" />
+			<rect x="6414" y="171" width="2" height="1" />
+			<rect x="6415" y="172" width="1" height="5" />
+			<rect x="6416" y="173" width="1" height="4" />
+			<music name="MelisandesLair" />
+		</region>
+		<region type="DungeonRegion" name="Melisande_Easy">
+			<rect x="6417" y="172" width="8" height="7" />
+			<rect x="6418" y="179" width="7" height="1" />
+			<rect x="6425" y="178" width="1" height="2" />
+			<rect x="6419" y="170" width="6" height="2" />
+			<rect x="6425" y="170" width="5" height="7" />
+			<rect x="6430" y="170" width="1" height="5" />
+			<rect x="6423" y="169" width="8" height="1" />
+			<rect x="6431" y="169" width="4" height="2" />
+			<rect x="6432" y="171" width="1" height="1" />
+			<rect x="6420" y="167" width="16" height="2" />
+			<rect x="6421" y="165" width="16" height="2" />
+			<rect x="6422" y="164" width="15" height="1" />
+			<rect x="6423" y="163" width="14" height="1" />
+			<rect x="6422" y="161" width="2" height="2" />
+			<rect x="6424" y="162" width="13" height="1" />
+			<rect x="6437" y="162" width="4" height="1" />
+			<rect x="6439" y="163" width="1" height="1" />
+			<rect x="6441" y="162" width="19" height="4" />
+			<rect x="6442" y="166" width="13" height="2" />
+			<rect x="6455" y="166" width="5" height="1" />
+			<rect x="6448" y="168" width="3" height="2" />
+			<rect x="6460" y="162" width="1" height="2" />
+			<rect x="6428" y="161" width="32" height="1" />
+			<rect x="6428" y="160" width="29" height="1" />
+			<music name="MelisandesLair" />
+		</region>
+		<region type="DungeonRegion" name="Melisande_Medium">
+			<rect x="6428" y="159" width="19" height="1" />
+			<rect x="6447" y="159" width="1" height="1" />
+			<rect x="6451" y="159" width="4" height="1" />
+			<rect x="6431" y="152" width="17" height="7" />
+			<rect x="6430" y="152" width="1" height="2" />
+			<rect x="6448" y="152" width="11" height="4" />
+			<rect x="6450" y="156" width="6" height="1" />
+			<rect x="6451" y="157" width="5" height="1" />
+			<rect x="6452" y="158" width="2" height="1" />
+			<rect x="6458" y="156" width="1" height="1" />
+			<rect x="6459" y="152" width="5" height="4" />
+			<rect x="6464" y="152" width="3" height="1" />
+			<music name="MelisandesLair" />
+		</region>
+		<region type="DungeonRegion" name="Melisande_Difficult">
+			<rect x="6445" y="150" width="22" height="2" />
+			<rect x="6433" y="149" width="12" height="3" />
+			<rect x="6432" y="150" width="1" height="2" />
+			<rect x="6432" y="148" width="1" height="1" />
+			<rect x="6435" y="145" width="8" height="4" />
+			<rect x="6443" y="145" width="3" height="3" />
+			<rect x="6445" y="148" width="1" height="2" />
+			<rect x="6446" y="145" width="7" height="5" />
+			<rect x="6453" y="146" width="2" height="4" />
+			<rect x="6455" y="147" width="1" height="3" />
+			<rect x="6456" y="148" width="1" height="2" />
+			<rect x="6457" y="149" width="10" height="1" />
+			<rect x="6467" y="149" width="2" height="2" />
+			<rect x="6459" y="146" width="8" height="1" />
+			<rect x="6460" y="147" width="6" height="2" />
+			<rect x="6466" y="148" width="2" height="1" />
+			<rect x="6458" y="134" width="15" height="5" />
+			<rect x="6457" y="138" width="1" height="1" />
+			<rect x="6459" y="139" width="14" height="3" />
+			<rect x="6473" y="135" width="1" height="6" />
+			<rect x="6461" y="142" width="1" height="1" />
+			<rect x="6463" y="142" width="8" height="2" />
+			<rect x="6462" y="144" width="5" height="2" />
+			<rect x="6461" y="145" width="1" height="1" />
+			<rect x="6460" y="143" width="1" height="1" />
+			<rect x="6460" y="144" width="2" height="1" />
+			<rect x="6460" y="145" width="1" height="1" />
+			<rect x="6459" y="126" width="1" height="6" />
+			<rect x="6459" y="133" width="14" height="1" />
+			<rect x="6460" y="132" width="14" height="1" />
+			<rect x="6460" y="128" width="12" height="4" />
+			<rect x="6472" y="129" width="3" height="3" />
+			<rect x="6462" y="120" width="3" height="8" />
+			<rect x="6460" y="127" width="1" height="1" />
+			<rect x="6465" y="121" width="1" height="7" />
+			<rect x="6466" y="124" width="1" height="4" />
+			<rect x="6467" y="126" width="1" height="2" />
+			<rect x="6468" y="127" width="4" height="1" />
+			<rect x="6437" y="135" width="8" height="10" />
+			<rect x="6436" y="144" width="1" height="1" />
+			<rect x="6445" y="142" width="2" height="2" />
+			<rect x="6431" y="132" width="6" height="9" />
+			<rect x="6437" y="133" width="1" height="2" />
+			<rect x="6416" y="135" width="15" height="6" />
+			<rect x="6417" y="141" width="12" height="2" />
+			<rect x="6419" y="143" width="8" height="1" />
+			<rect x="6420" y="144" width="5" height="2" />
+			<rect x="6423" y="134" width="1" height="1" />
+			<rect x="6439" y="128" width="8" height="7" />
+			<rect x="6445" y="135" width="2" height="3" />
+			<rect x="6447" y="134" width="1" height="1" />
+			<rect x="6445" y="144" width="8" height="1" />
+			<rect x="6453" y="145" width="1" height="1" />
+			<rect x="6447" y="142" width="3" height="2" />
+			<rect x="6447" y="128" width="2" height="3" />
+			<rect x="6440" y="123" width="17" height="5" />
+			<rect x="6449" y="128" width="1" height="1" />
+			<rect x="6457" y="127" width="2" height="4" />
+			<rect x="6457" y="126" width="2" height="1" />
+			<rect x="6451" y="128" width="6" height="3" />
+			<rect x="6452" y="131" width="6" height="1" />
+			<rect x="6454" y="132" width="3" height="3" />
+			<music name="MelisandesLair" />
+		</region>
+		<region type="DungeonRegion" name="Melisande_VeryDifficult">
+			<rect x="6449" y="121" width="2" height="2" />
+			<rect x="6451" y="122" width="1" height="1" />
+			<rect x="6440" y="119" width="7" height="3" />
+			<rect x="6439" y="119" width="1" height="2" />
+			<rect x="6438" y="119" width="1" height="1" />
+			<rect x="6438" y="115" width="9" height="4" />
+			<rect x="6447" y="116" width="1" height="2" />
+			<rect x="6440" y="113" width="6" height="2" />
+			<rect x="6446" y="113" width="2" height="1" />
+			<rect x="6436" y="100" width="15" height="12" />
+			<rect x="6441" y="112" width="8" height="1" />
+			<rect x="6433" y="100" width="3" height="7" />
+			<rect x="6432" y="101" width="1" height="4" />
+			<rect x="6451" y="100" width="2" height="6" />
+			<rect x="6453" y="103" width="1" height="1" />
+			<rect x="6453" y="100" width="4" height="2" />
+			<rect x="6437" y="99" width="21" height="1" />
+			<rect x="6436" y="89" width="22" height="10" />
+			<rect x="6458" y="92" width="3" height="4" />
+			<rect x="6433" y="96" width="3" height="2" />
+			<rect x="6434" y="95" width="2" height="1" />
+			<rect x="6435" y="94" width="1" height="1" />
+			<rect x="6442" y="79" width="7" height="10" />
+			<rect x="6449" y="79" width="1" height="10" />
+			<rect x="6450" y="83" width="1" height="6" />
+			<rect x="6440" y="81" width="2" height="4" />
+			<rect x="6437" y="83" width="3" height="2" />
+			<rect x="6439" y="82" width="1" height="1" />
+			<rect x="6444" y="78" width="4" height="1" />
+			<rect x="6444" y="77" width="2" height="1" />
+			<rect x="6445" y="75" width="3" height="2" />
+			<rect x="6447" y="74" width="1" height="1" />
+			<rect x="6445" y="74" width="1" height="1" />
+			<rect x="6446" y="74" width="1" height="1" />
+			<rect x="6444" y="74" width="1" height="1" />
+			<rect x="6448" y="74" width="1" height="2" />
+			<music name="MelisandesLair" />
+		</region>
+		<region type="DungeonRegion" name="Melisande_Boss">
+			<rect x="6433" y="44" width="21" height="27" />
+			<rect x="6443" y="71" width="8" height="3" />
+			<rect x="6441" y="71" width="2" height="2" />
+			<go x="6441" y="57" z="0" />
+			<music name="MelisandesLair" />
 		</region>
 	</Facet>
 </ServerRegions>
