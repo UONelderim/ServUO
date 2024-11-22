@@ -135,7 +135,7 @@ namespace Server.Engines.CannedEvil
 
 		public static void Initialize()
 		{
-			Timer.DelayCall(TimeSpan.FromMinutes(1.0), TimeSpan.FromMinutes(1.0), OnSlice);
+			// Timer.DelayCall(TimeSpan.FromMinutes(1.0), TimeSpan.FromMinutes(1.0), OnSlice);
 		}
 
 		private static void EventSink_WorldSave(WorldSaveEventArgs e)
