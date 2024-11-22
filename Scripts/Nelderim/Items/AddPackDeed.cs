@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Server.Gumps;
 using Server.Mobiles;
 using Server.Targeting;
@@ -12,8 +13,6 @@ namespace Server.Items
 {
 	class AddPackDeed : Item
 	{
-		const int cliloc = 1070020;
-
 		// braz, bialy, pospolity
 		private static readonly IDictionary<int, int> _horseBodyToHue = new Dictionary<int, int>
 		{
@@ -22,65 +21,65 @@ namespace Server.Items
 
 		public override void OnDoubleClick(Mobile from)
 		{
-			if (from == null || !this.IsChildOf(from.Backpack))
+			if (from == null)
+				return;
+			if(!IsChildOf(from.Backpack))
 			{
-				from.SendLocalizedMessage(cliloc + 1); // Musisz miec juki w swoim plecaku aby ich uzyc
+				from.SendLocalizedMessage(1070021); // Musisz miec juki w swoim plecaku aby ich uzyc
 				return;
 			}
-
-			from.SendLocalizedMessage(cliloc + 2); // Wskaz zwierze do ktorego chcesz dodac pakunki.
+			from.SendLocalizedMessage(1070022); // Wskaz zwierze do ktorego chcesz dodac pakunki.
 			from.BeginTarget(2, false, TargetFlags.None, OnTarget);
 		}
 
 		public void OnTarget(Mobile from, object targeted)
 		{
-			BaseCreature target = targeted as BaseCreature;
-			Type packAnimalType;
-
-			if (from == null || target == null)
+			if (from == null || targeted is not BaseCreature target)
 				return;
-			if (targeted is Horse)
-				packAnimalType = typeof(PackHorse);
-			else if (targeted is Llama || target is RidableLlama)
-				packAnimalType = typeof(PackLlama);
-			else
+			
+			var packAnimalType = targeted switch
 			{
-				from.SendLocalizedMessage(cliloc + 3); //"Mozesz wskazac jedynie konia albo lame."
+				Horse _ => typeof(PackHorse),
+				Llama _ => typeof(PackLlama),
+				RidableLlama _ => typeof(PackLlama),
+				_ => null
+			};
+			
+			if(packAnimalType == null)
+			{
+				from.SendLocalizedMessage(1070023); //"Mozesz wskazac jedynie konia albo lame."
 				return;
 			}
-
 			if (target.ControlMaster != from)
 			{
-				from.SendLocalizedMessage(cliloc + 4); // "Zwierze musi byc Twoje!"
+				from.SendLocalizedMessage(1070024); // "Zwierze musi byc Twoje!"
 				return;
 			}
 
 			var gump = new GeneralConfirmGump();
-			gump.OnContinue += (s, i) => this.OnConfirm(from, target, packAnimalType);
+			gump.OnContinue += (_, _) => OnConfirm(from, target, packAnimalType);
 			gump.Text = "Czy jestes pewien ze chcesz zalozyc juki na to zwierze?";
-
 			from.SendGump(gump);
 		}
 
 		public void OnConfirm(Mobile from, BaseCreature target, Type packAnimalType)
 		{
-			// Czy nic sie nie zmienilo?
-			if (!this.IsChildOf(from.Backpack))
-				from.SendLocalizedMessage(cliloc + 1); // Musisz miec juki w swoim plecaku aby ich uzyc
+			if (!IsChildOf(from.Backpack))
+				from.SendLocalizedMessage(1070021); // Musisz miec juki w swoim plecaku aby ich uzyc
 			else if (!target.Alive)
-				from.SendLocalizedMessage(cliloc + 5); // "Nie mozesz zalozyc pakunkow na zwloki"
+				from.SendLocalizedMessage(1070025); // "Nie mozesz zalozyc pakunkow na zwloki"
 			else if (target.ControlMaster != from)
-				from.SendLocalizedMessage(cliloc + 6); // "Nie mozesz utrzymac tego zwierzecia w miejscu"
+				from.SendLocalizedMessage(1070026); // "Nie mozesz utrzymac tego zwierzecia w miejscu"
 			else if (!from.InRange(target, 2))
-				from.SendLocalizedMessage(cliloc + 7); // "To zwierze jest za daleko"
-			else if (!(target is Llama) && ((BaseMount)target).Rider != null)
-				from.SendLocalizedMessage(cliloc + 8); // "Ktos siedzi na Twoim wierzchowcu."
+				from.SendLocalizedMessage(1070027); // "To zwierze jest za daleko"
+			else if (target is BaseMount mount && mount.Rider != null)
+				from.SendLocalizedMessage(1070028); // "Ktos siedzi na Twoim wierzchowcu."
 			else
 			{
-				BaseCreature packAnimal = (BaseCreature)Activator.CreateInstance(packAnimalType);
+				var packAnimal = (BaseCreature)Activator.CreateInstance(packAnimalType);
 
 				// Kazde zwierze juczne ma prawo do swojego ciala, wlasnego koloru skury i dostepu do skrzynki bankowej
-				string[] fieldsToSkip = { "Body", "BodyValue", "Hue", "Hidden", "Bankbox" };
+				string[] fieldsToSkip = { "Body", "BodyValue", "RawBody", "Hue", "RawHue", "Hidden", "Bankbox" };
 
 				target.CantWalk = true;
 				packAnimal.Hidden = true;
@@ -90,14 +89,12 @@ namespace Server.Items
 
 				foreach (var prop in typeof(BaseCreature).GetProperties())
 				{
-					// musi byc mozliwosc pisania do properties...
-					// ... i nie chce przepisywac tych samych wartosci, bo settery ustawiaja jakies default value czy cos...
-					if (!Contains(fieldsToSkip, prop.Name))
+					if (fieldsToSkip.Contains(prop.Name))
+						continue;
+					
+					if (prop.CanWrite && prop.GetValue(target, null) != prop.GetValue(packAnimal, null))
 					{
-						if (prop.CanWrite && prop.GetValue(target, null) != prop.GetValue(packAnimal, null))
-						{
-							prop.SetValue(packAnimal, prop.GetValue(target, null), null);
-						}
+						prop.SetValue(packAnimal, prop.GetValue(target, null), null);
 					}
 				}
 
@@ -105,23 +102,10 @@ namespace Server.Items
 				packAnimal.Hidden = false;
 				packAnimal.CantWalk = false;
 
-				from.SendLocalizedMessage(cliloc + 9); // "Zalozyles juki"
+				from.SendLocalizedMessage(1070029); // "Zalozyles juki"
 
-				this.Delete();
+				Delete();
 			}
-		}
-
-		private bool Contains(string[] array, string str)
-		{
-			foreach (string s in array)
-			{
-				if (s.Equals(str))
-				{
-					return true;
-				}
-			}
-
-			return false;
 		}
 
 		public override void Deserialize(GenericReader reader)
