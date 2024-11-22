@@ -21,11 +21,11 @@
   "Melisande_Difficult": "hard",
   "Melisande_VeryDifficult": "veryhard",
   
-  "Paroxymus_VeryEasy": "veryeasy",
-  "Paroxymus_Easy": "easy",
-  "Paroxysmus_Medium": "medium",
-  "Paroxysmus_Difficult": "hard",
-  "Paroxysmus_VeryDifficult": "veryhard",
+  "Parox_VeryEasy": "veryeasy",
+  "Parox_Easy": "easy",
+  "Parox_Medium": "medium",
+  "Parox_Difficult": "hard",
+  "Parox_VeryDifficult": "veryhard",
   
   "Voxy_VeryEasy": "veryeasy",
   "Voxy_Easy": "easy",

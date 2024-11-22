@@ -286,6 +286,14 @@ namespace Server.Commands
 			var spawners = World.Items.OfType<XmlSpawner>();
 			foreach (var spawner in spawners)
 			{
+				spawner.RegionName = spawner.RegionName switch
+				{
+					"Paroxumus_VeryEasy" => "Parox_VeryEasy",
+					"Paroxymus_Easy" => "Parox_Easy",
+					"Paroxumus_Medium" => "Parox_Medium",
+					"Paroxumus_Difficult" => "Parox_Difficult",
+					"Paroxysmus_VeryDifficult" => "Parox_VeryDifficult",
+				};
 				foreach (var spawnObject in spawner.SpawnObjects)
 				{
 					var text = spawnObject.TypeName.ToLower();
@@ -293,6 +301,10 @@ namespace Server.Commands
 					text = ReplaceType(text, "NelderimSkeletalDragon", "NSkeletalDragon");
 					text = ReplaceType(text, "orccamp", "prisonercamp");
 					text = ReplaceType(text, "ratcamp", "prisonercamp");
+					if (text.StartsWith("raceteleporter") && spawner.Name == "KomnatyStworzenia")
+					{
+						text = "raceroommoongate";
+					}
 					spawnObject.TypeName = text;
 				}
 
