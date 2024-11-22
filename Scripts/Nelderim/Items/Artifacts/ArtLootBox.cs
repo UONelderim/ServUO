@@ -56,58 +56,46 @@ namespace Server
 			}
 
 			var artifact = ArtifactHelper.GetRandomArtifact(_LootType);
-			from.AddToBackpack(artifact);
+			ArtifactHelper.GiveArtifact(from, artifact);
 			from.SendMessage($"Skrzynia Artefaktu zawierała {artifact.Name ?? artifact.GetType().Name}");
 			Delete();
 
 			base.OnDoubleClick(from);
 		}
 
-		public override void Serialize(GenericWriter writer)
+		public override void Serialize( GenericWriter writer )
 		{
-			base.Serialize(writer);
+			base.Serialize( writer );
 
-			writer.Write(1); // version
+			writer.Write( (int) 1 ); // version
+			writer.Write((int)_LootType);
 		}
 
-		public override void Deserialize(GenericReader reader)
+		public override void Deserialize( GenericReader reader )
 		{
-			base.Deserialize(reader);
+			base.Deserialize( reader );
 
 			int version = reader.ReadInt();
+			if (version >= 1)
+			{
+				_LootType = (ArtGroup) reader.ReadInt();
+			}
 		}
 
 		private void SetName()
 		{
-			switch (_LootType)
+			Name = _LootType switch
 			{
-				case ArtGroup.None:
-					Name = "Skrzynia Artefaktu";
-					break;
-				case ArtGroup.Boss:
-					Name = "Skrzynia Artefaktu Władcy Podziemi";
-					break;
-				case ArtGroup.Miniboss:
-					Name = "Skrzynia Artefaktu Pomniejszego Władcy Podziemi";
-					break;
-				case ArtGroup.Paragon:
-					Name = "Skrzynia Artefaktu Paragonów";
-					break;
-				case ArtGroup.Doom:
-					Name = "Skrzynia Artefaktu Pana Mroku";
-					break;
-				case ArtGroup.Hunter:
-					Name = "Skrzynia Artefaktu Myśliwego";
-					break;
-				case ArtGroup.Cartography:
-					Name = "Skrzynia Artefaktu Poszukiwaczy Skarbów";
-					break;
-				case ArtGroup.Fishing:
-					Name = "Skrzynia Artefaktu Leviathana";
-					break;
-			}
-
-			InvalidateProperties();
+				ArtGroup.None => "Skrzynia Artefaktu",
+				ArtGroup.Boss => "Skrzynia Artefaktu Władcy Podziemi",
+				ArtGroup.Miniboss => "Skrzynia Artefaktu Pomniejszego Władcy Podziemi",
+				ArtGroup.Paragon => "Skrzynia Artefaktu Paragonów",
+				ArtGroup.Doom => "Skrzynia Artefaktu Pana Mroku",
+				ArtGroup.Hunter => "Skrzynia Artefaktu Myśliwego",
+				ArtGroup.Cartography => "Skrzynia Artefaktu Poszukiwaczy Skarbów",
+				ArtGroup.Fishing => "Skrzynia Artefaktu Leviathana",
+				_ => Name
+			};
 		}
 	}
 }
