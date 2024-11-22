@@ -11751,9 +11751,6 @@ namespace Server
 		{
 			if (m_Map != null)
 			{
-				Packet cp = null;
-				Packet ep = null;
-
 				var eable = m_Map.GetClientsInRange(m_Location);
 
 				foreach (var state in eable)
@@ -11772,7 +11769,6 @@ namespace Server
 						}
 					}
 				}
-
 
 				eable.Free();
 			}
