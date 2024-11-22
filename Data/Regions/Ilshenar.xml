@@ -1,4 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ServerRegions>
-	<Facet name="Ilshenar"></Facet>
+	<Facet name="Ilshenar">
+		<region type="DungeonRegion" name="Bagus_LV1_VeryEasy">
+			<rect x="624" y="1511" width="24" height="57" />
+			<rect x="648" y="1559" width="15" height="9" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Bagus_LVL1_Easy">
+			<rect x="656" y="1535" width="7" height="25" />
+			<rect x="663" y="1542" width="24" height="9" />
+			<rect x="680" y="1521" width="7" height="21" />
+			<rect x="688" y="1552" width="15" height="23" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Bagus_LVL1_Medium">
+			<rect x="688" y="1512" width="14" height="15" />
+			<rect x="697" y="1527" width="6" height="25" />
+			<rect x="657" y="1521" width="14" height="14" />
+			<rect x="664" y="1511" width="7" height="10" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Bagus_LVL1_Difficult">
+			<rect x="656" y="1496" width="15" height="16" />
+			<rect x="671" y="1496" width="10" height="7" />
+			<rect x="703" y="1568" width="9" height="7" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Bagus_LVL_1_VeryDifficult">
+			<rect x="681" y="1488" width="6" height="15" />
+			<rect x="687" y="1488" width="9" height="8" />
+			<rect x="712" y="1552" width="15" height="23" />
+			<rect x="712" y="1487" width="25" height="26" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Bagus_LVL2_Entrance">
+			<rect x="812" y="1544" width="2" height="8" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Bagus_LVL2_VeryEasy">
+			<rect x="792" y="1544" width="20" height="8" />
+			<rect x="783" y="1512" width="9" height="16" />
+			<rect x="783" y="1568" width="9" height="15" />
+			<go x="803" y="1547" z="0" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Bagus_LVL2_Easy">
+			<rect x="782" y="1536" width="9" height="23" />
+			<rect x="776" y="1512" width="8" height="24" />
+			<rect x="776" y="1559" width="7" height="24" />
+			<rect x="776" y="1536" width="6" height="23" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Bagus_LVL2_Medium">
+			<rect x="768" y="1568" width="8" height="15" />
+			<rect x="767" y="1512" width="9" height="16" />
+			<rect x="767" y="1543" width="9" height="9" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Bagus_LVL2_Difficult">
+			<rect x="752" y="1536" width="15" height="23" />
+			<music name="Wind" />
+		</region>
+		<region type="DungeonRegion" name="Bagus_LVL2_VeryDifficult">
+			<rect x="744" y="1536" width="7" height="9" />
+			<rect x="743" y="1552" width="8" height="8" />
+			<music name="Wind" />
+		</region>
+	</Facet>
 </ServerRegions>
