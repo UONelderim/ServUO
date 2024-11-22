@@ -183,27 +183,27 @@ namespace Server.Commands
 
 		public static List<DungMigrationInfo> additonalFixes =
 		[
-			new("melisandeFix", 6376, 0, 6456, 180, 6386, 0), //Melisande x+10
-			new("shimmeringFix1", 6468, 0, 6663, 165, 6478, 0), //ShimmeringLv1 x+10
-			new("shimmeringFix2", 6629, 171, 6793, 330, 6649, 0), //ShimmeringLv2 x+20, y-171
+			new("melisandeFix", 6376, 0, 6456, 181, 6386, 0), //Melisande x+10
+			new("shimmeringFix1", 6468, 0, 6663, 160, 6478, 0), //ShimmeringLv1 x+10
+			new("shimmeringFix2", 6619, 171, 6783, 330, 6639, 0), //ShimmeringLv2 x+20, y-171
 		];
 
 		private static void MigrateMalasDungeons(Mobile from)
 		{
 			foreach (var dmi in dungInfos)
 			{
-				Console.WriteLine("Migrating " + dmi.name);
-				MigrateDungeon(dmi, Map.Malas, Map.Felucca);
+				from.SendMessage("Migrating " + dmi.name);
+				MigrateDungeon(dmi, Map.Malas, Map.Felucca, true);
 			}
-			Console.WriteLine("Applying additional fixes");
+			from.SendMessage("Applying additional fixes");
 			foreach (var dmi in additonalFixes)
 			{
-				Console.WriteLine("Migrating " + dmi.name);
-				MigrateDungeon(dmi, Map.Felucca, Map.Felucca);
+				from.SendMessage("Migrating " + dmi.name);
+				MigrateDungeon(dmi, Map.Felucca, Map.Felucca, false);
 			}
 		}
 
-		private static void MigrateDungeon(DungMigrationInfo dmi, Map fromMap, Map toMap)
+		private static void MigrateDungeon(DungMigrationInfo dmi, Map fromMap, Map toMap, bool fixTeleporters)
 		{
 			var width = dmi.x2 - dmi.x1;
 			var height = dmi.y2 - dmi.y1;
@@ -212,40 +212,55 @@ namespace Server.Commands
 			var items = fromMap.GetItemsInBounds(new Rectangle2D(dmi.x1, dmi.y1, width, height));
 			foreach (var item in items)
 			{
+				if (item is Static && item.ItemID == 16151)
+				{
+					Console.WriteLine("Here");
+				}
 				var newX = item.X + xDiff;
 				var newY = item.Y + yDiff;
-				item.MoveToWorld(new Point3D(newX, newY, item.Z), toMap);
+				item.MoveToWorld(new Point3D(newX, newY, dmi.name == "zoo" ? 0 : item.Z), toMap);
 				if (item is XmlSpawner spawner)
 				{
+					
 					foreach (var spawnObject in spawner.SpawnObjects)
 					{
 						var text = spawnObject.TypeName.ToLower();
-						var mapKey = "";
-						var pointKey = "";
-						if (text.StartsWith("teleporter"))
+						if (fixTeleporters)
 						{
-							mapKey = "mapdest";
-							pointKey = "pointdest";
-						}
-
-						if (text.StartsWith("moongate"))
-						{
-							mapKey = "targetmap";
-							pointKey = "target";
-						}
-
-						if (mapKey != "" && pointKey != "")
-						{
-							text = ReplaceToken(text, mapKey, fromMap.Name.ToLower(), toMap.Name.ToLower());
-							var pointText = GetTokenValue(text,
-								pointKey,
-								out _,
-								out _);
-							if(pointText != "")
+							var mapKey = "";
+							var pointKey = "";
+							if (text.StartsWith("teleporter"))
 							{
-								var point = Point3D.Parse(pointText);
-								point = new Point3D(point.X + xDiff, point.Y + yDiff, point.Z);
-								text = ReplaceToken(text, pointKey, pointText, point.ToString());
+								mapKey = "mapdest";
+								pointKey = "pointdest";
+							}
+
+							if (text.StartsWith("moongate"))
+							{
+								mapKey = "targetmap";
+								pointKey = "target";
+							}
+
+							if (mapKey != "" && pointKey != "")
+							{
+								var mapText = GetTokenValue(text,
+									mapKey,
+									out _,
+									out _);
+								if (mapText == fromMap.Name.ToLower())
+								{
+									text = ReplaceToken(text, mapKey, fromMap.Name.ToLower(), toMap.Name.ToLower());
+									var pointText = GetTokenValue(text,
+										pointKey,
+										out _,
+										out _);
+									if (pointText != "")
+									{
+										var point = Point3D.Parse(pointText);
+										point = new Point3D(point.X + xDiff, point.Y + yDiff, point.Z);
+										text = ReplaceToken(text, pointKey, pointText, point.ToString());
+									}
+								}
 							}
 						}
 
