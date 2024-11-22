@@ -291,6 +291,8 @@ namespace Server.Commands
 					var text = spawnObject.TypeName.ToLower();
 					text = ReplaceType(text, "wladcapiaskowboss", "wladcapiaskow");
 					text = ReplaceType(text, "NelderimSkeletalDragon", "NSkeletalDragon");
+					text = ReplaceType(text, "orccamp", "prisonercamp");
+					text = ReplaceType(text, "ratcamp", "prisonercamp");
 					spawnObject.TypeName = text;
 				}
 
