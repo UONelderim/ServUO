@@ -2,27 +2,30 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Server;
-using Server.Commands;
 using Server.Mobiles;
 
 namespace Nelderim
 {
     public static class AutomatedAFK
     {
-        // Inactivity threshold (10 minutes)
         private static readonly TimeSpan InactivityThreshold = TimeSpan.FromMinutes(10);
-
-        // Tracks last activity for each player
-        private static Dictionary<PlayerMobile, DateTime> PlayerLastActivity = new();
+        
+        private static readonly Dictionary<PlayerMobile, DateTime> PlayerLastActivity = new();
+        private static readonly HashSet<PlayerMobile> AfkPlayers = new();
 
         public static void Initialize()
         {
-            // Hook into ServUO event sinks to track player activity
             EventSink.Speech += OnPlayerActivity;
             EventSink.Movement += OnPlayerMovement;
-    
+            
+            foreach (Mobile m in World.Mobiles.Values)
+            {
+                if (m is PlayerMobile pm)
+                {
+                    UpdatePlayerActivity(pm);
+                }
+            }
 
-            // Start the inactivity check timer
             Timer.DelayCall(TimeSpan.FromMinutes(1), TimeSpan.FromMinutes(1), CheckInactivity);
         }
 
@@ -42,31 +45,41 @@ namespace Nelderim
             }
         }
 
-        private static void OnSkillUse(Mobile mobile, int skill)
-        {
-            if (mobile is PlayerMobile pm)
-            {
-                UpdatePlayerActivity(pm);
-            }
-        }
-
         private static void UpdatePlayerActivity(PlayerMobile pm)
         {
-            PlayerLastActivity[pm] = DateTime.Now;
+            if (pm?.Deleted != true)
+            {
+                PlayerLastActivity[pm] = DateTime.Now;
+                if (AfkPlayers.Contains(pm))
+                {
+                    AfkPlayers.Remove(pm);
+                }
+            }
         }
 
         private static void CheckInactivity()
         {
+            var now = DateTime.Now;
             foreach (var entry in PlayerLastActivity.ToList())
             {
                 PlayerMobile pm = entry.Key;
                 DateTime lastActivity = entry.Value;
-
-                // Check if player has been inactive
-                if (DateTime.Now - lastActivity >= InactivityThreshold)
+                
+                if (pm?.Deleted != true && pm.NetState != null && !pm.Hidden)
                 {
-                    // Auto-set AFK
-                    pm.Emote("*drzemie*");
+                    if (now - lastActivity >= InactivityThreshold)
+                    {
+                        if (!AfkPlayers.Contains(pm))  
+                        {
+                            pm.Emote("*drzemie*");
+                            AfkPlayers.Add(pm);
+                        }
+                    }
+                }
+                else
+                {
+                    PlayerLastActivity.Remove(pm);
+                    AfkPlayers.Remove(pm);
                 }
             }
         }
