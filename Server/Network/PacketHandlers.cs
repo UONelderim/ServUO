@@ -2355,7 +2355,7 @@ namespace Server.Network
 
 					m_State = null;
 				}
-				else if (++m_Ticks % 10 == 0)
+				else if (m_Ticks++ > 10)
 				{
 					Stop();
 
