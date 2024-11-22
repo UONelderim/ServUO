@@ -9,7 +9,7 @@ namespace Nelderim
 {
 	class ItemHitPoints() : NExtension<ItemHitPointsInfo>("ItemHitPoints")
 	{
-		public static new void Initialize()
+		public static void Configure()
 		{
 			Register(new ItemHitPoints());
 		}

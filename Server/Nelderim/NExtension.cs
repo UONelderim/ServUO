@@ -16,15 +16,16 @@ namespace Nelderim
 		public const string BasePath = "Saves/Nelderim";
 		
 		private static List<NExtension> m_Extensions = [];
-		public static void Register(NExtension extension)
-		{
-			m_Extensions.Add(extension);
-		}
 		
 		public static void Initialize()
 		{
 			foreach (var extension in m_Extensions)
 				extension.Load();
+		}
+		
+		public static void Register(NExtension extension)
+		{
+			m_Extensions.Add(extension);
 		}
 		
 		public static void SaveAll()

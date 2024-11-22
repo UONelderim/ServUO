@@ -6,7 +6,7 @@ namespace Nelderim
 {
 	public class Labels() : NExtension<LabelsInfo>("Labels")
 	{
-		public static new void Initialize()
+		public static void Configure()
 		{
 			Register(new Labels());
 		}

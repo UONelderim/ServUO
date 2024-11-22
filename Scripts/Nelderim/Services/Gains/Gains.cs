@@ -36,8 +36,8 @@ namespace Nelderim.Gains
 				}
 			}
 		}
-
-		public static void Initialize()
+		
+		public static void Configure()
 		{
 			Register(new Gains());
 			CommandSystem.Register("GainInfo", AccessLevel.Player, GainInfo);

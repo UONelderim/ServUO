@@ -15,11 +15,13 @@ namespace Nelderim.Achievements
 		public static Dictionary<int, Achievement> Achievements => AchievementRegistry.Entries;
 		public static Dictionary<int, AchievementCategory> Categories => CategoryRegistry.Entries;
 
+		public static void Configure()
+		{
+			Register(new AchievementSystem());
+		}
 		
 		public static new void Initialize()
 		{
-			Register(new AchievementSystem());
-			
 			CategoryRegistry.Load();
 			AchievementRegistry.Load();
 

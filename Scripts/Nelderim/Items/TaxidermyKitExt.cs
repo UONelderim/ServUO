@@ -43,7 +43,7 @@ namespace Server.Items
 
 	class TaxidermyKitExt() : NExtension<TaxidermyKitExtInfo>("TaxidermyKitExt")
 	{
-		public static new void Initialize()
+		public static void Configure()
 		{
 			Register(new TaxidermyKitExt());
 		}

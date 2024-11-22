@@ -2,7 +2,7 @@
 {
 	class TownsVendor() : NExtension<TownsVendorInfo>("TownsVendor")
 	{
-		public static new void Initialize()
+		public static void Configure()
 		{
 			Register(new TownsVendor());
 		}

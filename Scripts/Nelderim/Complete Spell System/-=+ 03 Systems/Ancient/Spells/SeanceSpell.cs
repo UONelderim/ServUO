@@ -178,7 +178,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 
 		public class SeanceSpellExt() : NExtension<SeanceSpellExtInfo>("SeanceSpell")
 		{
-			public static new void Initialize()
+			public static new void Configure()
 			{
 				Register(new SeanceSpellExt());
 			}

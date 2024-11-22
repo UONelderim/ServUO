@@ -19,7 +19,7 @@ namespace Server.Items
 
 	class TeleporterExt() : NExtension<TeleporterExtInfo>("Teleporter")
 	{
-		public static new void Initialize()
+		public static void Configure()
 		{
 			Register(new TeleporterExt());
 		}
