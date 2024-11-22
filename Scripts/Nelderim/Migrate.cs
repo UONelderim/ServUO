@@ -300,6 +300,11 @@ namespace Server.Commands
 					"Voxy_VeryDifficult" => "VoxPopuli_VeryDifficult"
 					
 				};
+
+				if (spawner.RegionName.StartsWith("WielkaPokracznaBestia"))
+				{
+					spawner.RegionName = "Grizzle" + spawner.RegionName.Substring("WielkaPokracznaBestia".Length);
+				}
 				foreach (var spawnObject in spawner.SpawnObjects)
 				{
 					var text = spawnObject.TypeName.ToLower();

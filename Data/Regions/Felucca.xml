@@ -9731,20 +9731,20 @@
 			<go x="5462" y="360" z="36" />
 			<music name="Mountn_a" />
 		</region>
-		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL1_VeryEasy">
+		<region type="DungeonRegion" name="Grizzle_LVL1_VeryEasy">
 			<rect x="5813" y="408" width="31" height="18" />
 			<rect x="5812" y="380" width="23" height="28" />
 			<rect x="5835" y="371" width="8" height="37" />
 			<rect x="5800" y="382" width="12" height="17" />
 			<music name="GrizzleDungeon" />
 		</region>
-		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL1_Easy">
+		<region type="DungeonRegion" name="Grizzle_LVL1_Easy">
 			<rect x="5773" y="446" width="36" height="11" />
 			<rect x="5767" y="413" width="26" height="33" />
 			<rect x="5793" y="407" width="20" height="19" />
 			<music name="GrizzleDungeon" />
 		</region>
-		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL1_Medium">
+		<region type="DungeonRegion" name="Grizzle_LVL1_Medium">
 			<rect x="5847" y="434" width="10" height="11" />
 			<rect x="5844" y="370" width="16" height="64" />
 			<rect x="5860" y="377" width="18" height="57" />
@@ -10227,11 +10227,11 @@
 			<go x="7027" y="37" z="0" />
 			<music name="Vesper" />
 		</region>
-		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL2_Entrance">
+		<region type="DungeonRegion" name="Grizzle_LVL2_Entrance">
 			<rect x="6817" y="99" width="7" height="13" />
 			<music name="GrizzleDungeon" />
 		</region>
-		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL2_VeryEasy">
+		<region type="DungeonRegion" name="Grizzle_LVL2_VeryEasy">
 			<rect x="6822" y="93" width="17" height="6" />
 			<rect x="6817" y="112" width="16" height="7" />
 			<rect x="6834" y="99" width="5" height="13" />
@@ -10243,21 +10243,21 @@
 			<go x="6840" y="96" z="0" />
 			<music name="GrizzleDungeon" />
 		</region>
-		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL2_Easy">
+		<region type="DungeonRegion" name="Grizzle_LVL2_Easy">
 			<rect x="6846" y="98" width="9" height="18" />
 			<rect x="6840" y="116" width="20" height="13" />
 			<rect x="6855" y="98" width="21" height="8" />
 			<go x="6860" y="107" z="0" />
 			<music name="GrizzleDungeon" />
 		</region>
-		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL2_Medium">
+		<region type="DungeonRegion" name="Grizzle_LVL2_Medium">
 			<rect x="6876" y="89" width="18" height="23" />
 			<rect x="6886" y="74" width="7" height="15" />
 			<rect x="6905" y="60" width="13" height="19" />
 			<go x="6895" y="100" z="0" />
 			<music name="GrizzleDungeon" />
 		</region>
-		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL2_Difficult">
+		<region type="DungeonRegion" name="Grizzle_LVL2_Difficult">
 			<rect x="6877" y="65" width="27" height="9" />
 			<rect x="6867" y="50" width="10" height="26" />
 			<rect x="6877" y="50" width="1" height="15" />
@@ -10265,14 +10265,14 @@
 			<go x="6900" y="69" z="0" />
 			<music name="GrizzleDungeon" />
 		</region>
-		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL2_VeryDifficult">
+		<region type="DungeonRegion" name="Grizzle_LVL2_VeryDifficult">
 			<rect x="6848" y="30" width="22" height="19" />
 			<rect x="6854" y="49" width="6" height="27" />
 			<rect x="6860" y="68" width="7" height="8" />
 			<go x="6869" y="39" z="0" />
 			<music name="GrizzleDungeon" />
 		</region>
-		<region type="DungeonRegion" name="WielkaPokracznaBestia_LVL2_Boss">
+		<region type="DungeonRegion" name="Grizzle_LVL2_Boss">
 			<rect x="6840" y="2" width="34" height="20" />
 			<go x="6867" y="12" z="0" />
 			<music name="GrizzleDungeon" />

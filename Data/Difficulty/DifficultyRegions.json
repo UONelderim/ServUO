@@ -128,13 +128,13 @@
   "UlnhyrOrbben_LV2_Difficult": "hard+",
   "UlnhyrOrbben_LV2_VeryDifficult": "veryhard",
 
-  "WielkaPokracznaBestia_LVL1_VeryEasy": "veryeasy",
-  "WielkaPokracznaBestia_LVL1_Easy": "easy",
+  "Grizzle_LVL1_VeryEasy": "veryeasy",
+  "Grizzle_LVL1_Easy": "easy",
+  "Grizzle_LVL1_Medium": "medium",
 
-
-  "WielkaPokracznaBestia_LVL2_Medium": "medium",
-  "WielkaPokracznaBestia_LVL2_Difficult": "hard",
-  "WielkaPokracznaBestia_LVL2_VeryDifficult": "veryhard",
+  "Grizzle_LVL2_Medium": "medium",
+  "Grizzle_LVL2_Difficult": "hard",
+  "Grizzle_LVL2_VeryDifficult": "veryhard",
 
   "KrysztaloweSmoki_VeryEasy": "veryeasy",
   "KrysztaloweSmoki_Easy": "easy",
