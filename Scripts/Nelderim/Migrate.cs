@@ -27,6 +27,7 @@ namespace Server.Commands
 			RenamePlayers();
 			ConfigureMoongates(from);
 			MigrateMalasDungeons(from);
+			AlignSpawnersAndRespawn(from);
 		}
 
 		private static void ConfigureMoongates(Mobile from)
@@ -280,6 +281,25 @@ namespace Server.Commands
 			items.Free();
 		}
 
+		private static void AlignSpawnersAndRespawn(Mobile from)
+		{
+			var spawners = World.Items.OfType<XmlSpawner>();
+			foreach (var spawner in spawners)
+			{
+				foreach (var spawnObject in spawner.SpawnObjects)
+				{
+					var text = spawnObject.TypeName.ToLower();
+					text = ReplaceType(text, "wladcapiaskowboss", "wladcapiaskow");
+					text = ReplaceType(text, "NelderimSkeletalDragon", "NSkeletalDragon");
+					spawnObject.TypeName = text;
+				}
+
+				if (spawner.Running)
+					spawner.Respawn();
+			}
+		}
+		
+		//HELPERS
 		private static string GetTokenValue(string text, string key, out int startIndex, out int length)
 		{
 			var fullKey = $"/{key}/";
@@ -306,6 +326,16 @@ namespace Server.Commands
 			}
 
 			return text;
+		}
+		
+		static string ReplaceType(string text, string oldType, string newType)
+		{
+			var index = text.IndexOf(oldType + '/', StringComparison.OrdinalIgnoreCase);
+			if (index == -1)
+			{
+				return text;
+			}
+			return newType + text.Substring(index + oldType.Length);
 		}
 	}
 }
