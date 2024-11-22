@@ -21,7 +21,9 @@ namespace Nelderim.Achievements
 			
 			CategoryRegistry.Load();
 			AchievementRegistry.Load();
-			RegisterAchievements();
+
+			//We need it precisely after regions are loaded, but before initialize
+			Region.OnLoaded += RegisterAchievements;
 		}
 		
 		public static new void Initialize()
