@@ -18,15 +18,14 @@ namespace Nelderim.Achievements
 		public static void Configure()
 		{
 			Register(new AchievementSystem());
+			
+			CategoryRegistry.Load();
+			AchievementRegistry.Load();
+			RegisterAchievements();
 		}
 		
 		public static new void Initialize()
 		{
-			CategoryRegistry.Load();
-			AchievementRegistry.Load();
-
-			RegisterAchievements();
-
 			CommandSystem.Register("achievements", AccessLevel.Player, AchievementsCommand);
 
 			CategoryRegistry.Save();
