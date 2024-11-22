@@ -124,7 +124,7 @@ namespace Server.Items
 
 		[Constructable]
 		public AddPackDeed()
-			: base(0x2AA3)
+			: base(2648)
 		{
 			Name = "Juki";
 			Weight = 10.0;
