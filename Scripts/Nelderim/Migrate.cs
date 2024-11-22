@@ -28,6 +28,7 @@ namespace Server.Commands
 			ConfigureMoongates(from);
 			MigrateMalasDungeons(from);
 			AlignSpawnersAndRespawn(from);
+			from.SendMessage("Done migrating!");
 		}
 
 		private static void ConfigureMoongates(Mobile from)
@@ -283,7 +284,7 @@ namespace Server.Commands
 
 		private static void AlignSpawnersAndRespawn(Mobile from)
 		{
-			var spawners = World.Items.OfType<XmlSpawner>();
+			var spawners = World.Items.Values.OfType<XmlSpawner>().ToArray();
 			foreach (var spawner in spawners)
 			{
 				spawner.RegionName = spawner.RegionName switch
@@ -297,14 +298,15 @@ namespace Server.Commands
 					"Voxy_Easy" => "VoxPopuli_Easy",
 					"Voxy_Medium" => "VoxPopuli_Medium",
 					"Voxy_Difficult" => "VoxPopuli_Difficult",
-					"Voxy_VeryDifficult" => "VoxPopuli_VeryDifficult"
-					
+					"Voxy_VeryDifficult" => "VoxPopuli_VeryDifficult",
+					_ => spawner.RegionName
 				};
 
-				if (spawner.RegionName.StartsWith("WielkaPokracznaBestia"))
+				if (spawner.RegionName != null && spawner.RegionName.StartsWith("WielkaPokracznaBestia"))
 				{
 					spawner.RegionName = "Grizzle" + spawner.RegionName.Substring("WielkaPokracznaBestia".Length);
 				}
+				
 				foreach (var spawnObject in spawner.SpawnObjects)
 				{
 					var text = spawnObject.TypeName.ToLower();
