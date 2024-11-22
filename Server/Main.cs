@@ -341,11 +341,6 @@ namespace Server
 			{
 				var buffer = Marshal.AllocHGlobal(width * height * Marshal.SizeOf(typeof(CHAR_INFO)));
 
-				if (buffer == null)
-				{
-					throw new OutOfMemoryException();
-				}
-
 				try
 				{
 					var coord = new COORD();

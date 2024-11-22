@@ -4253,7 +4253,7 @@ namespace Server.Network
 
 	public sealed class CharacterList : Packet
 	{
-		private static MD5CryptoServiceProvider m_MD5Provider;
+		private static MD5 _Md5 = MD5.Create();
 
 		public static CharacterListFlags AdditionalFlags { get; set; }
 
@@ -4384,14 +4384,9 @@ namespace Server.Network
 
 			if (disabled != 0)
 			{
-				if (m_MD5Provider == null)
-				{
-					m_MD5Provider = new MD5CryptoServiceProvider();
-				}
-
 				m_Stream.UnderlyingStream.Flush();
 
-				var hashCode = m_MD5Provider.ComputeHash(m_Stream.UnderlyingStream.GetBuffer(), 0, (int)m_Stream.UnderlyingStream.Length);
+				var hashCode = _Md5.ComputeHash(m_Stream.UnderlyingStream.GetBuffer(), 0, (int)m_Stream.UnderlyingStream.Length);
 
 				var buffer = new byte[28];
 

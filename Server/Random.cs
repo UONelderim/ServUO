@@ -125,8 +125,7 @@ namespace Server
 
 	public sealed class CSPRandom : IRandomImpl
 	{
-		private readonly RNGCryptoServiceProvider _CSP = new RNGCryptoServiceProvider();
-
+		
 		private static readonly int BUFFER_SIZE = 0x4000;
 		private static readonly int LARGE_REQUEST = 0x40;
 
@@ -137,7 +136,7 @@ namespace Server
 
 		public CSPRandom()
 		{
-			_CSP.GetBytes(_Working);
+			RandomNumberGenerator.Fill(_Working.AsSpan());
 
 			_ = ThreadPool.QueueUserWorkItem(Fill);
 		}
@@ -150,9 +149,9 @@ namespace Server
 				return;
 			}
 
-				(_Buffer, _Working) = (_Working, _Buffer);
+			(_Buffer, _Working) = (_Working, _Buffer);
 
-				_Index = 0;
+			_Index = 0;
 
 			_ = ThreadPool.QueueUserWorkItem(Fill);
 		}
@@ -160,7 +159,7 @@ namespace Server
 		[MethodImpl(MethodImplOptions.Synchronized)]
 		private void Fill(object o)
 		{
-			_CSP.GetBytes(_Buffer);
+			RandomNumberGenerator.Fill(_Buffer);
 		}
 
 		private void InternalGetBytes(byte[] b)
@@ -203,7 +202,7 @@ namespace Server
 
 			if (c >= LARGE_REQUEST)
 			{
-				_CSP.GetBytes(b);
+				RandomNumberGenerator.Fill(b);
 
 				return;
 			}
