@@ -293,6 +293,12 @@ namespace Server.Commands
 					"Paroxumus_Medium" => "Parox_Medium",
 					"Paroxumus_Difficult" => "Parox_Difficult",
 					"Paroxysmus_VeryDifficult" => "Parox_VeryDifficult",
+					"Voxy_VeryEasy" => "VoxPopuli_VeryEasy",
+					"Voxy_Easy" => "VoxPopuli_Easy",
+					"Voxy_Medium" => "VoxPopuli_Medium",
+					"Voxy_Difficult" => "VoxPopuli_Difficult",
+					"Voxy_VeryDifficult" => "VoxPopuli_VeryDifficult"
+					
 				};
 				foreach (var spawnObject in spawner.SpawnObjects)
 				{

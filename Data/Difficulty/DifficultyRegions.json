@@ -27,15 +27,15 @@
   "Parox_Difficult": "hard",
   "Parox_VeryDifficult": "veryhard",
   
-  "Voxy_VeryEasy": "veryeasy",
-  "Voxy_Easy": "easy",
-  "Voxy_Medium": "medium",
-  "Voxy_Difficult": "hard",
-  "Voxy_VeryDifficult": "veryhard",
+  "VoxPopuli_VeryEasy": "veryeasy",
+  "VoxPopuli_Easy": "easy",
+  "VoxPopuli_Medium": "medium",
+  "VoxPopuli_Difficult": "hard",
+  "VoxPopuli_VeryDifficult": "veryhard",
 
   "Tasandora_Kanaly": "easy",
   
-  "BaradDur_LV1_VeryEasy": "veryeasy",
+  "BaradDur_LVL1_VeryEasy": "veryeasy",
   "BaradDur_LVL1_Easy": "easy",
   "BaradDur_LVL1_Medium": "medium",
   
@@ -52,7 +52,6 @@
   "Garth_LVL2_VeryDifficult": "veryhard",
 
   "VelkynAto_Outskirts": "medium",
-  "VelkynAto_Difficult": "hard+",
   "VelkynAto_VeryDifficult": "veryhard",
   
   "Hurengrav_VeryEasy": "veryeasy",
