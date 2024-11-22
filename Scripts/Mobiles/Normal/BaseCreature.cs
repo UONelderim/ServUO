@@ -2795,6 +2795,22 @@ namespace Server.Mobiles
 
             CheckStatTimers();
 
+            if (version == 19) //NELDERIM
+            {
+	            m_CurrentAI = m_CurrentAI switch
+	            {
+		            AIType.AI_UNUSED4 => AIType.AI_Mage, //Boss
+		            AIType.AI_UNUSED3 => AIType.AI_Mage, //BattleMage
+		            AIType.AI_UNUSED2 => AIType.AI_Melee, //Berserk
+		            AIType.AI_NecroMage => AIType.AI_Melee, //Predator
+		            AIType.AI_OrcScout => AIType.AI_Melee, //Thief
+		            AIType.AI_Spellbinder => AIType.AI_Mage,
+		            AIType.AI_UNUSED1 => AIType.AI_Melee, //Mounted
+		            AIType.AI_Samurai => AIType.AI_Melee, //RangedMelee
+		            _ => AI
+	            };
+            }
+            
             ChangeAIType(m_CurrentAI);
 
             AddFollowers();
@@ -2807,22 +2823,6 @@ namespace Server.Mobiles
             if (Tamable && CurrentTameSkill == 0)
             {
                 AdjustTameRequirements();
-            }
-
-            if (version == 19) //NELDERIM
-            {
-	            AI = AI switch
-	            {
-		            AIType.AI_UNUSED4 => AIType.AI_Mage, //Boss
-		            AIType.AI_UNUSED3 => AIType.AI_Mage, //BattleMage
-		            AIType.AI_UNUSED2 => AIType.AI_Melee, //Berserk
-		            AIType.AI_NecroMage => AIType.AI_Melee, //Predator
-		            AIType.AI_OrcScout => AIType.AI_Melee, //Thief
-		            AIType.AI_Spellbinder => AIType.AI_Mage,
-		            AIType.AI_UNUSED1 => AIType.AI_Melee, //Mounted
-		            AIType.AI_Samurai => AIType.AI_Melee, //RangedMelee
-		            _ => AI
-	            };
             }
 
             if (AI == AIType.AI_UNUSED1 || AI == AIType.AI_UNUSED2 || AI ==AIType.AI_UNUSED3)
