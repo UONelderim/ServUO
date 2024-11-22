@@ -5,7 +5,7 @@ namespace Nelderim
 {
 	public class Names() : NExtension<NamesInfo>("Names")
 	{
-		public static new void Initialize()
+		public static void Configure()
 		{
 			Register(new Names());
 		}

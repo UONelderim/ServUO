@@ -32,7 +32,7 @@ namespace Server.Items
 
 	class FireHornExt() : NExtension<FireHornExtInfo>("FireHorn")
 	{
-		public static new void Initialize()
+		public static void Configure()
 		{
 			Register(new FireHornExt());
 		}

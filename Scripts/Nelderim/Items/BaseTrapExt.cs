@@ -72,7 +72,7 @@ namespace Server.Items
 
 	class BaseTrapExt() : NExtension<BaseTrapExtInfo>("BaseTrap")
 	{
-		public static new void Initialize()
+		public static void Configure()
 		{
 			Register(new BaseTrapExt());
 		}

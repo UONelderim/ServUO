@@ -19,7 +19,7 @@ namespace Server.Mobiles
 
 	public class PlayerStatistics() : NExtension<PlayerStatisticsInfo>("PlayerStatistics")
 	{
-		public static void Initialize()
+		public static void Configure()
 		{
 			Register(new PlayerStatistics());
 			RegisterMetrics();

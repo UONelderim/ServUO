@@ -153,7 +153,7 @@ namespace Server.Mobiles
 
 	class PlayerSpeciallSkills() : NExtension<PlayerSpeciallSkillsInfo>("PlayerSpecialSkills")
 	{
-		public static new void Initialize()
+		public static void Configure()
 		{
 			Register(new PlayerSpeciallSkills());
 		}

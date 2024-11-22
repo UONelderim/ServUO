@@ -4,7 +4,7 @@ namespace Server.Nelderim
 {
 	public class FactionExt() : NExtension<FactionInfo>("Faction")
 	{
-		public static new void Initialize()
+		public static void Configure()
 		{
 			Register(new FactionExt());
 		}
