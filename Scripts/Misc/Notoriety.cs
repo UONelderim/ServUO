@@ -339,7 +339,7 @@ namespace Server.Misc
                 }
             }
 
-            if (target.Murderer)
+            if (!target.IdentityHidden && target.Murderer)
                 return Notoriety.Murderer;
 
             if (target.Body.IsMonster && IsSummoned(bc))
