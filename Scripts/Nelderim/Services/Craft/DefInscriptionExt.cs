@@ -176,9 +176,9 @@ namespace Server.Engines.Craft
             AddRes( index, typeof( NightSightPotion ), "mikstura widzenia w ciemności" , 10, 1044253 );
             AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
            // index = AddCraft( typeof( AvatarEnemyOfOneSpell ), "Umiejetnosci specjalne", "Naznaczony", 25.0, 76.0, typeof( Corruption ), "korupcja" , 20, 1044253 );
-            // AddRes( index, typeof( DaemonBone ), "kości demona" , 50, 1044253 );
-            // AddRes( index, typeof( Pumice ), "pumeks" , 20, 1044253 );
-            // AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+          //  AddRes( index, typeof( DaemonBone ), "kości demona" , 50, 1044253 );
+          //  AddRes( index, typeof( Pumice ), "pumeks" , 20, 1044253 );
+         //   AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
             index = AddCraft( typeof( AvatarArmysPaeonSpell  ), "Umiejetnosci specjalne", "Witalność Armii", 80.0, 110.0, typeof( WyrmsHeart ), "Serce Wyrma" , 20, 1044253 );
             AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
             AddRes( index, typeof( ZoogiFungus ), "grzyby zoogi" , 50, 1044253 );
@@ -187,6 +187,10 @@ namespace Server.Engines.Craft
             AddRes( index, typeof( SpringWater ), "wiosenna woda" , 30, 1044253 );
             AddRes( index, typeof( ZoogiFungus ), "grzyby zoogi" , 50, 1044253 );
             AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft( typeof( AvatarBallScroll ), "Umiejetnosci specjalne", "Kula Sniegu", 25.0, 76.0, typeof( Corruption ), "korupcja" , 20, 1044253 );
+            AddRes( index, typeof( DaemonBone ), "kości demona" , 50, 1044253 );
+            AddRes( index, typeof( Pumice ), "pumeks" , 20, 1044253 );
+            AddRes(index, typeof(Gold), "złoto", 2000, 104425);
 
             //Druid
             index = AddCraft( typeof( DruidBlendWithForestScroll  ), "Umiejetnosci specjalne", "Jedność Z Lasem", 80.0, 110.0, typeof( LuminescentFungi ), "lśniące grzyby" , 20, 1044253 );
