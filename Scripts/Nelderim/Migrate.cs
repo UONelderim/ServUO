@@ -329,14 +329,18 @@ namespace Server.Commands
 						mapKey = "targetmap";
 						pointKey = "target";
 					}
-					text = ReplaceToken(text, mapKey, "malas", "felucca");
-					var pointText = GetTokenValue(text,
-						pointKey,
-						out _,
-						out _);
-					var point = new Point3D(tf.xto, tf.yto, tf.zto);
-					text = ReplaceToken(text, pointKey, pointText, point.ToString());
-					spawnObject.TypeName = text;
+
+					if (mapKey != "" && pointKey != "")
+					{
+						text = ReplaceToken(text, mapKey, "malas", "felucca");
+						var pointText = GetTokenValue(text,
+							pointKey,
+							out _,
+							out _);
+						var point = new Point3D(tf.xto, tf.yto, tf.zto);
+						text = ReplaceToken(text, pointKey, pointText, point.ToString());
+						spawnObject.TypeName = text;
+					}
 				}
 			}
 		}
