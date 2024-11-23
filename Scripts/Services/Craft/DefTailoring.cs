@@ -262,6 +262,8 @@ namespace Server.Engines.Craft
                  AddRecipe(index, (int)TailorRecipe.MagesHoodOfScholarlyInsight);
                  ForceExceptional(index);*/
 
+                 AddCraft(typeof(NamelessHood), 1011375, "Kaptur Ukrywajacy Tozsamosc", 67.0, 92.0, typeof(Cloth), 1044455, 12, 1044287);
+
             #endregion
 
             #region Shirts/Pants
