@@ -27,6 +27,7 @@ namespace Server.Commands
 			RenamePlayers();
 			ConfigureMoongates(from);
 			MigrateMalasDungeons(from);
+			AlignTeleportersToMalasDungeons(from);
 			AlignSpawnersAndRespawn(from);
 			from.SendMessage("Done migrating!");
 		}
@@ -212,10 +213,6 @@ namespace Server.Commands
 			var items = fromMap.GetItemsInBounds(new Rectangle2D(dmi.x1, dmi.y1, width, height));
 			foreach (var item in items)
 			{
-				if (item is Static && item.ItemID == 16151)
-				{
-					Console.WriteLine("Here");
-				}
 				var newX = item.X + xDiff;
 				var newY = item.Y + yDiff;
 				item.MoveToWorld(new Point3D(newX, newY, dmi.name == "zoo" ? 0 : item.Z), toMap);
@@ -224,18 +221,18 @@ namespace Server.Commands
 					
 					foreach (var spawnObject in spawner.SpawnObjects)
 					{
-						var text = spawnObject.TypeName.ToLower();
+						var text = spawnObject.TypeName;
 						if (fixTeleporters)
 						{
 							var mapKey = "";
 							var pointKey = "";
-							if (text.StartsWith("teleporter"))
+							if (text.StartsWith("teleporter", StringComparison.OrdinalIgnoreCase))
 							{
 								mapKey = "mapdest";
 								pointKey = "pointdest";
 							}
 
-							if (text.StartsWith("moongate"))
+							if (text.StartsWith("moongate", StringComparison.OrdinalIgnoreCase))
 							{
 								mapKey = "targetmap";
 								pointKey = "target";
@@ -247,9 +244,9 @@ namespace Server.Commands
 									mapKey,
 									out _,
 									out _);
-								if (mapText == fromMap.Name.ToLower())
+								if (mapText.Equals(fromMap.Name, StringComparison.OrdinalIgnoreCase))
 								{
-									text = ReplaceToken(text, mapKey, fromMap.Name.ToLower(), toMap.Name.ToLower());
+									text = ReplaceToken(text, mapKey, fromMap.Name, toMap.Name);
 									var pointText = GetTokenValue(text,
 										pointKey,
 										out _,
@@ -297,6 +294,53 @@ namespace Server.Commands
 			items.Free();
 		}
 
+		public record TeleportFix(string name, int x, int y, int xto, int yto, int zto);
+
+		private static List<TeleportFix> teleportFixes = new()
+		{
+			new("melisande", 3284, 1895, 6394, 179, 25), 
+			new("shimmering", 3384, 1954, 6505, 6, -1),
+			new("lotharn_dungeon", 1950, 602, 6480, 185, 35),
+			new("grizzle", 5924, 409, 6819, 105, 0),
+			new("parox", 6052, 2427, 6785, 218, 0),
+			new("vox", 4109, 3786, 6987, 139, 0 ),
+			new("zoo", 1675, 2005, 6288, 316,0),
+		};
+		
+		private static void AlignTeleportersToMalasDungeons(Mobile from)
+		{
+			from.SendMessage("Fixing IN teleporters");
+			foreach (var tf in teleportFixes)
+			{
+				var spawner = Map.Felucca.FindItem<XmlSpawner>(new Point3D(tf.x, tf.y, 0));
+				foreach (var spawnObject in spawner.SpawnObjects)
+				{
+					var text = spawnObject.TypeName;
+					var mapKey = "";
+					var pointKey = "";
+					if (text.StartsWith("teleporter", StringComparison.OrdinalIgnoreCase))
+					{
+						mapKey = "mapdest";
+						pointKey = "pointdest";
+					}
+
+					if (text.StartsWith("moongate", StringComparison.OrdinalIgnoreCase))
+					{
+						mapKey = "targetmap";
+						pointKey = "target";
+					}
+					text = ReplaceToken(text, mapKey, "malas", "felucca");
+					var pointText = GetTokenValue(text,
+						pointKey,
+						out _,
+						out _);
+					var point = new Point3D(tf.xto, tf.yto, tf.zto);
+					text = ReplaceToken(text, pointKey, pointText, point.ToString());
+					spawnObject.TypeName = text;
+				}
+			}
+		}
+		
 		private static void AlignSpawnersAndRespawn(Mobile from)
 		{
 			var spawners = World.Items.Values.OfType<XmlSpawner>().ToArray();
@@ -324,7 +368,7 @@ namespace Server.Commands
 				
 				foreach (var spawnObject in spawner.SpawnObjects)
 				{
-					var text = spawnObject.TypeName.ToLower();
+					var text = spawnObject.TypeName;
 					text = ReplaceType(text, "wladcapiaskowboss", "wladcapiaskow");
 					text = ReplaceType(text, "NelderimSkeletalDragon", "NSkeletalDragon");
 					text = ReplaceType(text, "orccamp", "prisonercamp");
@@ -345,7 +389,7 @@ namespace Server.Commands
 		private static string GetTokenValue(string text, string key, out int startIndex, out int length)
 		{
 			var fullKey = $"/{key}/";
-			var tokenStartIndex = text.IndexOf(fullKey, StringComparison.Ordinal);
+			var tokenStartIndex = text.IndexOf(fullKey, StringComparison.OrdinalIgnoreCase);
 			if (tokenStartIndex == -1)
 			{
 				startIndex = -1;
@@ -362,7 +406,7 @@ namespace Server.Commands
 		private static string ReplaceToken(string text, string key, string oldValue, string newValue)
 		{
 			var tokenValue = GetTokenValue(text, key, out var startIndex, out var length);
-			if (tokenValue.ToLower() == oldValue)
+			if (tokenValue.Equals(oldValue, StringComparison.OrdinalIgnoreCase))
 			{
 				return text[..startIndex] + newValue + text.Substring(startIndex + length);
 			}
