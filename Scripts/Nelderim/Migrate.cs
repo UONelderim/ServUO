@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Nelderim;
 using Server.Accounting;
@@ -18,6 +19,7 @@ namespace Server.Commands
 		{
 			//TODO: CHANGE ME TO OWNER ONLY
 			CommandSystem.Register("DoMigrate", AccessLevel.Administrator, DoMigrate);
+			CommandSystem.Register("LockAccounts", AccessLevel.Administrator, LockAccounts);
 		}
 
 		private static void DoMigrate(CommandEventArgs e)
@@ -30,6 +32,29 @@ namespace Server.Commands
 			AlignTeleportersToMalasDungeons(from);
 			AlignSpawnersAndRespawn(from);
 			from.SendMessage("Done migrating!");
+		}
+
+		private static void LockAccounts(CommandEventArgs e)
+		{
+			var from = e.Mobile;
+			var accountsFile = Path.Combine(Core.BaseDirectory, "Accounts.txt");
+			var accountsText = "";
+			if(File.Exists(accountsFile))
+				accountsText = File.ReadAllText(accountsFile).ToLower();
+			var allowedAccountNames = accountsText.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim());
+			foreach (var account in Accounts.GetAccounts())
+			{
+				if (from.Account == account)
+					account.Banned = false;
+				else if (allowedAccountNames.Contains(account.Username.ToLower()))
+				{
+					account.Banned = false;
+					from.SendMessage("Allowed account: " + account.Username);
+				}
+				else
+					account.Banned = true;
+			}
+			from.SendMessage("Done");
 		}
 
 		private static void ConfigureMoongates(Mobile from)
