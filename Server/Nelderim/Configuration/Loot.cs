@@ -18,6 +18,7 @@ namespace Nelderim.Configuration
 		public double MaxIntensityModifier => Get("MaxIntensityModifier", 1.0);
 		public bool LootBudget => Get("LootBudget", true);
 		public bool DebugDifficulty => Get("DebugDifficulty", false);
+		public bool ScaleLeechEnabled => Get("ScaleLeechEnabled", false);
 
 		private static T Get<T>(string key, T defaultValue)
 		{
