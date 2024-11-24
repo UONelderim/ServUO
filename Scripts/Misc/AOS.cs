@@ -17,6 +17,7 @@ using Server.Spells.Spellweaving;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim.Configuration;
 
 namespace Server
 {
@@ -804,7 +805,7 @@ namespace Server
 
         public override void SetValue(int bitmask, int value)
         {
-            if (bitmask == (int)AosAttribute.WeaponSpeed && Owner is BaseWeapon)
+            if (NConfig.Loot.ScaleLeechEnabled && bitmask == (int)AosAttribute.WeaponSpeed && Owner is BaseWeapon)
             {
                 ((BaseWeapon)Owner).WeaponAttributes.ScaleLeech(value);
             }
