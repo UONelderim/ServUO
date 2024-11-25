@@ -2132,7 +2132,7 @@ namespace Server.Multis
             {
                 base.Deserialize(reader);
                 int version = reader.ReadInt();
-
+                
                 Delete();
             }
 
@@ -3440,6 +3440,8 @@ namespace Server.Multis
             {
                 Timer.DelayCall(FixRentalContracts);
             }
+
+            ItemID &= 0x3FFF; //Nelderim fix
         }
 
         private void FixRentalContracts()
