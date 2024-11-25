@@ -15,6 +15,8 @@ namespace Server.Nelderim.Misc
 			MessageColor = 0xFFFFFF;
 			TitleNumber = 1124185;
 			MessageNumber = 1124186;
+			//TargetMap is not used, but it's needed or else error is thrown
+			TargetMap = Map.Felucca;
 		}
 		
 		public override void OnGateUsed(Mobile m)
