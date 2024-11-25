@@ -92,14 +92,6 @@ namespace Server.Commands
 				from.SendMessage($"Removing {item}@{item.Location}");
 				item.Delete();
 			}
-
-			from.SendMessage("Creating RaceRoom Portal");
-			var raceRoomMoongate = new RaceRoomMoongate
-			{
-				//It have to go somewhere to not give an error
-				TargetMap = raceRoomMap, Target = raceRoomPortalLocation
-			};
-			raceRoomMoongate.MoveToWorld(raceRoomPortalLocation, raceRoomMap);
 		}
 
 		private static void RefundLanguages(PlayerMobile pm)
@@ -402,9 +394,9 @@ namespace Server.Commands
 					text = ReplaceType(text, "NelderimSkeletalDragon", "NSkeletalDragon");
 					text = ReplaceType(text, "orccamp", "prisonercamp");
 					text = ReplaceType(text, "ratcamp", "prisonercamp");
-					if (text.StartsWith("raceteleporter") && spawner.Name == "KomnatyStworzenia")
+					if (text.StartsWith("raceteleporter", StringComparison.Ordinal) && spawner.Name == "KomnatyStworzenia")
 					{
-						text = "raceroommoongate";
+						text = "RaceRoomMoongate/Location/(5156,254,50)";
 					}
 					spawnObject.TypeName = text;
 				}
