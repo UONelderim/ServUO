@@ -710,7 +710,7 @@ namespace Server
 				dotnet = Environment.Version.ToString();
 			}
 
-			Console.WriteLine($"Core: {(Unix ? $"MONO .NET {dotnet}" : $".NET {dotnet}")}");
+			Console.WriteLine($"Core: .NET {dotnet}");
 
 			if (GCSettings.IsServerGC)
 			{
