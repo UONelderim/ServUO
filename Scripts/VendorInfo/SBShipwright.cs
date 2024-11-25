@@ -25,17 +25,19 @@ namespace Server.Mobiles
 			public InternalBuyInfo(Mobile m)
 			{
 				//statki 
-				Add(new GenericBuyInfo("1041205", typeof(SmallBoatDeed), 70000, 3, 0x14F2, 0));
-				Add(new GenericBuyInfo("1041206", typeof(SmallDragonBoatDeed), 80000, 3, 0x14F2, 0));
-				Add(new GenericBuyInfo("1041207", typeof(MediumBoatDeed), 90000, 2, 0x14F2, 0));
-				Add(new GenericBuyInfo("1041208", typeof(MediumDragonBoatDeed), 100000, 2, 0x14F2, 0));
-				Add(new GenericBuyInfo("1041209", typeof(LargeBoatDeed), 110000, 1, 0x14F2, 0));
-				Add(new GenericBuyInfo("1041210", typeof(LargeDragonBoatDeed), 120000, 1, 0x14F2, 0));
+				Add(new GenericBuyInfo("1116491", typeof(RowBoatDeed), 30000, 5, 0x14F2, 0));
+				Add(new GenericBuyInfo("1041205", typeof(SmallBoatDeed), 70000, 5, 0x14F2, 0));
+				Add(new GenericBuyInfo("1041206", typeof(SmallDragonBoatDeed), 80000, 5, 0x14F2, 0));
+				Add(new GenericBuyInfo("1041207", typeof(MediumBoatDeed), 90000, 5, 0x14F2, 0));
+				Add(new GenericBuyInfo("1041208", typeof(MediumDragonBoatDeed), 100000, 5, 0x14F2, 0));
+				Add(new GenericBuyInfo("1041209", typeof(LargeBoatDeed), 110000, 5, 0x14F2, 0));
+				Add(new GenericBuyInfo("1041210", typeof(LargeDragonBoatDeed), 120000, 5, 0x14F2, 0));
 
-				Add(new GenericBuyInfo("1116740", typeof(TokunoGalleonDeed), 150002, 20, 0x14F2, 0));
-				Add(new GenericBuyInfo("1116739", typeof(GargishGalleonDeed), 200002, 20, 0x14F2, 0));
-				Add(new GenericBuyInfo("1116491", typeof(RowBoatDeed), 6252, 20, 0x14F2, 0));
-
+				Add(new GenericBuyInfo("1116740", typeof(TokunoGalleonDeed), 2000000, 5, 0x14F2, 0));
+				Add(new GenericBuyInfo("1116739", typeof(GargishGalleonDeed), 2500000, 5, 0x14F2, 0));
+				//Add(new GenericBuyInfo("1116738", typeof(OrcishGalleonDeed), 2700000, 5, 0x14F2, 0)); Orczy galeon dostępny jest z questa. Można dodać kiedyś.
+				Add(new GenericBuyInfo("1150017", typeof(BritannianShipDeed), 3000000, 5, 0x14F2, 0));
+				
 				Add(new GenericBuyInfo(typeof(Spyglass), 3, 20, 0x14F5, 0));
 			}
 		}
