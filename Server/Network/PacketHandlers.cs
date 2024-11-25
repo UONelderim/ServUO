@@ -1029,7 +1029,7 @@ namespace Server.Network
 
 						if (length > 511)
 						{
-							return;
+							length = 511;
 						}
 
 						var text = pvSrc.ReadUnicodeString(length);
