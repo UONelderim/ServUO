@@ -1537,7 +1537,7 @@ namespace Server.Mobiles
 						{
 							m_Mobile.Warmode = false;
 
-							m_Mobile.CurrentSpeed = m_Mobile.ActiveSpeed;
+							m_Mobile.CurrentSpeed = 0.1;
 						}
 					}
 				}
