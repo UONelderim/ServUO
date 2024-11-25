@@ -26,6 +26,7 @@ namespace Nelderim
 			{
 				case 1: 
 					LanguagesKnown.Deserialize(reader);
+					LanguageSpeaking = (NLanguage)reader.ReadInt();
 					break;
 				case 0: //Remove me once we migrated :)
 					var oldLanguagesKnown = reader.ReadInt();
@@ -58,10 +59,21 @@ namespace Nelderim
 						LanguagesKnown.Nieumarlych = 1000;
 					}
 					LanguagesKnown.Powszechny = 1000;
+					var langSpeaking = reader.ReadInt();
+					LanguageSpeaking = langSpeaking switch
+					{
+						0x00 => NLanguage.Powszechny,
+						0x01 => NLanguage.Krasnoludzki,
+						0x02 => NLanguage.Elficki,
+						0x04 => NLanguage.Drowi,
+						0x08 => NLanguage.Jarlowy,
+						0x10 => NLanguage.Demoniczny,
+						0x20 => NLanguage.Orkowy,
+						0x40 => NLanguage.Nieumarlych,
+						_ => NLanguage.Belkot
+					};
 					break;
 			}
-			
-			LanguageSpeaking = (NLanguage)reader.ReadInt();
 		}
 	}
 }
