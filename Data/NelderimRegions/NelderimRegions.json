@@ -643,37 +643,36 @@
         {
           "Name": "Tirassa",
           "Population": {
-            "Tamael": 0.40,
-            "Jarling": 0.30,
-            "Krasnolud": 0.30
+            "Tamael": 0.90,
+            "Krasnolud": 0.10
           },
           "Guards": {
             "StandardGuard": {
               "Name": "FalasStandard",
               "Female": 0.55,
               "Population": {
-                "Jarling": 1.00
+                "Tamael": 1.00
               }
             },
             "ArcherGuard": {
-              "Name": "FalasMounted",
+              "Name": "FalasArcher",
               "Female": 0.45,
               "Population": {
-                "Jarling": 1.00
+                "Tamael": 1.00
               }
             },
-            "HeavyGuard": {
-              "Name": "FalasArcher",
+            "MountedGuard": {
+              "Name": "FalasMounted",
               "Female": 0.65,
               "Population": {
-                "Jarling": 1.00
+                "Tamael": 1.00
               }
             },
-            "MageGuard": {
+            "EliteGuard": {
               "Name": "FalasElite",
               "Female": 0.25,
               "Population": {
-                "Jarling": 1.00
+                "Tamael": 1.00
               }
             }
           }
