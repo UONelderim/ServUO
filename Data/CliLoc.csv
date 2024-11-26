@@ -73310,7 +73310,7 @@ Number;Text
 1116592;Twoj statek jest poddawany awaryjnym naprawom, ktore potrwaja okolo ~1_TIME~ minut. 
 1116593;Aby dokonac naprawy tego statku, potrzebujesz co najmniej ~1_SZTUKI~ lokci materiału i ~2_DREWNA~ kawalkow drewna. 
 1116594;Twoj statek musi znajdowac sie w poblizu brzegu lub rynku morskiego, aby mozna bylo dokonywac trwalych napraw. 
-1116595;Twoj statek wymaga napraw awaryjnych. 
+1116595;Twoj statek nie wymaga napraw awaryjnych, aby moc plywac.
 1116596;Twoj statek jest w stanie idealnym i nie wymaga napraw. 
 1116597;Stosujesz naprawy awaryjne, uzywajac ~1_CLOTH~ jardow materialu i ~2_WOOD~ kawalkow drewna. Twoj statek moze teraz poruszac sie z najnizsza predkoscia. Naprawy te beda trzymac sie przez okolo ~3_TIME~ minut. Kazde uzycie dzial lub dostanie sie pod ostrzal dzialowy zniszczy te naprawy i pozostawisz statek unieruchomiony! 
 1116598;Trwale naprawy wykonujesz przy uzyciu ~1_CLOTH~ lokci materialu i ~2_WOOD~ kawalkow drewna. Statek jest teraz naprawiony w ~3_DMGPCT~%. 
