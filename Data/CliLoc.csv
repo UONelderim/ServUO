@@ -70301,7 +70301,7 @@ Number;Text
 1113583;Enter at your own risk! 
 1113584;Please return what you borrow! 
 1113585;The compass' arrows flicker. You must be near the right location. 
-1113586;Property Weight: 
+1113586;Waga Wlasciwosci: 
 1113587;The creature goes into a frenzied rage! 
 1113588;a gaping hole 
 1113589;You may not continue while flying. 
@@ -70365,7 +70365,7 @@ Number;Text
 1113647;Times Imbued: 
 1113648;Weighted Intensity: 
 1113649;Mystic's Garb 
-1113650;RESULTS 
+1113650;PODSUMOWANIE 
 1113651;Demon Bridle Ring 
 1113652;Token of Holy Favor 
 1113653;You apply the dye. It will wear off in 7 days. 
@@ -70984,11 +70984,11 @@ Number;Text
 1114266;dream wraith 
 1114267;Imbue Item 
 1114268;Back 
-1114269;PROPERTY INFORMATION 
-1114270;Property: 
-1114271;Replaces: 
-1114272;Weight: 
-1114273;Intensity: 
+1114269;INFORMACJE WLASCIWOSCI
+1114270;Wlasciwosc: 
+1114271;Zastepuje: 
+1114272;Waga: 
+1114273;Natezenie: 
 1114274;Imbue Last Property - Imbues a new item with the last property 
 1114275;Unravel Container - Unravels all items in a container 
 1114276;MNX 
@@ -114274,6 +114274,10 @@ Number;Text
 1157556; Recykling. 
 1157557; Recykling. 
 1157558; Menu Szkolenia Zwierząt wyświetla wszystkie dostępne właściwości treningowe, które można zastosować do zwierzęcia. Okno Kategorii pokazuje kategorię dostępnych właściwości: Statystyki i odporności pozwalają zwiększyć indywidualne cechy statystyk i odporności zwierzęcia. Zwiększanie Ograniczeń Umiejętności Magicznych i Zwiększanie Ograniczeń Umiejętności Bojowych pozwala zwiększyć limity umiejętności dla różnych umiejętności magicznych i bojowych. Ten proces wymaga użycia Power Scrolls i tylko zwiększa limit umiejętności, nadal będziesz musiał szkolić zwierzę w konkretnej umiejętności za pomocą tradycyjnego szkolenia umiejętności zwierzęcia. Umiejętności Magiczne pozwalają nadać zwierzęciu magiczne zdolności w jednej z kilku szkół czarów. Specjalne Umiejętności pozwalają nadać zwierzęciu specjalne umiejętności, inne niż te tradycyjnie znajdowane jako specjalne ruchy broni. Specjalne Ruchy pozwalają nadać zwierzęciu specjalne ruchy, podobne do tych tradycyjnie znajdowanych jako specjalne ruchy broni. Efekty Obszarowe pozwalają nadać zwierzęciu atak obszarowy, celujący w wielu przeciwników w danym obszarze. Podczas gdy szkolisz swoje zwierzę, liczba używanych slotów na kontroli zwierzęcia wzrośnie. Maksymalna liczba slotów kontrolnych, które może mieć jakiekolwiek zwierzę, wynosi 5, jednak poszczególne zwierzęta mają maksymalną liczbę slotów kontrolnych, do których można je szkolić. Zwierzę może nauczyć się tylko tyle w trakcie każdego poziomu szkolenia. Gdy mieszasz i dopasowujesz właściwo
+1157559;Ataki klute
+1157560;Ataki obuchowe
+1157561;Ataki ciete
+1157562;Ataki defensywne
 1157563;Training Point Weight Caps<br><br>Strength, Zrecznosc & Inteligencja: 2300<br><br>Hit Point, Stamina, & Mana: 3300<br><br>Resists: 1095 <br><br>Odzyskiwanie zywotnosci: 360<br><br>Odzyskiwanie wytrzymalosci: 360<br><br>Odzyskiwanie many: 360<br><br>Individual Attribute Caps<br><br>Strength & Inteligencja: 700<br><br>Zrecznosc: 150<br><br>Hit Points: 1100<br><br>Stamina: 150<br><br>Mana: 1500<br><br>Resists: 80<br><br> 
 1157564;*Wyglada na to, ze zwierze nie cwiczy przy tym* 
 1157565;*Doswiadczenie bojowe zwierzaka nieznacznie wzroslo!* 
@@ -114308,9 +114312,9 @@ Number;Text
 1157594;Ethologist 
 1157595;"This title is obtained by completing the ""Discovering Animal Training"" quest." 
 1157596;Add To Plan 
-1157597;You have enabled pet training planning. All pet training selections will be added to the planning gump which will display up to 20 training options. For more details view the information gump. 
-1157598;You have disabled pet training planning. 
-1157599;Remaining Training Points: 
+1157597;Wlaczyles planowanie treningu zwierzecia. Wszystkie wybory zostana dodane do planu ktory moze zawierac do 20 wyborow. Wiecej informacji jest dostepne w oknie INFORMACJE. 
+1157598;Wylaczyles planowanie treningu zwierzecia. 
+1157599;Pozostale punkty: 
 1157600;Wymagane: ~1_val~ 
 1157601;This creature's pet slot will be updated by starting the pet training process. Do you wish to continue? 
 1157602;Receive a bottle of special Natural Dyes. These dyes may be used on artifacts and enhanced equipment 
