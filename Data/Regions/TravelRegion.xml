@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ServerRegions>
 	<Facet name="Felucca">
-		<region type="TravelRegion" priority="100" name="ObszarPodrozy">
+		<region type="TravelRegion" priority="0" name="ObszarPodrozy">
 			<rect x="0" y="770" width="1350" height="650" />
 			<rect x="0" y="1420" width="618" height="500" />
 			<rect x="618" y="1420" width="54" height="37" />
