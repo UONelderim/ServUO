@@ -39,8 +39,9 @@ namespace Server.Mobiles
 					skill.Base *= scalar;
 			}
 
-			bc.PassiveSpeed /= scalar;
-			bc.ActiveSpeed /= scalar;
+			var speedScalar = 1 / Math.Pow(scalar, 0.5f);
+			bc.PassiveSpeed *= speedScalar;
+			bc.ActiveSpeed *= speedScalar;
 			bc.CurrentSpeed = bc.PassiveSpeed;
 
 			var dmgScalar = Math.Pow(scalar, _DmgScalarExponent);
@@ -90,8 +91,9 @@ namespace Server.Mobiles
 					skill.Base /= scalar;
 			}
 
-			bc.PassiveSpeed *= scalar;
-			bc.ActiveSpeed *= scalar;
+			var speedScalar = Math.Pow(scalar, 0.5f);
+			bc.PassiveSpeed *= speedScalar;
+			bc.ActiveSpeed *= speedScalar;
 			bc.CurrentSpeed = bc.PassiveSpeed;
 
 			var dmgScalar = Math.Pow(scalar, _DmgScalarExponent);
