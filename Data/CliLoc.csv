@@ -9911,7 +9911,7 @@ Number;Text
 1020523;gipsowa sciana 
 1020524;gipsowa sciana 
 1020525;acid proof rope 
-1020526;bone machete 
+1020526;kosciana maczeta
 1020527;bambusowa sciana 
 1020528;bambusowa sciana 
 1020529;bambusowa sciana 
@@ -20496,24 +20496,24 @@ Number;Text
 1031108;lawa 
 1031109;lawa 
 1031110; 
-1031111;lesna tunika 
+1031111;inkrustowana tunika 
 1031112;lesny pas 
-1031113;lesny karczek 
-1031114;lesne rekawice 
-1031115;lesne nogawice 
-1031116;lesne naramienniki 
+1031113;inkrustowany karczek 
+1031114;inkrustowane rekawice 
+1031115;inkrustowane nogawice 
+1031116;inkrustowane naramienniki 
 1031117;female elven plate 
 1031118;circlet 
 1031119;royal circlet 
 1031120;gemmed circlet 
-1031121;raven helm 
-1031122;vulture helm 
-1031123;winged helm 
-1031124;hide tunic 
-1031125;hide gloves 
-1031126;hide gorget 
-1031127;hide pauldrons 
-1031128;hide pants 
+1031121;sokoli helm
+1031122;orli helm 
+1031123;skrzydlaty helm 
+1031124;wzmocniona lesna tunika
+1031125;wzmocnione lesne rekawice
+1031126;wzmocniony lesny karczek
+1031127;wzmocnione lesne naramienniki
+1031128;wzmocnione lesne spodnie
 1031129;Female Hide Chest Armor 
 1031130;simple half-wall 
 1031131;simple wall 
@@ -20935,8 +20935,8 @@ Number;Text
 1031547; 
 1031548; 
 1031549; 
-1031550;elven composite longbow 
-1031551;magical shortbow 
+1031550;dlugi luk w stylu wschodnim
+1031551;krotki luk w stylu wschodnim
 1031552;sztylet rytualny 
 1031553;kozik 
 1031554;falchion 
@@ -28345,7 +28345,7 @@ Number;Text
 1044182;pierscien z turkmalinem 
 1044183;pierscien z bursztynem 
 1044184;pierscien z diamentem 
-1044185;srebrny naszyjnik z gwiezdnym szafirem 
+1044185;srebrny naszyjnik z gw. szaf.
 1044186;srebrny naszyjnik ze szmaragdem 
 1044187;srebrny naszyjnik z szafirem 
 1044188;srebrny naszyjnik z rubinem 
@@ -28615,40 +28615,40 @@ Number;Text
 1044452;zestaw krawiecki 
 1044453;Zwiniete tkaniny 
 1044454;Nie masz zwinietej tkaniny. 
-1044455;Yards of Cloth 
-1044456;You don't have any ready cloth. 
-1044457;Materialy 
-1044458;cut-up cloth 
-1044459;combine cloth 
-1044460;Cut bolts of cloth into pieces of ready cloth. 
-1044461;Combine available cloth into piles by color. 
-1044462;Skory lub pociete skory 
-1044463;Nie masz odpowiedniego materialu, zeby wykonac ten przedmiot. 
-1044464;Makes all possible with available materials 
-1044465;Nie masz odpowiedniego drewna, zeby to zrobic. 
-1044466;Klody 
-1044467;Musisz miec narzedzie kucharskie, zeby to zrobic. 
-1044468;Maka 
-1044469;cocoa butter 
-1044470;Surowe ptaki 
-1044471;mieszanka do wypieku ciasta 
-1044472;Miod 
-1044473;Raw Chicken Legs 
-1044474;Cookie Mix 
-1044475;slodkie ciasto 
-1044476;Raw Fish Steaks 
-1044477;Jajka 
-1044478;Raw Legs of Lamb 
-1044479;Jablka 
-1044480;Brzoskwinie 
-1044481;Gruszki 
-1044482;Raw Meat 
-1044483;Kielbasa 
-1044484;Dynia 
-1044485;Raw Ribs 
-1044486;Ser 
-1044487;You must be near a fire source to cook. 
-1044488;You are not near a fire source. 
+1044455;Bele materialu  
+1044456;Nie masz zadnego gotowego materialu.  
+1044457;Materialy  
+1044458;Pociety material  
+1044459;Zlozony material  
+1044460;Potnij bele materialu na kawalki gotowego materialu.  
+1044461;Posortuj dostepny material na stosy wedlug kolorow.  
+1044462;Skory lub pociete skory  
+1044463;Nie masz odpowiedniego materialu, zeby wykonac ten przedmiot.  
+1044464;Wykonuje wszystko mozliwe z dostepnych materialow.  
+1044465;Nie masz odpowiedniego drewna, zeby to zrobic.  
+1044466;Klody  
+1044467;Musisz miec narzedzie kucharskie, zeby to zrobic.  
+1044468;Maka  
+1044469;Maslo kakaowe  
+1044470;Surowy drob  
+1044471;Mieszanka do wypieku ciasta  
+1044472;Miod  
+1044473;Surowe nogi kurczaka  
+1044474;Mieszanka na ciastka  
+1044475;Slodkie ciasto  
+1044476;Surowe steki rybne  
+1044477;Jajka  
+1044478;Surowe nogi jagniece  
+1044479;Jablka  
+1044480;Brzoskwinie  
+1044481;Gruszki  
+1044482;Surowe mieso  
+1044483;Kielbasa  
+1044484;Dynia  
+1044485;Surowe zeberka  
+1044486;Ser  
+1044487;Musisz byc blisko zrodla ognia, zeby gotowac.  
+1044488;Nie jestes blisko zrodla ognia.  
 1044489;Pszenica 
 1044490;Nie masz pszenicy. 
 1044491;Musisz byc blisko mlyna, zeby to zrobic. 
@@ -43754,15 +43754,15 @@ Number;Text
 1072859;wysokie elfickie lozko (wschod)  
 1072860;elfickie lozko (poludnie)  
 1072861;elfickie lozko (wschod)  
-1072862;ornamentowana elficka skrzynia (poludnie)  
+1072862;ornam. elficka skrzynia (PD)  
 1072863;elficka skrzynia  
 1072864;elficka komoda (poludnie)  
 1072865;elficka umywalka (poludnie)  
-1072866;elficka szafa (fancy)  
-1072867;elficka kanapa dwuosobowa (poludnie)  
+1072866;elficka szafa (elegancka)  
+1072867;elficka kanapa 2-os (poludnie)  
 1072868;Skrzynia Stolowa  
-1072869;ornamentowany stol (poludnie)  
-1072870;ornamentowane elfickie krzeslo  
+1072869;ornam.y stol (poludnie)  
+1072870;ornam. elfickie krzeslo  
 1072871;magiczny regal na ksiazki (poludnie)  
 1072872;przytulne elfickie krzeslo  
 1072873;elfickie krzeslo do czytania  
@@ -43802,8 +43802,8 @@ Number;Text
 1072907;Luk Zarazy 
 1072908;Faerie Fire 
 1072909;Stolen Goods 
-1072910;Mischief Maker 
-1072911;Extinguishing the Flame 
+1072910;Tworca Podstepow 
+1072911;Gasnacy plomien
 1072912;Nocny Zniwiarz 
 1072913;Death to the Ninja! 
 1072914;Crime and Punishment 
@@ -50397,10 +50397,10 @@ Number;Text
 1079505;Custom 10 
 1079506;Mistycyzm 
 1079507;Imbuing 
-1079508;Throwing 
+1079508;rzucanie 
 1079509;PLACEHOLDER TEXT - Describe how the Mysticism skill works here. TID #1079509 
 1079510;PLACEHOLDER TEXT - Describe how the Imbuing skill works here. TID #1079510 
-1079511;PLACEHOLDER TEXT - Describe how the Throwing skill works here. TID #1079511 
+1079511;PLACEHOLDER TEXT - Describe how the rzucanie skill works here. TID #1079511 
 1079512;Waypoint Facet: 
 1079513;Select a Type: 
 1079514;Waypoint Name: 
@@ -50602,10 +50602,10 @@ Number;Text
 1079710;Japan Promotion - Mini Houses 
 1079711;Mistycyzm 
 1079712;Imbuing 
-1079713;Throwing 
+1079713;rzucanie 
 1079714;Mysticism consists of 16 spells and eight circles that signify their power and the magic ability required to cast them. These eight concentric circles correspond to vortices within the ether, all spinning one within another as they expand through the universe. The more powerful a spell you wish to cast, the deeper into the inner circles of ether you must penetrate. The deeper you go, the more mana (magical energy) each spell requires you to expend. Spells of the Eighth circle require great measures of both skill and mana, while spells of the First circle are much easier and require less energy. 
 1079715;The Imbuing skill allows player characters to imbue items with magical properties. The amount of skill determines how much magical power an artificer can imbue in an item.<BR><BR>The Imbuing skill allows player characters to magically unravel items into special ingredients. Artificers use these ingredients when imbuing items with magical power. Magically unraveling items always destroys the item in the process. 
-1079716;Throwing is a ranged combat skill. Thrown weapons return to you and do not require ammunition. If you have a throwing weapon equipped, you can attack a player, animal, NPC or monster as you normally would. You can attack your target so long as you have direct line of sight to them. 
+1079716;rzucanie is a ranged combat skill. Thrown weapons return to you and do not require ammunition. If you have a rzucanie weapon equipped, you can attack a player, animal, NPC or monster as you normally would. You can attack your target so long as you have direct line of sight to them. 
 1079717;<CENTER>IMBUING CONFIRMATION</CENTER> 
 1079718;Item Property Chosen: 
 1079719;#NAZWA? 
@@ -50613,7 +50613,7 @@ Number;Text
 1079721;#NAZWA? 
 1079722;Playguide/Skills: Mysticism<BR>http://www.uoherald.com/guide/skill_55.php 
 1079723;Playguide/Skills: Imbuing<BR>http://www.uoherald.com/guide/skill_56.php 
-1079724;Playguide/Skills: Throwing<BR>http://www.uoherald.com/guide/skill_57.php 
+1079724;Playguide/Skills: rzucanie<BR>http://www.uoherald.com/guide/skill_57.php 
 1079725;Replaces Item Property: 
 1079726;<center>Charger of the Fallen</center> 
 1079727;Hooded Shroud of Shadows 
@@ -51965,7 +51965,7 @@ Number;Text
 1095246;The Left Eye of Karnak 
 1095247;* A mysticism spellbook<BR>* Reagents<BR>* Or: A spell scroll 
 1095248;* Imbuing ingredients<BR>* A nearby soulforge 
-1095249;* A throwing weapon 
+1095249;* A rzucanie weapon 
 1095250;Your target resists strangle. 
 1095251;Your must wait for your mount to settle down before remounting. 
 1095252;Your spirit energy must recover before you can change forms again. 
@@ -68419,7 +68419,7 @@ Number;Text
 1111701;You have learned how to mine fine sand.  Target sand areas when mining to look for fine sand. 
 1111702;You have learned to make items from glass.  You will need to find miners to mine fine sand for you to make these items. 
 1111703;ATLAS 
-1111704;Metal Armor 
+1111704;Zbroja metalowa 
 1111705;Stone Armor 
 1111706;Show Legend 
 1111707;Only gargoyles can wear this. 
@@ -68790,7 +68790,7 @@ Number;Text
 1112072;white dragon scales 
 1112073;blue sea serpent scales 
 1112074;You have removed your disguise. 
-1112075;skill required: throwing 
+1112075;Wymagana umiejetnosc: Rzucanie
 1112076;Hold Shift to Unstack Items 
 1112077;Auto-hide 
 1112078;Tabs 
@@ -69268,7 +69268,7 @@ Number;Text
 1112550;Welcome back! You have not done as I've instructed. Remember to stand near a soulforge and unravel magic items into ingredients. I believe in your ability. Do what I instruct, and bring me the result. 
 1112551;You have mastered the art of magic item unraveling. Your reward will be great. Good journey to you. 
 1112552;boura 
-1112553;throwing 
+1112553;rzucanie 
 1112554;You're stunned as the creature's tail knocks the wind out of you. 
 1112555;You're left confused as the creature's tail catches you right in the face! 
 1112556;Stable a chicken 
@@ -70360,8 +70360,8 @@ Number;Text
 1113642;Click OK to change your character's race. This change is permanent.<BR><BR>Are you sure you wish to change your character's race? 
 1113643;CHANGE RACE 
 1113644; 
-1113645;Properties: 
-1113646;Total Property Weight: 
+1113645;Cechy: 
+1113646;Calkowita wag: 
 1113647;Times Imbued: 
 1113648;Weighted Intensity: 
 1113649;Mystic's Garb 
@@ -71828,7 +71828,7 @@ Number;Text
 1115110;This title is obtained from Spellweaving skill gain. 
 1115111;This title is obtained from Mysticism skill gain. 
 1115112;This title is obtained from Imbuing skill gain. 
-1115113;This title is obtained from Throwing skill gain. 
+1115113;This title is obtained from rzucanie skill gain. 
 1115114;This is a reward title. 
 1115115;This is a reward title given for contributing to the Vesper Museum. 
 1115116;This is a reward title given for contributing to the Britannia Royal Zoo. 
@@ -71927,7 +71927,7 @@ Number;Text
 1115209;Uses any available bandages in your backpack on your current target. This only works with the Legacy Targeting option turned OFF. 
 1115210;Exits the game. 
 1115211;Detailed Hotbar Tooltips 
-1115212;Grants a bonus to Throwing skill while the object is equipped. 
+1115212;Grants a bonus to rzucanie skill while the object is equipped. 
 1115213;Grants a bonus to Mysticism skill while the object is equipped. 
 1115214;Thou are not of this faction and may not pass through. 
 1115215;The amount of damage you can withstand. If your Hit Points ever go below zero, you will die. 
@@ -71970,7 +71970,7 @@ Number;Text
 1115252;Fencing is a melee combat skill, which allows for an quick attack style of fighting. 
 1115253;Mace fighting is a melee combat skill, which allows for an quick attack style of fighting. 
 1115254;Swordsmanship is a melee combat skill, which allows for a strong-arm attack style of fighting. 
-1115255;Throwing is a ranged combat skill. Thrown weapons return to you and do not require ammunition. 
+1115255;rzucanie is a ranged combat skill. Thrown weapons return to you and do not require ammunition. 
 1115256;This skill will allow you to cast a variety of spells in the game. To cast a spell, your hands must be free of any items (except a spellbook), you must have a spellbook with the appropriate spell contained therein, and you must have the appropriate reagents in your pack. 
 1115257;"Rozmowa z Duchami is used to be able to understand the speech of ghosts. If you do not have this skill you will only be able to see a series of ""OoOOoo""s emanating from the deceased. The Rozmowa z Duchami skill is also used to heal players by channeling spiritual energy." 
 1115258;Mysticism consists of 16 spells and eight circles that signify their power and the magic ability required to cast them. These eight concentric circles correspond to vortices within the ether, all spinning one within another as they expand through the universe. The more powerful a spell you wish to cast, the deeper into the inner circles of ether you must penetrate. 
@@ -72136,7 +72136,7 @@ Number;Text
 1115418;Mystic Artificer 
 1115419;<body>85 Mysticism<br>85 Resist Spells<br>85 Focus<br>70 Inscription<br>70 Meditation<br>80 Strength<br>35 Zrecznosc<br>110 Inteligencja</body> 
 1115420;<body>85 Mysticism<br>85 Resist Spells<br>85 Imbuing<br>70 Inscription<br>70 Meditation<br>80 Strength<br>35 Zrecznosc<br>110 Inteligencja</body> 
-1115421;<body>85 Throwing<br>85 Tactics<br>85 Anatomy<br>70 Leczenie<br>70 Resist Spells<br>110 Strength<br>80 Zrecznosc<br>25 Inteligencja</body> 
+1115421;<body>85 rzucanie<br>85 Tactics<br>85 Anatomy<br>70 Leczenie<br>70 Resist Spells<br>110 Strength<br>80 Zrecznosc<br>25 Inteligencja</body> 
 1115422;Bladeweaver 
 1115423;Please enter the body type number: 
 1115424;Error: body type number out of range (1 - 1100) 
@@ -72605,7 +72605,7 @@ Number;Text
 1115887;ale 
 1115888;wine 
 1115889;Auto Water Refill 
-1115890;You stop short of throwing it! 
+1115890;You stop short of rzucanie it! 
 1115891;Link 
 1115892;Target a water source you wish to link. 
 1115893;Linked 
@@ -82734,29 +82734,29 @@ Number;Text
 1126016;jack o' lantern 
 1126017;jack o' lantern 
 1126018;jack o' lantern 
-1126019;bottle 
-1126020;mace belt 
-1126021;sword belt 
-1126022;dagger belt 
-1126023;elegant collar 
-1126024;assassin's cowl 
-1126025;mage's hood 
+1126019;butelka  
+1126020;pas z maczuga  
+1126021;pas na miecz  
+1126022;pas na sztylet  
+1126023;elegancki kolnierz  
+1126024;kaptur zabojcy  
+1126025;kaptur maga  
 1126026;tabard 
-1126027;elegant quarter cloak 
-1126028;gem 
-1126029;shrine 
-1126030;shrine 
-1126031;shrine 
-1126032;shrine 
-1126033;shrine 
-1126034;shrine 
-1126035;shrine 
-1126036;shrine 
-1126037;shrine 
-1126038;shrine 
-1126039;shrine 
-1126040;shrine 
-1126041;raw serpent steak 
+1126027;elegancka cwiartkowa peleryna  
+1126028;klejnot  
+1126029;oltarz  
+1126030;oltarz  
+1126031;oltarz  
+1126032;oltarz  
+1126033;oltarz  
+1126034;oltarz  
+1126035;oltarz  
+1126036;oltarz  
+1126037;oltarz  
+1126038;oltarz  
+1126039;oltarz  
+1126040;oltarz  
+1126041;surowy stek z weza
 1126042;grilowany stek z weza 
 1126043;surowy stek z weza 
 1126044;gotowany stek z weza 
@@ -108014,7 +108014,7 @@ Number;Text
 1151296;Psychic Attack 
 1151297;Spell Damage: ~1_val~% <br><br>Mana Cost Increased: ~2_val~% 
 1151298;Appraise for Cleanup 
-1151299;Target items to see how many Clean Up Britannia points you will receive for throwing them away. Continue targeting items until done, then press the ESC key to cancel the targeting cursor. 
+1151299;Target items to see how many Clean Up Britannia points you will receive for rzucanie them away. Continue targeting items until done, then press the ESC key to cancel the targeting cursor. 
 1151300;Complete the puzzle to obtain a Pristine Crystal Lotus. 
 1151301;You marvel at the flashing tiles. 
 1151302;A Pristine Crystal Lotus has been placed in your backpack. 
@@ -109099,7 +109099,7 @@ Number;Text
 1152381;Your backpack and bank cannot hold the punch card so it was lost. 
 1152382;This property converts a percentage of the damage inflicted to a player into mana replenishment.  This effect can only be triggered once every 40 seconds.  This property is only found on shields. 
 1152383;This property provides additional bonus damage when the attacker is facing the same direction as the target.  The bonus damage is based on the weapons original swing speed.  Ranged weapons have a 50% chance to proc.  The maximum bonus is 73% while minimum bonus 13%.  This property can be found on most weapon types. 
-1152384;This property is only available on archery weapons.  This property allows a player to use a two handed weapon as if it were a one handed weapon.  You can perform any action that normally requires a free hand, such as drinking a potion or throwing a shuriken. 
+1152384;This property is only available on archery weapons.  This property allows a player to use a two handed weapon as if it were a one handed weapon.  You can perform any action that normally requires a free hand, such as drinking a potion or rzucanie a shuriken. 
 1152385;This property initiates a damage increase that is modified by several factors.  Significant damage received from opponents will be added to the attacker's Glod walki, causing them to do more damage to all opponents the attacker engages.  This damage bonus is further modified by how many opponents the attacker is aggressed against.  The damage bonus is 15% per opponent, with a cap of 45% in PvP and 90% in PvM.  Glod walki is gained every two seconds and decays at a rate of one point every six seconds.  This property can be found on most weapon types. 
 1152386;An item with this property will remain with a character when they die and are placed into the character's backpack upon resurrection.   These items can neither be stolen by using the stealing skill nor can they be insured. 
 1152387;This property will allow an attacker to gain hit points when using the bleed attack special move.  All of the damage inflicted through the bleed attack is directly transferred back to the attacker's health.  This property is only found on weapons that allow use of the bleed attack special move. 
@@ -109108,7 +109108,7 @@ Number;Text
 1152390;"This property converts a small portion of damage dealt to a player back as health.  The damage inflicted must be the same type of damage as the eater for the property to function.  Similar eater properties stack with other but are capped at 30%.  The ""damage all"" type of eater is capped at 18%.  The property stores up to 20 healing charges and converts charges every three second from the last time damage was received.  The ""damage all"" type of Pochlanianie obrazen does not stack with specific eaters.  This property is generally only found on armor and shields." 
 1152391;This property provides a chance to resist interruptions while casting spells if the damage received is the same damage type as the resonance.  This property can only be found on two handed weapons and shields. 
 1152392;This property provides a chance for a ranged weapon to inflict additional damage.  The additional damage is increased by 3 points for each tile that the attacker is away from the target up to a maximum of 30 points of damage.  The damage inflicted is physical damage that can be lessened by a targets physical resistance.  This property can only be found on ranged weapons. 
-1152393;This property allows a player to use a weapon as long as they have a weapon skill (fencing, mace fighting or swordsmanship).  The weapon functions as if the player's highest weapon skill is the appropriate skill.  The wrestling, archery and throwing skills are excluded from this property.  This property is only found on melee weapons. 
+1152393;This property allows a player to use a weapon as long as they have a weapon skill (fencing, mace fighting or swordsmanship).  The weapon functions as if the player's highest weapon skill is the appropriate skill.  The wrestling, archery and rzucanie skills are excluded from this property.  This property is only found on melee weapons. 
 1152394;This property increases the specified regeneration (hit point, mana or stamina) by 10 for 20 seconds when one charge is consumed.  The item must be equipped to allow the charge to be used.  This increase allows a player to bypass the standard regeneration caps for the duration of the effect.  This property is currently only found on shields. 
 1152395;This property adds to the user's maximum stamina.  The stamina is not instantly gained when the item is equipped 
 1152396;This property provides a chance to apply a bleed effect and a four second duration forced walk to the target.  Each application of the bron rozszczepiajacas reduces the durability of the weapon.  This property can be found on melee weapons. 
@@ -109143,7 +109143,7 @@ Number;Text
 1152425;This property provides a chance to leech hit points from the target.  The amount of hit points leeched from the target is up to 30% of the damage inflicted.  This property can be found on all weapons. 
 1152426;This property provides a chance to cast a lightning spell on the target.  The lightning effect is similar to the magery fourth circle spell lightning.  The property can be found on all weapons. 
 1152427;This property provides a chance to cast a magic arrow spell on the target.  The magic arrow effect is similar to the magery first circle spell magic arrow.  The property can be found on all weapons. 
-1152428;This property modifies a weapon so that it uses a player's magery skill as the weapons required weapon skill instead of the weapons default required weapon skill (archery, fencing, throwing, etc.).  The wielder will also be subject to any listed penalty to their magery skill.  This property can only be found on weapons. 
+1152428;This property modifies a weapon so that it uses a player's magery skill as the weapons required weapon skill instead of the weapons default required weapon skill (archery, fencing, rzucanie, etc.).  The wielder will also be subject to any listed penalty to their magery skill.  This property can only be found on weapons. 
 1152429;An item with this property will remain with a character when they die and are placed into the character's backpack upon resurrection.  You must pay an amount of gold based on the items magical strength to insure an item.  Uninsured items always remain on the player's corpse and may be potentially looted by monsters or other players.  Blessed items, cursed items, stackable items and containers cannot be insured.  These items cannot be stolen by using the stealing skill. 
 1152430;This property indicates that an item cannot be repaired by any means.  This includes repairs by player, repair deed and powder of fortification. 
 1152431;This property adds to the user's maximum mana.  The mana is not instantly gained when the item is equipped 
@@ -110873,28 +110873,28 @@ Number;Text
 1154155;Metalowy Stol (Wschod)  
 1154156;Drewniany Stol (Poludnie)  
 1154157;Drewniany Stol (Wschod)  
-1154158;Fantazyjna Drewniana Polka (Poludnie)  
-1154159;Fantazyjna Drewniana Polka (Wschod)  
-1154160;Zwykla Drewniana Polka (Poludnie)  
-1154161;Zwykla Drewniana Polka (Wschod)  
-1154162;Dzwon Montowany na Scianie (Poludnie)  
-1154163;Dzwon Montowany na Scianie (Wschod)  
+1154158;Finezyjna Drewn. Polka (PD)  
+1154159;Finezyjna Drew. Polka (WS)  
+1154160;Zwykla Drew. Polka (PD)  
+1154161;Zwykla Drew. Polka (WS)  
+1154162;Dzwon Sceinny (PN)  
+1154163;Dzwon Sceinny (WS)  
 1154164;Dlugi Metalowy Stol (Poludnie)  
 1154165;Dlugi Metalowy Stol (Wschod)  
 1154166;Dlugi Drewniany Stol (Poludnie)  
 1154167;Dlugi Drewniany Stol (Wschod)
 1154168;City Trade Deal Buff 
-1154169;Buff Type: ~1_TYPE~ 
+1154169;Typ wzmocnienia: ~1_TYPE~ 
 1154170;workable glass 
 1154171;You need workable glass to make that. 
 1154172;You need a candelabra to craft that. 
-1154173;Upholstered Chair 
+1154173;Krzeslo tapicerowane
 1154174;Proch do armat zostal umieszczony w twoim plecaku. 
 1154175;Proch do aramat: ~1_COUNT~ 
-1154176;Potions have been placed in your backpack. 
-1154177;Scrolls of Transcendence have been placed in your backpack. 
-1154178;Potions: ~1_COUNT~ 
-1154179;Scrolls of Transcendence: ~1_COUNT~ 
+1154176;Mikstury zostaly umieszczone w Twym plecaku
+1154177;Zwoj transcendencji zostal umieszczony w twym plecaku.
+1154178;Mikstury: ~1_COUNT~ 
+1154179;Zwoje transcendencji: ~1_COUNT~ 
 1154180;Ship Painting 
 1154181;Ship Painting (East) 
 1154182;Fire Painting 
@@ -111118,7 +111118,7 @@ Number;Text
 1154400;Calculations 
 1154401;1259<BR>-300<BR>-324<BR>-569<BR>-1290<BR>245<BR>867<BR>-3250<BR>9230<BR>-12348<BR>-23398<BR>860<BR>-2407<BR><I>*There appears to be a lot of scratches of the pen all over this paper, as if it were calculated while under duress.*</I> 
 1154402;Suspicions 
-1154403;I'm sure the bastards are cheating, but I can't find out what their system is or why they always win when it's a larger bet. I can't seem to figure out their system, and it's better than mine! If only I didn't have all those distractions with how loud it is in there from the other tables. People talking about how their piddling little days went, how happy they are to meet someone, even that once renowned thief getting hired by someone. It doesn't mean anything, and it's throwing me off my game! Mercutio's breathing down my neck as it is...at least I still have those hidden documents so he doesn't dare kill me outright...but it won't be long before his cierpliwosc runs out and even that threat won't be enough. 
+1154403;I'm sure the bastards are cheating, but I can't find out what their system is or why they always win when it's a larger bet. I can't seem to figure out their system, and it's better than mine! If only I didn't have all those distractions with how loud it is in there from the other tables. People talking about how their piddling little days went, how happy they are to meet someone, even that once renowned thief getting hired by someone. It doesn't mean anything, and it's rzucanie me off my game! Mercutio's breathing down my neck as it is...at least I still have those hidden documents so he doesn't dare kill me outright...but it won't be long before his cierpliwosc runs out and even that threat won't be enough. 
 1154404;Sealed Letters 
 1154405;Light saber 
 1154406;<I>*The letters are sealed in tubes capped with wax to make them waterproof and hidden away. Written on the outside is 'Open only on the occasion of the death of Champ Huthwait, to be delivered to the Britain Bugle, the Trinsic Tribune, and the Sosarian Scout.'*</I> 
@@ -112496,7 +112496,7 @@ Number;Text
 1155778;Fencing Mastery 
 1155779;Mace Fighting Mastery 
 1155780;Swordsmanship Mastery 
-1155781;Throwing Mastery 
+1155781;rzucanie Mastery 
 1155782;Parowanie Mastery 
 1155783;Zatruwanie Mastery 
 1155784;Wrestling Mastery 
@@ -112677,9 +112677,9 @@ Number;Text
 1155959;Toggle ability that provides the mace fighter with increased hit points based on the mace fighter's tactics and mace fighting skill, and mastery level that consumes mana while active. 
 1155960;The swordsman executes an onslaught of attacks on their opponent reducing one of their victim's resists based on the swordsman's swordsmanship and tactics skill and the damage type of the weapon used for a duration based on mastery level. 
 1155961;Toggle ability that provides the swordsman with a hit chance increase buff based on the swordsman's swordsmanship and tactics skill and mastery level that consumes mana while active. 
-1155962;When activated the thrower will generate a pool of fury based on their weapons damage type. Each successful attack the thrower deals will add fury to the pool. Once the pool is full the thrower will unleash the Elemental Fury. The duration and fury pool size are based on the thrower's mastery level, throwing, and tactics skill. 
-1155963;The thrower executes a called shot that provides a Hit Chance Increase and Damage increase based on the thrower's throwing and tactics skill, and mastery level. 
-1155964;While the archery, fencing, mace fighting, swordsmanship, or throwing masteries are active the combatant receives hit chance increase, defense chance increase, strength bonus, and damage bonus  based on mastery level. 
+1155962;When activated the thrower will generate a pool of fury based on their weapons damage type. Each successful attack the thrower deals will add fury to the pool. Once the pool is full the thrower will unleash the Elemental Fury. The duration and fury pool size are based on the thrower's mastery level, rzucanie, and tactics skill. 
+1155963;The thrower executes a called shot that provides a Hit Chance Increase and Damage increase based on the thrower's rzucanie and tactics skill, and mastery level. 
+1155964;While the archery, fencing, mace fighting, swordsmanship, or rzucanie masteries are active the combatant receives hit chance increase, defense chance increase, strength bonus, and damage bonus  based on mastery level. 
 1155965;When activated the shield user will execute a shield bash on successfully hitting or parrying their opponent causing physical damage and paralyzing their opponent based on parry skill, best weapon skill, and mastery level. 
 1155966;The shield user chooses a protectee to absorb a percentage of damage done to the protectee based on parry skill, best weapon skill, and mastery level. 
 1155967;Toggle ability that provides the Parowanie Master with increased chance to parry based on parry skill, best weapon skill and mastery level that consumes mana while active. 
@@ -112731,10 +112731,10 @@ Number;Text
 1156013;You command the undead to follow and protect you. 
 1156014;The undead becomes enraged by your command attempt and attacks you. 
 1156015;You cannot command that! 
-1156016;You must have a throwing weapon equipped to use this ability. 
+1156016;You must have a rzucanie weapon equipped to use this ability. 
 1156017;*W furii ciskasz swym ostrzem w przeciwnika!* 
 1156018;Elemental Fury 
-1156019;Each attack the caster deals with ~1_TYPE~ damage will add up to ~3_VAL~ damage to the Fury Pool. Once the Fury Pool reaches ~2_VAL~ the throwing weapon will unleash the Elemental Fury. 
+1156019;Each attack the caster deals with ~1_TYPE~ damage will add up to ~3_VAL~ damage to the Fury Pool. Once the Fury Pool reaches ~2_VAL~ the rzucanie weapon will unleash the Elemental Fury. 
 1156020;Magnus Effect Debuff 
 1156021;DCI: ~1_VAL~% 
 1156022;You ready your shield. 
@@ -113032,7 +113032,7 @@ Number;Text
 1156314;This title is obtained from Ninjitsu Mastery. 
 1156315;This title is obtained from Spellweaving Mastery. 
 1156316;This title is obtained from Mysticism Mastery. 
-1156317;This title is obtained from Throwing Mastery. 
+1156317;This title is obtained from rzucanie Mastery. 
 1156318;Destroyer of the Time Rift 
 1156319;This is a reward title given for completing Shadowguard. 
 1156320;An Unstable Time Rift 
@@ -113275,8 +113275,8 @@ Number;Text
 1156557;Ahh-Ooo! Ahh-Ooo!  Britainnian kill big dino! Show courage and strength!  Sakkrah trust you now! 
 1156558;Volcano Caldera 
 1156559;You must upgrade to Time of Legends to participate in this quest. 
-1156560;Fancy Loveseat (North) 
-1156561;Fancy Loveseat (West) 
+1156560;Elegancka kozetka (Polnoc) 
+1156561;Elegancka kozetka (Zachod) 
 1156562;Professor Ellie Rafkin 
 1156563;Night in the Valley Volume I 
 1156564;Night in the Valley Volume II 
@@ -113291,14 +113291,14 @@ Number;Text
 1156573;"The Northern stretches of Eodon are cut through by flowing streams and a vast swamp.  Lizard like beasts of fantastic origins inhabit these lands.  Our escorts have more than once attempted to best of these beasts, their armor and weapons showing the wear of such a challenge.  Protected from these creatures by tall stone walls - and displaying the most advanced building and farming technologies we have thus encountered in the Valley - are the Sakkhra.  The Sakkhra worship these lizard-like creatures which they refer to in a native word ""Di-no-saur"".  The towering walls of their village protect them from the Dinosaurs, but still the Sakkhra, adorned in colors as vibrant and varied as the reptiles they worship venture beyond the safety of their village to hunt the greatest of the dinosaurs, Tyrannosaurus Rex.  I have yet to encounter, and am almost thankful for it, the beast but in my exchanges with the Sakkrah I have learned the the Tyrannosaurus Rex is vicious animal that has an appetite for other dinosaurs which it feeds on to grow stronger.  I have urged my escorts to allow us to venture into the swamps in an effort to better study the creatures - alas they say it is too dangerous." 
 1156574;In the southern lowlands of the Valley of Eodon we encountered nimble jungle cats that hunt by the dim moonlight each night.  Several of our party were unfortunate enough to encounter these animals before our escorts were able to secure a perimeter.  The cats are worshiped by the Kurak Tribe.  The Kurak are a caring people with shared morals and beliefs of the Urali, but in relation to the tiger.  The Kurak adorn themselves in a variety of colors - matching the rarity in which one may encounter tigers in the wild with orange being the most common, with black and white being progressively more uncommon.  Wealthy homesteads in Britannia covet the furs of the tigers, particularly those of the juvenile tiger cubs.  Trappers have taken to the practice of enclosing the cubs before they can transport them for skinning.  Our escorts had a nasty encounter with several of the trappers, and antidotes to powerful poisons were required to save several who were injured.  The Kurak have attempted to free the cubs, the intricate locking mechanisms of the enclosures, has unfortunately proved to complex for them.  Care should be taken in the lowlands as the native tiger population does not take kindly to intruders given the circumstances. 
 1156575;"A large volcano sits solemnly in the southern reaches of the Valley of Eodon.  Our expedition into this area of the Valley was met with litte in the way of encounters.  I had begun to dissect the native tongue of the indiginous peoples and had become somewhat proficient at modest communication with the wandering shaman we ocassionally encountered.  As we made our way deeper into the jungle we passed the temple complex that my escort refused further exploration until we knew more of the Valley's secrets.  It was nearing dusk when we first encountered the Jukari.  The deep crimson hue of their skin struck me as peculiar as first.  My apprehension from their appearance was quickly quelled as we began our exchange.  The Jukari are a faithful people and view the Volcano as a great sleeping giant.  Of particular note is their custom of proving bravery among their kin.  Hidden deep within the caldera of the volcano is a sacred rock the Jukari call the lava rock.  The lava rock pulses with an inner fire, and the Jukari covet the shards of this stone as cenny possessions.  Only the bravest of their tribe venture into the most fertile grounds closest to the lava flow.  The Jukari have described a process by which the Volcano ""eats"" those who are not fast enough, alas I can only surmise this refers to the unfortunate seekers who are trapped within the scorching lava flows and do not seek refuge within the outcroppings of the lava tubes where I am told the flow gets diverted." 
-1156576;During our exploration of the Northeastern reaches of the Valley we encountered a dense forest with a tall, expansive canopy.  Bananas grow in mass within the forest, a welcome surprise to our escorts who somehow manage to continue to eat whatever nightly concoction our cooks manage to prepare.  I was unaware bananas could be prepared with such variety, and I must admit while the sound of a warm banana salad left little to be desired on my starving palate I was pleasantly surprised how delicious the dish was.  As one might suspect, bananas in the Valley of Eodon are similar to what one might encounter in Britannia, albeit they are somewhat longer and more slender.  It seemed to matter little to the indigenous gorilla population who when approached can be quite aggressive and possess great strength and accuracy, particularly when targeting someone with a recently picked banana.  In huts nestled high in the trees are the Barako tribe.  The Barako, much like the other tribes of Eodon, worship the gorilla and are in awe of their strength.  The Barako are battle tested and their dress reflects their readiness for a fight.  Most interestingly enough, however, was what the Chief of the Barako described to me as the Great Ape.  As the legend goes a great ape lives in a cave, surround by a hoard of bananas the ape's lesser gorilla accomplices gather, not far from the Barako.  The Chief also went on to describe the few encounters their people had with the Great Ape, particularly mentioned the strength and throwing accuracy of the Ape itself.  Some scouts in our party ventured into the cave only to report what appeared to be man made trusses with barrels resting on top.  While the barrels appeared massive and likely requiring the effort of several men to move, they would be little challenge for a creature of the size and stature of the Great Ape.  Our scouts did not stay long, however, as the number of gorillas within the cave quickly swelled with their presence before the scouts retreated out of a fear for their safety. 
+1156576;During our exploration of the Northeastern reaches of the Valley we encountered a dense forest with a tall, expansive canopy.  Bananas grow in mass within the forest, a welcome surprise to our escorts who somehow manage to continue to eat whatever nightly concoction our cooks manage to prepare.  I was unaware bananas could be prepared with such variety, and I must admit while the sound of a warm banana salad left little to be desired on my starving palate I was pleasantly surprised how delicious the dish was.  As one might suspect, bananas in the Valley of Eodon are similar to what one might encounter in Britannia, albeit they are somewhat longer and more slender.  It seemed to matter little to the indigenous gorilla population who when approached can be quite aggressive and possess great strength and accuracy, particularly when targeting someone with a recently picked banana.  In huts nestled high in the trees are the Barako tribe.  The Barako, much like the other tribes of Eodon, worship the gorilla and are in awe of their strength.  The Barako are battle tested and their dress reflects their readiness for a fight.  Most interestingly enough, however, was what the Chief of the Barako described to me as the Great Ape.  As the legend goes a great ape lives in a cave, surround by a hoard of bananas the ape's lesser gorilla accomplices gather, not far from the Barako.  The Chief also went on to describe the few encounters their people had with the Great Ape, particularly mentioned the strength and rzucanie accuracy of the Ape itself.  Some scouts in our party ventured into the cave only to report what appeared to be man made trusses with barrels resting on top.  While the barrels appeared massive and likely requiring the effort of several men to move, they would be little challenge for a creature of the size and stature of the Great Ape.  Our scouts did not stay long, however, as the number of gorillas within the cave quickly swelled with their presence before the scouts retreated out of a fear for their safety. 
 1156577;The dim light from the campfire flickered against the canvass tent.  In the still of night the jungle was alive with the howls of monkeys and the singing of crickets.  A gentle breeze rustled the fronds of nearby palms.  Even though it had been months since I'd left the Lyceum, the jungles of Eodon still made me uneasy.  I had seen such beauty in the Valley during my time here.  Brilliant fauna gave Eodon character and intimacy.  Meandering streams cutting through the verdant landscape made it feel alive and fertile.  In the distance the towering caldera of a great volcano smoked confidently, owing to its wise past.  On the surface, Eodon appeared inviting and warm, but a foreign and present danger lay hidden beneath.  I had been fortunate enough to only encounter the Myrmidex once. 
 1156578;A gleam of sunshine had caught my eye, the reflection from their chitonous exoskeleton.  Before I could focus on what I was seeing my escort let out a bellowing war cry and brought his axe down in front of me.  The axe cut through the air and landed squarely in the thorax of the Myrmidex warrior.  Greenish hemolymph oozed from the wound as the creature struggled and writhed.  I tried to turn away but my curiosity drew me in.  The creature was large, nearly twice the size of a man.  Insectoid in appearance with elongated, jointed appendages.  The unmistakable crimson of blood spattered a pair of pincers protruding from the head.  As I moved closer to get a better look my escort cleaved his axe through the air once again, this time decapitating the beast.  More greenish ooze leaked from the creature's neck and pooled onto the jungle floor.  I had not seen a Myrmidex since that day.  I would come to learn the Myrmidex were a mostly subterranean species, coming to the surface only on occasion to hunt for food to return to the hive.  Eodon was full of surprises and each day was rich with discovery.  Such work had made me tired, a welcome benefit as it made it easier to fall asleep and assuage my unease.  Just as I felt my mind begin to drift to the land of nod the jungle fell silent.  Seconds later a chilling scream echoed throughout the Valley. 
 1156579;The jungle air was cool.  Morning dew weighed on nearby palms and chirping birds welcomed the rising sun.  I'd only managed a few hours sleep and woke groggy, my mind was in a fog.  Several porters had been attacked in the middle of the night, what remained of their corpses was covered in a thick yellowish-green mucous.  The escorts managed to defend against the Myrmidex, but not before they had their chance at us.  The escorts assembled the corpses, both of the porters and the Myrmidex a short ways from the camp so that I could examine them.  As I meandered awkwardly through the camp I looked at the men who'd been escorting me.  Their faces looked tired and worn.  It had been months since we first set foot into the Valley.  I remembered the exhilaration I felt when I stepped through the Moongate and the lushness of the Valley of Eodon came into my focus for the first time.  Eodon, despite its dangers, was a truly remarkable place.  Flora and fauna previously unknown to Britannia was ripe for study.  Creatures, both friendly and foe, looked upon us with an equal level of curiosity.  I had spent these months carefully indexing and cataloging everything we'd come across.  The landscape, the beautiful flowers, the curious creatures that called Eodon home.  Inside one of our tents a small table had a modest selection of provisions.  Our cook had unfortunately fallen from a sheer rock face so we'd  been surviving on rations of salted fish steaks and whatever fruit we could forage from the jungle.  If I'd never seen another banana in my life it'd be too soon.  The corpse showed clear signs of mastication.  I had learned much about the biology of the Myrmidex since we first encountered them.  From my observations I knew there were three stages in the growth cycle.  Like most insects the Myrmidex grew from a single egg implanted into an organic host.  These eggs were mostly implanted by the drone of the species, often moderately sized with modified fangs that served as ovipositors. 
 1156580;The eggs were no doubt provided to the drones by a Queen, however this is only my hypothesis as we have yet to venture into their pits.  The Myrmidex live in a sandy habitat and create elaborate subterranean pits within the sand.  The species is mostly nocturnal, as we have not encountered them in daylight hours.  As I examined the corpse even further I could see the embryonic mucosa covering the tissues - a viscous greenish-yellow slime leftover from the larvae feeding.  No doubt the larva feeding on this corpse had already burrowed and soon will emerge as the largest of the species we'd observed so far, the Warrior.  The Myrmidex Warriors were huge.  Their forward tarsus was modified into a razor sharp talon, capable of slicing their prey with ease.  The exoskeleton of the Warrior was much hardier than that of other individuals, often times marred with the scars of past aggression.  I motioned over to the escorts and instructed them to burn the bodies.  Burning the bodies was the only sure way, so far as we had determined, to prevent additional larva from hatching were they present.  I returned to makeshift mess tent.  I didn't have much of an appetite. I had collected some samples from the corpses before the escorts burned them.  I stored them within my already growing collection of items I'd collected during our time in the Valley.  I always aimed for a well kept tent, but often found my work strewn about as I furiously tried to document everything I'd seen.  For all its danger Eodon was truly an enchanting place and I was hungry for knowledge.  Outside the sun was just beginning to peak from behind the Volcano.  I looked up and closed my eyes, basking in the warmth of its gentle rays.  I let myself smile and relax for just a moment before opening my eyes once again.  The sun was higher now and I had to squint.  As my eyes came into focus I felt my heart sink, unease consumed my body.  I froze immediately.  Just beyond the perimeter of our camp I felt a hundred eyes on me. 
 1156581;A bag with a unique treasure 
-1156582;Fancy Couch (North) 
-1156583;Fancy Couch (West) 
+1156582;Elegancka kanapa (Polnoc) 
+1156583;Elegancka kanapa (Zachod) 
 1156584;Ahhhh-OOOO! Ahhh-OOOO! 
 1156585;Ukonczyles zadanie! 
 1156586;Before using the in game store, you must be in a safe log-out location (such as an inn or a house which has you on its Owner, Co-owner, or Friends list). 
@@ -115044,11 +115044,11 @@ Number;Text
 1158326;For your accomplishments you have been awarded a bonus 1000 Despise points! Trade with the wisp to redeem them! 
 1158327;The amount entered is invalid. The amount must be less than or equal to the total quantity of the item. 
 1158328;Learn more about the Event Moderators (Opens UO Wiki) 
-1158329;There is nothing to harvest. 
+1158329;Nie ma tu nic do zebrania 
 1158330;*You collect a plant from the wheelbarrow* 
 1158331;This item cannot be used by an Endless Journey account. 
-1158332;picnic blanket 
-1158333;enchanted picnic basket 
+1158332;koszyk piknikowy 
+1158333;zaczarowany koszyk piknikowy 
 1158334;You can't move that because it is within a vended container. 
 1158335;Endless Journey accounts can't move that because it is within a bank box. 
 1158336;You may not add runes to this item. 
@@ -115939,12 +115939,12 @@ Number;Text
 1159221;Hungry Coconut Crab Statuette 
 1159222;*Redeemable for a pet*<br>*Requires High Seas Booster Pack* 
 1159223;Jack O' Lantern Helm 
-1159224;elegant collar 
-1159225;elegant collar of fortune 
-1159226;assassin's cowl 
-1159227;mage's hood 
-1159228;cowl of the mace & shield 
-1159229;mage's hood of scholarly insight 
+1159224;elegancki kolnierz  
+1159225;elegancki kolnierz szczescia  
+1159226;kaptur zabojcy  
+1159227;kaptur maga  
+1159228;kaptur maczugi i tarczy  
+1159229;kaptur maga glebokiej wiedzy
 1159230;Admiral Jack's Pumpkin Spice Ale 
 1159231;Captain of ~1_SHIP~'s Hearty Rum 
 1159232;Pumpkin Cannon 
