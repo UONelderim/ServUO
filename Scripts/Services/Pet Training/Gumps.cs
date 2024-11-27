@@ -1230,10 +1230,10 @@ namespace Server.Mobiles
             AddImageTiled(37, 342, 496, 56, 3004);
 
             AddButton(40, 410, 0x9CC8, 0x9CC7, 1, GumpButtonType.Reply, 0);
-            AddHtml(40, 413, 126, 20, Center("Back"), false, false);
+            AddHtml(40, 413, 126, 20, Center("Cofnij"), false, false);
 
             AddButton(415, 410, 0x9CC8, 0x9CC7, profile.TrainingMode == TrainingMode.Regular ? 8 : 9, GumpButtonType.Reply, 0);
-            AddHtml(415, 413, 126, 20, Center(profile.TrainingMode == TrainingMode.Regular ? "Train Pet" : "Add To Plan"), false, false);
+            AddHtml(415, 413, 126, 20, Center(profile.TrainingMode == TrainingMode.Regular ? "Trenuj" : "Dodaj do planu"), false, false);
 
             AddHtmlLocalized(35, 55, 245, 20, CenterLoc, "#1114269", 0, false, false); // PROPERTY INFORMATION
             AddHtmlLocalized(50, 85, 60, 16, 1114270, false, false); // Property:
@@ -1731,7 +1731,7 @@ namespace Server.Mobiles
             AddBackground(0, 0, 654, 524, 0x24A4);
 
             AddButton(275, 35, 0x9CC8, 0x9CC7, 1, GumpButtonType.Reply, 0);
-            AddHtml(275, 38, 126, 20, Center(profile.TrainingMode == TrainingMode.Planning ? "DISABLE" : "ENABLE"), false, false);
+            AddHtml(275, 38, 126, 20, Center(profile.TrainingMode == TrainingMode.Planning ? "WYLACZ" : "WLACZ"), false, false);
 
             AddHtmlLocalized(0, 11, 654, 18, CenterLoc, "#1157591", 0xF424E5, false, false); // Pet Training Planning 
             AddHtmlLocalized(60, 60, 216, 18, 1044010, 0, false, false); // <CENTER>CATEGORIES</CENTER>
