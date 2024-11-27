@@ -605,7 +605,7 @@ namespace Server.Regions
 
         public virtual bool CheckTravel(Mobile traveller, Point3D p, Spells.TravelCheckType type)
         {
-            return type is TravelCheckType.TeleportFrom or TravelCheckType.TeleportTo;
+	        return true;
         }
 
         public virtual bool CanSee(Mobile m, IEntity e)
