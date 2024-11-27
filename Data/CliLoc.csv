@@ -73281,7 +73281,7 @@ Number;Text
 1116563;An net woven from iridesent kelp. 
 1116564;You direct your crew to throw the fishing crate overboard. *splash!* 
 1116565;A smal water logged chest. 
-1116566;Ship Access 
+1116566;Dostep do statku 
 1116567;Ustawienia zabezpieczen 
 1116568;The ground trembles as the island begins to sink back into the sea. 
 1116569;You have been granted access to the ship owned by ~1_name~. 
@@ -106439,7 +106439,7 @@ Number;Text
 1149721;The pirate escapes and swims away.  Curse you, dread pirate! 
 1149722;Your spellsong has ended. 
 1149723;You cannot place a ship this far out to sea. You must be near land or shallow water. 
-1149724;<CENTER>Passenger and Crew Manifest</CENTER> 
+1149724;<CENTER>Lista zalogi i pasazerow</CENTER> 
 1149725;N/A 
 1149726;ODMOW DOSTEPU 
 1149727;PASAZER 
@@ -106447,9 +106447,9 @@ Number;Text
 1149729;OFICER 
 1149730;KAPITAN 
 1149731;Dostep publiczny: 
-1149732;Dostep dla druzyny: 
-1149733;Dostep dla gildii: 
-1149734;LISTA DOSTEPOWA 
+1149732;Dostep druzyny: 
+1149733;Dostep gildii: 
+1149734;LISTA DOSTEPU
 1149735;POMOC 
 1149736;"You may grant or deny access to your ship to the public, to members of your party, to members of your guild, and to specific characters. Multiple security settings may apply to specific characters. In these cases, if any matching setting is ""Deny Access"" then that character is not allowed any access to the ship. Otherwise, that character receives the highest applicable level of access. For example, if you allow members of your guild Passenger access and members of your party Crew access, then a member of your guild who is also in your party will be considered Crew." 
 1149737;N/A: This setting does not grant or deny privileges aboard the ship 
@@ -106458,11 +106458,11 @@ Number;Text
 1149740;Crew: allows operation of the ship's weapons and piloting the ship 
 1149741;Officer: allows access to the cargo hold, and installation or dismantling of weaponry. 
 1149742;Captain: grants all privileges, including dry docking and changing security settings 
-1149743;Party membership modifies access to this ship: 
-1149744;When I am Party Leader 
-1149745;When I am a Party Member 
+1149743;Druzyna moze modyfikowac dostep do statku gdy: 
+1149744;Jestem liderem druzyny 
+1149745;Jestem czlonkiem druzyny
 1149746;Ship Security Status 
-1149747;Access List Status: 
+1149747;Stan listy dostepu: 
 1149748;Public: 
 1149749;Party: 
 1149750;Guild: 
@@ -106476,24 +106476,24 @@ Number;Text
 1149758;There is not enough to bait the whole stack. 
 1149759;You bait the hook. 
 1149760;You bait the trap. 
-1149761;Ship: 
-1149762;Owner: 
-1149763;Player: 
+1149761;Statek:
+1149762;Wlasciciel: 
+1149763;Osoba: 
 1149764;You must have that equipped to use it. 
 1149765;Soul Collector: ~1_val~% 
 1149766;You must wait before performing another soul burn. 
 1149767;You already have a soul burn in effect. 
-1149768;Effective Level: 
-1149769;Is Party Member: 
-1149770;Is Guild Member: 
+1149768;Poziom dostepu: 
+1149769;Czlonek druzyny: 
+1149770;Czlonek gildii: 
 1149771;That does not have enough soul energy to harvest. 
 1149772;You will attempt to harvest the target's soul energy. 
 1149773;The soul collector is full. 
 1149774;OWNER 
 1149775;NOT IN ACCESS LIST 
-1149776;REMOVE FROM LIST 
-1149777;MAIN MENU 
-1149778;Never 
+1149776;USUN Z LISTY 
+1149777;POWROT 
+1149778;Nigdy 
 1149779;Corgul's Handbook on Mysticism 
 1149780;Corgul's Handbook on the Undead 
 1149781;Corgul's Enchanted Sash 
