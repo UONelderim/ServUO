@@ -50,7 +50,7 @@
             Resistances[element] = 2;
 
             m_Attribute = element;
-            LootType = LootType.Blessed;
+           // LootType = LootType.Blessed;
 
             Hue = GetItemData(m_Attribute, false);
         }
