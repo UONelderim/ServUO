@@ -13,7 +13,7 @@ namespace Server.Mobiles
 		public CommonHordeDaemon() : base(AIType.AI_Melee, FightMode.Closest, 12, 1, 0.2, 0.4)
 		{
 			Name = "demon hordy";
-			Body = 795;
+			Body = 776; //brak animacji w ServUO TODO: tymczasowo daje ten sam BodyBalue co w LesserHordeDaemon, to fix later: podegrac animacje
 			BaseSoundID = 357;
 
 			SetStr(316, 340);
