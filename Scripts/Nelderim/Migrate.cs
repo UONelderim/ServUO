@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Nelderim;
 using Server.Accounting;
+using Server.Engines.CannedEvil;
 using Server.Gumps;
 using Server.Items;
 using Server.Misc;
@@ -31,6 +32,7 @@ namespace Server.Commands
 			MigrateMalasDungeons(from);
 			AlignTeleportersToMalasDungeons(from);
 			AlignSpawnersAndRespawn(from);
+			FixChampionSpawns(from);
 			from.SendMessage("Done migrating!");
 		}
 
@@ -323,7 +325,7 @@ namespace Server.Commands
 			new("vox", 4109, 3786, 6987, 139, 0 ),
 			new("zoo", 1675, 2005, 6288, 316,0),
 		};
-		
+
 		private static void AlignTeleportersToMalasDungeons(Mobile from)
 		{
 			from.SendMessage("Fixing IN teleporters");
@@ -361,7 +363,7 @@ namespace Server.Commands
 				}
 			}
 		}
-		
+
 		private static void AlignSpawnersAndRespawn(Mobile from)
 		{
 			var spawners = World.Items.Values.OfType<XmlSpawner>().ToArray();
@@ -405,8 +407,19 @@ namespace Server.Commands
 					spawner.Respawn();
 			}
 		}
-		
+
+		private static void FixChampionSpawns(Mobile from)
+		{
+			from.SendMessage("Fixing champion spawns");
+			foreach (var championSpawn in ChampionSpawn.AllSpawns)
+			{
+				championSpawn.SpawnRadius = 35;
+				championSpawn.SpawnMod = 1;
+			}
+		}
+
 		//HELPERS
+
 		private static string GetTokenValue(string text, string key, out int startIndex, out int length)
 		{
 			var fullKey = $"/{key}/";
