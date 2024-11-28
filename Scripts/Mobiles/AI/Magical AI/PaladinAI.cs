@@ -25,10 +25,18 @@ namespace Server.Mobiles
 
         public override Spell GetRandomCurseSpell()
         {
-            if (m_Mobile.Mana > 10)
+	        if (m_Mobile.Mana < 10)
+		        return null;
+	        if (m_Mobile.Combatant is not BaseCreature bc)
+		        return null;
+	        
+	        var dispellable = bc.Summoned && !bc.IsAnimatedDead;
+	        var evil = !bc.Controlled && bc.Karma < 0;
+
+	        if (dispellable || evil)
                 return new DispelEvilSpell(m_Mobile, null);
 
-            return null;
+	        return null;
         }
 
         public override Spell GetRandomBuffSpell()
