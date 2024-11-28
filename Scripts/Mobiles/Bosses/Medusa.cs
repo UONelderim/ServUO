@@ -71,8 +71,8 @@ namespace Server.Mobiles
 
         public override Type[] UniqueSAList => new[] { typeof(Slither), typeof(IronwoodCompositeBow), typeof(Venom), typeof(PetrifiedSnake), typeof(StoneDragonsTooth), typeof(MedusaFloorTileAddonDeed) };
 
-        public override Type[] SharedSAList => new[] { typeof(SummonersKilt) };
-
+       // public override Type[] SharedSAList => new[] { typeof(SummonersKilt) };
+        public override Type[] SharedSAList => new[] { typeof(NSummonersKilt) };
         public override bool IgnoreYoungProtection => true;
         public override bool AutoDispel => true;
         public override double AutoDispelChance => 1.0;
