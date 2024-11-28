@@ -1,4 +1,6 @@
 #region References
+
+using System;
 using Server.Spells;
 using Server.Spells.Chivalry;
 #endregion
@@ -25,10 +27,48 @@ namespace Server.Mobiles
 
         public override Spell GetRandomCurseSpell()
         {
-            if (m_Mobile.Mana > 10)
-                return new DispelEvilSpell(m_Mobile, null);
+	        if (m_Mobile.Mana > 10)
+	        {
+		        Mobile target = m_Mobile.Combatant as Mobile;
+        
+		        if (target != null)
+		        {
+			        BaseCreature bc = target as BaseCreature;
 
-            return null;
+			        if (bc != null)
+			        {
+				        bool dispellable = bc.Summoned && !bc.IsAnimatedDead;
+
+				        if (dispellable)
+				        {
+					        double dispelChance = (50.0 + ((100 * (m_Mobile.Skills[SkillName.Chivalry].Value - bc.GetDispelDifficulty())) / (bc.DispelFocus * 2))) / 100;
+					        dispelChance *= m_Mobile.Skills[SkillName.Chivalry].Value / 100.0;
+
+					        if (dispelChance > Utility.RandomDouble())
+					        {
+						        return new DispelEvilSpell(m_Mobile, null);
+					        }
+				        }
+
+				        bool evil = !bc.Controlled && bc.Karma < 0;
+
+				        if (evil)
+				        {
+					        double fleeChance = (100 - Math.Sqrt(target.Fame / 2)) * m_Mobile.Skills[SkillName.Chivalry].Value * m_Mobile.Skills[SkillName.Chivalry].Value;
+					        fleeChance /= 1000000;
+
+					        if (fleeChance > Utility.RandomDouble())
+					        {
+						        return new DispelEvilSpell(m_Mobile, null);
+					        }
+				        }
+			        }
+		        }
+
+		        return new DispelEvilSpell(m_Mobile, null);
+	        }
+
+	        return null;
         }
 
         public override Spell GetRandomBuffSpell()
