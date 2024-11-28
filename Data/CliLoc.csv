@@ -7,7 +7,7 @@ Number;Text
 500004;Jestem bierny, chodze wkolo. 
 500005;Bugging out of combat due to flags. 
 500006;You are no longer squelched. 
-500007;Nie jestes juz nieruchomy. 
+500007;Nie jestes juz nieruchomy.
 500008;Nie jestes juz niezniszczalny. 
 500009;Biore rozmach 
 500010;No scripts 
@@ -6554,7 +6554,7 @@ Number;Text
 1011137;Select the guild you wish to declare peace with. 
 1011138;Send the olive branch. 
 1011139;Declare war through search: 
-1011140;Enter Guild Name: 
+1011140;Nazwa gildii: 
 1011141;CAUTION! 
 1011142;You have already changed your guild type recently. 
 1011143;New guild type: 
@@ -13231,7 +13231,7 @@ Number;Text
 1023843;butelka 
 1023844;butelka 
 1023845; 
-1023846;mikstura widzenia w nocy 
+1023846;mikstura infrawizji 
 1023847;mikstura odtruwania 
 1023848;mikstura zrecznosci 
 1023849;mikstura sily 
@@ -26472,7 +26472,7 @@ Number;Text
 1041311;an unknown red potion 
 1041312;an unknown yellow potion 
 1041313;an unknown purple potion 
-1041314;Mikstura widzenia w nocy 
+1041314;mikstura infrawizji 
 1041315;Mala mikstura odtrucia 
 1041316;Mikstura odtrucia 
 1041317;Duza mikstura odtrucia 
@@ -28702,7 +28702,7 @@ Number;Text
 1044539;mikstura zupelnego odswiezenia 
 1044540;mikstura zrecznosci 
 1044541;duza mikstura zrecznosci 
-1044542;mikstura widzenia w nocy 
+1044542;mikstura infrawizji 
 1044543;mala mikstura leczenia 
 1044544;mikstura leczenia 
 1044545;duza mikstura leczenia 
@@ -29518,7 +29518,7 @@ Number;Text
 1048021;Nie udalo ci sie znalesc za pomoca sekstansu zadnego portala w poblizu. 
 1048022;mikstura sily 
 1048023;mikstura zrecznosci 
-1048024;mikstura widzenia w nocy 
+1048024;mikstura infrawizji 
 1048025;slaba mikstura leczenia 
 1048026;mikstura slabej eksplozji 
 1048027;mikstura slabej trucizny 
@@ -30083,7 +30083,7 @@ Number;Text
 1049409;"You are currently reading the <I>Codex of Wisdom</I>, or ""Online Help System"".  Clicking the ""?"" on the toolbar which is located at the top of your screen, or pressing ""F1"" on your keyboard will bring up this Codex of Wisdom.<BR><BR>You will find help with many general as well as specific game player issues listed in the help topics.  Clicking on hyperlinks (underlined, blue text) within the codex, will automatically take you to the appropriate Codex entry." 
 1049410;Mikstury 
 1049411;"Potions can be purchased from Alchemist <a href = ""?33"">Shopkeepers</a> and <a href = ""?34"">Vendors</a>.<BR><BR>Potions are available in various colors (determines the effect) and strengths. To consume a potion, simply drink it (double click), which empties the potion and leaves you with an empty bottle.  <BR><BR>Most potions can be found as loot on creatures, and are sold by <a href = ""?31"">NPC</a> Alchemist <a href = ""?33"">Shopkeepers</a> and are usually craftable by player Alchemists.<BR><BR>Keep in mind, however, that NPC shop keepers will most likely not carry the stronger versions of a given potion.  You will more often than not need to seek a player Alchemist to find the most powerful potions.<BR><BR>The potions currently available are as follows:<BR><BR>* <a href = ""?75"">Night Sight</a><BR>* <a href = ""?76"">Leczenie</a><BR>* <a href = ""?77"">Strength</a><BR>* <a href = ""?78"">Refresh</a><BR>* <a href = ""?79"">Explosion</a><BR>* <a href = ""?80"">Cure</a><BR>* <a href = ""?81"">Agility</a>" 
-1049412;Mikstura widzenia w nocy 
+1049412;mikstura infrawizji 
 1049413;"<U>Opis:</U><BR><BR>Wypicie tej mikstury pozwala na widzenie w ciemnosciach.  wyjatkowo przydatne w podziemiach!<BR><BR><U>Dostepne stezenia:</U><BR><BR>Mikstura dostepna tylko w jednym stezeniu.<BR><BR><U>Dostepnosc:</U><BR><BR>Ta mikstura dostepna jest u <a href = ""?31>NPC</a> Alchemika <a href = ""?33"">Sprzedawcow miejskich,</a>  a takze wykonywana przez gracza Alchemika.  Jedynym <a href = ""?37"">skladnikiem</a> wymaganym do wytworzenia mikstury jest Pajeczyna." 
 1049414;Mikstura leczenia 
 1049415;"<U>Opis:</U><BR><BR>Wypicie tej mikstury pozwala na odzyskanie czesci straconej zywotnosci.  Mozesz wypic jedna miksture leczenia co 10 sekund.<BR><BR><U>Dostepne stezenia:</U><BR><BR>Mikstura dostepna pod postacia <I>Malej mikstury leczenia, Mikstury leczenia i Duzej mikstury leczenia.</I><BR><BR><U>Dostepnosc:</U><BR><BR>Ta mikstura dostepna jest u <a href = ""?31>NPC</a> Alchemika <a href = ""?33"">Sprzedawcow miejskich,</a>  a takze wykonywana przez gracza Alchemika.  Jedynym <a href = ""?37"">skladnikiem</a> wymaganym do wytworzenia mikstury jest Zenszen." 
@@ -33848,10 +33848,10 @@ Number;Text
 1062937;You must upgrade to the latest Expansion Pack in order to use this skill. 
 1062938;That ability does not seem to work here. 
 1062939;<center>MENU GILDII</center> 
-1062940;As you are not a member of any guild, you can create your own by providing a unique guild name and paying the standard guild registration fee. 
-1062941;Registration Fee: 
+1062940;Jesli nie jestes czlonkiem zadnej gildii, możesz stworzyć własną, podając unikalną nazwę gildii i uiszczając standardową opłatę rejestracyjną. 
+1062941;Oplata rejestracyjna: 
 1062942;<b>Nazwa Gildi:</b> 
-1062943;<i>Ignore Guild Invites</i> 
+1062943;<i>Ignoruj zaproszenia do gildii</i> 
 1062944;Musisz trzymac bron lub tarcze by uzyc tej zdolnosci! 
 1062945;That ability is already in effect. 
 1062946;<center>You have been invited to join a guild! (Warning: Accepting will make you attackable!)</center> 
@@ -33943,7 +33943,7 @@ Number;Text
 1063032;Kill 3 Young Ronin or 3 Cursed Souls. Return to Daimyo Haochi when you have finished. 
 1063033;To view the surrounding area, you should learn about the Radar Map.<BR><BR>The Radar Map (or Overhead View) can be opened by pressing 'ALT-R' on your keyboard. It shows your immediate surroundings from a bird's eye view.<BR><BR>Pressing ALT-R twice, will enlarge the Radar Map a little. Use the Radar Map often as you travel throughout the world to familiarize yourself with your surroundings. 
 1063034;You are already in a guild! 
-1063035;Abbreviation: 
+1063035;Skrot nazwy: 
 1063036;A guild name cannot be more than ~1_val~ characters in length. 
 1063037;An abbreviation cannot exceed ~1_val~ characters in length. 
 1063038;Cursed Souls killed:  ~1_COUNT~ 
@@ -45801,7 +45801,7 @@ Number;Text
 1074906;Books 
 1074907;Buckler 
 1074908;Battle Axe 
-1074909;Necromancer Spellbook 
+1074909;Ksiega Nekromancji 
 1074910;Dagger 
 1074911;Cloth Ninja Hood 
 1074912;Leather Ninja Hood 
@@ -59091,7 +59091,7 @@ Number;Text
 1102373; 
 1102374; 
 1102375; 
-1102376;weapon pad 
+1102376;Stanowisko Altyreryjskie 
 1102377; 
 1102378; 
 1102379; 
@@ -59109,20 +59109,20 @@ Number;Text
 1102391; 
 1102392; 
 1102393; 
-1102394;weapon pad 
-1102395;weapon pad 
-1102396;weapon pad 
+1102394;Stanowisko Altyreryjskie 
+1102395;Stanowisko Altyreryjskie 
+1102396;Stanowisko Altyreryjskie 
 1102397; 
-1102398;weapon pad 
+1102398;Stanowisko Altyreryjskie 
 1102399; 
 1102400; 
-1102401;weapon pad 
+1102401;Stanowisko Altyreryjskie 
 1102402; 
-1102403;weapon pad 
+1102403;Stanowisko Altyreryjskie 
 1102404; 
-1102405;weapon pad 
+1102405;Stanowisko Altyreryjskie 
 1102406; 
-1102407;weapon pad 
+1102407;Stanowisko Altyreryjskie 
 1102408; 
 1102409; 
 1102410; 
@@ -59145,7 +59145,7 @@ Number;Text
 1102427; 
 1102428;add-on pad 
 1102429;add-on pad 
-1102430;weapon pad 
+1102430;Stanowisko Altyreryjskie 
 1102431; 
 1102432; 
 1102433; 
@@ -59163,20 +59163,20 @@ Number;Text
 1102445; 
 1102446; 
 1102447; 
-1102448;weapon pad 
-1102449;weapon pad 
-1102450;weapon pad 
+1102448;Stanowisko Altyreryjskie 
+1102449;Stanowisko Altyreryjskie 
+1102450;Stanowisko Altyreryjskie 
 1102451; 
-1102452;weapon pad 
+1102452;Stanowisko Altyreryjskie 
 1102453; 
 1102454; 
-1102455;weapon pad 
+1102455;Stanowisko Altyreryjskie 
 1102456; 
-1102457;weapon pad 
+1102457;Stanowisko Altyreryjskie 
 1102458; 
-1102459;weapon pad 
+1102459;Stanowisko Altyreryjskie 
 1102460; 
-1102461;weapon pad 
+1102461;Stanowisko Altyreryjskie 
 1102462; 
 1102463; 
 1102464; 
@@ -59199,7 +59199,7 @@ Number;Text
 1102481; 
 1102482;add-on pad 
 1102483;add-on pad 
-1102484;weapon pad 
+1102484;Stanowisko Altyreryjskie 
 1102485; 
 1102486; 
 1102487; 
@@ -59217,20 +59217,20 @@ Number;Text
 1102499; 
 1102500; 
 1102501; 
-1102502;weapon pad 
-1102503;weapon pad 
-1102504;weapon pad 
+1102502;Stanowisko Altyreryjskie 
+1102503;Stanowisko Altyreryjskie 
+1102504;Stanowisko Altyreryjskie 
 1102505; 
-1102506;weapon pad 
+1102506;Stanowisko Altyreryjskie 
 1102507; 
 1102508; 
-1102509;weapon pad 
+1102509;Stanowisko Altyreryjskie 
 1102510; 
-1102511;weapon pad 
+1102511;Stanowisko Altyreryjskie 
 1102512; 
-1102513;weapon pad 
+1102513;Stanowisko Altyreryjskie 
 1102514; 
-1102515;weapon pad 
+1102515;Stanowisko Altyreryjskie 
 1102516; 
 1102517; 
 1102518; 
@@ -59253,7 +59253,7 @@ Number;Text
 1102535; 
 1102536;add-on pad 
 1102537;add-on pad 
-1102538;weapon pad 
+1102538;Stanowisko Altyreryjskie 
 1102539; 
 1102540; 
 1102541; 
@@ -59271,20 +59271,20 @@ Number;Text
 1102553; 
 1102554; 
 1102555; 
-1102556;weapon pad 
-1102557;weapon pad 
-1102558;weapon pad 
+1102556;Stanowisko Altyreryjskie 
+1102557;Stanowisko Altyreryjskie 
+1102558;Stanowisko Altyreryjskie 
 1102559; 
-1102560;weapon pad 
+1102560;Stanowisko Altyreryjskie 
 1102561; 
 1102562; 
-1102563;weapon pad 
+1102563;Stanowisko Altyreryjskie 
 1102564; 
-1102565;weapon pad 
+1102565;Stanowisko Altyreryjskie 
 1102566; 
-1102567;weapon pad 
+1102567;Stanowisko Altyreryjskie 
 1102568; 
-1102569;weapon pad 
+1102569;Stanowisko Altyreryjskie 
 1102570; 
 1102571; 
 1102572; 
@@ -60627,7 +60627,7 @@ Number;Text
 1103909; 
 1103910; 
 1103911; 
-1103912;weapon pad 
+1103912;Stanowisko Altyreryjskie 
 1103913; 
 1103914; 
 1103915; 
@@ -60645,20 +60645,20 @@ Number;Text
 1103927; 
 1103928; 
 1103929; 
-1103930;weapon pad 
-1103931;weapon pad 
-1103932;weapon pad 
+1103930;Stanowisko Altyreryjskie 
+1103931;Stanowisko Altyreryjskie 
+1103932;Stanowisko Altyreryjskie 
 1103933; 
-1103934;weapon pad 
+1103934;Stanowisko Altyreryjskie 
 1103935; 
 1103936; 
-1103937;weapon pad 
+1103937;Stanowisko Altyreryjskie 
 1103938; 
-1103939;weapon pad 
+1103939;Stanowisko Altyreryjskie 
 1103940; 
-1103941;weapon pad 
+1103941;Stanowisko Altyreryjskie 
 1103942; 
-1103943;weapon pad 
+1103943;Stanowisko Altyreryjskie 
 1103944; 
 1103945; 
 1103946; 
@@ -60681,7 +60681,7 @@ Number;Text
 1103963; 
 1103964;add-on pad 
 1103965;add-on pad 
-1103966;weapon pad 
+1103966;Stanowisko Altyreryjskie 
 1103967; 
 1103968; 
 1103969; 
@@ -60699,20 +60699,20 @@ Number;Text
 1103981; 
 1103982; 
 1103983; 
-1103984;weapon pad 
-1103985;weapon pad 
-1103986;weapon pad 
+1103984;Stanowisko Altyreryjskie 
+1103985;Stanowisko Altyreryjskie 
+1103986;Stanowisko Altyreryjskie 
 1103987; 
-1103988;weapon pad 
+1103988;Stanowisko Altyreryjskie 
 1103989; 
 1103990; 
-1103991;weapon pad 
+1103991;Stanowisko Altyreryjskie 
 1103992; 
-1103993;weapon pad 
+1103993;Stanowisko Altyreryjskie 
 1103994; 
-1103995;weapon pad 
+1103995;Stanowisko Altyreryjskie 
 1103996; 
-1103997;weapon pad 
+1103997;Stanowisko Altyreryjskie 
 1103998; 
 1103999; 
 1104000; 
@@ -60735,7 +60735,7 @@ Number;Text
 1104017; 
 1104018;add-on pad 
 1104019;add-on pad 
-1104020;weapon pad 
+1104020;Stanowisko Altyreryjskie 
 1104021; 
 1104022; 
 1104023; 
@@ -60753,20 +60753,20 @@ Number;Text
 1104035; 
 1104036; 
 1104037; 
-1104038;weapon pad 
-1104039;weapon pad 
-1104040;weapon pad 
+1104038;Stanowisko Altyreryjskie 
+1104039;Stanowisko Altyreryjskie 
+1104040;Stanowisko Altyreryjskie 
 1104041; 
-1104042;weapon pad 
+1104042;Stanowisko Altyreryjskie 
 1104043; 
 1104044; 
-1104045;weapon pad 
+1104045;Stanowisko Altyreryjskie 
 1104046; 
-1104047;weapon pad 
+1104047;Stanowisko Altyreryjskie 
 1104048; 
-1104049;weapon pad 
+1104049;Stanowisko Altyreryjskie 
 1104050; 
-1104051;weapon pad 
+1104051;Stanowisko Altyreryjskie 
 1104052; 
 1104053; 
 1104054; 
@@ -60789,7 +60789,7 @@ Number;Text
 1104071; 
 1104072;add-on pad 
 1104073;add-on pad 
-1104074;weapon pad 
+1104074;Stanowisko Altyreryjskie 
 1104075; 
 1104076; 
 1104077; 
@@ -60807,20 +60807,20 @@ Number;Text
 1104089; 
 1104090; 
 1104091; 
-1104092;weapon pad 
-1104093;weapon pad 
-1104094;weapon pad 
+1104092;Stanowisko Altyreryjskie 
+1104093;Stanowisko Altyreryjskie 
+1104094;Stanowisko Altyreryjskie 
 1104095; 
-1104096;weapon pad 
+1104096;Stanowisko Altyreryjskie 
 1104097; 
 1104098; 
-1104099;weapon pad 
+1104099;Stanowisko Altyreryjskie 
 1104100; 
-1104101;weapon pad 
+1104101;Stanowisko Altyreryjskie 
 1104102; 
-1104103;weapon pad 
+1104103;Stanowisko Altyreryjskie 
 1104104; 
-1104105;weapon pad 
+1104105;Stanowisko Altyreryjskie 
 1104106; 
 1104107; 
 1104108; 
@@ -106294,9 +106294,9 @@ Number;Text
 1149576;Wyspa Zwiazujaca Dusze 
 1149577;Runa przywolania do twojego nowego statku nie mogla byc stworzona w twoim plecaku. Zostala umieszczona w ladowni statku. 
 1149578;Runy przywolania do twojego nowego statku nie mogly byc stworzone. 
-1149579;Runa do twojego statku nie mogla byc stworzona w twoim pudelku bankowym. Zostala umieszczona w ladowni statku. 
+1149579;Runa do twojego statku nie mogla byc stworzona w twojej skrzyni bankowej. Zostala umieszczona w ladowni statku. 
 1149580;Runa przywolania do twojego statku zostala umieszczona w twoim plecaku. 
-1149581;Runa przywolania do twojego nowego statku zostala umieszczona w twoim pudelku bankowym. 
+1149581;Runa przywolania do twojego nowego statku zostala umieszczona w twojej skrzyni bankowej. 
 1149582;przemoczony kawalek pergaminu 
 1149583;butelka z wiadomoscia w srodku 
 1149584;platanina malych ryb 
@@ -106413,7 +106413,7 @@ Number;Text
 1149695;Mala Kuznia Dusz 
 1149696;Jako mlody gracz nie mozesz wejsc na to teren. 
 1149697;Lina do cumowania 
-1149698;Kolo 
+1149698;Ster
 1149699;ladownia 
 1149700;podkladka do broni 
 1149701;Release me, ye scallywags! Ye don't know who ye are messin' with! 
@@ -106501,7 +106501,7 @@ Number;Text
 1149783;PAGE 1 
 1149784;PAGE 2 
 1149785;A strong tide comes and carries your boat to deeper water. 
-1149786;Security Settings 
+1149786;Opcje dostepu 
 1149787;Your ship will be removed from this area in 1 minute. 
 1149788;Your ship will be removed from this area in 2 minutes. 
 1149789;Your ship will be removed from this area in 3 minutes. 
@@ -113387,8 +113387,8 @@ Number;Text
 1156669;Receive a Pen of Wisdom which when used in conjunction with specific ingredients (runas, mark scrolls and runebook) will allows a player to copy one filled runebook (including contained runes) into a second duplicate runebook.  The Pen of Wisdom starts with 100 uses and each runebook copied will consume one use. 
 1156670;Receive a deed which when used will create a decorative woodworker's bench.  The bench may be placed with a south or an east facing in a home.  This decorative bench can also provide a player with a short term 5.0 skill boost to their Carpentry skill with a 30 minute duration.  The woodworker's bench must be placed inside of your home to use. 
 1156671;Receive a jar of Haochi's Pigments.  These pigments are dyes that may be used on artifacts and enhanced equipment 
-1156672;Receive a Britannian Ship deed.  This deed will allow you to place the luxurious Britannian Ship which is the largest ship in game.  This ship boasts nine weapon pads, 28,000 stones worth of storage and two single tile house add-on pads.  Also receive a decorative Pilot's Wheel deed and two special ship paints.  Both the Weathered and the Two-Tone ship paint tubs start with 3 uses. (HIGH SEAS ENTITLEMENT REQUIRED) 
-1156673;Receive a Britannian Ship deed.  This deed will allow you to place the luxurious Britannian Ship which is the largest ship in game.  This ship boasts nine weapon pads, 28,000 stones worth of storage and two single tile house add-on pads. (HIGH SEAS ENTITLEMENT REQUIRED) 
+1156672;Receive a Britannian Ship deed.  This deed will allow you to place the luxurious Britannian Ship which is the largest ship in game.  This ship boasts nine Stanowisko Altyreryjskies, 28,000 stones worth of storage and two single tile house add-on pads.  Also receive a decorative Pilot's Wheel deed and two special ship paints.  Both the Weathered and the Two-Tone ship paint tubs start with 3 uses. (HIGH SEAS ENTITLEMENT REQUIRED) 
+1156673;Receive a Britannian Ship deed.  This deed will allow you to place the luxurious Britannian Ship which is the largest ship in game.  This ship boasts nine Stanowisko Altyreryjskies, 28,000 stones worth of storage and two single tile house add-on pads. (HIGH SEAS ENTITLEMENT REQUIRED) 
 1156674;Forged Metal of Artifacts provides a 100% success rate on an item enhancement (10 charges). 
 1156675;Forged Metal of Artifacts provides a 100% success rate on an item enhancement (5 charges). 
 1156676;Receive a special hair dye which when used will change the color of one character's hair to the  black and red Abyssal look. 
