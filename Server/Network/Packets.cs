@@ -3521,7 +3521,8 @@ namespace Server.Network
 				if (type >= 5)
 				{
 					m_Stream.Write((short)m.MaxWeight);
-					m_Stream.Write((byte)(m.Race.RaceID + 1)); // Would be 0x00 if it's a non-ML enabled account but...
+					// m_Stream.Write((byte)(m.Race.RaceID + 1)); // Would be 0x00 if it's a non-ML enabled account but...
+					m_Stream.Write((byte) 1); // Hardcoded human 
 				}
 
 				m_Stream.Write((short)m.StatCap);
