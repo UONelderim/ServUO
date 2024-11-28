@@ -828,7 +828,7 @@ namespace Server.Multis
 
             if (TillerMan is Mobile)
                 writer.Write(TillerMan as Mobile);
-            else if (TillerMan is Item)
+            else
                 writer.Write(TillerMan as Item);
 
             writer.Write(Hold);
