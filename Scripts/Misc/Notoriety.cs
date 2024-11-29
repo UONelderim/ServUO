@@ -441,13 +441,12 @@ namespace Server.Misc
 
             var sourceRegion = NelderimRegionSystem.GetRegion(source.Region.Name);
             var targetRegion = NelderimRegionSystem.GetRegion(target.Region.Name);
-            if (!sourceRegion.IsPvpAllowed() || !targetRegion.IsPvpAllowed())
+            if (sourceRegion.IsPvpAllowed() && targetRegion.IsPvpAllowed())
             {
-	            return Notoriety.Innocent;
-            }
-            if (source.Faction != null && source.Faction.Enemies.Contains(target.Faction) )
-            {
-	            return Notoriety.Enemy;
+	            if (source.Faction != null && source.Faction.Enemies.Contains(target.Faction))
+	            {
+		            return Notoriety.Enemy;
+	            }
             }
 
             return Notoriety.Innocent;
