@@ -680,7 +680,7 @@ namespace Server.Mobiles
             Hue = m.Hue;
             Female = m.Female;
 
-            Name = m.Name;
+            Name = m.FallbackName;
             NameHue = m.NameHue;
 
             Title = m.Title;

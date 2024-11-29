@@ -27,7 +27,7 @@ namespace Server
 		{
 			if (NConfig.NameSystemEnabled && !UseRealName(m) )
 			{
-				return (m != null && NameFor.TryGetValue(m, out var assignedName)) && !IdentityHidden ? assignedName : DefaultName;
+				return (m != null && NameFor.TryGetValue(m, out var assignedName)) && !IdentityHidden ? assignedName : FallbackName;
 			}
 			return Name;
 		}
@@ -37,7 +37,7 @@ namespace Server
 			return m != null && (m == this || IsStaff() || m.IsStaff());
 		}
 
-		public virtual string DefaultName => "nieznajomy " + (Race == Race.DefaultRace ? "" : Race.GetName().ToLower());
+		public virtual string FallbackName => "nieznajomy " + (Race == Race.DefaultRace ? "" : Race.GetName().ToLower());
 
 		public Dictionary<Mobile, ObjectPropertyList> OPLs = new Dictionary<Mobile, ObjectPropertyList>();
 		public Dictionary<Mobile, OPLInfo> OPLInfos = new Dictionary<Mobile, OPLInfo>();

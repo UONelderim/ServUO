@@ -230,7 +230,7 @@ namespace Server.Mobiles
             Body = m.Body;
             Hue = m.Hue;
             Female = m.Female;
-            Name = m.Name;
+            Name = m.FallbackName;
             NameHue = m.NameHue;
             Title = m.Title;
             Kills = m.Kills;
