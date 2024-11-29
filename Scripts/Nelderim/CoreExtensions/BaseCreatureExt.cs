@@ -110,7 +110,7 @@ namespace Server.Mobiles
 			return m != null && m.IsStaff() || ControlMaster == null || ControlMaster == m;
 		}
 
-		public override string DefaultName => "zwierze";
+		public override string FallbackName => "zwierze";
 
 		public void NGenerateExtraLoot()
 		{
