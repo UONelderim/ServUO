@@ -87,7 +87,7 @@ namespace Server.Gumps
                 AddButton(65, 215, 0xFA5, 0xFA7, 2, GumpButtonType.Reply, 0);
             }
 
-            AddHtmlLocalized(100, 217, 100, 18, 1149726, level == SecurityLevel.Denied ? GetHue(level) : LabelColor, false, false); // DENY ACCESS
+            AddHtmlLocalized(100, 217, 140, 18, 1149726, level == SecurityLevel.Denied ? GetHue(level) : LabelColor, false, false); // DENY ACCESS
 
             if (level == SecurityLevel.Passenger)
             {
