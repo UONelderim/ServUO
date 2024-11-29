@@ -67,15 +67,13 @@ namespace Server.Mobiles
 
         public override Spell GetHealSpell()
         {
-	        if (!(m_Mobile.Hits <= m_Mobile.HitsMax * 0.5)) return null;
-	        if (m_Mobile.Mana > 10)
-	        {
-		        if (m_Mobile.Combatant != null && m_Mobile.Combatant.Hits > m_Mobile.Hits)
-		        {
-			        return new CloseWoundsSpell(m_Mobile, null);
-		        }
-	        }
-
+	        if (m_Mobile.Hits <= m_Mobile.HitsMax * 0.5) 
+		        return null;
+	        if (m_Mobile.Mana <= 10)
+		        return null;
+	        if (m_Mobile.Combatant != null && m_Mobile.Combatant.Hits > m_Mobile.Hits)
+		        return new CloseWoundsSpell(m_Mobile, null);
+	        
 	        return null;
         }
 
