@@ -209,10 +209,10 @@ namespace Server.SkillHandlers
 
                             DiscordanceInfo info;
 
+                            from.DoHarmful(targ);
                             if (targ.Player && from.Player)
                             {
                                 info = new DiscordanceInfo(from, targ, 0, null, true, from.Skills.CurrentMastery == SkillName.Discordance ? 6 : 4);
-                                from.DoHarmful(targ);
                             }
                             else
                             {
