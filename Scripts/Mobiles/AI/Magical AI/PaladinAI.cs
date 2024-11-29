@@ -67,7 +67,7 @@ namespace Server.Mobiles
 
         public override Spell GetHealSpell()
         {
-	        if (m_Mobile.Hits <= m_Mobile.HitsMax * 0.5) 
+	        if (m_Mobile.Hits > m_Mobile.HitsMax * 0.5) 
 		        return null;
 	        if (m_Mobile.Mana <= 10)
 		        return null;
