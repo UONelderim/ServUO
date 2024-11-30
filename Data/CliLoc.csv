@@ -14782,9 +14782,9 @@ Number;Text
 1025394;dekoracyjna zbroja 
 1025395;dekoracyjna zbroja 
 1025396;Serpent Crest 
-1025397;plaszcz 
-1025398;spodniczka 
-1025399;koszula 
+1025397;Plaszcz 
+1025398;Spodniczka 
+1025399;Koszula 
 1025400;koszula 
 1025401; 
 1025402;dekoracyjna zbroja 
@@ -14807,7 +14807,7 @@ Number;Text
 1025419; 
 1025420; 
 1025421; 
-1025422;krotkie spodnie 
+1025422;Krotkie Spodnie 
 1025423;krotkie spodnie 
 1025424;plaszcz 
 1025425;spodniczka 
@@ -14816,20 +14816,20 @@ Number;Text
 1025428; 
 1025429;zloty pas 
 1025430;zloty pas 
-1025431;kilt 
+1025431;Kilt 
 1025432;kilt 
-1025433;dlugie spodnie 
+1025433;Dlugie Spodnie 
 1025434;dlugie spodnie 
 1025435;krotki fartuch 
 1025436;krotki fartuch 
 1025437;dlugi fartuch 
 1025438;dlugi fartuch 
 1025439;bandana 
-1025440;bandana 
+1025440;Bandana 
 1025441;szarfa 
 1025442;szarfa 
-1025443;mycka 
-1025444;mycka 
+1025443;Mycka 
+1025444;Mycka 
 1025445;maska niedzwiedzia 
 1025446;maska niedzwiedzia 
 1025447;maska lani 
@@ -15292,16 +15292,16 @@ Number;Text
 1025904;buciki 
 1025905;wysokie buty 
 1025906;wysokie buty 
-1025907;kapelusz 
-1025908;szeroki kapelusz 
-1025909;czapka 
-1025910;wysoki slomkowy kapelusz 
-1025911;slomkowy kapelusz 
-1025912;kapelusz maga 
-1025913;beret 
-1025914;kapelusz z piorkiem 
-1025915;trojkatny kapelusz 
-1025916;czapka blazna 
+1025907;Kapelusz 
+1025908;Szeroki Kapelusz 
+1025909;Czapka 
+1025910;Wysoki Slomkowy Kapelusz 
+1025911;Slomkowy Kapelusz 
+1025912;Kapelusz Maga 
+1025913;Beret 
+1025914;Kapelusz z Piorkiem 
+1025915;Trojkatny Kapelusz 
+1025916;Czapka Blazna 
 1025917;banan 
 1025918;banan 
 1025919;banan 
@@ -17318,13 +17318,13 @@ Number;Text
 1027930;magiczne drzwi 
 1027931;magiczne drzwi 
 1027932;magiczne drzwi 
-1027933;koszula z rekawami 
+1027933;Koszula z Rekawami 
 1027934;koszula z rekawami 
-1027935;haftowana suknia 
+1027935;Haftowana Suknia 
 1027936;haftowana suknia 
-1027937;sukienka 
+1027937;Sukienka 
 1027938;sukienka 
-1027939;szata 
+1027939;Szata 
 1027940;szata 
 1027941;bead necklace 
 1027942;bransoleta 
@@ -17444,7 +17444,7 @@ Number;Text
 1028056;skora 
 1028057;skora 
 1028058;skora 
-1028059;dublet 
+1028059;Dublet 
 1028060;dublet 
 1028061;szklanka jablecznika 
 1028062;szklanka jablecznika 
@@ -17480,9 +17480,9 @@ Number;Text
 1028092;kufel wina 
 1028093;kufel wody 
 1028094;kufel wody 
-1028095;szata blazna 
+1028095;Szata Blazna 
 1028096;szata blazna 
-1028097;tunika 
+1028097;Tunika 
 1028098;tunika 
 1028099;fala 
 1028100;fala 
@@ -17574,7 +17574,7 @@ Number;Text
 1028186;okratowane metalowe drzwi 
 1028187;okratowane metalowe drzwi 
 1028188;okratowane metalowe drzwi 
-1028189;oponcza 
+1028189;Oponcza 
 1028190;oponcza 
 1028191;sealed crate 
 1028192;corroded strongbox 
@@ -18350,17 +18350,17 @@ Number;Text
 1028962; 
 1028963; 
 1028964; 
-1028965;girlanda z kwiatow 
+1028965;Girlanda z Kwiatow 
 1028966;girlanda z kwiatow 
 1028967;futrzane buty 
 1028968;futrzane buty 
-1028969;peleryna 
+1028969;Peleryna 
 1028970;peleryna 
-1028971;futrzany kilt 
+1028971;Futrzany kilt 
 1028972;futrzany kilt 
-1028973;gildiowa szata 
-1028974;gildiowa szata 
-1028975;ozdobna koszula 
+1028973;Gildiowa Suknia 
+1028974;Gildiowa Suknia  
+1028975;Ozdobna Koszula 
 1028976;ozdobna koszula 
 1028977; 
 1028978; 
@@ -19574,8 +19574,8 @@ Number;Text
 1030186;starozytne utwardzane naramienniki 
 1030187;starozytne plytowe naramienniki 
 1030188;helm jarlingow 
-1030189;toga 
-1030190;suknia 
+1030189;Toga 
+1030190;Suknia 
 1030191;szyszak 
 1030192;plytowy bojowy helm 
 1030193;starozytne skorzane nogawice 
@@ -19587,25 +19587,25 @@ Number;Text
 1030199; 
 1030200;plytowe haidate 
 1030201;skorzana maska 
-1030202;kaptur 
+1030202;Kaptur 
 1030203;skorzany pas 
 1030204;lekkie skorzane spodnie 
 1030205;lekkie skorzane rekawice 
 1030206;lekka skorzana tunika 
-1030207;koszula 
+1030207;Koszula 
 1030208; 
 1030209;letnie sandaly 
 1030210;zimowe buty 
-1030211;slomiany kapelusz 
-1030212;ciezka szata 
-1030213;dluga spodnica 
-1030214;szerokie spodnie 
-1030215;sukmana 
+1030211;Slomiany Kapelusz 
+1030212;Ciezka Szata 
+1030213;Dluga Spodnica 
+1030214;Szerokie Spodnie 
+1030215;Sukmana 
 1030216;starozytne utwardzane podgardle 
 1030217; 
 1030218; 
 1030219;szeroki pas 
-1030220;kamizelka 
+1030220;Kamizelka 
 1030221;claymore 
 1030222;zaostrzone wachlarze 
 1030223;starozytny krotki miecz 
@@ -22024,7 +22024,7 @@ Number;Text
 1032636;rog spaczonego jednorozca
 1032637;rog spaczonego jednorozca
 1032638;lesny napiersnik 
-1032639;lesny pas 
+1032639;Lesny Pas 
 1032640;lesny karczek 
 1032641;lesne rekawice 
 1032642;lesne nogawice 
@@ -22044,13 +22044,13 @@ Number;Text
 1032656;damska lesna utwardzana tunika 
 1032657;kolczan 
 1032658;okulary do czytania 
-1032659;elegancka szata z kapturem 
-1032660;damska elegancka szata 
-1032661;elegancka koszula 
-1032662;elegancka koszula 
+1032659;Elegancka Szata z Kapturem 
+1032660;Damska Elegancka Szata 
+1032661;Elegancka Koszula 
+1032662;Elegancka koszula 
 1032663;elegancka koszula 
 1032664;elegancka koszula 
-1032665;eleganckie spodnie 
+1032665;Eleganckie Spodnie 
 1032666;elegancie buty 
 1032667;lesna tunika 
 1032668;lesne rekawice 
@@ -66334,13 +66334,13 @@ Number;Text
 1109616;Virtue Shield 
 1109617;Jester Shoes 
 1109618;Chef's Toque 
-1109619;Gilded Kilt 
-1109620;Checkered Kilt 
-1109621;Fancy Kilt 
-1109622;Flowered Dress 
+1109619;Kilt Zdobiony Zlotymi Nicmi 
+1109620;Kilt w Krate 
+1109621;Wytworny Kilt 
+1109622;Suknia w Kwiaty 
 1109623;Vice Shield 
 1109624;Virtue Shield 
-1109625;Evening Gown 
+1109625;Elegancka Suknia 
 1109626;Tunika z Tygrysiej Skroy 
 1109627;Damska tunika z tygrysiej skory 
 1109628;Nogawnice z tygrysiej skory 
