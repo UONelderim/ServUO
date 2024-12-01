@@ -1,4 +1,3 @@
-Number;Text
 0;Reputation aversion triggered. 
 101155;Kup Hodowce Koni 
 500001;Nie bede na Ciebie reagowac. 
@@ -9911,7 +9910,7 @@ Number;Text
 1020523;gipsowa sciana 
 1020524;gipsowa sciana 
 1020525;acid proof rope 
-1020526;kosciana maczeta
+1020526;Kosciana Maczeta
 1020527;bambusowa sciana 
 1020528;bambusowa sciana 
 1020529;bambusowa sciana 
@@ -13294,19 +13293,19 @@ Number;Text
 1023906;strzala 
 1023907;siekiera 
 1023908;siekiera 
-1023909;katowski topor 
+1023909;Katowski Topor
 1023910;katowski topor 
-1023911;topor bitewny 
+1023911;Topor Bitewny
 1023912;topor bitewny 
-1023913;topor 
+1023913;Topor
 1023914;topor 
-1023915;podwojny topor 
+1023915;Podwojny Topor
 1023916;podwojny topor 
-1023917;berdysz 
+1023917;Berdysz
 1023918;berdysz 
 1023919;kusza 
 1023920;kusza 
-1023921;sztylet 
+1023921;Sztylet
 1023922;sztylet 
 1023923;fireball 
 1023924;fireball 
@@ -13317,13 +13316,13 @@ Number;Text
 1023929;fireball 
 1023930;fireball 
 1023931;fireball 
-1023932;bulawa 
+1023932;Bulawa
 1023933;bulawa 
-1023934;palasz 
+1023934;Palasz
 1023935;palasz 
 1023936;dlugi miecz 
-1023937;dlugi miecz 
-1023938;wlocznia 
+1023937;Dlugi Miecz
+1023938;Wlocznia
 1023939;wlocznia 
 1023940;pochodnia 
 1023941;sztaluga 
@@ -14425,22 +14424,22 @@ Number;Text
 1025037;poduszka 
 1025038;poduszka 
 1025039;topor bojowy 
-1025040;topor bojowy 
+1025040;Topor Bojowy
 1025041;luk 
 1025042;luk 
 1025043;drewniana maczuga 
 1025044;drewniana maczuga 
 1025045;sejmitar 
-1025046;sejmitar 
+1025046;Sejmitar
 1025047;dlugi miecz 
 1025048;dlugi miecz 
-1025049;miecz poltorareczny 
+1025049;Miecz Poltorareczny
 1025050;miecz poltorareczny 
-1025051;kolczy czepiec 
+1025051;Kolczy Czepiec
 1025052;kolcze nogawice 
 1025053;kolczuga 
-1025054;kolcze nogawice 
-1025055;kolczuga 
+1025054;Kolcze Nogawice
+1025055;Kolczuga
 1025056;kolczy czepiec 
 1025057;kolcze nogawice 
 1025058;kolczuga 
@@ -14484,12 +14483,12 @@ Number;Text
 1025096;pierscieniowa zbroja 
 1025097;pierscieniowe naramienniki 
 1025098;pierscieniowe naramienniki 
-1025099;pierscieniowe rekawice 
-1025100;pierscieniowa tunika 
+1025099;Pierscieniowe Rekawice
+1025100;Pierscieniowa Tunika
 1025101;pierscieniowa tunika 
 1025102;pierscieniowe naramienniki 
-1025103;pierscieniowe naramienniki 
-1025104;pierscieniowe nogawice 
+1025103;Pierscieniowe Naramienniki
+1025104;Pierscieniowe Nogawice
 1025105;pierscieniowe nogawice 
 1025106;pierscieniowe rekawice 
 1025107; 
@@ -14500,19 +14499,19 @@ Number;Text
 1025112;sekata laska 
 1025113;sekata laska 
 1025114;duzy bojowy topor 
-1025115;duzy bojowy topor 
+1025115;Duzy Bojowy Topor
 1025116;ciezka kusza 
 1025117;ciezka kusza 
 1025118;krotki miecz 
-1025119;krotki miecz 
+1025119;Krotki Miecz
 1025120;krys 
-1025121;krys 
+1025121;Krys
 1025122;krotka wlocznia 
-1025123;krotka wlocznia 
+1025123;Krotka Wlocznia
 1025124;widly bojowe 
-1025125;widly bojowe 
+1025125;Widly Bojowe
 1025126;maczuga bojowa 
-1025127;maczuga bojowa 
+1025127;Maczuga Bojowa
 1025128;zamkniety helm 
 1025129;zamkniety helm 
 1025130;helm 
@@ -14521,11 +14520,11 @@ Number;Text
 1025133;basinet 
 1025134;helm nosowy 
 1025135;helm nosowy 
-1025136;plytowe naramienniki 
-1025137;plytowe nogawice 
+1025136;Plytowe Naramienniki
+1025137;Plytowe Nogawice
 1025138;plytowy helm 
-1025139;plytowy karczek 
-1025140;plytowe rekawice 
+1025139;Plytowy Karczek
+1025140;Plytowe Rekawice
 1025141;plytowy napiersnik 
 1025142;plytowy napiersnik 
 1025143;plytowe naramienniki 
@@ -14562,17 +14561,17 @@ Number;Text
 1025174;swieca 
 1025175;swieca 
 1025176;kafar 
-1025177;kafar 
+1025177;Kafar
 1025178;mlot bojowy 
-1025179;mlot bojowy 
+1025179;Mlot Bojowy
 1025180;nadziak 
-1025181;nadziak 
+1025181;Nadziak
 1025182;halabarda 
-1025183;halabarda 
+1025183;Halabarda
 1025184;kordelas 
-1025185;kordelas 
+1025185;Kordelas
 1025186;dwureczny topor 
-1025187;dwureczny topor 
+1025187;Dwureczny Topor
 1025188; 
 1025189; 
 1025190; 
@@ -16411,16 +16410,16 @@ Number;Text
 1027023;peknieta sciana 
 1027024;target tile 
 1027025;dziura 
-1027026;okragla tarcza 
-1027027;puklerz 
-1027028;trojkatna tarcza 
+1027026;Okragla Tarcza
+1027027;Puklerz
+1027028;Trojkatna Tarcza
 1027029;trojkatna tarcza 
-1027030;pawez 
+1027030;Pawez
 1027031;pawez 
-1027032;drewniana trojkatna tarcza 
+1027032;Drewniana Trojkatna Tarcza
 1027033;drewniana trojkatna tarcza 
 1027034;drewniana tarcza 
-1027035;tarcza 
+1027035;Tarcza
 1027036;szkielet 
 1027037;szkielet 
 1027038;sosna 
@@ -16492,8 +16491,8 @@ Number;Text
 1027104;stone trigger 
 1027105;stone trigger 
 1027106; 
-1027107;tarcza chaosu 
-1027108;tarcza ladu 
+1027107;Tarcza Chaosu
+1027108;Tarcza Ladu
 1027109;tarcza ladu 
 1027110; 
 1027111; 
@@ -19178,13 +19177,13 @@ Number;Text
 1029790; 
 1029791; 
 1029792; 
-1029793;smoczy napiersnik 
+1029793;Smoczy Napiersnik
 1029794;smoczy napiersnik 
-1029795;smocze rekawice 
+1029795;Smocze Rekawice
 1029796;smocze rekawice 
-1029797;smoczy helm 
+1029797;Smoczy Helm
 1029798;smoczy helm 
-1029799;smocze nakolanniki 
+1029799;Smocze Nakolanniki
 1029800;smocze nakolanniki 
 1029801;jester pants 
 1029802;jester pants 
@@ -19200,7 +19199,7 @@ Number;Text
 1029812;letnie sandaly 
 1029813;buty blazna 
 1029814;buty blazna 
-1029815;smocze narekawniki 
+1029815;Smocze Narekawniki
 1029816;smocze narekawniki 
 1029817;zbroja amazonki 
 1029818;zbroja amazonki 
@@ -19299,14 +19298,14 @@ Number;Text
 1029911;grzyby zoogi 
 1029912;proszek translokacji 
 1029913;donica 
-1029914;kosa 
-1029915;sierp 
-1029916;berlo 
-1029917;glewia 
-1029918;pika 
-1029919;ostrzana laska 
-1029920;lanca 
-1029921;polokragle ostrza 
+1029914;Kosa
+1029915;Sierp
+1029916;Berlo
+1029917;Glewia
+1029918;Pika
+1029919;Ostrzana Laska
+1029920;Lanca
+1029921;Polokragle Ostrza
 1029922;luk kompozytowy 
 1029923;powtarzalna kusza 
 1029924;kosa 
@@ -19560,32 +19559,32 @@ Number;Text
 1030172; 
 1030173; 
 1030174; 
-1030175;starozytny czepiec 
-1030176;starozytny wzmocniony czepiec 
+1030175;Starozytny Czepiec
+1030176;Starozytny Wzmocniony Czepiec
 1030177;Skorzana Czapka
-1030178;barbuta 
-1030179;helm otwarty 
-1030180;starozytny plytowy karczek 
+1030178;Barbuta
+1030179;Helm Otwarty
+1030180;Starozytny Plytowy Karczek
 1030181;Starozytny Skorzany Karczek
 1030182;Starozytna Skorzana Tunika
 1030183;Starozytna Utwardzana Tunika
-1030184;starozytny plytowy napiersnik 
+1030184;Starozytny Plytowy Napiersnik
 1030185;Starozytne Skorzane Naramienniki
 1030186;Starozytne Utwardzane Naramienniki
-1030187;starozytne plytowe naramienniki 
-1030188;helm jarlingow 
+1030187;Starozytne Plytowe Naramienniki
+1030188;Helm Jarlingow
 1030189;Toga
 1030190;Suknia
-1030191;szyszak 
-1030192;plytowy bojowy helm 
+1030191;Szyszak
+1030192;Plytowy Bojowy Helm
 1030193;Starozytne Skorzane Nogawice
 1030194;Starozytne Utwardzane Nogawice
-1030195;starozytne plytowe nogawice 
-1030196;helm garnczkowy 
+1030195;Starozytne Plytowe Nogawice
+1030196;Helm Garnczkowy
 1030197;Skorzane Haidate
 1030198;Skorzane Utwardzane Haidate
 1030199; 
-1030200;plytowe haidate 
+1030200;Plytowe Haidate
 1030201;Skorzana Maska
 1030202;Kaptur
 1030203;Skorzany Pas
@@ -19606,20 +19605,20 @@ Number;Text
 1030218; 
 1030219;Szeroki Pas
 1030220;Kamizelka
-1030221;claymore 
-1030222;zaostrzone wachlarze 
-1030223;starozytny krotki miecz 
+1030221;Claymore
+1030222;Zaostrzone Wachlarze
+1030223;Starozytny Krotki Miecz
 1030224;starozytny luk 
 1030225;maczuga 
-1030226;ksiezycowy blask 
+1030226;Ksiezycowy Blask
 1030227;drewniany miecz 
-1030228;para mieczy 
+1030228;Para Mieczy
 1030229;strzalka 
-1030230;szpony 
-1030231;gwiazdka 
-1030232;para oskardow 
+1030230;Szpony
+1030231;Gwiazdka
+1030232;Para Oskardow
 1030233;cep 
-1030234;para sztyletow 
+1030234;Para Sztyletow
 1030235; 
 1030236; 
 1030237; 
@@ -20949,16 +20948,16 @@ Number;Text
 1031561;elven machete 
 1031562;kompozytowy luk w stylu wschodnim 
 1031563;krotki luk w stylu wschodnim 
-1031564;sztylet rytualny 
-1031565;kozik 
-1031566;falchion 
-1031567;zakrzywiony miecz 
-1031568;diamentowy mlot 
+1031564;Sztylet Rytualny
+1031565;Kozik
+1031566;Falchion
+1031567;Zakrzywiony Miecz
+1031568;Diamentowy Mlot
 1031569;laska pustelnika 
-1031570;rune blade 
-1031571;wielki falchion 
-1031572;zdobiony topor 
-1031573;elficka maczeta 
+1031570;Rune Blade
+1031571;Wielki Falchion
+1031572;Zdobiony Topor
+1031573;Elficka Maczeta
 1031574;archway 
 1031575;archway 
 1031576;wooden floor 
@@ -22030,9 +22029,9 @@ Number;Text
 1032642;lesne nogawice 
 1032643;lesne naramienniki 
 1032644;female elven plate 
-1032645;korona 
-1032646;krolewska korona 
-1032647;korona wysadzana kamieniami 
+1032645;Korona
+1032646;Krolewska Korona
+1032647;Korona Wysadzana Kamieniami
 1032648;kruczy helm 
 1032649;sokoli helm 
 1032650;skrzydlaty helm 
@@ -29398,8 +29397,8 @@ Number;Text
 1046427;You do not have enough reagents to safely go on.  You should acquire at least 35 of each reagent. 
 1046428;There are 8 types of reagent: Mandrake, Nightshade, Black Pearl, Sulfurous Ash, Spider's Silk, Garlic, Ginseng and Bloodmoss. 
 1046429;The caves tend to be dark, so be sure to cast the 'Night Sight' spell on yourself if you have trouble seeing. 
-1046430;kobieca zbroja plytowa 
-1046431;plytowy napiersnik 
+1046430;Kobieca Zbroja Plytowa
+1046431;Plytowy Napiersnik
 1046432;kite shield (dyeable) 
 1046433;kite shield (small) 
 1046434;Com Crystal (Receiver) 
@@ -30662,7 +30661,7 @@ Number;Text
 1053009;Smocze naremienniki 
 1053010;Smoczy helm 
 1053011;Your squire has lost 'young' status. 
-1053012;projekt zbroi smoka bagiennego 
+1053012;Projekt Zbroi Smoka Bagiennego
 1053013;smok bagienny 
 1053014;opancerzony smok bagienny 
 1053015;Smoczy wojownik 
@@ -43807,14 +43806,14 @@ Number;Text
 1072912;Nocny Zniwiarz 
 1072913;Death to the Ninja! 
 1072914;Crime and Punishment 
-1072915;Runiczny Noz 
-1072916;Ostrze Wykute W Lodzie 
+1072915;Runiczny Noz
+1072916;Ostrze Wykute W Lodzie
 1072917;Ex-Assassins 
-1072918;Miazdczyciel Czerepow 
+1072918;Miazdczyciel Czerepow
 1072919;Laska Widm 
-1072920;Ostrze Nadzorcy 
+1072920;Ostrze Nadzorcy
 1072921;Death Sentence 
-1072922;Swietlisty Runiczny Miecz 
+1072922;Swietlisty Runiczny Miecz
 1072923;Limited Life Expectancy 
 1072924;Korona Z Zelaznego Drzewa 
 1072925;Ciernisty Plaszcz 
@@ -44405,42 +44404,42 @@ Number;Text
 1073510;lekki krotki luk  
 1073511;mistyczny krotki luk  
 1073512;krotki luk zabojcy  
-1073513;prawdziwy sztylet rytualny 
-1073514;lodowy sztylet rytualny 
-1073515;ognisty sztylet rytualny 
-1073516;czarnoostrze obrony  
-1073517;prawdziwy kozik  
-1073518;naladowany kozik  
-1073519;szpikulec zabojcy magow  
-1073520;ostry kozik  
-1073521;prawdziwa maczeta   
-1073522;szczesliwy miecz  
-1073523;maczeta zabojcy magow  
-1073524;maczeta lekkosci  
-1073525;rycerski tasak bojowy  
-1073526;rzeznicki tasak bojowy  
-1073527;zabkowany tasak bojowy  
-1073528;prawdziwy tasak bojowy  
-1073529;rubinowa bulawa  
-1073530;szmaragdowa bulawa  
-1073531;szafirowa bulawa  
-1073532;bulawa  ze srebrnymi zdobieniami
-1073533;macheta podroznika  
-1073534;orkowa maczeta  
-1073535;macheta obrony  
-1073536;zarazona maczeta  
-1073537;runiczne ostrze  
-1073538;runiczne ostrze maga  
-1073539;runiczne ostrze wiedzy  
-1073540;skazona runiczne ostrze    
-1073541;prawdziwa promienista szabla  
-1073542;ciemnoglowa szabla  
-1073543;lodowa szabla  
-1073544;migoczaca szabla  
-1073545;topor straznika  
-1073546;spiewajacy topor  
-1073547;grzmiacy topor  
-1073548;ciezki ozdobny topor  
+1073513;Prawdziwy Sztylet Rytualny
+1073514;Lodowy Sztylet Rytualny
+1073515;Ognisty Sztylet Rytualny
+1073516;Czarnoostrze Obrony
+1073517;Prawdziwy Kozik
+1073518;Naladowany Kozik
+1073519;Szpikulec Zabojcy Magow
+1073520;Ostry Kozik
+1073521;Prawdziwa Maczeta
+1073522;Szczesliwy Miecz
+1073523;Maczeta Zabojcy Magow
+1073524;Maczeta Lekkosci
+1073525;Rycerski Tasak Bojowy
+1073526;Rzeznicki Tasak Bojowy
+1073527;Zabkowany Tasak Bojowy
+1073528;Prawdziwy Tasak Bojowy
+1073529;Rubinowa Bulawa
+1073530;Szmaragdowa Bulawa
+1073531;Szafirowa Bulawa
+1073532;Bulawa ze Srebrnymi Zdobieniami
+1073533;Macheta Podroznika
+1073534;Orkowa Maczeta
+1073535;Macheta Obrony
+1073536;Zarazona Maczeta
+1073537;Runiczne Ostrze
+1073538;Runiczne Ostrze Maga
+1073539;Runiczne Ostrze Wiedzy
+1073540;Skazona Runiczne Ostrze
+1073541;Prawdziwa Promienista Szabla
+1073542;Ciemnoglowa Szabla
+1073543;Lodowa Szabla
+1073544;Migoczaca Szabla
+1073545;Topor Straznika
+1073546;Spiewajacy Topor
+1073547;Grzmiacy Topor
+1073548;Ciezki Ozdobny Topor
 1073549;dziki kostur arkanisty  
 1073550;starozytny dziki kostur  
 1073551;kolczasty dziki kostur  
@@ -52074,22 +52073,22 @@ Number;Text
 1095356;gargish cloth kilt 
 1095357;gargish cloth leggings 
 1095358;gargish cloth leggings 
-1095359;czakram
-1095360;dual short axes 
+1095359;Czakram
+1095360;Dual Short Axes
 1095361;Animated Weapon 
-1095362;gargish dagger 
-1095363;gwiezdzisty czakram
-1095364;cyklon
-1095365;dual pointed spear 
-1095366;disc mace 
+1095362;Gargish Dagger
+1095363;Gwiezdzisty Czakram
+1095364;Cyklon
+1095365;Dual Pointed Spear
+1095366;Disc Mace
 1095367;serpentstone staff 
 1095368;glass staff 
 1095369;stone war sword 
-1095370;bloodblade 
+1095370;Bloodblade
 1095371;glass sword 
-1095372;dread sword 
-1095373;gargish talwar 
-1095374;shortblade 
+1095372;Dread Sword
+1095373;Gargish Talwar
+1095374;Shortblade
 1095375;Dragon's Blood 
 1095376;Leczenie Stone 
 1095377;Spell Stone 
@@ -52485,11 +52484,11 @@ Number;Text
 1095767; 
 1095768;gargish wooden shield 
 1095769;gargish kite shield 
-1095770;small plate shield 
-1095771;medium plate shield 
-1095772;large plate shield 
+1095770;Small Plate Shield
+1095771;Medium Plate Shield
+1095772;Large Plate Shield
 1095773;large stone shield 
-1095774;gargish kite shield 
+1095774;Gargish Kite Shield
 1095775;gargish wooden shield 
 1095776;large plate shield 
 1095777;medium plate shield 
@@ -52505,11 +52504,11 @@ Number;Text
 1095787;gargish earrings 
 1095788;rocking horse 
 1095789;rocking horse 
-1095790;kolumbryna 
+1095790;Kolumbryna
 1095791;kolumbryna 
 1095792;kolumbryna 
 1095793;kolumbryna 
-1095794;karronada 
+1095794;Karronada
 1095795;karronada 
 1095796;karronada 
 1095797;karronada 
@@ -52523,9 +52522,9 @@ Number;Text
 1095805;kule armatnie 
 1095806; 
 1095807; 
-1095808;gargish Chaos shield 
+1095808;Gargish Chaos Shield
 1095809;gargish Chaos shield 
-1095810;gargish Order shield 
+1095810;Gargish Order Shield
 1095811;kula armatnia z wygrawerowanym napisem isa 
 1095812;gargish Order shield 
 1095813; 
@@ -54195,39 +54194,39 @@ Number;Text
 1097477; 
 1097478;gargulcowy tasak 
 1097479;gargulcowy tasak 
-1097480;gargulcowy topor bojowy 
+1097480;Gargulcowy Topor Bojowy
 1097481;gargulcowy topor bojowy 
-1097482;gargulcowy topor 
+1097482;Gargulcowy Topor
 1097483;gargulcowy topor 
-1097484;gargulcowy bardi 
+1097484;Gargulcowy Bardi
 1097485;gargulcowy bardi 
 1097486;gargulcowy noz rzezniczy 
 1097487;gargulcowy noz rzezniczy 
 1097488;gargulcowy chropowaty kij 
 1097489;gargulcowy chropowaty kij 
-1097490;gargulcowa katana 
+1097490;Gargulcowa Katana
 1097491;gargulcowa katana 
-1097492;gargulcowy kryss 
+1097492;Gargulcowy Kryss
 1097493;gargulcowy kryss 
-1097494;gargulcowe widelki bojowe 
+1097494;Gargulcowe Widelki Bojowe
 1097495;gargulcowe widelki bojowe 
-1097496;gargulcowy mlot wojenny 
+1097496;Gargulcowy Mlot Wojenny
 1097497;gargulcowy mlot wojenny 
-1097498;gargulcowy mlot 
+1097498;Gargulcowy Mlot
 1097499;gargulcowy mlot 
-1097500;gargulcowa sierp 
+1097500;Gargulcowa Sierp
 1097501;gargulcowa sierp 
-1097502;gargulcowy zniwiarz kosci 
+1097502;Gargulcowy Zniwiarz Kosci
 1097503;gargulcowy zniwiarz kosci 
-1097504;gargulcowe pika 
+1097504;Gargulcowe Pika
 1097505;gargulcowe pika 
-1097506;gargulcowy lance 
+1097506;Gargulcowy Lance
 1097507;gargulcowy lance 
-1097508;gargulcowy tessen 
+1097508;Gargulcowy Tessen
 1097509;gargulcowy tessen 
-1097510;gargulcowy tekagi 
+1097510;Gargulcowy Tekagi
 1097511;gargulcowy tekagi 
-1097512;gargulcowy daisho 
+1097512;Gargulcowy Daisho
 1097513;gargulcowy daisho 
 1097514; 
 1097515; 
@@ -70066,9 +70065,9 @@ Number;Text
 1113348;lodestone 
 1113349;delicate scales 
 1113350;Abyssal Cloth
-1113351;rozgniecione szklo 
+1113351;Rozgniecione Szklo
 1113352;tajemny kamien runiczny 
-1113353;zelazo w proszku
+1113353;Zelazo W Proszku
 1113354;kula pustki 
 1113355;skora z boury 
 1113356;chaga mushroom 
@@ -72744,8 +72743,8 @@ Number;Text
 1116026;Zaladowane: ~1_VALUE~ 
 1116027;Amunicja: ~1_VALUE~ 
 1116028;Przygotowane: ~1_VALUE~ 
-1116029;kula armatnia 
-1116030;kartacze 
+1116029;Kula Armatnia
+1116030;Kartacze
 1116031;Tak 
 1116032;Nie 
 1116033;Zaden 
@@ -107390,7 +107389,7 @@ Number;Text
 1150672;Przycinasz krzew na topiary. 
 1150673;Twoj inwentarz brokera i/lub srodki w magazynie w New Magincia Warehouse zostaly przekazane na cele charytatywne, poniewaz te przedmioty pozostawaly nieodebrane przez caly tydzien. Te przedmioty nie moga byc juz odzyskane, ale sieroty docenia cieply posilek. 
 1150674;Twoj wynajety broker przeniosl wszelkie pozostale zapasy i srodki z twojego stoiska w New Magincia Bazaar do magazynu w New Magincia Warehouse. Musisz odebrac te przedmioty, w przeciwnym razie zostana zniszczone! Aby odebrac te przedmioty, skontaktuj sie z kierownikiem magazynu w New Magincia.<br><br>Ta usluga jest swiadczona bezplatnie. Jesli zalegales z oplatami dla swojego brokera, musisz je uregulowac, zanim bedziesz mogl odzyskac swoje rzeczy. Okres przechowywania trwa 7 dni, liczac od wygasniecia twojej umowy najmu w New Magincia Bazaar, i nie moze byc przedluzony. Odbierz swoje rzeczy i zloto bez zwloki!<br><br>Data wygasniecia tej wiadomosci pokrywa sie z data wygasniecia twojego przechowywania w magazynie. 
-1150675;metalowy keg 
+1150675;Metalowy Keg
 1150676;Magazyn brokera towarowego 
 1150677;Nie ma juz zadnych przedmiotow ani srodkow w przechowywaniu dla twojego bylego stoiska na bazarze. Dziekujemy za starannosc w odzyskiwaniu swoich rzeczy.
 1150678;Niektore osobiste przedmioty, ktore byly wyposazone na brokera, wciaz pozostaja w magazynie, poniewaz twoj plecak nie moze ich pomiescic. Prosze zwolnij miejsce w plecaku i wroc, aby odebrac te przedmioty.. 
@@ -110215,7 +110214,7 @@ Number;Text
 1153497;Szata pamiątkowa z okazji 15-lecia została umieszczona w twoim plecaku.
 1153498;rytuał przywołania exodusa
 1153499;zwoje przywołania demona
-1153500;sztylet poswiecenia exodusa
+1153500;Sztylet Poswiecenia Exodusa
 1153501;glowne zlacze
 1153502;ołtarz przywołania exodusa
 1153503;Róg obfitości
@@ -114064,7 +114063,7 @@ Number;Text
 1157346;glenda  
 1157347;luk nieskonczonego roju  
 1157348;Mankiety Arcymaga
-1157349;rekawice feudalnego uscisku  
+1157349;Rekawice Feudalnego Uscisku
 1157350;bransoleta prymitywnej konsumpcji  
 1157351;You need ~1_SKILL_REQUIREMENT~ tactics skill to perform that attack 
 1157352;You need ~1_SKILL_REQUIREMENT~ weapon skill to perform that attack 
