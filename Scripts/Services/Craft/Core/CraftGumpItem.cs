@@ -83,8 +83,8 @@ namespace Server.Engines.Craft
             AddButton(265, 387, 4005, 4007, 2, GumpButtonType.Reply, 0);
             AddHtmlLocalized(300, 390, 150, 18, 1112623, LabelColor, false, false); //MAKE NUMBER
 
-            AddButton(135, 387, 4005, 4007, 3, GumpButtonType.Reply, 0);
-            AddHtmlLocalized(170, 390, 150, 18, 1112624, LabelColor, false, false); //MAKE MAX
+            AddButton(95, 387, 4005, 4007, 3, GumpButtonType.Reply, 0);
+            AddHtmlLocalized(130, 390, 150, 18, 1112624, LabelColor, false, false); //MAKE MAX
 
             AddButton(15, 387, 4014, 4016, 0, GumpButtonType.Reply, 0);
             AddHtmlLocalized(50, 390, 150, 18, 1044150, LabelColor, false, false); // BACK
