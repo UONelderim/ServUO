@@ -2783,7 +2783,7 @@ namespace Server.Mobiles
                 AddHtmlLocalized(395, 14, 105, 20, 1114122, 0x7FFF, false, false); // AUTO REINSURE
 
                 AddButton(395, 470, 0xFA5, 0xFA6, 2, GumpButtonType.Reply, 0);
-                AddHtmlLocalized(430, 472, 50, 20, 1006044, 0x7FFF, false, false); // OK
+                AddHtmlLocalized(430, 472, 75, 20, 1073996, 0x7FFF, false, false); // OK
 
                 AddHtmlLocalized(10, 14, 150, 20, 1114121, 0x7FFF, false, false); // <CENTER>ITEM INSURANCE MENU</CENTER>
 
