@@ -228,7 +228,7 @@ namespace Server.Engines.Craft
             AddCraft(typeof(FlowerGarland), 1011375, 1028965, 10.0, 35.0, typeof(Cloth), 1044455, 5, 1044287);
             AddCraft(typeof(ClothNinjaHood), 1011375, 1030202, 80.0, 105.0, typeof(Cloth), 1044455, 13, 1044287);
             AddCraft(typeof(Kasa), 1011375, 1030211, 60.0, 85.0, typeof(Cloth), 1044455, 12, 1044287);
-            AddCraft(typeof(NamelessHood), 1011375, "1029216", 67.0, 92.0, typeof(Cloth), 1044455, 12, 1044287);
+            AddCraft(typeof(NamelessHood), 1011375, 1029216, 67.0, 92.0, typeof(Cloth), 1044455, 12, 1044287);
             
             /*     index = AddCraft(typeof(ChefsToque), 1011375, 1109618, 6.2, 21.2, typeof(Cloth), 1044455, 11, 1044287);
                  AddRecipe(index, (int)TailorRecipe.ChefsToque);
@@ -281,9 +281,10 @@ namespace Server.Engines.Craft
             AddCraft(typeof(MaleKimono), 1111747, 1030189, 50.0, 75.0, typeof(Cloth), 1044455, 16, 1044287);
             AddCraft(typeof(MaleElvenRobe), 1111747, 1032659, 80.0, 105.0, typeof(Cloth), 1044455, 30, 1044287);
             AddCraft(typeof(FemaleElvenRobe), 1111747, 1032660, 80.0, 105.0, typeof(Cloth), 1044455, 30, 1044287);
-            //Płaszcze
+            //Płaszcze i pasy
             AddCraft(typeof(FurCape), 1111747, 1028969, 35.0, 60.0, typeof(Cloth), 1044455, 13, 1044287);
             AddCraft(typeof(Cloak), 1111747, 1025397, 41.4, 66.4, typeof(Cloth), 1044455, 14, 1044287);
+            AddCraft(typeof(WoodlandBelt), 1111747, 1032639, 80.0, 105.0, typeof(Cloth), 1044455, 10, 1044287);
             //Suknie
             AddCraft(typeof(PlainDress), 1111747, 1027937, 12.4, 37.4, typeof(Cloth), 1044455, 10, 1044287);
             AddCraft(typeof(FancyDress), 1111747, 1027935, 33.1, 58.1, typeof(Cloth), 1044455, 12, 1044287);
@@ -297,7 +298,7 @@ namespace Server.Engines.Craft
             //Spódnice i kilty
             AddCraft(typeof(Skirt), 1111747, 1025398, 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287);
             AddCraft(typeof(FurSarong), 1111747, 1028971, 35.0, 60.0, typeof(Cloth), 1044455, 12, 1044287);
-            AddCraft(typeof(Hakama), 1111747, 1030213, 50.0, 75.0, typeof(Cloth), 1044455, 16, 1044287;
+            AddCraft(typeof(Hakama), 1111747, 1030213, 50.0, 75.0, typeof(Cloth), 1044455, 16, 1044287);
             AddCraft(typeof(Kilt), 1111747, 1025431, 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
 
         /*  index = AddCraft(typeof(GargishRobe), 1111747, 1095256, 53.9, 78.9, typeof(Cloth), 1044455, 16, 1044287);
@@ -325,10 +326,9 @@ namespace Server.Engines.Craft
             #region Misc
             AddCraft(typeof(BodySash), 1015283, 1025441, 4.1, 29.1, typeof(Cloth), 1044455, 4, 1044287);
             AddCraft(typeof(HalfApron), 1015283, 1025435, 20.7, 45.7, typeof(Cloth), 1044455, 6, 1044287);
-            AddCraft(typeof(FullApron), 1015283, 1025437, 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287);
-            AddCraft(typeof(WoodlandBelt), 1111747, 1032639, 80.0, 105.0, typeof(Cloth), 1044455, 10, 1044287);
+            AddCraft(typeof(FullApron), 1015283, 1025437, 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287)
             AddCraft(typeof(Obi), 1015283, 1030219, 20.0, 45.0, typeof(Cloth), 1044455, 6, 1044287);
-            AddCraft(typeof(RegBag), 1015283, "1029217", 35.0, 70.0, typeof(Leather), 1044462, 10);
+            AddCraft(typeof(RegBag), 1015283, 1029217, 35.0, 70.0, typeof(Leather), 1044462, 10);
             AddCraft(typeof(OilCloth), 1015283, 1041498, 74.6, 99.6, typeof(Cloth), 1044455, 1, 1044287);
             AddCraft(typeof(GozaMatEastDeed), 1015283, 1030404, 55.0, 80.0, typeof(Cloth), 1044455, 25, 1044287);
             AddCraft(typeof(GozaMatSouthDeed), 1015283, 1030405, 55.0, 80.0, typeof(Cloth), 1044455, 25, 1044287);
@@ -470,11 +470,11 @@ namespace Server.Engines.Craft
             AddCraft(typeof(LeafLegs), 1015293, 1032671, 75.0, 100.0, typeof(Leather), 1044462, 15, 1044463);
             AddCraft(typeof(LeafTonlet), 1015293, 1032672, 70.0, 95.0, typeof(Leather), 1044462, 12, 1044463);
             //Maski
-            AddCraft(typeof(NBearMask), 1015293, "1030160", 77.5, 100, typeof(Leather), 1044462, 15, 1044463);
-            AddCraft(typeof(NDeerMask), 1015293, "1030161", 77.5, 100, typeof(Leather), 1044462, 15, 1044463);
-            AddCraft(typeof(NTribalMask), 1015293, "1030162", 82.5, 105, typeof(Leather), 1044462, 12, 1044463);
-            AddCraft(typeof(NHornedTribalMask), 1015293, "1030163", 82.5, 105, typeof(Leather), 1044462, 12, 1044463);
-            AddCraft(typeof(OrcMask), 1015293, "1030164", 75, 100, typeof(Leather), 1044462, 12, 1044463);
+            AddCraft(typeof(NBearMask), 1015293, 1030160, 77.5, 100, typeof(Leather), 1044462, 15, 1044463);
+            AddCraft(typeof(NDeerMask), 1015293, 1030161, 77.5, 100, typeof(Leather), 1044462, 15, 1044463);
+            AddCraft(typeof(NTribalMask), 1015293, 1030162, 82.5, 105, typeof(Leather), 1044462, 12, 1044463);
+            AddCraft(typeof(NHornedTribalMask), 1015293, 1030163, 82.5, 105, typeof(Leather), 1044462, 12, 1044463);
+            AddCraft(typeof(OrcMask), 1015293, 1030164, 75, 100, typeof(Leather), 1044462, 12, 1044463);
 
        /*     index = AddCraft(typeof(GargishLeatherArms), 1015293, 1095327, 53.9, 78.9, typeof(Leather), 1044462, 8, 1044463);
 
