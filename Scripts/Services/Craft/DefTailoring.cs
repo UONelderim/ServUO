@@ -614,7 +614,7 @@ namespace Server.Engines.Craft
             index = AddCraft(typeof(TigerPeltSkirt), 1015306, 1109631, 90.0, 115.0, typeof(Leather), 1044462, 4, 1044463);
             AddRes(index, typeof(TigerPelt), 1123908, 2, 1044253);
             AddRecipe(index, (int)TailorRecipe.TigerPeltSkirt);
-
+            
             index = AddCraft(typeof(DragonTurtleHideBustier), 1015306, 1109635, 101.5, 116.5, typeof(Leather), 1044462, 6, 1044463);
             AddRes(index, typeof(DragonTurtleScute), 1123910, 3, 1044253);
             AddRecipe(index, (int)TailorRecipe.DragonTurtleHideBustier);*/
