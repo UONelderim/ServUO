@@ -18601,8 +18601,8 @@ Number;Text
 1029213;ceramiczny dach 
 1029214;ceramiczny dach 
 1029215;ceramiczny dach 
-1029216; 
-1029217; 
+1029216;Kaptur Zakrywajacy Twarz
+1029217;Worek na Reagenty
 1029218; 
 1029219; 
 1029220; 
@@ -19487,7 +19487,7 @@ Number;Text
 1030099;yomotsu priest 
 1030100;starozytny czepiec 
 1030101;starozytny wzmocniony czepiec 
-1030102;skorzana czapka 
+1030102;starozytna skorzana czapka 
 1030103;barbuta 
 1030104;helm otwarty 
 1030105;starozytny plytowy karczek 
@@ -19545,11 +19545,11 @@ Number;Text
 1030157;para oskardow 
 1030158;cep 
 1030159;para sztyletow 
-1030160; 
-1030161; 
-1030162; 
-1030163; 
-1030164; 
+1030160;Maska Niedzwiedzia
+1030161;Maska Lani
+1030162;Maska Tubylca
+1030163;Zdobiona Maska Tubylca
+1030164;Orcza Maska
 1030165; 
 1030166; 
 1030167; 
@@ -19562,7 +19562,7 @@ Number;Text
 1030174; 
 1030175;Starozytny Czepiec
 1030176;Starozytny Wzmocniony Czepiec
-1030177;Skorzana Czapka
+1030177;Starozytna Skorzana Czapka
 1030178;Barbuta
 1030179;Helm Otwarty
 1030180;Starozytny Plytowy Karczek
@@ -66337,7 +66337,7 @@ Number;Text
 1109619;Kilt Zdobiony Zlotymi Nicmi
 1109620;Kilt w Krate
 1109621;Wytworny Kilt
-1109622;Suknia w Kwiaty
+1109622;Szata w Kwiaty
 1109623;Vice Shield 
 1109624;Virtue Shield 
 1109625;Elegancka Suknia
@@ -66354,7 +66354,7 @@ Number;Text
 1109636;Nogawnice ze Skory Smoczego Zolwia
 1109637;Helm ze Skory Smoczego Zolwia
 1109638;Naramienniki ze Skory Smoczego Zolwia
-1109639; 
+1109639;
 1109640; 
 1109641; 
 1109642; 
@@ -66364,7 +66364,7 @@ Number;Text
 1109646; 
 1109647; 
 1109648; 
-1109649;grandfather clock 
+1109649;Grandfather clock 
 1109650; 
 1109651; 
 1109652; 
