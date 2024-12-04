@@ -8,7 +8,7 @@ namespace Server.Mobiles
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Name = NameList.RandomName("ancient lich");
-            Body = 78;
+            Body = 79; //Było 78, ktore sie nie wyswietla
             BaseSoundID = 412;
 
             SetStr(216, 305);
