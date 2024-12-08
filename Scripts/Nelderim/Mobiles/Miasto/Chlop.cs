@@ -15,11 +15,6 @@ namespace Server.Mobiles
 			m => m.Say("Mogłoby troche popadać..."),
 			m => m.Say("Oby nie było suszy."),
 			m => m.Say("Ah... Mam już dość."),
-			m =>
-			{
-				m.Say(" ...i na jaką cholerę Soterios wypędzał Wyznawców Śmierci i Nekromantów. Przecież oni i tak wrócili");
-				m.Emote("*Odgania ręką*");
-			},
 			m => m.Say("Zjeżdżaj stąd..."),
 			m => m.Emote("*Szura powoli nogą po ziemi rozglądając się w koło*"),
 			m =>
@@ -51,19 +46,12 @@ namespace Server.Mobiles
 			{
 				Race.NTamael, _DefaultActions.Concat(new List<Action>
 				{
-					m => m.Say("Fron, Rada czy Elbern, Soteriosy, Griffiny i nekromanty... dla mnie jeden chuj... byleby zboże było!"),
 					m => m.Say("Oby Matka zesłała urodzaj..."),
-					m =>
-					{
-						m.Say("Tasandorskie ziemie dla Tamaelów!");
-						m.Emote("*Prycha*");
-					}
 				}).ToList()
 			},
 			{
 				Race.NJarling, _DefaultActions.Concat(new List<Action>
 				{
-					m => m.Say("Mam juz dość tych śmierdzących Tamaeli..."),
 					m => m.Say("Oby Matka zesłała urodzaj..."),
 					m =>
 					{
@@ -76,7 +64,6 @@ namespace Server.Mobiles
 				Race.NKrasnolud, _DefaultActions.Concat(new List<Action>
 				{
 					m => m.Say("Chuj z tą władzą... dla mnie nic sie nie zmienia..."),
-					m => m.Say("Oby nie było tak źle jak za Soteriosa..."),
 					m =>
 					{
 						m.Say("Co za buc...");
@@ -98,11 +85,6 @@ namespace Server.Mobiles
 					m => m.Say("Cholera... Znów braknie mi na opłaty..."),
 					m => m.Say("Na Loethe... Co to?!"),
 					m => m.Say("Najważniejsze, że nic złego się nie stało."),
-					m =>
-					{
-						m.Say("Chwała Lotharn, Chwała Naneth!.... Eh... jebać Elfy!");
-						m.Emote("*śmiesznym głosem naśladuje Elfa w akompaniamencie bardzo zniewieściałych gestów*");
-					},
 					m => m.Say("Jadłem kiedyś w karczmie w Noamuth Quortek..."),
 					m => m.Say("Dzięki nam, Podmrok jest bezpieczny!"),
 					m =>
@@ -122,7 +104,6 @@ namespace Server.Mobiles
 					m => m.Say("I co Ci do tego..."),
 					m => m.Say("Miłego dnia, mellon!"),
 					m => m.Say("W najbliższe Sianokosy zjadłbym coś z naszych lokalnych upraw..."),
-					m => m.Say("Ulice wreszcie czyste! Chwała Galadowi!"),
 					m => m.Say("Chwała Lotharn, Chwała Naneth!"),
 					m => m.Say("Podatki, podatki, więcej podatków. A płaca ta sama."),
 					m => m.Say("Ehhhh..."),
@@ -134,7 +115,6 @@ namespace Server.Mobiles
 						m.Say("Teraz to dopiero będzie!");
 						m.Emote("*uśmiecha się delikatnie*");
 					},
-					m => m.Say("Jadłem kiedyś w karczmie w Ferion, a później dwie doby spędziłem w wychodku..."),
 					m => m.Say("Dzięki Elfom, Lotharn jest bezpieczne!"),
 					m =>
 					{

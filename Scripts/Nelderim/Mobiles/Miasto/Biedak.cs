@@ -19,7 +19,6 @@ namespace Server.Mobiles
 					m => m.Say("...i tak to właśnie pozbyłem się mego dobytku..."),
 					m => m.Say("Psia krew...znów te szczury wygryzły mi koszulę..."),
 					m => m.Say("A z chęcią bym się napił teraz gorzałki..."),
-					m => m.Say("To miasto śmierdzi jeszcze bardziej, po tym jak Krasnoludy tu przylazły."),
 					m => m.Say("A mamusia mówiła... nie handluj z Krasnoludami..."),
 					m => m.Say("Eh.. i po co mi żyć w tej biedocie.."),
 					m => m.Say("Ja chromolę... gdzie moje pieniądze?! ...a... nie mam ich..."),

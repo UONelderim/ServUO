@@ -14,14 +14,12 @@ namespace Server.Mobiles
 			{
 				Race.NTamael, new List<Action>
 				{
-m => m.Say("Dobre czasy nastały."),
 					m => m.Say("On i tak nie był tego wart."),
 					m => m.Say("Psia krew..."),
 					m => m.Say("I co Ci do tego..."),
 					m => m.Say("Miłego dnia!"),
 					m => m.Say("W najbliższe Sianokosy zjadłbym pieczonego kurczaka... biegał tu kiedyś jakiś."),
 					m => m.Say("Ulice wreszcie czyste, jak zimna żytnia!"),
-					m => m.Say("Chwała Państwu Tasandorskiemu!"),
 					m => m.Say("Podatki, podatki, więcej podatków. A płaca ta sama."),
 					m => m.Say("Ta straż ciągle tu tylko węszy."),
 					m => m.Say("Cholera... Znów braknie mi na opłaty..."),
@@ -33,30 +31,17 @@ m => m.Say("Dobre czasy nastały."),
 						m.Emote("*uśmiecha się delikatnie*");
 					},
 					m => m.Say("Jadłem kiedyś w karczmie w Ferion, a później dwie doby spędziłem w wychodku..."),
-					m => m.Say("Tasandora dla Tamaeli!"),
 					m =>
 					{
 						m.Say("Cholipka...");
 						m.Emote("*Rozgląda się powoli wzdychając*");
 					},
-					m =>
-					{
-						m.Say("Dobrze, że Relikwia Pana znalazła się w naszej świątyni");
-						m.Emote("*wzdycha*");
-					},
-					m => m.Say("Tych Krasnali to powinni wypierdzielić na zbity pysk... Ochlejmordy cholerne"),
-					m => m.Say("Ten Soterios to jednak był dobry człek. A ten nekromanta... ahh zimny typ."),
 					m => m.Emote("*Śmieje sie rubasznie*"),
 					m => m.Emote("*Śpiewa pieśniczkę rozglądając sie w koło*"),
 					m => m.Emote("*Nuci pod nosem*"),
 					m => m.Emote("*Gwiżdże machając do kogoś*"),
 					m => m.Say("No lepiej nie będzie... Jakoś trzeba żyć..."),
 					m => m.Say("Pięknie się żyje... lepiej być nie może."),
-					m =>
-					{
-						m.Say("Soterios to był narcyz, megaloman, skurwysyn i żądny absolutnej władzy, zły władzy, zły człowiek. Nie widzi nic poza końcem swojego nosa. Na pewno steruje ptaszyskami  ...");
-						m.Emote("*Wygraża sie pięścią*");
-					},
 					m => m.Say("A kim Ty kurwa jesteś że dajesz mi rade co..?"),
 					m =>
 					{
@@ -64,13 +49,6 @@ m => m.Say("Dobre czasy nastały."),
 						m.Emote("*Prycha*");
 					},
 					m => m.Say("Odejdź... Nie mam teraz czasu"),
-					m =>
-					{
-						m.Say("Elfy wyniosły się z Tasandory? I bardzo kurwa dobrze...");
-						m.Emote("*Rzuca kamienień w złości*");
-					},
-					m => m.Say("Władca Tasandory - Griffith - może i nie jest tolerancyjny, ale za to mamy zadbane miasto"),
-					m => m.Say("Niech te Krasnale wypieprzają do siebie... a nie smrodzą nasze piękne miasto..."),
 				}
 			},
 			{
@@ -87,22 +65,11 @@ m => m.Say("Dobre czasy nastały."),
 					m => m.Say("Parszywe szczury..."),
 					m =>
 					{
-						m.Emote("*Mamrocze pod nosem*");
-						m.Say("Frozen to jednak władcą być nie umie. W Tasandorze, to jest dopiero życie!");
-					},
-					m =>
-					{
 						m.Emote("*Wrzeszczy*");
 						m.Say("Rządamy niższych podatków!");
 					},
 					m => m.Say(
 						"Śnieg, mróz i srogie zimy... dziadek mi o nich opowiadał. Geriador usłany był płatkami śniegu."),
-					m =>
-					{
-						m.Emote("*zerka w niebo*");
-						m.Say("Soterios to był narcyz, megaloman, skurwysyn i żądny absolutnej władzy, zły władzy, zły człowiek. Nie widzi nic poza końcem swojego nosa. Na pewno steruje ptaszyskami ...");
-					},
-					m => m.Say("Tamaele? A chuj im w dupę..."),
 					m => m.Emote("*Spluwa*"),
 					m => m.Emote("*Donośnie beka*"),
 					m =>
@@ -113,11 +80,6 @@ m => m.Say("Dobre czasy nastały."),
 					m => m.Emote("*Płacze*"),
 					m => m.Say("Oby tylko straż się nie interesowała..."),
 					m => m.Say("A niech to... więcej nie gram z nimi w kości."),
-					m =>
-					{
-						m.Emote("*Spogląda w niebo*");
-						m.Say("O Bogowie... Dajcie mi siłę, by nie zabić tego Tamaelskiego smroda...");
-					},
 					m => m.Say("Zjadłoby się zupę w karczmie... wypiłoby się z kamratami... ale nie ma z kim... "),
 					m =>
 					{
@@ -132,9 +94,6 @@ m => m.Say("Dobre czasy nastały."),
 					},
 					m => m.Say("Ty Psi synu..."),
 					m => m.Emote("*Przeciąga się*"),
-					m => m.Say("Dobrze, że Relikwia Pana znalazła się w naszej świątyni"),
-					m => m.Say("Żaden Jarling nie powinien się tu zapuszczać. Tu jest zbyt gorąco."),
-					m => m.Say("Krasnoludy, ELfy, Tamaele... nie ma znaczenia z kim grywam w szachy... byle nie z Drowami..."),
 					m => m.Emote("*Podrzuca złotą monetę*"),
 					m => m.Emote("*Wybucha śmiechem*"),
 					m => m.Say(
@@ -153,15 +112,6 @@ m => m.Say("Dobre czasy nastały."),
 						m.Emote("*Uśmiecha sie radnośnie*");
 					},
 					m => m.Say("Napiłoby sie piwa z kamratami..."),
-					m =>
-					{
-						m.Emote("*Spogląda na niebo*");
-						m.Say("Soterios to był narcyz, megaloman, skurwysyn i żądny absolutnej władzy, zły władzy, zły człowiek. Nie widzi nic poza końcem swojego nosa. Na pewno steruje ptaszyskami ...");
-					},
-					m =>
-					{
-						m.Say("Jadłem kiedyś na mieście w Garlan, a później dwie doby spędziłem w wychodku...");
-					},
 					m =>
 					{
 						m.Say("Jest dobrze!");
@@ -197,12 +147,6 @@ m => m.Say("Dobre czasy nastały."),
 						m.Emote("*Potrząsa pustym miechem*");
 					},
 					m => m.Say("Nie zadzieraj... Nie wiesz z kim tańczysz"),
-					m => m.Say("Zadumane dupki, pieprzeni Tamaelowie..."),
-					m =>
-					{
-						m.Say("Mnie to sie w sumie tutej podoba... Tanie piwo i dziewoje");
-						m.Emote("*Śmieje się rubasznie*");
-					},
 					m =>
 					{
 						m.Say("Żeby życie miało smaczek... raz wódeczka, raz koniaczek");
@@ -244,7 +188,6 @@ m => m.Say("Dobre czasy nastały."),
 					m => m.Say("On i tak nie był tego wart."),
 					m => m.Say("Na Loethe..."),
 					m => m.Say("I co Ci do tego..."),
-					m => m.Say("Podmrok dla Drowów, a reszta won!"),
 					m => m.Say("Zabiłbym jakiegoś naziemca."),
 					m => m.Say("Ulice wreszcie czyste! Chwała L'Delmah i Noamuth Quortek!"),
 					m => m.Say("Chwała L'Delmah, Chwała Loethe!"),
@@ -253,11 +196,6 @@ m => m.Say("Dobre czasy nastały."),
 					m => m.Say("Cholera... Znów braknie mi na opłaty..."),
 					m => m.Say("Na Loethe... Co to?!"),
 					m => m.Say("Najważniejsze, że nic złego się nie stało."),
-					m =>
-					{
-						m.Say("Chwała Lotharn, Chwała Naneth!.... Eh... jebać Elfy!");
-						m.Emote("*śmiesznym głosem naśladuje Elfa w akompaniamencie bardzo zniewieściałych gestów*");
-					},
 					m => m.Say("Jadłem kiedyś w karczmie w Noamuth Quortek..."),
 					m => m.Say("Dzięki nam, Podmrok jest bezpieczny!"),
 					m =>
@@ -277,7 +215,6 @@ m => m.Say("Dobre czasy nastały."),
 					m => m.Say("I co Ci do tego..."),
 					m => m.Say("Miłego dnia, mellon!"),
 					m => m.Say("W najbliższe Sianokosy zjadłbym coś z naszych lokalnych upraw..."),
-					m => m.Say("Ulice wreszcie czyste! Chwała Galadowi!"),
 					m => m.Say("Chwała Lotharn, Chwała Naneth!"),
 					m => m.Say("Podatki, podatki, więcej podatków. A płaca ta sama."),
 					m => m.Say("Ehhhh..."),
@@ -289,7 +226,6 @@ m => m.Say("Dobre czasy nastały."),
 						m.Say("Teraz to dopiero będzie!");
 						m.Emote("*uśmiecha się delikatnie*");
 					},
-					m => m.Say("Jadłem kiedyś w karczmie w Ferion, a później dwie doby spędziłem w wychodku..."),
 					m => m.Say("Dzięki Elfom, Lotharn jest bezpieczne!"),
 					m =>
 					{
