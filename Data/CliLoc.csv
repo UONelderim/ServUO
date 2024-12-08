@@ -20911,8 +20911,8 @@
 1031524;large glowing beetle 
 1031525;simple elven armoire 
 1031526;simple elven armoire 
-1031527;fancy elven armoire 
-1031528;fancy elven armoire 
+1031527;Ornamentowana Szafa 
+1031528;Ornamentowana Szafa 
 1031529;elven dresser 
 1031530;elven dresser 
 1031531;elven wash basin 
@@ -21899,10 +21899,10 @@
 1032512;elven wash basin 
 1032513;elven wash basin 
 1032514;elven wash basin 
-1032515;elven dresser 
-1032516;elven dresser 
-1032517;elven dresser 
-1032518;elven dresser 
+1032515;Szeroka Komoda 
+1032516;Szeroka Komoda 
+1032517;Szeroka Komoda 
+1032518;Szeroka Komoda 
 1032519;sinkhole 
 1032520;sinkhole 
 1032521;sinkhole 
@@ -43755,9 +43755,9 @@
 1072861;elfickie lozko (wschod)  
 1072862;Ornamentowana Niska Komoda (S)  
 1072863;elficka skrzynia  
-1072864;elficka komoda (poludnie)  
+1072864;Szeroka Komoda (S)  
 1072865;elficka umywalka (poludnie)  
-1072866;elficka szafa (elegancka)  
+1072866;Ornamentowana Szafa  
 1072867;Wytworna Lawka (S)  
 1072868;Skrzynia Stolowa  
 1072869;ornam.y stol (poludnie)  
@@ -44279,7 +44279,7 @@
 1073385;stol z twardego drewna (poludnie)  
 1073386;stol z twardego drewna (wschod)  
 1073387;elficka umywalka (wschod)  
-1073388;elficka komoda (wschod)  
+1073388;Szeroka Komoda (E)
 1073389;Prosze wskaz przedmiot, ktory chcesz przekazac.  
 1073390;Wybrany przez ciebie przedmiot nie jest tego typu, ktory wybrales.  
 1073391;Honorowy czlonek Przyjaciol Biblioteki  
@@ -52007,7 +52007,7 @@
 1095289;  
 1095290;Wielki Tron  
 1095291;Wielki Tron  
-1095292;gargulcowa skrzynia  
+1095292;Gargulcowa skrzynia  
 1095293;Gargulcowa Skrzynia  
 1095294;Ornamentowana Kanapa
 1095295;Ornamentowana Kanapa

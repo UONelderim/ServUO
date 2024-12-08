@@ -66,7 +66,7 @@ namespace Server.Items
         public WoodenChair()
             : base(0xB57)
         {
-            Weight = 20.0;
+            Weight = 13.0;
         }
 
         public WoodenChair(Serial serial)
@@ -190,6 +190,7 @@ namespace Server.Items
         public BigElvenChair(Serial serial)
             : base(serial)
         {
+	        Weight = 20.0;
         }
 
         public override void Serialize(GenericWriter writer)
@@ -214,6 +215,7 @@ namespace Server.Items
         public ElvenReadingChair()
             : base(0x2DF5)
         {
+	        Weight = 20.0;	
         }
 
         public ElvenReadingChair(Serial serial)

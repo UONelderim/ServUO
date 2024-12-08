@@ -43,6 +43,7 @@ namespace Server.Items
         public UpholsteredChairDeed(Serial serial)
             : base(serial)
         {
+	        Weight = 30.0;
         }
 
         public override void Serialize(GenericWriter writer)
