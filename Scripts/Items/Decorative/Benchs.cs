@@ -8,7 +8,7 @@ namespace Server.Items
         public WoodenBench()
             : base(0xB2D)
         {
-            Weight = 6;
+            Weight = 17;
         }
 
         public WoodenBench(Serial serial)

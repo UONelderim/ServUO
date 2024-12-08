@@ -185,7 +185,7 @@ namespace Server.Items
         public ShortCabinet()
             : base(0x2817)
         {
-            Weight = 1.0;
+            Weight = 35.0;
         }
 
         public ShortCabinet(Serial serial)
@@ -301,7 +301,7 @@ namespace Server.Items
         public ElegantArmoire()
             : base(0x2859)
         {
-            Weight = 1.0;
+            Weight = 35.0;
         }
 
         public ElegantArmoire(Serial serial)
@@ -446,7 +446,7 @@ namespace Server.Items
         public Armoire()
             : base(0xA4F)
         {
-            Weight = 1.0;
+            Weight = 35.0;
         }
 
         public Armoire(Serial serial)
@@ -483,7 +483,7 @@ namespace Server.Items
         public FancyArmoire()
             : base(0xA4D)
         {
-            Weight = 1.0;
+            Weight = 35.0;
         }
 
         public FancyArmoire(Serial serial)

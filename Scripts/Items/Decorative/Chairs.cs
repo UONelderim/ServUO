@@ -37,7 +37,7 @@ namespace Server.Items
         public WoodenChairCushion()
             : base(0xB53)
         {
-            Weight = 20.0;
+            Weight = 13.0;
         }
 
         public WoodenChairCushion(Serial serial)
@@ -95,7 +95,7 @@ namespace Server.Items
         public BambooChair()
             : base(0xB5B)
         {
-            Weight = 20.0;
+            Weight = 13.0;
         }
 
         public BambooChair(Serial serial)
@@ -155,7 +155,7 @@ namespace Server.Items
         public OrnateElvenChair()
             : base(0x2DE3)
         {
-            Weight = 1.0;
+            Weight = 30.0;
         }
 
         public OrnateElvenChair(Serial serial)
@@ -244,7 +244,7 @@ namespace Server.Items
         public TerMurStyleChair()
             : base(0x4023)
         {
-            Weight = 20.0;
+            Weight = 40.0;
         }
 
         public TerMurStyleChair(Serial serial)
