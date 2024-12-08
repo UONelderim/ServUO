@@ -53,7 +53,7 @@ namespace Server.Items
 		public WarHorseBardingDeed() : base(0x14F0)
 		{
 			Weight = 1.0;
-			Name = "Projekt Pancerza na Konia bojowego";
+			Name = "Zbroja na Konia Bojowego";
 		}
 
 		public override void GetProperties(ObjectPropertyList list)

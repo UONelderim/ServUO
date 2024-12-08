@@ -64,6 +64,9 @@ namespace Server
                 {
                     delay += ((adjusted - delay) * (1.0 - offset));
                 }
+
+                var hitsScalar = bc.Hits < (bc.HitsMax * 0.2f) ? 1.2 : 1.0;
+	            delay *= hitsScalar;
             }
 
             if (delay > adjusted)

@@ -1,4 +1,3 @@
-Number;Text
 0;Reputation aversion triggered. 
 101155;Kup Hodowce Koni 
 500001;Nie bede na Ciebie reagowac. 
@@ -6495,9 +6494,9 @@ Number;Text
 1011078;Zbroje plytowe 
 1011079;Helmy 
 1011080;Tarcze 
-1011081;Bron sieczna 
+1011081;Bron Sieczna 
 1011082;Topory 
-1011083;Bron drzewcowa 
+1011083;Bron Drzewcowa 
 1011084;Obuchy 
 1011085;Rekrutuj kogos do gildii 
 1011086;Pokaz liste czlonkow 
@@ -11833,7 +11832,7 @@ Number;Text
 1022445;dzban jablecznika 
 1022446;dzban jablecznika 
 1022447; 
-1022448;koszyk 
+1022448;Koszyk
 1022449;miska 
 1022450;miska 
 1022451;kosz z owocami 
@@ -11843,7 +11842,7 @@ Number;Text
 1022455;ceramiczny kubek 
 1022456;kubek 
 1022457;kubek 
-1022458;puchar 
+1022458;Puchar
 1022459;butelka likieru 
 1022460;butelki likieru 
 1022461;butelki likieru 
@@ -11904,7 +11903,7 @@ Number;Text
 1022516;srebrna zastawa 
 1022517;srebrna zastawa 
 1022518;dzban 
-1022519;talerz 
+1022519;Talerz
 1022520;talerz z jedzeniem 
 1022521;talerz z jedzeniem 
 1022522;brudny talerz 
@@ -11982,9 +11981,9 @@ Number;Text
 1022594;latarnia 
 1022595;latarnia 
 1022596;latarnia 
-1022597;latarnia 
+1022597;Latarnia
 1022598;swieca 
-1022599;swiecznik 
+1022599;Swiecznik
 1022600;swieca 
 1022601;swiecznik 
 1022602;taboret 
@@ -13021,7 +13020,7 @@ Number;Text
 1023633;koksownik 
 1023634;koksownik 
 1023635;koksownik 
-1023636;czysty zwoj 
+1023636;Czysty Zwoj
 1023637;zwoj 
 1023638;zwoj 
 1023639;zwoj 
@@ -13084,14 +13083,14 @@ Number;Text
 1023696;armata 
 1023697;armata 
 1023698;armata 
-1023699;kula do boli 
+1023699;Kula do Boli
 1023700;kule armatnie 
 1023701;plecak 
 1023702;worek 
 1023703;beczka 
 1023704;miska 
 1023705;pudelko 
-1023706;koszyk na piknik 
+1023706;Koszyk na Piknik
 1023707;balia z woda 
 1023708;metalowa skrzynia 
 1023709;skrzynka 
@@ -13103,8 +13102,8 @@ Number;Text
 1023715;pusty pojemnik 
 1023716; 
 1023717;kilof 
-1023718;kilof 
-1023719;widly 
+1023718;Kilof
+1023719;Widly
 1023720;widly 
 1023721;drag 
 1023722;drag 
@@ -13124,7 +13123,7 @@ Number;Text
 1023736; 
 1023737; 
 1023738; 
-1023739;mozdzierz 
+1023739;Mozdzierz
 1023740;beben 
 1023741;tamburyn 
 1023742;tamburyn 
@@ -13163,10 +13162,10 @@ Number;Text
 1023775;nuty 
 1023776;nuty 
 1023777;pekniety noz 
-1023778;tasak 
+1023778;Tasak
 1023779;tasak 
 1023780;noz do skor 
-1023781;noz do skor 
+1023781;Noz do Skor
 1023782;manekin 
 1023783;manekin 
 1023784;obraz 
@@ -13219,7 +13218,7 @@ Number;Text
 1023831;zwoj 
 1023832;zwoj 
 1023833;zwoj 
-1023834;ksiega czarow 
+1023834;Ksiega Czarow
 1023835;butelka 
 1023836;butelka 
 1023837;butelka 
@@ -13283,7 +13282,7 @@ Number;Text
 1023895;siodlo 
 1023896;siodlo 
 1023897;lopata 
-1023898;lopata 
+1023898;Lopata
 1023899;lajno 
 1023900;lajno 
 1023901; 
@@ -13292,7 +13291,7 @@ Number;Text
 1023904;strzaly 
 1023905;strzaly 
 1023906;strzala 
-1023907;siekiera 
+1023907;Siekiera
 1023908;siekiera 
 1023909;Katowski Topor
 1023910;katowski topor 
@@ -13382,8 +13381,8 @@ Number;Text
 1023994;zwinieta tkanina 
 1023995;zwinieta tkanina 
 1023996;zwinieta tkanina 
-1023997;narzedzia krawieckie 
-1023998;nozyczki 
+1023997;Narzedzia Krawieckie
+1023998;Nozyczki
 1023999;nozyczki 
 1024000;szpula nici 
 1024001;szpula nici 
@@ -13406,14 +13405,14 @@ Number;Text
 1024018; 
 1024019; 
 1024020;mlotek kowalski 
-1024021;mlotek kowalski 
+1024021;Mlotek Kowalski
 1024022;podkowy 
 1024023;rozgrzany metal 
 1024024;rozgrzany metal 
 1024025; 
 1024026; 
 1024027;szczypce 
-1024028;szczypce 
+1024028;Szczypce
 1024029;ksiazka 
 1024030;ksiazka 
 1024031;pioro i atrament 
@@ -13482,10 +13481,10 @@ Number;Text
 1024094;kubek z czaszki 
 1024095;olowiany kubek 
 1024096;olowiany kubek 
-1024097;olowiany kubek 
+1024097;Olowiany Kubek
 1024098;olowiany kubek 
 1024099;spluwaczka 
-1024100;kurek 
+1024100;Kurek
 1024101;pelny sloik 
 1024102;pusty sloik 
 1024103;sloik z polowa zawartosci 
@@ -13496,132 +13495,132 @@ Number;Text
 1024108;snop siana 
 1024109;snop siana 
 1024110;miedziany klucz 
-1024111;zloty klucz 
-1024112;zelazny klucz 
-1024113;kolko na klucze 
-1024114;magiczny klucz 
-1024115;zardzewialy zelazny klucz 
+1024111;Zloty Klucz 
+1024112;Zelazny Klucz
+1024113;Kolko Na Klucze
+1024114;Magiczny Klucz 
+1024115;Zardzewialy Zelazny Klucz 
 1024116; 
-1024117;kolowrotek 
-1024118;kolowrotek 
-1024119;kolowrotek 
-1024120;pusta plytka 
-1024121;kolowrotek 
-1024122;kolowrotek 
-1024123;kolowrotek 
-1024124;kolowrotek 
-1024125;kolowrotek 
-1024126;kolowrotek 
-1024127;welna 
-1024128;piora 
-1024129;piora 
-1024130;narzedzia lukmistrza 
-1024131;narzedzia lukmistrza 
-1024132;drzewce 
-1024133;drzewce 
-1024134;dluta 
-1024135;dluta 
-1024136;brzeszczot 
-1024137;brzeszczot 
-1024138;mlotek 
-1024139;mlotek 
-1024140;narzedzia stolarza 
-1024141;narzedzia stolarza 
-1024142;gwozdzie 
-1024143;gwozdzie 
-1024144;duzy hebel 
-1024145;duzy hebel 
-1024146;maly hebel 
-1024147;maly hebel 
-1024148;pila 
-1024149;pila 
-1024150;siano 
-1024151;siano 
-1024152;trociny 
-1024153;worek maki 
-1024154;otwarty worek maki 
-1024155;bochenek chleba 
-1024156;bochenek chleba 
-1024157;surowe ciasto 
-1024158;sito do maki 
-1024159;pomieszane ciasto 
-1024160;pizza 
-1024161;ciasto 
-1024162;nieupieczone ciasto 
-1024163;walek 
-1024164;spam 
-1024165;worek maki 
-1024166;otwarty worek maki 
-1024167;globus 
-1024168;globus 
-1024169;lawka do krosna 
-1024170;lawka do krosna 
-1024171;zegar 
-1024172;zegar 
-1024173;obudowa zegara 
-1024174;obudowa zegara 
-1024175;czesci zegara 
-1024176;czesci zegara 
-1024177;os z przekladniami 
-1024178;os z przekladniami 
-1024179;przekladnie 
-1024180;przekladnie 
-1024181;zawias 
-1024182;zawias 
-1024183;sekstans 
-1024184;sekstans 
-1024185;czesci sekstansu 
-1024186;czesci sekstansu 
-1024187;os 
-1024188;os 
-1024189;sprezyny 
-1024190;sprezyny 
-1024191;krosno 
-1024192;krosno 
-1024193;krosno 
-1024194;krosno 
-1024195;krosno 
-1024196;krosno 
-1024197;krosno 
-1024198;krosno 
-1024199;pociete skory 
-1024200;pociete skory 
-1024201;rozciagnieta skora 
-1024202;rozciagnieta skora 
-1024203;rozciagnieta skora 
-1024204;rozciagnieta skora 
-1024205;rozciagnieta skora 
-1024206;rozciagnieta skora 
-1024207;rozciagnieta skora 
-1024208;kukla treningowa 
-1024209;kukla treningowa 
-1024210;kukla treningowa 
-1024211;kukla treningowa 
-1024212;kukla treningowa 
-1024213;kukla treningowa 
-1024214;kukla treningowa 
-1024215;kukla treningowa 
-1024216;skory 
-1024217;skory 
-1024218;rozciagnieta skora 
-1024219;rozciagnieta skora 
-1024220;rozciagnieta skora 
-1024221;rozciagnieta skora 
-1024222;rozciagnieta skora 
-1024223;rozciagnieta skora 
-1024224;rozciagnieta skora 
-1024225;pociete skory 
-1024226;pociete skory 
-1024227;nieupieczona pizza 
+1024117;Kolowrotek 
+1024118;Kolowrotek 
+1024119;Kolowrotek 
+1024120;Pusta Plytka 
+1024121;Kolowrotek 
+1024122;Kolowrotek 
+1024123;Kolowrotek 
+1024124;Kolowrotek 
+1024125;Kolowrotek 
+1024126;Kolowrotek 
+1024127;Welna 
+1024128;Piora 
+1024129;Piora 
+1024130;Narzedzia Lukmistrza 
+1024131;Narzedzia Lukmistrza 
+1024132;Drzewce 
+1024133;Drzewce 
+1024134;Dluta 
+1024135;Dluta 
+1024136;Brzeszczot
+1024137;Brzeszczot 
+1024138;Mlotek
+1024139;Mlotek 
+1024140;Narzedzia Stolarza
+1024141;Narzedzia Stolarza 
+1024142;Gwozdzie 
+1024143;Gwozdzie 
+1024144;Duzy Hebel
+1024145;Duzy Hebel 
+1024146;Maly Hebel
+1024147;Maly Hebel 
+1024148;Pila
+1024149;Pila 
+1024150;Siano 
+1024151;Siano 
+1024152;Trociny 
+1024153;Worek Maki 
+1024154;Otwarty Worek Maki 
+1024155;Bochenek Chleba 
+1024156;Bochenek Chleba 
+1024157;Surowe Ciasto 
+1024158;Sito Do Maki
+1024159;Pomieszane Ciasto 
+1024160;Pizza 
+1024161;Ciasto 
+1024162;Nieupieczone Ciasto 
+1024163;Walek
+1024164;Spam 
+1024165;Worek Maki 
+1024166;Otwarty Worek Maki 
+1024167;Globus
+1024168;Globus 
+1024169;Lawka Do Krosna 
+1024170;Lawka Do Krosna 
+1024171;Zegar 
+1024172;Zegar 
+1024173;Obudowa Zegara
+1024174;Obudowa Zegara 
+1024175;Czesci Zegara
+1024176;Czesci Zegara 
+1024177;Os Z Przekladniami
+1024178;Os Z Przekladniami 
+1024179;Przekladnie
+1024180;Przekladnie 
+1024181;Zawias
+1024182;Zawias 
+1024183;Sekstans
+1024184;Sekstans 
+1024185;Czesci Sekstansu
+1024186;Czesci Sekstansu 
+1024187;Os
+1024188;Os 
+1024189;Sprezyny
+1024190;Sprezyny 
+1024191;Krosno 
+1024192;Krosno 
+1024193;Krosno 
+1024194;Krosno 
+1024195;Krosno 
+1024196;Krosno 
+1024197;Krosno 
+1024198;Krosno 
+1024199;Pociete Skory 
+1024200;Pociete Skory 
+1024201;Rozciagnieta Skora 
+1024202;Rozciagnieta Skora 
+1024203;Rozciagnieta Skora 
+1024204;Rozciagnieta Skora 
+1024205;Rozciagnieta Skora 
+1024206;Rozciagnieta Skora 
+1024207;Rozciagnieta Skora 
+1024208;Kukla Treningowa 
+1024209;Kukla Treningowa 
+1024210;Kukla Treningowa 
+1024211;Kukla Treningowa 
+1024212;Kukla Treningowa 
+1024213;Kukla Treningowa 
+1024214;Kukla Treningowa 
+1024215;Kukla Treningowa 
+1024216;Skory 
+1024217;Skory 
+1024218;Rozciagnieta Skora 
+1024219;Rozciagnieta Skora 
+1024220;Rozciagnieta Skora 
+1024221;Rozciagnieta Skora 
+1024222;Rozciagnieta Skora 
+1024223;Rozciagnieta Skora 
+1024224;Rozciagnieta Skora 
+1024225;Pociete Skory 
+1024226;Pociete Skory 
+1024227;Nieupieczona Pizza 
 1024228; 
-1024229;naszyjnik 
-1024230;bransoleta 
-1024231;kolczyki 
-1024232;naszyjnik 
-1024233;naszyjnik 
-1024234;pierscien 
-1024235;koraliki 
-1024236;dzwignia 
+1024229;Naszyjnik 
+1024230;Bransoleta
+1024231;Kolczyki 
+1024232;Naszyjnik 
+1024233;Naszyjnik 
+1024234;Pierscien
+1024235;Koraliki 
+1024236;Dzwignia 
 1024237;dzwignia 
 1024238;dzwignia 
 1024239;przelacznik 
@@ -13706,13 +13705,13 @@ Number;Text
 1024318; 
 1024319; 
 1024320; 
-1024321;obrecze 
+1024321;Obrecze
 1024322;obrecze 
 1024323;miska z ciastem 
-1024324;pila dwureczna 
-1024325;katownik 
-1024326;dluto stolarskie 
-1024327;skrobak 
+1024324;Pila Dwureczna
+1024325;Katownik
+1024326;Dluto Stolarskie
+1024327;Skrobak
 1024328;mala drewniana lyzka 
 1024329;duza drewniana lyzka 
 1024330; 
@@ -13781,7 +13780,7 @@ Number;Text
 1024393;muchomor 
 1024394;muchomor 
 1024395;lacznik 
-1024396;dart trap 
+1024396;Dart Trap
 1024397;dart trap 
 1024398;dart trap 
 1024399;lacznik 
@@ -14476,7 +14475,7 @@ Number;Text
 1025088;skorzana utwardzana tunika 
 1025089;skorzane utwardzane nogawice 
 1025090;skorzana utwardzana tunika 
-1025091;mlotek kowalski 
+1025091;Mlotek Kowalski
 1025092;mlotek kowalski 
 1025093;pierscieniowe nogawice 
 1025094;pierscieniowe nogawice 
@@ -14495,7 +14494,7 @@ Number;Text
 1025107; 
 1025108;kij pasterski 
 1025109;kij pasterski 
-1025110;noz rzeznicki 
+1025110;Noz Rzeznicki
 1025111;noz rzeznicki 
 1025112;sekata laska 
 1025113;sekata laska 
@@ -14513,17 +14512,17 @@ Number;Text
 1025125;Widly Bojowe
 1025126;maczuga bojowa 
 1025127;Maczuga Bojowa
-1025128;zamkniety helm 
+1025128;Zamkniety Helm 
 1025129;zamkniety helm 
-1025130;helm 
+1025130;Helm 
 1025131;helm 
-1025132;basinet 
+1025132;Basinet 
 1025133;basinet 
-1025134;helm nosowy 
+1025134;Helm Nosowy 
 1025135;helm nosowy 
 1025136;Plytowe Naramienniki
 1025137;Plytowe Nogawice
-1025138;plytowy helm 
+1025138;Plytowy Helm 
 1025139;Plytowy Karczek
 1025140;Plytowe Rekawice
 1025141;plytowy napiersnik 
@@ -14750,13 +14749,13 @@ Number;Text
 1025362;projekt statku 
 1025363;makieta statku 
 1025364;makieta statku 
-1025365;luneta 
+1025365;Luneta
 1025366;luneta 
 1025367;kotwica 
 1025368;lina 
 1025369;kotwica 
 1025370;lina 
-1025371;wytrych 
+1025371;Wytrych
 1025372;wytrych 
 1025373;wytrychy 
 1025374;wytrychy 
@@ -15602,7 +15601,7 @@ Number;Text
 1026214;butelka 
 1026215;butelka 
 1026216;butelka 
-1026217;lichtarz 
+1026217;Lichtarz
 1026218;lichtarz 
 1026219;lichtarz 
 1026220;lichtarz 
@@ -15610,7 +15609,7 @@ Number;Text
 1026222;lichtarz 
 1026223;lichtarz 
 1026224;lichtarz 
-1026225;waga 
+1026225;Waga
 1026226;waga 
 1026227;czaszka ze swieca 
 1026228;czaszka ze swieca 
@@ -15659,7 +15658,7 @@ Number;Text
 1026271;rozsypana maka 
 1026272;rozsypana maka 
 1026273;rozsypana maka 
-1026274;kosz do przesiewania 
+1026274;Kosz do Przesiewania
 1026275;kamien mlynarski 
 1026276;kamien mlynarski 
 1026277;kamien mlynarski 
@@ -18178,7 +18177,7 @@ Number;Text
 1028790;bagball 
 1028791;bagball 
 1028792;zamowienie 
-1028793;ksiega zamowien 
+1028793;Ksiega Zamowien
 1028794;Księga Talentów 
 1028795;Księga Talentów 
 1028796; 
@@ -18789,9 +18788,9 @@ Number;Text
 1029401;brama 
 1029402;brama 
 1029403;lampion 
-1029404;lampion 
+1029404;Lampion
 1029405;papierowy lampion 
-1029406;papierowy lampion 
+1029406;Papierowy Lampion
 1029407;tower lantern 
 1029408;tower lantern 
 1029409;czerwona wiszaca lampa 
@@ -18803,7 +18802,7 @@ Number;Text
 1029415;biala wiszaca lampa 
 1029416;biala wiszaca lampa 
 1029417;okragly papierowy lampion 
-1029418;okragly papierowy lampion 
+1029418;Okragly Papierowy Lampion
 1029419;papierowy parawan 
 1029420;papierowy parawan 
 1029421;papierowy parawan 
@@ -19543,7 +19542,7 @@ Number;Text
 1030155;szpony 
 1030156;gwiazdka 
 1030157;para oskardow 
-1030158;cep 
+1030158;Cep
 1030159;para sztyletow 
 1030160;Maska Niedzwiedzia
 1030161;Maska Lani
@@ -19675,8 +19674,8 @@ Number;Text
 1030287; 
 1030288;origami paper 
 1030289;origami paper 
-1030290;wietrzne dzwonki 
-1030291;ozdobne wietrzne dzwonki 
+1030290;Wietrzne Dzwonki
+1030291;Ozdobne Wietrzne Dzwonki
 1030292;bento box 
 1030293;bento box 
 1030294;bento box 
@@ -21062,7 +21061,7 @@ Number;Text
 1031674; 
 1031675; 
 1031676; 
-1031677;Ksiega Mistycyzmu 
+1031677;Ksiega Mistycyzmu
 1031678;Mistczny Promień 
 1031679;Kamień Leczenia 
 1031680;Oczyszczenie 
@@ -26425,7 +26424,7 @@ Number;Text
 1041264;Zombie Statuette 
 1041265;Llama Statuette 
 1041266;Flaming Head 
-1041267;ksiega run 
+1041267;Ksiega Run
 1041268;tile floor 
 1041269;a Felucca Moon Orb: 10 
 1041270;a Trammel Moon Orb: 10 
@@ -28269,7 +28268,7 @@ Number;Text
 1044106;Medytacja 
 1044107;Skradanie sie 
 1044108;Rozbrajanie 
-1044109;Nekromancja 
+1044109;Nekromancja
 1044110;Koncentracja 
 1044111;Rycerstwo 
 1044112;Tradycja Wojenna 
@@ -28318,17 +28317,17 @@ Number;Text
 1044155;Zrobiles wyjatkowej jakosci przedmiot. 
 1044156;Zrobiles wyjatkowej jakosci przedmiot, i zlozyles na nim swoj podpis. 
 1044157;Nie udalo ci sie zrobic przedmiotu, ale nie straciles materialow. 
-1044158;lyzka (obrocona w lewo) 
-1044159;lyzka (obrocona w prawo) 
-1044160;widelec (obrocony w lewo) 
-1044161;widelec (obrocony w prawo) 
-1044162;noz (obrocony w lewo) 
-1044163;widelec (obrocony w prawo) 
-1044164;narzedzia majstra 
+1044158;Lyzka (Obrocona w Lewo)
+1044159;Lyzka (Obrocona w Prawo)
+1044160;Widelec (Obrocony w Lewo)
+1044161;Widelec (Obrocony w Prawo)
+1044162;Noz (Obrocony w Lewo)
+1044163;Widelec (Obrocony w Prawo)
+1044164;Narzedzia Majstra
 1044165;Jeszcze nic nie robiles 
-1044166;narzedzia lukmistrza 
-1044167;pioro kartografa 
-1044168;pioro skryby 
+1044166;Narzedzia Lukmistrza
+1044167;Pioro Kartografa
+1044168;Pioro Skryby
 1044169;Osie 
 1044170;Osie z przekladniami 
 1044171;Sprezyny 
@@ -28418,7 +28417,7 @@ Number;Text
 1044255;Puste kegi 
 1044256;zegar (obrocony w lewo) 
 1044257;zegar (obrocony w prawo) 
-1044258;keg na mikstury 
+1044258;Keg na Mikstury
 1044259;PRZETOP PRZEDMIOT 
 1044260;NAPRAW PRZEDMIOT 
 1044261;You have worn out your tongs. 
@@ -28450,15 +28449,15 @@ Number;Text
 1044287;Nie masz odpowiedniego materialu do zrobienia przedmiotu. 
 1044288;Zakrzywione deski 
 1044289;Obrecze 
-1044290;Rozne 
-1044291;Meble 
-1044292;Pojemniki 
-1044293;Instrumenty 
-1044294;Inne 
+1044290;Rozne
+1044291;Meble
+1044292;Pojemniki
+1044293;Instrumenty
+1044294;Inne
 1044295;Laski i tarcze 
 1044296;Przedmioty kowala 
-1044297;Kukly treningowe 
-1044298;Przedmioty krawca 
+1044297;Kukly Treningowe
+1044298;Przedmioty Krawca
 1044299;Przedmioty kucharza 
 1044300;krzeslo 
 1044301;krzeslo 
@@ -28617,7 +28616,7 @@ Number;Text
 1044454;Nie masz zwinietej tkaniny. 
 1044455;Material  
 1044456;Nie masz zadnego gotowego materialu.  
-1044457;Materialy  
+1044457;Materialy
 1044458;Pociety Material
 1044459;Zlozony Material
 1044460;Potnij bele materialu na kawalki gotowego materialu.  
@@ -28655,9 +28654,9 @@ Number;Text
 1044492;Jestes za daleko od mlyna. 
 1044493;Musisz byc blisko piekarnika, zeby to upiec. 
 1044494;Jestes za daleko od piekarnika. 
-1044495;Skladniki 
+1044495;Skladniki
 1044496;Przygotowanie 
-1044497;Pieczenie 
+1044497;Pieczenie
 1044498;Grillowanie 
 1044499; 
 1044500;<CENTER>MENU KAMIENIARZA</CENTER> 
@@ -28726,8 +28725,8 @@ Number;Text
 1044563;Nie masz pior 
 1044564;drzewce 
 1044565;Amunicja 
-1044566;Bronie 
-1044567;rondel 
+1044566;Bronie
+1044567;Rondel
 1044568;sifter 
 1044569;Rozowe mikstury 
 1044570;Belty 
@@ -28753,11 +28752,11 @@ Number;Text
 1044590;empty vial rack 
 1044591;full vial rack 
 1044592;gargulcowa klepsydra 
-1044593;poison trap 
+1044593;Poison Trap
 1044594;dart trap deed 
 1044595;poison trap deed 
 1044596;explosion trap deed 
-1044597;explosion trap 
+1044597;Explosion Trap
 1044598;faction gas trap 
 1044599;faction explosion trap 
 1044600;faction saw trap 
@@ -29409,7 +29408,7 @@ Number;Text
 1046438;Target the cloth to use. 
 1046439;That is not a valid target. 
 1046440;Bola Balls 
-1046441;bola 
+1046441;Bola
 1046442;You can only trap things you are carrying. 
 1046443;That is already trapped. 
 1046444;Use a mapmaker's pen to draw maps. 
@@ -30662,7 +30661,7 @@ Number;Text
 1053009;Smocze naremienniki 
 1053010;Smoczy helm 
 1053011;Your squire has lost 'young' status. 
-1053012;Projekt Zbroi Smoka Bagiennego
+1053012;Zbroja na Smoka Bagiennego
 1053013;smok bagienny 
 1053014;opancerzony smok bagienny 
 1053015;Smoczy wojownik 
@@ -30850,7 +30849,7 @@ Number;Text
 1054013;The bracelet is already attempting contact. You decide to wait a moment. 
 1054014;The bracelet glows black. The bracelet's target is on another facet. 
 1054015;The bracelet's twin is available for transport. 
-1054016; 
+1054016;Zbroja na Konia Bojowego
 1054017; 
 1054018; 
 1054019; 
@@ -33668,7 +33667,7 @@ Number;Text
 1062757;zmniejszona ilosc wymaganych ziol 
 1062758;You cannot dismount your ethereal because your pack cannot hold it 
 1062759;Bron 
-1062760;Zbroja 
+1062760;Zbroja
 1062761;Wlasciwosci 
 1062762;~1_name~ has left the game. 
 1062763;The dealer hides a tile back in the wall. 
@@ -42016,10 +42015,10 @@ Number;Text
 1071121;Wskaż księgę zamówień, na która chcesz nałożyć okładkę.
 1071122;Nie możesz nałożyć okładki o tym samym kolorze.
 1071123;Nie możesz użyć okładki na zużytej księdze.
-1071124;Lina do przywiązywania
+1071124;Lina do Przywiązywania
 1071125;ustaw domyślny kolor
 1071126;Kolor wraca do domyślnego.
-1071127;Slupek do przywiazywania (replika)
+1071127;Slupek do Przywiazywania (Replika)
 1071128;
 1071129;
 1071130;Praying…
@@ -42895,7 +42894,7 @@ Number;Text
 1072000;
 1072001;Potezna mikstura zrecznosci 
 1072002;Potezna mikstura sily 
-1072003;Starozytna alchemia 
+1072003;Starozytna Alchemia
 1072004;Mikstura zywiolaka wody 
 1072005;Mikstura zywiolaka ognia 
 1072006;Mikstura zywiolaka ziemi 
@@ -43046,7 +43045,7 @@ Number;Text
 1072151;grawer do ksiag
 1072152;Grawer do Skorzanych Pojemnikow
 1072153;grawer do drewnianych pojemnikow
-1072154;grawer do metalowych pojemnikow 
+1072154;Grawer do Metalowych Pojemnikow
 1072155;Shimmering Effusion Statue 
 1072156;Fetid Essence Statue 
 1072157;Mantra Effervescence 
@@ -43785,8 +43784,8 @@ Number;Text
 1072890;Pioro do Pisania  
 1072891;postrzepiony mape scienna (poludnie)  
 1072892;postrzepiony mape scienna (wschod)  
-1072893;magiczna dzwignia  
-1072894;klejnotowy filigran  
+1072893;Magiczna Dzwignia
+1072894;Klejnotowy Filigran
 1072895;zapadniety pryzmat  
 1072896;dzwignia oznaczona runami 
 1072897;Obrecz  
@@ -43825,11 +43824,11 @@ Number;Text
 1072930;Execution 
 1072931;Naramienniki Z Lisci Piesni
 1072932;Rekawice Szwacza
-1072933;Bransoleta Odpornosci 
+1072933;Bransoleta Odpornosci
 1072934;Murder Warrant 
-1072935;Esensja Bitwy 
+1072935;Esensja Bitwy
 1072936;Impending Demise 
-1072937;Wisior Trzech Kroli 
+1072937;Wisior Trzech Kroli
 1072938;Missing Package 
 1072939;Lost in Transit 
 1072940;Kompendium Wszelkiej Wiedzy 
@@ -44000,7 +43999,7 @@ Number;Text
 1073105;<div align=center>Are you sure you wish to transfer this pet away, with no possibility of recovery?</div> 
 1073106;You feel intense pain as frozen spikes suddenly protrude through the floor. 
 1073107;Magic Jewelry 
-1073108;Wzmocniona magia 
+1073108;Wzmocniona Magia
 1073109;Kolczan Plomieni
 1073110;Kolczan Mrozu
 1073111;Kolczan Zarazy
@@ -44345,19 +44344,19 @@ Number;Text
 1073450;Songs of Note Section Donation Representative. 
 1073451;Nauczyles sie nowej receptury: ~1_RECIPE~ 
 1073452;ksiazka kucharska 
-1073453;bransoleta z jaskrawym bursztynem 
-1073454;bransoleta z ogniowym rubinem 
-1073455;bransoleta z ciemnym szafirem 
-1073456;bransoleta z biala perla 
-1073457;pierscien z cytrynem ecru 
-1073458;pierscien z niebieskim diamentem 
-1073459;pierscien z idealnym szmaragdem 
-1073460;pierscien z turkusem 
+1073453;Bransoleta z Jaskrawym Bursztynem
+1073454;Bransoleta z Ogniowym Rubinem
+1073455;Bransoleta z Ciemnym Szafirem
+1073456;Bransoleta z Biala Perla
+1073457;Pierscien z Cytrynem Ecru
+1073458;Pierscien z Niebieskim Diamentem
+1073459;Pierscien z Idealnym Szmaragdem
+1073460;Pierscien z Turkusem
 1073461;You don't have enough dye. 
 1073462;Spools of Thread 
 1073463;You don't have enough thread. 
 1073464;Przelacznik 
-1073465;pryzmat oznaczony runami
+1073465;Pryzmat Oznaczony Runami
 1073466;Mikstura Wiekszej Sily 
 1073467;Mikstura wiekszego leczenia  
 1073468;Winogrona  
@@ -45801,7 +45800,7 @@ Number;Text
 1074906;Books 
 1074907;Buckler 
 1074908;Battle Axe 
-1074909;Ksiega Nekromancji 
+1074909;Ksiega Nekromancji
 1074910;Dagger 
 1074911;Cloth Ninja Hood 
 1074912;Leather Ninja Hood 
@@ -50397,7 +50396,7 @@ Number;Text
 1079505;Custom 10 
 1079506;Mistycyzm 
 1079507;Imbuing 
-1079508;rzucanie 
+1079508;Rzucanie 
 1079509;PLACEHOLDER TEXT - Describe how the Mysticism skill works here. TID #1079509 
 1079510;PLACEHOLDER TEXT - Describe how the Imbuing skill works here. TID #1079510 
 1079511;PLACEHOLDER TEXT - Describe how the rzucanie skill works here. TID #1079511 
@@ -50890,7 +50889,7 @@ Number;Text
 1079998;maslo kakaowe 
 1079999;lady Melisande made me do it, ~1_target_player~. Signed: ~2_player~ 
 1080000;Wanilia 
-1080001;Cukiernictwo 
+1080001;Cukiernictwo
 1080002;You don't have enough sugar. 
 1080003;Worek cukru 
 1080004;You don't have enough cocoa butter. 
@@ -52029,7 +52028,7 @@ Number;Text
 1095310;gargulcowy sztandar  
 1095311;gargulcowy sztandar  
 1095312;swiecznik w stylu Ter-Mur  
-1095313;lustro stojace w stylu Ter-Mur  
+1095313;Lustro Stojace W Stylu Ter-mur
 1095314;aud-char  
 1095315;aud-char  
 1095316;gargulcowy obraz  
@@ -52499,10 +52498,10 @@ Number;Text
 1095781; 
 1095782; 
 1095783; 
-1095784;gargish necklace 
-1095785;gargish bracelet 
-1095786;gargish ring 
-1095787;gargish earrings 
+1095784;Gargish Necklace
+1095785;Gargish Bracelet
+1095786;Gargish Ring
+1095787;Gargish Earrings
 1095788;rocking horse 
 1095789;rocking horse 
 1095790;Kolumbryna
@@ -52554,8 +52553,8 @@ Number;Text
 1095836; 
 1095837; 
 1095838;stempel artyleryjski 
-1095839;stempel artyleryjski 
-1095840;czyścidło do armat 
+1095839;Stempel Artyleryjski
+1095840;Czyścidło do Armat
 1095841;czyścidło do armat 
 1095842; 
 1095843;soulforge 
@@ -54193,7 +54192,7 @@ Number;Text
 1097475; 
 1097476; 
 1097477; 
-1097478;gargulcowy tasak 
+1097478;Gargulcowy Tasak
 1097479;gargulcowy tasak 
 1097480;Gargulcowy Topor Bojowy
 1097481;gargulcowy topor bojowy 
@@ -54201,7 +54200,7 @@ Number;Text
 1097483;gargulcowy topor 
 1097484;Gargulcowy Bardi
 1097485;gargulcowy bardi 
-1097486;gargulcowy noz rzezniczy 
+1097486;Gargulcowy Noz Rzezniczy
 1097487;gargulcowy noz rzezniczy 
 1097488;gargulcowy chropowaty kij 
 1097489;gargulcowy chropowaty kij 
@@ -55119,17 +55118,17 @@ Number;Text
 1098401;koi lamp 
 1098402;koi lamp 
 1098403;koi lamp 
-1098404;dragon lamp 
+1098404;Dragon Lamp
 1098405;dragon lamp 
 1098406;dragon lamp 
 1098407;dragon lamp 
-1098408;stained glass lamp 
+1098408;Stained Glass Lamp
 1098409;stained glass lamp 
 1098410;tall lamp 
 1098411;tall lamp 
 1098412;tall lamp 
 1098413;tall lamp 
-1098414;tall double lamp 
+1098414;Tall Double Lamp
 1098415;tall double lamp 
 1098416;tall double lamp 
 1098417;tall double lamp 
@@ -68419,8 +68418,8 @@ Number;Text
 1111701;You have learned how to mine fine sand.  Target sand areas when mining to look for fine sand. 
 1111702;You have learned to make items from glass.  You will need to find miners to mine fine sand for you to make these items. 
 1111703;ATLAS 
-1111704;Zbroja metalowa 
-1111705;Stone Armor 
+1111704;Zbroja Metalowa 
+1111705;Stone Armor
 1111706;Show Legend 
 1111707;Only gargoyles can wear this. 
 1111708;Gargoyles can't wear this. 
@@ -68434,7 +68433,7 @@ Number;Text
 1111716;Deceit Level 2 
 1111717;Deceit Level 3 
 1111718;Deceit Level 4 
-1111719;Stone Weapons 
+1111719;Stone Weapons
 1111720;Covetous Level 1 
 1111721;Covetous Level 2 
 1111722;Covetous Level 3 
@@ -68832,7 +68831,7 @@ Number;Text
 1112114;To want precious weapons?! To get precious weapons! 
 1112115;Treasure Sand 
 1112116;You notice Niporailem staring at you and decide discretion is the better part of valor. 
-1112117;nozyczki ogrodnicze 
+1112117;Nozyczki Ogrodnicze
 1112118;Na jakiej roslinie chcesz uzyc tych nozycek ogrodniczych? 
 1112119;Mozesz uzywac tych nozyczek tylko na roslinach ozdobnych. 
 1112120;Przycinasz rosline na male kawalki i umieszczasz je w plecaku. 
@@ -68964,7 +68963,7 @@ Number;Text
 1112246;Nie masz wystarczajacej liczby drewnianych trzonkow, aby to zrobic.  
 1112247;drewniane drazki  
 1112248;suche trzciny  
-1112249;zmiekczone stroiki  
+1112249;Zmiekczone Stroiki
 1112250;Nie masz wystarczajacej ilosci tego rodzaju suchych trzcin, aby to zrobic.  
 1112251;Nie masz wystarczajacej ilosci tego rodzaju zmiekczonych stroikow, aby to zrobic.  
 1112252;Wymaga wyplatania koszy (specjalizacja stolarstwo i majsterkowanie)  
@@ -69008,13 +69007,13 @@ Number;Text
 1112290;Wicie koszy 
 1112291;toxic venom sac 
 1112292;mikstura palacej toksyny 
-1112293;okragly koszyk
+1112293;Okragly Koszyk
 1112294;koszyk
-1112295;kwadratowy koszyk 
-1112296;maly kwadratowy koszyk 
-1112297;wysoki okragly koszyk
-1112298;maly okragly koszyk
-1112299;wysoki koszyk
+1112295;Kwadratowy Koszyk
+1112296;Maly Kwadratowy Koszyk
+1112297;Wysoki Okragly Koszyk
+1112298;Maly Okragly Koszyk
+1112299;Wysoki Koszyk
 1112300;Navrey's Lair 
 1112301;Shrine of Truth 
 1112302;Underworld 
@@ -69052,7 +69051,7 @@ Number;Text
 1112334;All 
 1112335;Baskets 
 1112336;~1_val~ frame 
-1112337;small bushel 
+1112337;Small Bushel
 1112338;Which softened reeds would you like to use to make your basket? 
 1112339;You do not have enough of this type of softened reeds to make this. 
 1112340;Max Framerate: 
@@ -69072,7 +69071,7 @@ Number;Text
 1112354;The boura glares at you and will not let you shear its fur. 
 1112355;winnowing basket 
 1112356;picnic basket 
-1112357;bushel 
+1112357;Bushel
 1112358;The Kepetch nimbly escapes your attempts to shear its mane. 
 1112359;You would not be able to place the gathered kepetch fur in your backpack! 
 1112360;You place the gathered kepetch fur into your backpack. 
@@ -69195,7 +69194,7 @@ Number;Text
 1112477;Wylegles jaszczurke kurza.  
 1112478;Wylegles jaszczurke bojowa kurza!!  
 1112479;inkubator  
-1112480;kolia z lusek  
+1112480;Kolia z Lusek
 1112481;Jaka kurza bojowa chcesz zlapac?  
 1112482;Kura uwalnia sie z obrozy!!  
 1112483;Obroza spada na ziemie, gdy kura sprytnie jej unika.  
@@ -69340,7 +69339,7 @@ Number;Text
 1112622;STWORZ 1 
 1112623;STWORZ LICZBE 
 1112624;STWORZ WSZYSTKO 
-1112625;Gorgon Lens 
+1112625;Gorgon Lens
 1112626;Medusa scales 
 1112627;You cannot transfer the selected skill to this character. 
 1112628;control 
@@ -69746,9 +69745,9 @@ Number;Text
 1113028;Pile of Inspected Agapite Ingots 
 1113029;Pile of Inspected Verite Ingots 
 1113030;Pile of Inspected Valorite Ingots 
-1113031;zestaw do skorzanego wilka 
-1113032;zestaw do skorpiona z mechanizmu zegarowego 
-1113033;zestaw do vollema 
+1113031;Zestaw do Skorzanego Wilka
+1113032;Zestaw do Skorpiona z Mechanizmu Zegarowego
+1113033;Zestaw do Vollema
 1113034;Nie przeczytales Poradnika o Zyciu Mechanicznym. Moze pomoze rozmowa z Sutekiem! 
 1113035;Och, lsniace. Chociaz nie mam zastosowania na to. 
 1113036;To nie wystarcza. 
@@ -69850,7 +69849,7 @@ Number;Text
 1113132;The leather wolf howls for help 
 1113133;Thoughts of the Arisen distract you from your meditation. 
 1113134;You can only redeed items in your own house! 
-1113135;Zwoj laczenia
+1113135;Zwoj Laczenia
 1113136;pulpa drzewna 
 1113137;Necklace of Diligence 
 1113138;Target the powerscroll you wish to bind. 
@@ -70005,8 +70004,8 @@ Number;Text
 1113287;The thrown projectile will arc to a second target after hitting the primary target. Chaos energy will burst from the projectile at each target. This will only hit targets that are in combat with the user. 
 1113288;The projectile will be infused with energy by the attacker causing it to do more damage and stun or dismount the target. 
 1113289;You do not have enough wood pulp to make that. 
-1113290;Book (100 pages) 
-1113291;Book (200 pages) 
+1113290;Book (100 Pages)
+1113291;Book (200 Pages)
 1113292;+~1_bonus~ Stats : ~3_given~/~4_needed~ 
 1113293;Floor Trap Kit 
 1113294;You carefully arm the goblin trap. 
@@ -70067,9 +70066,9 @@ Number;Text
 1113349;delicate scales 
 1113350;Abyssal Cloth
 1113351;Rozgniecione Szklo
-1113352;tajemny kamien runiczny 
+1113352;Tajemny Kamien Runiczny
 1113353;Zelazo w Proszku
-1113354;kula pustki 
+1113354;Kula Pustki
 1113355;skora z boury 
 1113356;chaga mushroom 
 1113357;silver snake skin 
@@ -73055,7 +73054,7 @@ Number;Text
 1116337;New Player Aura Effect 
 1116338;Samuel's Secret Sauce 
 1116339;You do not have enough ~1_INGREDIENT~ to make that. 
-1116340;Ciasto z magicznych ryb 
+1116340;Ciasto z Magicznych Ryb
 1116341;Your new player starter kit token has been placed in your backpack. 
 1116342;You do not have enough loyalty with ~1_val~ to trade with this merchant. 
 1116343;We seek to take back the land of Sosaria from the monsterous races, such as the Ophidians and the Meer. 
@@ -73063,12 +73062,12 @@ Number;Text
 1116345;The bounty collector is now collecting powercrystals to keep them away from our enemies the Meer.  We believe they are planning to use them against the human race. 
 1116346;If you want to prove yourself, go kill those wretched Meer.  Telling me you are loyal proves nothing. 
 1116347;Accelerated skill gain.<br>(All Skills)<br><br>+3 to all regeneration.<br>(Health, Stamina, Mana) 
-1116348;Leczenie 
-1116349;Wzmacnianie 
-1116350;Toksyczne 
-1116351;Wybuchowe 
+1116348;Leczenie
+1116349;Wzmacnianie
+1116350;Toksyczne
+1116351;Wybuchowe
 1116352;Colorative 
-1116353;Dziwne Wywary 
+1116353;Dziwne Wywary
 1116354;Armaty 
 1116355;medium chainshot 
 1116356;heavy chainshot 
@@ -80894,7 +80893,7 @@ Number;Text
 1124176;Kotl Power Coil 
 1124177;Kotl Power Coil 
 1124178;Kotl Power Coil 
-1124179;Kotl Power Core 
+1124179;Kotl Power Core
 1124180;Stator 
 1124181;Regulator 
 1124182;Activator 
@@ -81999,7 +81998,7 @@ Number;Text
 1125281;roslina dekoracyjna 
 1125282;roslina dekoracyjna 
 1125283;roslina dekoracyjna 
-1125284;teleskop 
+1125284;Teleskop
 1125285;teleskop 
 1125286;wreath 
 1125287;wreath 
@@ -82360,7 +82359,7 @@ Number;Text
 1125642;Spiked Whip 
 1125643;Bladed Whip 
 1125644;Krampus Minion Talons
-1125645;krampus minion earrings 
+1125645;Krampus Minion Earrings
 1125646;krampus minion talons 
 1125647;ribbon 
 1125648;ribbon 
@@ -106899,7 +106898,7 @@ Number;Text
 1150181;Please enter the variable name which you want to add. 
 1150182;Please enter the integer value which you want to add. 
 1150183;Please enter the string value which you want to add. 
-1150184;wyrocznia z morza 
+1150184;Wyrocznia z Morza
 1150185;Legacy Paperdolls (Restart Required) 
 1150186;Displays legacy paperdoll art. 
 1150187;Blacksmith 
@@ -107310,8 +107309,8 @@ Number;Text
 1150592;Nie zmieniles swojej oferty.  
 1150593;rustykalna lawka (poludnie)  
 1150594;rustykalna lawka (wschod)  
-1150595;zaawansowany manekin treningowy (poludnie)  
-1150596;zaawansowany manekin treningowy (wschod)  
+1150595;Zaawansowany Manekin Treningowy (poludnie)
+1150596;Zaawansowany Manekin Treningowy (wschod)
 1150597;Wybierz przedmiot, ktory chcesz wyslac do swojej skrzynki bankowej.  
 1150598;automatyczne ladowanie  
 1150599;Wybierz cel, ktory chcesz przypisac.  
@@ -107378,8 +107377,8 @@ Number;Text
 1150660;Gotowy do przycinania topiarow 
 1150661;Musisz miec rozszerzenie Stygian Abyss lub pakiet tematyczny Rustic, aby z nich korzystac. 
 1150662;ILOSC 
-1150663;destylator (poludnie) 
-1150664;destylator (wschod) 
+1150663;Destylator (poludnie)
+1150664;Destylator (wschod)
 1150665;Cena za jednostke: 
 1150666;Prosze przejrzec szczegoly tej transakcji. Jesli chcesz dokonac tej transakcji, kliknij przycisk TRADE ponizej. W przeciwnym razie kliknij przycisk MAIN MENU, aby wrocic do listy cen. 
 1150667;Nie masz zadanej ilosci tego towaru (w postaci przedmiotu lub dokumentu) w swoim plecaku do wymiany. Zauwaz, ze towary nie moga byc wymieniane z twojego pudelka bankowego. 
@@ -109812,7 +109811,7 @@ Number;Text
 1153094;Are you certain you wish to cancel this fight?  If you are the owner of this fight, the session itself will be canceled. 
 1153095;Yes, I really want to cancel. 
 1153096;No, I don't want to cancel. 
-1153097;Farspeaker 
+1153097;Farspeaker
 1153098;Charges: ~1_VAL~ 
 1153099;Max: ~1_VAL~ 
 1153100;Add Charges 
@@ -110213,7 +110212,7 @@ Number;Text
 1153495;Metaliczna wanna do barwienia skóry
 1153496;Szata pamiątkowa z okazji 15-lecia
 1153497;Szata pamiątkowa z okazji 15-lecia została umieszczona w twoim plecaku.
-1153498;rytuał przywołania exodusa
+1153498;Rytuał Przywołania Exodusa
 1153499;zwoje przywołania demona
 1153500;Sztylet Poswiecenia Exodusa
 1153501;glowne zlacze
@@ -112346,7 +112345,7 @@ Number;Text
 1155628;*The parchment appears heavily worn and in need of restoration by a skilled Scribe...* 
 1155629;"*The vase shatters as you cut away the sealing wax!"" "
 1155630;Starozytny Zestaw dokumentow 
-1155631;Proroczy Rekopis  
+1155631;Proroczy Rekopis
 1155632;"     Mialem dziewiec lat, kiedy po raz pierwszy mialem wizje. We snie widzialem ciemnosc, usiana<br>lsniacymi klejnotami odbijajacymi cudowne swiatlo. Tysiac wirujacych drobinek pylu pojawilo sie,<br>tanczac przede mna. Wyciagnalem reke, a pyl nagle sie polaczyl, po czym nastapil wielki blysk,<br>a potem przez chwile nic. Uslyszalem szept, gdy postac powoli wylaniala sie przede mna - byl<br>to mezczyzna, ktorego wyglad byl jednoczesnie nieuchwytny i niezapomniany, cudowny i zwyczajny,<br>inspirujacy i przerazajacy. Stopniowo zaczalem rozumiec szept, ktory do mnie dochodzil, jakby<br>to byl odglos echa. Byla to postac przede mna, i po tylu latach, tylu wizytach, wciaz pamietam <br>wszystko, co powiedzial:<br><br>     ""Owain. Twoja rodzina od dawna ma dar widzenia i tak bedzie przez dlugi czas. Przybywam<br>do ciebie z przeszlosci, by pokazac ci przyszlosc, a z przyszlosci przybede z pamiecia o<br>przeszlosci. Bede twoim Przewodnikiem, gdy bedziesz gotowy, by zobaczyc.""<br><br>     Obudzilem sie przerazony - zbyt przerazony, by o tym mowic. Gdy lata mijaly, stopniowo<br>nauczylem sie zapominac o tym snie. Kilka lat pozniej, gdy bylem jeszcze mlodym czlowiekiem,<br>zachorowalem ciezko. Uzdrowiciele nie potrafili wyjasnic tej choroby, a w wyniku tego stracilem<br>wzrok. Znowu poczulem strach. Wtedy po raz drugi odwiedzil mnie we snie:<br><br>     ""To juz czas, Owain. Czeka nas wiele pracy, teraz gdy jestes gotow, by zobaczyc.""<br><br>     Widzialem we snie wiele rzeczy - te, ktore byly, i te, ktore jeszcze nadejda. Teraz, u<br>schylku mojego zycia, na poczatku Zlotej Ery w krolestwie, w tajemnicy opowiem o<br>najwazniejszych wydarzeniach, ktorych bylem swiadkiem. Chociaz moga one pozostac<br>tajemnica przez jakis czas, nadejdzie dzien, gdy krolestwo bedzie musialo wiedziec, co<br>widzialem.  "
 1155633;Nie potrafie opisac szczegolowo istoty, ktora odwiedzala moje sny. Jak bardzo bym sie<br>staral, jego prawdziwa natura umyka mi, a im bardziej probuje sobie ja wyobrazic, tym<br>mniej jestem w stanie to zrobic. Nie towarzyszyl mi we wszystkich wizjach, jakie<br>przezylem, ale prowadzil mnie przez te najwazniejsze - te, ktore teraz zapisuje.<br><br>   Wiele pokolen stad swiat zostanie rozbity. Kraina, ktora znam, stanie sie<br>ciemniejsza, a potezna Czarodziejka bedzie prowadzic nieustanna wojne. Krol-Szlachcic,<br>pragnac zapewnic swojemu ludowi ucieczke przed smiercia i zniszczeniem, poprowadzi<br>podwladnych do nowej krainy, stworzonej za pomoca poteznej magii i bedacej lustrzanym<br>odbiciem tej, z ktorej uciekli. Tam beda wolni od chaosu, ktory ogarnal ich<br>poprzednie miejsce, choc tylko na krotko. Nowe konflikty wybuchna, nawet gdy stare<br>beda nadal trwac w pozostawionych ziemiach. Krol wyruszy na odlegle ziemie, a nowe<br>moce beda powstawac i upadac, az krolestwo stanie w obliczu zaglady.<br><br>   Bez przywodztwa miasta zwroca sie przeciwko sobie, gdy obywatele wyjda na ulice<br>protestujac, a bandyci beda swobodnie grasowac. Wtedy pojawi sie Uzdrowiciel,<br>ktorego twarz wielu wyda sie demoniczna, a jego motywy beda nieustannie<br>kwestionowane. Jednak zasiadzie na tronie i zjednoczy lud krolestwa na nowo,<br>dajac im wieksza wladze nad ich wlasnym zyciem.<br><br>   Nie wszystkie rany moga jednak zostac uleczone. W Starych Krainach dluga walka wejdzie<br>w swoja ostatnia faze, gdy frakcje, ktore pozostaly po Wielkim Exodusie, beda<br>zanikac. Czarodziejka, ktora uwiodla poteznego Maga, zyska przewage nad swoim<br>ostatnim wrogiem - Rycerzem, ktory pozostal, by chronic tych, ktorzy nie chcieli<br>opuscic swoich domow i zycia, chocby bylo ono pelne niebezpieczenstw.<br><br>   Gdy Czarodziejka zyska sile, wzmocniona wojownikami swoich pokonanych<br>wrogow, bedzie na progu zdobycia wladzy nad Starymi Krainami. Wtedy wydarzy sie<br>cos nieprzewidzianego."  
 1155634;"   Powinienem powiedziec, ze mialem w zyciu wyjatkowe szczescie. Do czasu trzeciej<br>wizyty mojego Przewodnika bylem juz zonaty i mialem dwoje dzieci - syna i corke.<br>Zal, ze nigdy nie moglem zobaczyc ich twarzy, blednie w porownaniu z radoscia,<br>jaka mi przyniosly. To im zostawiam ten ostatni zapis, z instrukcjami,<br>by dobrze go ukryli.<br><br>   Podczas trzeciej wizyty po raz pierwszy rozmawialem z moim Przewodnikiem - zapytalem<br>go o imie. Odpowiedzial jedynie zagadkami, mowiac, ze nazywano go i beda nazywac<br>wieloma imionami. Gdy zapytalem, dlaczego pomaga mi zobaczyc to, co widzialem,<br>odpowiedzial, ze interesuje go tylko ""porzadek"" i ze pewnego dnia moje slowa<br>pomoga mu go zachowac. Wtedy pokazal mi cos, co, jak powiedzial, zdziwi<br>wszystkich, ktorzy beda zyc za setki lat - powrot Krola-Szlachcica.<br><br>   Po powrocie do Krolestwa, ktore stworzyl, Krol-Szlachcic zdziwi sie, widzac<br>Uzdrowiciela, drogiego przyjaciela, ale takze ideologicznego rywala, na tronie.<br>Widzac ludzi zadowolonych jako obywatele, a nie poddani, i w wiekszosci zadowolonych<br>z rzadow swojego starego przyjaciela, Krol polozy kres ich dawnej rywalizacji<br>i postanowi zostac na krotki czas, zanim ponownie wyruszy do odleglych<br>ziem, z ktorych przybyl. Nie minie jednak dlugo, zanim jego uwaga<br>zwroci sie ku Starym Krainom i tym, ktorzy wybrali pozostanie, gdy<br>poprowadzil Wielki Exodus. W tym momencie bedzie smutny, gdy zobaczy<br>nic innego, jak tylko chaos, gdyz sily Czarodziejki wydaja sie gotowe<br>do ostatecznego pokonania niezlomnego Rycerza.<br><br>   Wtedy podejmie decyzje, ktora zmieni losy wszystkich krain - wezwie<br>wszystkich, ktorzy raz juz za nim podazyli, by zrobili to ponownie. Zleci im<br>ochrone Starych Krain, zachecajac ich do podtrzymywania cnotliwej<br>filozofii, wedlug ktorej rzadzil i zyl. W odpowiedzi Czarodziejka zgromadzi<br>armie zla, jakiej swiat jeszcze nie widzial. Tak wiec wojna o wladze stanie sie<br>wojna ideologii.  "
@@ -112575,7 +112574,7 @@ Number;Text
 1155857;Skarbiec walutowy  
 1155858;"Teraz jestes na Polowaniu na Pokore. Za kazde zabicie, gdy zrezygnujesz z ochrony przed odpornosciami, bedziesz kontynuowac swoja droge do pokory. Mozesz zakonczyc swoje Polowanie, mowiac ""Lum Lum Lum"" w dowolnym momencie."  
 1155859;Zloto zdeponowane: ~1_AMOUNT~  
-1155860;Skarbiec walutowy  
+1155860;Skarbiec Walutowy
 1155861;Wplata  
 1155862;Wyplata  
 1155863;Bezpieczne transakcje:  
@@ -112592,7 +112591,7 @@ Number;Text
 1155874;Nie masz wystarczajaco many, aby utrzymac aktywna swoja promien smierci.  
 1155875;Musisz miec dodatek "Czas Legend", aby uzyc tej funkcji.  
 1155876;"* Wymaga dodatku ""Czas Legend"".  "
-1155877;Kamienna podloga  
+1155877;Kamienna Podloga
 1155878;Jasna plyta 
 1155879;Medium Paver 
 1155880;Dark Paver 
@@ -112795,10 +112794,10 @@ Number;Text
 1156077;This title is gained by battling against creatures of the Valley of Eodon. 
 1156078;Stone Door (S In) 
 1156079;Stone Door (E Out) 
-1156080;Left Metal Door (S In) 
-1156081;Right Metal Door (S In) 
-1156082;Left Metal Door (E Out) 
-1156083;Right Metal Door (E Out) 
+1156080;Left Metal Door (S In)
+1156081;Right Metal Door (S In)
+1156082;Left Metal Door (E Out)
+1156083;Right Metal Door (E Out)
 1156084;*The trail of fire scorches you, setting you ablaze!* 
 1156085;Deals ~2_DAMAGE~ to ~1_NAME~ every 3 seconds while in range. Preforming any action will end spell. 
 1156086;Energy Resist Debuff: ~1_VAL~% 
@@ -113065,10 +113064,10 @@ Number;Text
 1156347;Eodon Tribe Slayer 
 1156348;Stone Door (S Out) 
 1156349;Stone Door (E In) 
-1156350;Left Metal Door (S Out) 
-1156351;Right Metal Door (S Out) 
-1156352;Left Metal Door (E In) 
-1156353;Right Metal Door (E In) 
+1156350;Left Metal Door (S Out)
+1156351;Right Metal Door (S Out)
+1156352;Left Metal Door (E In)
+1156353;Right Metal Door (E In)
 1156354;Defeat Dread Horn 
 1156355;Defeat Travesty 
 1156356;Defeat Chief Paroxysmus 
@@ -113158,7 +113157,7 @@ Number;Text
 1156440;Auction Pending 
 1156441;"<DIV ALIGN=CENTER>Auction Safe</DIV><DIV ALIGN=LEFT><BR>Auction Safe deeds can be obtained from the veteran reward system.<BR>An Auction Safe can be placed within public houses. When placed in a home the owner will be able to set access security on which users are allowed to place bids.<br>Setting up an auction first requires you to select an item from your backpack for auction. This item cannot be gold, a container, over 399 stones in weight, and must meet <A HREF=""http://uo.com/wiki/ultima-online-wiki/gameplay/npc-commercial-transactions/npcs-player-owned""> requirements for adding an item to a vendor.</A>Once the item has been added it will be placed on the auction safe to be displayed. A starting bid and auction length must be set before you can start the auction and cannot be changed once the auction begins. 140 characters can be used to describe your auction item which can be updated at any time. A Buy Now price can be set which will allow customers to skip a bidding war and purchase the item at listed cost, but by doing so includes an approximate 5% fee on the purchase price.<br>On completion of the auction the owner account will receive their payment immediately and will be notified by in game mail of the outcome. The winning bidder will now have 3 days to retrieve their item from the auction safe or it will revert back to the owner. Once the auctioned item has been retrieved the auction safe will once again be available to start a new auction.<br><br>In order to bid on an auction, players must have<A HREF=""http://uo.com/wiki/ultima-online-wiki/player/money""> currency available in their account.</A> Bidders can then place a bid for the maximum amount they are willing to pay for the listed item. Funds will immediately be removed from your account if your bid is successful. If your bid is higher than the current maximum bid yours will become the current winning bid. If you are out bid as the winning bid you will be notified by in game mail and your bid will be refunded to your account. On completion of the auction if you are the winning bid you will be notified that you have three days to claim your item. Upon claiming your item if you have any change as a result of your maximum bid it will be refunded to you.</DIV> "
 1156442;BIDDER MENU 
-1156443;Runiczny Atlas 
+1156443;Runiczny Atlas
 1156444;Auction Safe Pouch 
 1156445;You have been out bid. 
 1156446;You must use an axe on this item to retrieve it. 
@@ -113596,10 +113595,10 @@ Number;Text
 1156878;Happy 19th Anniversary! We have placed a gift for you in your backpack. 
 1156879;Happy 19th Anniversary! We have placed a gift for you in your bank box. 
 1156880;Happy 19th Anniversary! To get your gift, please remove some items from your backpack or bank and log back in. 
-1156881;weathered bronze globe sculpture 
-1156882;weathered bronze man on a bench sculpture 
-1156883;weathered bronze fairy sculpture 
-1156884;weathered bronze archer sculpture 
+1156881;Weathered Bronze Globe Sculpture
+1156882;Weathered Bronze Man On A Bench Sculpture
+1156883;Weathered Bronze Fairy Sculpture
+1156884;Weathered Bronze Archer Sculpture
 1156885;You do not have sufficient bronze ingots to make that. 
 1156886;Recipe for a Bronze Sculpture 
 1156887;19th Anniversary Gift Token 
@@ -113713,7 +113712,7 @@ Number;Text
 1156995;Recptura na czarny kij typu kotl 
 1156996;Receptura na soczewki Dr'a Spectora 
 1156997;Aktuator Automatona 
-1156998;Automaton Kotl  
+1156998;Automaton Kotl
 1156999;Nie masz wystarczajacej ilosci Aktuatorow Automatona. 
 1157000;Nie masz wystarczajacej ilosci Rdzein zasilajacych komory stazy. 
 1157001;Nie masz wystarczajacej ilosci Niedzialajacych glow automatona. 
@@ -114065,7 +114064,7 @@ Number;Text
 1157347;luk nieskonczonego roju  
 1157348;Mankiety Arcymaga
 1157349;Rekawice Feudalnego Uscisku
-1157350;bransoleta prymitywnej konsumpcji  
+1157350;Bransoleta Prymitywnej Konsumpcji
 1157351;You need ~1_SKILL_REQUIREMENT~ tactics skill to perform that attack 
 1157352;You need ~1_SKILL_REQUIREMENT~ weapon skill to perform that attack 
 1157353;Sklep Ultimy 
@@ -114877,7 +114876,7 @@ Number;Text
 1158159;Royal Britannian Guard Orders 
 1158160;ROYAL BRITANNIAN GUARD<br>MINISTRY OF PRISONS DETACHMENT<br><br>ORIGINAL ORDERS<br>ROYAL BRITANNIAN GUARD<br>WRONG PRISON DIVISION<br><br>From: COMMAND, RBG Yew<br>To: Lieutenant Bennet Yardley, RBG Yew<br><br>Subject: Wrong Prison Treasure Expedition<br><br>1. RBG Inteligencja has indicated the presence of highly cenny cache of weapons stashed within the deepest confinements of the Prison Dungeon Wrong. Inteligencja indicates these weapons were confiscated at the time of various assassination attempts among the prisoners before the prison was lost.<br><br>2. Official cover story remains in place - no outside interference expected and only official RBG personnel are permitted entry.<br><br>3. Interview with former prison officials indicate weapons under heavy lock and key, suggest specialist assignment of lock picking skills and tools.<br><br>*The remainder of the document is illegible* 
 1158161;Warden of Wrong 
-1158162;"This title is obtained by completing the Righting Wrong Quest.	" 
+1158162;This title is obtained by completing the Righting Wrong Quest.	 
 1158163;Looks like Fezzik won't be making anymore stew! Hah! Well done! Your final task is going to require you to learn the most important lesson of being a Guardsman - we never leave a man behind. One of our comrades was captured by the demonic jailers and taken to the prison. You need to get yourself captured by the jailers and taken inside the deepest part of the prison. Once inside, find our fallen comrade and escape. Here's a copy of his orders to help you find his corpse. 
 1158164;Find the fallen Guard's corpse and escape the prison. 
 1158165;A Unique Honor from the Royal Britannian Guard 
@@ -115048,7 +115047,7 @@ Number;Text
 1158330;*You collect a plant from the wheelbarrow* 
 1158331;This item cannot be used by an Endless Journey account. 
 1158332;koszyk piknikowy 
-1158333;zaczarowany koszyk piknikowy 
+1158333;Zaczarowany Koszyk Piknikowy
 1158334;You can't move that because it is within a vended container. 
 1158335;Endless Journey accounts can't move that because it is within a bank box. 
 1158336;You may not add runes to this item. 
@@ -115323,9 +115322,9 @@ Number;Text
 1158605;I'm gonna make chief detective one day! 
 1158606;You've spoken to the Grave Digger and have paid your respects to those who perished in the fight against the titans. How someone could defile a grave stone, you have no idea. You decide to take a closer look... 
 1158607;<center>Thomas Vilyum<br>Born: Vesper<br>Lived: Moonglow<br>Worked: Yew<br>Died: Britain<br><i>In death find eternal slumber</i></center> 
-1158608;"<center>Dustin Xirifvei<br><i>A shifty character</i><br><i>yet loved by all</i></center>	<br>" 
-1158609;"<center>Felix Suxokty<br><i>Esteemed actor with</i><br><i>immeasurable</i><br><i>character count</i><br><i>Rest easy friend</i></center>	<br>" 
-1158610;"<center>Kenneth Nlcesli<br><i>From the first letter<br>he wrote to his righteous love,<br>forever romantic</i></center>	<br>" 
+1158608;<center>Dustin Xirifvei<br><i>A shifty character</i><br><i>yet loved by all</i></center>	<br> 
+1158609;<center>Felix Suxokty<br><i>Esteemed actor with</i><br><i>immeasurable</i><br><i>character count</i><br><i>Rest easy friend</i></center>	<br> 
+1158610;<center>Kenneth Nlcesli<br><i>From the first letter<br>he wrote to his righteous love,<br>forever romantic</i></center>	<br> 
 1158611;It seems a trap door has been hidden in some false pavers. The heavy wooden door is secured with a rotating combination lock that accepts alpha-numeric characters. You'll need to figure out the passcode to unlock it... 
 1158612;You have identified a clue! This item seems pertinent to the investigation! 
 1158613;You have already documented this clue. 
@@ -115996,9 +115995,9 @@ Number;Text
 1159278;Receive a decorative stable set that includes a magical wooden cow, magical wooden chicken, decorative wooden palamino horse, decorative feed bag, decorative 5x5 fence, and a functional metal water tub and  cow patty. 
 1159279;Equipment Stats 
 1159280;Medable Armor 
-1159281;barbed whip 
-1159282;spiked whip 
-1159283;bladed whip 
+1159281;Barbed Whip
+1159282;Spiked Whip
+1159283;Bladed Whip
 1159284;Naughty Elf's Gloves 
 1159285;Rude Ranger's Tunic 
 1159286;broken wristwatch 
