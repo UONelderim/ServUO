@@ -32,7 +32,7 @@ namespace Server.Mobiles
 		public NelderimAncientLich() : base(AIType.AI_Necro, FightMode.Strongest, 12, 1, 0.2, 0.4)
 		{
 			Name = NameList.RandomName("ancient lich");
-			Body = 78;
+			Body = 79; //Było 78, ktore sie nie wyswietla
 			BaseSoundID = 412;
 
 			SetStr(324, 458);

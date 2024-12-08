@@ -17,7 +17,6 @@ namespace Server.Mobiles
 				{
 					m => m.Emote("*Podrzuca broń w dłoni*"),
 					m => m.Emote("*Chowa nerwowo za pas drobny pakunek*"),
-					m => m.Say("Słyszałeś że Malaer zabił Elfa w zaułku, a potem zrobił mu to co Soteriosowi?"),
 					m => m.Say("Nie ma Cie... Ale już! *Odgonił ręką*"),
 					m => m.Say("Dawniej to nas namiestnik dymał, a po śmierci spokój był..."),
 					m => m.Emote("*Szura powoli nogą po ziemi rozglądając się w koło*"),
@@ -45,13 +44,11 @@ namespace Server.Mobiles
 					},
 					m => m.Say("Oni tak zawsze mówią, a później nic nie robią."),
 					m => m.Say("Jarle precz, knypki precz, w dłonie miecz, wrogów siecz!"),
-					m => m.Say("Słyszałem, że jak chcesz Elfa, to zapisz się na listę u nekromantów"),
 				}
 			},
 			{
 				Race.NJarling, new List<Action>
 				{
-					m => m.Say("Słyszałeś że Malaer zabił Elfa w zaułku, a potem zrobił mu to co Soteriosowi?"),
 					m => m.Say("Dawniej to nas namiestnik dymał, a po śmierci spokój był..."),
 					m => m.Say("Jak nie kupujesz towaru to spierdalaj..."),
 					m => m.Emote("*Rozgląda się nerwowo*"),
@@ -62,7 +59,6 @@ namespace Server.Mobiles
 					m => m.Emote("*Powolnym i spokojnym ruchem chowa coś za pazuchę*"),
 					m => m.Say("Pachnie tu gównem... nie to co na Północy..."),
 					m => m.Say("Masz jakiś problem?!"),
-					m => m.Say("Słyszałem, że jak chcesz Elfa, to zapisz się na listę u nekromantów"),
 					m => m.Say("Pilnuj swojego nosa... Dobrze radzę."),
 				}
 			},
@@ -76,19 +72,12 @@ namespace Server.Mobiles
 						m.Say("Krasnoludzka robota to nie jest, ale i tak rozjebie Ci tym łeb");
 					},
 					m => m.Say("Nie chce Cie tu widzieć... Won!"),
-					m =>
-					{
-						m.Say("Dawniej to nas namiestnik dymał, a po śmierci spokój był...");
-						m.Emote("*Splunął pod nogi*");
-					},
-					m => m.Say("Słyszałeś że Malaer zabił Elfa w zaułku, a potem zrobił mu to co Soteriosowi?"),
 					m => m.Say("Krasnal?! Który to powiedział?! Stólić pyski bo pozabijam!"),
 					m => m.Say("Pan stworzył Krasnoludy z ognia i ziemi, patrząc na Ciebie budulcem było gówno..."),
 					m => m.Say("Dawniej to przynajmniej mogłeś mieć nadzieję na Elfkę w łóżku, a jak kochać się ze szkieletem!?"),
 					m => m.Emote("*Nuci po cichu melodię*"),
 					m => m.Say("Przywalę Ci w mordę!"),
 					m => m.Say("A niech mnie, myślałem, że nie żyjesz... Szkoda..."),
-					m => m.Say("Słyszałem, że jak chcesz Elfa, to zapisz się na listę u nekromantów"),
 					m => m.Say("Prosisz się o połamaną czaszkę!"),
 					m => m.Say("Sam się kurwa pchasz na nóż, spierdalaj..."),
 				}
@@ -104,11 +93,6 @@ namespace Server.Mobiles
 					m => m.Say("Cholera... Znów braknie mi na opłaty..."),
 					m => m.Say("Na Naneth... Co to?!"),
 					m => m.Say("Najważniejsze, że nic złego się nie stało."),
-					m =>
-					{
-						m.Say("Chwała Lotharn, Chwała Naneth!.... Eh... jebać Elfy!");
-						m.Emote("*śmiesznym głosem naśladuje Elfa w akompaniamencie bardzo zniewieściałych gestów*");
-					},
 					m => m.Say("Jadłem kiedyś w karczmie w Noamuth Quortek..."),
 					m => m.Say("Dzięki nam, Podmrok jest bezpieczny!"),
 					m =>
@@ -128,7 +112,6 @@ namespace Server.Mobiles
 					m => m.Say("I co Ci do tego..."),
 					m => m.Say("Miłego dnia, mellon!"),
 					m => m.Say("W najbliższe Sianokosy zjadłbym coś z naszych lokalnych upraw..."),
-					m => m.Say("Ulice wreszcie czyste! Chwała Galadowi!"),
 					m => m.Say("Chwała Lotharn, Chwała Naneth!"),
 					m => m.Say("Podatki, podatki, więcej podatków. A płaca ta sama."),
 					m => m.Say("Ehhhh..."),
@@ -140,7 +123,6 @@ namespace Server.Mobiles
 						m.Say("Teraz to dopiero będzie!");
 						m.Emote("*uśmiecha się delikatnie*");
 					},
-					m => m.Say("Jadłem kiedyś w karczmie w Ferion, a później dwie doby spędziłem w wychodku..."),
 					m => m.Say("Dzięki Elfom, Lotharn jest bezpieczne!"),
 					m =>
 					{
