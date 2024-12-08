@@ -7,7 +7,7 @@ namespace Server.Items
         public Stool()
             : base(0xA2A)
         {
-            Weight = 10.0;
+            Weight = 9.0;
         }
 
         public Stool(Serial serial)
@@ -37,7 +37,7 @@ namespace Server.Items
         public FootStool()
             : base(0xB5E)
         {
-            Weight = 10.0;
+            Weight = 9.0;
         }
 
         public FootStool(Serial serial)

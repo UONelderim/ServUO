@@ -817,7 +817,7 @@ namespace Server.Items
         public WoodenBox()
             : base(0x9AA)
         {
-            Weight = 4.0;
+            Weight = 5.0;
         }
 
         public WoodenBox(Serial serial)
@@ -848,7 +848,7 @@ namespace Server.Items
         public SmallCrate()
             : base(0x9A9)
         {
-            Weight = 2.0;
+            Weight = 4.0;
         }
 
         /// <summary>
@@ -913,7 +913,7 @@ namespace Server.Items
         public MediumCrate()
             : base(0xE3F)
         {
-            Weight = 2.0;
+            Weight = 5.0;
         }
 
         public MediumCrate(Serial serial)
@@ -944,7 +944,7 @@ namespace Server.Items
         public LargeCrate()
             : base(0xE3D)
         {
-            Weight = 1.0;
+            Weight = 6.0;
         }
 
         public LargeCrate(Serial serial)
@@ -1126,7 +1126,7 @@ namespace Server.Items
         public WoodenChest()
             : base(0xe43)
         {
-            Weight = 2.0;
+            Weight = 5.0;
         }
 
         public WoodenChest(Serial serial)
@@ -1157,6 +1157,7 @@ namespace Server.Items
         public PlainWoodenChest()
             : base(0x280B)
         {
+	        Weight = 30.0;
         }
 
         public PlainWoodenChest(Serial serial)
@@ -1187,6 +1188,7 @@ namespace Server.Items
         public OrnateWoodenChest()
             : base(0x280D)
         {
+	        Weight = 30.0;
         }
 
         public OrnateWoodenChest(Serial serial)
@@ -1217,6 +1219,7 @@ namespace Server.Items
         public GildedWoodenChest()
             : base(0x280F)
         {
+	        Weight = 30.0;
         }
 
         public GildedWoodenChest(Serial serial)
@@ -1248,6 +1251,7 @@ namespace Server.Items
             : base(0x2811)
         {
             GumpID = 0x10B;
+            Weight = 30.0;
         }
 
         public WoodenFootLocker(Serial serial)
@@ -1284,6 +1288,7 @@ namespace Server.Items
         public FinishedWoodenChest()
             : base(0x2813)
         {
+	        Weight = 30.0;
         }
 
         public FinishedWoodenChest(Serial serial)

@@ -257,15 +257,15 @@ namespace Server.Engines.Craft
             AddRecipe(index, (int)CarpRecipes.OrnateElvenChestEast);
             ForceNonExceptional(index);
 
-            index = AddCraft(typeof(ElvenDresserDeedSouth), 1044291, 1072864, 75.0, 100.0, typeof(Board), 1044041, 45, 1044351);
+            index = AddCraft(typeof(ElvenDresserDeedSouth), 1044291, 1072864, 75.0, 100.0, typeof(Board), 1044041, 45, 1044351);//Szeroka Komoda (S)
             AddRecipe(index, (int)CarpRecipes.ElvenDresserSouth);
             ForceNonExceptional(index);
 
-            index = AddCraft(typeof(ElvenDresserDeedEast), 1044291, 1073388, 75.0, 100.0, typeof(Board), 1044041, 45, 1044351);
+            index = AddCraft(typeof(ElvenDresserDeedEast), 1044291, 1073388, 75.0, 100.0, typeof(Board), 1044041, 45, 1044351);//Szeroka Komoda (E)
             AddRecipe(index, (int)CarpRecipes.ElvenDresserEast);
             ForceNonExceptional(index);
 
-            index = AddCraft(typeof(FancyElvenArmoire), 1044291, 1072866, 80.0, 105.0, typeof(Board), 1044041, 60, 1044351);
+            index = AddCraft(typeof(FancyElvenArmoire), 1044291, 1072866, 80.0, 105.0, typeof(Board), 1044041, 60, 1044351);//Ornamentowana Szafa
             AddRecipe(index, (int)CarpRecipes.FancyElvenArmoire);
             ForceNonExceptional(index);
             

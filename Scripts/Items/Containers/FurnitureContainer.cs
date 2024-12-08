@@ -156,7 +156,7 @@ namespace Server.Items
         public TallCabinet()
             : base(0x2815)
         {
-            Weight = 1.0;
+	        Weight = 35.0;
         }
 
         public TallCabinet(Serial serial)
@@ -243,7 +243,7 @@ namespace Server.Items
         public CherryArmoire()
             : base(0x285D)
         {
-            Weight = 1.0;
+            Weight = 20.0;
         }
 
         public CherryArmoire(Serial serial)
@@ -272,7 +272,7 @@ namespace Server.Items
         public MapleArmoire()
             : base(0x285B)
         {
-            Weight = 1.0;
+            Weight = 20.0;
         }
 
         public MapleArmoire(Serial serial)
@@ -301,7 +301,7 @@ namespace Server.Items
         public ElegantArmoire()
             : base(0x2859)
         {
-            Weight = 35.0;
+            Weight = 20.0;
         }
 
         public ElegantArmoire(Serial serial)
@@ -330,7 +330,7 @@ namespace Server.Items
         public FullBookcase()
             : base(0xA97)
         {
-            Weight = 1.0;
+            Weight = 10.0;
         }
 
         public FullBookcase(Serial serial)
