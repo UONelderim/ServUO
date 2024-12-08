@@ -12021,13 +12021,13 @@
 1022634;szafka 
 1022635;szafka 
 1022636;szafka 
-1022637;szafka 
+1022637;Szafa 
 1022638;szafka 
-1022639;szafka 
+1022639;Prosta Szafa 
 1022640;szafka 
-1022641;szafka 
+1022641;Szafa 
 1022642;szafka 
-1022643;szafka 
+1022643;Prosta Szafa 
 1022644; 
 1022645;mata 
 1022646;mata 
@@ -12101,8 +12101,8 @@
 1022714;polka z ksiazkami 
 1022715;polka z ksiazkami 
 1022716;polka z ksiazkami 
-1022717;polka na ksiazki 
-1022718;polka na ksiazki 
+1022717;Regal
+1022718;Regal
 1022719;polka wystawowa 
 1022720;polka wystawowa 
 1022721;polka wystawowa 
@@ -12244,12 +12244,12 @@
 1022857; 
 1022858; 
 1022859; 
-1022860;drewniana lawka 
-1022861;drewniana lawka 
-1022862;drewniane krzeslo 
-1022863;drewniane krzeslo 
-1022864;drewniane krzeslo 
-1022865;drewniane krzeslo 
+1022860;Drewniana Laweczka 
+1022861;Drewniana Laweczka 
+1022862;Drewniane Krzeslo 
+1022863;Drewniane Krzeslo 
+1022864;Drewniane Krzeslo 
+1022865;Drewniane Krzeslo 
 1022866;tron 
 1022867;tron 
 1022868;stol 
@@ -12282,14 +12282,14 @@
 1022895;krzeslo 
 1022896;krzeslo 
 1022897;krzeslo 
-1022898;krzeslo 
-1022899;krzeslo 
-1022900;krzeslo 
-1022901;krzeslo 
-1022902;krzeslo 
-1022903;krzeslo 
-1022904;krzeslo 
-1022905;krzeslo 
+1022898;Tapiecerowane Krzeslo 
+1022899;Tapiecerowane Krzeslo 
+1022900;Tapiecerowane Krzeslo 
+1022901;Tapiecerowane Krzeslo 
+1022902;Proste Krzeslo 
+1022903;Proste Krzeslo 
+1022904;Proste Krzeslo 
+1022905;Proste Krzeslo 
 1022906;krzeslo 
 1022907;krzeslo 
 1022908;krzeslo 
@@ -13028,14 +13028,14 @@
 1023641;zwoj 
 1023642;zwoj 
 1023643;ksiega czarow 
-1023644;klatka 
-1023645;klatka 
-1023646;klatka 
-1023647;klatka 
+1023644;Duza Skrzynka 
+1023645;Duza Skrzynka 
+1023646;Srednia Skrzynka 
+1023647;Srednia Skrzynka  
 1023648;metalowa skrzynia 
 1023649;metalowa skrzynia 
-1023650;skrzynia 
-1023651;skrzynia 
+1023650;Drewniana Skrzynia 
+1023651;Drewniana Skrzynia 
 1023652;puste sloje 
 1023653;puste sloje 
 1023654;puste sloje 
@@ -13094,7 +13094,7 @@
 1023707;balia z woda 
 1023708;metalowa skrzynia 
 1023709;skrzynka 
-1023710;klatka 
+1023710;Mala Skrzynka 
 1023711;keg 
 1023712;zlota skrzynia 
 1023713;kij pasterski 
@@ -15084,7 +15084,7 @@
 1025697;magiczny symbol 
 1025698;magiczny symbol 
 1025699;magiczny symbol 
-1025700; 
+1025700;Fajka do Palenia
 1025701;krew 
 1025702;zrodlo ciemnosci 
 1025703;zrodlo swiatla 
@@ -19641,14 +19641,14 @@
 1030254;zdobiona drewniana skrzynia 
 1030255;pozlacana drewniana skrzynia 
 1030256;pozlacana drewniana skrzynia 
-1030257;drewniana szafka na buty 
-1030258;drewniana szafka na buty 
-1030259;wykonczona drewniana szafka na buty 
-1030260;wykonczona drewniana szafka na buty 
-1030261;wysoka gablota 
-1030262;wysoka gablota 
-1030263;niska gablota 
-1030264;niska gablota 
+1030257;Drewniany Kufer 
+1030258;Drewniany Kufer 
+1030259;Okuta Drewniana Skrzynia
+1030260;Okuta Drewniana Skrzynia
+1030261;Wysoka Komoda
+1030262;Wysoka Komoda
+1030263;Niska Komoda 
+1030264;Niska Komoda 
 1030265;elegancki niski stol 
 1030266;prosty niski stol 
 1030267;yomotsu warrior 
@@ -19713,12 +19713,12 @@
 1030326;sword display 
 1030327;czerwona komoda 
 1030328;czerwona komoda 
-1030329;elegancka komoda 
-1030330;elegancka komoda 
-1030331;klonowa komoda 
-1030332;klonowa komoda 
-1030333;wisniowa komoda 
-1030334;wisniowa komoda 
+1030329;Elegancka Mala Komoda 
+1030330;Elegancka Mala Komoda 
+1030331;Zdobiona Mala Komoda
+1030332;Zdobiona Mala Komoda
+1030333;Mala Komoda
+1030334;Mala Komoda
 1030335;drewniana sciana 
 1030336;drewniana sciana 
 1030337;drewniana sciana 
@@ -21131,26 +21131,26 @@
 1031744;elven loveseat 
 1031745;ornate elven table 
 1031746;ornate elven table 
-1031747;ornate elven chairs 
-1031748;ornate elven chairs 
-1031749;ornate elven chairs 
-1031750;ornate elven chairs 
+1031747;Ornamentowane Krzeslo 
+1031748;Ornamentowane Krzeslo 
+1031749;Ornamentowane Krzeslo 
+1031750;Ornamentowane Krzeslo 
 1031751;fancy elven table 
 1031752;fancy elven table 
 1031753;ornate elven chest 
 1031754;ornate elven chest 
-1031755;cozy elven chair 
-1031756;cozy elven chair 
-1031757;cozy elven chair 
-1031758;cozy elven chair 
+1031755;Zdobione Krzeslo 
+1031756;Zdobione Krzeslo 
+1031757;Zdobione Krzeslo 
+1031758;Zdobione Krzeslo 
 1031759;elven bookshelf 
 1031760; 
 1031761;rarewood chest 
 1031762;rarewood chest 
 1031763;decorative box 
 1031764;decorative box 
-1031765;elven reading chair 
-1031766; 
+1031765;Niskie Krzeslo 
+1031766;Niskie Krzeslo
 1031767; 
 1031768; 
 1031769; 
@@ -21804,14 +21804,14 @@
 1032417;arcane circle 
 1032418;arcane circle 
 1032419;arcane circle 
-1032420;arcane bookshelf 
-1032421;arcane bookshelf 
+1032420;Ogromna Komoda 
+1032421;Ogromna Komoda 
 1032422;elven bookshelf 
 1032423;elven bookshelf 
-1032424;elven loveseat 
-1032425;elven loveseat 
-1032426;elven loveseat 
-1032427;elven loveseat 
+1032424;Wytworna Lawka 
+1032425;Wytworna Lawka 
+1032426;Wytworna Lawka 
+1032427;Wytworna Lawka 
 1032428;ornate elven table 
 1032429;ornate elven table 
 1032430;ornate elven table 
@@ -28322,7 +28322,7 @@
 1044160;Widelec (Obrocony w Lewo)
 1044161;Widelec (Obrocony w Prawo)
 1044162;Noz (Obrocony w Lewo)
-1044163;Widelec (Obrocony w Prawo)
+1044163;Noz (Obrocony w Prawo)
 1044164;Narzedzia Majstra
 1044165;Jeszcze nic nie robiles 
 1044166;Narzedzia Lukmistrza
@@ -28449,22 +28449,22 @@
 1044287;Nie masz odpowiedniego materialu do zrobienia przedmiotu. 
 1044288;Zakrzywione deski 
 1044289;Obrecze 
-1044290;Rozne
-1044291;Meble
-1044292;Pojemniki
-1044293;Instrumenty
-1044294;Inne
+1044290;Bron
+1044291;Szafy i Pojemniki
+1044292;Stoly
+1044293;Zbroje
+1044294;Siedzenia
 1044295;Laski i tarcze 
 1044296;Przedmioty kowala 
-1044297;Kukly Treningowe
-1044298;Przedmioty Krawca
+1044297;Inne
+1044298;Instrumenty
 1044299;Przedmioty kucharza 
-1044300;krzeslo 
-1044301;krzeslo 
+1044300;Krzeslo 
+1044301;Proste Krzeslo
 1044302;duze krzeslo 
-1044303;duze krzeslo 
-1044304;maly tron 
-1044305;duzy tron 
+1044303;Tapicerowane Krzeslo 
+1044304;Drewniane Krzeslo 
+1044305;Tron 
 1044306;maly stol 
 1044307;duzy stol 
 1044308;wielki stol 
@@ -28725,7 +28725,7 @@
 1044563;Nie masz pior 
 1044564;drzewce 
 1044565;Amunicja 
-1044566;Bronie
+1044566;Oswietlenie
 1044567;Rondel
 1044568;sifter 
 1044569;Rozowe mikstury 
@@ -33667,7 +33667,7 @@
 1062757;zmniejszona ilosc wymaganych ziol 
 1062758;You cannot dismount your ethereal because your pack cannot hold it 
 1062759;Bron 
-1062760;Zbroja
+1062760;Ozdoby
 1062761;Wlasciwosci 
 1062762;~1_name~ has left the game. 
 1062763;The dealer hides a tile back in the wall. 
@@ -43753,18 +43753,18 @@
 1072859;wysokie elfickie lozko (wschod)  
 1072860;elfickie lozko (poludnie)  
 1072861;elfickie lozko (wschod)  
-1072862;ornam. elficka skrzynia (PD)  
+1072862;Ornamentowana Niska Komoda (S)  
 1072863;elficka skrzynia  
 1072864;elficka komoda (poludnie)  
 1072865;elficka umywalka (poludnie)  
 1072866;elficka szafa (elegancka)  
-1072867;elficka kanapa 2-os (poludnie)  
+1072867;Wytworna Lawka (S)  
 1072868;Skrzynia Stolowa  
 1072869;ornam.y stol (poludnie)  
-1072870;ornam. elfickie krzeslo  
-1072871;magiczny regal na ksiazki (poludnie)  
-1072872;przytulne elfickie krzeslo  
-1072873;elfickie krzeslo do czytania  
+1072870;Ornamentowane Krzeslo  
+1072871;Ogromna Komoda (S)  
+1072872;Zdobione Krzeslo  
+1072873;Niskie Krzeslo 
 1072874;Stojak na Ksiazki  
 1072875;elficka kuznia  
 1072876;kamienne kowadlo (poludnie)  
@@ -44262,8 +44262,8 @@
 1073368;"A minotaur captain barks an order to his fellow scouts, ""Aid the others! Kill the invaders!"" "
 1073369;"A minotaur captain bellows, ""Meraktus has arrived!"" "
 1073370;"A minotaur bellows, ""I see invaders! Must warn the others!"" "
-1073371;magiczny regal na ksiazki (wschod)  
-1073372;elficka kanapa dwuosobowa (wschod)  
+1073371;Ogromna Komoda (E)  
+1073372;Wytworna Lawka (E)  
 1073373;Okulary do czytania Skarbow i Blyskotek  
 1073374;Krysztalowe okulary do czytania czarodzieja  
 1073375;Okulary powiekszajace  
@@ -44274,7 +44274,7 @@
 1073380;Skladane stalowe okulary do czytania  
 1073381;Okulary do czytania maczugi i tarczy  
 1073382;Liryczne okulary do czytania  
-1073383;ornamentowana elficka skrzynia (wschod)  
+1073383;Ornamentowana Niska Komoda (E)  
 1073384;ornamentowany stol (wschod)  
 1073385;stol z twardego drewna (poludnie)  
 1073386;stol z twardego drewna (wschod)  
@@ -52005,16 +52005,16 @@
 1095287;duze gargulcowe lozko  
 1095288;duze gargulcowe lozko  
 1095289;  
-1095290;krzeslo w stylu Ter-Mur  
-1095291;krzeslo w stylu Ter-Mur  
+1095290;Wielki Tron  
+1095291;Wielki Tron  
 1095292;gargulcowa skrzynia  
-1095293;gargulcowa skrzynia  
-1095294;gargulcowa kanapa  
-1095295;gargulcowa kanapa  
-1095296;gargulcowa kanapa  
-1095297;gargulcowa kanapa  
-1095298;komoda w stylu Ter-Mur  
-1095299;komoda w stylu Ter-Mur  
+1095293;Gargulcowa Skrzynia  
+1095294;Ornamentowana Kanapa
+1095295;Ornamentowana Kanapa
+1095296;Ornamentowana Kanapa
+1095297;Ornamentowana Kanapa
+1095298;Ornamentowana Kanapa  
+1095299;Ornamentowana Kanapa  
 1095300;komoda w stylu Ter-Mur  
 1095301;komoda w stylu Ter-Mur  
 1095302;dlugi stol  
@@ -52036,8 +52036,8 @@
 1095318;gargulcowa rzezba  
 1095319;gargulcowa rzezba  
 1095320;stol w stylu Ter-Mur  
-1095321;gargulcowa waza  
-1095322;gargulcowa waza  
+1095321;Zdobiony Stolik  
+1095322;Zdobiony Stolik 
 1095323;lustro scienne w stylu Ter-Mur  
 1095324;lustro scienne w stylu Ter-Mur  
 1095325;lustro stojace w stylu Ter-Mur  
@@ -55172,20 +55172,20 @@
 1098455;bed 
 1098456;chair 
 1098457;chair 
-1098458;loveseat 
-1098459;loveseat 
-1098460;loveseat 
-1098461;loveseat 
-1098462;loveseat 
-1098463;loveseat 
-1098464;loveseat 
-1098465;loveseat 
-1098466;couch 
-1098467;couch 
-1098468;couch 
-1098469;couch 
-1098470;couch 
-1098471;couch 
+1098458;Kanapa 
+1098459;Kanapa
+1098460;Kanapa
+1098461;Kanapa
+1098462;Wytworna Mala Sofa 
+1098463;Wytworna Mala Sofa 
+1098464;Wytworna Mala Sofa 
+1098465;Wytworna Mala Sofa 
+1098466;Wytworna Sofa 
+1098467;Wytworna Sofa 
+1098468;Wytworna Sofa 
+1098469;Wytworna Sofa 
+1098470;Wytworna Sofa 
+1098471;Wytworna Sofa 
 1098472;monastery bell 
 1098473;monastery bell 
 1098474;monastery bell 
@@ -68418,7 +68418,7 @@
 1111701;You have learned how to mine fine sand.  Target sand areas when mining to look for fine sand. 
 1111702;You have learned to make items from glass.  You will need to find miners to mine fine sand for you to make these items. 
 1111703;ATLAS 
-1111704;Zbroja Metalowa 
+1111704;Zbroje 
 1111705;Stone Armor
 1111706;Show Legend 
 1111707;Only gargoyles can wear this. 
@@ -68461,7 +68461,7 @@
 1111744;Ogien Poziom 2  
 1111745;Szklana Bron  
 1111746;Jaskinie Sanktuarium  
-1111747;Koszule i Spodnie  
+1111747;Odzienie  
 1111748;Zbroja Materialowa  
 1111749;Ul Solen  
 1111750;Ul Solen NE  
@@ -68489,8 +68489,8 @@
 1111772;Piwnica Szczuroczlekow  
 1111773;Lochy Skal Poziom 1  
 1111774;Lochy Skal Poziom 2  
-1111775;gargulcowa kanapa (poludnie)  
-1111776;gargulcowa kanapa (wschod)  
+1111775;Ornamentowana Kanapa (S)  
+1111776;Ornamentowana Kanapa (E)  
 1111777;Lochy Czarownikow Poziom 1  
 1111778;Lochy Czarownikow Poziom 2  
 1111779;Lochy Czarownikow Poziom 3  
@@ -68523,7 +68523,7 @@
 1111806;Shame Level 3 
 1111807;Shame Level 4 
 1111808;Shame Level 5 
-1111809;Kowadla i paleniska 
+1111809;Rzemieslnicze 
 1111810;Unravel Magic Item Bag 
 1111811;Unused 
 1111812;You fail to magically unravel some items for lack of skill. 
@@ -107307,10 +107307,10 @@
 1150590;Twoja proba zmniejszenia oferty z ~1_OLDBID~gp do ~2_NEWBID~gp nie powiodla sie. Roznica ~3_CHANGE~gp nie mogla zostac wplacona do twojej skrzynki bankowej. Twoj obecny stan konta wynosi ~5_NEWBAL~gp.  
 1150591;Zmniejszyles swoja oferte z ~1_OLDBID~gp do ~2_NEWBID~gp. Roznica ~3_CHANGE~gp zostala wplacona do twojej skrzynki bankowej. Poprzedni stan konta wynosil ~4_OLDBAL~gp, a obecny stan konta to ~5_NEWBAL~gp.  
 1150592;Nie zmieniles swojej oferty.  
-1150593;rustykalna lawka (poludnie)  
-1150594;rustykalna lawka (wschod)  
-1150595;Zaawansowany Manekin Treningowy (poludnie)
-1150596;Zaawansowany Manekin Treningowy (wschod)
+1150593;Rustykalna Lawka (S)  
+1150594;Rustykalna Lawka (E)  
+1150595;Manekin Treningowy (S)
+1150596;Manekin Treningowy (E)
 1150597;Wybierz przedmiot, ktory chcesz wyslac do swojej skrzynki bankowej.  
 1150598;automatyczne ladowanie  
 1150599;Wybierz cel, ktory chcesz przypisac.  
@@ -110849,12 +110849,12 @@
 1154132;Lozko z czterema slupkami (Wschod)  
 1154133;Ozdobne Lozko  
 1154134;Ozdobne Lozko (Wschod)  
-1154135;Luksusowa Kanapa (Poludnie)  
-1154136;Luksusowa Kanapa (Wschod)  
-1154137;Fantazyjna Kanapa (Poludnie)  
-1154138;Fantazyjna Kanapa (Wschod)  
-1154139;Fantazyjna Sofa (Poludnie)  
-1154140;Fantazyjna Sofa (Wschod)  
+1154135;Kanapa (S)  
+1154136;Kanapa (W)  
+1154137;Wytworna Mala Sofa (S)  
+1154138;Wytworna Mala Sofa (E)  
+1154139;Wytworna Sofa (S)  
+1154140;Wytworna Sofa (E)  
 1154141;Dzwon Klasztorny  
 1154142;Dzwon Klasztorny (Wschod)  
 1154143;Haftowany Gobelin  
@@ -110887,7 +110887,7 @@
 1154170;workable glass 
 1154171;You need workable glass to make that. 
 1154172;You need a candelabra to craft that. 
-1154173;Krzeslo tapicerowane
+1154173;Fotel
 1154174;Proch do armat zostal umieszczony w twoim plecaku. 
 1154175;Proch do aramat: ~1_COUNT~ 
 1154176;Mikstury zostaly umieszczone w Twym plecaku
@@ -113274,8 +113274,8 @@
 1156557;Ahh-Ooo! Ahh-Ooo!  Britainnian kill big dino! Show courage and strength!  Sakkrah trust you now! 
 1156558;Volcano Caldera 
 1156559;You must upgrade to Time of Legends to participate in this quest. 
-1156560;Elegancka kozetka (Polnoc) 
-1156561;Elegancka kozetka (Zachod) 
+1156560;Wytworna Mala Sofa (N) 
+1156561;Wytworna Mala Sofa (W) 
 1156562;Professor Ellie Rafkin 
 1156563;Night in the Valley Volume I 
 1156564;Night in the Valley Volume II 
@@ -113296,8 +113296,8 @@
 1156579;The jungle air was cool.  Morning dew weighed on nearby palms and chirping birds welcomed the rising sun.  I'd only managed a few hours sleep and woke groggy, my mind was in a fog.  Several porters had been attacked in the middle of the night, what remained of their corpses was covered in a thick yellowish-green mucous.  The escorts managed to defend against the Myrmidex, but not before they had their chance at us.  The escorts assembled the corpses, both of the porters and the Myrmidex a short ways from the camp so that I could examine them.  As I meandered awkwardly through the camp I looked at the men who'd been escorting me.  Their faces looked tired and worn.  It had been months since we first set foot into the Valley.  I remembered the exhilaration I felt when I stepped through the Moongate and the lushness of the Valley of Eodon came into my focus for the first time.  Eodon, despite its dangers, was a truly remarkable place.  Flora and fauna previously unknown to Britannia was ripe for study.  Creatures, both friendly and foe, looked upon us with an equal level of curiosity.  I had spent these months carefully indexing and cataloging everything we'd come across.  The landscape, the beautiful flowers, the curious creatures that called Eodon home.  Inside one of our tents a small table had a modest selection of provisions.  Our cook had unfortunately fallen from a sheer rock face so we'd  been surviving on rations of salted fish steaks and whatever fruit we could forage from the jungle.  If I'd never seen another banana in my life it'd be too soon.  The corpse showed clear signs of mastication.  I had learned much about the biology of the Myrmidex since we first encountered them.  From my observations I knew there were three stages in the growth cycle.  Like most insects the Myrmidex grew from a single egg implanted into an organic host.  These eggs were mostly implanted by the drone of the species, often moderately sized with modified fangs that served as ovipositors. 
 1156580;The eggs were no doubt provided to the drones by a Queen, however this is only my hypothesis as we have yet to venture into their pits.  The Myrmidex live in a sandy habitat and create elaborate subterranean pits within the sand.  The species is mostly nocturnal, as we have not encountered them in daylight hours.  As I examined the corpse even further I could see the embryonic mucosa covering the tissues - a viscous greenish-yellow slime leftover from the larvae feeding.  No doubt the larva feeding on this corpse had already burrowed and soon will emerge as the largest of the species we'd observed so far, the Warrior.  The Myrmidex Warriors were huge.  Their forward tarsus was modified into a razor sharp talon, capable of slicing their prey with ease.  The exoskeleton of the Warrior was much hardier than that of other individuals, often times marred with the scars of past aggression.  I motioned over to the escorts and instructed them to burn the bodies.  Burning the bodies was the only sure way, so far as we had determined, to prevent additional larva from hatching were they present.  I returned to makeshift mess tent.  I didn't have much of an appetite. I had collected some samples from the corpses before the escorts burned them.  I stored them within my already growing collection of items I'd collected during our time in the Valley.  I always aimed for a well kept tent, but often found my work strewn about as I furiously tried to document everything I'd seen.  For all its danger Eodon was truly an enchanting place and I was hungry for knowledge.  Outside the sun was just beginning to peak from behind the Volcano.  I looked up and closed my eyes, basking in the warmth of its gentle rays.  I let myself smile and relax for just a moment before opening my eyes once again.  The sun was higher now and I had to squint.  As my eyes came into focus I felt my heart sink, unease consumed my body.  I froze immediately.  Just beyond the perimeter of our camp I felt a hundred eyes on me. 
 1156581;A bag with a unique treasure 
-1156582;Elegancka kanapa (Polnoc) 
-1156583;Elegancka kanapa (Zachod) 
+1156582;Wytworna Sofa (N) 
+1156583;Wytworna Sofa (W) 
 1156584;Ahhhh-OOOO! Ahhh-OOOO! 
 1156585;Ukonczyles zadanie! 
 1156586;Before using the in game store, you must be in a safe log-out location (such as an inn or a house which has you on its Owner, Co-owner, or Friends list). 
