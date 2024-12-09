@@ -1319,7 +1319,7 @@ namespace Server.Items
         public GargishChest()
             : base(0x4026)
         {
-            Weight = 1.0;
+            Weight = 25.0;
         }
 
         public GargishChest(Serial serial)
