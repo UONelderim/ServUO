@@ -1,15 +1,10 @@
-﻿using System;
-using Server;
-
-
-namespace Server.Items
+﻿namespace Server.Items
 {
 	public class SinbadsSword : Cutlass
 	{
-		public override int InitMinHits{ get{ return 255; } }
-		public override int InitMaxHits{ get{ return 255; } }
-
-
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
+		
 		[Constructable]
 		public SinbadsSword()
 		{
@@ -22,20 +17,16 @@ namespace Server.Items
 			Attributes.AttackChance = 10;
 		}
 
-
-
 		public SinbadsSword( Serial serial ) : base( serial )
 		{
 		}
-
-
+		
 		public override void Serialize( GenericWriter writer )
 		{
 			base.Serialize( writer );
 			writer.Write( (int) 0 ); // version
 		}
-
-
+		
 		public override void Deserialize( GenericReader reader )
 		{
 			base.Deserialize( reader );

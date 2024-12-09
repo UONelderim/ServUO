@@ -1,14 +1,9 @@
-﻿using System;
-using Server;
-
-
-namespace Server.Items
+﻿namespace Server.Items
 {
 	public class WloczniaNieudacznika : Spear
 	{
-		public override int InitMinHits{ get{ return 255; } }
-		public override int InitMaxHits{ get{ return 255; } }
-
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		[Constructable]
 		public WloczniaNieudacznika()
@@ -22,7 +17,6 @@ namespace Server.Items
 			Attributes.WeaponDamage = 50;
 			WeaponAttributes.SplinteringWeapon = 25;
 			WeaponAttributes.BloodDrinker = 10;
-
 		}
 
 		public WloczniaNieudacznika( Serial serial ) : base( serial )
