@@ -269,73 +269,72 @@ namespace Server.Engines.Craft
             AddRecipe(index, (int)CarpRecipes.FancyElvenArmoire);
             ForceNonExceptional(index);
             
-            AddCraft(typeof(TerMurDresserEastDeed), 1044291, 1111784, 90.0, 115.0, typeof(Board), 1044041, 60, 1044351);
-            AddCraft(typeof(TerMurDresserSouthDeed), 1044291, 1111783, 90.0, 115.0, typeof(Board), 1044041, 60, 1044351);
+            AddCraft(typeof(TerMurDresserEastDeed), 1044291, 1111784, 90.0, 115.0, typeof(Board), 1044041, 60, 1044351);//Toaletka z Lustrem (E)
+            AddCraft(typeof(TerMurDresserSouthDeed), 1044291, 1111783, 90.0, 115.0, typeof(Board), 1044041, 60, 1044351);//Toaletka z Lustrem (S)
 
-            index = AddCraft(typeof(SimpleElvenArmoire), 1044291, 1073401, 80.0, 105.0, typeof(Board), 1044041, 60, 1044351);
+            index = AddCraft(typeof(SimpleElvenArmoire), 1044291, 1073401, 80.0, 105.0, typeof(Board), 1044041, 60, 1044351);//Duza Szafa
             ForceNonExceptional(index);
 
-            AddCraft(typeof(RarewoodChest), 1044291, 1073402, 80.0, 105.0, typeof(Board), 1044041, 30, 1044351);
-            AddCraft(typeof(DecorativeBox), 1044291, 1073403, 80.0, 105.0, typeof(Board), 1044041, 25, 1044351);
+            AddCraft(typeof(RarewoodChest), 1044291, 1073402, 80.0, 105.0, typeof(Board), 1044041, 30, 1044351);//Ozdobna Skrzynia
+            AddCraft(typeof(DecorativeBox), 1044291, 1073403, 80.0, 105.0, typeof(Board), 1044041, 25, 1044351);//Pudelko Dekoracyjne
 
-            index = AddCraft(typeof(AcademicBookCase), 1044291, 1071213, 60.0, 85.0, typeof(Board), 1044041, 25, 1044351);
-            AddRes(index, typeof(AcademicBooksArtifact), 1071202, 1, 1044253);
+            AddCraft(typeof(AcademicBookCase), 1044291, 1071213, 60.0, 85.0, typeof(Board), 1044041, 25, 1044351);//Regal z Ksiazkami
 
-            AddCraft(typeof(GargishChest), 1044291, 1095293, 80.0, 105.0, typeof(Board), 1044041, 30, 1044351);
+            AddCraft(typeof(GargishChest), 1044291, 1095293, 80.0, 105.0, typeof(Board), 1044041, 30, 1044351);//Ornamentowana Skrzynia
             #endregion
             
             #region Stoly 1044292
-            AddCraft(typeof(Nightstand), 1044292, 1044306, 42.1, 67.1, typeof(Board), 1044041, 17, 1044351);
-            AddCraft(typeof(WritingTable), 1044292, 1022890, 63.1, 88.1, typeof(Board), 1044041, 17, 1044351);
-            AddCraft(typeof(LargeTable), 1044292, 1044308, 84.2, 109.2, typeof(Board), 1044041, 27, 1044351);
-            AddCraft(typeof(YewWoodTable), 1044292, 1044307, 63.1, 88.1, typeof(Board), 1044041, 23, 1044351);
-            AddCraft(typeof(ElegantLowTable), 1044292, 1030265, 80.0, 105.0, typeof(Board), 1044041, 35, 1044351);
-            AddCraft(typeof(PlainLowTable), 1044292, 1030266, 80.0, 105.0, typeof(Board), 1044041, 35, 1044351);
-            AddCraft(typeof(TerMurStyleTable), 1044292, 1095321, 75.0, 100.0, typeof(Board), 1044041, 50, 1044351);
+            AddCraft(typeof(Nightstand), 1044292, 1044306, 42.1, 67.1, typeof(Board), 1044041, 17, 1044351);//Stolik
+            AddCraft(typeof(WritingTable), 1044292, 1022890, 63.1, 88.1, typeof(Board), 1044041, 17, 1044351);//Skryptorium
+            AddCraft(typeof(LargeTable), 1044292, 1044308, 84.2, 109.2, typeof(Board), 1044041, 27, 1044351);//Stol
+            AddCraft(typeof(YewWoodTable), 1044292, 1044307, 63.1, 88.1, typeof(Board), 1044041, 23, 1044351);//Maly Stol
+            AddCraft(typeof(ElegantLowTable), 1044292, 1030265, 80.0, 105.0, typeof(Board), 1044041, 35, 1044351);//Kwadratowy Niski Stol
+            AddCraft(typeof(PlainLowTable), 1044292, 1030266, 80.0, 105.0, typeof(Board), 1044041, 35, 1044351);//Prosty Niski Stol
+            AddCraft(typeof(TerMurStyleTable), 1044292, 1095321, 75.0, 100.0, typeof(Board), 1044041, 25, 1044351);//Zdobiony Stolik
 
-            index = AddCraft(typeof(OrnateElvenTableSouthDeed), 1044292, 1072869, 85.0, 110.0, typeof(Board), 1044041, 60, 1044351);
+            index = AddCraft(typeof(OrnateElvenTableSouthDeed), 1044292, 1072869, 85.0, 110.0, typeof(Board), 1044041, 60, 1044351);//Zdobiony Zaokraglony Stol (S)
             ForceNonExceptional(index);
 
-            index = AddCraft(typeof(OrnateElvenTableEastDeed), 1044292, 1073384, 85.0, 110.0, typeof(Board), 1044041, 60, 1044351);
+            index = AddCraft(typeof(OrnateElvenTableEastDeed), 1044292, 1073384, 85.0, 110.0, typeof(Board), 1044041, 60, 1044351);//Zdobiony Zaokraglony Stol (E)
             ForceNonExceptional(index);
 
-            index = AddCraft(typeof(FancyElvenTableSouthDeed), 1044292, 1073385, 80.0, 105.0, typeof(Board), 1044041, 50, 1044351);
+            index = AddCraft(typeof(FancyElvenTableSouthDeed), 1044292, 1073385, 80.0, 105.0, typeof(Board), 1044041, 50, 1044351);//Zdobiony Prostokatny Stol (S)
             ForceNonExceptional(index);
 
-            index = AddCraft(typeof(FancyElvenTableEastDeed), 1044292, 1073386, 80.0, 105.0, typeof(Board), 1044041, 50, 1044351);
+            index = AddCraft(typeof(FancyElvenTableEastDeed), 1044292, 1073386, 80.0, 105.0, typeof(Board), 1044041, 50, 1044351);//Zdobiony Prostokatny Stol (E)
             ForceNonExceptional(index);
             
-            index = AddCraft(typeof(AlchemistTableSouthDeed), 1044292, 1073396, 85.0, 110.0, typeof(Board), 1044041, 70, 1044351);
+            index = AddCraft(typeof(AlchemistTableSouthDeed), 1044292, 1073396, 85.0, 110.0, typeof(Board), 1044041, 70, 1044351);//Stol Alchemika (S)
             SetDisplayID(index, 0x2DD4);
             ForceNonExceptional(index);
 
-            index = AddCraft(typeof(AlchemistTableEastDeed), 1044292, 1073397, 85.0, 110.0, typeof(Board), 1044041, 70, 1044351);
+            index = AddCraft(typeof(AlchemistTableEastDeed), 1044292, 1073397, 85.0, 110.0, typeof(Board), 1044041, 70, 1044351);//Stol Alchemika (E)
             SetDisplayID(index, 0x2DD3);
             ForceNonExceptional(index);
             
-            AddCraft(typeof(LongTableSouthDeed), 1044292, 1111781, 90.0, 115.0, typeof(Board), 1044041, 80, 1044351);
-            AddCraft(typeof(LongTableEastDeed), 1044292, 1111782, 90.0, 115.0, typeof(Board), 1044041, 80, 1044351);
+            AddCraft(typeof(LongTableSouthDeed), 1044292, 1111781, 90.0, 115.0, typeof(Board), 1044041, 80, 1044351);//Ornamentowany Stol (S)
+            AddCraft(typeof(LongTableEastDeed), 1044292, 1111782, 90.0, 115.0, typeof(Board), 1044041, 80, 1044351);//Ornamentowany Stol (E)
             
-            index = AddCraft(typeof(MetalTableSouthDeed), 1044292, 1154154, 80.0, 105.0, typeof(Board), 1044041, 20, 1044351);
+            index = AddCraft(typeof(MetalTableSouthDeed), 1044292, 1154154, 80.0, 105.0, typeof(Board), 1044041, 15, 1044351);//Metalowy Stol (S)
             AddSkill(index, SkillName.Tinkering, 75.0, 80.0);
-            AddRes(index, typeof(IronIngot), 1044036, 15, 1044037);
+            AddRes(index, typeof(IronIngot), 1044036, 40, 1044037);
 
-            index = AddCraft(typeof(MetalTableEastDeed), 1044292, 1154155, 80.0, 105.0, typeof(Board), 1044041, 20, 1044351);
+            index = AddCraft(typeof(MetalTableEastDeed), 1044292, 1154155, 80.0, 105.0, typeof(Board), 1044041, 15, 1044351);//Metalowy Stol (E)
             AddSkill(index, SkillName.Tinkering, 75.0, 80.0);
-            AddRes(index, typeof(IronIngot), 1044036, 15, 1044037);
+            AddRes(index, typeof(IronIngot), 1044036, 40, 1044037);
 
-            index = AddCraft(typeof(LongMetalTableSouthDeed), 1044292, 1154164, 80.0, 105.0, typeof(Board), 1044041, 40, 1044351);
-            AddSkill(index, SkillName.Tinkering, 75.0, 80.0);
-            AddRes(index, typeof(IronIngot), 1044036, 30, 1044037);
-
-            index = AddCraft(typeof(LongMetalTableEastDeed), 1044292, 1154165, 80.0, 105.0, typeof(Board), 1044041, 40, 1044351);
+            index = AddCraft(typeof(LongMetalTableSouthDeed), 1044292, 1154164, 80.0, 105.0, typeof(Board), 1044041, 40, 1044351);//Dlugi Metalowy Stol (S)
             AddSkill(index, SkillName.Tinkering, 75.0, 80.0);
             AddRes(index, typeof(IronIngot), 1044036, 30, 1044037);
 
-            AddCraft(typeof(WoodenTableSouthDeed), 1044292, 1154156, 80.0, 105.0, typeof(Board), 1044041, 20, 1044351);
-            AddCraft(typeof(WoodenTableEastDeed), 1044292, 1154157, 80.0, 105.0, typeof(Board), 1044041, 20, 1044351);
-            AddCraft(typeof(LongWoodenTableSouthDeed), 1044292, 1154166, 80.0, 105.0, typeof(Board), 1044041, 80, 1044351);
-            AddCraft(typeof(LongWoodenTableEastDeed), 1044292, 1154167, 80.0, 105.0, typeof(Board), 1044041, 80, 1044351);
+            index = AddCraft(typeof(LongMetalTableEastDeed), 1044292, 1154165, 80.0, 105.0, typeof(Board), 1044041, 40, 1044351);//Dlugi Metalowy Stol (E)
+            AddSkill(index, SkillName.Tinkering, 75.0, 80.0);
+            AddRes(index, typeof(IronIngot), 1044036, 30, 1044037);
+
+            AddCraft(typeof(WoodenTableSouthDeed), 1044292, 1154156, 80.0, 105.0, typeof(Board), 1044041, 20, 1044351);//Drewniany Stol (S)
+            AddCraft(typeof(WoodenTableEastDeed), 1044292, 1154157, 80.0, 105.0, typeof(Board), 1044041, 20, 1044351);//Drewniany Stol (E)
+            AddCraft(typeof(LongWoodenTableSouthDeed), 1044292, 1154166, 80.0, 105.0, typeof(Board), 1044041, 80, 1044351);//Dlugi Drewniany Stol (S)
+            AddCraft(typeof(LongWoodenTableEastDeed), 1044292, 1154167, 80.0, 105.0, typeof(Board), 1044041, 80, 1044351);//Dlugi Drewniany Stol (E)
             #endregion
             
             #region Oswietlenie 1044566

@@ -12252,8 +12252,8 @@
 1022865;Drewniane Krzeslo 
 1022866;tron 
 1022867;tron 
-1022868;stol 
-1022869;stol 
+1022868;Stolik 
+1022869;Stolik 
 1022870;stol 
 1022871;stol 
 1022872;stol 
@@ -12273,10 +12273,10 @@
 1022886;waza 
 1022887;duza waza 
 1022888;waza 
-1022889;stol do pisania 
-1022890;stol do pisania 
-1022891;stol do pisania 
-1022892;stol do pisania 
+1022889;Skryptorium 
+1022890;Skryptorium 
+1022891;Skryptorium 
+1022892;Skryptorium 
 1022893; 
 1022894;krzeslo 
 1022895;krzeslo 
@@ -12324,8 +12324,8 @@
 1022937;stol 
 1022938;stol 
 1022939;stol 
-1022940;stol 
-1022941;stol 
+1022940;Maly Stol 
+1022941;Stol 
 1022942;stol 
 1022943;stol 
 1022944;stol 
@@ -12343,8 +12343,8 @@
 1022956;stol 
 1022957;stol 
 1022958;stol 
-1022959;stol 
-1022960;stol 
+1022959;Maly Stol 
+1022960;Stol 
 1022961;lawka 
 1022962;lawka 
 1022963;lawka 
@@ -19649,8 +19649,8 @@
 1030262;Wysoka Komoda
 1030263;Niska Komoda 
 1030264;Niska Komoda 
-1030265;elegancki niski stol 
-1030266;prosty niski stol 
+1030265;Kwadratowy Niski Stol
+1030266;Prosty Niski Stol 
 1030267;yomotsu warrior 
 1030268;fire beetle 
 1030269; 
@@ -20909,8 +20909,8 @@
 1031522;large glowing beetle 
 1031523;large glowing beetle 
 1031524;large glowing beetle 
-1031525;simple elven armoire 
-1031526;simple elven armoire 
+1031525;Duza Szafa 
+1031526;Duza Szafa 
 1031527;Ornamentowana Szafa 
 1031528;Ornamentowana Szafa 
 1031529;elven dresser 
@@ -21812,18 +21812,18 @@
 1032425;Wytworna Lawka 
 1032426;Wytworna Lawka 
 1032427;Wytworna Lawka 
-1032428;ornate elven table 
-1032429;ornate elven table 
-1032430;ornate elven table 
-1032431;ornate elven table 
-1032432;ornate elven table 
-1032433;ornate elven table 
-1032434;hardwood table 
-1032435;hardwood table 
-1032436;hardwood table 
-1032437;hardwood table 
-1032438;hardwood table 
-1032439;hardwood table 
+1032428;Zdobiony Zaokraglony Stol 
+1032429;Zdobiony Zaokraglony Stol 
+1032430;Zdobiony Zaokraglony Stol 
+1032431;Zdobiony Zaokraglony Stol 
+1032432;Zdobiony Zaokraglony Stol 
+1032433;Zdobiony Zaokraglony Stol 
+1032434;Zdobiony Prostokatny Stol
+1032435;Zdobiony Prostokatny Stol
+1032436;Zdobiony Prostokatny Stol
+1032437;Zdobiony Prostokatny Stol
+1032438;Zdobiony Prostokatny Stol
+1032439;Zdobiony Prostokatny Stol
 1032440;ornate elven chest (South) 
 1032441;ornate elven chest (south) 
 1032442;Ornate Elven Chest (East) 
@@ -28465,13 +28465,13 @@
 1044303;Tapicerowane Krzeslo 
 1044304;Drewniane Krzeslo 
 1044305;Tron 
-1044306;maly stol 
-1044307;duzy stol 
-1044308;wielki stol 
+1044306;Stolik 
+1044307;Maly Stol 
+1044308;Stol 
 1044309;Mala skrzynka 
 1044310;Srednia skrzynka 
 1044311;Duza skrzynka 
-1044312;szafka 
+1044312;Szafa 
 1044313;stojak na nuty 
 1044314;stojak na nuty 
 1044315;wysoki stojak na nuty 
@@ -42104,7 +42104,7 @@
 1071210;Apprentice Craftsman Set
 1071211;The basin is already filled with deep acid!!
 1071212;
-1071213;academic bookcase
+1071213;Regal z Ksiazkami
 1071214;* The rabbit begins to dig a tunnel back to its underground lair *
 1071215;Rechargeable Number: ~1_val~
 1071216;* ~1_name~ flaps its wings *
@@ -43760,7 +43760,7 @@
 1072866;Ornamentowana Szafa  
 1072867;Wytworna Lawka (S)  
 1072868;Skrzynia Stolowa  
-1072869;ornam.y stol (poludnie)  
+1072869;Zdobiony Zaokraglony Stol (S) 
 1072870;Ornamentowane Krzeslo  
 1072871;Ogromna Komoda (S)  
 1072872;Zdobione Krzeslo  
@@ -44275,9 +44275,9 @@
 1073381;Okulary do czytania maczugi i tarczy  
 1073382;Liryczne okulary do czytania  
 1073383;Ornamentowana Niska Komoda (E)  
-1073384;ornamentowany stol (wschod)  
-1073385;stol z twardego drewna (poludnie)  
-1073386;stol z twardego drewna (wschod)  
+1073384;Zdobiony Zaokraglony Stol (E) 
+1073385;Zdobiony Prostokatny Stol (S)  
+1073386;Zdobiony Prostokatny Stol (E)  
 1073387;elficka umywalka (wschod)  
 1073388;Szeroka Komoda (E)
 1073389;Prosze wskaz przedmiot, ktory chcesz przekazac.  
@@ -44287,14 +44287,14 @@
 1073393;elfickie kolo przedzalnicze (wschod)  
 1073394;elficki piec (poludnie)  
 1073395;elficki piec (wschod)  
-1073396;stol alchemika (poludnie)  
-1073397;stol alchemika (wschod)  
+1073396;Stol Alchemika (S)  
+1073397;Stol Alchemika (E)  
 1073398;statua wiewiorki (wschod)  
 1073399;elfickie podium  
 1073400;elfickie podium (wschod)  
-1073401;elficka szafa (prosta)  
-1073402;skrzynia z rzadkiego drewna  
-1073403;pudelko dekoracyjne  
+1073401;Duza Szafa 
+1073402;Ozdobna Skrzynia 
+1073403;Pudelko Dekoracyjne  
 1073404;Wybierz obiekt do obrocenia.  
 1073405;Wybierz obiekt, aby zwiekszyc jego wysokosc.  
 1073406;Wybierz obiekt, aby zmniejszyc jego wysokosc.  
@@ -52008,15 +52008,15 @@
 1095290;Wielki Tron  
 1095291;Wielki Tron  
 1095292;Gargulcowa skrzynia  
-1095293;Gargulcowa Skrzynia  
-1095294;Ornamentowana Kanapa
+1095293;Ornamentowana Skrzynia 
+1095294;Ornamentowana Skrzynia
 1095295;Ornamentowana Kanapa
 1095296;Ornamentowana Kanapa
 1095297;Ornamentowana Kanapa
 1095298;Ornamentowana Kanapa  
 1095299;Ornamentowana Kanapa  
-1095300;komoda w stylu Ter-Mur  
-1095301;komoda w stylu Ter-Mur  
+1095300;Toaletka z Lustrem  
+1095301;Toaletka z Lustrem  
 1095302;dlugi stol  
 1095303;dlugi stol  
 1095304;dlugi stol  
@@ -55222,42 +55222,42 @@
 1098505;table 
 1098506;table 
 1098507;table 
-1098508;table 
-1098509;table 
-1098510;table 
-1098511;table 
-1098512;table 
-1098513;table 
-1098514;table 
-1098515;table 
-1098516;table 
-1098517;table 
-1098518;table 
-1098519;table 
-1098520;table 
-1098521;table 
-1098522;table 
-1098523;table 
-1098524;table 
-1098525;table 
-1098526;table 
-1098527;table 
-1098528;table 
-1098529;table 
-1098530;table 
-1098531;table 
-1098532;table 
-1098533;table 
-1098534;table 
-1098535;table 
-1098536;table 
-1098537;table 
-1098538;table 
-1098539;table 
-1098540;table 
-1098541;table 
-1098542;table 
-1098543;table 
+1098508;Metalowy Stol 
+1098509;Metalowy Stol 
+1098510;Metalowy Stol 
+1098511;Metalowy Stol 
+1098512;Metalowy Stol 
+1098513;Metalowy Stol 
+1098514;Metalowy Stol 
+1098515;Metalowy Stol 
+1098516;Dlugi Metalowy Stol 
+1098517;Dlugi Metalowy Stol 
+1098518;Dlugi Metalowy Stol 
+1098519;Dlugi Metalowy Stol 
+1098520;Dlugi Metalowy Stol 
+1098521;Dlugi Metalowy Stol 
+1098522;Dlugi Metalowy Stol 
+1098523;Dlugi Metalowy Stol 
+1098524;Dlugi Metalowy Stol 
+1098525;Dlugi Metalowy Stol 
+1098526;Dlugi Metalowy Stol 
+1098527;Dlugi Metalowy Stol 
+1098528;Drewniany Stol
+1098529;Drewniany Stol
+1098530;Drewniany Stol
+1098531;Drewniany Stol
+1098532;Dlugi Drewniany Stol 
+1098533;Dlugi Drewniany Stol 
+1098534;Dlugi Drewniany Stol 
+1098535;Dlugi Drewniany Stol 
+1098536;Dlugi Drewniany Stol 
+1098537;Dlugi Drewniany Stol 
+1098538;Dlugi Drewniany Stol 
+1098539;Dlugi Drewniany Stol 
+1098540;Dlugi Drewniany Stol 
+1098541;Dlugi Drewniany Stol 
+1098542;Dlugi Drewniany Stol 
+1098543;Dlugi Drewniany Stol 
 1098544;polish 
 1098545;scouring 
 1098546;gloss 
@@ -68495,10 +68495,10 @@
 1111778;Lochy Czarownikow Poziom 2  
 1111779;Lochy Czarownikow Poziom 3  
 1111780;Lochy Czarownikow Poziom 4  
-1111781;dlugi stol (poludnie)  
-1111782;dlugi stol (wschod)  
-1111783;komoda w stylu Ter-Mur (poludnie)  
-1111784;komoda w stylu Ter-Mur (wschod)  
+1111781;Ornamentowany Stol (S) 
+1111782;Ornamentowany Stol (E)
+1111783;Toaletka z Lustrem (S)  
+1111784;Toaletka z Lustrem (E)  
 1111785;Lochy Widm  
 1111786;Jaskinia Pajakow  
 1111787;Wulkaniczne Legowisko  
@@ -110868,20 +110868,20 @@
 1154151;Zloty Stol (Wschod)  
 1154152;Marmurowy Stol  
 1154153;Marmurowy Stol (Wschod)  
-1154154;Metalowy Stol (Poludnie)  
-1154155;Metalowy Stol (Wschod)  
-1154156;Drewniany Stol (Poludnie)  
-1154157;Drewniany Stol (Wschod)  
+1154154;Metalowy Stol (S)  
+1154155;Metalowy Stol (E)  
+1154156;Drewniany Stol (S)  
+1154157;Drewniany Stol (E)  
 1154158;Finezyjna Drewn. Polka (PD)  
 1154159;Finezyjna Drew. Polka (WS)  
 1154160;Zwykla Drew. Polka (PD)  
 1154161;Zwykla Drew. Polka (WS)  
 1154162;Dzwon Sceinny (PN)  
 1154163;Dzwon Sceinny (WS)  
-1154164;Dlugi Metalowy Stol (Poludnie)  
-1154165;Dlugi Metalowy Stol (Wschod)  
-1154166;Dlugi Drewniany Stol (Poludnie)  
-1154167;Dlugi Drewniany Stol (Wschod)
+1154164;Dlugi Metalowy Stol (S)  
+1154165;Dlugi Metalowy Stol (E)  
+1154166;Dlugi Drewniany Stol (S)  
+1154167;Dlugi Drewniany Stol (E)
 1154168;City Trade Deal Buff 
 1154169;Typ wzmocnienia: ~1_TYPE~ 
 1154170;workable glass 

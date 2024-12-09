@@ -7,7 +7,7 @@ namespace Server.Items
         public ElegantLowTable()
             : base(0x2819)
         {
-            Weight = 1.0;
+            Weight = 30.0;
         }
 
         public ElegantLowTable(Serial serial)
@@ -37,7 +37,7 @@ namespace Server.Items
         public PlainLowTable()
             : base(0x281A)
         {
-            Weight = 1.0;
+            Weight = 30;
         }
 
         public PlainLowTable(Serial serial)
@@ -68,7 +68,7 @@ namespace Server.Items
         public LargeTable()
             : base(0xB90)
         {
-            Weight = 1.0;
+            Weight = 25.0;
         }
 
         public LargeTable(Serial serial)
@@ -102,7 +102,7 @@ namespace Server.Items
         public Nightstand()
             : base(0xB35)
         {
-            Weight = 1.0;
+            Weight = 15.0;
         }
 
         public Nightstand(Serial serial)
@@ -136,7 +136,7 @@ namespace Server.Items
         public YewWoodTable()
             : base(0xB8F)
         {
-            Weight = 1.0;
+            Weight = 20.0;
         }
 
         public YewWoodTable(Serial serial)
@@ -171,7 +171,7 @@ namespace Server.Items
         public TerMurStyleTable()
             : base(0x4041)
         {
-            Weight = 10.0;
+            Weight = 25.0;
         }
 
         public TerMurStyleTable(Serial serial)
