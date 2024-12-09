@@ -39,7 +39,7 @@ namespace Server.Items
         public ShojiScreen()
             : base(0x24CB)
         {
-            Weight = 20.0;
+            Weight = 15.0;
         }
 
         public ShojiScreen(Serial serial)
