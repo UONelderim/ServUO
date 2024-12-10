@@ -7,7 +7,7 @@ namespace Server.Items
         public GargishBanner()
             : base(0x4037)
         {
-            Weight = 10;
+            Weight = 20;
         }
 
         public GargishBanner(Serial serial)
