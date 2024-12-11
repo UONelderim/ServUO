@@ -12693,7 +12693,7 @@
 1023548;czerwony portal 
 1023549;czerwony portal 
 1023550;czerwony portal 
-1023553;chrust 
+1023553;Chrust
 1023554;chrust 
 1023555;ognisko 
 1023556;ognisko 
@@ -13018,7 +13018,7 @@
 1023898;Lopata
 1023899;lajno 
 1023900;lajno 
-1023903;strzala 
+1023903;Strzala
 1023904;strzaly 
 1023905;strzaly 
 1023906;strzala 
@@ -13034,7 +13034,7 @@
 1023916;podwojny topor 
 1023917;Berdysz
 1023918;berdysz 
-1023919;kusza 
+1023919;Kusza
 1023920;kusza 
 1023921;Sztylet
 1023922;sztylet 
@@ -14063,7 +14063,7 @@
 1025039;topor bojowy 
 1025040;Topor Bojowy
 1025041;luk 
-1025042;luk 
+1025042;Luk
 1025043;Drewniana Maczuga
 1025044;drewniana maczuga 
 1025045;sejmitar 
@@ -14137,7 +14137,7 @@
 1025114;duzy bojowy topor 
 1025115;Duzy Bojowy Topor
 1025116;ciezka kusza 
-1025117;ciezka kusza 
+1025117;Ciezka Kusza
 1025118;krotki miecz 
 1025119;Krotki Miecz
 1025120;krys 
@@ -15853,7 +15853,7 @@
 1027121;pioro 
 1027122;piora 
 1027123;piora 
-1027124;drzewce 
+1027124;Drzewce
 1027125;drzewce 
 1027126;drzewce 
 1027127;deska 
@@ -15892,7 +15892,7 @@
 1027160;sztaba srebra 
 1027161;sztaby srebra 
 1027162;sztaby srebra 
-1027163;belt 
+1027163;Belt
 1027164;belty 
 1027165;belty 
 1027166;belt 
@@ -18243,8 +18243,8 @@
 1029919;Ostrzana Laska
 1029920;Lanca
 1029921;Polokragle Ostrza
-1029922;luk kompozytowy 
-1029923;powtarzalna kusza 
+1029922;Luk Kompozytowy
+1029923;Kusza Samopowtarzalna
 1029924;kosa 
 1029925;sierp 
 1029926;berlo 
@@ -18536,7 +18536,7 @@
 1030233;cep 
 1030234;Para Sztyletow
 1030245;Flet 
-1030246;rzutki fukiya 
+1030246;Rzutki Fukiya
 1030247;Flet
 1030248;bomba dymna 
 1030249;bomba jajeczna 
@@ -19317,7 +19317,7 @@
 1031538;Statua Wojownika
 1031539;Statua Wojownika
 1031550;dlugi luk w stylu wschodnim
-1031551;krotki luk w stylu wschodnim
+1031551;Krotki Luk
 1031552;sztylet rytualny 
 1031553;kozik 
 1031554;falchion 
@@ -19328,7 +19328,7 @@
 1031559;wielki falchion 
 1031560;zdobiony topor 
 1031561;elven machete 
-1031562;kompozytowy luk w stylu wschodnim 
+1031562;Dlugi Luk
 1031563;krotki luk w stylu wschodnim 
 1031564;Sztylet Rytualny
 1031565;Kozik
@@ -32478,12 +32478,12 @@
 1072904;wafelek 
 1072905;New Leadership 
 1072906;Evidence 
-1072907;Luk Zarazy 
-1072908;Faerie Fire 
+1072907;Luk Zarazy
+1072908;Faerie Fire
 1072909;Stolen Goods 
-1072910;Tworca Podstepow 
+1072910;Tworca Podstepow
 1072911;Gasnacy plomien
-1072912;Nocny Zniwiarz 
+1072912;Nocny Zniwiarz
 1072913;Death to the Ninja! 
 1072914;Crime and Punishment 
 1072915;Runiczny Noz
@@ -32526,7 +32526,7 @@
 1072952;zaklete jablko 
 1072953;winogrono gniewu 
 1072954;1072953 
-1072955;Luk Silvani 
+1072955;Luk Silvani
 1072956;Leaf Tunic 
 1072957;leaf arms 
 1072958;Leaf Gloves 
@@ -33076,14 +33076,14 @@
 1073502;Mapy skarbow poziomu 5  
 1073503;Potrzebujesz wiecej map skarbow poziomu 5, ktore zostaly przez ciebie ukonczone.  
 1073504;Odzyskujesz ~1_NUM~ ~2_AMMO~. 
-1073505;kolczasty dlugi luk  
-1073506;dlugi luk pogromcy  
-1073507;mrozny dlugi luk  
-1073508;dlugi luk mocy  
-1073509;krotki luk tropiciela  
-1073510;lekki krotki luk  
-1073511;mistyczny krotki luk  
-1073512;krotki luk zabojcy  
+1073505;Kolczasty Dlugi Luk
+1073506;Dlugi Luk Pogromcy
+1073507;Mrozny Dlugi Luk
+1073508;Dlugi Luk Mocy
+1073509;Krotki Luk Tropiciela
+1073510;Lekki Krotki Luk
+1073511;Mistyczny Krotki Luk
+1073512;Krotki Luk Zabojcy
 1073513;Prawdziwy Sztylet Rytualny
 1073514;Lodowy Sztylet Rytualny
 1073515;Ognisty Sztylet Rytualny
@@ -43696,7 +43696,7 @@
 1113343;essence of persistence 
 1113344;crystalline blackrock 
 1113345;seed of renewal 
-1113346;elfickie narzedzia do wyrabiania lukow 
+1113346;Elfickie Narzedzia do Wyrabiania Lukow
 1113347;Krysztalowe odlamki 
 1113348;lodestone 
 1113349;delicate scales 
@@ -60997,3 +60997,4 @@
 3060318;Jeszcze nie dotarlismy do Tasandory. Idzmy dalej.
 3060319;Tyton
 3060320;Lejba przywolywacza
+3060321;Luki i Kusze
