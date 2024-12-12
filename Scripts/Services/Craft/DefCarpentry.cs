@@ -2,6 +2,7 @@ using Server.Items;
 
 using System;
 using System.Linq;
+using Server.Items.Addons.TheKingsCollection;
 
 namespace Server.Engines.Craft
 {
@@ -174,6 +175,10 @@ namespace Server.Engines.Craft
             index = AddCraft(typeof(ElvenLoveseatEastDeed), 1044294, 1073372, 80.0, 105.0, typeof(Board), 1044041, 50, 1044351);//Wytworna Lawka (E)
             SetDisplayID(index, 0x2DE0);
             ForceNonExceptional(index);
+            
+            index = AddCraft(typeof(FancyLoveseatDeed), 1044294, 3060322, 70.0, 120.0, typeof(Board), 1044041, 80, 1044351);//Wytworna Mala Sofay
+            AddSkill(index, SkillName.Tailoring, 55.0, 60.0);
+            AddRes(index, typeof(Cloth), 1044286, 24, 1044287);
 
             index = AddCraft(typeof(FancyLoveseatSouthDeed), 1044294, 1154137, 70.0, 120.0, typeof(Board), 1044041, 80, 1044351);//Wytworna Mala Sofa (S)
             AddSkill(index, SkillName.Tailoring, 55.0, 60.0);
