@@ -32247,13 +32247,13 @@
 1072673;There are no source containers nearby. 
 1072674;Mangy, lice encrusted furballs!  Those filthy ratmen have been sneaking into camp again, the signs are obvious.  They've fouled the water stores again and stolen what they couldn't eat.  Are you up to cleaning up the rat warrens? 
 1072675;~1_QUANTITY~ pieces of ammo were transferred to the quiver due to low stock. 
-1072676;You may only transport your corpse while you are still dead. 
-1072677;You have been transported out of this room. 
-1072678;You have awakened the master of this realm. You need to hurry to defeat it in time! 
-1072679;Your realm offering has reset. You will need to start over. 
-1072680;You have been given the key to the boss. 
-1072681;The master of this realm has been slain! You may only stay here so long. 
-1072682;This is not the proper key. 
+1072676;Mozesz transportowac swoje cialo tylko wtedy, gdy jestes martwy.  
+1072677;Zostales przeniesiony z tego pokoju.  
+1072678;Obudziles wladce tego podziemia. Musisz sie pospieszyc, aby go pokonac na czas!  
+1072679;Twoja ofiara dla swiata zostala zresetowana. Musisz zaczac od nowa.  
+1072680;Otrzymales klucz do Wladcy Podziemi.  
+1072681;Wladca tego swiata zostal pokonany! Mozesz tu zostac tylko przez okreslony czas.  
+1072682;To nie jest wlasciwy klucz.   
 1072683;~1_NAME~ has already activated the Prism, please wait... 
 1072684;I understand.  The stench in those tunnels is unbearable. 
 1072685;The ratmen have holes all over the place that lead to their warrens.  Sometimes they're loitering around on the surface too.  Either way, they're not hard to find. 
@@ -33894,29 +33894,29 @@
 1074323;swing speed increase ~1_val~% (total) 
 1074324;Feathernock (Marksman Set) 
 1074325;increased weapon damage ~1_val~% 
-1074326;partially digested torso 
-1074327;coagulated legs 
-1074328;gelatanous skull 
-1074329;spleen of the putrefier 
-1074330;slimy ointment 
-1074331;blighted cotton 
-1074332;gnaw's fang 
-1074333;lissith's silk 
-1074334;thorny briar 
-1074335;irk's brain 
-1074336;sabrix's eye 
-1074337;essence of the wind 
-1074338;Magical Rope 
-1074339;Glimmering Machete 
-1074340;Prism of Light Admission Ticket 
-1074341;serpent fang key 
-1074342;tiger claw key 
-1074343;dragon flame key 
-1074344;black order key 
-1074345;dryad's blessing 
-1074346;dryad's curse 
-1074347;librarian's key 
-1074348;master key 
+1074326;czesciowo przetrawiony tors 
+1074327;zakrzeple nogi
+1074328;czaszka w zelatynie
+1074329;sledziona demona
+1074330;sliska masc
+1074331;spaczona bawelna
+1074332;kiel gnawa
+1074333;jedwab z lissilth
+1074334;ciernisty krzak 
+1074335;mozg irka
+1074336;oko sabrix
+1074337;esencja wiatru
+1074338;magiczna lina
+1074339;lsniaca maczeta
+1074340;Bilet Pryzmatu Swiatla
+1074341;klucz Vox Populi (4) 
+1074342;klucz Vox Populi (3)
+1074343;klucz Vox Populi (2)
+1074344;klucz Vox Populi (1)
+1074345;blogoslawienstwo driady 
+1074346;klatwa driady 
+1074347;klucz bibliotekarza 
+1074348;glowny klucz 
 1074349;Embracing Humanity 
 1074350;Ingenuity 
 1074351;Heave Ho! 
@@ -61011,3 +61011,6 @@
 3060332;Wazy
 3060333;Granitowy Piedestal
 3060334;Kominki
+3070000;odnoga gazera
+3070001;powieka starego gazera
+3070002;kiel biesa
