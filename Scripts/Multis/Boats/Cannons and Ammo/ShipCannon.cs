@@ -1322,8 +1322,8 @@ namespace Server.Items
 
             public override void AddGumpLayout()
             {
-                AddBackground(0, 0, 250, 175, 0x6DB);
-                AddHtmlLocalized(10, 10, 230, 18, 1149614 + (int)Cannon.Position, 0x3DFF, false, false);
+                AddBackground(0, 0, 300, 175, 0x6DB);
+                AddHtmlLocalized(10, 10, 280, 18, 1149614 + (int)Cannon.Position, 0x3DFF, false, false);
                 AddHtmlLocalized(115, 35, 70, 18, 1158934, 0x7FE7, false, false); // STATUS
 
                 if (Cannon.CanLight)
