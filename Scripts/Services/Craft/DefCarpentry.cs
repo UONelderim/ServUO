@@ -175,22 +175,9 @@ namespace Server.Engines.Craft
             SetDisplayID(index, 0x2DE0);
             ForceNonExceptional(index);
 
-            index = AddCraft(typeof(FancyLoveseatSouthDeed), 1044294, 1154137, 70.0, 120.0, typeof(Board), 1044041, 80, 1044351);//Wytworna Mala Sofa (S)
+            index = AddCraft(typeof(FancyLoveseatDeed), 1044294, 1098462, 70.0, 120.0, typeof(Board), 1044041, 80, 1044351);//Wytworna Mala Sofa (S)
             AddSkill(index, SkillName.Tailoring, 55.0, 60.0);
             AddRes(index, typeof(Cloth), 1044286, 24, 1044287);
-
-            index = AddCraft(typeof(FancyLoveseatEastDeed), 1044294, 1154138, 70.0, 120.0, typeof(Board), 1044041, 80, 1044351);//Wytworna Mala Sofa (E)
-            AddSkill(index, SkillName.Tailoring, 55.0, 60.0);
-            AddRes(index, typeof(Cloth), 1044286, 24, 1044287);
-
-            index = AddCraft(typeof(FancyLoveseatNorthDeed), 1044294, 1156560, 70.0, 120.0, typeof(Board), 1044041, 80, 1044351);//Wytworna Mala Sofa (N)
-
-            AddSkill(index, SkillName.Tailoring, 55.0, 60.0);
-            AddRes(index, typeof(Cloth), 1044286, 48, 1044287);
-
-            index = AddCraft(typeof(FancyLoveseatWestDeed), 1044294, 1156561, 70.0, 120.0, typeof(Board), 1044041, 80, 1044351);//Wytworna Mala Sofa (W)
-            AddSkill(index, SkillName.Tailoring, 55.0, 60.0);
-            AddRes(index, typeof(Cloth), 1044286, 48, 1044287);
 
             index = AddCraft(typeof(FancyCouchSouthDeed), 1044294, 1154139, 70.0, 120.0, typeof(Board), 1044041, 80, 1044351);//Wytowrna Sofa (S)
             AddSkill(index, SkillName.Tailoring, 55.0, 60.0);
