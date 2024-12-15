@@ -6,7 +6,7 @@ namespace Server.Items
         public StatueSouth()
             : base(0x139A)
         {
-            Weight = 10;
+            Weight = 3;
         }
 
         public StatueSouth(Serial serial)
@@ -64,7 +64,7 @@ namespace Server.Items
         public StatueNorth()
             : base(0x139B)
         {
-            Weight = 10;
+            Weight = 3;
         }
 
         public StatueNorth(Serial serial)
@@ -122,7 +122,7 @@ namespace Server.Items
         public StatueEast()
             : base(0x139C)
         {
-            Weight = 10;
+            Weight = 3;
         }
 
         public StatueEast(Serial serial)
@@ -270,7 +270,7 @@ namespace Server.Items
         public StatuePegasusSouth()
             : base(0x139D)
         {
-            Weight = 1.0;
+            Weight = 4.0;
         }
 
         public StatuePegasusSouth(Serial serial)
@@ -331,7 +331,7 @@ namespace Server.Items
         public SmallTowerSculpture()
             : base(0x241A)
         {
-            Weight = 1.0;
+            Weight = 3.0;
         }
 
         public SmallTowerSculpture(Serial serial)
@@ -359,7 +359,7 @@ namespace Server.Items
         public StatueGargoyleEast()
             : base(0x494E)
         {
-            Weight = 1.0;
+            Weight = 20.0;
         }
 
         public StatueGargoyleEast(Serial serial)
@@ -419,7 +419,7 @@ namespace Server.Items
         public StatueGryphonEast()
             : base(0x493C)
         {
-            Weight = 1.0;
+            Weight = 15.0;
         }
 
         public StatueGryphonEast(Serial serial)

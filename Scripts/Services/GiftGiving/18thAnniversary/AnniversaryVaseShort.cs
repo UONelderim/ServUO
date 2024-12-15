@@ -7,6 +7,7 @@ namespace Server.Items
         [Constructable]
         public AnniversaryVaseShort() : base(0x9BCA)
         {
+	        Weight = 6;
         }
 
         public AnniversaryVaseShort(Serial serial) : base(serial)

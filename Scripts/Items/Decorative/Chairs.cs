@@ -125,7 +125,7 @@ namespace Server.Items
         public StoneChair()
             : base(0x1218)
         {
-            Weight = 1.0;
+            Weight = 4;
         }
 
         public StoneChair(Serial serial)

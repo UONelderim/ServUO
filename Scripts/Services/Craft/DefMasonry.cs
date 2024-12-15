@@ -110,105 +110,104 @@ namespace Server.Engines.Craft
 
         public override void InitCraftList()
         {
-            // Decorations
-            AddCraft(typeof(Vase), 1044501, 1022888, 52.5, 102.5, typeof(Granite), 1044514, 1, 1044513);
-            AddCraft(typeof(LargeVase), 1044501, 1022887, 52.5, 102.5, typeof(Granite), 1044514, 3, 1044513);
+            //Wazy
+            AddCraft(typeof(Vase), 3060332, 1022888, 52.5, 102.5, typeof(Granite), 1044514, 1, 1044513);
+            AddCraft(typeof(LargeVase), 3060332, 1022887, 52.5, 102.5, typeof(Granite), 1044514, 3, 1044513);
+            int index = AddCraft(typeof(SmallUrn), 3060332, 1029244, 82.0, 132.0, typeof(Granite), 1044514, 1, 1044513);
+            AddCraft(typeof(SmallTowerSculpture), 3060332, 1029242, 82.0, 132.0, typeof(Granite), 1044514, 3, 1044513);
+            AddCraft(typeof(GargoylePainting), 3060332, 1095317, 83.0, 133.0, typeof(Granite), 1044514, 3, 1044513);//Plaskorzezba
+            AddCraft(typeof(GargishSculpture), 3060332, 1095319, 82.0, 132.0, typeof(Granite), 1044514, 3, 1044513);//Pokretna Rzezba
+            AddCraft(typeof(GargoyleVase), 3060332, 1095322, 80.0, 126.0, typeof(Granite), 1044514, 4, 1044513);//Zdobiona Waza
 
-            int index = AddCraft(typeof(SmallUrn), 1044501, 1029244, 82.0, 132.0, typeof(Granite), 1044514, 3, 1044513);
+            /*index = AddCraft(typeof(AnniversaryVaseTall), 3060332, 1156147, 60.0, 110.0, typeof(Granite), 1044514, 6, 1044513);
+            AddRecipe(index, (int)MasonryRecipes.AnniversaryVaseTall); //Wysoka Zdobiona Waza
 
-            index = AddCraft(typeof(SmallTowerSculpture), 1044501, 1029242, 82.0, 132.0, typeof(Granite), 1044514, 3, 1044513);
+            index = AddCraft(typeof(AnniversaryVaseShort), 3060332, 1156148, 60.0, 110.0, typeof(Granite), 1044514, 6, 1044513);
+            AddRecipe(index, (int)MasonryRecipes.AnniversaryVaseShort);//Szeroka Zdobiona Waza*/
 
-            AddCraft(typeof(GargoylePainting), 1044501, 1095317, 83.0, 133.0, typeof(Granite), 1044514, 3, 1044513);
-            AddCraft(typeof(GargishSculpture), 1044501, 1095319, 82.0, 132.0, typeof(Granite), 1044514, 3, 1044513);
-            AddCraft(typeof(GargoyleVase), 1044501, 1095322, 80.0, 126.0, typeof(Granite), 1044514, 3, 1044513);
-
-            index = AddCraft(typeof(AnniversaryVaseTall), 1044501, 1156147, 60.0, 110.0, typeof(Granite), 1044514, 6, 1044513);
-            AddRecipe(index, (int)MasonryRecipes.AnniversaryVaseTall);
-
-            index = AddCraft(typeof(AnniversaryVaseShort), 1044501, 1156148, 60.0, 110.0, typeof(Granite), 1044514, 6, 1044513);
-            AddRecipe(index, (int)MasonryRecipes.AnniversaryVaseShort);
-
-            // Furniture
+            //Meble
             AddCraft(typeof(StoneChair), 1044502, 1024635, 55.0, 105.0, typeof(Granite), 1044514, 4, 1044513);
             AddCraft(typeof(MediumStoneTableEastDeed), 1044502, 1044508, 65.0, 115.0, typeof(Granite), 1044514, 6, 1044513);
             AddCraft(typeof(MediumStoneTableSouthDeed), 1044502, 1044509, 65.0, 115.0, typeof(Granite), 1044514, 6, 1044513);
             AddCraft(typeof(LargeStoneTableEastDeed), 1044502, 1044511, 75.0, 125.0, typeof(Granite), 1044514, 9, 1044513);
             AddCraft(typeof(LargeStoneTableSouthDeed), 1044502, 1044512, 75.0, 125.0, typeof(Granite), 1044514, 9, 1044513);
-            AddCraft(typeof(RitualTableDeed), 1044502, 1097690, 94.7, 103.5, typeof(Granite), 1044514, 8, 1044513);
-            AddCraft(typeof(StoneFireplaceSouthDeed),1044291, 1061849,94.2, 112.2,typeof( Granite ), "granit", 40, 1044351 );
-            AddCraft(typeof(StoneFireplaceEastDeed),	1044291, 1061848,94.2, 112.2,typeof( Granite ), "granit", 40, 1044351 );
-            AddCraft(typeof(GrayBrickFireplaceSouthDeed), 1044291, 1061847, 94.2, 112.2, typeof(DullCopperGranite ), "granit matowej miedzi", 40, 1044351 );
-            AddCraft(typeof(GrayBrickFireplaceEastDeed), 1044291, 1061846, 94.2, 112.2, typeof(DullCopperGranite ), "granit matowej miedzi", 40, 1044351 );
-            AddCraft(typeof(SandstoneFireplaceSouthDeed), 1044291, 1061845, 94.2, 112.2, typeof(GoldGranite ), "granit ze zlota", 40, 1044351 );
-            AddCraft(typeof(SandstoneFireplaceEastDeed), 1044291, 1061844, 94.2, 112.2, typeof(GoldGranite ), "granit ze zlota", 40, 1044351 );
+            AddCraft(typeof(RitualTableDeed), 1044502, 1097690, 94.7, 103.5, typeof(Granite), 1044514, 8, 1044513);//Rytualny Stol
+            AddCraft(typeof(Piedestal), 1044502, 3060333, 90.0, 140.0, typeof(Granite), 1044514, 30, 1044513);
+            
+            index = AddCraft(typeof(LargeGargoyleBedSouthDeed), 1044502, 1111761, 76.0, 126.0, typeof(Granite), 1044514, 3, 1044513);//Kamienne Loze (S)
+            AddSkill(index, SkillName.Tailoring, 70.0, 75.0);
+            AddRes(index, typeof(Cloth), 1044286, 100, 1044287);
+
+            index = AddCraft(typeof(LargeGargoyleBedEastDeed), 1044502, 1111762, 76.0, 126.0, typeof(Granite), 1044514, 3, 1044513);//Kamienne Loze (E)
+            AddSkill(index, SkillName.Tailoring, 70.0, 75.0);
+            AddRes(index, typeof(Cloth), 1044286, 100, 1044287);
+
+            index = AddCraft(typeof(GargishCotEastDeed), 1044502, 1111921, 76.0, 126.0, typeof(Granite), 1044514, 3, 1044513);//Kamienne Lozko (E)
+            AddSkill(index, SkillName.Tailoring, 70.0, 75.0);
+            AddRes(index, typeof(Cloth), 1044286, 100, 1044287);
+
+            index = AddCraft(typeof(GargishCotSouthDeed), 1044502, 1111920, 76.0, 126.0, typeof(Granite), 1044514, 3, 1044513);//Kamienne Lozko (S)
+            AddSkill(index, SkillName.Tailoring, 70.0, 75.0);
+            AddRes(index, typeof(Cloth), 1044286, 100, 1044287);
+            
+            //Kominki
+            AddCraft(typeof(StoneFireplaceSouthDeed),3060334, 1061849,94.2, 112.2,typeof(Granite), 3060328, 40, 1044351 );
+            AddCraft(typeof(StoneFireplaceEastDeed),	3060334, 1061848,94.2, 112.2,typeof(Granite), 3060328, 40, 1044351 );
+            AddCraft(typeof(GrayBrickFireplaceSouthDeed), 3060334, 1061847, 94.2, 112.2, typeof(DullCopperGranite), 3060329, 40, 1044351 );
+            AddCraft(typeof(GrayBrickFireplaceEastDeed), 3060334, 1061846, 94.2, 112.2, typeof(DullCopperGranite), 3060329, 40, 1044351 );
+            AddCraft(typeof(SandstoneFireplaceSouthDeed), 3060334, 1061845, 94.2, 112.2, typeof(GoldGranite), 3060330, 40, 1044351 );
+            AddCraft(typeof(SandstoneFireplaceEastDeed), 3060334, 1061844, 94.2, 112.2, typeof(GoldGranite), 3060330, 40, 1044351 );
 	        
             //Pomniki
-			AddCraft( typeof( PomnikOrlaS ), "Pomniki", "Pomnik Orla (Poludnie)", 85.0, 135.0, typeof( Granite ), 1044514, 25, 1044513 );
-			AddCraft( typeof( PomnikOrlaE ), "Pomniki", "Pomnik Orla (Wschod)", 85.0, 135.0, typeof( Granite ), 1044514, 25, 1044513 );
-			AddCraft( typeof( PomnikFeniksaS ), "Pomniki", "Pomnik Feniksa (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikFeniksaE ), "Pomniki", "Pomnik Feniksa (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikDuchaS ), "Pomniki", "Pomnik Ducha (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikDuchaE ), "Pomniki", "Pomnik Ducha (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikOrdyjskaS ), "Pomniki", "Pomnik Ordyjski (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikOrdyjskaE ), "Pomniki", "Pomnik Ordyjski (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikLahlithS ), "Pomniki", "Pomnik Lahlith (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikLahlithE ), "Pomniki", "Pomnik Lahlith (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikLowcyS ), "Pomniki", "Pomnik lowcy (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikLowcyE ), "Pomniki", "Pomnik lowcy (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikElfaS ), "Pomniki", "Pomnik Elfa (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikElfaE ), "Pomniki", "Pomnik Elfa (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikGargulcaF ), "Pomniki", "Pomnik Gargulca", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikSmokaS ), "Pomniki", "Pomnik Smoka (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikSmokaE ), "Pomniki", "Pomnik Smoka (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikGryfaS ), "Pomniki", "Pomnik Gryfa (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikGryfaE ), "Pomniki", "Pomnik Gryfa (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikKaplankiF ), "Pomniki", "Pomnik Kaplanki", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikJezdzcaS ), "Pomniki", "Pomnik Jezdzca (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikJezdzcaE ), "Pomniki", "Pomnik Jezdzca (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikPanaKoncaS ), "Pomniki", "Pomnik Pana Konca (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikPanaKoncaE ), "Pomniki", "Pomnik Pana Konca (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikLotheS ), "Pomniki", "Pomnik Loethe (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikLotheE ), "Pomniki", "Pomnik Loethe (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikMagaS ), "Pomniki", "Pomnik Maga (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikMagaE ), "Pomniki", "Pomnik Maga (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikOrbaS ), "Pomniki", "Pomnik Orba (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikOrbaE ), "Pomniki", "Pomnik Orba (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikSfinksaS ), "Pomniki", "Pomnik Sfinksa (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikSfinksaE ), "Pomniki", "Pomnik Sfinksa (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikStraznikaS ), "Pomniki", "Pomnik Straznika (Poludnie)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( PomnikStraznikaE ), "Pomniki", "Pomnik Straznika (Wschod)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
-			AddCraft( typeof( Piedestal ), "Pomniki", "Granitowy piedestal", 90.0, 140.0, typeof(Granite), 1044514, 30, 1044513) ;
+			AddCraft( typeof( PomnikOrlaS ), 3060331, "Pomnik Orla (S)", 85.0, 135.0, typeof( Granite ), 1044514, 25, 1044513 );
+			AddCraft( typeof( PomnikOrlaE ), 3060331, "Pomnik Orla (E)", 85.0, 135.0, typeof( Granite ), 1044514, 25, 1044513 );
+			AddCraft( typeof( PomnikFeniksaS ), 3060331, "Pomnik Feniksa (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikFeniksaE ), 3060331, "Pomnik Feniksa (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikDuchaS ), 3060331, "Pomnik Ducha (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikDuchaE ), 3060331, "Pomnik Ducha (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikOrdyjskaS ), 3060331, "Pomnik Ordyjski (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikOrdyjskaE ), 3060331, "Pomnik Ordyjski (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikLahlithS ), 3060331, "Pomnik Lahlith (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikLahlithE ), 3060331, "Pomnik Lahlith (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikLowcyS ), 3060331, "Pomnik Lowcy (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikLowcyE ), 3060331, "Pomnik Lowcy (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikElfaS ), 3060331, "Pomnik Elfa (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikElfaE ), 3060331, "Pomnik Elfa (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikGargulcaF ), 3060331, "Pomnik Gargulca", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikSmokaS ), 3060331, "Pomnik Smoka (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikSmokaE ), 3060331, "Pomnik Smoka (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikGryfaS ), 3060331, "Pomnik Gryfa (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikGryfaE ), 3060331, "Pomnik Gryfa (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikKaplankiF ), 3060331, "Pomnik Kaplanki", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikJezdzcaS ), 3060331, "Pomnik Jezdzca (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikJezdzcaE ), 3060331, "Pomnik Jezdzca (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikPanaKoncaS ), 3060331, "Pomnik Pana Konca (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikPanaKoncaE ), 3060331, "Pomnik Pana Konca (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikLotheS ), 3060331, "Pomnik Loethe (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikLotheE ), 3060331, "Pomnik Loethe (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikMagaS ), 3060331, "Pomnik Maga (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikMagaE ), 3060331, "Pomnik Maga (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikOrbaS ), 3060331, "Pomnik Orba (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikOrbaE ), 3060331, "Pomnik Orba (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikSfinksaS ), 3060331, "Pomnik Sfinksa (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikSfinksaE ), 3060331, "Pomnik Sfinksa (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikStraznikaS ), 3060331, "Pomnik Straznika (S)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
+			AddCraft( typeof( PomnikStraznikaE ), 3060331, "Pomnik Straznika (E)", 90.0, 140.0, typeof( Granite ), 1044514, 30, 1044513 );
 			
             // Statues
-            AddCraft(typeof(StatueSouth), 1044503, 1044505, 60.0, 110.0, typeof(Granite), 1044514, 3, 1044513);
-            AddCraft(typeof(StatueNorth), 1044503, 1044506, 60.0, 110.0, typeof(Granite), 1044514, 3, 1044513);
-            AddCraft(typeof(StatueEast), 1044503, 1044507, 60.0, 110.0, typeof(Granite), 1044514, 3, 1044513);
-            AddCraft(typeof(StatuePegasusSouth), 1044503, 1044510, 70.0, 120.0, typeof(Granite), 1044514, 4, 1044513);
-            AddCraft(typeof(StatueGargoyleEast), 1044503, 1097637, 54.5, 104.5, typeof(Granite), 1044514, 20, 1044513);
-            AddCraft(typeof(StatueGryphonEast), 1044503, 1097619, 54.5, 104.5, typeof(Granite), 1044514, 15, 1044513);
+            AddCraft(typeof(StatueSouth), 1044503, 1044505, 60.0, 110.0, typeof(Granite), 1044514, 3, 1044513);//Statuetka Kobiety
+            AddCraft(typeof(StatueNorth), 1044503, 1044506, 60.0, 110.0, typeof(Granite), 1044514, 3, 1044513);//Statuetka Sukkuba
+            AddCraft(typeof(StatueEast), 1044503, 1044507, 60.0, 110.0, typeof(Granite), 1044514, 3, 1044513);//Statuetka Mezczyzny
+            AddCraft(typeof(StatuePegasusSouth), 1044503, 1044510, 70.0, 120.0, typeof(Granite), 1044514, 4, 1044513);//Statuetka Pegaza
+            AddCraft(typeof(StatueGargoyleEast), 1044503, 1097637, 54.5, 104.5, typeof(Granite), 1044514, 20, 1044513);//Statua Gargulca
+            AddCraft(typeof(StatueGryphonEast), 1044503, 1097619, 54.5, 104.5, typeof(Granite), 1044514, 15, 1044513);//Statua Gryfa
 
-            // Misc Addons
-            index = AddCraft(typeof(StoneAnvilSouthDeed), 1044290, 1072876, 78.0, 128.0, typeof(Granite), 1044514, 20, 1044513);
+            //Kowadla
+            /*index = AddCraft(typeof(StoneAnvilSouthDeed), 1044290, 1072876, 78.0, 128.0, typeof(Granite), 1044514, 20, 1044513);//Kamienne Kowadlo (S)
             AddRecipe(index, (int)CarpRecipes.StoneAnvilSouth);
 
-            index = AddCraft(typeof(StoneAnvilEastDeed), 1044290, 1073392, 78.0, 128.0, typeof(Granite), 1044514, 20, 1044513);
-            AddRecipe(index, (int)CarpRecipes.StoneAnvilEast);
-
-            index = AddCraft(typeof(LargeGargoyleBedSouthDeed), 1044290, 1111761, 76.0, 126.0, typeof(Granite), 1044514, 3, 1044513);
-            AddSkill(index, SkillName.Tailoring, 70.0, 75.0);
-            AddRes(index, typeof(Cloth), 1044286, 100, 1044287);
-
-            index = AddCraft(typeof(LargeGargoyleBedEastDeed), 1044290, 1111762, 76.0, 126.0, typeof(Granite), 1044514, 3, 1044513);
-            AddSkill(index, SkillName.Tailoring, 70.0, 75.0);
-            AddRes(index, typeof(Cloth), 1044286, 100, 1044287);
-
-            index = AddCraft(typeof(GargishCotEastDeed), 1044290, 1111921, 76.0, 126.0, typeof(Granite), 1044514, 3, 1044513);
-            AddSkill(index, SkillName.Tailoring, 70.0, 75.0);
-            AddRes(index, typeof(Cloth), 1044286, 100, 1044287);
-
-            index = AddCraft(typeof(GargishCotSouthDeed), 1044290, 1111920, 76.0, 126.0, typeof(Granite), 1044514, 3, 1044513);
-            AddSkill(index, SkillName.Tailoring, 70.0, 75.0);
-            AddRes(index, typeof(Cloth), 1044286, 100, 1044287);
+            index = AddCraft(typeof(StoneAnvilEastDeed), 1044290, 1073392, 78.0, 128.0, typeof(Granite), 1044514, 20, 1044513);//Kamienne Kowadlo (E)
+            AddRecipe(index, (int)CarpRecipes.StoneAnvilEast);*/
 
          /*   // Stone Armor
             index = AddCraft(typeof(FemaleGargishStoneArms), 1111705, 1020643, 56.3, 106.3, typeof(Granite), 1044514, 8, 1044513);
@@ -226,7 +225,7 @@ namespace Server.Engines.Craft
             AddCraft(typeof(StoneWarSword), 1111719, 1022304, 55.0, 105.0, typeof(Granite), 1044514, 18, 1044513);*/
 
             // Stone Walls
-            index = AddCraft(typeof(CraftableHouseItem), 1155792, 1155794, 60.0, 110.0, typeof(Granite), 1044514, 10, 1044513);
+            /*index = AddCraft(typeof(CraftableHouseItem), 1155792, 1155794, 60.0, 110.0, typeof(Granite), 1044514, 10, 1044513);
             SetData(index, CraftableItemType.RoughWindowless);
             SetDisplayID(index, 464);
 
@@ -314,7 +313,7 @@ namespace Server.Engines.Craft
 
             index = AddCraft(typeof(CraftableHouseItem), 1155877, 1155880, 60.0, 110.0, typeof(Granite), 1044514, 5, 1044513);
             SetData(index, CraftableItemType.DarkPaver);
-            SetDisplayID(index, 1313);
+            SetDisplayID(index, 1313);*/
 
             MarkOption = true;
             Repair = true;

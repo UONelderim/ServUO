@@ -18538,7 +18538,7 @@
 1030245;Flet 
 1030246;Rzutki Fukiya
 1030247;Flet
-1030248;bomba dymna 
+1030248;Bomba Dymna
 1030249;bomba jajeczna 
 1030251;Prosta Drewniana Skrzynia
 1030252;prosta drewniana skrzynia 
@@ -19465,8 +19465,8 @@
 1031729;pain half floor 
 1031731;alchemy table 
 1031732;alchemy table 
-1031733;elven anvil 
-1031734;elven anvil 
+1031733;Kamienne Kowadlo 
+1031734;Kamienne Kowadlo 
 1031735;elven bow stringer 
 1031736;Runiczne Palenisko
 1031737;elven spinning wheel 
@@ -24862,14 +24862,14 @@
 1044502;Meble 
 1044503;Statuetki 
 1044504;stone block 
-1044505;mala statua (PD) 
-1044506;mala statua (PN) 
-1044507;mala statua (W) 
-1044508;kamienny stol (W) 
-1044509;kamienny stol (PD) 
-1044510;pegasus statuette 
-1044511;duzy kamienny stol (W) 
-1044512;duzy kamienny stol (PD) 
+1044505;Statuetka Kobiety 
+1044506;Statuetka Sukkuba
+1044507;Statuetka Mezczyzny
+1044508;kamienny stol (E) 
+1044509;kamienny stol (S) 
+1044510;Statuetka Pegaza 
+1044511;duzy kamienny stol (E) 
+1044512;duzy kamienny stol (S) 
 1044513;Nie masz kamienia! 
 1044514;Kamienie 
 1044515;Mlot kamieniarski 
@@ -24895,26 +24895,26 @@
 1044535;Mikstura trucizny 
 1044536;Mikstura odtrucia 
 1044537;Mikstura eksplozji 
-1044538;mikstura odswiezenia 
-1044539;mikstura zupelnego odswiezenia 
-1044540;mikstura zrecznosci 
-1044541;duza mikstura zrecznosci 
-1044542;mikstura infrawizji 
-1044543;mala mikstura leczenia 
-1044544;mikstura leczenia 
-1044545;duza mikstura leczenia 
-1044546;mikstura sily 
-1044547;duza mikstura sily 
-1044548;mikstura slabej trucizny 
-1044549;mikstura trucizny 
-1044550;mikstura mocnej trucizny 
-1044551;mikstura smiertelnej trucizny 
-1044552;mala mikstura odtrucia 
-1044553;mikstura odtrucia 
-1044554;duza mikstura odtrucia 
-1044555;mikstura slabej eksplozji 
-1044556;mikstura eksplozji 
-1044557;mikstura silnej eksplozji 
+1044538;Mikstura Odswiezenia
+1044539;Mikstura Zupelnego Odswiezenia
+1044540;Mikstura Zrecznosci
+1044541;Duza Mikstura Zrecznosci
+1044542;Mikstura Infrawizji
+1044543;Mala Mikstura Leczenia
+1044544;Mikstura Leczenia
+1044545;Duza Mikstura Leczenia
+1044546;Mikstura Sily
+1044547;Duza Mikstura Sily
+1044548;Mikstura Slabej Trucizny
+1044549;Mikstura Trucizny
+1044550;Mikstura Mocnej Trucizny
+1044551;Mikstura Smiertelnej Trucizny
+1044552;Mala Mikstura Odtrucia
+1044553;Mikstura Odtrucia
+1044554;Duza Mikstura Odtrucia
+1044555;Mikstura Slabej Eksplozji
+1044556;Mikstura Eksplozji
+1044557;Mikstura Silnej Eksplozji
 1044558;Nie masz pustych butelek. 
 1044559;Narzedzia lukmistrza 
 1044560;Drzewce 
@@ -28264,12 +28264,12 @@
 1061195;Nie mozesz porabac pojemnika nie wiedzac co jest w srodku. 
 1061196;Porabales przedmiot odzyskujac troche drewna. Przedmiot zawieral wyjatkowo malo surowca. 
 1061201;Aromatyzowany 
-1061202;Zwykly tyton jablkowy
-1061203;Zwykly tyton gruszkowy
-1061204;Zwykly tyton cytrynowy 
-1061205;Szlachetny tyton jablkowy 
-1061206;Szlachetny tyton gruszkowy
-1061207;Szlachetny tyton cytrynowy
+1061202;Zwykly Tyton Jablkowy
+1061203;Zwykly Tyton Gruszkowy
+1061204;Zwykly Tyton Cytrynowy
+1061205;Szlachetny Tyton Jablkowy
+1061206;Szlachetny Tyton Gruszkowy
+1061207;Szlachetny Tyton Cytrynowy
 1061208;tyton pospolity
 1061209;tyton szlachetny
 1061225;Wybierz profesje, aby rozpoczac tworzenie postaci. 
@@ -28626,10 +28626,10 @@
 1061843;This house's Access List has been cleared. 
 1061844;piaskowy kominek (E) 
 1061845;piaskowy kominek (S) 
-1061846;szary ceglany kominek (W) 
-1061847;szary ceglany kominek (PD) 
-1061848;kamienny kominek (W) 
-1061849;kamienny kominek (PD) 
+1061846;szary ceglany kominek (E) 
+1061847;szary ceglany kominek (S) 
+1061848;kamienny kominek (E) 
+1061849;kamienny kominek (S) 
 1061850;"Only the <STRONG>Horde Minion</STRONG> can be used to fetch the scroll for you.  <a href=""?ForceTopic127"">Dismiss</a> your current familiar, and <a href=""?ForceTopic127"">summon</a> the <STRONG>Horde Minion</STRONG> to fetch the scroll for you. "
 1061851;pieces of colored leather 
 1061852;rzadkie karmazynowe 
@@ -31609,9 +31609,9 @@
 1072001;Potezna mikstura zrecznosci 
 1072002;Potezna mikstura sily 
 1072003;Starozytna Alchemia
-1072004;Mikstura zywiolaka wody 
-1072005;Mikstura zywiolaka ognia 
-1072006;Mikstura zywiolaka ziemi 
+1072004;Mikstura Zywiolaka Wody
+1072005;Mikstura Zywiolaka Ognia
+1072006;Mikstura Zywiolaka Ziemi
 1072011;Keg mikstury zywiolaka wody 
 1072012;Keg mikstury zywiolaka ognia 
 1072013;Keg mikstury zywiolaka ziemi 
@@ -31672,20 +31672,20 @@
 1072093;Eternally Corrupt Tree 
 1072094;Diseased Bark 
 1072095;mikstura Pozogi 
-1072096;pozoga 
+1072096;Pozoga
 1072097;Pozoga 
 1072098;mikstura Wielkiej Pozogi 
-1072099;wielka pozoga 
-1072100;"mikstura ""Maska Smierci"" "
-1072101;maska smierci 
+1072099;Wielka Pozoga
+1072100;Maska Smierci
+1072101;Maska Smierci
 1072102;Maska Smierci 
-1072103;"duza mikstura ""Maska Smierci"" "
-1072104;"duza ""Maska Smierci"" "
+1072103;Duza Maska Smierci
+1072104;Duza Maska Smierci
 1072105;mikstura Obezwladniajacego Podmuchu 
-1072106;obezwladniajacy podmuch 
+1072106;Obezwladniajacy Podmuch
 1072107;Obezwladniajacy Podmuch 
 1072108;duza mikstura Obezwladniajacego Podmuchu 
-1072109;duzy Obezwladniajacy Podmuch 
+1072109;Duzy Obezwladniajacy Podmuch
 1072110;TEMP: You have cast Gift of Renewal. 
 1072111;You are not in a valid exorcism region. 
 1072112;You must have GM Rozmowa z Duchami to use this spell 
@@ -32447,12 +32447,12 @@
 1072873;Niskie Krzeslo
 1072874;Stojak na Ksiazki  
 1072875;Runiczne Palenisko
-1072876;kamienne kowadlo (poludnie)  
+1072876;kamienne kowadlo (S)  
 1072877;elficki naciagacz lukow  
 1072878;Male Kolo Przedzalnicze (S)
 1072879;elficki piec  
 1072880;Stol Alchemika  
-1072881;zawieszajacy sie kosmyk  
+1072881;Zawieszajacy Sie Kosmyk
 1072882;Latajacy Wisk (zielony)  
 1072883;Latajacy Wisk (bialy)  
 1072884;Statua Wieiowrki (S)
@@ -32513,8 +32513,8 @@
 1072939;Lost in Transit 
 1072940;Kompendium Wszelkiej Wiedzy 
 1072941;Mikstura niewidzialnosci
-1072942;pasozytnicza trucizna
-1072943;mikstura ciemnej poswiaty 
+1072942;Pasozytnicza Trucizna
+1072943;Mikstura Ciemnej Poswiaty
 1072944;Spirited Away 
 1072945;Illegal Aquisition 
 1072946;Wood Stain 
@@ -32963,7 +32963,7 @@
 1073389;Prosze wskaz przedmiot, ktory chcesz przekazac.  
 1073390;Wybrany przez ciebie przedmiot nie jest tego typu, ktory wybrales.  
 1073391;Honorowy czlonek Przyjaciol Biblioteki  
-1073392;kamienne kowadlo (wschod)  
+1073392;kamienne kowadlo (E)  
 1073393;Male Kolo Przedzalnicze (E)
 1073394;Piec Wolnostojacy (S)
 1073395;Piec Wolnostojacy (E)
@@ -34426,7 +34426,7 @@
 1074857;I understand.  A Master of Bedlam, even one entirely off his rocker, is too much for you to handle. 
 1074858;You had better get going.  Master Theophilus isn't likely to kill himself just to save me this embarrassment. 
 1074859;You look a bit worse for wear!  He put up a good fight did he?  Hah!  That's the spirit … a Master of Bedlam is a match for most. 
-1074860;mikstura niewidzialnosc i
+1074860;Mikstura Niewidzialnosci
 1074861;You do not have everything you need! 
 1074862;<CENTER>NOTICE</CENTER> 
 1074863;The house can not be customized when add-on containers such as aquariums or elven furniture containers are present in the house.  Please re-deed the add-on containers before customizing the house. 
@@ -40501,27 +40501,27 @@
 1095258;Gargish Fancy Robe
 1095259;gargish fancy robe 
 1095260;armed trap 
-1095268;gargulcowe lozko  
-1095269;gargulcowe lozko  
-1095270;gargulcowe lozko  
-1095271;gargulcowe lozko  
-1095272;duze gargulcowe lozko  
-1095273;duze gargulcowe lozko  
-1095274;duze gargulcowe lozko  
-1095275;duze gargulcowe lozko  
-1095276;duze gargulcowe lozko  
-1095277;duze gargulcowe lozko  
-1095278;duze gargulcowe lozko  
-1095279;duze gargulcowe lozko  
-1095280;duze gargulcowe lozko  
-1095281;duze gargulcowe lozko  
-1095282;duze gargulcowe lozko  
-1095283;duze gargulcowe lozko  
-1095284;duze gargulcowe lozko  
-1095285;duze gargulcowe lozko  
-1095286;duze gargulcowe lozko  
-1095287;duze gargulcowe lozko  
-1095288;duze gargulcowe lozko  
+1095268;Kamienne Lozko 
+1095269;Kamienne Lozko 
+1095270;Kamienne Lozko 
+1095271;Kamienne Lozko 
+1095272;Kamienne Duze Lozko  
+1095273;Kamienne Duze Lozko  
+1095274;Kamienne Duze Lozko  
+1095275;Kamienne Duze Lozko  
+1095276;Kamienne Duze Lozko  
+1095277;Kamienne Duze Lozko  
+1095278;Kamienne Duze Lozko  
+1095279;Kamienne Duze Lozko  
+1095280;Kamienne Duze Lozko  
+1095281;Kamienne Duze Lozko  
+1095282;Kamienne Duze Lozko  
+1095283;Kamienne Duze Lozko  
+1095284;Kamienne Duze Lozko  
+1095285;Kamienne Duze Lozko  
+1095286;Kamienne Duze Lozko  
+1095287;Kamienne Duze Lozko  
+1095288;Kamienne Duze Lozko  
 1095289;  
 1095290;Wielki Tron  
 1095291;Wielki Tron
@@ -40549,14 +40549,14 @@
 1095313;Lustro Stojace W Stylu Ter-mur
 1095314;Basetla
 1095315;Basetla
-1095316;gargulcowy obraz  
-1095317;gargulcowy obraz  
-1095318;gargulcowa rzezba  
-1095319;gargulcowa rzezba  
-1095320;stol w stylu Ter-Mur  
+1095316;Plaskorzezba  
+1095317;Plaskorzezba  
+1095318;Plaskorzezba  
+1095319;Pokretna Rzezba
+1095320;Pokretna Rzezba  
 1095321;Zdobiony Stolik
-1095322;Zdobiony Stolik 
-1095323;lustro scienne w stylu Ter-Mur  
+1095322;Zdobiona Waza
+1095323;Zdobiona Waza
 1095324;lustro scienne w stylu Ter-Mur  
 1095325;lustro stojace w stylu Ter-Mur  
 1095327;Gargish Leather Arms
@@ -40791,7 +40791,7 @@
 1095811;kula armatnia z wygrawerowanym napisem isa 
 1095812;gargish Order shield 
 1095817;kule armatnia z wygrawerowanym napisem isa 
-1095826;czarny proch 
+1095826;Czarny Proch
 1095827;Kuznia Dusz
 1095828;Kuznia Dusz
 1095829;Kuznia Dusz
@@ -41222,14 +41222,14 @@
 1097525;stone pavers 
 1097526;stone pavers 
 1097527;stone pavers 
-1097619;gryphon statue 
-1097620;gryphon statue 
-1097637;gargoyle statue 
-1097638;gargoyle statue 
-1097690;ritual table 
-1097691;ritual table 
-1097692;ritual table 
-1097693;ritual table 
+1097619;Statua Gryfa 
+1097620;Statua Gryfa 
+1097637;Statua Gargulca
+1097638;Statua Gargulca
+1097690;Rytualny Stol 
+1097691;Rytualny Stol 
+1097692;Rytualny Stol 
+1097693;Rytualny Stol 
 1097720;Sacrifice Tapestry 
 1097721;Spirituality Tapestry 
 1097722;Honesty Tapestry 
@@ -42116,8 +42116,8 @@
 1111758;Khaldun  
 1111759;Zgnily Gaj  
 1111760;Kanaly Britanii  
-1111761;duze gargulcowe lozko (poludnie)  
-1111762;duze gargulcowe lozko (wschod)  
+1111761;Duze Kamienne Lozko (S)  
+1111762;Duze Kamienne Lozko (E)
 1111763;Lochy Ankh  
 1111764;Lochy Cyklopow  
 1111765;Lochy Exodusa  
@@ -42275,8 +42275,8 @@
 1111917;Immolated 
 1111918;You are already that race. 
 1111919;You are already in the process of changing race. 
-1111920;gargish cot (south) 
-1111921;gargish cot (east) 
+1111920;Kamienne Lozko (S) 
+1111921;Kamienne Lozko (E)
 1111923;"Is the UI too bulky for you?  Try using the ""UI Scale"" option in the options window.   "
 1111924;Want to keep track of how many reagents you have?  Or how much gold you have?  Try dragging one of your reagents or your gold to a hotbar slot.  The amount of that item you have in your pack will appear on the hotbar slot. 
 1111925;"You can make hotbars vertical by resizing it to be taller than it is long.  You can also create new floating hotbars by right clicking on an existing hotbar and selecting ""New Hotbar"" "
@@ -42486,11 +42486,11 @@
 1112129;dzwignia (nie nadaje sie do uzytku) 
 1112130;dziwngnia
 1112131;Odnozki
-1112132;pigment do roslin 
+1112132;Pigment do Roslin
 1112133;~1_COLOR~ - pigment do roslin 
 1112134;jasny odcien -  ~1_COLOR~ - pigment do roslin 
-1112135;utrwalacz koloru 
-1112136;naturalny barwnik 
+1112135;Utrwalacz Koloru
+1112136;Naturalny Barwnik
 1112137;~1_COLOR~ - Naturalny Barwnik 
 1112138;jasny odcien -  ~1_COLOR~ - Naturalny Barwnik 
 1112139;Wybierz przedmiot, ktory chcesz zafarbowac.  
@@ -42602,8 +42602,8 @@
 1112245;Cegi Koszykarza  
 1112246;Nie masz wystarczajacej liczby drewnianych trzonkow, aby to zrobic.  
 1112247;drewniane drazki  
-1112248;suche trzciny  
-1112249;Zmiekczone Stroiki
+1112248;Sucha Trzcina  
+1112249;Zmiekczona Trzcina
 1112250;Nie masz wystarczajacej ilosci tego rodzaju suchych trzcin, aby to zrobic.  
 1112251;Nie masz wystarczajacej ilosci tego rodzaju zmiekczonych stroikow, aby to zrobic.  
 1112252;Wymaga wyplatania koszy (specjalizacja stolarstwo i majsterkowanie)  
@@ -42642,11 +42642,11 @@
 1112285;You are now set to cut plant clippings. 
 1112286;You are now set to cut reeds. 
 1112287;You are already set to cut reeds! 
-1112288;bright ~1_COLOR~ reeds 
-1112289;~1_COLOR~ reeds 
+1112288;jasna ~1_COLOR~ trzcina 
+1112289;~1_COLOR~ trzcina
 1112290;Wicie koszy 
 1112291;toxic venom sac 
-1112292;mikstura palacej toksyny 
+1112292;Wybielacz do Naturalnych Barwnikow
 1112293;Okragly Koszyk
 1112294;koszyk
 1112295;Kwadratowy Koszyk
@@ -42682,8 +42682,8 @@
 1112325;<center>New Hornstyle</center> 
 1112326;You do not have enough scouring toxins to make that! 
 1112327;esencja pustki 
-1112328;pyl krysztalowy 
-1112329;krysztalowe granulki 
+1112328;Pyl Krysztalowy
+1112329;Krysztalowe Granulki
 1112330;Particle Filter 
 1112331;None 
 1112332;Player/Target 
@@ -43115,7 +43115,7 @@
 1112759;<CENTER>FACIAL HORNS</CENTER> 
 1112760;a Ter Mur contract of employment 
 1112761;a Ter Mur barkeep contract 
-1112762;eliksiro odrodzenia 
+1112762;Eliksir Odrodzenia
 1112763;Which pet do you wish to revive? 
 1112764;This may only be used to resurrect dead pets. 
 1112765;You shear it, and the fur is now on the corpse. 
@@ -43623,9 +43623,9 @@
 1113270;~1_AMOUNT~ ~2_COLOR~ plant pigments 
 1113271;~1_AMOUNT~ bright ~2_COLOR~ plant pigments 
 1113272;~1_AMOUNT~ bright ~2_COLOR~ plant clippings 
-1113273;~1_AMOUNT~ bright ~2_COLOR~ reeds 
+1113273;~1_AMOUNT~ jasna ~2_COLOR~ trzcina 
 1113274;~1_AMOUNT~ ~2_COLOR~ plant clippings 
-1113275;~1_AMOUNT~ ~2_COLOR~ reeds 
+1113275;~1_AMOUNT~ ~2_COLOR~ trzcina 
 1113276;~1_AMOUNT~ ~2_COLOR~ natural dyes 
 1113277;~1_AMOUNT~ bright ~2_COLOR~ natural dyes 
 1113278;You must wait just a few moments before resurrecting that. 
@@ -43681,7 +43681,7 @@
 1113328;essence of direction 
 1113329;spider carapace 
 1113330;daemon claw 
-1113331;fiolka witriolu 
+1113331;Fiolka Witriolu
 1113332;fey wings 
 1113333;vile tentacles 
 1113334;void core 
@@ -43711,7 +43711,7 @@
 1113358;proszek z wrozki 
 1113359;slith tongue 
 1113360;raptor teeth 
-1113361;butelka ichoru 
+1113361;Butelka Ichoru
 1113362;reflective wolf eye 
 1113363;Imbuing this item further would cause it to become unstable. 
 1113364;You cannot imbue this property on this item at the selected intensity because it will make the item unstable. 
@@ -46634,7 +46634,7 @@
 1116302;saltpeter 
 1116303;wegiel drzewny 
 1116304;match cord 
-1116305;lont 
+1116305;Lont
 1116306;gigantyczny stek z koi 
 1116307;stek z ognistej ryby 
 1116308;stek z ryby zniwiarza 
@@ -46648,7 +46648,7 @@
 1116316;stek z rybiego jednorozca 
 1116317;mieso z kraba kamiennego 
 1116318;niebieskie mieso homara 
-1116319;potaz 
+1116319;Potaz
 1116320;mieso z pajeczego kraba 
 1116321;Dzialo okretowe i magazynek musza byc calkowicie oproznione przed jego rozmontowaniem. 
 1116322;Dzialo okretowe musi byc calkowicie naprawione przed jego rozmontowaniem. 
@@ -53369,10 +53369,10 @@
 1153498;Rytuał Przywołania Exodusa
 1153499;zwoje przywołania demona
 1153500;Sztylet Poswiecenia Exodusa
-1153501;glowne zlacze
+1153501;Glowne Zlacze
 1153502;Ołtarz Przywołania Exodusa
 1153503;Róg obfitości
-1153504;złoty pył
+1153504;Złoty Pył
 1153505;pieczona kaczka
 1153506;pieczony kurczak
 1153507;pieczony indyk
@@ -56011,8 +56011,8 @@
 1156144;Happy 18th Anniversary! To get your gift, please remove some items from your backpack or bank and log back in. 
 1156145;A Personally Written Anniversary Card from ~1_name~ to ~2_name~ 
 1156146;In Commemoration Of Eighteen Amazing Years! Thank You And Happy Anniversary! 
-1156147;Tall 18th Anniversary Vase 
-1156148;Short 18th Anniversary Vase 
+1156147;Wysoka Zdobiona Waza
+1156148;Szeroka Zdobiona Waza 
 1156149;An Ornately Decorated Commemorative Plate 
 1156150;The Stranger Shatters the Gem of Immortality 
 1156151;Mondain the Wizard Murders King Wolfgang 
@@ -56588,17 +56588,17 @@
 1156721;Nieokrojony Atlas Eodon  
 1156722;Potrzebujesz wiecej egzemplarzy Nieokrojonego Atlasu Eodon autorstwa Profesor Ellie Rafkin.  
 1156723;"Geografia Eodon jest standardowa dla tego, czego mozna by oczekiwac od subtropikalnej doliny wulkanicznej. Najbardziej wyrazista cecha, ktora mozna napotkac po wejsciu do Doliny, jest unikalna topografia wokol Bramy Ksiezycowej. Przypuszczam, ze za koncentryczne kregi wyryte w terenie odpowiada szczegolna relacja istoty znanej jako Hawkwind z czasem. Chociaz niektorzy uczeni moga to uznac za malo inspirujace, uwazam, ze dodaje to uroku temu regionowi. Kazde z plemion Eodon zamieszkuje unikalny sub-biom w Dolinie, glownie zwiazany z bostwem, ktore czci dane plemie. Na poludniowym wschodzie Jukari znajduja sie najblizej Wulkanu, w nizinie definiowanej przez strumienie lawy i skrecajace sie zyly skal i ziemi wulkanicznej. Na poludniowym zachodzie plemie Kurak zamieszkuje trawiaste rowniny, ktore sluza tygrysom jako zaslona podczas polowania, a pobliskie strumienie dostarczaja wode. Jeszcze dalej na poludniowy zachod, Barrab osiedlilo sie na szczycie skalistych mes, otoczonych piaszczystymi dolami, gdzie tunele Myrmidexow przebijaja sie na powierzchnie. Na polnoc od Bramy Ksiezycowej plemie Barako mieszka na dnie doliny, wsrod roznorodnych drzew deszczowych o twardym i miekkim drewnie. Na zachodzie znajduja sie Urali, ktorzy zamieszkuja piaszczyste brzegi i bagna wielu rzek. Na koniec, na polnocnym zachodzie, plemie Sakkhra znajduje sie u podstawy wielkich bagien, obszaru otoczonego rowninami, na ktorych mozna spotkac wiele gatunkow duzych gadow, zwanych 'dinozaurami'."  
-1156724;Koncentrat z limfy Myrmidexow  
+1156724;Koncentrat z Limfy Myrmidexow
 1156725;Worek jajowy Myrmidexa  
-1156726;Oklad na oparzenia  
+1156726;Oklad Na Oparzenia
 1156727;Jagoda Lawy  
-1156728;Esencja Napastnika  
-1156729;Wywar Potegi  
+1156728;Esencja Napastnika
+1156729;Wywar Potegi
 1156730;Perfekcyjne Banany  
 1156731;Mech Rzeczny  
-1156732;Mikstura Profilaktyczna  
+1156732;Mikstura Profilaktyczna
 1156733;Niebieska Kukurydza  
-1156734;Tonik Transu  
+1156734;Tonik Transu
 1156735;Krzew Jagod Lawy  
 1156736;*Zbierasz troche ~1_skladnik~*  
 1156737;kukurydza  
@@ -60999,3 +60999,15 @@
 3060320;Lejba przywolywacza
 3060321;Luki i Kusze
 3060322;Wytworna Mala Sofa
+3060323;Potezna Mikstura Zrecznosci
+3060324;Potezna Mikstura Sily
+3060325;Nie masz wystarczającej ilości dużych mikstur zręczności
+3060326;Nie masz wystarczającej ilości dużych mikstur siły
+3060327;Inne
+3060328;Granit
+3060329;Granit Matowej Miedzi
+3060330;Granit ze Zlota
+3060331;Pomniki
+3060332;Wazy
+3060333;Granitowy Piedestal
+3060334;Kominki
