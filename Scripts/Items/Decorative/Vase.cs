@@ -6,7 +6,7 @@ namespace Server.Items
         public Vase()
             : base(0xB46)
         {
-            Weight = 1.0;
+            Weight = 3.0;
         }
 
         public Vase(Serial serial)

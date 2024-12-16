@@ -7,7 +7,7 @@ namespace Server.Items
         public GargoyleVase()
             : base(0x4042)
         {
-            Weight = 10;
+            Weight = 4;
         }
 
         public GargoyleVase(Serial serial)

@@ -7,7 +7,7 @@ namespace Server.Items
         public GargoylePainting()
             : base(0x403D)
         {
-            Weight = 10;
+            Weight = 3;
         }
 
         public GargoylePainting(Serial serial)

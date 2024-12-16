@@ -7,7 +7,7 @@ namespace Server.Items
         public GargishSculpture()
             : base(0x403F)
         {
-            Weight = 1.0;
+            Weight = 3.0;
         }
 
         public GargishSculpture(Serial serial)

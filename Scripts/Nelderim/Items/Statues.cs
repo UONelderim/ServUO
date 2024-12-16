@@ -36,7 +36,7 @@
 		public Piedestal() : base(0x1223)
 		{
 			Name = "Granitowy piedestal";
-			Weight = 100;
+			Weight = 30;
 		}
 
 //Nastepna
