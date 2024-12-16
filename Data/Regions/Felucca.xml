@@ -10997,5 +10997,9 @@
 			<rect x="5196" y="3585" width="19" height="2" />
 			<rect x="5121" y="3513" width="71" height="7" />
 		</region>
+		<region type="DungeonRegion" name="Alcala_Boss">
+			<rect x="5783" y="1744" width="39" height="42" />
+			<music name="Taiko" />
+		</region>
 	</Facet>
 </ServerRegions>

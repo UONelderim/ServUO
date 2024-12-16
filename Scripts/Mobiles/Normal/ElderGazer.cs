@@ -1,3 +1,5 @@
+using Server.Items;
+
 namespace Server.Mobiles
 {
     [CorpseName("zwloki starego gazera")]
@@ -48,6 +50,7 @@ namespace Server.Mobiles
         public override void GenerateLoot()
         {
             AddLoot(LootPack.FilthyRich);
+            AddLoot(LootPack.LootItem<OdnogaStaregoGazera>(30.0));
         }
 
         public override void Serialize(GenericWriter writer)
