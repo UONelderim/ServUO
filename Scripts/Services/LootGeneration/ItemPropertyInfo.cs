@@ -405,19 +405,19 @@ namespace Server.Items
             Register(49, new ItemPropertyInfo(AosArmorAttribute.MageArmor, 1079758, 0, typeof(EnchantedEssence), typeof(Diamond), typeof(AbyssalCloth), 0, 1, 1, 1112000,
                 new PropInfo(3, 1, 1)));
 
-            Register(51, new ItemPropertyInfo(AosElementAttribute.Physical, 1061158, 100, typeof(MagicalResidue), typeof(Diamond), typeof(BouraPelt), 1, 1, 15, 1112010,
+            Register(51, new ItemPropertyInfo(AosElementAttribute.Physical, 1061158, 100, typeof(MagicalResidue), typeof(Diamond), typeof(BouraPelt), 1, 5, 15, 1112010,
                 new PropInfo(1, 10, 100, 100), new PropInfo(2, 10, 100, 100), new PropInfo(3, 15, 15, new int[] { 20, 25, 30 }), new PropInfo(4, 15, 15), new PropInfo(5, 15, 15, new int[] { 20, 25, 30 }), new PropInfo(6, 15, 15, new int[] { 20 })));
 
-            Register(52, new ItemPropertyInfo(AosElementAttribute.Fire, 1061159, 100, typeof(MagicalResidue), typeof(Ruby), typeof(BouraPelt), 1, 1, 15, 1112009,
+            Register(52, new ItemPropertyInfo(AosElementAttribute.Fire, 1061159, 100, typeof(MagicalResidue), typeof(Ruby), typeof(BouraPelt), 1, 5, 15, 1112009,
                 new PropInfo(1, 10, 100, 100), new PropInfo(2, 10, 100, 100), new PropInfo(3, 15, 15, new int[] { 20, 25, 30 }), new PropInfo(4, 15, 15), new PropInfo(5, 15, 15, new int[] { 20, 25, 30 }), new PropInfo(6, 15, 15, new int[] { 20 })));
 
-            Register(53, new ItemPropertyInfo(AosElementAttribute.Cold, 1061160, 100, typeof(MagicalResidue), typeof(Sapphire), typeof(BouraPelt), 1, 1, 15, 1112007,
+            Register(53, new ItemPropertyInfo(AosElementAttribute.Cold, 1061160, 100, typeof(MagicalResidue), typeof(Sapphire), typeof(BouraPelt), 1, 5, 15, 1112007,
                 new PropInfo(1, 10, 100, 100), new PropInfo(2, 10, 100, 100), new PropInfo(3, 15, 15, new int[] { 20, 25, 30 }), new PropInfo(4, 15, 15), new PropInfo(5, 15, 15, new int[] { 20, 25, 30 }), new PropInfo(6, 15, 15, new int[] { 20 })));
 
-            Register(54, new ItemPropertyInfo(AosElementAttribute.Poison, 1061161, 100, typeof(MagicalResidue), typeof(Emerald), typeof(BouraPelt), 1, 1, 15, 1112011,
+            Register(54, new ItemPropertyInfo(AosElementAttribute.Poison, 1061161, 100, typeof(MagicalResidue), typeof(Emerald), typeof(BouraPelt), 1, 5, 15, 1112011,
                 new PropInfo(1, 10, 100, 100), new PropInfo(2, 10, 100, 100), new PropInfo(3, 15, 15, new int[] { 20, 25, 30 }), new PropInfo(4, 15, 15), new PropInfo(5, 15, 15, new int[] { 20, 25, 30 }), new PropInfo(6, 15, 15, new int[] { 20 })));
 
-            Register(55, new ItemPropertyInfo(AosElementAttribute.Energy, 1061162, 100, typeof(MagicalResidue), typeof(Amethyst), typeof(BouraPelt), 1, 1, 15, 1112008,
+            Register(55, new ItemPropertyInfo(AosElementAttribute.Energy, 1061162, 100, typeof(MagicalResidue), typeof(Amethyst), typeof(BouraPelt), 1, 5, 15, 1112008,
                 new PropInfo(1, 10, 100, 100), new PropInfo(2, 10, 100, 100), new PropInfo(3, 15, 15, new int[] { 20, 25, 30 }), new PropInfo(4, 15, 15), new PropInfo(5, 15, 15, new int[] { 20, 25, 30 }), new PropInfo(6, 15, 15, new int[] { 20 })));
 
             // Non-Imbuable
