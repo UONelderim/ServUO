@@ -2,7 +2,6 @@ using Server.Items;
 
 using System;
 using System.Linq;
-using Server.Items.Addons.TheKingsCollection;
 
 namespace Server.Engines.Craft
 {
