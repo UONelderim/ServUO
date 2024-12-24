@@ -123,16 +123,12 @@
           "Name": "Tasandora",
           "Faction": "KompaniaHandlowa",
           "Population": {
-            "Tamael": 0.80,
-            "Jarling": 0.10,
-            "Krasnolud": 0.10
+            "Tamael": 1.0
           },
           "Intolerance": {
-            "Jarling": 0.10,
             "Naur": 0.25,
-            "Elf": 0.10,
             "Drow": 1.00,
-            "Krasnolud": 0.10
+            "Krasnolud": 0.50
           },
           "AllowPvp": false,
           "Guards": {
@@ -216,9 +212,7 @@
         {
           "Name": "Ferion",
           "Population": {
-            "Tamael": 0.80,
-            "Jarling": 0.10,
-            "Krasnolud": 0.10
+            "Tamael": 1.0
           },
           "Regions": [
             {
@@ -229,9 +223,7 @@
         {
           "Name": "Tafroel",
           "Population": {
-            "Tamael": 0.80,
-            "Jarling": 0.10,
-            "Krasnolud": 0.10
+            "Tamael": 1.00
           },
           "Regions": [
             {
@@ -242,17 +234,13 @@
         {
           "Name": "Talas",
           "Population": {
-            "Tamael": 0.80,
-            "Jarling": 0.10,
-            "Krasnolud": 0.10
+            "Tamael": 1.0
           }
         },
         {
           "Name": "Tingref",
           "Population": {
-            "Tamael": 0.80,
-            "Jarling": 0.10,
-            "Krasnolud": 0.10
+            "Tamael": 1.0
           },
           "Regions": [
             {
@@ -263,15 +251,13 @@
         {
           "Name": "Uk",
           "Population": {
-            "Jarling": 1.00
+            "Tamael": 1.00
           }
         },
         {
           "Name": "Celendir",
           "Population": {
-            "Tamael": 0.80,
-            "Jarling": 0.10,
-            "Krasnolud": 0.10
+            "Tamael": 1.0
           }
         },
         {
@@ -371,12 +357,10 @@
       "Faction": "West",
       "Population": {
         "Tamael": 0.20,
-        "Jarling": 0.60,
-        "Krasnolud": 0.20
+        "Jarling": 0.80
       },
       "Intolerance": {
         "Naur": 0.20,
-        "Elf": 0.10,
         "Drow": 1.00
       },
       "Guards": {
@@ -385,8 +369,7 @@
           "Female": 0.50,
           "Population": {
             "Tamael": 0.20,
-            "Jarling": 0.60,
-            "Krasnolud": 0.20
+            "Jarling": 0.80
           }
         },
         "ArcherGuard": {
@@ -394,8 +377,7 @@
           "Female": 0.50,
           "Population": {
             "Tamael": 0.20,
-            "Jarling": 0.60,
-            "Krasnolud": 0.20
+            "Jarling": 0.80
           }
         },
         "HeavyGuard": {
@@ -403,8 +385,7 @@
           "Female": 0.50,
           "Population": {
             "Tamael": 0.20,
-            "Jarling": 0.60,
-            "Krasnolud": 0.20
+            "Jarling": 0.80
           }
         },
         "MageGuard": {
@@ -412,8 +393,7 @@
           "Female": 0.50,
           "Population": {
             "Tamael": 0.20,
-            "Jarling": 0.60,
-            "Krasnolud": 0.20
+            "Jarling": 0.80
           }
         },
         "MountedGuard": {
@@ -421,8 +401,7 @@
           "Female": 0.50,
           "Population": {
             "Tamael": 0.20,
-            "Jarling": 0.60,
-            "Krasnolud": 0.20
+            "Jarling": 0.80
           }
         },
         "EliteGuard": {
@@ -430,8 +409,7 @@
           "Female": 0.50,
           "Population": {
             "Tamael": 0.20,
-            "Jarling": 0.60,
-            "Krasnolud": 0.20
+            "Jarling": 0.80
           }
         }
       },
@@ -439,56 +417,49 @@
         {
           "Name": "Garlan",
           "Population": {
-            "Jarling": 0.80,
-            "Krasnolud": 0.20
+            "Jarling": 1.0
           },
           "Guards": {
             "StandardGuard": {
               "Name": "GeriadorStandard",
               "Female": 0.50,
               "Population": {
-                "Jarling": 0.80,
-                "Krasnolud": 0.20
+                "Jarling": 1.0
               }
             },
             "ArcherGuard": {
               "Name": "GeriadorArcher",
               "Female": 0.50,
               "Population": {
-                "Jarling": 0.80,
-                "Krasnolud": 0.20
+                "Jarling": 1.0
               }
             },
             "HeavyGuard": {
               "Name": "GeriadorHeavy",
               "Female": 0.50,
               "Population": {
-                "Jarling": 0.80,
-                "Krasnolud": 0.20
+                "Jarling": 1.0
               }
             },
             "MageGuard": {
               "Name": "GeriadorMage",
               "Female": 0.50,
               "Population": {
-                "Jarling": 0.80,
-                "Krasnolud": 0.20
+                "Jarling": 1.0
               }
             },
             "MountedGuard": {
               "Name": "GeriadorMounted",
               "Female": 0.50,
               "Population": {
-                "Jarling": 0.80,
-                "Krasnolud": 0.20
+                "Jarling": 1.0
               }
             },
             "EliteGuard": {
               "Name": "GeriadorElite",
               "Female": 0.50,
               "Population": {
-                "Jarling": 0.80,
-                "Krasnolud": 0.20
+                "Jarling": 1.0
               }
             }
           },
@@ -694,8 +665,6 @@
         "Elf": 1.00
       },
       "Intolerance": {
-        "Tamael": 0.20,
-        "Jarling": 0.20,
         "Naur": 0.20,
         "Drow": 1.00,
         "Krasnolud": 0.20
@@ -773,8 +742,6 @@
             "Elf": 1.00
           },
           "Intolerance": {
-            "Tamael": 0.20,
-            "Jarling": 0.20,
             "Naur": 0.20,
             "Drow": 1.00,
             "Krasnolud": 0.20
@@ -862,7 +829,7 @@
         "Jarling": 0.90,
         "Naur": 0.90,
         "Elf": 1.00,
-        "Krasnolud": 0.90
+        "Krasnolud": 0.20
       },
       "Guards": {
         "StandardGuard": {
@@ -953,11 +920,11 @@
         "Drow": 1.00
       },
       "Intolerance": {
-        "Tamael": 1.00,
+        "Tamael": 0.20,
         "Jarling": 1.00,
         "Naur": 1.00,
         "Elf": 1.00,
-        "Krasnolud": 1.00
+        "Krasnolud": 0.20
       },
       "Guards": {
         "StandardGuard": {

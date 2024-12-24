@@ -51,6 +51,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.Average);
             AddLoot(LootPack.Potions);
             AddLoot(LootPack.LootItem<Nightshade>(4, true));
+            AddLoot(LootPack.LootItem<PowiekaGazera>(30.0));
         }
 
         public override void Serialize(GenericWriter writer)
