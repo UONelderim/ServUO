@@ -7895,10 +7895,10 @@
 1015227;Zywiolak wody 
 1015228;<center>Cartography Selection Menu</center> 
 1015229;Mapy 
-1015230;mapa regionu 
-1015231;mapa miasta 
-1015232;mapa morz 
-1015233;mapa swiata 
+1015230;Mapa Regionu 
+1015231;Mapa Miasta 
+1015232;Mapa Morz 
+1015233;Mapa Swiata 
 1015234;<center>MENU POLIMORFII</CENTER> 
 1015235;Zwierzeta 
 1015236;kura 
@@ -12039,8 +12039,8 @@
 1022884;koryto 
 1022885;duza waza 
 1022886;waza 
-1022887;duza waza 
-1022888;waza 
+1022887;Duza Waza 
+1022888;Waza 
 1022889;Skryptorium 
 1022890;Skryptorium
 1022891;Skryptorium 
@@ -13698,7 +13698,7 @@
 1024632;kamienne krzeslo 
 1024633;kamienne krzeslo 
 1024634;kamienne krzeslo 
-1024635;kamienne krzeslo 
+1024635;Kamienne Krzeslo 
 1024637;rzezba nascienna 
 1024638;rzezba nascienna 
 1024639;rzezba nascienna 
@@ -17651,9 +17651,9 @@
 1029239;obraz 
 1029240;obraz 
 1029241;sculpture 
-1029242;rzezba wiezy 
+1029242;Rzezba Wiezy 
 1029243;sculpture 
-1029244;mala urna 
+1029244;Mala Urna 
 1029245;urn 
 1029246;urn 
 1029247;drewniane drzwi 
@@ -19401,8 +19401,8 @@
 1031632;small elven tapestry 
 1031633;ornate elven tapestry 
 1031634;ornate elven tapestry 
-1031635;tattered wall map 
-1031636;tattered wall map 
+1031635;Mapa Scienna 
+1031636;Mapa Scienna 
 1031650;Chief Paroxysmus 
 1031651;Dread Horn 
 1031652;Lady Melisande 
@@ -24865,11 +24865,11 @@
 1044505;Statuetka Kobiety 
 1044506;Statuetka Sukkuba
 1044507;Statuetka Mezczyzny
-1044508;kamienny stol (E) 
-1044509;kamienny stol (S) 
+1044508;Kamienny Stol (E) 
+1044509;Kamienny Stol (S) 
 1044510;Statuetka Pegaza 
-1044511;duzy kamienny stol (E) 
-1044512;duzy kamienny stol (S) 
+1044511;Duzy Kamienny Stol (E) 
+1044512;Duzy Kamienny Stol (S) 
 1044513;Nie masz kamienia! 
 1044514;Kamienie 
 1044515;Mlot kamieniarski 
@@ -28624,12 +28624,12 @@
 1061841;You have restored a previously backed up house design. 
 1061842;This will revoke access from everyone on this list and immediately eject them from the house.  Those players will no longer be able to enter the house.  Are you sure you wish to clear the house access list? 
 1061843;This house's Access List has been cleared. 
-1061844;piaskowy kominek (E) 
-1061845;piaskowy kominek (S) 
-1061846;szary ceglany kominek (E) 
-1061847;szary ceglany kominek (S) 
-1061848;kamienny kominek (E) 
-1061849;kamienny kominek (S) 
+1061844;Piaskowy Kominek (E) 
+1061845;Piaskowy Kominek (S) 
+1061846;Szary Ceglany Kominek (E) 
+1061847;Szary Ceglany Kominek (S) 
+1061848;Kamienny Kominek (E) 
+1061849;Kamienny Kominek (S) 
 1061850;"Only the <STRONG>Horde Minion</STRONG> can be used to fetch the scroll for you.  <a href=""?ForceTopic127"">Dismiss</a> your current familiar, and <a href=""?ForceTopic127"">summon</a> the <STRONG>Horde Minion</STRONG> to fetch the scroll for you. "
 1061851;pieces of colored leather 
 1061852;rzadkie karmazynowe 
@@ -28832,7 +28832,7 @@
 1062123;OTHER HOUSES 
 1062124;"<B>Other Houses:</B>  When <a href = ""?135"">placing a new house</a>, remember that no two houses can be adjacent in the east/west direction -- there must be an unobstructed path at least one tile wide between any two houses.  Also, there is a five-tile buffer zone to the north and south of a house that must remain clear of all other houses.  Finally, you cannot place a house whose corner is adjacent diagonally to the corner of another house. "
 1062125;OWNERSHIP RESTRICTIONS 
-1062126;"<B>Ownership Restrictions:  </B>You may only <a href = ""?135"">place</a> or be <a href = ""?140"">traded</a> a house once every 7 days.  You may only own one house on your account.  If you place or receive a second house, any other house(s) on your account, across all shards, will become <a href = ""?97"">condemned</a>. "
+1062126;"<B>Ownership Restrictions:  </B>You may only <a href = ""?135"">place</a> or be <a href = ""?140"">traded</a> a house once every 7 days.  You may only own one house on your account.  If you place or receive a second house, any other house(S) on your account, across all shards, will become <a href = ""?97"">condemned</a>. "
 1062127;HOUSE TRADING 
 1062128;"You can buy a house from another player or sell a house to another player, using the standard Trade Window.  It is not possible to exchange houses this way.  In order to have a house traded to you, you must meet all house <a href = ""?139"">ownership restrictions</a>.  If you do, then it is possible for the house owner to open a trade window containing a house trade scroll.  For this to happen, both you and the house owner must be outside the house and standing within two paces of the house sign.  You both must remain within 2 tiles of the house sign or the trade will fail.  The trade scroll shows the name of the house owner, the name of the house, and the sextant coordinates of the house.  This scroll is also a distinctive ice-blue color that cannot be faked.  <B>Be sure to verify you are buying the correct house!</B>  Once both parties double-check the trade and agree to it, the house is transferred. "
 1062129;HOUSE CONVERSION 
@@ -32447,7 +32447,7 @@
 1072873;Niskie Krzeslo
 1072874;Stojak na Ksiazki  
 1072875;Runiczne Palenisko
-1072876;kamienne kowadlo (S)  
+1072876;Kamienne Kowadlo (S)  
 1072877;elficki naciagacz lukow  
 1072878;Male Kolo Przedzalnicze (S)
 1072879;elficki piec  
@@ -32462,8 +32462,8 @@
 1072888;Statua Wojownika (E)
 1072889;Gigantyczna Replika Zoledzia
 1072890;Pioro do Pisania  
-1072891;postrzepiony mape scienna (poludnie)  
-1072892;postrzepiony mape scienna (wschod)  
+1072891;Mapa Scienna (S)  
+1072892;Mapa Scienna (E) 
 1072893;Magiczna Dzwignia
 1072894;Klejnotowy Filigran
 1072895;zapadniety pryzmat  
@@ -32963,7 +32963,7 @@
 1073389;Prosze wskaz przedmiot, ktory chcesz przekazac.  
 1073390;Wybrany przez ciebie przedmiot nie jest tego typu, ktory wybrales.  
 1073391;Honorowy czlonek Przyjaciol Biblioteki  
-1073392;kamienne kowadlo (E)  
+1073392;Kamienne Kowadlo (E)  
 1073393;Male Kolo Przedzalnicze (E)
 1073394;Piec Wolnostojacy (S)
 1073395;Piec Wolnostojacy (E)
@@ -34451,7 +34451,7 @@
 1074882;You must wait ~1_val~ seconds for this to recharge. 
 1074883;W pelni naladowany 
 1074884;Pozostaly czas naladowania: ~1_val~ 
-1074885;You have ~1_val~ item(s) but require ~2_val~ 
+1074885;You have ~1_val~ item(S) but require ~2_val~ 
 1074886;Lina Odporna na Kwas
 1074887;Library Talisman - A Primer on Arms Damage Removal 
 1074888;Library Talisman - Talking to Wisps Ward Removal 
@@ -40758,7 +40758,7 @@
 1095770;Small Plate Shield
 1095771;Medium Plate Shield
 1095772;Large Plate Shield
-1095773;large stone shield 
+1095773;Large Stone Shield 
 1095774;Gargish Kite Shield
 1095775;gargish wooden shield 
 1095776;large plate shield 
@@ -50348,8 +50348,8 @@
 1150476;Ticket purchases are NONREFUNDABLE. Odds of winning may vary. 
 1150477;BUY TICKETS 
 1150478;Date planted: ~1_val~ 
-1150479;Purchase of ~1_COUNT~ ticket(s) at ~2_PRICE~gp each costs a total of ~3_TOTAL~. You do not have the required funds in your bank box to make the purchase. 
-1150480;Purchase of ~1_COUNT~ ticket(s) at ~2_PRICE~gp each costs a total of ~3_TOTAL~. The funds have been withdrawn from your bank box and your ticket purchase has been recorded. 
+1150479;Purchase of ~1_COUNT~ ticket(S) at ~2_PRICE~gp each costs a total of ~3_TOTAL~. You do not have the required funds in your bank box to make the purchase. 
+1150480;Purchase of ~1_COUNT~ ticket(S) at ~2_PRICE~gp each costs a total of ~3_TOTAL~. The funds have been withdrawn from your bank box and your ticket purchase has been recorded. 
 1150481;Your ticket purchase price of ~3_PRICE~ has been withdrawn from your bank box. 
 1150482;hoe 
 1150483;"This deed entitles the bearer to build a house on the plot of land designated ""~1_PLOT~"" (located at ~5_SEXTANT~) in the City of New Magincia on the ~2_FACET~ facet of the ~3_SHARD~ shard.<br><br>The deed will expire once it is used to construct a house, and thereafter the indicated plot of land will be subject to normal house construction rules. The deed will expire after ~4_DAYS~ more days have passed, and at that time the right to place a house reverts to normal house construction rules.<br><br>This deed functions as a runa marked for the location of the plot it represents.<br><br>To place a house on the deeded plot, you must simply have this deed in your backpack or bank box when using a House Placement Tool there. "
@@ -55702,11 +55702,11 @@
 1155831;You cannot gain more Spirituality. 
 1155832;You have gained in Spirituality. 
 1155833;You have gained a path in Spirituality! 
-1155834;Surowe wbudowane stopnie  
+1155834;Surowe Wbudowane Stopnie  
 1155835;Straciles troche duchowosci.  
 1155836;Sa juz objeci duchowoscia.  
 1155837;Mozesz obejmowac tylko graczy i zwierzeta domowe z duchowoscia.  
-1155838;Surowe zaokraglone wbudowane stopnie  
+1155838;Surowe Zaokraglone Wbudowane Stopnie  
 1155839;Twoj duch zostal objety! Czujesz sie silniejszy!  
 1155840;Twoj duch nie jest juz objety. Czujesz sie slabszy.  
 1155841;Nie mozesz uzyc przedmiotu z ostrzem na skarbcu sciennym z balansem.  
@@ -55746,7 +55746,7 @@
 1155875;Musisz miec dodatek "Czas Legend", aby uzyc tej funkcji.  
 1155876;"* Wymaga dodatku ""Czas Legend"".  "
 1155877;Kamienna Podloga
-1155878;Jasna plyta 
+1155878;Jasna Plyta 
 1155879;Medium Paver 
 1155880;Dark Paver 
 1155881;mystic weapon -~1_val~ skill 
@@ -58357,7 +58357,7 @@
 1158490;DEC 
 1158491;You peer into the heavens and see...only empty space... 
 1158492;You peer into the heavens and see...a constellation! 
-1158493;mapa gwiazd
+1158493;Mapa Gwiazd
 1158494;Which telescope do you wish to create the star chart from? 
 1158495;There is nothing to chart at these coordinates at this time. 
 1158496;You successfully map the time-coordinate of the constellation. 
@@ -58607,7 +58607,7 @@
 1158740;Receive one hairstyle change token which will allow you to change the hairstyle of one character. This item is account bound. 
 1158741;Hairstyle Change 
 1158742;That is not a valid Star Chart. 
-1158743;An Indecipherable Star Chart 
+1158743;Projekt Mapy Gwiazd
 1158744;Artifacts of the Cult 
 1158745;Looking for treasures? I've got something just for that! 
 1158746;You've already received your complimentary Potion of Glorious Fortune for being a veteran account, please visit the Ultima Store for more details! 
@@ -59289,7 +59289,7 @@
 1159422;Enchanted Granite Cart 
 1159423;War Boar Statuette 
 1159424;Ultima Online Veteran Rewards Program 
-1159425;"Thank you for being part of the Ultima Online community! As a token of our appreciation, you may select from the following in-game reward items listed below. The gift items will be attributed to the character you have logged-in with on the shard you are on when you choose the item(s). The number of rewards you are entitled to are listed below and are for your entire account. To read more about these rewards before making a selection, feel free to visit the <A HREF=""https://uo.com/wiki/ultima-online-wiki/items/veteran-rewards/"">uo.com website</A>. "
+1159425;"Thank you for being part of the Ultima Online community! As a token of our appreciation, you may select from the following in-game reward items listed below. The gift items will be attributed to the character you have logged-in with on the shard you are on when you choose the item(S). The number of rewards you are entitled to are listed below and are for your entire account. To read more about these rewards before making a selection, feel free to visit the <A HREF=""https://uo.com/wiki/ultima-online-wiki/items/veteran-rewards/"">uo.com website</A>. "
 1159426;You have already chosen ~1_COUNT~ rewards.  You have ~2_COUNT~ remaining rewards to choose. 
 1159427;Statuettes 
 1159428;Equippables 
