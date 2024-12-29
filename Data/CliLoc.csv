@@ -12972,7 +12972,7 @@
 1023851;mikstura odswiezenia 
 1023852;mikstura leczenia 
 1023853;mikstura eksplozji 
-1023854;pusta butelka 
+1023854;Pusta Butelka 
 1023855;gwiezdny szafir 
 1023856;szmaragd 
 1023857;szafir 
@@ -15093,33 +15093,33 @@
 1026183;magiczny symbol 
 1026184;magiczny symbol 
 1026185;stojak na butelke 
-1026186;butelka 
-1026187;butelka 
-1026188;butelka 
-1026189;butelka 
-1026190;butelka 
-1026191;butelka 
-1026192;butelka 
-1026193;butelka 
-1026194;butelka 
-1026195;butelka 
-1026196;butelka 
-1026197;butelka 
-1026198;butelka 
-1026199;butelka 
-1026200;butelka 
-1026201;butelka 
-1026202;butelka 
-1026203;butelka 
-1026204;butelka 
-1026205;butelka 
-1026206;butelka 
+1026186;Kolba Stozkowa 
+1026187;Kolba Stozkowa 
+1026188;Kolba Stozkowa 
+1026189;Kolba Stozkowa 
+1026190;Zlewka 
+1026191;Zlewka 
+1026192;Zlewka 
+1026193;Zlewka 
+1026194;Zakrzywiona Butelka 
+1026195;Zakrzywiona Butelka 
+1026196;Zakrzywiona Butelka 
+1026197;Zakrzywiona Butelka 
+1026198;Zakrzywiona Butelka 
+1026199;Zakrzywiona Butelka 
+1026200;Dluga Kolba
+1026201;Dluga Kolba
+1026202;Dluga Kolba
+1026203;Duza Kolba Stozkowa 
+1026204;Duza Kolba Stozkowa 
+1026205;Duza Kolba Stozkowa 
+1026206;Czerwona Dluga Kolba 
 1026207;butelka 
 1026208;butelka 
-1026209;butelka 
+1026209;Fioletowa Kolba Stozkowa 
 1026210;butelka 
 1026211;butelka 
-1026212;butelka 
+1026212;Niebieska Kolba Stozkowa 
 1026213;butelka 
 1026214;butelka 
 1026215;butelka 
@@ -15142,10 +15142,10 @@
 1026232;czaszka ze swieca 
 1026233;czaszka ze swieca 
 1026234;czaszka ze swieca 
-1026235;puste butelki 
-1026236;puste butelki 
-1026237;butelki 
-1026238;butelki 
+1026235;Stojak z Fiolkami 
+1026236;Stojak z Fiolkami 
+1026237;Stojak z Kolorowymi Fiolkami
+1026238;Stojak z Kolorowymi Fiolkami
 1026245;dishing stump 
 1026246;dishing stump 
 1026249;virtue stone 
@@ -24441,7 +24441,7 @@
 1044047;Czesci 
 1044048;Zastawa 
 1044049;Bizuteria 
-1044050;Rozne 
+1044050;Butelki i Kolby 
 1044051;Skladane 
 1044052;Pulapki 
 1044053;PRZEDMIOT 
@@ -24949,7 +24949,7 @@
 1044589;bubbling flask 
 1044590;empty vial rack 
 1044591;full vial rack 
-1044592;gargulcowa klepsydra 
+1044592;Obrotowa Klepsydra
 1044593;Poison Trap
 1044594;dart trap deed 
 1044595;poison trap deed 
@@ -24967,21 +24967,21 @@
 1044607;wysokiej jakosci granit 
 1044608;rura do wydmuchiwania szkla 
 1044609;Rura do wydmuchiwania szkla 
-1044610;flask (small) 
-1044611;flask (medium) 
-1044612;flask (curved) 
-1044613;flask (large #1) 
-1044614;flask (bubbling blue) 
-1044615;flask (bubbling purple) 
-1044616;puste butelki 
-1044617;butelki 
-1044618;spinning hourglass 
+1044610;Zlewka 
+1044611;Kolba Stozkowa 
+1044612;Zakrzywiona Butelka 
+1044613;Dluga Kolba
+1044614;Niebieska Kolba Stozkowa 
+1044615;Fioletowa Kolba Stozkowa 
+1044616;Stojak z Fiolkami 
+1044617;Stojak z Kolorowymi Fiolkami 
+1044618;Obrotowa Klepsydra
 1044619;THIS COLOR 
 1044620;TARGET 
 1044621;SELECT 
 1044622;<CENTER>MENU WYDMUCHIWANIA SZKLA</CENTER> 
-1044623;flask (large #2) 
-1044624;flask (bubbling red) 
+1044623;Duza Kolba Stozkowa 
+1044624;Czerwona Dluga Kolba
 1044625;Piasek 
 1044626;piasek 
 1044627;Nie masz wystarczajacej ilosci piasku na wykonanie tego. 
@@ -32466,7 +32466,7 @@
 1072892;Mapa Scienna (E) 
 1072893;Magiczna Dzwignia
 1072894;Klejnotowy Filigran
-1072895;zapadniety pryzmat  
+1072895;Zapadniety Pryzmat  
 1072896;Dzwignia Oznaczona Runami
 1072897;Obrecz  
 1072898;elegancka koszula 
@@ -40547,7 +40547,7 @@
 1095311;Sztandar
 1095312;Sztandar
 1095313;Lustro Stojace W Stylu Ter-mur
-1095314;Basetla
+1095314;Stojace Lustro
 1095315;Basetla
 1095316;Plaskorzezba  
 1095317;Plaskorzezba  
@@ -40557,8 +40557,9 @@
 1095321;Zdobiony Stolik
 1095322;Zdobiona Waza
 1095323;Zdobiona Waza
-1095324;lustro scienne w stylu Ter-Mur  
-1095325;lustro stojace w stylu Ter-Mur  
+1095324;Lustro Scienne  
+1095325;Lustro Scienne
+1095326;Stojace Lustro
 1095327;Gargish Leather Arms
 1095328;gargish leather arms 
 1095329;Gargish Leather Chest
@@ -42569,7 +42570,7 @@
 1112212;Gargulce maja intuicyjne zrozumienie Mistycyzmu, co pozwala im rzucac podstawowe zaklecia Mistycyzmu bez dodatkowego szkolenia.  
 1112213;Nie masz wystarczajacych umiejetnosci alchemii ani gotowania, aby zmieszac tak niestabilny pigment.  
 1112214;Nie masz wystarczajacych umiejetnosci alchemii ani gotowania, aby zmieszac pigmenty roslinne.  
-1112215;pusty fiolki z jadem  
+1112215;Pusta Fiolka na Jad 
 1112216;Porzadek ukradnie Wezowi sile  
 1112217;Chaos poskromi gniew Weza  
 1112218;Obejmujesz stworzenie, ale nie udaje ci sie wydobyc z niego zadnych zasobow.  
@@ -50735,7 +50736,7 @@
 1150863;butelka oleju rybnego 
 1150864;You fill the lamp with oil. 
 1150865;You fill the lamp with fish oil.  It should burn for a nice long time. 
-1150866;empty oil flask 
+1150866;Pusta Butelka na Olej 
 1150867;Click the button next to the commodity to select it. Enter the amount to withdraw in the entry field below, and click the WITHDRAW button to receive your items. 
 1150868;A strong magical energy prevents the creature from responding. 
 1150869;You need an empty oil flask to make that. 
@@ -54038,7 +54039,7 @@
 1154167;Dlugi Drewniany Stol (E)
 1154168;City Trade Deal Buff 
 1154169;Typ wzmocnienia: ~1_TYPE~ 
-1154170;workable glass 
+1154170;Szklo do Obrobki
 1154171;You need workable glass to make that. 
 1154172;You need a candelabra to craft that. 
 1154173;Fotel
@@ -59031,7 +59032,7 @@
 1159164;przyneta charybdy  
 1159165;Krab Kokosowy  
 1159166;Odbierz figurke Kraba Kokosowego. Ta poblogoslawiona figurka moze zostac uzyta do stworzenia wierzchowca kraba kokosowego.  
-1159167;eteryczny lapacz dusz  
+1159167;Eteryczny Lapacz Dusz  
 1159168;eteryczny piasek  
 1159169;Nie masz zadnego eterycznego piasku.  
 1159170;Maszyna przyjmuje tylko wypelnione eteryczne lapacze dusz.  
@@ -61014,3 +61015,4 @@
 3070000;odnoga gazera
 3070001;powieka starego gazera
 3070002;kiel biesa
+3070003;Inne
