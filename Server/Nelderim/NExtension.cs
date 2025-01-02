@@ -64,13 +64,11 @@ namespace Nelderim
 
 		public virtual T InternalGet(IEntity entity)
 		{
-			T result;
-			if (!ExtensionInfo.TryGetValue(entity.Serial, out result))
-			{
-				result = new T { Serial = entity.Serial };
-				ExtensionInfo.TryAdd(entity.Serial, result);
-			}
-
+			if (ExtensionInfo.TryGetValue(entity.Serial, out var result)) 
+				return result;
+			
+			result = new T { Serial = entity.Serial };
+			ExtensionInfo.TryAdd(entity.Serial, result);
 			return result;
 		}
 		
