@@ -13,12 +13,6 @@ namespace Server.Commands
 			IAccount iacc = Accounts.GetAccount("owner");
 			// iacc.SetPassword("1234");
 			CommandSystem.Register("FixAccessLevel", AccessLevel.Seer, FixAccessLevel_OnCommand);
-			EventSink.Login += args =>
-			{
-				var m = args.Mobile;
-				var race = m.Race;
-				race.AssignDefaultLanguages(m);
-			};
 		}
 
 		[Usage("FixAccessLevel")]

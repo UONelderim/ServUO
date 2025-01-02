@@ -152,6 +152,7 @@ namespace Server.Commands
 				characterSheet.AppearanceAndCharacteristic = "";
 				characterSheet.HistoryAndProfession = "";
 				pm.Race = Race.None;
+				pm.Race.AssignDefaultLanguages(pm);
 				pm.Faction = Faction.None;
 
 				pm.LogoutMap = AccountHandler.StartingCities[0].Map;
