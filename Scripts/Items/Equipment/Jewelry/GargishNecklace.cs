@@ -28,7 +28,7 @@ namespace Server.Items
             return bonus + ArmorAttributes.DurabilityBonus;
         }
 
-        protected override void ApplyResourceResistances(CraftResource oldResource)
+        protected override void ApplyResourceResistances(CraftResource oldResource, CraftResource newResource)
         {
         }
 

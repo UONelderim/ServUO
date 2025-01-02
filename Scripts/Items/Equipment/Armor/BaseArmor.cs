@@ -734,7 +734,7 @@ namespace Server.Items
 
                     m_Resource = value;
 
-                    ApplyResourceResistances(old);
+                    ApplyResourceResistances(old, m_Resource);
 
                     Hue = CraftResources.GetHue(m_Resource);
 
@@ -2553,7 +2553,7 @@ namespace Server.Items
             return Siege.SiegeShard ? amount + (int)(from.Skills[SkillName.ArmsLore].Value / 12.5) : amount + (int)(from.Skills[SkillName.ArmsLore].Value / 20.0);
         }
 
-        protected virtual void ApplyResourceResistances(CraftResource oldResource)
+        protected virtual void ApplyResourceResistances(CraftResource oldResource, CraftResource newResource)
         {
             CraftAttributeInfo info;
 
@@ -2575,7 +2575,7 @@ namespace Server.Items
                 m_EnergyNonImbuing = Math.Max(0, m_EnergyNonImbuing - info.ArmorEnergyResist);
             }
 
-            info = GetResourceAttrs(m_Resource);
+            info = GetResourceAttrs(newResource);
 
             // add new bonus
             m_PhysicalBonus += info.ArmorPhysicalResist;

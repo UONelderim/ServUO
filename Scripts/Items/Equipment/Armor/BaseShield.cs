@@ -182,11 +182,11 @@ namespace Server.Items
             }
         }
 
-        protected override void ApplyResourceResistances(CraftResource oldResource)
+        protected override void ApplyResourceResistances(CraftResource oldResource, CraftResource newResource)
         {
             if (CraftResources.GetType(Resource) != CraftResourceType.Wood)
             {
-                base.ApplyResourceResistances(oldResource);
+                base.ApplyResourceResistances(oldResource, newResource);
             }
             else
             {
@@ -210,7 +210,7 @@ namespace Server.Items
                     EnergyNonImbuing = Math.Max(0, EnergyNonImbuing - info.ShieldEnergyResist);
                 }
 
-                info = GetResourceAttrs(Resource);
+                info = GetResourceAttrs(newResource);
 
                 // add new bonus
                 PhysicalBonus += info.ShieldPhysicalResist;

@@ -14,10 +14,22 @@ namespace Server.Items
 			get { return ExtraCraftResource.Get(this).Resource2; }
 			set
 			{
-				UnscaleDurability();
-				ExtraCraftResource.Get(this).Resource2 = value; /*Hue = CraftResources.GetHue( m_Resource );*/
-				InvalidateProperties();
-				ScaleDurability();
+				var old = ExtraCraftResource.Get(this).Resource2;
+				if (old != value)
+				{
+					UnscaleDurability();
+					
+					ExtraCraftResource.Get(this).Resource2 = value;
+					ApplyResourceResistances(old, value);
+					
+					Invalidate();
+					InvalidateProperties();
+					
+					if (Parent is Mobile)
+						((Mobile)Parent).UpdateResistances();
+					
+					ScaleDurability();
+				}
 			}
 		}
 	}
