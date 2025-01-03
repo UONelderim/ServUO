@@ -174,7 +174,7 @@ namespace Server.Mobiles
 			Female = caster.Female;
 			Race = caster.Race;
 
-			Name = caster.Name;
+			Name = caster.FallbackName;
 			NameHue = caster.NameHue;
 
 			Guild = caster.Guild;
@@ -222,6 +222,14 @@ namespace Server.Mobiles
 			MirrorImage.AddClone(m_Caster);
 
 			IgnoreMobiles = true;
+		}
+		
+		public override string NGetName(Mobile m)
+		{
+			if (m_Caster != null)
+				return (m_Caster).NGetName(m);
+
+			return base.NGetName(m);
 		}
 
 		public Clone(Serial serial)
