@@ -1,8 +1,8 @@
 #region References
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Server;
 using Server.Gumps;
 using Server.Items;
@@ -30,7 +30,7 @@ namespace Knives.TownHouses
 	[Flipable(0xC0B, 0xC0C)]
 	public class TownHouseSign : Item
 	{
-		public static ArrayList AllSigns { get; } = new ArrayList();
+		public static List<TownHouseSign> AllSigns { get; } = [];
 
 		private Point3D c_BanLoc, c_SignLoc;
 
@@ -56,7 +56,8 @@ namespace Knives.TownHouses
 
 		private string c_Skill;
 		private double c_SkillReq;
-		private ArrayList c_DecoreItemInfos, c_PreviewItems;
+		private List<Item> c_PreviewItems;
+		private List<DecoreItemInfo> c_DecoreItemInfos;
 		private Timer c_RentTimer, c_PreviewTimer;
 		private TimeSpan c_RentByTime, c_OriginalRentTime;
 		private Intu c_Murderers;
@@ -264,7 +265,7 @@ namespace Knives.TownHouses
 			}
 		}
 
-		public ArrayList Blocks { get; set; }
+		public List<Rectangle2D> Blocks { get; set; }
 
 		public string Skill
 		{
@@ -380,9 +381,9 @@ namespace Knives.TownHouses
 			c_BanLoc = Point3D.Zero;
 			c_SignLoc = Point3D.Zero;
 			c_Skill = "";
-			Blocks = new ArrayList();
-			c_DecoreItemInfos = new ArrayList();
-			c_PreviewItems = new ArrayList();
+			Blocks = [];
+			c_DecoreItemInfos = [];
+			c_PreviewItems = [];
 			DemolishTime = DateTime.Now;
 			RentTime = DateTime.Now;
 			c_RentByTime = TimeSpan.Zero;
@@ -441,7 +442,7 @@ namespace Knives.TownHouses
 			ClearPreview();
 
 			Point2D point = Point2D.Zero;
-			ArrayList blocks = new ArrayList();
+			List<Point2D> blocks = [];
 
 			foreach (Rectangle2D rect in Blocks)
 				for (int x = rect.Start.X; x < rect.End.X; ++x)
@@ -458,13 +459,11 @@ namespace Knives.TownHouses
 				return;
 			}
 
-			Item item = null;
-			int avgz = 0;
 			foreach (Point2D p in blocks)
 			{
-				avgz = Map.GetAverageZ(p.X, p.Y);
+				var avgz = Map.GetAverageZ(p.X, p.Y);
 
-				item = new Item(0x1766);
+				var item = new Item(0x1766);
 				item.Name = "Area Preview";
 				item.Movable = false;
 				item.Location = new Point3D(p.X, p.Y, (avgz <= m.Z ? m.Z + 2 : avgz + 2));
@@ -545,7 +544,7 @@ namespace Knives.TownHouses
 
 		public void ClearPreview()
 		{
-			foreach (Item item in new ArrayList(c_PreviewItems))
+			foreach (var item in c_PreviewItems.ToArray())
 			{
 				c_PreviewItems.Remove(item);
 				item.Delete();
@@ -669,7 +668,7 @@ namespace Knives.TownHouses
 
 				HideOtherSigns();
 
-				c_DecoreItemInfos = new ArrayList();
+				c_DecoreItemInfos = [];
 
 				ConvertItems(sellitems);
 			}
@@ -701,7 +700,7 @@ namespace Knives.TownHouses
 			if (House == null)
 				return;
 
-			ArrayList items = new ArrayList();
+			List<Item> items = [];
 			foreach (Rectangle2D rect in Blocks)
 			{
 				var eable = Map.GetItemsInBounds(rect);
@@ -711,7 +710,7 @@ namespace Knives.TownHouses
 				eable.Free();
 			}
 
-			foreach (Item item in new ArrayList(items))
+			foreach (Item item in items.ToArray())
 			{
 				if (item is HouseSign
 				    || item is BaseMulti
@@ -786,16 +785,16 @@ namespace Knives.TownHouses
 			if (House == null)
 				return;
 
-			BaseDoor newdoor = null;
-
-			foreach (BaseDoor door in new ArrayList(House.Doors))
+			foreach (var item in House.Doors.ToArray())
 			{
+				if (item is not BaseDoor door) 
+					continue;
 				door.Open = false;
 
 				if (Relock)
 					door.Locked = true;
 
-				newdoor = new StrongWoodDoor(0);
+				BaseDoor newdoor = new StrongWoodDoor(0);
 				newdoor.ItemID = door.ItemID;
 				newdoor.ClosedID = door.ClosedID;
 				newdoor.OpenedID = door.OpenedID;
@@ -893,7 +892,7 @@ namespace Knives.TownHouses
 				floors = 1 + Math.Abs((c_MaxZ - c_MinZ) / 20);
 
 			Point3D point = Point3D.Zero;
-			ArrayList blocks = new ArrayList();
+			List<Point3D> blocks = [];
 
 			foreach (Rectangle2D rect in Blocks)
 				for (int x = rect.Start.X; x < rect.End.X; ++x)
@@ -992,7 +991,7 @@ namespace Knives.TownHouses
 				bag.DropItem(item);
 			}
 
-			foreach (SecureInfo info in new ArrayList(house.Secures))
+			foreach (SecureInfo info in house.Secures.ToArray())
 			{
 				info.Item.IsLockedDown = false;
 				info.Item.IsSecure = false;
@@ -1002,7 +1001,7 @@ namespace Knives.TownHouses
 				bag.DropItem(info.Item);
 			}
 
-			ArrayList unlockedItemsToPack = new ArrayList();
+			List<Item> unlockedItemsToPack = [];
 			var addonsToPack = new List<BaseAddon>();
 			foreach (Rectangle2D rect in house.Area)
 			{
@@ -1289,7 +1288,7 @@ namespace Knives.TownHouses
 		{
 			base.Serialize(writer);
 
-			writer.Write(13);
+			writer.Write(14);
 
 			// Version 13
 
@@ -1386,9 +1385,14 @@ namespace Knives.TownHouses
 				c_RTOPayments = reader.ReadInt();
 			}
 
-			c_PreviewItems = new ArrayList();
+			c_PreviewItems = [];
 			if (version >= 7)
-				c_PreviewItems = reader.ReadItemList();
+			{
+				if (version >= 14)
+					c_PreviewItems = reader.ReadStrongItemList();
+				else
+					c_PreviewItems = reader.ReadItemList().Cast<Item>().ToList();
+			}
 
 			if (version >= 6)
 			{
@@ -1396,7 +1400,7 @@ namespace Knives.TownHouses
 				c_KeepItems = reader.ReadBool();
 			}
 
-			c_DecoreItemInfos = new ArrayList();
+			c_DecoreItemInfos = [];
 			if (version >= 5)
 			{
 				int decorecount = reader.ReadInt();
@@ -1439,7 +1443,7 @@ namespace Knives.TownHouses
 			c_Skill = reader.ReadString();
 			c_SkillReq = reader.ReadDouble();
 
-			Blocks = new ArrayList();
+			Blocks = [];
 			int count = reader.ReadInt();
 			for (int i = 0; i < count; ++i)
 				Blocks.Add(reader.ReadRect2D());

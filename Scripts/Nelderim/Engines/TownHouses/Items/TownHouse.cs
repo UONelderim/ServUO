@@ -1,7 +1,7 @@
 #region References
 
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using Server;
 using Server.Items;
 using Server.Multis;
@@ -14,10 +14,10 @@ namespace Knives.TownHouses
 	{
 		private static TimeSpan TimeUntilCondemned = TimeSpan.FromDays(30); 
 		
-		public static ArrayList AllTownHouses { get; } = new ArrayList();
+		public static List<TownHouse> AllTownHouses { get; } = [];
 
 		private Item c_Hanger;
-		private readonly ArrayList c_Sectors = new ArrayList();
+		private readonly List<Sector> c_Sectors = [];
 
 		public TownHouseSign ForSaleSign { get; private set; }
 

@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Server;
 using Server.Targeting;
 
@@ -355,7 +356,7 @@ namespace Knives.TownHouses
 
 			if (c_Contract.EntireHouse)
 			{
-				ArrayList list = new ArrayList();
+				List<Rectangle2D> list = [];
 
 				bool once = false;
 				foreach (Rectangle3D rect in c_Contract.ParentHouse.Region.Area)
