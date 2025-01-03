@@ -13,6 +13,7 @@ using Server.Targeting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Knives.TownHouses;
 using Server.Commands;
 
 namespace Server.Multis
@@ -292,7 +293,8 @@ namespace Server.Multis
             _ = new TempNoHousingRegion(this, null);
 
             KillVendors();
-            Timer.DelayCall(OnAfterDecay, m_Region.Area, Map);
+            TownHouseSign.PackUpItems(this);
+            // Timer.DelayCall(OnAfterDecay, m_Region.Area, Map);
             Delete();
         }
 

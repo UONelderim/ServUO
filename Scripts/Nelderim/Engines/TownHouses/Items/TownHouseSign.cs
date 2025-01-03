@@ -857,7 +857,7 @@ namespace Knives.TownHouses
 			UnconvertDoors();
 			ClearDemolishTimer();
 			ClearRentTimer();
-			PackUpItems();
+			PackUpItems(House);
 			RecreateItems();
 			House = null;
 			Visible = true;
@@ -967,46 +967,46 @@ namespace Knives.TownHouses
 			if (!Owned || House.Deleted)
 				return;
 
-			PackUpItems();
+			PackUpItems(House);
 
 			House.Owner.BankBox.DropItem(new BankCheck(House.Price));
 
 			House.Delete();
 		}
 
-		protected void PackUpItems()
+		public static void PackUpItems(BaseHouse house)
 		{
-			if (House == null)
+			if (house == null)
 				return;
 
 
 			Container bag = new Bag();
 			bag.Name = "Przedmioty z domu miejskiego";
 
-			foreach (KeyValuePair<Item, Mobile> kvp in new Dictionary<Item, Mobile>(House.LockDowns))
+			foreach (KeyValuePair<Item, Mobile> kvp in new Dictionary<Item, Mobile>(house.LockDowns))
 			{
 				Item item = kvp.Key;
 				item.IsLockedDown = false;
 				item.Movable = true;
-				House.LockDowns.Remove(kvp.Key);
+				house.LockDowns.Remove(kvp.Key);
 				bag.DropItem(item);
 			}
 
-			foreach (SecureInfo info in new ArrayList(House.Secures))
+			foreach (SecureInfo info in new ArrayList(house.Secures))
 			{
 				info.Item.IsLockedDown = false;
 				info.Item.IsSecure = false;
 				info.Item.Movable = true;
 				info.Item.SetLastMoved();
-				House.Secures.Remove(info);
+				house.Secures.Remove(info);
 				bag.DropItem(info.Item);
 			}
 
 			ArrayList unlockedItemsToPack = new ArrayList();
 			var addonsToPack = new List<BaseAddon>();
-			foreach (Rectangle2D rect in Blocks)
+			foreach (Rectangle2D rect in house.Area)
 			{
-				var eable = Map.GetItemsInBounds(rect);
+				var eable = house.Map.GetItemsInBounds(rect);
 				foreach (Item item in eable)
 				{
 					if (item is BaseAddon ba)
@@ -1023,8 +1023,8 @@ namespace Knives.TownHouses
 					    || item.IsLockedDown
 					    || item.IsSecure
 					    || !item.Movable
-					    || item.Map != House.Map
-					    || !House.Region.Contains(item.Location))
+					    || item.Map != house.Map
+					    || !house.Region.Contains(item.Location))
 						continue;
 
 
@@ -1050,7 +1050,7 @@ namespace Knives.TownHouses
 				return;
 			}
 
-			House.Owner.BankBox.DropItem(bag);
+			house.Owner.BankBox.DropItem(bag);
 		}
 
 		#endregion
