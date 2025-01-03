@@ -1324,7 +1324,7 @@ namespace Server.Items
             : base(0x0E24)
         {
             Weight = 1.0;
-            Name = "Empty Venom Vial";
+            Name = "Pusta Fiolka na Jad";
             Hue = 0;
         }
         public EmptyVenomVial(Serial serial)

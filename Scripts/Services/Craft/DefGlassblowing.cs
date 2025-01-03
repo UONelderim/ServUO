@@ -96,44 +96,41 @@ namespace Server.Engines.Craft
 
         public override void InitCraftList()
         {
+	        //Butelki i Kolby
             int index = AddCraft(typeof(Bottle), 1044050, 1023854, 52.5, 102.5, typeof(Sand), 1044625, 1, 1044627);
             SetUseAllRes(index, true);
+            
+            AddCraft(typeof(SmallFlask), 1044050, 1044610, 52.5, 102.5, typeof(Sand), 1044625, 2, 1044627);//Zlewka
+            AddCraft(typeof(MediumFlask), 1044050, 1044611, 52.5, 102.5, typeof(Sand), 1044625, 3, 1044627);//Kolba Stozkowa
+            AddCraft(typeof(CurvedFlask), 1044050, 1044612, 55.0, 105.0, typeof(Sand), 1044625, 2, 1044627);//Zakrzywiona Butelka
+            AddCraft(typeof(LongFlask), 1044050, 1044613, 57.5, 107.5, typeof(Sand), 1044625, 4, 1044627);//Dluga Kolba
+            AddCraft(typeof(LargeFlask), 1044050, 1044623, 60.0, 110.0, typeof(Sand), 1044625, 5, 1044627);//Duza Kolba Stozkowa
+            AddCraft(typeof(AniSmallBlueFlask), 1044050, 1044614, 60.0, 110.0, typeof(Sand), 1044625, 5, 1044627);//Niebieska Kolba Stozkowa
+            AddCraft(typeof(AniLargeVioletFlask), 1044050, 1044615, 60.0, 110.0, typeof(Sand), 1044625, 5, 1044627);//Fioletowa Kolba Stozkowa
+            AddCraft(typeof(AniRedRibbedFlask), 1044050, 1044624, 60.0, 110.0, typeof(Sand), 1044625, 7, 1044627);//Czerwona Dluga Kolba
+            AddCraft(typeof(EmptyVialsWRack), 1044050, 1044616, 65.0, 115.0, typeof(Sand), 1044625, 8, 1044627);//Stojak z Fiolkami
+            AddCraft(typeof(FullVialsWRack), 1044050, 1044617, 65.0, 115.0, typeof(Sand), 1044625, 9, 1044627);//Stojak z Kolorowymi Fiolkami
+            AddCraft(typeof(EmptyVenomVial), 1044050, 1112215, 52.5, 102.5, typeof(Sand), 1044625, 1, 1044627);//Pusta Fiolka na Jad
+            AddCraft(typeof(EmptyOilFlask), 1044050, 1150866, 60.0, 110.0, typeof(Sand), 1044625, 5, 1044627);//Pusta Butelka na Olej
 
-            AddCraft(typeof(SmallFlask), 1044050, 1044610, 52.5, 102.5, typeof(Sand), 1044625, 2, 1044627);
-            AddCraft(typeof(MediumFlask), 1044050, 1044611, 52.5, 102.5, typeof(Sand), 1044625, 3, 1044627);
-            AddCraft(typeof(CurvedFlask), 1044050, 1044612, 55.0, 105.0, typeof(Sand), 1044625, 2, 1044627);
-            AddCraft(typeof(LongFlask), 1044050, 1044613, 57.5, 107.5, typeof(Sand), 1044625, 4, 1044627);
-            AddCraft(typeof(LargeFlask), 1044050, 1044623, 60.0, 110.0, typeof(Sand), 1044625, 5, 1044627);
-            AddCraft(typeof(AniSmallBlueFlask), 1044050, 1044614, 60.0, 110.0, typeof(Sand), 1044625, 5, 1044627);
-            AddCraft(typeof(AniLargeVioletFlask), 1044050, 1044615, 60.0, 110.0, typeof(Sand), 1044625, 5, 1044627);
-            AddCraft(typeof(AniRedRibbedFlask), 1044050, 1044624, 60.0, 110.0, typeof(Sand), 1044625, 7, 1044627);
-            AddCraft(typeof(EmptyVialsWRack), 1044050, 1044616, 65.0, 115.0, typeof(Sand), 1044625, 8, 1044627);
-            AddCraft(typeof(FullVialsWRack), 1044050, 1044617, 65.0, 115.0, typeof(Sand), 1044625, 9, 1044627);
-            AddCraft(typeof(SpinningHourglass), 1044050, 1044618, 75.0, 125.0, typeof(Sand), 1044625, 10, 1044627);
-
-            AddCraft(typeof(HollowPrism), 1044050, 1072895, 100.0, 150.0, typeof(Sand), 1044625, 8, 1044627);
-
-            AddCraft(typeof(GargoyleFloorMirror), 1044050, 1095314, 75.0, 125.0, typeof(Sand), 1044625, 20, 1044627);
-
-            AddCraft(typeof(GargoyleWallMirror), 1044050, 1095324, 70.0, 120.0, typeof(Sand), 1044625, 10, 1044627);
-
-            index = AddCraft(typeof(SoulstoneFragment), 1044050, 1071000, 70.0, 120.0, typeof(CrystalGranules), 1112329, 2, 1044253);
-            AddRes(index, typeof(VoidEssence), 1112327, 2, 1044253);
-            SetItemHue(index, 1150);
-
-            AddCraft(typeof(EmptyVenomVial), 1044050, 1112215, 52.5, 102.5, typeof(Sand), 1044625, 1, 1044627);
-
-            AddCraft(typeof(EmptyOilFlask), 1044050, 1150866, 60.0, 110.0, typeof(Sand), 1044625, 5, 1044627);
-
-            AddCraft(typeof(WorkableGlass), 1044050, 1154170, 55.0, 105.0, typeof(Sand), 1044625, 10, 1044627);
-
-            index = AddCraft(typeof(EtherealSoulbinder), 1044050, 1159167, 100.0, 190.0, typeof(Sand), 1044625, 20, 1044627);
+            //Inne
+            AddCraft(typeof(WorkableGlass), 3070003, 1154170, 55.0, 105.0, typeof(Sand), 1044625, 10, 1044627);//Szklo do Obrobki
+            AddCraft(typeof(SpinningHourglass), 3070003, 1044618, 75.0, 125.0, typeof(Sand), 1044625, 10, 1044627);//Obrotowa Klepsydra
+            AddCraft(typeof(GargoyleFloorMirror), 3070003, 1095314, 75.0, 125.0, typeof(Sand), 1044625, 20, 1044627);//Stojace Lustro
+            AddCraft(typeof(GargoyleWallMirror), 3070003, 1095324, 70.0, 120.0, typeof(Sand), 1044625, 10, 1044627);//Lustro Scienne
+            AddCraft(typeof(HollowPrism), 3070003, 1072895, 100.0, 150.0, typeof(Sand), 1044625, 8, 1044627);
+            
+            index = AddCraft(typeof(EtherealSoulbinder), 3070003, 1159167, 100.0, 190.0, typeof(Sand), 1044625, 20, 1044627);
             AddRes(index, typeof(EtherealSand), 1125984, 5, 1159169);
 
-            //Glass Weapons
+            /*index = AddCraft(typeof(SoulstoneFragment), 1044050, 1071000, 70.0, 120.0, typeof(CrystalGranules), 1112329, 2, 1044253);
+            AddRes(index, typeof(VoidEssence), 1112327, 2, 1044253);
+            SetItemHue(index, 1150);*/
+            
+            /*Glass Weapons
             AddCraft(typeof(GlassSword), 1111745, 1022316, 55.0, 105.0, typeof(Sand), 1044625, 14, 1044627);
 
-            AddCraft(typeof(GlassStaff), 1111745, 1095368, 53.6, 103.6, typeof(Sand), 1044625, 10, 1044627);
+            AddCraft(typeof(GlassStaff), 1111745, 1095368, 53.6, 103.6, typeof(Sand), 1044625, 10, 1044627);*/
 
             Repair = true;
             MarkOption = true;
