@@ -23,7 +23,7 @@ namespace Server
 		[CommandProperty(AccessLevel.GameMaster)]
 		public bool IdentityHidden { get; set; }
 		
-		public string NGetName(Mobile m)
+		public virtual string NGetName(Mobile m)
 		{
 			if (NConfig.NameSystemEnabled && !UseRealName(m) )
 			{

@@ -251,6 +251,14 @@ namespace Server.Mobiles
             FixedParticles(0x376A, 1, 14, 5045, EffectLayer.Waist);
         }
 
+        public override string NGetName(Mobile m)
+        {
+	        if (m_MorphedInto != null)
+		        return (m_MorphedInto).NGetName(m);
+
+	        return base.NGetName(m);
+        }
+
         protected virtual void Revert()
         {
             Body = 264;

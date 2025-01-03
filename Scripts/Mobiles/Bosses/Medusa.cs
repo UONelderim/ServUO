@@ -646,6 +646,8 @@ namespace Server.Mobiles
 
     public class MedusaClone : BaseCreature, IFreezable
     {
+	    private Mobile _ClonedFrom;
+	    
         public MedusaClone(Mobile m)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
@@ -705,6 +707,15 @@ namespace Server.Mobiles
                 if (m.Items[i].Layer != Layer.Backpack && m.Items[i].Layer != Layer.Mount && m.Items[i].Layer != Layer.Bank)
 					SetWearable(CloneItem(m.Items[i]));
             }
+            _ClonedFrom = m;
+        }
+
+        public override string NGetName(Mobile m)
+        {
+	        if (_ClonedFrom != null)
+		        return (_ClonedFrom).NGetName(m);
+
+	        return base.NGetName(m);
         }
 
         public Item CloneItem(Item item)
