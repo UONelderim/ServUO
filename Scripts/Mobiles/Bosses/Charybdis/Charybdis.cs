@@ -3,6 +3,7 @@ using Server.Multis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim.Configuration;
 
 namespace Server.Mobiles
 {
@@ -654,8 +655,8 @@ namespace Server.Mobiles
             switch (Utility.Random(5))
             {
                 default:
-                case 0: return new RecipeScroll(1102);
-                case 1: return new RecipeScroll(1103);
+                case 0: return (NConfig.Loot.RecipesEnabled ? new RecipeScroll(1102) : null);
+                case 1: return (NConfig.Loot.RecipesEnabled ? new RecipeScroll(1103) : null);
                 case 2: return new HungryCoconutCrabStatue();
                 case 3: return new LeurociansMempoOfFortune();
                 case 4: return new CaptainsHeartyRum();

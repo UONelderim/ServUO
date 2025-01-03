@@ -2,6 +2,7 @@ using Server.Items;
 using Server.Multis;
 using System;
 using System.Collections.Generic;
+using Nelderim.Configuration;
 
 namespace Server.Mobiles
 {
@@ -260,7 +261,8 @@ namespace Server.Mobiles
         public override void GenerateLoot()
         {
             AddLoot(LootPack.SuperBoss, 5);
-            AddLoot(LootPack.LootItemCallback(RandomRecipe, 10.0, 1, false, false));
+            if(NConfig.Loot.RecipesEnabled)
+				AddLoot(LootPack.LootItemCallback(RandomRecipe, 10.0, 1, false, false));
         }
 
         private Item RandomRecipe(IEntity e)

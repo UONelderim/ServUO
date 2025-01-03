@@ -1,3 +1,5 @@
+using Nelderim.Configuration;
+
 namespace Server.Items
 {
     public class AnniversaryBag18th : Bag
@@ -14,7 +16,9 @@ namespace Server.Items
         public AnniversaryBag18th(Mobile m)
         {
             Hue = 1164;
-            DropItem(new RecipeScroll(Utility.RandomBool() ? 701 : 702));
+            if(NConfig.Loot.RecipesEnabled) 
+	            DropItem(new RecipeScroll(Utility.RandomBool() ? 701 : 702));
+            
             DropItem(new AnniversaryPlate(m));
             DropItem(new EnchantedTimepiece());
             DropItem(new AnniversaryCard(m));

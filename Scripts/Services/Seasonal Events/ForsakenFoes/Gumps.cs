@@ -1,3 +1,4 @@
+using Nelderim.Configuration;
 using Server.Engines.Craft;
 using Server.Engines.Points;
 using Server.Gumps;
@@ -43,7 +44,7 @@ namespace Server.Engines.Fellowship
         {
             Item item = null;
 
-            if (citem.Type == typeof(RecipeScroll))
+            if (NConfig.Loot.RecipesEnabled && citem.Type == typeof(RecipeScroll))
             {
                 switch (index)
                 {

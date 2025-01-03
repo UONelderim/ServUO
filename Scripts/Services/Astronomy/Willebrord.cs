@@ -2,6 +2,7 @@ using Server.Gumps;
 using Server.Items;
 using Server.Mobiles;
 using System.Collections.Generic;
+using Nelderim.Configuration;
 
 namespace Server.Engines.Astronomy
 {
@@ -148,7 +149,8 @@ namespace Server.Engines.Astronomy
                                 info.DiscoveredOn = chart.ChartedOn;
                                 AstronomySystem.AddDiscovery(info);
 
-                                m.AddToBackpack(new RecipeScroll(465));
+                                if(NConfig.Loot.RecipesEnabled) 
+									m.AddToBackpack(new RecipeScroll(465));
                                 m.AddToBackpack(new AstronomerTitleDeed());
                             }
 

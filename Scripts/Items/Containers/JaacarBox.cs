@@ -1,3 +1,5 @@
+using Nelderim.Configuration;
+
 namespace Server.Items
 {
     public class JaacarBox : WoodenBox
@@ -9,7 +11,8 @@ namespace Server.Items
             Movable = true;
             Hue = 1266;
 
-            DropItem(new RecipeScroll(500));
+            if(NConfig.Loot.RecipesEnabled)
+				DropItem(new RecipeScroll(500));
         }
 
         public JaacarBox(Serial serial)

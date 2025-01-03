@@ -19,6 +19,7 @@ namespace Nelderim.Configuration
 		public bool LootBudget => Get("LootBudget", true);
 		public bool DebugDifficulty => Get("DebugDifficulty", false);
 		public bool ScaleLeechEnabled => Get("ScaleLeechEnabled", false);
+		public bool RecipesEnabled => Get("RecipesEnabled", false);
 
 		private static T Get<T>(string key, T defaultValue)
 		{

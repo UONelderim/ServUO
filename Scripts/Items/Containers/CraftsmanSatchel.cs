@@ -1,3 +1,4 @@
+using Nelderim.Configuration;
 using Reward = Server.Engines.Quests.BaseReward;
 
 namespace Server.Items
@@ -244,7 +245,7 @@ namespace Server.Items
         public TinkersCraftsmanSatchel()
             : base()
         {
-            if (Items.Count < 2)
+            if (NConfig.Loot.RecipesEnabled && Items.Count < 2)
             {
                 Item recipe = Reward.TinkerRecipe();
 

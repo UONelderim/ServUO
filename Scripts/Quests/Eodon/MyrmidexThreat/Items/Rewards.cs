@@ -5,6 +5,7 @@ using Server.Mobiles;
 using Server.Multis;
 using Server.Network;
 using System.Collections.Generic;
+using Nelderim.Configuration;
 
 namespace Server.Items
 {
@@ -17,9 +18,11 @@ namespace Server.Items
             switch (Utility.Random(4))
             {
                 default:
-                case 0: DropItem(new RecipeScroll(Utility.RandomMinMax(900, 905))); break;
+                case 0: if(NConfig.Loot.RecipesEnabled) 
+	                DropItem(new RecipeScroll(Utility.RandomMinMax(900, 905))); break;
                 case 1: DropItem(new EodonTribeRewardTitleToken()); break;
-                case 2: DropItem(new RecipeScroll(455)); break;
+                case 2: if(NConfig.Loot.RecipesEnabled) 
+	                DropItem(new RecipeScroll(455)); break;
                 case 3: DropItem(new MoonstoneCrystal()); break;
             }
         }
@@ -53,7 +56,8 @@ namespace Server.Items
                 default:
                 case 0: DropItem(new MonsterStatuette(MonsterStatuetteType.SakkhranBirdOfPrey)); break;
                 case 1: DropItem(new EodonTribeRewardTitleToken()); break;
-                case 2: DropItem(new RecipeScroll(1000)); break;
+                case 2: if(NConfig.Loot.RecipesEnabled) 
+	                DropItem(new RecipeScroll(1000)); break;
                 case 3:
                     if (0.5 > Utility.RandomDouble())
                         DropItem(new RawMoonstoneLargeAddonDeed());

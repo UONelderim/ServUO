@@ -6,6 +6,7 @@ using Server.Items;
 using Server.Mobiles;
 using Server.Spells;
 using System;
+using Nelderim.Configuration;
 
 namespace Server
 {
@@ -124,7 +125,7 @@ namespace Server
                         if (item != null)
                             c.DropItem(item);
                     }
-                    else
+                    else if(NConfig.Loot.RecipesEnabled)
                     {
                         Item scroll = new RecipeScroll(_RecipeTypes[Utility.Random(_RecipeTypes.Length)]);
 

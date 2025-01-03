@@ -1,6 +1,7 @@
 using Server.Items;
 using Server.Mobiles;
 using System;
+using Nelderim.Configuration;
 
 namespace Server.Engines.Points
 {
@@ -68,8 +69,9 @@ namespace Server.Engines.Points
                 {
                     Type[] list = m_RewardTable[ran];
                     Type t = list.Length == 1 ? list[0] : list[Utility.Random(list.Length)];
-
-                    i = Activator.CreateInstance(t) as Item;
+                    
+                    if(!t.IsSubclassOf(typeof(RecipeScroll)) || NConfig.Loot.RecipesEnabled)
+							i = Activator.CreateInstance(t) as Item;
                 }
 
                 if (i != null)

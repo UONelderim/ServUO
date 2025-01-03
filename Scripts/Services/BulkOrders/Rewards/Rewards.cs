@@ -1,6 +1,7 @@
 using Server.Items;
 using System;
 using System.Collections.Generic;
+using Nelderim.Configuration;
 
 namespace Server.Engines.BulkOrders
 {
@@ -975,11 +976,14 @@ namespace Server.Engines.BulkOrders
            // RewardCollection.Add(new BODCollectionItem(0x14F0, 1157186, 0, 25, RewardTitle, 5));
            // RewardCollection.Add(new BODCollectionItem(0x14F0, 1157187, 0, 50, RewardTitle, 6));
            // RewardCollection.Add(new BODCollectionItem(0x14F0, 1157190, 0, 210, RewardTitle, 9));
-            RewardCollection.Add(new BODCollectionItem(0x2831, 1157288, 0, 225, Recipe, 0));
            // RewardCollection.Add(new BODCollectionItem(0x14F0, 1157188, 0, 250, RewardTitle, 7));
-            RewardCollection.Add(new BODCollectionItem(0x2831, 1157287, 0, 310, Recipe, 1));
            // RewardCollection.Add(new BODCollectionItem(0x14F0, 1157189, 0, 225, RewardTitle, 8));
-            RewardCollection.Add(new BODCollectionItem(0x2831, 1157289, 0, 350, Recipe, 2));
+           if(NConfig.Loot.RecipesEnabled)
+           {
+	           RewardCollection.Add(new BODCollectionItem(0x2831, 1157288, 0, 225, Recipe, 0));
+	           RewardCollection.Add(new BODCollectionItem(0x2831, 1157287, 0, 310, Recipe, 1));
+	           RewardCollection.Add(new BODCollectionItem(0x2831, 1157289, 0, 350, Recipe, 2));
+           }
             RewardCollection.Add(new BODCollectionItem(0x9E2B, 1157264, 0, 400, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x2F5B, 1152674, CraftResources.GetHue(CraftResource.Gold), 450, SmeltersTalisman, (int)CraftResource.Gold));
             RewardCollection.Add(new BODCollectionItem(0x14F0, 3060090, 0x481, 475, PowerScroll, 5));
@@ -1444,7 +1448,8 @@ namespace Server.Engines.BulkOrders
 			RewardCollection.Add(new BODCollectionItem(0x0f52, 3060063, 0x482, 50, AncientScribingTool, 3 ));
 			RewardCollection.Add(new BODCollectionItem(0x0f52, 3060064, 0x482, 150, AncientScribingTool, 5 ));
 			RewardCollection.Add(new BODCollectionItem(0xA8E8, 3060066, 0, 200, ScribesDesk));
-			RewardCollection.Add(new BODCollectionItem(0x2831, 1156443, 0, 210, Recipe, 3));
+			if(NConfig.Loot.RecipesEnabled) 
+				RewardCollection.Add(new BODCollectionItem(0x2831, 1156443, 0, 210, Recipe, 3));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2741, 250, NaturalDye, 3));
             RewardCollection.Add(new BODCollectionItem(0x9E28, 1157264, 0, 275, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x182B, 1157205, 2740, 310, NaturalDye, 4));
@@ -1591,7 +1596,8 @@ namespace Server.Engines.BulkOrders
             RewardCollection.Add(new BODCollectionItem(0x97F, 1157219, 0, 10, Skillet));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157197, 0, 25, RewardTitle, 13));
 			RewardCollection.Add(new BODCollectionItem(0x13C6, 3060055, 0, 25, CookingGloves, 1));
-            RewardCollection.Add(new BODCollectionItem(0x2831, 1031233, 0, 25, Recipe, 4));
+			if(NConfig.Loot.RecipesEnabled) 
+				RewardCollection.Add(new BODCollectionItem(0x2831, 1031233, 0, 25, Recipe, 4));
        //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157198, 0, 50, RewardTitle, 14));
 	        RewardCollection.Add(new BODCollectionItem(0x13C6, 3060057, 0, 50, CookingGloves, 3));
 	        RewardCollection.Add(new BODCollectionItem(3854, "Skladniki Do Wywarow x5", 1952, 190, ElixirIngredient2)); 

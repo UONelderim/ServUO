@@ -2,6 +2,8 @@
 using Server.Engines.Craft;
 using Server.Items;
 using System;
+using Nelderim.Configuration;
+
 #endregion
 
 namespace Server.Engines.Quests
@@ -145,7 +147,7 @@ namespace Server.Engines.Quests
         {
             RecipeScroll recipe = null;
 
-            if (0.01 > Utility.RandomDouble())
+            if (NConfig.Loot.RecipesEnabled && 0.01 > Utility.RandomDouble())
             {
                 recipe = new RecipeScroll(Utility.RandomList(450, 451, 452, 453));
             }
@@ -230,6 +232,9 @@ namespace Server.Engines.Quests
 
         public static RecipeScroll GetRecipe(Array list)
         {
+	        if (!NConfig.Loot.RecipesEnabled)
+		        return null;
+	        
             int[] recipes = new int[list.Length];
 
             int index = 0;

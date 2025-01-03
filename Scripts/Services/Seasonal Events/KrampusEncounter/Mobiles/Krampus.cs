@@ -4,6 +4,7 @@ using Server.Spells;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nelderim.Configuration;
 
 namespace Server.Mobiles
 {
@@ -333,14 +334,14 @@ namespace Server.Mobiles
                             case 2: item = new NiceTitleDeed(); break;
                             case 3: item = new NaughtyTitleDeed(); break;
                             case 4: item = new PunisherTitleDeed(); break;
-                            case 5: item = new RecipeScroll(586); break; // minion hat
-                            case 6: item = new RecipeScroll(587); break; // minion boots
+                            case 5: item = NConfig.Loot.RecipesEnabled ? new RecipeScroll(586) : null; break; // minion hat
+                            case 6: item = NConfig.Loot.RecipesEnabled ? new RecipeScroll(587) : null; break; // minion boots
                             case 7: item = new KrampusCoinPurse(463); break; // minion talons
                             case 8: item = new KrampusCoinPurse(588); break; // minion earrings
                             case 9: item = new KrampusPunishinList(m.Name); break;
-                            case 10: item = new RecipeScroll(466); break; // barbed whip
-                            case 11: item = new RecipeScroll(467); break; // spiked whip
-                            case 12: item = new RecipeScroll(468); break; // bladed whip
+                            case 10: item = NConfig.Loot.RecipesEnabled ? new RecipeScroll(466) : null; break; // barbed whip
+                            case 11: item = NConfig.Loot.RecipesEnabled ? new RecipeScroll(467) : null; break; // spiked whip
+                            case 12: item = NConfig.Loot.RecipesEnabled ? new RecipeScroll(468) : null; break; // bladed whip
                         }
 
                         if (item != null)

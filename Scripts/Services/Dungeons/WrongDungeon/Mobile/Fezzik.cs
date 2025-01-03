@@ -1,5 +1,6 @@
 using Server.Items;
 using System;
+using Nelderim.Configuration;
 
 namespace Server.Mobiles
 {
@@ -79,7 +80,7 @@ namespace Server.Mobiles
         {
             base.OnDeath(c);
 
-            if (0.1 > Utility.RandomDouble())
+            if (NConfig.Loot.RecipesEnabled && 0.1 > Utility.RandomDouble())
             {
                 c.DropItem(new RecipeScroll(603));
             }

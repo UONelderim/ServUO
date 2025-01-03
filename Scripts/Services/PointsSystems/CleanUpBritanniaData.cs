@@ -7,6 +7,7 @@ using Server.SkillHandlers;
 using Server.Targeting;
 using System;
 using System.Collections.Generic;
+using Nelderim.Configuration;
 
 namespace Server.Engines.Points
 {
@@ -684,7 +685,8 @@ namespace Server.Engines.Points
             Entries[typeof(PowerCrystal)] = 100.0;
             Entries[typeof(PristineDreadHorn)] = 1000.0;
             Entries[typeof(ProspectorsTool)] = 3.0;
-            Entries[typeof(RecipeScroll)] = 10.0;
+            if(NConfig.Loot.RecipesEnabled)
+				Entries[typeof(RecipeScroll)] = 10.0;
 
             Entries[typeof(SwampTile)] = 5000.0;
             Entries[typeof(TastyTreat)] = 100.0;

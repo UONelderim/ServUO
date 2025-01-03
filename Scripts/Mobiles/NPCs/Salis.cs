@@ -1,5 +1,6 @@
 using Server.Items;
 using System;
+using Nelderim.Configuration;
 
 namespace Server.Engines.Quests
 {
@@ -50,7 +51,8 @@ namespace Server.Engines.Quests
         {
             base.GiveRewards();
 
-            Owner.Backpack.DropItem(new RecipeScroll(604));
+            if(NConfig.Loot.RecipesEnabled)
+				Owner.Backpack.DropItem(new RecipeScroll(604));
             Owner.SendLocalizedMessage(1074360, "#1150043"); // You receive a reward: ~1_REWARD~
         }
 

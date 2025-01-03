@@ -2,6 +2,7 @@ using Server.Gumps;
 using Server.Items;
 using Server.Mobiles;
 using System.Collections.Generic;
+using Nelderim.Configuration;
 
 namespace Server.Engines.HuntsmasterChallenge
 {
@@ -54,7 +55,7 @@ namespace Server.Engines.HuntsmasterChallenge
 
         public override void OnConfirmed(CollectionItem citem, int index)
         {
-            if (citem.Type == typeof(RecipeScroll))
+            if (NConfig.Loot.RecipesEnabled && citem.Type == typeof(RecipeScroll))
             {
                 Item item;
 

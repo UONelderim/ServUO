@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Nelderim;
+using Nelderim.Configuration;
 
 namespace Server.Mobiles
 {
@@ -356,7 +357,8 @@ namespace Server.Mobiles
         public override void GenerateLoot()
         {
             AddLoot(LootPack.SuperBoss, 6);
-            AddLoot(LootPack.LootItemCallback(RandomRecipe, 10.0, 1, false, false));
+            if(NConfig.Loot.RecipesEnabled)
+				AddLoot(LootPack.LootItemCallback(RandomRecipe, 10.0, 1, false, false));
             
             AddLoot(NelderimLoot.MysticScrolls);
         }
