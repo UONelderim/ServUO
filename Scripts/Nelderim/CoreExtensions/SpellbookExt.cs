@@ -62,5 +62,18 @@ namespace Server.Items
 				}
 			}
 		}
+
+		protected override void OnCreate()
+		{
+			base.OnCreate();
+			if (m_AosAttributes.IsEmpty && m_AosSkillBonuses.IsEmpty)
+			{
+				LootType = LootType.Blessed;
+			}
+			else
+			{
+				LootType = LootType.Regular;
+			}
+		}
 	}
 }
