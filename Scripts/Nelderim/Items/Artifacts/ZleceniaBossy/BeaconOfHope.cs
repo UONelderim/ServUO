@@ -2,7 +2,6 @@ namespace Server.Items
 {
     public class BeaconOfHope : MetalShield
     {
-
 		public override int BaseFireResistance => 10;
 		public override int InitMinHits => 60;
 		public override int InitMaxHits => 60;
@@ -11,8 +10,9 @@ namespace Server.Items
         public BeaconOfHope()
         {
             Name = "Wskaznik Nadziei";
-			ItemID = 2597;
+			ItemID = 0xA25;
             Hue = 1767;
+            
             StrRequirement = 55;
             Attributes.SpellChanneling = 1;
             Attributes.AttackChance = 12;
@@ -21,8 +21,6 @@ namespace Server.Items
 			Attributes.BonusMana = 10;
 			Attributes.BonusStam = -12;
             Attributes.Luck = -200;
-
-            
         }
 
         public BeaconOfHope(Serial serial) : base( serial )
@@ -31,31 +29,15 @@ namespace Server.Items
 
 		public override void OnDoubleClick( Mobile from )
 		{
-			if ( !IsChildOf( from.Backpack ) )
+			if ( !IsChildOf( from.Backpack ) && Parent != from )
 			{
-				from.SendLocalizedMessage( 1042001 ); // That must be in your pack for you to use it.
+				from.SendLocalizedMessage( 500364 ); // To nalezy do kogos innego.
+				return;
 			}
-
+			if ( ItemID == 2597 )
+				ItemID = 2594;
 			else
-			{
-
-				if ( this.ItemID == 2597 )
-				{
-					this.ItemID = 2594;
-				}
-				else if ( this.ItemID == 2594 )
-				{
-					this.ItemID = 2597;
-				}
-				else if (this.ItemID != 2597 || this.ItemID != 2594 )
-				{
-					from.SendMessage("There was a problem lighting your lantern. Please contact a staff member");				
-				}
-				else
-				{
-					from.SendMessage( "Your lantern is broken. Please contact a staff member to repair it!" );
-				}
-			}
+				ItemID = 2597;
 		}
 		
         public override void Serialize( GenericWriter writer )
@@ -69,5 +51,5 @@ namespace Server.Items
             base.Deserialize( reader );
             int version = reader.ReadInt();
         }
-    } // End Class
-} // End Namespace
+    }
+}
