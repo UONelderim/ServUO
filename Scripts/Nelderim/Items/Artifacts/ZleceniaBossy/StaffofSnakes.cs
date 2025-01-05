@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using Server.Network;
 using Server.Spells.Eighth;
 
 namespace Server.Items
