@@ -17,7 +17,31 @@ namespace Server.Items
             Attributes.BonusStr = 15;
             SkillBonuses.Skill_1_Name = SkillName.Mining;
             SkillBonuses.Skill_1_Value = 5;
-            Label1 = "*branzoleta ma miejsce na 3 palce - czy odwazysz sie jej dotknac?*";
+        }
+        public override void AddNameProperties(ObjectPropertyList list)
+        {
+	        base.AddNameProperties(list);
+	        list.Add("*branzoleta ma miejsce na 3 palce - czy odwazysz sie jej dotknac?*");
+        }
+
+        public override void OnDoubleClick(Mobile from)
+        {
+	        if (SkillBonuses.Skill_1_Name == SkillName.Mining)
+	        {
+		        Weight = 5.0;
+		        Attributes.BonusInt = 10;
+		        Attributes.BonusStr = -30;
+		        SkillBonuses.Skill_1_Name = SkillName.Inscribe;
+	        }
+	        else
+	        {
+		        Weight = 0.1;
+		        Attributes.BonusInt = 0;
+		        Attributes.BonusStr = 15;
+		        SkillBonuses.Skill_1_Name = SkillName.Mining;
+	        }
+
+	        base.OnDoubleClick(from);
         }
 
         public AzysBracelet(Serial serial)
@@ -37,26 +61,6 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-        }
-
-        public override void OnDoubleClick(Mobile from)
-        {
-	        if (SkillBonuses.Skill_1_Name == SkillName.Mining)
-	        {
-		        Weight = 5.0;
-		        Attributes.BonusInt = 10;
-		        Attributes.BonusStr = -30;
-		        SkillBonuses.Skill_1_Name = SkillName.Inscribe;
-	        }
-            else
-            {
-	            Weight = 0.1;
-	            Attributes.BonusInt = 0;
-	            Attributes.BonusStr = 15;
-	            SkillBonuses.Skill_1_Name = SkillName.Mining;
-            }
-
-            base.OnDoubleClick(from);
         }
     }
 }
