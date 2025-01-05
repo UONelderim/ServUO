@@ -66,11 +66,19 @@ namespace Server.Items
         }
 
         private string m_Account, m_LastUserName;
+        private Mobile m_Owner;
         private DateTime m_NextUse; // TODO: unused, it's here not to break serialize/deserialize
 
         private SkillName m_Skill;
         private double m_SkillValue;
 
+        [CommandProperty(AccessLevel.GameMaster)]
+        public Mobile Owner
+        {
+	        get => m_Owner;
+	        set => m_Owner = value;
+        }
+        
         [CommandProperty(AccessLevel.GameMaster)]
         public string Account
         {
@@ -211,6 +219,11 @@ namespace Server.Items
             {
                 from.SendLocalizedMessage(1070714); // This is an Account Bound Soulstone, and your character is not bound to it.  You cannot use this Soulstone.
                 return false;
+            }
+            else if (m_Owner != from)
+            {
+	            from.SendMessage("Ten przedmiot nie jest powiazany z ta postacia.");
+	            return false;
             }
             else if (CheckCombat(from, TimeSpan.FromMinutes(2.0)))
             {
@@ -810,7 +823,9 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.WriteEncodedInt(3); // version
+            writer.WriteEncodedInt(4); // version
+            
+            writer.Write(m_Owner);
 
             //version 3
             writer.Write(m_LastUserName);
@@ -835,6 +850,11 @@ namespace Server.Items
 
             switch (version)
             {
+	            case 4:
+		            {
+			            m_Owner = reader.ReadMobile();
+			            goto case 3;
+		            }
                 case 3:
                     {
                         m_LastUserName = reader.ReadString();
