@@ -87,7 +87,9 @@ namespace Server
 		
 		public virtual void AddLabelsProperty( ObjectPropertyList list )
 		{
-			list.Add(String.Join('\n', m_Labels.SkipLast(1).Where(l => !String.IsNullOrEmpty(l))));
+			var joinedLabels = String.Join('\n', m_Labels.SkipLast(1).Where(l => !String.IsNullOrEmpty(l)));
+			if (!String.IsNullOrEmpty(joinedLabels))
+				list.Add(joinedLabels);
 		}
 	}
 }
