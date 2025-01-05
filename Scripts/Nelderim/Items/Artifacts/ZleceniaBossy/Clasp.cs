@@ -10,6 +10,7 @@ namespace Server.Items
         {
             Name = "Czerwona Kolia";
             Hue = 2117;
+            
             Attributes.AttackChance = 5;
             Attributes.DefendChance = 5;
             Attributes.BonusMana = 5;
@@ -18,9 +19,7 @@ namespace Server.Items
             Attributes.RegenHits = 3;
             Attributes.RegenStam = 3;
             Attributes.RegenMana = 3;
-
         }
-        
 
         public Clasp( Serial serial ) : base( serial )
         {

@@ -22,7 +22,7 @@ namespace Server.Items
         public override void AddNameProperties(ObjectPropertyList list)
         {
 	        base.AddNameProperties(list);
-	        list.Add(Label1 = "*grawer w języku krasnoludow rzecze, iz owe kolczyki wysysaja wytrzymalosc noszacego*");
+	        list.Add("*grawer w języku krasnoludow rzecze, iz owe kolczyki wysysaja wytrzymalosc noszacego*");
         }
         
         public override bool OnEquip(Mobile from)
