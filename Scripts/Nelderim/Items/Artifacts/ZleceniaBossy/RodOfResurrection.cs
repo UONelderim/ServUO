@@ -1,9 +1,4 @@
-using System;
-using Server.Network;
-using Server.Items;
 using Server.Targeting;
-using Server.Network;
-using Server.Misc;
 using Server.Mobiles;
 using Server.Gumps;
 
@@ -20,10 +15,12 @@ namespace Server.Items
 		private int m_Charges;
 
 		[CommandProperty( AccessLevel.GameMaster )]
-		public ResurrectEffect Effect { get{ return m_ResurrectEffect; } set{ m_ResurrectEffect = value; InvalidateProperties(); } }
+		public ResurrectEffect Effect { get => m_ResurrectEffect;
+			set{ m_ResurrectEffect = value; InvalidateProperties(); } }
 
 		[CommandProperty( AccessLevel.GameMaster )]
-		public int Charges { get{ return m_Charges; } set{ m_Charges = value; InvalidateProperties(); } }
+		public int Charges { get => m_Charges;
+			set{ m_Charges = value; InvalidateProperties(); } }
 
 		[Constructable]
 		public RodOfResurrection()

@@ -1,8 +1,4 @@
-using System;
-using Server;
-using Server.Items;
 using Server.Mobiles;
-using System.Collections.Generic;
 
 
 namespace Server.Items
@@ -33,15 +29,9 @@ namespace Server.Items
         {
         }
 
-        public override int InitMinHits
-        {
-            get { return 50; }
-        }
+        public override int InitMinHits => 50;
 
-        public override int InitMaxHits
-        {
-            get { return 50; }
-        }
+        public override int InitMaxHits => 50;
 
 
         public override void Serialize(GenericWriter writer)

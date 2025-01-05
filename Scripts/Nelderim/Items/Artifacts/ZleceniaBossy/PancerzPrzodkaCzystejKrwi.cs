@@ -1,16 +1,5 @@
 using System;
-using Server;
-using Server.Items;
-using Server.Mobiles;
-using Server.Targeting;
-using System.Text;
-using System.Collections;
-using Server.Network;
 using Server.Spells;
-using Server.Spells.Fourth;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using Server.Multis;
 
 namespace Server.Items
 {
@@ -21,23 +10,20 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public DateTime CureLastUsage
         {
-            get { return m_CureLastUsage; }
+            get => m_CureLastUsage;
             set { m_CureLastUsage = value; InvalidateProperties(); }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool CureActive
-        {
-            get { return DateTime.Now - m_CureLastUsage > m_CureCooldown; }
-        }
+        public bool CureActive => DateTime.Now - m_CureLastUsage > m_CureCooldown;
 
         private static TimeSpan m_CureCooldown = TimeSpan.FromMinutes(15); // tutaj jest ustawiany cooldown
 
-        public override int BasePhysicalResistance { get { return 10; } }
-        public override int BaseFireResistance { get { return 15; } }
-        public override int BaseColdResistance { get { return 5; } }
-        public override int BasePoisonResistance { get { return 14; } }
-        public override int BaseEnergyResistance { get { return 8; } }
+        public override int BasePhysicalResistance => 10;
+        public override int BaseFireResistance => 15;
+        public override int BaseColdResistance => 5;
+        public override int BasePoisonResistance => 14;
+        public override int BaseEnergyResistance => 8;
 
         [Constructable]
         public PancerzPrzodkaCzystejKrwi() : base()

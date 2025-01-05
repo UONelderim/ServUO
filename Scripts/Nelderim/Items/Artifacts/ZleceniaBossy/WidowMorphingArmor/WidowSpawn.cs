@@ -1,18 +1,14 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Server.Items;
-using Server.Misc;
-using Server;
 
 namespace Server.Mobiles
 {
     [CorpseName("zainfekowany trup")]
     public class WidowSpawn : GiantBlackWidow
     {
-        public override bool CanRegenHits { get { return true; } }
-        public override bool IsScaredOfScaryThings { get { return false; } }
-        public override bool IsScaryToPets { get { return true; } }
+        public override bool CanRegenHits => true;
+        public override bool IsScaredOfScaryThings => false;
+        public override bool IsScaryToPets => true;
 
         private Mobile boss;
 

@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using Server.Network;
-using Server.Targeting;
-using Server.Prompts;
 
 
 namespace Server.Items
@@ -11,10 +7,7 @@ namespace Server.Items
 	{
 		private DateTime timer;
 
-		public override double DefaultWeight
-		{
-			get { return 1.0; }
-		}
+		public override double DefaultWeight => 1.0;
 
 
 		[Constructable]

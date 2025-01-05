@@ -1,5 +1,3 @@
-using System;
-using Server.Items;
 using Server.Mobiles;
 
 namespace Server.Items
@@ -8,18 +6,18 @@ namespace Server.Items
 	public class WidowMorphChest : BaseArmor
 	{
 		//public override int LabelNumber{ get{ return 1074303; } }
-		public override int BasePhysicalResistance{ get{ return 8; } }
-		public override int BaseFireResistance{ get{ return 5; } }
-		public override int BaseColdResistance{ get{ return 5; } }
-		public override int BasePoisonResistance{ get{ return 7; } }
-		public override int BaseEnergyResistance{ get{ return 5; } }
+		public override int BasePhysicalResistance => 8;
+		public override int BaseFireResistance => 5;
+		public override int BaseColdResistance => 5;
+		public override int BasePoisonResistance => 7;
+		public override int BaseEnergyResistance => 5;
 
-		public override int InitMinHits{ get{ return 50; } }
-		public override int InitMaxHits{ get{ return 65; } }
-		public int AosStrReq{ get{ return 20; } }
-		public int ArmorBase{ get{ return 40; } }
+		public override int InitMinHits => 50;
+		public override int InitMaxHits => 65;
+		public int AosStrReq => 20;
+		public int ArmorBase => 40;
 
-		public override ArmorMaterialType MaterialType{ get{ return ArmorMaterialType.Leather; } }
+		public override ArmorMaterialType MaterialType => ArmorMaterialType.Leather;
 
 		[Constructable]
 		public WidowMorphChest() : base( 11016 )

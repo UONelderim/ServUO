@@ -1,13 +1,10 @@
-using System;
-using Server;
-
 namespace Server.Items
 {
     public class Clasp : GoldNecklace
     {
-        public override int InitMinHits{ get{ return 50; } }
-        public override int InitMaxHits{ get{ return 50; } }
-        
+        public override int InitMinHits => 50;
+        public override int InitMaxHits => 50;
+
         [Constructable]
         public Clasp()
         {

@@ -1,7 +1,4 @@
-﻿using System;
-using Server;
-using Server.Mobiles;
-using Server.Items;
+﻿using Server.Mobiles;
 
 namespace Server.Items
 {
@@ -9,14 +6,14 @@ namespace Server.Items
     {
         private const double LethalPoisonChance = 0.1;
 
-        public override int InitMinHits { get { return 60; } }
-        public override int InitMaxHits { get { return 60; } }
+        public override int InitMinHits => 60;
+        public override int InitMaxHits => 60;
 
-        public override int BaseColdResistance { get { return 7; } }
-        public override int BaseEnergyResistance { get { return 7; } }
-        public override int BasePhysicalResistance { get { return -15; } }
-        public override int BasePoisonResistance { get { return 17; } }
-        public override int BaseFireResistance { get { return 18; } }
+        public override int BaseColdResistance => 7;
+        public override int BaseEnergyResistance => 7;
+        public override int BasePhysicalResistance => -15;
+        public override int BasePoisonResistance => 17;
+        public override int BaseFireResistance => 18;
 
         [Constructable]
         public WyzywajaceOdzienieBarbarzyncy()

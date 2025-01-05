@@ -1,16 +1,13 @@
-using System;
-using Server;
-
 namespace Server.Items
 {
     public class BeaconOfHope : MetalShield
     {
 
-		public override int BaseFireResistance{ get{ return 10; } }
-        public override int InitMinHits{ get{ return 60; } }
-        public override int InitMaxHits{ get{ return 60; } }
+		public override int BaseFireResistance => 10;
+		public override int InitMinHits => 60;
+		public override int InitMaxHits => 60;
 
-        [Constructable]
+		[Constructable]
         public BeaconOfHope()
         {
             Name = "Wskaznik Nadziei";

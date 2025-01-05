@@ -1,5 +1,4 @@
 using System;
-using Server.ACC.CSS.Systems;
 using Server.ACC.CSS.Systems.Cleric;
 
 
@@ -7,8 +6,8 @@ namespace Server.Items
 {
     public class ObronaZywiolow : ChaosShield
     {
-        public override int InitMinHits { get { return 60; } }
-        public override int InitMaxHits { get { return 60; } }
+        public override int InitMinHits => 60;
+        public override int InitMaxHits => 60;
 
         private DateTime m_ShieldEquipTime; // Track the time when the shield is equipped
         private Timer m_RemoveEffectTimer; // Timer to remove the effect

@@ -1,14 +1,11 @@
-using System;
-using Server.Engines.Craft;
-
 namespace Server.Items
 {
     public class AzysBracelet : BaseBracelet
     {
         private bool isSecondClick = false; 
 
-        public override int InitMinHits { get { return 50; } }
-        public override int InitMaxHits { get { return 50; } }
+        public override int InitMinHits => 50;
+        public override int InitMaxHits => 50;
 
         [Constructable]
         public AzysBracelet()

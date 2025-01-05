@@ -38,12 +38,12 @@ namespace Server.Items
         private Timer m_Timer;
         private TimeSpan m_TimeLeft;
 
-        public override int InitMinHits { get { return 100; } }
-        public override int InitMaxHits { get { return 100; } }
+        public override int InitMinHits => 100;
+        public override int InitMaxHits => 100;
 
-        public int AosMinDamage { get { return 15; } }
-        public int AosMaxDamage { get { return 18; } }
-        public int AosSpeed { get { return 60; } }
+        public int AosMinDamage => 15;
+        public int AosMaxDamage => 18;
+        public int AosSpeed => 60;
 
         [Constructable]
         public GluttonousBlade()
@@ -65,7 +65,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public TimeSpan TimeLeft
         {
-            get { return m_TimeLeft; }
+            get => m_TimeLeft;
             set
             {
                 m_TimeLeft = value;

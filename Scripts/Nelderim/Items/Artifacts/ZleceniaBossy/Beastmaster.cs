@@ -1,7 +1,4 @@
 using System;
-using Server;
-using System.Collections.Generic;
-using Server.Network;
 
 
 namespace Server.Items
@@ -11,8 +8,8 @@ namespace Server.Items
         private DateTime m_LastStaminaLoss;
         private Timer m_StaminaLossTimer;
 
-        public override int InitMinHits { get { return 60; } }
-        public override int InitMaxHits { get { return 60; } }
+        public override int InitMinHits => 60;
+        public override int InitMaxHits => 60;
 
         [Constructable]
         public Beastmaster()
