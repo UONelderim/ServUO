@@ -1,6 +1,7 @@
 #region References
 
 using System;
+using System.Linq;
 using Nelderim;
 
 #endregion
@@ -98,6 +99,11 @@ namespace Server
 				m_Labels[4] = value;
 				InvalidateProperties();
 			}
+		}
+		
+		public virtual void AddLabelsProperty( ObjectPropertyList list )
+		{
+			list.Add(String.Join('\n', m_Labels.SkipLast(1).Where(l => !String.IsNullOrEmpty(l))));
 		}
 	}
 }

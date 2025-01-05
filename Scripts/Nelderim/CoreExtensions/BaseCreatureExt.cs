@@ -119,6 +119,7 @@ namespace Server.Mobiles
 
 		public override void NAddProperties(ObjectPropertyList list)
 		{
+			base.NAddProperties(list);
 			if (NConfig.Loot.DebugDifficulty)
 			{
 				list.Add("Difficulty: " + Difficulty);

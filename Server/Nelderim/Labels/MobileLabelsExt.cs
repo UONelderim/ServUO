@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Nelderim;
 
 namespace Server
@@ -73,8 +74,6 @@ namespace Server
 			}
 		}
 		
-		
-
 		[CommandProperty(AccessLevel.GameMaster)]
 		public string LabelOfCreator
 		{
@@ -84,6 +83,11 @@ namespace Server
 				m_Labels[4] = value;
 				InvalidateProperties();
 			}
+		}
+		
+		public virtual void AddLabelsProperty( ObjectPropertyList list )
+		{
+			list.Add(String.Join('\n', m_Labels.SkipLast(1).Where(l => !String.IsNullOrEmpty(l))));
 		}
 	}
 }

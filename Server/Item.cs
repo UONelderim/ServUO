@@ -1491,6 +1491,8 @@ Circle375
 
 			AddExtraProperties(list);
 
+			AddLabelsProperty(list);
+
 			AppendChildNameProperties(list);
 		}
 

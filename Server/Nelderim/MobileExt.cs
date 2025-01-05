@@ -23,7 +23,7 @@ namespace Server
 		
 		public virtual void NAddProperties(ObjectPropertyList list)
 		{
-			
+			AddLabelsProperty(list);
 		}
 
 		public virtual void NContextMenuEntries(Mobile from, List<ContextMenuEntry> list)
