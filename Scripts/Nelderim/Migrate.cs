@@ -10,12 +10,359 @@ using Server.Items;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Nelderim;
-using Server.Nelderim.Misc;
 
 namespace Server.Commands
 {
 	public class Migrate
 	{
+		private static Dictionary<int, int> _HueMap = new()
+		{
+			{ 1457, 2663 },
+			{ 1458, 2664 },
+			{ 1459, 2665 },
+			{ 1460, 2666 },
+			{ 1461, 2667 },
+			{ 1462, 2668 },
+			{ 1463, 2669 },
+			{ 1464, 2670 },
+			{ 1755, 1488 },
+			{ 1756, 1489 },
+			{ 1757, 1490 },
+			{ 1758, 1491 },
+			{ 1759, 1492 },
+			{ 1760, 1493 },
+			{ 1761, 1494 },
+			{ 1762, 1495 },
+			{ 1763, 1496 },
+			{ 1764, 1497 },
+			{ 1765, 1498 },
+			{ 1766, 1499 },
+			{ 1767, 1500 },
+			{ 1872, 1455 },
+			{ 1909, 1583 },
+			{ 1910, 1584 },
+			{ 1911, 1585 },
+			{ 1912, 1586 },
+			{ 1913, 1587 },
+			{ 1914, 1588 },
+			{ 1915, 1589 },
+			{ 1916, 1590 },
+			{ 1917, 1591 },
+			{ 1918, 1592 },
+			{ 1919, 1593 },
+			{ 1920, 1594 },
+			{ 1921, 1595 },
+			{ 1922, 1596 },
+			{ 1923, 1597 },
+			{ 1924, 1598 },
+			{ 1925, 1599 },
+			{ 1926, 1600 },
+			{ 1927, 2131 },
+			{ 1928, 2132 },
+			{ 1929, 2133 },
+			{ 1930, 2134 },
+			{ 1931, 2135 },
+			{ 1932, 2136 },
+			{ 1933, 2137 },
+			{ 1934, 2138 },
+			{ 1935, 2139 },
+			{ 1936, 2140 },
+			{ 1937, 2141 },
+			{ 1938, 2142 },
+			{ 1939, 2143 },
+			{ 1940, 2144 },
+			{ 1941, 2077 },
+			{ 1942, 2078 },
+			{ 1943, 2079 },
+			{ 1944, 2080 },
+			{ 1945, 2081 },
+			{ 1946, 2082 },
+			{ 1947, 2083 },
+			{ 1948, 2084 },
+			{ 1949, 2085 },
+			{ 1950, 2086 },
+			{ 1951, 2087 },
+			{ 1952, 2088 },
+			{ 1953, 2089 },
+			{ 1954, 1282 },
+			{ 1955, 1283 },
+			{ 1956, 1284 },
+			{ 1957, 1285 },
+			{ 1958, 1286 },
+			{ 1959, 1287 },
+			{ 1960, 1288 },
+			{ 1961, 1289 },
+			{ 1962, 1290 },
+			{ 1963, 1291 },
+			{ 1964, 1292 },
+			{ 1965, 1293 },
+			{ 1966, 1294 },
+			{ 1967, 1295 },
+			{ 1968, 1296 },
+			{ 1969, 1297 },
+			{ 1970, 1298 },
+			{ 2057, 1780 },
+			{ 2058, 1781 },
+			{ 2059, 1782 },
+			{ 2060, 1783 },
+			{ 2061, 1784 },
+			{ 2062, 1785 },
+			{ 2063, 1786 },
+			{ 2064, 1787 },
+			{ 2065, 1788 },
+			{ 2066, 1789 },
+			{ 2067, 1790 },
+			{ 2068, 1791 },
+			{ 2069, 1792 },
+			{ 2070, 1793 },
+			{ 2071, 1794 },
+			{ 2072, 1795 },
+			{ 2073, 1796 },
+			{ 2074, 1797 },
+			{ 2075, 1798 },
+			{ 2076, 1799 },
+			{ 2077, 1800 },
+			{ 2078, 1279 },
+			{ 2079, 1280 },
+			{ 2498, 2225 },
+			{ 2499, 2226 },
+			{ 2500, 2227 },
+			{ 2501, 2228 },
+			{ 2502, 2229 },
+			{ 2503, 2230 },
+			{ 2504, 2231 },
+			{ 2505, 2232 },
+			{ 2506, 2233 },
+			{ 2507, 2234 },
+			{ 2508, 2235 },
+			{ 2509, 2236 },
+			{ 2510, 2237 },
+			{ 2511, 2238 },
+			{ 2512, 2239 },
+			{ 2513, 2240 },
+			{ 2514, 2241 },
+			{ 2515, 2242 },
+			{ 2516, 2243 },
+			{ 2517, 2244 },
+			{ 2518, 2245 },
+			{ 2519, 2246 },
+			{ 2520, 2247 },
+			{ 2521, 2248 },
+			{ 2522, 2249 },
+			{ 2523, 2250 },
+			{ 2524, 2251 },
+			{ 2525, 2252 },
+			{ 2526, 2253 },
+			{ 2527, 2254 },
+			{ 2528, 2255 },
+			{ 2529, 2256 },
+			{ 2530, 2257 },
+			{ 2531, 2258 },
+			{ 2532, 2259 },
+			{ 2533, 2260 },
+			{ 2534, 2261 },
+			{ 2535, 2262 },
+			{ 2536, 2263 },
+			{ 2537, 2264 },
+			{ 2538, 2265 },
+			{ 2539, 2266 },
+			{ 2540, 2267 },
+			{ 2541, 2268 },
+			{ 2542, 2269 },
+			{ 2543, 2270 },
+			{ 2544, 2271 },
+			{ 2545, 2272 },
+			{ 2546, 2273 },
+			{ 2547, 2274 },
+			{ 2548, 2275 },
+			{ 2549, 2276 },
+			{ 2550, 2277 },
+			{ 2551, 2278 },
+			{ 2552, 2279 },
+			{ 2553, 2280 },
+			{ 2554, 2281 },
+			{ 2555, 2282 },
+			{ 2556, 2283 },
+			{ 2557, 2284 },
+			{ 2558, 2285 },
+			{ 2559, 2286 },
+			{ 2560, 2287 },
+			{ 2561, 2288 },
+			{ 2562, 2289 },
+			{ 2563, 2290 },
+			{ 2564, 2291 },
+			{ 2565, 2292 },
+			{ 2566, 2293 },
+			{ 2567, 2294 },
+			{ 2568, 2295 },
+			{ 2569, 2296 },
+			{ 2570, 2297 },
+			{ 2571, 2298 },
+			{ 2572, 2299 },
+			{ 2573, 2300 },
+			{ 2574, 1059 },
+			{ 2575, 1060 },
+			{ 2576, 1061 },
+			{ 2577, 1062 },
+			{ 2578, 1063 },
+			{ 2579, 1064 },
+			{ 2580, 1065 },
+			{ 2581, 1066 },
+			{ 2582, 1067 },
+			{ 2583, 1068 },
+			{ 2584, 1069 },
+			{ 2585, 1070 },
+			{ 2586, 1071 },
+			{ 2587, 1072 },
+			{ 2588, 1073 },
+			{ 2589, 1074 },
+			{ 2590, 1075 },
+			{ 2591, 1076 },
+			{ 2592, 1077 },
+			{ 2593, 1078 },
+			{ 2594, 1079 },
+			{ 2595, 1080 },
+			{ 2596, 1081 },
+			{ 2597, 1082 },
+			{ 2598, 1083 },
+			{ 2599, 1084 },
+			{ 2600, 1085 },
+			{ 2601, 1086 },
+			{ 2602, 1087 },
+			{ 2603, 1088 },
+			{ 2604, 1089 },
+			{ 2605, 1090 },
+			{ 2606, 1091 },
+			{ 2607, 1092 },
+			{ 2608, 1093 },
+			{ 2609, 1094 },
+			{ 2610, 1095 },
+			{ 2611, 1096 },
+			{ 2612, 1097 },
+			{ 2613, 1098 },
+			{ 2614, 1099 },
+			{ 2615, 2161 },
+			{ 2616, 2162 },
+			{ 2617, 2163 },
+			{ 2618, 2164 },
+			{ 2619, 2165 },
+			{ 2620, 2166 },
+			{ 2621, 2167 },
+			{ 2622, 2168 },
+			{ 2623, 2169 },
+			{ 2624, 2170 },
+			{ 2625, 2171 },
+			{ 2626, 2172 },
+			{ 2627, 2173 },
+			{ 2628, 2174 },
+			{ 2629, 2175 },
+			{ 2630, 2176 },
+			{ 2631, 2177 },
+			{ 2632, 2178 },
+			{ 2633, 2179 },
+			{ 2634, 2180 },
+			{ 2635, 2181 },
+			{ 2636, 2182 },
+			{ 2637, 2183 },
+			{ 2638, 2184 },
+			{ 2639, 2185 },
+			{ 2640, 2186 },
+			{ 2641, 2187 },
+			{ 2642, 2188 },
+			{ 2643, 2189 },
+			{ 2644, 2190 },
+			{ 2645, 2191 },
+			{ 2646, 2192 },
+			{ 2647, 2193 },
+			{ 2648, 2194 },
+			{ 2649, 2195 },
+			{ 2650, 2196 },
+			{ 2651, 2197 },
+			{ 2652, 2198 },
+			{ 2653, 2199 },
+			{ 2654, 2200 },
+			{ 2655, 1671 },
+			{ 2656, 1672 },
+			{ 2657, 1673 },
+			{ 2658, 1674 },
+			{ 2659, 1675 },
+			{ 2660, 1676 },
+			{ 2661, 1677 },
+			{ 2662, 1678 },
+			{ 2663, 1679 },
+			{ 2664, 1680 },
+			{ 2665, 1681 },
+			{ 2666, 1682 },
+			{ 2667, 1683 },
+			{ 2668, 1684 },
+			{ 2669, 1685 },
+			{ 2670, 1686 },
+			{ 2671, 1687 },
+			{ 2672, 1688 },
+			{ 2673, 1689 },
+			{ 2674, 1690 },
+			{ 2675, 1691 },
+			{ 2676, 1692 },
+			{ 2677, 1693 },
+			{ 2678, 1694 },
+			{ 2679, 1695 },
+			{ 2680, 1696 },
+			{ 2681, 1697 },
+			{ 2682, 1698 },
+			{ 2683, 1699 },
+			{ 2684, 1700 },
+			{ 2685, 1555 },
+			{ 2686, 1556 },
+			{ 2687, 1557 },
+			{ 2688, 1558 },
+			{ 2689, 1559 },
+			{ 2690, 1560 },
+			{ 2691, 1561 },
+			{ 2692, 1562 },
+			{ 2693, 1563 },
+			{ 2694, 1564 },
+			{ 2695, 1565 },
+			{ 2696, 1566 },
+			{ 2697, 1567 },
+			{ 2698, 1178 },
+			{ 2699, 1179 },
+			{ 2700, 1180 },
+			{ 2701, 1181 },
+			{ 2702, 1182 },
+			{ 2703, 1183 },
+			{ 2704, 1184 },
+			{ 2705, 1185 },
+			{ 2706, 1186 },
+			{ 2707, 1187 },
+			{ 2708, 1188 },
+			{ 2709, 1189 },
+			{ 2717, 1456 },
+			{ 2947, 1379 },
+			{ 2948, 1380 },
+			{ 2949, 1381 },
+			{ 2950, 1382 },
+			{ 2951, 1383 },
+			{ 2952, 1384 },
+			{ 2953, 1385 },
+			{ 2954, 1386 },
+			{ 2955, 1387 },
+			{ 2956, 1388 },
+			{ 2957, 1389 },
+			{ 2958, 1390 },
+			{ 2959, 1391 },
+			{ 2960, 1392 },
+			{ 2961, 1393 },
+			{ 2962, 1394 },
+			{ 2963, 1395 },
+			{ 2964, 1396 },
+			{ 2965, 1397 },
+			{ 2966, 1398 },
+			{ 2967, 1399 },
+			{ 2968, 1400 },
+			{ 2969, 1998 },
+			{ 2970, 1999 }
+		};
+
 		public static void Initialize()
 		{
 			//TODO: CHANGE ME TO OWNER ONLY
@@ -33,6 +380,8 @@ namespace Server.Commands
 			AlignTeleportersToMalasDungeons(from);
 			AlignSpawnersAndRespawn(from);
 			FixChampionSpawns(from);
+			MigrateHues(from);
+			RemoveCrafter(from);
 			from.SendMessage("Done migrating!");
 		}
 
@@ -41,9 +390,10 @@ namespace Server.Commands
 			var from = e.Mobile;
 			var accountsFile = Path.Combine(Core.BaseDirectory, "Accounts.txt");
 			var accountsText = "";
-			if(File.Exists(accountsFile))
+			if (File.Exists(accountsFile))
 				accountsText = File.ReadAllText(accountsFile).ToLower();
-			var allowedAccountNames = accountsText.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim());
+			var allowedAccountNames =
+				accountsText.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim());
 			foreach (var account in Accounts.GetAccounts())
 			{
 				if (from.Account == account)
@@ -56,6 +406,7 @@ namespace Server.Commands
 				else
 					account.Banned = true;
 			}
+
 			from.SendMessage("Done");
 		}
 
@@ -216,6 +567,7 @@ namespace Server.Commands
 				from.SendMessage("Migrating " + dmi.name);
 				MigrateDungeon(dmi, Map.Malas, Map.Felucca, true);
 			}
+
 			from.SendMessage("Applying additional fixes");
 			foreach (var dmi in additonalFixes)
 			{
@@ -238,7 +590,6 @@ namespace Server.Commands
 				item.MoveToWorld(new Point3D(newX, newY, dmi.name == "zoo" ? 0 : item.Z), toMap);
 				if (item is XmlSpawner spawner)
 				{
-					
 					foreach (var spawnObject in spawner.SpawnObjects)
 					{
 						var text = spawnObject.TypeName;
@@ -292,11 +643,13 @@ namespace Server.Commands
 						{
 							text = ReplaceToken(text, "y", y, (int.Parse(y) + yDiff).ToString());
 						}
+
 						spawnObject.TypeName = text;
 					}
 
 					spawner.Respawn();
 				}
+
 				if (item is BossSpawner bossSpawner)
 				{
 					if (bossSpawner.SealTargetMap == fromMap)
@@ -308,7 +661,6 @@ namespace Server.Commands
 							bossSpawner.SealTargetLocation.Z);
 					}
 				}
-				
 			}
 
 			items.Free();
@@ -318,13 +670,13 @@ namespace Server.Commands
 
 		private static List<TeleportFix> teleportFixes = new()
 		{
-			new("melisande", 3284, 1895, 6394, 179, 25), 
+			new("melisande", 3284, 1895, 6394, 179, 25),
 			new("shimmering", 3384, 1954, 6505, 6, -1),
 			new("lotharn_dungeon", 1950, 602, 6480, 185, 35),
 			new("grizzle", 5924, 409, 6819, 105, 0),
 			new("parox", 6052, 2427, 6785, 218, 0),
-			new("vox", 4109, 3786, 6987, 139, 0 ),
-			new("zoo", 1675, 2005, 6288, 316,0),
+			new("vox", 4109, 3786, 6987, 139, 0),
+			new("zoo", 1675, 2005, 6288, 316, 0),
 		};
 
 		private static void AlignTeleportersToMalasDungeons(Mobile from)
@@ -389,7 +741,7 @@ namespace Server.Commands
 				{
 					spawner.RegionName = "Grizzle" + spawner.RegionName.Substring("WielkaPokracznaBestia".Length);
 				}
-				
+
 				foreach (var spawnObject in spawner.SpawnObjects)
 				{
 					var text = spawnObject.TypeName;
@@ -397,10 +749,12 @@ namespace Server.Commands
 					text = ReplaceType(text, "NelderimSkeletalDragon", "NSkeletalDragon");
 					text = ReplaceType(text, "orccamp", "prisonercamp");
 					text = ReplaceType(text, "ratcamp", "prisonercamp");
-					if (text.StartsWith("raceteleporter", StringComparison.Ordinal) && spawner.Name == "KomnatyStworzenia")
+					if (text.StartsWith("raceteleporter", StringComparison.Ordinal) &&
+					    spawner.Name == "KomnatyStworzenia")
 					{
 						text = "RaceRoomMoongate/Location/(5156,254,50)";
 					}
+
 					spawnObject.TypeName = text;
 				}
 
@@ -419,6 +773,68 @@ namespace Server.Commands
 			}
 		}
 
+		private static void MigrateHues(Mobile from)
+		{
+			var count = 0;
+			from.SendMessage("Migrating hues");
+			foreach (var item in World.Items.Values)
+			{
+				if (_HueMap.TryGetValue(item.RawHue, out var value))
+				{
+					item.Hue = value;
+					count++;
+				}
+			}
+			from.SendMessage($"Migrated {count} hues");
+		}
+
+		private static List<Type> _CrafterTypes =
+		[
+			typeof(BaseBeverage),
+			typeof(DragonBardingDeed),
+			typeof(RepairDeed),
+			typeof(FurnitureContainer),
+			typeof(LockableContainer),
+			typeof(BaseLight),
+			typeof(CraftableFurniture),
+			typeof(Globe),
+			typeof(BaseUtensil),
+			typeof(BaseArmor),
+			typeof(BaseClothing),
+			typeof(BaseInstrument),
+			typeof(BaseJewel),
+			typeof(BaseQuiver),
+			typeof(Runebook),
+			typeof(Spellbook),
+			typeof(BaseWeapon),
+			typeof(BaseHarvestTool),
+			typeof(BaseTool),
+			typeof(FishingPole),
+			typeof(Key),
+			typeof(KeyRing),
+			typeof(Scales),
+			typeof(Scissors),
+			typeof(Spyglass),
+			typeof(WarHorseBardingDeed),
+			typeof(LiquorBarrel)
+		];
+		
+		private static void RemoveCrafter(Mobile from)
+		{
+			int count = 0;
+			from.SendMessage("Removing crafter");
+			foreach (var item in World.Items.Values)
+			{
+				var property = item.GetType().GetProperty("Crafter");
+				if (property != null)
+				{
+					property.SetValue(item, null);
+					count++;
+				}
+			}
+			from.SendMessage($"Removed {count} crafters");
+		}
+		
 		//HELPERS
 
 		private static string GetTokenValue(string text, string key, out int startIndex, out int length)
@@ -448,7 +864,7 @@ namespace Server.Commands
 
 			return text;
 		}
-		
+
 		static string ReplaceType(string text, string oldType, string newType)
 		{
 			var index = text.IndexOf(oldType + '/', StringComparison.OrdinalIgnoreCase);
@@ -456,6 +872,7 @@ namespace Server.Commands
 			{
 				return text;
 			}
+
 			return newType + text.Substring(index + oldType.Length);
 		}
 	}
