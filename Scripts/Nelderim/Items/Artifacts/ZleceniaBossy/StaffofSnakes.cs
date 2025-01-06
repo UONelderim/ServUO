@@ -49,7 +49,7 @@ namespace Server.Items
 		public override void AddNameProperties(ObjectPropertyList list)
 		{
 			base.AddNameProperties(list);
-			list.Add(1049644, "Przyzywa Stworzenia");
+			list.Add("Przyzywa Stworzenia");
 		}
 
 		public override void OnDoubleClick(Mobile from)
