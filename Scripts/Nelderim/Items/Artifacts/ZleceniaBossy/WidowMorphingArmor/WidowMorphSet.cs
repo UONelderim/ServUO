@@ -47,23 +47,36 @@ namespace Server.Items
 			}
 		}
 		
-		public static void CheckMorph(Item item, IEntity parent)
+		public static void Apply(Item item, IEntity parent)
 		{
 			if (parent is PlayerMobile pm)
 			{
 				if (item is ISetItem setItem && SetHelper.FullSetEquipped(pm, SetItem.WidowMorph, setItem.Pieces))
 				{
-					Effects.PlaySound( pm.Location, pm.Map, 503 );
-					pm.FixedParticles( 0x376A, 9, 32, 5030, EffectLayer.Waist );
-					pm.SendMessage( "Zmieniasz sie!" );
-					pm.BodyMod = 157;
-					pm.HueMod = 1109;
+					if (pm.BodyMod == 0 && pm.HueMod == -1)
+					{
+						Effects.PlaySound(pm.Location, pm.Map, 503);
+						pm.FixedParticles(0x376A, 9, 32, 5030, EffectLayer.Waist);
+						pm.SendMessage("Zmieniasz sie!");
+						pm.BodyMod = 157;
+						pm.HueMod = 1109;
+						if (pm.Mounted)
+							pm.Mount.Rider = null;
+					}
+					else
+					{
+						pm.SendMessage("Nie mozesz zmienic sie w tej formie.");
+					}
 				}
-				else
-				{
-					pm.BodyMod = 0;
-					pm.HueMod = 0;
-				}
+			}
+		}
+
+		public static void Unapply(IEntity parent)
+		{
+			if(parent is PlayerMobile pm && pm.BodyMod == 157 && pm.HueMod == 1109)
+			{
+				pm.BodyMod = 0;
+				pm.HueMod = -1;
 			}
 		}
 	}

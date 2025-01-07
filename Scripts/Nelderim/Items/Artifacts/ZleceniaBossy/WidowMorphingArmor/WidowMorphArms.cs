@@ -35,13 +35,13 @@ namespace Server.Items
 		public override void OnAdded(IEntity parent)
 		{
 			base.OnAdded(parent);
-			WidowMorphSet.CheckMorph(this, parent);
+			WidowMorphSet.Apply(this, parent);
 		}
 
 		public override void OnRemoved(IEntity parent)
 		{
 			base.OnRemoved(parent);
-			WidowMorphSet.CheckMorph(this, parent);
+			WidowMorphSet.Unapply(parent);
 		}
 
 		public WidowMorphArms( Serial serial ) : base( serial )
