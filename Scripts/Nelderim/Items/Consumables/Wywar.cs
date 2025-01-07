@@ -2,11 +2,11 @@ using System;
 
 namespace Server.Items
 {
-	public class BaseWywar : Item
+	public abstract class BaseWywar : Item
 	{
 		public override double DefaultWeight => 1.0;
 		public virtual int Bonus => 10;
-		public virtual StatType Type => StatType.Str;
+		public abstract StatType Type { get; }
 
 		public BaseWywar() : base( 3854 )
 		{
@@ -17,7 +17,6 @@ namespace Server.Items
 		{
 		}
 		
-
 		public override void OnDoubleClick( Mobile from )
 		{
 			var modName = $"[Wywar] {Type}";
@@ -80,7 +79,7 @@ namespace Server.Items
 	
 	public class WywarZrecznosci: BaseWywar
 	{
-		public override StatType Type => StatType.Int;
+		public override StatType Type => StatType.Dex;
 		
 		[Constructable]
 		public WywarZrecznosci()
