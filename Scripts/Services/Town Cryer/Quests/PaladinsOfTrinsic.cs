@@ -120,26 +120,6 @@ namespace Server.Engines.Quests
     {
         public override Type[] Quests => new Type[] { typeof(PaladinsOfTrinsic) };
 
-        public static Morz TramInstance { get; set; }
-        public static Morz FelInstance { get; set; }
-
-        public static void Initialize()
-        {
-            if (TramInstance == null)
-            {
-                TramInstance = new Morz();
-                TramInstance.MoveToWorld(new Point3D(2018, 2745, 30), Map.Trammel);
-                TramInstance.Direction = Direction.South;
-            }
-
-            if (FelInstance == null)
-            {
-                FelInstance = new Morz();
-                FelInstance.MoveToWorld(new Point3D(2018, 2745, 30), Map.Felucca);
-                FelInstance.Direction = Direction.South;
-            }
-        }
-
         public Morz()
             : base("Morz", "the Lord Commander")
         {
@@ -231,15 +211,6 @@ namespace Server.Engines.Quests
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (Map == Map.Trammel)
-            {
-                TramInstance = this;
-            }
-            else if (Map == Map.Felucca)
-            {
-                FelInstance = this;
-            }
         }
     }
 }

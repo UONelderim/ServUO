@@ -300,26 +300,6 @@ namespace Server.Engines.Quests
     {
         public override Type[] Quests => new Type[] { typeof(ToolsOfTheTradeQuest) };
 
-        public static LegendaryCartographer TramInstance { get; set; }
-        public static LegendaryCartographer FelInstance { get; set; }
-
-        public static void Initialize()
-        {
-            if (TramInstance == null)
-            {
-                TramInstance = new LegendaryCartographer();
-                TramInstance.MoveToWorld(new Point3D(3005, 811, 0), Map.Trammel);
-                TramInstance.Direction = Direction.West;
-            }
-
-            if (FelInstance == null)
-            {
-                FelInstance = new LegendaryCartographer();
-                FelInstance.MoveToWorld(new Point3D(3005, 811, 0), Map.Felucca);
-                FelInstance.Direction = Direction.West;
-            }
-        }
-
         public LegendaryCartographer()
             : base(NameList.RandomName("female"), "the Legendary Cartographer")
         {
@@ -381,51 +361,19 @@ namespace Server.Engines.Quests
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
-
-            if (Map == Map.Trammel)
-            {
-                TramInstance = this;
-            }
-
-            if (Map == Map.Felucca)
-            {
-                FelInstance = this;
-            }
         }
     }
 
     public class MasterProvisioner : MondainQuester
     {
         public override Type[] Quests => new Type[] { typeof(TheTreasureChaseQuest) };
-
-        public static MasterProvisioner TramInstance { get; set; }
-        public static MasterProvisioner FelInstance { get; set; }
-
-        public static void Initialize()
-        {
-            if (TramInstance == null)
-            {
-                TramInstance = new MasterProvisioner();
-                TramInstance.MoveToWorld(new Point3D(2989, 636, 0), Map.Trammel);
-                TramInstance.Direction = Direction.West;
-            }
-
-            if (FelInstance == null)
-            {
-                FelInstance = new MasterProvisioner();
-                FelInstance.MoveToWorld(new Point3D(2989, 636, 0), Map.Felucca);
-                FelInstance.Direction = Direction.West;
-            }
-        }
 
         public MasterProvisioner()
             : base(NameList.RandomName("male"), "the Master Provisioner")
@@ -496,16 +444,6 @@ namespace Server.Engines.Quests
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (Map == Map.Trammel)
-            {
-                TramInstance = this;
-            }
-
-            if (Map == Map.Felucca)
-            {
-                FelInstance = this;
-            }
         }
     }
 }

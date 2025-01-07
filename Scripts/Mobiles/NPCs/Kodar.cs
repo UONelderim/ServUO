@@ -52,18 +52,11 @@ namespace Server.Engines.Quests
 
     public class Kodar : BaseEscort
     {
-        public static void Initialize()
-        {
-            Spawn();
-        }
-
         public static Point3D HomeLocation => new Point3D(6311, 449, -50);
         public static int HomeRange => 5;
 
         public override Type[] Quests => new Type[] { typeof(KodarsRescueQuest) };
 
-        public static List<Kodar> FelInstances { get; set; }
-        public static List<Kodar> TramInstances { get; set; }
 
         [Constructable]
         public Kodar()
@@ -81,57 +74,6 @@ namespace Server.Engines.Quests
         public override void Advertise()
         {
             Say(1074202); // It’s you!   I’m saved, you are just in time.
-        }
-
-        public override void OnDelete()
-        {
-            if (Map == Map.Felucca && FelInstances != null && FelInstances.Contains(this))
-            {
-                FelInstances.Remove(this);
-                FelInstances = null;
-            }
-
-            if (Map == Map.Trammel && TramInstances != null && TramInstances.Contains(this))
-            {
-                TramInstances.Remove(this);
-                TramInstances = null;
-            }
-
-            Timer.DelayCall(TimeSpan.FromSeconds(3), delegate
-            {
-                Spawn();
-            });
-
-            base.OnDelete();
-        }
-
-        public static void Spawn()
-        {
-            if (FelInstances == null)
-            {
-                Kodar creature = new Kodar
-                {
-                    Home = HomeLocation,
-                    RangeHome = HomeRange
-                };
-                creature.MoveToWorld(HomeLocation, Map.Felucca);
-
-                FelInstances = new List<Kodar>();
-                FelInstances.Add(creature);
-            }
-
-            if (TramInstances == null)
-            {
-                Kodar creature = new Kodar
-                {
-                    Home = HomeLocation,
-                    RangeHome = HomeRange
-                };
-                creature.MoveToWorld(HomeLocation, Map.Trammel);
-
-                TramInstances = new List<Kodar>();
-                TramInstances.Add(creature);
-            }
         }
 
         public override void InitBody()
@@ -165,18 +107,6 @@ namespace Server.Engines.Quests
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-
-            if (Map == Map.Felucca && FelInstances == null)
-            {
-                FelInstances = new List<Kodar>();
-                FelInstances.Add(this);
-            }
-
-            if (Map == Map.Trammel && TramInstances == null)
-            {
-                TramInstances = new List<Kodar>();
-                TramInstances.Add(this);
-            }
         }
     }
 }

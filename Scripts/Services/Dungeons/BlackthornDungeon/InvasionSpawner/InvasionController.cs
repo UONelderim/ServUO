@@ -544,6 +544,7 @@ namespace Server.Engines.Blackthorn
 
         public static void Initialize()
         {
+	        return; //Disabled
             if (TramInstance == null)
             {
                 TramInstance = new InvasionController(Map.Trammel);

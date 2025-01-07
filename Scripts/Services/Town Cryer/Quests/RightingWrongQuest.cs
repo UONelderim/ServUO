@@ -266,26 +266,6 @@ namespace Server.Engines.Quests
     {
         public override Type[] Quests => new Type[] { typeof(RightingWrongQuest2) };
 
-        public static Arnold TramInstance { get; set; }
-        public static Arnold FelInstance { get; set; }
-
-        public static void Initialize()
-        {
-            if (TramInstance == null)
-            {
-                TramInstance = new Arnold();
-                TramInstance.MoveToWorld(new Point3D(363, 913, 0), Map.Trammel);
-                TramInstance.Direction = Direction.East;
-            }
-
-            if (FelInstance == null)
-            {
-                FelInstance = new Arnold();
-                FelInstance.MoveToWorld(new Point3D(363, 913, 0), Map.Felucca);
-                FelInstance.Direction = Direction.East;
-            }
-        }
-
         public Arnold()
             : base("Arnold", "the Royal Britannian Guard")
         {
@@ -367,15 +347,6 @@ namespace Server.Engines.Quests
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
-
-            if (Map == Map.Trammel)
-            {
-                TramInstance = this;
-            }
-            else if (Map == Map.Felucca)
-            {
-                FelInstance = this;
-            }
         }
     }
 }

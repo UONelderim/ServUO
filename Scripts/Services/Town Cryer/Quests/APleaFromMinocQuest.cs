@@ -262,26 +262,6 @@ namespace Server.Engines.Quests
     {
         public override Type[] Quests => new Type[] { typeof(ToolsOfTheTradeQuest) };
 
-        public static SheriffOfMinoc TramInstance { get; set; }
-        public static SheriffOfMinoc FelInstance { get; set; }
-
-        public static void Initialize()
-        {
-            if (TramInstance == null)
-            {
-                TramInstance = new SheriffOfMinoc();
-                TramInstance.MoveToWorld(new Point3D(2462, 439, 15), Map.Trammel);
-                TramInstance.Direction = Direction.South;
-            }
-
-            if (FelInstance == null)
-            {
-                FelInstance = new SheriffOfMinoc();
-                FelInstance.MoveToWorld(new Point3D(2462, 439, 15), Map.Felucca);
-                FelInstance.Direction = Direction.South;
-            }
-        }
-
         public SheriffOfMinoc()
             : base(NameList.RandomName("male"), "the Sheriff of Minoc")
         {
@@ -405,25 +385,13 @@ namespace Server.Engines.Quests
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
-
-            if (Map == Map.Trammel)
-            {
-                TramInstance = this;
-            }
-
-            if (Map == Map.Felucca)
-            {
-                FelInstance = this;
-            }
         }
     }
 }

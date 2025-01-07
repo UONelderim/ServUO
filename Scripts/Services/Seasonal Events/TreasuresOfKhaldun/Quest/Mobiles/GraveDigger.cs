@@ -16,19 +16,6 @@ namespace Server.Engines.Khaldun
         {
         }
 
-        public static GraveDigger TramInstance { get; set; }
-        //public static GraveDigger FelInstance { get; set; }
-
-        public static void Initialize()
-        {
-            if (TramInstance == null)
-            {
-                TramInstance = new GraveDigger();
-                TramInstance.MoveToWorld(new Point3D(1382, 1447, 10), Map.Trammel);
-                TramInstance.Direction = Direction.South;
-            }
-        }
-
         public GraveDigger()
             : base("the Grave Digger")
         {
@@ -106,20 +93,13 @@ namespace Server.Engines.Khaldun
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
-
-            if (Map == Map.Trammel)
-            {
-                TramInstance = this;
-            }
         }
     }
 }

@@ -157,32 +157,6 @@ namespace Server.Engines.Quests
             typeof( DoughtyWarriorsQuest )
         };
 
-        public static Kane TramInstance { get; set; }
-        public static Kane FelInstance { get; set; }
-
-        public static void Initialize()
-        {
-            if (TramInstance == null)
-            {
-                TramInstance = new Kane();
-                var p = new Point3D(2027, 2740, 50);
-
-                TramInstance.MoveToWorld(p, Map.Trammel);
-                TramInstance.Home = p;
-                TramInstance.RangeHome = 5;
-            }
-
-            if (FelInstance == null)
-            {
-                FelInstance = new Kane();
-                var p = new Point3D(2027, 2740, 50);
-
-                FelInstance.MoveToWorld(p, Map.Felucca);
-                FelInstance.Home = p;
-                FelInstance.RangeHome = 5;
-            }
-        }
-
         [Constructable]
         public Kane()
             : base("Kane", "the Master of Arms")
@@ -245,25 +219,13 @@ namespace Server.Engines.Quests
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             reader.ReadInt();
-
-            if (Map == Map.Trammel)
-            {
-                TramInstance = this;
-            }
-
-            if (Map == Map.Felucca)
-            {
-                FelInstance = this;
-            }
         }
     }
 }

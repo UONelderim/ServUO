@@ -48,24 +48,6 @@ namespace Server.Engines.Quests
 
     public class CorpseOfBennetYardley : Item, IConditionalVisibility
     {
-        public static CorpseOfBennetYardley TramInstance { get; set; }
-        public static CorpseOfBennetYardley FelInstance { get; set; }
-
-        public static void Initialize()
-        {
-            if (TramInstance == null)
-            {
-                TramInstance = new CorpseOfBennetYardley();
-                TramInstance.MoveToWorld(new Point3D(5688, 653, 0), Map.Trammel);
-            }
-
-            if (FelInstance == null)
-            {
-                FelInstance = new CorpseOfBennetYardley();
-                FelInstance.MoveToWorld(new Point3D(5688, 653, 0), Map.Felucca);
-            }
-        }
-
         public override bool ForceShowProperties => true;
         public override int LabelNumber => 1158168;
 
@@ -117,15 +99,6 @@ namespace Server.Engines.Quests
         {
             base.Deserialize(reader);
             int v = reader.ReadInt();
-
-            if (Map == Map.Trammel)
-            {
-                TramInstance = this;
-            }
-            else if (Map == Map.Felucca)
-            {
-                FelInstance = this;
-            }
         }
     }
 
@@ -479,24 +452,6 @@ namespace Server.Engines.Quests
 
     public class PaladinCorpse : Container
     {
-        public static PaladinCorpse TramInstance { get; set; }
-        public static PaladinCorpse FelInstance { get; set; }
-
-        public static void Initialize()
-        {
-            if (TramInstance == null)
-            {
-                TramInstance = new PaladinCorpse();
-                TramInstance.MoveToWorld(new Point3D(5396, 118, 0), Map.Trammel);
-            }
-
-            if (FelInstance == null)
-            {
-                FelInstance = new PaladinCorpse();
-                FelInstance.MoveToWorld(new Point3D(5396, 118, 0), Map.Felucca);
-            }
-        }
-
         public override int LabelNumber => 1158135;  // the remains of a would-be paladin
         public override bool HandlesOnMovement => true;
         public override bool IsDecoContainer => false;
@@ -530,15 +485,6 @@ namespace Server.Engines.Quests
         {
             base.Deserialize(reader);
             int v = reader.ReadInt();
-
-            if (Map == Map.Trammel)
-            {
-                TramInstance = this;
-            }
-            else if (Map == Map.Felucca)
-            {
-                FelInstance = this;
-            }
         }
     }
 

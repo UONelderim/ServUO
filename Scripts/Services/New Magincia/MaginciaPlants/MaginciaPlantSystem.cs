@@ -6,7 +6,7 @@ namespace Server.Engines.Plants
 {
     public class MaginciaPlantSystem : Item
     {
-        public static readonly bool Enabled = true;
+        public static readonly bool Enabled = false;
         public static readonly int PlantDelay = 4;
         public Dictionary<Mobile, DateTime> PlantDelayTable { get; } = new Dictionary<Mobile, DateTime>();
 

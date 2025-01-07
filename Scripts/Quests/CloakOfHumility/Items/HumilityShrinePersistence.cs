@@ -4,26 +4,6 @@ namespace Server.Engines.Quests
 {
     public class HumilityShrinePersistence : Item
     {
-        public static void Initialize()
-        {
-            if (m_TramInstance == null)
-            {
-                m_TramInstance = new HumilityShrinePersistence();
-                m_TramInstance.MoveToWorld(new Point3D(4270, 3698, 0), Map.Trammel);
-
-                SetupMobiles();
-            }
-
-            if (m_FelInstance == null)
-            {
-                m_FelInstance = new HumilityShrinePersistence();
-                m_FelInstance.MoveToWorld(new Point3D(4270, 3698, 0), Map.Felucca);
-            }
-        }
-
-        private static HumilityShrinePersistence m_TramInstance;
-        private static HumilityShrinePersistence m_FelInstance;
-
         [Constructable]
         public HumilityShrinePersistence() : base(219)
         {
@@ -61,20 +41,13 @@ namespace Server.Engines.Quests
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
-
-            if (Map == Map.Trammel)
-                m_TramInstance = this;
-            else
-                m_FelInstance = this;
         }
 
         public static void SetupMobiles()
