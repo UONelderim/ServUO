@@ -1091,7 +1091,7 @@ namespace Server.Mobiles
 				}
 				else
 				{
-					Say(true, "You have nothing I would be interested in.");
+					Say(true, "Nie masz niczego co by mnie interesowalo.");
 				}
 			}
 		}
