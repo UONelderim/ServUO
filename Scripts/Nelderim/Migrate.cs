@@ -749,7 +749,7 @@ namespace Server.Commands
 					text = ReplaceType(text, "NelderimSkeletalDragon", "NSkeletalDragon");
 					text = ReplaceType(text, "orccamp", "prisonercamp");
 					text = ReplaceType(text, "ratcamp", "prisonercamp");
-					if (text.StartsWith("raceteleporter", StringComparison.Ordinal) &&
+					if (text.StartsWith("raceteleporter", StringComparison.OrdinalIgnoreCase) &&
 					    spawner.Name == "KomnatyStworzenia")
 					{
 						text = "RaceRoomMoongate/Location/(5156,254,50)";
