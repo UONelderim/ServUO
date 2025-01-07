@@ -1,25 +1,15 @@
 namespace Server.Items
-{
-	public class WidowMorphHelm : BaseArmor
+{  
+	public class WidowMorphCloak : BaseCloak
 	{
-		public override int BasePhysicalResistance => 8;
-		public override int BaseFireResistance => 5;
-		public override int BaseColdResistance => 5;
-		public override int BasePoisonResistance => 7;
-		public override int BaseEnergyResistance => 5;
-		public override int InitMinHits => 50;
-		public override int InitMaxHits => 65;
-		public override int StrReq => 20;
-		public override ArmorMaterialType MaterialType => ArmorMaterialType.Leather;
 		public override SetItem SetID => SetItem.WidowMorph;
 		public override int Pieces => 7;
 
 		[Constructable]
-		public WidowMorphHelm() : base( 11024 )
+		public WidowMorphCloak() : base( 0x2B04 )
 		{
-			Name = "Helm Wdowy";
-			Weight = 5.0;
-			Attributes.RegenHits = 1;
+			Weight = 4.0;
+			Name = "Plaszcz Wdowy";
 			
 			WidowMorphSet.Attributes(this);
 		}
@@ -41,18 +31,18 @@ namespace Server.Items
 			base.OnRemoved(parent);
 			WidowMorphSet.CheckMorph(this, parent);
 		}
-
-		public WidowMorphHelm( Serial serial ) : base( serial )
+		
+		public WidowMorphCloak( Serial serial ) : base( serial )
 		{
 		}
 
 		public override void Serialize( GenericWriter writer )
 		{
 			base.Serialize( writer );
-			writer.Write( (int) 0 );
+			writer.Write( (int) 0 ); // version
 		}
-		
-		public override void Deserialize(GenericReader reader)
+
+		public override void Deserialize( GenericReader reader )
 		{
 			base.Deserialize( reader );
 			int version = reader.ReadInt();

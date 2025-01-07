@@ -29,7 +29,8 @@ namespace Server
         Bestial,
         Virtuoso,
         Aloron,
-        Darden
+        Darden,
+        WidowMorph
     }
 
     public interface ISetItem
