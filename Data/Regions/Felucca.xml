@@ -4,7 +4,7 @@
 		<region type="GreenAcres" priority="100" name="GreenAcres">
 			<rect x="5597" y="0" width="169" height="66" />
 		</region>
-		<region type="JailRegion" priority="90" name="Wiezienie">
+		<region type="Jail" priority="90" name="Wiezienie">
 			<rect x="1965" y="1531" width="108" height="102" />
 			<rect x="1974" y="1632" width="50" height="50" />
 			<rect x="2023" y="1631" width="21" height="30" />

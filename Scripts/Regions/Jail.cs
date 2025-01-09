@@ -1,4 +1,5 @@
 using System.Xml;
+using Server.Nelderim.Gumps;
 
 namespace Server.Regions
 {
@@ -62,6 +63,17 @@ namespace Server.Regions
         public override bool OnCombatantChange(Mobile from, IDamageable Old, IDamageable New)
         {
             return (from.IsStaff());
+        }
+        
+        public override void OnEnter(Mobile m)
+        {
+	        m.SendLocalizedMessage(505611, "wiezienia"); // Wkroczyles na teren ~1_NAME~
+	        ProfileSetupGump.Check(m);
+        }
+
+        public override void OnExit(Mobile m)
+        {
+	        m.SendLocalizedMessage(505612, "wiezienia"); // Opuszczasz teren ~1_NAME~
         }
     }
 }
