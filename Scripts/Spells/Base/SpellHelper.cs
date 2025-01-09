@@ -812,13 +812,16 @@ namespace Server.Spells
                     isValid = false;
                 else if (isValid && current != null && !current.CheckTravel(caster, loc, type))
                     isValid = false;
-                else if (Region.Contains<DungeonRegion>(map, loc))
-	                isValid = false;
-                else if (caster.Race == Race.NDrow && !Region.Contains<UndershadowTravelRegion>(map, loc))
-	                isValid = false;
-                else if (!Region.Contains<TravelRegion>(map, loc))
-	                isValid = false;
-                
+                else if (type != TravelCheckType.TeleportFrom && type != TravelCheckType.TeleportTo)
+                {
+	                if (Region.Contains<DungeonRegion>(map, loc))
+		                isValid = false;
+	                else if (caster.Race == Race.NDrow && !Region.Contains<UndershadowTravelRegion>(map, loc))
+		                isValid = false;
+	                else if (!Region.Contains<TravelRegion>(map, loc))
+		                isValid = false;
+                }
+
                 if (BaseBoat.IsDriving(caster))
                     return false;
             }
@@ -836,12 +839,12 @@ namespace Server.Spells
                 m.SendLocalizedMessage(1005561, "", 0x22); // Thou'rt a criminal and cannot escape so easily.
                 return false;
             }
-            else if (CheckCombat(m))
+            if (CheckCombat(m))
             {
                 m.SendLocalizedMessage(1005564, "", 0x22); // Wouldst thou flee during the heat of battle??
                 return false;
             }
-            else if (WeightOverloading.IsOverloaded(m))
+            if (WeightOverloading.IsOverloaded(m))
             {
                 m.SendLocalizedMessage(502359, "", 0x22); // Thou art too encumbered to move.
                 return false;
@@ -850,36 +853,9 @@ namespace Server.Spells
             return true;
         }
 
-        public static bool IsWindLoc(Point3D loc)
-        {
-            int x = loc.X, y = loc.Y;
-
-            return (x >= 5120 && y >= 0 && x < 5376 && y < 256);
-        }
-
-        public static bool IsFeluccaWind(Map map, Point3D loc)
-        {
-            return (map == Map.Felucca && IsWindLoc(loc));
-        }
-
-        public static bool IsTrammelWind(Map map, Point3D loc)
-        {
-            return (map == Map.Trammel && IsWindLoc(loc));
-        }
-
         public static bool IsIlshenar(Map map, Point3D loc)
         {
             return (map == Map.Ilshenar);
-        }
-
-        public static bool IsTrammelSolenHive(Map map, Point3D loc)
-        {
-            return map == Map.Trammel && Region.Find(loc, map).Name == "Solen Hives";
-        }
-
-        public static bool IsFeluccaSolenHive(Map map, Point3D loc)
-        {
-            return map == Map.Felucca && Region.Find(loc, map).Name == "Solen Hives";
         }
 
         public static bool IsFeluccaT2A(Map map, Point3D loc)
@@ -896,57 +872,6 @@ namespace Server.Spells
             return ((map == Map.Trammel || map == Map.Felucca) && x >= 5120 && y >= 2304 && x < 6144 && y < 4096);
         }
 
-        public static bool IsFeluccaDungeon(Map map, Point3D loc)
-        {
-            Region region = Region.Find(loc, map);
-            return (region.IsPartOf<DungeonRegion>() && region.Map == Map.Felucca);
-        }
-
-        public static bool IsKhaldun(Map map, Point3D loc)
-        {
-            return (Region.Find(loc, map).Name == "Khaldun");
-        }
-
-        public static bool IsSafeZone(Map map, Point3D loc)
-        {
-            return false;
-        }
-
-        public static bool IsChampionSpawn(Map map, Point3D loc)
-        {
-            return (Region.Find(loc, map).IsPartOf<Engines.CannedEvil.ChampionSpawnRegion>());
-        }
-
-        public static bool IsDoomFerry(Map map, Point3D loc)
-        {
-            if (map != Map.Malas)
-                return false;
-
-            int x = loc.X, y = loc.Y;
-
-            if (x >= 426 && y >= 314 && x <= 430 && y <= 331)
-                return true;
-
-            if (x >= 406 && y >= 247 && x <= 410 && y <= 264)
-                return true;
-
-            return false;
-        }
-
-        public static bool IsTokunoDungeon(Map map, Point3D loc)
-        {
-            //The tokuno dungeons are really inside malas
-            if (map != Map.Malas)
-                return false;
-
-            int x = loc.X, y = loc.Y, z = loc.Z;
-
-            bool r1 = (x >= 0 && y >= 0 && x <= 128 && y <= 128);
-            bool r2 = (x >= 45 && y >= 320 && x < 195 && y < 710);
-
-            return (r1 || r2);
-        }
-
         public static bool IsDoomGauntlet(Map map, Point3D loc)
         {
             if (map != Map.Malas)
@@ -957,82 +882,12 @@ namespace Server.Spells
             return (x >= 0 && y >= 0 && x < 256 && y < 256);
         }
 
-        public static bool IsLampRoom(Map map, Point3D loc)
-        {
-            if (map != Map.Malas)
-                return false;
-
-            int x = loc.X, y = loc.Y;
-
-            return (x >= 465 && y >= 92 && x < 474 && y < 102);
-        }
-
-        public static bool IsGuardianRoom(Map map, Point3D loc)
-        {
-            if (map != Map.Malas)
-                return false;
-
-            int x = loc.X, y = loc.Y;
-
-            return (x >= 356 && y >= 5 && x < 375 && y < 25);
-        }
-
-        public static bool IsHeartwood(Map map, Point3D loc)
-        {
-            int x = loc.X, y = loc.Y;
-
-            return (map == Map.Trammel || map == Map.Felucca) && (x >= 6911 && y >= 254 && x < 7167 && y < 511);
-        }
-
-        public static bool IsMLDungeon(Map map, Point3D loc)
-        {
-            return MondainsLegacy.IsMLRegion(Region.Find(loc, map));
-        }
-
-        public static bool IsTombOfKings(Map map, Point3D loc)
-        {
-            return (Region.Find(loc, map).IsPartOf(typeof(TombOfKingsRegion)));
-        }
-
-        public static bool IsMazeOfDeath(Map map, Point3D loc)
-        {
-            return (Region.Find(loc, map).IsPartOf(typeof(MazeOfDeathRegion)));
-        }
-
-        public static bool IsSAEntrance(Map map, Point3D loc)
-        {
-            return map == Map.TerMur && loc.X >= 1122 && loc.Y >= 1067 && loc.X <= 1144 && loc.Y <= 1086;
-        }
-
-        public static bool IsSADungeon(Map map, Point3D loc)
-        {
-            if (map != Map.TerMur)
-                return false;
-
-            Region region = Region.Find(loc, map);
-            return (region.IsPartOf(typeof(DungeonRegion)) && !region.IsPartOf(typeof(TombOfKingsRegion)));
-        }
-
         public static bool IsEodon(Map map, Point3D loc)
         {
             if (map == Map.Felucca && loc.X >= 6975 && loc.X <= 7042 && loc.Y >= 2048 && loc.Y <= 2115)
                 return true;
 
             return map == Map.TerMur && loc.X >= 0 && loc.X <= 1087 && loc.Y >= 1344 && loc.Y <= 2495;
-        }
-
-        public static bool IsNewDungeon(Map map, Point3D loc)
-        {
-            if (map == Map.Trammel)
-            {
-                Region r = Region.Find(loc, map);
-
-                // Revamped Dungeons with specific rules
-                if (r.Name == "Void Pool" || r.Name == "Wrong")
-                    return true;
-            }
-
-            return false;
         }
 
         public static bool IsInvalid(Map map, Point3D loc)
@@ -1046,14 +901,6 @@ namespace Server.Spells
         }
 
         //towns
-        public static bool IsTown(IPoint3D loc, Mobile caster)
-        {
-            if (loc is Item)
-                loc = ((Item)loc).GetWorldLocation();
-
-            return IsTown(new Point3D(loc), caster);
-        }
-
         public static bool IsTown(Point3D loc, Mobile caster)
         {
             Map map = caster.Map;
