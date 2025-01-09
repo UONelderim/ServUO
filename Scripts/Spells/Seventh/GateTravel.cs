@@ -208,7 +208,7 @@ namespace Server.Spells.Seventh
                 if (ShowFeluccaWarning && map == Map.Felucca)
                     ItemID = 0x0F6C;
 
-                if (Undershadow.Contains(map, target))
+                if (Region.Contains<Undershadow>(map, target))
                 {
 	                ItemID = 0xDDA;
 	                Hue = 0x685;

@@ -16,7 +16,7 @@ namespace Server.Nelderim.Gumps
 		{
 			m.CloseGump<ProfileSetupGump>();
 			
-			if (m.IsPlayer() && (m.Region is RaceRoomRegion || m.Region is JailRegion) && (m.Profile == null || m.Profile.Trim().Length < 50 ))
+			if (m.IsPlayer() && (m.Region is RaceRoomRegion || m.Region is Jail) && (m.Profile == null || m.Profile.Trim().Length < 50 ))
 			{
 				m.Frozen = true;
 				if(m.Profile == null || m.Profile.Trim().Length == 0)

@@ -125,9 +125,10 @@ namespace Server
 	[PropertyObject]
 	public class Region : IComparable, IComparable<Region>
 	{
-		public static List<Region> Regions { get; } = new List<Region>(0x400);
+		public static List<Region> Regions { get; } = new(0x400);
+		public static Dictionary<Type, List<Region>> RegionsByType { get; } = new();
 
-		public static Region Find(Point2D p, Map map)
+	public static Region Find(Point2D p, Map map)
 		{
 			if (map == null)
 			{
@@ -514,6 +515,12 @@ namespace Server
 			}
 
 			Regions.Add(this);
+			if(!RegionsByType.TryGetValue(GetType(), out var typeRegions))
+			{
+				typeRegions = new List<Region>();
+				RegionsByType.Add(GetType(), typeRegions);
+			}
+			typeRegions.Add(this);
 
 			Map.RegisterRegion(this);
 
@@ -606,6 +613,11 @@ namespace Server
 			}
 
 			Regions.Remove(this);
+			if (RegionsByType.TryGetValue(GetType(), out var typeRegions))
+			{
+				typeRegions.Remove(this);
+				typeRegions.TrimExcess();
+			}
 			Regions.TrimExcess();
 
 			Map.UnregisterRegion(this);
@@ -651,6 +663,15 @@ namespace Server
 					return true;
 			}
 
+			return false;
+		}
+
+		public static bool Contains<T>(Map m, Point3D p)
+		{
+			if(RegionsByType.TryGetValue(typeof(T), out var regions))
+			{
+				return regions.Any(r => r.Map == m && r.Contains(p));
+			}
 			return false;
 		}
 

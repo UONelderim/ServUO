@@ -739,46 +739,6 @@ namespace Server.Spells
 
         public static bool RestrictRedTravel => Config.Get("General.RestrictRedsToFel", false);
 
-        private delegate bool TravelValidator(Map map, Point3D loc);
-
-        private static readonly TravelValidator[] m_Validators = new TravelValidator[]
-        {
-            IsFeluccaT2A,
-            IsKhaldun,
-            IsIlshenar,
-            IsTrammelWind,
-            IsFeluccaWind,
-            IsFeluccaDungeon,
-            IsTrammelSolenHive,
-            IsFeluccaSolenHive,
-            IsDoomGauntlet,
-            IsDoomFerry,
-            IsSafeZone,
-            IsChampionSpawn,
-            IsTokunoDungeon,
-            IsLampRoom,
-            IsGuardianRoom,
-            IsHeartwood,
-            IsMLDungeon,
-            IsSADungeon,
-            IsTombOfKings,
-            IsMazeOfDeath,
-            IsSAEntrance,
-            IsEodon,
-        };
-
-        private static readonly bool[,] m_Rules = new bool[,]
-        {
-					/*T2A(Fel),	Khaldun,	Ilshenar,	Wind(Tram),	Wind(Fel),	Dungeons(Fel),	Solen(Tram),	Solen(Fel),	Gauntlet(Malas),	Gauntlet(Ferry),	SafeZone,	ChampionSpawn,	Dungeons(Tokuno[Malas]),	LampRoom(Doom),	GuardianRoom(Doom),	Heartwood,	MLDungeons, SA Dungeons		Tomb of Kings	Maze of Death	SA Entrance,    Eodon*/
-/* Recall From */	{ false,    false,      true,       true,       false,      false,          true,           false,      false,              false,              true,       false,          true,                       false,          false,              false,      false,      true,           true,           false,          false,          true} ,
-/* Recall To */		{ false,    false,      false,      false,      false,      false,          false,          false,      false,              false,              false,      false,          false,                      false,          false,              false,      false,      false,          false,          false,          false,          false },
-/* Gate From */		{ false,    false,      false,      false,      false,      false,          false,          false,      false,              false,              false,      false,          false,                      false,          false,              false,      false,      false,          false,          false,          false,          false },
-/* Gate To */		{ false,    false,      false,      false,      false,      false,          false,          false,      false,              false,              false,      false,          false,                      false,          false,              false,      false,      false,          false,          false,          false,          false },
-/* Mark In */		{ false,    false,      false,      false,      false,      false,          false,          false,      false,              false,              false,      false,          false,                      false,          false,              false,      false,      false,          false,          false,          false,          false },
-/* Tele From */		{ true,     true,       true,       true,       true,       true,           true,           true,       true,               true,               true,       true,           true,                       true,           true,               false,      true,       true,           false,          false,          false,          true },
-/* Tele To */		{ true,     true,       true,       true,       true,       true,           true,           true,       true,               false,              false,      true,           true,                       true,           true,               false,      false,      true,           false,          false,          false,          true },
-        };
-
         public static void SendInvalidMessage(Mobile caster, TravelCheckType type)
         {
             if (type == TravelCheckType.RecallTo || type == TravelCheckType.GateTo)
@@ -798,9 +758,6 @@ namespace Server.Spells
         {
             return CheckTravel(null, map, loc, type);
         }
-
-        private static Mobile m_TravelCaster;
-        private static TravelCheckType m_TravelType;
 
         public static bool CheckTravel(Mobile caster, Map map, Point3D loc, TravelCheckType type)
         {
@@ -822,7 +779,7 @@ namespace Server.Spells
                         caster.SendLocalizedMessage(1114345); // You'll need a better jailbreak plan than that!
                         return false;
                     }
-                    else if (caster.Region is GreenAcres)
+                    if (caster.Region is GreenAcres)
                     {
                         caster.SendLocalizedMessage(502360); // You cannot teleport into that area.
                         return false;
@@ -844,11 +801,7 @@ namespace Server.Spells
                 }
             }
 
-            m_TravelCaster = caster;
-            m_TravelType = type;
-
-            int v = (int)type;
-            bool isValid = true;
+            var isValid = true;
 
             if (caster != null)
             {
@@ -857,28 +810,20 @@ namespace Server.Spells
 
                 if (destination != null && !destination.CheckTravel(caster, loc, type))
                     isValid = false;
-
-                if (isValid && current != null && !current.CheckTravel(caster, loc, type))
+                else if (isValid && current != null && !current.CheckTravel(caster, loc, type))
                     isValid = false;
-
-                if (caster.Region != null)
-                {
-                    if (caster.Region.IsPartOf("Blighted Grove") && loc.Z < -10)
-                        isValid = false;
-                }
-
-                if ((int)type <= 4 && (IsNewDungeon(caster.Map, caster.Location) || IsNewDungeon(map, loc)))
-                    isValid = false;
-
+                else if (Region.Contains<DungeonRegion>(map, loc))
+	                isValid = false;
+                else if (caster.Race == Race.NDrow && !Region.Contains<UndershadowTravelRegion>(map, loc))
+	                isValid = false;
+                else if (!Region.Contains<TravelRegion>(map, loc))
+	                isValid = false;
+                
                 if (BaseBoat.IsDriving(caster))
                     return false;
-
             }
 
-            for (int i = 0; isValid && i < _NValidators.Length; ++i)
-                isValid = (_NRules[v, i] || !_NValidators[i](map, loc));
-
-            if (!isValid && caster != null)
+            if (!isValid)
                 SendInvalidMessage(caster, type);
 
             return isValid;

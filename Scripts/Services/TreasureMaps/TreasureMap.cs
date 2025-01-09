@@ -482,7 +482,7 @@ namespace Server.Items
             {
                 if (reg.IsPartOf<CityRegion>() || reg.IsPartOf<VillageRegion>() || 
                     reg.IsPartOf<DungeonRegion>() || reg.IsPartOf<ChampionSpawnRegion>() || 
-                    reg.IsPartOf<HousingRegion>() || reg.IsPartOf<JailRegion>())
+                    reg.IsPartOf<HousingRegion>() || reg.IsPartOf<Jail>())
 	                
                 {
                     return false;
