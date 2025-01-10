@@ -38,6 +38,26 @@ namespace Server.Engines.Harvest
             return CheckTool(from, tool);
         }
 
+
+        public virtual bool CheckArmor(Mobile from)
+        {
+	        if (CheckArmor(from.NeckArmor) &&
+	            CheckArmor(from.HandArmor) &&
+	            CheckArmor(from.HeadArmor) &&
+	            CheckArmor(from.ArmsArmor) &&
+	            CheckArmor(from.LegsArmor) &&
+	            CheckArmor(from.ChestArmor)
+	            )
+		        return true;
+	        from.SendMessage("Twoj pancerz jest zbyt ciezki by to zrobic");
+	        return false;
+        }
+
+        public bool CheckArmor(Item armor)
+        {
+	        return armor is null or BaseArmor { MaterialType: <= ArmorMaterialType.Ringmail };
+        }
+
         public virtual bool CheckHarvest(Mobile from, Item tool, HarvestDefinition def, object toHarvest)
         {
             return CheckTool(from, tool);
@@ -104,7 +124,7 @@ namespace Server.Engines.Harvest
 
             if (!CheckHarvest(from, tool))
                 return;
-
+            
             if (!GetHarvestDetails(from, tool, toHarvest, out int tileID, out Map map, out Point3D loc))
             {
                 OnBadHarvestTarget(from, tool, toHarvest);
@@ -477,6 +497,8 @@ namespace Server.Engines.Harvest
         {
             if (!CheckHarvest(from, tool))
                 return;
+            if (!CheckArmor(from))
+	            return;
 
             if (!GetHarvestDetails(from, tool, toHarvest, out int tileID, out Map map, out Point3D loc))
             {
