@@ -13,8 +13,6 @@ namespace Nelderim.Gains
 		private Timer _GainBoostTimer;
 		private DateTime _GainBoostEndTime;
 
-		public bool GainDebug { get; set; }
-
 		public double GainFactor
 		{
 			get => _GainFactor;

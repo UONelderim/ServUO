@@ -34,15 +34,9 @@ namespace Server.Mobiles
 		}
 		
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
-		public bool GainDebug
-		{
-			get => Gains.Get(this).GainDebug;
-			set => Gains.Get(this).GainDebug = value;
-		}
+		public bool GainDebug { get; set; }
 		
 		public DateTime LastMacroCheck { get; set; }
-
-		public bool GainsDebugEnabled { get; set; }
 
 		// SUS
 		private HashSet<Mobile> m_Seers;

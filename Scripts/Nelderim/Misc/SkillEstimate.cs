@@ -291,11 +291,11 @@ namespace Nelderim
 				case SkillName.Wrestling: return 0;
 				case SkillName.Lumberjacking: return Lumberjacking.System.Definition.EffectDelay.TotalSeconds;
 				case SkillName.Mining: return Mining.System.OreAndStone.EffectDelay.TotalSeconds;
-				case SkillName.Meditation: return 0.5; // Higher regen rate is 1/0.5s
+				case SkillName.Meditation: return 0.5; // Highest regen rate is 1/0.5s
 				case SkillName.Stealth: return skill.Value * 0.4 / 5 ; //One step takes 0.4 seconds, and each 5 skill grants 1 extra step
 				case SkillName.RemoveTrap: return 10;
 				case SkillName.Necromancy: return MagicalCastDelay(from, skill);
-				case SkillName.Focus: return 0.5; // Higher regen rate is 1/0.5s
+				case SkillName.Focus: return 0.5; // Highest regen rate is 1/0.5s
 				case SkillName.Chivalry: return MagicalCastDelay(from, skill);
 				case SkillName.Bushido: return MagicalCastDelay(from, skill);
 				case SkillName.Ninjitsu: return MagicalCastDelay(from, skill);

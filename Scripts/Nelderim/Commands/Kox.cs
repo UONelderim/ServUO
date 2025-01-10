@@ -18,11 +18,11 @@ namespace Server.Commands
 		public static void Kox_OnCommand(CommandEventArgs e)
 		{
 			PlayerMobile pm = (PlayerMobile)e.Mobile;
-
-			pm.SendMessage(pm.GainsDebugEnabled ? 0x20 : 0x40, "{0} sledzenie przyrostow umiejetnosci.",
-				pm.GainsDebugEnabled ? "Wylaczyles" : "Wlaczyles");
-
-			pm.GainsDebugEnabled = !pm.GainsDebugEnabled;
+			
+			pm.GainDebug = !pm.GainDebug;
+			
+			pm.SendMessage(pm.GainDebug ? 0x40 : 0x20, "{0} sledzenie przyrostow umiejetnosci.",
+				pm.GainDebug ? "Wlaczyles" : "Wylaczyles");
 		}
 	}
 }
