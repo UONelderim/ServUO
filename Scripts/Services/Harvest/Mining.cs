@@ -62,7 +62,7 @@ namespace Server.Engines.Harvest
             oreAndStone.ConsumedPerFeluccaHarvest = 3;
 
             // The digging effect
-            oreAndStone.EffectActions = new int[] { 11 };
+            oreAndStone.EffectActions = new int[] { 3 };
             oreAndStone.EffectSounds = new int[] { 0x125, 0x126 };
             oreAndStone.EffectCounts = new int[] { 3 };
             oreAndStone.EffectDelay = TimeSpan.FromSeconds( 1.25 );
@@ -170,7 +170,7 @@ namespace Server.Engines.Harvest
             sand.ConsumedPerFeluccaHarvest = 3;
 
             // The digging effect
-            sand.EffectActions = new[]{ 11 };
+            sand.EffectActions = new[]{ 3 };
             sand.EffectSounds = new[]{ 0x125, 0x126 };
             sand.EffectCounts = new[]{ 3 };
             sand.EffectDelay = TimeSpan.FromSeconds( 1.25 );

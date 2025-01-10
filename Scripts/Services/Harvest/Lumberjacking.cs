@@ -62,7 +62,7 @@ namespace Server.Engines.Harvest
                 ConsumedPerFeluccaHarvest = 4,
 
                 // The chopping effect
-                EffectActions = new int[] { 13 },
+                EffectActions = new int[] { 7 },
                 EffectSounds = new int[] { 0x13E },
                 EffectCounts = (new int[] { 3 }),
                 EffectDelay = TimeSpan.FromSeconds(1.25),
