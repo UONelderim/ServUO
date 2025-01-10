@@ -283,7 +283,7 @@ namespace Server.Items
             verite.RunicMaxAttributes = 5;
 
             verite.RunicMinIntensity = 70;
-            verite.RunicMaxIntensity = 100;
+            verite.RunicMaxIntensity = 90;
 
             CraftAttributeInfo valorite = Valorite = new CraftAttributeInfo();
 
@@ -299,15 +299,15 @@ namespace Server.Items
             valorite.RunicMinAttributes = 5;
             valorite.RunicMaxAttributes = 5;
 
-            valorite.RunicMinIntensity = 85;
+            valorite.RunicMinIntensity = 75;
             valorite.RunicMaxIntensity = 100;
 
             CraftAttributeInfo platinum = Platinum = new CraftAttributeInfo();
 
-            valorite.RunicMinAttributes = 1;
-            valorite.RunicMaxAttributes = 1;
-            valorite.RunicMinIntensity = 20;
-            valorite.RunicMaxIntensity = 20;
+            platinum.RunicMinAttributes = 1;
+            platinum.RunicMaxAttributes = 1;
+            platinum.RunicMinIntensity = 20;
+            platinum.RunicMaxIntensity = 20;
 
             CraftAttributeInfo spined = Spined = new CraftAttributeInfo();
 
@@ -529,8 +529,6 @@ namespace Server.Items
 
             frostwood.OtherSpellChanneling = 1;
             #endregion
-
-			ApplyNelderimResourceInfoChanges();
         }
     }
 
