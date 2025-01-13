@@ -2,9 +2,9 @@
 {
 	public class SpecialQuiver : ElvenQuiver
 	{
-		public override int LabelNumber { get { return 1032657; } } // elven quiver
+		public override int LabelNumber => 1032657;
+		public override bool CanFortify => false;
 
-		[Constructable]
 		public SpecialQuiver()
 		{
 			Hue = 0x4E7; // zmienic
@@ -13,12 +13,6 @@
 		public SpecialQuiver(Serial serial) : base(serial)
 		{
 		}
-		/*
-		public override void AlterBowDamage( ref int phys, ref int fire, ref int cold, ref int pois, ref int nrgy, ref int chaos, ref int direct )
-		{
-			cold = pois = nrgy = chaos = direct = 0;
-			phys = fire = 50;
-		}*/
 
 		public override void Serialize(GenericWriter writer)
 		{
