@@ -531,7 +531,7 @@ namespace Server.Engines.Craft
             AddRecipe(index, (int)CarpRecipes.BrambleCoat);
             ForceNonExceptional(index);*/
 
-            index = AddCraft(typeof(DarkwoodCrown), 1044293, 1073481, 85.0, 120.0, typeof(Board), 1044041, 10, 1044351);
+           /* index = AddCraft(typeof(DarkwoodCrown), 1044293, 1073481, 85.0, 120.0, typeof(Board), 1044041, 10, 1044351);
             AddRes(index, typeof(LardOfParoxysmus), 1032681, 1, 1053098);
             AddRes(index, typeof(Blight), 1032675, 10, 1053098);
             AddRes(index, typeof(Taint), 1032679, 10, 1053098);
@@ -565,7 +565,7 @@ namespace Server.Engines.Craft
             AddRes(index, typeof(CapturedEssence), 1032686, 1, 1053098);
             AddRes(index, typeof(Putrefaction), 1032678, 10, 1053098);
             AddRes(index, typeof(Muculent), 1032680, 10, 1053098);
-            ForceNonExceptional(index);
+            ForceNonExceptional(index);*/
 
             //AddCraft(typeof(GargishWoodenShield), 1044293, 1095768, 52.6, 77.6, typeof(Board), 1044041, 9, 1044351);
 	        #endregion
