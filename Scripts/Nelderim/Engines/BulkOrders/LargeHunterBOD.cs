@@ -126,7 +126,7 @@ namespace Server.Engines.BulkOrders
 		{
 			base.Serialize(writer);
 
-			writer.Write(0); // version
+			writer.Write(1); // version
 			writer.Write(_CollectedPoints);
 		}
 
@@ -135,7 +135,8 @@ namespace Server.Engines.BulkOrders
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
-			_CollectedPoints = reader.ReadDouble();
+			if(version > 0)
+				_CollectedPoints = reader.ReadDouble();
 		}
 	}
 }
