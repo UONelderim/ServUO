@@ -363,6 +363,71 @@ namespace Server.Commands
 			{ 2970, 1999 }
 		};
 
+		private static Dictionary<int, int> _ArtMap = new() { {643, 5190},
+			{644, 5191},
+			{645, 5192},
+			{646, 5194},
+			{647, 5195},
+			{648, 5196},
+			{649, 5197},
+			{650, 5275},
+			{769, 5276},
+			{770, 5277},
+			{771, 5278},
+			{772, 5401},
+			{773, 5416},
+			{774, 5417},
+			{775, 5418},
+			{776, 5419},
+			{777, 5411},
+			{778, 5427},
+			{779, 5428},
+			{780, 5466},
+			{781, 5467},
+			{782, 5732},
+			{784, 5744},
+			{785, 5745},
+			{1027, 5777},
+			{1028, 5778},
+			{1029, 5779},
+			{1030, 5813},
+			{1031, 5814},
+			{1032, 5815},
+			{1033, 5850},
+			{1034, 5851},
+			{1168, 5816},
+			{2188, 5852},
+			{2301, 5853},
+			{2302, 5854},
+			{2303, 5855},
+			{2304, 5856},
+			{2305, 5857},
+			{2306, 5858},
+			{2307, 5859},
+			{2308, 5860},
+			{2309, 5861},
+			{2310, 5862},
+			{2311, 5863},
+			{2312, 5864},
+			{2313, 5865},
+			{2314, 5866},
+			{2315, 5867},
+			{2316, 5868},
+			{3511, 5869},
+			{3524, 5870},
+			{3525, 5871},
+			{3563, 5872},
+			{3564, 5873},
+			{3565, 5874},
+			{3566, 5875},
+			{3664, 5876},
+			{3665, 5877},
+			{3666, 5878},
+			{3667, 5879},
+			{3760, 5897},
+			{3902, 5898}
+		};
+
 		public static void Initialize()
 		{
 			//TODO: CHANGE ME TO OWNER ONLY
@@ -380,7 +445,7 @@ namespace Server.Commands
 			AlignTeleportersToMalasDungeons(from);
 			AlignSpawnersAndRespawn(from);
 			FixChampionSpawns(from);
-			MigrateHues(from);
+			MigrateArtAndHues(from);
 			RemoveCrafter(from);
 			from.SendMessage("Done migrating!");
 		}
@@ -773,19 +838,26 @@ namespace Server.Commands
 			}
 		}
 
-		private static void MigrateHues(Mobile from)
+		private static void MigrateArtAndHues(Mobile from)
 		{
-			var count = 0;
+			var hueCount = 0;
+			var artCount = 0;
 			from.SendMessage("Migrating hues");
 			foreach (var item in World.Items.Values)
 			{
 				if (_HueMap.TryGetValue(item.RawHue, out var value))
 				{
 					item.Hue = value;
-					count++;
+					hueCount++;
+				}
+				if(_ArtMap.TryGetValue(item.ItemID, out var artValue))
+				{
+					item.ItemID = artValue;
+					artCount++;
 				}
 			}
-			from.SendMessage($"Migrated {count} hues");
+			from.SendMessage($"Migrated {hueCount} hues");
+			from.SendMessage($"Migrated {artCount} arts");
 		}
 
 		private static List<Type> _CrafterTypes =
