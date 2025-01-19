@@ -60,6 +60,7 @@ namespace Server.Mobiles
 		public override void GenerateLoot()
 		{
 			AddLoot(LootPack.FilthyRich, 2);
+			AddLoot(LootPack.LootItem<SpleenOfThePutrefier>(30.0));
 		}
 		
 		public override int TreasureMapLevel{ get{ return 5; } }
