@@ -10238,7 +10238,6 @@
 			<rect x="7049" y="35" width="10" height="5" />
 			<rect x="7056" y="40" width="4" height="4" />
 			<rect x="7052" y="29" width="10" height="6" />
-			<rect x="7058" y="22" width="9" height="7" />
 			<rect x="7062" y="29" width="3" height="4" />
 			<rect x="7056" y="28" width="2" height="1" />
 			<rect x="6982" y="2" width="8" height="9" />
@@ -10256,6 +10255,10 @@
 			<rect x="7000" y="25" width="2" height="3" />
 			<rect x="7006" y="25" width="5" height="4" />
 			<go x="7027" y="37" z="0" />
+			<music name="Vesper" />
+		</region>
+		<region type="DungeonRegion" name="VoxPopuli_Boss">
+			<rect x="7058" y="22" width="9" height="7" />
 			<music name="Vesper" />
 		</region>
 		<region type="DungeonRegion" name="Grizzle_LVL2_Entrance">
@@ -10450,7 +10453,7 @@
 		</region>
 		<region type="DungeonRegion" name="Shimmering_LV2_Boss">
 			<rect x="6693" y="118" width="29" height="39" />
-			<go x="6697" y="308" z="0" />
+			<go x="6708" y="144" z="-1" />
 			<music name="Wind" />
 		</region>
 		<region type="DungeonRegion" name="Shimmering_LV1_VeryDifficult">

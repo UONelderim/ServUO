@@ -39,7 +39,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
 			Name = "Zniennoksztalstny Vox Populi";
-			Body = 0xF7;
+			Body = 247;
 
             BaseSoundID = 0x46E;
 
