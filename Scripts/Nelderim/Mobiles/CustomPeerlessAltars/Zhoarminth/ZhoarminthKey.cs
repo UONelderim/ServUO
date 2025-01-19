@@ -11,7 +11,7 @@ namespace Server.Items
             : base(serial)
         {
         }
-
+        public override int LabelNumber => 3070007; //klucz do mrocznej komnaty
         public override int Lifespan => 600;
         public override void Serialize(GenericWriter writer)
         {

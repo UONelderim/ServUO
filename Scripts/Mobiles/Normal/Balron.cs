@@ -1,3 +1,5 @@
+using Server.Items;
+
 namespace Server.Mobiles
 {
     [CorpseName("zwloki balrona")]
@@ -57,6 +59,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.FilthyRich, 2);
             AddLoot(LootPack.Rich);
             AddLoot(LootPack.MedScrolls, 2);
+            AddLoot(LootPack.LootItem<ZabZhoarmintha>(50.0));
         }
 
         public override void Serialize(GenericWriter writer)

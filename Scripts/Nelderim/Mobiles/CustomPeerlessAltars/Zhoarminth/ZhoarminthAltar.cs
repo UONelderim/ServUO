@@ -10,7 +10,7 @@ namespace Server.Items
 
         public override Type[] Keys => new Type[]
         {
-	        typeof( OdnogaStaregoGazera ), typeof( PowiekaGazera ), typeof( KielBiesa ) 
+	        typeof( ZabZhoarmintha ), typeof( RogZhoarmintha ), typeof( PalceZhoarmintha ) 
 };
 
         public override BasePeerless Boss => new Zhoaminth();

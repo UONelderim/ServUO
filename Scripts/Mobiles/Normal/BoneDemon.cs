@@ -1,3 +1,5 @@
+using Server.Items;
+
 namespace Server.Mobiles
 {
     [CorpseName("zwloki koscianego demona")]
@@ -52,6 +54,7 @@ namespace Server.Mobiles
         public override void GenerateLoot()
         {
             AddLoot(LootPack.FilthyRich, 8);
+            AddLoot(LootPack.LootItem<PalceZhoarmintha>(50.0));
         }
 
         public override void Serialize(GenericWriter writer)
