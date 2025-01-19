@@ -2995,7 +2995,11 @@
 		<region type="DungeonRegion" name="TylReviaren_VeryDifficult">
 			<rect x="5235" y="1816" width="28" height="22" />
 			<rect x="5231" y="1821" width="4" height="15" />
-			<rect x="5286" y="1832" width="36" height="25" />
+			<music name="DreadHornArea" />
+		</region>
+		<region type="DungeonRegion" name="TylReviaren_Boss">
+			<rect x="5285" y="1833" width="37" height="24" />
+			<go x="5298" y="1843" z="15" />
 			<music name="DreadHornArea" />
 		</region>
 		<region type="DungeonRegion" priority="25" name="CzarneMrowki">

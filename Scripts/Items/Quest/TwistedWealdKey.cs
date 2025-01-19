@@ -32,7 +32,7 @@ namespace Server.Items
 
         public override bool CanOfferConfirmation(Mobile from)
         {
-            if (from.Region != null && from.Region.IsPartOf("Twisted Weald"))
+            if (from.Region != null && from.Region.IsPartOf("TylReviaren_Boss"))
                 return base.CanOfferConfirmation(from);
 
             return false;

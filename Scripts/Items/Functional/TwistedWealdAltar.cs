@@ -19,16 +19,16 @@ namespace Server.Items
         [Constructable]
         public TwistedWealdAltar() : base(0x207C)
         {
-            BossLocation = new Point3D(2137, 1247, -60);
-            TeleportDest = new Point3D(2151, 1261, -60);
-            ExitDest = new Point3D(1448, 1537, -28);
+            BossLocation = new Point3D(5302, 1844, 10);
+            TeleportDest = new Point3D(5291, 1844, 12);
+            ExitDest = new Point3D(5256, 1831, 17);
         }
 
         public override Rectangle2D[] BossBounds => m_Bounds;
 
         private readonly Rectangle2D[] m_Bounds = new Rectangle2D[]
         {
-            new Rectangle2D(2126, 1237, 33, 38),
+            new Rectangle2D(5283, 1834, 33, 38),
         };
 
         public TwistedWealdAltar(Serial serial) : base(serial)
