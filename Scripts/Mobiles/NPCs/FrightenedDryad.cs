@@ -9,7 +9,7 @@ namespace Server.Engines.Quests
         public BoundToTheLandQuest()
             : base()
         {
-            AddObjective(new SlayObjective(typeof(InsaneDryad), "insane dryads", 12));
+            AddObjective(new SlayObjective(typeof(InsaneDryad), "szalona driada", 12));
             AddObjective(new SlayObjective(typeof(Saliva), "saliva", 1));
 
             AddReward(new BaseReward(typeof(DryadsBlessing), 1074345));
@@ -55,7 +55,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public FrightenedDryad()
-            : base("The Frightened Dryad")
+            : base("Przestraszona Wrozka")
         {
         }
 

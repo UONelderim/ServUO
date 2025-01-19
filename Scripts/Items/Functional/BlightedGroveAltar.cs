@@ -18,16 +18,16 @@ namespace Server.Items
         [Constructable]
         public BlightedGroveAltar() : base(0x207B)
         {
-            BossLocation = new Point3D(6483, 947, 23);
-            TeleportDest = new Point3D(6518, 946, 36);
-            ExitDest = new Point3D(587, 1641, -1);
+            BossLocation = new Point3D(55, 745, 39);
+            TeleportDest = new Point3D(60, 762, 39);
+            ExitDest = new Point3D(58, 768, -1);
         }
 
         public override Rectangle2D[] BossBounds => m_Bounds;
 
         private readonly Rectangle2D[] m_Bounds = new Rectangle2D[]
         {
-            new Rectangle2D(6456, 922, 84, 47),
+            new Rectangle2D(42, 728, 84, 47),
         };
 
         public BlightedGroveAltar(Serial serial) : base(serial)
