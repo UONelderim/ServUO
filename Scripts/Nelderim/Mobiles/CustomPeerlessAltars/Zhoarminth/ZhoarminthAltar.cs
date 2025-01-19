@@ -31,7 +31,7 @@ namespace Server.Items
 
         private readonly Rectangle2D[] m_Bounds = new Rectangle2D[]
         {
-            new Rectangle2D(5800, 1762, 19, 20),
+            new Rectangle2D(5456, 3792, 19, 20),
         };
 
         public ZhoarminthAltar(Serial serial) : base(serial)
