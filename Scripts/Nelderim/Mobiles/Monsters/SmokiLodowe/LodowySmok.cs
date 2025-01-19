@@ -72,6 +72,7 @@ namespace Server.Mobiles
 			// 07.01.2013 :: szczaw :: usuniecie PackGold
 			//PackGold(100, 300 );
 			AddLoot(LootPack.Gems, 2);
+			AddLoot(LootPack.LootItem<ZabStarozytnegoLodowegoSmoka>(30.0));
 		}
 
 		public override double AttackMasterChance { get { return 0.25; } }
