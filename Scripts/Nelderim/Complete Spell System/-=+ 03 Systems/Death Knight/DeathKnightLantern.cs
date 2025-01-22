@@ -3,7 +3,7 @@ using Server.Engines.Quests;
 
 namespace Server.Items
 {
-    public class SoulLantern : MagicLantern
+    public class DeathKnightLantern : BaseShield
     {
 	    private int _TrappedSouls;
 
@@ -26,26 +26,23 @@ namespace Server.Items
         }
 
         [Constructable]
-        public SoulLantern()
+        public DeathKnightLantern() : base(0xA18)
         {
             Name = "Latarnia dusz";
             Hue = 2980;
+            Light = LightType.Circle300;
+            Weight = 2.0;
+            
 			Attributes.AttackChance = 10;
 			Attributes.DefendChance = 10;
 			Attributes.ReflectPhysical = 30;
+			Attributes.SpellChanneling = 1;
         }
 
         public override void AddNameProperties(ObjectPropertyList list)
         {
             base.AddNameProperties(list);
-            if (ItemID == 0xA15)
-            {
-                list.Add(1049644, "Wiezienie dla dusz czystych");
-            }
-            else
-            {
-                list.Add(1049644, "Wiezienie dla dusz potepionych");
-            }
+            list.Add(1049644, "Wiezienie dla dusz");
 
             if (Owner != null)
             {
@@ -62,6 +59,18 @@ namespace Server.Items
 		            Owner = (Mobile)itemParent.RootParent;
 	            }
             }
+        }
+        
+        public override bool OnEquip(Mobile from)
+        {
+	        ItemID = 0xA15;
+	        return base.OnEquip(from);
+        }
+
+        public override void OnRemoved(IEntity parent)
+        {
+	        ItemID = 0xA18;
+	        base.OnRemoved(parent);
         }
 
         public override void OnDoubleClick(Mobile from)
@@ -97,7 +106,7 @@ namespace Server.Items
             }
         }
 
-        public SoulLantern(Serial serial) : base(serial)
+        public DeathKnightLantern(Serial serial) : base(serial)
         {
         }
 
@@ -128,7 +137,7 @@ namespace Server.Items
                 
                 if (deathknight is PlayerMobile && e.Corpse.TotalGold > 0)
                 {
-                    if (deathknight.FindItemOnLayer(Layer.TwoHanded) is SoulLantern soulLantern) 
+                    if (deathknight.FindItemOnLayer(Layer.TwoHanded) is DeathKnightLantern soulLantern) 
                     {
                         var soulsToAdd = e.Corpse.TotalGold;
                         soulLantern.TrappedSouls += soulsToAdd;

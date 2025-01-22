@@ -13,7 +13,7 @@ namespace Server.Engines.Quests
 			AddObjective(new SlayObjective(typeof(Pixie), "wrozka", 20));
 
 			AddReward(new BaseReward(3060205)); // Krok blizej od poznania tajemnic Mroczego Rycerza.
-			AddReward(new BaseReward(typeof(SoulLantern), "Latarnia Dusz")); // Latarnia Dusz
+			AddReward(new BaseReward(typeof(DeathKnightLantern), "Latarnia Dusz")); // Latarnia Dusz
 		}
 
 		public override QuestChain ChainID => QuestChain.DeathKnight;
@@ -37,7 +37,7 @@ namespace Server.Engines.Quests
 		{
 			base.GiveRewards();
 
-			var soulLanterns = Owner.Backpack.FindItemsByType<SoulLantern>();
+			var soulLanterns = Owner.Backpack.FindItemsByType<DeathKnightLantern>();
 			var soulLantern = soulLanterns.FirstOrDefault(s => s.Owner == null);
 			if (soulLantern != null)
 			{
@@ -223,7 +223,7 @@ namespace Server.Engines.Quests
 
 		public override void GiveRewards()
 		{
-			Owner.AddToBackpack(new DeathKnightSpellbook() { BlessedFor = Owner });
+			Owner.AddToBackpack(new DeathKnightBook() { BlessedFor = Owner });
 			Owner.SpecialSkills.DeathKnight = true;
 
 			base.GiveRewards();

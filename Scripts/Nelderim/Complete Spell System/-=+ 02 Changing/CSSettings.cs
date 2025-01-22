@@ -6,6 +6,6 @@ namespace Server.ACC.CSS
 		 * Initial setting.  Will read from saves after first save.
 		 * Set to true if you want custom Spellbooks to be created full, unless you specify in the creation.
 		 */
-		public static bool FullSpellbooks { get { return false; } }
+		public static bool FullSpellbooks => false;
 	}
 }

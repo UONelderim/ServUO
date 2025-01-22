@@ -1,6 +1,3 @@
-using Server.Targeting;
-using Server.Engines.Craft;
-
 namespace Server.Items
 {
 	public class PowderForWood : Item

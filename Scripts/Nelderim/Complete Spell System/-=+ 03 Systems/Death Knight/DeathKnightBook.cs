@@ -3,24 +3,24 @@ using Server.Gumps;
 
 namespace Server.Items
 {
-	public class DeathKnightSpellbook : CSpellbook
+	public class DeathKnightBook : CSpellbook
 	{
 		public override School School => School.DeathKnight;
 
 		[Constructable]
-		public DeathKnightSpellbook() : this(0, CSSettings.FullSpellbooks)
+		public DeathKnightBook() : this(0, CSSettings.FullSpellbooks)
 		{
 		}
 
 		[Constructable]
-		public DeathKnightSpellbook(bool full) : this(0, full)
+		public DeathKnightBook(bool full) : this(0, full)
 		{
 		}
 
 		[Constructable]
-		public DeathKnightSpellbook(ulong content, bool full) : base(content, 0xEFA, full)
+		public DeathKnightBook(ulong content, bool full) : base(content, 0xEFA, full)
 		{
-			Hue = 2001;
+			Hue = 2409;
 			Name = "Księga Mrocznego Rycerza";
 		}
 
@@ -45,7 +45,7 @@ namespace Server.Items
 			from.SendGump(new DeathKnightSpellbookGump(this));
 		}
 
-		public DeathKnightSpellbook(Serial serial) : base(serial)
+		public DeathKnightBook(Serial serial) : base(serial)
 		{
 		}
 

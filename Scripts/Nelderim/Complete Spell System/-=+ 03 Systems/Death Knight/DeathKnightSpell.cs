@@ -162,12 +162,12 @@ namespace Server.Spells.DeathKnight
 			return v / div;
 		}
 		
-		private static SoulLantern FindSoulLantern(Mobile from)
+		private static DeathKnightLantern FindSoulLantern(Mobile from)
 		{
-			var item = from.FindItemOnLayer(Layer.TwoHanded) as SoulLantern;
+			var item = from.FindItemOnLayer(Layer.TwoHanded) as DeathKnightLantern;
 			if (item == null)
 			{
-				item = from.Backpack.FindItemByType<SoulLantern>(true);
+				item = from.Backpack.FindItemByType<DeathKnightLantern>(true);
 			}
 			return item;
 		}
@@ -185,7 +185,7 @@ namespace Server.Spells.DeathKnight
 
 		private static int GetSoulsInLantern( Mobile from )
 		{
-			SoulLantern lantern = FindSoulLantern(from);
+			DeathKnightLantern lantern = FindSoulLantern(from);
 			if ( lantern != null )
 			{
 				return lantern.TrappedSouls;
