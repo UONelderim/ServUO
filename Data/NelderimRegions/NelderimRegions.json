@@ -312,9 +312,6 @@
         },
         {
           "Name": "Lesniczowka"
-        },
-        {
-          "Name": "Twierdza_Kopalnia"
         }
       ]
     },
@@ -349,8 +346,40 @@
       "Regions": [
         {
           "Name": "PodZelaznymMlotem"
+        },
+        {
+          "Name": "Twierdza_Kopalnia"
         }
-      ]
+      ],
+      "Population": {
+        "Krasnolud": 1.00
+      },
+      "Intolerance": {
+        "Elf": 0.90,
+        "Jarling": 0.60
+      },
+      "Guards": {
+        "StandardGuard": {
+          "Name": "KrasieStandard",
+          "Female": 0.10
+        },
+        "ArcherGuard": {
+          "Name": "KrasieArcher",
+          "Female": 0.10
+        },
+        "SpecialGuard": {
+          "Name": "KrasieSpecial",
+          "Female": 0.10
+        },
+        "MountedGuard": {
+          "Name": "KrasieMounted",
+          "Female": 0.10
+        },
+        "EliteGuard": {
+          "Name": "KrasieElite",
+          "Female": 0.10
+        }
+      }
     },
     {
       "Name": "Geriador",
