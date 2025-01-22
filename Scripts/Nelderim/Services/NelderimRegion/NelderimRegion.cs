@@ -209,16 +209,22 @@ public class NelderimRegion : IComparable<NelderimRegion>
     public void MakeGuard(BaseNelderimGuard guard)
     {
         //We need Race and Gender first
-        var guardDefinition = GuardDefinition(guard.Type);
-        if (guardDefinition != null)
+        try
         {
-            guard.Race = Race.Parse(Utility.RandomWeigthed(guardDefinition.Population ?? Population));
-            guard.Female = Utility.RandomDouble() < guardDefinition.Female;
-            NelderimRegionSystem.GetGuardProfile(guardDefinition.Name).Make(guard);
+	        var guardDefinition = GuardDefinition(guard.Type);
+	        if (guardDefinition == null)
+	        {
+		        Console.WriteLine($"Unable to get guard definition for {guard.Type} for region {Name}");
+		        return;
+	        }
+	        guard.Race = Race.Parse(Utility.RandomWeigthed(guardDefinition.Population ?? Population));
+	        guard.Female = Utility.RandomDouble() < guardDefinition.Female;
+	        NelderimRegionSystem.GetGuardProfile(guardDefinition.Name).Make(guard);
         }
-        else
+        catch (Exception e)
         {
-            Console.WriteLine($"Unable to get guard definition for {guard.Type} for region {Name}");
+	        Console.WriteLine($"Unable to make guard {guard.Type} for region {Name}");
+	        throw;
         }
     }
 
