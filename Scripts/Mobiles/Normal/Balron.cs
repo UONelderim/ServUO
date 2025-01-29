@@ -59,7 +59,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.FilthyRich, 2);
             AddLoot(LootPack.Rich);
             AddLoot(LootPack.MedScrolls, 2);
-            AddLoot(LootPack.LootItem<ZabZhoarmintha>(50.0));
+            AddLoot(LootPack.LootItem<ZabZhoamintha>(50.0));
         }
 
         public override void Serialize(GenericWriter writer)

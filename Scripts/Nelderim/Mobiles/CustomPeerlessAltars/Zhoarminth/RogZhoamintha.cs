@@ -1,9 +1,9 @@
 namespace Server.Items
 {
-    public class RogZhoarmintha : PeerlessKey
+    public class RogZhoamintha : PeerlessKey
     {
         [Constructable]
-        public RogZhoarmintha()
+        public RogZhoamintha()
             : base(4039)
         {
             Weight = 1;
@@ -11,12 +11,12 @@ namespace Server.Items
             LootType = LootType.Blessed;
         }
 
-        public RogZhoarmintha(Serial serial)
+        public RogZhoamintha(Serial serial)
             : base(serial)
         {
         }
 
-        public override int LabelNumber => 3070009;//rog zhoarmintha
+        public override int LabelNumber => 3070009;//rog zhoamintha
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

@@ -54,7 +54,7 @@ namespace Server.Mobiles
         public override void GenerateLoot()
         {
             AddLoot(LootPack.FilthyRich, 8);
-            AddLoot(LootPack.LootItem<PalceZhoarmintha>(50.0));
+            AddLoot(LootPack.LootItem<PalceZhoamintha>(50.0));
         }
 
         public override void Serialize(GenericWriter writer)

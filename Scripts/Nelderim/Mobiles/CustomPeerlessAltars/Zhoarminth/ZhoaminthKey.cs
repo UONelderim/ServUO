@@ -1,13 +1,13 @@
 namespace Server.Items
 {
-    public class ZhoarminthKey : MasterKey
+    public class ZhoaminthKey : MasterKey
     {
-        public ZhoarminthKey()
+        public ZhoaminthKey()
             : base(0xFF3)
         {
         }
 
-        public ZhoarminthKey(Serial serial)
+        public ZhoaminthKey(Serial serial)
             : base(serial)
         {
         }

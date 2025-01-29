@@ -3,27 +3,27 @@ using System;
 
 namespace Server.Items
 {
-    public class ZhoarminthAltar : PeerlessAltar
+    public class ZhoaminthAltar : PeerlessAltar
     {
         public override int KeyCount => 3;
-        public override MasterKey MasterKey => new ZhoarminthKey();
+        public override MasterKey MasterKey => new ZhoaminthKey();
 
         public override Type[] Keys => new Type[]
         {
-	        typeof( ZabZhoarmintha ), typeof( RogZhoarmintha ), typeof( PalceZhoarmintha ) 
+	        typeof( ZabZhoamintha ), typeof( RogZhoamintha ), typeof( PalceZhoamintha ) 
 };
 
         public override BasePeerless Boss => new Zhoaminth();
 
         [Constructable]
-        public ZhoarminthAltar() : base(0x207C)
+        public ZhoaminthAltar() : base(0x207C)
         {
 	        
             BossLocation = new Point3D(5461, 3796, -25);
             TeleportDest = new Point3D(5473, 3823, -25);
             ExitDest = new Point3D(5473, 3830, -25);
 
-            Name = "Oltarz Zhoarmintha";
+            Name = "Oltarz Zhoamintha";
             Hue = 1161;
         }
 
@@ -34,7 +34,7 @@ namespace Server.Items
             new Rectangle2D(5456, 3792, 19, 20),
         };
 
-        public ZhoarminthAltar(Serial serial) : base(serial)
+        public ZhoaminthAltar(Serial serial) : base(serial)
         {
         }
 

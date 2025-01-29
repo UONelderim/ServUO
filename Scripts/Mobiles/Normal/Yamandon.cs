@@ -61,7 +61,7 @@ namespace Server.Mobiles
 			AddLoot(LootPack.Gems, 6);
 			AddLoot(LootPack.LootItem<Eggs>(2));
 			AddLoot(LootPack.BonsaiSeed);
-			AddLoot(LootPack.LootItem<RogZhoarmintha>(50.0));
+			AddLoot(LootPack.LootItem<RogZhoamintha>(50.0));
 		}
 
 		public override void OnDamagedBySpell(Mobile attacker)

@@ -1,22 +1,22 @@
 namespace Server.Items
 {
-    public class PalceZhoarmintha : PeerlessKey
+    public class ZabZhoamintha : PeerlessKey
     {
         [Constructable]
-        public PalceZhoarmintha()
-            : base(4328)
+        public ZabZhoamintha()
+            : base(0x10E8)
         {
             Weight = 1;
             Hue = 1151; 
             LootType = LootType.Blessed;
         }
 
-        public PalceZhoarmintha(Serial serial)
+        public ZabZhoamintha(Serial serial)
             : base(serial)
         {
         }
 
-        public override int LabelNumber => 3070008; //palce zhoarmintha
+        public override int LabelNumber => 3070010; //zab zhoamintha
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
