@@ -5,7 +5,7 @@ using Server.Items;
 namespace Server.Mobiles
 {
 	[CorpseName("zwloki Zhoaminth")]
-	public class Zhoaminth : BaseCreature
+	public class Zhoaminth : BasePeerless
 	{
 		public override bool BardImmune => true;
 		public override double AttackMasterChance => 0.15;

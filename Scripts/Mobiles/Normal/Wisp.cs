@@ -59,6 +59,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.Rich);
             AddLoot(LootPack.Average);
             AddLoot(LootPack.PeculiarSeed4);
+            AddLoot(LootPack.LootItem<BlightedCotton>(30.0));
         }
 
         public override void Serialize(GenericWriter writer)

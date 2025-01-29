@@ -121,6 +121,7 @@ namespace Server.Mobiles
 			AddLoot(LootPack.Rich);
 			AddLoot(LootPack.LowScrolls);
 			AddLoot(LootPack.Potions);
+			AddLoot(LootPack.LootItem<ThornyBriar>(30.0));
 		}
 
 		public override Poison PoisonImmune { get { return Poison.Lethal; } }

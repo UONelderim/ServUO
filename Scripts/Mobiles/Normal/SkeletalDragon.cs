@@ -1,3 +1,5 @@
+using Server.Items;
+
 namespace Server.Mobiles
 {
     [CorpseName("resztki koscianego smoka")]
@@ -61,6 +63,7 @@ namespace Server.Mobiles
         {
             AddLoot(LootPack.FilthyRich, 4);
             AddLoot(LootPack.Gems, 5);
+            AddLoot(LootPack.LootItem<PartiallyDigestedTorso>(30.0));
         }
 
         public override void Serialize(GenericWriter writer)

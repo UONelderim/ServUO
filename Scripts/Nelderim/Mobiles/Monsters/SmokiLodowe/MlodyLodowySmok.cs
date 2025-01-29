@@ -66,6 +66,7 @@ namespace Server.Mobiles
 		{
 			AddLoot(LootPack.Rich, 1);
 			AddLoot(LootPack.MageryRegs, 3);
+			AddLoot(LootPack.LootItem<PazurStarozytnegoLodowegoSmoka>(30.0));
 		}
 
 		public override int TreasureMapLevel { get { return 2; } }

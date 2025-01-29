@@ -24,16 +24,16 @@ namespace Server.Items
         {
             Hue = 0x465;
 
-            BossLocation = new Point3D(6517, 357, 0);
-            TeleportDest = new Point3D(6519, 381, 0);
-            ExitDest = new Point3D(5623, 3038, 15);
+            BossLocation = new Point3D(156, 1359, 0);
+            TeleportDest = new Point3D(142, 1360, 22);
+            ExitDest = new Point3D(137, 1360, 25);
         }
 
         public override Rectangle2D[] BossBounds => m_Bounds;
 
         private readonly Rectangle2D[] m_Bounds = new Rectangle2D[]
         {
-            new Rectangle2D(6501, 351, 35, 48),
+            new Rectangle2D(147, 1345, 35, 48),
         };
 
         public static void AddProtection(Mobile m)

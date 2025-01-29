@@ -33909,10 +33909,10 @@
 1074338;magiczna lina
 1074339;lsniaca maczeta
 1074340;Bilet Pryzmatu Swiatla
-1074341;klucz Vox Populi (4) 
-1074342;klucz Vox Populi (3)
-1074343;klucz Vox Populi (2)
-1074344;klucz Vox Populi (1)
+1074341;klucz Vox Populi (3) 
+1074342;klucz Vox Populi (2)
+1074343;klucz Vox Populi (1)
+1074344;glowny klucz Vox Populi 
 1074345;blogoslawienstwo driady 
 1074346;klatwa driady 
 1074347;klucz bibliotekarza 
@@ -34001,36 +34001,36 @@
 1074430;Vacation days left: ~1_DAYS~ 
 1074431;An aquarium flake sphere 
 1074432;Vacation days: ~1_DAYS~ 
-1074433;Bound to the Land 
-1074434;Oh help! Help me!  I don't want to end up like my sisters, enslaved by the cruel Melisande.  I cannot flee, I am bound here by the evil of the harpy Saliva.  Won't you please help me and redeem my sisters at the same time?  I will grant you my blessing in return. 
-1074435;Please, I'm so frightened.  I don't want to become twisted and corrupt.  Please free me! 
-1074436;Until my sisters have been treated with mercy and released from their twisted existence and until the vile Saliva is slain, I cannot feel safe or bestow my blessing. 
-1074437;Oh!  You've returned.  I cannot thank you enough for saving me.  I only hope Melisande doesn't return them to life once more.  Bless you, fair adventurer. Bless you.  If you wish to face Melisande in battle, place the token of my blessing in the basket.  May you be triumphant and redeem us all through your efforts. 
-1074438;Misplaced 
-1074439;Shhh!  *nervous chuckle* Oh, sorry about that.  I forget that I'm not in the library any longer -- and instead that THING has taken over.  If that wasn't distressing enough, I've misplaced my thesis pages and they've been gathered up by the shambling dead.  Could you retrieve them for me? 
-1074440;Disintegrating Thesis Notes 
-1074441;*tense sigh* Of course, I understand.  If you change your mind, I'll be waiting. 
-1074442;Most of the creatures here wouldn't be interested in my thesis.  *nervous chuckle*  Master Gnosos would argue that no one is -- not even the undead.  Still, I'd wager that the more powerful undead have my pages. 
-1074443;Ah!  You've got my pages?  Oh no ... they've been damaged.  Here, take this key.  Perhaps you can find the podium and gain access to the library.  My poor books are being ravaged by that horror and you'd do well to put things right. 
-1074444;Wonders of the Natural World 
-1074445;Step right up!  Step right up!  Lords and Ladies, this is your opportunity to view the find of a lifetime!  What magical energy caused the fascinating play of light and darkness within these subterranean passageways?  What mysterious forces are at work deep within the Prism of Light?  Admission tickets are good for a full day of adventure and excitement and well worth the price at 10,000 gold. Whadda ya say? 
-1074446;C'mon now Lords and Ladies -- you're passing up the opportunity of a lifetime.  Is 10,000 gold too much to pay for your enlightenment? 
-1074447;Dig into those pockets Lords and Ladies!  Just ten-thousand-shiny-gold-coins and you'll be walking in the bootsteps of the famous Lord Denthe himself! 
-1074448;Step right up!  Thank you, enjoy the amazing caverns. 
-1074449;Dangerous Crossing 
-1074450;Ho there!  If you wish to cross and test yourself in the Blighted Grove, you'll need a special machete.  Luckily I have one right here and it's for sale!  Only 1,000 gold each. 
-1074451;Yah, you didn't like like you could handle it.  Probably just as well. 
-1074452;What kind of adventurer are you that you can't afford to outlay some gold on good equipment.  You'll need this machete to get under those roots.  It's a good price. 
-1074453;Best of luck!  Watch out for Lady Melisande.  She's a nasty one. 
-1074454;Watch Your Step 
-1074455;You won't be able to get into the sinkhole with any normal rope.  It's a big drop, sure, but the real problem is the acid and poison gas.  See, most ropes can't stand up to that kind of treatment, even for a short period of time.  So you'll need a special rope -- a magical rope. Like these ones I happen to have available here for a mere 5,000 gold each. 
-1074456;I sure don't want to go down there either.  You won't hear me chiding you. In fact, I commend your intellect. 
-1074457;The price isn't going to change.  It's 5,000 per rope please. 
-1074458;Be careful down there. I don't like losing customers. 
-1074459;That's okay, I'll find someone else to make the delivery. 
-1074460;If I knew where my cousin was, I'd make the delivery myself. 
-1074461;Oh, hello there.  What do you have for me? 
-1074462;The best thing about my job is that I do a little bit of everything, every day.  It's what we're good at really.  Just picking up something and making it do something else.  Listen, I'm really low on parts.  Are you interested in fetching me some supplies? 
+1074433;Przywiazany do ziemi... tej ziemi 
+1074434;Och, pomocy! Pomoz mi! Nie chce skonczyc jak moje siostry, zniewolone przez okrutna Wrozka. Nie moge uciec, jestem uwieziona tutaj przez zlo harpii Salivy. Czy nie moglbys mi pomoc i jednoczesnie wybawic moje siostry? W zamian udziele ci mojego blogoslawienstwa.
+1074435;Prosze, jestem taka przerazona. Nie chce stac sie wypaczona i zepsuta. Prosze, uwolnij mnie!
+1074436;Dopoki moje siostry nie zostana potraktowane z milosierdziem i uwolnione od swojego wypaczonego istnienia, a podla Saliva nie zostanie zgladzona, nie moge czuc sie bezpieczna ani udzielic swojego blogoslawienstwa.
+1074437;Och! Wrociles. Nie wiem, jak moge ci wystarczajaco podziekowac za ocalenie mnie. Mam tylko nadzieje, ze Wrozce nie przywroci ich do zycia po raz kolejny. Blogoslaw cie, szlachetny wedrowcze. Blogoslaw cie. Jesli pragniesz zmierzyc sie z Melisande w walce, umiesc symbol mojego blogoslawienstwa w koszu. Niech twoje zwyciestwo przyniesie wybawienie nam wszystkim.
+1074438;Zgubione
+1074439;Cii! nerwowy smiech Och, przepraszam za to. Zapominam, ze nie jestem juz w bibliotece - zamiast tego TO COS przejelo kontrole. Jakby to nie bylo wystarczajaco stresujace, zgubilem strony mojej pracy dyplomowej, a zgnile umarle je zebraly. Czy moglbys je odzyskac dla mnie?
+1074440;Rozpadajace sie notatki do pracy dyplomowej
+1074441;*wzdycha* Oczywiscie, rozumiem. Jesli zmienisz zdanie, bede czekal.
+1074442;Wiekszosc stworzen tutaj nie interesuje sie moja praca dyplomowa. nerwowy smiech Mistrz Gnosos twierdzilby, ze nikt sie nia nie interesuje - nawet umarli. Jednak zalozylbym sie, ze potezniejsi nieumarli maja moje strony.
+1074443;Ach! Masz moje strony? Och nie... zostaly uszkodzone. Tutaj, wez ten klucz. Moze uda ci sie znalezc podium i uzyskac dostep do biblioteki. Moje biedne ksiazki sa niszczone przez ten horror, a ty dobrze bys zrobil, porzadkujac sprawy.
+1074444;Cuda swiata przyrody
+1074445;Podejdzcie blizej! Podejdzcie blizej! Panowie i Panie, to wasza szansa, by zobaczyc odkrycie zycia! Jakie magiczne energie powoduja fascynujaca gre swiatla i cienia w tych podziemnych korytarzach? Jakie tajemnicze sily dzialaja gleboko wewnatrz Pryzmatu Swiatla? Bilety wstepu obowiazuja na caly dzien przygod i ekscytacji i sa warte swojej ceny - jedyne 10 000 zlota. Co wy na to?
+1074446;No dalej, Panowie i Panie - przepuszczacie okazje zycia. Czy 10 000 zlota to zbyt wiele za wasze oswiecenie?
+1074447;Siegajcie do kieszeni, Panowie i Panie! Tylko dziesiec tysiecy lsniacych zlotych monet i bedziecie podazac sladami slynnego Lorda Denthe!
+1074448;Podejdzcie blizej! Dziekuje, bawcie sie dobrze w niesamowitych jaskiniach.
+1074449;Niebezpieczne przejscie
+1074450;Hej tam! Jesli chcesz przejsc i zmierzyc sie z Zatrutym Gajem, bedziesz potrzebowal specjalnego maczety. Na szczescie mam jedna tutaj i jest na sprzedaz! Tylko 1000 zlota za sztuke.
+1074451;Tak, wygladales, jakbys nie dal rady. Prawdopodobnie to lepiej.
+1074452;Co to za rodzaj poszukiwacza przygod, ktory nie moze wydac troche zlota na dobre wyposazenie? Bedziesz potrzebowal tej maczety, by przedrzec sie pod tymi korzeniami. To dobra cena.
+1074453;Powodzenia! Uwazaj na Lady Melisande. Jest podla.
+1074454;Uwazaj, gdzie stapasz
+1074455;Nie bedziesz w stanie dostac sie do zapadliska za pomoca zwyklej liny. To duzy spadek, jasne, ale prawdziwy problem to kwas i trujacy gaz. Widzisz, wiekszosc lin nie wytrzyma takiego traktowania, nawet przez krotki czas. Bedziesz potrzebowal specjalnej liny - magicznej liny. Takiej jak te, ktore mam tutaj dostepne za jedyne 5000 zlota za sztuke.
+1074456;Ja tez nie chcialbym tam schodzic. Nie uslyszysz ode mnie nagany. Wlasciwie to podziwiam twoja inteligencje.
+1074457;Cena sie nie zmieni. To 5000 za line, prosze.
+1074458;Uwazaj tam na dole. Nie lubie tracic klientow.
+1074459;W porzadku, znajde kogos innego, kto dostarczy przesylke.
+1074460;Gdybym wiedzial, gdzie jest moj kuzyn, sam bym dostarczyl przesylke.
+1074461;Och, dzien dobry. Co dla mnie masz?
+1074462;Najlepsze w mojej pracy jest to, ze kazdego dnia zajmuje sie czyms innym. To w zasadzie nasza specjalnosc. Po prostu wziac cos i sprawic, by robilo cos innego. Sluchaj, mam malo czesci. Czy bylbys zainteresowany zdobyciem dla mnie zapasow?
 1074463;Siec do polowu rybek akwariowych 
 1074464;mounted Dread Horn 
 1074465;You can only use this on a full keg of poison. 
@@ -35367,7 +35367,7 @@
 1075799;You can absorb ~1_AMOUNT~ points of physical damage. 
 1075800;Thunderstorm 
 1075801;Cast recovery increased by ~1_seconds~ seconds. 
-1075802;Essence of Wind 
+1075802;Esencja Wiatru 
 1075803;Casting time increased by ~1_CASTTIME~ seconds.<br>Swing speed increased by ~2_SWINGTIME~ seconds. 
 1075804;Ethereal Voyage 
 1075805;Monsters are ignoring you. 
@@ -61015,4 +61015,11 @@
 3070000;odnoga gazera
 3070001;powieka starego gazera
 3070002;kiel biesa
-3070003;Inne
+3070003;palec starozytnego lodowego smoka
+3070004;pazur starozytnego lodowego smoka
+3070005;zab starozytnego lodowego smoka
+3070006;klucz do jamy starozytnego lodowego smoka
+3070007;klucz do mrocznej komnaty
+3070008;palce zhoarmintha
+3070009;rog zhoarmintha
+3070010;zab zhoarmintha

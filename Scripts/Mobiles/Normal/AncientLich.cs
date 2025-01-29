@@ -1,3 +1,5 @@
+using Server.Items;
+
 namespace Server.Mobiles
 {
     [CorpseName("zwloki starozytnego licza")]
@@ -91,6 +93,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.FilthyRich, 3);
             AddLoot(LootPack.MedScrolls, 2);
             AddLoot(LootPack.NecroRegs, 100, 200);
+            AddLoot(LootPack.LootItem<CoagulatedLegs>(30.0));
         }
 
         public override void Serialize(GenericWriter writer)

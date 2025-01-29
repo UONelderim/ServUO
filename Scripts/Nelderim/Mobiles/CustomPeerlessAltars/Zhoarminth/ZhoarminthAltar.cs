@@ -3,35 +3,38 @@ using System;
 
 namespace Server.Items
 {
-    public class TwistedWealdAltar : PeerlessAltar
+    public class ZhoarminthAltar : PeerlessAltar
     {
         public override int KeyCount => 3;
-        public override MasterKey MasterKey => new TwistedWealdKey();
+        public override MasterKey MasterKey => new ZhoarminthKey();
 
         public override Type[] Keys => new Type[]
-{
-            typeof( BlightedCotton ), typeof( GnawsFang ), typeof( IrksBrain ),
-            typeof( LissithsSilk ), typeof( SabrixsEye ), typeof( ThornyBriar )
+        {
+	        typeof( ZabZhoarmintha ), typeof( RogZhoarmintha ), typeof( PalceZhoarmintha ) 
 };
 
-        public override BasePeerless Boss => new DreadHorn();
+        public override BasePeerless Boss => new Zhoaminth();
 
         [Constructable]
-        public TwistedWealdAltar() : base(0x207C)
+        public ZhoarminthAltar() : base(0x207C)
         {
-            BossLocation = new Point3D(5302, 1844, 10);
-            TeleportDest = new Point3D(5291, 1844, 12);
-            ExitDest = new Point3D(5256, 1831, 17);
+	        
+            BossLocation = new Point3D(5461, 3796, -25);
+            TeleportDest = new Point3D(5473, 3823, -25);
+            ExitDest = new Point3D(5473, 3830, -25);
+
+            Name = "Oltarz Zhoarmintha";
+            Hue = 1161;
         }
 
         public override Rectangle2D[] BossBounds => m_Bounds;
 
         private readonly Rectangle2D[] m_Bounds = new Rectangle2D[]
         {
-            new Rectangle2D(5283, 1834, 33, 38),
+            new Rectangle2D(5456, 3792, 19, 20),
         };
 
-        public TwistedWealdAltar(Serial serial) : base(serial)
+        public ZhoarminthAltar(Serial serial) : base(serial)
         {
         }
 
