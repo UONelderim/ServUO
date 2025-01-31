@@ -2,6 +2,7 @@ using Server.Commands;
 using Server.Network;
 using System;
 using System.Collections;
+using Nelderim;
 
 namespace Server.Gumps
 {
@@ -93,6 +94,7 @@ namespace Server.Gumps
                         {
                             m_Skill.Base = Convert.ToDouble(text.Text);
                             CommandLogging.LogChangeProperty(m_From, m_Target, string.Format("{0}.Base", m_Skill), m_Skill.Base.ToString());
+                            LabelsConfig.AddTamperingMark(m_Target, m_From);
                         }
                     }
                     else
