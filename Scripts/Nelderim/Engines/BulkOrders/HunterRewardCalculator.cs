@@ -385,13 +385,20 @@ namespace Server.Engines.BulkOrders
 
 		public static readonly Type[] ArtLvl4 =
 		{
-			typeof(Stormgrip),
-			typeof(FeyLeggings),
-			typeof(HuntersHeaddress),
-			typeof(SpodnieOswiecenia),
-			typeof(OrcChieftainHelm),
-			typeof(KulawyMagik),
-			typeof(SmoczyNos),
+			typeof(ArcaneTunic),
+			typeof(AzysBracelet),
+			typeof(BeaconOfHope),
+			typeof(Beastmaster),
+			typeof(Clasp),
+			typeof(EarringsOfTheMagician),
+			typeof(EverlastingBottle),
+			typeof(GluttonousBlade),
+			typeof(ObronaZywiolow),
+			typeof(PancerzPrzodkaCzystejKrwi),
+			typeof(RodOfResurrection),
+			typeof(SoulRipper),
+			typeof(StaffofSnakes),
+			typeof(WyzywajaceOdzienieBarbarzyncy),
         };
 
 		private enum ArtType
