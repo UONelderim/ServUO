@@ -6,8 +6,8 @@ namespace Server.Items
     {
         private Timer _StaminaLossTimer;
 
-        public override int InitMinHits => 60;
-        public override int InitMaxHits => 60;
+        public override int InitMinHits => 255;
+        public override int InitMaxHits => 255;
 
         [Constructable]
         public Beastmaster()

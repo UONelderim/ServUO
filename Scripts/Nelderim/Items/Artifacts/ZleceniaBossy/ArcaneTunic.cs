@@ -4,8 +4,8 @@ namespace Server.Items
 {
     public class ArcaneTunic : LeatherChest
     {
-        public override int InitMinHits => 60;
-        public override int InitMaxHits => 60;
+        public override int InitMinHits => 255;
+        public override int InitMaxHits => 255;
 
         private int originalDefenseChance;
         private DateTime nextUseTime; // Stores the next allowed use time

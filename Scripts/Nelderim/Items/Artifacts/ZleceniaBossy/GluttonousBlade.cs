@@ -11,8 +11,8 @@ namespace Server.Items
 		private Timer m_Timer;
 		private DateTime _ActiveUntil;
 
-		public override int InitMinHits => 100;
-		public override int InitMaxHits => 100;
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		public override int MinDamage => 15;
 		public override int MaxDamage => 18;

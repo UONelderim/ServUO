@@ -5,9 +5,9 @@ namespace Server.Items
 {
 	public class SoulRipper : Katana
 	{
-		public override int InitMinHits => 50;
+		public override int InitMinHits => 255;
 
-		public override int InitMaxHits => 50;
+		public override int InitMaxHits => 255;
 
 		[Constructable]
 		public SoulRipper()

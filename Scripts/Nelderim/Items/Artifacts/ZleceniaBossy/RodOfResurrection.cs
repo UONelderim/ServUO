@@ -7,6 +7,10 @@ namespace Server.Items
 	public class RodOfResurrection : Scepter
 	{
 		private int _Charges;
+		
+		public override int InitMinHits => 255;
+
+		public override int InitMaxHits => 255;
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public int Charges
@@ -60,7 +64,7 @@ namespace Server.Items
 			}
 			else
 			{
-				from.SendMessage("Who would you like to resurrect!");
+				from.SendMessage("Kogo chcesz wskrzesic?");
 				from.BeginTarget(1, false, TargetFlags.Beneficial, OnTarget);
 			}
 		}

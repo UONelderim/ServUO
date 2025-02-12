@@ -3,8 +3,8 @@ namespace Server.Items
     public class BeaconOfHope : MetalShield
     {
 		public override int BaseFireResistance => 10;
-		public override int InitMinHits => 60;
-		public override int InitMaxHits => 60;
+		public override int InitMinHits => 255;
+		public override int InitMaxHits => 255;
 
 		[Constructable]
         public BeaconOfHope()

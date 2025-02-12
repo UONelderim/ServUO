@@ -6,8 +6,8 @@ namespace Server.Items
     {
         private const double LethalPoisonChance = 0.1;
 
-        public override int InitMinHits => 60;
-        public override int InitMaxHits => 60;
+        public override int InitMinHits => 255;
+        public override int InitMaxHits => 255;
 
         public override int BaseColdResistance => 7;
         public override int BaseEnergyResistance => 7;

@@ -17,7 +17,10 @@ namespace Server.Items
 
 	    [CommandProperty(AccessLevel.GameMaster)]
         public bool OnCooldown => DateTime.UtcNow - _LastUsage < _Cooldown;
+	
+	    public override int InitMinHits => 255;
 
+	    public override int InitMaxHits => 255;
 
 	    public override int BasePhysicalResistance => 10;
 	    public override int BaseFireResistance => 15;

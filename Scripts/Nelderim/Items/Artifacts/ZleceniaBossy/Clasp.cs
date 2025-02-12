@@ -2,8 +2,8 @@ namespace Server.Items
 {
     public class Clasp : GoldNecklace
     {
-        public override int InitMinHits => 50;
-        public override int InitMaxHits => 50;
+        public override int InitMinHits => 255;
+        public override int InitMaxHits => 255;
 
         [Constructable]
         public Clasp()
