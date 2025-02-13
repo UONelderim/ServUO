@@ -196,9 +196,7 @@ namespace Server.ACC.CSS.Systems.Ancient
 
 			public override void Deserialize( GenericReader reader )
 			{
-				int version = 0;
-				if (Fix)
-					version = reader.ReadInt(); //version
+				var version = reader.ReadInt(); //version
 				OldBody = reader.ReadInt();
 				World.FindMobile(Serial).BodyValue = OldBody;
 			}

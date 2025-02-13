@@ -16,7 +16,7 @@ namespace Nelderim.Towns
 
 		public override void Serialize(GenericWriter writer)
 		{
-			writer.Write( (int)0 ); //version
+			writer.Write( (int)0 );
 			writer.Write((int)TownAssigned);
 			writer.Write((int)TownBuildingAssigned);
 			writer.Write(TradesWithCriminals);
@@ -24,9 +24,7 @@ namespace Nelderim.Towns
 
 		public override void Deserialize(GenericReader reader)
 		{
-			int version = 0;
-			if (Fix)
-				version = reader.ReadInt(); //version
+			var version = reader.ReadInt();
 			TownAssigned = (Towns)reader.ReadInt();
 			TownBuildingAssigned = (TownBuildingName)reader.ReadInt();
 			TradesWithCriminals = reader.ReadBool();

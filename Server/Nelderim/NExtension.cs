@@ -142,9 +142,6 @@ namespace Nelderim
 
 					T info = new T { Serial = serial };
 
-					if (version > 0)
-						info.Fix = true;
-
 					info.Deserialize(reader);
 
 					ExtensionInfo[serial] = info;

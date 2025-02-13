@@ -64,9 +64,7 @@ namespace Server.Items
 
 		public override void Deserialize(GenericReader reader)
 		{
-			int version = 0;
-			if (Fix)
-				version = reader.ReadInt(); //version
+			var version = reader.ReadInt();
 			AnimalName = reader.ReadString();
 			HueVal = reader.ReadInt();
 		}

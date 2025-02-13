@@ -22,7 +22,7 @@ namespace Nelderim
 
 		public override void Serialize(GenericWriter writer)
 		{
-			writer.Write( (int)0 ); //version
+			writer.Write( (int)0 );
 			writer.Write(Labels.Length);
 			foreach (string label in Labels)
 				writer.Write(label);
@@ -33,9 +33,7 @@ namespace Nelderim
 
 		public override void Deserialize(GenericReader reader)
 		{
-			int version = 0;
-			if (Fix)
-				version = reader.ReadInt(); //version
+			var version = reader.ReadInt();
 			int labels_count = reader.ReadInt();
 			Labels = new string[labels_count];
 			for (int j = 0; j < labels_count; j++)
