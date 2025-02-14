@@ -6,6 +6,7 @@
 
 using Server;
 using Server.Commands;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -69,7 +70,7 @@ namespace Arya.Auction
 			}
 			else
 			{
-				e.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[200]);
+				e.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_SYSTEM_DISABLED);
 			}
 		}
 
@@ -82,7 +83,7 @@ namespace Arya.Auction
 			}
 			else
 			{
-				e.Mobile.SendMessage(AuctionConfig.MessageHue, "The auction system is currently stopped");
+				e.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_SYSTEM_DISABLED);
 			}
 		}
 
@@ -92,7 +93,7 @@ namespace Arya.Auction
 			if (AuctionSystem.Running)
 				e.Mobile.SendGump(new AuctionAdminGump(e.Mobile));
 			else
-				e.Mobile.SendMessage(AuctionConfig.MessageHue, "The auction system is now stopped");
+				e.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_SYSTEM_DISABLED);
 		}
 	}
 }

@@ -9,6 +9,7 @@ using Server;
 using Server.Gumps;
 using Server.Network;
 using Xanthos.Utilities;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -133,10 +134,10 @@ namespace Arya.Auction
 			AddImage(0, 290, 9386);
 			AddImageTiled(114, 290, 353, 140, 9387);
 			AddImage(450, 290, 9388);
-			AddLabel(200, 38, 76, AuctionSystem.ST[25]);
+			AddLabel(200, 38, 76, MESSAGING_SYSTEM_TITLE);
 			AddImageTiled(65, 65, 438, 11, 2091);
 
-			AddLabel(65, 85, 0, AuctionSystem.ST[26]);
+			AddLabel(65, 85, 0, AUCTION);
 
 			AuctionItem auction = Auction;
 
@@ -146,15 +147,15 @@ namespace Arya.Auction
 				AddLabel(125, 85, Misc.kRedHue, auction.ItemName);
 
 				AddButton(65, 112, 9762, 9763, 0, GumpButtonType.Reply, 0);
-				AddLabel(85, 110, Misc.kLabelHue, AuctionSystem.ST[27]);
+				AddLabel(85, 110, Misc.kLabelHue, VIEW_DETAILS);
 			}
 			else
 			{
-				AddLabel(125, 85, Misc.kRedHue, AuctionSystem.ST[28]);
+				AddLabel(125, 85, Misc.kRedHue, NOT_AVAILABLE);
 			}
 
 			AddHtml(75, 170, 413, 120, m_HtmlMessage, true, false);
-			AddLabel(75, 150, Misc.kLabelHue, AuctionSystem.ST[29]);
+			AddLabel(75, 150, Misc.kLabelHue, MESSAGE_DETAILS);
 
 			// BUTTON 1: OK
 			// BUTTON 2: CANCEL
@@ -176,7 +177,7 @@ namespace Arya.Auction
 			if (m_ShowExpiration && auction != null)
 			{
 				AddLabel(55, 405, Misc.kRedHue,
-					String.Format(AuctionSystem.ST[30],
+					String.Format(PENDING_TIME_LEFT,
 						auction.PendingTimeLeft.Days, auction.PendingTimeLeft.Hours));
 			}
 		}
@@ -190,7 +191,7 @@ namespace Arya.Auction
 		{
 			if (!AuctionSystem.Running)
 			{
-				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[15]);
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_SYSTEM_DISABLED);
 				return;
 			}
 
@@ -198,7 +199,7 @@ namespace Arya.Auction
 
 			if (auction == null)
 			{
-				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[31]);
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_NO_LONGER_EXISTS);
 				return;
 			}
 

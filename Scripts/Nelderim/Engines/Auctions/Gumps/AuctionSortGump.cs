@@ -9,6 +9,7 @@ using Server;
 using Server.Gumps;
 using Server.Network;
 using Xanthos.Utilities;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -49,76 +50,64 @@ namespace Arya.Auction
 			AddImage(421, 20, 10410);
 			AddImage(410, 20, 10430);
 			AddImageTiled(90, 32, 323, 16, 10254);
-			AddLabel(160, 45, Misc.kGreenHue, AuctionSystem.ST[49]);
+			AddLabel(160, 45, Misc.kGreenHue, SORT_SYSTEM_TITLE);
 
-			AddLabel(95, 125, Misc.kRedHue, AuctionSystem.ST[50]);
+			AddLabel(95, 125, Misc.kRedHue, ITEM_NAME);
 			AddImage(75, 125, 2511);
 
 			AddButton(110, 144, 9702, 9703, 1, GumpButtonType.Reply, 0);
-
-			AddLabel(135, 141, Misc.kLabelHue, AuctionSystem.ST[51]);
+			AddLabel(135, 141, Misc.kLabelHue, SORT_NAME_ASC);
 
 			AddButton(110, 163, 9702, 9703, 2, GumpButtonType.Reply, 0);
-
-			AddLabel(135, 160, Misc.kLabelHue, AuctionSystem.ST[52]);
+			AddLabel(135, 160, Misc.kLabelHue, SORT_NAME_DESC);
 
 			AddImage(420, 280, 10412);
-			AddLabel(95, 185, Misc.kRedHue, AuctionSystem.ST[53]);
+			AddLabel(95, 185, Misc.kRedHue, SORT_DATE);
 			AddImage(75, 185, 2511);
 
 			AddButton(110, 204, 9702, 9703, 3, GumpButtonType.Reply, 0);
-
-			AddLabel(135, 201, Misc.kLabelHue, AuctionSystem.ST[54]);
+			AddLabel(135, 201, Misc.kLabelHue, SORT_DATE_ASC);
 
 			AddButton(110, 223, 9702, 9703, 4, GumpButtonType.Reply, 0);
+			AddLabel(135, 220, Misc.kLabelHue, SORT_DATE_DESC);
 
-			AddLabel(135, 220, Misc.kLabelHue, AuctionSystem.ST[55]);
-
-			AddLabel(95, 245, Misc.kRedHue, AuctionSystem.ST[56]);
+			AddLabel(95, 245, Misc.kRedHue, TIME_LEFT);
 			AddImage(75, 245, 2511);
 
 			AddButton(110, 264, 9702, 9703, 5, GumpButtonType.Reply, 0);
-
-			AddLabel(135, 261, Misc.kLabelHue, AuctionSystem.ST[57]);
+			AddLabel(135, 261, Misc.kLabelHue, SORT_TIME_LEFT_ASC);
 
 			AddButton(110, 283, 9702, 9703, 6, GumpButtonType.Reply, 0);
+			AddLabel(135, 280, Misc.kLabelHue, SORT_TIME_LEFT_DESC);
 
-			AddLabel(135, 280, Misc.kLabelHue, AuctionSystem.ST[58]);
-
-			AddLabel(290, 125, Misc.kRedHue, AuctionSystem.ST[59]);
+			AddLabel(290, 125, Misc.kRedHue, SORT_BID_COUNT);
 			AddImage(270, 125, 2511);
 
 			AddButton(305, 144, 9702, 9703, 7, GumpButtonType.Reply, 0);
-
-			AddLabel(330, 141, Misc.kLabelHue, AuctionSystem.ST[60]);
+			AddLabel(330, 141, Misc.kLabelHue, SORT_BID_COUNT_ASC);
 
 			AddButton(305, 163, 9702, 9703, 8, GumpButtonType.Reply, 0);
+			AddLabel(330, 160, Misc.kLabelHue, SORT_BID_COUNT_DESC);
 
-			AddLabel(330, 160, Misc.kLabelHue, AuctionSystem.ST[61]);
-
-			AddLabel(290, 185, Misc.kRedHue, AuctionSystem.ST[62]);
+			AddLabel(290, 185, Misc.kRedHue, SORT_MIN_BID);
 			AddImage(270, 185, 2511);
 
 			AddButton(305, 204, 9702, 9703, 9, GumpButtonType.Reply, 0);
-
-			AddLabel(330, 201, Misc.kLabelHue, AuctionSystem.ST[63]);
+			AddLabel(330, 201, Misc.kLabelHue, SORT_BID_ASC);
 
 			AddButton(305, 223, 9702, 9703, 10, GumpButtonType.Reply, 0);
+			AddLabel(330, 220, Misc.kLabelHue, SORT_BID_DESC);
 
-			AddLabel(330, 220, Misc.kLabelHue, AuctionSystem.ST[64]);
-
-			AddLabel(290, 245, Misc.kRedHue, AuctionSystem.ST[65]);
+			AddLabel(290, 245, Misc.kRedHue, SORT_MAX_BID);
 			AddImage(270, 245, 2511);
 
 			AddButton(305, 264, 9702, 9703, 11, GumpButtonType.Reply, 0);
-
-			AddLabel(330, 261, Misc.kLabelHue, AuctionSystem.ST[63]);
+			AddLabel(330, 261, Misc.kLabelHue, SORT_BID_ASC);
 
 			AddButton(305, 283, 9702, 9703, 12, GumpButtonType.Reply, 0);
+			AddLabel(330, 280, Misc.kLabelHue, SORT_BID_DESC);
 
-			AddLabel(330, 280, Misc.kLabelHue, AuctionSystem.ST[64]);
-
-			AddLabel(120, 315, Misc.kLabelHue, AuctionSystem.ST[66]);
+			AddLabel(120, 315, Misc.kLabelHue, SORT_CANCEL);
 			AddButton(80, 315, 4017, 4018, 0, GumpButtonType.Reply, 0);
 		}
 
@@ -126,7 +115,7 @@ namespace Arya.Auction
 		{
 			if (!AuctionSystem.Running)
 			{
-				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[15]);
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_SYSTEM_DISABLED);
 				return;
 			}
 

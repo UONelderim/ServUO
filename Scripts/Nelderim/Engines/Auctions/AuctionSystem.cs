@@ -12,6 +12,7 @@ using Server;
 using Server.Accounting;
 using Server.Items;
 using Server.Mobiles;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -28,17 +29,17 @@ namespace Arya.Auction
 		/// <summary>
 		///     Text provider for the auction system
 		/// </summary>
-		private static StringTable m_StringTable;
+		private static AuctionMessages m_StringTable;
 
 		/// <summary>
 		///     Gets the String Table for the auction system
 		/// </summary>
-		public static StringTable ST
+		public static AuctionMessages ST
 		{
 			get
 			{
 				if (m_StringTable == null)
-					m_StringTable = new StringTable();
+					m_StringTable = new AuctionMessages();
 				return m_StringTable;
 			}
 		}
@@ -146,13 +147,13 @@ namespace Arya.Auction
 		{
 			if (CanAuction(mobile))
 			{
-				mobile.SendMessage(AuctionConfig.MessageHue, ST[191]);
+				mobile.SendMessage(AuctionConfig.MessageHue, NEW_AUCTION_PROMPT);
 				mobile.CloseAllGumps();
 				mobile.Target = new AuctionTarget(OnNewAuctionTarget, -1, false);
 			}
 			else
 			{
-				mobile.SendMessage(AuctionConfig.MessageHue, ST[192], MaxAuctions);
+				mobile.SendMessage(AuctionConfig.MessageHue, ERR_TOO_MANY_AUCTIONS_FMT, MaxAuctions);
 				mobile.SendGump(new AuctionGump(mobile));
 			}
 		}
@@ -186,7 +187,7 @@ namespace Arya.Auction
 			if (item == null && !AuctionConfig.AllowPetsAuction)
 			{
 				// Can't auction pets and target it invalid
-				from.SendMessage(AuctionConfig.MessageHue, ST[193]);
+				from.SendMessage(AuctionConfig.MessageHue, ERR_NOT_ITEM);
 				from.Target = new AuctionTarget(OnNewAuctionTarget, -1, false);
 				return;
 			}
@@ -200,14 +201,14 @@ namespace Arya.Auction
 
 			if (!CheckItem(item))
 			{
-				from.SendMessage(AuctionConfig.MessageHue, ST[194]);
+				from.SendMessage(AuctionConfig.MessageHue, ERR_INVALID_ITEM);
 				from.Target = new AuctionTarget(OnNewAuctionTarget, -1, false);
 				return;
 			}
 
 			if (!item.Movable)
 			{
-				from.SendMessage(AuctionConfig.MessageHue, ST[205]);
+				from.SendMessage(AuctionConfig.MessageHue, ERR_FROZEN_ITEM);
 				from.Target = new AuctionTarget(OnNewAuctionTarget, -1, false);
 				return;
 			}
@@ -220,14 +221,14 @@ namespace Arya.Auction
 				{
 					if (!CheckItem(sub))
 					{
-						from.SendMessage(AuctionConfig.MessageHue, ST[196]);
+						from.SendMessage(AuctionConfig.MessageHue, ERR_CONTAINER_INVALID_ITEM);
 						ok = false;
 						break;
 					}
 
 					if (!sub.Movable)
 					{
-						from.SendMessage(AuctionConfig.MessageHue, ST[205]);
+						from.SendMessage(AuctionConfig.MessageHue, ERR_FROZEN_ITEM);
 						ok = false;
 						break;
 					}
@@ -235,7 +236,7 @@ namespace Arya.Auction
 					if (sub is Container && sub.Items.Count > 0)
 					{
 						ok = false;
-						from.SendMessage(AuctionConfig.MessageHue, ST[197]);
+						from.SendMessage(AuctionConfig.MessageHue, ERR_CONTAINER_NESTED);
 						break;
 					}
 				}
@@ -243,7 +244,7 @@ namespace Arya.Auction
 
 			if (!(item.IsChildOf(from.Backpack) || item.IsChildOf(from.BankBox)))
 			{
-				from.SendMessage(AuctionConfig.MessageHue, ST[198]);
+				from.SendMessage(AuctionConfig.MessageHue, ERR_INVALID_PARENT);
 				ok = false;
 			}
 

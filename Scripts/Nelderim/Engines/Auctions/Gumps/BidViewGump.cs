@@ -10,6 +10,7 @@ using Server;
 using Server.Gumps;
 using Server.Network;
 using Xanthos.Utilities;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -51,18 +52,18 @@ namespace Arya.Auction
 			AddImageTiled(0, 0, 297, 282, 5174);
 			AddImageTiled(1, 1, 295, 280, 2702);
 			AddAlphaRegion(1, 1, 295, 280);
-			AddLabel(12, 5, Misc.kRedHue, AuctionSystem.ST[86]);
+			AddLabel(12, 5, Misc.kRedHue, BID_HISTORY);
 
-			AddLabel(160, 5, Misc.kGreenHue, String.Format(AuctionSystem.ST[18], m_Page + 1, numOfPages));
+			AddLabel(160, 5, Misc.kGreenHue, String.Format(PAGE_FMT, m_Page + 1, numOfPages));
 			AddImageTiled(10, 30, 277, 221, 5174);
 			AddImageTiled(11, 31, 39, 19, 9274);
 			AddAlphaRegion(11, 31, 39, 19);
 			AddImageTiled(51, 31, 104, 19, 9274);
 			AddAlphaRegion(51, 31, 104, 19);
-			AddLabel(55, 30, Misc.kGreenHue, AuctionSystem.ST[87]);
+			AddLabel(55, 30, Misc.kGreenHue, WHO);
 			AddImageTiled(156, 31, 129, 19, 9274);
 			AddAlphaRegion(156, 31, 129, 19);
-			AddLabel(160, 30, Misc.kGreenHue, AuctionSystem.ST[88]);
+			AddLabel(160, 30, Misc.kGreenHue, AMOUNT);
 
 			for (int i = 0; i < 10; i++)
 			{
@@ -78,13 +79,13 @@ namespace Arya.Auction
 					Bid bid = m_Bids[m_Page * 10 + i] as Bid;
 					AddLabel(15, 50 + i * 20, Misc.kLabelHue, (m_Page * 10 + i + 1).ToString());
 					AddLabelCropped(55, 50 + i * 20, 100, 19, Misc.kLabelHue,
-						bid.Mobile != null ? bid.Mobile.Name : AuctionSystem.ST[78]);
+						bid.Mobile != null ? bid.Mobile.Name : NA);
 					AddLabel(160, 50 + i * 20, Misc.kLabelHue, bid.Amount.ToString("#,0"));
 				}
 			}
 
 			AddButton(10, 255, 4011, 4012, 0, GumpButtonType.Reply, 0);
-			AddLabel(48, 257, Misc.kLabelHue, AuctionSystem.ST[89]);
+			AddLabel(48, 257, Misc.kLabelHue, RETURN_TO_AUCTION);
 
 			// PREV PAGE: 1
 			if (m_Page > 0)
@@ -103,7 +104,7 @@ namespace Arya.Auction
 		{
 			if (!AuctionSystem.Running)
 			{
-				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[15]);
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_SYSTEM_DISABLED);
 				return;
 			}
 

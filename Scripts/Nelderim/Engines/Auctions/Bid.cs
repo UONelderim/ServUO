@@ -9,6 +9,7 @@ using System.IO;
 using Server;
 using Server.Accounting;
 using Server.Mobiles;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -61,7 +62,7 @@ namespace Arya.Auction
 				return new Bid(from, amount);
 			}
 
-			@from.SendMessage(0x40, AuctionSystem.ST[199]);
+			from.SendMessage(0x40, ERR_NOT_ENOUGH_MONEY);
 			return null;
 		}
 

@@ -11,6 +11,7 @@ using Server.Gumps;
 using Server.Mobiles;
 using Server.Network;
 using Xanthos.Utilities;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -59,32 +60,32 @@ namespace Arya.Auction
 			AddAlphaRegion(160, 5, 335, 360);
 			AddAlphaRegion(5, 170, 155, 195);
 
-			AddLabel(250, 10, Misc.kRedHue, AuctionSystem.ST[100]);
+			AddLabel(250, 10, Misc.kRedHue, NEW_AUCTION_TITLE);
 
 			// Starting bid: text 0
-			AddLabel(170, 35, Misc.kLabelHue, AuctionSystem.ST[68]);
+			AddLabel(170, 35, Misc.kLabelHue, STARTING_BID);
 			AddImageTiled(254, 34, 72, 22, 2524);
 			AddImageTiled(255, 35, 70, 20, 2624);
 			AddAlphaRegion(255, 35, 70, 20);
 			AddTextEntry(255, 35, 70, 20, Misc.kGreenHue, 0, m_Auction.MinBid.ToString("#,0"));
 
 			// Reserve: text 1
-			AddLabel(345, 35, Misc.kLabelHue, AuctionSystem.ST[69]);
+			AddLabel(345, 35, Misc.kLabelHue, RESERVE);
 			AddImageTiled(414, 34, 72, 22, 2524);
 			AddImageTiled(415, 35, 70, 20, 2624);
 			AddAlphaRegion(415, 35, 70, 20);
 			AddTextEntry(415, 35, 70, 20, Misc.kGreenHue, 1, m_Auction.Reserve.ToString("#,0"));
 
 			// Days duration: text 2
-			AddLabel(170, 60, Misc.kLabelHue, AuctionSystem.ST[101]);
+			AddLabel(170, 60, Misc.kLabelHue, DURATION);
 			AddImageTiled(254, 59, 32, 22, 2524);
 			AddImageTiled(255, 60, 30, 20, 2624);
 			AddAlphaRegion(255, 60, 30, 20);
 			AddTextEntry(255, 60, 30, 20, Misc.kGreenHue, 2, m_Auction.Duration.TotalDays.ToString());
-			AddLabel(290, 60, Misc.kLabelHue, AuctionSystem.ST[102]);
+			AddLabel(290, 60, Misc.kLabelHue, DAYS);
 
 			// Item name: text 3
-			AddLabel(170, 85, Misc.kLabelHue, AuctionSystem.ST[50]);
+			AddLabel(170, 85, Misc.kLabelHue, ITEM_NAME);
 			AddImageTiled(254, 84, 232, 22, 2524);
 			AddImageTiled(255, 85, 230, 20, 2624);
 			AddAlphaRegion(255, 85, 230, 20);
@@ -92,21 +93,21 @@ namespace Arya.Auction
 
 			// Buy now: Check 0, Text 6
 			AddCheck(165, 110, 2152, 2153, false, 0);
-			AddLabel(200, 115, Misc.kLabelHue, AuctionSystem.ST[208]);
+			AddLabel(200, 115, Misc.kLabelHue, SETUP_BUY_NOW);
 			AddImageTiled(329, 114, 157, 22, 2524);
 			AddImageTiled(330, 115, 155, 20, 2624);
 			AddAlphaRegion(330, 115, 155, 20);
 			AddTextEntry(330, 115, 155, 20, Misc.kGreenHue, 6, "");
 
 			// Description: text 4
-			AddLabel(170, 140, Misc.kLabelHue, AuctionSystem.ST[103]);
+			AddLabel(170, 140, Misc.kLabelHue, SETUP_DESCRIPTION);
 			AddImageTiled(169, 159, 317, 92, 2524);
 			AddImageTiled(170, 160, 315, 90, 2624);
 			AddAlphaRegion(170, 160, 315, 90);
 			AddTextEntry(170, 160, 315, 90, Misc.kGreenHue, 4, m_Auction.Description);
 
 			// Web link: text 5
-			AddLabel(170, 255, Misc.kLabelHue, AuctionSystem.ST[104]);
+			AddLabel(170, 255, Misc.kLabelHue, SETUP_WEB_LINK);
 			AddImageTiled(224, 274, 262, 22, 2524);
 			AddLabel(170, 275, Misc.kLabelHue, @"http://");
 			AddImageTiled(225, 275, 260, 20, 2624);
@@ -117,23 +118,23 @@ namespace Arya.Auction
 			AddImageTiled(9, 174, 152, 187, 2524);
 			AddImageTiled(10, 175, 150, 185, 2624);
 			AddAlphaRegion(10, 175, 150, 185);
-			AddHtml(10, 175, 150, 185, AuctionSystem.ST[105], false, true);
+			AddHtml(10, 175, 150, 185, AGREEMENT, false, true);
 
 			// OK Button: button 1
 			AddButton(170, 305, 4023, 4024, 1, GumpButtonType.Reply, 0);
-			AddLabel(210, 300, Misc.kRedHue, AuctionSystem.ST[106]);
-			AddLabel(210, 315, Misc.kRedHue, AuctionSystem.ST[107]);
+			AddLabel(210, 300, Misc.kRedHue, AGREEMENT_ACCEPT);
+			AddLabel(210, 315, Misc.kRedHue, AGREEMENT_ACCEPT2);
 
 			// Cancel button: button 0
 			AddButton(170, 335, 4020, 4020, 0, GumpButtonType.Reply, 0);
-			AddLabel(210, 335, Misc.kLabelHue, AuctionSystem.ST[108]);
+			AddLabel(210, 335, Misc.kLabelHue, CANCEL_EXIT);
 		}
 
 		public override void OnResponse(NetState sender, RelayInfo info)
 		{
 			if (!AuctionSystem.Running)
 			{
-				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[15]);
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_SYSTEM_DISABLED);
 
 				m_Auction.Cancel();
 
@@ -201,46 +202,46 @@ namespace Arya.Auction
 
 					if (minbid < 1)
 					{
-						m_User.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[109]);
+						m_User.SendMessage(AuctionConfig.MessageHue, STARTING_BID_TOO_LOW);
 						ok = false;
 					}
 
 					if (reserve < 1 || reserve < minbid)
 					{
-						m_User.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[110]);
+						m_User.SendMessage(AuctionConfig.MessageHue, RESERVE_TOO_LOW);
 						ok = false;
 					}
 
 					if (days < AuctionSystem.MinAuctionDays && m_User.AccessLevel < AccessLevel.GameMaster || days < 1)
 					{
-						m_User.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[111],
+						m_User.SendMessage(AuctionConfig.MessageHue, DURATION_TOO_LOW,
 							AuctionSystem.MinAuctionDays);
 						ok = false;
 					}
 
 					if (days > AuctionSystem.MaxAuctionDays && m_User.AccessLevel < AccessLevel.GameMaster)
 					{
-						m_User.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[112],
+						m_User.SendMessage(AuctionConfig.MessageHue, DURATION_TOO_HIGH,
 							AuctionSystem.MaxAuctionDays);
 						ok = false;
 					}
 
 					if (name.Length == 0)
 					{
-						m_User.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[113]);
+						m_User.SendMessage(AuctionConfig.MessageHue, MISSING_NAME);
 						ok = false;
 					}
 
 					if (minbid * AuctionConfig.MaxReserveMultiplier < reserve &&
 					    m_User.AccessLevel < AccessLevel.GameMaster)
 					{
-						m_User.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[114]);
+						m_User.SendMessage(AuctionConfig.MessageHue, RESERVE_TOO_HIGH);
 						ok = false;
 					}
 
 					if (allowBuyNow && buynow <= reserve)
 					{
-						m_User.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[209]);
+						m_User.SendMessage(AuctionConfig.MessageHue, ERR_BUY_NOW_TOO_LOW);
 						ok = false;
 					}
 
@@ -256,10 +257,10 @@ namespace Arya.Auction
 						if (toPay > 0)
 						{
 							if (Banker.Withdraw(m_User, toPay))
-								m_User.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[228], toPay);
+								m_User.SendMessage(AuctionConfig.MessageHue, COMMIT_SUCCESS_FMT, toPay);
 							else
 							{
-								m_User.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[229], toPay);
+								m_User.SendMessage(AuctionConfig.MessageHue, COMMIT_FAILED_FMT, toPay);
 								goto case 0; // Pretty much cancel the auction
 							}
 						}
@@ -284,7 +285,7 @@ namespace Arya.Auction
 					}
 					else
 					{
-						m_User.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[115]);
+						m_User.SendMessage(AuctionConfig.MessageHue, SYSTEM_CLOSED);
 					}
 
 					break;

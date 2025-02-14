@@ -8,6 +8,7 @@ using Server;
 using Server.Mobiles;
 using Xanthos.Interfaces;
 using Xanthos.Utilities;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -84,32 +85,32 @@ namespace Arya.Auction
 		{
 			if (!creature.Controlled || creature.ControlMaster != from)
 			{
-				from.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[139]);
+				from.SendMessage(AuctionConfig.MessageHue, ERR_CREATURE_OWNER);
 				return null;
 			}
 
 			if (creature.IsAnimatedDead || creature.IsDeadPet)
 			{
-				from.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[140]);
+				from.SendMessage(AuctionConfig.MessageHue, ERR_CREATURE_DEAD);
 				return null;
 			}
 
 			if (creature.Summoned)
 			{
-				from.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[141]);
+				from.SendMessage(AuctionConfig.MessageHue, ERR_CREATURE_SUMMONED);
 				return null;
 			}
 
 			if (creature is BaseFamiliar)
 			{
-				from.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[142]);
+				from.SendMessage(AuctionConfig.MessageHue, ERR_CREATURE_FAMILIAR);
 				return null;
 			}
 
 			if ((creature is PackLlama || creature is PackHorse || creature is Beetle) &&
 			    (creature.Backpack != null && creature.Backpack.Items.Count > 0))
 			{
-				from.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[143]);
+				from.SendMessage(AuctionConfig.MessageHue, ERR_CREATURE_BACKPACK);
 				return null;
 			}
 
@@ -140,14 +141,14 @@ namespace Arya.Auction
 		{
 			if (m_Creature == null)
 			{
-				m.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[144]);
+				m.SendMessage(AuctionConfig.MessageHue, ERR_CREATURE_REMOVED);
 				Delete();
 				return true;
 			}
 
 			if (m.Stabled.Count > AnimalTrainer.GetMaxStabled(m))
 			{
-				m.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[178]);
+				m.SendMessage(AuctionConfig.MessageHue, ERR_STABLE_FULL);
 				return false;
 			}
 

@@ -10,6 +10,7 @@ using Server;
 using Server.Gumps;
 using Server.Network;
 using Xanthos.Utilities;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -107,7 +108,7 @@ namespace Arya.Auction
 				AddImageTiled(30, 140, 107, 24, 3004);
 				AddImageTiled(31, 141, 105, 22, kBeigeBorderInner);
 				AddAlphaRegion(31, 141, 105, 22);
-				AddLabel(37, 142, Misc.kLabelHue, AuctionSystem.ST[82]);
+				AddLabel(37, 142, Misc.kLabelHue, ITEM_HUE);
 				AddItem(90, 141, kHueExampleID, itemHue);
 			}
 
@@ -119,44 +120,44 @@ namespace Arya.Auction
 			AddAlphaRegion(5, 170, 154, 195);
 
 			// Reserve and bids
-			AddLabel(10, 175, Misc.kLabelHue, AuctionSystem.ST[68]);
+			AddLabel(10, 175, Misc.kLabelHue, STARTING_BID);
 			AddLabel(45, 190, Misc.kGreenHue, m_Auction.MinBid.ToString("#,0"));
 
-			AddLabel(10, 280, Misc.kLabelHue, AuctionSystem.ST[69]);
+			AddLabel(10, 280, Misc.kLabelHue, RESERVE);
 			AddLabel(45, 295, m_Auction.ReserveMet ? Misc.kGreenHue : Misc.kRedHue,
 				m_Auction.ReserveMet ? "Met" : "Not Met");
 
-			AddLabel(10, 210, Misc.kLabelHue, AuctionSystem.ST[70]);
+			AddLabel(10, 210, Misc.kLabelHue, HIGHEST_BID);
 
 			if (m_Auction.HasBids)
 				AddLabel(45, 225, m_Auction.ReserveMet ? Misc.kGreenHue : Misc.kRedHue,
 					m_Auction.HighestBid.Amount.ToString("#,0"));
 			else
-				AddLabel(45, 225, Misc.kRedHue, AuctionSystem.ST[71]);
+				AddLabel(45, 225, Misc.kRedHue, NO_BIDS_YET);
 
 			// Time remaining
 			string timeleft = null;
 
-			AddLabel(10, 245, Misc.kLabelHue, AuctionSystem.ST[56]);
+			AddLabel(10, 245, Misc.kLabelHue, TIME_LEFT);
 
 			if (!m_Auction.Expired)
 			{
 				if (m_Auction.TimeLeft >= TimeSpan.FromDays(1))
-					timeleft = String.Format(AuctionSystem.ST[73], m_Auction.TimeLeft.Days, m_Auction.TimeLeft.Hours);
+					timeleft = String.Format(DAYS_HOURS_FMT, m_Auction.TimeLeft.Days, m_Auction.TimeLeft.Hours);
 				else if (m_Auction.TimeLeft >= TimeSpan.FromMinutes(60))
-					timeleft = String.Format(AuctionSystem.ST[74], m_Auction.TimeLeft.Hours);
+					timeleft = String.Format(HOURS_FMT, m_Auction.TimeLeft.Hours);
 				else if (m_Auction.TimeLeft >= TimeSpan.FromSeconds(60))
-					timeleft = String.Format(AuctionSystem.ST[75], m_Auction.TimeLeft.Minutes);
+					timeleft = String.Format(MINUTES_FMT, m_Auction.TimeLeft.Minutes);
 				else
-					timeleft = String.Format(AuctionSystem.ST[76], m_Auction.TimeLeft.Seconds);
+					timeleft = String.Format(SECONDS_FMT, m_Auction.TimeLeft.Seconds);
 			}
 			else if (m_Auction.Pending)
 			{
-				timeleft = AuctionSystem.ST[77];
+				timeleft = PENDING;
 			}
 			else
 			{
-				timeleft = AuctionSystem.ST[78];
+				timeleft = NA;
 			}
 
 			AddLabel(45, 260, Misc.kGreenHue, timeleft);
@@ -164,7 +165,7 @@ namespace Arya.Auction
 			// Bidding
 			if (m_Auction.CanBid(m_User) && !m_Auction.Expired)
 			{
-				AddLabel(10, 318, Misc.kLabelHue, AuctionSystem.ST[79]);
+				AddLabel(10, 318, Misc.kLabelHue, BID_ON_ITEM);
 				AddImageTiled(9, 338, 112, 22, kBeigeBorderOuter);
 				AddImageTiled(10, 339, 110, 20, kBeigeBorderInner);
 				AddAlphaRegion(10, 339, 110, 20);
@@ -178,7 +179,7 @@ namespace Arya.Auction
 			else if (m_Auction.IsOwner(m_User))
 			{
 				// View bids: button 5
-				AddLabel(10, 338, Misc.kLabelHue, AuctionSystem.ST[80]);
+				AddLabel(10, 338, Misc.kLabelHue, VIEW_BIDS);
 				AddButton(125, 338, 4011, 4012, 5, GumpButtonType.Reply, 0);
 			}
 
@@ -192,12 +193,12 @@ namespace Arya.Auction
 			// If it is a container make room for the arrows to navigate to each of the items
 			if (m_Auction.ItemCount > 1)
 			{
-				AddLabel(170, 10, Misc.kGreenHue, String.Format(AuctionSystem.ST[231], m_Auction.ItemName));
+				AddLabel(170, 10, Misc.kGreenHue, String.Format(CONTAINER_FMT, m_Auction.ItemName));
 
 				AddImageTiled(169, 29, 317, 27, kBeigeBorderOuter);
 				AddImageTiled(170, 30, 315, 25, kBeigeBorderInner);
 				AddAlphaRegion(170, 30, 315, 25);
-				AddLabel(185, 35, Misc.kGreenHue, String.Format(AuctionSystem.ST[67], m_Page + 1, m_Auction.ItemCount));
+				AddLabel(185, 35, Misc.kGreenHue, String.Format(ITEM_X_OF_FMT, m_Page + 1, m_Auction.ItemCount));
 
 				// Prev Item button: 1
 				if (m_Page > 0)
@@ -227,7 +228,7 @@ namespace Arya.Auction
 			// Owner description area
 			//
 			AddImageTiled(169, 194, 317, 112, kBeigeBorderOuter);
-			AddLabel(170, 175, Misc.kLabelHue, AuctionSystem.ST[81]);
+			AddLabel(170, 175, Misc.kLabelHue, ITEM_DESCRIPTION);
 			AddImageTiled(170, 195, 315, 110, kBeigeBorderInner);
 			AddAlphaRegion(170, 195, 315, 110);
 			AddHtml(173, 195, 312, 110, String.Format("<basefont color=#FFFFFF>{0}", m_Auction.Description), false,
@@ -236,7 +237,7 @@ namespace Arya.Auction
 			// Web link button: 3
 			if (m_Auction.WebLink != null && m_Auction.WebLink.Length > 0)
 			{
-				AddLabel(350, 175, Misc.kLabelHue, AuctionSystem.ST[72]);
+				AddLabel(350, 175, Misc.kLabelHue, VIEW_WEB_LINK);
 				AddButton(415, 177, 5601, 5605, 3, GumpButtonType.Reply, 0);
 			}
 
@@ -249,32 +250,32 @@ namespace Arya.Auction
 			{
 				AddButton(170, 310, 4029, 4030, 8, GumpButtonType.Reply, 0);
 				AddLabel(205, 312, Misc.kGreenHue,
-					String.Format(AuctionSystem.ST[210], m_Auction.BuyNow.ToString("#,0")));
+					String.Format(VIEW_BUY_NOW_FMT, m_Auction.BuyNow.ToString("#,0")));
 			}
 
 			// Button 6 : Admin Auction Panel
 			if (m_User.AccessLevel >= AuctionConfig.AuctionAdminAcessLevel)
 			{
 				AddButton(170, 338, 4011, 4012, 6, GumpButtonType.Reply, 0);
-				AddLabel(205, 340, Misc.kLabelHue, AuctionSystem.ST[227]);
+				AddLabel(205, 340, Misc.kLabelHue, ADMIN_OPEN_PANEL_BUTTON);
 			}
 
 			// Close button: 0
 			AddButton(455, 338, 4017, 4018, 0, GumpButtonType.Reply, 0);
-			AddLabel(415, 340, Misc.kLabelHue, AuctionSystem.ST[7]);
+			AddLabel(415, 340, Misc.kLabelHue, CLOSE);
 		}
 
 		public override void OnResponse(NetState sender, RelayInfo info)
 		{
 			if (!AuctionSystem.Running)
 			{
-				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[15]);
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_SYSTEM_DISABLED);
 				return;
 			}
 
 			if (!AuctionSystem.Auctions.Contains(m_Auction))
 			{
-				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[207]);
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, ERR_AUCTION_EXPIRED);
 
 				if (m_Callback != null)
 				{
@@ -322,11 +323,11 @@ namespace Arya.Auction
 
 					if (m_Auction.Expired)
 					{
-						m_User.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[84]);
+						m_User.SendMessage(AuctionConfig.MessageHue, AUCTION_EXPIRED);
 					}
 					else if (bid == 0)
 					{
-						m_User.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[85]);
+						m_User.SendMessage(AuctionConfig.MessageHue, INVALID_BID);
 					}
 					else
 					{

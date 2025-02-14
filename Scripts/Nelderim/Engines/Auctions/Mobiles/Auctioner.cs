@@ -10,6 +10,7 @@ using Server;
 using Server.ContextMenus;
 using Server.Items;
 using Server.Mobiles;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -36,7 +37,7 @@ namespace Arya.Auction
 			}
 			else if (m_Auctioner != null)
 			{
-				m_Auctioner.SayTo(m, AuctionSystem.ST[145]);
+				m_Auctioner.SayTo(m, ERR_SYSTEM_CLOSED);
 			}
 		}
 	}

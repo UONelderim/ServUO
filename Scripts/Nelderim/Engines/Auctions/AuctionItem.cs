@@ -15,6 +15,7 @@ using Server.Accounting;
 using Server.Items;
 using Server.Mobiles;
 using Xanthos.Interfaces;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -109,7 +110,7 @@ namespace Arya.Auction
 				{
 					if (Item != null)
 						return m_Props;
-					return AuctionSystem.ST[146];
+					return ERR_ITEM_REMOVED;
 				}
 			}
 
@@ -148,11 +149,11 @@ namespace Arya.Auction
 					sb.AppendFormat("Name : {0}<br", creature.Name);
 				}
 
-				sb.AppendFormat(AuctionSystem.ST[147], creature.ControlSlots);
-				sb.AppendFormat(AuctionSystem.ST[148], creature.IsBondable ? "Yes" : "No");
-				sb.AppendFormat(AuctionSystem.ST[149], creature.Str);
-				sb.AppendFormat(AuctionSystem.ST[150], creature.Dex);
-				sb.AppendFormat(AuctionSystem.ST[151], creature.Int);
+				sb.AppendFormat(CONTROL_SLOTS_FMT, creature.ControlSlots);
+				sb.AppendFormat(BONDABLE_FMT, creature.IsBondable ? "Yes" : "No");
+				sb.AppendFormat(STR_FMT, creature.Str);
+				sb.AppendFormat(DEX_FMT, creature.Dex);
+				sb.AppendFormat(INT_FMT, creature.Int);
 
 				int index = 0;
 				Skill skill = null;
@@ -241,7 +242,7 @@ namespace Arya.Auction
 		{
 			if (item == null || item.PropertyList == null)
 			{
-				return AuctionSystem.ST[78];
+				return NA;
 			}
 
 			ObjectPropertyList plist = new ObjectPropertyList(item);
@@ -338,12 +339,7 @@ namespace Arya.Auction
 		/// <returns>The translated string</returns>
 		private static string ComputeProperty(int number, string arguments)
 		{
-			string prop = ""; //m_StringList.Table[ number ] as string;
-
-			if (prop == null)
-			{
-				return AuctionSystem.ST[170];
-			}
+			string prop = ""; 
 
 			if (arguments == null || arguments.Length == 0)
 			{
@@ -383,7 +379,7 @@ namespace Arya.Auction
 				return Capitalize(prop);
 			}
 
-			return AuctionSystem.ST[171];
+			return INVALID;
 		}
 
 		private DateTime m_StartTime;
@@ -864,7 +860,7 @@ namespace Arya.Auction
 			if (!Creature)
 			{
 				Item.Visible = false;
-				Owner.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[172]);
+				Owner.SendMessage(AuctionConfig.MessageHue, ITEM_NOT_FOUND);
 			}
 
 			// Item name
@@ -951,15 +947,15 @@ namespace Arya.Auction
 		/// </summary>
 		public void Cancel()
 		{
-			if (!Creature)
+			if (Creature)
 			{
-				Item.Visible = true;
-				Owner.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[173]);
+				(Item as MobileStatuette)?.GiveCreatureTo(Owner);
+				Owner.SendMessage(AuctionConfig.MessageHue, AUCTION_CANCELED_PET);
 			}
 			else
 			{
-				(Item as MobileStatuette).GiveCreatureTo(Owner);
-				Owner.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[174]);
+				Item.Visible = true;
+				Owner.SendMessage(AuctionConfig.MessageHue, AUCTION_CANCELED_ITEM);
 			}
 		}
 
@@ -1024,13 +1020,13 @@ namespace Arya.Auction
 			{
 				if (amount <= HighestBid.Amount)
 				{
-					from.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[176]);
+					from.SendMessage(AuctionConfig.MessageHue, ERR_BID_LOW);
 					return false;
 				}
 			}
 			else if (amount <= MinBid)
 			{
-				from.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[177]);
+				from.SendMessage(AuctionConfig.MessageHue, ERR_BID_MIN);
 				return false;
 			}
 
@@ -1043,7 +1039,7 @@ namespace Arya.Auction
 
 			if (BidIncrement > delta)
 			{
-				from.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[204], BidIncrement);
+				from.SendMessage(AuctionConfig.MessageHue, ERR_BID_INCREMENT_FMT, BidIncrement);
 				return false;
 			}
 
@@ -1068,7 +1064,7 @@ namespace Arya.Auction
 					if (timeLeft < TimeSpan.FromMinutes(5.0))
 					{
 						m_EndTime += AuctionConfig.LateBidExtention;
-						bid.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[230]);
+						bid.Mobile.SendMessage(AuctionConfig.MessageHue, LATE_BID_EXTENSION);
 					}
 				}
 			}
@@ -1620,7 +1616,7 @@ namespace Arya.Auction
 		{
 			if (!Banker.Withdraw(m, BuyNow))
 			{
-				m.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[211]);
+				m.SendMessage(AuctionConfig.MessageHue, ERR_BUY_NOW_NOT_ENOUGH_MONEY);
 				return false;
 			}
 

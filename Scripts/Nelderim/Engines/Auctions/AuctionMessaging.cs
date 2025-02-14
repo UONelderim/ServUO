@@ -6,6 +6,7 @@
 
 using System;
 using Server;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -42,7 +43,7 @@ namespace Arya.Auction
 				return;
 
 			AuctionMessageGump gump = new AuctionMessageGump(auction, true, false, false);
-			gump.Message = String.Format(AuctionSystem.ST[179], amount.ToString("#,0"));
+			gump.Message = String.Format(ERR_OUTBID_FMT, amount.ToString("#,0"));
 			gump.OkText = "Close this message";
 			gump.ShowExpiration = false;
 
@@ -60,17 +61,17 @@ namespace Arya.Auction
 
 			AuctionMessageGump gump = new AuctionMessageGump(item, false, true, true);
 			string msg = String.Format(
-				AuctionSystem.ST[180],
+				MSG_RESERVE_OWNER_FMT,
 				item.HighestBid.Amount, item.Reserve.ToString("#,0"));
 
 			if (!item.IsValid())
 			{
-				msg += AuctionSystem.ST[181];
+				msg += MSG_RESERVE_OWNER_ITEM_INVALID;
 			}
 
 			gump.Message = msg;
-			gump.OkText = AuctionSystem.ST[182];
-			gump.CancelText = AuctionSystem.ST[183];
+			gump.OkText = MSG_RESERVE_OWNER_OK;
+			gump.CancelText = MSG_RESERVE_OWNER_CANCEL;
 
 			item.Owner.SendGump(new AuctionNoticeGump(gump));
 		}
@@ -85,10 +86,9 @@ namespace Arya.Auction
 				return;
 
 			AuctionMessageGump gump = new AuctionMessageGump(item, true, false, true);
-			gump.Message = String.Format(AuctionSystem.ST[184],
-				AuctionConfig.DaysForConfirmation, item.HighestBid.Amount, item.Reserve);
+			gump.Message = String.Format(MSG_RESERVE_BUYER_FMT, item.HighestBid.Amount, item.Reserve);
 
-			gump.OkText = AuctionSystem.ST[185];
+			gump.OkText = MSG_BUTTON_CLOSE;
 
 			item.HighestBid.Mobile.SendGump(new AuctionNoticeGump(gump));
 		}
@@ -104,16 +104,16 @@ namespace Arya.Auction
 				return;
 
 			AuctionMessageGump gump = new AuctionMessageGump(item, false, false, true);
-			string msg = String.Format(AuctionSystem.ST[186], item.HighestBid.Amount.ToString("#,0"));
+			string msg = String.Format(MSG_ERROR_BUYER_FMT, item.HighestBid.Amount.ToString("#,0"));
 
 			if (!item.ReserveMet)
 			{
-				msg += AuctionSystem.ST[187];
+				msg += MSG_ERROR_BUYER_RESERVE_NOT_MET;
 			}
 
 			gump.Message = msg;
-			gump.OkText = AuctionSystem.ST[188];
-			gump.CancelText = AuctionSystem.ST[189];
+			gump.OkText = MSG_ERROR_BUYER_OK;
+			gump.CancelText = MSG_ERROR_BUYER_CANCEL;
 
 			m.SendGump(new AuctionNoticeGump(gump));
 		}
@@ -130,8 +130,8 @@ namespace Arya.Auction
 				return;
 
 			AuctionMessageGump gump = new AuctionMessageGump(item, true, true, true);
-			gump.Message = AuctionSystem.ST[190];
-			gump.OkText = AuctionSystem.ST[185];
+			gump.Message = MSG_ERROR_OWNER;
+			gump.OkText = MSG_BUTTON_CLOSE;
 
 			m.SendGump(new AuctionNoticeGump(gump));
 		}

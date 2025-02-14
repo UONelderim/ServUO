@@ -6,6 +6,7 @@
 
 using System;
 using Server;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -25,7 +26,7 @@ namespace Arya.Auction
 		/// <param name="result">Specifies the reason for the generation of this check</param>
 		public AuctionItemCheck(AuctionItem auction, AuctionResult result)
 		{
-			Name = auction.Creature ? AuctionSystem.ST[131] : AuctionSystem.ST[132];
+			Name = auction.Creature ? CREATURE_CHECK_TITLE : ITEM_CHECK_TITLE;
 
 			m_Auction = auction.ID;
 			m_ItemName = auction.ItemName;
@@ -53,26 +54,26 @@ namespace Arya.Auction
 					switch (result)
 					{
 						case AuctionResult.NoBids:
-							m_Message = String.Format(AuctionSystem.ST[133], m_ItemName);
+							m_Message = String.Format(RESULT_NO_BIDS_FMT, m_ItemName);
 							break;
 
 						case AuctionResult.PendingRefused:
-							m_Message = String.Format(AuctionSystem.ST[134], m_ItemName);
+							m_Message = String.Format(RESULT_CANCELED_FMT, m_ItemName);
 							break;
 
 						case AuctionResult.SystemStopped:
-							m_Message = String.Format(AuctionSystem.ST[135], m_ItemName);
+							m_Message = String.Format(RESULT_SYSTEM_STOPPED_FMT, m_ItemName);
 							break;
 
 						case AuctionResult.PendingTimedOut:
-							m_Message = AuctionSystem.ST[127];
+							m_Message = RESULT_PENDING_TIMEOUT;
 							break;
 
 						case AuctionResult.ItemDeleted:
-							m_Message = AuctionSystem.ST[136];
+							m_Message = RESULT_ITEM_REMOVED;
 							break;
 						case AuctionResult.StaffRemoved:
-							m_Message = AuctionSystem.ST[203];
+							m_Message = RESULT_STAFF_CLOSED;
 							break;
 					}
 
@@ -84,12 +85,12 @@ namespace Arya.Auction
 
 					m_Owner = auction.HighestBid.Mobile;
 					Hue = ItemSoldHue;
-					m_Message = String.Format(AuctionSystem.ST[137], m_ItemName,
+					m_Message = String.Format(RESULT_SUCCESS_FMT, m_ItemName,
 						auction.HighestBid.Amount.ToString("#,0"));
 					break;
 
 				default:
-					throw new Exception(String.Format(AuctionSystem.ST[138], result.ToString()));
+					throw new Exception(String.Format(INVALID_ITEM_CHECK_REASON_FMT, result.ToString()));
 			}
 		}
 
@@ -125,7 +126,7 @@ namespace Arya.Auction
 
 			if (null == item)
 			{
-				to.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[116]);
+				to.SendMessage(AuctionConfig.MessageHue, ITEM_NOT_FOUND_ERROR);
 				return false;
 			}
 
@@ -134,7 +135,7 @@ namespace Arya.Auction
 				item.UpdateTotals();
 				DeliveryComplete();
 				Delete();
-				to.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[117]);
+				to.SendMessage(AuctionConfig.MessageHue, ITEM_DELIVERED);
 				return true;
 			}
 

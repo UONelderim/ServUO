@@ -8,6 +8,7 @@ using Server;
 using Server.Gumps;
 using Server.Network;
 using Xanthos.Utilities;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -33,14 +34,14 @@ namespace Arya.Auction
 			AddImageTiled(0, 0, 350, 250, 5174);
 			AddImageTiled(1, 1, 348, 248, 2702);
 			AddAlphaRegion(1, 1, 348, 248);
-			AddLabel(70, 15, Misc.kRedHue, AuctionSystem.ST[96]);
-			AddHtml(30, 45, 285, 130, AuctionSystem.ST[97], false, false);
+			AddLabel(70, 15, Misc.kRedHue, TERMINATION_TITLE);
+			AddHtml(30, 45, 285, 130, TERMINATION_WARNING, false, false);
 
 			// Close: Button 1
 			AddButton(30, 185, 4017, 4017, 1, GumpButtonType.Reply, 0);
-			AddLabel(70, 185, Misc.kRedHue, AuctionSystem.ST[98]);
+			AddLabel(70, 185, Misc.kRedHue, TERMINATION_CONFIRM);
 			AddButton(30, 215, 4014, 4015, 0, GumpButtonType.Reply, 0);
-			AddLabel(70, 215, Misc.kGreenHue, AuctionSystem.ST[99]);
+			AddLabel(70, 215, Misc.kGreenHue, TERMINATION_CANCEL);
 		}
 
 		public override void OnResponse(NetState sender, RelayInfo info)

@@ -8,6 +8,7 @@ using Server;
 using Server.Gumps;
 using Server.Network;
 using Xanthos.Utilities;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -42,30 +43,30 @@ namespace Arya.Auction
 			AddImageTiled(90, 32, 323, 16, 10254);
 			AddImage(420, 185, 10412);
 
-			AddLabel(160, 45, 151, AuctionSystem.ST[8]);
+			AddLabel(160, 45, 151, AUCTION_SYSTEM_TITLE);
 
 			// Create new auction: B1
-			AddLabel(100, 130, Misc.kLabelHue, AuctionSystem.ST[9]);
+			AddLabel(100, 130, Misc.kLabelHue, CREATE_AUCTION);
 			AddButton(60, 130, 4005, 4006, 1, GumpButtonType.Reply, 0);
 
 			// View all auctions: B2
-			AddLabel(285, 130, Misc.kLabelHue, AuctionSystem.ST[10]);
+			AddLabel(285, 130, Misc.kLabelHue, VIEW_ALL_AUCTIONS);
 			AddButton(245, 130, 4005, 4006, 2, GumpButtonType.Reply, 0);
 
 			// View your auctions: B3
-			AddLabel(100, 165, Misc.kLabelHue, AuctionSystem.ST[11]);
+			AddLabel(100, 165, Misc.kLabelHue, VIEW_YOUR_AUCTIONS);
 			AddButton(60, 165, 4005, 4006, 3, GumpButtonType.Reply, 0);
 
 			// View your bids: B4
-			AddLabel(285, 165, Misc.kLabelHue, AuctionSystem.ST[12]);
+			AddLabel(285, 165, Misc.kLabelHue, VIEW_YOUR_BIDS);
 			AddButton(245, 165, 4005, 4006, 4, GumpButtonType.Reply, 0);
 
 			// View pendencies: B5
 			AddButton(60, 200, 4005, 4006, 5, GumpButtonType.Reply, 0);
-			AddLabel(100, 200, Misc.kLabelHue, AuctionSystem.ST[13]);
+			AddLabel(100, 200, Misc.kLabelHue, VIEW_PENDENCIES);
 
 			// Exit: B0
-			AddLabel(285, 205, Misc.kLabelHue, AuctionSystem.ST[14]);
+			AddLabel(285, 205, Misc.kLabelHue, EXIT);
 			AddButton(245, 200, 4017, 4018, 0, GumpButtonType.Reply, 0);
 		}
 
@@ -73,7 +74,7 @@ namespace Arya.Auction
 		{
 			if (!AuctionSystem.Running)
 			{
-				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[15]);
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_SYSTEM_DISABLED);
 				return;
 			}
 

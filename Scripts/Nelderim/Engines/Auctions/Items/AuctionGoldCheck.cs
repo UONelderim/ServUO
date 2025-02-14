@@ -8,6 +8,7 @@ using System;
 using Arya.Savings;
 using Server;
 using Server.Mobiles;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -28,7 +29,7 @@ namespace Arya.Auction
 		/// <param name="result">Specifies the reason for the creation of this check</param>
 		public AuctionGoldCheck(AuctionItem auction, AuctionResult result)
 		{
-			Name = AuctionSystem.ST[122];
+			Name = GOLD_CHECK_TITLE;
 			m_Auction = auction.ID;
 			m_ItemName = auction.ItemName;
 
@@ -53,31 +54,31 @@ namespace Arya.Auction
 					switch (result)
 					{
 						case AuctionResult.Outbid:
-							m_Message = String.Format(AuctionSystem.ST[123], m_ItemName, m_GoldAmount.ToString("#,0"));
+							m_Message = String.Format(RESULT_BID_OUTBID_FMT, m_ItemName, m_GoldAmount.ToString("#,0"));
 							break;
 
 						case AuctionResult.SystemStopped:
-							m_Message = String.Format(AuctionSystem.ST[124], m_ItemName, m_GoldAmount.ToString("#,0"));
+							m_Message = String.Format(RESULT_BID_SYSTEM_STOPPED_FMT, m_ItemName, m_GoldAmount.ToString("#,0"));
 							break;
 
 						case AuctionResult.PendingRefused:
-							m_Message = String.Format(AuctionSystem.ST[125], m_ItemName);
+							m_Message = String.Format(RESULT_BID_AUCTION_CANCELED_FMT, m_ItemName);
 							break;
 
 						case AuctionResult.ReserveNotMet:
-							m_Message = String.Format(AuctionSystem.ST[126], m_GoldAmount.ToString("#,0"), m_ItemName);
+							m_Message = String.Format(RESULT_BID_RESERVE_NOT_MET_FMT, m_GoldAmount.ToString("#,0"), m_ItemName);
 							break;
 
 						case AuctionResult.PendingTimedOut:
-							m_Message = AuctionSystem.ST[127];
+							m_Message = RESULT_PENDING_TIMEOUT;
 							break;
 
 						case AuctionResult.ItemDeleted:
-							m_Message = AuctionSystem.ST[128];
+							m_Message = RESULT_BID_ITEM_REMOVED;
 							break;
 
 						case AuctionResult.StaffRemoved:
-							m_Message = AuctionSystem.ST[202];
+							m_Message = RESULT_BID_STAFF_REMOVED;
 							break;
 					}
 
@@ -89,13 +90,11 @@ namespace Arya.Auction
 
 					m_Owner = auction.Owner;
 					Hue = SoldHue;
-					m_Message = String.Format(AuctionSystem.ST[129], m_ItemName, m_GoldAmount.ToString("#,0"));
+					m_Message = String.Format(RESULT_BID_SUCCESS_FMT, m_ItemName, m_GoldAmount.ToString("#,0"));
 					break;
 
 				default:
-
-					throw new Exception(String.Format("{0} is not a valid reason for an auction gold check",
-						result.ToString()));
+					throw new Exception(String.Format(INVALID_GOLD_CHECK_REASON_FMT, result.ToString()));
 			}
 		}
 
@@ -125,13 +124,13 @@ namespace Arya.Auction
 
 			if (!SavingsAccount.DepositGold(m_Owner, m_GoldAmount) && !Banker.Deposit(m_Owner, m_GoldAmount))
 			{
-				m_Owner.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[212]);
+				m_Owner.SendMessage(AuctionConfig.MessageHue, ERR_BANKBOX_FULL);
 				return false;
 			}
 
 			DeliveryComplete();
 			Delete();
-			m_Owner.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[117]);
+			m_Owner.SendMessage(AuctionConfig.MessageHue, ITEM_DELIVERED);
 			return true;
 		}
 

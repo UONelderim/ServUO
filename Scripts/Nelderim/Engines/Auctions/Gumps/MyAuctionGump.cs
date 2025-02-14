@@ -8,6 +8,7 @@ using Server;
 using Server.Gumps;
 using Server.Network;
 using Xanthos.Utilities;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -43,16 +44,16 @@ namespace Arya.Auction
 			AddImage(421, 20, 10410);
 			AddImage(410, 20, 10430);
 			AddImageTiled(90, 32, 323, 16, 10254);
-			AddLabel(160, 45, Misc.kGreenHue, AuctionSystem.ST[8]);
-			AddLabel(100, 130, Misc.kLabelHue, AuctionSystem.ST[11]);
-			AddLabel(285, 130, Misc.kLabelHue, AuctionSystem.ST[12]);
-			AddLabel(100, 165, Misc.kLabelHue, AuctionSystem.ST[13]);
+			AddLabel(160, 45, Misc.kGreenHue, AUCTION_SYSTEM_TITLE);
+			AddLabel(100, 130, Misc.kLabelHue, VIEW_YOUR_AUCTIONS);
+			AddLabel(285, 130, Misc.kLabelHue, VIEW_YOUR_BIDS);
+			AddLabel(100, 165, Misc.kLabelHue, VIEW_PENDENCIES);
 
 			AddButton(60, 130, 4005, 4006, 1, GumpButtonType.Reply, 0);
 			AddButton(245, 130, 4005, 4006, 2, GumpButtonType.Reply, 0);
 			AddButton(60, 165, 4005, 4006, 3, GumpButtonType.Reply, 0);
 			AddButton(60, 205, 4017, 4018, 0, GumpButtonType.Reply, 0);
-			AddLabel(100, 205, Misc.kLabelHue, AuctionSystem.ST[14]);
+			AddLabel(100, 205, Misc.kLabelHue, EXIT);
 			AddImage(420, 185, 10412);
 		}
 
@@ -60,7 +61,7 @@ namespace Arya.Auction
 		{
 			if (!AuctionSystem.Running)
 			{
-				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[15]);
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_SYSTEM_DISABLED);
 				return;
 			}
 

@@ -7,6 +7,7 @@
 using Server.Gumps;
 using Server.Network;
 using Xanthos.Utilities;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -35,8 +36,8 @@ namespace Arya.Auction
 			AddImage(0, 0, 2080);
 			AddImageTiled(18, 37, 263, 245, 2081);
 			AddImage(20, 280, 2083);
-			AddLabel(75, 5, 210, AuctionSystem.ST[0]);
-			AddLabel(45, 35, 0, AuctionSystem.ST[1]);
+			AddLabel(75, 5, 210, DELIVERY_SYSTEM_TITLE);
+			AddLabel(45, 35, 0, DELIVERING);
 
 			int goldHue = 0;
 			int itemHue = 0;
@@ -47,7 +48,7 @@ namespace Arya.Auction
 				goldHue = 143;
 				itemHue = 730;
 				AddImage(200, 39, 2530);
-				AddLabel(70, 220, Misc.kLabelHue, AuctionSystem.ST[2]);
+				AddLabel(70, 220, Misc.kLabelHue, PUT_GOLD_IN_BANK);
 			}
 			else
 			{
@@ -55,11 +56,11 @@ namespace Arya.Auction
 				goldHue = 730;
 				itemHue = 143;
 				AddImage(135, 39, 2530);
-				AddLabel(70, 220, Misc.kLabelHue, AuctionSystem.ST[3]);
+				AddLabel(70, 220, Misc.kLabelHue, PUT_ITEM_IN_BANK);
 			}
 
-			AddLabel(145, 35, itemHue, AuctionSystem.ST[4]);
-			AddLabel(210, 35, goldHue, AuctionSystem.ST[5]);
+			AddLabel(145, 35, itemHue, ITEM);
+			AddLabel(210, 35, goldHue, GOLD);
 
 			AddImage(45, 60, 2091);
 			AddImage(45, 100, 2091);
@@ -76,12 +77,12 @@ namespace Arya.Auction
 			if (m_Check.Auction != null)
 			{
 				AddButton(45, 243, 5601, 5605, 2, GumpButtonType.Reply, 0);
-				AddLabel(70, 240, Misc.kLabelHue, AuctionSystem.ST[6]);
+				AddLabel(70, 240, Misc.kLabelHue, VIEW_AUCTIONS);
 			}
 
 			// Button 0 : Close
 			AddButton(45, 263, 5601, 5605, 0, GumpButtonType.Reply, 0);
-			AddLabel(70, 260, Misc.kLabelHue, AuctionSystem.ST[7]);
+			AddLabel(70, 260, Misc.kLabelHue, CLOSE);
 
 			AddImage(225, 240, 9004);
 		}

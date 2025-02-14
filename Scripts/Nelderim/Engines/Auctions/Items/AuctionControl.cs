@@ -7,6 +7,7 @@
 using System.Collections;
 using Server;
 using Server.Network;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -169,7 +170,7 @@ namespace Arya.Auction
 					item.Parent = newStone;
 				}
 
-				newStone.PublicOverheadMessage(MessageType.Regular, 0x40, false, AuctionSystem.ST[121]);
+				newStone.PublicOverheadMessage(MessageType.Regular, 0x40, false, AUCTION_CONTROL_MOVE_WARNING);
 			}
 
 			base.OnDelete();

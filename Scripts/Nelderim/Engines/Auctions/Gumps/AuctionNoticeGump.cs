@@ -6,6 +6,7 @@
 
 using Server.Gumps;
 using Server.Network;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -40,7 +41,7 @@ namespace Arya.Auction
 		{
 			if (!AuctionSystem.Running)
 			{
-				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[15]);
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_SYSTEM_DISABLED);
 				return;
 			}
 

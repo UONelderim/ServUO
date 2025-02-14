@@ -11,6 +11,7 @@ using Server.Gumps;
 using Server.Items;
 using Server.Network;
 using Xanthos.Utilities;
+using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
@@ -52,74 +53,74 @@ namespace Arya.Auction
 			AddImage(421, 20, 10410);
 			AddImage(410, 20, 10430);
 			AddImageTiled(90, 32, 323, 16, 10254);
-			AddLabel(185, 45, Misc.kGreenHue, AuctionSystem.ST[32]);
+			AddLabel(185, 45, Misc.kGreenHue, SEARCH_SYSTEM_TITLE);
 			AddImage(420, 320, 10412);
 			AddImage(0, 170, 10401);
 			AddImage(420, 170, 10411);
 
 			// TEXT 0 : Search text
-			AddLabel(70, 115, Misc.kLabelHue, AuctionSystem.ST[33]);
+			AddLabel(70, 115, Misc.kLabelHue, SEARCH_PROMPT);
 			AddImageTiled(145, 135, 200, 20, 3004);
 			AddImageTiled(146, 136, 198, 18, 2624);
 			AddAlphaRegion(146, 136, 198, 18);
 			AddTextEntry(146, 135, 198, 20, Misc.kRedHue, 0, @"");
 
-			AddLabel(70, 160, Misc.kLabelHue, AuctionSystem.ST[34]);
+			AddLabel(70, 160, Misc.kLabelHue, SEARCH_TYPES);
 
 			AddCheck(260, 221, 2510, 2511, false, 1);
-			AddLabel(280, 220, Misc.kLabelHue, AuctionSystem.ST[35]);
+			AddLabel(280, 220, Misc.kLabelHue, SEARCH_MAPS);
 
 			AddCheck(260, 261, 2510, 2511, false, 9);
-			AddLabel(280, 260, Misc.kLabelHue, AuctionSystem.ST[36]);
+			AddLabel(280, 260, Misc.kLabelHue, SEARCH_ARTIFACTS);
 
 			AddCheck(260, 241, 2510, 2511, false, 4);
-			AddLabel(280, 240, Misc.kLabelHue, AuctionSystem.ST[37]);
+			AddLabel(280, 240, Misc.kLabelHue, SEARCH_POWER_SCROLLS);
 
 			AddCheck(260, 201, 2510, 2511, false, 3);
-			AddLabel(280, 200, Misc.kLabelHue, AuctionSystem.ST[38]);
+			AddLabel(280, 200, Misc.kLabelHue, SEARCH_RESOURCES);
 
 			AddCheck(260, 181, 2510, 2511, false, 5);
-			AddLabel(280, 180, Misc.kLabelHue, AuctionSystem.ST[39]);
+			AddLabel(280, 180, Misc.kLabelHue, SEARCH_JEWELS);
 
 			AddCheck(90, 181, 2510, 2511, false, 6);
-			AddLabel(110, 180, Misc.kLabelHue, AuctionSystem.ST[40]);
+			AddLabel(110, 180, Misc.kLabelHue, SEARCH_WEAPONS);
 
 			AddCheck(90, 201, 2510, 2511, false, 7);
-			AddLabel(110, 200, Misc.kLabelHue, AuctionSystem.ST[41]);
+			AddLabel(110, 200, Misc.kLabelHue, SEARCH_ARMOR);
 
 			AddCheck(90, 221, 2510, 2511, false, 8);
-			AddLabel(110, 220, Misc.kLabelHue, AuctionSystem.ST[42]);
+			AddLabel(110, 220, Misc.kLabelHue, SEARCH_SHIELDS);
 
 			AddCheck(90, 241, 2510, 2511, false, 2);
-			AddLabel(110, 240, Misc.kLabelHue, AuctionSystem.ST[43]);
+			AddLabel(110, 240, Misc.kLabelHue, SEARCH_REAGENTS);
 
 			AddCheck(90, 261, 2510, 2511, false, 12);
-			AddLabel(110, 260, Misc.kLabelHue, AuctionSystem.ST[44]);
+			AddLabel(110, 260, Misc.kLabelHue, SEARCH_POTIONS);
 
 			AddCheck(90, 280, 2510, 2511, false, 11);
-			AddLabel(110, 279, Misc.kLabelHue, AuctionSystem.ST[45]);
+			AddLabel(110, 279, Misc.kLabelHue, SEARCH_BOD_LARGE);
 
 			AddCheck(260, 280, 2510, 2511, false, 10);
-			AddLabel(280, 279, Misc.kLabelHue, AuctionSystem.ST[46]);
+			AddLabel(280, 279, Misc.kLabelHue, SEARCH_BOD_SMALL);
 
 			// BUTTON 1 : Search
 			AddButton(255, 350, 4005, 4006, 1, GumpButtonType.Reply, 0);
-			AddLabel(295, 350, Misc.kLabelHue, AuctionSystem.ST[16]);
+			AddLabel(295, 350, Misc.kLabelHue, SEARCH);
 
 			// BUTTON 0 : Cancel
 			AddButton(85, 350, 4017, 4018, 0, GumpButtonType.Reply, 0);
-			AddLabel(125, 350, Misc.kLabelHue, AuctionSystem.ST[47]);
+			AddLabel(125, 350, Misc.kLabelHue, SEARCH_CANCEL);
 
 			// CHECK 0: Search withing existing results
 			AddCheck(80, 310, 9721, 9724, false, 0);
-			AddLabel(115, 312, Misc.kLabelHue, AuctionSystem.ST[48]);
+			AddLabel(115, 312, Misc.kLabelHue, SEARCH_CURRENT);
 		}
 
 		public override void OnResponse(NetState sender, RelayInfo info)
 		{
 			if (!AuctionSystem.Running)
 			{
-				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AuctionSystem.ST[15]);
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_SYSTEM_DISABLED);
 				return;
 			}
 
