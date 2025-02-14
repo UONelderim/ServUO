@@ -211,8 +211,8 @@ namespace Server.Engines.Craft
             AddSubRes(typeof(OakBoard), 1072644, 65.0, 1044041, 1072653);
             AddSubRes(typeof(AshBoard), 1072645, 75.0, 1044041, 1072653);
             AddSubRes(typeof(YewBoard), 1072646, 85.0, 1044041, 1072653);
-            AddSubRes(typeof(HeartwoodBoard), 1072647, 95.0, 1044041, 1072653);
-            AddSubRes(typeof(BloodwoodBoard), 1072648, 95.0, 1044041, 1072653);
+            AddSubRes(typeof(HeartwoodBoard), 1072648, 95.0, 1044041, 1072653);
+            AddSubRes(typeof(BloodwoodBoard), 1072647, 95.0, 1044041, 1072653);
             AddSubRes(typeof(FrostwoodBoard), 1072649, 95.0, 1044041, 1072653);
 
             MarkOption = true;
