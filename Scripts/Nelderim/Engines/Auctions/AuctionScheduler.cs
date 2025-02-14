@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+using System.Linq;
 using Server;
 
 namespace Arya.Auction
@@ -37,7 +37,7 @@ namespace Arya.Auction
 
 		private static void CalculateDeadline()
 		{
-			ArrayList list = new ArrayList(AuctionSystem.Auctions);
+			var list = AuctionSystem.Auctions.ToList();
 			list.AddRange(AuctionSystem.Pending);
 
 			Deadline = DateTime.MaxValue;

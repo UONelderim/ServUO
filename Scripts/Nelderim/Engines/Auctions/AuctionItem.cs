@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -167,7 +167,7 @@ namespace Arya.Auction
 			item.GetProperties(plist);
 
 			byte[] data = plist.Stream.ToArray();
-			ArrayList list = new ArrayList();
+			List<string> list = [];
 
 			int index = 15; // First localization number index
 
@@ -364,7 +364,7 @@ namespace Arya.Auction
 			}
 		}
 
-		public ArrayList Bids { get; set; }
+		public List<Bid> Bids { get; set; }
 
 		[CommandProperty(AccessLevel.Administrator)]
 		public Account Account
@@ -612,7 +612,7 @@ namespace Arya.Auction
 			m_ID = Guid.NewGuid();
 			Item = item;
 			Owner = owner;
-			Bids = new ArrayList();
+			Bids = [];
 
 			if (!Creature)
 			{
@@ -634,7 +634,7 @@ namespace Arya.Auction
 
 		private AuctionItem()
 		{
-			Bids = new ArrayList();
+			Bids = [];
 		}
 
 		[IndexerName("SoldItem")]
@@ -1182,9 +1182,7 @@ namespace Arya.Auction
 
 		public bool MobileHasBids(Mobile m)
 		{
-			ArrayList bids = new ArrayList(Bids);
-
-			foreach (Bid bid in bids)
+			foreach (Bid bid in Bids)
 			{
 				if (bid.Mobile == m)
 					return true;

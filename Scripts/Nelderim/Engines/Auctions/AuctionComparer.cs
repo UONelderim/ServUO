@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Collections.Generic;
 
 namespace Arya.Auction
 {
@@ -12,7 +12,7 @@ namespace Arya.Auction
 		HighestBid
 	}
 
-	public class AuctionComparer : IComparer
+	public class AuctionComparer : IComparer<AuctionItem>
 	{
 		private readonly bool m_Ascending;
 		private readonly AuctionSorting m_Sorting;
@@ -23,22 +23,22 @@ namespace Arya.Auction
 			m_Sorting = sorting;
 		}
 
-		public int Compare(object x, object y)
+		public int Compare(AuctionItem x, AuctionItem y)
 		{
 			AuctionItem item1;
 			AuctionItem item2;
 
 			if (m_Ascending)
 			{
-				item1 = x as AuctionItem;
-				item2 = y as AuctionItem;
+				item1 = x;
+				item2 = y;
 			}
 			else
 			{
 				// Switch x and y for descending ordering
 
-				item1 = y as AuctionItem;
-				item2 = x as AuctionItem;
+				item1 = y;
+				item2 = x;
 			}
 
 			if (item1 == null || item2 == null)

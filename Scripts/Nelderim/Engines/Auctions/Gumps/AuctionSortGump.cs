@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Collections.Generic;
 using Server;
 using Server.Gumps;
 using Server.Network;
@@ -11,9 +11,9 @@ namespace Arya.Auction
 	{
 		private readonly bool m_Search;
 		private readonly bool m_ReturnToAuction;
-		private readonly ArrayList m_List;
+		private readonly List<AuctionItem> m_List;
 
-		public AuctionSortGump(Mobile m, ArrayList items, bool returnToAuction, bool search) : base(50, 50)
+		public AuctionSortGump(Mobile m, List<AuctionItem> items, bool returnToAuction, bool search) : base(50, 50)
 		{
 			m.CloseGump(typeof(AuctionSortGump));
 

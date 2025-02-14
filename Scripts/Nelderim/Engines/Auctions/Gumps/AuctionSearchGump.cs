@@ -1,4 +1,6 @@
-using System.Collections;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Server;
 using Server.Engines.BulkOrders;
 using Server.Gumps;
@@ -11,10 +13,10 @@ namespace Arya.Auction
 {
 	public class AuctionSearchGump : Gump
 	{
-		private readonly ArrayList m_List;
+		private readonly List<AuctionItem> m_List;
 		private readonly bool m_ReturnToAuction;
 
-		public AuctionSearchGump(Mobile m, ArrayList items, bool returnToAuction) : base(50, 50)
+		public AuctionSearchGump(Mobile m, List<AuctionItem> items, bool returnToAuction) : base(50, 50)
 		{
 			m.CloseGump(typeof(AuctionSearchGump));
 
@@ -54,7 +56,7 @@ namespace Arya.Auction
 			AddImageTiled(145, 135, 200, 20, 3004);
 			AddImageTiled(146, 136, 198, 18, 2624);
 			AddAlphaRegion(146, 136, 198, 18);
-			AddTextEntry(146, 135, 198, 20, Misc.kRedHue, 0, @"");
+			AddTextEntry(146, 135, 198, 20, Misc.kRedHue, 0, "");
 
 			AddLabel(70, 160, Misc.kLabelHue, SEARCH_TYPES);
 
@@ -125,7 +127,7 @@ namespace Arya.Auction
 			bool searchExisting = false;
 			bool artifacts = false;
 			bool commodity = false;
-			ArrayList types = new ArrayList();
+			var types = new List<Type>();
 			string text = null;
 
 			if (info.TextEntries[0].Text != null && info.TextEntries[0].Text.Length > 0)
@@ -193,20 +195,20 @@ namespace Arya.Auction
 				}
 			}
 
-			ArrayList source;
+			List<AuctionItem> source;
 
 			if (searchExisting)
 			{
-				source = new ArrayList(m_List);
+				source = m_List.ToList();
 			}
 			else
 			{
-				source = new ArrayList(AuctionSystem.Auctions);
+				source = AuctionSystem.Auctions.ToList();
 			}
 
-			ArrayList typeSearch = null;
-			ArrayList commoditySearch = null;
-			ArrayList artifactsSearch = null;
+			List<AuctionItem> typeSearch = null;
+			List<AuctionItem> commoditySearch = null;
+			List<AuctionItem> artifactsSearch = null;
 
 			if (types.Count > 0)
 			{
@@ -223,7 +225,7 @@ namespace Arya.Auction
 				artifactsSearch = AuctionSearch.ForArtifacts(source);
 			}
 
-			ArrayList results = new ArrayList();
+			List<AuctionItem> results = [];
 
 			if (typeSearch == null && artifactsSearch == null && commoditySearch == null)
 			{

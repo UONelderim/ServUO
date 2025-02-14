@@ -100,7 +100,7 @@ namespace Arya.Auction
 			// Web link: text 5
 			AddLabel(170, 255, Misc.kLabelHue, SETUP_WEB_LINK);
 			AddImageTiled(224, 274, 262, 22, 2524);
-			AddLabel(170, 275, Misc.kLabelHue, @"http://");
+			AddLabel(170, 275, Misc.kLabelHue, "http://");
 			AddImageTiled(225, 275, 260, 20, 2624);
 			AddAlphaRegion(225, 275, 260, 20);
 			AddTextEntry(225, 275, 260, 20, Misc.kGreenHue, 5, m_Auction.WebLink);

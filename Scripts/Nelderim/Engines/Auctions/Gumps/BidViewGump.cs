@@ -1,5 +1,6 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Server;
 using Server.Gumps;
 using Server.Network;
@@ -12,18 +13,18 @@ namespace Arya.Auction
 	{
 		private readonly AuctionGumpCallback m_Callback;
 		private readonly int m_Page;
-		private readonly ArrayList m_Bids;
+		private readonly List<Bid> m_Bids;
 
-		public BidViewGump(Mobile m, ArrayList bids, AuctionGumpCallback callback) : this(m, bids, callback, 0)
+		public BidViewGump(Mobile m, List<Bid> bids, AuctionGumpCallback callback) : this(m, bids, callback, 0)
 		{
 		}
 
-		public BidViewGump(Mobile m, ArrayList bids, AuctionGumpCallback callback, int page) : base(100, 100)
+		public BidViewGump(Mobile m, List<Bid> bids, AuctionGumpCallback callback, int page) : base(100, 100)
 		{
 			m.CloseGump(typeof(BidViewGump));
 			m_Callback = callback;
 			m_Page = page;
-			m_Bids = new ArrayList(bids);
+			m_Bids = bids.ToList();
 			MakeGump();
 		}
 

@@ -1,5 +1,6 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Server;
 using Xanthos.Utilities;
 
@@ -7,9 +8,9 @@ namespace Arya.Auction
 {
 	public class AuctionSearch
 	{
-		public static ArrayList Merge(ArrayList first, ArrayList second)
+		public static List<AuctionItem> Merge(List<AuctionItem> first, List<AuctionItem> second)
 		{
-			ArrayList result = new ArrayList(first);
+			List<AuctionItem> result = first.ToList();
 
 			foreach (AuctionItem item in second)
 			{
@@ -20,10 +21,10 @@ namespace Arya.Auction
 			return result;
 		}
 
-		public static ArrayList SearchForText(ArrayList items, string text)
+		public static List<AuctionItem> SearchForText(List<AuctionItem> items, string text)
 		{
 			string[] split = text.Split(' ');
-			ArrayList result = new ArrayList();
+			List<AuctionItem> result = [];
 
 			foreach (string s in split)
 			{
@@ -33,16 +34,16 @@ namespace Arya.Auction
 			return result;
 		}
 
-		private static ArrayList TextSearch(ArrayList list, string name)
+		private static List<AuctionItem> TextSearch(List<AuctionItem> list, string name)
 		{
-			ArrayList results = new ArrayList();
+			List<AuctionItem> results = [];
 
 			if (list == null || name == null)
 			{
 				return results;
 			}
 
-			IEnumerator ie = null;
+			IEnumerator<AuctionItem> ie = null;
 
 			try
 			{
@@ -52,7 +53,7 @@ namespace Arya.Auction
 
 				while (ie.MoveNext())
 				{
-					AuctionItem item = ie.Current as AuctionItem;
+					AuctionItem item = ie.Current;
 
 					if (item != null)
 					{
@@ -97,14 +98,14 @@ namespace Arya.Auction
 			return results;
 		}
 
-		public static ArrayList ForTypes(ArrayList list, ArrayList types)
+		public static List<AuctionItem> ForTypes(List<AuctionItem> list, List<Type> types)
 		{
-			ArrayList results = new ArrayList();
+			List<AuctionItem> results = [];
 
 			if (list == null || types == null)
 				return results;
 
-			IEnumerator ie = null;
+			IEnumerator<AuctionItem> ie = null;
 
 			try
 			{
@@ -112,7 +113,7 @@ namespace Arya.Auction
 
 				while (ie.MoveNext())
 				{
-					AuctionItem item = ie.Current as AuctionItem;
+					AuctionItem item = ie.Current;
 
 					if (item == null)
 						continue;
@@ -155,9 +156,9 @@ namespace Arya.Auction
 			return false;
 		}
 
-		public static ArrayList ForArtifacts(ArrayList items)
+		public static List<AuctionItem> ForArtifacts(List<AuctionItem> items)
 		{
-			ArrayList results = new ArrayList();
+			List<AuctionItem> results = [];
 
 			foreach (AuctionItem auction in items)
 			{
@@ -176,9 +177,9 @@ namespace Arya.Auction
 			return results;
 		}
 
-		public static ArrayList ForCommodities(ArrayList items)
+		public static List<AuctionItem> ForCommodities(List<AuctionItem> items)
 		{
-			ArrayList results = new ArrayList();
+			List<AuctionItem> results = [];
 
 			foreach (AuctionItem auction in items)
 			{

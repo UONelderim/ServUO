@@ -153,7 +153,7 @@ namespace Arya.Auction
 				AddAlphaRegion(10, 339, 110, 20);
 
 				// Bid text: 0
-				AddTextEntry(10, 339, 110, 20, Misc.kGreenHue, 0, @"");
+				AddTextEntry(10, 339, 110, 20, Misc.kGreenHue, 0, "");
 
 				// Bid button: 4
 				AddButton(125, 338, 4011, 4012, 4, GumpButtonType.Reply, 0);

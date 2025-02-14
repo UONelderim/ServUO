@@ -1,7 +1,6 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using Server;
 using Server.Accounting;
 using Server.Items;
@@ -20,31 +19,9 @@ namespace Arya.Auction
 			set => m_ControlStone = value;
 		}
 
-		public static ArrayList Auctions
-		{
-			get
-			{
-				if (m_ControlStone != null)
-				{
-					return m_ControlStone.Auctions;
-				}
+		public static List<AuctionItem> Auctions => m_ControlStone?.Auctions;
 
-				return null;
-			}
-		}
-
-		public static ArrayList Pending
-		{
-			get
-			{
-				if (m_ControlStone != null)
-				{
-					return m_ControlStone.Pending;
-				}
-
-				return null;
-			}
-		}
+		public static List<AuctionItem> Pending => m_ControlStone?.Pending;
 
 		private static int MaxAuctions
 		{
@@ -216,12 +193,12 @@ namespace Arya.Auction
 			{
 				while (Auctions.Count > 0)
 				{
-					(Auctions[0] as AuctionItem).ForceEnd();
+					(Auctions[0]).ForceEnd();
 				}
 
 				while (Pending.Count > 0)
 				{
-					(Pending[0] as AuctionItem).ForceEnd();
+					(Pending[0]).ForceEnd();
 				}
 			}
 
@@ -249,9 +226,9 @@ namespace Arya.Auction
 			return null;
 		}
 
-		public static ArrayList GetAuctions(Mobile m)
+		public static List<AuctionItem> GetAuctions(Mobile m)
 		{
-			ArrayList auctions = new ArrayList();
+			List<AuctionItem> auctions = [];
 
 			try
 			{
@@ -268,9 +245,9 @@ namespace Arya.Auction
 			return auctions;
 		}
 
-		public static ArrayList GetBids(Mobile m)
+		public static List<AuctionItem> GetBids(Mobile m)
 		{
-			ArrayList bids = new ArrayList();
+			List<AuctionItem> bids = [];
 
 			try
 			{
@@ -287,9 +264,9 @@ namespace Arya.Auction
 			return bids;
 		}
 
-		public static ArrayList GetPendencies(Mobile m)
+		public static List<AuctionItem> GetPendencies(Mobile m)
 		{
-			ArrayList list = new ArrayList();
+			List<AuctionItem> list = [];
 
 			try
 			{
@@ -374,23 +351,23 @@ namespace Arya.Auction
 					if (!Running)
 						return;
 
-					ArrayList list = new ArrayList();
-					ArrayList invalid = new ArrayList();
+					List<AuctionItem> expiredList = [];
+					List<AuctionItem> invalidList = [];
 
 					foreach (AuctionItem auction in Auctions)
 					{
 						if (auction.Item == null || (auction.Creature && auction.Pet == null))
-							invalid.Add(auction);
+							invalidList.Add(auction);
 						else if (auction.Expired)
-							list.Add(auction);
+							expiredList.Add(auction);
 					}
 
-					foreach (AuctionItem inv in invalid)
+					foreach (AuctionItem invalid in invalidList)
 					{
-						inv.EndInvalid();
+						invalid.EndInvalid();
 					}
 
-					foreach (AuctionItem expired in list)
+					foreach (AuctionItem expired in expiredList)
 					{
 						expired.End(null);
 					}
@@ -407,7 +384,7 @@ namespace Arya.Auction
 					if (!Running)
 						return;
 
-					ArrayList list = new ArrayList();
+					List<AuctionItem> list = [];
 
 					foreach (AuctionItem auction in Pending)
 					{
@@ -449,9 +426,8 @@ namespace Arya.Auction
 				sw.WriteLine("Auctions List");
 				sw.WriteLine();
 
-				ArrayList auctions = new ArrayList(Auctions);
 
-				foreach (AuctionItem a in auctions)
+				foreach (AuctionItem a in Auctions)
 				{
 					a.Profile(sw);
 				}
@@ -459,9 +435,7 @@ namespace Arya.Auction
 				sw.WriteLine("Pending Auctions List");
 				sw.WriteLine();
 
-				ArrayList pending = new ArrayList(Pending);
-
-				foreach (AuctionItem p in pending)
+				foreach (AuctionItem p in Pending)
 				{
 					p.Profile(sw);
 				}

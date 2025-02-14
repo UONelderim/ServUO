@@ -1,7 +1,6 @@
 using System;
 using Server;
 using Server.Items;
-using Xanthos.Utilities;
 
 namespace Arya.Auction
 {

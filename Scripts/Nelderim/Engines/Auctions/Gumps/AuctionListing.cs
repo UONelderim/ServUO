@@ -1,5 +1,6 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Server;
 using Server.Gumps;
 using Server.Network;
@@ -12,21 +13,21 @@ namespace Arya.Auction
 	{
 		private readonly bool m_EnableSearch;
 		private int m_Page;
-		private readonly ArrayList m_List;
+		private readonly List<AuctionItem> m_List;
 		private readonly bool m_ReturnToAuction;
 
-		public AuctionListing(Mobile m, ArrayList items, bool searchEnabled, bool returnToAuction, int page) : base(50,
+		public AuctionListing(Mobile m, List<AuctionItem> items, bool searchEnabled, bool returnToAuction, int page) : base(50,
 			50)
 		{
 			m.CloseGump(typeof(AuctionListing));
 			m_EnableSearch = searchEnabled;
 			m_Page = page;
-			m_List = new ArrayList(items);
+			m_List = items.ToList();
 			m_ReturnToAuction = returnToAuction;
 			MakeGump();
 		}
 
-		public AuctionListing(Mobile m, ArrayList items, bool searchEnabled, bool returnToAuction) : this(m, items,
+		public AuctionListing(Mobile m, List<AuctionItem> items, bool searchEnabled, bool returnToAuction) : this(m, items,
 			searchEnabled, returnToAuction, 0)
 		{
 		}

@@ -152,9 +152,7 @@ namespace Arya.Auction
 				return;
 			}
 
-			AuctionItem auction = Auction;
-
-			if (auction == null)
+			if (Auction == null)
 			{
 				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_NO_LONGER_EXISTS);
 				return;
@@ -177,19 +175,19 @@ namespace Arya.Auction
 					{
 						if (m_VerifyAuction)
 						{
-							auction.ConfirmInformationMessage(m_OwnerTarget);
+							Auction.ConfirmInformationMessage(m_OwnerTarget);
 						}
 					}
 					else
 					{
-						auction.ConfirmResponseMessage(m_OwnerTarget, true);
+						Auction.ConfirmResponseMessage(m_OwnerTarget, true);
 					}
 
 					break;
 
 				case 2: // Cancel
 
-					auction.ConfirmResponseMessage(m_OwnerTarget, false);
+					Auction.ConfirmResponseMessage(m_OwnerTarget, false);
 					break;
 			}
 		}

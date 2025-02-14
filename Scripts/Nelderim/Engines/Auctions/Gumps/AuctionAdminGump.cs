@@ -24,11 +24,11 @@ namespace Arya.Auction
 			AddPage(0);
 			AddBackground(0, 0, 270, 270, 9300);
 			AddAlphaRegion(0, 0, 270, 270);
-			AddLabel(36, 5, Misc.kRedHue, @"Auction System Administration");
+			AddLabel(36, 5, Misc.kRedHue, "Auction System Administration");
 			AddImageTiled(16, 30, 238, 1, 9274);
 
 			AddLabel(15, 65, Misc.kLabelHue,
-				String.Format(@"Deadline: {0} at {1}", AuctionScheduler.Deadline.ToShortDateString(),
+				String.Format("Deadline: {0} at {1}", AuctionScheduler.Deadline.ToShortDateString(),
 					AuctionScheduler.Deadline.ToShortTimeString()));
 			AddLabel(15, 40, Misc.kGreenHue,
 				String.Format("{0} Auctions, {1} Pending", AuctionSystem.Auctions.Count, AuctionSystem.Pending.Count));

@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Collections.Generic;
 using Server;
 using Server.Network;
 using static Arya.Auction.AuctionMessages;
@@ -7,23 +7,10 @@ namespace Arya.Auction
 {
 	public class AuctionControl : Item
 	{
-		private ArrayList m_Auctions;
-
-		private ArrayList m_Pending;
-
 		private bool m_Delete;
+		public List<AuctionItem> Auctions { get; set; }
 
-		public ArrayList Auctions
-		{
-			get => m_Auctions;
-			set => m_Auctions = value;
-		}
-
-		public ArrayList Pending
-		{
-			get => m_Pending;
-			set => m_Pending = value;
-		}
+		public List<AuctionItem> Pending { get; set; }
 
 		[CommandProperty(AccessLevel.GameMaster, AccessLevel.Administrator)]
 		public int MaxAuctionsParAccount { get; set; } = 5;
@@ -39,16 +26,16 @@ namespace Arya.Auction
 			Name = "Auction System";
 			Visible = false;
 			Movable = false;
-			m_Auctions = new ArrayList();
-			m_Pending = new ArrayList();
+			Auctions = [];
+			Pending = [];
 
 			AuctionSystem.ControlStone = this;
 		}
 
 		public AuctionControl(Serial serial) : base(serial)
 		{
-			m_Auctions = new ArrayList();
-			m_Pending = new ArrayList();
+			Auctions = [];
+			Pending = [];
 		}
 
 		public override void Serialize(GenericWriter writer)
@@ -61,16 +48,16 @@ namespace Arya.Auction
 			writer.Write(MinAuctionDays);
 			writer.Write(MaxAuctionDays);
 
-			writer.Write(m_Auctions.Count);
+			writer.Write(Auctions.Count);
 
-			foreach (AuctionItem auction in m_Auctions)
+			foreach (AuctionItem auction in Auctions)
 			{
 				auction.Serialize(writer);
 			}
 
-			writer.Write(m_Pending.Count);
+			writer.Write(Pending.Count);
 
-			foreach (AuctionItem auction in m_Pending)
+			foreach (AuctionItem auction in Pending)
 			{
 				auction.Serialize(writer);
 			}
@@ -94,14 +81,14 @@ namespace Arya.Auction
 
 					for (int i = 0; i < count; i++)
 					{
-						m_Auctions.Add(AuctionItem.Deserialize(reader, version));
+						Auctions.Add(AuctionItem.Deserialize(reader, version));
 					}
 
 					count = reader.ReadInt();
 
 					for (int i = 0; i < count; i++)
 					{
-						m_Pending.Add(AuctionItem.Deserialize(reader, version));
+						Pending.Add(AuctionItem.Deserialize(reader, version));
 					}
 
 					break;
@@ -116,7 +103,7 @@ namespace Arya.Auction
 			if (!m_Delete)
 			{
 				AuctionControl newStone = new AuctionControl();
-				newStone.m_Auctions.AddRange(this.m_Auctions);
+				newStone.Auctions.AddRange(this.Auctions);
 				newStone.MoveToWorld(this.Location, this.Map);
 
 				newStone.Items.AddRange(Items);
