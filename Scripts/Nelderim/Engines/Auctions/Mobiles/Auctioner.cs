@@ -1,14 +1,8 @@
-#region AuthorHeader
-
 //
 //	Auction version 2.1, by Xanthos and Arya
 //
 //  Based on original ideas and code by Arya
 //
-
-#endregion AuthorHeader
-
-#region References
 
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -17,12 +11,8 @@ using Server.ContextMenus;
 using Server.Items;
 using Server.Mobiles;
 
-#endregion
-
 namespace Arya.Auction
 {
-	#region Context Menu
-
 	public class TradeHouseEntry : ContextMenuEntry
 	{
 		private readonly Auctioner m_Auctioner;
@@ -50,8 +40,6 @@ namespace Arya.Auction
 			}
 		}
 	}
-
-	#endregion
 
 	/// <summary>
 	///     Summary description for Auctioner.

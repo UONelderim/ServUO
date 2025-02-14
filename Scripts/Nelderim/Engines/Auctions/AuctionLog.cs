@@ -1,21 +1,13 @@
-#region AuthorHeader
-
 //
 //	Auction version 2.1, by Xanthos and Arya
 //
 //  Based on original ideas and code by Arya
 //
 
-#endregion AuthorHeader
-
-#region References
-
 using System;
 using System.IO;
 using Server;
 using Server.Accounting;
-
-#endregion
 
 namespace Arya.Auction
 {

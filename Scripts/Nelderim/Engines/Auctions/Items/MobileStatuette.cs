@@ -1,21 +1,13 @@
-#region AuthorHeader
-
 //
 //	Auction version 2.1, by Xanthos and Arya
 //
 //  Based on original ideas and code by Arya
 //
 
-#endregion AuthorHeader
-
-#region References
-
 using Server;
 using Server.Mobiles;
 using Xanthos.Interfaces;
 using Xanthos.Utilities;
-
-#endregion
 
 namespace Arya.Auction
 {
@@ -59,8 +51,6 @@ namespace Arya.Auction
 			Name = Misc.GetFriendlyClassName(creature.GetType().Name);
 		}
 
-		#region Serialization
-
 		public MobileStatuette(Serial serial) : base(serial)
 		{
 		}
@@ -82,8 +72,6 @@ namespace Arya.Auction
 
 			m_Creature = reader.ReadMobile() as BaseCreature;
 		}
-
-		#endregion
 
 		/// <summary>
 		///     Converta a given BaseCreature object into a statuette object which can be sold through the auction

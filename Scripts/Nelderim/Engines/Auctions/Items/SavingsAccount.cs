@@ -1,14 +1,8 @@
-#region AuthorHeader
-
 //
 //	Savings Account version 2.0 - Auction version 2.1, by Xanthos
 //	based on a concept by Phoo
 //
 //
-
-#endregion AuthorHeader
-
-#region References
 
 using System;
 using System.Collections;
@@ -23,8 +17,6 @@ using Server.Items;
 using Server.Mobiles;
 using Server.Network;
 using Xanthos.Utilities;
-
-#endregion
 
 namespace Arya.Savings
 {

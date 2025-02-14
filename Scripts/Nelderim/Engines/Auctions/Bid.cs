@@ -1,22 +1,14 @@
-#region AuthorHeader
-
 //
 //	Auction version 2.1, by Xanthos and Arya
 //
 //  Based on original ideas and code by Arya
 //
 
-#endregion AuthorHeader
-
-#region References
-
 using System;
 using System.IO;
 using Server;
 using Server.Accounting;
 using Server.Mobiles;
-
-#endregion
 
 namespace Arya.Auction
 {
@@ -77,8 +69,6 @@ namespace Arya.Auction
 		{
 		}
 
-		#region Serialization
-
 		public void Serialize(GenericWriter writer)
 		{
 			// Version 1
@@ -104,8 +94,6 @@ namespace Arya.Auction
 
 			return bid;
 		}
-
-		#endregion
 
 		/// <summary>
 		///     Returns the bid money to the highest bidder because they have been outbid

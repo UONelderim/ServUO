@@ -1,20 +1,12 @@
-#region AuthorHeader
-
 //
 //	Auction version 2.1, by Xanthos and Arya
 //
 //  Based on original ideas and code by Arya
 //
 
-#endregion AuthorHeader
-
-#region References
-
 using System.Collections;
 using Server;
 using Server.Network;
-
-#endregion
 
 namespace Arya.Auction
 {
@@ -100,8 +92,6 @@ namespace Arya.Auction
 			m_Pending = new ArrayList();
 		}
 
-		#region Serialization
-
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
@@ -162,8 +152,6 @@ namespace Arya.Auction
 
 			AuctionSystem.ControlStone = this;
 		}
-
-		#endregion
 
 		public override void OnDelete()
 		{

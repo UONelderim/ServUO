@@ -1,21 +1,13 @@
-#region AuthorHeader
-
 //
 //	Misc version 2.0 - utilities version 2.0, by Xanthos
 //
 //
-
-#endregion AuthorHeader
-
-#region References
 
 using System;
 using System.Reflection;
 using System.Security;
 using Server;
 using Server.Commands;
-
-#endregion
 
 namespace Xanthos.Utilities
 {

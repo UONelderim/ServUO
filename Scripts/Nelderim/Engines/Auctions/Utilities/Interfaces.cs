@@ -1,10 +1,6 @@
-#region AuthorHeader
-
 //
 //	Interfaces version 1.0 - utilities version 2.0, by Xanthos
 //
-
-#endregion AuthorHeader
 
 using Server.Mobiles;
 

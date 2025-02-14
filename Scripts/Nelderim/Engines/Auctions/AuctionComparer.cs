@@ -1,18 +1,10 @@
-#region AuthorHeader
-
 //
 //	Auction version 2.1, by Xanthos and Arya
 //
 //  Based on original ideas and code by Arya
 //
 
-#endregion AuthorHeader
-
-#region References
-
 using System.Collections;
-
-#endregion
 
 namespace Arya.Auction
 {
@@ -66,8 +58,6 @@ namespace Arya.Auction
 			m_Sorting = sorting;
 		}
 
-		#region IComparer Members
-
 		public int Compare(object x, object y)
 		{
 			AuctionItem item1 = null;
@@ -118,7 +108,5 @@ namespace Arya.Auction
 
 			return 0;
 		}
-
-		#endregion
 	}
 }

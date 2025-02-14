@@ -1,19 +1,11 @@
-#region AuthorHeader
-
 //
 //	Auction version 2.1, by Xanthos and Arya
 //
 //  Based on original ideas and code by Arya
 //
 
-#endregion AuthorHeader
-
-#region References
-
 using System;
 using Server;
-
-#endregion
 
 namespace Arya.Auction
 {
@@ -185,8 +177,6 @@ namespace Arya.Auction
 			Delivered = true;
 		}
 
-		#region Serialization
-
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
@@ -210,7 +200,5 @@ namespace Arya.Auction
 			m_ItemName = reader.ReadString();
 			m_Owner = reader.ReadMobile();
 		}
-
-		#endregion
 	}
 }

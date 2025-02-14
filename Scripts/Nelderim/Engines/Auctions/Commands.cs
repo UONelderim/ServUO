@@ -1,19 +1,11 @@
-#region AuthorHeader
-
 //
 //	Auction version 2.1, by Xanthos and Arya
 //
 //  Based on original ideas and code by Arya
 //
 
-#endregion AuthorHeader
-
-#region References
-
 using Server;
 using Server.Commands;
-
-#endregion
 
 namespace Arya.Auction
 {
@@ -29,8 +21,6 @@ namespace Arya.Auction
 			CommandHandlers.Register("Auction", AccessLevel.GameMaster, OnAuction);
 			CommandHandlers.Register("AuctionAdmin", AccessLevel.Administrator, OnAuctionAdmin);
 		}
-
-		#region Placing the control stone
 
 		[Usage("InitAuction"),
 		 Description(
@@ -68,10 +58,6 @@ namespace Arya.Auction
 			}
 		}
 
-		#endregion
-
-		#region MyAuction
-
 		[Usage("MyAuction"),
 		 Description(
 			 "Displays all the auctions a player has created or has bid on. This command can't be used to access the full system, therefore it cannot be used to create new auctions.")]
@@ -87,10 +73,6 @@ namespace Arya.Auction
 			}
 		}
 
-		#endregion
-
-		#region Auction
-
 		[Usage("Auction"), Description("Displays the main auction system gump")]
 		private static void OnAuction(CommandEventArgs e)
 		{
@@ -104,10 +86,6 @@ namespace Arya.Auction
 			}
 		}
 
-		#endregion
-
-		#region Auction Admin
-
 		[Usage("AuctionAdmin"), Description("Invokes the auction system administration gump")]
 		private static void OnAuctionAdmin(CommandEventArgs e)
 		{
@@ -116,7 +94,5 @@ namespace Arya.Auction
 			else
 				e.Mobile.SendMessage(AuctionConfig.MessageHue, "The auction system is now stopped");
 		}
-
-		#endregion
 	}
 }

@@ -1,14 +1,8 @@
-#region AuthorHeader
-
 //
 //	Auction version 2.1, by Xanthos and Arya
 //
 //  Based on original ideas and code by Arya
 //
-
-#endregion AuthorHeader
-
-#region References
 
 using System;
 using Server;
@@ -17,8 +11,6 @@ using Server.Gumps;
 using Server.Mobiles;
 using Server.Network;
 using Xanthos.Utilities;
-
-#endregion
 
 namespace Arya.Auction
 {

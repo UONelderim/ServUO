@@ -1,14 +1,8 @@
-#region AuthorHeader
-
 //
 //	Auction version 2.1, by Xanthos and Arya
 //
 //  Based on original ideas and code by Arya
 //
-
-#endregion AuthorHeader
-
-#region References
 
 using System;
 using System.Collections;
@@ -19,8 +13,6 @@ using Server.Accounting;
 using Server.Items;
 using Server.Mobiles;
 
-#endregion
-
 namespace Arya.Auction
 {
 	/// <summary>
@@ -28,8 +20,6 @@ namespace Arya.Auction
 	/// </summary>
 	public class AuctionSystem
 	{
-		#region Variables
-
 		/// <summary>
 		///     The auction control stone
 		/// </summary>
@@ -39,10 +29,6 @@ namespace Arya.Auction
 		///     Text provider for the auction system
 		/// </summary>
 		private static StringTable m_StringTable;
-
-		#endregion
-
-		#region Properties
 
 		/// <summary>
 		///     Gets the String Table for the auction system
@@ -134,10 +120,6 @@ namespace Arya.Auction
 		{
 			get { return m_ControlStone != null; }
 		}
-
-		#endregion
-
-		#region Auction Managment
 
 		/// <summary>
 		///     Adds an auction into the system
@@ -420,10 +402,6 @@ namespace Arya.Auction
 			return list;
 		}
 
-		#endregion
-
-		#region Checks
-
 		/// <summary>
 		///     Verifies if a mobile can create a new auction
 		/// </summary>
@@ -446,10 +424,6 @@ namespace Arya.Auction
 
 			return count < MaxAuctions;
 		}
-
-		#endregion
-
-		#region Scheduling
 
 		public static void Initialize()
 		{
@@ -562,8 +536,6 @@ namespace Arya.Auction
 			m_ControlStone = null;
 			AuctionScheduler.Stop();
 		}
-
-		#endregion
 
 		/// <summary>
 		///     Outputs all relevant auction data to a text file

@@ -1,14 +1,8 @@
-#region AuthorHeader
-
 //
 // Auction version 2.1, by Xanthos and Arya
 //
 // Based on original ideas and code by Arya
 //
-
-#endregion AuthorHeader
-
-#region References
 
 using System;
 using System.Collections;
@@ -21,8 +15,6 @@ using Server.Accounting;
 using Server.Items;
 using Server.Mobiles;
 using Xanthos.Interfaces;
-
-#endregion
 
 namespace Arya.Auction
 {
@@ -94,8 +86,6 @@ namespace Arya.Auction
 	/// </summary>
 	public class AuctionItem
 	{
-		#region ItemInfo class
-
 		public class ItemInfo
 		{
 			private string m_Name;
@@ -223,10 +213,6 @@ namespace Arya.Auction
 			}
 		}
 
-		#endregion
-
-		#region Item Properties
-
 		private static StringList m_StringList;
 
 		static AuctionItem()
@@ -257,8 +243,6 @@ namespace Arya.Auction
 			{
 				return AuctionSystem.ST[78];
 			}
-
-			#region AoS
 
 			ObjectPropertyList plist = new ObjectPropertyList(item);
 			item.GetProperties(plist);
@@ -316,8 +300,6 @@ namespace Arya.Auction
 			}
 
 			return sb.ToString();
-
-			#endregion
 		}
 
 		/// <summary>
@@ -404,10 +386,6 @@ namespace Arya.Auction
 			return AuctionSystem.ST[171];
 		}
 
-		#endregion
-
-		#region Variables
-
 		private DateTime m_StartTime;
 		private DateTime m_EndTime;
 		private TimeSpan m_Duration = TimeSpan.FromDays(7);
@@ -417,8 +395,6 @@ namespace Arya.Auction
 		private AuctionPendency m_BuyerPendency = AuctionPendency.Pending;
 		private AuctionMessage m_OwnerMessage = AuctionMessage.None;
 		private AuctionMessage m_BuyerMessage = AuctionMessage.None;
-
-		#region Props
 
 		[CommandProperty(AccessLevel.Administrator)]
 		/// <summary>
@@ -597,12 +573,6 @@ namespace Arya.Auction
 			get { return m_ID; }
 		}
 
-		#endregion
-
-		#endregion
-
-		#region Serialization
-
 		/// <summary>
 		///     Saves the auction item into the world file
 		/// </summary>
@@ -701,10 +671,6 @@ namespace Arya.Auction
 
 			return auction;
 		}
-
-		#endregion
-
-		#region Properties
 
 		[CommandProperty(AccessLevel.Administrator)]
 		/// <summary>
@@ -882,8 +848,6 @@ namespace Arya.Auction
 				return null;
 			}
 		}
-
-		#endregion
 
 		/// <summary>
 		///     Creates a new AuctionItem
