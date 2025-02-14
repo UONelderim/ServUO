@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System.Collections;
 using Server;
 using Server.Engines.BulkOrders;
@@ -15,9 +9,6 @@ using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Summary description for AuctionSearchGump.
-	/// </summary>
 	public class AuctionSearchGump : Gump
 	{
 		private readonly ArrayList m_List;
@@ -202,7 +193,7 @@ namespace Arya.Auction
 				}
 			}
 
-			ArrayList source = null;
+			ArrayList source;
 
 			if (searchExisting)
 			{

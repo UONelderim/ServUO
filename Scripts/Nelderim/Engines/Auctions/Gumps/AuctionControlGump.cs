@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using Server;
 using Server.Accounting;
@@ -15,9 +9,6 @@ using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Staff control gump
-	/// </summary>
 	public class AuctionControlGump : Gump
 	{
 		readonly Mobile m_User;
@@ -54,16 +45,14 @@ namespace Arya.Auction
 			// Auction owner
 			bool owner = m_Auction.Owner != null;
 			AddLabel(15, 35, Misc.kRedHue,
-				String.Format(ADMIN_OWNER_FMT, owner ? m_Auction.Owner.Name : NA));
+				String.Format(ADMIN_OWNER_FMT, owner ? m_Auction.Owner?.Name : NA));
 
 			// Owner Props : 1
 			if (owner)
 			{
 				AddButton(35, 58, 9702, 9703, 1, GumpButtonType.Reply, 0);
 			}
-
 			AddLabel(55, 55, Misc.kLabelHue, ADMIN_PROPERTIES);
-			;
 
 			// Owner Account: 2
 			if (owner && m_Auction.Owner.Account != null && m_User.AccessLevel == AccessLevel.Administrator)

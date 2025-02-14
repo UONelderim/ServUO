@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using System.Collections;
 using Server;
@@ -14,9 +8,6 @@ using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Lists auction items
-	/// </summary>
 	public class AuctionListing : Gump
 	{
 		private readonly bool m_EnableSearch;

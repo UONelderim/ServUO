@@ -1,8 +1,3 @@
-//
-//	Misc version 2.0 - utilities version 2.0, by Xanthos
-//
-//
-
 using System;
 using System.Reflection;
 using System.Security;
@@ -13,11 +8,7 @@ namespace Xanthos.Utilities
 {
 	public class Misc
 	{
-		/// <summary>
-		///     The hues used for gumps in the systems
-		/// </summary>
 		public static int kLabelHue = 0x480;
-
 		public static int kGreenHue = 0x40;
 		public static int kRedHue = 0x20;
 

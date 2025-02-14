@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using System.Collections;
 using Server;
@@ -11,14 +5,8 @@ using Xanthos.Utilities;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Provides search methods for the auction system
-	/// </summary>
 	public class AuctionSearch
 	{
-		/// <summary>
-		///     Merges search results
-		/// </summary>
 		public static ArrayList Merge(ArrayList first, ArrayList second)
 		{
 			ArrayList result = new ArrayList(first);
@@ -32,11 +20,6 @@ namespace Arya.Auction
 			return result;
 		}
 
-		/// <summary>
-		///     Performs a text search
-		/// </summary>
-		/// <param name="items">The items to search</param>
-		/// <param name="text">The text search, names should be whitespace separated</param>
 		public static ArrayList SearchForText(ArrayList items, string text)
 		{
 			string[] split = text.Split(' ');
@@ -50,11 +33,6 @@ namespace Arya.Auction
 			return result;
 		}
 
-		/// <summary>
-		///     Performs a text search
-		/// </summary>
-		/// <param name="list">The AuctionItem objects to search</param>
-		/// <param name="name">The text to search for</param>
 		private static ArrayList TextSearch(ArrayList list, string name)
 		{
 			ArrayList results = new ArrayList();
@@ -119,11 +97,6 @@ namespace Arya.Auction
 			return results;
 		}
 
-		/// <summary>
-		///     Performs a search for types being auctioned
-		/// </summary>
-		/// <param name="list">The items to search</param>
-		/// <param name="types">The list of types to find matches for</param>
 		public static ArrayList ForTypes(ArrayList list, ArrayList types)
 		{
 			ArrayList results = new ArrayList();
@@ -166,12 +139,6 @@ namespace Arya.Auction
 			return results;
 		}
 
-		/// <summary>
-		///     Verifies if a specified type is a match to the items sold through an auction
-		/// </summary>
-		/// <param name="item">The AuctionItem being evaluated</param>
-		/// <param name="type">The type looking to match</param>
-		/// <returns>True if there's a match</returns>
 		private static bool MatchesType(AuctionItem item, Type type)
 		{
 			foreach (AuctionItem.ItemInfo info in item.Items)
@@ -188,11 +155,6 @@ namespace Arya.Auction
 			return false;
 		}
 
-		/// <summary>
-		///     Performs a search for Artifacts by evaluating the ArtifactRarity property
-		/// </summary>
-		/// <param name="items">The list of items to search</param>
-		/// <returns>An ArrayList of results</returns>
 		public static ArrayList ForArtifacts(ArrayList items)
 		{
 			ArrayList results = new ArrayList();
@@ -214,12 +176,6 @@ namespace Arya.Auction
 			return results;
 		}
 
-
-		/// <summary>
-		///     Searches a list of auctions for ICommodities
-		/// </summary>
-		/// <param name="items">The list to search</param>
-		/// <returns>An ArrayList of results</returns>
 		public static ArrayList ForCommodities(ArrayList items)
 		{
 			ArrayList results = new ArrayList();

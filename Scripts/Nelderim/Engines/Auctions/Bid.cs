@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using System.IO;
 using Server;
@@ -13,34 +7,17 @@ using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Defines a bid entry
-	/// </summary>
 	public class Bid
 	{
 		[CommandProperty(AccessLevel.Administrator)]
-		/// <summary>
-		/// Gets the mobile who placed the bid
-		/// </summary>
 		public Mobile Mobile { get; private set; }
 
 		[CommandProperty(AccessLevel.Administrator)]
-		/// <summary>
-		/// Gets the value of the bid
-		/// </summary>
 		public int Amount { get; private set; }
 
 		[CommandProperty(AccessLevel.Administrator)]
-		/// <summary>
-		/// Gets the time the bid has been placed at
-		/// </summary>
 		public DateTime Time { get; private set; }
 
-		/// <summary>
-		///     Creates a new bid
-		/// </summary>
-		/// <param name="m">The Mobile placing the bid</param>
-		/// <param name="amount">The amount of the bid</param>
 		public Bid(Mobile m, int amount)
 		{
 			Time = DateTime.UtcNow;
@@ -48,13 +25,6 @@ namespace Arya.Auction
 			Amount = amount;
 		}
 
-		/// <summary>
-		///     Creates a new bid. Checks if the mobile has enough money to bid
-		///     and if so removes the money from the player
-		/// </summary>
-		/// <param name="from">The mobile bidding</param>
-		/// <param name="amount">The amount bid</param>
-		/// <returns>A bid object if the mobile has enough money</returns>
 		public static Bid CreateBid(Mobile from, int amount)
 		{
 			if (Banker.Withdraw(from, amount))
@@ -72,8 +42,6 @@ namespace Arya.Auction
 
 		public void Serialize(GenericWriter writer)
 		{
-			// Version 1
-			// Version 0
 			writer.Write(Mobile);
 			writer.Write(Amount);
 			writer.Write(Time);
@@ -96,10 +64,6 @@ namespace Arya.Auction
 			return bid;
 		}
 
-		/// <summary>
-		///     Returns the bid money to the highest bidder because they have been outbid
-		/// </summary>
-		/// <param name="auction">The auction the bid belongs to</param>
 		public void Outbid(AuctionItem auction)
 		{
 			if (Mobile == null || Mobile.Account == null)
@@ -115,10 +79,6 @@ namespace Arya.Auction
 			AuctionMessaging.SendOutbidMessage(auction, Amount, Mobile);
 		}
 
-		/// <summary>
-		///     Returns the bid money to the bidder because the auction has been canceled
-		/// </summary>
-		/// <param name="auction">The auction the bid belongs to</param>
 		public void AuctionCanceled(AuctionItem auction)
 		{
 			if (Mobile == null)
@@ -135,10 +95,6 @@ namespace Arya.Auction
 			}
 		}
 
-		/// <summary>
-		///     Outputs bid information
-		/// </summary>
-		/// <param name="writer"></param>
 		public void Profile(StreamWriter writer)
 		{
 			string owner = null;

@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using Server;
 using Server.Mobiles;
 using Xanthos.Interfaces;
@@ -12,16 +6,10 @@ using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     This item holds information about a BaseCreature sold through an auction system
-	/// </summary>
 	public class MobileStatuette : Item, IShrinkItem
 	{
 		private BaseCreature m_Creature;
 
-		/// <summary>
-		///     Gets the creature sold through this
-		/// </summary>
 		public BaseCreature ShrunkenPet
 		{
 			get
@@ -32,9 +20,6 @@ namespace Arya.Auction
 			}
 		}
 
-		/// <summary>
-		///     Creates a new MobileStatuette object - for internal use only
-		/// </summary>
 		private MobileStatuette(BaseCreature creature)
 		{
 			m_Creature = creature;
@@ -74,13 +59,6 @@ namespace Arya.Auction
 			m_Creature = reader.ReadMobile() as BaseCreature;
 		}
 
-		/// <summary>
-		///     Converta a given BaseCreature object into a statuette object which can be sold through the auction
-		///     system. Will provide feedback to the user in case some of the requirements aren't met.
-		/// </summary>
-		/// <param name="from">The player auctioning the creature</param>
-		/// <param name="creatue">The creature being auctioned</param>
-		/// <returns>A MobileStatuette if the creature can be auctioned, null if the process fails</returns>
 		public static MobileStatuette Create(Mobile from, BaseCreature creature)
 		{
 			if (!creature.Controlled || creature.ControlMaster != from)
@@ -117,10 +95,6 @@ namespace Arya.Auction
 			return new MobileStatuette(creature);
 		}
 
-		/// <summary>
-		///     Brings the creature to a player and deletes the statuette
-		/// </summary>
-		/// <param name="m">The player the creature should be given to</param>
 		public void GiveCreatureTo(Mobile m)
 		{
 			m_Creature.SetControlMaster(m);
@@ -130,13 +104,6 @@ namespace Arya.Auction
 			Delete();
 		}
 
-		/// <summary>
-		///     This will stable the pet inside a player's stable and delete the statuette.
-		///     This function will also clear the control slots needed for the new master to control the pet
-		///     as they have been assigned at bid time
-		/// </summary>
-		/// <param name="m">The player claiming the pet</param>
-		/// <returns>True if succesful, false if player can't add to stable</returns>
 		public bool Stable(Mobile m)
 		{
 			if (m_Creature == null)

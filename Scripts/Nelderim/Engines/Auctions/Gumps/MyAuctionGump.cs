@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using Server;
 using Server.Gumps;
 using Server.Network;
@@ -12,9 +6,6 @@ using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Summary description for MyAuctionGump.
-	/// </summary>
 	public class MyAuctionGump : Gump
 	{
 		private readonly AuctionGumpCallback m_Callback;

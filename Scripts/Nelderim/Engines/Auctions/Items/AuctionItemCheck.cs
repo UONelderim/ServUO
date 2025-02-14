@@ -1,29 +1,15 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using Server;
 using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Summary description for AuctionItemCheck.
-	/// </summary>
 	public class AuctionItemCheck : AuctionCheck
 	{
 		private static readonly int ItemSoldHue = 2119;
 		private static readonly int ItemReturnedHue = 52;
 		private Item m_Item;
 
-		/// <summary>
-		///     Creates a check that will deliver an item for the auction system
-		/// </summary>
-		/// <param name="auction">The auction generating this check</param>
-		/// <param name="result">Specifies the reason for the generation of this check</param>
 		public AuctionItemCheck(AuctionItem auction, AuctionResult result)
 		{
 			Name = auction.Creature ? CREATURE_CHECK_TITLE : ITEM_CHECK_TITLE;
@@ -94,21 +80,9 @@ namespace Arya.Auction
 			}
 		}
 
-		public override string ItemName
-		{
-			get
-			{
-				return m_ItemName;
-			}
-		}
+		public override string ItemName => m_ItemName;
 
-		public override Item AuctionedItem
-		{
-			get
-			{
-				return m_Item;
-			}
-		}
+		public override Item AuctionedItem => m_Item;
 
 		public override void GetProperties(ObjectPropertyList list)
 		{

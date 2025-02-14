@@ -1,9 +1,3 @@
-//
-//	Savings Account version 2.0 - Auction version 2.1, by Xanthos
-//	based on a concept by Phoo
-//
-//
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -83,7 +77,7 @@ namespace Arya.Savings
 		[CommandProperty(AccessLevel.Administrator)]
 		public long Gold
 		{
-			get { return m_Gold; }
+			get => m_Gold;
 			set
 			{
 				m_Gold = value;
@@ -94,7 +88,7 @@ namespace Arya.Savings
 		[CommandProperty(AccessLevel.Administrator)]
 		public long Tokens
 		{
-			get { return m_Tokens; }
+			get => m_Tokens;
 			set
 			{
 				m_Tokens = value;
@@ -102,10 +96,7 @@ namespace Arya.Savings
 			}
 		}
 
-		public static bool EnableTokens
-		{
-			get { return AuctionConfig.EnableTokens && AuctionConfig.TokenType != null; }
-		}
+		public static bool EnableTokens => AuctionConfig.EnableTokens && AuctionConfig.TokenType != null;
 
 		[Constructable]
 		public SavingsAccount() : base(0xe80)
@@ -119,7 +110,7 @@ namespace Arya.Savings
 		{
 		}
 
-		public override bool DisplayLootType { get { return false; } }
+		public override bool DisplayLootType => false;
 
 		public static int BalanceGold(Mobile mobile)
 		{

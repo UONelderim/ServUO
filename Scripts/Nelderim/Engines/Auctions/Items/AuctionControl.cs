@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System.Collections;
 using Server;
 using Server.Network;
@@ -11,69 +5,33 @@ using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     This is the auction control stone. This item should NOT be deleted
-	/// </summary>
 	public class AuctionControl : Item
 	{
-		/// <summary>
-		///     This item holds all the current auctions
-		/// </summary>
 		private ArrayList m_Auctions;
 
-		/// <summary>
-		///     This lists all auctions whose reserve hasn't been met
-		/// </summary>
 		private ArrayList m_Pending;
 
-		/// <summary>
-		///     Flag used to force the deletion of the system
-		/// </summary>
 		private bool m_Delete;
 
-		/// <summary>
-		///     Gets or sets the list of current auction entries
-		/// </summary>
 		public ArrayList Auctions
 		{
-			get { return m_Auctions; }
-			set { m_Auctions = value; }
+			get => m_Auctions;
+			set => m_Auctions = value;
 		}
 
-		/// <summary>
-		///     Gets or sets the pending auction entries
-		/// </summary>
 		public ArrayList Pending
 		{
-			get { return m_Pending; }
-			set { m_Pending = value; }
+			get => m_Pending;
+			set => m_Pending = value;
 		}
 
-		/// <summary>
-		///     The max number of concurrent auctions for each account
-		/// </summary>
 		[CommandProperty(AccessLevel.GameMaster, AccessLevel.Administrator)]
-		/// <summary>
-		/// Gets or sets the max number of auctions a single account can have
-		/// </summary>
 		public int MaxAuctionsParAccount { get; set; } = 5;
 
-		/// <summary>
-		///     The minimum number of days an auction must last
-		/// </summary>
 		[CommandProperty(AccessLevel.GameMaster, AccessLevel.Administrator)]
-		/// <summary>
-		/// Gets or sets the minimum days an auction must last
-		/// </summary>
 		public int MinAuctionDays { get; set; } = 1;
 
-		/// <summary>
-		///     The max number of days an auction can last
-		/// </summary>
 		[CommandProperty(AccessLevel.GameMaster, AccessLevel.Administrator)]
-		/// <summary>
-		/// Gets or sets the max number of days an auction can last
-		/// </summary>
 		public int MaxAuctionDays { get; set; } = 14;
 
 		public AuctionControl() : base(4484)
@@ -99,8 +57,6 @@ namespace Arya.Auction
 
 			writer.Write(1); // Version
 
-			// Version 1 : changes in AuctionItem
-			// Version 0
 			writer.Write(MaxAuctionsParAccount);
 			writer.Write(MinAuctionDays);
 			writer.Write(MaxAuctionDays);
@@ -176,10 +132,6 @@ namespace Arya.Auction
 			base.OnDelete();
 		}
 
-		/// <summary>
-		///     Deletes the item from the world without triggering the auto-recreation
-		///     This function also closes all current auctions
-		/// </summary>
 		public void ForceDelete()
 		{
 			m_Delete = true;

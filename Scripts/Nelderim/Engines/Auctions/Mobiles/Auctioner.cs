@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Server;
@@ -42,9 +36,6 @@ namespace Arya.Auction
 		}
 	}
 
-	/// <summary>
-	///     Summary description for Auctioner.
-	/// </summary>
 	public class Auctioner : BaseVendor
 	{
 		[Constructable]

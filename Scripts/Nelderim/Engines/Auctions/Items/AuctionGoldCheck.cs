@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using Arya.Savings;
 using Server;
@@ -12,9 +6,6 @@ using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Summary description for AuctionGoldCheck.
-	/// </summary>
 	public class AuctionGoldCheck : AuctionCheck
 	{
 		private static readonly int OutbidHue = 2107;
@@ -22,11 +13,6 @@ namespace Arya.Auction
 
 		private int m_GoldAmount;
 
-		/// <summary>
-		///     Creates a check delivering gold for the auction system
-		/// </summary>
-		/// <param name="auction">The auction originating this check</param>
-		/// <param name="result">Specifies the reason for the creation of this check</param>
 		public AuctionGoldCheck(AuctionItem auction, AuctionResult result)
 		{
 			Name = GOLD_CHECK_TITLE;
@@ -102,13 +88,7 @@ namespace Arya.Auction
 		{
 		}
 
-		public override string ItemName
-		{
-			get
-			{
-				return String.Format("{0} Gold Coins", m_GoldAmount.ToString("#,0"));
-			}
-		}
+		public override string ItemName => String.Format("{0} Gold Coins", m_GoldAmount.ToString("#,0"));
 
 		public override void GetProperties(ObjectPropertyList list)
 		{

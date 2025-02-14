@@ -1,18 +1,9 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using Server.Gumps;
 using Server.Network;
 using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Provides the message notice for messages from the auction system
-	/// </summary>
 	public class AuctionNoticeGump : Gump
 	{
 		private readonly AuctionMessageGump m_Message;

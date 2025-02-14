@@ -1,18 +1,9 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using Server;
 using Server.Targeting;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     General purpose target used by the auction system
-	/// </summary>
 	public class AuctionTarget : Target
 	{
 		private readonly AuctionTargetCallback m_Callback;

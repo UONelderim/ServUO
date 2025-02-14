@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using Server;
 using Server.Gumps;
@@ -13,84 +7,47 @@ using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Summary description for AuctionMessageGump.
-	/// </summary>
 	public class AuctionMessageGump : Gump
 	{
-		/// <summary>
-		///     Sets the message displayed by the gump in the details area
-		/// </summary>
 		public string Message
 		{
-			set
-			{
-				m_HtmlMessage = String.Format("<basefont color=#111111>{0}", value);
-			}
+			set => m_HtmlMessage = String.Format("<basefont color=#111111>{0}", value);
 		}
 
-		/// <summary>
-		///     Sets the text associated with the OK button
-		/// </summary>
 		public string OkText
 		{
-			set { m_OkText = value; }
+			set => m_OkText = value;
 		}
 
-		/// <summary>
-		///     Sets the text associated with the Cancel button
-		/// </summary>
 		public string CancelText
 		{
-			set { m_CancelText = value; }
+			set => m_CancelText = value;
 		}
 
-		/// <summary>
-		///     Specifies whether this gump carries just information. If true, the gump will only have an OK button.
-		///     If false the gump will have both OK and Cancel buttons.
-		/// </summary>
 		public bool InformationMode
 		{
-			set { m_InformationMode = value; }
+			set => m_InformationMode = value;
 		}
 
-		/// <summary>
-		///     Gets or sets the auction referenced by this message
-		/// </summary>
 		public AuctionItem Auction
 		{
-			get
-			{
-				return AuctionSystem.Find(m_ID);
-			}
-			set
-			{
-				m_ID = value.ID;
-			}
+			get => AuctionSystem.Find(m_ID);
+			set => m_ID = value.ID;
 		}
 
-		/// <summary>
-		///     Specifies if this message is targeted at the auction owner, rather than at bidder
-		/// </summary>
 		public bool OwnerTarget
 		{
-			set { m_OwnerTarget = value; }
+			set => m_OwnerTarget = value;
 		}
 
-		/// <summary>
-		///     Specifies whether this message should validate the answer with the auction
-		/// </summary>
 		public bool VerifyAuction
 		{
-			set { m_VerifyAuction = value; }
+			set => m_VerifyAuction = value;
 		}
 
-		/// <summary>
-		///     Specifies whether to show the expiration notice at the bottom of the message
-		/// </summary>
 		public bool ShowExpiration
 		{
-			set { m_ShowExpiration = value; }
+			set => m_ShowExpiration = value;
 		}
 
 		private Guid m_ID;

@@ -1,25 +1,13 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using System.Collections;
 using Server;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Summary description for AuctionScheduler.
-	/// </summary>
 	public class AuctionScheduler
 	{
 		private static InternalTimer m_Timer;
 
-		/// <summary>
-		///     Gets the next deadline
-		/// </summary>
 		public static DateTime Deadline { get; private set; } = DateTime.MaxValue;
 
 		public static void Initialize()
@@ -47,9 +35,6 @@ namespace Arya.Auction
 			m_Timer.Start();
 		}
 
-		/// <summary>
-		///     Calculates the next deadline for the scheduler
-		/// </summary>
 		private static void CalculateDeadline()
 		{
 			ArrayList list = new ArrayList(AuctionSystem.Auctions);
@@ -66,10 +51,6 @@ namespace Arya.Auction
 			}
 		}
 
-		/// <summary>
-		///     This method accepts a new deadline being added to the system
-		/// </summary>
-		/// <param name="deadline">The new deadline</param>
 		public static void UpdateDeadline(DateTime deadline)
 		{
 			if (deadline < Deadline)
@@ -78,9 +59,6 @@ namespace Arya.Auction
 			}
 		}
 
-		/// <summary>
-		///     Fires the DeadlineReached event
-		/// </summary>
 		private static void OnDeadlineReached()
 		{
 			AuctionSystem.OnDeadlineReached();

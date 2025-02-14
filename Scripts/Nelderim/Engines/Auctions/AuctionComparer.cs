@@ -1,52 +1,17 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System.Collections;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Defines auction sorting methods
-	/// </summary>
 	public enum AuctionSorting
 	{
-		/// <summary>
-		///     Sorting by item name
-		/// </summary>
 		Name,
-
-		/// <summary>
-		///     Sorting by date of creation
-		/// </summary>
 		Date,
-
-		/// <summary>
-		///     Sorting by time left for the auction
-		/// </summary>
 		TimeLeft,
-
-		/// <summary>
-		///     Sorting by the number of bids
-		/// </summary>
 		Bids,
-
-		/// <summary>
-		///     Sorting by value of minimum bid
-		/// </summary>
 		MinimumBid,
-
-		/// <summary>
-		///     Sorting by value of the higherst bid
-		/// </summary>
 		HighestBid
 	}
 
-	/// <summary>
-	///     Provides sorting for auction listings
-	/// </summary>
 	public class AuctionComparer : IComparer
 	{
 		private readonly bool m_Ascending;
@@ -60,8 +25,8 @@ namespace Arya.Auction
 
 		public int Compare(object x, object y)
 		{
-			AuctionItem item1 = null;
-			AuctionItem item2 = null;
+			AuctionItem item1;
+			AuctionItem item2;
 
 			if (m_Ascending)
 			{

@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using System.IO;
 using Server;
@@ -11,9 +5,6 @@ using Server.Accounting;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Summary description for AuctionLog.
-	/// </summary>
 	public class AuctionLog
 	{
 		private static StreamWriter m_Writer;
@@ -23,7 +14,6 @@ namespace Arya.Auction
 		{
 			if (AuctionSystem.Running && AuctionConfig.EnableLogging)
 			{
-				// Create the log writer
 				try
 				{
 					string folder = Path.Combine(Core.BaseDirectory, @"Logs\Aukcje");
@@ -53,10 +43,6 @@ namespace Arya.Auction
 			}
 		}
 
-		/// <summary>
-		///     Records the creation of a new auction item
-		/// </summary>
-		/// <param name="auction">The new auction</param>
 		public static void WriteNewAuction(AuctionItem auction)
 		{
 			if (!m_Enabled || m_Writer == null)
@@ -106,10 +92,6 @@ namespace Arya.Auction
 			catch { }
 		}
 
-		/// <summary>
-		///     Writes the current highest bid in an auction
-		/// </summary>
-		/// <param name="auction">The auction corresponding to the bid</param>
 		public static void WriteBid(AuctionItem auction)
 		{
 			if (!m_Enabled || m_Writer == null)
@@ -127,11 +109,6 @@ namespace Arya.Auction
 			catch { }
 		}
 
-		/// <summary>
-		///     Changes the
-		/// </summary>
-		/// <param name="auction">The auction switching to pending</param>
-		/// <param name="reason">The reason why the auction is set to pending</param>
 		public static void WritePending(AuctionItem auction, string reason)
 		{
 			if (!m_Enabled || m_Writer == null)
@@ -148,13 +125,6 @@ namespace Arya.Auction
 			catch { }
 		}
 
-		/// <summary>
-		///     Writes the end of the auction to the log
-		/// </summary>
-		/// <param name="auction">The auction ending</param>
-		/// <param name="reason">The AuctionResult stating why the auction is ending</param>
-		/// <param name="m">The Mobile forcing the end of the auction (can be null)</param>
-		/// <param name="comments">Additional comments on the ending (can be null)</param>
 		public static void WriteEnd(AuctionItem auction, AuctionResult reason, Mobile m, string comments)
 		{
 			if (!m_Enabled || m_Writer == null)
@@ -177,11 +147,6 @@ namespace Arya.Auction
 			catch { }
 		}
 
-		/// <summary>
-		///     Records a staff member viewing an item
-		/// </summary>
-		/// <param name="auction">The auction item</param>
-		/// <param name="m">The mobile viewing the item</param>
 		public static void WriteViewItem(AuctionItem auction, Mobile m)
 		{
 			if (!m_Enabled || m_Writer == null)
@@ -199,11 +164,6 @@ namespace Arya.Auction
 			catch { }
 		}
 
-		/// <summary>
-		///     Records a staff member returning an item
-		/// </summary>
-		/// <param name="auction">The auction</param>
-		/// <param name="m">The mobile returning the item</param>
 		public static void WriteReturnItem(AuctionItem auction, Mobile m)
 		{
 			if (!m_Enabled || m_Writer == null)

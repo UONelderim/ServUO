@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using System.Collections;
 using System.IO;
@@ -16,46 +10,16 @@ using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     The main auction system process
-	/// </summary>
 	public class AuctionSystem
 	{
-		/// <summary>
-		///     The auction control stone
-		/// </summary>
 		private static AuctionControl m_ControlStone;
 
-		/// <summary>
-		///     Text provider for the auction system
-		/// </summary>
-		private static AuctionMessages m_StringTable;
-
-		/// <summary>
-		///     Gets the String Table for the auction system
-		/// </summary>
-		public static AuctionMessages ST
-		{
-			get
-			{
-				if (m_StringTable == null)
-					m_StringTable = new AuctionMessages();
-				return m_StringTable;
-			}
-		}
-
-		/// <summary>
-		///     Gets or sets the auction control stone
-		/// </summary>
 		public static AuctionControl ControlStone
 		{
-			get { return m_ControlStone; }
-			set { m_ControlStone = value; }
+			get => m_ControlStone;
+			set => m_ControlStone = value;
 		}
 
-		/// <summary>
-		///     Gets the listing of the current auctions
-		/// </summary>
 		public static ArrayList Auctions
 		{
 			get
@@ -69,9 +33,6 @@ namespace Arya.Auction
 			}
 		}
 
-		/// <summary>
-		///     Gets the listing of pending auctions (ended but reserve not met)
-		/// </summary>
 		public static ArrayList Pending
 		{
 			get
@@ -85,9 +46,6 @@ namespace Arya.Auction
 			}
 		}
 
-		/// <summary>
-		///     Get the max number of auctions for a single account
-		/// </summary>
 		private static int MaxAuctions
 		{
 			get
@@ -98,34 +56,12 @@ namespace Arya.Auction
 			}
 		}
 
-		/// <summary>
-		///     Gets the min number of days an auction can last
-		/// </summary>
-		public static int MinAuctionDays
-		{
-			get { return m_ControlStone.MinAuctionDays; }
-		}
+		public static int MinAuctionDays => m_ControlStone.MinAuctionDays;
 
-		/// <summary>
-		///     Gets the max number of days an auction can last
-		/// </summary>
-		public static int MaxAuctionDays
-		{
-			get { return m_ControlStone.MaxAuctionDays; }
-		}
+		public static int MaxAuctionDays => m_ControlStone.MaxAuctionDays;
 
-		/// <summary>
-		///     States whether the auction system is functional or not
-		/// </summary>
-		public static bool Running
-		{
-			get { return m_ControlStone != null; }
-		}
+		public static bool Running => m_ControlStone != null;
 
-		/// <summary>
-		///     Adds an auction into the system
-		/// </summary>
-		/// <param name="auction">The new auction entry</param>
 		public static void Add(AuctionItem auction)
 		{
 			// Put the item into the control stone
@@ -139,10 +75,6 @@ namespace Arya.Auction
 			m_ControlStone.InvalidateProperties();
 		}
 
-		/// <summary>
-		///     Requests the start of a new auction
-		/// </summary>
-		/// <param name="m">The mobile requesting the auction</param>
 		public static void AuctionRequest(Mobile mobile)
 		{
 			if (CanAuction(mobile))
@@ -261,11 +193,6 @@ namespace Arya.Auction
 			}
 		}
 
-		/// <summary>
-		///     Verifies if an item can be sold through the auction
-		/// </summary>
-		/// <param name="item">The item being sold</param>
-		/// <returns>True if the item is allowed</returns>
 		private static bool CheckItem(Item item)
 		{
 			foreach (Type t in AuctionConfig.ForbiddenTypes)
@@ -279,10 +206,6 @@ namespace Arya.Auction
 			return true;
 		}
 
-		/// <summary>
-		///     Removes the auction system from the server. All auctions will end unsuccesfully.
-		/// </summary>
-		/// <param name="m">The mobile terminating the system</param>
 		public static void ForceDelete(Mobile m)
 		{
 			Console.WriteLine("Auction system terminated on {0} at {1} by {2} ({3}, Account: {4})",
@@ -306,11 +229,6 @@ namespace Arya.Auction
 			ControlStone = null;
 		}
 
-		/// <summary>
-		///     Finds an auction through its id
-		/// </summary>
-		/// <param name="id">The GUID identifying the auction</param>
-		/// <returns>An AuctionItem object if the speicifies auction is still in the system</returns>
 		public static AuctionItem Find(Guid id)
 		{
 			if (!Running)
@@ -331,10 +249,6 @@ namespace Arya.Auction
 			return null;
 		}
 
-		/// <summary>
-		///     Gets the auctions created by a player
-		/// </summary>
-		/// <param name="m">The player requesting the auctions</param>
 		public static ArrayList GetAuctions(Mobile m)
 		{
 			ArrayList auctions = new ArrayList();
@@ -354,9 +268,6 @@ namespace Arya.Auction
 			return auctions;
 		}
 
-		/// <summary>
-		///     Gets the list of auctions a mobile has bids on
-		/// </summary>
 		public static ArrayList GetBids(Mobile m)
 		{
 			ArrayList bids = new ArrayList();
@@ -376,9 +287,6 @@ namespace Arya.Auction
 			return bids;
 		}
 
-		/// <summary>
-		///     Gets the list of pendencies for a mobile
-		/// </summary>
 		public static ArrayList GetPendencies(Mobile m)
 		{
 			ArrayList list = new ArrayList();
@@ -403,11 +311,6 @@ namespace Arya.Auction
 			return list;
 		}
 
-		/// <summary>
-		///     Verifies if a mobile can create a new auction
-		/// </summary>
-		/// <param name="m">The mobile trying to create an auction</param>
-		/// <returns>True if allowed</returns>
 		public static bool CanAuction(Mobile m)
 		{
 			if (m.AccessLevel >= AccessLevel.GameMaster) // Staff can always auction
@@ -456,18 +359,12 @@ namespace Arya.Auction
 			VerifyPendencies();
 		}
 
-		/// <summary>
-		///     Verifies whether any pets in current auctions have been deleted
-		/// </summary>
 		private static void VerifyIntegrity()
 		{
 			foreach (AuctionItem auction in Auctions)
 				auction.VeirfyIntergrity();
 		}
 
-		/// <summary>
-		///     Verifies current auctions ending the ones that expired
-		/// </summary>
 		public static void VerifyAuctions()
 		{
 			lock (World.Items)
@@ -501,9 +398,6 @@ namespace Arya.Auction
 			}
 		}
 
-		/// <summary>
-		///     Verifies pending auctions ending the ones that expired
-		/// </summary>
 		public static void VerifyPendencies()
 		{
 			lock (World.Items)
@@ -529,18 +423,12 @@ namespace Arya.Auction
 			}
 		}
 
-		/// <summary>
-		///     Disables the system until the next reboot
-		/// </summary>
 		public static void Disable()
 		{
 			m_ControlStone = null;
 			AuctionScheduler.Stop();
 		}
 
-		/// <summary>
-		///     Outputs all relevant auction data to a text file
-		/// </summary>
 		public static void ProfileAuctions()
 		{
 			string file = Path.Combine(Core.BaseDirectory, "AuctionProfile.txt");

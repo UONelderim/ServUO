@@ -1,18 +1,9 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using Server;
 using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Manages the delivery of messages between players involved in an auction
-	/// </summary>
 	public class AuctionMessaging
 	{
 		public static void Initialize()
@@ -31,12 +22,6 @@ namespace Arya.Auction
 			}
 		}
 
-		/// <summary>
-		///     Sends a message to a mobile to notify them that they have been outbid during an auction.
-		/// </summary>
-		/// <param name="auction">The auction generating the message</param>
-		/// <param name="amount">The value of the mobile's bid</param>
-		/// <param name="to">The mobile sending to. This can be null or offline. If offline, nothing will be sent.</param>
 		public static void SendOutbidMessage(AuctionItem auction, int amount, Mobile to)
 		{
 			if (to == null || to.Account == null || to.NetState == null)
@@ -50,10 +35,6 @@ namespace Arya.Auction
 			to.SendGump(new AuctionNoticeGump(gump));
 		}
 
-		/// <summary>
-		///     Sends the confirmation request for the reserve not met to the auction owner
-		/// </summary>
-		/// <param name="item">The auction</param>
 		public static void SendReserveMessageToOwner(AuctionItem item)
 		{
 			if (item.Owner == null || item.Owner.Account == null || item.Owner.NetState == null)
@@ -76,9 +57,6 @@ namespace Arya.Auction
 			item.Owner.SendGump(new AuctionNoticeGump(gump));
 		}
 
-		/// <summary>
-		///     Sends the information message about the reserve not met to the buyer
-		/// </summary>
 		public static void SendReserveMessageToBuyer(AuctionItem item)
 		{
 			if (item.HighestBid.Mobile == null || item.HighestBid.Mobile.Account == null ||
@@ -93,9 +71,6 @@ namespace Arya.Auction
 			item.HighestBid.Mobile.SendGump(new AuctionNoticeGump(gump));
 		}
 
-		/// <summary>
-		///     Informs the buyer that some of the items auctioned have been deleted.
-		/// </summary>
 		public static void SendInvalidMessageToBuyer(AuctionItem item)
 		{
 			Mobile m = item.HighestBid.Mobile;
@@ -118,10 +93,6 @@ namespace Arya.Auction
 			m.SendGump(new AuctionNoticeGump(gump));
 		}
 
-		/// <summary>
-		///     Sends the invalid message to the owner.
-		/// </summary>
-		/// <param name="gump"></param>
 		public static void SendInvalidMessageToOwner(AuctionItem item)
 		{
 			Mobile m = item.Owner;

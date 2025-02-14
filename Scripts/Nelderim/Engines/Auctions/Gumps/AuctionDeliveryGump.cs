@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using Server.Gumps;
 using Server.Network;
 using Xanthos.Utilities;
@@ -11,9 +5,6 @@ using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     This gump is used to deliver the auction checks
-	/// </summary>
 	public class AuctionDeliveryGump : Gump
 	{
 		private readonly AuctionCheck m_Check;

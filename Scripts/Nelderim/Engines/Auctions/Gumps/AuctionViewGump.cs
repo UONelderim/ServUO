@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using System.Globalization;
 using Server;
@@ -14,9 +8,6 @@ using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     This gump displays the general information about an auction
-	/// </summary>
 	public class AuctionViewGump : Gump
 	{
 		private const int kHueExampleID = 7107;
@@ -47,11 +38,6 @@ namespace Arya.Auction
 			MakeGump();
 		}
 
-		/// <summary>
-		///     Gets the item hue
-		/// </summary>
-		/// <param name="item">The item to get the hue of</param>
-		/// <returns>A positive hue value</returns>
 		private int GetItemHue(Item item)
 		{
 			if (null == item)
@@ -59,11 +45,7 @@ namespace Arya.Auction
 
 			int hue = item.Hue == 1 ? AuctionConfig.BlackHue : item.Hue;
 
-			hue &= 0x7FFF; // Some hues are | 0x8000 for some reason, but it leads to the same hue
-
-			// Validate in case the hue was shifted by some other value
-
-			return (hue < 0 || hue >= 3000) ? 0 : hue;
+			return hue & 0x3FFF;
 		}
 
 		private void MakeGump()

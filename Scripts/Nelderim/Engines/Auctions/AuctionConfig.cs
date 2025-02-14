@@ -1,9 +1,3 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using Server;
 using Server.Items;
@@ -15,9 +9,6 @@ namespace Arya.Auction
 	{
 		public static int MessageHue = 0x40;
 
-		/// <summary>
-		///     List of the types that can not be sold through the auction system
-		/// </summary>
 		public static Type[] ForbiddenTypes =
 		{
 			typeof(Gold), typeof(BankCheck), typeof(DeathRobe), typeof(AuctionGoldCheck), typeof(AuctionItemCheck)
@@ -57,14 +48,6 @@ namespace Arya.Auction
 		///     view gump. This will allow to see the props and to delete it.
 		/// </summary>
 		public static AccessLevel AuctionAdminAcessLevel = AccessLevel.Administrator;
-
-		/// <summary>
-		///     If you don't have a valid UO installation on the server, or have trouble with the system
-		///     specify the location of the cliloc.enu file here:
-		///     Example - Make sure you use the @ before the string:
-		///     public static string ClilocLocation = @"C:\RunUO\Misc\cliloc.enu";
-		/// </summary>
-		public static string ClilocLocation = @"D:\Games\Ultima Online\Cliloc.enu";
 
 		/// <summary>
 		///     Set this to false if you don't want to the system to produce a log file in \Logs\Auction.txt

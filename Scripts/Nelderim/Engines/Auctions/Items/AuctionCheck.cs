@@ -1,78 +1,23 @@
-//
-//	Auction version 2.1, by Xanthos and Arya
-//
-//  Based on original ideas and code by Arya
-//
-
 using System;
 using Server;
 
 namespace Arya.Auction
 {
-	/// <summary>
-	///     Defines various conditions that can apply when an auction is terminated
-	/// </summary>
 	public enum AuctionResult
 	{
-		/// <summary>
-		///     The auction has been succesful and the item has been sold.
-		/// </summary>
 		Succesful,
-
-		/// <summary>
-		///     The auction ends and no bids have been made. The item will be returned to the owner.
-		/// </summary>
 		NoBids,
-
-		/// <summary>
-		///     The auction has ended, and there have been bids but the reserve hasn't been met.
-		/// </summary>
 		ReserveNotMet,
-
-		/// <summary>
-		///     A user has been outbid in an auction
-		/// </summary>
 		Outbid,
-
-		/// <summary>
-		///     The auction had pending status and both parts agreed to finalize the auction
-		/// </summary>
 		PendingRefused,
-
-		/// <summary>
-		///     The auction had pending status and at least one part decided to cancel the auction
-		/// </summary>
 		PendingAccepted,
-
-		/// <summary>
-		///     The pending period has timed out
-		/// </summary>
 		PendingTimedOut,
-
-		/// <summary>
-		///     The Auction System has been forced to stop and the auction ends unsuccesfully
-		/// </summary>
 		SystemStopped,
-
-		/// <summary>
-		///     The auctioned item has been deleted from the world
-		/// </summary>
 		ItemDeleted,
-
-		/// <summary>
-		///     The auction has been removed from the system by the staff
-		/// </summary>
 		StaffRemoved,
-
-		/// <summary>
-		///     The auction ended because a buyer used the buy now feature
-		/// </summary>
 		BuyNow
 	}
 
-	/// <summary>
-	///     Base class for the auction system checks
-	/// </summary>
 	public abstract class AuctionCheck : Item
 	{
 		protected Guid m_Auction;
@@ -80,41 +25,14 @@ namespace Arya.Auction
 		protected string m_ItemName;
 		protected Mobile m_Owner;
 
-		/// <summary>
-		///     Gets the message accompanying this check
-		/// </summary>
-		public string Message
-		{
-			get { return m_Message; }
-		}
+		public string Message => m_Message;
 
-		/// <summary>
-		///     Gets the auction that originated this check. This value might be null
-		/// </summary>
-		public AuctionItem Auction
-		{
-			get
-			{
-				return AuctionSystem.Find(m_Auction);
-			}
-		}
+		public AuctionItem Auction => AuctionSystem.Find(m_Auction);
 
-		/// <summary>
-		///     True once the auction item has been delivered
-		/// </summary>
 		public bool Delivered { get; private set; }
 
-		/// <summary>
-		///     Gets the html message used in gumps
-		/// </summary>
-		public string HtmlDetails
-		{
-			get { return String.Format("<basefont color=#FFFFFF>{0}", m_Message); }
-		}
+		public string HtmlDetails => $"<basefont color=#FFFFFF>{m_Message}";
 
-		/// <summary>
-		///     Gets the name of the item returned by this check
-		/// </summary>
 		public abstract string ItemName
 		{
 			get;
@@ -130,13 +48,7 @@ namespace Arya.Auction
 		{
 		}
 
-		/// <summary>
-		///     Gets the item that should be delivered to the players bank
-		/// </summary>
-		public virtual Item AuctionedItem
-		{
-			get { return null; }
-		}
+		public virtual Item AuctionedItem => null;
 
 		public override void OnDoubleClick(Mobile from)
 		{
@@ -146,13 +58,11 @@ namespace Arya.Auction
 			}
 			else if (AuctionedItem is MobileStatuette)
 			{
-				// Send pet retrieval gump
 				from.CloseGump(typeof(CreatureDeliveryGump));
 				from.SendGump(new CreatureDeliveryGump(this));
 			}
 			else
 			{
-				// Send item retrieval gump
 				from.CloseGump(typeof(AuctionDeliveryGump));
 				from.SendGump(new AuctionDeliveryGump(this));
 			}
@@ -165,11 +75,6 @@ namespace Arya.Auction
 			list.Add(1060658, "Message\t{0}", m_Message); // ~1_val~: ~2_val~
 		}
 
-		/// <summary>
-		///     Delivers the item carried by this check
-		/// </summary>
-		/// <param name="to">The mobile the check should be delivered to</param>
-		/// <returns>True if the item has been delivered to the player's bank</returns>
 		public abstract bool Deliver(Mobile to);
 
 		public void DeliveryComplete()
