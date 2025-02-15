@@ -195,7 +195,7 @@ namespace Arya.Jail
 					{
 						try
 						{
-							m_Callback.DynamicInvoke(m_User);
+							m_Callback.Invoke(m_User);
 						}
 						catch { }
 					}

@@ -39,7 +39,7 @@ namespace Arya.Jail
 				{
 					try
 					{
-						m_Callback.DynamicInvoke(@from, pm);
+						m_Callback.Invoke(from, pm);
 					}
 					catch (Exception e)
 					{

@@ -58,7 +58,7 @@ namespace Arya.Chess
 			{
 				try
 				{
-					m_Callback.DynamicInvoke( new object[] { from, targeted } );
+					m_Callback.Invoke( from, targeted );
 				}
 				catch ( Exception err )
 				{

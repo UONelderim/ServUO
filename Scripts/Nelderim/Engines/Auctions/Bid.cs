@@ -70,7 +70,7 @@ namespace Arya.Auction
 				return;
 
 			AuctionCheck check = new AuctionGoldCheck(auction, AuctionResult.Outbid);
-			if (!this.Mobile.Backpack.TryDropItem(Mobile, check, false))
+			if (!Mobile.Backpack.TryDropItem(Mobile, check, false))
 			{
 				Mobile.BankBox.DropItem(check);
 			}

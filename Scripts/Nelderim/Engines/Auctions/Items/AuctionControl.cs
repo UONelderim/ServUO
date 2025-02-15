@@ -103,8 +103,8 @@ namespace Arya.Auction
 			if (!m_Delete)
 			{
 				AuctionControl newStone = new AuctionControl();
-				newStone.Auctions.AddRange(this.Auctions);
-				newStone.MoveToWorld(this.Location, this.Map);
+				newStone.Auctions.AddRange(Auctions);
+				newStone.MoveToWorld(Location, Map);
 
 				newStone.Items.AddRange(Items);
 				Items.Clear();

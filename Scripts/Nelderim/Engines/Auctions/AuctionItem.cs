@@ -717,7 +717,7 @@ namespace Arya.Auction
 			if (m.AccessLevel > AccessLevel.Player)
 				return false; // Staff shoudln't bid. This will also give the bids view to staff members.
 
-			if (this.Account == (m.Account as Account)) // Same account as auctioneer
+			if (Account == (m.Account as Account)) // Same account as auctioneer
 				return false;
 
 			if (Creature)
@@ -730,7 +730,7 @@ namespace Arya.Auction
 
 		public bool IsOwner(Mobile m)
 		{
-			return (this.Account == (m.Account as Account));
+			return (Account == (m.Account as Account));
 		}
 
 		public bool PlaceBid(Mobile from, int amount)
@@ -1081,7 +1081,7 @@ namespace Arya.Auction
 			if (to == Owner || (Owner != null && to.Account.Equals(Owner.Account)))
 			{
 				// This is the owner loggin in
-				if (this.m_OwnerMessage != AuctionMessage.None)
+				if (m_OwnerMessage != AuctionMessage.None)
 				{
 					// Owner needs a message
 					if (m_OwnerMessage == AuctionMessage.Information)
@@ -1289,7 +1289,7 @@ namespace Arya.Auction
 		
 		public void VeirfyIntergrity()
 		{
-			foreach (ItemInfo ii in this.Items)
+			foreach (ItemInfo ii in Items)
 				ii.VeirfyIntegrity();
 		}
 	}
