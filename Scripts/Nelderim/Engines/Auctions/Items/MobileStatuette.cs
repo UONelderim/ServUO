@@ -1,12 +1,11 @@
 using Server;
 using Server.Mobiles;
-using Xanthos.Interfaces;
 using Xanthos.Utilities;
 using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
-	public class MobileStatuette : Item, IShrinkItem
+	public class MobileStatuette : Item
 	{
 		private BaseCreature m_Creature;
 

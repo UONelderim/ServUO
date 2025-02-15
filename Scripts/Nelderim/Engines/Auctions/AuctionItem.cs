@@ -8,7 +8,6 @@ using Server;
 using Server.Accounting;
 using Server.Items;
 using Server.Mobiles;
-using Xanthos.Interfaces;
 using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
@@ -146,9 +145,7 @@ namespace Arya.Auction
 
 			public void VeirfyIntegrity()
 			{
-				IShrinkItem shrinkItem = Item as IShrinkItem;
-
-				if (null != shrinkItem && null == shrinkItem.ShrunkenPet)
+				if (Item is MobileStatuette shrinkItem && shrinkItem.ShrunkenPet == null)
 				{
 					Item.Delete();
 					Item = null; // This will make this item invalid
