@@ -9,6 +9,8 @@ using static Arya.Auction.AuctionMessages;
 
 namespace Arya.Auction
 {
+	public delegate void AuctionGumpCallback(Mobile user);
+	
 	public class AuctionSystem
 	{
 		private static AuctionControl m_ControlStone;

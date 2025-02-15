@@ -4,6 +4,7 @@ using Server.Targeting;
 
 namespace Arya.Auction
 {
+	public delegate void AuctionTargetCallback(Mobile from, object targeted);
 	public class AuctionTarget : Target
 	{
 		private readonly AuctionTargetCallback m_Callback;
