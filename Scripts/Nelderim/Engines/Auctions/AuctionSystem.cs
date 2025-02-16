@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Server;
 using Server.Accounting;
 using Server.Items;
@@ -174,15 +175,7 @@ namespace Arya.Auction
 
 		private static bool CheckItem(Item item)
 		{
-			foreach (Type t in AuctionConfig.ForbiddenTypes)
-			{
-				if (t == item.GetType())
-				{
-					return false;
-				}
-			}
-
-			return true;
+			return AuctionConfig.ForbiddenTypes.All(t => t != item.GetType());
 		}
 
 		public static void ForceDelete(Mobile m)
@@ -213,97 +206,67 @@ namespace Arya.Auction
 			if (!Running)
 				return null;
 
-			foreach (AuctionItem item in Pending)
-			{
-				if (item.ID == id)
-					return item;
-			}
-
-			foreach (AuctionItem item in Auctions)
-			{
-				if (item.ID == id)
-					return item;
-			}
-
-			return null;
+			var found = Pending.Find(item => item.ID == id);
+			return found ?? Auctions.Find(item => item.ID == id);
 		}
 
 		public static List<AuctionItem> GetAuctions(Mobile m)
 		{
-			List<AuctionItem> auctions = [];
-
 			try
 			{
-				foreach (AuctionItem auction in Auctions)
-				{
-					if (auction.Owner == m || (auction.Owner != null && m.Account.Equals(auction.Owner.Account)))
-					{
-						auctions.Add(auction);
-					}
-				}
+				return Auctions
+					.Where(auction => auction.Owner == m || (auction.Owner != null && m.Account.Equals(auction.Owner.Account)))
+					.ToList();
 			}
-			catch { }
+			catch(Exception e)
+			{
+				Console.WriteLine(e);
+			}
 
-			return auctions;
+			return [];
 		}
 
 		public static List<AuctionItem> GetBids(Mobile m)
 		{
-			List<AuctionItem> bids = [];
 
 			try
 			{
-				foreach (AuctionItem auction in Auctions)
-				{
-					if (auction.MobileHasBids(m))
-					{
-						bids.Add(auction);
-					}
-				}
+				return Auctions.Where(auction => auction.MobileHasBids(m)).ToList();
 			}
-			catch { }
+			catch(Exception e)
+			{
+				Console.WriteLine(e);
+			}
 
-			return bids;
+			return [];
 		}
 
 		public static List<AuctionItem> GetPendencies(Mobile m)
 		{
-			List<AuctionItem> list = [];
-
 			try
 			{
-				foreach (AuctionItem auction in Pending)
-				{
-					if (auction.Owner == m || (auction.Owner != null && m.Account.Equals(auction.Owner.Account)))
-					{
-						list.Add(auction);
-					}
-					else if (auction.HighestBid.Mobile == m || (auction.HighestBid.Mobile != null &&
-					                                            m.Account.Equals(auction.HighestBid.Mobile.Account)))
-					{
-						list.Add(auction);
-					}
-				}
+				return Pending
+					.Where(auction =>
+						auction.Owner == m ||
+						(auction.Owner != null && m.Account.Equals(auction.Owner.Account)) ||
+						auction.HighestBid.Mobile == m ||
+						(auction.HighestBid.Mobile != null && m.Account.Equals(auction.HighestBid.Mobile.Account)))
+					.ToList();
 			}
-			catch { }
+			catch(Exception e)
+			{
+				Console.WriteLine(e);
+			}
 
-			return list;
+			return [];
 		}
 
 		public static bool CanAuction(Mobile m)
 		{
-			if (m.AccessLevel >= AccessLevel.GameMaster) // Staff can always auction
+			if (m.IsStaff())
 				return true;
 
-			int count = 0;
-
-			foreach (AuctionItem auction in Auctions)
-			{
-				if (auction.Account == (m.Account as Account))
-				{
-					count++;
-				}
-			}
+			var count = Auctions.Count(auction => auction.Account == (m.Account as Account));
 
 			return count < MaxAuctions;
 		}
@@ -340,36 +303,25 @@ namespace Arya.Auction
 
 		private static void VerifyIntegrity()
 		{
-			foreach (AuctionItem auction in Auctions)
+			foreach (var auction in Auctions)
 				auction.VeirfyIntergrity();
 		}
 
 		public static void VerifyAuctions()
 		{
+			if (!Running)
+				return;
+			
 			lock (World.Items)
 			{
 				lock (World.Mobiles)
 				{
-					if (!Running)
-						return;
-
-					List<AuctionItem> expiredList = [];
-					List<AuctionItem> invalidList = [];
-
-					foreach (AuctionItem auction in Auctions)
-					{
-						if (auction.Item == null || (auction.Creature && auction.Pet == null))
-							invalidList.Add(auction);
-						else if (auction.Expired)
-							expiredList.Add(auction);
-					}
-
-					foreach (AuctionItem invalid in invalidList)
+					foreach (var invalid in Auctions.Where(auction => auction.Item == null || (auction.Creature && auction.Pet == null)))
 					{
 						invalid.EndInvalid();
 					}
 
-					foreach (AuctionItem expired in expiredList)
+					foreach (var expired in Auctions.Where(auction => auction.Expired))
 					{
 						expired.End(null);
 					}
@@ -379,25 +331,15 @@ namespace Arya.Auction
 
 		public static void VerifyPendencies()
 		{
+			if (!Running)
+				return;
+			
 			lock (World.Items)
 			{
 				lock (World.Mobiles)
 				{
-					if (!Running)
-						return;
-
-					List<AuctionItem> list = [];
-
-					foreach (AuctionItem auction in Pending)
-					{
-						if (auction.PendingExpired)
-							list.Add(auction);
-					}
-
-					foreach (AuctionItem expired in list)
-					{
+					foreach (var expired in Pending.Where(auction => auction.PendingExpired)) 
 						expired.PendingTimeOut();
-					}
 				}
 			}
 		}

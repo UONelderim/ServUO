@@ -1289,7 +1289,7 @@ namespace Arya.Auction
 		
 		public void VeirfyIntergrity()
 		{
-			foreach (ItemInfo ii in Items)
+			foreach (var ii in Items)
 				ii.VeirfyIntegrity();
 		}
 	}

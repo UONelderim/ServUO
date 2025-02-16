@@ -12,22 +12,7 @@ namespace Xanthos.Utilities
 		public static int kGreenHue = 0x40;
 		public static int kRedHue = 0x20;
 
-		public static bool IsArtifact(Item item)
-		{
-			if (null == item)
-				return false;
 
-			Type t = item.GetType();
-			PropertyInfo prop = null;
-
-			try { prop = t.GetProperty("ArtifactRarity"); }
-			catch { }
-
-			if (null == prop || (int)(prop.GetValue(item, null)) <= 0)
-				return false;
-
-			return true;
-		}
 
 		public static bool IsPlayerConstructed(Item item)
 		{

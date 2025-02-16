@@ -21,10 +21,10 @@ namespace Arya.Auction
 			{
 				m_Callback.Invoke(from, targeted);
 			}
-			catch
+			catch (Exception e)
 			{
-				Console.WriteLine(
-					"The auction system cannot access the cliloc.enu file. Please review the system instructions for proper installation");
+				from.SendMessage("Target Error!");
+				Console.WriteLine(e);
 			}
 		}
 

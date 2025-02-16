@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Server;
 using Xanthos.Utilities;
 
@@ -10,15 +11,7 @@ namespace Arya.Auction
 	{
 		public static List<AuctionItem> Merge(List<AuctionItem> first, List<AuctionItem> second)
 		{
-			List<AuctionItem> result = first.ToList();
-
-			foreach (AuctionItem item in second)
-			{
-				if (!result.Contains(item))
-					result.Add(item);
-			}
-
-			return result;
+			return first.Union(second).ToList();
 		}
 
 		public static List<AuctionItem> SearchForText(List<AuctionItem> items, string text)
@@ -34,65 +27,50 @@ namespace Arya.Auction
 			return result;
 		}
 
-		private static List<AuctionItem> TextSearch(List<AuctionItem> list, string name)
+		private static List<AuctionItem> TextSearch(List<AuctionItem> list, string text)
 		{
-			List<AuctionItem> results = [];
-
-			if (list == null || name == null)
+			if (list == null || text == null)
 			{
-				return results;
+				return [];
 			}
-
-			IEnumerator<AuctionItem> ie = null;
-
+			
+			List<AuctionItem> results = [];
 			try
 			{
-				name = name.ToLower();
-
-				ie = list.GetEnumerator();
-
-				while (ie.MoveNext())
+				foreach (var auctionItem in list)
 				{
-					AuctionItem item = ie.Current;
-
-					if (item != null)
+					if (auctionItem == null) continue;
+					
+					if (auctionItem.ItemName.Contains(text, StringComparison.OrdinalIgnoreCase))
 					{
-						if (item.ItemName.ToLower().IndexOf(name) > -1)
+						results.Add(auctionItem);
+					}
+					else if (auctionItem.Description.Contains(text, StringComparison.OrdinalIgnoreCase))
+					{
+						results.Add(auctionItem);
+					}
+					else
+					{
+						// Search individual items
+						foreach (AuctionItem.ItemInfo info in auctionItem.Items)
 						{
-							results.Add(item);
-						}
-						else if (item.Description.ToLower().IndexOf(name) > -1)
-						{
-							results.Add(item);
-						}
-						else
-						{
-							// Search individual items
-							foreach (AuctionItem.ItemInfo info in item.Items)
+							if (info.Name.Contains(text, StringComparison.OrdinalIgnoreCase))
 							{
-								if (info.Name.ToLower().IndexOf(name) > -1)
-								{
-									results.Add(item);
-									break;
-								}
-
-								if (info.Properties.ToLower().IndexOf(name) > .1)
-								{
-									results.Add(item);
-									break;
-								}
+								results.Add(auctionItem);
+								break;
+							}
+							if (info.Properties.Contains(text, StringComparison.OrdinalIgnoreCase))
+							{
+								results.Add(auctionItem);
+								break;
 							}
 						}
 					}
 				}
 			}
-			catch { }
-			finally
+			catch (Exception e)
 			{
-				IDisposable d = ie as IDisposable;
-
-				if (d != null)
-					d.Dispose();
+				Console.WriteLine(e);
 			}
 
 			return results;
@@ -100,81 +78,54 @@ namespace Arya.Auction
 
 		public static List<AuctionItem> ForTypes(List<AuctionItem> list, List<Type> types)
 		{
-			List<AuctionItem> results = [];
-
 			if (list == null || types == null)
-				return results;
-
-			IEnumerator<AuctionItem> ie = null;
-
+				return [];
+			
 			try
 			{
-				ie = list.GetEnumerator();
-
-				while (ie.MoveNext())
-				{
-					AuctionItem item = ie.Current;
-
-					if (item == null)
-						continue;
-
-					foreach (Type t in types)
-					{
-						if (MatchesType(item, t))
-						{
-							results.Add(item);
-							break;
-						}
-					}
-				}
+				return list.Where(auctionItem =>
+						auctionItem != null &&
+						types.Any(type => MatchesType(auctionItem, type)))
+					.ToList();
 			}
-			catch { }
-			finally
+			catch (Exception e)
 			{
-				IDisposable d = ie as IDisposable;
-
-				if (d != null)
-					d.Dispose();
+				Console.WriteLine(e);
 			}
 
-			return results;
+			return [];
 		}
 
 		private static bool MatchesType(AuctionItem item, Type type)
 		{
-			foreach (AuctionItem.ItemInfo info in item.Items)
-			{
-				if (info.Item != null)
-				{
-					if (type.IsAssignableFrom(info.Item.GetType()))
-					{
-						return true;
-					}
-				}
-			}
-
-			return false;
+			return item.Items.Where(info => info.Item != null).Any(info => type.IsAssignableFrom(info.Item.GetType()));
 		}
 
 		public static List<AuctionItem> ForArtifacts(List<AuctionItem> items)
 		{
-			List<AuctionItem> results = [];
+			return items.Where(auction => 
+				auction
+					.Items
+					.Select(info => info.Item)
+					.Any(IsArtifact))
+				.ToList();
+		}
+		
+		private static bool IsArtifact(Item item)
+		{
+			if (null == item)
+				return false;
 
-			foreach (AuctionItem auction in items)
-			{
-				foreach (AuctionItem.ItemInfo info in auction.Items)
-				{
-					Item item = info.Item;
+			Type t = item.GetType();
+			PropertyInfo prop = null;
 
-					if (Misc.IsArtifact(item))
-					{
-						results.Add(auction);
-						break;
-					}
-				}
-			}
+			try { prop = t.GetProperty("ArtifactRarity"); }
+			catch { }
 
-			return results;
+			if (null == prop || (int)(prop.GetValue(item, null)) <= 0)
+				return false;
+
+			return true;
 		}
 
 		public static List<AuctionItem> ForCommodities(List<AuctionItem> items)
