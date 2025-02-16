@@ -81,7 +81,8 @@ namespace Arya.Auction
 			if (item.Item != null)
 			{
 				NewAuctionGump.AddItemCentered(5, 5, 155, 140, item.Item.ItemID, item.Item.Hue, this);
-				//AddItemProperty( item.Item.Serial);
+				item.Item.SendPropertiesTo(m_User);
+				AddItemProperty( item.Item);
 			}
 
 			// Hue preview image goes here if the item has a hue
@@ -118,7 +119,7 @@ namespace Arya.Auction
 				AddLabel(45, 225, Misc.kRedHue, NO_BIDS_YET);
 
 			// Time remaining
-			string timeleft = null;
+			string timeleft;
 
 			AddLabel(10, 245, Misc.kLabelHue, TIME_LEFT);
 
