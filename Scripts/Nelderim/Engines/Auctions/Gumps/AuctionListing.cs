@@ -118,6 +118,11 @@ namespace Arya.Auction
 				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_SYSTEM_DISABLED);
 				return;
 			}
+			if (!AuctionSystem.IsAuctionerNearby(sender.Mobile))
+			{
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, ERR_AUCTIONER_NOT_FOUND);
+				return;
+			}
 
 			switch (info.ButtonID)
 			{

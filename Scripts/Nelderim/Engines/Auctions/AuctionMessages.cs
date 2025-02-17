@@ -249,5 +249,8 @@ Once you commit this auction you will not be able to retrieve your item until th
 			"Your bid has been placed too close to the auction deadline so the auction duration has been extended to accept further bids.";
 
 		public const string CONTAINER_FMT = "Container: {0}";
+		
+		
+		public const string ERR_AUCTIONER_NOT_FOUND = "Musisz stać w pobliżu aukcjonera, aby to zrobić.";
 	}
 }

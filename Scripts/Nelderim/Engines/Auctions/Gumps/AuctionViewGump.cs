@@ -255,6 +255,11 @@ namespace Arya.Auction
 				sender.Mobile.SendMessage(AuctionConfig.MessageHue, AUCTION_SYSTEM_DISABLED);
 				return;
 			}
+			if (!AuctionSystem.IsAuctionerNearby(sender.Mobile))
+			{
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, ERR_AUCTIONER_NOT_FOUND);
+				return;
+			}
 
 			if (!AuctionSystem.Auctions.Contains(m_Auction))
 			{
@@ -332,7 +337,11 @@ namespace Arya.Auction
 					break;
 
 				case 6: // Staff Panel
-
+					if (m_User.AccessLevel < AuctionConfig.AuctionAdminAcessLevel)
+					{
+						m_User.SendMessage("Nie dla psa kiełbasa.");
+						return;
+					}
 					m_User.SendGump(new AuctionControlGump(m_User, m_Auction, this));
 					break;
 

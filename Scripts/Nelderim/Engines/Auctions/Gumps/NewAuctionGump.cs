@@ -131,6 +131,11 @@ namespace Arya.Auction
 
 				return;
 			}
+			if (!AuctionSystem.IsAuctionerNearby(sender.Mobile))
+			{
+				sender.Mobile.SendMessage(AuctionConfig.MessageHue, ERR_AUCTIONER_NOT_FOUND);
+				return;
+			}
 
 			bool allowBuyNow = info.Switches.Length > 0; // Just one switch
 

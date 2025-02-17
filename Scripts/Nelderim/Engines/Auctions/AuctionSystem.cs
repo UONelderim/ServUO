@@ -57,17 +57,20 @@ namespace Arya.Auction
 
 		public static void AuctionRequest(Mobile mobile)
 		{
-			if (CanAuction(mobile))
-			{
-				mobile.SendMessage(AuctionConfig.MessageHue, NEW_AUCTION_PROMPT);
-				mobile.CloseAllGumps();
-				mobile.Target = new AuctionTarget(OnNewAuctionTarget, -1, false);
-			}
-			else
+			if (!CanAuction(mobile))
 			{
 				mobile.SendMessage(AuctionConfig.MessageHue, ERR_TOO_MANY_AUCTIONS_FMT, MaxAuctions);
 				mobile.SendGump(new AuctionGump(mobile));
+				return;
 			}
+			if (!IsAuctionerNearby(mobile))
+			{
+				mobile.SendMessage(AuctionConfig.MessageHue, ERR_AUCTIONER_NOT_FOUND);
+				return;
+			}
+			mobile.SendMessage(AuctionConfig.MessageHue, NEW_AUCTION_PROMPT);
+			mobile.CloseAllGumps();
+			mobile.Target = new AuctionTarget(OnNewAuctionTarget, -1, false);
 		}
 
 		private static void OnCreatureAuction(Mobile from, BaseCreature creature)
@@ -95,6 +98,11 @@ namespace Arya.Auction
 		{
 			Item item = targeted as Item;
 			BaseCreature bc = targeted as BaseCreature;
+			if (!IsAuctionerNearby(from))
+			{
+				from.SendMessage(AuctionConfig.MessageHue, ERR_AUCTIONER_NOT_FOUND);
+				return;
+			}
 
 			if (item == null && !AuctionConfig.AllowPetsAuction)
 			{
@@ -269,6 +277,17 @@ namespace Arya.Auction
 			var count = Auctions.Count(auction => auction.Account == (m.Account as Account));
 
 			return count < MaxAuctions;
+		}
+
+		public static bool IsAuctionerNearby(Mobile from)
+		{
+			if (from.IsStaff())
+				return true;
+			
+			var eable = from.GetMobilesInRange(4);
+			var found = eable.OfType<Auctioner>().Any(from.CanSee);
+			eable.Free();
+			return found;
 		}
 
 		public static void Initialize()
