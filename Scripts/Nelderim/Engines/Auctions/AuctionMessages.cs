@@ -75,6 +75,8 @@ namespace Arya.Auction
 		public const string ITEM_X_OF_FMT = "Item {0} of {1}";
 		public const string STARTING_BID = "Starting Bid";
 		public const string RESERVE = "Reserve";
+		public const string RESERVE_MET = "Osiągnieta";
+		public const string RESERVE_NOT_MET = "Nie Osiągnięta";
 		public const string HIGHEST_BID = "Highest Bid";
 		public const string NO_BIDS_YET = "No bids yet";
 		public const string VIEW_WEB_LINK = "Web Link";
@@ -252,5 +254,10 @@ Once you commit this auction you will not be able to retrieve your item until th
 		
 		
 		public const string ERR_AUCTIONER_NOT_FOUND = "Musisz stać w pobliżu aukcjonera, aby to zrobić.";
+
+		public const string PROMPT_PROPS_HOVER = "Hover your mouse over the item to the left to see this item's properties.";
+		public const string LOG_ITEM_DELETED = "The item has been deleted";
+		public const string LOG_ITEM_RETURN_OWNER = "The item has been returned to the owner";
+		public const string LOG_ITEM_RETURN_STAFF = "The item has been claimed by the staff";
 	}
 }

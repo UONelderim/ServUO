@@ -88,13 +88,13 @@ namespace Arya.Auction
 		{
 		}
 
-		public override string ItemName => String.Format("{0} Gold Coins", m_GoldAmount.ToString("#,0"));
+		public override string ItemName => $"{m_GoldAmount:#,0} złotych monet";
 
 		public override void GetProperties(ObjectPropertyList list)
 		{
 			base.GetProperties(list);
 
-			list.Add(1060659, "Gold\t{0}", m_GoldAmount.ToString("#,0"));
+			list.Add(1060659, "Złoto\t{0}", m_GoldAmount.ToString("#,0"));
 		}
 
 		public override bool Deliver(Mobile to)

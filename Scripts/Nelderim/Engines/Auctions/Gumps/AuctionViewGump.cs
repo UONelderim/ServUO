@@ -108,7 +108,7 @@ namespace Arya.Auction
 
 			AddLabel(10, 280, Misc.kLabelHue, RESERVE);
 			AddLabel(45, 295, m_Auction.ReserveMet ? Misc.kGreenHue : Misc.kRedHue,
-				m_Auction.ReserveMet ? "Met" : "Not Met");
+				m_Auction.ReserveMet ? RESERVE_MET : RESERVE_NOT_MET);
 
 			AddLabel(10, 210, Misc.kLabelHue, HIGHEST_BID);
 
@@ -195,16 +195,12 @@ namespace Arya.Auction
 					AddButton(450, 31, 4005, 4006, 2, GumpButtonType.Reply, 0);
 				}
 
-				//AddHtml( 173, 56, 312, 114, m_Auction[ m_Page ].Properties, (bool)false, (bool)true );
-				AddHtml(173, 56, 312, 114, "Hover your mouse over the item to the left to see this item's properties.",
-					false, true);
+				AddHtml(173, 56, 312, 114, PROMPT_PROPS_HOVER, false, true);
 			}
 			else
 			{
 				AddLabel(170, 10, Misc.kGreenHue, m_Auction.ItemName);
-				//AddHtml( 173, 30, 312, 140, m_Auction[ m_Page ].Properties, (bool)false, (bool)true );
-				AddHtml(173, 30, 312, 140, "Hover your mouse over the item to the left to see this item's properties.",
-					false, true);
+				AddHtml(173, 30, 312, 140, PROMPT_PROPS_HOVER, false, true);
 			}
 
 			//
@@ -214,7 +210,7 @@ namespace Arya.Auction
 			AddLabel(170, 175, Misc.kLabelHue, ITEM_DESCRIPTION);
 			AddImageTiled(170, 195, 315, 110, kBeigeBorderInner);
 			AddAlphaRegion(170, 195, 315, 110);
-			AddHtml(173, 195, 312, 110, String.Format("<basefont color=#FFFFFF>{0}", m_Auction.Description), false,
+			AddHtml(173, 195, 312, 110, FONT(m_Auction.Description, 0xFFFFFF), false,
 				true);
 
 			// Web link button: 3

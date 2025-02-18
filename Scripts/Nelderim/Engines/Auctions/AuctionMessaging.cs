@@ -29,7 +29,7 @@ namespace Arya.Auction
 
 			AuctionMessageGump gump = new AuctionMessageGump(auction, true, false, false);
 			gump.Message = String.Format(ERR_OUTBID_FMT, amount.ToString("#,0"));
-			gump.OkText = "Close this message";
+			gump.OkText = MSG_BUTTON_CLOSE;
 			gump.ShowExpiration = false;
 
 			to.SendGump(new AuctionNoticeGump(gump));

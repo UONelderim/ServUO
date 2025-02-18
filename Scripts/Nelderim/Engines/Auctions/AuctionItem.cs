@@ -71,7 +71,7 @@ namespace Arya.Auction
 
 				if (item.Amount > 1)
 				{
-					m_Name = String.Format("{0} {1}", item.Amount.ToString("#,0"), m_Name);
+					m_Name = $"{item.Amount:#,0} {m_Name}";
 				}
 
 				if (item is MobileStatuette)
@@ -707,7 +707,7 @@ namespace Arya.Auction
 			{
 				if (m_WebLink != null && m_WebLink.Length > 0)
 				{
-					m.LaunchBrowser(String.Format("http://{0}", m_WebLink));
+					m.LaunchBrowser($"http://{m_WebLink}");
 				}
 			}
 		}
@@ -835,19 +835,19 @@ namespace Arya.Auction
 				case ItemFate.Delete:
 
 					check.ForceDelete();
-					comments = "The item has been deleted";
+					comments = LOG_ITEM_DELETED;
 					break;
 
 				case ItemFate.ReturnToOwner:
 
 					GiveItemTo(Owner, check);
-					comments = "The item has been returned to the owner";
+					comments = LOG_ITEM_RETURN_OWNER;
 					break;
 
 				case ItemFate.ReturnToStaff:
 
 					GiveItemTo(m, check);
-					comments = "The item has been claimed by the staff";
+					comments = LOG_ITEM_RETURN_STAFF;
 					break;
 			}
 
