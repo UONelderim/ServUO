@@ -9,7 +9,7 @@ namespace Arya.Auction
 		public static void Initialize()
 		{
 			CommandHandlers.Register("InitAuction", AccessLevel.Administrator, OnInitAuction);
-			CommandHandlers.Register("MyAuction", AccessLevel.Player, OnMyAuction);
+			// CommandHandlers.Register("MyAuction", AccessLevel.Player, OnMyAuction);
 			CommandHandlers.Register("Auction", AccessLevel.GameMaster, OnAuction);
 			CommandHandlers.Register("AuctionAdmin", AccessLevel.Administrator, OnAuctionAdmin);
 		}
