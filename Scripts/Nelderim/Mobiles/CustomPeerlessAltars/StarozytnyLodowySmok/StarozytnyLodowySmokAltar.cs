@@ -13,7 +13,7 @@ namespace Server.Items
 	        typeof( PalecStarozytnegoLodowegoSmoka ), typeof( PazurStarozytnegoLodowegoSmoka ), typeof( ZabStarozytnegoLodowegoSmoka ) 
 };
 
-        public override BasePeerless Boss => new Zhoaminth();
+        public override BasePeerless Boss => new NStarozytnyLodowySmok();
 
         [Constructable]
         public StarozytnyLodowySmokAltar() : base(0x207C)
