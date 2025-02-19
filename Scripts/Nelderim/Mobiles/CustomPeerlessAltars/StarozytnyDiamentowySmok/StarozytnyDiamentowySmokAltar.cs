@@ -6,11 +6,11 @@ namespace Server.Items
     public class StarozytnyDiamentowySmokAltar : PeerlessAltar
     {
         public override int KeyCount => 3;
-        public override MasterKey MasterKey => new StarozytnyLodowySmokKey();
+        public override MasterKey MasterKey => new StarozytnyDiamentowySmokKey();
 
         public override Type[] Keys => new Type[]
         {
-	        typeof( PalecStarozytnegoLodowegoSmoka ), typeof( PazurStarozytnegoLodowegoSmoka ), typeof( ZabStarozytnegoLodowegoSmoka ) 
+	        typeof( PalecStarozytnegoDiamentowegoSmoka ), typeof( PazurStarozytnegoDiamentowegoSmoka ), typeof( ZabStarozytnegoDiamentowegoSmoka ) 
 };
 
         public override BasePeerless Boss => new Zhoaminth();
