@@ -9,7 +9,7 @@ namespace Server.Mobiles
 		public Feniks() : base(AIType.AI_Mage, FightMode.Closest, 12, 1, 0.3, 0.4)
 		{
 			Name = "feniks";
-			Body = 0x5;
+			Body = 832;
 			Hue = 0x489;
 
 			SetStr(605, 611);
