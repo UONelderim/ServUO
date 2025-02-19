@@ -3431,7 +3431,10 @@
 			<rect x="5563" y="1968" width="3" height="2" />
 			<rect x="5548" y="1961" width="17" height="7" />
 			<rect x="5548" y="1933" width="19" height="28" />
-			<rect x="5460" y="1954" width="45" height="76" />
+			<music name="OldUlt04" />
+		</region>
+		<region type="DungeonRegion" name="LezeOgnistychSmokow_LVL2_Boss">
+			<rect x="5460" y="1954" width="44" height="76" />
 			<music name="OldUlt04" />
 		</region>
 		<region type="Undershadow" priority="25" name="GlebokiPodmrok">
