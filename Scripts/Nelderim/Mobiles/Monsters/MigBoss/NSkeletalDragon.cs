@@ -8,7 +8,7 @@ using Server.Items;
 namespace Server.Mobiles
 {
 	[CorpseName("resztki krwawego koscianego smoka")]
-	public class NSkeletalDragon : BaseCreature
+	public class NSkeletalDragon : BasePeerless
 	{
 		public override bool BardImmune => true;
 		public override double AttackMasterChance => 0.15;
