@@ -7,7 +7,7 @@ using Server.Items;
 namespace Server.Mobiles
 {
 	[CorpseName("zwloki starozytnego diametowego smoka")]
-	public class StarozytnyDiamentowySmok : BaseCreature
+	public class StarozytnyDiamentowySmok : BasePeerless
 	{
 		public override bool BardImmune { get { return true; } }
 		public override double AttackMasterChance { get { return 0.15; } }

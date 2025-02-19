@@ -9896,6 +9896,10 @@
 			<rect x="5206" y="2208" width="8" height="30" />
 			<music name="OldUlt04" />
 		</region>
+		<region type="DungeonRegion" name="KrysztaloweSmoki_Boss">
+			<rect x="5302" y="2210" width="27" height="33" />
+			<music name="OldUlt04" />
+		</region>
 		<region type="DungeonRegion" name="Demonowo">
 			<rect x="5121" y="453" width="225" height="300" />
 			<rect x="5985" y="676" width="73" height="48" />
