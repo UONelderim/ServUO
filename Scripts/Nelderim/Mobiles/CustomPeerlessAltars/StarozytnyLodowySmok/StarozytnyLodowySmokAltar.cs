@@ -23,7 +23,7 @@ namespace Server.Items
             TeleportDest = new Point3D(5786, 1928, 5);
             ExitDest = new Point3D(5776, 1952, 0);
 
-            Name = "Oltarz Starozytnego Lodoweg Smoka";
+            Name = "Oltarz Starozytnego Lodowego Smoka";
             Hue = 1152;
         }
 
