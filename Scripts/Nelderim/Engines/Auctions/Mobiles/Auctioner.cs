@@ -39,7 +39,7 @@ namespace Arya.Auction
 	public class Auctioner : BaseVendor
 	{
 		[Constructable]
-		public Auctioner() : base("the Auctioner")
+		public Auctioner() : base("Aukcjoner")
 		{
 			RangePerception = 10;
 		}

@@ -88,7 +88,7 @@ namespace Arya.Auction
 		{
 			base.GetProperties(list);
 
-			list.Add(1060659, "Item\t{0}", m_ItemName);
+			list.Add(1060659, "Przedmiot \t{0}", m_ItemName);
 		}
 
 		public override bool Deliver(Mobile to)

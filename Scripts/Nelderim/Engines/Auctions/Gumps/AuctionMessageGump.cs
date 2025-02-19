@@ -11,7 +11,7 @@ namespace Arya.Auction
 	{
 		public string Message
 		{
-			set => m_HtmlMessage = String.Format("<basefont color=#111111>{0}", value);
+			set => m_HtmlMessage = FONT(value, 0x11111);
 		}
 
 		public string OkText
