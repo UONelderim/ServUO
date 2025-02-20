@@ -4,7 +4,7 @@ using Server.Items;
 namespace Server.Mobiles
 {
 	[CorpseName( "zwloki pancernego mechanicznego straznika" )]
-	public class ExodusBoss : BaseCreature
+	public class ExodusBoss : BasePeerless
 	{
 		private bool m_FieldActive;
 		public bool FieldActive => m_FieldActive;

@@ -10979,8 +10979,12 @@
 			<music name="Mountn_a" />
 		</region>
 		<region type="DungeonRegion" name="MechanicznaKrypta_VeryDifficult">
-			<rect x="5488" y="208" width="19" height="19" />
 			<rect x="5511" y="209" width="19" height="20" />
+			<go x="5497" y="217" z="0" />
+			<music name="Mountn_a" />
+		</region>
+		<region type="DungeonRegion" name="MechanicznaKrypta_Boss">
+			<rect x="5487" y="207" width="23" height="24" />
 			<music name="Mountn_a" />
 		</region>
 		<region type="DungeonRegion" name="MechanicznaKrypta_Outskirts">
