@@ -66,6 +66,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.MedScrolls, 1);
             AddLoot(LootPack.BodyPartsAndBones);
             AddLoot(LootPack.BonsaiSeed);
+            AddLoot(LootPack.LootItem<KolecZukaRunicznego>(30.0));
         }
 
         public override int GetAngerSound()

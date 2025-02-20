@@ -64,6 +64,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.PeculiarSeed2);
             AddLoot(LootPack.LootItem<ArcaneGem>());
             AddLoot(LootPack.LootItemCallback(RegBag));
+            AddLoot(LootPack.LootItem<PazurKoscianegoSmoka>(30.0));
         }
 
         private Item RegBag(IEntity e)
@@ -122,8 +123,8 @@ namespace Server.Mobiles
                     {
                         m_NextAbilityTime = DateTime.UtcNow + TimeSpan.FromSeconds(Utility.RandomMinMax(30, 60));
 
-                        toBuff.Say(true, "Give me the power to destroy my enemies!");
-                        Say(true, "Fight well my lord!");
+                        toBuff.Say(true, "Daj mi moc, by zniszczyc Twych wrogow!");
+                        Say(true, "Walcz dzielnie, panie!");
 
                         DoBeneficial(toBuff);
 

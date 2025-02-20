@@ -99,6 +99,8 @@ namespace Server.Mobiles
             AddLoot(LootPack.LootItem<ClockworkAssembly>(15.0));
             AddLoot(LootPack.LootItem<ArcaneGem>(20.0, 1, false, true));
             AddLoot(LootPack.LootItem<Gears>(25.0));
+            AddLoot(LootPack.RandomLootItem(new System.Type[] { typeof(PowerCrystal), typeof(ArcaneGem) }));
+            AddLoot(LootPack.LootItem<WiekszyKrysztalMocy>(30.0));
 
             AddLoot(LootPack.LootItemCallback(SpawnGears, 5.0, 1, false, false));
         }

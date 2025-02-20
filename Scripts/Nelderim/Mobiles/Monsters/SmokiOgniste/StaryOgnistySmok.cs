@@ -71,6 +71,7 @@ namespace Server.Mobiles
 		{
 			AddLoot(LootPack.FilthyRich, 3);
 			AddLoot(LootPack.Gems, 3);
+			AddLoot(LootPack.LootItem<ZabStarozytnegoOgnistegoSmoka>(30.0));
 		}
 
 		public override bool AutoDispel { get { return true; } }

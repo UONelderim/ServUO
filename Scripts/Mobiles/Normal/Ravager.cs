@@ -50,6 +50,7 @@ namespace Server.Mobiles
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Rich);
+            AddLoot(LootPack.LootItem<ZabKoscianegoSmoka>(30.0));
         }
 
         public override void Serialize(GenericWriter writer)
