@@ -3190,7 +3190,6 @@
 			<music name="Death" />
 		</region>
 		<region type="DungeonRegion" priority="25" name="HallTorech_LVL2_VeryDifficult">
-			<rect x="5733" y="1692" width="58" height="59" />
 			<rect x="5622" y="1773" width="33" height="19" />
 			<rect x="5645" y="1792" width="7" height="9" />
 			<rect x="5620" y="1801" width="32" height="19" />
@@ -3201,6 +3200,15 @@
 			<rect x="5645" y="1824" width="16" height="16" />
 			<rect x="5645" y="1842" width="48" height="49" />
 			<rect x="5690" y="1704" width="30" height="11" />
+			<go x="5762" y="1721" z="0" />
+			<music name="Death" />
+		</region>
+		<region type="DungeonRegion" name="HallTorech_LVL2_Boss">
+			<rect x="5756" y="1695" width="11" height="55" />
+			<rect x="5767" y="1708" width="10" height="30" />
+			<rect x="5777" y="1717" width="12" height="12" />
+			<rect x="5747" y="1707" width="9" height="31" />
+			<rect x="5733" y="1717" width="14" height="11" />
 			<music name="Death" />
 		</region>
 		<region type="Undershadow" priority="25" name="Podmrok_A">

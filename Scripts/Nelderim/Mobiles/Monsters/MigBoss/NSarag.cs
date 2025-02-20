@@ -8,7 +8,7 @@ using Server.Items;
 namespace Server.Mobiles
 {
 	[CorpseName("zgliszcza saraga")]
-	public class NSarag : BaseCreature
+	public class NSarag : BasePeerless
 	{
 		public override bool BardImmune => true;
 		public override double AttackMasterChance => 0.15;
