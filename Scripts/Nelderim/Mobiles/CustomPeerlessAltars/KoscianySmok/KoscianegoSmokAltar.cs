@@ -6,7 +6,7 @@ namespace Server.Items
     public class KoscianegoSmokAltar : PeerlessAltar
     {
         public override int KeyCount => 3;
-        public override MasterKey MasterKey => new StarozytnyDiamentowySmokKey();
+        public override MasterKey MasterKey => new KoscianegoSmokKey();
 
         public override Type[] Keys => new Type[]
         {
@@ -24,7 +24,7 @@ namespace Server.Items
             ExitDest = new Point3D(6040, 234, 8);
 
             Name = "Oltarz Koscinego Smoka";
-            Hue = 1153;
+            Hue = 38;
         }
 
         public override Rectangle2D[] BossBounds => m_Bounds;

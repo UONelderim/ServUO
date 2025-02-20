@@ -6,7 +6,7 @@ namespace Server.Items
     public class StarozytnyOgnistySmokAltar : PeerlessAltar
     {
         public override int KeyCount => 3;
-        public override MasterKey MasterKey => new StarozytnyLodowySmokKey();
+        public override MasterKey MasterKey => new StarozytnyOgnistySmokKey();
 
         public override Type[] Keys => new Type[]
         {
