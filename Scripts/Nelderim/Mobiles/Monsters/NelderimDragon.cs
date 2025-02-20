@@ -8,7 +8,7 @@ using Server.Items;
 namespace Server.Mobiles
 {
 	[CorpseName("zwloki smoczyska")]
-	public class NelderimDragon : BaseCreature
+	public class NelderimDragon : BasePeerless
 	{
 		public override double AttackMasterChance => 0.15;
 		public override double SwitchTargetChance => 0.15;
