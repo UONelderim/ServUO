@@ -13,7 +13,7 @@ namespace Server.Items
 	        typeof( OdnogaStaregoGazera ), typeof( PowiekaGazera ), typeof( KolecZukaRunicznego ) 
 };
 
-        public override BasePeerless Boss => new NBurugh();
+        public override BasePeerless Boss => new AncientRuneBeetle();
 
         [Constructable]
         public AncientRuneBeetleAltar() : base(0x207C)
