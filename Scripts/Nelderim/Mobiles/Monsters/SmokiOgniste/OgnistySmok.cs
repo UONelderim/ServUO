@@ -72,6 +72,7 @@ namespace Server.Mobiles
 		{
 			AddLoot(LootPack.FilthyRich, 2);
 			AddLoot(LootPack.Gems, 2);
+			AddLoot(LootPack.LootItem<PalecStarozytnegoOgnistegoSmoka>(30.0));
 		}
 
 		public override double AttackMasterChance { get { return 0.25; } }

@@ -55,6 +55,7 @@ namespace Server.Mobiles
         {
             AddLoot(LootPack.Rich);
             AddLoot(LootPack.RandomLootItem(new System.Type[] { typeof(PowerCrystal), typeof(ArcaneGem) }));
+            AddLoot(LootPack.LootItem<UszkodzonaDzwignia>(30.0));
         }
 
         public override int GetIdleSound()

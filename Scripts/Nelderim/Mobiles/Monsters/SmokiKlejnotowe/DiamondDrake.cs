@@ -67,6 +67,7 @@ namespace Server.Mobiles
 		public override void GenerateLoot()
 		{
 			AddLoot( LootPack.Rich, 5 );
+			AddLoot(LootPack.LootItem<ZabStarozytnegoDiamentowegoSmoka>(30.0));
 		}
 		
 		

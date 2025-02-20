@@ -69,6 +69,7 @@ namespace Server.Mobiles
             pack.DropItem(new Bandage(Utility.RandomMinMax(5, 15)));
             pack.DropItem(Loot.RandomGem());
             pack.DropItem(new ArcaneGem());
+            AddLoot(LootPack.LootItem<PalecKoscianegoSmoka>(30.0));
 
             return pack;
         }
@@ -79,10 +80,10 @@ namespace Server.Mobiles
             {
                 string[] toSay = new string[]
                 {
-                    "{0}!!  You will have to do better than that!",
-                    "{0}!!  Prepare to meet your doom!",
-                    "{0}!!  My armies will crush you!",
-                    "{0}!!  You will pay for that!"
+                    "{0}!!  Musisz sie bardziej postarac!",
+                    "{0}!!  Przygotuj sie na porazke!",
+                    "{0}!!  Me armie Cie zmiazdza!",
+                    "{0}!!  Zaplacisz za to!"
                 };
 
                 Say(true, string.Format(toSay[Utility.Random(toSay.Length)], from.Name));
