@@ -11,7 +11,7 @@ namespace Server.Items
             : base(serial)
         {
         }
-        public override int LabelNumber => 3070023;//klucz do jamy imiennego smoka
+        public override int LabelNumber => 3070027;//klucz do jamy imiennego smoka
         public override int Lifespan => 600;
         public override void Serialize(GenericWriter writer)
         {

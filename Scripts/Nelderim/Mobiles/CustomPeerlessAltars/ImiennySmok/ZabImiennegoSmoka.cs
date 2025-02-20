@@ -16,7 +16,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber => 3070022; //zab imiennego smoka
+        public override int LabelNumber => 3070026; //zab imiennego smoka
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
