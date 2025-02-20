@@ -3097,11 +3097,13 @@
 		</region>
 		<region type="DungeonRegion" name="LoenTorech_LVL2_VeryDifficult">
 			<rect x="5389" y="1851" width="23" height="33" />
-			<rect x="5449" y="1852" width="45" height="50" />
-			<rect x="5476" y="1847" width="8" height="5" />
-			<rect x="5494" y="1856" width="7" height="22" />
-			<rect x="5436" y="1862" width="13" height="23" />
-			<rect x="5431" y="1869" width="5" height="9" />
+			<music name="Death" />
+		</region>
+		<region type="DungeonRegion" name="LoenTorech_LVL2_Boss">
+			<rect x="5434" y="1867" width="62" height="14" />
+			<rect x="5447" y="1881" width="44" height="11" />
+			<rect x="5452" y="1892" width="38" height="10" />
+			<rect x="5443" y="1851" width="54" height="16" />
 			<music name="Death" />
 		</region>
 		<region type="DungeonRegion" priority="25" name="HallTorech_LVL1_VeryEasy">

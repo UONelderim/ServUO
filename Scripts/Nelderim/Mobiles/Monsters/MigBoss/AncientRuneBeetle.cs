@@ -6,7 +6,7 @@ using Server.Items;
 namespace Server.Mobiles
 {
 	[CorpseName("zwloki prasterego zuka runicznego")]
-	public class AncientRuneBeetle : BaseCreature
+	public class AncientRuneBeetle : BasePeerless
 	{
 		[Constructable]
 		public AncientRuneBeetle() : base(AIType.AI_Mage, FightMode.Closest, 12, 1, 0.2, 0.4)
