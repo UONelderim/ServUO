@@ -18,9 +18,9 @@ namespace Server.Items
         [Constructable]
         public BlightedGroveAltar() : base(0x207B)
         {
-            BossLocation = new Point3D(55, 745, 39);
-            TeleportDest = new Point3D(60, 762, 39);
-            ExitDest = new Point3D(58, 768, -1);
+            BossLocation = new Point3D(6433, 56, 39);
+            TeleportDest = new Point3D(74, 762, 39);
+            ExitDest = new Point3D(6435, 79, -1);
         }
 
         public override Rectangle2D[] BossBounds => m_Bounds;
