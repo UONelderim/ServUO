@@ -18,16 +18,16 @@ namespace Server.Items
         [Constructable]
         public BedlamAltar() : base(0x207E)
         {
-            BossLocation = new Point3D(106, 1615, 90);
-            TeleportDest = new Point3D(101, 1623, 50);
-            ExitDest = new Point3D(2068, 1372, -75);
+            BossLocation = new Point3D(6856, 11, 0);
+            TeleportDest = new Point3D(6858, 21, 0);
+            ExitDest = new Point3D(6858, 31, 0);
         }
 
         public override Rectangle2D[] BossBounds => m_Bounds;
 
         private readonly Rectangle2D[] m_Bounds = new Rectangle2D[]
         {
-            new Rectangle2D(99, 1609, 14, 18),
+            new Rectangle2D(6839, 1, 25, 18),
         };
 
         public BedlamAltar(Serial serial) : base(serial)
