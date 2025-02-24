@@ -11060,6 +11060,20 @@
 			<rect x="5778" y="3286" width="24" height="3" />
 			<rect x="5802" y="3286" width="79" height="2" />
 			<rect x="5806" y="3351" width="168" height="26" />
+			<rect x="5933" y="2009" width="64" height="64" />
+			<rect x="5922" y="2021" width="11" height="31" />
+			<rect x="5955" y="2073" width="38" height="18" />
+			<rect x="5997" y="2009" width="16" height="20" />
+			<rect x="5997" y="2029" width="4" height="5" />
+			<rect x="5949" y="1994" width="65" height="15" />
+			<rect x="5947" y="2006" width="2" height="3" />
+			<rect x="5958" y="1976" width="80" height="18" />
+			<rect x="6014" y="1994" width="19" height="8" />
+			<rect x="6014" y="2002" width="6" height="4" />
+			<rect x="5962" y="1943" width="95" height="33" />
+			<rect x="6038" y="1976" width="19" height="15" />
+			<rect x="5985" y="1928" width="41" height="15" />
+			<rect x="6026" y="1936" width="22" height="7" />
 		</region>
 	</Facet>
 </ServerRegions>
