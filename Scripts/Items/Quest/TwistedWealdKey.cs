@@ -14,7 +14,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber => 1075802;// Essence of Wind
+        public override int LabelNumber => 3070038; //klucz do groty spczonego jednorozca
         public override int Lifespan => 600;
         public override void Serialize(GenericWriter writer)
         {
