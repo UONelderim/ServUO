@@ -1,3 +1,4 @@
+using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -73,20 +74,20 @@ namespace Server.Mobiles
 
             return pack;
         }
+        
+        private static readonly string[] _ToSay =
+        [
+	        "{0}!!  Musisz sie bardziej postarac!",
+	        "{0}!!  Przygotuj sie na porazke!",
+	        "{0}!!  Me armie Cie zmiazdza!",
+	        "{0}!!  Zaplacisz za to!"
+        ];
 
         public override void OnDamage(int amount, Mobile from, bool willKill)
         {
             if (from != null && !willKill && amount > 5 && from.Player && 5 > Utility.Random(100))
             {
-                string[] toSay = new string[]
-                {
-                    "{0}!!  Musisz sie bardziej postarac!",
-                    "{0}!!  Przygotuj sie na porazke!",
-                    "{0}!!  Me armie Cie zmiazdza!",
-                    "{0}!!  Zaplacisz za to!"
-                };
-
-                Say(true, string.Format(toSay[Utility.Random(toSay.Length)], from.Race.GetName(Cases.Wolacz)));
+                Say(true, String.Format(_ToSay[Utility.Random(_ToSay.Length)], from.Race.GetName(Cases.Wolacz)));
             }
 
             base.OnDamage(amount, from, willKill);
