@@ -4,7 +4,7 @@
 		<region type="GreenAcres" priority="100" name="GreenAcres">
 			<rect x="5597" y="0" width="169" height="66" />
 		</region>
-		<region type="Jail" priority="90" name="Wiezienie">
+		<region type="JailRegion" priority="90" name="Wiezienie">
 			<rect x="1965" y="1531" width="108" height="102" />
 			<rect x="1974" y="1632" width="50" height="50" />
 			<rect x="2023" y="1631" width="21" height="30" />
@@ -470,18 +470,6 @@
 		<region type="MiningRegion" priority="100" name="Tirassa_Kopalnia">
 			<rect x="5431" y="1507" width="178" height="123" />
 			<go x="5582" y="1584" z="0" />
-		</region>
-		<region type="HousingRegion" name="Tirassa_Housing">
-			<rect x="2007" y="2691" width="21" height="36" />
-			<rect x="2005" y="2740" width="17" height="40" />
-			<rect x="2022" y="2749" width="7" height="17" />
-			<rect x="2047" y="2634" width="24" height="24" />
-			<rect x="2006" y="2780" width="16" height="31" />
-			<rect x="2022" y="2766" width="7" height="11" />
-			<rect x="2029" y="2748" width="6" height="8" />
-			<rect x="2022" y="2738" width="4" height="11" />
-			<rect x="2028" y="2709" width="5" height="15" />
-			<go x="2007" y="2740" z="0" />
 		</region>
 		<region type="VillageRegion" name="Nintayl">
 			<rect x="1861" y="3116" width="48" height="46" />
@@ -1148,10 +1136,6 @@
 			<rect x="5974" y="162" width="19" height="41" />
 			<rect x="5993" y="183" width="57" height="20" />
 			<rect x="6020" y="203" width="46" height="32" />
-			<rect x="6006" y="235" width="89" height="68" />
-			<rect x="6008" y="303" width="85" height="5" />
-			<rect x="6013" y="308" width="75" height="4" />
-			<rect x="6018" y="312" width="65" height="4" />
 			<rect x="5976" y="139" width="17" height="23" />
 			<rect x="5919" y="118" width="18" height="18" />
 			<rect x="5912" y="137" width="12" height="9" />
@@ -1160,7 +1144,12 @@
 			<rect x="5944" y="138" width="17" height="18" />
 			<rect x="5961" y="142" width="15" height="10" />
 			<rect x="6000" y="54" width="17" height="20" />
+			<rect x="6024" y="235" width="40" height="7" />
 			<go x="5985" y="43" z="4" />
+			<music name="GrizzleDungeon" />
+		</region>
+		<region type="DungeonRegion" name="Garth_LVL2_Boss">
+			<rect x="6024" y="258" width="48" height="42" />
 			<music name="GrizzleDungeon" />
 		</region>
 		<region type="DungeonRegion" priority="25" name="Tasandora_Krypty">
@@ -3096,11 +3085,13 @@
 		</region>
 		<region type="DungeonRegion" name="LoenTorech_LVL2_VeryDifficult">
 			<rect x="5389" y="1851" width="23" height="33" />
-			<rect x="5449" y="1852" width="45" height="50" />
-			<rect x="5476" y="1847" width="8" height="5" />
-			<rect x="5494" y="1856" width="7" height="22" />
-			<rect x="5436" y="1862" width="13" height="23" />
-			<rect x="5431" y="1869" width="5" height="9" />
+			<music name="Death" />
+		</region>
+		<region type="DungeonRegion" name="LoenTorech_LVL2_Boss">
+			<rect x="5434" y="1867" width="62" height="14" />
+			<rect x="5447" y="1881" width="44" height="11" />
+			<rect x="5452" y="1892" width="38" height="10" />
+			<rect x="5443" y="1851" width="54" height="16" />
 			<music name="Death" />
 		</region>
 		<region type="DungeonRegion" priority="25" name="HallTorech_LVL1_VeryEasy">
@@ -3187,7 +3178,6 @@
 			<music name="Death" />
 		</region>
 		<region type="DungeonRegion" priority="25" name="HallTorech_LVL2_VeryDifficult">
-			<rect x="5733" y="1692" width="58" height="59" />
 			<rect x="5622" y="1773" width="33" height="19" />
 			<rect x="5645" y="1792" width="7" height="9" />
 			<rect x="5620" y="1801" width="32" height="19" />
@@ -3198,6 +3188,15 @@
 			<rect x="5645" y="1824" width="16" height="16" />
 			<rect x="5645" y="1842" width="48" height="49" />
 			<rect x="5690" y="1704" width="30" height="11" />
+			<go x="5762" y="1721" z="0" />
+			<music name="Death" />
+		</region>
+		<region type="DungeonRegion" name="HallTorech_LVL2_Boss">
+			<rect x="5756" y="1695" width="11" height="55" />
+			<rect x="5767" y="1708" width="10" height="30" />
+			<rect x="5777" y="1717" width="12" height="12" />
+			<rect x="5747" y="1707" width="9" height="31" />
+			<rect x="5733" y="1717" width="14" height="11" />
 			<music name="Death" />
 		</region>
 		<region type="Undershadow" priority="25" name="Podmrok_A">
@@ -3431,7 +3430,10 @@
 			<rect x="5563" y="1968" width="3" height="2" />
 			<rect x="5548" y="1961" width="17" height="7" />
 			<rect x="5548" y="1933" width="19" height="28" />
-			<rect x="5460" y="1954" width="45" height="76" />
+			<music name="OldUlt04" />
+		</region>
+		<region type="DungeonRegion" name="LezeOgnistychSmokow_LVL2_Boss">
+			<rect x="5460" y="1954" width="44" height="76" />
 			<music name="OldUlt04" />
 		</region>
 		<region type="Undershadow" priority="25" name="GlebokiPodmrok">
@@ -9536,89 +9538,6 @@
 			<rect x="0" y="3170" width="810" height="925" />
 			<go x="690" y="1060" z="0" />
 		</region>
-		<region type="HousingRegion" name="Garlan_Housing">
-			<rect x="810" y="623" width="125" height="151" />
-			<rect x="941" y="715" width="104" height="66" />
-			<rect x="938" y="689" width="25" height="24" />
-			<rect x="1047" y="727" width="45" height="47" />
-			<rect x="1141" y="564" width="66" height="153" />
-			<rect x="1095" y="724" width="52" height="52" />
-			<rect x="1148" y="719" width="57" height="48" />
-			<rect x="1100" y="655" width="38" height="65" />
-			<rect x="1130" y="380" width="92" height="85" />
-			<rect x="1137" y="471" width="80" height="83" />
-			<rect x="1125" y="352" width="87" height="23" />
-			<go x="923" y="669" z="0" />
-		</region>
-		<region type="HousingRegion" name="Twierdza_Housing">
-			<rect x="2339" y="1777" width="92" height="77" />
-			<rect x="2341" y="1857" width="95" height="53" />
-			<rect x="2462" y="1868" width="104" height="83" />
-			<rect x="2334" y="1659" width="72" height="102" />
-			<rect x="2338" y="1940" width="107" height="59" />
-			<rect x="2480" y="1954" width="113" height="60" />
-			<rect x="2353" y="1573" width="121" height="82" />
-			<go x="2935" y="1871" z="0" />
-		</region>
-		<region type="HousingRegion" name="NoamuthQuortek_Housing">
-			<rect x="5912" y="2762" width="61" height="30" />
-			<rect x="5973" y="2753" width="40" height="39" />
-			<rect x="5952" y="2715" width="72" height="38" />
-			<rect x="6024" y="2721" width="38" height="75" />
-			<rect x="5914" y="2792" width="58" height="60" />
-			<rect x="5903" y="2764" width="9" height="27" />
-			<rect x="5953" y="2759" width="20" height="3" />
-			<rect x="6013" y="2753" width="11" height="28" />
-			<rect x="6017" y="2781" width="7" height="6" />
-			<rect x="5892" y="2838" width="22" height="14" />
-			<rect x="5950" y="1997" width="29" height="41" />
-			<rect x="5979" y="2028" width="13" height="64" />
-			<rect x="5950" y="2038" width="29" height="30" />
-			<rect x="5952" y="2068" width="27" height="17" />
-			<rect x="5943" y="2006" width="7" height="60" />
-			<rect x="5930" y="2016" width="13" height="40" />
-			<rect x="5955" y="1994" width="4" height="3" />
-			<rect x="5921" y="2025" width="9" height="23" />
-			<rect x="5919" y="2038" width="2" height="4" />
-			<rect x="5992" y="2039" width="1" height="16" />
-			<go x="5938" y="2766" z="0" />
-		</region>
-		<region type="HousingRegion" name="Orod_Housing">
-			<rect x="506" y="2045" width="34" height="25" />
-			<rect x="514" y="2070" width="22" height="15" />
-			<rect x="512" y="2070" width="2" height="5" />
-			<rect x="517" y="2085" width="21" height="6" />
-			<rect x="536" y="2083" width="1" height="2" />
-			<rect x="522" y="2091" width="19" height="4" />
-			<rect x="538" y="2090" width="1" height="1" />
-			<rect x="527" y="2095" width="17" height="4" />
-			<rect x="529" y="2099" width="21" height="5" />
-			<rect x="533" y="2104" width="23" height="9" />
-			<rect x="550" y="2102" width="2" height="2" />
-			<rect x="544" y="2097" width="2" height="2" />
-			<rect x="541" y="2094" width="1" height="1" />
-			<rect x="525" y="2095" width="2" height="2" />
-			<rect x="520" y="2091" width="2" height="1" />
-			<rect x="528" y="2099" width="1" height="2" />
-			<rect x="531" y="2104" width="2" height="1" />
-			<rect x="540" y="2113" width="18" height="10" />
-			<rect x="548" y="2123" width="7" height="2" />
-			<rect x="556" y="2103" width="3" height="10" />
-			<rect x="497" y="2009" width="19" height="36" />
-			<rect x="516" y="2009" width="12" height="20" />
-			<rect x="516" y="2029" width="10" height="7" />
-			<rect x="516" y="2036" width="4" height="3" />
-			<rect x="528" y="2012" width="7" height="17" />
-			<rect x="493" y="1988" width="36" height="21" />
-			<rect x="464" y="1931" width="54" height="30" />
-			<rect x="478" y="1961" width="49" height="27" />
-			<rect x="518" y="1944" width="7" height="17" />
-			<rect x="535" y="1955" width="19" height="26" />
-			<rect x="528" y="1932" width="21" height="23" />
-			<rect x="529" y="1955" width="6" height="10" />
-			<rect x="651" y="1859" width="86" height="25" />
-			<go x="506" y="2045" z="0" />
-		</region>
 		<region type="DungeonRegion" name="BialyWilk_VeryEasy">
 			<rect x="5275" y="43" width="11" height="23" />
 			<rect x="5286" y="51" width="9" height="5" />
@@ -9896,6 +9815,10 @@
 			<rect x="5206" y="2208" width="8" height="30" />
 			<music name="OldUlt04" />
 		</region>
+		<region type="DungeonRegion" name="KrysztaloweSmoki_Boss">
+			<rect x="5302" y="2210" width="27" height="33" />
+			<music name="OldUlt04" />
+		</region>
 		<region type="DungeonRegion" name="Demonowo">
 			<rect x="5121" y="453" width="225" height="300" />
 			<rect x="5985" y="676" width="73" height="48" />
@@ -10048,23 +9971,34 @@
 			<go x="5767" y="2048" z="0" />
 			<music name="Vesper" />
 		</region>
-		<region type="DungeonRegion" priority="0" name="LezeLodowychSmokow_LVL3_VeryDifficult">
-			<rect x="5772" y="1932" width="30" height="2" />
-			<rect x="5763" y="1932" width="9" height="2" />
-			<rect x="5772" y="1934" width="29" height="2" />
-			<rect x="5776" y="1936" width="24" height="1" />
+		<region type="CannotEnterRegion" name="LezeLodowychSmokow_LVL3_Boss_CannotEnter">
+			<rect x="5757" y="1888" width="72" height="82" />
+		</region>
+		<region type="DungeonRegion" name="LezeLodowychSmokow_LVL3_Boss">
+			<rect x="5766" y="1891" width="46" height="36" />
+			<rect x="5766" y="1888" width="47" height="3" />
+			<rect x="5812" y="1891" width="2" height="36" />
+			<rect x="5763" y="1927" width="25" height="6" />
+			<rect x="5788" y="1927" width="18" height="3" />
+			<rect x="5761" y="1890" width="5" height="37" />
+			<rect x="5758" y="1905" width="3" height="8" />
+			<rect x="5806" y="1927" width="5" height="1" />
+			<rect x="5806" y="1928" width="2" height="1" />
+			<rect x="5763" y="1933" width="3" height="2" />
+			<rect x="5788" y="1930" width="15" height="3" />
+			<rect x="5803" y="1930" width="2" height="2" />
+			<rect x="5772" y="1933" width="30" height="2" />
+			<rect x="5775" y="1935" width="26" height="2" />
 			<rect x="5778" y="1937" width="21" height="1" />
-			<rect x="5802" y="1932" width="1" height="1" />
-			<rect x="5754" y="1978" width="27" height="27" />
-			<rect x="5760" y="2005" width="22" height="1" />
-			<rect x="5779" y="1938" width="18" height="1" />
-			<rect x="5797" y="1938" width="1" height="1" />
-			<rect x="5781" y="1939" width="15" height="1" />
-			<rect x="5796" y="1939" width="1" height="1" />
+			<rect x="5779" y="1938" width="19" height="1" />
+			<rect x="5781" y="1939" width="16" height="1" />
 			<rect x="5784" y="1940" width="11" height="1" />
 			<rect x="5787" y="1941" width="6" height="1" />
-			<rect x="5801" y="1934" width="1" height="1" />
-			<rect x="5763" y="1931" width="41" height="1" />
+			<go x="5780" y="1911" z="-11" />
+			<music name="Vesper" />
+		</region>
+		<region type="DungeonRegion" priority="0" name="LezeLodowychSmokow_LVL3_VeryDifficult">
+			<rect x="5754" y="1978" width="27" height="27" />
 			<go x="5821" y="1970" z="0" />
 			<music name="Vesper" />
 		</region>
@@ -10263,7 +10197,7 @@
 			<music name="Vesper" />
 		</region>
 		<region type="DungeonRegion" name="VoxPopuli_Boss">
-			<rect x="7058" y="22" width="9" height="7" />
+			<rect x="6959" y="32" width="26" height="22" />
 			<music name="Vesper" />
 		</region>
 		<region type="DungeonRegion" name="Grizzle_LVL2_Entrance">
@@ -10971,8 +10905,12 @@
 			<music name="Mountn_a" />
 		</region>
 		<region type="DungeonRegion" name="MechanicznaKrypta_VeryDifficult">
-			<rect x="5488" y="208" width="19" height="19" />
 			<rect x="5511" y="209" width="19" height="20" />
+			<go x="5497" y="217" z="0" />
+			<music name="Mountn_a" />
+		</region>
+		<region type="DungeonRegion" name="MechanicznaKrypta_Boss">
+			<rect x="5487" y="207" width="23" height="24" />
 			<music name="Mountn_a" />
 		</region>
 		<region type="DungeonRegion" name="MechanicznaKrypta_Outskirts">
@@ -11012,6 +10950,116 @@
 		<region type="DungeonRegion" name="Alcala_Boss">
 			<rect x="5783" y="1744" width="39" height="42" />
 			<music name="Taiko" />
+		</region>
+		<region type="HousingRegion" name="West_Housing">
+			<rect x="1658" y="580" width="484" height="208" />
+			<rect x="1776" y="559" width="55" height="21" />
+			<rect x="1943" y="539" width="52" height="41" />
+			<rect x="1812" y="454" width="47" height="23" />
+			<rect x="1803" y="477" width="25" height="16" />
+			<rect x="612" y="440" width="194" height="180" />
+			<rect x="667" y="623" width="265" height="130" />
+			<rect x="879" y="484" width="86" height="67" />
+			<rect x="916" y="428" width="111" height="56" />
+			<rect x="1028" y="393" width="106" height="84" />
+			<rect x="1061" y="370" width="55" height="23" />
+			<rect x="1129" y="357" width="80" height="36" />
+			<rect x="1134" y="393" width="89" height="81" />
+			<rect x="1215" y="355" width="33" height="38" />
+			<rect x="1223" y="393" width="54" height="111" />
+			<rect x="1095" y="477" width="128" height="47" />
+			<rect x="1135" y="474" width="87" height="3" />
+			<rect x="1277" y="473" width="108" height="51" />
+			<rect x="1254" y="504" width="23" height="18" />
+			<rect x="1282" y="524" width="103" height="8" />
+			<rect x="1385" y="503" width="10" height="17" />
+			<rect x="1333" y="532" width="146" height="37" />
+			<rect x="1385" y="522" width="72" height="10" />
+			<rect x="1404" y="511" width="53" height="11" />
+			<rect x="1457" y="510" width="16" height="19" />
+			<rect x="1288" y="532" width="45" height="7" />
+			<rect x="1303" y="539" width="30" height="13" />
+			<rect x="1341" y="569" width="142" height="22" />
+			<rect x="1356" y="591" width="105" height="20" />
+			<rect x="1373" y="611" width="94" height="33" />
+			<rect x="1112" y="524" width="128" height="269" />
+			<rect x="1224" y="505" width="17" height="19" />
+			<rect x="935" y="715" width="177" height="82" />
+			<rect x="965" y="484" width="58" height="23" />
+			<rect x="965" y="507" width="25" height="21" />
+			<rect x="943" y="797" width="300" height="78" />
+			<rect x="1103" y="875" width="140" height="25" />
+			<rect x="1244" y="666" width="19" height="202" />
+			<rect x="1112" y="793" width="127" height="4" />
+			<rect x="1263" y="703" width="41" height="165" />
+			<rect x="1240" y="634" width="4" height="162" />
+			<rect x="1255" y="868" width="12" height="9" />
+			<rect x="1304" y="739" width="10" height="108" />
+			<rect x="1314" y="756" width="15" height="86" />
+			<rect x="1329" y="769" width="22" height="73" />
+			<rect x="1351" y="790" width="9" height="40" />
+			<rect x="727" y="754" width="207" height="215" />
+			<rect x="692" y="937" width="35" height="32" />
+			<rect x="79" y="1807" width="350" height="216" />
+			<rect x="101" y="1295" width="216" height="384" />
+			<rect x="457" y="1805" width="108" height="314" />
+			<rect x="446" y="1889" width="11" height="36" />
+			<rect x="446" y="1757" width="179" height="48" />
+			<rect x="565" y="1805" width="197" height="56" />
+			<rect x="625" y="1735" width="99" height="70" />
+			<rect x="646" y="1861" width="93" height="29" />
+			<rect x="761" y="1763" width="185" height="298" />
+			<rect x="626" y="2116" width="73" height="158" />
+			<rect x="831" y="1369" width="284" height="86" />
+			<rect x="909" y="1456" width="227" height="78" />
+			<rect x="1073" y="1534" width="137" height="97" />
+			<rect x="1136" y="1501" width="19" height="33" />
+		</region>
+		<region type="HousingRegion" name="East_Housing">
+			<rect x="2340" y="1512" width="145" height="133" />
+			<rect x="2340" y="1645" width="69" height="116" />
+			<rect x="2314" y="1601" width="26" height="160" />
+			<rect x="2318" y="1770" width="111" height="57" />
+			<rect x="2319" y="1827" width="101" height="41" />
+			<rect x="1936" y="1915" width="639" height="145" />
+			<rect x="2231" y="1868" width="251" height="47" />
+			<rect x="2483" y="1886" width="62" height="29" />
+			<rect x="2328" y="1761" width="34" height="9" />
+			<rect x="2261" y="1838" width="58" height="30" />
+			<rect x="2289" y="1799" width="29" height="39" />
+			<rect x="2318" y="1827" width="1" height="11" />
+			<rect x="2819" y="2109" width="193" height="69" />
+			<rect x="2819" y="2102" width="112" height="7" />
+			<rect x="2907" y="2088" width="24" height="14" />
+			<rect x="2819" y="2178" width="308" height="63" />
+			<rect x="3068" y="2167" width="37" height="11" />
+			<rect x="3135" y="2277" width="83" height="80" />
+			<rect x="3127" y="2220" width="18" height="57" />
+			<rect x="3127" y="2277" width="8" height="80" />
+			<rect x="2867" y="2241" width="260" height="116" />
+			<rect x="2026" y="2464" width="344" height="189" />
+			<rect x="1933" y="2568" width="93" height="194" />
+			<rect x="1934" y="2762" width="92" height="82" />
+			<rect x="2117" y="2915" width="59" height="84" />
+			<rect x="5904" y="2759" width="48" height="44" />
+			<rect x="5952" y="2759" width="31" height="44" />
+			<rect x="5968" y="2691" width="60" height="68" />
+			<rect x="5952" y="2697" width="16" height="43" />
+			<rect x="6028" y="2727" width="28" height="32" />
+			<rect x="5983" y="2759" width="61" height="30" />
+			<rect x="5680" y="2294" width="193" height="245" />
+			<rect x="5654" y="2465" width="26" height="61" />
+			<rect x="5722" y="2261" width="137" height="33" />
+			<rect x="5711" y="3315" width="27" height="35" />
+			<rect x="5738" y="3315" width="23" height="61" />
+			<rect x="5761" y="3298" width="41" height="53" />
+			<rect x="5772" y="3351" width="31" height="16" />
+			<rect x="5772" y="3289" width="30" height="9" />
+			<rect x="5769" y="3293" width="3" height="5" />
+			<rect x="5802" y="3288" width="185" height="63" />
+			<rect x="5778" y="3286" width="24" height="3" />
+			<rect x="5802" y="3286" width="79" height="2" />
+			<rect x="5806" y="3351" width="168" height="26" />
 		</region>
 	</Facet>
 </ServerRegions>
