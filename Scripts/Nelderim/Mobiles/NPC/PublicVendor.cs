@@ -1,6 +1,5 @@
 ﻿#region References
 
-using System;
 using Server.Items;
 
 #endregion
@@ -20,24 +19,8 @@ namespace Server.Mobiles
 		{
 		}
 
-		[CommandProperty(AccessLevel.Seer)]
-		public string EditableExpireTime
-		{
-			get
-			{
-				return m_RentalExpireTime.ToString();
-			}
-			set
-			{
-				try
-				{
-					m_RentalExpireTime = DateTime.Parse(value);
-				}
-				catch
-				{
-				}
-			}
-		}
+		[CommandProperty( AccessLevel.GameMaster )]
+		public override bool Renew => LandlordRenew && RenterRenew;
 
 		public override void Serialize(GenericWriter writer)
 		{
