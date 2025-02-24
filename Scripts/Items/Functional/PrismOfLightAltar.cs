@@ -24,9 +24,9 @@ namespace Server.Items
         {
             Visible = false;
 
-            BossLocation = new Point3D(309, 990, -1);
-            TeleportDest = new Point3D(310, 979, -1);
-            ExitDest = new Point3D(3382, 1957, 0);
+            BossLocation = new Point3D(6687, 310, -1);
+            TeleportDest = new Point3D(6687, 290, -1);
+            ExitDest = new Point3D(3384, 1955, 0);
 
             m_ID = 0;
         }
@@ -42,7 +42,7 @@ namespace Server.Items
 
         private readonly Rectangle2D[] m_Bounds = new Rectangle2D[]
         {
-            new Rectangle2D(296, 975, 45, 35),
+            new Rectangle2D(6671, 287, 45, 35),
         };
 
         public PrismOfLightAltar(Serial serial) : base(serial)
