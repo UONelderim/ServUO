@@ -112,7 +112,7 @@ namespace Server.Mobiles
             }
         }
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool Renew => LandlordRenew && RenterRenew && House != null && House.DecayType != DecayType.Condemned;
+        public virtual bool Renew => LandlordRenew && RenterRenew && House != null && House.DecayType != DecayType.Condemned;
         [CommandProperty(AccessLevel.GameMaster)]
         public int RenewalPrice
         {
