@@ -24,9 +24,9 @@ namespace Server.Items
         {
             Hue = 0x465;
 
-            BossLocation = new Point3D(156, 1359, 0);
-            TeleportDest = new Point3D(142, 1360, 22);
-            ExitDest = new Point3D(137, 1360, 25);
+            BossLocation = new Point3D(6936, 244, 0);
+            TeleportDest = new Point3D(6925, 247, 25);
+            ExitDest = new Point3D(6921, 249, 25);
         }
 
         public override Rectangle2D[] BossBounds => m_Bounds;
@@ -110,7 +110,7 @@ namespace Server.Items
 
             if (version < 1)
             {
-                IPooledEnumerable eable = Map.GetItemsInBounds(new Rectangle2D(6516, 492, 5, 1));
+                IPooledEnumerable eable = Map.GetItemsInBounds(new Rectangle2D(6927, 236, 10, 10));
 
                 foreach (Item item in eable)
                 {
@@ -121,7 +121,7 @@ namespace Server.Items
                 eable.Free();
 
                 Item gate = new ParoxysmusIronGate(this);
-                gate.MoveToWorld(new Point3D(6518, 492, -50), Map);
+                gate.MoveToWorld(new Point3D(6924, 248, 25), Map);
             }
         }
     }
