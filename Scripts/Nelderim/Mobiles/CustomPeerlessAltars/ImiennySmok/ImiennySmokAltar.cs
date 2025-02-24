@@ -20,8 +20,8 @@ namespace Server.Items
         {
 	        
             BossLocation = new Point3D(5615, 563, -36);
-            TeleportDest = new Point3D(5688, 563, 4);
-            ExitDest = new Point3D(534, 1169, -3);
+            TeleportDest = new Point3D(5628, 564, -31);
+            ExitDest = new Point3D(5650, 570, 0);
 
             Name = "Oltarz Imiennego Smoka";
             Hue = 22;
