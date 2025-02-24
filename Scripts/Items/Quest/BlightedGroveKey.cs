@@ -55,7 +55,7 @@ namespace Server.Items
 
         private readonly Rectangle2D[] _EntryLocs =
         {
-            new Rectangle2D(59, 766, 20, 15),
+            new Rectangle2D(6420, 42, 20, 15),
            // new Rectangle2D(579, 1645, 12, 4)
         };
     }
