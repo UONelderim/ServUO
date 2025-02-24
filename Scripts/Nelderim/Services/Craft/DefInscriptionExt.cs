@@ -191,6 +191,9 @@ namespace Server.Engines.Craft
             AddRes( index, typeof( DaemonBone ), "kości demona" , 50, 1044253 );
             AddRes( index, typeof( Pumice ), "pumeks" , 20, 1044253 );
             AddRes(index, typeof(Gold), "złoto", 2000, 104425);
+            index = AddCraft( typeof( AvatarBallSpell ), "Umiejetnosci specjalne", "Kula Sniezna", 60.0, 100.0, typeof( LuminescentFungi ), "lśniące grzyby"  , 1044253 );
+            AddRes( index, typeof( SpringWater ), "wiosenna woda" , 30, 1044253 );
+            AddRes( index, typeof( ZoogiFungus ), "grzyby zoogi" , 50, 1044253 );
 
             //Druid
             index = AddCraft( typeof( DruidBlendWithForestScroll  ), "Umiejetnosci specjalne", "Jedność Z Lasem", 80.0, 110.0, typeof( LuminescentFungi ), "lśniące grzyby" , 20, 1044253 );
