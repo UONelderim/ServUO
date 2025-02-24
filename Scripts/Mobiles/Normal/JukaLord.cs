@@ -86,7 +86,7 @@ namespace Server.Mobiles
                     "{0}!!  Zaplacisz za to!"
                 };
 
-                Say(true, string.Format(toSay[Utility.Random(toSay.Length)], from.Name));
+                Say(true, string.Format(toSay[Utility.Random(toSay.Length)], from.Race.GetName(Cases.Wolacz)));
             }
 
             base.OnDamage(amount, from, willKill);
