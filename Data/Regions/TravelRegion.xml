@@ -130,7 +130,48 @@
 			<rect x="2119" y="568" width="232" height="90" />
 		</region>
 		<region type="UndershadowTravelRegion" priority="100" name="ObszarPodrozyPodmrok">
-			<rect x="5755" y="2427" width="14" height="14" />
+			<rect x="5128" y="2294" width="1007" height="833" />
+			<rect x="5299" y="3127" width="59" height="23" />
+			<rect x="5625" y="3127" width="126" height="50" />
+			<rect x="5889" y="3127" width="27" height="7" />
+			<rect x="5562" y="2283" width="99" height="11" />
+			<rect x="5720" y="2249" width="143" height="45" />
+			<rect x="5886" y="2255" width="67" height="39" />
+			<rect x="5867" y="229" width="95" height="59" />
+			<rect x="5851" y="300" width="26" height="60" />
+			<rect x="5877" y="301" width="135" height="53" />
+			<rect x="5877" y="288" width="78" height="13" />
+			<rect x="5877" y="354" width="101" height="23" />
+			<rect x="6012" y="314" width="98" height="53" />
+			<rect x="5306" y="334" width="51" height="84" />
+			<rect x="5773" y="300" width="78" height="55" />
+			<rect x="5367" y="3150" width="51" height="27" />
+			<rect x="5774" y="3164" width="46" height="13" />
+			<rect x="5921" y="3132" width="220" height="45" />
+			<rect x="5888" y="3146" width="33" height="31" />
+			<rect x="5142" y="1899" width="272" height="240" />
+			<rect x="5836" y="1913" width="267" height="71" />
+			<rect x="5851" y="1984" width="252" height="15" />
+			<rect x="5864" y="1999" width="253" height="15" />
+			<rect x="5866" y="2014" width="252" height="7" />
+			<rect x="5880" y="2021" width="240" height="225" />
+			<rect x="5810" y="2062" width="70" height="49" />
+			<rect x="5829" y="2111" width="51" height="13" />
+			<rect x="5837" y="2124" width="43" height="6" />
+			<rect x="5846" y="2130" width="34" height="5" />
+			<rect x="5850" y="2135" width="30" height="4" />
+			<rect x="5853" y="2139" width="27" height="4" />
+			<rect x="5856" y="2143" width="24" height="3" />
+			<rect x="5860" y="2146" width="20" height="95" />
+			<rect x="5845" y="2168" width="15" height="69" />
+			<rect x="5839" y="2178" width="6" height="59" />
+			<rect x="5793" y="2179" width="46" height="13" />
+			<rect x="5793" y="2172" width="20" height="7" />
+			<rect x="5799" y="2192" width="40" height="45" />
+			<rect x="5126" y="3177" width="298" height="872" />
+			<rect x="5424" y="3177" width="717" height="590" />
+			<rect x="5489" y="3767" width="652" height="326" />
+			<rect x="5424" y="3857" width="65" height="213" />
 		</region>
 	</Facet>
 </ServerRegions>
