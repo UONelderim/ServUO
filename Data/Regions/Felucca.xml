@@ -10281,7 +10281,7 @@
 			<music name="Vesper" />
 		</region>
 		<region type="DungeonRegion" name="VoxPopuli_Boss">
-			<rect x="7058" y="22" width="9" height="7" />
+			<rect x="6959" y="32" width="26" height="22" />
 			<music name="Vesper" />
 		</region>
 		<region type="DungeonRegion" name="Grizzle_LVL2_Entrance">
