@@ -1,10 +1,6 @@
-#region References
-
 using System.Collections.Generic;
 using Nelderim.Towns;
 using Server.Network;
-
-#endregion
 
 namespace Server.Gumps
 {
@@ -72,8 +68,6 @@ namespace Server.Gumps
 			AddLabel(1050, 30, SelectedColor, "Bronie");
 			AddLabel(1100, 30, SelectedColor, "Ziola");
 			AddLabel(1150, 30, SelectedColor, "Klejnoty");
-
-			#region Dostepni straznicy
 
 			List<TownGuards> tg = TownDatabase.GetTown(town).GetAvailableGuards();
 
@@ -144,8 +138,6 @@ namespace Server.Gumps
 			}
 
 			AddPriceLabels(TownGuards.StraznikElitarny, 150);
-
-			#endregion
 		}
 
 		public override void OnResponse(NetState sender, RelayInfo info)

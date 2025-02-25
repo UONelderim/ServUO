@@ -1,8 +1,4 @@
-﻿#region References
-
-using Server;
-
-#endregion
+﻿using Server;
 
 namespace Nelderim.Towns
 {

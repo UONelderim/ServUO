@@ -1,8 +1,4 @@
-#region References
-
 using Nelderim.Towns;
-
-#endregion
 
 namespace Server.Items
 {

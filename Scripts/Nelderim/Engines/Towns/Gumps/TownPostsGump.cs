@@ -1,13 +1,9 @@
-﻿#region References
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Nelderim.Towns;
 using Server.Network;
 using Server.Prompts;
-
-#endregion
 
 namespace Server.Gumps
 {
@@ -58,8 +54,6 @@ namespace Server.Gumps
 			}
 			else if (page == 1)
 			{
-				#region Wyswietlanie listy posterunkow
-
 				int m_y = 40;
 
 				AddButton(420, 10, 50, 1063907); // Powrot
@@ -81,13 +75,9 @@ namespace Server.Gumps
 					AddHtml(420, m_y, 250, 250, tp.ActivatedDate.ToString(), false, false);
 					m_y += 20;
 				}
-
-				#endregion
 			}
 			else if (page == 2)
 			{
-				#region Wyswietlenie konkretnego posterunku
-
 				AddButton(220, 10, 49, 1063907); // Powrot
 
 				List<TownPost> tps = TownDatabase.GetTown(m_fromTown).TownPosts;
@@ -173,13 +163,9 @@ namespace Server.Gumps
 				}
 
 				AddImage(225, 480, 30501 + which % 10);
-
-				#endregion
 			}
 			else if (page == 3)
 			{
-				#region Zmien straznika
-
 				List<TownGuards> tg = TownDatabase.GetTown(town).GetAvailableGuards();
 
 				TownPost tp = TownDatabase.GetTown(m_fromTown).TownPosts[which];
@@ -239,8 +225,6 @@ namespace Server.Gumps
 				{
 					AddLabel(10, 140, SelectedColor, "StraznikElitarny");
 				}
-
-				#endregion
 			}
 		}
 		
@@ -265,8 +249,6 @@ namespace Server.Gumps
 
 			if (val <= 0)
 				return;
-
-			#region Zmien typ straznika
 
 			if (val >= 1600) // Przenies posterunek
 			{
@@ -331,10 +313,6 @@ namespace Server.Gumps
 				TownDatabase.GetTown(m_fromTown).TownPosts[val - 1000].TownGuard = TownGuards.Straznik;
 				from.SendGump(new TownPostsGump(m_fromTown, from, 2, val - 1000));
 			}
-
-			#endregion
-
-			#region Status posterunku
 
 			else if (val >= 700) // Wznow posterunek
 			{
@@ -412,8 +390,6 @@ namespace Server.Gumps
 				from.SendGump(new TownPostsGump(m_fromTown, from, 1));
 			}
 
-			#endregion
-
 			else if (val >= 300) // Zmien typ straznika
 			{
 				from.SendGump(new TownPostsGump(m_fromTown, from, 3, val - 300));
@@ -430,8 +406,6 @@ namespace Server.Gumps
 			}
 			else
 			{
-				#region Przyciski funkcyjne
-
 				switch (val)
 				{
 					case 1:
@@ -485,8 +459,6 @@ namespace Server.Gumps
 						from.SendGump(new TownPostsGump(m_fromTown, from));
 						break;
 				}
-
-				#endregion
 			}
 		}
 	}

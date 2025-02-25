@@ -1,12 +1,7 @@
-#region References
-
 using System;
-using System.Collections;
 using System.Linq;
 using Nelderim.Towns;
 using Server.Network;
-
-#endregion
 
 namespace Server.Gumps
 {
@@ -70,20 +65,20 @@ namespace Server.Gumps
 						break;
 					case TownDatabaseGumpPage.Obywatele:
 						string ObywateleToShow = "| Serial | Miasto | Imie | Status |";
-						IDictionaryEnumerator citNum = TownDatabase.GetCitizens().GetEnumerator();
+						var citNum = TownDatabase.GetCitizens().GetEnumerator();
 						while (citNum.MoveNext())
 						{
-							Mobile mob = World.FindMobile((Serial)citNum.Key);
+							Mobile mob = World.FindMobile(citNum.Current.Key);
 							if (mob != null)
 							{
 								if (mob.Player)
 								{
 									ObywateleToShow = String.Format("{0}\n| {1} | {2} | {3} | {4} |",
 										ObywateleToShow,
-										citNum.Key,
-										((TownCitizenship)citNum.Value).CurrentTown.ToString(),
+										citNum.Current.Key,
+										citNum.Current.Value.CurrentTown.ToString(),
 										mob.Name,
-										((TownCitizenship)citNum.Value).CurrentTownStatus.ToString());
+										citNum.Current.Value.CurrentTownStatus.ToString());
 								}
 								else
 								{
@@ -99,12 +94,12 @@ namespace Server.Gumps
 						break;
 					case TownDatabaseGumpPage.PrzegladWladzMiasta:
 						string ObywateleToShowz = "| Serial | Miasto | Imie | Status |";
-						IDictionaryEnumerator citNumz = TownDatabase.GetCitizens().GetEnumerator();
+						var citNumz = TownDatabase.GetCitizens().GetEnumerator();
 						while (citNumz.MoveNext())
 						{
-							if (TownDatabase.GetCitizenCurrentStatus((Serial)citNumz.Key) != TownStatus.Citizen)
+							if (TownDatabase.GetCitizenCurrentStatus(citNumz.Current.Key) != TownStatus.Citizen)
 							{
-								Mobile mob = World.FindMobile((Serial)citNumz.Key);
+								Mobile mob = World.FindMobile(citNumz.Current.Key);
 
 								if (mob != null)
 								{
@@ -112,10 +107,10 @@ namespace Server.Gumps
 									{
 										ObywateleToShowz = String.Format("{0}\n| {1} | {2} | {3} | {4} |",
 											ObywateleToShowz,
-											citNumz.Key,
-											((TownCitizenship)citNumz.Value).CurrentTown.ToString(),
+											citNumz.Current.Key,
+											citNumz.Current.Value.CurrentTown.ToString(),
 											mob.Name,
-											((TownCitizenship)citNumz.Value).CurrentTownStatus.ToString());
+											citNumz.Current.Value.CurrentTownStatus.ToString());
 									}
 									else
 									{

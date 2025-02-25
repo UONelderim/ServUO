@@ -1,10 +1,6 @@
-#region References
-
 using System;
 using System.Collections.Generic;
 using Server;
-
-#endregion
 
 namespace Nelderim.Towns
 {
@@ -99,8 +95,6 @@ namespace Nelderim.Towns
 		{
 			Town = newCurrentTown;
 
-			#region Ustawienia skarbca
-
 			BaseResources = new TownResources();
 			BaseResources.Resources.Add(new TownResource(TownResourceType.Zloto, 0, -1, 0));
 			BaseResources.Resources.Add(new TownResource(TownResourceType.Deski, 0, 100000, 0));
@@ -152,12 +146,8 @@ namespace Nelderim.Towns
 			Resources.ResourceMaxAmountSet(TownResourceType.Bronie,
 				BaseResources.ResourceMaxAmount(TownResourceType.Bronie));
 
-			#endregion
-
 			// Ustawienia budynkow
 			TownBuilding tmpBuilding;
-
-			#region LVL 0
 
 			tmpBuilding = new TownBuilding(TownBuildingName.MiejsceSpotkan, 0, TownBuildingStatus.Dziala, 1063813);
 			tmpBuilding.Resources.Resources.Add(new TownResource(TownResourceType.Zloto, 50000, 0, 0));
@@ -228,10 +218,6 @@ namespace Nelderim.Towns
 			tmpBuilding.Resources.Resources.Add(new TownResource(TownResourceType.Kosci, 30, 0, 0));
 			tmpBuilding.Charge = false;
 			AddBuilding(tmpBuilding);
-
-			#endregion
-
-			#region LVL 1
 
 			tmpBuilding = new TownBuilding(TownBuildingName.WarsztatKrawiecki, 1, TownBuildingStatus.Dostepny, 1063820);
 			tmpBuilding.Resources.Resources.Add(new TownResource(TownResourceType.Zloto, 100000, 0, 0));
@@ -422,10 +408,6 @@ namespace Nelderim.Towns
 			tmpBuilding.Dependecies.Add(TownBuildingName.DomZdziercy);
 			AddBuilding(tmpBuilding);
 
-			#endregion
-
-			#region LVL 2
-
 			tmpBuilding = new TownBuilding(TownBuildingName.Arena, 2, TownBuildingStatus.Dostepny, 1063843);
 			tmpBuilding.Resources.Resources.Add(new TownResource(TownResourceType.Zloto, 100000, 0, 0));
 			tmpBuilding.Resources.Resources.Add(new TownResource(TownResourceType.Deski, 2000, 0, 0));
@@ -554,10 +536,6 @@ namespace Nelderim.Towns
 			tmpBuilding.Dependecies.Add(TownBuildingName.Spichlerz);
 			AddBuilding(tmpBuilding);
 
-			#endregion
-
-			#region LVL 3
-
 			tmpBuilding = new TownBuilding(TownBuildingName.MurObronny, 3, TownBuildingStatus.Dostepny, 1063836);
 			tmpBuilding.Resources.Resources.Add(new TownResource(TownResourceType.Zloto, 500000, 0, 0));
 			tmpBuilding.Resources.Resources.Add(new TownResource(TownResourceType.Deski, 6000, 0, 0));
@@ -651,8 +629,6 @@ namespace Nelderim.Towns
 			tmpBuilding.Dependecies.Add(TownBuildingName.SkladZapasow);
 			tmpBuilding.Dependecies.Add(TownBuildingName.Port);
 			AddBuilding(tmpBuilding);
-
-			#endregion
 		}
 
 		int CalculateMaxGuards()

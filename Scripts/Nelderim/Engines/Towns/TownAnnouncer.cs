@@ -1,13 +1,9 @@
-#region References
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Server;
 using Server.Commands;
 using Server.Network;
-
-#endregion
 
 namespace Nelderim.Towns
 {
@@ -161,8 +157,6 @@ namespace Nelderim.Towns
 		{
 			// Ustaw wartosci min max cen
 
-			#region resources
-
 			TownResources resources = new TownResources();
 			TownResource resource;
 			resources.Resources.Add(new TownResource(TownResourceType.Deski, Utility.RandomMinMax(2, 6),
@@ -191,8 +185,6 @@ namespace Nelderim.Towns
 				resources.Resources.Find(obj => obj.ResourceType == TownResourceType.Sztaby).Amount * 6,
 				resources.Resources.Find(obj => obj.ResourceType == TownResourceType.Sztaby).MaxAmount * 6,
 				0));
-
-			#endregion
 
 			// Wyczysc stare resourcy w handlu
 			ForeignResourcesToBuy.RemoveRange(0, ForeignResourcesToBuy.Count);

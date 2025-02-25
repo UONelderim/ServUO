@@ -1,10 +1,6 @@
-#region References
-
 using Server;
 using Server.Gumps;
 using Server.Network;
-
-#endregion
 
 namespace Nelderim.Towns
 {

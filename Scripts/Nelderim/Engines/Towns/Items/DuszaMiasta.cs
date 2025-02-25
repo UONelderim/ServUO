@@ -1,10 +1,6 @@
-#region References
-
 using System.Collections.Generic;
 using Nelderim.Towns;
 using Server.Gumps;
-
-#endregion
 
 namespace Server.Items
 {

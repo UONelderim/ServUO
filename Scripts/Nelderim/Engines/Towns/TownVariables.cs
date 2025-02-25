@@ -1,12 +1,8 @@
-#region References
-
 using System;
 using System.Collections.Generic;
 using Server;
 using Server.Items;
 using Server.Mobiles;
-
-#endregion
 
 namespace Nelderim.Towns
 {
@@ -121,8 +117,6 @@ namespace Nelderim.Towns
 
 	public class TownResources
 	{
-		#region Typy
-
 		private static readonly List<Type> m_klejnoty = new List<Type>
 		{
 			typeof(Amber),
@@ -161,8 +155,6 @@ namespace Nelderim.Towns
 			typeof(TaintedMushroom),
 			typeof(HornOfTheDreadhorn)
 		};
-
-		#endregion
 
 		public List<TownResource> Resources { get; set; }
 
@@ -265,8 +257,6 @@ namespace Nelderim.Towns
 			return resourceType;
 		}
 
-		#region Resource Amount
-
 		public int ResourceAmount(TownResourceType nType)
 		{
 			return Resources.Find(obj => obj.ResourceType == nType).Amount;
@@ -307,10 +297,6 @@ namespace Nelderim.Towns
 			}
 		}
 
-		#endregion
-
-		#region Max amount
-
 		public int ResourceMaxAmount(TownResourceType nType)
 		{
 			return Resources.Find(obj => obj.ResourceType == nType).MaxAmount;
@@ -326,10 +312,6 @@ namespace Nelderim.Towns
 			Resources.Find(obj => obj.ResourceType == nType).MaxAmount += max;
 		}
 
-		#endregion
-
-		#region Daily change
-
 		public int ResourceDailyChange(TownResourceType nType)
 		{
 			return Resources.Find(obj => obj.ResourceType == nType).DailyChange;
@@ -344,8 +326,6 @@ namespace Nelderim.Towns
 		{
 			Resources.Find(obj => obj.ResourceType == nType).DailyChange += daily;
 		}
-
-		#endregion
 
 		public bool IsResourceAcceptable(Item res, out int amount)
 		{

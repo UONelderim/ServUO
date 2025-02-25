@@ -1,20 +1,15 @@
-#region References
-
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Server;
 using Server.Commands;
 using Server.Gumps;
 
-#endregion
-
 namespace Nelderim.Towns
 {
 	class TownDatabase : Item
 	{
-		private static readonly Hashtable m_CitizenList = new Hashtable();
-		private static readonly Hashtable m_TownList = new Hashtable();
+		private static readonly Dictionary<Serial, TownCitizenship> m_CitizenList = [];
+		private static readonly Dictionary<Towns, TownManager> m_TownList = [];
 		private static TownAnnouncer m_announcer;
 
 		[Constructable]
@@ -52,9 +47,9 @@ namespace Nelderim.Towns
 			if (m_TownList.Count > 0)
 			{
 				//TownManager entry;
-				foreach (DictionaryEntry cit in m_TownList)
+				foreach (var cit in m_TownList)
 				{
-					tEntry = (TownManager)cit.Value;
+					tEntry = cit.Value;
 
 					// Parameters
 					writer.Write((int)tEntry.Town);
@@ -141,10 +136,10 @@ namespace Nelderim.Towns
 			if (m_CitizenList.Count > 0)
 			{
 				//TownCitizenship entry;
-				foreach (DictionaryEntry cit in m_CitizenList)
+				foreach (var cit in m_CitizenList)
 				{
-					entry = (TownCitizenship)cit.Value;
-					writer.Write(((Serial)cit.Key).Value); //Serial
+					entry = cit.Value;
+					writer.Write((cit.Key).Value); //Serial
 					writer.Write((int)entry.CurrentTown);
 					writer.Write(entry.SpentDevotion);
 					writer.Write(entry.JoinedDate);
@@ -608,16 +603,14 @@ namespace Nelderim.Towns
 			}
 		}
 
-		#region Citizens
-
 		public static bool IsCitizenOfAnyTown(Mobile from)
 		{
-			return m_CitizenList.Contains(from.Serial);
+			return m_CitizenList.ContainsKey(from.Serial);
 		}
 
 		public static bool IsCitizenOfAnyTown(Serial fromSerial)
 		{
-			return m_CitizenList.Contains(fromSerial);
+			return m_CitizenList.ContainsKey(fromSerial);
 		}
 
 		public static Towns IsCitizenOfWhichTown(Mobile from)
@@ -627,7 +620,7 @@ namespace Nelderim.Towns
 				return Towns.None;
 			}
 
-			return ((TownCitizenship)m_CitizenList[from.Serial]).CurrentTown;
+			return m_CitizenList[from.Serial].CurrentTown;
 		}
 
 		public static bool IsCitizenOfGivenTown(Mobile from, Towns town)
@@ -637,7 +630,7 @@ namespace Nelderim.Towns
 				return false;
 			}
 
-			return ((TownCitizenship)m_CitizenList[from.Serial]).CurrentTown == town;
+			return m_CitizenList[from.Serial].CurrentTown == town;
 		}
 
 		public static bool IsCitizenOfGivenTown(Serial fromSerial, Towns town)
@@ -647,7 +640,7 @@ namespace Nelderim.Towns
 				return false;
 			}
 
-			return ((TownCitizenship)m_CitizenList[fromSerial]).CurrentTown == town;
+			return m_CitizenList[fromSerial].CurrentTown == town;
 		}
 
 		public static SortedList<string, Mobile> GetMobilesByName(Towns town)
@@ -655,12 +648,12 @@ namespace Nelderim.Towns
 			SortedList<string, Mobile> m_citizens = new SortedList<string, Mobile>();
 			Mobile tmpMobile;
 
-			IDictionaryEnumerator citNum = m_CitizenList.GetEnumerator();
+			var citNum = m_CitizenList.GetEnumerator();
 			while (citNum.MoveNext())
 			{
-				if (IsCitizenOfGivenTown((Serial)citNum.Key, town))
+				if (IsCitizenOfGivenTown(citNum.Current.Key, town))
 				{
-					tmpMobile = World.FindMobile((Serial)citNum.Key);
+					tmpMobile = World.FindMobile(citNum.Current.Key);
 					if (tmpMobile != null)
 						m_citizens.Add(tmpMobile.Name, tmpMobile);
 				}
@@ -675,12 +668,12 @@ namespace Nelderim.Towns
 			Mobile tmpMobile;
 			string citStatus = "";
 
-			IDictionaryEnumerator citNum = m_CitizenList.GetEnumerator();
+			var citNum = m_CitizenList.GetEnumerator();
 			while (citNum.MoveNext())
 			{
-				if (IsCitizenOfGivenTown((Serial)citNum.Key, town))
+				if (IsCitizenOfGivenTown(citNum.Current.Key, town))
 				{
-					tmpMobile = World.FindMobile((Serial)citNum.Key);
+					tmpMobile = World.FindMobile(citNum.Current.Key);
 					if (tmpMobile != null)
 					{
 						switch (GetCurrentTownStatus(tmpMobile))
@@ -717,12 +710,12 @@ namespace Nelderim.Towns
 			SortedDictionary<string, string> m_citizens = new SortedDictionary<string, string>();
 			Mobile tmpMobile;
 			string conStatus = "";
-			IDictionaryEnumerator citNum = m_CitizenList.GetEnumerator();
+			var citNum = m_CitizenList.GetEnumerator();
 			while (citNum.MoveNext())
 			{
-				if (IsCitizenOfGivenTown((Serial)citNum.Key, town))
+				if (IsCitizenOfGivenTown(citNum.Current.Key, town))
 				{
-					tmpMobile = World.FindMobile((Serial)citNum.Key);
+					tmpMobile = World.FindMobile(citNum.Current.Key);
 					if (tmpMobile != null && GetCurrentTownStatus(tmpMobile) == status)
 					{
 						switch (GetCurrentTownConselourStatus(tmpMobile))
@@ -758,12 +751,12 @@ namespace Nelderim.Towns
 		{
 			List<Mobile> m_citizens = new List<Mobile>();
 
-			IDictionaryEnumerator citNum = m_CitizenList.GetEnumerator();
+			var citNum = m_CitizenList.GetEnumerator();
 			while (citNum.MoveNext())
 			{
-				if (IsCitizenOfGivenTown((Serial)citNum.Key, town))
+				if (IsCitizenOfGivenTown(citNum.Current.Key, town))
 				{
-					Mobile tmpMobile = World.FindMobile((Serial)citNum.Key);
+					Mobile tmpMobile = World.FindMobile(citNum.Current.Key);
 					if (tmpMobile != null && !m_citizens.Contains(tmpMobile) &&
 					    GetCurrentTownStatus(tmpMobile) == status)
 						m_citizens.Add(tmpMobile);
@@ -776,11 +769,11 @@ namespace Nelderim.Towns
 		public static int GetAmountOfCitizensWithGivenStatus(Towns town, TownStatus status)
 		{
 			int amount = 0;
-			IDictionaryEnumerator citNum = m_CitizenList.GetEnumerator();
+			var citNum = m_CitizenList.GetEnumerator();
 			while (citNum.MoveNext())
 			{
-				if (IsCitizenOfGivenTown((Serial)citNum.Key, town) &&
-				    ((TownCitizenship)m_CitizenList[(Serial)citNum.Key]).CurrentTownStatus == status)
+				if (IsCitizenOfGivenTown(citNum.Current.Key, town) &&
+				    (m_CitizenList[citNum.Current.Key]).CurrentTownStatus == status)
 				{
 					amount += 1;
 				}
@@ -794,12 +787,12 @@ namespace Nelderim.Towns
 			Dictionary<Mobile, int> m_citizens = new Dictionary<Mobile, int>();
 			Mobile tmpMobile;
 
-			IDictionaryEnumerator citNum = m_CitizenList.GetEnumerator();
+			var citNum = m_CitizenList.GetEnumerator();
 			while (citNum.MoveNext())
 			{
-				if (IsCitizenOfGivenTown((Serial)citNum.Key, town))
+				if (IsCitizenOfGivenTown(citNum.Current.Key, town))
 				{
-					tmpMobile = World.FindMobile((Serial)citNum.Key);
+					tmpMobile = World.FindMobile(citNum.Current.Key);
 					if (tmpMobile != null && !m_citizens.ContainsKey(tmpMobile))
 						m_citizens.Add(tmpMobile, GetResourceAmountOfCitizen(tmpMobile, res));
 				}
@@ -813,12 +806,12 @@ namespace Nelderim.Towns
 			Dictionary<Mobile, DateTime> m_citizens = new Dictionary<Mobile, DateTime>();
 			Mobile tmpMobile;
 
-			IDictionaryEnumerator citNum = m_CitizenList.GetEnumerator();
+			var citNum = m_CitizenList.GetEnumerator();
 			while (citNum.MoveNext())
 			{
-				if (IsCitizenOfGivenTown((Serial)citNum.Key, town))
+				if (IsCitizenOfGivenTown(citNum.Current.Key, town))
 				{
-					tmpMobile = World.FindMobile((Serial)citNum.Key);
+					tmpMobile = World.FindMobile(citNum.Current.Key);
 					if (tmpMobile != null && !m_citizens.ContainsKey(tmpMobile))
 						m_citizens.Add(tmpMobile, GetJoinDate(tmpMobile));
 				}
@@ -839,7 +832,7 @@ namespace Nelderim.Towns
 			return true;
 		}
 
-		public static Hashtable GetCitizens()
+		public static Dictionary<Serial, TownCitizenship> GetCitizens()
 		{
 			return m_CitizenList;
 		}
@@ -851,7 +844,7 @@ namespace Nelderim.Towns
 				return false;
 			}
 
-			TownCitizenship entry = (TownCitizenship)m_CitizenList[from.Serial];
+			TownCitizenship entry = m_CitizenList[from.Serial];
 			entry.LeaveCurrentTown();
 			m_CitizenList.Remove(from.Serial);
 			return true;
@@ -864,7 +857,7 @@ namespace Nelderim.Towns
 				return false;
 			}
 
-			TownCitizenship entry = (TownCitizenship)m_CitizenList[from.Serial];
+			TownCitizenship entry = m_CitizenList[from.Serial];
 			entry.ChangeCurrentTownStatus(newStatus);
 			m_CitizenList[from.Serial] = entry;
 			return true;
@@ -877,7 +870,7 @@ namespace Nelderim.Towns
 				return false;
 			}
 
-			TownCitizenship entry = (TownCitizenship)m_CitizenList[from.Serial];
+			TownCitizenship entry = m_CitizenList[from.Serial];
 			entry.ChangeCurrentTownConselourStatus(newStatus);
 			m_CitizenList[from.Serial] = entry;
 			return true;
@@ -890,7 +883,7 @@ namespace Nelderim.Towns
 				return TownStatus.None;
 			}
 
-			TownCitizenship entry = (TownCitizenship)m_CitizenList[from.Serial];
+			TownCitizenship entry = m_CitizenList[from.Serial];
 			return entry.CurrentTownStatus;
 		}
 
@@ -901,7 +894,7 @@ namespace Nelderim.Towns
 				return TownCounsellor.None;
 			}
 
-			TownCitizenship entry = (TownCitizenship)m_CitizenList[from.Serial];
+			TownCitizenship entry = m_CitizenList[from.Serial];
 			if (GetCurrentTownStatus(from) == TownStatus.Counsellor)
 				return entry.CurrentTownConselourStatus;
 			return TownCounsellor.None;
@@ -914,7 +907,7 @@ namespace Nelderim.Towns
 				return DateTime.Now;
 			}
 
-			TownCitizenship entry = (TownCitizenship)m_CitizenList[from.Serial];
+			TownCitizenship entry = m_CitizenList[from.Serial];
 			return entry.JoinedDate;
 		}
 
@@ -925,7 +918,7 @@ namespace Nelderim.Towns
 				return false;
 			}
 
-			TownCitizenship entry = (TownCitizenship)m_CitizenList[from.Serial];
+			TownCitizenship entry = m_CitizenList[from.Serial];
 			entry.ResourceIncreaseAmount(nType, amount);
 			m_CitizenList[from.Serial] = entry;
 			return true;
@@ -938,7 +931,7 @@ namespace Nelderim.Towns
 				return -1;
 			}
 
-			return ((TownCitizenship)m_CitizenList[from.Serial]).ResourceAmount(nType);
+			return m_CitizenList[from.Serial].ResourceAmount(nType);
 		}
 
 		public static Towns GetCitizenCurrentCity(Mobile from)
@@ -948,7 +941,7 @@ namespace Nelderim.Towns
 				return Towns.None;
 			}
 
-			return ((TownCitizenship)m_CitizenList[from.Serial]).CurrentTown;
+			return m_CitizenList[from.Serial].CurrentTown;
 		}
 
 		public static TownStatus GetCitizenCurrentStatus(Mobile from)
@@ -958,7 +951,7 @@ namespace Nelderim.Towns
 				return TownStatus.None;
 			}
 
-			return ((TownCitizenship)m_CitizenList[from.Serial]).CurrentTownStatus;
+			return m_CitizenList[from.Serial].CurrentTownStatus;
 		}
 
 		public static TownStatus GetCitizenCurrentStatus(Serial fromSerial)
@@ -968,12 +961,12 @@ namespace Nelderim.Towns
 				return TownStatus.None;
 			}
 
-			return ((TownCitizenship)m_CitizenList[fromSerial]).CurrentTownStatus;
+			return m_CitizenList[fromSerial].CurrentTownStatus;
 		}
 
 		public static TownCitizenship GetCitinzeship(Mobile from)
 		{
-			return (TownCitizenship)m_CitizenList[from.Serial];
+			return m_CitizenList[from.Serial];
 		}
 
 		public static TownStatus GetCitizenTownStatusInGivenTown(Mobile from, Towns mTown)
@@ -983,16 +976,16 @@ namespace Nelderim.Towns
 				return TownStatus.None;
 			}
 
-			return ((TownCitizenship)m_CitizenList[from.Serial]).CurrentTownStatus;
+			return m_CitizenList[from.Serial].CurrentTownStatus;
 		}
 
 		public static bool HasCitizenInTownGivenStatus(Towns mTown, TownStatus mStatus)
 		{
-			IDictionaryEnumerator citNum = m_CitizenList.GetEnumerator();
+			var citNum = m_CitizenList.GetEnumerator();
 			while (citNum.MoveNext())
 			{
-				if (IsCitizenOfGivenTown((Serial)citNum.Key, mTown) &&
-				    GetCitizenCurrentStatus((Serial)citNum.Key) == mStatus)
+				if (IsCitizenOfGivenTown(citNum.Current.Key, mTown) &&
+				    GetCitizenCurrentStatus(citNum.Current.Key) == mStatus)
 				{
 					return true;
 				}
@@ -1005,13 +998,13 @@ namespace Nelderim.Towns
 		{
 			Mobile tmpMobile;
 
-			IDictionaryEnumerator citNum = m_CitizenList.GetEnumerator();
+			var citNum = m_CitizenList.GetEnumerator();
 			while (citNum.MoveNext())
 			{
-				if (IsCitizenOfGivenTown((Serial)citNum.Key, mTown) &&
-				    GetCitizenCurrentStatus((Serial)citNum.Key) == mStatus)
+				if (IsCitizenOfGivenTown(citNum.Current.Key, mTown) &&
+				    GetCitizenCurrentStatus(citNum.Current.Key) == mStatus)
 				{
-					tmpMobile = World.FindMobile((Serial)citNum.Key);
+					tmpMobile = World.FindMobile(citNum.Current.Key);
 					if (tmpMobile != null)
 						return tmpMobile.Name;
 					return "brak";
@@ -1025,13 +1018,13 @@ namespace Nelderim.Towns
 		{
 			Mobile tmpMobile;
 
-			IDictionaryEnumerator citNum = m_CitizenList.GetEnumerator();
+			var citNum = m_CitizenList.GetEnumerator();
 			while (citNum.MoveNext())
 			{
-				if (IsCitizenOfGivenTown((Serial)citNum.Key, mTown) &&
-				    GetCitizenCurrentStatus((Serial)citNum.Key) == mStatus)
+				if (IsCitizenOfGivenTown(citNum.Current.Key, mTown) &&
+				    GetCitizenCurrentStatus(citNum.Current.Key) == mStatus)
 				{
-					tmpMobile = World.FindMobile((Serial)citNum.Key);
+					tmpMobile = World.FindMobile(citNum.Current.Key);
 					return tmpMobile;
 				}
 			}
@@ -1047,10 +1040,6 @@ namespace Nelderim.Towns
 				mLeader.SendAsciiMessage(stringToSend);
 			}
 		}
-
-		#endregion
-
-		#region Towns
 
 		public static bool CreateTown(Towns townName)
 		{
@@ -1071,7 +1060,7 @@ namespace Nelderim.Towns
 				CreateTown(townName);
 			}
 
-			return (TownManager)m_TownList[townName];
+			return m_TownList[townName];
 		}
 
 		public static void AddTownLog(Towns townName, TownLogTypes tlp, string txt, int a, int b, int c)
@@ -1103,7 +1092,7 @@ namespace Nelderim.Towns
 			tm.TownRelations.Find(obj => obj.TownOfRelation == toTown).AmountOfRelation = amount;
 		}
 
-		public static ICollection GetTownsNames()
+		public static ICollection<Towns> GetTownsNames()
 		{
 			if (m_TownList.Count > 0)
 			{
@@ -1115,7 +1104,7 @@ namespace Nelderim.Towns
 
 		static bool IsTown(Towns townName)
 		{
-			return m_TownList.Contains(townName);
+			return m_TownList.ContainsKey(townName);
 		}
 
 		static TownResources GetTownResources(Towns townName)
@@ -1125,7 +1114,7 @@ namespace Nelderim.Towns
 				CreateTown(townName);
 			}
 
-			return ((TownManager)m_TownList[townName]).Resources;
+			return m_TownList[townName].Resources;
 		}
 
 		public static List<TownBuilding> GetBuildingsList(Towns townName)
@@ -1135,13 +1124,13 @@ namespace Nelderim.Towns
 				CreateTown(townName);
 			}
 
-			return ((TownManager)m_TownList[townName]).Buildings;
+			return m_TownList[townName].Buildings;
 		}
 
 		public static List<TownBuilding> GetBuildingsListWithStatus(Towns townName, TownBuildingStatus status)
 		{
 			List<TownBuilding> m_buildings = new List<TownBuilding>();
-			List<TownBuilding> m_fromBuildings = ((TownManager)m_TownList[townName]).Buildings;
+			List<TownBuilding> m_fromBuildings = m_TownList[townName].Buildings;
 
 			for (int i = 0; i < m_fromBuildings.Count; i++)
 			{
@@ -1253,7 +1242,5 @@ namespace Nelderim.Towns
 				m_townRes.ResourceDecreaseAmount(res.ResourceType, (int)(res.Amount * multiplier));
 			}
 		}
-
-		#endregion
 	}
 }
