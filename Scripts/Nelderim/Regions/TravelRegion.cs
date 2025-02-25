@@ -1,8 +1,9 @@
 #region References
 
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
-using Server.Spells;
+using Server.Nelderim;
 
 #endregion
 
@@ -10,52 +11,55 @@ namespace Server.Regions
 {
 	public class TravelRegion : NBaseRegion
 	{
+		private static readonly List<TravelRegion> _Regions = [];
+		
 		public TravelRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent)
 		{
+			_Regions.Add(this);
 		}
 
 		public override bool AllowHousing(Mobile from, Point3D p)
 		{
 			return false;
 		}
-
-		public override void OnEnter(Mobile m)
+		
+		public static bool ValidateTravel(Mobile traveller, Point3D targetLoc, Map targetMap)
 		{
-			if (this.Name != String.Empty)
-				m.SendMessage("Wkroczyles w miejsce, ktorego aura wzmaga zdolnosci translokacyjne.");
-
-			base.OnEnter(m);
-		}
-
-		public override void OnExit(Mobile m)
-		{
-			if (this.Name != String.Empty)
-				m.SendMessage("Opuszczasz miejsce, ktorego aura wzmaga zdolnosci translokacyjne.");
-
-			base.OnExit(m);
-		}
-
-		public override bool CheckTravel(Mobile traveller, Point3D p, TravelCheckType type)
-		{
-			if (traveller.Race != Race.NDrow)
-			{
-				return true;
-			}
-			return type is TravelCheckType.TeleportFrom or TravelCheckType.TeleportTo;
+			//Traveller in TravelRegion
+			if (!_Regions.Any(region => region.Map == traveller.Map && region.Contains(traveller.Location)))
+				return false;
+			//Target in TravelRegion
+			if (!_Regions.Any(region => region.Map == targetMap && region.Contains(targetLoc))) 
+				return false;
+			
+			return traveller.Faction != Faction.East;
 		}
 	}
 
-	public class UndershadowTravelRegion : TravelRegion
+	public class UndershadowTravelRegion : NBaseRegion
 	{
-		public UndershadowTravelRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent) { }
-		
-		public override bool CheckTravel(Mobile traveller, Point3D p, TravelCheckType type)
+		private static readonly List<UndershadowTravelRegion> _Regions = [];
+
+		public UndershadowTravelRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent)
 		{
-			if (traveller.Race == Race.NDrow)
-			{
-				return true;
-			}
-			return type is TravelCheckType.TeleportFrom or TravelCheckType.TeleportTo;
+			_Regions.Add(this);
+		}
+		
+		public override bool AllowHousing(Mobile from, Point3D p)
+		{
+			return false;
+		}
+
+		public static bool ValidateTravel(Mobile traveller, Point3D targetLoc, Map targetMap)
+		{
+			//Traveller in TravelRegion
+			if (!_Regions.Any(region => region.Map == traveller.Map && region.Contains(traveller.Location)))
+				return false;
+			//Target in TravelRegion
+			if (!_Regions.Any(region => region.Map == targetMap && region.Contains(targetLoc))) 
+				return false;
+			
+			return traveller.Faction == Faction.East;
 		}
 	}
 }

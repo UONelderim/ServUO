@@ -816,9 +816,8 @@ namespace Server.Spells
                 {
 	                if (Region.Contains<DungeonRegion>(map, loc))
 		                isValid = false;
-	                else if (caster.Race == Race.NDrow && !Region.Contains<UndershadowTravelRegion>(map, loc))
-		                isValid = false;
-	                else if (!Region.Contains<TravelRegion>(map, loc))
+	                if (!TravelRegion.ValidateTravel(caster, loc, map) && 
+	                    !UndershadowTravelRegion.ValidateTravel(caster, loc, map))
 		                isValid = false;
                 }
 
