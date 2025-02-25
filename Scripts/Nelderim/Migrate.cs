@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Nelderim;
+using Nelderim.Towns;
 using Server.Accounting;
 using Server.Engines.CannedEvil;
 using Server.Gumps;
@@ -599,6 +600,8 @@ namespace Server.Commands
 						pm.Stabled.Add(pet);
 					}
 				}
+
+				TownDatabase.LeaveCurrentTown(pm);
 			}
 		}
 
