@@ -67,12 +67,6 @@ namespace Server.Spells.SkillMasteries
             if (!base.CheckCast())
                 return false;
             
-            if (Caster is PlayerMobile && !((PlayerMobile)Caster).SpecialSkills.Bard)
-            {
-	            Caster.SendLocalizedMessage(3060182); // Aby korzystac z tych zaklec, musisz wykonac odpowiednie zadanie..
-	            return false;
-            }
-
             m_Instrument = BaseInstrument.GetInstrument(Caster);
 
             if (m_Instrument == null)
