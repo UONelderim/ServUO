@@ -73,6 +73,12 @@ namespace Server.Mobiles
 
 		public override double GetControlChance(Mobile m, bool useBaseSkill)
 		{
+			AbilityProfile profile = PetTrainingHelper.GetAbilityProfile(this);
+
+			if (profile != null && profile.HasCustomized())
+			{
+				return base.GetControlChance(m, useBaseSkill);
+			}
 			double skill = (useBaseSkill ? m.Skills.Tactics.Base : m.Skills.Tactics.Value);
 
 			if (skill >= 110.0)
