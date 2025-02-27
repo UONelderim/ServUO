@@ -42,10 +42,10 @@ namespace Nelderim.Time
 	public class NDateTime
 	{
 		// Zmienne okreslajace punkt synchronizacji czasu gry z czasem rzeczywistym:
-		internal static int SynchPointYear => 2020; // rok czasu rzeczywistego
-		internal static int SynchPointMonth => 6; // miesiac czasu rzeczywistego
-		internal static int SynchPointDay => 4; // dzien czasu rzeczywistego (ustawiac na czwartek (Roztopy)!!)
-		internal static int SynchPointNelYear => 1561; // rok czasu gry
+		internal static int SynchPointYear => 2025; // rok czasu rzeczywistego
+		internal static int SynchPointMonth => 2; // miesiac czasu rzeczywistego
+		internal static int SynchPointDay => 27; // dzien czasu rzeczywistego (ustawiac na czwartek (Roztopy)!!)
+		internal static int SynchPointNelYear => 0; // rok czasu gry
 
 		public static DateTime WorldStart { get; } = new DateTime(SynchPointYear, SynchPointMonth, SynchPointDay);
 		public static int DaysInMonth => 24;
