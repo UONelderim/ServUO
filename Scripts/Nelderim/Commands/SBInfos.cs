@@ -305,23 +305,27 @@ namespace Server.Commands
 
 			foreach (SBInfo info in SBInfos)
 			{
-				foreach (object obj in info.BuyInfo)
+				foreach (var buy in info.BuyInfo)
 				{
-					GenericBuyInfo buy = (GenericBuyInfo)obj;
-
 					if (Add(buy.Type, new SBInfoRecord(buy.Type, buy.Price, info), true))
 						buyCnt++;
 				}
 
-				GenericSellInfo sell = (GenericSellInfo)info.SellInfo;
-
-				foreach (KeyValuePair<Type, int> pair in sell.Table)
+				if (info.SellInfo is GenericSellInfo sell)
 				{
-					Type type = pair.Key;
-					int price = pair.Value;
 
-					if (Add(type, new SBInfoRecord(type, price, info), false))
-						sellCnt++;
+					foreach (KeyValuePair<Type, int> pair in sell.Table)
+					{
+						Type type = pair.Key;
+						int price = pair.Value;
+
+						if (Add(type, new SBInfoRecord(type, price, info), false))
+							sellCnt++;
+					}
+				}
+				else
+				{
+					Console.WriteLine($"Unable to process sellinfo for {info.GetType().Name}");
 				}
 			}
 
