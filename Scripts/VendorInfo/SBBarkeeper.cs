@@ -75,7 +75,7 @@ namespace Server.Mobiles
                 Add(typeof(Pitcher), 5);
                 Add(typeof(GlassMug), 1);
                 Add(typeof(BreadLoaf), 3);
-                Add(typeof(CheeseWheel), 12);
+                Add(typeof(CheeseWheel), 2);
                 Add(typeof(Ribs), 6);
                 Add(typeof(Peach), 1);
                 Add(typeof(Pear), 1);

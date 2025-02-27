@@ -16,13 +16,13 @@ namespace Server.Mobiles
         {
             public InternalBuyInfo()
             {
-                Add(new GenericBuyInfo(typeof(Spellbook), 18, 10, 0xEFA, 0));
+                Add(new GenericBuyInfo(typeof(Spellbook), 25, 10, 0xEFA, 0));
                 Add(new GenericBuyInfo(typeof(ScribesPen), 8, 10, 0xFBF, 0));
                 Add(new GenericBuyInfo(typeof(BlankScroll), 5, 20, 0x0E34, 0));
 
                 Add(new GenericBuyInfo("1041072", typeof(MagicWizardsHat), 11, 10, 0x1718, Utility.RandomDyedHue()));
 
-                Add(new GenericBuyInfo(typeof(RecallRune), 15, 10, 0x1f14, 0));
+                Add(new GenericBuyInfo(typeof(RecallRune), 50, 10, 0x1f14, 0));
 
                 Add(new GenericBuyInfo(typeof(RefreshPotion), 15, 20, 0xF0B, 0, true));
                 Add(new GenericBuyInfo(typeof(AgilityPotion), 15, 20, 0xF08, 0, true));

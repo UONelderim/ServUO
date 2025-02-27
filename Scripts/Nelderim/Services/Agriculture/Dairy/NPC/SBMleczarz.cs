@@ -25,7 +25,7 @@ namespace Server.Mobiles
 		{
 			public InternalSellInfo()
 			{
-				Add(typeof(CheeseWheel), 20);
+				Add(typeof(CheeseWheel), 2);
 				Add(typeof(BottleSheepMilk), 8);
 				Add(typeof(BottleGoatMilk), 8);
 				Add(typeof(BottleCowMilk), 8);

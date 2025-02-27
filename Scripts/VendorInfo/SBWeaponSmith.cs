@@ -132,7 +132,7 @@ namespace Server.Mobiles
 				Add(typeof(NorseHelm), 9);
 				Add(typeof(PlateHelm), 10);
 
-				Add(typeof(ChainCoif), 18);
+				Add(typeof(ChainCoif), 17);
 				Add(typeof(ChainChest), 46);
 				Add(typeof(ChainLegs), 38);
 
