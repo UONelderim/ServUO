@@ -88,7 +88,7 @@ namespace Server.Gumps
 
                     int commission = 0;
 
-                    if (m_Vendor.IsCommission)
+                    if (m_Vendor.ChargeCommision)
                     {
                         commission = (int)(m_VI.Price * (m_Vendor.CommissionPerc / 100));
                     }
@@ -190,7 +190,7 @@ namespace Server.Gumps
             AddImage(10, 215, 0x28DC);
             AddImage(537, 0, 0x28DC);
 
-            if (!vendor.IsCommission)
+            if (!vendor.ChargeCommision)
             {
                 int perRealWorldDay = vendor.ChargePerRealWorldDay;
 
@@ -252,10 +252,11 @@ namespace Server.Gumps
             AddButton(390, 124, 0x15E1, 0x15E5, 6, GumpButtonType.Reply, 0);
             AddHtmlLocalized(408, 121, 120, 20, 1071988, 0x7FFF, false, false); // Collect Gold
 
-            if (!vendor.IsCommission)
-                AddButton(390, 144, 0x15E1, 0x15E5, 7, GumpButtonType.Reply, 0);
-
-            AddHtmlLocalized(408, 141, 120, 20, 1156104, 0x7FFF, false, false); // Deposit Gold
+            if (vendor.ChargeDaily)
+            {
+	            AddButton(390, 144, 0x15E1, 0x15E5, 7, GumpButtonType.Reply, 0);
+	            AddHtmlLocalized(408, 141, 120, 20, 1156104, 0x7FFF, false, false); // Deposit Gold
+            }
 
             AddButton(390, 162, 0x15E1, 0x15E5, 8, GumpButtonType.Reply, 0);
             AddHtmlLocalized(408, 161, 120, 20, 1071987, 0xF800, false, false); // Dismiss Vendor
@@ -264,7 +265,7 @@ namespace Server.Gumps
             AddHtmlLocalized(408, 181, 120, 20, m_Vendor.VendorSearch ? 1154631 : 1154630, 0x7FFF, false, false); // Opt Out of Search
 
             AddButton(390, 202, 0x15E1, 0x15E5, 0, GumpButtonType.Reply, 0);
-            AddHtmlLocalized(408, 201, 120, 20, 1011012, 0x7FFF, false, false); // CANCEL
+            AddHtml(408, 201, 120, 20, FONT("ZAMKNIJ", color: 0xffffff), false, false);
         }
 
         public override void OnResponse(NetState sender, RelayInfo info)

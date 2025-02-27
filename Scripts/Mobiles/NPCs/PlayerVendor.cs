@@ -235,7 +235,8 @@ namespace Server.Mobiles
         private string m_ShopName;
 
         public double CommissionPerc => 5.25;
-        public virtual bool IsCommission => false;
+        public virtual bool ChargeCommision => false;
+        public virtual bool ChargeDaily => true;
 
         public PlayerVendor(Mobile owner, BaseHouse house)
         {
@@ -257,7 +258,7 @@ namespace Server.Mobiles
             InitBody();
             InitOutfit();
 
-            if (!IsCommission)
+            if (ChargeDaily)
             {
                 NextPayTime = DateTime.UtcNow + PayTimer.GetInterval();
             }
@@ -1634,7 +1635,7 @@ namespace Server.Mobiles
 
         protected override void OnTick()
         {
-            var list = PlayerVendor.PlayerVendors.Where(v => !v.Deleted && !v.IsCommission && v.NextPayTime <= DateTime.UtcNow).ToList();
+            var list = PlayerVendor.PlayerVendors.Where(v => !v.Deleted && !v.ChargeCommision && v.NextPayTime <= DateTime.UtcNow).ToList();
 
             for (int i = 0; i < list.Count; i++)
             {

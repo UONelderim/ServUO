@@ -31593,8 +31593,8 @@
 1071984;That is not a valid target for a rental contract!
 1071985;I'm sorry, but that is too heavy for me.
 1071986;You cannot price items above 175,000,000 gold. The price has been set to the maximum. Note that if you price an item above 125,000,000 gold, players without expanded bank storage may not be able to purchase the item.
-1071987;Dismiss Vendor
-1071988;Collect Gold
+1071987;Zwolnij Kupca
+1071988;Pobierz Złoto
 1071989;Your resurrections through Sacrifice have been reset.
 1071990;Remember to claim your vendor's belongings from the house sign!
 1071991;You can't tell anything about this golem's creator.
@@ -55969,7 +55969,7 @@
 1156101;You resist the effects of death ray. 
 1156102;Your target resists the effects of death ray. 
 1156103;Ochroniarz wygasa. 
-1156104;Wplac Zloto 
+1156104;Wpłac Złoto 
 1156105;Enter the amount of gold you wish to deposit (ESC = CANCEL): 
 1156106;You guide your pet's behaviors, providing a ~1_VAL~% chance to increase skill gains. 
 1156107;You train ~2_NAME~ to use ~1_SKILLNAME~.<br>Mana Upkeep: ~3_COST~ 

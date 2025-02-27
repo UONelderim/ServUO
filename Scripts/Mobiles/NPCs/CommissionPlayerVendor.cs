@@ -4,7 +4,8 @@ namespace Server.Mobiles
 {
     public class CommissionPlayerVendor : PlayerVendor
     {
-        public override bool IsCommission => true;
+        public override bool ChargeCommision => true;
+        public override bool ChargeDaily => false;
 
         public CommissionPlayerVendor(Mobile owner, BaseHouse house)
            : base(owner, house)

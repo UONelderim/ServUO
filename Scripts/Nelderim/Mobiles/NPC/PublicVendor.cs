@@ -8,6 +8,9 @@ namespace Server.Mobiles
 {
 	public class PublicVendor : RentedVendor
 	{
+		public override bool ChargeCommision => true;
+		public override bool ChargeDaily => true;
+
 		public PublicVendor(Mobile owner, VendorRentalDuration duration, int rentalPrice, int renewalPrice,
 			bool landlordRenew) : base(owner, null, duration, rentalPrice, landlordRenew, 0)
 		{
