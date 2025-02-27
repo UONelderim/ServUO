@@ -84,7 +84,7 @@ namespace Server.Mobiles
             }
             set
             {
-                m_RentalPrice = 0;
+                m_RentalPrice = value;
             }
         }
         [CommandProperty(AccessLevel.GameMaster)]
@@ -96,7 +96,7 @@ namespace Server.Mobiles
             }
             set
             {
-                m_LandlordRenew = true;
+                m_LandlordRenew = value;
             }
         }
         [CommandProperty(AccessLevel.GameMaster)]
@@ -108,7 +108,7 @@ namespace Server.Mobiles
             }
             set
             {
-                m_RenterRenew = true;
+                m_RenterRenew = value;
             }
         }
         [CommandProperty(AccessLevel.GameMaster)]

@@ -44,6 +44,16 @@ namespace Server.Mobiles
 			PublicVendorRentalContract pvrc = new PublicVendorRentalContract(this);
 			pvrc.MoveToWorld(Location, Map);
 			pvrc.Movable = false;
+			
+			var vendorItems = GetItems();
+			Container backpack = new Backpack();
+			
+			foreach (Item item in vendorItems)
+			{
+				backpack.DropItem(item);
+			}
+
+			Owner?.BankBox.DropItem(backpack);
 
 			base.Destroy(true);
 		}

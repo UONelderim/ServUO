@@ -1635,7 +1635,7 @@ namespace Server.Mobiles
 
         protected override void OnTick()
         {
-            var list = PlayerVendor.PlayerVendors.Where(v => !v.Deleted && !v.ChargeCommision && v.NextPayTime <= DateTime.UtcNow).ToList();
+            var list = PlayerVendor.PlayerVendors.Where(v => !v.Deleted && v.ChargeDaily && v.NextPayTime <= DateTime.UtcNow).ToList();
 
             for (int i = 0; i < list.Count; i++)
             {

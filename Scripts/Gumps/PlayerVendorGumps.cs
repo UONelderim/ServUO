@@ -190,7 +190,7 @@ namespace Server.Gumps
             AddImage(10, 215, 0x28DC);
             AddImage(537, 0, 0x28DC);
 
-            if (!vendor.ChargeCommision)
+            if (vendor.ChargeDaily)
             {
                 int perRealWorldDay = vendor.ChargePerRealWorldDay;
 
@@ -209,10 +209,10 @@ namespace Server.Gumps
                     AddLabel(300, 35, 0x480, days.ToString());
                 }
 
-                AddHtmlLocalized(40, 78, 260, 20, 1038324, 0x7FFF, false, false); // My charge per real world day is: 
-                AddLabel(300, 78, 0x480, perRealWorldDay.ToString());
+                AddHtmlLocalized(40, 56, 260, 20, 1038324, 0x7FFF, false, false); // My charge per real world day is: 
+                AddLabel(300, 56, 0x480, perRealWorldDay.ToString());
             }
-            else
+            if(vendor.ChargeCommision)
             {
                 AddHtmlLocalized(40, 78, 260, 20, 1159157, 0x7FFF, false, false); // My commission per sale:
                 AddLabel(300, 78, 0x480, string.Format("{0}%", vendor.CommissionPerc));
