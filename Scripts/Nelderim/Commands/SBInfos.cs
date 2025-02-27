@@ -1,7 +1,6 @@
 #region References
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -34,7 +33,7 @@ namespace Server.Commands
 		[Description("Wyswietla informacje o kosztach produkcji i zyskach sprzedazy przedmiotow.")]
 		public static void CraftInfos_OnCommand(CommandEventArgs e)
 		{
-			ArrayList systems = new ArrayList();
+			List<CraftSystem> systems = [];
 			systems.Add(DefAlchemy.CraftSystem);
 			systems.Add(DefBlacksmithy.CraftSystem);
 			systems.Add(DefBowFletching.CraftSystem);
@@ -60,8 +59,8 @@ namespace Server.Commands
 
 			foreach (CraftSystem sys in systems)
 			{
-				Hashtable typeUnitPrice = new Hashtable();
-				Hashtable typeAmount = new Hashtable();
+				Dictionary<Type, SBCraftDeal> typeUnitPrice = [];
+				Dictionary<Type, int> typeAmount = [];
 
 				foreach (CraftItem item in sys.CraftItems)
 				{
@@ -76,7 +75,7 @@ namespace Server.Commands
 
 					int resourceAmount = res.Amount;
 
-					if (typeAmount.ContainsKey(resType) && (int)typeAmount[resType] != resourceAmount)
+					if (typeAmount.ContainsKey(resType) && typeAmount[resType] != resourceAmount)
 					{
 						// produkt mozna pozyskac na kilka sposobow
 						// rozniacych sie iloscia potrzebnego materialu
@@ -111,7 +110,7 @@ namespace Server.Commands
 					if (maxPrice > 0)
 					{
 						if (!typeUnitPrice.ContainsKey(resType) ||
-						    maxUnitPrice > ((SBCraftDeal)typeUnitPrice[resType]).UnitPrice)
+						    maxUnitPrice > (typeUnitPrice[resType]).UnitPrice)
 							typeUnitPrice[resType] = new SBCraftDeal(sys, bestSB, product, maxUnitPrice);
 					}
 				}
@@ -119,12 +118,12 @@ namespace Server.Commands
 
 				// Posortowane w danym rzemiosle.
 
-				foreach (DictionaryEntry en in typeUnitPrice)
+				foreach (var en in typeUnitPrice)
 				{
-					Type resType = (Type)en.Key;
-					Type product = ((SBCraftDeal)en.Value).Product;
-					double unitPrice = ((SBCraftDeal)en.Value).UnitPrice;
-					SBInfo sb = ((SBCraftDeal)en.Value).SBInfo;
+					Type resType = en.Key;
+					Type product = (en.Value).Product;
+					double unitPrice = (en.Value).UnitPrice;
+					SBInfo sb = (en.Value).SBInfo;
 
 					if (resType != typeof(IronIngot) && resType != typeof(Log) && resType != typeof(Leather) &&
 					    resType != typeof(Cloth))
@@ -171,13 +170,6 @@ namespace Server.Commands
 
 		public SBInfosAnalyzer(Mobile m)
 		{
-			SBInfos.Add(CraftSB.Armorer);
-			SBInfos.Add(CraftSB.Carpenter);
-			SBInfos.Add(CraftSB.LeatherWorker);
-			SBInfos.Add(CraftSB.Tailor);
-			SBInfos.Add(CraftSB.Tinekerer);
-			SBInfos.Add(CraftSB.Weaponsmith);
-			SBInfos.Add(CraftSB.Fletcher);
 			IEnumerable<Type> types = Assembly.GetAssembly(typeof(SBInfo)).GetTypes().Where(myType =>
 				myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(SBInfo)));
 			foreach (Type type in types)
