@@ -89,7 +89,7 @@ namespace Server.Engines.Quests
         public PeacemakingObjective()
             : base(5, -1)
         {
-            m_Descr.Add("Calm five mongbats.");
+            m_Descr.Add("Uspokoj 5 nietoperzy.");
         }
 
         public override bool Update(object obj)
@@ -133,7 +133,7 @@ namespace Server.Engines.Quests
         public SirFelean()
         {
             Name = "Sir Felean";
-            Title = "the Spirit Soother";
+            Title = "- kojacy ducha";
         }
 
         public SirFelean(Serial serial)

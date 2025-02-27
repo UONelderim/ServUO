@@ -87,7 +87,7 @@ namespace Server.Engines.Quests
         public DiscordObjective()
             : base(5, -1)
         {
-            m_Descr.Add("Discord five goats.");
+            m_Descr.Add("Zdezorientuj 5 koz.");
         }
 
         public override bool Update(object obj)
@@ -131,7 +131,7 @@ namespace Server.Engines.Quests
         public SirBerran()
         {
             Name = "Sir Berran";
-            Title = "the Song Weilder";
+            Title = "- dzierzacy piesn";
         }
 
         public SirBerran(Serial serial)

@@ -87,7 +87,7 @@ namespace Server.Engines.Quests
         public ProvocationObjective()
             : base(5, -1)
         {
-            m_Descr.Add("Incite rabbits into battle with 5 wandering healers.");
+            m_Descr.Add("Podzegnaj kroliki do walki z 5 wedrownymi uzdrowicielami.");
         }
 
         public override bool Update(object obj)
@@ -131,7 +131,7 @@ namespace Server.Engines.Quests
         public SirHareus()
         {
             Name = "Sir Hareus";
-            Title = "the Battle Rouser";
+            Title = "- wzniecajacy ogien bitewny";
         }
 
         public SirHareus(Serial serial)
