@@ -19,11 +19,11 @@ namespace Server.Items
 		private int m_TotalGold;
 		private Dictionary<Item, int> m_Given;
 
-		private static List<Reward> m_Rewards;
+		private static List<NReward> m_Rewards;
 
 		private static void BuildRewardsList()
 		{
-			m_Rewards = new List<Reward>();
+			m_Rewards = new List<NReward>();
 
 			m_Rewards.Add(new PowerScrollReward(5, 4000));
 			m_Rewards.Add(new PowerScrollReward(10, 30000));
@@ -204,7 +204,7 @@ namespace Server.Items
 			var InternalValue = m_Value;
 
 			var totalValue = 0;
-			var rewards = new ArrayList();
+			var rewards = new List<NReward>();
 
 			// generujemy liste dostepnych prezentow, znaczy takich, ktorych wartosc nie przekracza dostepnego zlota
 			for (var i = 0; i < m_Rewards.Count && m_Rewards[i].Value <= m_Value; i++)
@@ -217,13 +217,13 @@ namespace Server.Items
 			{
 				// losujemy nagrode
 				var rnd = Utility.Random(totalValue);
-				Reward reward = null;
+				NReward reward = null;
 
 				for (var i = 0;
-				     i < rewards.Count && rnd >= 0 && (rewards[i] as Reward).Value <= InternalValue - TotalRewardValue;
+				     i < rewards.Count && rnd >= 0 && (rewards[i]).Value <= InternalValue - TotalRewardValue;
 				     i++)
 				{
-					reward = rewards[i] as Reward;
+					reward = rewards[i];
 					rnd -= reward.Value;
 				}
 

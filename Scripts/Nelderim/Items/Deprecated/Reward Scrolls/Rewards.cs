@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections;
-using Server.Factions;
-
 
 namespace Server.Items
 {
-	public abstract class Reward : IComparable
+	public abstract class NReward : IComparable
 	{
 		private int m_Value;
 		public int Value => m_Value;
 
-		public Reward(int value)
+		public NReward(int value)
 		{
 			m_Value = value;
 		}
@@ -20,10 +18,10 @@ namespace Server.Items
 			if (o == null)
 				return 1;
 
-			if (!(o is Reward))
+			if (!(o is NReward))
 				throw new ArgumentException();
 
-			var r = (Reward)o;
+			var r = (NReward)o;
 
 			if (Value > r.Value)
 				return 1;
@@ -37,7 +35,7 @@ namespace Server.Items
 		public abstract Item Generate(Mobile from);
 	}
 
-	public class PowerScrollReward : Reward
+	public class PowerScrollReward : NReward
 	{
 		private int m_PSClass;
 
@@ -55,7 +53,7 @@ namespace Server.Items
 		}
 	}
 
-	public class PowderOfTranslocationReward : Reward
+	public class PowderOfTranslocationReward : NReward
 	{
 		public PowderOfTranslocationReward(int value) : base(value)
 		{
@@ -70,7 +68,7 @@ namespace Server.Items
 		}
 	}
 
-	public class PowderOfTemperamentReward : Reward
+	public class PowderOfTemperamentReward : NReward
 	{
 		public PowderOfTemperamentReward(int value) : base(value)
 		{
@@ -85,7 +83,7 @@ namespace Server.Items
 		}
 	}
 
-	public class BallOfSummoningReward : Reward
+	public class BallOfSummoningReward : NReward
 	{
 		public BallOfSummoningReward(int value) : base(value)
 		{
@@ -100,7 +98,7 @@ namespace Server.Items
 		}
 	}
 
-	public class DedicatedPowerScrollReward : Reward
+	public class DedicatedPowerScrollReward : NReward
 	{
 		private int m_PSClass;
 
@@ -137,7 +135,7 @@ namespace Server.Items
 		}
 	}
 
-	public class MinorArtifactScrollReward : Reward
+	public class MinorArtifactScrollReward : NReward
 	{
 		private bool m_Chosen;
 
@@ -154,7 +152,7 @@ namespace Server.Items
 		}
 	}
 
-	public class MajorArtifactScrollReward : Reward
+	public class MajorArtifactScrollReward : NReward
 	{
 		private bool m_Chosen;
 
