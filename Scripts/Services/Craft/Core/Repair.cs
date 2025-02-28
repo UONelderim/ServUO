@@ -245,7 +245,11 @@ namespace Server.Engines.Craft
                             var typeRes = resource <= CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource)?.ResourceTypes[0];
                             int toWeaken = 1;
 
-                            if (craftItem == null && !CheckSpecial(weapon))
+                            if (typeRes == null)
+                            {
+	                            number = 1044277;
+                            }
+                            else if (craftItem == null && !CheckSpecial(weapon))
                             {
                                 number = (usingDeed) ? 1061136 : 1044277; // That item cannot be repaired. // You cannot repair that item with this type of repair contract.
                             }
@@ -310,7 +314,11 @@ namespace Server.Engines.Craft
                             var typeRes = resource <= CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource)?.ResourceTypes[0];
                             int toWeaken = 1;
 
-                            if (craftItem == null && !CheckSpecial(armor))
+                            if (typeRes == null)
+                            {
+	                            number = 1044277;
+                            }
+                            else if (craftItem == null && !CheckSpecial(armor))
                             {
                                 number = (usingDeed) ? 1061136 : 1044277; // That item cannot be repaired. // You cannot repair that item with this type of repair contract.
                             }
@@ -375,7 +383,11 @@ namespace Server.Engines.Craft
                             var typeRes = resource <= CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource)?.ResourceTypes[0];
                             int toWeaken = 1;
 
-                            if (craftItem == null && !CheckSpecial(jewel))
+                            if (typeRes == null)
+                            {
+	                            number = 1044277;
+                            }
+                            else if (craftItem == null && !CheckSpecial(jewel))
                             {
                                 number = (usingDeed) ? 1061136 : 1044277; // That item cannot be repaired. // You cannot repair that item with this type of repair contract.
                             }
@@ -440,7 +452,11 @@ namespace Server.Engines.Craft
                             var typeRes = resource <= CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource)?.ResourceTypes[0];
                             int toWeaken = 1;
 
-                            if (craftItem == null && !CheckSpecial(clothing))
+                            if (typeRes == null)
+                            {
+	                            number = 1044277;
+                            }
+                            else if (craftItem == null && !CheckSpecial(clothing))
                             {
                                 number = (usingDeed) ? 1061136 : 1044277; // That item cannot be repaired. // You cannot repair that item with this type of repair contract.
                             }
