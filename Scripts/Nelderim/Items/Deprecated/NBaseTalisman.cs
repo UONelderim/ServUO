@@ -1,6 +1,6 @@
 namespace Server.Items
 {
-	public class NBaseTalisman : BaseClothing
+	public abstract class NBaseTalisman : BaseClothing
 	{
 		public NBaseTalisman(int itemID, int rarity) : base(itemID, Layer.Talisman, 0)
 		{
