@@ -44,7 +44,7 @@ namespace Nelderim.Achievements
 			{
 				Register(new Achievement(miastaWioski, "Na starych śmieciach", "Odwiedź Tasandore", 0, 1, 
 					false, null, new DiscoverGoal("Tasandora"))),
-				Register(new Achievement(miastaWioski, "Niezbezpieczne tereny", "Odwiedź L'Delmah", 0, 1, 
+				Register(new Achievement(miastaWioski, "Niebezpieczne tereny", "Odwiedź L'Delmah", 0, 1, 
 					false, null, new DiscoverGoal("L'Delmah"))),
 				Register(new Achievement(miastaWioski, "Nie lubię piasku", "Odwiedź Tirassę", 0, 1,
 					false, null, new DiscoverGoal("Tirassa"))),
