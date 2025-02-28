@@ -116,7 +116,7 @@ namespace Server.Mobiles
                             Key packKey = new Key(Types[Utility.Random(Types.Length)], boat.PPlank.KeyValue, boat)
                             {
                                 MaxRange = 10,
-                                Name = "a ship key"
+                                Name = "klucz do statku"
                             };
 
                             m_From.AddToBackpack(packKey);

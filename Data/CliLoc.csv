@@ -47095,9 +47095,9 @@
 1116762;zamarznieta kula armatnia 
 1116763;zamarznieta kula armatnia 
 1116764;zamarznieta kula armatnia 
-1116765;The emergency repairs have given out! 
+1116765;Naprawy awaryjne zakonczyly sie niepowodzeniem! 
 1116766;Zmywacz farby do lodzi 
-1116767;The ship could not be located. 
+1116767;Niestety, ale nie moge namierzyc Twego statku. 
 1116768;Permanentna farba do lodzi 
 1116769;You must have the High Seas booster pack to decode this map. 
 1116770;The paint on your ship has faded over time. 
@@ -49948,58 +49948,58 @@
 1150075;DUNGEON NAMES:<br>covetous, deceit, despise, destard, ice, fire, hythloth, orc, shame, wrong, wind, doom, citadel, fandancer, mines, bedlam, labyrinth, underworld, abyss, grove, caves, palace, prism, 
 1150076;"This corrupted portal allows you to teleport directly to a dungeon.<br><br>For Trammel ruleset, say ""dungeon"" followed by the name of the dungeon (e.g. ""dungeon shame"").  "
 1150077;"For Felucca, say ""fel"" then same rules as above. So ""fel dungeon shame"". "
-1150078;The same teleportation rules apply regarding criminal flagging, weight, etc. 
-1150079;Please set the loop as less than 100 times. 
-1150080;Please set the interval as 5 seconds or more. 
-1150081;Please enter loop count. 
-1150082;Please enter the spawn interval. 
-1150083;There are currently no resources to collect. 
-1150084;Treasure maps have been placed in your backpack. 
-1150085;Seeds have been placed in your backpack. 
-1150086;Bottles have been placed in your backpack. 
-1150087;Character copy unavailable with character transfer or copy pending. 
-1150088;Character copy unavailable with items remaining in the transfer crate. 
-1150089;Skull Rug 
-1150090;Skull Rug (East) 
-1150091;Rose Rug 
-1150092;Rose Rug (East) 
-1150093;Dolphin Rug 
-1150094;Dolphin Rug (East) 
-1150095;You must wait a few seconds before you prepare another pie. 
-1150096;You are too far away from the target! 
-1150097;Please enter maximum damage by snowball. 
-1150098;Please enter minimum damage by snowball. 
-1150099;You may not transfer a character during a character copy. 
-1150100;Ogromny Galeon
-1150101;Treasure Maps: ~1_val~ 
-1150102;Seeds: ~1_val~ 
-1150103;Messages in Bottles: ~1_val~ 
-1150104;pilot's wheel deed 
-1150105;a pilot's wheel (South) 
-1150106;a pilot's wheel (East) 
-1150107;a pilot's wheel (North) 
-1150108;a pilot's wheel (West) 
-1150109;a pilot's wheel 
-1150110;Abandon Ship 
-1150111;Your ship has been abandoned. It will decay within five minutes. 
-1150112;WARNING: Your ship and all items aboard it or in its cargo hold will be deleted if you continue. Make certain you wish to abandon your ship before proceeding. Are you sure you wish to abandon your ship? 
-1150113;<CENTER>Kontrola armaty na tylnej burcie</CENTER> 
-1150114;<CENTER>Kontrola armaty na tylnej stronie sterburty</CENTER> 
-1150115;Event Moderator's Hall 
-1150116;Spell focusing damage has peaked. 
-1150117;Spell focusing damage has reset. 
-1150118;Spell focusing damage has now been tuned to your opponent. 
-1150119;Corrupted Bell of Courage 
-1150120;Skull Rug 
-1150121;Rose Rug 
-1150122;Dolphin Rug 
-1150123;East 
-1150124;South 
-1150125;Large 
-1150126;Small 
-1150127;Teleport by Keyword 
-1150128;Check arena rankings 
-1150129;dark portal 
+1150078;Te same zasady teleportacji dotycza oznaczenia kryminalnego, wagi itd.  
+1150079;Ustaw petle na mniej niz 100 powtorzen.  
+1150080;Ustaw interwal na 5 sekund lub wiecej.  
+1150081;Wprowadz liczbe powtorzen petli.  
+1150082;Wprowadz interwal odrodzenia.  
+1150083;Obecnie nie ma zadnych zasobow do zebrania.  
+1150084;Mapy skarbow zostaly umieszczone w twoim plecaku.  
+1150085;Nasiona zostaly umieszczone w twoim plecaku.  
+1150086;Butelki zostaly umieszczone w twoim plecaku.  
+1150087;Kopiowanie postaci jest niedostepne przy przenoszeniu lub oczekiwaniu na kopiowanie postaci.  
+1150088;Kopiowanie postaci jest niedostepne, jesli w skrzyni transferowej pozostaja przedmioty.  
+1150089;Dywan z czaszka  
+1150090;Dywan z czaszka (Wschod)  
+1150091;Dywan z roza  
+1150092;Dywan z roza (Wschod)  
+1150093;Dywan z delfinem  
+1150094;Dywan z delfinem (Wschod)  
+1150095;Musisz poczekac kilka sekund, zanim przygotujesz kolejne ciasto.  
+1150096;Jestes za daleko od celu!  
+1150097;Wprowadz maksymalne obrazenia od sniezki.  
+1150098;Wprowadz minimalne obrazenia od sniezki.  
+1150099;Nie mozesz przeniesc postaci podczas kopiowania postaci.  
+1150100;Ogromny Galeon  
+1150101;Mapy skarbow: ~1_val~  
+1150102;Nasiona: ~1_val~  
+1150103;Wiadomosci w butelkach: ~1_val~  
+1150104;dokument steru pilota  
+1150105;ster pilota (Poludnie)  
+1150106;ster pilota (Wschod)  
+1150107;ster pilota (Polnoc)  
+1150108;ster pilota (Zachod)  
+1150109;ster pilota  
+1150110;Opusc statek  
+1150111;Twoj statek zostal opuszczony. Zniknie w ciagu kilku ziaren.  
+1150112;OSTRZEZENIE: Twoj statek oraz wszystkie przedmioty na nim i w ladowni zostana usuniete, jesli kontynuujesz. Upewnij sie, ze chcesz porzucic statek przed kontynuacja. Czy na pewno chcesz porzucic swoj statek?  
+1150113;<CENTER>Kontrola armaty na tylnej burcie</CENTER>  
+1150114;<CENTER>Kontrola armaty na tylnej stronie sterburty</CENTER>  
+1150115;Sala Moderatora Wydarzen  
+1150116;Maksymalne skupienie zaklec na obrazeniach zostalo osiagniete.  
+1150117;Skupienie zaklec na obrazeniach zostalo zresetowane.  
+1150118;Skupienie zaklec na obrazeniach zostalo dostosowane do twojego przeciwnika.  
+1150119;Skazony Dzwon Odwagi  
+1150120;Dywan z czaszka  
+1150121;Dywan z roza  
+1150122;Dywan z delfinem  
+1150123;Wschod  
+1150124;Poludnie  
+1150125;Duzy  
+1150126;Maly  
+1150127;Teleportacja wedlug slowa kluczowego  
+1150128;Sprawdz rankingi areny  
+1150129;mroczny portal
 1150130;Arena Menu - Survival Rankings 
 1150131;Arena Menu - Team Rankings 
 1150132;VIEW SURVIVAL RANKINGS 
