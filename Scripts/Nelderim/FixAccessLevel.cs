@@ -1,6 +1,7 @@
 ﻿#region References
 
 using Server.Accounting;
+using Server.Misc;
 
 #endregion
 
@@ -10,8 +11,7 @@ namespace Server.Commands
 	{
 		public static void Initialize()
 		{
-			IAccount iacc = Accounts.GetAccount("owner");
-			// iacc.SetPassword("1234");
+			AccountHandler.LockdownLevel = AccessLevel.Counselor;
 		}
 	}
 }
