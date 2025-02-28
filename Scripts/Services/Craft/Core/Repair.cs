@@ -242,7 +242,7 @@ namespace Server.Engines.Craft
                             BaseWeapon weapon = (BaseWeapon)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
                             var resource = weapon.Resource;
-                            var typeRes = resource == CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource).ResourceTypes[0];
+                            var typeRes = resource <= CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource)?.ResourceTypes[0];
                             int toWeaken = 1;
 
                             if (craftItem == null && !CheckSpecial(weapon))
@@ -307,7 +307,7 @@ namespace Server.Engines.Craft
                             BaseArmor armor = (BaseArmor)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
                             var resource = armor.Resource;
-                            var typeRes = resource == CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource).ResourceTypes[0];
+                            var typeRes = resource <= CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource)?.ResourceTypes[0];
                             int toWeaken = 1;
 
                             if (craftItem == null && !CheckSpecial(armor))
@@ -372,7 +372,7 @@ namespace Server.Engines.Craft
                             BaseJewel jewel = (BaseJewel)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
                             var resource = jewel.Resource;
-                            var typeRes = resource == CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource).ResourceTypes[0];
+                            var typeRes = resource <= CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource)?.ResourceTypes[0];
                             int toWeaken = 1;
 
                             if (craftItem == null && !CheckSpecial(jewel))
@@ -437,7 +437,7 @@ namespace Server.Engines.Craft
                             BaseClothing clothing = (BaseClothing)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
                             var resource = clothing.Resource;
-                            var typeRes = resource == CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource).ResourceTypes[0];
+                            var typeRes = resource <= CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource)?.ResourceTypes[0];
                             int toWeaken = 1;
 
                             if (craftItem == null && !CheckSpecial(clothing))
