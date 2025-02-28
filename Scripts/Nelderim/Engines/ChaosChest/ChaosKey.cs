@@ -103,7 +103,7 @@ namespace Nelderim.Engines.ChaosChest
 					return;
 				}
 
-				if (targeted is ChaosChest chest)
+				if (targeted is ChaosChest { IsLockedDown: false, IsSecure: false } chest)
 				{
 					if (chest.IsSealed(m_ChaosKey))
 					{
