@@ -10053,16 +10053,6 @@
 			<rect x="5804" y="1931" width="1" height="29" />
 			<music name="Vesper" />
 		</region>
-		<region type="DungeonRegion" name="LezeLodowychSmokow_LVL3_Boss">
-			<rect x="5763" y="1927" width="42" height="4" />
-			<rect x="5805" y="1927" width="6" height="1" />
-			<rect x="5805" y="1928" width="3" height="1" />
-			<rect x="5805" y="1929" width="1" height="1" />
-			<rect x="5766" y="1889" width="48" height="38" />
-			<rect x="5760" y="1896" width="6" height="31" />
-			<go x="5791" y="1905" z="-11" />
-			<music name="Vesper" />
-		</region>
 		<region type="DungeonRegion" name="Gorogon_VeryEasy">
 			<rect x="5608" y="93" width="48" height="101" />
 			<rect x="5649" y="89" width="7" height="4" />
