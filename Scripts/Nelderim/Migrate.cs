@@ -448,6 +448,7 @@ namespace Server.Commands
 			FixChampionSpawns(from);
 			MigrateArtAndHues(from);
 			RemoveCrafter(from);
+			RemovePublicVendors(from);
 			from.SendMessage("Done migrating!");
 		}
 
@@ -908,6 +909,23 @@ namespace Server.Commands
 				}
 			}
 			from.SendMessage($"Removed {count} crafters");
+		}
+		
+		private static void RemovePublicVendors(Mobile from)
+		{
+			int count = 0;
+			from.SendMessage("Removing public vendors");
+			var allVendors = PlayerVendor.PlayerVendors.ToList();
+			var publicVendors = allVendors.Where(x => x is PublicVendor).Cast<PublicVendor>().ToList();
+			foreach (var vendor in publicVendors)
+			{
+				if (vendor is PublicVendor publicVendor)
+				{
+					publicVendor.Destroy(false);
+					count++;
+				}
+			}
+			from.SendMessage($"Removed {count} public vendors");
 		}
 		
 		//HELPERS
