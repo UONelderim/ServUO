@@ -129,7 +129,7 @@
 			<rect x="1180" y="2936" width="30" height="16" />
 			<rect x="2119" y="568" width="232" height="90" />
 		</region>
-		<region type="UndershadowTravelRegion" priority="100" name="ObszarPodrozyPodmrok">
+		<region type="UndershadowTravelRegion" priority="0" name="ObszarPodrozyPodmrok">
 			<rect x="5128" y="2294" width="1007" height="833" />
 			<rect x="5299" y="3127" width="59" height="23" />
 			<rect x="5625" y="3127" width="126" height="50" />
