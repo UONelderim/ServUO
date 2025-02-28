@@ -229,6 +229,12 @@ namespace Server.Engines.Craft
             AddCraft(typeof(ClothNinjaHood), 1011375, 1030202, 80.0, 105.0, typeof(Cloth), 1044455, 13, 1044287);
             AddCraft(typeof(Kasa), 1011375, 1030211, 60.0, 85.0, typeof(Cloth), 1044455, 12, 1044287);
             AddCraft(typeof(NamelessHood), 1011375, 1029216, 67.0, 92.0, typeof(Cloth), 1044455, 12, 1044287);
+            //Maski
+            AddCraft(typeof(BearMask), 1015293, 1030160, 77.5, 100, typeof(Cloth), 1044462, 15, 1044463);
+            AddCraft(typeof(BearMask), 1015293, 1030160, 77.5, 100, typeof(Cloth), 1044462, 15, 1044463);
+            AddCraft(typeof(DeerMask), 1015293, 1030161, 77.5, 100, typeof(Cloth), 1044462, 15, 1044463);
+            AddCraft(typeof(TribalMask), 1015293, 1030162, 82.5, 105, typeof(Cloth), 1044462, 12, 1044463);
+            AddCraft(typeof(HornedTribalMask), 1015293, 1030163, 82.5, 105, typeof(Cloth), 1044462, 12, 1044463);
             
             /*     index = AddCraft(typeof(ChefsToque), 1011375, 1109618, 6.2, 21.2, typeof(Cloth), 1044455, 11, 1044287);
                  AddRecipe(index, (int)TailorRecipe.ChefsToque);
@@ -470,6 +476,7 @@ namespace Server.Engines.Craft
             AddCraft(typeof(LeafLegs), 1015293, 1032671, 75.0, 100.0, typeof(Leather), 1044462, 15, 1044463);
             AddCraft(typeof(LeafTonlet), 1015293, 1032672, 70.0, 95.0, typeof(Leather), 1044462, 12, 1044463);
             //Maski
+            AddCraft(typeof(NBearMask), 1015293, 1030160, 77.5, 100, typeof(Leather), 1044462, 15, 1044463);
             AddCraft(typeof(NBearMask), 1015293, 1030160, 77.5, 100, typeof(Leather), 1044462, 15, 1044463);
             AddCraft(typeof(NDeerMask), 1015293, 1030161, 77.5, 100, typeof(Leather), 1044462, 15, 1044463);
             AddCraft(typeof(NTribalMask), 1015293, 1030162, 82.5, 105, typeof(Leather), 1044462, 12, 1044463);
