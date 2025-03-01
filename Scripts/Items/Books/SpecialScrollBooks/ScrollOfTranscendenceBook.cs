@@ -17,7 +17,7 @@ namespace Server.Items
         public ScrollOfTranscendenceBook()
             : base(0x577E)
         {
-            Hue = 0x490;
+            Hue = 0x732;
         }
 
         public ScrollOfTranscendenceBook(Serial serial)

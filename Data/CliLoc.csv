@@ -20217,29 +20217,29 @@
 1032671;Lesne Nogawice
 1032672;Lesna Spodniczka
 1032673;damska lesna tunika 
-1032675;zaraza  
-1032676;korupcja  
-1032677;plaga  
-1032678;gnicie  
-1032679;skaza  
-1032680;sluz 
-1032681;smalec Paroksyzmusa  
-1032682;grzywa Spaczonego Jednorozca 
-1032683;chorowita kora  
-1032684;posiwiale kosci  
-1032685;oko Nasladowcy Vox Populi
-1032686;pochwycona esencja 
-1032687;fragment kory 
-1032688;pasozytnicza roslina 
-1032689;luminescencyjne grzyby 
-1032690;ciemny szafir 
-1032691;turkus 
-1032692;idealny szmaragd 
-1032693;cytryn ecru 
-1032694;biala perla 
-1032695;ogniowy rubin 
-1032696;niebieski diament 
-1032697;jaskrawy bursztyn 
+1032675;Zaraza  
+1032676;Korupcja  
+1032677;Plaga  
+1032678;Gnicie  
+1032679;Skaza  
+1032680;Sluz 
+1032681;Smalec Paroksyzmusa  
+1032682;Grzywa Spaczonego Jednorozca 
+1032683;Chorowita kora  
+1032684;Posiwiale kosci  
+1032685;Oko Nasladowcy Vox Populi
+1032686;Pochwycona esencja 
+1032687;Fragment kory 
+1032688;Pasozytnicza Roslina 
+1032689;Luminescencyjne Grzyby 
+1032690;Ciemny szafir 
+1032691;Turkus 
+1032692;Idealny Szmaragd 
+1032693;Cytryn Ecru 
+1032694;Biala Perla 
+1032695;Ogniowy Rubin 
+1032696;niebieski Diament 
+1032697;Jaskrawy Bursztyn 
 1032700;moon door 
 1032702;moon door 
 1032704;whitewood door 
@@ -31727,7 +31727,7 @@
 1072148;Invading forces destroyed ~1_val~ times. 
 1072149;Benefactor of Britain 
 1072150;Dedicated Spring of 2005 
-1072151;grawer do ksiag
+1072151;Grawer Do Ksiag
 1072152;Grawer do Skorzanych Pojemnikow
 1072153;Grawer do Drewnianych Pojemnikow
 1072154;Grawer do Metalowych Pojemnikow
@@ -51544,10 +51544,10 @@
 1151671;Endless Journey accounts may only join the Help channel. 
 1151672;Shame: ~1_AMT~ 
 1151673;Dungeon Crystal Points 
-1151674;You add the scroll to your Scrolls of Transcendence book. 
-1151675;Zwoj przyspieszenia treningu 
+1151674;Dodales zwoj treningu do ksiegi. 
+1151675;Zwoje treningu
 1151676;There are no scrolls in this book. Add a scroll by dragging it onto the book. 
-1151677;Nie mozesz tu trzymac Zwojow Treninhu. 
+1151677;Nie mozesz tu trzymac Zwojow Treningu. 
 1151678;Ksiega jest pelna. 
 1151679;Ksiega na zwoje treningu 
 1151680;Dodaj wiadomosc 
@@ -55553,15 +55553,15 @@
 1155681;You cannot alter an item that has been treated with Tincture of Silver. 
 1155682;Talons of Escaping 
 1155683;Wing Armor of Light 
-1155684;Power Scroll Book 
-1155685;Wondrous (105) 
-1155686;Exalted   (110) 
-1155687;Mythical  (115) 
-1155688;Legendary (120) 
-1155689;Power Scrolls 
-1155690;You remove a Power Scroll and put it in your pack. 
-1155691;This book only holds Power Scrolls. 
-1155692;You add the scroll to your Power Scroll book. 
+1155684;Ksiega Zwojow Mocy
+1155685;Wspanialy (105) 
+1155686;Idealny   (110) 
+1155687;Mityczny  (115) 
+1155688;Legendarny (120) 
+1155689;Zwoj mocy
+1155690;Wyjales zwoj i wlozyles do swojego plecaka. 
+1155691;Ta ksiega przechowuje tylko zwoje mocy. 
+1155692;Dodales zwoj mocy do ksiegi. 
 1155693;This item is impermissible and can not be added to the book. 
 1155694;*You carefully pick some pods from the plant* 
 1155695;The plant is not ready to be picked from. 
@@ -56451,7 +56451,7 @@
 1156583;Wytworna Sofa (W)
 1156584;Ahhhh-OOOO! Ahhh-OOOO! 
 1156585;Ukonczyles zadanie! 
-1156586;Before using the in game store, you must be in a safe log-out location (such as an inn or a house which has you on its Owner, Co-owner, or Friends list). 
+1156586;Przed użyciem UOStore musisz znajdować się w bezpiecznej strefie log-out (domek, którego jesteś właścicielem, współwłaścicielem lub przyjacielem domu)
 1156587;Featured 
 1156588;Character 
 1156589;Promotional Code 
@@ -61050,3 +61050,5 @@
 3070036;przekleta kosc
 3070037;klucz do komnaty saraga
 3070038;klucz do groty spczonego jednorozca
+3070039;Ksiega Na Zwoje Treningu
+3070040;Ksiega Na Zwoje Mocy
