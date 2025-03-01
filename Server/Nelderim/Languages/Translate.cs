@@ -49,13 +49,13 @@ namespace Nelderim
 				Console.WriteLine($"translated {tr.translatedWords}");
 			}
 			StringBuilder sb = new StringBuilder();
-			if (toLangValue >= 500 && fromLangValue >= 500)
+			if (to.Player && toLangValue >= 500 && fromLangValue >= 500)
 			{
-				sb.Append($"[{from.LanguageSpeaking}]");
+				sb.Append($"[{from.LanguageSpeaking}] ");
 			}
 			for (var index = 0; index < tr.originalWords.Length; index++)
 			{
-				sb.Append(" ");
+				
 				var originalWord = tr.originalWords[index];
 				var translatedWord = tr.translatedWords[index];
 				if (Math.Abs(originalWord.GetHashCode() % 1000) < fromLangValue && Math.Abs(translatedWord.GetHashCode() % 1000) < toLangValue)
@@ -65,6 +65,10 @@ namespace Nelderim
 				else
 				{
 					sb.Append(translatedWord);
+				}
+				if (index < tr.originalWords.Length - 1)
+				{
+					sb.Append(' ');
 				}
 			}
 			return sb.ToString();
