@@ -55,7 +55,11 @@ namespace Server.Engines.Harvest
 
         public bool CheckArmor(Item armor)
         {
-	        return armor is null or BaseArmor { MaterialType: <= ArmorMaterialType.Ringmail };
+	        return armor switch
+	        {
+		        BaseArmor ba => ba.MaterialType <= ArmorMaterialType.Ringmail,
+		        _ => true
+	        };
         }
 
         public virtual bool CheckHarvest(Mobile from, Item tool, HarvestDefinition def, object toHarvest)
