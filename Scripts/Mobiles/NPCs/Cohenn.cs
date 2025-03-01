@@ -8,7 +8,7 @@ namespace Server.Engines.Quests
         public MisplacedQuest()
             : base()
         {
-            AddObjective(new ObtainObjective(typeof(DisintegratingThesisNotes), "disintegrating thesis notes", 5, 0xEF5));
+            AddObjective(new ObtainObjective(typeof(DisintegratingThesisNotes), "Niszczace sie notatki", 5, 0xEF5));
 
             AddReward(new BaseReward(typeof(LibrariansKey), 1074347));
         }
@@ -51,7 +51,7 @@ namespace Server.Engines.Quests
     {
         [Constructable]
         public Cohenn()
-            : base("Master Cohenn", "the librarian")
+            : base("Master Cohenn", "- bibliotekarz")
         {
         }
 
