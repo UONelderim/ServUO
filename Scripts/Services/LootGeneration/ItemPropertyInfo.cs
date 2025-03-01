@@ -6,13 +6,13 @@ namespace Server.Items
 {
     public enum ItemType
     {
-        Invalid,
-        Melee,
-        Ranged,
-        Armor,
-        Shield,
-        Hat,
-        Jewel
+        Invalid = 0,
+        Melee = 1,
+        Ranged = 2,
+        Armor = 3,
+        Shield = 4,
+        Hat = 5,
+        Jewel = 6
     }
 
     public class PropInfo
@@ -784,6 +784,9 @@ namespace Server.Items
 
         public static int[] GetMaxOvercappedRange(Item item, int id)
         {
+	        //NELDERIM: Bring be back when we are ready
+	        return null;
+	        
             if (Table.ContainsKey(id))
             {
                 PropInfo info = Table[id].GetItemTypeInfo(GetItemType(item));
