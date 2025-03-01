@@ -416,6 +416,7 @@ namespace Server.Engines.Craft
             AddCraft(typeof(Leafblade), 1011081, 1031566, 70.0, 120.0, typeof(IronIngot), 1044036, 12, 1044037);
             AddCraft(typeof(RuneBlade), 1011081, 1031570, 70.0, 120.0, typeof(IronIngot), 1044036, 15, 1044037);
             AddCraft(typeof(ElvenMachete), 1011081, 1031573, 70.0, 120.0, typeof(IronIngot), 1044036, 14, 1044037);
+            AddCraft(typeof(GreatSword), 1011081, 1029934, 78.0, 122.0, typeof(IronIngot), 1044036, 30, 1044037 );
 
             /*index = AddCraft(typeof(RuneCarvingKnife), 1011081, 1072915, 70.0, 120.0, typeof(IronIngot), 1044036, 9, 1044037);
             AddRes(index, typeof(DreadHornMane), 1032682, 1, 1053098);
