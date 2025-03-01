@@ -627,16 +627,6 @@ namespace Server.Engines.CannedEvil
                                     }
                                 }
                             }
-
-                            if (Map == Map.Ilshenar || Map == Map.Tokuno || Map == Map.Malas)
-                            {
-                                if (Utility.RandomDouble() < 0.0015)
-                                {
-                                    killer.SendLocalizedMessage(1094936); // You have received a Scroll of Transcendence!
-                                    ScrollOfTranscendence SoTT = CreateRandomSoT(false);
-                                    killer.AddToBackpack(SoTT);
-                                }
-                            }
                             #endregion
 
                             int mobSubLevel = rankOfMob + 1;
