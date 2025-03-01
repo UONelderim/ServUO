@@ -1043,6 +1043,14 @@
       "Population": {
         "Czlowiek": 1.00
       }
+    },
+    {
+      "Name": "West_Housing",
+      "Faction": "West"
+    },
+    {
+      "Name": "East_Housing",
+      "Faction": "East"
     }
   ]
 }
