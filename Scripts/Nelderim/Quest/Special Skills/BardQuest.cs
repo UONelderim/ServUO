@@ -51,8 +51,8 @@ namespace Server.Engines.Quests
 	{
 		public BardPhase2Quest()
 		{
-			AddObjective(new ObtainObjective(typeof(Gold), "Zloto", 10, 3821));
-			AddObjective(new ObtainObjective(typeof(ZapomnianaPiesn), "Zapomniana piesn", 10, 5358));
+			AddObjective(new ObtainObjective(typeof(Gold), "Zloto", 5000, 3821));
+			AddObjective(new ObtainObjective(typeof(ZapomnianaPiesn), "Zapomniana piesn", 1, 5358));
 
 			AddReward(new BaseReward(3060225)); // Coraz blizej wielkich piesni bardowskich
 		}
@@ -105,9 +105,9 @@ namespace Server.Engines.Quests
 	{
 		public BardPhase3Quest()
 		{
-			AddObjective(new ObtainObjective(typeof(Drums), "bebenek", 10, 0xE9C));
-			AddObjective(new ObtainObjective(typeof(Lute), "bebenek", 10, 0xEB3));
-			AddObjective(new ObtainObjective(typeof(Tambourine), "tamburyn", 10, 0xE9D));
+			AddObjective(new ObtainObjective(typeof(Drums), "bebenek", 5, 0xE9C));
+			AddObjective(new ObtainObjective(typeof(Lute), "lutnia", 5, 0xEB3));
+			AddObjective(new ObtainObjective(typeof(Tambourine), "tamburyn", 5, 0xE9D));
 
 			AddReward(new BaseReward(3060225)); // Coraz blizej wielkich piesni bardowskich
 		}
@@ -119,11 +119,8 @@ namespace Server.Engines.Quests
 		/* Zbieram zespol */
 		public override object Title => 3060271;
 
-		/*  To nie jest najwazniejsze. Najwazniejsze, bys zdobyl tamburyny, lutnie i bebny...*rzekl* W pewnym momencie nieznajomy ponoc dodal, ze sam od siebie
-nagrode ufunduje - po czym pokazal ksiege, w ktorej bojowe piesni mozna by umieszczac. To
-przewazylo, gdyz Odon od zlota i bogactwa tylko muzyke kochal bardziej. Czy zdolasz powtorzyc jego
-wyczyn mlody bardzie? */
-		public override object Description => 3060260;
+		/*  Pozyskaj dla nas nieco instrumentow a podaruje Ci to czego pragniesz. Potrzebujemy bebnow, lutni i tamburynow. Mysle ze wystarczy nam po 5 sztuk z kazdego rodzaju. Do roboty! */
+		public override object Description => 3070041;
 
 		/* No nie. Teraz rezygnujesz?! */
 		public override object Refuse => 3060195;
@@ -153,7 +150,7 @@ wyczyn mlody bardzie? */
 	{
 		public BardPhase4Quest()
 		{
-			AddObjective(new SlayObjective(typeof(Imp), "imp", 10));
+			AddObjective(new SlayObjective(typeof(Imp), "Imp", 10));
 
 			AddReward(new BaseReward(3060225)); // Coraz blizej wielkich piesni bardowskich
 		}
@@ -165,8 +162,8 @@ wyczyn mlody bardzie? */
 		/* Na uslugach Barda */
 		public override object Title => 3060274;
 
-		/* Dobra, dobra. Nie sama muzyka czlowiek zyje. Zeby zdobyc piesni, to trza tez krwii troche przelac *melodyjnie dodal* a najlepiej tej zlej. Impow zabij ... 20.. no. Wystarczyc powinno. */
-		public override object Description => 3060264;
+		/* Dobra, dobra. Nie sama muzyka czlowiek zyje. Zeby zdobyc piesni, to trza tez krwii troche przelac *melodyjnie dodal* a najlepiej tej zlej. Impow zabij ... 10.. no. Wystarczyc powinno. */
+		public override object Description => 3060275;
 
 		/* Ahh, tracisz moj czas, czy cos?. */
 		public override object Refuse => 3060261;

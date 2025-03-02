@@ -22,7 +22,7 @@ namespace Server.Engines.Quests
 		{
 			InitStats(100, 100, 25);
 
-			Female = true;
+			Female = false;
 			Race = Race.NTamael;
 		}
 
