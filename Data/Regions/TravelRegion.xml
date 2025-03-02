@@ -24,9 +24,6 @@
 			<rect x="1350" y="1285" width="295" height="635" />
 			<rect x="1350" y="1265" width="13" height="20" />
 			<rect x="1363" y="1278" width="14" height="7" />
-			<rect x="1739" y="0" width="612" height="430" />
-			<rect x="2014" y="430" width="337" height="138" />
-			<rect x="1787" y="658" width="563" height="112" />
 			<rect x="1750" y="770" width="600" height="515" />
 			<rect x="1645" y="1032" width="105" height="253" />
 			<rect x="1645" y="1285" width="705" height="250" />
@@ -117,8 +114,8 @@
 			<rect x="3955" y="1641" width="222" height="42" />
 			<rect x="3955" y="1618" width="65" height="23" />
 			<rect x="3902" y="1742" width="500" height="187" />
-			<rect x="0" y="489" width="1654" height="281" />
-			<rect x="311" y="40" width="1428" height="449" />
+			<rect x="0" y="489" width="2351" height="281" />
+			<rect x="311" y="40" width="2040" height="449" />
 			<rect x="3" y="5" width="272" height="304" />
 			<rect x="0" y="309" width="143" height="180" />
 			<rect x="275" y="0" width="1464" height="40" />
@@ -127,7 +124,6 @@
 			<rect x="2351" y="0" width="999" height="580" />
 			<rect x="2350" y="1018" width="332" height="482" />
 			<rect x="1180" y="2936" width="30" height="16" />
-			<rect x="2119" y="568" width="232" height="90" />
 		</region>
 		<region type="UndershadowTravelRegion" priority="0" name="ObszarPodrozyPodmrok">
 			<rect x="5128" y="2294" width="1007" height="833" />
