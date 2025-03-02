@@ -3070,6 +3070,7 @@ namespace Server
 								}
 							}
 
+							var oldItemsCount = oldSector.Items.Count;
 							foreach (var item in oldSector.Items.ToArray()) //FIXME
 							{
 								if (item.AtWorldPoint(oldX, oldY) && (item.Z == oldZ || ((item.Z + item.ItemData.Height) > oldZ && (oldZ + 15) > item.Z)) && !item.OnMoveOff(this))
@@ -3080,6 +3081,11 @@ namespace Server
 								if (item.AtWorldPoint(x, y) && (item.Z == newZ || ((item.Z + item.ItemData.Height) >= newZ && (newZ + 15) > item.Z)) && !item.OnMoveOver(this))
 								{
 									return false;
+								}
+
+								if (oldItemsCount != oldSector.Items.Count)
+								{
+									Console.WriteLine("Sector items count changed while processing " + item.GetType().FullName);
 								}
 							}
 						}
