@@ -227,7 +227,7 @@ namespace Server.Mobiles
 			if (item is IVvVItem vItem && vItem.IsVvVItem)
 				cost = 800;
 			else if (imbueWeight > 0)
-				cost = Math.Min(800, Math.Max(10, imbueWeight)) * 6;
+				cost = Math.Min(800, Math.Max(10, imbueWeight)) * 1;
 			else if (GenericBuyInfo.BuyPrices.ContainsKey(item.GetType()))
 				cost = Math.Min(800, Math.Max(10, GenericBuyInfo.BuyPrices[item.GetType()]));
 			else if (item.LootType == LootType.Newbied)
