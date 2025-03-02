@@ -3683,7 +3683,7 @@ namespace Server
 
 		public static CreateCorpseHandler CreateCorpseHandler { get; set; }
 
-		public static TimeSpan DefaultCorpseDecay { get; set; } = TimeSpan.FromMinutes(7);
+		public static TimeSpan DefaultCorpseDecay { get; set; } = TimeSpan.FromMinutes(15);
 
 		public virtual TimeSpan CorpseDecayTime => DefaultCorpseDecay;
 
