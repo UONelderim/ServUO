@@ -3070,7 +3070,7 @@ namespace Server
 								}
 							}
 
-							foreach (var item in oldSector.Items)
+							foreach (var item in oldSector.Items.ToArray()) //FIXME
 							{
 								if (item.AtWorldPoint(oldX, oldY) && (item.Z == oldZ || ((item.Z + item.ItemData.Height) > oldZ && (oldZ + 15) > item.Z)) && !item.OnMoveOff(this))
 								{
