@@ -176,7 +176,7 @@ namespace Server.Items
 			if (TrapArmed)
 			{
 				if (!(from.Player && this.PlayerSafe)) // Make sure the rules are Felucca
-					TrapCheckTrigger(from); // for players triggering the trap.
+					Timer.DelayCall(() =>TrapCheckTrigger(from)); // for players triggering the trap.
 
 				return true;
 			}
