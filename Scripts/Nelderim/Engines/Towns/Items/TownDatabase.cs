@@ -605,6 +605,9 @@ namespace Nelderim.Towns
 
 		public static bool IsCitizenOfAnyTown(Mobile from)
 		{
+			if (from == null)
+				return false;
+			
 			return m_CitizenList.ContainsKey(from.Serial);
 		}
 
