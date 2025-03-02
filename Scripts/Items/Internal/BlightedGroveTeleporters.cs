@@ -45,7 +45,7 @@ namespace Server.Items
                 }
                 else
                 {
-                    machete.Delete();
+                    Timer.DelayCall(() => machete.Delete());
                     m.SendLocalizedMessage(1075007); // Your bone handled machete snaps in half as you force your way through the poisonous undergrowth.
                 }
 

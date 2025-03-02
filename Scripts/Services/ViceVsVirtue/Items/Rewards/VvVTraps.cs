@@ -141,7 +141,7 @@ namespace Server.Engines.VvV
         {
             if (IsEnemy(m))
             {
-                Detonate(m);
+                Timer.DelayCall(() => Detonate(m));
             }
 
             return base.OnMoveOver(m);

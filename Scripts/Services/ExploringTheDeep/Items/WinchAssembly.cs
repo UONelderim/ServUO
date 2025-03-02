@@ -516,7 +516,7 @@ namespace Server.Items
             }
             else if (Altar != null)
             {
-                Altar.Exit(m);
+                Timer.DelayCall(() => Altar.Exit(m));
                 return false;
             }
 

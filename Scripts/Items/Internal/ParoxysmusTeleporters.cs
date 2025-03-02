@@ -33,7 +33,7 @@ namespace Server.Items
                     if (Utility.RandomDouble() < 0.3)
                     {
                         m.SendLocalizedMessage(1075097); // Your rope is severely damaged by the acidic environment.  You're lucky to have made it safely to the ground.
-                        rope.Delete();
+                        Timer.DelayCall(() => rope.Delete());
                     }
                     else
                         m.SendLocalizedMessage(1075098); // Your rope has been weakened by the acidic environment.
@@ -95,7 +95,7 @@ namespace Server.Items
                     if (Utility.RandomDouble() < 0.3)
                     {
                         m.SendLocalizedMessage(1075097); // Your rope is severely damaged by the acidic environment.  You're lucky to have made it safely to the ground.
-                        rope.Delete();
+                        Timer.DelayCall(() => rope.Delete());
                     }
                     else
                         m.SendLocalizedMessage(1075098); // Your rope has been weakened by the acidic environment.

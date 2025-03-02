@@ -118,7 +118,7 @@ namespace Server.Items
                     m.MoveToWorld(p, m.Map);
                 }
 
-                Delete();
+                Timer.DelayCall(Delete);
                 return false;
             }
             else

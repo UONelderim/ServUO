@@ -126,9 +126,8 @@ namespace Server.Mobiles
                 {
                     from.SendSpeedControl(SpeedControlType.Disable);
                     from.SendLocalizedMessage(1152145); // You are are free to move again.
+                    Delete();
                 });
-
-                Delete();
             }
 
             return base.OnMoveOver(from);
