@@ -359,11 +359,14 @@ namespace Server.Mobiles
 	        base.OnSpeech(e);
         }
 
-        public static void HandleSpeech(Mobile vendor, SpeechEventArgs e)
+        private static void HandleSpeech(Banker vendor, SpeechEventArgs e)
         {
+	        if (vendor == null)
+		        return;
+	        
 	        if (!e.Handled && e.Mobile.InRange(vendor, 12))
             {
-                if (e.Mobile.Map.Rules != MapRules.FeluccaRules && vendor is BaseVendor && !((BaseVendor)vendor).CheckVendorAccess(e.Mobile))
+                if (e.Mobile.Map.Rules != MapRules.FeluccaRules && !vendor.CheckVendorAccess(e.Mobile))
                 {
                     return;
                 }
@@ -389,41 +392,12 @@ namespace Server.Mobiles
                                 {
                                     int amount;
 
-                                    Container pack = e.Mobile.Backpack;
-
                                     if (!int.TryParse(split[1], out amount))
                                     {
                                         break;
                                     }
 
-                                    if (amount > 60000)
-                                    {
-                                        // Thou canst not withdraw so much at one time!
-                                        vendor.Say(500381);
-                                    }
-                                    else if (pack == null || pack.Deleted || !(pack.TotalWeight < pack.MaxWeight) ||
-                                             !(pack.TotalItems < pack.MaxItems))
-                                    {
-                                        // Your backpack can't hold anything else.
-                                        vendor.Say(1048147);
-                                    }
-                                    else if (amount > 0)
-                                    {
-                                        BankBox box = e.Mobile.Player ? e.Mobile.BankBox : e.Mobile.FindBankNoCreate();
-
-                                        if (box == null || !Withdraw(e.Mobile, amount))
-                                        {
-                                            // Ah, art thou trying to fool me? Thou hast not so much gold!
-                                            vendor.Say(500384);
-                                        }
-                                        else
-                                        {
-                                            pack.DropItem(new Gold(amount));
-
-                                            // Thou hast withdrawn gold from thy account.
-                                            vendor.Say(1010005);
-                                        }
-                                    }
+                                    vendor.WithdrawToBackpack(e.Mobile, amount);
                                 }
                             }
                             break;

@@ -32,34 +32,7 @@ namespace Server.Mobiles
 
                         if (Int32.TryParse(split[1], out amount))
                         {
-	                        if (amount > 60000)
-	                        {
-		                        // Thou canst not withdraw so much at one time!
-		                        Say(500381);
-	                        }
-	                        else if (pack == null || pack.Deleted || !(pack.TotalWeight < pack.MaxWeight) ||
-	                                 !(pack.TotalItems < pack.MaxItems))
-	                        {
-		                        // Your backpack can't hold anything else.
-		                        Say(1048147);
-	                        }
-	                        else if (amount > 0)
-	                        {
-		                        BankBox box = e.Mobile.Player ? e.Mobile.BankBox : e.Mobile.FindBankNoCreate();
-
-		                        if (box == null || !Withdraw(e.Mobile, amount))
-		                        {
-			                        // Ah, art thou trying to fool me? Thou hast not so much gold!
-			                        Say(500384);
-		                        }
-		                        else
-		                        {
-			                        pack.DropItem(new Gold(amount));
-
-			                        // Thou hast withdrawn gold from thy account.
-			                        Say(1010005);
-		                        }
-	                        }
+	                        WithdrawToBackpack(e.Mobile, amount);
                         }
                     }
                 }
@@ -132,46 +105,48 @@ namespace Server.Mobiles
 
 		                    if (int.TryParse(split[1], out amount))
 		                    {
-			                    if (amount < 5000)
-			                    {
-				                    // We cannot create checks for such a paltry amount of gold!
-				                    Say(1010006);
-			                    }
-			                    else if (amount > 1000000)
-			                    {
-				                    // Our policies prevent us from creating checks worth that much!
-				                    Say(1010007);
-			                    }
-			                    else
-			                    {
-				                    BankCheck check = new BankCheck(amount);
-
-				                    BankBox box = e.Mobile.BankBox;
-
-				                    if (!box.TryDropItem(e.Mobile, check, false))
-				                    {
-					                    // There's not enough room in your bankbox for the check!
-					                    Say(500386);
-					                    check.Delete();
-				                    }
-				                    else if (!box.ConsumeTotal(typeof(Gold), amount))
-				                    {
-					                    // Ah, art thou trying to fool me? Thou hast not so much gold!
-					                    Say(500384);
-					                    check.Delete();
-				                    }
-				                    else
-				                    {
-					                    // Into your bank box I have placed a check in the amount of:
-					                    Say(1042673, AffixType.Append, amount.ToString("#,0"), "");
-					                    BankLog.Log(e.Mobile, amount, "check");
-				                    }
-			                    }
+			                   
 		                    }
 	                    }
                     }
 		        }
             }
+		}
+
+		public bool WithdrawToBackpack(Mobile from, int amount)
+		{
+			Container pack = from.Backpack;
+			if (amount > 60000)
+			{
+				// Thou canst not withdraw so much at one time!
+				Say(500381);
+				return false;
+			}
+			if (pack == null || pack.Deleted || !(pack.TotalWeight < pack.MaxWeight) ||
+			         !(pack.TotalItems < pack.MaxItems))
+			{
+				// Your backpack can't hold anything else.
+				Say(1048147);
+				return false;
+			}
+
+			if (amount <= 0)
+			{
+				return false;
+			}
+			BankBox box = from.Player ? from.BankBox : from.FindBankNoCreate();
+
+			if (box == null || !Withdraw(from, amount))
+			{
+				// Ah, art thou trying to fool me? Thou hast not so much gold!
+				Say(500384);
+				return false;
+			}
+			pack.DropItem(new Gold(amount));
+
+			// Thou hast withdrawn gold from thy account.
+			Say(1010005);
+			return true;
 		}
 	}
 }

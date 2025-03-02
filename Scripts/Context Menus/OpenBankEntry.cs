@@ -6,9 +6,9 @@ namespace Server.ContextMenus
 {
     public class OpenBankEntry : ContextMenuEntry
     {
-        private readonly Mobile m_Banker;
+        private readonly Banker m_Banker;
 
-        public OpenBankEntry(Mobile banker)
+        public OpenBankEntry(Banker banker)
             : base(6105, 12)
         {
             m_Banker = banker;
@@ -30,7 +30,7 @@ namespace Server.ContextMenus
                 if (Owner.From is PlayerMobile)
                 {
                     Owner.From.CloseGump(typeof(BankerGump));
-					BaseGump.SendGump(new BankerGump((PlayerMobile)Owner.From));
+					BaseGump.SendGump(new BankerGump(m_Banker, (PlayerMobile)Owner.From));
                 }
             }
         }

@@ -9,10 +9,12 @@ namespace Server.Gumps
 	public class BankerGump : BaseGump
 	{
 		private readonly int TextColor = 0x000F;
+		private readonly Banker _banker;
 
-		public BankerGump(PlayerMobile pm)
+		public BankerGump(Banker banker, PlayerMobile pm)
 			: base(pm, 150, 150)
 		{
+			_banker = banker;
 		}
 
 		public override void AddGumpLayout()
@@ -24,42 +26,42 @@ namespace Server.Gumps
 			var acct = User.Account;
 
 			AddHtmlLocalized(15, 35, 150, 16, 1156044, false, false); // Total Gold:
-			AddHtml(130, 35, 200, 16, $"{acct?.TotalGold:N0}", false, false);
+			AddHtml(145, 35, 200, 16, $"{acct?.TotalGold:N0}", false, false);
 
 			AddHtmlLocalized(15, 55, 150, 16, 1156045, false, false); // Total Platinum:
-			AddHtml(130, 55, 200, 16, $"{acct?.TotalPlat:N0}", false, false);
+			AddHtml(145, 55, 200, 16, $"{acct?.TotalPlat:N0}", false, false);
 
 			AddHtmlLocalized(15, 75, 150, 16, 1157003, false, false); // Secure Account:
-			AddHtml(130, 75, 200, 16, $"{acct?.GetSecureBalance(User):N0}", false, false);
+			AddHtml(145, 75, 200, 16, $"{acct?.GetSecureBalance(User):N0}", false, false);
 
 			AddHtmlLocalized(15, 95, 150, 16, 1157004, false, false); // Transfer Gold:
-			AddHtml(130, 95, 200, 16, "0", false, false);
+			AddHtml(145, 95, 200, 16, "0", false, false);
 
 			AddHtmlLocalized(15, 115, 150, 16, 1157005, false, false); // Transfer Platinum:
-			AddHtml(130, 115, 200, 16, "0", false, false);
+			AddHtml(145, 115, 200, 16, "0", false, false);
 
 			AddHtmlLocalized(270, 35, 90, 16, 1114514, "Help", 0, false, false);
 			AddButton(370, 35, 4014, 4015, 7, GumpButtonType.Reply, 0);
 
-			AddHtmlLocalized(60, 150, 360, 16, 1156064, TextColor, false, false); // Deposit Gold into Character Transfer Account
-			AddButton(20, 150, 4005, 4006, 1, GumpButtonType.Reply, 0);
-			AddTooltip(1156070); // Transfers gold from the bank to the character transfer account; capped at 1 billion gold. Any currency that 
-								 // a players wishes to transfer to another shard must be placed in character transfer account. Upon transferring 
-								 // the currency will be added to player's account on the shard.
+			// AddHtmlLocalized(60, 150, 360, 16, 1156064, TextColor, false, false); // Deposit Gold into Character Transfer Account
+			// AddButton(20, 150, 4005, 4006, 1, GumpButtonType.Reply, 0);
+			// AddTooltip(1156070); // Transfers gold from the bank to the character transfer account; capped at 1 billion gold. Any currency that 
+			// 					 // a players wishes to transfer to another shard must be placed in character transfer account. Upon transferring 
+			// 					 // the currency will be added to player's account on the shard.
 
-			AddHtmlLocalized(60, 180, 300, 16, 1156065, TextColor, false, false); // Deposit Platinum into Character Transfer Account
-			AddButton(20, 180, 4005, 4006, 2, GumpButtonType.Reply, 0);
-			AddTooltip(1156071); // Transfers platinum from the bank to the character transfer account; capped at 2 billion platinum. Any currency 
-								 // that a players wishes to transfer to another shard must be placed in character transfer account. Upon transferring 
-								 // the currency will be added to player's account on the shard. 
+			// AddHtmlLocalized(60, 180, 300, 16, 1156065, TextColor, false, false); // Deposit Platinum into Character Transfer Account
+			// AddButton(20, 180, 4005, 4006, 2, GumpButtonType.Reply, 0);
+			// AddTooltip(1156071); // Transfers platinum from the bank to the character transfer account; capped at 2 billion platinum. Any currency 
+			// 					 // that a players wishes to transfer to another shard must be placed in character transfer account. Upon transferring 
+			// 					 // the currency will be added to player's account on the shard. 
 
 			AddHtmlLocalized(60, 210, 300, 16, 1156066, TextColor, false, false); // Withdraw Gold from Character Transfer Account
 			AddButton(20, 210, 4005, 4006, 3, GumpButtonType.Reply, 0);
-			AddTooltip(1156072); // Transfers gold from the character transfer account to the bank; capped at 1 billion gold.
+			// AddTooltip(1156072); // Transfers gold from the character transfer account to the bank; capped at 1 billion gold.
 
-			AddHtmlLocalized(60, 240, 300, 16, 1156067, TextColor, false, false); // Withdraw Platinum from Character Transfer Account
-			AddButton(20, 240, 4005, 4006, 4, GumpButtonType.Reply, 0);
-			AddTooltip(1156073); // Transfers platinum from the character transfer account to the bank; capped at 2 billion platinum. Really? Who the fuck has this much?
+			// AddHtmlLocalized(60, 240, 300, 16, 1156067, TextColor, false, false); // Withdraw Platinum from Character Transfer Account
+			// AddButton(20, 240, 4005, 4006, 4, GumpButtonType.Reply, 0);
+			// AddTooltip(1156073); // Transfers platinum from the character transfer account to the bank; capped at 2 billion platinum. Really? Who the fuck has this much?
 
 			AddHtmlLocalized(60, 270, 300, 16, 1156068, TextColor, false, false); // Deposit Gold into Secure Account
 			AddButton(20, 270, 4005, 4006, 5, GumpButtonType.Reply, 0);
@@ -81,8 +83,15 @@ namespace Server.Gumps
 				case 3:
 				case 4:
 				{
-					User.SendMessage("This feature is currently unavailable.");
-
+					User.SendLocalizedMessage(1155866); // Enter amount to withdraw:
+					User.BeginPrompt((from, text) =>
+					{
+						if (Int32.TryParse(text, out var amount))
+						{
+							_banker.WithdrawToBackpack(User, amount);
+							Refresh(true);
+						}
+					});
 					Refresh(false);
 				}
 				break;
