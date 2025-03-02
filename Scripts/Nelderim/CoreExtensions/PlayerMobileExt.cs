@@ -346,5 +346,9 @@ namespace Server.Mobiles
 				global = Math.Max(global, 8); // Level "8" here corresponds to level "22" in ClassicUO game settings. "Above 8" here means "below 22" in ClassicUO.
 			}
 		}
+
+		private static TimeSpan PlayerCorpseDecay = TimeSpan.FromMinutes(30);
+
+		public override TimeSpan CorpseDecayTime => DefaultCorpseDecay;
 	}
 }
