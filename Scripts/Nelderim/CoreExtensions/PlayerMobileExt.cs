@@ -349,6 +349,6 @@ namespace Server.Mobiles
 
 		private static TimeSpan PlayerCorpseDecay = TimeSpan.FromMinutes(30);
 
-		public override TimeSpan CorpseDecayTime => DefaultCorpseDecay;
+		public override TimeSpan CorpseDecayTime => PlayerCorpseDecay;
 	}
 }
