@@ -16,7 +16,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber => 3070002; //kiel biesa
+        public override int LabelNumber => 3070033; //kolec zuka runicznego
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
