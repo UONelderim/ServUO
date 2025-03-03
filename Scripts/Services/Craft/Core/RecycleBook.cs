@@ -44,10 +44,9 @@ namespace Server.Engines.Craft
 				from.SendGump(new CraftGump(from, m_CraftSystem, m_Tool, message));
 			}
 			
-			private bool IsRecyclable(Item targeted)
+			private bool IsRecyclable(Item item)
 			{
-				var itemType = targeted.GetType();
-				return itemType == typeof(Spellbook) || itemType == typeof(Runebook) || itemType == typeof(BulkOrderBook);
+				return item is Spellbook or NecromancerSpellbook or Runebook or BulkOrderBook;
 			}
 
 			private SmeltResult Rewrite(Mobile from, Item item)
