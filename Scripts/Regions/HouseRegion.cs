@@ -18,7 +18,7 @@ namespace Server.Regions
         private bool m_Recursion;
 
         public HouseRegion(BaseHouse house)
-            : base(null, house.Map, HousePriority, GetArea(house))
+            : base("House+" + house.Serial, house.Map, HousePriority, GetArea(house))
         {
             House = house;
 
