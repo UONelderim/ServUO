@@ -1,6 +1,7 @@
 using Server.Accounting;
 using Server.Mobiles;
 using System;
+using System.Linq;
 
 namespace Server.Items
 {
@@ -15,11 +16,17 @@ namespace Server.Items
 
         public override string DefaultTitle => string.Format("<basefont color=#FFFFFF>Zwoj Transcendencji ({0} Skill):</basefont>", Value);
 
+        private static readonly SkillName[] _ExcludedSkills  = [SkillName.Imbuing];
+        
         public static ScrollOfTranscendence CreateRandom(int min, int max)
         {
-            SkillName skill = (SkillName)Utility.Random(SkillInfo.Table.Length);
+	        SkillName skill;
+	        do
+	        {
+		        skill = (SkillName)Utility.Random(SkillInfo.Table.Length);
+	        } while (_ExcludedSkills.Contains(skill));
 
-            return new ScrollOfTranscendence(skill, Utility.RandomMinMax(min, max) * 0.1);
+	        return new ScrollOfTranscendence(skill, Utility.RandomMinMax(min, max) * 0.1);
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
