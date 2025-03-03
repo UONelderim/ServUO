@@ -366,7 +366,7 @@ namespace Server.Engines.Craft
             AddCraft(typeof(Spellbook), otherGroup, 1023834, 50.0, 126, typeof(BlankScroll), 1044377, 10, 1044378);
             
             index = AddCraft(typeof(PowerScrollBook), otherGroup, 3070040, 85.0, 120, typeof(BlankScroll), 1044377, 20, 1044378);
-            AddRes(index, typeof(DaemonBone), 1044360, 10, 1044253);
+            AddRes(index, typeof(DaemonBone), 1023965, 10, 1044253);
             AddRes(index, typeof(ParasiticPlant), 1032688, 2, 1044253);
             AddRes(index, typeof(Taint), 1032679, 2, 1044253);
             ForceNonExceptional(index);
