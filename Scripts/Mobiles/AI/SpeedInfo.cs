@@ -50,7 +50,7 @@ namespace Server
                     delay += ((max - delay) * (1.0 - offset));
                 }
 
-                var hitsScalar = bc.Hits < (bc.HitsMax * 0.2f) ? 1.2 : 1.0;
+                var hitsScalar = bc.Hits < (bc.HitsMax * 0.25f) ? 1.2 : 1.0;
 	            delay *= hitsScalar;
             }
 
