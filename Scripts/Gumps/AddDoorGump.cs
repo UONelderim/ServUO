@@ -15,30 +15,14 @@ namespace Server.Gumps
             new DoorInfo(typeof(LightWoodDoor), 0x6D5),
             new DoorInfo(typeof(StrongWoodDoor), 0x6E5),
             new DoorInfo(typeof(BarredMetalDoor2), 0x1FED),
-            new DoorInfo(typeof(MetalDoor), -1),
-            new DoorInfo(typeof(MetalDoor), -1),
-            new DoorInfo(typeof(MetalDoor), -1),
-            new DoorInfo(typeof(MetalDoor), -1),
             new DoorInfo(typeof(BarredMetalDoor), 0x685),
             new DoorInfo(typeof(MediumWoodDoor), 0x6B5),
             new DoorInfo(typeof(MetalDoor2), 0x6C5),
-            new DoorInfo(typeof(MetalDoor), -1),
-            new DoorInfo(typeof(MetalDoor), -1),
-            new DoorInfo(typeof(MetalDoor), -1),
-            new DoorInfo(typeof(MetalDoor), -1),
-            new DoorInfo(typeof(MetalDoor), -1),
-            new DoorInfo(typeof(MetalDoor), -1),
             new DoorInfo(typeof(MetalDoor), -1),
             new DoorInfo(typeof(IronGate), 0x824),
             new DoorInfo(typeof(IronGateShort), 0x84C),
             new DoorInfo(typeof(LightWoodGate), 0x839),
             new DoorInfo(typeof(DarkWoodGate), 0x866),
-            new DoorInfo(typeof(MetalDoor), -1),
-            new DoorInfo(typeof(MetalDoor), -1),
-            new DoorInfo(typeof(MetalDoor), -1),
-            new DoorInfo(typeof(MetalDoor), -1),
-            new DoorInfo(typeof(MetalDoor), -1),
-            new DoorInfo(typeof(MetalDoor), -1),
             new DoorInfo(typeof(SecretStoneDoor1), 0xE8),
             new DoorInfo(typeof(SecretDungeonDoor), 0x314),
             new DoorInfo(typeof(SecretStoneDoor2), 0x324),
@@ -61,21 +45,38 @@ namespace Server.Gumps
 
             if (m_Type >= 0 && m_Type < m_Types.Length)
             {
-                AddBlueBack(155, 174);
+                AddBlueBack(155, 320);
 
                 int baseID = m_Types[m_Type].m_BaseID;
 
-                AddItem(25, 24, baseID);
-                AddButton(26, 37, 0x5782, 0x5782, 1, GumpButtonType.Reply, 0);
+				//WEST
+                AddItem(27, 24, baseID + 14);
+                AddButton(40, 21, 0x5787, 0x5787, 8, GumpButtonType.Reply, 0);
 
-                AddItem(47, 45, baseID + 2);
-                AddButton(43, 57, 0x5783, 0x5783, 2, GumpButtonType.Reply, 0);
+                AddItem(4, 45, baseID + 12);
+                AddButton(23, 41, 0x5786, 0x5786, 7, GumpButtonType.Reply, 0);
 
-                AddItem(87, 22, baseID + 10);
-                AddButton(116, 35, 0x5785, 0x5785, 6, GumpButtonType.Reply, 0);
+                //NORTH
+                AddItem(85, 21, baseID + 4);
+                AddButton(99, 21, 0x5780, 0x5780, 3, GumpButtonType.Reply, 0);
 
-                AddItem(65, 45, baseID + 8);
-                AddButton(96, 55, 0x5784, 0x5784, 5, GumpButtonType.Reply, 0);
+                AddItem(107, 42, baseID + 6);
+                AddButton(119, 40, 0x5781, 0x5781, 4, GumpButtonType.Reply, 0);
+
+                //SOUTH
+                AddItem(25, 169, baseID);
+                AddButton(26, 182, 0x5782, 0x5782, 1, GumpButtonType.Reply, 0);
+
+                AddItem(47, 190, baseID + 2);
+                AddButton(43, 203, 0x5783, 0x5783, 2, GumpButtonType.Reply, 0);
+
+                //EAST
+                AddItem(89, 168, baseID + 10);
+                AddButton(116, 180, 0x5785, 0x5785, 6, GumpButtonType.Reply, 0);
+
+                AddItem(65, 190, baseID + 8);
+                AddButton(96, 200, 0x5784, 0x5784, 5, GumpButtonType.Reply, 0);
+
 
                 AddButton(73, 36, 0x2716, 0x2716, 9, GumpButtonType.Reply, 0);
             }
@@ -83,7 +84,7 @@ namespace Server.Gumps
             {
                 AddBlueBack(570, 165);
 
-                int pages = m_Types.Length / 10 + 1;
+                int pages = m_Types.Length / 10;
                 for (int i = 0; i < m_Types.Length; ++i)
                 {
                     int page = i / 10 + 1;
@@ -100,7 +101,7 @@ namespace Server.Gumps
                         else
                             AddButton(30, 60, 0xFA5, 0xFA7, 0, GumpButtonType.Page, 1);
 
-                        AddHtmlLocalized(30, 85, 60, 20, 1011393, 0x7FFF, false, false); // Back
+                        AddHtmlLocalized(30, 85, 60, 20, 1043354, 0x7FFF, false, false); // Back
                         if (page > 1)
                             AddButton(30, 100, 0xFAE, 0xFB0, 0, GumpButtonType.Page, page - 1);
                         else
