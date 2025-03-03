@@ -1767,7 +1767,7 @@
 501765;You cannot cast this on a being. 
 501766;You cannot cast this on a locked down item. 
 501767;Hm...I can't trap this item. 
-501768;Start as the sun and move with time. Consider A FEW before the elements are placed, for a lack of order can bring Relvinian's bane. 
+501768;Start as the sun and move with time. Consider A FEW before the elements are placed, for a lack of order can bring Relvinian's Zguba. 
 501769;Once thy decision has been made, proceed to the altar and between the flames pronounce the Master's name. 
 501770;You swallow the fish whole! 
 501771;You swallow the fish whole! 
@@ -11688,18 +11688,18 @@
 1022521;talerz z jedzeniem 
 1022522;brudny talerz 
 1022523;talerz z jedzeniem 
-1022524;brudny dzbanek 
-1022525;brudny dzbanek 
+1022524;brudny dzZgubak 
+1022525;brudny dzZgubak 
 1022526;brudna patelnia 
-1022527;brudny dzbanek 
-1022528;dzbanek 
-1022529;dzbanek 
+1022527;brudny dzZgubak 
+1022528;dzZgubak 
+1022529;dzZgubak 
 1022530;patelnia 
-1022531;dzbanek 
-1022532;dzbanek 
-1022533;dzbanek 
-1022534;brudny dzbanek 
-1022535;brudny dzbanek 
+1022531;dzZgubak 
+1022532;dzZgubak 
+1022533;dzZgubak 
+1022534;brudny dzZgubak 
+1022535;brudny dzZgubak 
 1022536;brudna patelnia 
 1022537;ciasto 
 1022538;ciastko 
@@ -27057,7 +27057,7 @@
 1054088;Zabici szpiedzy i zwiadowcy czarnych mrowek: 
 1054089;<I>Mrowcza Matriarcha przyglada sie Tobie.</I><BR><BR>Wrociles nie zabiwszy wszystkich 7 szpiegow/zwiadowcow. Wroc kiedy juz sie ich pozbedziesz.<BR><BR>Bede czekac na twoj powrot. 
 1054090;Ukonczyles zadanie zabicia szpiegow. Wroc do matriarchy, ktora zlecila Ci te misje. 
-1054091;<I>Mrowcza Matriarcha wita Cie przyjaznie.</I><BR><BR>Cudownie! Jestem pod wrazeniem twoich umiejetnosci lowieckich. Moja kolonia jest Ci wdzieczna.<BR><BR>Teraz musze Cie prosic o zebranie dla mnie pewnej ilosci wody. Standardowy dzbanek miesci zwykle jeden galon wody. Prosze przelej 8 galonow wody do naszych zbiornikow.<BR><BR>Bywaj. 
+1054091;<I>Mrowcza Matriarcha wita Cie przyjaznie.</I><BR><BR>Cudownie! Jestem pod wrazeniem twoich umiejetnosci lowieckich. Moja kolonia jest Ci wdzieczna.<BR><BR>Teraz musze Cie prosic o zebranie dla mnie pewnej ilosci wody. Standardowy dzZgubak miesci zwykle jeden galon wody. Prosze przelej 8 galonow wody do naszych zbiornikow.<BR><BR>Bywaj. 
 1054092;Zbierz w zbiornikach mrowczej kolonii 8 galonow wody. 
 1054093;Zebrane galony wody: 
 1054094;<I>Mrowcza Matriarcha przyglada Ci sie bacznie.</I><BR><BR>Wrociles nie zebrawszy dla mnie 8 galonow wody. Wroc kiedy wykonasz juz zadanie.<BR><BR>Bywaj. Bede tu na Ciebie czekac. 
@@ -27132,7 +27132,7 @@
 1055008;<I>W kłębie dymu pachnącego siarką pojawia się imp Zeefzorpul.</I><BR><BR>No co!? Jak głupi hooman znalazł potężnego Zeefzorpula? To szaleństwo wiele razy! To szaleństwo nie jest możliwe! To wielkie szaleństwo z szaleństwem na szczycie! Ale to się dzieje! Jak to może być prawdą!?<BR><BR>GAH! Nawet potężny Zeefzorpul nie może się oprzeć tej szalonej muzyce! Potężny Zeefzorpul, rób, co chcesz! Oddaj mi tę głupią gazetę! Potężny Zeefzorpul wcale tego nie chce. To głupie. To super głupie. Wielkie, głupie jak głupie, głupie drzewo z głupimi rzeczami na nim! Tak głupi! Tak głupi, że potężny Zeefzorpul nawet się tym nie przejmuje! Widzisz, że mnie to nie obchodzi? Lepiej, bo to na pewno się dzieje! Ani trochę mnie to nie obchodzi!<BR><BR><I>Dziwny mały chochlik rzuca w ciebie kawałkiem pergaminu. Jednak ku twojemu zaskoczeniu, on spada w dół w błysku trzepoczących skrzydeł i kradnie Ci Czarodziejski Flet.</I><BR><BR>Ha! Taki głupi jak hooman! Potężny Zeefzorpul pokonał głupiego Hoomana i jest największym chochlikiem na świecie! Ty naprawdę głupi, panie Hooman. Wielki głupek z głupcem na górze. Teraz już nie możesz mnie oszukać szaloną muzyką taneczną! Potężny Zeefzorpul odlatuje do swojego drugiego sekretnego domu, gdzie nigdy więcej go nie znajdziesz!<BR><BR>Mam nadzieję, że zostaniesz pożarty przez trolla!<BR><BR><I>W ten sposób imp Zeefzorpul znika w kolejnym zaciągnięciu zjełczałego dymu.</I> 
 1055009;<I>Pokryta brodawkami wiedzma podnosi wzrok znad wsypywania cuchnacych skrawkow miesa do kotla.</I><BR><BR>Poradziles sobie z tym klopotliwym impem Zeefzorpulem? Brawo dla ciebie, maly! Nie jestes tak bezuzyteczny, jak sie wydaje, nawet dla takiej glupiej starej dziewki jak ja!<BR><BR>Widze, ze odzyskales moj cenny przepis na magiczny napar. Zakladam, ze oczekujesz nagrody? Coz, mozesz dalej oczekiwac, a ja moge dalej byc brzydka. Coz mi z tego, ze mam liste, skoro nie mam ucznia, ktory zbieralby skladniki i sam wykonywal zadania!<BR><BR>Jesli chcesz otrzymac swoja cenna mala nagrode, bedziesz musial wykonac zadanie, ktore zlecilem mojemu poprzedniemu Uczniowi. Idz stad! Mam gotowane glowy i gulasze do przyprawienia! Nie wracaj, dopoki nie wykonasz wszystkich pozycji na tej liscie! 
 1055010;<I>Sprośny, stary kapitan piratów podnosi wzrok znad butelki whisky Wild Harpy, pijany jak każdy mężczyzna, jakiego kiedykolwiek widziałeś.<BR><BR>Nieznośnie powolnym ruchem odsuwa swój tricorne kapelusz i patrzy na ciebie w dół z zaczerwienionymi oczami.</I><BR><BR>Czego chcesz, żeby płonęło, szczurze lądowym? Masz może dobrą whisky Kapitana Czarnego Serca? Cóż, możesz utonąć w siedmiu morzach, ty pokryty pąklami zęzowy szczurze!<BR><BR>Wycinałem takich kretynów jak ty za mniejsze zniewagi! Pływam po morzach po tym świecie od pięćdziesięciu lat i nigdy nie widziałem bardziej przesiąkniętej mlekiem bratki, jak ty, która przyszłaś tu po przysługę. Dać ci trochę mojej specjalnej whisky? Wolałbym siłować się nago z wężem morskim – a zrobiłem to jakieś dwadzieścia razy!<BR><BR>Widzisz, stara Whisky Kapitana Czarnego Serca jest przeznaczona tylko dla piratów. I nie wyglądasz na żadnego pirata, jakiego kiedykolwiek widziałem. Musisz mieć odpowiedni krój materiału i odpowiednią ilość alkoholu w brzuchu, aby żeglować w mojej załodze! A bez tego równie dobrze możesz wrócić do domu i wypłakać się mamie. Bo nigdy nie napijecie się ze mną drinka!<BR><BR>A teraz precz!<BR><BR><I>Po tych słowach Kapitan Czarne Serce wraca do śpiewania swoich sprośnych piosenek i picia whisky . Wygląda na to, że będziesz musiała znaleźć sposób, aby zmienić jego zdanie na temat twojej wartości.</I> 
-1055011;<I>Pijany pirat, Kapitan Czarne Serce, z zadowolonym wyrazem twarzy podnosi wzrok znad butelki whisky.</I><BR><BR>No coz, spojrz tutaj! Nie sadzilem, ze szczur ladowy taki jak ty ma w sobie piracka krew! Ale spojrz na to! Z pewnoscia wygladasz teraz na te czesc! Na pewno mozesz jeszcze utrzymac sie na nogach? Har!<BR><BR>Awascie, kochany piracie! Zaslugujesz na pas lepszego trunku niz ten, ktory piles, a ja mam cos takiego.<BR><BR>Nazywam to Whiskey Kapitana Czarnego Serca i jeza ci sie wlosy na klatce piersiowej, to wszystko Jasne. Kiedys na moj statek rozlala sie beczka tego czegos i wyzarla dziure w pokladzie!<BR><BR>No dalej, napij sie albo uzyj tego do oczyszczenia kordelasu z rdzy - to najlepszy napar tak czy inaczej!<BR><BR><I>Kapitan Blackheart wrecza Ci dzbanek swojej slynnej whisky. Uwazasz, ze najlepiej bedzie zwrocic go Wiedzmie, niz wypic jakikolwiek szkodliwy plyn.</I> 
+1055011;<I>Pijany pirat, Kapitan Czarne Serce, z zadowolonym wyrazem twarzy podnosi wzrok znad butelki whisky.</I><BR><BR>No coz, spojrz tutaj! Nie sadzilem, ze szczur ladowy taki jak ty ma w sobie piracka krew! Ale spojrz na to! Z pewnoscia wygladasz teraz na te czesc! Na pewno mozesz jeszcze utrzymac sie na nogach? Har!<BR><BR>Awascie, kochany piracie! Zaslugujesz na pas lepszego trunku niz ten, ktory piles, a ja mam cos takiego.<BR><BR>Nazywam to Whiskey Kapitana Czarnego Serca i jeza ci sie wlosy na klatce piersiowej, to wszystko Jasne. Kiedys na moj statek rozlala sie beczka tego czegos i wyzarla dziure w pokladzie!<BR><BR>No dalej, napij sie albo uzyj tego do oczyszczenia kordelasu z rdzy - to najlepszy napar tak czy inaczej!<BR><BR><I>Kapitan Blackheart wrecza Ci dzZgubak swojej slynnej whisky. Uwazasz, ze najlepiej bedzie zwrocic go Wiedzmie, niz wypic jakikolwiek szkodliwy plyn.</I> 
 1055012;<I>Starozytna wiedzma podnosi wzrok znad bulgoczacego napoju i patrzy na ciebie jednym zdrowym okiem.</I><BR><BR>Wrociles juz, prawda? A co z twoim zadaniem? Czy zebrales wszystkie potrzebne skladniki?<BR><BR>Co to jest!? Nadal nie ukonczyles prostego zadania, ktore przed toba postawilem? Wiec po co tu wracac i zawracac mi glowe? Nie ugotuje ani jednego naparu, jesli bedziesz mnie nekal swoimi jeczacymi przemowami! Jestes gorszy od mojego ostatniego ucznia, a on byl prawdziwym krolem glupcow!<BR><BR>No dalej! Odejdz i odejdz! Nie chce widziec skory i wlosow twojej marudzacej twarzyczki, dopoki nie zbierzesz wszystkich skladnikow z tej listy!<BR><BR><I>Z obrzydliwym odglosem hakowania, podla wiedzma pluje na ziemie i odtraca cie machnieciem swojej pomarszczonej, starej reki.</I> 
 1055013;<I>Okropna wiedzma podnosi wzrok znad swoich podlych eksperymentow i skupia na tobie swoje jedyne zdrowe oko.</I><BR><BR>Ech? Co to jest? Mowisz, ze zebrales skladniki na moj pyszny magiczny wywar?<BR><BR>No coz, nie wiem dokladnie, co powiedziec. Myslalem, ze na pewno skonczysz martwy! Glog! Nie mozna winic kobiety za zyczenia, prawda? Nawet jesli jest troche stara i pomarszczona.<BR><BR>Coz, obiecalem ci nagrode za twoje wysilki i nigdy nie klamie - przynajmniej nie komus takiemu jak ty, po wielkich poswieceniach, jakie poniosles. Wiesz, przydalby mi sie nowy praktykant, w charakterze oficjalnym. Nie udalo mi sie cie przekonac, zebys zostal i pomogl mi jeszcze troche, prawda? Zawsze sa kociolki, ktore trzeba wyczyscic, lajno, ktore trzeba odgarnac, oko traszki, ktore trzeba dobrze przezuc, i ognisko, ktore trzeba podsycic.<BR><BR>Co to jest? Nie zainteresowany? Coz, przypuszczam, ze masz przed soba wspaniale rzeczy i tak dalej. Fe! Jak taki maly lobuz, jak ty, moglbys kiedys cos zrobic w tym zimnym, starym swiecie!<BR><BR>Niemniej jednak dam ci twoja przekleta nagrode i lepiej sie z tego ciesz, bo to tylko twoja sprawa' ponownie dostaje. - I tak przysporzylo mi wystarczajaco klopotow. Masz, wez to i spadaj z toba! Bedzie to przyjemnosc dla moich oczu, jesli juz nigdy nie bede musial mruzyc oczu, zeby cie zobaczyc! I ten smrod! Pachnie, jakbys myl sie dzis rano! Jestescie wspanialymi fantazyjnymi ludzmi, jesli chodzi o wasze mydla i wode! Myslisz, ze jestes taki wspanialy... dlaczego, pamietam, jak nie mielismy nawet mydla, a wode robily male wrozki i kosztowala zlota sztuke za naparstek... Moglbym ci opowiedziec kilka historii, moglbym ...<BR><BR><I>Masz nagrode w reku, postanawiasz zostawic stara Wiedzme z jej mamrotaniem, zanim zorientuje sie, ze wciaz jestes w poblizu i zabierze Cie z powrotem do pracy.</I> 
 1055014;Na poludnie od domu Wiedzmy lezy droga. Podazaj ostroznie w strone jednej z wiosek Panstwa Tasandorskiego w poszukiwaniu jakichkolwiek sladow ucznia Wiedzmy. 
@@ -27175,8 +27175,8 @@
 1055051;magiczny flet 
 1055052;Flet lsni. Imp musi sie chowac w okolicy. 
 1055053;Nic sie nie stalo. Tego impa chyba nie ma w tej okolicy. 
-1055054;<I>Sprosny stary kapitan piratow podnosi glowe znad butelki whisky Wild Harpia i jest tak pijany, jak kazdy czlowiek, jakiego kiedykolwiek widziales.</I><BR><BR>Uciekajcie, kochany piracie! Wlasnie wrociles z rejsu po wspanialym morzu? Wygladacie na gotowe, by upasc na miejscu, naprawde!<BR><BR>Mowie wam, patrzac na to, zaslugujecie na pasek lepszego naparu niz ten, ktory piliscie, a ja mam to samo.<BR><BR>Nazywam to Whiskey Kapitana Czarnego Serca i na pewno jeza ci sie na piersi, to pewne. Kiedys na moj statek rozlala sie beczka tego czegos i wyzarla dziure w pokladzie!<BR><BR>No dalej, napij sie albo uzyj tego do oczyszczenia kordelasu z rdzy - to najlepszy napar tak czy inaczej!<BR><BR><I>Kapitan Blackheart wrecza Ci dzbanek swojej slynnej whisky. Uwazasz, ze najlepiej bedzie zwrocic go Wiedzmie, niz wypic jakikolwiek szkodliwy plyn.</I> 
-1055055;Nadal probujesz zdobyc dzbanek whisky Kapitana Czarnego Serca, ale pijany Kapitan odmawia podzielenia sie swoim wyjatkowym naparem. Musisz udowodnic Czarnemu Sercu, ze jestes godny pirata, zanim zaoferuje ci dzban. 
+1055054;<I>Sprosny stary kapitan piratow podnosi glowe znad butelki whisky Wild Harpia i jest tak pijany, jak kazdy czlowiek, jakiego kiedykolwiek widziales.</I><BR><BR>Uciekajcie, kochany piracie! Wlasnie wrociles z rejsu po wspanialym morzu? Wygladacie na gotowe, by upasc na miejscu, naprawde!<BR><BR>Mowie wam, patrzac na to, zaslugujecie na pasek lepszego naparu niz ten, ktory piliscie, a ja mam to samo.<BR><BR>Nazywam to Whiskey Kapitana Czarnego Serca i na pewno jeza ci sie na piersi, to pewne. Kiedys na moj statek rozlala sie beczka tego czegos i wyzarla dziure w pokladzie!<BR><BR>No dalej, napij sie albo uzyj tego do oczyszczenia kordelasu z rdzy - to najlepszy napar tak czy inaczej!<BR><BR><I>Kapitan Blackheart wrecza Ci dzZgubak swojej slynnej whisky. Uwazasz, ze najlepiej bedzie zwrocic go Wiedzmie, niz wypic jakikolwiek szkodliwy plyn.</I> 
+1055055;Nadal probujesz zdobyc dzZgubak whisky Kapitana Czarnego Serca, ale pijany Kapitan odmawia podzielenia sie swoim wyjatkowym naparem. Musisz udowodnic Czarnemu Sercu, ze jestes godny pirata, zanim zaoferuje ci dzban. 
 1055056;<I>Nietrzezwy pirat spoglada na ciebie z krzywym usmiechem.</I><BR><BR>Coz, witaj ponownie, moj maly kolego. Widze, ze masz brzuch pelen zgnilizny. Zaloze sie, ze myslisz, ze jestes wlasciwym bohaterem, gotowym stawic czola swiatu. Ale jak juz mowilem, bycie czlonkiem mojej pirackiej zalogi oznacza cos wiecej niz tylko mozliwosc zatrzymania drinka. Musisz wygladac na te czesc - i szczerze mowiac, moj maly pakla, nie masz kawalka materialu, aby zmiescic sie w tlumie, w ktorym lubie sie krecic.<BR><BR>Wiec uciekaj, maly szczurze sciekowy, i nie wracaj po tych stronach caly pijany i trzy przescieradla, chyba ze naprawde jestes gotowy, aby dolaczyc do mojej zalogi piratow!<BR><BR><I>Kapitan Czarne Serce odpycha cie na bok, uderzajac kordelasem w sciane stolika i wola kelnerke o kolejna kolejke.</I> 
 1055057;<I>Kapitan Blackheart podnosi wzrok znad polerowania kordelasu i patrzy na ciebie zaczerwienionymi oczami.</I><BR><BR>No coz. Spojrz na tego malego szmatlawca. Czyz nie jestes urocza mala dziewczynka? Czyz nie wygladacie po prostu elegancko? Myslisz, ze jestes gotowy, aby dolaczyc do mojej zalogi piratow? Myslisz, ze powinienem zaproponowac ci specjalny napar Czarnego Serca?<BR><BR>Poprowadze cie po desce, zrobie to! Zobaczymy, jak slodko wygladasz, kiedy dopadna cie weze morskie i rozerwa cie nitkami! Czyz nie jest to ladny obrazek, prawda?<BR><BR>Nie masz zoladka na pirackie zycie, to dla mnie oczywiste. Blyskasz tu jak mala ksiezniczka, naprawde. Jesli chcesz dolaczyc do mojej zalogi, nie mozesz po prostu na to patrzec - musisz miec zoladek napelniony zgnilizna, az nie bedziesz widziec prosto. Nie pije z byle jakim szczurem ladowym! Lepiej udowodnij swoja sile, zanim znowu ze mna porozmawiasz!<BR><BR><I>Pijany kapitan piratow odchyla sie na krzesle, bierze kolejny lyk drinka, po czym zaczyna kolejna sprosna piracka piosenke.< /ja> 
 1055058;<I>Kapitan Blackheart podnosi wzrok znad drinka, niemal przewracajac krzeslo, gdy patrzy na ciebie od gory do dolu.</I><BR><BR>Znowu ty? Chyba mowilem ci, ze masz sie zgubic? Idz dalej! Nie jestes piratem, nie nadajesz sie nawet do usuwania pakli z mojego tylka! Nie wracaj i nie gadaj do mnie o zadnej Whiskey Czarnego Serca, dopoki nie bedziesz wygladac i zachowywac sie jak prawdziwy pirat!<BR><BR>Teraz odejdz, szczurze z kanalow - musze sie napic!<BR> <BR><I>Nietrzezwy pirat cofa kolejny kufel piwa i odpedza cie machnieciem reki.</I> 
@@ -33249,7 +33249,7 @@
 1073677;The All Seeing Eye 
 1073678;Mother's Day Surprise 
 1073679;The Shoulders of Giants<br> 
-1073680;Orc Bane 
+1073680;Orc Zguba 
 1073681;Burning Desire 
 1073682;Albino Atrocity 
 1073683;Toxic Avengers 
@@ -39486,7 +39486,7 @@
 1080065;You have learned to make items from glass.  You will need to find miners to mine fine sand for you to make these items. 
 1080066;You have already learned this information. 
 1080067;A Keg of Murky Liquid. 
-1080068;A Keg of Baneful Liquid. 
+1080068;A Keg of Zgubaful Liquid. 
 1080069;A keg of Parasitic Poison potions 
 1080070;A keg of Darkglow Poison potions 
 1080071;A keg of Invisibility potions 
@@ -41394,7 +41394,7 @@
 1098291;Lord Blackthorn's Throne 
 1098292;Lord Blackthorn's Throne 
 1098293;Lord Blackthorn's Throne 
-1098334;Virtuebane 
+1098334;VirtueZguba 
 1098335;Navrey Night-Eyes 
 1098336;Exodus 
 1098337;Gold Dust 
@@ -43469,7 +43469,7 @@
 1113114;Torment of the Pit 
 1113115;Blight of the Cold Blood 
 1113116;Enemy of the Forest Lord 
-1113117;Bane of the Arachnid 
+1113117;Zguba of the Arachnid 
 1113118;Foe of the Abyss 
 1113119;Adversary of the Vermin Horde 
 1113120;Scourge of the Unholy Terror 
@@ -46071,7 +46071,7 @@
 1115731;+~1_HPR~ Odzyskiwanie zywotnosci.<br>+~2_SR~ Odzyskiwanie wytrzymalosci.<br>+~3_MR~ Odzyskiwanie many.<br>Curse Durations Reduced.<br>Resistance to Poison.<br>Bleed Duration Reduced.<br>Mortal Wound Duration Reduced. 
 1115732;+~1_DCI~% Defense Chance Increase.<br>~2_DAM~% Damage Taken.<br>+~3_CF~% skupienie.<br> 
 1115733;Ophidian 
-1115734;Bane Chosen 
+1115734;Zguba Chosen 
 1115735;Neutral 
 1115736;Piesn bardowska inspiruje Cie. 
 1115737;Piesn bardowska pobudza Cie. 
@@ -46103,9 +46103,9 @@
 1115764;***Survival Mode*** 
 1115766;You cannot gather water here. 
 1115767;Ophidian loyalty decrease (base): ~1_VAL~ (peril bonus): ~2_val~ 
-1115768;Bane Chosen loyalty decrease (base): ~1_VAL~ (peril bonus): ~2_VAL~ 
+1115768;Zguba Chosen loyalty decrease (base): ~1_VAL~ (peril bonus): ~2_VAL~ 
 1115769;Ophidian loyalty increase (base): ~1_VAL~ (peril bonus): ~2_VAL~ 
-1115770;Bane Chosen loyalty increase (base): ~1_VAL~ (peril bonus): ~2_VAL~ 
+1115770;Zguba Chosen loyalty increase (base): ~1_VAL~ (peril bonus): ~2_VAL~ 
 1115771;Twoj cel nie znajduje sie juz w zasiegu twojej piesni. 
 1115772;Twoj cel juz korzysta z innej piesni. 
 1115773;Twoj cel jest martwy. 
@@ -46124,22 +46124,22 @@
 1115786;Ranged Weapons 
 1115787;Arena Menu - Rules 
 1115788;Victory to the Ophidians! You have earned a reward for your service! (double click the chest in the Ophidian temple for your reward.) 
-1115789;Victory to the Bane Chosen! You have earned a reward for your service!  (double click the chest in the Bane Chosen camp for your reward.) 
+1115789;Victory to the Zguba Chosen! You have earned a reward for your service!  (double click the chest in the Zguba Chosen camp for your reward.) 
 1115790;If you want to be one of the Chosen, you gotta pull your weight! 
 1115791;Dragon food 
-1115792;Obtain 20 pieces of crystalline blackrock and return for your reward.  You can mine for crystalline blackrock in Ter-Mur or you can get it by killing the upper level Ophidians who spawn on the front lines of the battle in this event.  The reward for this quest is food for the bane dragon, it is the only known thing that they eat.<br><br><center>-----</center><br><br>What are you looking at, you lay about?!  You think you can be one of the Chosen?  Well, you have to prove yourself and get your own bane dragon!<br><br>Getting one takes guts and brawn but keeping one takes some of my special stew.  I'll give you a bowl of it, but you gotta prove yourself by service to the Bane Chosen.<br><br>I want twenty pieces of crystalline blackrock in exchange for a bowl of my special dragon food.  You can mine for it, if you haven't got anything better to do, but the fastest way to get it is from the cold dead hand of one of those Ophidians out on the front lines....  Now, get to it you wanna-be Chosen!  Make yourself useful! 
+1115792;Obtain 20 pieces of crystalline blackrock and return for your reward.  You can mine for crystalline blackrock in Ter-Mur or you can get it by killing the upper level Ophidians who spawn on the front lines of the battle in this event.  The reward for this quest is food for the Zguba dragon, it is the only known thing that they eat.<br><br><center>-----</center><br><br>What are you looking at, you lay about?!  You think you can be one of the Chosen?  Well, you have to prove yourself and get your own Zguba dragon!<br><br>Getting one takes guts and brawn but keeping one takes some of my special stew.  I'll give you a bowl of it, but you gotta prove yourself by service to the Zguba Chosen.<br><br>I want twenty pieces of crystalline blackrock in exchange for a bowl of my special dragon food.  You can mine for it, if you haven't got anything better to do, but the fastest way to get it is from the cold dead hand of one of those Ophidians out on the front lines....  Now, get to it you wanna-be Chosen!  Make yourself useful! 
 1115793;Where's my crystalline blackrock?  Are you serious about getting your own dragon or not?! 
 1115794;Figures.... 
 1115795;Well... not a bad days work, says I.<br><br>Here, recruit, now good luck being food for the dragon.  I mean... good luck feeding the dragon.  Heh, heh. 
-1115796;Do not delete!  This is the Bane Chosen camp control object! 
-1115797;Bane Chosen War Chest 
+1115796;Do not delete!  This is the Zguba Chosen camp control object! 
+1115797;Zguba Chosen War Chest 
 1115798;Ophidian War Chest 
-1115799;Do not Delete! This is the Ophidian camp control object for the Bane Invasion! 
+1115799;Do not Delete! This is the Ophidian camp control object for the Zguba Invasion! 
 1115800;You have created a new duel session. 
 1115801;Sympathizer 
 1115802;Friend 
 1115803;Essence of Fear 
-1115804;Obtain 10 crystalline blackrock and return for your reward.  The most efficient way to get it is by killing higher tier Bane Chosen on the frontline of this event.<br><br><CENTER>-----</CENTER><br><br>Greetings-s-s-s friend.  You have s-s-served us-s-s well.  We will be glad to trade with the likes-s-s-s of you.<br><br>Alchemist am I, developed very s-s-special potion to defend agains-s-s-st the humans who attacks us-s-s-s.  Potion that makes-s-s them fear us-s-s-s.<br><br>Bring to me ten crys-s-stalline blackrock and we s-s-shall trade.  The Bane Chos-s-sen takes-s-s it from our land.  They have found a vein of it in our land and they takes-s-s it.  We must takes-s-s it back.  Kill their leaders-s-s and bring to me the crystalline blackrock.  We will trade, yes-s-s?<br><br>Yes-s-s-s. Very powerful potion. 
+1115804;Obtain 10 crystalline blackrock and return for your reward.  The most efficient way to get it is by killing higher tier Zguba Chosen on the frontline of this event.<br><br><CENTER>-----</CENTER><br><br>Greetings-s-s-s friend.  You have s-s-served us-s-s well.  We will be glad to trade with the likes-s-s-s of you.<br><br>Alchemist am I, developed very s-s-special potion to defend agains-s-s-st the humans who attacks us-s-s-s.  Potion that makes-s-s them fear us-s-s-s.<br><br>Bring to me ten crys-s-stalline blackrock and we s-s-shall trade.  The Zguba Chos-s-sen takes-s-s it from our land.  They have found a vein of it in our land and they takes-s-s it.  We must takes-s-s it back.  Kill their leaders-s-s and bring to me the crystalline blackrock.  We will trade, yes-s-s?<br><br>Yes-s-s-s. Very powerful potion. 
 1115805;Three Fear Essence Potions-s-s-s 
 1115806;As-s-s-s you wish-sh-sh-sh.... 
 1115807;Welcome friend.  Has-s-s you crystalline blackrock to trade with us-s-s? 
@@ -46147,7 +46147,7 @@
 1115809;It wants-s-s to trade with us-s-s?  We have potions-s-s-s to trade. 
 1115810;It is-s-s friend to us-s-s-s.  I will trade with friends-s-s. 
 1115811;Desperate Measures 
-1115812;Obtain 10 crystalline blackrock and return for your reward.  The most efficient way to get it is by killing higher tier Bane Chosen on the frontline of this event.<br><br><CENTER>-----</CENTER><br><br>Friend to Ophidians-s-s-s.  Come, s-s-speak with me.<br><br>Alchemis-s-st am I, protecting us-s from humans-s-s.  Developed very s-s-s-special potion.  Creates great s-s-sound which can s-s-shatter.  Our s-soldiers-s-s us-s-se it to prevent the humans from es-s-scaping with our crys-s-stalline blackrock.  If they can't have our crystals-s-s, they will go away.<br><br>S-s-sad to s-s-see it destroyed am I.  Collecting it am I.  Bring to me ten crys-s-stalline blackrock and I will trade to you s-s-some of my potions-s-s. 
+1115812;Obtain 10 crystalline blackrock and return for your reward.  The most efficient way to get it is by killing higher tier Zguba Chosen on the frontline of this event.<br><br><CENTER>-----</CENTER><br><br>Friend to Ophidians-s-s-s.  Come, s-s-speak with me.<br><br>Alchemis-s-st am I, protecting us-s from humans-s-s.  Developed very s-s-s-special potion.  Creates great s-s-sound which can s-s-shatter.  Our s-soldiers-s-s us-s-se it to prevent the humans from es-s-scaping with our crys-s-stalline blackrock.  If they can't have our crystals-s-s, they will go away.<br><br>S-s-sad to s-s-see it destroyed am I.  Collecting it am I.  Bring to me ten crys-s-stalline blackrock and I will trade to you s-s-some of my potions-s-s. 
 1115813;Three shattering potions-s-s-s 
 1115814;S-s-s-so be it... friend. 
 1115815;You resist the effects of the Fear Essence. 
@@ -46160,21 +46160,21 @@
 1115822;No, I don't want to cancel. 
 1115825;Hound! Defend me! 
 1115826;You kill one of the Ophidians in the back ranks of their army and gain little recognition. 
-1115827;You kill one of the Bane Chosen in the back ranks of their army and gain little recognition. 
-1115828;You assist the Bane Chosen in pushing back the Ophidian army. 
-1115829;You assist the Ophidians in pushing back the Bane Chosen army. 
+1115827;You kill one of the Zguba Chosen in the back ranks of their army and gain little recognition. 
+1115828;You assist the Zguba Chosen in pushing back the Ophidian army. 
+1115829;You assist the Ophidians in pushing back the Zguba Chosen army. 
 1115830;The Ophidians have secured this location, the front line has moved up! 
-1115831;The Bane Chosen have secured this location, the front line has moved up! 
+1115831;The Zguba Chosen have secured this location, the front line has moved up! 
 1115832;Ophidians have lost ~1_VAL~ of ~2_VAL~ from wave ~3_VAL~ of their front line. 
-1115833;Bane Chosen have lost ~1_VAL~ of ~2_VAL~ from wave ~3_VAL~ of their front line. 
+1115833;Zguba Chosen have lost ~1_VAL~ of ~2_VAL~ from wave ~3_VAL~ of their front line. 
 1115834;Final Ban Confirmation 
 1115835;Are you certain you wish to ban this player?  Banned players cannot rejoin this session any longer. 
 1115836;Yes, I want to ban him/her. 
 1115837;No, I don't want to ban him/her. 
 1115838;You cannot ban yourself! 
 1115839;Only the session owner can use this function. 
-1115840;Ophidian allies drove away the Bane Chosen ~1_VAL~ minutes ago. 
-1115841;Bane Chosen allies drove away the Ophidians ~1_VAL~ minutes ago. 
+1115840;Ophidian allies drove away the Zguba Chosen ~1_VAL~ minutes ago. 
+1115841;Zguba Chosen allies drove away the Ophidians ~1_VAL~ minutes ago. 
 1115842;Arena Menu - Entry 
 1115843;+~1_INV~% bonus to invigorate effects. 
 1115844;+~1_INS~% bonus to inspire effects. 
@@ -46182,13 +46182,13 @@
 1115846;+~1_RES~% bonus to resilience effects. 
 1115847;Entry 
 1115848;Host Player 
-1115851;You have assisted the Ophidians in routing the Bane Chosen but you have insufficient loyalty with them to receive a reward. (1000 loyalty required) 
-1115852;You have assisted the Bane Chosen in routing the Ophidians but you have insufficient loyalty with them to receive a reward. (1000 loyalty required) 
+1115851;You have assisted the Ophidians in routing the Zguba Chosen but you have insufficient loyalty with them to receive a reward. (1000 loyalty required) 
+1115852;You have assisted the Zguba Chosen in routing the Ophidians but you have insufficient loyalty with them to receive a reward. (1000 loyalty required) 
 1115853;Beware, reinforcements are coming! 
-1115854;We use the bane dragons because they are powerful and loyal mounts, our bane dragons cannot be stolen. 
+1115854;We use the Zguba dragons because they are powerful and loyal mounts, our Zguba dragons cannot be stolen. 
 1115855;A hell hound trained by our hound masters bond to them supernaturally, the hound will defend its master to the death. 
-1115856;Lieutenant John of the Bane Chosen army. 
-1115857;It is my duty to recruit new soldiers for the Bane Chosen cause. 
+1115856;Lieutenant John of the Zguba Chosen army. 
+1115857;It is my duty to recruit new soldiers for the Zguba Chosen cause. 
 1115858;We seek to take back the land of Sosaria from the uncivilized races, such as the Ophidians. 
 1115859;The Ophidians are a vile race. I lost several members of my family when they attacked Britannia. 
 1115860;If you commit to our cause and help us drive out the Ophidians, I will pay you and the other soldiers from this chest. 
@@ -46196,13 +46196,13 @@
 1115862;If you want to prove yourself, go up to the front lines where the banners are and start killing Ophidians.  Telling me you're loyal proves nothing. 
 1115863;My name is-s-s Ophidian Delphi. 
 1115864;I s-s-seek to reward those who help us-s-s. 
-1115865;The Bane Chos-s-sen attack us-s-s.  They s-seek our crys-s-stalline blackrock. 
+1115865;The Zguba Chos-s-sen attack us-s-s.  They s-seek our crys-s-stalline blackrock. 
 1115866;The Ophidians-s-s want peace with the humans-s-s.  They attack us-s-s unprovoked... again. 
-1115867;This-s-s ches-s-st.  It contains-s-s s-s-some of our mos-s-st valuable treas-s-sure.  If you help us-s-s drive away the Bane Chos-s-sen, we will pay you from it. 
+1115867;This-s-s ches-s-st.  It contains-s-s s-s-some of our mos-s-st valuable treas-s-sure.  If you help us-s-s drive away the Zguba Chos-s-sen, we will pay you from it. 
 1115868;Our alchemis-s-st trade for crys-s-stalline blackrock.  But they will not trade with those who s-s-seek to hurt us-s-s. 
-1115869;Thos-s-se who are loyal to us-s-s would drive away the Bane Chos-s-sen.  Help us-s-s on the front lines-s-s of the battle and you will be rewarded well. 
+1115869;Thos-s-se who are loyal to us-s-s would drive away the Zguba Chos-s-sen.  Help us-s-s on the front lines-s-s of the battle and you will be rewarded well. 
 1115870;The fear potion caus-ses-s thos-se who are affected to be paralyz-s-zed with fear. 
-1115871;The s-s-shattering potion caus-s-ses-s-s crys-s-stal and glass-s-s to shatter!  We have found a way to make it much more powerful than it was-s-s.  Use it against the Bane Chos-s-sen! 
+1115871;The s-s-shattering potion caus-s-ses-s-s crys-s-stal and glass-s-s to shatter!  We have found a way to make it much more powerful than it was-s-s.  Use it against the Zguba Chos-s-sen! 
 1115872;Arena Menu - Details 
 1115873;ENTRY 
 1115874;The arena gate has opened near the arena stone. <br>You've ninety seconds to use the gate or you'll be removed from this duel. 
@@ -46254,7 +46254,7 @@
 1115921;Your loyalty to ~1_GROUP~ has decreased by ~2_AMOUNT~ 
 1115922;the Gargoyle Queen 
 1115923;the Ophidians 
-1115924;the Bane Chosen 
+1115924;the Zguba Chosen 
 1115925;See booked duels 
 1115926;Arena Menu - Booking Status 
 1115927;Show Corpse Names 
@@ -46264,7 +46264,7 @@
 1115931;You are too far away from the arena stone. 
 1115932;Your target resists the effects of your spellsong. 
 1115933;You resist the effects of the spellsong. 
-1115934;The Bane Chosen have surged ahead, and this area is no longer on the front lines. 
+1115934;The Zguba Chosen have surged ahead, and this area is no longer on the front lines. 
 1115935;Dismount 
 1115936;Dismounts from your mount if you are currently mounted. 
 1115937;The Ophidians have surged ahead, and this area is no longer on the front lines. 
@@ -46567,9 +46567,9 @@
 1116234;Sfalszowane dokumenty
 1116235;Using this pardon again will remove one murder count from your character and consume the pardon. 
 1116236;Farba do lodzi 
-1116237;Obtain 20 power crystals and return for your reward. Power crystals can be found in various places in Ilshenar including in the Meer village. The reward for this quest is food for the bane dragon, it is the only known thing that they eat.<br><br><center>-----</center><br><br>What are you standing around for recruit?! You want to be a dragon rider? Well, you have to do work!<br><br>Getting your own bane dragon takes guts and brawn but keeping one takes some of my special stew. Here's the deal, you give me twenty power crystals, I'll give you some stew.  I don't care how you get them, you can get them from Blackthorn's golems or you can get them from the Meer.  I hear those furball hocking misfits have been collecting them, planning to make a new cat toy I suppose. Heh-heh.<br><br>Just remember, before you go getting all soft for the cat people, remember what their magics did to Yew.  The Meer are a threat to Britannia and there is no two ways about it!  Now, get going and make yourself useful! 
+1116237;Obtain 20 power crystals and return for your reward. Power crystals can be found in various places in Ilshenar including in the Meer village. The reward for this quest is food for the Zguba dragon, it is the only known thing that they eat.<br><br><center>-----</center><br><br>What are you standing around for recruit?! You want to be a dragon rider? Well, you have to do work!<br><br>Getting your own Zguba dragon takes guts and brawn but keeping one takes some of my special stew. Here's the deal, you give me twenty power crystals, I'll give you some stew.  I don't care how you get them, you can get them from Blackthorn's golems or you can get them from the Meer.  I hear those furball hocking misfits have been collecting them, planning to make a new cat toy I suppose. Heh-heh.<br><br>Just remember, before you go getting all soft for the cat people, remember what their magics did to Yew.  The Meer are a threat to Britannia and there is no two ways about it!  Now, get going and make yourself useful! 
 1116238;Where's my power crystals numbskull?<br><br>I'm starting to question your loyalty to our cause!  My dragon is too... and traitors make him hungry. 
-1116239;Nice set of power crystals, recruit.  I especially like the ones with blood and fur still on them! Heh-heh.<br><br>I wonder what those post-scratchers want with these things anyway?  No matter, they belong to the Bane Chosen now! 
+1116239;Nice set of power crystals, recruit.  I especially like the ones with blood and fur still on them! Heh-heh.<br><br>I wonder what those post-scratchers want with these things anyway?  No matter, they belong to the Zguba Chosen now! 
 1116240;I don't want to see any of you Chosen laying about when there's work to be done!  Unless you want to be un-Chosen.... 
 1116241;You feel magical energy surging through your body. 
 1116242;The magical energy surging through your body subsides. 
@@ -46582,7 +46582,7 @@
 1116249;That must be in your backpack for you to use it. 
 1116250;That must be equipped before you can use it. 
 1116251;the Ophidians 
-1116252;the Bane Chosen 
+1116252;the Zguba Chosen 
 1116253;the Meer 
 1116254;A Starter Kit 
 1116255;Armor of Initiation 
@@ -46655,10 +46655,10 @@
 1116322;Dzialo okretowe musi byc calkowicie naprawione przed jego rozmontowaniem. 
 1116323;Aby oddac statek pod opieke obslugi dokow, najpierw musisz rozladowac bron na pokladzie. 
 1116324;Zanim oddasz statek pod opieke obslugi dokow, musisz go w pelni naprawic. 
-1116325;To warn outsiders-s-s about the threat of the Bane Chos-s-sen. 
-1116326;Thos-s-se who are loyal to us-s-s would destroy these Bane Chosen.  We will provide our allies-s-s with powerful potions-s-s! 
-1116327;The Ophidians-s-s want peace with the humans-s-s.  Human Bane Chosen attack us-s-s unprovoked... again.  Make them dead, pleas-s-se.  We have powerful alchemis-s-sts, we will help those who are loyal to us-s-s. 
-1116328;Bane Chosen attack the Ophidians and take our crystalline blackrock!  We hates them! 
+1116325;To warn outsiders-s-s about the threat of the Zguba Chos-s-sen. 
+1116326;Thos-s-se who are loyal to us-s-s would destroy these Zguba Chosen.  We will provide our allies-s-s with powerful potions-s-s! 
+1116327;The Ophidians-s-s want peace with the humans-s-s.  Human Zguba Chosen attack us-s-s unprovoked... again.  Make them dead, pleas-s-se.  We have powerful alchemis-s-sts, we will help those who are loyal to us-s-s. 
+1116328;Zguba Chosen attack the Ophidians and take our crystalline blackrock!  We hates them! 
 1116329;Select the ship direction for placement. 
 1116330;WEST 
 1116331;NORTH 
@@ -49807,15 +49807,15 @@
 1149934;~1_VAL~% 
 1149935;OKAY 
 1149936;The New World Order 
-1149937;Obtain a perfect copy of the Book of Truth and bring it to Miegen for your reward<br><br><center>-----</center><br><br>Hail brother, the time of the Bane Chosen is at hand.  Our master comes to this realm soon and he shall rid us of our weakness and empower us to rid this land of our enemies.  Sosaria will be perfected!<br><br>In the past, you have served our cause, but it is now time to become one of us.<br><br>Our master has instructed us to bring Books of Truth to aid in his passage from his world to ours.  He travels in the power of Truth and Truth is required of us to become empowered.<br><br>There is a monk in Britain who can supply you with a Book of Truth.  Bring that book to me as proof that you are Bane Chosen. 
+1149937;Obtain a perfect copy of the Book of Truth and bring it to Miegen for your reward<br><br><center>-----</center><br><br>Hail brother, the time of the Zguba Chosen is at hand.  Our master comes to this realm soon and he shall rid us of our weakness and empower us to rid this land of our enemies.  Sosaria will be perfected!<br><br>In the past, you have served our cause, but it is now time to become one of us.<br><br>Our master has instructed us to bring Books of Truth to aid in his passage from his world to ours.  He travels in the power of Truth and Truth is required of us to become empowered.<br><br>There is a monk in Britain who can supply you with a Book of Truth.  Bring that book to me as proof that you are Zguba Chosen. 
 1149938;Corrupted Book of Truth 
 1149939;I see... 
 1149940;Friend, have you brought a Book of Truth?  I eagerly await your committment to our brotherhood. 
-1149941;*** Miegen takes the book from you, places it on the alter, then hands it back to you.  You can see that it has magically transformed!***<br><br>Well done, you may now call yourself Bane Chosen.  Your future is secured. 
+1149941;*** Miegen takes the book from you, places it on the alter, then hands it back to you.  You can see that it has magically transformed!***<br><br>Well done, you may now call yourself Zguba Chosen.  Your future is secured. 
 1149942;Corrupted Book of Truth 
 1149943;A gift to ~1_val~ ~2_val~ 
 1149944;Upon ~1_val~ induction 
-1149945;to the Bane Chosen 
+1149945;to the Zguba Chosen 
 1149946;Brother 
 1149947;Sister 
 1149948;his 
@@ -49874,17 +49874,17 @@
 1150001;Switch contents to English 
 1150002;Switch contents to Japanese 
 1150003;This must be in your backpack to switch language of the book. 
-1150004;Focusing Gem of Virtue Bane 
+1150004;Focusing Gem of Virtue Zguba 
 1150005;Rage 
 1150006;Rideable Boura Statuette 
-1150007;We've set up a barricade here. Go forth and rid the city of Virtue Bane's minions. 
-1150008;The time has come! Help us eliminate the defenders at the outskirts of the city in the name of Virtue Bane! 
+1150007;We've set up a barricade here. Go forth and rid the city of Virtue Zguba's minions. 
+1150008;The time has come! Help us eliminate the defenders at the outskirts of the city in the name of Virtue Zguba! 
 1150009;A Dish Best Served Cold 
-1150010;Victory to Virtue Bane! 
-1150011;Obtain a bowl of rotworm stew, five small pieces of blackrock, and the arms of a Terathan Avenger and return to Salis for your reward.<br><br><center>-----</center><br><br>Greetings ally of the Ophidians-s-s.  I am working on a secret project to undermine the power of our hated enemies the Bane Chos-s-sen.<br><br>We know that the Bane Chos-s-sen use their knowledge of the Bane Dragon food to manipulate those hungry for power over Bane Dragons-s-s.  If I can discover the s-s-secret recipe for their mysterious blackrock stew, we can sell it freely and weaken their power bas-s-se.<br><br>I s-s-seek assistance in this project.  If you will assist, I will give you a copy of the recipe when I discover it.<br><br>I need the following ingredients-s-s, the arms of a Terathan Avenger, one bowl of rotworm stew, and five small pieces of blackrock.  Will you assis-s-st us-s-s? 
-1150012;As-s-s you wish, ally.  Jus-s-st remember that whoever has this recipe, not only has power over the Bane Bragon but has power over thos-s-se who wish to ride them. 
-1150013;Have you retrieved the ingredients-s-s?  Do not wait, or the Bane Chos-s-sen will des-s-stroy all.  Remember, I need five small blackrock pieces, one bowl of rotworm s-s-stew, and the arms of a Terethan Avenger. 
-1150014;*** Salis takes the ingredients and slithers to the table to experiment.  After a few minutes of experimenting and tasting it slithers back to you. ***<br><br>I have discovered the recipe to blackrock stew, the secret to the bane dragon's power.  As-s-s promised, I will share it with you.  Thank you for your assis-s-stance. 
+1150010;Victory to Virtue Zguba! 
+1150011;Obtain a bowl of rotworm stew, five small pieces of blackrock, and the arms of a Terathan Avenger and return to Salis for your reward.<br><br><center>-----</center><br><br>Greetings ally of the Ophidians-s-s.  I am working on a secret project to undermine the power of our hated enemies the Zguba Chos-s-sen.<br><br>We know that the Zguba Chos-s-sen use their knowledge of the Zguba Dragon food to manipulate those hungry for power over Zguba Dragons-s-s.  If I can discover the s-s-secret recipe for their mysterious blackrock stew, we can sell it freely and weaken their power bas-s-se.<br><br>I s-s-seek assistance in this project.  If you will assist, I will give you a copy of the recipe when I discover it.<br><br>I need the following ingredients-s-s, the arms of a Terathan Avenger, one bowl of rotworm stew, and five small pieces of blackrock.  Will you assis-s-st us-s-s? 
+1150012;As-s-s you wish, ally.  Jus-s-st remember that whoever has this recipe, not only has power over the Zguba Bragon but has power over thos-s-se who wish to ride them. 
+1150013;Have you retrieved the ingredients-s-s?  Do not wait, or the Zguba Chos-s-sen will des-s-stroy all.  Remember, I need five small blackrock pieces, one bowl of rotworm s-s-stew, and the arms of a Terethan Avenger. 
+1150014;*** Salis takes the ingredients and slithers to the table to experiment.  After a few minutes of experimenting and tasting it slithers back to you. ***<br><br>I have discovered the recipe to blackrock stew, the secret to the Zguba dragon's power.  As-s-s promised, I will share it with you.  Thank you for your assis-s-stance. 
 1150015;Your backpack is too full for switching language of the book! Please make room and try again. 
 1150016;maly kawalek podmroczniaka
 1150017;Kontrakt na Ogromny Galeon 
@@ -49915,7 +49915,7 @@
 1150042;liquor smuggler's cache 
 1150043;Recipe for blackrock stew 
 1150044;Terathan Avenger arms 
-1150045;My work mussst not fall into the handsss of the Bane Chosssen.  You mussst prove yourssself further before I can trussst you. 
+1150045;My work mussst not fall into the handsss of the Zguba Chosssen.  You mussst prove yourssself further before I can trussst you. 
 1150046;A Skull Rug (South) 
 1150047;A Skull Rug (East) 
 1150048;A Rose Rug (South) 
@@ -49927,7 +49927,7 @@
 1150054;That effect is already present. 
 1150055;You must wait a few seconds before using this effect again. 
 1150056;You begin tuning your spells to your opponent. 
-1150057;I need assistance from a loyal adventurer.  I am close to a breakthrough that will undermine the Bane Chosen. 
+1150057;I need assistance from a loyal adventurer.  I am close to a breakthrough that will undermine the Zguba Chosen. 
 1150058;Spell Focusing 
 1150059;Spell Focusing Sash 
 1150060;Defiler of Virtue 
@@ -50137,14 +50137,14 @@
 1150264;Necklace of Villainous Epiphany 
 1150265;Your bank box cannot hold the proceeds from this transaction. 
 1150266;Spell Consumption: ~1_Val~% 
-1150267;Gauntlets of Virtue Bane 
+1150267;Gauntlets of Virtue Zguba 
 1150268;This title is obtained by focusing only in Magia. 
 1150269;This title is obtained by focusing only in Necromancy. 
 1150270;This title is obtained by focusing only in Mysticism. 
 1150271;This title is obtained by focusing only in Spellweaving. 
-1150272;Bane of Virtuebane 
-1150273;This is a reward title given for completing the initiation of the Bane Chosen. 
-1150274;This is a reward title for loyally defending Britannia against the forces of Virtuebane. 
+1150272;Zguba of VirtueZguba 
+1150273;This is a reward title given for completing the initiation of the Zguba Chosen. 
+1150274;This is a reward title for loyally defending Britannia against the forces of VirtueZguba. 
 1150275;brzeczka pszenna 
 1150276;Transfer Stabled Pets to Merchant 
 1150277;Transfer Merchant Inventory to Stables 
@@ -50391,7 +50391,7 @@
 1150518;a gi** *o ~1_val~ ~2_val~ 
 1150519;**on ~1_val~ induc**** 
 1150520;to the Ba** **osen 
-1150521;Stone Arms of Virtue Bane 
+1150521;Stone Arms of Virtue Zguba 
 1150522;You are struck by a barrage of elemental havoc! 
 1150523;Shard of the Crystal of Duplicity 
 1150524;(This piece is unstable 
@@ -51075,7 +51075,7 @@
 1151202;Humans & Elves are our friends! 
 1151203;Gargoyles are our friends! 
 1151204;We are pirates! 
-1151205;Follower of Bane 
+1151205;Follower of Zguba 
 1151206;Queen Dawn Forever 
 1151207;buty ze skory ognistej jaszczorki 
 1151208;buty lodowego wyrma 
@@ -51231,7 +51231,7 @@
 1151358;A fruit that only grows at night. 
 1151359;This plant is known as 'deadly nightshade:' 
 1151360;Datura 
-1151361;Wolfsbane 
+1151361;WolfsZguba 
 1151362;Atropa Belladonna 
 1151363;Mandrake 
 1151364;Which of the following plants possesses a fruit that is extremely poisonous and shaped like a spiked ball? 
@@ -51342,10 +51342,10 @@
 1151469;Portrait of Mondain 
 1151470;Portrait of Lord Blackthorn the machine 
 1151471;Portrait of Queen Dawn 
-1151472;Tapestry depicting the Bane Chosen Assult on Ophidians 
-1151473;Tapestry depicting Bane Chosen Assult on Meer 
-1151474;Tapestry depicting Gargoyles, Ophidians and Meer assisting Britannia against the Bane Chosen 
-1151475;Tapestry Depicting the Defeat of Virtuebane 
+1151472;Tapestry depicting the Zguba Chosen Assult on Ophidians 
+1151473;Tapestry depicting Zguba Chosen Assult on Meer 
+1151474;Tapestry depicting Gargoyles, Ophidians and Meer assisting Britannia against the Zguba Chosen 
+1151475;Tapestry Depicting the Defeat of VirtueZguba 
 1151476;Shield with Symbol for Spirituality 
 1151477;Decorative Shield with Symbol for Justice 
 1151478;Decorative Shield with Symbol for Sacrifice 
@@ -52588,7 +52588,7 @@
 1152716;Prismatic Lenses 
 1152717;Reptile's Kiss 
 1152718;Mace of the Fanatic 
-1152719;Fayaxion's Bane 
+1152719;Fayaxion's Zguba 
 1152720;Plaguebringer 
 1152721;Inferno Tunic 
 1152722;Hephaestus 
@@ -53037,7 +53037,7 @@
 1153165;The Mad Mage Kronos activated what he believed to be a blackrock detector. It instead tore a hole into the Ethereal Void, allowing the Shadowlords entry to our world. The Shadowlords wasted no time in causing upheaval, murdering the Royal Council and inviting their Crimson dragon allies to strike. 
 1153166;A reformed and highly secretive Royal Council appointed the elf Casca as king pro-tempore. Casca had been corrupted by the Shadowlords 
 1153167;A renewed interest in ocean trade lead to increased activity on Sosaria's waters. Merchant and pirate ships took to the high seas, hoping to make new fortunes by trade or by plunder. Ancient sea monsters such as the Scalis rose from the depths, attracted by these fleets of ships. 
-1153168;Dawn, the young warrior queen, ordered her subjects to bring the Crystal of Duplicity out of the great vault, only to lose the crystal and her life to Virtuebane. Eventually, an alliance of humans, gargoyles, and Meer would force the demon and his army to retreat into the Void. 
+1153168;Dawn, the young warrior queen, ordered her subjects to bring the Crystal of Duplicity out of the great vault, only to lose the crystal and her life to VirtueZguba. Eventually, an alliance of humans, gargoyles, and Meer would force the demon and his army to retreat into the Void. 
 1153169;Chaos gripped the land, as fear and strife tore across Britannia. The being Exodus returned from the Void, forcing a retreat out of Ilshenar by the gargoyles of Ver Lor Reg. Returning to their ancient homeland in Ter Mur, these refugees carried with them a deadly plague. Only a noble figure from Britannia's past was able to restore order and hope to Sosaria. 
 1153170;By Malachi the Archivist 
 1153171;Sands of Sosaria 
@@ -53461,7 +53461,7 @@
 1153589;Exodus Summoning Ritual 
 1153590;An altar has already been built here. 
 1153591;Thou art not properly attired to perform such a ritual. 
-1153592;Virtuebane Statuette 
+1153592;VirtueZguba Statuette 
 1153593;Navrey Night-Eyes Statuette 
 1153594;Exodus Statuette 
 1153595;You must first join the party of the person who built this altar. 
@@ -53615,7 +53615,7 @@
 1153743;Max Energy Resist ~1_val~% 
 1153744;Max Cold Resist ~1_val~% 
 1153745;a mask of orcish kin 
-1153746;bane dragon 
+1153746;Zguba dragon 
 1153747;<center>GENERATOR CONTROL PANEL</center> 
 1153748;<center>Use the Directional Controls to</center> 
 1153749;<center>Close the Grid Circuit</center> 
@@ -54337,7 +54337,7 @@
 1154465;Ciasto trzypoziomowe 
 1154466;Madeline Harte 
 1154467;*Your keen senses detect something hidden...* 
-1154468;bane 
+1154468;Zguba 
 1154469;Captain's Log 
 1154470;Johne 
 1154471;It's been a fine few days as we prepare to leave Trinsic, readying for our voyage. The crew seems hale and hearty, and all seems to be going well. I have high hopes for this outing.<BR>I've caught sight of the Serpent's Pillar through my spyglass, and we're making excellent time. I think we'll be there very shortly.<BR>I came on deck to shouting voices, just to see a fistfight starting between two of the men...and almost all the others joining in. Arguing about the damn pillar started it...but I ended it, along with Rogers. Managed to separate the worst of them...but it wasn't fast enough, as two of the ones who started it had already drawn blades and managed to kill each other. Rogers and I tossed the bodies overboard, but I don't want the Captain to turn us around. We might not keep Garrity if he does, and Garrity knows these waters better than anyone. <BR>I've no bloody idea what happened last night, or where we are now.<BR>Garrity seems on edge. I'm worried about him.<BR>Captain Johne came to report to the men and I about Garrity...he apparently cracked, and Captain Johne said he came at him like a lunatic, swinging his cutlass, and he was forced to cut him down. Grief can make a man do crazy things, so I wouldn't put it past him. Still...we're up to a dozen or so of the crew dead from the brawl, the vortex, and now Garrity being added to the list. I've got a foreboding feeling.<BR>The Captain's been keeping to himself lately, and acting a bit strange.<BR>The Captain has locked himself into his own quarters. Apparently Rogers tried to talk to him and he drew steel on Rogers...and Rogers ran, with the Captain chasing him. So stunned were the crew that nobody followed. Rogers hasn't returned...but for him to have run? He fought a kraken barehanded. Would he have run from anything?<BR>The men are demanding I do something...I think we have to put the Captain under arrest and relieve him of duty. I'll be taking a few of them with me to go confront him. 
@@ -54439,7 +54439,7 @@
 1154567;To Arms! To Arms! The City of Skara Brae in Felucca is under attack! 
 1154568;To Arms! To Arms! The City of Trinsic in Felucca is under attack! 
 1154569;To Arms! To Arms! The City of Vesper in Felucca is under attack! 
-1154570;This property provides a chance to inflict additional damage when the targets health is below 50%.  As the target's health decreases the chance for the property to fire will increase along with the damage inflicted. The damage inflicted is physical damage that can be lessened by a targets physical resistance. Bane has the potential to damage the target for up to 30% of its maximum hit points however this damage cannot exceed 350 points of damage. 
+1154570;This property provides a chance to inflict additional damage when the targets health is below 50%.  As the target's health decreases the chance for the property to fire will increase along with the damage inflicted. The damage inflicted is physical damage that can be lessened by a targets physical resistance. Zguba has the potential to damage the target for up to 30% of its maximum hit points however this damage cannot exceed 350 points of damage. 
 1154571;Turn In Minax Artifacts 
 1154572;Claim Blackthorn Artifacts 
 1154573;A Lobster Dinner Prepared by ~1_NAME~ 
@@ -54540,7 +54540,7 @@
 1154668;Zmeczenie 
 1154669;Odsysanie Many 
 1154670;bron rozszczepiajaca 
-1154671;Bane 
+1154671;Zguba 
 1154672;You cannot afford to teleport to the vendor. 
 1154673;Klatwa 
 1154674;The search string must not be a numeric value under 1000. 
@@ -54921,7 +54921,7 @@
 1155049;Target Ridgeback Mount 
 1155050;Target Giant Beetle Mount 
 1155051;Target Fire Beetle Mount 
-1155052;Target Swamp/Bane Dragon Mount 
+1155052;Target Swamp/Zguba Dragon Mount 
 1155053;Target Cu Sidhe Mount 
 1155054;Target Nightmare/Dread War Horse Mount 
 1155055;Target Hiryu Mount 
@@ -55321,7 +55321,7 @@
 1155449;Target Nightmare/Dread War Horse Pet Summoning Ball 
 1155450;Target Bake Kitsune Pet Summoning Ball 
 1155451;Target Rune Beetle Pet Summoning Ball 
-1155452;Target Swamp/Bane Dragon Pet Summoning Ball 
+1155452;Target Swamp/Zguba Dragon Pet Summoning Ball 
 1155453;Target Boura Pet Summoning Ball 
 1155454;Target Raptor Pet Summoning Ball 
 1155455;Target Skree Pet Summoning Ball 
@@ -55509,7 +55509,7 @@
 1155637;Owain the Blind Prophet 
 1155638;The Bridge of Two Ships 
 1155639;Behind the Bellwether 
-1155640;The Shepherd's Bane 
+1155640;The Shepherd's Zguba 
 1155641;The Pretty Prince's Throng 
 1155642;Bully's Breakfast 
 1155643;This property indicates that an item has increased durability loss and only can be powdered 3 times. Each powder will reduce max durability to 250, 200, and 150 respectively. This item can be repaired. 
@@ -56125,7 +56125,7 @@
 1156257;How...How could this happen! I shall nay be bested by mere mortals! We shall meet again vile heroes! 
 1156258;You shall burn as Trinsic burned at the hands of the Vile Lich Juo'nar! 
 1156259;Oh Anon my dear! Deal with these pesky intruders will you? Burn them to ASH! 
-1156260;You didn't think that ridiculous pie trick would work twice in a row? Virtuebane I command thee destroy these vile creatures! 
+1156260;You didn't think that ridiculous pie trick would work twice in a row? VirtueZguba I command thee destroy these vile creatures! 
 1156261;And now you shall bow to the King of Kings! Suffer at the hands of the Feudal Lord Ozymandias! 
 1156262;Valley of Eodon 
 1156263;Auto Ignore Corpses 
@@ -58045,7 +58045,7 @@
 1158177;Stories from the Time Between Crowns - Chapter 5 
 1158178;Stories from the Time Between Crowns - Chapter 6 
 1158179;Stories from the Time Between Crowns - Chapter 7 
-1158180;Prologue - Introduction by Sherry the Mouse<br><br>After the death of Queen Dawn, but before King Blackthorn assumed the throne, there was a period of chaos, now called the Time between Crowns. After the defeat of Virtuebane, the common banner against daemonic invasion was gone. Without leadership from Britain, the cities and towns were pulled apart by petty squabbles. Even Britain itself was torn apart from within. As humanity turned inward, they ignored their responsibilities to their allies 
+1158180;Prologue - Introduction by Sherry the Mouse<br><br>After the death of Queen Dawn, but before King Blackthorn assumed the throne, there was a period of chaos, now called the Time between Crowns. After the defeat of VirtueZguba, the common banner against daemonic invasion was gone. Without leadership from Britain, the cities and towns were pulled apart by petty squabbles. Even Britain itself was torn apart from within. As humanity turned inward, they ignored their responsibilities to their allies 
 1158181;Chapter 1 - The Broken Bridge<br><br>Victor shares a story of chaos and despair and those who stood against it. - Sherry the Mouse<br><br>Travelling city to city as a wagon driver, I saw the chaos firsthand.  <br><br>Many have heard stories about the Britain Riot, remembered for the looting and fire bombing of the original Castle Blackthorn. Arson and rioting were rampant. I saw someone attempting to set fire to Empath Abbey itself in a fit of rage! Some of this chaos was caused by criminals who were always outside the laws of Britannia, but much of the violence was caused by ordinary people driven to extremes by grief and desperation. The riots were more about bread than politics. <br> <br>As our roads became more dangerous, the kingdom separated into feuding cities. Where were the rich and powerful during all of this? They were buying and selling any piece of Britannia they could get their hands on! Want to be a knight, dame, baronet, or duke? Each city was selling grants of title as quickly as the ink could dry. Many accepted the titles of leadership while doing nothing to lead! <br><br>There were those who tried to make things better. Those who fed the hungry. Those who protected the roads and cities. Those who brought criminals to justice. They saved us. One saved me. A ranger rescued me after I'd been left for dead on the road to Skara Brae. I'll never forget her or those who like her who got us through those dark days. 
 1158182;Chapter 2 - The Girl Who Woke Exodus<br><br>Balthan the Guide shares a story that illustrates the difference between intelligence and wisdom. - Sherry the Mouse<br><br>Callie never stopped moving. She was a stranger in our settlement, and despite exhaustion from her travels, she immediately asked to hire a guide. She had this giant backpack, filled with notebooks and tools, and when she sat by the fire, she pulled a dozen maps of Ilshenar from it. Callie needed a guide through Exodus's former domain. It was dangerous work, but I'd done it before. <br><br>During our travels, I learned that she was completing the work of her parents: a study of the magic and tinkering created by the being Exodus. This had led her to every library, mage circle, and tinker's workshop in the land. When she had exhausted that well of knowledge, she'd spent the last of her money hiring me.<br><br>When we entered the clockwork tunnels, Callie set to work. Despite the dangers, she pulled apart and studied every gear, gizmo, and glowing power crystal. She learned enough to repair the larger devices inside Exodus's mechanized lair. Those great machines had been left broken since the fight between Britannia and Exodus's false Blackthorn and the Juka. Her tinkering know-how guided us as we moved the large components and rebuilt the first Nexus device. When she activated it, we barely escaped with our lives as every golem and cultist in the dungeon converged on us. <br><br>This set into motion a plan by the mastermind machine itself that would return the scourge of Exodus to Sosaria. Later, others would duplicate her efforts and build unlinked Nexus devices in an attempt to stop Exodus, but their work could not completely undo what she had done. As for Callie, she was hunted down and killed by an agent of Exodus. Her knowledge of Exodus's arcane workings was lost as well. 
 1158183;Chapter 3 - The Waymaster<br><br>Argahrok, Shirron of the Juka, shares a story of unlikely bonds and the need to listen. - Sherry the Mouse<br><br>My tale starts with a nightmare. <br><br>I am a Juka warrior. I have stood in battle since I was old enough to hold a sword, and fear has never been a companion. Yet, thoughts of that nightmare send a chill down my spine. It was a horror shared by all Juka. It forced some of us back to the waking world, screaming, and some of my kin never woke at all. Each night for a week, the Meer and my people had visions of a battle that had never happened, a history forgotten. <br><br>Many of my warriors believed it a curse, a precursor to a larger attack by the Meer. However, my greatest scout, Waymaster Harlann, was not so sure. She disguised herself as one of the Meer and spoke with the other factions of Ilshenar. The gargoyles and humans were unaffected, but she found the Meer were also afflicted. With this knowledge, she returned to our stronghold, hoping to convince me to find the true source. She was almost too late. <br><br>Harlann was right that the dreams were an omen of something worse, connected with the Meer and Juka's shared origin. For when Exodus's machines came to life, they set in motion long dormant machinations. One of these was a contingency for if the Juka betrayed Exodus.<br><br>I did not believe her when she demanded that we abandon our fortifications. Great Mother, I was wrong! Our great fortress was torn from its place and cast back to where it came from. Many of my warriors were not able to escape and were pulled through the mana tempest. Older Juka in the vicinity, those who had arrived years earlier as part of Kabur's alliance with Exodus, died as two opposing timelines crashed together. <br><br>I would not have survived if Harlann had not pulled me, unconscious, half the way to Ver Lor Reg, before collapsing from her own injuries. If I had only listened, so many more would have been saved. 
