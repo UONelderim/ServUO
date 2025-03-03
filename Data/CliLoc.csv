@@ -44062,7 +44062,7 @@
 1113709;The key vanishes. 
 1113710;Glod walki 
 1113711;The incubator must be secured for the egg to grow, not locked down. 
-1113712;Hit Curse ~1_val~% 
+1113712;Klatwa ~1_val~% 
 1113713;You must rise to the rank of noble in the eyes of the Gargoyle Queen before her majesty will allow you to build a house in her lands. 
 1113714;You can't resize a house in Ter Mur unless you have at least ~1_MIN~ loyalty to the Gargoyle Queen. 
 1113715;~1_AMOUNT~ sugar cane seeds 
@@ -51098,7 +51098,7 @@
 1151225;Boots of the Ice Wyrm<br>Cold Resist 2% 
 1151226;Boots of the Crystal Hydra<br>Energy Resist 2% 
 1151227;Boots of the Thrasher<br>Physical Resist 2% 
-1151228;Aka-Sabi<br>Brittle<br>Hit Curse 50%<br>bron rozszczepiajaca 20%<br>Reactive Paralyze<br>Hit Chance Increase 15%<br>Damage Increase 50%<br>Poison Damage 100%<br>Durability 120 
+1151228;Aka-Sabi<br>Brittle<br>Klatwa 50%<br>bron rozszczepiajaca 20%<br>Reactive Paralyze<br>Hit Chance Increase 15%<br>Damage Increase 50%<br>Poison Damage 100%<br>Durability 120 
 1151229;Bestial Helm<br>(can be imbued)<br>Berserk 1<br>Physical Resist 8%<br>Fire Resist 6%<br>Cold Resist 22%<br>Poison Resist 7%<br>Energy Resist 7%<br>Durability 125 / 125<br>Part of an Armor Set (4 Pieces)<br>Set Bonus:<br>Berserk 5 (total) 
 1151230;Bestial Gloves<br>(can be imbued)<br>Berserk 1<br>Physical Resist 4%<br>Fire Resist 19%<br>Cold Resist 5%<br>Poison Resist 5%<br>Energy Resist 5%<br>Durability 125 / 125<br>Part of an Armor Set (4 Pieces)<br>Set Bonus:<br>Berserk 5 (total) 
 1151231;Bestial Leggings<br>(can be imbued)<br>Berserk 1<br>Physical Resist 4%<br>Fire Resist 19%<br>Cold Resist 5%<br>Poison Resist 5%<br>Energy Resist 5%<br>Durability 125 / 125<br>Part of an Armor Set (4 Pieces)<br>Set Bonus:<br>Berserk 5 (total) 
@@ -54542,7 +54542,7 @@
 1154670;bron rozszczepiajaca 
 1154671;Bane 
 1154672;You cannot afford to teleport to the vendor. 
-1154673;Hit Curse 
+1154673;Klatwa 
 1154674;The search string must not be a numeric value under 1000. 
 1154675;Your search criteria is too vague.  Please refine your criteria and try again 
 1154676;Your search has been cancelled. 
