@@ -21,7 +21,7 @@ namespace Server.Items
 	        
             BossLocation = new Point3D(5800, 1762, 0);
             TeleportDest = new Point3D(5797, 1783, 12);
-            ExitDest = new Point3D(720, 1425, 27);
+            ExitDest = new Point3D(719, 1423, 20);
 
             Name = "Oltarz Burugha";
             Hue = 2191;

@@ -20,8 +20,8 @@ namespace Server.Items
         public SaraAltar() : base(0x207C)
         {
 	        
-            BossLocation = new Point3D(5765, 1719, 7);
-            TeleportDest = new Point3D(5741, 1723, 7);
+            BossLocation = new Point3D(5762, 1724, 15);
+            TeleportDest = new Point3D(5762, 1701, 10);
             ExitDest = new Point3D(5676, 1874, 0);
 
             Name = "Oltarz Saraga";

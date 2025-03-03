@@ -20,7 +20,7 @@ namespace Server.Items
         {
 	        
             BossLocation = new Point3D(5469, 1876, 0);
-            TeleportDest = new Point3D(5437, 1872, 0);
+            TeleportDest = new Point3D(5435, 1873, 0);
             ExitDest = new Point3D(5407, 1872, 0);
 
             Name = "Oltarz Starozytnego Runicznego Zuka";

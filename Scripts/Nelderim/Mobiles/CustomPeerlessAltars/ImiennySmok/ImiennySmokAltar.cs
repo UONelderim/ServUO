@@ -19,9 +19,9 @@ namespace Server.Items
         public ImiennySmokAltar() : base(0x207C)
         {
 	        
-            BossLocation = new Point3D(5615, 563, -36);
-            TeleportDest = new Point3D(5628, 564, -31);
-            ExitDest = new Point3D(5650, 570, 0);
+            BossLocation = new Point3D(5609, 566, -36);
+            TeleportDest = new Point3D(5628, 566, -31);
+            ExitDest = new Point3D(5638, 564, -17);
 
             Name = "Oltarz Imiennego Smoka";
             Hue = 22;

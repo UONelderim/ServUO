@@ -19,9 +19,9 @@ namespace Server.Items
         public ZhoaminthAltar() : base(0x207C)
         {
 	        
-            BossLocation = new Point3D(5461, 3796, -25);
-            TeleportDest = new Point3D(5473, 3823, -25);
-            ExitDest = new Point3D(5473, 3830, -25);
+            BossLocation = new Point3D(5975, 1821, 0);
+            TeleportDest = new Point3D(5966, 1819, 47);
+            ExitDest = new Point3D(5475, 3791, -23);
 
             Name = "Oltarz Zhoamintha";
             Hue = 1161;

@@ -19,7 +19,7 @@ namespace Server.Items
         public StarozytnyLodowySmokAltar() : base(0x207C)
         {
 	        
-            BossLocation = new Point3D(5791, 1913, 5);
+            BossLocation = new Point3D(5787, 1904, 5);
             TeleportDest = new Point3D(5786, 1928, 5);
             ExitDest = new Point3D(5776, 1952, 0);
 
