@@ -1951,7 +1951,7 @@ namespace Server.Mobiles
             get
             {
                 int strBase;
-                int strOffs = GetStatOffset(StatType.Str);
+                int strOffs = GetTotalStatOffset(StatType.Str);
 
                 strBase = Str; //Str already includes GetStatOffset/str
                 strOffs = AosAttributes.GetValue(this, AosAttribute.BonusHits);
@@ -1990,7 +1990,9 @@ namespace Server.Mobiles
             {
                 if (IsPlayer())
                 {
-                    return Math.Min(base.Str, StrMaxCap);
+	                var baseVal = RawStr + GetFixedStatOffset(StatType.Str);
+	                var capped = Math.Min(baseVal, StrMaxCap);
+	                return capped + GetTimedStatOffset(StatType.Str);
                 }
 
                 return base.Str;
@@ -2005,7 +2007,9 @@ namespace Server.Mobiles
             {
                 if (IsPlayer())
                 {
-                    return Math.Min(base.Int, IntMaxCap);
+	                var baseVal = RawInt + GetFixedStatOffset(StatType.Int);
+	                var capped = Math.Min(baseVal, IntMaxCap);
+	                return capped + GetTimedStatOffset(StatType.Int);
                 }
 
                 return base.Int;
@@ -2020,9 +2024,9 @@ namespace Server.Mobiles
             {
                 if (IsPlayer())
                 {
-                    int dex = base.Dex;
-
-                    return Math.Min(dex, DexMaxCap);
+                    var baseVal = RawDex + GetFixedStatOffset(StatType.Dex);
+                    var capped = Math.Min(baseVal, DexMaxCap);
+                    return capped + GetTimedStatOffset(StatType.Dex);
                 }
 
                 return base.Dex;

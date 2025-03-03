@@ -1702,7 +1702,7 @@ namespace Server.Mobiles
 
                 if (m_HitsMax > 0)
                 {
-                    value = m_HitsMax + GetStatOffset(StatType.Str);
+                    value = m_HitsMax + GetTotalStatOffset(StatType.Str);
 
                     if (value < 1)
                     {
@@ -1732,7 +1732,7 @@ namespace Server.Mobiles
             {
                 if (m_StamMax > 0)
                 {
-                    int value = m_StamMax + GetStatOffset(StatType.Dex);
+                    int value = m_StamMax + GetTotalStatOffset(StatType.Dex);
 
                     if (value < 1)
                     {
@@ -1760,7 +1760,7 @@ namespace Server.Mobiles
             {
                 if (m_ManaMax > 0)
                 {
-                    int value = m_ManaMax + GetStatOffset(StatType.Int);
+                    int value = m_ManaMax + GetTotalStatOffset(StatType.Int);
 
                     if (value < 1)
                     {

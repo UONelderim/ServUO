@@ -318,10 +318,7 @@ namespace Server
 			return (DateTime.UtcNow - m_Added) >= m_Duration;
 		}
 
-		public TimeSpan TimeLeft()
-		{
-			return m_Duration - (DateTime.UtcNow - m_Added);
-		}
+		public TimeSpan Duration => m_Duration;
 
 		public StatMod(StatType type, string name, int offset, TimeSpan duration)
 		{
@@ -7841,10 +7838,25 @@ namespace Server
 			return delta;
 		}
 
-		/// <summary>
-		///     Computes the total modified offset for the specified stat type. Expired <see cref="StatMod" /> instances are removed.
-		/// </summary>
-		public int GetStatOffset(StatType type)
+		// Computes stat offset from temporary sources like potions and spells
+		public int GetTimedStatOffset(StatType type)
+		{
+			return GetStatOffset(type, true);
+		}
+
+		//  Computes fixed stat offsets from fixed sources like wearables
+		public int GetFixedStatOffset(StatType type)
+		{
+			return GetStatOffset(type, false);
+		}
+		
+		// Computes the total modified offset for the specified stat type. 
+		public int GetTotalStatOffset(StatType type)
+		{
+			return GetTimedStatOffset(type) + GetFixedStatOffset(type);
+		}
+		
+		private int GetStatOffset(StatType type, bool onlyTimed)
 		{
 			var offset = 0;
 
@@ -7860,7 +7872,7 @@ namespace Server
 
 					--i;
 				}
-				else if ((mod.Type & type) != 0)
+				else if ((mod.Type & type) != 0 && onlyTimed ^ mod.Duration == TimeSpan.Zero)
 				{
 					offset += mod.Offset;
 				}
@@ -7972,7 +7984,7 @@ namespace Server
 		{
 			get
 			{
-				var value = m_Str + GetStatOffset(StatType.Str);
+				var value = m_Str + GetTotalStatOffset(StatType.Str);
 
 				if (value < 1)
 				{
@@ -8063,7 +8075,7 @@ namespace Server
 		{
 			get
 			{
-				var value = m_Dex + GetStatOffset(StatType.Dex);
+				var value = m_Dex + GetTotalStatOffset(StatType.Dex);
 
 				if (value < 1)
 				{
@@ -8154,7 +8166,7 @@ namespace Server
 		{
 			get
 			{
-				var value = m_Int + GetStatOffset(StatType.Int);
+				var value = m_Int + GetTotalStatOffset(StatType.Int);
 
 				if (value < 1)
 				{
