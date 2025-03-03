@@ -26,7 +26,7 @@ namespace Server.Items
 
         [Constructable]
         public StarRoomGate(bool decays)
-            : base(new Point3D(5143, 1774, 0), Map.Felucca)
+            : base(new Point3D(5494, 715, 0), Map.Felucca)
         {
             Dispellable = false;
             ItemID = 0x1FD4;
