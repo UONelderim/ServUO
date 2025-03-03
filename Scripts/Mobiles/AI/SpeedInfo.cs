@@ -14,33 +14,18 @@ namespace Server
 
         public static bool GetSpeeds(BaseCreature bc, ref double activeSpeed, ref double passiveSpeed)
         {
-	        return true; //Don't adjust
-	        
-            int maxDex = GetMaxMovementDex(bc);
-            int dex = Math.Min(maxDex, Math.Max(25, bc.Dex));
+	        if (bc is BaseNelderimGuard)
+		        return true;
 
-            double min = bc.IsMonster || InActivePVPCombat(bc) ? MinDelayWild : MinDelay;
-            double max = bc.IsMonster || InActivePVPCombat(bc) ? MaxDelayWild : MaxDelay;
-
-            if (bc.IsParagon)
-            {
-                min /= 2;
-                max = min + .4;
-            }
-
-            activeSpeed = max - ((max - min) * ((double)dex / maxDex));
-
-            if (activeSpeed < min)
-            {
-                activeSpeed = min;
-            }
-
-            // activeSpeed *= 1.65; //!NELDERIM
-
-            passiveSpeed = activeSpeed * 2;
+	        if (bc.IsMonster)
+	        {
+		        activeSpeed *= 1.50f;
+		        passiveSpeed *= 1.50f;
+	        }
 
             return true;
         }
+        
 
         private static int GetMaxMovementDex(BaseCreature bc)
         {
@@ -54,7 +39,7 @@ namespace Server
 
         public static double TransformMoveDelay(BaseCreature bc, double delay)
         {
-            double adjusted = bc.IsMonster ? MaxDelayWild : MaxDelay;
+            double max = bc.IsMonster ? MaxDelayWild : MaxDelay;
 
             if (!bc.IsDeadPet && (bc.ReduceSpeedWithDamage || bc.IsSubdued))
             {
@@ -62,16 +47,16 @@ namespace Server
 
                 if (offset < 1.0)
                 {
-                    delay += ((adjusted - delay) * (1.0 - offset));
+                    delay += ((max - delay) * (1.0 - offset));
                 }
 
                 var hitsScalar = bc.Hits < (bc.HitsMax * 0.2f) ? 1.2 : 1.0;
 	            delay *= hitsScalar;
             }
 
-            if (delay > adjusted)
+            if (delay > max)
             {
-                delay = adjusted;
+                delay = max;
             }
 
             return delay;
