@@ -198,7 +198,7 @@ namespace Server.Items
 		public static readonly PRMLocation Imloth = new PRMLocation(Map.Felucca, new Point3D(2696, 784, 0), "Imloth", 2571);
 		public static readonly PRMLocation Lotharn = new PRMLocation(Map.Felucca, new Point3D(1966, 554, 0), "Lotharn", 2571);
 		
-		public static readonly PRMLocation[] TravelDestinationssNonElf = new PRMLocation[] { Garlan, Orod, Tasandora, Tirassa, Twierdza, Imloth };
+		public static readonly PRMLocation[] TravelDestinationssNonElf = new PRMLocation[] { Garlan, Orod, Tasandora, Tirassa, Twierdza, Imloth, Lotharn };
 		public static readonly PRMLocation[] TravelDestinationsElf = new PRMLocation[] { Garlan, Orod, Tasandora, Tirassa, Twierdza, Imloth, Lotharn };
 
 		public static readonly PRMLocation[] AllGates = new PRMLocation[] { Garlan, Orod, Tasandora, Tirassa, Twierdza, Imloth, Lotharn }; // used by gate generation command
