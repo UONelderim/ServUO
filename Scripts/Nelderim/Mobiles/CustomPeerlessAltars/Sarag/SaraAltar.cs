@@ -3,6 +3,7 @@ using System;
 
 namespace Server.Items
 {
+	//It should be SaragAltar :)
     public class SaraAltar : PeerlessAltar
     {
         public override int KeyCount => 3;

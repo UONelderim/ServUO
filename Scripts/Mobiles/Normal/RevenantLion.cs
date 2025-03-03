@@ -59,7 +59,10 @@ namespace Server.Mobiles
             AddLoot(LootPack.MedScrolls, 2);
             AddLoot(LootPack.NecroRegs, 6, 8);
             AddLoot(LootPack.BodyPartsAndBones);
-            AddLoot(LootPack.LootItem<KielBiesa>(30.0));
+            if (IsInAnyRegion("HallTorech", "Alcala"))
+            {
+	            AddLoot(LootPack.LootItem<KielBiesa>(30.0));
+            }
         }
 
         public override int GetAngerSound()

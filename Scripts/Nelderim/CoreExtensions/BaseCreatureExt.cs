@@ -156,5 +156,21 @@ namespace Server.Mobiles
 				BaseGump.SendGump(new CreatureDifficultyGump(_Player, _Creature));
 			}
 		}
+
+		protected bool IsInAnyRegion(params string[] regionNames)
+		{
+			if (Region == null)
+				return false;
+			
+			foreach (var regionName in regionNames)
+			{
+				if (Region.Name.Contains(regionName))
+				{
+					return true;
+				}
+			}
+
+			return false;
+		}
 	}
 }
