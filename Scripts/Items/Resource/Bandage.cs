@@ -585,8 +585,14 @@ namespace Server.Items
         public static BandageContext BeginHeal(Mobile healer, Mobile patient, bool enhanced)
         {
             bool isDeadPet = (patient is BaseCreature && ((BaseCreature)patient).IsDeadPet);
+            
+            BandageContext context = GetContext(healer);
 
-            if (patient is IRepairableMobile && ((IRepairableMobile)patient).RepairResource != typeof(Bandage))
+            if (context != null)
+            {
+	            healer.SendMessage("Juz leczysz kogos innego.");
+            }
+            else if (patient is IRepairableMobile && ((IRepairableMobile)patient).RepairResource != typeof(Bandage))
             {
                 healer.SendLocalizedMessage(500970); // Bandages cannot be used on that.
             }
@@ -606,13 +612,6 @@ namespace Server.Items
             {
                 healer.DoBeneficial(patient);
                 patient.RevealingAction();
-
-                BandageContext context = GetContext(healer);
-
-                if (context != null)
-                {
-                    context.StopHeal();
-                }
 
                 TimeSpan delay = GetDelay(healer, patient);
 
