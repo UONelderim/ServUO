@@ -38049,7 +38049,7 @@
 1078523;You may not purchase skill training while your character is on a new player skill quest. 
 1078524;Your backpack is full. You cannot complete the quest and receive your reward. 
 1078525;I'm away from my keyboard right now. 
-1078526;<body>Mondain's Legacy Required<br>Damage Modifier: 10%<br>Defense Chance Increase 5%<br>Lower Ammo Cost 20%<br>Weight Reduction 30%</body> 
+1078526;<body>Mondain's Legacy Required<br>Damage Modifier: 10%<br>Defense Chance Increase 5%<br>Zmniejszony Koszt Strzal 20%<br>Weight Reduction 30%</body> 
 1078527;<body>Mondain's Legacy Required<br>When a ninja equips the Talisman of the Fey, it will permit him to use his Animal Form ability to transform into one of the newly-discovered creatures.<br>+10 Stealing Skill.</body> 
 1078528;<body>Mondain's Legacy Required<br>When a ninja equips the Talisman of the Fey, it will permit him to use his Animal Form ability to transform into one of the newly-discovered creatures.<br>Become a squirrel! Amaze your friends! Be the life of the party!</body> 
 1078529;<body>Mondain's Legacy Required<br>When a ninja equips the Talisman of the Fey, it will permit him to use his Animal Form ability to transform into one of the newly-discovered creatures.<br>Auto-heals using bandages in backpack.</body> 
@@ -56836,7 +56836,7 @@
 1156968;Receive Dawn's Music Box. Using an interior decorator on the music box will change its facing from south to east or back again.  The music box comes with 4 common tracks and you may collect many other tracks as loot from numerous monsters in game. 
 1156969;Receive a Talisman of the Fey: Ferret.  When a ninja equips the Talisman of the Fey, it will permit the ninja to use their Animal Form ability to transform into a special form.  While in Ferret form, the ninja gains a ten point stealing skill bonus. 
 1156970;Receive a Talisman of the Fey: Cu Sidhe.  When a ninja equips the Talisman of the Fey, it will permit the ninja to use their Animal Form ability to transform into a special form.  While in Cu Sidhe form, the ninja will auto heal using bandages in their backpack. 
-1156971;Receive a Quiver of Infinity.  This piece of equipment provides the following bonuses:  10% Damage Modifier, 5% Defense Chance Increase, 20% Lower Ammo Cost and 30% Weight Reduction. 
+1156971;Receive a Quiver of Infinity.  This piece of equipment provides the following bonuses:  10% Damage Modifier, 5% Defense Chance Increase, 20% Zmniejszony Koszt Strzal and 30% Weight Reduction. 
 1156972;"Receive a creepy portrait deed. The deed may be used to place a decorative creepy portrait inside of your home.  Using an interior decorator on the creepy portrait will change its facing from south to east or back again.  You will be in for a ""ghoulish"" surprise if you get too close to the portrait. "
 1156973;Receive an unsettling portrait deed. The deed may be used to place a decorative unsettling portrait inside of your home.  Using an interior decorator on the unsettling portrait will change its facing from south to east or back again.  You might want to keep a keen eye on this possessed portrait. 
 1156974;Receive a mounted pixie deed. The deed may be used to place a decorative mounted pixie inside of your home.  Using an interior decorator on the mounted pixie will change its facing from south to east or back again.  Please be sure to keep your pixie poking to a minimum. 
@@ -59180,7 +59180,7 @@
 1159312;Enabled and disabled through a context menu on the item this property affects damage spells aimed at a single target. The first spell has a damage modifier of -30% subsequent spells increase in increments of 6% until 00% then in increments of 2%, until +20% 
 1159313;Increases the strength requirement of the item to 125. This property ignores Lower Requirements. 
 1159314;Increased item weight to 50 stones. 
-1159315;Lower Ammo Cost 
+1159315;Zmniejszony Koszt Strzal 
 1159316;Increases your skill points in a particular skill, up to, but not exceeding your cap in that skill. 
 1159317;~1_ITEM~ bearing the Fellowship Insignia 
 1159318;You notice the Fellowship Insignia on your fallen foe's equipment and decide it may be of some value... 
