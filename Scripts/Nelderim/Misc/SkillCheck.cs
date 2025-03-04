@@ -72,13 +72,10 @@ namespace Server.Misc
 
 		public static double NGetGainChance(Mobile from, Skill skill, double chance, bool success)
 		{
-			double gc = (double)(from.Skills.Cap - from.Skills.Total) / from.Skills.Cap;
-
-			gc += (skill.Cap - skill.Base) / skill.Cap;
-			gc /= 2;
+			double gc = (skill.Cap - skill.Base) / skill.Cap;
 
 			gc += (1.0 - chance) * (success ? 0.5 : 0.0);
-			gc /= 2;
+			gc *= 0.5f;
 
 			gc *= skill.Info.GainFactor;
 			
@@ -92,6 +89,8 @@ namespace Server.Misc
 			gc *= NConfig.BaseGainFactor;
 			
 			gc *= Gains.calculateGainFactor(from);
+
+			gc *= EaseInOutSine(skill.Base, skill.Cap);
 			
 			// Pets get a 100% bonus
 			if (from is BaseCreature && ((BaseCreature)from).Controlled)
@@ -109,6 +108,11 @@ namespace Server.Misc
 						$"RegionalModifier = x{regionalModifier}");
 
 			return gc;
+		}
+		
+		//It eases out with cosine, in range 0-120 from 5 to 1
+		private static double EaseInOutSine(double value, double cap) {
+			return (Math.Cos(Math.PI * value / cap) * 1.5) + 2.5;
 		}
 	}
 }
