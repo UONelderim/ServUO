@@ -14,7 +14,7 @@ namespace Server.SkillHandlers
 
         public static TimeSpan OnUse(Mobile m)
         {
-            if (m.HasGump(typeof(NewAnimalLoreGump)))
+            if (m.HasGump(typeof(NewAnimalLoreGump)) && m.IsPlayer())
             {
                 m.SendLocalizedMessage(500118); // You must wait a few moments to use another skill.
             }
