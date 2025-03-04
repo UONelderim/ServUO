@@ -21,7 +21,7 @@ namespace Nelderim
 
 		private static void SkillEstimate_OnCommand(CommandEventArgs e)
 		{
-			var tsFormat = "%d' Dni, '%h' Godzin i '%m' Minut'";
+			var tsFormat = "%d'd, '%h'h '%m'm'";
 			if (Enum.TryParse(e.Arguments[0], true, out SkillName skillName))
 			{
 				int start, end;
@@ -46,10 +46,9 @@ namespace Nelderim
 				}
 				try
 				{
-					e.Mobile.SendMessage($"Trening {skillName} od {start / 10f} do {end / 10f} zajmie około");
-					e.Mobile.SendMessage(TimeSpan.FromSeconds(IntegralTrapezoidRule(x => 
+					e.Mobile.SendMessage($"{skillName} {start / 10f}->{end / 10f}\n" + TimeSpan.FromSeconds(IntegralTrapezoidRule(x => 
 							AverageTimeToGain(e.Mobile, fakeMob, fakeMob.Skills[skillName], x), 
-							start, end, end - start)).ToString(tsFormat));
+						start, end, end - start)).ToString(tsFormat));
 				}
 				finally
 				{
