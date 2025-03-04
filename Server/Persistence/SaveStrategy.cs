@@ -6,7 +6,7 @@ namespace Server
 
 		public static SaveStrategy Acquire()
 		{
-            return new DualSaveStrategy();
+            return new DynamicSaveStrategy();
 		}
 
 		public abstract void Save(SaveMetrics metrics, bool permitBackgroundWrite);
