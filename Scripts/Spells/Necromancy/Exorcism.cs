@@ -60,6 +60,8 @@ namespace Server.Spells.Necromancy
         public override bool DelayedDamage => false;
         public override bool CheckCast()
         {
+	        Caster.SendMessage("Ten czar jest zablokowany.");
+	        return false;
             if (Caster.Skills.SpiritSpeak.Value < 100.0)
             {
                 Caster.SendLocalizedMessage(1072112); // You must have GM Spirit Speak to use this spell

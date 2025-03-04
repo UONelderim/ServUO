@@ -672,26 +672,6 @@ namespace Server.Engines.CannedEvil
 
                 Respawn();
             }
-
-            if (TimerRunning && _NextGhostCheck < DateTime.UtcNow && m_Region != null)
-            {
-                foreach (PlayerMobile ghost in m_Region.AllPlayers.OfType<PlayerMobile>().Where(pm => !pm.Alive && (pm.Corpse == null || pm.Corpse.Deleted)))
-                {
-                    Map map = ghost.Map;
-                    Point3D loc = ExorcismSpell.GetNearestShrine(ghost, ref map);
-
-                    if (loc != Point3D.Zero)
-                    {
-                        ghost.MoveToWorld(loc, map);
-                    }
-                    else
-                    {
-                        ghost.MoveToWorld(new Point3D(989, 520, -50), Map.Malas);
-                    }
-                }
-
-                _NextGhostCheck = DateTime.UtcNow + TimeSpan.FromMinutes(Utility.RandomMinMax(5, 8));
-            }
         }
 
         public void AdvanceLevel()
@@ -1463,12 +1443,6 @@ namespace Server.Engines.CannedEvil
 
     public class ChampionSpawnRegion : BaseRegion
     {
-        public static void Initialize()
-        {
-            EventSink.Logout += OnLogout;
-            EventSink.Login += OnLogin;
-        }
-
         public override bool YoungProtected => false;
 
         private readonly ChampionSpawn m_Spawn;
@@ -1500,64 +1474,6 @@ namespace Server.Engines.CannedEvil
             }
 
             return base.OnMoveInto(m, d, newLocation, oldLocation);
-        }
-
-        public static void OnLogout(LogoutEventArgs e)
-        {
-            Mobile m = e.Mobile;
-
-            if (m is PlayerMobile && m.Region.IsPartOf<ChampionSpawnRegion>() && m.AccessLevel < AccessLevel.Counselor && m.Map == Map.Felucca)
-            {
-                if (m.Alive && m.Backpack != null)
-                {
-                    List<Item> list = new List<Item>(m.Backpack.Items.Where(i => i.LootType == LootType.Cursed));
-
-                    foreach (Item item in list)
-                    {
-                        item.MoveToWorld(m.Location, m.Map);
-                    }
-
-                    ColUtility.Free(list);
-                }
-
-                Timer.DelayCall(TimeSpan.FromMilliseconds(250), () =>
-                {
-                    Map map = m.LogoutMap;
-
-                    Point3D loc = ExorcismSpell.GetNearestShrine(m, ref map);
-
-                    if (loc != Point3D.Zero)
-                    {
-                        m.LogoutLocation = loc;
-                        m.LogoutMap = map;
-                    }
-                    else
-                    {
-                        m.LogoutLocation = new Point3D(989, 520, -50);
-                        m.LogoutMap = Map.Malas;
-                    }
-                });
-            }
-        }
-
-        public static void OnLogin(LoginEventArgs e)
-        {
-            Mobile m = e.Mobile;
-
-            if (m is PlayerMobile && !m.Alive && (m.Corpse == null || m.Corpse.Deleted) && m.Region.IsPartOf<ChampionSpawnRegion>() && m.Map == Map.Felucca)
-            {
-                Map map = m.Map;
-                Point3D loc = ExorcismSpell.GetNearestShrine(m, ref map);
-
-                if (loc != Point3D.Zero)
-                {
-                    m.MoveToWorld(loc, map);
-                }
-                else
-                {
-                    m.MoveToWorld(new Point3D(989, 520, -50), Map.Malas);
-                }
-            }
         }
     }
 
