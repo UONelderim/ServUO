@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-
+using Nelderim;
 using Server.Guilds;
 
 namespace Server
@@ -35,6 +35,7 @@ namespace Server
 			SaveMobiles(metrics);
 			SaveItems(metrics);
 			SaveGuilds(metrics);
+			NExtension.SaveAll();
 
 			if (permitBackgroundWrite && UseSequentialWriters)  //If we're permitted to write in the background, but we don't anyways, then notify.
 				World.NotifyDiskWriteComplete();
@@ -162,6 +163,7 @@ namespace Server
 			idx.Close();
 			tdb.Close();
 			bin.Close();
+			Console.WriteLine("Finished saving items");
 		}
 
 		protected void SaveGuilds(SaveMetrics metrics)

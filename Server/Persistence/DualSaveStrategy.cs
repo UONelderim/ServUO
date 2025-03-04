@@ -1,4 +1,5 @@
 using System.Threading;
+using Nelderim;
 
 namespace Server
 {
@@ -23,6 +24,7 @@ namespace Server
 
 			SaveMobiles(metrics);
 			SaveGuilds(metrics);
+			NExtension.SaveAll();
 
 			saveThread.Join();
 
