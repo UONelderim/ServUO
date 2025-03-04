@@ -21,6 +21,7 @@ namespace Nelderim
 
 		private static void SkillEstimate_OnCommand(CommandEventArgs e)
 		{
+			var tsFormat = "%d' Dni, '%h' Godzin i '%m' Minut'";
 			if (Enum.TryParse(e.Arguments[0], true, out SkillName skillName))
 			{
 				int start, end;
@@ -40,12 +41,15 @@ namespace Nelderim
 				{
 					fakeMob.Skills[fromSkill.SkillID].Base = fromSkill.Base;
 					fakeMob.Skills[fromSkill.SkillID].Cap = fromSkill.Cap;
+					fakeMob.Location = e.Mobile.Location;
+					fakeMob.Map = e.Mobile.Map;
 				}
 				try
 				{
-					e.Mobile.SendMessage($"Trening {skillName} od {start/10} do {end/10} zajmie około " + TimeSpan.FromSeconds(
-						IntegralTrapezoidRule(x => AverageTimeToGain(e.Mobile, fakeMob, fakeMob.Skills[skillName], x), 
-							start, end, end - start)).ToString(@"c" ));
+					e.Mobile.SendMessage($"Trening {skillName} od {start / 10f} do {end / 10f} zajmie około");
+					e.Mobile.SendMessage(TimeSpan.FromSeconds(IntegralTrapezoidRule(x => 
+							AverageTimeToGain(e.Mobile, fakeMob, fakeMob.Skills[skillName], x), 
+							start, end, end - start)).ToString(tsFormat));
 				}
 				finally
 				{
@@ -62,7 +66,7 @@ namespace Nelderim
 			var failedGainChance = SkillCheck.GetGainChance(fakeMob, skill, chance, false);
 			var avgChance = ChanceBasedAverage(chance, successGainChance, failedGainChance);
 
-			var skillDelay = GetSkillDelay(from, fakeMob, skill);
+			var skillDelay = GetOptimalSkillDelay(from, fakeMob, skill);
 			var result = 1 / avgChance * skillDelay;
 			return result;
 		}
@@ -241,7 +245,7 @@ namespace Nelderim
 			return bestChance;
 		}
 
-		private static double GetSkillDelay(Mobile from, Mobile fakeMob, Skill skill)
+		private static double GetOptimalSkillDelay(Mobile from, Mobile fakeMob, Skill skill)
 		{
 			switch (skill.SkillName)
 			{
@@ -263,7 +267,7 @@ namespace Nelderim
 				case SkillName.Discordance: return ChanceBasedAverage(GetOptimalSuccessChance(from, fakeMob, skill), 8, 5);;
 				case SkillName.EvalInt: return 1;
 				case SkillName.Healing: return BandageContext.GetDelay(from, fakeMob, false, skill.SkillName).TotalSeconds;
-				case SkillName.Fishing: return Fishing.System.Definition.EffectDelay.TotalSeconds;
+				case SkillName.Fishing: return Fishing.System.Definition.TotalDelaySeconds;
 				case SkillName.Herbalism: return 0; 
 				case SkillName.Herding: return 0; // no delay
 				case SkillName.Hiding: return 10;
@@ -289,8 +293,8 @@ namespace Nelderim
 				case SkillName.Macing: return 0;
 				case SkillName.Fencing: return 0;
 				case SkillName.Wrestling: return 0;
-				case SkillName.Lumberjacking: return Lumberjacking.System.Definition.EffectDelay.TotalSeconds;
-				case SkillName.Mining: return Mining.System.OreAndStone.EffectDelay.TotalSeconds;
+				case SkillName.Lumberjacking: return Lumberjacking.System.Definition.TotalDelaySeconds;
+				case SkillName.Mining: return Mining.System.OreAndStone.TotalDelaySeconds;
 				case SkillName.Meditation: return 0.5; // Highest regen rate is 1/0.5s
 				case SkillName.Stealth: return skill.Value * 0.4 / 5 ; //One step takes 0.4 seconds, and each 5 skill grants 1 extra step
 				case SkillName.RemoveTrap: return 10;
