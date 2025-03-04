@@ -19,8 +19,8 @@ namespace Server
 
 	        if (bc.IsMonster)
 	        {
-		        activeSpeed = Math.Clamp(activeSpeed * 1.5f, MinDelayWild, MaxDelayWild);
-		        passiveSpeed = Math.Clamp(passiveSpeed * 1.5f, MinDelayWild, MaxDelayWild);
+		        activeSpeed = Math.Clamp(activeSpeed * 1.3f, MinDelayWild, MaxDelayWild);
+		        passiveSpeed = Math.Clamp(passiveSpeed * 1.3f, MinDelayWild, MaxDelayWild);
 	        }
 
             return true;
