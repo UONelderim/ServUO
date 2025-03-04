@@ -130,11 +130,13 @@ namespace Server.Engines.BulkOrders
 
                     InvalidateProperties();
 
-                    if (m_Entries.Count / 5 > m_ItemCount)
+                    int newItemCount = m_Entries.Count / 5;
+                    if (newItemCount != m_ItemCount)
                     {
-                        m_ItemCount++;
-                        InvalidateItems();
+	                    m_ItemCount = newItemCount;
+	                    InvalidateItems();
                     }
+
 
                     from.SendSound(0x42, GetWorldLocation());
                     from.SendLocalizedMessage(1062386); // Deed added to book.
@@ -156,7 +158,17 @@ namespace Server.Engines.BulkOrders
             from.SendLocalizedMessage(1062388); // That is not a bulk order deed.
             return false;
         }
-
+        
+        public void RemoveEntry(int index)
+        {
+	        if (index >= 0 && index < m_Entries.Count)
+	        {
+		        m_Entries.RemoveAt(index);
+		        m_ItemCount = m_Entries.Count / 5; //  AKTUALIZACJA LICZENIA PRZEDMIOTÓW
+		        InvalidateItems();
+	        }
+        }
+        
         public override int GetTotal(TotalType type)
         {
             int total = base.GetTotal(type);
@@ -169,13 +181,14 @@ namespace Server.Engines.BulkOrders
 
         public void InvalidateItems()
         {
-            if (RootParent is Mobile)
-            {
-                Mobile m = (Mobile)RootParent;
+	        if (RootParent is Mobile)
+	        {
+		        Mobile m = (Mobile)RootParent;
 
-                m.UpdateTotals();
-                InvalidateContainers(Parent);
-            }
+		        m_ItemCount = m_Entries.Count / 5; // 🔥 DODANE: Aktualizowanie `m_ItemCount`
+		        m.UpdateTotals();
+		        InvalidateContainers(Parent);
+	        }
         }
 
         public void InvalidateContainers(object parent)
