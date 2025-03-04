@@ -159,6 +159,8 @@ namespace Server.Engines.Harvest
             }
         }
 
+        public double TotalDelaySeconds => EffectDelay.TotalSeconds * EffectCounts[0];
+
         #region High Seas
         public bool ValidateSpecial(int tileID)
         {

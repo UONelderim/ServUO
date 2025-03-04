@@ -11,7 +11,7 @@ namespace Nelderim.Gains
 {
 	class Gains() : NExtension<GainsInfo>("Gains")
 	{
-		private const double DefaultGlobalGainFactor = 2.0;
+		private const double DefaultGlobalGainFactor = 1.0;
 		private static double _GlobalGainFactor = DefaultGlobalGainFactor;
 
 		private static Timer _PhTimer;
