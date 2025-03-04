@@ -11,7 +11,8 @@ namespace Nelderim.Gains
 {
 	class Gains() : NExtension<GainsInfo>("Gains")
 	{
-		private static double GlobalGainFactor { get; set; } = 1.0;
+		private const double DefaultGlobalGainFactor = 2.0;
+		private static double _GlobalGainFactor = DefaultGlobalGainFactor;
 
 		private static Timer _PhTimer;
 
@@ -27,10 +28,10 @@ namespace Nelderim.Gains
 				if (_PhEndDate > DateTime.Now)
 				{
 					World.Broadcast(0x40, false,
-						$"Power Hour o mnożniku x{GlobalGainFactor} zostało aktywowane do {PhEndDate}.");
+						$"Power Hour o mnożniku x{_GlobalGainFactor} zostało aktywowane do {PhEndDate}.");
 					_PhTimer = Timer.DelayCall(_PhEndDate - DateTime.Now, () =>
 					{
-						GlobalGainFactor = 1.0;
+						_GlobalGainFactor = DefaultGlobalGainFactor;
 						World.Broadcast(0, false, "PowerHour zakończyło się");
 					});
 				}
@@ -48,9 +49,9 @@ namespace Nelderim.Gains
 
 		private static void OnPlayerLogin(LoginEventArgs e)
 		{
-			if (e.Mobile.NetState != null && GlobalGainFactor != 1.0)
+			if (e.Mobile.NetState != null && _GlobalGainFactor != DefaultGlobalGainFactor)
 			{
-				e.Mobile.SendMessage(0x40, $"Globalny mnożnik gainów wynosi x{GlobalGainFactor}");
+				e.Mobile.SendMessage(0x40, $"Globalny mnożnik gainów wynosi x{_GlobalGainFactor}");
 				if (PhEndDate > DateTime.Now) e.Mobile.SendMessage(0x40, $"Power Hour aktywne do {PhEndDate}");
 			}
 		}
@@ -58,7 +59,7 @@ namespace Nelderim.Gains
 		public static double calculateGainFactor(Mobile from)
 		{
 			var gainFactor = 1.0;
-			gainFactor += GlobalGainFactor - 1.0;
+			gainFactor += _GlobalGainFactor - 1.0;
 
 			if (from is PlayerMobile pm)
 				gainFactor += pm.GainFactor - 1.0;
@@ -70,7 +71,7 @@ namespace Nelderim.Gains
 		{
 			if (e.Length == 0)
 			{
-				e.Mobile.SendMessage($"Globalny mnożnik gainów: x{GlobalGainFactor}");
+				e.Mobile.SendMessage($"Globalny mnożnik gainów: x{_GlobalGainFactor}");
 				if (PhEndDate > DateTime.Now)
 					e.Mobile.SendMessage(0x40, $"Power Hour aktywne do {PhEndDate}");
 				if (e.Mobile is PlayerMobile pm)
@@ -116,11 +117,11 @@ namespace Nelderim.Gains
 				else
 				{
 					PhEndDate = DateTime.Now;
-					GlobalGainFactor = gainFactor;
+					_GlobalGainFactor = gainFactor;
 				}
 			}
 
-			e.Mobile.SendMessage($"Globalny mnożnik gainów: x{GlobalGainFactor}");
+			e.Mobile.SendMessage($"Globalny mnożnik gainów: x{_GlobalGainFactor}");
 		}
 
 		[Usage("PowerHour {value} [{DurationInMinutes}]")]
@@ -131,7 +132,7 @@ namespace Nelderim.Gains
 			if (e.Length == 0)
 			{
 				if (PhEndDate > DateTime.Now)
-					e.Mobile.SendMessage($"Power Hour o mnożniku x{GlobalGainFactor} jest aktywne do {PhEndDate}");
+					e.Mobile.SendMessage($"Power Hour o mnożniku x{_GlobalGainFactor} jest aktywne do {PhEndDate}");
 				else
 					e.Mobile.SendMessage("Power Hour jest nieaktywne");
 				return;
@@ -145,7 +146,7 @@ namespace Nelderim.Gains
 				e.Mobile.SendMessage("Niepoprawny parametr");
 			else
 			{
-				GlobalGainFactor = gainFactor;
+				_GlobalGainFactor = gainFactor;
 				PhEndDate = DateTime.Now + duration;
 			}
 		}
