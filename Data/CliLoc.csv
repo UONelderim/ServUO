@@ -26526,7 +26526,7 @@
 1049713;Your intelligence has been set to lower. 
 1049714;Your intelligence has been set to raise. 
 1049715;Your intelligence has been locked. 
-1049716;If you set this house to be your Primary House, it will automatically refresh so long as your account remains active.  WARNING: Doing this will condemn any other houses owned by this account on this shard and on any other shards.  Condemned houses cannot be refreshed and will decay, unless they are transferred to a new owner.  Furthermore, you will not be able to place a new house or have another house transferred to you for the next 7 days.  Are you sure you wish to proceed? 
+1049716;If you set this house to be your Primary House, it will automatically refresh so long as your account remains active.  WARNING: Doing this will condemn any other houses posiadane przez this account on this shard and on any other shards.  Condemned houses cannot be refreshed and will decay, unless they are transferred to a new owner.  Furthermore, you will not be able to place a new house or have another house transferred to you for the next 7 days.  Are you sure you wish to proceed? 
 1049717;YES 
 1049718;NO 
 1049719;You do not currently own any house on any shard with this account, and this house currently does not have an owner.  If you wish, you may choose to claim this house and become its rightful owner.  If you do this, it will become your Primary house and automatically refresh.  If you claim this house, you will be unable to place another house or have another house transferred to you for the next 7 days.  Do you wish to claim this house? 
@@ -35818,7 +35818,7 @@
 1076252;You have been removed from the game for 2 minutes for use of an illegal 3rd party program. Please make sure you have removed the following program from your computer: ~2_PROGRAM~. At this time your account is being reviewed, and action may be taken for this violation. Continued logins while using unauthorized third party programs may result in further penalties. Please see support.uo.com for further information. ~1_REASON~ 
 1076253;NO-DROP 
 1076254;That item cannot be dropped. 
-1076255;NO-TRADE 
+1076255;Brak mozliwosci wymiany 
 1076256;That item cannot be traded. 
 1076257;Broken Covered Chair 
 1076258;Broken Bookcase 
@@ -46488,7 +46488,7 @@
 1116155;Ignore duel invite (ON) 
 1116156;Ignore duel invite (OFF) 
 1116157;The player is not accepting invitations. 
-1116158;Mana Phase 
+1116158;Fazowanie many 
 1116159;proch do armat 
 1116160;Proch do Armat
 1116161;wielki proch do armat 
@@ -46899,8 +46899,8 @@
 1116566;Dostep do statku 
 1116567;Ustawienia zabezpieczen 
 1116568;The ground trembles as the island begins to sink back into the sea. 
-1116569;You have been granted access to the ship owned by ~1_name~. 
-1116570;Your access to the ship owned by ~1_name~ has been revoked. 
+1116569;You have been granted access to the ship posiadane przez ~1_name~. 
+1116570;Your access to the ship posiadane przez ~1_name~ has been revoked. 
 1116571;The dockmaster has no need for this item. 
 1116572;Sorry as I am to say it, the maximum I can have on yer account be three million. 
 1116573;I hate to tell ye this, but we don't rent boat slips fer less time than five minutes.  I'll be needin the full 10000 gold or no deal.  Perhaps renting a crate is more in your price range, captain? 
@@ -49874,8 +49874,8 @@
 1150001;Switch contents to English 
 1150002;Switch contents to Japanese 
 1150003;This must be in your backpack to switch language of the book. 
-1150004;Focusing Gem of Virtue Zguba 
-1150005;Rage 
+1150004;Klejnot Cnoty of Virtue Zguba 
+1150005;Wscieklosc 
 1150006;Rideable Boura Statuette 
 1150007;We've set up a barricade here. Go forth and rid the city of Virtue Zguba's minions. 
 1150008;The time has come! Help us eliminate the defenders at the outskirts of the city in the name of Virtue Zguba! 
@@ -50111,8 +50111,8 @@
 1150238;Legs of Virtuous Epiphany 
 1150239;You have either entered an invalid value, or have set invalid prices. All entries must be numeric. To buy and sell at the same time, buying price must be lower than selling price and buy limit must be either not set or higher than sell limit. No value may be negative. Setting a price to 0 will disallow that transaction, and setting a limit to 0 means the limit does not apply. 
 1150240;Set Bonus: Frequency ~1_val~ 
-1150241;Set Ability: good mana burst 
-1150242;Set Ability: evil mana burst 
+1150241;Set Ability: good Wybuch Many 
+1150242;Set Ability: evil Wybuch Many 
 1150243;Karma Bonus: Burst level ~1_val~ 
 1150244;Transaction no longer available 
 1150245;<DIV ALIGN=RIGHT>You are purchasing:</DIV> 
@@ -52323,18 +52323,18 @@
 1152450;This property indicates that an item has a limited Rozpad.  These items will disappear once the countdown timer has elapsed. 
 1152451;Nexus Deed 
 1152452;Fish Bait Strength 
-1152453;mana burst 
+1152453;Wybuch Many 
 1152454;Spell Consumption 
 1152455;Weight reduction 
 1152456;This property indicates that an item has been crafted by a crafter of Wyjatkowej jakosci skill.  Wyjatkowej jakoscily crafted items can carry their maker's mark and also provide various additional bonuses depending on whether they are armor or weapons.  The bonuses include increased basic resistances for armor, increased damage increase for weapons and increased imbuing potential for both weapons and armor.  Some of these bonuses can be further increased by a crafter's arms lore skill. 
 1152457;This property provides a cumulative percentage bonus that increases the effectiveness of any fishing bait that is used by the wearer. 
 1152458;This property indicates that the item is a reward from the faction system.  Items with this property require that the user be in a faction to equip the item and in some cases these faction items will only be equippable by the owner of the item. 
 1152459;This property provides a reduction in the amount of arrows or bolts an archer uses.  The reduction is based on a random chance that an arrow or bolt shot from a weapon will not be consumed. 
-1152460;This property provides a chance for a burst of mana restoring magic to affect the player when the player is taking damage.  The amount of mana restored is based on the player's maximum mana and the player's current karma level.  Each piece of karma mana burst equipment that the user is wearing will increases the frequency of the mana restoring bursts.  There are both positive and negative karma versions of these items. 
+1152460;This property provides a chance for a burst of mana restoring magic to affect the player when the player is taking damage.  The amount of mana restored is based on the player's maximum mana and the player's current karma level.  Each piece of karma Wybuch Many equipment that the user is wearing will increases the frequency of the mana restoring bursts.  There are both positive and negative karma versions of these items. 
 1152461;This property indicates that a percentage of the damage inflicted by the weapon (or spell) will be physical damage.  Physical damage is applied against an opponent's physical resistance. 
 1152462;This property indicates that a percentage of the damage inflicted by the weapon (or spell) will be cold damage.  Cold damage is applied against an opponent's cold resistance. 
 1152463;One-Handed Weapon info 
-1152464;This property indicates that an item is owned by a specific character.  This item will effectively be blessed for the owner and this item cannot be equipped by anyone other than the owner.  This property is most commonly found on talisman. 
+1152464;This property indicates that an item is posiadane przez a specific character.  This item will effectively be blessed for the owner and this item cannot be equipped by anyone other than the owner.  This property is most commonly found on talisman. 
 1152465;This property provides increased weapon damage with each successful hit to the same target.  The damage modified by this property cycles from a negative value to a positive value.  The initial damage inflicted by this property is -40% of the items base damage 
 1152466;This property indicates that an item has the ability to repair itself.  Each time the item is damaged and normally would reduce its current durability it actually increases its current durability.  The amount repaired is based on the property intensity (self repair 5 would add 5 durability). This effect has a cooldown timer and cannot occur more than once every 60 seconds.   This property is removed from an item that is imbued.  This property can be found on all armor, weapons and shields. 
 1152467;This property provides increased effectiveness against specific monsters or specific groups of monsters.  When the property is found on weapons or talisman it increases damage inflicted by weapons.  When this property is found on spellbooks it increases spell damage.  <br>When this property is found on instruments it increases the success chances for barding attempts (peacemaking, provocation or discordance) 
@@ -59262,7 +59262,7 @@
 1159394;This whistle can be used to command one of your bonded pets to perform tricks! The whistle must be bond to a pet in order to command and can be re-bonded after a week delay. (Account Bound) 
 1159395;You must remove personal bless status from any items you wish to convert. 
 1159396;Use Non-Transparent Gump 
-1159397;Mana Burst 
+1159397;Wybuch Many 
 1159398;Medable Armor does not block passive and active meditation skill. Weapons and shields that have Spell Channeling are considered medable as they do not disarm with the use of the meditation skill.<br>Non-Medable Armor will block passive and active meditation but can potentially provide the following benefits: Non-medable armor provides lower mana cost (with the exception of woodland armor). Each piece of armor up to five pieces will provide a percentage that is not subject to the lower mana cost cap of 40. The armor pieces which provide the most lower mana cost will take priority. Platemail, ringmail, chainmail, and dragon armor provides 1% of lower mana cost per piece. Studded leather, hide armor, stone armor and bone armor provides 3% of lower mana cost per piece. 
 1159399;Bandage Leczenie Bonus 
 1159400;Gorgon Lens Charges 
