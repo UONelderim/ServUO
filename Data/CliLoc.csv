@@ -22585,7 +22585,7 @@
 1041124;a lesser shard of Faulinei 
 1041125;One: 'Pon this eve the aether flows and dances madly in the air 
 1041126;Two: The spirits rise and walk again and slaughter in the moon's red glare 
-1041127;Three: Beware, ye men of mortal flesh, lest ghosts seize all thy lifespan's time 
+1041127;Three: Beware, ye men of mortal flesh, lest ghosts seize all thy Rozpad's time 
 1041128;Four: For soon the night shall come and soon shall set the sun 
 1041129;Five: And soon shall rise the bones to walk and seek the magic sign... 
 1041130;One: Soon the world shall split, and lives will lose their luster. 
@@ -51208,7 +51208,7 @@
 1151335;Expiration 
 1151336;Respiration 
 1151337;Transpiration 
-1151338;What is the average lifespan of an oak tree? 
+1151338;What is the average Rozpad of an oak tree? 
 1151339;400 years 
 1151340;300 years 
 1151341;200 years 
@@ -51981,7 +51981,7 @@
 1152108;You'll never make it if you try to help us all at once.  Come back for me if you can! 
 1152109;You look exhausted, you should rest at least ~1_val~ minutes before we try to make an escape! 
 1152110;~1_name~ will expire within ~2_val~ day(s)! 
-1152111;Lifespan: within ~1_val~ day(s) 
+1152111;Rozpad: within ~1_val~ day(s) 
 1152112;Target the item to reforge. 
 1152113;You cannot reforge that item. 
 1152114;The item has been reforged. 
@@ -52319,8 +52319,8 @@
 1152446;This property indicates that the armor and clothing can only be worn by Elves. 
 1152447;This property indicates that the armor, clothing, shield or weapon can only be equipped by Gargoyles. 
 1152448;This property provides increased karma loss when the user casts necromancy spells. 
-1152449;lifespan 
-1152450;This property indicates that an item has a limited lifespan.  These items will disappear once the countdown timer has elapsed. 
+1152449;Rozpad 
+1152450;This property indicates that an item has a limited Rozpad.  These items will disappear once the countdown timer has elapsed. 
 1152451;Nexus Deed 
 1152452;Fish Bait Strength 
 1152453;mana burst 
@@ -52958,10 +52958,10 @@
 1153086;Moonbound: Indestructible 
 1153087;The power of the moon Felucca strengthens your Faction gear. 
 1153088;The power of the moon Felucca no longer strengthens your Faction gear. 
-1153089;Lifespan: ~1_val~ minutes 
-1153090;Lifespan: ~1_val~ hours 
-1153091;Lifespan: ~1_val~ days 
-1153092;Lifespan: ~1_val~ weeks 
+1153089;Rozpad: ~1_val~ minut
+1153090;Rozpad: ~1_val~ godzin 
+1153091;Rozpad: ~1_val~ dni 
+1153092;Rozpad: ~1_val~ tygodni
 1153093;Confirm Cancellation 
 1153094;Are you certain you wish to cancel this fight?  If you are the owner of this fight, the session itself will be canceled. 
 1153095;Yes, I really want to cancel. 
