@@ -3,10 +3,12 @@
 using Server.Mobiles;
 using System;
 using System.Collections.Generic;
+using Server.ACC.CSS.Systems.Ancient;
 using Server.Engines.ArenaSystem;
 using Server.Engines.Doom;
 using Server.Engines.HunterKiller;
 using Server.Engines.Quests;
+using Server.Engines.Quests.Ambitious;
 using Server.Engines.Quests.RitualQuest;
 using Server.Engines.RisingTide;
 using Server.Items;
@@ -228,6 +230,7 @@ namespace Server
 				typeof(BagusGagakShaman),
 				typeof(BagusGagakWarrior),
 				typeof(BakeKitsune),
+				typeof(BaseAmbitiousSolenQueen),
 				typeof(BaseEscort),
 				typeof(BaseGuildmaster),
 				typeof(BaseHealer),
@@ -275,6 +278,7 @@ namespace Server
 				typeof(DarkWolfFamiliar),
 				typeof(DeathAdder),
 				typeof(DeathSpiderFamiliar),
+				typeof(DeathVortex),
 				typeof(DeathwatchBeetle),
 				typeof(DeathwatchBeetleHatchling),
 				typeof(DeepSeaSerpent),
@@ -298,6 +302,7 @@ namespace Server
 				typeof(EmeraldDrake),
 				typeof(EnslavedSatyr),
 				typeof(EscortableMage),
+				typeof(EscortablePeasant),
 				typeof(EttinLord),
 				typeof(EvilHealer),
 				typeof(EvilMage),
@@ -308,6 +313,7 @@ namespace Server
 				typeof(Fence),
 				typeof(Ferret),
 				typeof(FetidEssence),
+				typeof(FiendOfEarth),
 				typeof(FieryGoblinSapper),
 				typeof(FireBeetle),
 				typeof(FireGargoyle),
@@ -331,6 +337,7 @@ namespace Server
 				typeof(GoreFiend),
 				typeof(Gorilla),
 				typeof(GorskiWilk),
+				typeof(GrayGoblin),
 				typeof(GreaterAntLion),
 				typeof(GreaterArcaneDaemon),
 				typeof(GreaterChaosDaemon),
@@ -354,6 +361,7 @@ namespace Server
 				typeof(HellHound),
 				typeof(Hind),
 				typeof(HordeMinionFamiliar),
+				typeof(HungaNekahiXBowmen),
 				typeof(Hydra),
 				typeof(IceFiend),
 				typeof(IceLizard),
@@ -372,6 +380,7 @@ namespace Server
 				typeof(KorahaTilkiLord),
 				typeof(KorahaTilkiPeasant),
 				typeof(KorahaTilkiShaman),
+				typeof(KorahaTilkiSpearman),
 				typeof(KorahaTilkiWarrior),
 				typeof(KorahaTilkiXBowmen),
 				typeof(Kraken),
@@ -406,6 +415,7 @@ namespace Server
 				typeof(MinotaurLord),
 				typeof(MinotaurMage),
 				typeof(MinotaurScout),
+				typeof(Minter),
 				typeof(Mistral),
 				typeof(MLDryad),
 				typeof(MlodaKobra),
@@ -474,6 +484,7 @@ namespace Server
 				typeof(Ridgeback),
 				typeof(RubyDragon),
 				typeof(RubyDrake),
+				typeof(RustMonster),
 				typeof(Saliva),
 				typeof(Samurai),
 				typeof(SapphireDragon),
@@ -512,6 +523,7 @@ namespace Server
 				typeof(SnowBakeKitsune),
 				typeof(SpawnedOrcishLord),
 				typeof(SpeckledScorpion),
+				typeof(Spellbinder),
 				typeof(Sphynx),
 				typeof(Squirrel),
 				typeof(StarozytnaMumia),
@@ -564,6 +576,7 @@ namespace Server
 				typeof(WaterElemental),
 				typeof(Widmak),
 				typeof(WladcaJezioraLawy),
+				typeof(WladcaPiaskow),
 				typeof(WojownikMorrlok),
 				typeof(WolfArcher),
 				typeof(WolfHunter),
