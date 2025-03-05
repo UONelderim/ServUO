@@ -102,6 +102,8 @@ namespace Server.Items
 			_CreatureInfo.Add(typeof(Serado), new ArtInfo(10, Rolls.One, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(BetrayerBoss), new ArtInfo(3, Rolls.One, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(HalrandBoss), new ArtInfo(3, Rolls.One, ArtGroup.Boss));
+			_CreatureInfo.Add(typeof(Ilhenir), new ArtInfo(5, Rolls.One, ArtGroup.Boss));
+			
 			//Mini Bossy
 			_CreatureInfo.Add(typeof(WladcaJezioraLawy), new ArtInfo(5, Rolls.One, ArtGroup.Miniboss));
 			_CreatureInfo.Add(typeof(BagusGagakCreeper), new ArtInfo(5, Rolls.One, ArtGroup.Miniboss));
@@ -121,7 +123,6 @@ namespace Server.Items
 			_CreatureInfo.Add(typeof(KapitanIIILegionuOrkow), new ArtInfo(30, Rolls.One, ArtGroup.CustomChamp));
 			_CreatureInfo.Add(typeof(MorenaAwatar), new ArtInfo(30, Rolls.One, ArtGroup.CustomChamp));
 			_CreatureInfo.Add(typeof(Meraktus), new ArtInfo(20, Rolls.One, ArtGroup.CustomChamp));
-			_CreatureInfo.Add(typeof(Ilhenir), new ArtInfo(20, Rolls.One, ArtGroup.CustomChamp));
 			_CreatureInfo.Add(typeof(Twaulo), new ArtInfo(15, Rolls.One, ArtGroup.CustomChamp));
 			_CreatureInfo.Add(typeof(Pyre), new ArtInfo(30, Rolls.One, ArtGroup.CustomChamp));
 			_CreatureInfo.Add(typeof(MikolajBoss), new ArtInfo(5, Rolls.One, ArtGroup.CustomChamp));
