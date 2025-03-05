@@ -44,8 +44,15 @@ namespace Server.Mobiles
 					? NpcActions[Race]
 					: NpcActions[Race.DefaultRace];
 
-				var action = Utility.RandomList(actions);
-				action.Invoke(this);
+				if (actions.Count > 0)
+				{
+					Action action = Utility.RandomList(actions);
+					action.Invoke(this);
+				}
+				else
+				{
+					Console.WriteLine("No action for npc " + Serial + " " + Name);
+				}
 				_lastAction = DateTime.Now;
 			}
 			catch (Exception ex)
