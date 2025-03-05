@@ -525,6 +525,7 @@ namespace Server
 				typeof(SkalnyLew),
 				typeof(SkalnyOgar),
 				typeof(SkeletalDragon),
+				typeof(SkeletalKnight),
 				typeof(SkeletalMount),
 				typeof(SkoczekLesny),
 				typeof(SkorpionKrolewski),
