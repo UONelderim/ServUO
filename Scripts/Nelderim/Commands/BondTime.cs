@@ -55,7 +55,7 @@ namespace Server.Commands
 					return;
 				}
 
-				if (DateTime.Now - m.BondingBegin > TimeSpan.FromDays(7))
+				if (DateTime.UtcNow - m.BondingBegin > TimeSpan.FromDays(7))
 				{
 					from.SendMessage(
 						"Przywiazywanie zwierzaka jeszcze sie nie rozpoczelo. Nakarm go po ponownym oswojeniu jesli potrafisz.");
