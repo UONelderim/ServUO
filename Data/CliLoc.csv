@@ -12826,11 +12826,11 @@
 1023698;armata 
 1023699;Kula do Boli
 1023700;kule armatnie 
-1023701;plecak 
-1023702;worek 
+1023701;Plecak 
+1023702;Worek 
 1023703;beczka 
 1023704;miska 
-1023705;pudelko 
+1023705;Pudelko 
 1023706;Koszyk na Piknik
 1023707;balia z woda 
 1023708;metalowa skrzynia 
@@ -24815,7 +24815,7 @@
 1044454;Nie masz zwinietej tkaniny. 
 1044455;Material  
 1044456;Nie masz zadnego gotowego materialu.  
-1044457;Materialy
+1044457;Materialy i Pojemniki
 1044458;Pociety Material
 1044459;Zlozony Material
 1044460;Potnij bele materialu na kawalki gotowego materialu.  
@@ -61053,3 +61053,8 @@
 3070039;Ksiega Na Zwoje Treningu
 3070040;Ksiega Na Zwoje Mocy
 3070041;Pozyskaj dla nas nieco instrumentow a podaruje Ci to czego pragniesz. Potrzebujemy bebnow, lutni i tamburynow. Mysle ze wystarczy nam po 5 sztuk z kazdego rodzaju. Do roboty!
+3070042;Sakiewka
+3070043;Plecak
+3070044;Worek
+3070045;Pudelko
+3070046;Materialy i Pojemniki
