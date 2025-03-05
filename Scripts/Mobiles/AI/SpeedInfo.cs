@@ -47,6 +47,12 @@ namespace Server
 				passiveSpeed = Math.Clamp(passiveSpeed * 1.3f, MinDelayWild, MaxDelayWild);
 			}
 
+			if (bc is BaseNelderimGuard)
+			{
+				// Guards have to be faster when in fight
+				activeSpeed = Math.Min(0.15, activeSpeed);
+			}
+
 			return true;
 		}
 
@@ -219,6 +225,7 @@ namespace Server
 				typeof(Arachne),
 				typeof(ArcaneFey),
 				typeof(ArcaneFiend),
+				typeof(ArcherNelderimGuard),
 				typeof(ArenaManager),
 				typeof(Artist),
 				typeof(BagiennaLama),
@@ -298,6 +305,7 @@ namespace Server
 				typeof(DullCopperColossus),
 				typeof(DullCopperElemental),
 				typeof(ElfBrigand),
+				typeof(EliteNelderimGuard),
 				typeof(EmeraldDragon),
 				typeof(EmeraldDrake),
 				typeof(EnslavedSatyr),
@@ -357,6 +365,7 @@ namespace Server
 				typeof(Harpy),
 				typeof(Harrower),
 				typeof(HarrowerTentacles),
+				typeof(HeavyNelderimGuard),
 				typeof(HellHorse),
 				typeof(HellHound),
 				typeof(Hind),
@@ -401,6 +410,7 @@ namespace Server
 				typeof(LucznikMorrlok),
 				typeof(Lurg),
 				typeof(LysanderGathenwale),
+				typeof(MageNelderimGuard),
 				typeof(MagMorrlok),
 				typeof(MantraEffervescence),
 				typeof(MasterJonath),
@@ -526,6 +536,7 @@ namespace Server
 				typeof(Spellbinder),
 				typeof(Sphynx),
 				typeof(Squirrel),
+				typeof(StandardNelderimGuard),
 				typeof(StarozytnaMumia),
 				typeof(StaryLodowySmok),
 				typeof(StaryOgnistySmok),
@@ -602,7 +613,6 @@ namespace Server
 				typeof(AirElemental),
 				typeof(Anchimayen),
 				typeof(AncientWyrm),
-				typeof(ArcherNelderimGuard),
 				typeof(BagusGagakNinja),
 				typeof(Balron),
 				typeof(BaronowaFrozen),
@@ -653,7 +663,6 @@ namespace Server
 				typeof(Lich),
 				typeof(LordOaks),
 				typeof(MadPumpkinSpirit),
-				typeof(MageNelderimGuard),
 				typeof(Oni),
 				typeof(OphidianKnight),
 				typeof(OphidianMage),
@@ -705,12 +714,10 @@ namespace Server
 				typeof(ChaosDragoon),
 				typeof(ChaosDragoonElite),
 				typeof(Efreet),
-				typeof(EliteNelderimGuard),
 				typeof(EliteNinja),
 				typeof(EtherealWarrior),
 				typeof(FanDancer),
 				typeof(FleshRenderer),
-				typeof(HeavyNelderimGuard),
 				typeof(Hiryu),
 				typeof(KorahaTilkiPikador),
 				typeof(Leviathan),
@@ -729,7 +736,6 @@ namespace Server
 				typeof(Semidar),
 				typeof(SilverSerpent),
 				typeof(SkoczekZPodmroku),
-				typeof(StandardNelderimGuard),
 				typeof(VitVargAmazon),
 				typeof(VitVargBerserker),
 				typeof(VitVargCook),
@@ -762,16 +768,12 @@ namespace Server
 				typeof(Pyre),
 				typeof(Revenant),
 				typeof(SirPatrick),
+				typeof(SpecialNelderimGuard),
 				typeof(Spite),
 				typeof(Thrasher),
 				typeof(Twaulo),
 				typeof(VorpalBunny)
 			]),
-			/* Fast and Furious */
-			new(0.05,
-			[
-				typeof(SpecialNelderimGuard)
-			])
 		];
 	}
 }
