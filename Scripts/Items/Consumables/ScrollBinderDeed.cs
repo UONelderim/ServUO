@@ -135,9 +135,9 @@ namespace Server.Items
                             if (value == 105)
                                 needed = 8;
                             else if (value == 110)
-                                needed = 12;
+                                needed = 6;
                             else if (value == 115)
-                                needed = 10;
+                                needed = 4;
                             else
                                 return;
 
