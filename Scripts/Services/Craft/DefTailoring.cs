@@ -197,11 +197,23 @@ namespace Server.Engines.Craft
             int index = -1;
 
             #region Materials
-            index = AddCraft(typeof(CutUpCloth), 1044457, 1044458, 0.0, 0.0, typeof(BoltOfCloth), 1044453, 1, 1044253);
+            index = AddCraft(typeof(CutUpCloth), 3070046, 1044458, 0.0, 0.0, typeof(BoltOfCloth), 1044453, 1, 1044253);
             AddCraftAction(index, CutUpCloth);
 
-            index = AddCraft(typeof(CombineCloth), 1044457, 1044459, 0.0, 0.0, typeof(Cloth), 1044455, 1, 1044253);
+            index = AddCraft(typeof(CombineCloth), 3070046, 1044459, 0.0, 0.0, typeof(Cloth), 1044455, 1, 1044253);
             AddCraftAction(index, CombineCloth);
+            
+            index = AddCraft(typeof(Bag), 3070046, 3070044, 0.0, 30.0, typeof(Leather), 1044462, 2, 1044463);
+            ForceNonExceptional(index);
+            
+            index = AddCraft(typeof(Bag), 3070046, 3070042, 0.0, 30.0, typeof(Cloth), 1044455, 2, 1044287);
+            ForceNonExceptional(index);
+            
+            index = AddCraft(typeof(Pouch), 3070046, 3070045, 0.0, 30.0, typeof(Leather), 1044462, 2, 1044463);
+            ForceNonExceptional(index);
+            
+            index = AddCraft(typeof(Backpack), 3070046, 3070043, 0.0, 30.0, typeof(Leather), 1044462, 2, 1044463);
+            ForceNonExceptional(index);
 
     //        index = AddCraft(typeof(PowderCharge), 1044457, 1116160, 0.0, 50.0, typeof(Cloth), 1044455, 1, 1044253);
     //        AddRes(index, typeof(BlackPowder), 1095826, 4, 1044253);
