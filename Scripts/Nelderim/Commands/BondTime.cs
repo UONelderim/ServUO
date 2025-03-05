@@ -62,7 +62,7 @@ namespace Server.Commands
 					return;
 				}
 
-				TimeSpan timeleft = m.BondingBegin + TimeSpan.FromDays(7) - DateTime.Now;
+				TimeSpan timeleft = m.BondingBegin + TimeSpan.FromDays(7) - DateTime.UtcNow;
 				from.SendMessage(
 					"{0} Dni, {1} godzin, {2} minut i {3} sekund zostalo do przywiazania sie zwierzaka do ciebie. Zierzak przywiaze sie do ciebie: {4}",
 					timeleft.Days, timeleft.Hours, timeleft.Minutes, timeleft.Seconds,
