@@ -4,7 +4,12 @@ using Server.Mobiles;
 using System;
 using System.Collections.Generic;
 using Server.Engines.ArenaSystem;
+using Server.Engines.Doom;
+using Server.Engines.HunterKiller;
 using Server.Engines.Quests;
+using Server.Engines.Quests.RitualQuest;
+using Server.Engines.RisingTide;
+using Server.Items;
 using Server.Mobiles.Swiateczne;
 
 #endregion
@@ -14,7 +19,7 @@ namespace Server
 	public static class SpeedInfo
 	{
 		private const double DefaultSpeed = 1.0;
-		
+
 		private const double MinDelay = 0.1;
 		private const double MaxDelay = 0.5;
 		private const double MinDelayWild = 0.15;
@@ -31,6 +36,7 @@ namespace Server
 					Console.WriteLine($"No speed defined for {bc.GetType().Name} or its parent {parentType.Name}");
 				}
 			}
+
 			passiveSpeed = activeSpeed * 2f;
 
 			if (bc.IsMonster)
@@ -72,7 +78,7 @@ namespace Server
 		}
 
 		private static Dictionary<Type, double> _SpeedTable = new();
-		
+
 		static SpeedInfo()
 		{
 			foreach (var speedInfoEntry in _SpeedDefinitions)
@@ -93,7 +99,7 @@ namespace Server
 			new(0.55,
 			[
 				typeof(Aminia), typeof(Mummy2), typeof(Mummy3), typeof(Tangle), typeof(UnfrozenMummy),
-				typeof(XmlQuestNPC)
+				typeof(XmlQuestNPC), typeof(BexilPunchingBag), typeof(MonsterNestEntity)
 			]),
 			/* Very Slow */
 			new(0.3,
@@ -101,7 +107,7 @@ namespace Server
 				typeof(Boar), typeof(BogThing), typeof(FrostOoze), typeof(FrostTroll), typeof(GazerLarva),
 				typeof(Ghoul), typeof(HeadlessOne), typeof(Juggernaut), typeof(Jwilson), typeof(MoundOfMaggots),
 				typeof(PlagueBeast), typeof(Quagmire), typeof(RestlessSoul), typeof(RottingCorpse),
-				typeof(ShadowWisp), typeof(Skeleton), typeof(Slime), typeof(Walrus), typeof(Zombie)
+				typeof(ShadowWisp), typeof(Skeleton), typeof(Slime), typeof(BarakSlime), typeof(Walrus), typeof(Zombie)
 			]),
 			/* Slow */
 			new(0.25,
@@ -123,18 +129,22 @@ namespace Server
 				typeof(SkitteringHopper), typeof(StrongMongbat), typeof(SummonedDaemon),
 				typeof(SummonedEarthElemental), typeof(SummonedFireElemental), typeof(SummonedWaterElemental),
 				typeof(SwampTentacle), typeof(TerathanDrone), typeof(Titan), typeof(Treefellow), typeof(Troll),
-				typeof(WhippingVine),
+				typeof(WhippingVine), typeof(DalharukElghinn)
 			]),
 			/* Medium */
 			new(0.2,
 			[
 				typeof(Abscess), typeof(Actor), typeof(AgapiteElemental), typeof(AlbinoSquirrel),
-				typeof(Alligator), typeof(AmethystDragon), typeof(AmethystDrake), typeof(ArenaManager), typeof(DiamondDragon),
+				typeof(Alligator), typeof(AmethystDragon), typeof(AmethystDrake), typeof(ArenaManager), typeof(Fence),
+				typeof(BagusGagakArcher), typeof(BagusGagakCreeper), typeof(BagusGagakFencer), typeof(BagusGagakLord),
+				typeof(BagusGagakLumberjack), typeof(BagusGagakShaman), typeof(BagusGagakWarrior),
+				typeof(DiamondDragon), typeof(GaryTheDungeonMaster), typeof(BaseHealer),
 				typeof(DiamondDrake), typeof(EmeraldDragon), typeof(EmeraldDrake), typeof(RubyDragon),
 				typeof(RubyDrake), typeof(SapphireDragon), typeof(SapphireDrake), typeof(AncientLich),
 				typeof(AncientSeaMonster), typeof(Arachne), typeof(ArcaneFey), typeof(ArcaneFiend),
 				typeof(Artist), typeof(BagiennaLama), typeof(BakeKitsune), typeof(BaseVendor), typeof(NBaseTalkingNPC),
-				typeof(Betrayer), typeof(Bird), typeof(BlackBear),
+				typeof(BaseGuildmaster), typeof(TownEscortable), typeof(MondainQuester), typeof(BaseQuester),
+				typeof(BlackMarketMerchant), typeof(Betrayer), typeof(Bird), typeof(BlackBear),
 				typeof(BlackSolenInfiltratorWarrior), typeof(BlackSolenWarrior), typeof(BladeSpirits),
 				typeof(Bogling), typeof(BronzeElemental), typeof(BrownBear),
 				typeof(BulbousPutrification), typeof(Bull), typeof(Centaur),
@@ -209,19 +219,27 @@ namespace Server
 				typeof(VampireBatFamiliar), typeof(VeriteElemental), typeof(Virulent), typeof(VitVarg),
 				typeof(VitVargArcher), typeof(VitVargLord), typeof(VitVargMage), typeof(VitVargWarrior),
 				typeof(WailingBanshee), typeof(WandererOfTheVoid), typeof(WanderingHealer), typeof(WarHorse),
-				typeof(WarLlama), typeof(Widmak),
+				typeof(WarLlama), typeof(Widmak), typeof(SkoczekLesny), typeof(BaseEscort),
 				typeof(WaterElemental), typeof(WojownikMorrlok), typeof(WolfHunter), typeof(WolfShaman),
-				typeof(WolfWarrior), typeof(Wraith), typeof(Wyvern), typeof(YomotsuElder),
+				typeof(WolfWarrior), typeof(Wraith), typeof(Wyvern), typeof(YomotsuElder), typeof(NHalleht),
 				typeof(YomotsuPriest), typeof(YomotsuWarrior), typeof(ZimowyOgre), typeof(ZimowyOgreLord),
-				typeof(DullCopperColossus), typeof(ShadowIronColossus), typeof(CopperColossus), typeof(BronzeColossus), 
-				typeof(GoldenColossus), typeof(AgapiteColossus), typeof(VeriteColossus), typeof(ValoriteColossus)
+				typeof(DullCopperColossus), typeof(ShadowIronColossus), typeof(CopperColossus), typeof(BronzeColossus),
+				typeof(GoldenColossus), typeof(AgapiteColossus), typeof(VeriteColossus), typeof(ValoriteColossus),
+				typeof(BetrayerBoss), typeof(BlackLizard), typeof(Boner), typeof(ClockworkExodus),
+				typeof(GreaterAntLion), typeof(GreaterMongbat), typeof(GreaterRedSolenWarrior),
+				typeof(GreaterRedSolenWorker), typeof(IceLizard), typeof(KorahaTilkiLord), typeof(KorahaTilkiPeasant),
+				typeof(KorahaTilkiShaman), typeof(KorahaTilkiWarrior), typeof(KorahaTilkiXBowmen), typeof(NPCElghin),
+				typeof(PirateCrew), typeof(Qingniao), typeof(SaragAwatar), typeof(Sfinks), typeof(StarozytnaMumia),
+				typeof(TilkiBug), typeof(TilkiSmallBug), typeof(VitVargWorker), typeof(WladcaJezioraLawy),
+				typeof(WolfArcher), typeof(WolfPredator), typeof(WolfPup), typeof(ZmiennyDar),
 			]),
 			/* Fast */
 			new(0.175,
 			[
 				typeof(AbysmalHorror), typeof(AirElemental), typeof(Anchimayen), typeof(AncientWyrm), typeof(Balron),
 				typeof(BaronowaFrozen), typeof(BlackSolenInfiltratorQueen), typeof(BlackSolenQueen),
-				typeof(BoneDemon), typeof(Cougar), typeof(DemonKnight), typeof(DireWolf),
+				typeof(BagusGagakNinja),
+				typeof(BoneDemon), typeof(Cougar), typeof(DemonKnight), typeof(DireWolf), typeof(KorahaTilkiDancer),
 				typeof(DreadSpider), typeof(Eagle), typeof(EnergyVortex), typeof(ExodusMinion),
 				typeof(ExodusMinionArmored), typeof(ExodusBoss), typeof(FireElemental), typeof(FireSteed),
 				typeof(ForestOstard), typeof(FrenziedOstard), typeof(GargoyleDestroyer),
@@ -240,21 +258,23 @@ namespace Server
 				typeof(TsukiWolf), typeof(Unicorn), typeof(WhiteWolf), typeof(WhiteWyrm), typeof(Yamandon),
 				typeof(HireBard), typeof(HireBardArcher), typeof(HireBeggar), typeof(HireFighter),
 				typeof(HireMage), typeof(HirePaladin), typeof(HirePeasant), typeof(HireRanger),
-				typeof(HireRangerArcher), typeof(HireSailor), typeof(HireThief), typeof(ArcherNelderimGuard), typeof(MageNelderimGuard)
+				typeof(HireRangerArcher), typeof(HireSailor), typeof(HireThief), typeof(ArcherNelderimGuard),
+				typeof(MageNelderimGuard), typeof(HKMobile), typeof(MadPumpkinSpirit),
 			]),
 			/* Very Fast */
 			new(0.15,
 			[
-				typeof(AntyMageMob), typeof(AntyTamerMob), typeof(AntyWarriorMob),
+				typeof(AntyMageMob), typeof(AntyTamerMob), typeof(AntyWarriorMob), typeof(BagusGagakLightCav),
 				typeof(BagiennyKoszmar), typeof(Barracoon), typeof(Beetle), typeof(ChaosDragoon),
 				typeof(ChaosDragoonElite), typeof(Efreet), typeof(EliteNinja), typeof(EtherealWarrior),
-				typeof(FanDancer), typeof(FleshRenderer), typeof(Hiryu),
-				typeof(Leviathan), typeof(Mephitis), typeof(Neira), typeof(Nightmare), typeof(OphidianArchmage),
+				typeof(FanDancer), typeof(FleshRenderer), typeof(Hiryu), typeof(KorahaTilkiPikador),
+				typeof(Leviathan),
+				typeof(Mephitis), typeof(Neira), typeof(Nightmare), typeof(OphidianArchmage),
 				typeof(OphidianMatriarch), typeof(Panther), typeof(PoisonElemental), typeof(PredatorHellCat),
 				typeof(PSavageRider), typeof(RaiJu), typeof(Rikktor), typeof(SandVortex), typeof(Semidar),
 				typeof(SilverSerpent), typeof(SkoczekZPodmroku), typeof(VitVargAmazon),
 				typeof(VitVargBerserker), typeof(VitVargCook), typeof(VitVargCutler), typeof(Wisp),
-				typeof(StandardNelderimGuard), typeof(HeavyNelderimGuard), 
+				typeof(StandardNelderimGuard), typeof(HeavyNelderimGuard),
 				typeof(EliteNelderimGuard)
 			]),
 			/* Ultra Fast */

@@ -30,7 +30,7 @@ namespace Server.Mobiles
         private int m_Thrown;
 
         [Constructable]
-        public PirateCrew() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, .2, .4)
+        public PirateCrew() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Name = "Orcish Crew";
 
