@@ -163,7 +163,7 @@ namespace Server.Items
             if (!Movable)
                 return;
 
-            if (RootParent is BaseCreature)
+            if (RootParent is BaseCreature bc && bc.ControlMaster != from)
             {
                 from.SendLocalizedMessage(500447); // That is not accessible
             }
