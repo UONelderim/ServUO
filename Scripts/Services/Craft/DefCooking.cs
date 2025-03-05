@@ -149,7 +149,7 @@ namespace Server.Engines.Craft
             #endregion
             
             index = AddCraft( typeof( PetBondingPotion ), "Wywary" , "wywar oswajacza" , 80.0, 100.0, typeof( BaseBeverage ), 1046458, 5, 1044253 );
-			AddRes( index, typeof( Gold ), "zloto" , 8000, 1044253 );
+			AddRes( index, typeof(Putrefaction), 1032678, 3, 1044253);
 			AddRes( index, typeof( TribalBerry ), "tubylcza jagoda" , 5, 1044253 );
 			AddRes( index, typeof( Beeswax ), "wosk" , 35, 1044253 );
 

@@ -418,6 +418,12 @@ namespace Server.Engines.Craft
             AddRes(index, typeof(RecallScroll), 1044445, 3, 1044253);
             AddRes(index, typeof(GateTravelScroll), 1044446, 3, 1044253);
             AddRecipe(index, (int)InscriptionRecipes.RunicAtlas);
+            
+            // Pet Bonding Deed
+            index = AddCraft( typeof( PetBondingDeed ), otherGroup, "Zwoj Oswajacza", 75.0, 100.0, typeof(Putrefaction), 1032678, 3, 1044253);
+            AddRes( index, typeof( BlankScroll ), "czyste zwoje", 200, 1044253 );
+            AddRes( index, typeof( FireRuby ), "ogniowy rubin" , 5, 1044253 );
+            AddRes( index, typeof( Beeswax ), "wosk" , 35, 1044253 );
 
             //!Mistyk!
             // AddMysticSpell(1031678, 4, 0.0, typeof(NetherBoltScroll), Reg.SulfurousAsh, Reg.BlackPearl);
