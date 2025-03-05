@@ -722,6 +722,7 @@ namespace Server
 				typeof(KorahaTilkiPikador),
 				typeof(Leviathan),
 				typeof(Mephitis),
+				typeof(MotherWolf),
 				typeof(Neira),
 				typeof(Nightmare),
 				typeof(OphidianArchmage),
