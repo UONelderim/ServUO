@@ -36,7 +36,7 @@ namespace Server.Mobiles
             SetSkill(SkillName.Poisoning, 97.8, 116.7);
 
             Fame = 18900;
-            Karma = -18900;
+            Karma = 18900;
 
             SetWeaponAbility(WeaponAbility.ArmorIgnore);
         }

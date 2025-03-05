@@ -59,7 +59,7 @@ namespace Server.Mobiles
             SetSkill(SkillName.Spellweaving, 91.6, 99.5);
 
             Fame = 15000;
-            Karma = -15000;
+            Karma = 15000;
         }
 
         public Changeling(Serial serial)

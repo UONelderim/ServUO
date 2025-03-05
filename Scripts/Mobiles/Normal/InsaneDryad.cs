@@ -212,7 +212,7 @@ namespace Server.Mobiles
         }
     }
 
-    [CorpseName("an insane dryad corpse")]
+    [CorpseName("cialo szalonej driady")]
     public class InsaneDryad : MLDryad
     {
         public override bool InitialInnocent => false;
@@ -221,13 +221,13 @@ namespace Server.Mobiles
         public InsaneDryad()
             : base()
         {
-            Name = "an insane dryad";
+            Name = "szalona driada";
             Hue = 0x487;
 
             FightMode = FightMode.Closest;
 
             Fame = 7000;
-            Karma = -7000;
+            Karma = 7000;
         }
 
         public InsaneDryad(Serial serial)

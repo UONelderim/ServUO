@@ -87,7 +87,7 @@ namespace Server.Mobiles
 			SetSkill(SkillName.Wrestling, 80.5, 92.5);
 
 			Fame = 9000;
-			Karma = -9000;
+			Karma = 9000;
 
 			Tamable = true;
 			ControlSlots = 2;

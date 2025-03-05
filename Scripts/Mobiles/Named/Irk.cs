@@ -34,7 +34,7 @@ namespace Server.Mobiles
             SetSkill(SkillName.Meditation, 108.9, 119.1);
 
             Fame = 21000;
-            Karma = -21000;
+            Karma = 21000;
 
             SetSpecialAbility(SpecialAbility.AngryFire);
         }
