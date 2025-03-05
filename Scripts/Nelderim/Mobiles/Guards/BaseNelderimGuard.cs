@@ -88,6 +88,7 @@ public class BaseNelderimGuard : BaseCreature
     }
 
     public override bool AlwaysInnocent => true;
+    public override bool IsMonster => false;
 
     [CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
     public WarFlag WarSideFlag
