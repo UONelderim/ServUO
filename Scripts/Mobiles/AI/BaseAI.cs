@@ -377,7 +377,6 @@ namespace Server.Mobiles
 			{
 				m_Mobile.ControlTarget = target;
 				m_Mobile.ControlOrder = order;
-				m_Mobile.Combatant = target;
 			}
 		}
 
