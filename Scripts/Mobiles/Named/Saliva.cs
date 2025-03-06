@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("cialo salivy")]
+    [CorpseName("cialo sliny")]
     public class Saliva : Harpy
     {
         [Constructable]
