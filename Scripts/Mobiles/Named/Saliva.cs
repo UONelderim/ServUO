@@ -9,7 +9,7 @@ namespace Server.Mobiles
         public Saliva()
             : base()
         {
-            Name = "saliva";
+            Name = "slina";
             Hue = 0x11E;
 
             SetStr(136, 206);
