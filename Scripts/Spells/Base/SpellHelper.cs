@@ -816,8 +816,7 @@ namespace Server.Spells
                 {
 	                if (Region.Contains<DungeonRegion>(map, loc))
 		                isValid = false;
-	                if (!TravelRegion.ValidateTravel(caster, loc, map) && 
-	                    !UndershadowTravelRegion.ValidateTravel(caster, loc, map))
+	                if (!TravelRegion.ValidateTravel(caster, loc, map))
 		                isValid = false;
                 }
 

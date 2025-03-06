@@ -1,5 +1,6 @@
 #region References
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
@@ -11,11 +12,14 @@ namespace Server.Regions
 {
 	public class TravelRegion : NBaseRegion
 	{
-		private static readonly List<TravelRegion> _Regions = [];
+		private static readonly List<Type> _TravelImpactedRegionTypes =
+			[typeof(CityRegion), typeof(HousingRegion), typeof(VillageRegion)];
+		
+		private static readonly List<TravelRegion> _TravelRegions = [];
 		
 		public TravelRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent)
 		{
-			_Regions.Add(this);
+			_TravelRegions.Add(this);
 		}
 
 		public override bool AllowHousing(Mobile from, Point3D p)
@@ -23,43 +27,32 @@ namespace Server.Regions
 			return false;
 		}
 		
-		public static bool ValidateTravel(Mobile traveller, Point3D targetLoc, Map targetMap)
+		public static bool ValidateTravel(Mobile m, Point3D targetLoc, Map targetMap)
 		{
-			//Traveller in TravelRegion
-			if (!_Regions.Any(region => region.Map == traveller.Map && region.Contains(traveller.Location)))
-				return false;
-			//Target in TravelRegion
-			if (!_Regions.Any(region => region.Map == targetMap && region.Contains(targetLoc))) 
-				return false;
+			var fromRegion = _TravelRegions.Find(r => r.Map == m.Map && r.Contains(m.Location));
+			if (fromRegion == null) 
+				return false; //Traveller not in TravelRegion
 			
-			return traveller.Faction != Faction.East;
-		}
-	}
+			var toRegion = _TravelRegions.Find(r => r.Map == targetMap && r.Contains(targetLoc));
+			if (toRegion == null)
+				return false; //Target not in TravelRegion
 
-	public class UndershadowTravelRegion : NBaseRegion
-	{
-		private static readonly List<UndershadowTravelRegion> _Regions = [];
+			foreach (var type in _TravelImpactedRegionTypes)
+			{
+				if(TryGetRegions(type, m.Map, m.Location, out var fromRegions))
+				{
+					if(fromRegions.Any(r => NelderimRegionSystem.GetRegion(r.Name).GetFaction().IsEnemy(m)))
+						return false; //Traveller in enemy region
+				}
+				
+				if(TryGetRegions(type, targetMap, targetLoc, out var toRegions))
+				{
+					if(toRegions.Any(r => NelderimRegionSystem.GetRegion(r.Name).GetFaction().IsEnemy(m)))
+						return false; //Target in enemy region
+				}
+			}
 
-		public UndershadowTravelRegion(XmlElement xml, Map map, Region parent) : base(xml, map, parent)
-		{
-			_Regions.Add(this);
-		}
-		
-		public override bool AllowHousing(Mobile from, Point3D p)
-		{
-			return false;
-		}
-
-		public static bool ValidateTravel(Mobile traveller, Point3D targetLoc, Map targetMap)
-		{
-			//Traveller in TravelRegion
-			if (!_Regions.Any(region => region.Map == traveller.Map && region.Contains(traveller.Location)))
-				return false;
-			//Target in TravelRegion
-			if (!_Regions.Any(region => region.Map == targetMap && region.Contains(targetLoc))) 
-				return false;
-			
-			return traveller.Faction == Faction.East;
+			return true;
 		}
 	}
 }

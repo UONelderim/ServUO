@@ -675,6 +675,18 @@ namespace Server
 			return false;
 		}
 
+		public static bool TryGetRegions(Type t, Map m, Point3D p, out List<Region> regions)
+		{
+			if (RegionsByType.TryGetValue(t, out var typeRegions))
+			{
+				regions = typeRegions.FindAll(r => r.Map == m && r.Contains(p));
+				return true;
+			}
+
+			regions = [];
+			return false;
+		}
+
 		public bool IsChildOf(Region region)
 		{
 			if (region == null)

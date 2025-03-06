@@ -17,8 +17,7 @@
 			<rect x="618" y="1732" width="88" height="188" />
 			<rect x="0" y="1920" width="1350" height="950" />
 			<rect x="0" y="2870" width="940" height="1225" />
-			<rect x="1350" y="770" width="170" height="300" />
-			<rect x="1351" y="1070" width="169" height="120" />
+			<rect x="1350" y="770" width="170" height="420" />
 			<rect x="1520" y="873" width="125" height="317" />
 			<rect x="1435" y="1190" width="210" height="95" />
 			<rect x="1350" y="1285" width="295" height="635" />
@@ -61,10 +60,6 @@
 			<rect x="2780" y="1900" width="25" height="75" />
 			<rect x="2350" y="2400" width="1000" height="600" />
 			<rect x="2350" y="3000" width="1000" height="1095" />
-			<rect x="3350" y="0" width="1750" height="535" />
-			<rect x="3350" y="535" width="250" height="276" />
-			<rect x="3600" y="535" width="386" height="276" />
-			<rect x="3986" y="535" width="1114" height="276" />
 			<rect x="3350" y="811" width="388" height="368" />
 			<rect x="3738" y="811" width="318" height="368" />
 			<rect x="4056" y="811" width="312" height="254" />
@@ -85,20 +80,13 @@
 			<rect x="3350" y="1929" width="430" height="235" />
 			<rect x="3350" y="2164" width="430" height="194" />
 			<rect x="3780" y="1929" width="315" height="212" />
-			<rect x="3350" y="2358" width="430" height="248" />
-			<rect x="3350" y="2606" width="430" height="203" />
-			<rect x="3350" y="2809" width="430" height="191" />
 			<rect x="3992" y="2141" width="103" height="217" />
-			<rect x="3780" y="2358" width="315" height="151" />
 			<rect x="3919" y="2330" width="73" height="28" />
 			<rect x="3926" y="2312" width="66" height="18" />
 			<rect x="3946" y="2282" width="46" height="30" />
 			<rect x="3948" y="2215" width="44" height="67" />
 			<rect x="3967" y="2141" width="25" height="74" />
-			<rect x="3780" y="2509" width="315" height="300" />
-			<rect x="3780" y="2809" width="315" height="191" />
-			<rect x="4095" y="1929" width="1005" height="521" />
-			<rect x="4095" y="2450" width="1005" height="550" />
+			<rect x="4095" y="1929" width="1005" height="429" />
 			<rect x="4402" y="1065" width="698" height="864" />
 			<rect x="4382" y="1065" width="20" height="198" />
 			<rect x="4375" y="1065" width="7" height="57" />
@@ -115,24 +103,18 @@
 			<rect x="3955" y="1618" width="65" height="23" />
 			<rect x="3902" y="1742" width="500" height="187" />
 			<rect x="0" y="489" width="2351" height="281" />
-			<rect x="311" y="40" width="2040" height="449" />
-			<rect x="3" y="5" width="272" height="304" />
+			<rect x="0" y="5" width="275" height="304" />
 			<rect x="0" y="309" width="143" height="180" />
-			<rect x="275" y="0" width="1464" height="40" />
-			<rect x="275" y="40" width="36" height="449" />
 			<rect x="2682" y="580" width="668" height="920" />
 			<rect x="2351" y="0" width="999" height="580" />
 			<rect x="2350" y="1018" width="332" height="482" />
 			<rect x="1180" y="2936" width="30" height="16" />
+			<rect x="275" y="5" width="2076" height="484" />
+			<rect x="3351" y="0" width="1748" height="810" />
+			<rect x="3351" y="2358" width="1746" height="642" />
 		</region>
-		<region type="UndershadowTravelRegion" priority="0" name="ObszarPodrozyPodmrok">
-			<rect x="5128" y="2294" width="1007" height="833" />
-			<rect x="5299" y="3127" width="59" height="23" />
-			<rect x="5625" y="3127" width="126" height="50" />
-			<rect x="5889" y="3127" width="27" height="7" />
-			<rect x="5562" y="2283" width="99" height="11" />
+		<region type="TravelRegion" priority="0" name="ObszarPodrozyPodmrok">
 			<rect x="5720" y="2249" width="143" height="45" />
-			<rect x="5886" y="2255" width="67" height="39" />
 			<rect x="5867" y="229" width="95" height="59" />
 			<rect x="5851" y="300" width="26" height="60" />
 			<rect x="5877" y="301" width="135" height="53" />
@@ -141,33 +123,25 @@
 			<rect x="6012" y="314" width="98" height="53" />
 			<rect x="5306" y="334" width="51" height="84" />
 			<rect x="5773" y="300" width="78" height="55" />
-			<rect x="5367" y="3150" width="51" height="27" />
-			<rect x="5774" y="3164" width="46" height="13" />
-			<rect x="5921" y="3132" width="220" height="45" />
-			<rect x="5888" y="3146" width="33" height="31" />
 			<rect x="5142" y="1899" width="272" height="240" />
-			<rect x="5836" y="1913" width="267" height="71" />
-			<rect x="5851" y="1984" width="252" height="15" />
-			<rect x="5864" y="1999" width="253" height="15" />
-			<rect x="5866" y="2014" width="252" height="7" />
-			<rect x="5880" y="2021" width="240" height="225" />
-			<rect x="5810" y="2062" width="70" height="49" />
-			<rect x="5829" y="2111" width="51" height="13" />
-			<rect x="5837" y="2124" width="43" height="6" />
-			<rect x="5846" y="2130" width="34" height="5" />
-			<rect x="5850" y="2135" width="30" height="4" />
-			<rect x="5853" y="2139" width="27" height="4" />
-			<rect x="5856" y="2143" width="24" height="3" />
-			<rect x="5860" y="2146" width="20" height="95" />
-			<rect x="5845" y="2168" width="15" height="69" />
-			<rect x="5839" y="2178" width="6" height="59" />
-			<rect x="5793" y="2179" width="46" height="13" />
-			<rect x="5793" y="2172" width="20" height="7" />
-			<rect x="5799" y="2192" width="40" height="45" />
-			<rect x="5126" y="3177" width="298" height="872" />
-			<rect x="5424" y="3177" width="717" height="590" />
-			<rect x="5489" y="3767" width="652" height="326" />
-			<rect x="5424" y="3857" width="65" height="213" />
+			<rect x="5679" y="2294" width="194" height="246" />
+			<rect x="5656" y="2471" width="23" height="57" />
+			<rect x="5918" y="2030" width="78" height="21" />
+			<rect x="5935" y="2051" width="56" height="9" />
+			<rect x="5951" y="2060" width="39" height="30" />
+			<rect x="5925" y="2012" width="89" height="18" />
+			<rect x="5945" y="1958" width="24" height="54" />
+			<rect x="5969" y="1927" width="47" height="85" />
+			<rect x="6016" y="1936" width="25" height="69" />
+			<rect x="6041" y="1938" width="15" height="52" />
+			<rect x="5903" y="2759" width="83" height="46" />
+			<rect x="5951" y="2693" width="75" height="66" />
+			<rect x="6026" y="2729" width="30" height="30" />
+			<rect x="5986" y="2759" width="57" height="29" />
+			<rect x="5713" y="3317" width="48" height="42" />
+			<rect x="5761" y="3286" width="225" height="91" />
+			<rect x="5743" y="3359" width="18" height="18" />
+			<go x="5781" y="2413" z="0" />
 		</region>
 	</Facet>
 </ServerRegions>
