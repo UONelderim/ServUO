@@ -132,7 +132,7 @@ namespace Server.Engines.Craft
             AddCraft(typeof(HeavyCrossbow), 3060321, 1025117, 80.0, 120.0, typeof(Board), 1044041, 10, 1044351);
             AddCraft(typeof(CompositeBow), 3060321, 1029922, 70.0, 110.0, typeof(Board), 1044041, 7, 1044351);
             AddCraft(typeof(RepeatingCrossbow), 3060321, 1029923, 90.0, 130.0, typeof(Board), 1044041, 10, 1044351);
-           AddCraft(typeof(Yumi), 3060321, 3060321, 90.0, 130.0, typeof(Board), 1044041, 10, 1044351);
+           AddCraft(typeof(Yumi), 3060321, 1030149, 90.0, 130.0, typeof(Board), 1044041, 10, 1044351);
            AddCraft(typeof(ElvenCompositeLongbow), 3060321, 1031562, 95.0, 145.0, typeof(Board), 1044041, 20, 1044351);
            AddCraft(typeof(MagicalShortbow), 3060321, 1031551, 85.0, 135.0, typeof(Board), 1044041, 15, 1044351);
 
