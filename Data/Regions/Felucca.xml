@@ -10941,7 +10941,7 @@
 			<rect x="5783" y="1744" width="39" height="42" />
 			<music name="Taiko" />
 		</region>
-		<region type="HousingRegion" name="West_Housing">
+		<region type="HousingRegion" name="West_Housing" priority="0">
 			<rect x="1658" y="580" width="484" height="208" />
 			<rect x="1776" y="559" width="55" height="21" />
 			<rect x="1943" y="539" width="52" height="41" />
@@ -11005,7 +11005,7 @@
 			<rect x="1073" y="1534" width="137" height="97" />
 			<rect x="1136" y="1501" width="19" height="33" />
 		</region>
-		<region type="HousingRegion" name="East_Housing">
+		<region type="HousingRegion" name="East_Housing" priority="0">
 			<rect x="2340" y="1512" width="145" height="133" />
 			<rect x="2340" y="1645" width="69" height="116" />
 			<rect x="2314" y="1601" width="26" height="160" />
