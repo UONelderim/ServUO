@@ -219,6 +219,7 @@ public class NelderimRegion : IComparable<NelderimRegion>
 	        }
 	        guard.Race = Race.Parse(Utility.RandomWeigthed(guardDefinition.Population ?? Population));
 	        guard.Female = Utility.RandomDouble() < guardDefinition.Female;
+	        guard.Faction = GetFaction();
 	        NelderimRegionSystem.GetGuardProfile(guardDefinition.Name).Make(guard);
         }
         catch (Exception e)
