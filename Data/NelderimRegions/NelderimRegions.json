@@ -211,6 +211,7 @@
         },
         {
           "Name": "Ferion",
+          "Faction": "West",
           "Population": {
             "Tamael": 1.0
           },
@@ -222,6 +223,7 @@
         },
         {
           "Name": "Tafroel",
+          "Faction": "West",
           "Population": {
             "Tamael": 1.00
           },
@@ -233,12 +235,14 @@
         },
         {
           "Name": "Talas",
+          "Faction": "West",
           "Population": {
             "Tamael": 1.0
           }
         },
         {
           "Name": "Tingref",
+          "Faction": "West",
           "Population": {
             "Tamael": 1.0
           },
@@ -250,12 +254,14 @@
         },
         {
           "Name": "Uk",
+          "Faction": "West",
           "Population": {
             "Tamael": 1.00
           }
         },
         {
           "Name": "Celendir",
+          "Faction": "East",
           "Population": {
             "Tamael": 1.0
           }
@@ -445,6 +451,7 @@
       "Regions": [
         {
           "Name": "Garlan",
+          "Faction": "West",
           "Population": {
             "Jarling": 1.0
           },
@@ -505,7 +512,8 @@
           ]
         },
         {
-          "Name": "SnieznaPrzystan"
+          "Name": "SnieznaPrzystan",
+          "Faction": "West"
         },
         {
           "Name": "CirithDur"
@@ -574,6 +582,7 @@
         },
         {
           "Name": "Oaza",
+          "Faction": "East",
           "Regions": [
             {
               "Name": "PlaklaNiar"
@@ -642,6 +651,7 @@
         },
         {
           "Name": "Tirassa",
+          "Faction": "East",
           "Population": {
             "Tamael": 0.90,
             "Krasnolud": 0.10
@@ -764,6 +774,7 @@
       "Regions": [
         {
           "Name": "Lotharn",
+          "Faction": "West",
           "BannedSchools": {
             "Necromancy": true
           },
@@ -914,6 +925,7 @@
       "Regions": [
         {
           "Name": "NoamuthQuortek",
+          "Faction": "East",
           "Regions": [
             {
               "Name": "NoamuthQuortek_Kopalnia",
@@ -1009,6 +1021,7 @@
       "Regions": [
         {
           "Name": "L'Delmah",
+          "Faction": "East",
           "Regions": [
             {
               "Name": "L'Delmah_Kopalnia",
