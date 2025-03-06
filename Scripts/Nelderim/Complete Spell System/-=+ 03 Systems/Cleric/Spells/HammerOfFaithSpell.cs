@@ -81,7 +81,10 @@ namespace Server.ACC.CSS.Systems.Cleric
 				BlessedFor = owner;
 				Slayer = SlayerName.Silver;
 				Attributes.WeaponDamage = 30;
-				WeaponAttributes.UseBestSkill = 1;
+				WeaponAttributes.HitLeechStam = 20;
+				WeaponAttributes.HitLeechHits = 20;
+				Attributes.SpellChanneling = 1;
+				WeaponAttributes.UseBestSkill = 1;;
 				Name = "Topór Wiary";
 
 				double time = (owner.Skills[SkillName.Anatomy].Value / 20.0) * ClericDivineFocusSpell.GetScalar(owner);

@@ -81,8 +81,10 @@ namespace Server.ACC.CSS.Systems.Undead
 				Hue = 38;
 				BlessedFor = owner;
 				Slayer = SlayerName.Fey;
+				Attributes.WeaponDamage = 30;
 				WeaponAttributes.HitLeechStam = 20;
 				WeaponAttributes.HitLeechHits = 20;
+				Attributes.SpellChanneling = 1;
 				WeaponAttributes.UseBestSkill = 1;
 				Name = "Sierp Wiary Smierci";
 
