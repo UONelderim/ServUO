@@ -204,7 +204,7 @@ ksiege kandydat otrzyma. Zabij 20 pajakow i 10 ettinow, do tego 10 lordow orkow
 	{
 		public RangerPhase5Quest()
 		{
-			AddObjective(new SlayObjective(typeof(RagingGrizzlyBear), "wsciekly niedzwiedz grizzly", 30));
+			AddObjective(new SlayObjective(typeof(RagingGrizzlyBear), "wsciekly niedzwiedz grizzly", 3));
 
 			AddReward(new BaseReward(typeof(RangerFireBowScroll), "Ognisty Łuk"));
 			AddReward(new BaseReward("Poradnik Strażnika Leśnego"));
