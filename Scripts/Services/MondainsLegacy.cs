@@ -189,7 +189,7 @@ namespace Server
             CommandSystem.Register("DecorateML", AccessLevel.Administrator, DecorateML_OnCommand);
             CommandSystem.Register("DecorateMLDelete", AccessLevel.Administrator, DecorateMLDelete_OnCommand);
             CommandSystem.Register("SettingsML", AccessLevel.Administrator, SettingsML_OnCommand);
-            CommandSystem.Register("Quests", AccessLevel.GameMaster, Quests_OnCommand);
+            CommandSystem.Register("QuestsML", AccessLevel.GameMaster, Quests_OnCommand);
 
             LoadSettings();
         }
@@ -629,7 +629,7 @@ namespace Server
             e.Mobile.SendGump(new MondainsLegacyGump());
         }
 
-        [Usage("Quests")]
+        [Usage("QuestsML")]
         [Description("Pops up a quest list from targeted player.")]
         private static void Quests_OnCommand(CommandEventArgs e)
         {
