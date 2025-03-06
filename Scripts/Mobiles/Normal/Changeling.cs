@@ -77,7 +77,7 @@ namespace Server.Mobiles
             return base.IsEnemy(m);
         }
 
-        public virtual string DefaultName => "a changeling";
+        public virtual string DefaultName => "spaczona wrozka";
         public virtual int DefaultHue => 0;
 
         public override bool UseSmartAI => true;
