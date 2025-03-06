@@ -110,7 +110,7 @@ namespace Server.Multis
 
                     Region reg = Region.Find(testPoint, map);
 
-                    if (!reg.AllowHousing(from, testPoint)) // Cannot place houses in dungeons, towns, treasure map areas etc
+                    if (!HousingRegion.ValidateHousing(from, testPoint)) // Cannot place houses in dungeons, towns, treasure map areas etc
                     {
                         if (reg.IsPartOf<TempNoHousingRegion>())
                             return HousePlacementResult.BadRegionTemp;

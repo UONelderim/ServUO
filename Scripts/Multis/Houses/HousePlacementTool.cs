@@ -362,7 +362,7 @@ namespace Server.Items
 
                 Region reg = Region.Find(new Point3D(p), from.Map);
 
-                if (from.AccessLevel >= AccessLevel.GameMaster || reg.AllowHousing(from, p))
+                if (from.AccessLevel >= AccessLevel.GameMaster || HousingRegion.ValidateHousing(from, p))
                     m_Placed = m_Entry.OnPlacement(m_Tool, from, p);
                 else if (reg.IsPartOf<TempNoHousingRegion>())
                     from.SendLocalizedMessage(501270); // Lord British has decreed a 'no build' period, thus you cannot build this house at this time.
@@ -370,6 +370,8 @@ namespace Server.Items
                     from.SendLocalizedMessage(1043287); // The house could not be created here.  Either something is blocking the house, or the house would not be on valid terrain.
                 else if (reg.IsPartOf<HouseRaffleRegion>())
                     from.SendLocalizedMessage(1150493); // You must have a deed for this plot of land in order to build here.
+                else if (Region.Contains<HousingRegion>(from.Map, p))
+	                from.SendMessage("Nie możesz postawić domu w tym miejscu.");
                 else
                     from.SendLocalizedMessage(501265); // Housing can not be created in this area.
             }
