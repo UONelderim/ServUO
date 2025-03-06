@@ -68,7 +68,7 @@ Jak wyroznic sie wsrod zwyczajnych wiernych, zapytasz? Otoz, najpierw trzeba pod
 		/* Co dalej? */
 		public override object Title => 3060308;
 
-		/*  Co dalej pytasz? Nastepnie zebrac 100 sztuk krwawego mchu, 100 pajeczej sieci i 100 niszczejacych aniolow. Te skladniki oddac nalezy kaplanowi Smierci w Tasandorze.  */
+		/*  Co dalej pytasz? Nastepnie zebrac 100 pajeczej sieci i 100 niszczejacych aniolow. Te skladniki oddac nalezy kaplanowi Smierci w Tasandorze.  */
 		public override object Description => 3060309;
 
 		/* A co to? Spekales sie?! Hahaha, no popatrzcie... */
