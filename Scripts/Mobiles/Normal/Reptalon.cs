@@ -47,7 +47,7 @@ namespace Server.Mobiles
 			
 			Tamable = true;
 			ControlSlots = 5;
-			Hue = 2586;
+			Hue = 1071;
 			MinTameSkill = 115.1;
 			
 			SetSpecialAbility(SpecialAbility.DragonBreath);
