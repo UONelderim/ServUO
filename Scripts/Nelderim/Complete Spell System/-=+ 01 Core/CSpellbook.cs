@@ -52,7 +52,7 @@ namespace Server.ACC.CSS
 		}
 
 		public override bool AllowEquipedCast(Mobile from) { return true; }
-		public override bool DisplayLootType { get { return false; } }
+		public override bool DisplayLootType { get { return true; } }
 
 		public virtual School School { get { return School.Invalid; } }
 		public virtual ArrayList SchoolSpells { get { return SpellInfoRegistry.GetSpellsForSchool(this.School); } }
