@@ -20,18 +20,6 @@ namespace Server.Misc
         private static readonly int _PlayerChanceToGainStats;
         private static readonly int _PetChanceToGainStats;
 
-        private static readonly bool _AntiMacroCode;
-
-        /// <summary>
-        ///     How long do we remember targets/locations?
-        /// </summary>
-        public static TimeSpan AntiMacroExpire = TimeSpan.FromMinutes(5.0);
-
-        /// <summary>
-        ///     How many times may we use the same location/target for gain
-        /// </summary>
-        public const int Allowance = 3;
-
         /// <summary>
         ///     The size of each location, make this smaller so players dont have to move as far
         /// </summary>
@@ -41,8 +29,6 @@ namespace Server.Misc
 
         static SkillCheck()
         {
-            _AntiMacroCode = Config.Get("Gains.EnableAntiMacro", false);
-
             _StatGainDelay = Config.Get("Gains.PlayerStatTimeDelay", TimeSpan.FromMinutes(15.0));
             _PetStatGainDelay = Config.Get("Gains.PetStatTimeDelay", TimeSpan.FromMinutes(5.0));
 
@@ -55,69 +41,6 @@ namespace Server.Misc
             if (!Config.Get("Gains.EnablePetStatTimeDelay", false))
                 _PetStatGainDelay = TimeSpan.FromSeconds(0.5);
         }
-
-        private static readonly bool[] UseAntiMacro =
-        {
-			// true if this skill uses the anti-macro code, false if it does not
-			false, 	// Alchemy = 0,
-			true, 	// Anatomy = 1,
-			true, 	// AnimalLore = 2,
-			true, 	// ItemID = 3,
-			true, 	// ArmsLore = 4,
-			false, 	// Parry = 5,
-			true, 	// Begging = 6,
-			false, 	// Blacksmith = 7,
-			false, 	// Fletching = 8,
-			true, 	// Peacemaking = 9,
-			true, 	// Camping = 10,
-			false, 	// Carpentry = 11,
-			false, 	// Cartography = 12,
-			false, 	// Cooking = 13,
-			true, 	// DetectHidden = 14,
-			true, 	// Discordance = 15,
-			true, 	// EvalInt = 16,
-			true, 	// Healing = 17,
-			true, 	// Fishing = 18,
-			true, 	// Forensics = 19,
-			true, 	// Herding = 20,
-			true, 	// Hiding = 21,
-			true, 	// Provocation = 22,
-			false, 	// Inscribe = 23,
-			true, 	// Lockpicking = 24,
-			true, 	// Magery = 25,
-			true, 	// MagicResist = 26,
-			false, 	// Tactics = 27,
-			true, 	// Snooping = 28,
-			true, 	// Musicianship = 29,
-			true, 	// Poisoning = 30,
-			false, 	// Archery = 31,
-			true, 	// SpiritSpeak = 32,
-			true, 	// Stealing = 33,
-			false, 	// Tailoring = 34,
-			true, 	// AnimalTaming = 35,
-			true, 	// TasteID = 36,
-			false, 	// Tinkering = 37,
-			true, 	// Tracking = 38,
-			true, 	// Veterinary = 39,
-			false, 	// Swords = 40,
-			false, 	// Macing = 41,
-			false, 	// Fencing = 42,
-			false, 	// Wrestling = 43,
-			true, 	// Lumberjacking = 44,
-			true, 	// Mining = 45,
-			true, 	// Meditation = 46,
-			true, 	// Stealth = 47,
-			true, 	// RemoveTrap = 48,
-			true, 	// Necromancy = 49,
-			false, 	// Focus = 50,
-			true, 	// Chivalry = 51
-			true, 	// Bushido = 52
-			true, 	// Ninjitsu = 53
-			true, 	// Spellweaving = 54
-            true, 	// Mysticism = 55
-			true, 	// Imbuing = 56
-			false  // Throwing = 57
-        };
 
         public static void Initialize()
         {

@@ -3895,7 +3895,6 @@ namespace Server.Mobiles
 
         private List<Mobile> m_PermaFlags;
         private readonly List<Mobile> m_VisList;
-        private readonly Hashtable m_AntiMacroTable;
         private TimeSpan m_GameTime;
         private TimeSpan m_ShortTermElapse;
         private TimeSpan m_LongTermElapse;
@@ -4044,7 +4043,6 @@ namespace Server.Mobiles
 
             m_VisList = new List<Mobile>();
             m_PermaFlags = new List<Mobile>();
-            m_AntiMacroTable = new Hashtable();
             m_RecentlyReported = new List<Mobile>();
 
             m_GameTime = TimeSpan.Zero;
@@ -4228,7 +4226,6 @@ namespace Server.Mobiles
             Instances.Add(this);
 
             m_VisList = new List<Mobile>();
-            m_AntiMacroTable = new Hashtable();
         }
 
         public List<Mobile> VisibilityList => m_VisList;
@@ -4279,49 +4276,6 @@ namespace Server.Mobiles
             }
 
             return base.IsHarmfulCriminal(damageable);
-        }
-
-        public bool AntiMacroCheck(Skill skill, object obj)
-        {
-            if (obj == null || m_AntiMacroTable == null || IsStaff())
-            {
-                return true;
-            }
-
-            Hashtable tbl = (Hashtable)m_AntiMacroTable[skill];
-            if (tbl == null)
-            {
-                m_AntiMacroTable[skill] = tbl = new Hashtable();
-            }
-
-            CountAndTimeStamp count = (CountAndTimeStamp)tbl[obj];
-            if (count != null)
-            {
-                if (count.TimeStamp + SkillCheck.AntiMacroExpire <= DateTime.UtcNow)
-                {
-                    count.Count = 1;
-                    return true;
-                }
-                else
-                {
-                    ++count.Count;
-                    if (count.Count <= SkillCheck.Allowance)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-            else
-            {
-                tbl[obj] = count = new CountAndTimeStamp();
-                count.Count = 1;
-
-                return true;
-            }
         }
 
         public BOBFilter BOBFilter => BulkOrderSystem.GetBOBFilter(this);
@@ -4779,24 +4733,6 @@ namespace Server.Mobiles
 
         public override void Serialize(GenericWriter writer)
         {
-            //cleanup our anti-macro table
-            foreach (Hashtable t in m_AntiMacroTable.Values)
-            {
-                ArrayList remove = new ArrayList();
-                foreach (CountAndTimeStamp time in t.Values)
-                {
-                    if (time.TimeStamp + SkillCheck.AntiMacroExpire <= DateTime.UtcNow)
-                    {
-                        remove.Add(time);
-                    }
-                }
-
-                for (int i = 0; i < remove.Count; ++i)
-                {
-                    t.Remove(remove[i]);
-                }
-            }
-
             CheckKillDecay();
             CheckAtrophies(this);
 			StopResurrectTimer();
