@@ -99,9 +99,18 @@ namespace Server.Misc
 			if (gc > 1.00)
 				gc = 1.00;
 
-			if (from is PlayerMobile { GainDebug: true } && skill.Lock == SkillLock.Up)
-				if (skill.SkillName != SkillName.Meditation && skill.SkillName != SkillName.Focus)
-					from.SendMessage(success ? 0x40 : 0x20, 
+			var player = from switch
+			{
+				PlayerMobile pm => pm,
+				BaseCreature bc => bc.ControlMaster as PlayerMobile,
+				_ => null
+			};
+			
+			if (player is { GainDebug: true })
+				if (skill.Lock == SkillLock.Up && skill.SkillName != SkillName.Meditation &&
+				    skill.SkillName != SkillName.Focus)
+					player.SendMessage(success ? 0x40 : 0x20,
+						(from is BaseCreature bc ? $"{bc.Name}: " : "") +   
 						$"[{skill.Name}: {skill.Value}%] " +
 						$"GainChance = {Math.Round(gc * 100, 2)}% " +
 						$"SuccessChance = {Math.Round(chance * 100, 2)}% " +
