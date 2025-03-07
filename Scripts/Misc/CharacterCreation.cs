@@ -153,6 +153,7 @@ namespace Server.Misc
 			var race = Race.None;
 
 			newChar.Race = race;
+			race.AssignDefaultLanguages(newChar);
 
 			newChar.BodyHue = race.ClipSkinHue(args.SkinHue) | Mobile.HuePartialFlag;
 
