@@ -21,12 +21,12 @@
 		<layer index="1" item="Server.Items.Backpack" hue="0" loot="0">
 			<item type="Server.Items.Bolt" amount="100" hue="0" id="7163" loot="0" />
 		</layer>
-		<layer index="3" item="Server.Items.Cloak" hue="2690" loot="0" />
+		<layer index="3" item="Server.Items.Cloak" hue="1560" loot="0" />
 		<layer index="8" item="Server.Items.Helmet" hue="0" loot="0" />
 		<layer index="10" item="Server.Items.RingmailChest" hue="0" loot="0" />
-		<layer index="11" item="Server.Items.Surcoat" hue="2690" loot="0" />
+		<layer index="11" item="Server.Items.Surcoat" hue="1560" loot="0" />
 		<layer index="16" item="Server.Items.RingmailLegs" hue="0" loot="0" />
-		<layer index="19" item="Server.Items.Boots" hue="2690" loot="0" />
+		<layer index="19" item="Server.Items.Boots" hue="1560" loot="0" />
 		<layer index="20" item="Server.Items.HeavyCrossbow" hue="0" loot="0" />
 	</layers>
 	<mount mounted="false" />

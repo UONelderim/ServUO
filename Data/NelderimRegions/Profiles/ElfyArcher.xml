@@ -27,8 +27,8 @@
 		<layer index="10" item="Server.Items.LeafChest" hue="1642" loot="0" />
 		<layer index="12" item="Server.Items.LeafGorget" hue="1642" loot="0" />
 		<layer index="16" item="Server.Items.LeafLegs" hue="1642" loot="0" />
-		<layer index="19" item="Server.Items.Boots" hue="11642" loot="0" />
-		<layer index="20" item="Server.Items.CompositeBow" hue="2702" loot="0" />
+		<layer index="19" item="Server.Items.Boots" hue="1642" loot="0" />
+		<layer index="20" item="Server.Items.CompositeBow" hue="1182" loot="0" />
 	</layers>
 	<mount mounted="false" />
 </export>

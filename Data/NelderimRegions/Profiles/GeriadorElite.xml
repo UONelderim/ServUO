@@ -21,11 +21,11 @@
 	<resistances physical="60" fire="60" cold="60" poison="60" energy="60" />
 	<layers count="12">
 		<layer index="0" item="Server.Items.PlateArms" hue="0" loot="0" />
-		<layer index="3" item="Server.Items.Cloak" hue="2690" loot="0" />
+		<layer index="3" item="Server.Items.Cloak" hue="1560" loot="0" />
 		<layer index="6" item="Server.Items.PlateGloves" hue="0" loot="0" />
 		<layer index="8" item="Server.Items.PlateHelm" hue="0" loot="0" />
 		<layer index="10" item="Server.Items.PlateChest" hue="0" loot="0" />
-		<layer index="11" item="Server.Items.BodySash" hue="2690" loot="0" />
+		<layer index="11" item="Server.Items.BodySash" hue="1560" loot="0" />
 		<layer index="12" item="Server.Items.PlateGorget" hue="0" loot="0" />
 		<layer index="16" item="Server.Items.PlateLegs" hue="0" loot="0" />
 		<layer index="20" item="Server.Items.Halberd" hue="0" loot="0" />

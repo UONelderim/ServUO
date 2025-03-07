@@ -18,10 +18,10 @@
 	<damage value="30" />
 	<resistances physical="40" fire="50" cold="50" poison="50" energy="50" />
 	<layers count="9">
-		<layer index="3" item="Server.Items.Cloak" hue="2690" loot="0" />
+		<layer index="3" item="Server.Items.Cloak" hue="1560" loot="0" />
 		<layer index="19" item="Server.Items.Boots" hue="0" loot="0" />
 		<layer index="20" item="Server.Items.BlackStaff" hue="0" loot="0" />
-		<layer index="22" item="Server.Items.Robe" hue="2690" loot="0" />
+		<layer index="22" item="Server.Items.Robe" hue="1560" loot="0" />
 		<layer index="19" item="Server.Items.Sandals" hue="1109" loot="0" /> 
 	</layers>
 	<mount mounted="false" />

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <export>
-	<nonHuman body="173" sound="1170" hue="2618" name="swiety pajak"/>
+	<nonHuman body="173" sound="1170" hue="2164" name="swiety pajak"/>
 	<behavior fightMode="4" guardMode="Spider"/>
 	<skills>
 		<skill index="1" name="Anatomy" base="120" />

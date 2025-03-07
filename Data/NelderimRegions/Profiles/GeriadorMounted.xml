@@ -21,7 +21,7 @@
 	<resistances physical="50" fire="50" cold="50" poison="50" energy="50" />
 	<layers count="13">
 		<layer index="0" item="Server.Items.PlateArms" hue="0" loot="0" />
-		<layer index="3" item="Server.Items.Cloak" hue="2690" loot="0" />
+		<layer index="3" item="Server.Items.Cloak" hue="1560" loot="0" />
 		<layer index="6" item="Server.Items.PlateGloves" hue="0" loot="0" />
 		<layer index="8" item="Server.Items.ChainCoif" hue="0" loot="0" />
 		<layer index="10" item="Server.Items.PlateChest" hue="0" loot="0" />

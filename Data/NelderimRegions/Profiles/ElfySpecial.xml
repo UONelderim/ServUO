@@ -20,16 +20,16 @@
 	<damage value="50" />
 	<resistances physical="100" fire="100" cold="100" poison="100" energy="100" />
 	<layers count="10">
-		<layer index="0" item="Server.Items.LeafArms" hue="2702" loot="0" />
+		<layer index="0" item="Server.Items.LeafArms" hue="1182" loot="0" />
 		<layer index="1" item="Server.Items.Backpack" hue="0" loot="0" />
-		<layer index="3" item="Server.Items.Cloak" hue="2702" loot="0" />
-		<layer index="6" item="Server.Items.LeafGloves" hue="2702" loot="0" />
-		<layer index="8" item="Server.Items.FlowerGarland" hue="2702" loot="0" />
-		<layer index="10" item="Server.Items.LeafChest" hue="2702" loot="0" />
-		<layer index="12" item="Server.Items.LeafGorget" hue="2702" loot="0" />
-		<layer index="16" item="Server.Items.LeafLegs" hue="2702" loot="0" />
-		<layer index="19" item="Server.Items.ThighBoots" hue="2702" loot="0" />
-		<layer index="20" item="Server.Items.DoubleAxe" hue="2702" loot="0" />
+		<layer index="3" item="Server.Items.Cloak" hue="1182" loot="0" />
+		<layer index="6" item="Server.Items.LeafGloves" hue="1182" loot="0" />
+		<layer index="8" item="Server.Items.FlowerGarland" hue="1182" loot="0" />
+		<layer index="10" item="Server.Items.LeafChest" hue="1182" loot="0" />
+		<layer index="12" item="Server.Items.LeafGorget" hue="1182" loot="0" />
+		<layer index="16" item="Server.Items.LeafLegs" hue="1182" loot="0" />
+		<layer index="19" item="Server.Items.ThighBoots" hue="1182" loot="0" />
+		<layer index="20" item="Server.Items.DoubleAxe" hue="1182" loot="0" />
 	</layers>
-	<mount type="Server.Mobiles.ForestOstard" id="16037" hue="34975" name="lesny ostard" />
+	<mount type="Server.Mobiles.ForestOstard" id="16037" hue="0" name="lesny ostard" />
 </export>
