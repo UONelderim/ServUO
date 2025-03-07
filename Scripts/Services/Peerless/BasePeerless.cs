@@ -22,7 +22,7 @@ namespace Server.Mobiles
         }
 
         public override bool CanBeParagon => false;
-        public virtual bool DropPrimer => true;
+        public virtual bool DropPrimer => false;
         public virtual bool GiveMLSpecial => true;
 
         public override bool Unprovokable => true;
