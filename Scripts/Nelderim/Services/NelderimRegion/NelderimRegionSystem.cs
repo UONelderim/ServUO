@@ -5,6 +5,7 @@ using Server.Mobiles;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Server.Commands;
+using Server.Commands.Generic;
 
 namespace Server.Nelderim
 {
@@ -29,11 +30,11 @@ namespace Server.Nelderim
 
         public static void Initialize()
         {
-	        CommandSystem.Register("NRSLoad", AccessLevel.Administrator, e => Load());
+	        CommandSystem.Register("NRSLoad", AccessLevel.Administrator, _ => Load());
             RumorsSystem.Load();
         }
 
-        private static void Load()
+        internal static void Load()
         {
             NelderimRegions.Clear();
             var region = JsonSerializer.Deserialize<NelderimRegion>(File.ReadAllText(JsonPath), SerializerOptions);
@@ -62,13 +63,18 @@ namespace Server.Nelderim
             Console.WriteLine("NelderimRegions: Saved!");
         }
         
-        public static void OnRegionChange(Mobile m, Region Old, Region New)
+        public static void OnRegionChange(Mobile m, Region Old, Region newRegion)
         {
-	        if (New == null || New.Map == Map.Internal) return;
+	        if (newRegion == null || newRegion.Map == Map.Internal) return;
 	        //Use configured Race as flag if mobile was already initialized. Is it good enough?
 	        if (m.Race != Race.DefaultRace) return;
 	        
-	        InitMobile(m);
+	        GetRegion(newRegion).MakeMobile(m);
+        }
+        
+        public static NelderimRegion GetRegion(Region region)
+        {
+	        return GetRegion(region.Name);
         }
         
         public static NelderimRegion GetRegion(string regionName)
@@ -82,24 +88,7 @@ namespace Server.Nelderim
             }
             return NelderimRegions["Default"]; //Fallback to default for non specified regions
         }
-
-        public static void InitMobile(Mobile m)
-        {
-	        if (m.Deleted) return;
-	        
-	        var region = GetRegion(m.Region.Name);
-	        
-	        m.Female = region.RollFemale();
-	        m.BodyValue = m.Female ? 0x191 : 0x190;
-
-		    m.Race = region.RandomRace();
-	        
-	        m.Faction = region.GetFaction();
-
-	        if(String.IsNullOrEmpty(m.Name))
-		        m.Name = NameList.RandomName(m.Race.Name.ToLower() + "_" + (m.Female ? "female" : "male"));
-        }
-
+        
         internal static NelderimGuardProfile GetGuardProfile(string name)
         {
             if (!GuardProfiles.ContainsKey(name))

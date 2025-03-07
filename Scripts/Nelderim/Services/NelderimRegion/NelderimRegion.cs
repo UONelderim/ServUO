@@ -206,6 +206,21 @@ public class NelderimRegion : IComparable<NelderimRegion>
         return default;
     }
 
+    public void MakeMobile(Mobile m)
+    {
+	    if (m.Deleted) return;
+	        
+	    m.Female = RollFemale();
+	    m.BodyValue = m.Female ? 0x191 : 0x190;
+
+	    m.Race = RandomRace();
+	        
+	    m.Faction = GetFaction();
+
+	    if(String.IsNullOrEmpty(m.Name))
+		    m.Name = NameList.RandomName(m.Race.Name.ToLower() + "_" + (m.Female ? "female" : "male"));
+    }
+    
     public void MakeGuard(BaseNelderimGuard guard)
     {
         //We need Race and Gender first
