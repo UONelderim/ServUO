@@ -196,17 +196,13 @@ namespace Server.Misc
                 double chance = (value - minSkill) / (maxSkill - minSkill);
                 double gc = GetGainChance(from, skill, chance, Utility.Random(100) <= (int)(chance * 100)) / (value / 4);
 
-                if (AllowGain(from, skill, new Point2D(from.Location.X / LocationSize, from.Location.Y / LocationSize)))
+                if (from.Alive && (skill.Base + (value - skill.Value) < 10.0 || Utility.RandomDouble() <= gc || CheckGGS(from, skill)))
                 {
-                    if (from.Alive && (skill.Base + (value - skill.Value) < 10.0 || Utility.RandomDouble() <= gc || CheckGGS(from, skill)))
-                    {
-                        gains++;
-                        value += 0.1;
+                    gains++;
+                    value += 0.1;
 
-                        UpdateGGS(from, skill);
-                    }
+                    UpdateGGS(from, skill);
                 }
-
             }
 
             if (gains > 0)
@@ -227,12 +223,9 @@ namespace Server.Misc
             bool success = Utility.Random(100) <= (int)(chance * 100);
             double gc = GetGainChance(from, skill, chance, success);
 
-            if (AllowGain(from, skill, obj))
+            if (from.Alive && (skill.Base < 10.0 || Utility.RandomDouble() <= gc || CheckGGS(from, skill)))
             {
-                if (from.Alive && (skill.Base < 10.0 || Utility.RandomDouble() <= gc || CheckGGS(from, skill)))
-                {
-                    Gain(from, skill);
-                }
+                Gain(from, skill);
             }
 
             EventSink.InvokeSkillCheck(new SkillCheckEventArgs(from, skill, success));
@@ -311,25 +304,6 @@ namespace Server.Misc
                 return true; // No challenge
 
             return CheckSkill(from, skill, target, chance);
-        }
-
-        private static bool AllowGain(Mobile from, Skill skill, object obj)
-        {
-            if (Engines.VvV.ViceVsVirtueSystem.InSkillLoss(from)) //Changed some time between the introduction of AoS and SE.
-                return false;
-
-            if (from is PlayerMobile)
-            {
-                if (skill.Info.SkillID == (int)SkillName.Archery && from.Race == Race.Gargoyle)
-                    return false;
-
-                if (skill.Info.SkillID == (int)SkillName.Throwing && from.Race != Race.Gargoyle)
-                    return false;
-
-                if (_AntiMacroCode && UseAntiMacro[skill.Info.SkillID])
-                    return ((PlayerMobile)from).AntiMacroCheck(skill, obj);
-            }
-            return true;
         }
 
         public enum Stat
