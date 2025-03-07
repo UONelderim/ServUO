@@ -6828,7 +6828,7 @@ namespace Server.Mobiles
 
                 if (inst == null)
                 {
-                    inst = new Harp
+                    inst = new BambooFlute()
                     {
                         SuccessSound = PlayInstrumentSound ? 0x58B : 0,
                         FailureSound = PlayInstrumentSound ? 0x58C : 0,
