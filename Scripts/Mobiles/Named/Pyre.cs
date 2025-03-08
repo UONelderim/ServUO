@@ -48,7 +48,7 @@ namespace Server.Mobiles
             SetWeaponAbility(WeaponAbility.ParalyzingBlow);
         }
 
-        public override bool GivesMLMinorArtifact => true;
+        public override bool GivesMLMinorArtifact => false;
 
         public Pyre(Serial serial)
             : base(serial)
@@ -66,7 +66,7 @@ namespace Server.Mobiles
         public override void GenerateLoot()
         {
             AddLoot(LootPack.UltraRich, 3);
-            AddLoot(LootPack.ArcanistScrolls);
+            //AddLoot(LootPack.ArcanistScrolls);
             
             AddLoot(NelderimLoot.AvatarScrolls);
         }

@@ -4,14 +4,15 @@ using Nelderim;
 
 namespace Server.Mobiles
 {
-    [CorpseName("zwloki oblesnego kucharza")]
+    [CorpseName("zwloki paroxysmusa")]
     public class ChiefParoxysmus : BasePeerless
     {
         [Constructable]
         public ChiefParoxysmus()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Oblesny Kucharz";
+            Name = "Paroxysmus";
+            Title = "- Obleśny kucharz";
             Body = 0x100;
 
             SetStr(1232, 1400);
@@ -44,13 +45,40 @@ namespace Server.Mobiles
 
             SetAreaEffect(AreaEffect.PoisonBreath);
         }
+        
+        public override void OnDeath(Container c)
+        {
+	        base.OnDeath(c); 
+			
+	        Point3D moongateLocation = new Point3D(6942, 238, 0);
+	        Map targetMap = Map.Felucca; 
+			
+	        Point3D destinationLocation = new Point3D(6921, 247, 25);
+	        Map destinationMap = Map.Felucca;
+
+	        Moongate portal = new Moongate(destinationLocation, destinationMap)
+	        {
+		        Name = "Portal do wyjścia",
+		        Hue = 2882, 
+		        Dispellable = false,
+		        ItemID = 0x1FD4,
+	        };
+			
+	        portal.MoveToWorld(moongateLocation, targetMap);
+			
+	        Timer.DelayCall(TimeSpan.FromMinutes(10), () =>
+	        {
+		        if (portal != null && !portal.Deleted)
+			        portal.Delete();
+	        });
+        }
 
         public ChiefParoxysmus(Serial serial)
             : base(serial)
         {
         }
 
-        public override bool GivesMLMinorArtifact => true;
+        public override bool GivesMLMinorArtifact => false;
         public override Poison PoisonImmune => Poison.Lethal;
 
         public override void GenerateLoot()
@@ -63,7 +91,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.LootItem<ParrotItem>(60.0));
             AddLoot(LootPack.LootItem<SweatOfParoxysmus>(50.0));
             AddLoot(LootPack.LootItem<ParoxysmusSwampDragonStatuette>(5.0));
-            AddLoot(LootPack.LootItem<ScepterOfTheChief>(5.0));
+            //AddLoot(LootPack.LootItem<ScepterOfTheChief>(5.0));
             
             AddLoot(NelderimLoot.RogueScrolls);
         }

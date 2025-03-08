@@ -40,7 +40,7 @@ namespace Server.Mobiles
             Karma = -4500;
         }
 
-        public override bool GivesMLMinorArtifact => true;
+        public override bool GivesMLMinorArtifact => false;
 
         public Mistral(Serial serial)
             : base(serial)
@@ -61,7 +61,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.Meager);
             AddLoot(LootPack.LowScrolls);
             AddLoot(LootPack.MedScrolls);
-            AddLoot(LootPack.ArcanistScrolls);
+            //AddLoot(LootPack.ArcanistScrolls);
         }
 
         public override void Serialize(GenericWriter writer)

@@ -2,6 +2,7 @@
 
 using Nelderim;
 using Server.Items;
+using System;
 
 #endregion
 
@@ -72,6 +73,33 @@ namespace Server.Mobiles
 		public override int Scales => 5;
 		public override ScaleType ScaleType => (Body == 12 ? ScaleType.Yellow : ScaleType.Red);
 		public override FoodType FavoriteFood => FoodType.Meat;
+		
+		public override void OnDeath(Container c)
+		{
+			base.OnDeath(c); 
+			
+			Point3D moongateLocation = new Point3D(5617, 566, -36);
+			Map targetMap = Map.Felucca; 
+			
+			Point3D destinationLocation = new Point3D(5642, 567, -11);
+			Map destinationMap = Map.Felucca;
+
+			Moongate portal = new Moongate(destinationLocation, destinationMap)
+			{
+				Name = "Portal do wyjścia",
+				Hue = 1696,
+				Dispellable = false,
+				ItemID = 0x1FD4,
+			};
+			
+			portal.MoveToWorld(moongateLocation, targetMap);
+			
+			Timer.DelayCall(TimeSpan.FromMinutes(10), () =>
+			{
+				if (portal != null && !portal.Deleted)
+					portal.Delete();
+			});
+		}
 
 		public NelderimDragon(Serial serial) : base(serial)
 		{

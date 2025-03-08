@@ -61,12 +61,12 @@ namespace Server.Mobiles
         {
             AddLoot(LootPack.UltraRich, 3);
             AddLoot(LootPack.MedScrolls, 2);
-            AddLoot(LootPack.ArcanistScrolls);
+	        //AddLoot(LootPack.ArcanistScrolls);
             AddLoot(LootPack.LootItem<ParrotItem>(60.0));
             AddLoot(LootPack.LootItem<SpleenOfThePutrefier>());
         }
 
-        public override bool GivesMLMinorArtifact => true;
+        public override bool GivesMLMinorArtifact => false;
         public override Poison HitPoison => Poison.Deadly;// Becomes Lethal with Paragon bonus
 
         public override void OnDamagedBySpell(Mobile attacker)

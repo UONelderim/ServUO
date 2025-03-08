@@ -59,13 +59,13 @@ namespace Server.Mobiles
 		{
 		}
 
-		public override bool GivesMLMinorArtifact => true;
+		public override bool GivesMLMinorArtifact => false;
 		public override int TreasureMapLevel => 5;
 
 		public override void GenerateLoot()
 		{
 			AddLoot(LootPack.SuperBoss, 8);
-			AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
+			//AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
 			AddLoot(LootPack.PeerlessResource, 8);
 			AddLoot(LootPack.Talisman, 5);
 			AddLoot(LootPack.LootItem<GrizzledBones>());
@@ -78,13 +78,13 @@ namespace Server.Mobiles
 
 			AddLoot(LootPack.LootItem<ParrotItem>(60.0));
 			AddLoot(LootPack.LootItem<GrizzledMareStatuette>(5.0));
-
+/*
 			AddLoot(LootPack.RandomLootItem(
 				new[]
 				{
 					typeof(GrizzleGauntlets), typeof(GrizzleGreaves), typeof(GrizzleHelm), typeof(GrizzleTunic),
 					typeof(GrizzleVambraces)
-				}, 5.0, 1));
+				}, 5.0, 1));*/
 		}
 
 		public override int GetDeathSound()

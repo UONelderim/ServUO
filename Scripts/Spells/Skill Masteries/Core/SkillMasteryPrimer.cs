@@ -78,29 +78,35 @@ namespace Server.Items
 
         public static void CheckPrimerDrop(BaseCreature killed)
         {
-            List<DamageStore> rights = killed.GetLootingRights();
+	        if (killed.GetType() != typeof(BaseChampion)) // Sprawdzamy, czy dokładny typ to BaseChampion
+		        return; // Jeśli nie, nie dropimy masterki
 
-            rights.ForEach(ds =>
-            {
-                if (ds.m_HasRight)
-                {
-                    Mobile m = ds.m_Mobile;
+	        List<DamageStore> rights = killed.GetLootingRights();
 
-                    if (Utility.RandomDouble() < 0.10)
-                    {
-                        SkillMasteryPrimer primer = GetRandom();
+	        rights.ForEach(ds =>
+	        {
+		        if (ds.m_HasRight)
+		        {
+			        Mobile m = ds.m_Mobile;
 
-                        if (primer != null)
-                        {
-                            if (m.Backpack == null || !m.Backpack.TryDropItem(m, primer, false))
-                                m.BankBox.DropItem(primer);
-                        }
+			        if (Utility.RandomDouble() < 0.10) // 10% szansy na drop
+			        {
+				        SkillMasteryPrimer primer = GetRandom();
 
-                        m.SendLocalizedMessage(1156209); // You have received a mastery primer!
-                    }
-                }
-            });
+				        if (primer != null)
+				        {
+					        if (m.Backpack == null || !m.Backpack.TryDropItem(m, primer, false))
+						        m.BankBox.DropItem(primer);
+				        }
+
+				        m.SendLocalizedMessage(1156209); // You have received a mastery primer!
+			        }
+		        }
+	        });
         }
+
+
+
 
         public static SkillMasteryPrimer GetRandom()
         {

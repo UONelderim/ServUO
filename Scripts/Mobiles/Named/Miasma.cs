@@ -60,12 +60,13 @@ namespace Server.Mobiles
                 c.DropItem(new ParagonChest(Name, 5));
         }
 
-        public override bool GivesMLMinorArtifact => true;
+        public override bool GivesMLMinorArtifact => false;
+        /*
         public override void GenerateLoot()
         {
             AddLoot(LootPack.UltraRich, 2);
-            AddLoot(LootPack.ArcanistScrolls);
-            AddLoot(LootPack.RandomLootItem(new System.Type[]
+            //AddLoot(LootPack.ArcanistScrolls);
+            //AddLoot(LootPack.RandomLootItem(new System.Type[]
                 {
                     typeof(MyrmidonGloves),typeof(MyrmidonGorget),typeof(MyrmidonLegs),
                     typeof(MyrmidonArms),typeof(PaladinArms),typeof(PaladinGorget),
@@ -76,7 +77,7 @@ namespace Server.Mobiles
 
                 }, 2.5, 1, false, false));
         }
-
+        */
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

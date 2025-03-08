@@ -8,7 +8,7 @@ namespace Server.Items
     {
         public static Dictionary<Mobile, Timer> ProtectionTable = new Dictionary<Mobile, Timer>();
 
-        public override int KeyCount => 16;
+        public override int KeyCount => 3;
         public override MasterKey MasterKey => new ParoxysmusKey();
 
         public override Type[] Keys => new Type[]
@@ -24,9 +24,9 @@ namespace Server.Items
         {
             Hue = 0x465;
 
-            BossLocation = new Point3D(6936, 244, 0);
-            TeleportDest = new Point3D(6925, 247, 25);
-            ExitDest = new Point3D(6921, 249, 25);
+            BossLocation = new Point3D(6950, 241, 0);
+            TeleportDest = new Point3D(6932, 246, 0);
+            ExitDest = new Point3D(6921, 247, 25);
         }
 
         public override Rectangle2D[] BossBounds => m_Bounds;

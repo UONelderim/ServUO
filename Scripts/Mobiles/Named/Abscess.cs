@@ -50,12 +50,12 @@ namespace Server.Mobiles
 
         public override int Meat => 19;
 
-        public override bool GivesMLMinorArtifact => true;
+        public override bool GivesMLMinorArtifact => false;
 
         public override void GenerateLoot()
         {
             AddLoot(LootPack.UltraRich, 4);
-            AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 2));
+            //AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 2));
             AddLoot(LootPack.LootItem<AbscessTail>());
         }
 

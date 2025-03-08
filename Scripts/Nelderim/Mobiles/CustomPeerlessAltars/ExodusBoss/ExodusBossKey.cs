@@ -13,7 +13,7 @@ namespace Server.Items
         }
 		
         public override int LabelNumber => 3070032;//klucz do krypty mechanicznego straznika
-        public override int Lifespan => 600;
+        public override int Lifespan => 180;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

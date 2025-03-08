@@ -12,7 +12,7 @@ namespace Server.Items
         {
         }
         public override int LabelNumber => 3070031;//klucz do jamy burugha
-        public override int Lifespan => 600;
+        public override int Lifespan => 180;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

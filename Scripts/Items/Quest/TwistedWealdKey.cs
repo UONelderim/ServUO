@@ -15,7 +15,7 @@ namespace Server.Items
         }
 
         public override int LabelNumber => 3070038; //klucz do groty spczonego jednorozca
-        public override int Lifespan => 600;
+        public override int Lifespan => 180;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

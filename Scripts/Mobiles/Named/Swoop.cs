@@ -50,7 +50,7 @@ namespace Server.Mobiles
 
         public override bool CanFly => true;
 
-        public override bool GivesMLMinorArtifact => true;
+        public override bool GivesMLMinorArtifact => false;
 
         public override int Feathers => 72;
 
@@ -60,12 +60,12 @@ namespace Server.Mobiles
             AddLoot(LootPack.HighScrolls);
             AddLoot(LootPack.MageryRegs, 4);
             AddLoot(LootPack.Parrot, 1);
-            AddLoot(LootPack.ArcanistScrolls, 0, 1);
-            AddLoot(LootPack.RandomLootItem(
+            //AddLoot(LootPack.ArcanistScrolls, 0, 1);
+            /*AddLoot(LootPack.RandomLootItem(
                 new[] { typeof(AssassinChest),  typeof(AssassinArms),   typeof(DeathChest),     typeof(MyrmidonArms),       typeof(MyrmidonLegs),
                         typeof(MyrmidonGorget), typeof(LeafweaveGloves),typeof(LeafweaveLegs),  typeof(LeafweavePauldrons), typeof(PaladinGloves),
                         typeof(PaladinGorget),  typeof(PaladinArms),    typeof(HunterArms),     typeof(HunterGloves),       typeof(HunterLegs),
-                        typeof(HunterChest),    typeof(GreymistArms),   typeof(GreymistGloves), typeof(GreymistLegs),       typeof(MyrmidonChest) }, 2.5, 1, false, false));
+                        typeof(HunterChest),    typeof(GreymistArms),   typeof(GreymistGloves), typeof(GreymistLegs),       typeof(MyrmidonChest) }, 2.5, 1, false, false));*/
         }
 
         public override void Serialize(GenericWriter writer)

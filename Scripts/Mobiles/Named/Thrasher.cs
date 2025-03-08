@@ -43,14 +43,14 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool GivesMLMinorArtifact => true;
+        public override bool GivesMLMinorArtifact => false;
         public override int Hides => 48;
         public override int Meat => 1;
 
         public override void GenerateLoot()
         {
             AddLoot(LootPack.FilthyRich, 4);
-            AddLoot(LootPack.ArcanistScrolls);
+            //AddLoot(LootPack.ArcanistScrolls);
             AddLoot(LootPack.LootItem<ThrashersTail>());
         }
 

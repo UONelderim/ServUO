@@ -106,7 +106,7 @@ namespace Server.Mobiles
 			base.OnDamage(amount, from, willKill);
 		}
 
-		public override bool GivesMLMinorArtifact => true;
+		public override bool GivesMLMinorArtifact => false;
 
 		public override Poison PoisonImmune => Poison.Lethal;
 
