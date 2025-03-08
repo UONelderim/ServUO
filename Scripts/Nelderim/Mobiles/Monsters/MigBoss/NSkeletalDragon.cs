@@ -2,6 +2,7 @@
 
 using Nelderim;
 using Server.Items;
+using System;
 
 #endregion
 
@@ -79,6 +80,33 @@ namespace Server.Mobiles
 			AddLoot(LootPack.SuperBoss);
 			
 			AddLoot(NelderimLoot.AvatarScrolls);
+		}
+		
+		public override void OnDeath(Container c)
+		{
+			base.OnDeath(c); 
+			
+			Point3D moongateLocation = new Point3D(6044, 279, 11);
+			Map targetMap = Map.Felucca; 
+			
+			Point3D destinationLocation = new Point3D(6036, 232, 8);
+			Map destinationMap = Map.Felucca;
+
+			Moongate portal = new Moongate(destinationLocation, destinationMap)
+			{
+				Name = "Portal do wyjścia",
+				Hue = 32,
+				Dispellable = false,
+				ItemID = 0x1FD4,
+			};
+			
+			portal.MoveToWorld(moongateLocation, targetMap);
+			
+			Timer.DelayCall(TimeSpan.FromMinutes(10), () =>
+			{
+				if (portal != null && !portal.Deleted)
+					portal.Delete();
+			});
 		}
 
 		public NSkeletalDragon(Serial serial) : base(serial)

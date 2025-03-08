@@ -51,14 +51,14 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool GivesMLMinorArtifact => true;
+        public override bool GivesMLMinorArtifact => false;
         public override Poison PoisonImmune => Poison.Lethal;
         public override Poison HitPoison => Poison.Lethal;
 
         public override void GenerateLoot()
         {
             AddLoot(LootPack.FilthyRich, 3);
-            AddLoot(LootPack.ArcanistScrolls, 0, 1);
+            //AddLoot(LootPack.ArcanistScrolls, 0, 1);
             AddLoot(LootPack.LootItem<SpidersSilk>(8, true));
         }
 

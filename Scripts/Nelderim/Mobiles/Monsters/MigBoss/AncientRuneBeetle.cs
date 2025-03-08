@@ -81,7 +81,34 @@ namespace Server.Mobiles
 		public override double DispelDifficulty => 135.0;
 		public override double DispelFocus => 45.0;
 		public override double WeaponAbilityChance => 0.4;
+		
+		public override void OnDeath(Container c)
+		{
+			base.OnDeath(c); 
+			
+			Point3D moongateLocation = new Point3D(5469, 1877, 0);
+			Map targetMap = Map.Felucca; 
+			
+			Point3D destinationLocation = new Point3D(5407, 1872, 0);
+			Map destinationMap = Map.Felucca;
 
+			Moongate portal = new Moongate(destinationLocation, destinationMap)
+			{
+				Name = "Portal do wyjścia",
+				Hue = 2127, 
+				Dispellable = false,
+				ItemID = 0x1FD4,
+			};
+			
+			portal.MoveToWorld(moongateLocation, targetMap);
+			
+			Timer.DelayCall(TimeSpan.FromMinutes(10), () =>
+			{
+				if (portal != null && !portal.Deleted)
+					portal.Delete();
+			});
+		}
+		
 		public AncientRuneBeetle(Serial serial) : base(serial)
 		{
 		}

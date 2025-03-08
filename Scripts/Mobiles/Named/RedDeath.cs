@@ -50,14 +50,14 @@ namespace Server.Mobiles
         {
         }
         public override bool CanBeParagon => false;
-        public override bool GivesMLMinorArtifact => true;
+        public override bool GivesMLMinorArtifact => false;
         public override bool AlwaysMurderer => true;
         public override void GenerateLoot()
         {
             AddLoot(LootPack.UltraRich, 3);
             AddLoot(LootPack.MedScrolls, 2);
             AddLoot(LootPack.HighScrolls, 2);
-            AddLoot(LootPack.ArcanistScrolls);
+            //AddLoot(LootPack.ArcanistScrolls);
             AddLoot(LootPack.LootItem<ResolvesBridle>());
         }
 

@@ -39,7 +39,7 @@ namespace Server.Items
             }
         }
 
-        public override int Lifespan => 600;
+        public override int Lifespan => 180;
 
         public override void Serialize(GenericWriter writer)
         {

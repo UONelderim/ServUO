@@ -1,9 +1,10 @@
 using Nelderim;
 using Server.Items;
+using System;
 
 namespace Server.Mobiles
 {
-	[CorpseName( "zwloki pancernego mechanicznego straznika" )]
+	[CorpseName( "Zwloki pancernego mechanicznego straznika" )]
 	public class ExodusBoss : BasePeerless
 	{
 		private bool m_FieldActive;
@@ -176,6 +177,34 @@ namespace Server.Mobiles
 			AOS.Damage( to, this, 50, 0, 0, 0, 0, 100 );
 		}
 
+		public override void OnDeath(Container c)
+		{
+			base.OnDeath(c); 
+			
+			Point3D moongateLocation = new Point3D(5497, 211, -42);
+			Map targetMap = Map.Felucca; 
+			
+			Point3D destinationLocation = new Point3D(5511, 211, -32);
+			Map destinationMap = Map.Felucca;
+
+			Moongate portal = new Moongate(destinationLocation, destinationMap)
+			{
+				Name = "Portal do wyjścia",
+				Hue = 2108, 
+				Dispellable = false,
+				ItemID = 0x1FD4,
+			};
+			
+			portal.MoveToWorld(moongateLocation, targetMap);
+			
+			Timer.DelayCall(TimeSpan.FromMinutes(10), () =>
+			{
+				if (portal != null && !portal.Deleted)
+					portal.Delete();
+			});
+		}
+
+		
 		public ExodusBoss( Serial serial ) : base( serial )
 		{
 		}

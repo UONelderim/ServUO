@@ -52,7 +52,7 @@ namespace Server.Mobiles
         {
             AddLoot(LootPack.Rich, 3);
             AddLoot(LootPack.HighScrolls);
-            AddLoot(LootPack.ArcanistScrolls);
+            //AddLoot(LootPack.ArcanistScrolls);
             AddLoot(LootPack.LootItem<ScatteredCrystals>(40.0));
         }
 

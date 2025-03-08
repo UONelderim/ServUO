@@ -158,21 +158,25 @@ namespace Server.Mobiles
 
             for (int i = 0; i < MasteryPrimerAmount; ++i)
             {
-	            if(Utility.RandomDouble() > MasteryPrimerChance) 
+	            if (Utility.RandomDouble() > MasteryPrimerChance) 
 		            continue;
-	            
-                Mobile m = toGive[i % toGive.Count];
 
-                SkillMasteryPrimer p = CreateRandomPrimer();
-                LabelsConfig.AddCreationMark(p, m);
-                if (m.IsStaff())
-                {
-	                LabelsConfig.AddTamperingMark(p, m);
-                }
-                GiveItemMessage(m, p);
+	            if (this.GetType() != typeof(BaseChampion)) // Sprawdzamy, czy zabity potwór to dokładnie BaseChampion
+		            continue; // Jeśli nie, nie dodajemy masterki
 
-                GivePowerScrollTo(m, p);
+	            Mobile m = toGive[i % toGive.Count];
+
+	            SkillMasteryPrimer p = CreateRandomPrimer();
+	            LabelsConfig.AddCreationMark(p, m);
+	            if (m.IsStaff())
+	            {
+		            LabelsConfig.AddTamperingMark(p, m);
+	            }
+	            GiveItemMessage(m, p);
+
+	            GivePowerScrollTo(m, p);
             }
+            
 
             ColUtility.Free(toGive);
         }

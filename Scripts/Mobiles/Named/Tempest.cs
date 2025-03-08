@@ -39,7 +39,7 @@ namespace Server.Mobiles
             Karma = -4500;
         }
 
-        public override bool GivesMLMinorArtifact => true;
+        public override bool GivesMLMinorArtifact => false;
 
         public Tempest(Serial serial)
             : base(serial)

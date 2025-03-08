@@ -41,7 +41,7 @@ namespace Server.Mobiles
         public override void GenerateLoot()
         {
             AddLoot(LootPack.UltraRich, 2);
-            AddLoot(LootPack.ArcanistScrolls);
+            //AddLoot(LootPack.ArcanistScrolls);
             AddLoot(LootPack.Parrot);
             AddLoot(LootPack.LootItem<SalivasFeather>());
         }

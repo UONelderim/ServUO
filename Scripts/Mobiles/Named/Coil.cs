@@ -54,7 +54,7 @@ namespace Server.Mobiles
         public override bool DeathAdderCharmable => false;
         public override Poison HitPoison => Poison.Lethal;
         public override Poison PoisonImmune => Poison.Lethal;
-        public override bool GivesMLMinorArtifact => true;
+        public override bool GivesMLMinorArtifact => false;
         public override int Hides => 48;
         public override int Meat => 1;
 
@@ -63,7 +63,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.FilthyRich, 3);
             AddLoot(LootPack.Gems, 2);
             AddLoot(LootPack.LootItem<Bone>(false, true));
-            AddLoot(LootPack.ArcanistScrolls);
+            //AddLoot(LootPack.ArcanistScrolls);
         }
 
         public override void OnDeath(Container c)

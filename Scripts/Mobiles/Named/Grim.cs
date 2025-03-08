@@ -43,7 +43,7 @@ namespace Server.Mobiles
             SetSpecialAbility(SpecialAbility.DragonBreath);
         }
 
-        public override bool GivesMLMinorArtifact => true;
+        public override bool GivesMLMinorArtifact => false;
 
         public Grim(Serial serial)
             : base(serial)
@@ -59,7 +59,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.FilthyRich, 3);
             AddLoot(LootPack.MedScrolls);
             AddLoot(LootPack.HighScrolls, 2);
-            AddLoot(LootPack.ArcanistScrolls);
+            //AddLoot(LootPack.ArcanistScrolls);
         }
 
         public override void Serialize(GenericWriter writer)

@@ -47,12 +47,12 @@ namespace Server.Mobiles
         public override bool CanBeParagon => false;
         public override string DefaultName => "Spite";
         public override int DefaultHue => 0x21;
-        public override bool GivesMLMinorArtifact => true;
+        public override bool GivesMLMinorArtifact => false;
 
         public override void GenerateLoot()
         {
             AddLoot(LootPack.UltraRich, 2);
-            AddLoot(LootPack.ArcanistScrolls);
+           // AddLoot(LootPack.ArcanistScrolls);
         }
 
         public override void Serialize(GenericWriter writer)

@@ -38,7 +38,7 @@ namespace Server.Mobiles
         public Travesty()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-			Name = "Zniennoksztalstny Vox Populi";
+			Name = "Zmiennoksztalstny Vox Populi";
 			Body = 247;
 
             BaseSoundID = 0x46E;
@@ -103,10 +103,10 @@ namespace Server.Mobiles
             AddLoot(LootPack.RandomLootItem(new[] { typeof(TravestysSushiPreparations), typeof(TravestysFineTeakwoodTray), typeof(TravestysCollectionOfShells) }));
 
             AddLoot(LootPack.LootItem<ParrotItem>(60.0));
-            AddLoot(LootPack.LootItem<TragicRemainsOfTravesty>(10.0));
-            AddLoot(LootPack.LootItem<ImprisonedDog>(5.0));
-            AddLoot(LootPack.LootItem<MarkOfTravesty>(5.0));
-            AddLoot(LootPack.LootItem<MalekisHonor>(2.5));
+            //AddLoot(LootPack.LootItem<TragicRemainsOfTravesty>(10.0));
+            //AddLoot(LootPack.LootItem<ImprisonedDog>(5.0));
+           // AddLoot(LootPack.LootItem<MarkOfTravesty>(5.0));
+            //AddLoot(LootPack.LootItem<MalekisHonor>(2.5));
             
             AddLoot(NelderimLoot.ArcanistScrolls);
         }

@@ -49,7 +49,7 @@ namespace Server.Mobiles
         public override void GenerateLoot()
         {
             AddLoot(LootPack.UltraRich, 3);
-            AddLoot(LootPack.ArcanistScrolls);
+            //AddLoot(LootPack.ArcanistScrolls);
             AddLoot(LootPack.LootItem<DisintegratingThesisNotes>(15.0));
             AddLoot(LootPack.Parrot);
         }
