@@ -331,20 +331,14 @@ namespace Arya.Auction
 			if (!Running)
 				return;
 			
-			lock (World.Items)
+			foreach (var invalid in Auctions.Where(auction => auction.Item == null || (auction.Creature && auction.Pet == null)).ToArray())
 			{
-				lock (World.Mobiles)
-				{
-					foreach (var invalid in Auctions.Where(auction => auction.Item == null || (auction.Creature && auction.Pet == null)))
-					{
-						invalid.EndInvalid();
-					}
+				invalid.EndInvalid();
+			}
 
-					foreach (var expired in Auctions.Where(auction => auction.Expired))
-					{
-						expired.End(null);
-					}
-				}
+			foreach (var expired in Auctions.Where(auction => auction.Expired).ToArray())
+			{
+				expired.End(null);
 			}
 		}
 
