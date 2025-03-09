@@ -159,7 +159,7 @@ namespace Server.Mobiles
 
 		protected bool IsInAnyRegion(params string[] regionNames)
 		{
-			if (Region == null)
+			if (Region == null || Region.Name == null)
 				return false;
 			
 			foreach (var regionName in regionNames)
