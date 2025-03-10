@@ -70,15 +70,8 @@ namespace Server.SkillHandlers
                 return TimeSpan.FromSeconds(2.5);
             }
 
-            double skillVal = m.Skills[SkillName.Meditation].Value;
-            double chance = (50.0 + ((skillVal - (m.ManaMax - m.Mana)) * 2)) / 100;
-
-            // must bypass normal checks so passive skill checks aren't triggered
-            CrystalBallOfKnowledge.TellSkillDifficultyActive(m, SkillName.Meditation, chance);
-
-            if (chance > Utility.RandomDouble())
+            if (m.CheckSkill(SkillName.Meditation, 0.0, 100.0))
             {
-                m.CheckSkill(SkillName.Meditation, 0.0, 100.0);
 
                 m.SendLocalizedMessage(501851); // You enter a meditative trance.
                 m.Meditating = true;
