@@ -718,18 +718,11 @@ namespace Server.Items
         }
 
         private Item _ExitMoongate;
+        public virtual int ExitMoongateHue => Hue;
 
         private void CreateExitTeleport()
         {
-	        _ExitMoongate = new Moongate(ExitDest, Map)
-	        {
-		        Name = "Portal do wyjścia",
-		        Hue = Hue,
-		        Dispellable = false,
-		        ItemID = 0x1FD4,
-	        };
-			
-	        _ExitMoongate.MoveToWorld(TeleportDest, Map);
+	        _ExitMoongate = new PeerlessExitMoongate(this);
         }
 
         private void DestroyExitTeleport()
