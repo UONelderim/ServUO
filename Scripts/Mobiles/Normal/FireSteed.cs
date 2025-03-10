@@ -47,6 +47,7 @@ namespace Server.Mobiles
             MinTameSkill = 106.0;
 
             SetSpecialAbility(SpecialAbility.DragonBreath);
+            SetWeaponAbility(WeaponAbility.ArmorIgnore);
         }
 
         public override void GenerateLoot()
