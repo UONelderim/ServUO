@@ -55765,14 +55765,14 @@
 1155893;Each successful hit or offensive spell grants:<br>+~1_VAL~ Odzyskiwanie zywotnosci<br>+~2_VAL~ Odzyskiwanie wytrzymalosci<br>+~3_VAL~ Swing Speed Increase.<br>+~4_VAL~ skupienie.<br>(Once you miss your target this buff will end)<br>Current totals:<br>+~5_VAL~ Odzyskiwanie zywotnosci<br>+~6_VAL~ Odzyskiwanie wytrzymalosci<br>+~7_VAL~ Swing Speed Increase.<br>+~8_VAL~ skupienie.<br> 
 1155894;You unleash the fury of your fists on your opponent! 
 1155895;Przygotowujesz sie do uderzenia! 
-1155896;Death Ray 
-1155897;Ethereal Burst 
-1155898;Nether Blast 
-1155899;Mystic Weapon 
-1155900;Command Undead 
-1155901;Conduit 
-1155902;Mana Shield 
-1155903;Summon Reaper 
+1155896;Promien smierci 
+1155897;Eteryczne Uderzenie
+1155898;Uderzenie Z Ziemi
+1155899;Mistyczna Bron
+1155900;Wezwanie Nieumarlych
+1155901;Polaczenie z Zaswiatami 
+1155902;Tarcza Many
+1155903;Przyzwanie Drzewca
 1155904;Enchanted<br>Summoning 
 1155905;Przewidywanie Trafien
 1155906;Okrzyk Wojenny
@@ -55950,8 +55950,8 @@
 1156082;Left Metal Door (E Out)
 1156083;Right Metal Door (E Out)
 1156084;*The trail of fire scorches you, setting you ablaze!* 
-1156085;Deals ~2_DAMAGE~ to ~1_NAME~ every 3 seconds while in range. Preforming any action will end spell. 
-1156086;Energy Resist Debuff: ~1_VAL~% 
+1156085;Zadaje ~2_DAMAGE~ obrazen ~1_NAME~ co 3 sek w zasiegu. Wykonanie innej akcji wylaczy czar. 
+1156086;Debuff Odpornosci na Energie: ~1_VAL~% 
 1156087;Your Mana Shield has expired. 
 1156088;Please see banker to deposit currency that was transferred. 
 1156089;Mana Increase ~1_VAL~ 

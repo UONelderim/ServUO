@@ -8,7 +8,7 @@ namespace Server.Spells.SkillMasteries
         public static string ModName = "MysticWeapon";
 
         private static readonly SpellInfo m_Info = new SpellInfo(
-                "Misryczna Broń", "Vas Ylem Wis",
+                "Mistyczna Broń", "Vas Ylem Wis",
                 -1,
                 9002,
                 Reagent.FertileDirt,
