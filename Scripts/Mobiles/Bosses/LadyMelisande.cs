@@ -53,18 +53,18 @@ namespace Server.Mobiles
 		{
 			AddLoot(LootPack.SuperBoss, 8);
 			AddLoot(LootPack.Parrot, 1);
-			AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
+			//AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
 			AddLoot(LootPack.PeerlessResource, 2);
 			AddLoot(LootPack.LootItem<DiseasedBark>());
 			AddLoot(LootPack.LootItem<EternallyCorruptTree>());
 			AddLoot(LootPack.LootItem<MelisandesFermentedWine>(4, 8));
 			AddLoot(LootPack.LootItem<ParrotItem>(60.0));
-			AddLoot(LootPack.RandomLootItem(
+			/*AddLoot(LootPack.RandomLootItem(
 				new[]
 				{
 					typeof(MelisandesHairDye), typeof(MelisandesCorrodedHatchet),
 					typeof(AlbinoSquirrelImprisonedInCrystal)
-				}, 22.25, 1));
+				}, 22.25, 1));*/
 			
 			AddLoot(NelderimLoot.DruidScrolls);
 			
