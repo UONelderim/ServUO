@@ -347,14 +347,8 @@ namespace Arya.Auction
 			if (!Running)
 				return;
 			
-			lock (World.Items)
-			{
-				lock (World.Mobiles)
-				{
-					foreach (var expired in Pending.Where(auction => auction.PendingExpired)) 
-						expired.PendingTimeOut();
-				}
-			}
+			foreach (var expired in Pending.Where(auction => auction.PendingExpired).ToArray()) 
+				expired.PendingTimeOut();
 		}
 
 		public static void Disable()
