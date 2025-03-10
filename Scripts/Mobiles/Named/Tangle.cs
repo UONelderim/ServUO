@@ -49,7 +49,7 @@ namespace Server.Mobiles
         public override void GenerateLoot()
         {
             AddLoot(LootPack.UltraRich, 3);
-            AddLoot(LootPack.ArcanistScrolls, 1, 3);
+            //AddLoot(LootPack.ArcanistScrolls, 1, 3);
             AddLoot(LootPack.LootItem<TaintedSeeds>(30.0));
         }
 

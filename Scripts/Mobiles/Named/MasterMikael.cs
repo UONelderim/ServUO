@@ -55,7 +55,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.NecroRegs, 1, 10);
             AddLoot(LootPack.LootItem<DisintegratingThesisNotes>(15.0));
             AddLoot(LootPack.Parrot);
-            AddLoot(LootPack.ArcanistScrolls, 0, 1);
+            //AddLoot(LootPack.ArcanistScrolls, 0, 1);
         }
 
         // TODO: Special move?

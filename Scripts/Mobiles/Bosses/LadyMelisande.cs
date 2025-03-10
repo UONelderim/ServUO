@@ -53,21 +53,26 @@ namespace Server.Mobiles
 		{
 			AddLoot(LootPack.SuperBoss, 8);
 			AddLoot(LootPack.Parrot, 1);
-			AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
-			AddLoot(LootPack.PeerlessResource, 8);
-			AddLoot(LootPack.Talisman, 5);
+			//AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
+			AddLoot(LootPack.PeerlessResource, 2);
 			AddLoot(LootPack.LootItem<DiseasedBark>());
 			AddLoot(LootPack.LootItem<EternallyCorruptTree>());
 			AddLoot(LootPack.LootItem<MelisandesFermentedWine>(4, 8));
 			AddLoot(LootPack.LootItem<ParrotItem>(60.0));
-			AddLoot(LootPack.RandomLootItem(
+			/*AddLoot(LootPack.RandomLootItem(
 				new[]
 				{
 					typeof(MelisandesHairDye), typeof(MelisandesCorrodedHatchet),
 					typeof(AlbinoSquirrelImprisonedInCrystal)
-				}, 22.25, 1));
+				}, 22.25, 1));*/
 			
 			AddLoot(NelderimLoot.DruidScrolls);
+			
+			// 5% szansy na drop talizmanu
+			if (Utility.RandomDouble() < 0.05)
+			{
+				AddLoot(LootPack.Talisman, 1);
+			}
 		}
 
 		public override void OnThink()

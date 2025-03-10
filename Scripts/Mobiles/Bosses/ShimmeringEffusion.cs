@@ -51,16 +51,21 @@ namespace Server.Mobiles
             AddLoot(LootPack.Parrot, 2);
             AddLoot(LootPack.HighScrolls, 3);
             AddLoot(LootPack.MedScrolls, 3);
-            AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
-            AddLoot(LootPack.PeerlessResource, 8);
-            AddLoot(LootPack.Talisman, 5);
+            //AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
+            AddLoot(LootPack.PeerlessResource, 2);
             AddLoot(LootPack.LootItem<CapturedEssence>());
             AddLoot(LootPack.LootItem<ShimmeringCrystals>());
 
             AddLoot(LootPack.RandomLootItem(new[] { typeof(ShimmeringEffusionStatuette), typeof(CorporealBrumeStatuette), typeof(MantraEffervescenceStatuette), typeof(FetidEssenceStatuette) }, 5.0, 1));
 
-            AddLoot(LootPack.LootItem<FerretImprisonedInCrystal>(5.0));
-            AddLoot(LootPack.LootItem<CrystallineRing>(2.25));
+            //AddLoot(LootPack.LootItem<FerretImprisonedInCrystal>(5.0));
+            //AddLoot(LootPack.LootItem<CrystallineRing>(2.25));
+            
+            // 5% szansy na drop talizmanu
+            if (Utility.RandomDouble() < 0.05)
+            {
+	            AddLoot(LootPack.Talisman, 1);
+            }
             
             AddLoot(NelderimLoot.DruidScrolls);
         }

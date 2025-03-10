@@ -526,7 +526,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.LootItem<Arrow>(100, 200, true));
             AddLoot(LootPack.LootItem<MedusaStatue>(2.5));
             
-            AddLoot(NelderimLoot.ArcanistScrolls);
+            //AddLoot(NelderimLoot.ArcanistScrolls);
         }
 
         public override void OnAfterDelete()
