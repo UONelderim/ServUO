@@ -60,7 +60,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.LowScrolls, 4);
             AddLoot(LootPack.MedScrolls, 4);
             AddLoot(LootPack.HighScrolls, 4);
-            AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
+            //AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
             AddLoot(LootPack.PeerlessResource, 2);
             AddLoot(LootPack.LootItem<DreadHornMane>());
             AddLoot(LootPack.LootItem<TaintedMushroom>(60.0));
@@ -68,8 +68,8 @@ namespace Server.Mobiles
             AddLoot(LootPack.LootItem<MangledHeadOfDreadhorn>(50.0));
             AddLoot(LootPack.LootItem<HornOfTheDreadhorn>(50.0));
             AddLoot(LootPack.LootItem<PristineDreadHorn>(5.0));
-            AddLoot(LootPack.LootItem<DreadFlute>(5.0));
-            AddLoot(LootPack.LootItem<DreadsRevenge>(5.0));
+            //AddLoot(LootPack.LootItem<DreadFlute>(5.0));
+            //AddLoot(LootPack.LootItem<DreadsRevenge>(5.0));
             AddLoot(NelderimLoot.RangerScrolls);
             
             // 5% szansy na drop talizmanu
