@@ -93,23 +93,27 @@ namespace Server.Mobiles
 
         public override void GenerateLoot()
         {
-            AddLoot(LootPack.SuperBoss, 8);
-            AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
-            AddLoot(LootPack.PeerlessResource, 8);
-            AddLoot(LootPack.Talisman, 5);
-            AddLoot(LootPack.LootItem<EyeOfTheTravesty>());
-            AddLoot(LootPack.LootItem<OrdersFromMinax>());
+	        AddLoot(LootPack.SuperBoss, 8);
+	        AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
+	        AddLoot(LootPack.PeerlessResource, 2);
 
-            AddLoot(LootPack.RandomLootItem(new[] { typeof(TravestysSushiPreparations), typeof(TravestysFineTeakwoodTray), typeof(TravestysCollectionOfShells) }));
+	        // 5% szansy na drop talizmanu
+	        if (Utility.RandomDouble() < 0.05)
+	        {
+		        AddLoot(LootPack.Talisman, 1);
+	        }
+	        AddLoot(LootPack.LootItem<EyeOfTheTravesty>());
+	        AddLoot(LootPack.LootItem<OrdersFromMinax>());
+	        AddLoot(LootPack.RandomLootItem(new[] { typeof(TravestysSushiPreparations), typeof(TravestysFineTeakwoodTray), typeof(TravestysCollectionOfShells) }));
+	        AddLoot(LootPack.LootItem<ParrotItem>(60.0));
+	        //AddLoot(LootPack.LootItem<TragicRemainsOfTravesty>(10.0));
+	        //AddLoot(LootPack.LootItem<ImprisonedDog>(5.0));
+	        //AddLoot(LootPack.LootItem<MarkOfTravesty>(5.0));
+	        //AddLoot(LootPack.LootItem<MalekisHonor>(2.5));
 
-            AddLoot(LootPack.LootItem<ParrotItem>(60.0));
-            //AddLoot(LootPack.LootItem<TragicRemainsOfTravesty>(10.0));
-            //AddLoot(LootPack.LootItem<ImprisonedDog>(5.0));
-           // AddLoot(LootPack.LootItem<MarkOfTravesty>(5.0));
-            //AddLoot(LootPack.LootItem<MalekisHonor>(2.5));
-            
-            AddLoot(NelderimLoot.ArcanistScrolls);
+	        AddLoot(NelderimLoot.ArcanistScrolls);
         }
+
 
         public Travesty(Serial serial)
             : base(serial)
