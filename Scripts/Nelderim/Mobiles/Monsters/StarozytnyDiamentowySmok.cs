@@ -86,33 +86,6 @@ namespace Server.Mobiles
 			base.OnCarve(from, corpse, with);
 		}
 		
-		public override void OnDeath(Container c)
-		{
-			base.OnDeath(c); 
-			
-			Point3D moongateLocation = new Point3D(5316, 2220, 22);
-			Map targetMap = Map.Felucca; 
-			
-			Point3D destinationLocation = new Point3D(5317, 2257, 10);
-			Map destinationMap = Map.Felucca;
-
-			Moongate portal = new Moongate(destinationLocation, destinationMap)
-			{
-				Name = "Portal do wyjścia",
-				Hue = 1331,
-				Dispellable = false,
-				ItemID = 0x1FD4,
-			};
-			
-			portal.MoveToWorld(moongateLocation, targetMap);
-			
-			Timer.DelayCall(TimeSpan.FromMinutes(10), () =>
-			{
-				if (portal != null && !portal.Deleted)
-					portal.Delete();
-			});
-		}
-
 		public StarozytnyDiamentowySmok(Serial serial) : base(serial)
 		{
 		}

@@ -45,33 +45,6 @@ namespace Server.Mobiles
 
             SetAreaEffect(AreaEffect.PoisonBreath);
         }
-        
-        public override void OnDeath(Container c)
-        {
-	        base.OnDeath(c); 
-			
-	        Point3D moongateLocation = new Point3D(6942, 238, 0);
-	        Map targetMap = Map.Felucca; 
-			
-	        Point3D destinationLocation = new Point3D(6921, 247, 25);
-	        Map destinationMap = Map.Felucca;
-
-	        Moongate portal = new Moongate(destinationLocation, destinationMap)
-	        {
-		        Name = "Portal do wyjścia",
-		        Hue = 2882, 
-		        Dispellable = false,
-		        ItemID = 0x1FD4,
-	        };
-			
-	        portal.MoveToWorld(moongateLocation, targetMap);
-			
-	        Timer.DelayCall(TimeSpan.FromMinutes(10), () =>
-	        {
-		        if (portal != null && !portal.Deleted)
-			        portal.Delete();
-	        });
-        }
 
         public ChiefParoxysmus(Serial serial)
             : base(serial)

@@ -118,33 +118,6 @@ namespace Server.Mobiles
 			}
 		}
 		
-		public override void OnDeath(Container c)
-		{
-			base.OnDeath(c); 
-			
-			Point3D moongateLocation = new Point3D(5975, 1821, 0);
-			Map targetMap = Map.Felucca; 
-			
-			Point3D destinationLocation = new Point3D(5473, 3790, -23);
-			Map destinationMap = Map.Felucca;
-
-			Moongate portal = new Moongate(destinationLocation, destinationMap)
-			{
-				Name = "Portal do wyjścia",
-				Hue = 2882,
-				Dispellable = false,
-				ItemID = 0x1FD4,
-			};
-			
-			portal.MoveToWorld(moongateLocation, targetMap);
-			
-			Timer.DelayCall(TimeSpan.FromMinutes(10), () =>
-			{
-				if (portal != null && !portal.Deleted)
-					portal.Delete();
-			});
-		}
-
 		public Zhoaminth(Serial serial) : base(serial)
 		{
 		}

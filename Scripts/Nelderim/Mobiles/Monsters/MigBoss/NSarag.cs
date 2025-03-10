@@ -78,33 +78,7 @@ namespace Server.Mobiles
 		{
 			AddLoot(NelderimLoot.RangerScrolls);
 		}
-		public override void OnDeath(Container c)
-		{
-			base.OnDeath(c); 
-			
-			Point3D moongateLocation = new Point3D(5762, 1724, 15);
-			Map targetMap = Map.Felucca; 
-			
-			Point3D destinationLocation = new Point3D(5686, 1875, 0);
-			Map destinationMap = Map.Felucca;
-
-			Moongate portal = new Moongate(destinationLocation, destinationMap)
-			{
-				Name = "Portal do wyjścia",
-				Hue = 1873,
-				Dispellable = false,
-				ItemID = 0x1FD4,
-			};
-			
-			portal.MoveToWorld(moongateLocation, targetMap);
-			
-			Timer.DelayCall(TimeSpan.FromMinutes(10), () =>
-			{
-				if (portal != null && !portal.Deleted)
-					portal.Delete();
-			});
-		}
-
+		
 		public NSarag(Serial serial) : base(serial)
 		{
 		}

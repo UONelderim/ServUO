@@ -499,6 +499,8 @@ namespace Server.Items
                 ColUtility.Free(keys);
             }
 
+            DestroyExitTeleport();
+
             // delete any remaining helpers
             CleanupHelpers();
 
@@ -587,6 +589,8 @@ namespace Server.Items
                     if (!Peerless.Deleted)
                         Peerless.Delete();
                 }
+                
+                DestroyExitTeleport();
 
                 CleanupHelpers();
 
@@ -602,6 +606,7 @@ namespace Server.Items
             SendMessage(1072681); // The master of this realm has been slain! You may only stay here so long.
 
             StopSlayTimer();
+            CreateExitTeleport();
 
             // delete master keys
             ColUtility.SafeDelete(MasterKeys);
@@ -710,6 +715,31 @@ namespace Server.Items
                         Exit(player);
                 }
             }
+        }
+
+        private Item _ExitMoongate;
+
+        private void CreateExitTeleport()
+        {
+	        _ExitMoongate = new Moongate(ExitDest, Map)
+	        {
+		        Name = "Portal do wyjścia",
+		        Hue = Hue,
+		        Dispellable = false,
+		        ItemID = 0x1FD4,
+	        };
+			
+	        _ExitMoongate.MoveToWorld(TeleportDest, Map);
+        }
+
+        private void DestroyExitTeleport()
+        {	
+	        if (_ExitMoongate != null && !_ExitMoongate.Deleted)
+	        {
+		        _ExitMoongate.Delete();
+	        }
+
+	        _ExitMoongate = null;
         }
 
         #region Helpers
