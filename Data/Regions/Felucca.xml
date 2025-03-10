@@ -10098,9 +10098,6 @@
 			<rect x="5880" y="2021" width="41" height="11" />
 			<go x="5933" y="1991" z="0" />
 		</region>
-		<region type="CannotEnterRegion" priority="100" name="CannotEnterRegion_Tasandora">
-			<rect x="1502" y="1705" width="168" height="247" />
-		</region>
 		<region type="DungeonRegion" name="VoxPopuli_Entrance">
 			<rect x="6986" y="129" width="9" height="21" />
 			<go x="7000" y="139" z="0" />
