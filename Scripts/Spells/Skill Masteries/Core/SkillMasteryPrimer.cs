@@ -78,9 +78,6 @@ namespace Server.Items
 
         public static void CheckPrimerDrop(BaseCreature killed)
         {
-	        if (killed.GetType() != typeof(BaseChampion)) // Sprawdzamy, czy dokładny typ to BaseChampion
-		        return; // Jeśli nie, nie dropimy masterki
-
 	        List<DamageStore> rights = killed.GetLootingRights();
 
 	        rights.ForEach(ds =>
@@ -104,9 +101,6 @@ namespace Server.Items
 		        }
 	        });
         }
-
-
-
 
         public static SkillMasteryPrimer GetRandom()
         {

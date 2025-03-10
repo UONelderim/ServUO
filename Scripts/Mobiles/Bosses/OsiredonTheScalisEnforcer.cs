@@ -240,7 +240,7 @@ namespace Server.Mobiles
             c.DropItem(new SpecialFishingNet());
             c.DropItem(new SpecialFishingNet());
 
-            SkillMasteryPrimer.CheckPrimerDrop(this);
+            // SkillMasteryPrimer.CheckPrimerDrop(this);
         }
 
         public override void Delete()

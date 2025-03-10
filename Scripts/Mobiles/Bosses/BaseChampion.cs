@@ -161,9 +161,6 @@ namespace Server.Mobiles
 	            if (Utility.RandomDouble() > MasteryPrimerChance) 
 		            continue;
 
-	            if (this.GetType() != typeof(BaseChampion)) // Sprawdzamy, czy zabity potwór to dokładnie BaseChampion
-		            continue; // Jeśli nie, nie dodajemy masterki
-
 	            Mobile m = toGive[i % toGive.Count];
 
 	            SkillMasteryPrimer p = CreateRandomPrimer();
