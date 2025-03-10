@@ -45949,12 +45949,12 @@
 1115609;Exhilarator 
 1115610;Galvanizer 
 1115611;Desponder 
-1115612;Inspire 
-1115613;Invigorate 
+1115612;Inspiracja
+1115613;Pobudzenie
 1115614;Wytrzymalosc 
 1115615;Wytrwalosc 
-1115616;Tribulation 
-1115617;Despair 
+1115616;Ciepienie 
+1115617;Rozpacz
 1115618;Summoning Crystal 
 1115619;Arena Menu - Main 
 1115620;You can host/join a duel or check your duel stats. 
@@ -46176,10 +46176,10 @@
 1115840;Ophidian allies drove away the Zguba Chosen ~1_VAL~ minutes ago. 
 1115841;Zguba Chosen allies drove away the Ophidians ~1_VAL~ minutes ago. 
 1115842;Arena Menu - Entry 
-1115843;+~1_INV~% bonus to invigorate effects. 
-1115844;+~1_INS~% bonus to inspire effects. 
-1115845;+~1_PRE~% bonus to perseverance effects. 
-1115846;+~1_RES~% bonus to resilience effects. 
+1115843;+~1_INV~% bonus do efektow wzmacniajacych. 
+1115844;+~1_INS~% bonus do efektow inspiracyjncyh. 
+1115845;+~1_PRE~% bonus do efektow wytrwalosci. 
+1115846;+~1_RES~% bonus do efektow wytrzymalosci. 
 1115847;Entry 
 1115848;Host Player 
 1115851;You have assisted the Ophidians in routing the Zguba Chosen but you have insufficient loyalty with them to receive a reward. (1000 loyalty required) 
@@ -55795,9 +55795,9 @@
 1155923;Uderzenie Tarcza
 1155924;Ochroniarz
 1155925;Wyostrzone Zmysly
-1155926;Tolerance 
-1155927;Injected Strike 
-1155928;Potency 
+1155926;Tolerancja
+1155927;Ukucie
+1155928;Wzmacnianie
 1155929;Szal
 1155930;Piesci Furii
 1155931;Nokaut 
