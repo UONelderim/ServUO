@@ -66,10 +66,8 @@ namespace Server.Mobiles
 		{
 			AddLoot(LootPack.SuperBoss, 8);
 			//AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
-			AddLoot(LootPack.PeerlessResource, 8);
-			AddLoot(LootPack.Talisman, 5);
+			AddLoot(LootPack.PeerlessResource, 2);
 			AddLoot(LootPack.LootItem<GrizzledBones>());
-
 			AddLoot(LootPack.RandomLootItem(new[]
 			{
 				typeof(TombstoneOfTheDamned), typeof(GlobOfMonstreousInterredGrizzle),
@@ -78,6 +76,12 @@ namespace Server.Mobiles
 
 			AddLoot(LootPack.LootItem<ParrotItem>(60.0));
 			AddLoot(LootPack.LootItem<GrizzledMareStatuette>(5.0));
+			
+			// 5% szansy na drop talizmanu
+			if (Utility.RandomDouble() < 0.05)
+			{
+				AddLoot(LootPack.Talisman, 1);
+			}
 /*
 			AddLoot(LootPack.RandomLootItem(
 				new[]

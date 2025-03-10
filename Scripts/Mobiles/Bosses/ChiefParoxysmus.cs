@@ -58,15 +58,19 @@ namespace Server.Mobiles
         {
             AddLoot(LootPack.SuperBoss, 8);
             AddLoot(LootPack.PeerlessResource, 8);
-            AddLoot(LootPack.Talisman, 5);
             AddLoot(LootPack.LootItem<LardOfParoxysmus>());
             AddLoot(LootPack.RandomLootItem(new[] { typeof(ParoxysmusDinner), typeof(ParoxysmusCorrodedStein), typeof(StringOfPartsOfParoxysmusVictims) }));
             AddLoot(LootPack.LootItem<ParrotItem>(60.0));
             AddLoot(LootPack.LootItem<SweatOfParoxysmus>(50.0));
             AddLoot(LootPack.LootItem<ParoxysmusSwampDragonStatuette>(5.0));
             //AddLoot(LootPack.LootItem<ScepterOfTheChief>(5.0));
-            
             AddLoot(NelderimLoot.RogueScrolls);
+            
+            // 5% szansy na drop talizmanu
+            if (Utility.RandomDouble() < 0.05)
+            {
+	            AddLoot(LootPack.Talisman, 1);
+            }
         }
 
         public override int GetDeathSound()

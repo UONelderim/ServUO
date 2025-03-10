@@ -52,8 +52,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.HighScrolls, 3);
             AddLoot(LootPack.MedScrolls, 3);
             AddLoot(LootPack.ArcanistScrolls, Utility.RandomMinMax(1, 6));
-            AddLoot(LootPack.PeerlessResource, 8);
-            AddLoot(LootPack.Talisman, 5);
+            AddLoot(LootPack.PeerlessResource, 2);
             AddLoot(LootPack.LootItem<CapturedEssence>());
             AddLoot(LootPack.LootItem<ShimmeringCrystals>());
 
@@ -61,6 +60,12 @@ namespace Server.Mobiles
 
             AddLoot(LootPack.LootItem<FerretImprisonedInCrystal>(5.0));
             AddLoot(LootPack.LootItem<CrystallineRing>(2.25));
+            
+            // 5% szansy na drop talizmanu
+            if (Utility.RandomDouble() < 0.05)
+            {
+	            AddLoot(LootPack.Talisman, 1);
+            }
             
             AddLoot(NelderimLoot.DruidScrolls);
         }
