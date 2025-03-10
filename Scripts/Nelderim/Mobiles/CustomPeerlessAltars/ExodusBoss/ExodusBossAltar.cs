@@ -20,7 +20,7 @@ namespace Server.Items
         {
 	        
             BossLocation = new Point3D(5492, 216, -44);
-            TeleportDest = new Point3D(5508, 211, -35);
+            TeleportDest = new Point3D(5504, 210, -42);
             ExitDest = new Point3D(5510, 211, -32);
 
             Name = "Oltarz Pancernego Straznika";
