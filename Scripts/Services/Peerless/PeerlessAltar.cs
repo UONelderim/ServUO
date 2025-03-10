@@ -16,6 +16,20 @@ namespace Server.Items
 
     public abstract class PeerlessAltar : Container
     {
+        private string _countdownName = null;
+        private bool _showCountdown = true;
+
+        [CommandProperty(AccessLevel.GameMaster)]
+        public bool ShowCountdown
+        {
+            get { return _showCountdown; }
+            set 
+            { 
+                _showCountdown = value;
+                UpdateName();
+            }
+        }
+
         public override bool IsPublicContainer => true;
         public override bool IsDecoContainer => false;
 
@@ -71,6 +85,9 @@ namespace Server.Items
 
             Fighters = new List<Mobile>();
             MasterKeys = new List<Item>();
+            
+            // Start the countdown update timer
+            Timer.DelayCall(TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1), UpdateCountdown);
         }
 
         public PeerlessAltar(Serial serial)
@@ -81,7 +98,64 @@ namespace Server.Items
         public override void OnDoubleClick(Mobile from)
         {
             if (from.AccessLevel > AccessLevel.Player)
+            {
                 base.OnDoubleClick(from);
+                return;
+            }
+
+            // Pokazuj graczom deadline
+            if (Peerless != null && Peerless.Alive)
+            {
+                TimeSpan timeLeft = Deadline - DateTime.UtcNow;
+
+                if (timeLeft > TimeSpan.Zero)
+                {
+                    int hours = (int)timeLeft.TotalHours;
+                    int minutes = timeLeft.Minutes;
+                    int seconds = timeLeft.Seconds;
+
+                    if (hours > 0)
+                    {
+                        from.SendMessage(0x43, $"Pozostaly czas, w ktorym mozna zabic {Peerless.Name} wynosi: {hours} dni, {minutes} klepsydr i {seconds} ziaren.");
+                    }
+                    else if (minutes > 0)
+                    {
+                        from.SendMessage(0x43, $"Pozostaly czas, w ktorym mozna zabic {Peerless.Name} wynosi: {minutes} klepsydr i {seconds} ziaren.");
+                    }
+                    else
+                    {
+                        from.SendMessage(0x43, $"Pozostaly czas, w ktorym mozna zabic {Peerless.Name}: {seconds} ziaren.");
+                    }
+                }
+                else
+                {
+                    from.SendMessage(0x43, "Pozostaly czas na zabicie straznika lochu zakonczyl sie. Oltarz wkroce mozna bedzie ponownie aktywowac.");
+                }
+            }
+            else if (m_DeadlineTimer != null)
+            {
+                TimeSpan timeLeft = Deadline - DateTime.UtcNow;
+
+                if (timeLeft > TimeSpan.Zero)
+                {
+                    int minutes = (int)timeLeft.TotalMinutes;
+                    int seconds = timeLeft.Seconds;
+
+                    from.SendMessage(0x43, $"Oltarz zostanie reaktyowawy za {minutes} klepsydr i {seconds} ziaren.");
+                }
+                else
+                {
+                    from.SendMessage(0x43, "Oltarz wkrotce zostanie reaktywowany.");
+                }
+            }
+            else if (Owner != null)
+            {
+                from.SendLocalizedMessage(1072683, Owner.Name); // ~1_NAME~ has already activated the Prism, please wait...
+            }
+            else
+            {
+                from.SendMessage(0x43, "Oltarz jest aktywny - mozna rozpoczac przywolywanie.");
+            }
         }
 
         public override bool CheckLift(Mobile from, Item item, ref LRReason reject)
@@ -201,6 +275,9 @@ namespace Server.Items
 
             Timer.DelayCall(TimeSpan.FromSeconds(1), () => ClearContainer());
             KeyValidation = null;
+            
+            // Update the name to show the boss is spawned
+            UpdateName();
         }
 
         public bool KeysValidated()
@@ -267,11 +344,115 @@ namespace Server.Items
             m_KeyResetTimer = null;
         }
 
+        // Method to update the countdown display in the altar's name
+        public virtual void UpdateCountdown()
+        {
+            if (!ShowCountdown)
+                return;
+                
+            UpdateName();
+        }
+        
+        // Method to update the altar's name with countdown information
+        public virtual void UpdateName()
+        {
+            if (!ShowCountdown)
+            {
+                if (_countdownName != null)
+                {
+                    Name = null;
+                    _countdownName = null;
+                }
+                return;
+            }
+            
+            string baseName = GetType().Name;
+            string namePrefix = baseName;
+            
+            if (Peerless != null && Peerless.Alive)
+            {
+                // Boss is alive, show time left to kill
+                TimeSpan timeLeft = Deadline - DateTime.UtcNow;
+                
+                if (timeLeft > TimeSpan.Zero)
+                {
+                    int hours = (int)timeLeft.TotalHours;
+                    int minutes = timeLeft.Minutes;
+                    int seconds = timeLeft.Seconds;
+                    
+                    if (hours > 0)
+                        _countdownName = $"{namePrefix} [Pozostalo: {hours}g {minutes}m {seconds}s]";
+                    else if (minutes > 0)
+                        _countdownName = $"{namePrefix} [Pozostalo: {minutes}m {seconds}s]";
+                    else
+                        _countdownName = $"{namePrefix} [Pozostalo: {seconds}s]";
+                }
+                else
+                {
+                    _countdownName = $"{namePrefix} [Czas minal!]";
+                }
+            }
+            else if (m_DeadlineTimer != null)
+            {
+                // Waiting for boss reset
+                TimeSpan timeLeft = Deadline - DateTime.UtcNow;
+                
+                if (timeLeft > TimeSpan.Zero)
+                {
+                    int minutes = (int)timeLeft.TotalMinutes;
+                    int seconds = timeLeft.Seconds;
+                    
+                    _countdownName = $"{namePrefix} [Resetowanie: {minutes}m {seconds}s]";
+                }
+                else
+                {
+                    _countdownName = $"{namePrefix} [Wkrotce dostepny]";
+                }
+            }
+            else if (Owner != null)
+            {
+                _countdownName = $"{namePrefix} [Aktywowany]";
+            }
+            else
+            {
+                _countdownName = $"{namePrefix} [Gotowy]";
+            }
+            
+            // Update the name
+            if (_countdownName != null)
+            {
+                Name = _countdownName;
+                InvalidateProperties();
+            }
+        }
+
+        public override void GetProperties(ObjectPropertyList list)
+        {
+            base.GetProperties(list);
+            
+            // Optional: Add countdown information to the properties list as well
+            if (ShowCountdown && _countdownName != null)
+            {
+                // Extract the countdown part from the name
+                int startIndex = _countdownName.IndexOf('[');
+                int endIndex = _countdownName.IndexOf(']');
+                
+                if (startIndex >= 0 && endIndex > startIndex)
+                {
+                    string countdown = _countdownName.Substring(startIndex + 1, endIndex - startIndex - 1);
+                    list.Add(1060658, countdown); // ~1_val~
+                }
+            }
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
-            writer.Write(5); // version
+            writer.Write(6); // version
+            
+            // Version 6
+            writer.Write(_showCountdown);
 
             writer.Write(Owner);
 
@@ -308,6 +489,11 @@ namespace Server.Items
 
             switch (version)
             {
+                case 6:
+                    {
+                        _showCountdown = reader.ReadBool();
+                        goto case 5;
+                    }
                 case 5:
                     {
                         Owner = reader.ReadMobile();
@@ -361,6 +547,8 @@ namespace Server.Items
             {
                 FinishSequence();
             }
+            
+            Timer.DelayCall(TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1), UpdateCountdown);
         }
 
         public virtual void ClearContainer()
@@ -508,6 +696,8 @@ namespace Server.Items
 
             ColUtility.Free(Fighters);
             ColUtility.Free(MasterKeys);
+            
+            UpdateName();
         }
 
         public virtual void Exit(Mobile fighter)
@@ -594,6 +784,8 @@ namespace Server.Items
                 Peerless = null;
 
                 Deadline = DateTime.MinValue;
+                
+                UpdateName();
             }
         }
 
@@ -608,6 +800,8 @@ namespace Server.Items
 
             ColUtility.Free(MasterKeys);
             m_DeadlineTimer = Timer.DelayCall(DelayAfterBossSlain, FinishSequence);
+            
+            UpdateName();
         }
 
         public virtual bool MobileIsInBossArea(Mobile check)
@@ -681,6 +875,8 @@ namespace Server.Items
 
             m_SlayTimer = Timer.DelayCall(TimeSpan.FromMinutes(5), TimeSpan.FromMinutes(5), DeadlineCheck);
             m_SlayTimer.Priority = TimerPriority.OneMinute;
+            
+            UpdateName();
         }
 
         public virtual void DeadlineCheck()
@@ -710,6 +906,7 @@ namespace Server.Items
                         Exit(player);
                 }
             }
+            UpdateName();
         }
 
         #region Helpers
