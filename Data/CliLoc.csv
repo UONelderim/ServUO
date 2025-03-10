@@ -55801,9 +55801,9 @@
 1155929;Szal
 1155930;Piesci Furii
 1155931;Nokaut 
-1155932;Whispering 
-1155933;Combat Training 
-1155934;Boarding 
+1155932;Szepty 
+1155933;Trening Bojowy
+1155934;Stajnia
 1155935;Placeholder 
 1155938;The mage focuses a death ray on their opponent which snares the mage to their location and does damage based on magery skill, evaluating intelligence skill, and mastery level as long as the mage has mana and the target is in range. 
 1155939;The mage restores a large amount of mana based on mastery level and can recast the ability more often based on magery skill, evaluating intelligence skill, and mastery level. 
@@ -55952,32 +55952,32 @@
 1156084;*The trail of fire scorches you, setting you ablaze!* 
 1156085;Zadaje ~2_DAMAGE~ obrazen ~1_NAME~ co 3 sek w zasiegu. Wykonanie innej akcji wylaczy czar. 
 1156086;Debuff Odpornosci na Energie: ~1_VAL~% 
-1156087;Your Mana Shield has expired. 
-1156088;Please see banker to deposit currency that was transferred. 
-1156089;Mana Increase ~1_VAL~ 
-1156090;+~1_STAMINA~ Odzyskiwanie wytrzymalosci and +~2_HP~% Hit Points for summoned pets.<br>Increased difficulty for summoned pets to be dispelled. 
-1156091;Your bow range has been reduced as you play the odds. 
-1156092;Your bow range has returned to normal. 
-1156093;Places you in an offensive stance which allows you to strike your target with your shield on your next successful attack or parry. 
-1156094;Ten cel juz korzysta z tej umiejetnosci. 
-1156095;Your mastery of poisoning allows you to use your poison charge without consuming it. 
-1156096;You must be wielding a shield to use this ability! 
-1156097;Your ability was interrupted. 
-1156098;Your target is no longer in range of your ability. 
-1156099;Another player is offering to bodyguard you: 
-1156100;Your pet is now being protected by ~1_NAME~. 
-1156101;You resist the effects of death ray. 
-1156102;Your target resists the effects of death ray. 
-1156103;Ochroniarz wygasa. 
-1156104;Wpłac Złoto 
-1156105;Enter the amount of gold you wish to deposit (ESC = CANCEL): 
-1156106;You guide your pet's behaviors, providing a ~1_VAL~% chance to increase skill gains. 
-1156107;You train ~2_NAME~ to use ~1_SKILLNAME~.<br>Mana Upkeep: ~3_COST~ 
-1156108;Pochlanianie obrazen 
-1156109;Wzmocnienie 
-1156110;Your ability was canceled. 
-1156111;You do not have enough mana to keep your ability active. 
-1156112;This ability requires you to have pets. 
+1156087;Twoja Tarcza Many wygasla.
+1156088;Prosze udac sie do bankiera, aby zdeponowac przeniesiona walute.
+1156089;Wzrost Many ~1_VAL~
+1156090;+~1_STAMINA~ Odzyskiwanie wytrzymalosci i +~2_HP~% Punktow Zdrowia dla przywolanych pupili.<br>Zwiekszona trudnosc rozproszenia przywolanych pupili.
+1156091;Zasieg twojego luku zostal zmniejszony, poniewaz ryzykujesz.
+1156092;Zasieg twojego luku powrocil do normy.
+1156093;Ustawia cie w pozycji ofensywnej, ktora pozwala ci uderzyc cel tarcza przy nastepnym udanym ataku lub parowaniu.
+1156094;Ten cel juz korzysta z tej umiejetnosci.
+1156095;Twoje mistrzostwo w truciznach pozwala ci uzyc ladunku trucizny bez jego zuzycia.
+1156096;Musisz dzierzyc tarcze, aby uzyc tej umiejetnosci!
+1156097;Twoja umiejetnosc zostala przerwana.
+1156098;Twoj cel nie jest juz w zasiegu twojej umiejetnosci.
+1156099;Inny gracz oferuje ci ochrone:
+1156100;Twoj pupil jest teraz chroniony przez ~1_NAME~.
+1156101;Opierasz sie efektom promienia smierci.
+1156102;Twoj cel opiera sie efektom promienia smierci.
+1156103;Ochroniarz wygasa.
+1156104;Wplac Zloto.
+1156105;Wprowadz kwote zlota, ktora chcesz wplacic (ESC = ANULUJ):
+1156106;Prowadzisz zachowania swojego pupila, zapewniajac ~1_VAL~% szanse na zwiekszenie zdobywania umiejetnosci.
+1156107;Trenujesz ~2_NAME~, aby uzywal ~1_SKILLNAME~.<br>Koszt Many: ~3_COST~
+1156108;Pochlanianie obrazen.
+1156109;Wzmocnienie.
+1156110;Twoja umiejetnosc zostala anulowana.
+1156111;Nie masz wystarczajaco many, aby utrzymac aktywna umiejetnosc.
+1156112;Ta umiejetnosc wymaga posiadania pupili.
 1156113;Wybierz trening 
 1156114;You must upgrade your account with the Time of Legends Expansion in order to place these tiles. 
 1156115;Jungle Walls 
