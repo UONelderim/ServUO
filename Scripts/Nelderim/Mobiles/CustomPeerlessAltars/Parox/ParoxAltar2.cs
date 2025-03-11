@@ -22,7 +22,7 @@ namespace Server.Items
 	        
 	        BossLocation = new Point3D(6950, 241, 0);
 	        TeleportDest = new Point3D(6932, 246, 0);
-	        ExitDest = new Point3D(6921, 247, 25);
+	        ExitDest = new Point3D(6928, 242, 0);
 
             Name = "Oltarz Oblesnego Kucharza";
             Hue = 0x465;
