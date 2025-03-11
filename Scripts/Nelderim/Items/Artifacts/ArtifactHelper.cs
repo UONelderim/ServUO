@@ -240,7 +240,7 @@ namespace Server.Items
 			{
 				if (m.BankBox != null && m.BankBox.TryDropItem(m, artifact, false))
 				{
-					m.SendMessage("Artefakt laduje w banku.");
+					m.SendLocalizedMessage(1079730); // The item has been placed into your bank box.
 				}
 				else
 				{
