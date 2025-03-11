@@ -11,7 +11,7 @@ namespace Server.Items
 {
 	public class ShrunkPet : Item
 	{
-		private static readonly int[] _cost = { 50, 200, 800, 2000, 5000 };
+		private static readonly int[] _Cost = [50, 200, 800, 2000, 5000];
 
 		[CommandProperty(AccessLevel.Counselor)]
 		public virtual bool RequiresAnimalTrainer => true;
@@ -43,7 +43,7 @@ namespace Server.Items
 			if (from == null)
 				return;
 
-			if (target == null || target.ControlSlots > 5 || 1 > target.ControlSlots || target.Allured)
+			if (target == null || target.ControlSlots > 5 || target.ControlSlots < 1 || target.Allured)
 				from.SendLocalizedMessage(1070041); // Nie mozesz tego uwiazac.
 			else if (target.ControlMaster != from)
 				from.SendLocalizedMessage(1070042); // Musisz kontrolowac istote ktora chcesz uwiazac
@@ -60,7 +60,7 @@ namespace Server.Items
 				from.SendLocalizedMessage(1070049); // Jestes zbyt daleko od tresera zwierzat
 			else
 			{
-				int cost = _cost[target.ControlSlots - 1];
+				int cost = _Cost[target.ControlSlots - 1];
 
 				if (from.TotalGold < cost)
 					from.SendLocalizedMessage(1070047, cost.ToString()); // Nie stac Cie, potrzebujesz {0} zlota
@@ -71,9 +71,10 @@ namespace Server.Items
 						if (from.Backpack.ConsumeTotal(typeof(Gold), cost))
 						{
 							from.Backpack.AddItem(new ShrunkPet(target));
-							target.AIObject.DoOrderRelease();
-							target.Map = Map.Internal;
-							target.Blessed = true;
+							target.Internalize();
+							target.SetControlMaster(null);
+							target.SummonMaster = null;
+							target.IsStabled = true;
 
 							from.SendLocalizedMessage(1070048);
 						}
@@ -82,32 +83,16 @@ namespace Server.Items
 					}
 					else
 					{
-						var g = new GeneralConfirmGump();
-						g.Text =
-							$"Usluga bedzie Cie kosztowac {cost} centarow.<br /> Po pomniejszeniu zwierze straci pamiec. Czy jestes pewien ze chcesz to zrobic?";
-						g.Size = new Point2D(300, 160);
-						g.OnContinue += (ns, ri) => Shrink(trainer, from, target, true);
+						var g = new GeneralConfirmGump
+						{
+							Text =
+								$"Usluga bedzie Cie kosztowac {cost} centarow.<br /> Po pomniejszeniu zwierze straci pamiec. Czy jestes pewien ze chcesz to zrobic?",
+							Size = new Point2D(300, 160)
+						};
+						g.OnContinue += (_, _) => Shrink(trainer, from, target, true);
 						from.SendGump(g);
 					}
 				}
-			}
-		}
-
-		public void AttachPet(BaseCreature newPet)
-		{
-			if (Pet != null)
-			{
-				Pet.Delete();
-				Pet = null;
-				LastSerial = Serial.Zero;
-			}
-
-			if (newPet != null)
-			{
-				Pet = newPet;
-				LastSerial = newPet.Serial;
-				Hue = PetHue;
-				ItemID = ShrinkTable.Lookup(Pet.Body);
 			}
 		}
 
@@ -122,11 +107,10 @@ namespace Server.Items
 			Name = "Statuetka zwierzecia";
 			LootType = LootType.Blessed;
 
-			AttachPet(pet);
-		}
-
-		public virtual void OnAfterUnshrink()
-		{
+			Pet = pet;
+			LastSerial = pet.Serial;
+			Hue = PetHue;
+			ItemID = ShrinkTable.Lookup(Pet.Body);
 		}
 
 		public override void OnDoubleClick(Mobile from)
@@ -153,9 +137,8 @@ namespace Server.Items
 					Pet.SetControlMaster(from);
 					Pet.Location = from.Location;
 					Pet.Map = from.Map;
+					Pet.IsStabled = false;
 					Pet.Blessed = false;
-
-					OnAfterUnshrink();
 
 					Pet = null; // Separate pet from the statue to avoid deleting pet along with the statue
 					Delete();
@@ -172,12 +155,9 @@ namespace Server.Items
 			base.GetProperties(list);
 
 			if (Pet == null || Pet.Deleted)
-			{
 				list.Add("(Pusta statuetka)");
-				return;
-			}
-
-			list.Add(Pet.Name);
+			else
+				list.Add(Pet.Name);
 		}
 
 		public override void Serialize(GenericWriter writer)
