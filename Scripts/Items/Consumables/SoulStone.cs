@@ -179,7 +179,7 @@ namespace Server.Items
             if (!IsEmpty)
                 list.Add(1070721, "#{0}\t{1:0.0}", AosSkillBonuses.GetLabel(Skill), SkillValue); // Skill stored: ~1_skillname~ ~2_skillamount~
 
-            string name = LastUserName;
+            string name = Owner?.Name;
 
             if (name == null)
                 name = string.Format("#{0}", 1074235); // Unknown

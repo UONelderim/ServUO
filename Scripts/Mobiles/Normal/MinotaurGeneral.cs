@@ -45,7 +45,7 @@ namespace Server.Mobiles
         public override void GenerateLoot()
         {
             AddLoot(LootPack.UltraRich, 2);
-            AddLoot(LootPack.ArcanistScrolls, 0, 1);
+            //AddLoot(LootPack.ArcanistScrolls, 0, 1);
         }
 
         public override int TreasureMapLevel => 4;
