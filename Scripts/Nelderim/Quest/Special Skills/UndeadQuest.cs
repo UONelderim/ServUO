@@ -100,7 +100,7 @@ Jak wyroznic sie wsrod zwyczajnych wiernych, zapytasz? Otoz, najpierw trzeba pod
 		public UndeadPhase3Quest()
 		{
 			AddObjective(new SlayObjective(typeof(Lich), "licz", 20));
-			AddObjective(new SlayObjective(typeof(SkeletalDragon), "kosciany smok", 10));
+			AddObjective(new SlayObjective(typeof(SkeletalDragon), "kosciany smok", 1));
 
 			AddReward(new BaseReward(3060307)); // Coraz blizej wejscia w posiadanie umiejetnosci okultystycznych
 		}
