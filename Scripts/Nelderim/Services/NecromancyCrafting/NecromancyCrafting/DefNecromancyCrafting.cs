@@ -233,6 +233,83 @@ namespace Server.Engines.Craft
             AddRes(index, typeof(WoodenChest), "Drewniana skrzynia", 1,
                 "Nie masz wystarczajaco duzej ilosci drewnianych skrzyń.");
             AddSkill(index, SkillName.Anatomy, 100.0, 120.0);
+            
+            //Death Knight Skulls
+            index = AddCraft(typeof(BanishSkull), "Mroczny Rycerz", "Wygnanie", 50.0, 140.0, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( Pumice ), "pumeks" , 20, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft(typeof(DemonicTouchSkull), "Mroczny Rycerz", "Dotyk Demona", 54.0, 144.0, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( ZoogiFungus ), "grzyby zoogi" , 50, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft(typeof(DevilPactSkull), "Mroczny Rycerz", "Pakt Ze Smiercia", 60.0, 151.0, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( ObsidianStone ), "obysdian" , 20, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft(typeof(GrimReaperSkull), "Mroczny Rycerz", "Ponury Zniwiarz", 60.0, 151.0, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( DaemonBone ), "kości demona" , 50, 1044253 );
+            AddRes( index, typeof( ObsidianStone ), "obysdian" , 20, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft(typeof(HagHandSkull), "Mroczny Rycerz", "Reka Wiedzmy", 62.0, 153.0, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( DaemonBone ), "kości demona" , 50, 1044253 );
+            AddRes( index, typeof( SpringWater ), "wiosenna woda" , 30, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft(typeof(HellfireSkull), "Mroczny Rycerz", "Ogien Piekielny", 62.0, 153.0, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( FireRuby ), "ognisty rubin" , 10, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft(typeof(LucifersBoltSkull), "Mroczny Rycerz", "Promien Smierci", 67.0, 157.0, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( DiseasedBark ), "zgniła kora" , 10, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft(typeof(OrbOfOrcusSkull), "Mroczny Rycerz", "Kula Smierci", 67.0, 157.0, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( ObsidianStone ), "obysdian" , 20, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft(typeof(ShieldOfHateSkull), "Mroczny Rycerz", "Tarcza Nienawisci", 69.0, 159.0, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( DaemonBone ), "kości demona" , 50, 1044253 );
+            AddRes( index, typeof( SpringWater ), "wiosenna woda" , 30, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft(typeof(SoulReaperSkull), "Mroczny Rycerz", "Zniwiarz Dusz", 70.0, 160.0, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( FireRuby ), "ognisty rubin" , 10, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft(typeof(StrengthOfSteelSkull), "Mroczny Rycerz", "Wytrzymalosc Stali", 71.0, 161.0, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( DaemonBone ), "kości demona" , 50, 1044253 );
+            AddRes( index, typeof( SpringWater ), "wiosenna woda" , 30, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft(typeof(StrikeSkull), "Mroczny Rycerz", "Uderzenie", 72.0, 162.0, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( DaemonBone ), "kości demona" , 50, 1044253 );
+            AddRes( index, typeof( ObsidianStone ), "obysdian" , 20, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft(typeof(SuccubusSkinSkull), "Mroczny Rycerz", "Skora Sukkuba", 73.0, 163.0, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( ObsidianStone ), "obysdian" , 20, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft(typeof(WeakSpotSkull), "Mroczny Rycerz", "Slaby Punkt", 73.5, 163.5, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( SpringWater ), "wiosenna woda" , 30, 1044253 );
+            AddRes( index, typeof( DragonsBlood ), "krew smoka" , 20, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft(typeof(WrathSkull), "Mroczny Rycerz", "Gniew", 80.0, 170.0, typeof(Soul), "Dusza", 1,
+	            "Nie masz duszy potrzebnej do stworzenia czaszki.");
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( ObsidianStone ), "obysdian" , 20, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
 
             Recycle = true;
             RecycleAction = NecroRecycle.Do;
