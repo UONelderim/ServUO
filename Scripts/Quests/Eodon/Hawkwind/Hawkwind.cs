@@ -7,7 +7,7 @@ namespace Server.Engines.Quests.TimeLord
     {
         [Constructable]
         public Hawkwind()
-            : base("the Time Lord")
+            : base("- wladca czasu")
         {
         }
 

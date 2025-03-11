@@ -57,15 +57,15 @@ namespace Server.Engines.JollyRoger
         {
             private static readonly string[] m_Messages =
             {
-                "The Codex of Ultimate Wisdom has given me the information I need.",
-                "I will carefully move the magic of the spell to Stonegate and finish the ritual there.",
-                "Touch the Time Gate before you leave this place.",
-                "Your spirit will strengthen the spell we cast together.",
-                "Some of the Essence of CI Nascent Time Gate will go with you.",
-                "It will be part of you, and thus part of the magic of this shard.",
-                "If enough do this on every shard, I will be able to mend the connection.",
-                "Then the Time Gate will be stable enough for passage!",
-                "We will speak again when this is all over. Thank you, Legend of Britannia!"
+	            "Kodeks Ostatecznej Madrosci dal mi informacje, ktorych potrzebuje.",
+	            "Ostroznie przeniose magie zaklecia do Stonegate i tam dokoncze rytual.",
+	            "Dotknij Bramy Czasu, zanim opuscisz to miejsce.",
+	            "Twoj duch wzmocni zaklecie, ktore razem rzucimy.",
+	            "Czesc Esencji Bramy Czasu CI Nascent pojdzie z toba.",
+	            "Bedzie czescia ciebie, a zatem czescia magii tego odlamka.",
+	            "Jesli wystarczajaca liczba osob zrobi to na kazdym odlamku, bede w stanie naprawic polaczenie.",
+	            "Wtedy Brama Czasu bedzie wystarczajaco stabilna, aby przez nia przejsc!",
+	            "Porozmawiamy ponownie, gdy to wszystko sie skonczy. Dziekuje, Legendo Nelderimu!"
             };
 
             private readonly HawkwindSpeak _Mobile;
