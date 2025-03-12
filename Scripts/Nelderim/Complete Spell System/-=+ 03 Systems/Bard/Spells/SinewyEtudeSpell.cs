@@ -48,7 +48,7 @@ namespace Server.ACC.CSS.Systems.Bard
 				{
 					Mobile m = (Mobile)targets[i];
 
-					int amount = (int)(Caster.Skills[SkillName.Provocation].Base * 0.1);
+					int amount = (int)(Caster.Skills[CastSkill].Base * 0.1);
 					string str = "str";
 
 					double duration = (Caster.Skills[SkillName.Musicianship].Base * 5.0);
