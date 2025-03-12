@@ -8,13 +8,13 @@ namespace Server.Mobiles
 		{
 			double chance = Utility.RandomDouble() * 100;
 
-			if (chance <= 0.5)
+			if (chance <= 0.1)
 				Hue = 1158;
-			else if (chance <= 1)
+			else if (chance <= 0.3)
 				Hue = 1395;
 			else if (chance <= 5)
 				Hue = Utility.RandomList(2448, 2981);
-			else if (chance <= 10)
+			else if (chance <= 12)
 				Hue = Utility.RandomList(1178, 2906);
 			else if (chance <= 25)
 				Hue = Utility.RandomList(1397, 1315, 2120);
