@@ -33,6 +33,13 @@ namespace Server.Mobiles
 			set => Gains.Get(this).GainBoostEndTime = value;
 		}
 		
+		[CommandProperty( AccessLevel.GameMaster )]
+		public bool ColorMetal
+		{
+			get{ return GetFlag( PlayerFlag.ColorMetal ); }
+			set{ SetFlag( PlayerFlag.ColorMetal, value ); }
+		}
+		
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
 		public bool GainDebug { get; set; }
 		
