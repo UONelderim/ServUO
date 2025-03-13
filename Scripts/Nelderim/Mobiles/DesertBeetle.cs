@@ -1,28 +1,28 @@
 namespace Server.Mobiles
 {
-	public class ForestBeetle : Beetle
+	public class DesertBeetle : Beetle
 	{
 		[Constructable]
-		public ForestBeetle()
+		public DesertBeetle()
 			: base("ogromny zuk")
 		{
 			double chance = Utility.RandomDouble() * 100;
 
-			if (chance <= 0.1)
-				Hue = 1158;
+			if (chance <= 0.1) 
+				Hue = 2977;
 			else if (chance <= 0.3)
-				Hue = 1395;
+				Hue = 2978;
 			else if (chance <= 5)
-				Hue = Utility.RandomList(2448, 2981);
+				Hue = Utility.RandomList(2898, 2897);
 			else if (chance <= 12)
-				Hue = Utility.RandomList(1178, 2906);
+				Hue = Utility.RandomList(1359, 2089);
 			else if (chance <= 25)
-				Hue = Utility.RandomList(1397, 1315, 2120);
+				Hue = Utility.RandomList(1491, 1182, 1556);
 			else
 				Hue = 0;
 		}
 
-		public ForestBeetle(Serial serial)
+		public DesertBeetle(Serial serial)
 			: base(serial)
 		{
 		}
