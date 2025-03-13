@@ -14,6 +14,7 @@ namespace Server.Items
         public BaseAxe(int itemID)
             : base(itemID)
         {
+	        UsesRemaining = 50;
         }
 
         public BaseAxe(Serial serial)
