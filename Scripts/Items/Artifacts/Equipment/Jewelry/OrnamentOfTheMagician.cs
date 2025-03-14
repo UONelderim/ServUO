@@ -3,6 +3,10 @@ namespace Server.Items
     public class OrnamentOfTheMagician : GoldBracelet
     {
         public override bool IsArtifact => true;
+        
+        public override int InitMinHits => 255;
+        public override int InitMaxHits => 255;
+        
         [Constructable]
         public OrnamentOfTheMagician()
         {
