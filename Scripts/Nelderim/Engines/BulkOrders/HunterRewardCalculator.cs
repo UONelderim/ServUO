@@ -11,12 +11,12 @@ namespace Server.Engines.BulkOrders
 		{
 			RewardCollection =
 			[
-				new BODCollectionItem(0, 0, 0, 30, BagOfPotions, 0),
+				new BODCollectionItem(0x0F09, 1159553, 0, 30, BagOfPotions, 0),
 				new BODCollectionItem(0x18E9, 1159541, 0, 100, DecoMinor),
-				new BODCollectionItem(0, 0, 0, 125, BagOfPotions, 1),
+				new BODCollectionItem(0x0F09, 1159554, 47, 125, BagOfPotions, 1),
 				new BODCollectionItem(0xEFF, 1159542, 0x07A1, 150, Pigment, 0),
 				new BODCollectionItem(0x26B8, 1159543, 0, 250, TranslocationPowder, 20),
-				new BODCollectionItem(0, 0, 0, 300, BagOfPotions, 2),
+				new BODCollectionItem(0x0F09, 1159555, 22, 300, BagOfPotions, 2),
 				new BODCollectionItem(0xEFF, 1159544, 0x486, 350, Pigment, 1),
 				new BODCollectionItem(0x1006, 1159545, 0, 400, DurabilityPowder),
 				new BODCollectionItem(0x11CC, 1159546, 0, 450, DecoMajor),
