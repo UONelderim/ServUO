@@ -17,11 +17,16 @@ namespace Server.Commands
 		[Description("Wyswietla informacje o postaci.")]
 		public static void Status_OnCommand(CommandEventArgs e)
 		{
-			PlayerMobile pm = (PlayerMobile)e.Mobile;
-
-			pm.SendMessage("Slawa: {0}", e.Mobile.Fame);
-			pm.SendMessage("Karma: {0}", e.Mobile.Karma);
-			pm.SendMessage("Morderstwa: {0}", e.Mobile.Kills);
+			if (e.Mobile is PlayerMobile pm)
+			{
+				pm.SendMessage("Slawa: {0}", pm.Fame);
+				pm.SendMessage("Karma: {0}", pm.Karma);
+				pm.SendMessage("Morderstwa: {0}", pm.Kills);
+				if (pm.Kills > 0)
+				{
+					pm.SendMessage("Ostatnie morderstwo sie przedawni za okolo {0} godzin.", pm.LongTermElapse.TotalHours);
+				}
+			}
 		}
 	}
 }
