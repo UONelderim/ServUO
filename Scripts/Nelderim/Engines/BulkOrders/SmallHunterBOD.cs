@@ -12,30 +12,40 @@ namespace Server.Engines.BulkOrders
 {
 	public class SmallHunterBOD : SmallBOD
 	{
+		public enum HunterBODLevel
+		{
+			Easy,
+			Medium,
+			Hard,
+			Boss
+		}
+
+		private static Dictionary<Type, HunterBODLevel> TypeToLevel = new();
+
+		public static void Initialize()
+		{
+			foreach (var smallBulkEntry in SmallBulkEntry.HunterEasy)
+				TypeToLevel.Add(smallBulkEntry.Type, HunterBODLevel.Easy);
+			foreach (var smallBulkEntry in SmallBulkEntry.HunterMedium)
+				TypeToLevel.Add(smallBulkEntry.Type, HunterBODLevel.Medium);
+			foreach (var smallBulkEntry in SmallBulkEntry.HunterHard)
+				TypeToLevel.Add(smallBulkEntry.Type, HunterBODLevel.Hard);
+			foreach (var smallBulkEntry in SmallBulkEntry.HunterBoss)
+				TypeToLevel.Add(smallBulkEntry.Type, HunterBODLevel.Boss);
+		}
+
+		public static HunterBODLevel GetBODLevel(Type type)
+		{
+			if(TypeToLevel.TryGetValue(type, out var level))
+				return level;
+			
+			Console.WriteLine("Unknown level for " + type.Name);
+			return HunterBODLevel.Easy;
+		}
+		
 		public override BODType BODType => BODType.Hunter;
 
-		private static readonly TimeSpan m_HuntProtection = TimeSpan.FromSeconds(15.0);
-
-		//Since we don't use material, we can store collected points in it :)
-		public override BulkMaterialType Material => (BulkMaterialType)CollectedPoints;
-		
-		private static double ScalePoints(double difficulty)
-		{
-			return Math.Max(1, Math.Pow(difficulty, 0.625) * 0.1);
-		}
-
-		private double _CollectedPoints;
-
-		[CommandProperty(AccessLevel.GameMaster)]
-		public double CollectedPoints
-		{
-			get => _CollectedPoints;
-			set
-			{
-				_CollectedPoints = value;
-				InvalidateProperties();
-			}
-		}
+		private static readonly TimeSpan _HuntProtection = TimeSpan.FromSeconds(15.0);
 
 		public override int ComputeFame()
 		{
@@ -109,10 +119,10 @@ namespace Server.Engines.BulkOrders
 			switch (level)
 			{
 				default:
-				case 1: entries = SmallBulkEntry.Easy; break;
-				case 2: entries = SmallBulkEntry.Medium; break;
-				case 3: entries = SmallBulkEntry.Hard; break;
-				case 4: entries = SmallBulkEntry.Boss; break;
+				case 1: entries = SmallBulkEntry.HunterEasy; break;
+				case 2: entries = SmallBulkEntry.HunterMedium; break;
+				case 3: entries = SmallBulkEntry.HunterHard; break;
+				case 4: entries = SmallBulkEntry.HunterBoss; break;
 			}
 
 
@@ -147,10 +157,10 @@ namespace Server.Engines.BulkOrders
 		{
 			var entries = Utility.RandomList(1, 2, 3, 4) switch
 			{
-				4 => SmallBulkEntry.Boss,
-				3 => SmallBulkEntry.Hard,
-				2 => SmallBulkEntry.Medium,
-				_ => SmallBulkEntry.Easy
+				4 => SmallBulkEntry.HunterBoss,
+				3 => SmallBulkEntry.HunterHard,
+				2 => SmallBulkEntry.HunterMedium,
+				_ => SmallBulkEntry.HunterEasy
 			};
 
 			if (entries.Length <= 0) return;
@@ -173,17 +183,8 @@ namespace Server.Engines.BulkOrders
 			Number = number;
 			Graphic = graphic;
 			RequireExceptional = reqExceptional;
-			CollectedPoints = (double)mat;
 			GraphicHue = hue;
 		}
-		
-		public override void GetProperties(ObjectPropertyList list)
-		{
-			base.GetProperties(list);
-			
-			list.Add(1060658, "{0}\t{1}", "Zebrane punkty", $"{_CollectedPoints:F2}"); // ~1_val~: ~2_val~
-		}
-
 		public SmallHunterBOD(Serial serial) : base(serial)
 		{
 		}
@@ -192,8 +193,7 @@ namespace Server.Engines.BulkOrders
 		{
 			base.Serialize(writer);
 
-			writer.Write(1); // version
-			writer.Write(_CollectedPoints);
+			writer.Write(2); // version
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -201,8 +201,8 @@ namespace Server.Engines.BulkOrders
 			base.Deserialize(reader);
 
 			int version = reader.ReadInt();
-			if(version > 0)
-				_CollectedPoints = reader.ReadDouble();
+			if(version < 2)
+				 reader.ReadDouble(); //CollectedPoints
 		}
 
 		public override void EndCombine(Mobile from, object o)
@@ -239,7 +239,6 @@ namespace Server.Engines.BulkOrders
 
 					from.SendLocalizedMessage(1045170); // The item has been combined with the deed.
 					from.SendGump(new SmallBODGump(from, this));
-					_CollectedPoints += ScalePoints(bc.Difficulty / AmountMax);
 
 					if (AmountCur < AmountMax)
 						BeginCombine(from);
@@ -255,7 +254,7 @@ namespace Server.Engines.BulkOrders
 		{
 			if (from is PlayerMobile && c?.Owner is BaseCreature mob)
 			{
-				if (c.TimeOfDeath + m_HuntProtection > DateTime.Now)
+				if (c.TimeOfDeath + _HuntProtection > DateTime.Now)
 				{
 					var lootingRights = mob.GetLootingRights();
 					if (lootingRights.Count == 0)

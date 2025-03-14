@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Server.Diagnostics;
 using Server.Items;
 
 namespace Server.Engines.BulkOrders
@@ -8,20 +9,78 @@ namespace Server.Engines.BulkOrders
 	{
 		public HunterRewardCalculator()
 		{
-			RewardCollection = new List<CollectionItem>();
-			
-			RewardCollection.Add(new BODCollectionItem(0x18E9, 1159541, 0, 100, DecoMinor));
-			RewardCollection.Add(new BODCollectionItem(0xEFF, 1159542, 0x07A1, 150, Pigment, 0));
-			RewardCollection.Add(new BODCollectionItem(0x26B8, 1159543, 0, 250, TranslocationPowder, 20));
-			RewardCollection.Add(new BODCollectionItem(0xEFF, 1159544, 0x486, 350, Pigment, 1));
-			RewardCollection.Add(new BODCollectionItem(0x1006, 1159545, 0, 400, DurabilityPowder));
-			RewardCollection.Add(new BODCollectionItem(0x11CC, 1159546, 0, 450, DecoMajor));
-			RewardCollection.Add(new BODCollectionItem(0xF0B, 1159547, 0x367, 500, PetResurrectPotion));
-			RewardCollection.Add(new BODCollectionItem(0x1415, 1159548, 0x21E, 550, Artifact, (int)ArtType.Art1));
-			RewardCollection.Add(new BODCollectionItem(0x1415, 1159549, 0xBAF, 650, Artifact, (int)ArtType.Art2));
-			RewardCollection.Add(new BODCollectionItem(0x1415, 1159550, 0x499, 800, Artifact, (int)ArtType.Art3));
-			RewardCollection.Add(new BODCollectionItem(0x2F58, 1159551, 0, 900, Talisman));
-			RewardCollection.Add(new BODCollectionItem(0x1415, 1159552, 0x445, 1000, Artifact, (int)ArtType.Art4));
+			RewardCollection =
+			[
+				new BODCollectionItem(0, 0, 0, 30, BagOfPotions, 0),
+				new BODCollectionItem(0x18E9, 1159541, 0, 100, DecoMinor),
+				new BODCollectionItem(0, 0, 0, 125, BagOfPotions, 1),
+				new BODCollectionItem(0xEFF, 1159542, 0x07A1, 150, Pigment, 0),
+				new BODCollectionItem(0x26B8, 1159543, 0, 250, TranslocationPowder, 20),
+				new BODCollectionItem(0, 0, 0, 300, BagOfPotions, 2),
+				new BODCollectionItem(0xEFF, 1159544, 0x486, 350, Pigment, 1),
+				new BODCollectionItem(0x1006, 1159545, 0, 400, DurabilityPowder),
+				new BODCollectionItem(0x11CC, 1159546, 0, 450, DecoMajor),
+				new BODCollectionItem(0xF0B, 1159547, 0x367, 500, PetResurrectPotion),
+				new BODCollectionItem(0x1415, 1159548, 0x21E, 550, Artifact, (int)ArtType.Art1),
+				new BODCollectionItem(0x1415, 1159549, 0xBAF, 650, Artifact, (int)ArtType.Art2),
+				new BODCollectionItem(0x1415, 1159550, 0x499, 800, Artifact, (int)ArtType.Art3),
+				new BODCollectionItem(0x2F58, 1159551, 0, 900, Talisman),
+				new BODCollectionItem(0x1415, 1159552, 0x445, 1000, Artifact, (int)ArtType.Art4)
+			];
+		}
+
+		private static Type[][] _PotionTypes =
+		{
+			[
+				typeof(LesserCurePotion), 
+				typeof(LesserHealPotion), 
+				typeof(LesserPoisonPotion), 
+				typeof(StrengthPotion), 
+				typeof(AgilityPotion),
+			],
+			[
+				typeof(CurePotion),
+				typeof(HealPotion),
+				typeof(PoisonPotion),
+				typeof(RefreshPotion),
+				typeof(GreaterStrengthPotion),
+				typeof(GreaterAgilityPotion),
+			],
+			[
+				typeof(GreaterCurePotion),
+				typeof(GreaterHealPotion),
+				typeof(GreaterPoisonPotion),
+				typeof(TotalRefreshPotion),
+				typeof(NGreaterStrengthPotion),
+				typeof(NGreaterAgilityPotion),
+				typeof(InvisibilityPotion),
+				typeof(EarthElementalPotion),
+				typeof(FireElementalPotion),
+				typeof(WaterElementalPotion),
+			]
+		};
+		
+		
+		private static Item BagOfPotions(int type)
+		{
+			var bag = new Bag();
+			try
+			{
+				var types = _PotionTypes[type];
+				for (int i = 0; i < 4; i++)
+				{
+					var potionType = Utility.RandomList(types);
+					var potion = (Item)Activator.CreateInstance(potionType);
+					potion.Amount = 5;
+					bag.DropItem(potion);
+				}
+			}
+			catch (Exception e)
+			{
+				ExceptionLogging.LogException(e);
+			}
+
+			return bag;
 		}
 		
 		private static Item SelectRandomType(Dictionary<Type, int> objects)
@@ -281,38 +340,23 @@ namespace Server.Engines.BulkOrders
 		public override int ComputePoints(int quantity, bool exceptional, BulkMaterialType material, int itemCount,
 			Type type)
 		{
-			return 0;
+			var levelFactor = SmallHunterBOD.GetBODLevel(type) switch
+			{
+				SmallHunterBOD.HunterBODLevel.Easy => 3,
+				SmallHunterBOD.HunterBODLevel.Medium => 6,
+				SmallHunterBOD.HunterBODLevel.Hard => 10,
+				SmallHunterBOD.HunterBODLevel.Boss => 15,
+				_ => 6
+			};
+			
+			return levelFactor * quantity * itemCount;
 		}
 
 		public override int ComputeGold(int quantity, bool exceptional, BulkMaterialType material, int itemCount,
 			Type type)
 		{
-			return 0;
-		}
-
-		public int ComputeGold(double points)
-		{
-			return Utility.RandomMinMax((int)(points * 0.95), (int)(points * 1.05));
-		}
-
-		public override int ComputeGold(SmallBOD bod)
-		{
-			return ComputeGold((bod as SmallHunterBOD)?.CollectedPoints ?? 0);
-		}
-
-		public override int ComputeGold(LargeBOD bod)
-		{
-			return bod.Entries.Length * ComputeGold((bod as LargeHunterBOD)?.CollectedPoints ?? 0);
-		}
-
-		public override int ComputePoints(SmallBOD bod)
-		{
-			return (int)(((SmallHunterBOD)bod)?.CollectedPoints ?? 0);
-		}
-
-		public override int ComputePoints(LargeBOD bod)
-		{
-			return (int)(((LargeHunterBOD)bod)?.CollectedPoints ?? 0);
+			var points = ComputePoints(quantity, exceptional, material, itemCount, type);
+			return (int)Utility.RandomMinMax(points * 9.5, points * 10.5);
 		}
 	}
 }
