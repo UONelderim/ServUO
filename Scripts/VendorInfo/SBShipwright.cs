@@ -25,7 +25,7 @@ namespace Server.Mobiles
 			public InternalBuyInfo(Mobile m)
 			{
 				//statki 
-				Add(new GenericBuyInfo("1116491", typeof(RowBoatDeed), 30000, 5, 0x14F2, 0));
+				//Add(new GenericBuyInfo("1116491", typeof(RowBoatDeed), 30000, 5, 0x14F2, 0)); TODO: fix it - does not destroy the deed
 				Add(new GenericBuyInfo("1041205", typeof(SmallBoatDeed), 70000, 5, 0x14F2, 0));
 				Add(new GenericBuyInfo("1041206", typeof(SmallDragonBoatDeed), 80000, 5, 0x14F2, 0));
 				Add(new GenericBuyInfo("1041207", typeof(MediumBoatDeed), 90000, 5, 0x14F2, 0));
