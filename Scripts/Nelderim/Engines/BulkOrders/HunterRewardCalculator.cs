@@ -26,20 +26,12 @@ namespace Server.Engines.BulkOrders
 		
 		private static Item SelectRandomType(Dictionary<Type, int> objects)
 		{
-			int rand;
-			while (true)
+			var selected = Utility.RandomWeighted(objects);
+			if (selected != null)
 			{
-				rand = Utility.Random(100);
-
-				List<Type> keys = new List<Type>(objects.Keys);
-				int size = objects.Count;
-				Random randa = new Random();
-				Type randomKey = keys[randa.Next(size)];
-				int randomeElement = objects[randomKey];
-
-				if (randomeElement < rand)
-					return (Item)Activator.CreateInstance(randomKey);
+				return Activator.CreateInstance(selected) as Item;
 			}
+			return null;
 		}
 
 		private static Item Pigment(int type)
@@ -69,36 +61,27 @@ namespace Server.Engines.BulkOrders
 			return null;
 		}
 
+		private static readonly Dictionary<Type, int> _MinorDecorations = new()
+		{
+			{ typeof(FurCape), 15 },
+			{ typeof(NBearMask), 15 },
+			{ typeof(NDeerMask), 15 },
+			{ typeof(Arrows), 10 },
+			{ typeof(CrossBowBolts), 10 },
+			{ typeof(Rope), 10 },
+			{ typeof(Whip), 10 },
+			{ typeof(WhisperingRose), 5 },
+			{ typeof(RoseOfTrinsic), 5 },
+			{ typeof(carpet3sDeed), 2 },
+			{ typeof(carpet4sDeed), 2 },
+			{ typeof(carpet5sDeed), 2 },
+			{ typeof(carpet6sDeed), 2 }
+		};
+
+		
 		private static Item DecoMinor(int type)
 		{
-			Dictionary<Type, int> objects = new Dictionary<Type, int>();
-			objects.Add(typeof(FurCape), 15);
-			objects.Add(typeof(NBearMask), 15);
-			objects.Add(typeof(NDeerMask), 15);
-			objects.Add(typeof(Arrows), 10);
-			objects.Add(typeof(CrossBowBolts), 10);
-			objects.Add(typeof(Rope), 10);
-			objects.Add(typeof(Whip), 10);
-			objects.Add(typeof(WhisperingRose), 5);
-			objects.Add(typeof(RoseOfTrinsic), 5);
-			switch (Utility.Random(4))
-			{
-				default:
-				case 0:
-					objects.Add(typeof(carpet3sDeed), 5);
-					break;
-				case 1:
-					objects.Add(typeof(carpet4sDeed), 5);
-					break;
-				case 2:
-					objects.Add(typeof(carpet5sDeed), 5);
-					break;
-				case 3:
-					objects.Add(typeof(carpet6sDeed), 5);
-					break;
-			}
-
-			return SelectRandomType(objects);
+			return SelectRandomType(_MinorDecorations);
 		}
 
 		private static Item Talisman(int type)
@@ -111,208 +94,69 @@ namespace Server.Engines.BulkOrders
 			return new PetResurrectPotion();
 		}
 
+		private static readonly Dictionary<Type, int> _MajorDecorations = new()
+		{
+			{ typeof(figurka01), 50 },
+			{ typeof(figurka02), 50 },
+			{ typeof(figurka03), 50 },
+			{ typeof(figurka04), 50 },
+			{ typeof(figurka05), 50 },
+			{ typeof(figurka06), 50 },
+			{ typeof(figurka07), 50 },
+			{ typeof(figurka08), 50 },
+			{ typeof(figurka09), 50 },
+			{ typeof(figurka10), 50 },
+			{ typeof(figurka11), 50 },
+			{ typeof(figurka12), 50 },
+			{ typeof(figurka13), 50 },
+			{ typeof(figurka14), 50 },
+			{ typeof(figurka15), 50 },
+			{ typeof(figurka16), 50 },
+			{ typeof(figurka17), 50 },
+			{ typeof(figurka18), 50 },
+			{ typeof(figurka19), 50 },
+			{ typeof(figurka20), 50 },
+			{ typeof(figurka21), 50 },
+			{ typeof(figurka22), 50 },
+			{ typeof(figurka23), 50 },
+			{ typeof(figurka24), 50 },
+			{ typeof(figurka25), 50 },
+			{ typeof(figurka26), 50 },
+			{ typeof(figurka27), 50 },
+			{ typeof(figurka28), 50 },
+			{ typeof(figurka29), 50 },
+			{ typeof(figurka30), 50 },
+			{ typeof(SmallEmptyPot), 20 },
+			{ typeof(LargeEmptyPot), 20 },
+			{ typeof(PottedPlant), 20 },
+			{ typeof(PottedPlant1), 20 },
+			{ typeof(PottedPlant2), 20 },
+			{ typeof(PottedTree), 20 },
+			{ typeof(PottedTree1), 20 },
+			{ typeof(PottedTree2), 20 },
+			{ typeof(PottedTree3), 20 },
+			{ typeof(PottedTree4), 20 },
+			{ typeof(BoilingCauldronEastAddonDeed), 10 },
+			{ typeof(BoilingCauldronNorthAddonDeed), 10 },
+			{ typeof(IronWire), 10 },
+			{ typeof(CopperWire), 10 },
+			{ typeof(SilverWire), 10 },
+			{ typeof(GoldWire), 10 },
+			{ typeof(carpet3mDeed), 5 },
+			{ typeof(carpet4mDeed), 5 },
+			{ typeof(carpet5mDeed), 5 },
+			{ typeof(carpet6mDeed), 5 },
+			{ typeof(CreepyPortraitE), 5 },
+			{ typeof(CreepyPortraitS), 5 },
+			{ typeof(DisturbingPortraitE), 5 },
+			{ typeof(DisturbingPortraitS), 5 },
+			{ typeof(UnsettlingPortraitE), 5 },
+			{ typeof(UnsettlingPortraitS), 5 },
+		};
+
 		private static Item DecoMajor(int type)
 		{
-			Dictionary<Type, int> objects = new Dictionary<Type, int>();
-			switch (Utility.Random(30))
-			{
-				default:
-				case 0:
-					objects.Add(typeof(figurka01), 50);
-					break;
-				case 1:
-					objects.Add(typeof(figurka02), 50);
-					break;
-				case 2:
-					objects.Add(typeof(figurka03), 50);
-					break;
-				case 3:
-					objects.Add(typeof(figurka04), 50);
-					break;
-				case 4:
-					objects.Add(typeof(figurka05), 50);
-					break;
-				case 5:
-					objects.Add(typeof(figurka06), 50);
-					break;
-				case 6:
-					objects.Add(typeof(figurka07), 50);
-					break;
-				case 7:
-					objects.Add(typeof(figurka08), 50);
-					break;
-				case 8:
-					objects.Add(typeof(figurka09), 50);
-					break;
-				case 9:
-					objects.Add(typeof(figurka10), 50);
-					break;
-				case 10:
-					objects.Add(typeof(figurka11), 50);
-					break;
-				case 11:
-					objects.Add(typeof(figurka12), 50);
-					break;
-				case 12:
-					objects.Add(typeof(figurka13), 50);
-					break;
-				case 13:
-					objects.Add(typeof(figurka14), 50);
-					break;
-				case 14:
-					objects.Add(typeof(figurka15), 50);
-					break;
-				case 15:
-					objects.Add(typeof(figurka16), 50);
-					break;
-				case 16:
-					objects.Add(typeof(figurka17), 50);
-					break;
-				case 17:
-					objects.Add(typeof(figurka18), 50);
-					break;
-				case 18:
-					objects.Add(typeof(figurka19), 50);
-					break;
-				case 19:
-					objects.Add(typeof(figurka20), 50);
-					break;
-				case 20:
-					objects.Add(typeof(figurka21), 50);
-					break;
-				case 21:
-					objects.Add(typeof(figurka22), 50);
-					break;
-				case 22:
-					objects.Add(typeof(figurka23), 50);
-					break;
-				case 23:
-					objects.Add(typeof(figurka24), 50);
-					break;
-				case 24:
-					objects.Add(typeof(figurka25), 50);
-					break;
-				case 25:
-					objects.Add(typeof(figurka26), 50);
-					break;
-				case 26:
-					objects.Add(typeof(figurka27), 50);
-					break;
-				case 27:
-					objects.Add(typeof(figurka28), 50);
-					break;
-				case 28:
-					objects.Add(typeof(figurka29), 50);
-					break;
-				case 29:
-					objects.Add(typeof(figurka30), 50);
-					break;
-			}
-
-			switch (Utility.Random(10))
-			{
-				default:
-				case 0:
-					objects.Add(typeof(SmallEmptyPot), 20);
-					break;
-				case 1:
-					objects.Add(typeof(LargeEmptyPot), 20);
-					break;
-				case 2:
-					objects.Add(typeof(PottedPlant), 20);
-					break;
-				case 3:
-					objects.Add(typeof(PottedPlant1), 20);
-					break;
-				case 4:
-					objects.Add(typeof(PottedPlant2), 20);
-					break;
-				case 5:
-					objects.Add(typeof(PottedTree), 20);
-					break;
-				case 6:
-					objects.Add(typeof(PottedTree1), 20);
-					break;
-				case 7:
-					objects.Add(typeof(PottedTree2), 20);
-					break;
-				case 8:
-					objects.Add(typeof(PottedTree3), 20);
-					break;
-				case 9:
-					objects.Add(typeof(PottedTree4), 20);
-					break;
-			}
-
-			switch (Utility.Random(2))
-			{
-				default:
-				case 0:
-					objects.Add(typeof(BoilingCauldronEastAddonDeed), 10);
-					break;
-				case 1:
-					objects.Add(typeof(BoilingCauldronNorthAddonDeed), 10);
-					break;
-			}
-
-			switch (Utility.Random(4))
-			{
-				default:
-				case 0:
-					objects.Add(typeof(IronWire), 10);
-					break;
-				case 1:
-					objects.Add(typeof(CopperWire), 10);
-					break;
-				case 2:
-					objects.Add(typeof(SilverWire), 10);
-					break;
-				case 3:
-					objects.Add(typeof(GoldWire), 10);
-					break;
-			}
-
-			switch (Utility.Random(4))
-			{
-				default:
-				case 0:
-					objects.Add(typeof(carpet3mDeed), 5);
-					break;
-				case 1:
-					objects.Add(typeof(carpet4mDeed), 5);
-					break;
-				case 2:
-					objects.Add(typeof(carpet5mDeed), 5);
-					break;
-				case 3:
-					objects.Add(typeof(carpet6mDeed), 5);
-					break;
-			}
-
-			switch (Utility.Random(6))
-			{
-				default:
-				case 0:
-					objects.Add(typeof(CreepyPortraitE), 5);
-					break;
-				case 1:
-					objects.Add(typeof(CreepyPortraitS), 5);
-					break;
-				case 2:
-					objects.Add(typeof(DisturbingPortraitE), 5);
-					break;
-				case 3:
-					objects.Add(typeof(DisturbingPortraitS), 5);
-					break;
-				case 4:
-					objects.Add(typeof(UnsettlingPortraitE), 5);
-					break;
-				case 5:
-					objects.Add(typeof(UnsettlingPortraitS), 5);
-					break;
-			}
-
-			return SelectRandomType(objects);
+			return SelectRandomType(_MajorDecorations);
 		}
 
 		public static readonly Type[] ArtLvl1 =

@@ -27,7 +27,7 @@ namespace Server
 			return chances.Length - 1;
 		}
 
-		public static T RandomWeigthed<T>(Dictionary<T, int> weightedItems)
+		public static T RandomWeighted<T>(Dictionary<T, int> weightedItems)
 		{
 			if (weightedItems != null)
 			{

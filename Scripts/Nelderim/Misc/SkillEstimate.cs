@@ -151,7 +151,7 @@ namespace Nelderim
 			var weightedVeins = def.Veins
 				.ToDictionary(harvestVein => harvestVein, harvestVein => (int)(harvestVein.VeinChance * 10));
 
-			HarvestVein vein = Utility.RandomWeigthed(weightedVeins);
+			HarvestVein vein = Utility.RandomWeighted(weightedVeins);
 			HarvestResource res = system.MutateResource(fakeMob, null, def, null, Point3D.Zero, vein, vein.PrimaryResource,
 				vein.FallbackResource);
 
