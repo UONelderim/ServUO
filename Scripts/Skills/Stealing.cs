@@ -320,7 +320,7 @@ namespace Server.SkillHandlers
 
             protected override void OnTarget(Mobile from, object target)
             {
-                from.RevealingAction();
+               // from.RevealingAction();
 
                 Item stolen = null;
                 object root = null;
@@ -485,7 +485,7 @@ namespace Server.SkillHandlers
             else
             {
                 m.Target = new StealingTarget(m);
-                m.RevealingAction();
+               // m.RevealingAction();
 
                 m.SendLocalizedMessage(502698); // Which item do you want to steal?
             }
