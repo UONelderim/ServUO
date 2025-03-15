@@ -10,7 +10,7 @@ namespace Server.Mobiles
 		{
 			Name = "feniks";
 			Body = 832;
-			Hue = 0x489;
+			Hue = 0;
 
 			SetStr(605, 611);
 			SetDex(391, 519);
