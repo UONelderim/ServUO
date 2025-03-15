@@ -10,8 +10,8 @@ namespace Server.Mobiles
         public Pyre()
         {
             Name = "stary feniks";
-            Hue = 0x489;
-            Body = 0x5;
+            Hue = 1560;
+            BodyValue = 832;
 
             FightMode = FightMode.Closest;
 
