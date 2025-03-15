@@ -346,7 +346,7 @@ namespace Server.Mobiles
 
 				if (!NoKillAwards)
 				{
-					GoldShower.DoForHarrower(Location, Map);
+					//GoldShower.DoForHarrower(Location, Map);
 
 					m_DamageEntries = new Dictionary<Mobile, int>();
 
