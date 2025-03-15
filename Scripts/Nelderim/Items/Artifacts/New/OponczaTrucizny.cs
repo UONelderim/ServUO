@@ -12,7 +12,7 @@
 		[Constructable]
 		public OponczaTrucizny()
 		{
-			Hue = 0x505;
+			Hue = 2129;
 		}
 
 		public OponczaTrucizny(Serial serial)
