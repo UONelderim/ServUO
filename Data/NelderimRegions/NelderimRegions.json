@@ -12,8 +12,8 @@
   },
   "Intolerance": {
     "Naur": 0.25,
-    "Drow": 0.40,
-    "Krasnolud": 0.15
+    "Drow": 0.0,
+    "Krasnolud": 0.0
   },
   "AllowPvp": true,
   "Guards": {
@@ -126,9 +126,9 @@
             "Tamael": 1.0
           },
           "Intolerance": {
-            "Naur": 0.25,
-            "Drow": 1.00,
-            "Krasnolud": 0.50
+            "Naur": 0.0,
+            "Drow": 0.00,
+            "Krasnolud": 0.0
           },
           "AllowPvp": false,
           "Guards": {
@@ -706,7 +706,7 @@
       "Intolerance": {
         "Naur": 0.20,
         "Drow": 1.00,
-        "Krasnolud": 0.20
+        "Krasnolud": 1.00
       },
       "Guards": {
         "StandardGuard": {
@@ -784,7 +784,7 @@
           "Intolerance": {
             "Naur": 0.20,
             "Drow": 1.00,
-            "Krasnolud": 0.20
+            "Krasnolud": 1.00
           },
           "Guards": {
             "StandardGuard": {
@@ -865,11 +865,11 @@
         "Drow": 1.00
       },
       "Intolerance": {
-        "Tamael": 0.90,
+        "Tamael": 0.00,
         "Jarling": 0.90,
         "Naur": 0.90,
         "Elf": 1.00,
-        "Krasnolud": 0.20
+        "Krasnolud": 0.0
       },
       "Guards": {
         "StandardGuard": {
@@ -961,11 +961,11 @@
         "Drow": 1.00
       },
       "Intolerance": {
-        "Tamael": 0.20,
+        "Tamael": 0.0,
         "Jarling": 1.00,
         "Naur": 1.00,
         "Elf": 1.00,
-        "Krasnolud": 0.20
+        "Krasnolud": 0.0
       },
       "Guards": {
         "StandardGuard": {
