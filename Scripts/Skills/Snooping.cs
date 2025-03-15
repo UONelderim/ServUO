@@ -9,7 +9,8 @@ namespace Server.SkillHandlers
 {
     public class Snooping
     {
-	    public static TimeSpan Cooldown { get { return TimeSpan.FromSeconds(2.0); }  }
+        public static TimeSpan Cooldown { get { return TimeSpan.FromSeconds(2.0); } }
+        
         public static void Configure()
         {
             Container.SnoopHandler = Container_Snoop;
@@ -40,10 +41,18 @@ namespace Server.SkillHandlers
 
         public static void Container_Snoop(Container cont, Mobile from)
         {
-            if (from.IsStaff() || (from.BeginAction (typeof(Snooping)) && from.InRange(cont.GetWorldLocation(), 1)))
+            // First check if the player is on cooldown
+            if (!from.BeginAction(typeof(Snooping)))
             {
-	            Timer.DelayCall( Cooldown, new TimerStateCallback( Cooldown_Callback ), from );
-	            
+                from.SendMessage("Zanim znow zerkniesz do tego pojemnika, musisz chwile poczekac");
+                return;
+            }
+            
+            if (from.IsStaff() || from.InRange(cont.GetWorldLocation(), 1))
+            {
+                // Start the cooldown timer
+                Timer.DelayCall(Cooldown, new TimerStateCallback(Cooldown_Callback), from);
+                
                 Mobile root = cont.RootParent as Mobile;
 
                 if (root != null && !root.Alive)
@@ -96,13 +105,14 @@ namespace Server.SkillHandlers
             }
             else
             {
-               from.SendMessage("Zanim znow zerkniesz do tego pojemnika, musisz chwile poczekac"); 
+                from.EndAction(typeof(Snooping));
+                from.SendLocalizedMessage(500446); // That is too far away.
             }
         }
-		
+       
         public static void Cooldown_Callback(object state)
         {
-	        ((Mobile)state).EndAction(typeof(Snooping));
+            ((Mobile)state).EndAction(typeof(Snooping));
         }
     }
 }
