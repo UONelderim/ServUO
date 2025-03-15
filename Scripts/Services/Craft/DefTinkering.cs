@@ -369,9 +369,9 @@ namespace Server.Engines.Craft
             AddCraft(typeof(PewterMug), 1044048, 1024097, 10.0, 60.0, typeof(IronIngot), 1044036, 2, 1044037);
             AddCraft(typeof(SkinningKnife), 1044048, 1023781, 25.0, 75.0, typeof(IronIngot), 1044036, 2, 1044037);
 
-            AddCraft(typeof(GargishCleaver), 1044048, 1097478, 20.0, 70.0, typeof(IronIngot), 1044036, 3, 1044037);
+          //  AddCraft(typeof(GargishCleaver), 1044048, 1097478, 20.0, 70.0, typeof(IronIngot), 1044036, 3, 1044037);
 
-            AddCraft(typeof(GargishButcherKnife), 1044048, 1097486, 25.0, 75.0, typeof(IronIngot), 1044036, 2, 1044037);
+            //AddCraft(typeof(GargishButcherKnife), 1044048, 1097486, 25.0, 75.0, typeof(IronIngot), 1044036, 2, 1044037);
             #endregion
 
             #region Misc
