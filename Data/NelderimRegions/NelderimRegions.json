@@ -61,11 +61,11 @@
         "Krasnolud": 0.10
       },
       "Intolerance": {
-        "Jarling": 0.10,
+        "Jarling": 0.0,
         "Naur": 0.25,
-        "Elf": 0.10,
-        "Drow": 1.00,
-        "Krasnolud": 0.10
+        "Elf": 0.0,
+        "Drow": 0.00,
+        "Krasnolud": 0.0
       },
       "Guards": {
         "StandardGuard": {
