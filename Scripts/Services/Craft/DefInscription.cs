@@ -39,6 +39,11 @@ namespace Server.Engines.Craft
 
         public override int CanCraft(Mobile from, ITool tool, Type typeItem)
         {
+	        if ( from.Mounted )
+	        {
+		        return 1072018;  // Nie mozesz wykonywac tej czynnosci bedac konno!
+		        
+	        }
             int num = 0;
 
             if (tool == null || tool.Deleted || tool.UsesRemaining <= 0)
