@@ -348,7 +348,8 @@ namespace Server.Engines.Harvest
 
         public override void OnHarvestFinished(Mobile from, Item tool, HarvestDefinition def, HarvestVein vein, HarvestBank bank, HarvestResource resource, object harvested)
         {
-            if (tool is GargoylesPickaxe && def == OreAndStone && 0.1 > Utility.RandomDouble() && HarvestMap.CheckMapOnHarvest(from, harvested, def) == null)
+            //if (tool is GargoylesPickaxe && def == OreAndStone && 0.1 > Utility.RandomDouble() && HarvestMap.CheckMapOnHarvest(from, harvested, def) == null) // nie uzywamy map
+	        if ( tool is GargoylesPickaxe && def == OreAndStone && 0.1 > Utility.RandomDouble() )
             {
                 HarvestResource res = vein.PrimaryResource;
 
