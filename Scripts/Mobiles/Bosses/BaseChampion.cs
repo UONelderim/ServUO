@@ -54,11 +54,11 @@ namespace Server.Mobiles
         public virtual Item GetArtifact()
         {
             double random = Utility.RandomDouble();
-            if (0.05 >= random)
+            if (0.0 >= random)
                 return CreateArtifact(UniqueList);
-            else if (0.15 >= random)
+            else if (0.0 >= random)
                 return CreateArtifact(SharedList);
-            else if (0.30 >= random)
+            else if (0.0 >= random)
                 return CreateArtifact(DecorativeList);
             return null;
         }

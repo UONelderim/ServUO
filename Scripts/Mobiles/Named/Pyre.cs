@@ -1,13 +1,25 @@
+using System;
 using Nelderim;
+using Server.Engines.CannedEvil;
 using Server.Items;
 
 namespace Server.Mobiles
 {
     [CorpseName("zwloki starego feniksa")]
-    public class Pyre : Phoenix
+    public class Pyre : BaseChampion
     {
-        [Constructable]
-        public Pyre()
+	    public override ChampionSkullType SkullType => ChampionSkullType.None;
+	    public override Type[] UniqueList => new Type[] { typeof(Subdue) };
+	    public override Type[] SharedList => new Type[]
+	    {
+		    typeof(RoyalGuardSurvivalKnife),
+		    typeof(TheMostKnowledgePerson),
+		    typeof(OblivionsNeedle)
+	    };
+	    public override Type[] DecorativeList => Type.EmptyTypes;
+	    public override MonsterStatuetteType[] StatueTypes => Array.Empty<MonsterStatuetteType>();
+	    [Constructable]
+	    public Pyre() : base(AIType.AI_Mage)
         {
             Name = "stary feniks";
             Hue = 0x489;

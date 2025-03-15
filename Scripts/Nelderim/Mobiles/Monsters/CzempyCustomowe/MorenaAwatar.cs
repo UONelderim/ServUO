@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Nelderim;
+using Server.Engines.CannedEvil;
 using Server.Items;
 
 #endregion
@@ -11,8 +12,18 @@ using Server.Items;
 namespace Server.Mobiles
 {
 	[CorpseName("resztki awatara nekromantki")]
-	public class MorenaAwatar : BaseCreature
+	public class MorenaAwatar : BaseChampion
 	{
+		public override ChampionSkullType SkullType => ChampionSkullType.None;
+		public override Type[] UniqueList => new Type[] { typeof(Subdue) };
+		public override Type[] SharedList => new Type[]
+		{
+			typeof(RoyalGuardSurvivalKnife),
+			typeof(TheMostKnowledgePerson),
+			typeof(OblivionsNeedle)
+		};
+		public override Type[] DecorativeList => Type.EmptyTypes;
+		public override MonsterStatuetteType[] StatueTypes => Array.Empty<MonsterStatuetteType>();
 		public override bool BleedImmune => true;
 		public override double SwitchTargetChance => 0.5;
 		public override double AttackMasterChance => 0.5;
@@ -33,7 +44,7 @@ namespace Server.Mobiles
 		private readonly List<Mobile> m_Minions;
 
 		[Constructable]
-		public MorenaAwatar() : base(AIType.AI_Necro, FightMode.Strongest, 12, 1, 0.2, 0.4)
+		public MorenaAwatar() : base(AIType.AI_Necro, FightMode.Strongest)
 		{
 			Name = "Morena - Awatar";
 			Female = true;
