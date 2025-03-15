@@ -330,6 +330,8 @@ namespace Server.Mobiles
 
 		public override bool OnBeforeDeath()
 		{
+			AddLoot(LootPack.MysticScrolls);
+	
 			if (_IsTrueForm)
 			{
 				List<DamageStore> rights = GetLootingRights();
