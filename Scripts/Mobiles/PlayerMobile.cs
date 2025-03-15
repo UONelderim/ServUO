@@ -81,6 +81,7 @@ namespace Server.Mobiles
         ToggleCutTopiaries = 0x10000000,
         HasValiantStatReward = 0x20000000,
         RefuseTrades = 0x40000000,
+        ColorMetal = 0x00002000,
     }
 
     [Flags]
