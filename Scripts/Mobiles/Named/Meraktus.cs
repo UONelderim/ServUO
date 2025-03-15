@@ -9,7 +9,7 @@ namespace Server.Mobiles
     [CorpseName("zwloki Meraktusa")]
     public class Meraktus : BaseChampion
     {
-        public override ChampionSkullType SkullType => ChampionSkullType.Pain;
+        public override ChampionSkullType SkullType => ChampionSkullType.None;
 
         public override Type[] UniqueList => new Type[] { typeof(Subdue) };
         public override Type[] SharedList => new Type[]
