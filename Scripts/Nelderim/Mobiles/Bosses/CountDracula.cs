@@ -48,11 +48,11 @@ namespace Server.Mobiles
 			XmlAttach.AttachTo(this, lifeDrainAttachment);
         }
 		
-		/*public override bool OnBeforeDeath()
+		public override bool OnBeforeDeath()
 		{
 			AddLoot(LootPack.ArcanistScrolls);
 			return base.OnBeforeDeath();
-		}*/
+		}
 		
 		public override bool AlwaysMurderer => true;
 		public override bool AutoDispel => true;
