@@ -2,34 +2,17 @@ using Server.Engines.CannedEvil;
 using Server.Items;
 using System;
 using System.Collections;
-using Nelderim;
 
 namespace Server.Mobiles
 {
     [CorpseName("zwloki Meraktusa")]
     public class Meraktus : BaseChampion
     {
-        public override ChampionSkullType SkullType => ChampionSkullType.Pain;
-
-        public override Type[] UniqueList => new Type[] { typeof(Subdue) };
-        public override Type[] SharedList => new Type[]
-                {
-                    typeof(RoyalGuardSurvivalKnife),
-                    typeof(TheMostKnowledgePerson),
-                    typeof(OblivionsNeedle)
-                };
-        public override Type[] DecorativeList => new Type[]
-                {
-                    typeof(ArtifactLargeVase),
-                    typeof(ArtifactVase),
-                    typeof(MinotaurStatueDeed)
-                };
-
-        public override MonsterStatuetteType[] StatueTypes => new MonsterStatuetteType[]
-                {
-                    MonsterStatuetteType.Minotaur
-                };
-
+        public override ChampionSkullType SkullType => ChampionSkullType.None;
+        public override Type[] UniqueList => [];
+        public override Type[] SharedList => [];
+        public override Type[] DecorativeList => Type.EmptyTypes;
+        public override MonsterStatuetteType[] StatueTypes => [];
         [Constructable]
         public Meraktus()
             : base(AIType.AI_Melee)

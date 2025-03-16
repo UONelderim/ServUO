@@ -1,6 +1,8 @@
 #region References
 
+using System;
 using Nelderim;
+using Server.Engines.CannedEvil;
 using Server.Items;
 
 #endregion
@@ -8,12 +10,17 @@ using Server.Items;
 namespace Server.Mobiles
 {
 	[CorpseName("zwloki dowodcy orkow")]
-	public class KapitanIIILegionuOrkow : BaseCreature
+	public class KapitanIIILegionuOrkow : BaseChampion
 	{
+		public override ChampionSkullType SkullType => ChampionSkullType.None;
+		public override Type[] UniqueList => [];
+		public override Type[] SharedList => [];
+		public override Type[] DecorativeList => Type.EmptyTypes;
+		public override MonsterStatuetteType[] StatueTypes => [];
 		public override double DifficultyScalar => 1.05;
 
 		[Constructable]
-		public KapitanIIILegionuOrkow() : base(AIType.AI_Melee, FightMode.Closest, 12, 1, 0.2, 0.4)
+		public KapitanIIILegionuOrkow() : base(AIType.AI_Melee, FightMode.Closest)
 		{
 			Body = 189;
 

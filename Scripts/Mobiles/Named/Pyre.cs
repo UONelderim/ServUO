@@ -1,13 +1,20 @@
+using System;
 using Nelderim;
+using Server.Engines.CannedEvil;
 using Server.Items;
 
 namespace Server.Mobiles
 {
     [CorpseName("zwloki starego feniksa")]
-    public class Pyre : Phoenix
+    public class Pyre : BaseChampion
     {
+	    public override ChampionSkullType SkullType => ChampionSkullType.None;
+	    public override Type[] UniqueList => [];
+	    public override Type[] SharedList => [];
+	    public override Type[] DecorativeList => Type.EmptyTypes;
+	    public override MonsterStatuetteType[] StatueTypes => [];
         [Constructable]
-        public Pyre()
+        public Pyre(): base(AIType.AI_Mage, FightMode.Aggressor)
         {
             Name = "stary feniks";
             Hue = 1560;
@@ -65,9 +72,6 @@ namespace Server.Mobiles
 
         public override void GenerateLoot()
         {
-            AddLoot(LootPack.UltraRich, 3);
-            //AddLoot(LootPack.ArcanistScrolls);
-            
             AddLoot(NelderimLoot.AvatarScrolls);
         }
 
