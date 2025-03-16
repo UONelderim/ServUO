@@ -41,38 +41,32 @@ namespace Server.SkillHandlers
 
         public static void Container_Snoop(Container cont, Mobile from)
         {
-            // First check if the player is on cooldown
-            if (!from.BeginAction(typeof(Snooping)))
-            {
+            if (!from.CanBeginAction(typeof(Snooping)))
                 from.SendMessage("Zanim znow zerkniesz do tego pojemnika, musisz chwile poczekac");
-                return;
-            }
-            
-            if (from.IsStaff() || from.InRange(cont.GetWorldLocation(), 1))
+            else if(from.IsPlayer() && !from.InRange(cont.GetWorldLocation(), 1))
+	            from.SendLocalizedMessage(500446); // That is too far away.
+            else
             {
-                // Start the cooldown timer
-                Timer.DelayCall(Cooldown, new TimerStateCallback(Cooldown_Callback), from);
-                
                 Mobile root = cont.RootParent as Mobile;
 
                 if (root != null && !root.Alive)
                     return;
-
                 if (from.IsPlayer() && root is BaseCreature && !(cont is StrongBackpack))
                     return;
-
                 if (root != null && root.IsStaff() && from.IsPlayer())
                 {
                     from.SendLocalizedMessage(500209); // You can not peek into the container.
                     return;
                 }
-
                 if (root != null && from.IsPlayer() && !CheckSnoopAllowed(from, root))
                 {
                     from.SendLocalizedMessage(1001018); // You cannot perform negative acts on your target.
                     return;
                 }
 
+                from.BeginAction(typeof(Snooping));
+                Timer.DelayCall(Cooldown, () => from.EndAction(typeof(Snooping)));
+                
                 if (root != null && from.IsPlayer() && from.Skills[SkillName.Snooping].Value < Utility.Random(100))
                 {
                     Map map = from.Map;
@@ -103,16 +97,6 @@ namespace Server.SkillHandlers
                         from.RevealingAction();
                 }
             }
-            else
-            {
-                from.EndAction(typeof(Snooping));
-                from.SendLocalizedMessage(500446); // That is too far away.
-            }
-        }
-       
-        public static void Cooldown_Callback(object state)
-        {
-            ((Mobile)state).EndAction(typeof(Snooping));
         }
     }
 }
