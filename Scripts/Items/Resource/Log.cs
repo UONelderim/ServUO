@@ -81,6 +81,12 @@ namespace Server.Items
 
             if (version == 0)
                 m_Resource = CraftResource.RegularWood;
+            
+            var correctHue = CraftResources.GetHue(Resource);
+            if (Hue != correctHue)
+            {
+	            Hue = correctHue;
+            }
         }
 
         public virtual bool TryCreateBoards(Mobile from, double skill, Item item)
