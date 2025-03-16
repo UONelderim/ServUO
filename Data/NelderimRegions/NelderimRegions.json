@@ -11,9 +11,7 @@
     "Krasnolud": 0.15
   },
   "Intolerance": {
-    "Naur": 0.25,
-    "Drow": 0.0,
-    "Krasnolud": 0.0
+    "Naur": 0.25
   },
   "AllowPvp": true,
   "Guards": {
@@ -59,13 +57,6 @@
         "Tamael": 0.80,
         "Jarling": 0.10,
         "Krasnolud": 0.10
-      },
-      "Intolerance": {
-        "Jarling": 0.0,
-        "Naur": 0.25,
-        "Elf": 0.0,
-        "Drow": 0.00,
-        "Krasnolud": 0.0
       },
       "Guards": {
         "StandardGuard": {
@@ -124,11 +115,6 @@
           "Faction": "KompaniaHandlowa",
           "Population": {
             "Tamael": 1.0
-          },
-          "Intolerance": {
-            "Naur": 0.0,
-            "Drow": 0.00,
-            "Krasnolud": 0.0
           },
           "AllowPvp": false,
           "Guards": {
@@ -865,11 +851,9 @@
         "Drow": 1.00
       },
       "Intolerance": {
-        "Tamael": 0.00,
         "Jarling": 0.90,
         "Naur": 0.90,
-        "Elf": 1.00,
-        "Krasnolud": 0.0
+        "Elf": 1.00
       },
       "Guards": {
         "StandardGuard": {
@@ -961,11 +945,9 @@
         "Drow": 1.00
       },
       "Intolerance": {
-        "Tamael": 0.0,
         "Jarling": 1.00,
         "Naur": 1.00,
-        "Elf": 1.00,
-        "Krasnolud": 0.0
+        "Elf": 1.00
       },
       "Guards": {
         "StandardGuard": {
