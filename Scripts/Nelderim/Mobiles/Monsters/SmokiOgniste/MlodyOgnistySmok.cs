@@ -92,6 +92,11 @@ namespace Server.Mobiles
 		{
 			base.Deserialize(reader);
 			int version = reader.ReadInt();
+
+			if (Hue == 2586)
+			{
+				Hue = 1071;
+			}
 		}
 	}
 }
