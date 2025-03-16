@@ -6,30 +6,7 @@ using Nelderim;
 
 namespace Server.Items
 {
-	public partial class FireHorn
-	{
-		[CommandProperty(AccessLevel.GameMaster)]
-		public int UsesRemaining
-		{
-			get { return FireHornExt.Get(this).UsesRemaining; }
-			set
-			{
-				FireHornExt.Get(this).UsesRemaining = value;
-				InvalidateProperties();
-			}
-		}
-
-		public static int InitMaxUses = 120;
-		public static int InitMinUses = 80;
-
-		public override void GetProperties(ObjectPropertyList list)
-		{
-			base.GetProperties(list);
-
-			list.Add(1060584, UsesRemaining.ToString()); // uses remaining: ~1_val~
-		}
-	}
-
+	//REMOVE ME
 	class FireHornExt() : NExtension<FireHornExtInfo>("FireHorn")
 	{
 		public static void Configure()

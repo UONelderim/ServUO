@@ -6,29 +6,55 @@ using System.Linq;
 
 namespace Server.Items
 {
-    public partial class FireHorn : Item
+    public class FireHorn : Item
     {
+	    public const int InitMaxUses = 120;
+	    public const int InitMinUses = 80;
+	    
 		[Constructable]
         public FireHorn()
             : base(0xFC7)
         {
             Hue = 0x466;
             Weight = 1.0;
-		}
+            _UsesRemaining = Utility.RandomMinMax(InitMinUses, InitMaxUses);
+        }
 
         public FireHorn(Serial serial)
             : base(serial)
         {
         }
+        
+        private int _UsesRemaining;
+        
+        [CommandProperty(AccessLevel.GameMaster)]
+        public int UsesRemaining
+        {
+	        get => _UsesRemaining;
+	        set
+	        {
+		        _UsesRemaining = value;
+		        InvalidateProperties();
+	        }
+        }
 
+        public virtual Type ResourceType => typeof(SulfurousAsh);
+        public virtual string MissingResourceName => "siarki";
+        public virtual int[] DamageValues => [0, 100, 0, 0, 0];
 		public override int LabelNumber => 1060456;// fire horn
         public override void OnDoubleClick(Mobile from)
         {
             if (CheckUse(from))
             {
-                from.SendLocalizedMessage(1049620); // Select an area to incinerate.
+                from.SendLocalizedMessage(1049620); // Wskaz obszar do uzycia rogu
                 from.Target = new InternalTarget(this);
             }
+        }
+        
+        public override void GetProperties(ObjectPropertyList list)
+        {
+	        base.GetProperties(list);
+	        list.Add(1060584, UsesRemaining.ToString()); // uses remaining: ~1_val~
         }
 
         public void Use(Mobile from, IPoint3D loc)
@@ -37,7 +63,7 @@ namespace Server.Items
                 return;
 
             from.BeginAction(typeof(FireHorn));
-            Timer.DelayCall(TimeSpan.FromSeconds(6.0), new TimerStateCallback(EndAction), from);
+            Timer.DelayCall(TimeSpan.FromSeconds(6.0), EndAction, from);
 
             int music = from.Skills[SkillName.Musicianship].Fixed;
 
@@ -56,7 +82,7 @@ namespace Server.Items
             from.PlaySound(0x15F);
             Effects.SendPacket(from, from.Map, new HuedEffect(EffectType.Moving, from.Serial, Serial.Zero, 0x36D4, from.Location, loc, 5, 0, false, true, 0, 0));
 
-            System.Collections.Generic.List<Mobile> targets = SpellHelper.AcquireIndirectTargets(from, loc, from.Map, 2).OfType<Mobile>().ToList();
+            var targets = SpellHelper.AcquireIndirectTargets(from, loc, from.Map, 2).OfType<Mobile>().ToList();
             int count = targets.Count;
             bool playerVsPlayer = targets.Any(t => t.Player);
 
@@ -94,7 +120,7 @@ namespace Server.Items
                     double toDeal = damage;
 
                     from.DoHarmful(m);
-                    SpellHelper.Damage(TimeSpan.Zero, m, from, toDeal, 0, 100, 0, 0, 0);
+                    SpellHelper.Damage(TimeSpan.Zero, m, from, toDeal, DamageValues[0], DamageValues[1], DamageValues[2], DamageValues[3], DamageValues[4]);
 
                     Effects.SendTargetEffect(m, 0x3709, 10, 30);
                 }
@@ -113,20 +139,33 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.WriteEncodedInt(0); // version
-		}
+            writer.WriteEncodedInt(1); // version
+            writer.Write(_UsesRemaining); //NELDERIM
+        }
 
         public override void Deserialize(GenericReader reader)
         {
-            base.Deserialize(reader);
+	        base.Deserialize(reader);
 
-            int version = reader.ReadEncodedInt();
-		}
+	        int version = reader.ReadEncodedInt();
+	        if (version > 1)
+	        {
+		        _UsesRemaining = reader.ReadInt();
+	        }
+	        else
+	        {
+		        Timer.DelayCall(TimeSpan.Zero,
+			        () =>
+			        {
+				        _UsesRemaining = FireHornExt.Get(this).UsesRemaining;
+				        FireHornExt.Delete(this);
+			        }
+		        );
+	        }
+        }
 
-        private static void EndAction(object state)
+        private static void EndAction(Mobile m)
         {
-            Mobile m = (Mobile)state;
-
             m.EndAction(typeof(FireHorn));
             m.SendLocalizedMessage(1049621); // You catch your breath.
         }
@@ -148,9 +187,9 @@ namespace Server.Items
                 return false;
             }
 
-            if (from.Backpack == null || from.Backpack.GetAmount(typeof(SulfurousAsh)) < 4)
+            if (from.Backpack == null || from.Backpack.GetAmount(ResourceType) < 4)
             {
-                from.SendLocalizedMessage(1049617); // You do not have enough sulfurous ash.
+                from.SendLocalizedMessage(1049617, MissingResourceName); // Nie masz wystarczajacej ilosci ~1_resource~.
                 return false;
             }
 

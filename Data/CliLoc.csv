@@ -26427,10 +26427,10 @@
 1049614;Nie mozesz tu wejsc w tym momencie, poczekaj kilka minut. 
 1049615;Musisz chwile poczekac, zeby zlapac oddech. 
 1049616;Jestes zbyt zajety, zeby to zrobic. 
-1049617;Nie masz wystarczajacej ilosci siarki. 
+1049617;Nie masz wystarczajacej ilosci ~1_resource~. 
 1049618;Rog emituje dramatyczny pisk! 
-1049619;Ognisty rog kruszy sie w twoich rekach. 
-1049620;Wybierz obszar do spalenia: 
+1049619;Rog kruszy sie w twoich rekach. 
+1049620;Wskaz obszar do uzycia rogu
 1049621;Odzyskujesz oddech. 
 1049622;bola 
 1049623;Zostales zrzucony z wierzchowca przez ~1_NAME~! 
@@ -61061,3 +61061,6 @@
 3070044;Worek
 3070045;Pudelko
 3070046;Materialy i Pojemniki
+3070047;Zmrozony Rog
+3070048;Zatruty Rog
+3070049;Piorunujacy Rog
