@@ -24,7 +24,7 @@ namespace Server.Items
             ExitDest = new Point3D(5776, 1952, 0);
 
             Name = "Oltarz Starozytnego Lodowego Smoka";
-            Hue = 1152;
+            Hue = 1579;
         }
 
         public override Rectangle2D[] BossBounds => m_Bounds;

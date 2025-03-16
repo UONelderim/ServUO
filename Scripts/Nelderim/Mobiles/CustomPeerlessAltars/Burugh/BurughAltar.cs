@@ -24,7 +24,7 @@ namespace Server.Items
             ExitDest = new Point3D(719, 1423, 20);
 
             Name = "Oltarz Burugha";
-            Hue = 2191;
+            Hue = 2207;
         }
 
         public override Rectangle2D[] BossBounds => m_Bounds;

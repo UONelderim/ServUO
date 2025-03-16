@@ -24,7 +24,7 @@ namespace Server.Items
             ExitDest = new Point3D(5317, 2256, 10);
 
             Name = "Oltarz Starozytnego Diamentowego Smoka";
-            Hue = 1153;
+            Hue = 1392;
         }
 
         public override Rectangle2D[] BossBounds => m_Bounds;
