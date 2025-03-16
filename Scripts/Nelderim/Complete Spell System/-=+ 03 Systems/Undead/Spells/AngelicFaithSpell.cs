@@ -25,9 +25,9 @@ namespace Server.ACC.CSS.Systems.Undead
 
 		public override int RequiredMana => 50;
 
-		public int Body => 130;
+		public int Body => 67;
 
-		public int Hue => 2874;
+		public int Hue => 1559;
 
 		public virtual int PhysResistOffset => 0;
 		public virtual int FireResistOffset => 0;
