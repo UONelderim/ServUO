@@ -24,7 +24,7 @@ namespace Server.Items
             ExitDest = new Point3D(5510, 211, -32);
 
             Name = "Oltarz Pancernego Straznika";
-            Hue = 2391;
+            Hue = 2210;
         }
 
         public override Rectangle2D[] BossBounds => m_Bounds;

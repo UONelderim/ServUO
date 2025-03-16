@@ -24,7 +24,7 @@ namespace Server.Items
             ExitDest = new Point3D(5638, 564, -17);
 
             Name = "Oltarz Imiennego Smoka";
-            Hue = 22;
+            Hue = 1574;
         }
 
         public override Rectangle2D[] BossBounds => m_Bounds;
