@@ -11,7 +11,7 @@ namespace Server.Mobiles
         {
             Name = "stary feniks";
             Hue = 1560;
-            BodyValue = 832;
+            BodyValue = 0x340;
 
             FightMode = FightMode.Closest;
 
