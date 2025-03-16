@@ -59,7 +59,7 @@ namespace Server.Engines.Harvest
 
                 // Ten logs per harvest action
                 ConsumedPerHarvest = 6,
-                ConsumedPerFeluccaHarvest = 4,
+                ConsumedPerFeluccaHarvest = 6,
 
                 // The chopping effect
                 EffectActions = new int[] { 7 },
