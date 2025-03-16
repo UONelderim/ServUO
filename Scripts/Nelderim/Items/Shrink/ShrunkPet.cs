@@ -75,6 +75,7 @@ namespace Server.Items
 							target.SetControlMaster(null);
 							target.SummonMaster = null;
 							target.IsStabled = true;
+							target.IsBonded = false;
 
 							from.SendLocalizedMessage(1070048);
 						}
