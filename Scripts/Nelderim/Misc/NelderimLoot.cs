@@ -126,7 +126,7 @@ namespace Nelderim
 					return;
 			}
 
-			var count = (int)Ceiling(Pow(bc.Difficulty, 0.17)) * 5;
+			var count = (int)Ceiling(Pow(bc.Difficulty, 0.15)) * 5;
 			entries.Add(new LootPackEntry(false, true, lootItems, 100, count));
 		}
 
