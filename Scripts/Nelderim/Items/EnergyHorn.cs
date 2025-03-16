@@ -1,5 +1,6 @@
 
 using System;
+using Server.Spells;
 
 namespace Server.Items
 {
@@ -7,12 +8,23 @@ namespace Server.Items
 	{
 		public override Type ResourceType => typeof(GraveDust);
 		public override string MissingResourceName => "grobowego pylu";
-		public override int[] DamageValues => [0, 0,0, 0, 100];
+		public override int EffectSound => 0x20A;
+		public override int EffectHue => 1092;
+		public override int EffectId => 0x379F;
+
 		public override int LabelNumber => 3070049;
 
 		[Constructable]
 		public EnergyHorn()
 		{
+			Hue = 1092;
+		}
+
+		public override void DoDamage(Mobile from, Mobile m, double damage)
+		{
+			SpellHelper.Damage(TimeSpan.Zero, m, from, damage, 0, 0, 0, 0, 100);
+			Effects.SendBoltEffect(m, true, 0, false);
+			m.PlaySound(0x29);
 		}
 
 		public EnergyHorn(Serial serial) : base(serial)

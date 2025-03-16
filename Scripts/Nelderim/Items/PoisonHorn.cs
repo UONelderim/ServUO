@@ -1,5 +1,6 @@
 
 using System;
+using Server.Spells;
 
 namespace Server.Items
 {
@@ -7,12 +8,21 @@ namespace Server.Items
 	{
 		public override Type ResourceType => typeof(NoxCrystal);
 		public override string MissingResourceName => "krysztalu trucizny";
-		public override int[] DamageValues => [0, 0,0, 100, 0];
+		public override int EffectSound => 0x229;
+		public override int EffectHue => 0xA6;
 		public override int LabelNumber => 3070048;
 
 		[Constructable]
 		public PoisonHorn()
 		{
+			Hue = 1557;
+		}
+		
+		public override void DoDamage(Mobile from, Mobile m, double damage)
+		{
+			SpellHelper.Damage(TimeSpan.Zero, m, from, damage, 0, 0, 100, 0, 0);
+			m.FixedParticles(0x36BD, 1, 10, 0x1F78, 0xA6, 0, (EffectLayer)255);
+			m.ApplyPoison(from, Poison.Lesser);
 		}
 
 		public PoisonHorn(Serial serial) : base(serial)

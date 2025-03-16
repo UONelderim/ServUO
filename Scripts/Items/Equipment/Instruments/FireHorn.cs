@@ -40,7 +40,9 @@ namespace Server.Items
 
         public virtual Type ResourceType => typeof(SulfurousAsh);
         public virtual string MissingResourceName => "siarki";
-        public virtual int[] DamageValues => [0, 100, 0, 0, 0];
+        public virtual int EffectSound => 0x15F;
+        public virtual int EffectId => 0x36D4;
+        public virtual int EffectHue => 0;
 		public override int LabelNumber => 1060456;// fire horn
         public override void OnDoubleClick(Mobile from)
         {
@@ -79,8 +81,8 @@ namespace Server.Items
 
             from.Backpack.ConsumeUpTo(typeof(SulfurousAsh), 4);
 
-            from.PlaySound(0x15F);
-            Effects.SendPacket(from, from.Map, new HuedEffect(EffectType.Moving, from.Serial, Serial.Zero, 0x36D4, from.Location, loc, 5, 0, false, true, 0, 0));
+            from.PlaySound(EffectSound);
+            Effects.SendPacket(from, from.Map, new HuedEffect(EffectType.Moving, from.Serial, Serial.Zero, EffectId, from.Location, loc, 5, 0, false, true, EffectHue, 0));
 
             var targets = SpellHelper.AcquireIndirectTargets(from, loc, from.Map, 2).OfType<Mobile>().ToList();
             int count = targets.Count;
@@ -117,12 +119,8 @@ namespace Server.Items
 
                 foreach (Mobile m in targets)
                 {
-                    double toDeal = damage;
-
-                    from.DoHarmful(m);
-                    SpellHelper.Damage(TimeSpan.Zero, m, from, toDeal, DamageValues[0], DamageValues[1], DamageValues[2], DamageValues[3], DamageValues[4]);
-
-                    Effects.SendTargetEffect(m, 0x3709, 10, 30);
+	                from.DoHarmful(m);
+	                DoDamage(from, m, damage);
                 }
             }
 
@@ -133,6 +131,12 @@ namespace Server.Items
                 from.SendLocalizedMessage(1049619); // The fire horn crumbles in your hands.
                 Delete();
             }
+        }
+
+        public virtual void DoDamage(Mobile from, Mobile m, double damage)
+        {
+	        SpellHelper.Damage(TimeSpan.Zero, m, from, damage, 0, 100, 0, 0, 0);
+	        Effects.SendTargetEffect(m, 0x3709, 10, 30);
         }
 
         public override void Serialize(GenericWriter writer)
