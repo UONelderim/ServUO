@@ -876,7 +876,7 @@ namespace Server.Items
                     m_MageMod.Remove();
                 }
 
-                m_MageMod = new EquipedSkillMod(SkillName.Magery, true, -30 + m_AosWeaponAttributes.MageWeapon, this, from);
+                m_MageMod = new DefaultSkillMod(SkillName.Magery, true, -30 + m_AosWeaponAttributes.MageWeapon);
                 from.AddSkillMod(m_MageMod);
             }
 
