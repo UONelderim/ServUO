@@ -36,7 +36,7 @@ namespace Server.ACC.CSS.Systems.Druid
 			else if (CheckSequence())
 			{
 				var modValue = (int)((Caster.Skills[CastSkill].Value + Caster.Skills[DamageSkill].Value) / 12);
-				var duration = TimeSpan.FromMilliseconds(15);
+				var duration = TimeSpan.FromSeconds(((6 * Caster.Skills[DamageSkill].Fixed) / 50) + 1);
 				Caster.AddStatMod(new StatMod(StatType.All, "[Druid] Hollow Reed", modValue, duration));
 			}
 		}
