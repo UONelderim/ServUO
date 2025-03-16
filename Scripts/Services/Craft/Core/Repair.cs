@@ -564,6 +564,69 @@ namespace Server.Engines.Craft
                                 toDelete = true;
                             }
                         }
+                        else if (targeted is Spellbook spellbook)
+                        {
+                            SkillName skill = m_CraftSystem.MainSkill;
+                            var typeRes = typeof(BlankScroll);
+                            int toWeaken = 1;
+
+                            if (craftItem == null && !CheckSpecial(spellbook))
+                            {
+                                number = (usingDeed) ? 1061136 : 1044277; // That item cannot be repaired. // You cannot repair that item with this type of repair contract.
+                            }
+                            else if (!spellbook.IsChildOf(from.Backpack) && spellbook.Parent != from)
+                            {
+                                number = 1044275; // The item must be in your backpack to repair it.
+                            }
+                            else if (spellbook.MaxHitPoints <= 0 || spellbook.HitPoints == spellbook.MaxHitPoints)
+                            {
+                                number = 1044281; // That item is in full repair
+                            }
+                            else if (spellbook.MaxHitPoints <= toWeaken)
+                            {
+                                number = 1044278; // That item has been repaired many times, and will break if repairs are attempted again.
+                            }
+                            else if (spellbook.NegativeAttributes.NoRepair > 0)// quick fix
+                            {
+                                number = 1044277; // That item cannot be repaired.
+                            }
+                            else if (craftItem != null && !craftItem.ConsumeRes(from,
+	                                     typeRes,
+	                                     m_CraftSystem,
+	                                     ref resHue,
+	                                     ref maxAmount,
+	                                     ConsumeType.Half,
+	                                     ref message,
+	                                     false,
+	                                     value))
+                            {
+	                            number = message is int i ? i : 0;
+                            }
+                            else
+                            {
+                                if (CheckWeaken(from, skill, spellbook.HitPoints, spellbook.MaxHitPoints))
+                                {
+	                                spellbook.MaxHitPoints -= toWeaken;
+	                                spellbook.HitPoints = Math.Max(0, spellbook.HitPoints - toWeaken);
+                                }
+
+                                if (CheckRepairDifficulty(from, skill, spellbook.HitPoints, spellbook.MaxHitPoints))
+                                {
+                                    number = 1044279; // You repair the item.
+                                    m_CraftSystem.PlayCraftEffect(from);
+                                    spellbook.HitPoints = spellbook.MaxHitPoints;
+
+                                    m_CraftSystem.OnRepair(from, m_Tool, m_Deed, m_Addon, spellbook);
+                                }
+                                else
+                                {
+                                    number = (usingDeed) ? 1061137 : 1044280; // You fail to repair the item. [And the contract is destroyed]
+                                    m_CraftSystem.PlayCraftEffect(from);
+                                }
+
+                                toDelete = true;
+                            }
+                        }
                         else if (targeted is BlankScroll)
                         {
                             if (!usingDeed)

@@ -454,6 +454,7 @@ namespace Server.Engines.Craft
             Recycle = true;
             RecycleAction = RecycleBook.Do;
             RecycleText = "ODZYSKAJ ZWOJE";
+            Repair = true;
         }
     }
 }
