@@ -5008,14 +5008,26 @@ namespace Server
 					onSpeech.Sort(LocationComparer.GetInstance(this));
 				}
 
+				var handled = false;
 				for (var i = 0; i < onSpeech.Count; ++i)
 				{
 					if (onSpeech[i] is Mobile heard)
 					{
 						if (mutatedArgs == null || !CheckHearsMutatedSpeech(heard, mutateContext))
 						{
-							if(heard.UseLanguages)
-								heard.OnSpeech(new SpeechEventArgs(this, Translate.Combine(translationResult, this, heard), type, hue, keywords));
+							if (heard.UseLanguages)
+							{
+								var args = new SpeechEventArgs(this,
+									Translate.Combine(translationResult, this, heard),
+									type,
+									hue,
+									keywords)
+								{
+									Handled = handled
+								};
+								heard.OnSpeech(args);
+								handled = args.Handled;
+							}
 							else
 								heard.OnSpeech(regArgs);
 						}
