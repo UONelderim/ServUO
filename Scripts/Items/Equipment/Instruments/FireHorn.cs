@@ -152,7 +152,7 @@ namespace Server.Items
 	        base.Deserialize(reader);
 
 	        int version = reader.ReadEncodedInt();
-	        if (version > 1)
+	        if (version >= 1)
 	        {
 		        _UsesRemaining = reader.ReadInt();
 	        }
