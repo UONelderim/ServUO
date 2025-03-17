@@ -37,7 +37,7 @@ namespace Server.ACC.CSS.Systems.Undead
 			else if (CheckSequence())
 			{
 				var modValue = (int)((Caster.Skills[CastSkill].Value + Caster.Skills[DamageSkill].Value) / 12);
-				var duration = TimeSpan.FromSeconds(((6 * Caster.Skills[DamageSkill].Fixed) / 50) + 1);
+				var duration = TimeSpan.FromSeconds(((6 * Caster.Skills[DamageSkill].Fixed) / 10) + 1);
 				Caster.AddStatMod(new StatMod(StatType.All, "[Undead] Hollow Reed", modValue, duration));
 			}
 		}
