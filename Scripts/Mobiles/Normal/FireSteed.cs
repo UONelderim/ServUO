@@ -74,6 +74,12 @@ namespace Server.Mobiles
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
+
+            //NELDERIM REMOVE ME
+            if (!HasAbility(WeaponAbility.ArmorIgnore))
+            {
+	            SetWeaponAbility(WeaponAbility.ArmorIgnore);
+            }
         }
     }
 }
