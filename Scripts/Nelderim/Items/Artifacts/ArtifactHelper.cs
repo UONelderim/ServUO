@@ -134,6 +134,11 @@ namespace Server.Items
 			EventSink.CreatureDeath += OnCreatureDeath;
 		}
 
+		public static bool IsBoss(BaseCreature bc)
+		{
+			return _CreatureInfo.ContainsKey(bc.GetType());
+		}
+
 		private static void OnCreatureDeath(CreatureDeathEventArgs e)
 		{
 			if (e.Creature is BaseCreature bc && _CreatureInfo.ContainsKey(bc.GetType()))

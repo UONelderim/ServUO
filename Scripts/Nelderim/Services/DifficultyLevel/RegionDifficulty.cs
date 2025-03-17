@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.Json;
 using Server;
 using Server.Commands;
+using Server.Items;
 using Server.Mobiles;
 
 namespace Nelderim
@@ -47,7 +48,7 @@ namespace Nelderim
 		{
 			var m = e.Mobile;
 
-			if (m is BaseCreature { Tamable: false } bc && m.Region is { Name: not null })
+			if (m is BaseCreature { Tamable: false } bc && !ArtifactHelper.IsBoss(bc) && m.Region is { Name: not null })
 			{
 				var difficulty = Get(m.Region.Name);
 				if (difficulty != null && difficulty.Count != 0 && bc.DifficultyLevel == DifficultyLevelValue.Normal)
