@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nelderim;
+using Server.Custom.Misc;
 using Server.Mobiles;
 using Server.Engines.BulkOrders;
 using Server.Engines.Points;
@@ -20,7 +21,8 @@ namespace Server.Items
 		Hunter,
 		CustomChamp,
 		Elghin,
-		Paragon
+		Paragon,
+		HalrandBoss
 	}
 
 	enum ArtSeason
@@ -101,7 +103,6 @@ namespace Server.Items
 			_CreatureInfo.Add(typeof(AncientRuneBeetle), new ArtInfo(9, Rolls.Three, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(Serado), new ArtInfo(10, Rolls.One, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(BetrayerBoss), new ArtInfo(3, Rolls.One, ArtGroup.Boss));
-			_CreatureInfo.Add(typeof(HalrandBoss), new ArtInfo(3, Rolls.One, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(Ilhenir), new ArtInfo(5, Rolls.One, ArtGroup.Boss));
 			
 			//Mini Bossy
@@ -128,6 +129,9 @@ namespace Server.Items
 			_CreatureInfo.Add(typeof(MikolajBoss), new ArtInfo(5, Rolls.One, ArtGroup.CustomChamp));
 			//Fishing Bossy
 			_CreatureInfo.Add(typeof(Leviathan), new ArtInfo(10, Rolls.One, ArtGroup.Fishing));
+			
+			//HalrandBoss
+			_CreatureInfo.Add(typeof(HalrandBoss), new ArtInfo(3, Rolls.One, ArtGroup.Boss));
 
 			InitializeArtifacts();
 			
@@ -294,6 +298,7 @@ namespace Server.Items
 			_Artifacts.Add(ArtGroup.CustomChamp, ForAllSeasons(_CustomChampArtifacts));
 			_Artifacts.Add(ArtGroup.Elghin, ForAllSeasons(_ElghinArtifacts));
 			_Artifacts.Add(ArtGroup.Paragon, ForAllSeasons(_ParagonArtifacts));
+			_Artifacts.Add(ArtGroup.HalrandBoss, ForAllSeasons(_HalrandBossArtifacts));
 			var allHunterArtifacts = new[]
 				{
 					HunterRewardCalculator.ArtLvl1, HunterRewardCalculator.ArtLvl2, HunterRewardCalculator.ArtLvl3,
@@ -334,6 +339,12 @@ namespace Server.Items
 			typeof(KoszulaZPajeczychNici), typeof(LuskiStarozytnegoSmoka), typeof(MaskaZabojcy),
 			typeof(PlaszczPoszukiwaczaPrzygod), typeof(SpodenkiLukmistrza), typeof(SzarfaRegentaGarlan),
 			typeof(TunikaNamiestnikaSnieznejPrzystani), typeof(WisiorMagowBialejWiezy),
+		};
+		
+		private static Type[] _HalrandBossArtifacts = {
+			typeof(InquisitorsArms), typeof(LegsOfTheFallenKing), typeof(MadmansHatchet), typeof(MinersPickaxe), 
+			typeof(VampiricDaisho), typeof(VeryFancyShirt),typeof(BlabberBlade), typeof(BowOfHarps),
+			typeof(Erotica), typeof(SatanicHelm), typeof(ShieldOfIce)
 		};
 		
 		private static Dictionary<ArtSeason, Type[]> _BossArtifacts = new()
