@@ -108,6 +108,7 @@ namespace Server.Mobiles
 				{
 					int ruin = Utility.RandomMinMax(1, 4);
 					armor.HitPoints -= ruin;
+					to.SendMessage("Obrazenia niszcza twoj pancerz");
 				}
 			}
 		}
