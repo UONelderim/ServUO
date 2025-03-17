@@ -37,6 +37,8 @@ namespace Server.Engines.Quests
 		{
 			if(Owner.Skills[SkillName.Necromancy].Base > 30.0)
 				return false;
+			if(Owner.SpecialSkills.Mysticism)
+				return false;
 			
 			return base.CanOffer();
 		}

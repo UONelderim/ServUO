@@ -32,6 +32,14 @@ namespace Server.Engines.Quests
 
 		/* Nie trac mego czasu. Zadanie jest proste - masz zabic 20 wrozek */
 		public override object Uncomplete => 3060208;
+		
+		public override bool CanOffer()
+		{
+			if (Owner.SpecialSkills.DeathKnight)
+				return false;
+			
+			return base.CanOffer();
+		}
 
 		public override void GiveRewards()
 		{

@@ -34,6 +34,14 @@ Jak wyroznic sie wsrod zwyczajnych wiernych, zapytasz? Otoz, najpierw trzeba pod
 
 		/* A co to? Spekales sie?! Hahaha, no popatrzcie... */
 		public override object Uncomplete => 3060297;
+		
+		public override bool CanOffer()
+		{
+			if (Owner.SpecialSkills.Undead)
+				return false;
+			
+			return base.CanOffer();
+		}
 
 		public override void Serialize(GenericWriter writer)
 		{

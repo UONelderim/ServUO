@@ -30,6 +30,14 @@ namespace Server.Engines.Quests
 
 		/* Nie trac mego czasu. Zadanie jest proste - masz zabic 20 nietoperzy wampirow */
 		public override object Uncomplete => 3060186;
+		
+		public override bool CanOffer()
+		{
+			if (Owner.SpecialSkills.Avatar)
+				return false;
+			
+			return base.CanOffer();
+		}
 
 		public override void Serialize(GenericWriter writer)
 		{

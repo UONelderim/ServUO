@@ -48,6 +48,14 @@ namespace Server.Engines.Quests
 
 		/* A co to? Spekales sie?! Hahaha, no popatrzcie... */
 		public override object Uncomplete => 3060297;
+		
+		public override bool CanOffer()
+		{
+			if (Owner.SpecialSkills.Rogue)
+				return false;
+			
+			return base.CanOffer();
+		}
 
 		public override void Serialize(GenericWriter writer)
 		{

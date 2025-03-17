@@ -31,6 +31,14 @@ namespace Server.Engines.Quests
 		/* No wiesz? Juz rezygnujesz... */
 		public override object Uncomplete => 3060245;
 
+		public override bool CanOffer()
+		{
+			if (Owner.SpecialSkills.Ancient)
+				return false;
+			
+			return base.CanOffer();
+		}
+
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);

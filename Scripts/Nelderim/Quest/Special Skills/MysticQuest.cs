@@ -30,6 +30,14 @@ namespace Server.Engines.Quests
 
 		/* You waste my time.  The task is simple. Kill 50 rats in an hour. */
 		public override object Uncomplete => 3060162;
+		
+		public override bool CanOffer()
+		{
+			if (Owner.SpecialSkills.Mysticism)
+				return false;
+			
+			return base.CanOffer();
+		}
 
 		public override void Serialize(GenericWriter writer)
 		{

@@ -31,6 +31,14 @@ namespace Server.Engines.Quests
 
 		/* Kras-noo-luuuudzkiiii rum. Ile razy mam mowic?*/
 		public override object Uncomplete => 3060269;
+		
+		public override bool CanOffer()
+		{
+			if (Owner.SpecialSkills.Bard)
+				return false;
+			
+			return base.CanOffer();
+		}
 
 		public override void Serialize(GenericWriter writer)
 		{

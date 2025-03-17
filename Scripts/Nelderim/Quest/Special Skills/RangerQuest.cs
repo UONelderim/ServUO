@@ -38,6 +38,14 @@ pajakami, ale na ten rodzaj chyba zboczenia Tarak nie mial wplywu. Prznies mi pr
 
 		/* Noo, dalej. Przynies mi te strzaly... */
 		public override object Uncomplete => 3060280;
+		
+		public override bool CanOffer()
+		{
+			if (Owner.SpecialSkills.Ranger)
+				return false;
+			
+			return base.CanOffer();
+		}
 
 		public override void Serialize(GenericWriter writer)
 		{
