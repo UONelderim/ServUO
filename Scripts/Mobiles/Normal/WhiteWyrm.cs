@@ -1,3 +1,5 @@
+using Server.Items;
+
 namespace Server.Mobiles
 {
     [CorpseName("zwloki snieznego wyrma")]
@@ -42,6 +44,8 @@ namespace Server.Mobiles
             Tamable = true;
             ControlSlots = 3;
             MinTameSkill = 96.3;
+            
+            SetWeaponAbility(WeaponAbility.WhirlwindAttack);
         }
 
         public WhiteWyrm(Serial serial)
@@ -77,6 +81,8 @@ namespace Server.Mobiles
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
+            
+            SetWeaponAbility(WeaponAbility.WhirlwindAttack);
         }
     }
 }
