@@ -56,7 +56,7 @@ namespace Server.Mobiles
             if (bc is KotlAutomaton)
                 return 0;
 
-            int fee = (int)(100 + Math.Pow(1.1041, bc.MinTameSkill));
+            int fee = (int)(100 + Math.Pow(1.1, bc.MinTameSkill));
 
             if (fee > 30000)
                 fee = 30000;
