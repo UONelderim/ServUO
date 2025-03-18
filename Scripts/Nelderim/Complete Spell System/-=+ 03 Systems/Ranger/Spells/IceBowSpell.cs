@@ -109,8 +109,10 @@ namespace Server.ACC.CSS.Systems.Ranger
 				phys = 0;
 				fire = 0;
 				cold = 100;
-				pois = chaos = direct = 0;
+				pois = 0;
 				nrgy = 0;
+				chaos = 0;
+				direct = 0;
 			}
 
 			public override void OnDelete()
