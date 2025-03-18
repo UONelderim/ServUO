@@ -19,11 +19,8 @@ namespace Server.Items
         {
             Name = "Ciegna";
             Hue = 25;
-            Attributes.BonusStr = 5;
             Attributes.BonusInt = 5;
-            Attributes.BonusDex = 5;
             Attributes.DefendChance = 10;
-            Attributes.Luck = 205;
             Attributes.SpellDamage = 5;
             Attributes.LowerManaCost = 8;
         }

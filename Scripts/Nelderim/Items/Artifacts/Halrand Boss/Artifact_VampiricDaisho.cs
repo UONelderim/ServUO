@@ -16,14 +16,12 @@ namespace Server.Items
 		public VampiricDaisho()
 		{
 			Name = "Wampiryczny Dotyk";
-			Hue = 1153;
+			Hue = 27;
 			WeaponAttributes.HitHarm = 50;
 			Attributes.WeaponDamage = 25;
 			WeaponAttributes.HitManaDrain = 30;
-			WeaponAttributes.HitLeechStam = 20;
-			WeaponAttributes.HitLowerDefend = 15;
 			Attributes.LowerManaCost = 5;
-			Slayer = SlayerName.BloodDrinking ;
+			Slayer = SlayerName.Fey ;
 		}
 		
 
