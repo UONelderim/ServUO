@@ -59,6 +59,7 @@ namespace Server.Mobiles
 		{
 			AddLoot( LootPack.Average );
 			AddLoot( LootPack.Rich );
+			AddLoot(LootPack.LootItem<PlatynowaZbroja>(30.0));
 		}
 
 		public override bool AutoDispel{ get{ return true; } }
