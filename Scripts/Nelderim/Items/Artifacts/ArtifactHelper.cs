@@ -235,6 +235,12 @@ namespace Server.Items
 				LabelsConfig.AddTamperingMark(artifact, m);
 			}
 
+			if (artifact is IWearableDurability durable)
+			{
+				durable.MaxHitPoints = 255;
+				durable.HitPoints = 255;
+			}
+
 			m.SendLocalizedMessage(1062317); // W nagrode za pokonanie bestii otrzymujesz artefakt!
 			m.Emote("Postac zdobyla artefakt!");
 			m.PlaySound(0x1F7);
