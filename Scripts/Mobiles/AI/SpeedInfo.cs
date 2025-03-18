@@ -540,6 +540,7 @@ namespace Server
 				typeof(SnowBakeKitsune),
 				typeof(SpawnedOrcishLord),
 				typeof(SpeckledScorpion),
+				typeof(Spectre),
 				typeof(Spellbinder),
 				typeof(Sphynx),
 				typeof(Squirrel),
