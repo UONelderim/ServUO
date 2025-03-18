@@ -115,7 +115,9 @@ namespace Server.ACC.CSS.Systems.Ranger
 				phys = 0;
 				fire = 0;
 				cold = 0;
-				pois = chaos = direct = 100;
+				pois = 100;
+				chaos = 0;
+					direct = 0;
 				nrgy = 0;
 			}
 
