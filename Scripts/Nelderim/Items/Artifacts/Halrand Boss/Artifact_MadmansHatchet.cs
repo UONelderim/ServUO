@@ -2,7 +2,7 @@ using System;
 using Server;
 namespace Server.Items
 {
-    public class MadmansHatchet : Hatchet
+    public class MadmansHatchet : ExecutionersAxe
 	{
 		public override int InitMinHits{ get{ return 255; } }
 		public override int InitMaxHits{ get{ return 255; } }
@@ -11,7 +11,7 @@ namespace Server.Items
         public MadmansHatchet()
         {
             Name = "Siekiera Szalenca";
-            Hue = 1157;
+            Hue = 38;
             Attributes.WeaponDamage = 50;
             WeaponAttributes.HitLeechHits = 35;
             WeaponAttributes.UseBestSkill = 1;
