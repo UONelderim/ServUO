@@ -76,21 +76,7 @@ namespace Server.Engines.Points
 
                 if (i != null)
                 {
-                    pm.SendLocalizedMessage(1062317); // For your valor in combating the fallen beast, a special artifact has been bestowed on you.
-
-                    pm.PlaySound(0x5B4);
-
-                    if (!pm.PlaceInBackpack(i))
-                    {
-                        if (pm.BankBox != null && pm.BankBox.TryDropItem(killer, i, false))
-                            pm.SendLocalizedMessage(1079730); // The item has been placed into your bank box.
-                        else
-                        {
-                            pm.SendLocalizedMessage(1072523); // You find an artifact, but your backpack and bank are too full to hold it.
-                            i.MoveToWorld(pm.Location, pm.Map);
-                        }
-                    }
-
+	                ArtifactHelper.GiveArtifact(pm, i);
                     SetPoints(pm, 0);
                 }
             }
