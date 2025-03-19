@@ -88,7 +88,7 @@ namespace Server.Items
 			_CreatureInfo.Add(typeof(NSarag), new ArtInfo(10, Rolls.Three, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(NSkeletalDragon), new ArtInfo(8, Rolls.Three, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(NStarozytnyLodowySmok), new ArtInfo(11, Rolls.Three, ArtGroup.Boss));
-			_CreatureInfo.Add(typeof(StarozytnyDiamentowySmok), new ArtInfo(101, Rolls.Three, ArtGroup.Boss));
+			_CreatureInfo.Add(typeof(StarozytnyDiamentowySmok), new ArtInfo(11, Rolls.Three, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(NStarozytnySmok), new ArtInfo(11, Rolls.Three, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(WladcaDemonow), new ArtInfo(12, Rolls.Three, ArtGroup.Boss));
 			_CreatureInfo.Add(typeof(Zhoaminth), new ArtInfo(16, Rolls.Four, ArtGroup.Boss));
