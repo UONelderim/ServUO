@@ -1242,6 +1242,9 @@ namespace Server
 
 			var items = AcquireFixItems(this, x, y);
 
+			if (items == null)
+				return;
+			
 			foreach (var toFix in items)
 			{
 				if (!toFix.Movable)
