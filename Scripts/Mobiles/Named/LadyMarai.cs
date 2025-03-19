@@ -50,7 +50,7 @@ namespace Server.Mobiles
         {
             AddLoot(LootPack.UltraRich, 3);
             //AddLoot(LootPack.ArcanistScrolls);
-            AddLoot(LootPack.LootItem<DisintegratingThesisNotes>(80.0));
+            AddLoot(LootPack.LootItem<DisintegratingThesisNotes>(50.0));
             AddLoot(LootPack.Parrot);
         }
 

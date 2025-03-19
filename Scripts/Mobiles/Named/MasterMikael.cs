@@ -53,7 +53,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.HighScrolls, 2);
             AddLoot(LootPack.MageryRegs, 3);
             AddLoot(LootPack.NecroRegs, 1, 10);
-            AddLoot(LootPack.LootItem<DisintegratingThesisNotes>(80.0));
+            AddLoot(LootPack.LootItem<DisintegratingThesisNotes>(50.0));
             AddLoot(LootPack.Parrot);
             //AddLoot(LootPack.ArcanistScrolls, 0, 1);
         }
