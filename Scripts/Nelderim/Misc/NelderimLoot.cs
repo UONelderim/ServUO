@@ -241,7 +241,7 @@ namespace Nelderim
 
 		public static readonly LootPackItem[] NelderimItems =
 		[
-			new(typeof(BaseWeapon), 20), new(typeof(BaseRanged), 4),
+			new(typeof(BaseWeapon), 20), new(typeof(BaseRanged), 4), new(typeof(BaseThrown), 4),
 			new(typeof(BaseArmor), 60), new(typeof(BaseShield), 7),
 			new(typeof(BaseJewel), 20)
 		];
