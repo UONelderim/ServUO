@@ -75,7 +75,7 @@ namespace Server.Mobiles
 			}));
 
 			AddLoot(LootPack.LootItem<ParrotItem>(60.0));
-			AddLoot(LootPack.LootItem<GrizzledMareStatuette>(5.0));
+			//AddLoot(LootPack.LootItem<GrizzledMareStatuette>(5.0));
 			
 			// 5% szansy na drop talizmanu
 			if (Utility.RandomDouble() < 0.05)
