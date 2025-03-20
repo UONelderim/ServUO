@@ -71,7 +71,7 @@ namespace Server.Mobiles
 		{
 			AddLoot(LootPack.UltraRich);
 			AddLoot(LootPack.Gems, 4);
-			AddLoot(LootPack.LootItem<PazurStarozytnegoLodowegoSmoka>(50.0));
+			AddLoot(LootPack.LootItem<PazurStarozytnegoOgnistegoSmoka>(50.0));
 		}
 
 		public override bool AutoDispel { get { return true; } }
