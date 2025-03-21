@@ -173,7 +173,7 @@ namespace Server.Mobiles
                 new (typeof(MlodyLodowySmok), Class.None, MagicalAbility.None, SpecialAbilityNone, WepAbilityNone, AreaEffectNone, 2),
                 new (typeof(OgnistySmok), Class.MagicalClawedAndTailed, MagicalAbility.Dragon2, SpecialAbilityNone, WepAbility2, AreaEffectArea1, 3),
                 new (typeof(MlodyOgnistySmok), Class.MagicalClawedAndTailed, MagicalAbility.Dragon1, SpecialAbilityBaneDragon, WepAbility2, AreaEffectArea2, 2),
-                new (typeof(OgromnyWilk), Class.MagicalClawedTailedNecromanticAndTokuno, MagicalAbility.TsukiWolf, SpecialAbilityTsukiWolf, WepAbility2, AreaEffectArea1, 3),
+                new (typeof(OgromnyWilk), Class.MagicalClawedTailedNecromanticAndTokuno, MagicalAbility.TsukiWolf, SpecialAbilityTsukiWolf, WepAbility2, AreaEffectArea1, 2),
                 new (typeof(MrocznaCzelusc), Class.None, MagicalAbility.Variety3, new SpecialAbility[] { SpecialAbility.LifeLeech }, WepAbility12, AreaEffectArea2, 3),
                 new (typeof(NChimera), Class.MagicalClawedAndTailed, MagicalAbility.Dragon1, SpecialAbilityBaneDragon, WepAbility2, AreaEffectArea2, 3),
                 new (typeof(PomiotPajaka), Class.MagicalNecromanticAndTokuno, MagicalAbility.DreadSpider, SpecialAbilityDreadSpider, WepAbility2, AreaEffectArea2, 3),
