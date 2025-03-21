@@ -7,7 +7,7 @@ using Server;
 
 namespace Server.Items
 {
-    public class SatanicHelm : DragonHelm
+    public class SatanicHelm : Bascinet
     {
         public override int BasePhysicalResistance{ get{ return 18; } }
         public override int BaseColdResistance{ get{ return 2; } }
