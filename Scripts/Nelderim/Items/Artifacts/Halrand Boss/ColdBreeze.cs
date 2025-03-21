@@ -21,6 +21,7 @@ namespace Server.Items
         public ColdBreeze()
         {
             Hue = 0x48F;
+            Name = "Bryza z Lotharn";
             SkillBonuses.SetValues(0, m_PossibleBonusSkills[Utility.Random(m_PossibleBonusSkills.Length)], (Utility.Random(4) == 0 ? 10.0 : 5.0));
             WeaponAttributes.SelfRepair = 5;
             Attributes.WeaponSpeed = 50;
