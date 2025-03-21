@@ -1161,7 +1161,7 @@ namespace Server
                 }
                 else if (Type == typeof(BaseThrown))
                 {
-	                item = Loot.RandomWeapon(inTokuno, isMondain, isStygian);
+	                item = Loot.RandomThrownWeapon(inTokuno, isMondain, isStygian);
                 }
                 else if (Type == typeof(BaseArmor))
                 {

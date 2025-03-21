@@ -418,20 +418,20 @@ namespace Server
         {
 	        if (isStygian)
 	        {
-		        return Construct(m_SAWeaponTypes, m_SAWeaponTypes) as BaseWeapon;
+		        return Construct(m_SARangedWeaponTypes) as BaseThrown;
 	        }
 
 	        if (isMondain)
 	        {
-		        return Construct(m_SAWeaponTypes, m_SAWeaponTypes) as BaseWeapon;
+		        return Construct(m_SARangedWeaponTypes) as BaseThrown;
 	        }
 
 	        if (inTokuno)
 	        {
-		        return Construct(m_SAWeaponTypes, m_SAWeaponTypes) as BaseWeapon;
+		        return Construct(m_SARangedWeaponTypes) as BaseThrown;
 	        }
 
-	        return Construct(m_SAWeaponTypes) as BaseWeapon;
+	        return Construct(m_SARangedWeaponTypes) as BaseThrown;
         }
 
         public static BaseWeapon RandomWeapon(bool inTokuno = false, bool isMondain = false, bool isStygian = false)
