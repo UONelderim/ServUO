@@ -1,12 +1,16 @@
 #region References
 using Server.Spells;
 using Server.Spells.Chivalry;
+using System;
 #endregion
 
 namespace Server.Mobiles
 {
     public class PaladinAI : MageAI
     {
+        private DateTime m_NextDispelTime = DateTime.UtcNow;
+        private readonly TimeSpan m_DispelCooldown = TimeSpan.FromSeconds(30); // 30 second cooldown
+
         public override SkillName CastSkill => SkillName.Chivalry;
         public override bool UsesMagery => false;
         public override double HealChance => .1;
@@ -25,18 +29,31 @@ namespace Server.Mobiles
 
         public override Spell GetRandomCurseSpell()
         {
-	        if (m_Mobile.Mana < 10)
-		        return null;
-	        if (m_Mobile.Combatant is not BaseCreature bc)
-		        return null;
-	        
-	        var dispellable = bc.Summoned && !bc.IsAnimatedDead;
-	        var evil = !bc.Controlled && bc.Karma < 0;
-
-	        if (dispellable || evil)
+            // Ensure we have enough mana to cast (DispelEvil costs 10 mana)
+            if (m_Mobile.Mana < 10)
+                return null;
+                
+            // If cooldown hasn't expired, don't cast
+            if (DateTime.UtcNow < m_NextDispelTime)
+                return null;
+                
+            // Ensure we have a valid target
+            if (m_Mobile.Combatant is not BaseCreature bc)
+                return null;
+            
+            var dispellable = bc.Summoned && !bc.IsAnimatedDead;
+            var evil = !bc.Controlled && bc.Karma < -5000; // Require significantly negative karma
+            var isRevenant = bc is Revenant; // Check if target is a Revenant
+            
+            // Add randomization factor (15% chance to cast when conditions are met)
+            if ((dispellable || evil || isRevenant) && Utility.RandomDouble() < 0.15)
+            {
+                // Set the cooldown timer
+                m_NextDispelTime = DateTime.UtcNow + m_DispelCooldown;
                 return new DispelEvilSpell(m_Mobile, null);
+            }
 
-	        return null;
+            return null;
         }
 
         public override Spell GetRandomBuffSpell()
@@ -67,14 +84,14 @@ namespace Server.Mobiles
 
         public override Spell GetHealSpell()
         {
-	        if (m_Mobile.Hits > m_Mobile.HitsMax * 0.5) 
-		        return null;
-	        if (m_Mobile.Mana <= 10)
-		        return null;
-	        if (m_Mobile.Combatant != null && m_Mobile.Combatant.Hits > m_Mobile.Hits)
-		        return new CloseWoundsSpell(m_Mobile, null);
-	        
-	        return null;
+            if (m_Mobile.Hits > m_Mobile.HitsMax * 0.5) 
+               return null;
+            if (m_Mobile.Mana <= 10)
+               return null;
+            if (m_Mobile.Combatant != null && m_Mobile.Combatant.Hits > m_Mobile.Hits)
+               return new CloseWoundsSpell(m_Mobile, null);
+            
+            return null;
         }
 
         public override Spell GetCureSpell()
