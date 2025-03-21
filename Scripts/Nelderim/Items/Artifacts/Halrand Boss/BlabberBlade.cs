@@ -1,13 +1,23 @@
 using Server.Items;
+using System;
 
 namespace Server.Custom.Misc
 {
     public class BlabberBlade : Broadsword
     {
-	    
-	    public override int LabelNumber => 3070057;//Gadajace ostrze
-	    
-
+        private static readonly string[] _blabberPhrases = new string[]
+        {
+            "Ajj, jestem glodny krwii!",
+            "A coz to za pyszne miesko?! Hahahahah",
+            "To nie ja zabijam... To TWOJA BRUDNA LAPA!!!!",
+            "OOO.... byles niegrzeczny i teraz musze Cie zabic",
+            "Ale pyszna skora...",
+            "*wydaje dzwieki ssania krwii*",
+            "Na Smierci! To jest najgorsza rana, ktora kiedykolwiek zadalem hahahahah"
+        };
+        
+        public override int LabelNumber => 3070057; // Gadajace ostrze
+        
         [Constructable]
         public BlabberBlade()
         {
@@ -32,37 +42,24 @@ namespace Server.Custom.Misc
         {
             if (damageable is Mobile m && m.Hits < (m.HitsMax / 2))
             {
-                if (Utility.RandomDouble() < 0.3)
+                if (Utility.RandomDouble() < 0.10)
                 {
-                    int blabber = GetRandomBlabber();
-
-                    Effects.PlaySound(attacker.Location, attacker.Map, blabber);
+                    string randomPhrase = GetRandomBlabber();
+                    
+                    attacker.PublicOverheadMessage(Server.Network.MessageType.Regular, 0x34, false, randomPhrase);
                 }
             }
 
             base.OnHit(attacker, damageable, damageBonus);
         }
-
-        private int GetRandomBlabber()
+        
+        private string GetRandomBlabber()
         {
-            return 0x53B + Utility.RandomMinMax(0, 46);
+            return _blabberPhrases[Utility.Random(_blabberPhrases.Length)];
         }
 
-        public override int InitMinHits
-        {
-            get
-            {
-                return 255;
-            }
-        }
-
-        public override int InitMaxHits
-        {
-            get
-            {
-                return 255;
-            }
-        }
+        public override int InitMinHits => 255;
+        public override int InitMaxHits => 255;
 
         public BlabberBlade(Serial serial) : base(serial)
         {
