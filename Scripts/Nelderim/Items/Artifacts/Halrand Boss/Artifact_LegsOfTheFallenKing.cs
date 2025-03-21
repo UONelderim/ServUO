@@ -9,7 +9,7 @@ namespace Server.Items
 		public override int InitMinHits{ get{ return 255; } }
 		public override int InitMaxHits{ get{ return 255; } }
 		
-
+		public override int LabelNumber => 3070053;//Nogawnice Martwego Wladcy
 
 		public override int BaseColdResistance{ get{ return 17; } }
 		public override int BaseEnergyResistance{ get{ return 17; } }

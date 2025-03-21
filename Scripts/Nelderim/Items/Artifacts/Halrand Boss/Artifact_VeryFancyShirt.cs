@@ -11,6 +11,8 @@ namespace Server.Items
 		
 		public override int InitMinHits{ get{ return 255; } }
 		public override int InitMaxHits{ get{ return 255; } }
+		
+		public override int LabelNumber => 3070056;//Wykwintna Koszula
 
 		[Constructable]
 		public VeryFancyShirt()

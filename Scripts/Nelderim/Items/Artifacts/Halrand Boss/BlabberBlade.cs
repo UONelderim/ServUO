@@ -4,6 +4,9 @@ namespace Server.Custom.Misc
 {
     public class BlabberBlade : Broadsword
     {
+	    
+	    public override int LabelNumber => 3070057;//Gadajace ostrze
+	    
 
         [Constructable]
         public BlabberBlade()

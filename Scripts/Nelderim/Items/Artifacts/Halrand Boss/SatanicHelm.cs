@@ -16,13 +16,15 @@ namespace Server.Items
         public override int BasePoisonResistance{ get{ return 6; } }
         public override int InitMinHits{ get{ return 255; } }
         public override int InitMaxHits{ get{ return 255; } }
-
+        
+        public override int LabelNumber => 3070060;//Helm Smierci
+        
         [Constructable]
         public SatanicHelm()
         {
             Name = "Helm Smierci";
             Hue = 1157;
-            StrRequirement = 100;
+            StrRequirement = 70;
             Attributes.RegenStam = 3;
             Attributes.DefendChance = 5;
             //Random Resonance:

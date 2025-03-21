@@ -8,7 +8,8 @@ namespace Server.Items
     {
         public override WeaponAbility PrimaryAbility{ get{ return WeaponAbility.MovingShot; } }
         public override WeaponAbility SecondaryAbility{ get{ return WeaponAbility.BleedAttack; } }
-        public override int ArtifactRarity{ get{ return 18; } }
+        
+        public override int LabelNumber => 3070058;//Luk Barda
         public override int InitMinHits{ get{ return 255; } }
         public override int InitMaxHits{ get{ return 255; } }
 

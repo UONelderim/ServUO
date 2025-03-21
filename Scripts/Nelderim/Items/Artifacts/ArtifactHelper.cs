@@ -344,7 +344,7 @@ namespace Server.Items
 		private static Type[] _HalrandBossArtifacts = {
 			typeof(InquisitorsArms), typeof(LegsOfTheFallenKing), typeof(MadmansHatchet), typeof(MinersPickaxe), 
 			typeof(VampiricDaisho), typeof(VeryFancyShirt),typeof(BlabberBlade), typeof(BowOfHarps),
-			typeof(Erotica), typeof(SatanicHelm), typeof(ShieldOfIce)
+			typeof(Erotica), typeof(SatanicHelm), typeof(ShieldOfIce), typeof(ColdBreeze)
 		};
 		
 		private static Dictionary<ArtSeason, Type[]> _BossArtifacts = new()
