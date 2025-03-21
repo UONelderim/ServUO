@@ -343,7 +343,7 @@ namespace Server.Items
 		
 		private static Type[] _HalrandBossArtifacts = {
 			typeof(InquisitorsArms), typeof(LegsOfTheFallenKing), typeof(MadmansHatchet), typeof(MinersPickaxe), 
-			typeof(VampiricDaisho), typeof(VeryFancyShirt),typeof(BlabberBlade), typeof(BowOfHarps),
+			typeof(VampiricBladedWhip), typeof(VeryFancyShirt),typeof(BlabberBlade), typeof(BowOfHarps),
 			typeof(Erotica), typeof(SatanicHelm), typeof(ShieldOfIce), typeof(ColdBreeze)
 		};
 		

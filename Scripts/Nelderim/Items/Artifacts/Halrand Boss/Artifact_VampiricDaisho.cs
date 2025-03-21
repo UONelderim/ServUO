@@ -6,7 +6,7 @@ using Server.Targeting;
 
 namespace Server.Items
 {
-	public class VampiricDaisho : Daisho
+	public class VampiricBladedWhip : BladedWhip
 	{
 		public override int InitMinHits{ get{ return 255; } }
 		public override int InitMaxHits{ get{ return 255; } }
@@ -15,7 +15,7 @@ namespace Server.Items
 
 
       [Constructable]
-		public VampiricDaisho()
+		public VampiricBladedWhip()
 		{
 			Name = "Wampiryczny Dotyk";
 			Hue = 27;
@@ -28,7 +28,7 @@ namespace Server.Items
 		
 
 
-		public VampiricDaisho( Serial serial ) : base( serial )
+		public VampiricBladedWhip( Serial serial ) : base( serial )
 		{
 		}
 
