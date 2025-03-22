@@ -419,7 +419,7 @@ namespace Nelderim
 			new(typeof(AvatarHeavenlyLightScroll)), new(typeof(AvatarHeavensGateScroll)),
 			new(typeof(AvatarMarkOfGodsScroll)), new(typeof(AvatarRestorationScroll)),
 			new(typeof(AvatarSacredBoonScroll)), new(typeof(AvatarAngelicFaithScroll)),
-			new(typeof(AvatarArmysPaeonScroll))
+			new(typeof(AvatarArmysPaeonScroll)), new (typeof(AvatarEnemyOfOneSpell))
 		];
 
 		public static readonly LootPackItem[] BardScrollItems =
