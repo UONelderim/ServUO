@@ -16,7 +16,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber => 3070005;// zab starozytnego lodowego smoka
+        public override int LabelNumber => 33070013; //zab starozytnego diamentowego smoka
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
