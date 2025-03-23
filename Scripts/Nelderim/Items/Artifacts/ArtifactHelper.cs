@@ -131,7 +131,7 @@ namespace Server.Items
 			_CreatureInfo.Add(typeof(Leviathan), new ArtInfo(10, Rolls.One, ArtGroup.Fishing));
 			
 			//HalrandBoss
-			_CreatureInfo.Add(typeof(HalrandBoss), new ArtInfo(3, Rolls.One, ArtGroup.Boss));
+			_CreatureInfo.Add(typeof(HalrandBoss), new ArtInfo(6, Rolls.Three, ArtGroup.Boss));
 
 			InitializeArtifacts();
 			
