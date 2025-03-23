@@ -466,7 +466,7 @@ namespace Server.Mobiles
 		{
 			return Utility.RandomDouble() switch
 			{
-				<= 0.05 => CreateArtifact(UniqueList),
+				<= 0.0 => CreateArtifact(UniqueList),
 				<= 0.15 => CreateArtifact(DecorativeList),
 				<= 0.30 => CreateArtifact(SharedList),
 				_ => null
