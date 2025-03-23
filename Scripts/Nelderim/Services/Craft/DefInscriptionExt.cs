@@ -179,11 +179,11 @@ namespace Server.Engines.Craft
           AddRes( index, typeof( DaemonBone ), "kości demona" , 50, 1044253 );
           AddRes( index, typeof( Pumice ), "pumeks" , 20, 1044253 );
          AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
-            index = AddCraft( typeof( AvatarArmysPaeonSpell  ), "Umiejetnosci specjalne", "Witalność Armii", 80.0, 110.0, typeof( WyrmsHeart ), "Serce Wyrma" , 20, 1044253 );
+            index = AddCraft( typeof( AvatarArmysPaeonScroll  ), "Umiejetnosci specjalne", "Witalność Armii", 80.0, 110.0, typeof( WyrmsHeart ), "Serce Wyrma" , 20, 1044253 );
             AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
             AddRes( index, typeof( ZoogiFungus ), "grzyby zoogi" , 50, 1044253 );
             AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
-            index = AddCraft( typeof( AvatarAngelicFaithSpell ), "Umiejetnosci specjalne", "Awatar Pradawnego Mnicha", 60.0, 100.0, typeof( LuminescentFungi ), "lśniące grzyby"  , 1044253 );
+            index = AddCraft( typeof( AvatarAngelicFaithScroll ), "Umiejetnosci specjalne", "Awatar Pradawnego Mnicha", 60.0, 100.0, typeof( LuminescentFungi ), "lśniące grzyby", 20  , 1044253 );
             AddRes( index, typeof( SpringWater ), "wiosenna woda" , 30, 1044253 );
             AddRes( index, typeof( ZoogiFungus ), "grzyby zoogi" , 50, 1044253 );
             AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
