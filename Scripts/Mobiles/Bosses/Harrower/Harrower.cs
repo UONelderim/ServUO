@@ -1,494 +1,702 @@
+using System;
+using System.Collections;
+using Server;
+using Server.Items;
+using Server.Engines.CannedEvil;
+using System.Collections.Generic;
 using Server.Engines.CannedEvil;
 using Server.Items;
 using Server.Services.Virtues;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
+
+
+
+
 
 namespace Server.Mobiles
 {
-    public class Harrower : BaseCreature
-    {
-        private static readonly int m_StatCap = Config.Get("PlayerCaps.TotalStatCap", 225);
+	public class Harrower : BaseCreature
+	{
+        // 10.10.2012 :: zombie
+        public override double DifficultyScalar{ get{ return 1.15; }}
+        // zombie
 
-        private static readonly SpawnEntry[] m_Entries =
+		public Type[] UniqueList{ get{ return new Type[] { typeof( AcidProofRobe ) }; } }
+		public Type[] SharedList{ get{ return new Type[] { typeof( TheRobeOfBritanniaAri ) }; } }
+		public Type[] DecorativeList{ get{ return new Type[] { typeof( EvilIdolSkull ), typeof( SkullPole ) }; } }
+
+		private bool m_TrueForm;
+		private Item m_GateItem;
+		private List<HarrowerTentacles> m_Tentacles;
+		private Timer m_Timer;
+
+		private class SpawnEntry
+		{
+			public Point3D m_Location;
+			public Point3D m_Entrance;
+
+			public SpawnEntry( Point3D loc, Point3D ent )
+			{
+				m_Location = loc;
+				m_Entrance = ent;
+			}
+		}
+
+		private static SpawnEntry[] m_Entries = new SpawnEntry[]
+			{
+				new SpawnEntry( new Point3D( 5526, 589, 5 ), new Point3D( 5525, 681, 5 ) )
+				/*new SpawnEntry( new Point3D( 5242, 945, -40 ), new Point3D( 1176, 2638, 0 ) ),	// Destard
+				new SpawnEntry( new Point3D( 5225, 798, 0 ), new Point3D( 1176, 2638, 0 ) ),	// Destard
+				new SpawnEntry( new Point3D( 5556, 886, 30 ), new Point3D( 1298, 1080, 0 ) ),	// Despise
+				new SpawnEntry( new Point3D( 5187, 615, 0 ), new Point3D( 4111, 432, 5 ) ),		// Deceit
+				new SpawnEntry( new Point3D( 5319, 583, 0 ), new Point3D( 4111, 432, 5 ) ),		// Deceit
+				new SpawnEntry( new Point3D( 5713, 1334, -1 ), new Point3D( 2923, 3407, 8 ) ),	// Fire
+				new SpawnEntry( new Point3D( 5860, 1460, -2 ), new Point3D( 2923, 3407, 8 ) ),	// Fire
+				new SpawnEntry( new Point3D( 5328, 1620, 0 ), new Point3D( 5451, 3143, -60 ) ),	// Terathan Keep
+				new SpawnEntry( new Point3D( 5690, 538, 0 ), new Point3D( 2042, 224, 14 ) ),	// Wrong
+				new SpawnEntry( new Point3D( 5609, 195, 0 ), new Point3D( 514, 1561, 0 ) ),		// Shame
+				new SpawnEntry( new Point3D( 5475, 187, 0 ), new Point3D( 514, 1561, 0 ) ),		// Shame
+				new SpawnEntry( new Point3D( 6085, 179, 0 ), new Point3D( 4721, 3822, 0 ) ),	// Hythloth
+				new SpawnEntry( new Point3D( 6084, 66, 0 ), new Point3D( 4721, 3822, 0 ) ),		// Hythloth
+				new SpawnEntry( new Point3D( 5499, 2003, 0 ), new Point3D( 2499, 919, 0 ) ),	// Covetous
+				new SpawnEntry( new Point3D( 5579, 1858, 0 ), new Point3D( 2499, 919, 0 ) )		// Covetous*/
+			};
+
+		private static ArrayList m_Instances = new ArrayList();
+
+		public static ArrayList Instances{ get{ return m_Instances; } }
+
+		public static Harrower Spawn( Point3D platLoc, Map platMap )
+		{
+			if ( m_Instances.Count > 0 )
+				return null;
+
+			SpawnEntry entry = m_Entries[Utility.Random( m_Entries.Length )];
+
+			Harrower harrower = new Harrower();
+
+			harrower.MoveToWorld( entry.m_Location, Map.Felucca );
+
+			harrower.m_GateItem = new HarrowerGate( harrower, platLoc, platMap, entry.m_Entrance, Map.Felucca );
+
+			return harrower;
+		}
+
+		public static bool CanSpawn
+		{
+			get
+			{
+				return ( m_Instances.Count == 0 );
+			}
+		}
+
+		[Constructable]
+		public Harrower() : base( AIType.AI_Mage, FightMode.Closest, 18, 1, 0.2, 0.4 )
+		{
+			m_Instances.Add( this );
+
+			Name = "Przedwieczny";
+			BodyValue = 146;
+
+			SetStr( 900, 1000 );
+			SetDex( 125, 135 );
+			SetInt( 1000, 1200 );
+
+			Fame = 22500;
+			Karma = -22500;
+
+			VirtualArmor = 60;
+
+			SetDamageType( ResistanceType.Physical, 50 );
+			SetDamageType( ResistanceType.Energy, 50 );
+
+			SetResistance( ResistanceType.Physical, 55, 65 );
+			SetResistance( ResistanceType.Fire, 60, 80 );
+			SetResistance( ResistanceType.Cold, 60, 80 );
+			SetResistance( ResistanceType.Poison, 60, 80 );
+			SetResistance( ResistanceType.Energy, 60, 80 );
+
+			SetSkill( SkillName.Wrestling, 90.1, 100.0 );
+			SetSkill( SkillName.Tactics, 90.2, 110.0 );
+			SetSkill( SkillName.MagicResist, 120.2, 160.0 );
+			SetSkill( SkillName.Magery, 120.0 );
+			SetSkill( SkillName.EvalInt, 120.0 );
+			SetSkill( SkillName.Meditation, 120.0 );
+
+			m_Tentacles = new List<HarrowerTentacles>();
+
+			m_Timer = new TeleportTimer( this );
+			m_Timer.Start();
+		}
+
+		public override void GenerateLoot()
+		{
+			AddLoot( LootPack.SuperBoss, 2 );
+			AddLoot( LootPack.Meager );
+		}
+        public override void OnCarve(Mobile from, Corpse corpse, Item with)
         {
-            new SpawnEntry(new Point3D(5242, 945, -40), new Point3D(1176, 2638, 0)), // Destard
-            new SpawnEntry(new Point3D(5225, 798, 0), new Point3D(1176, 2638, 0)), // Destard
-            new SpawnEntry(new Point3D(5556, 886, 30), new Point3D(1298, 1080, 0)), // Despise
-            new SpawnEntry(new Point3D(5187, 615, 0), new Point3D(4111, 432, 5)), // Deceit
-            new SpawnEntry(new Point3D(5319, 583, 0), new Point3D(4111, 432, 5)), // Deceit
-            new SpawnEntry(new Point3D(5713, 1334, -1), new Point3D(2923, 3407, 8)), // Fire
-            new SpawnEntry(new Point3D(5860, 1460, -2), new Point3D(2923, 3407, 8)), // Fire
-            new SpawnEntry(new Point3D(5328, 1620, 0), new Point3D(5451, 3143, -60)), // Terathan Keep
-            new SpawnEntry(new Point3D(5690, 538, 0), new Point3D(2042, 224, 14)), // Wrong
-            new SpawnEntry(new Point3D(5609, 195, 0), new Point3D(514, 1561, 0)), // Shame
-            new SpawnEntry(new Point3D(5475, 187, 0), new Point3D(514, 1561, 0)), // Shame
-            new SpawnEntry(new Point3D(6085, 179, 0), new Point3D(4721, 3822, 0)), // Hythloth
-            new SpawnEntry(new Point3D(6084, 66, 0), new Point3D(4721, 3822, 0)), // Hythloth
-            /*new SpawnEntry(new Point3D(5499, 2003, 0), new Point3D(2499, 919, 0)), // Covetous*/
-            new SpawnEntry(new Point3D(5579, 1858, 0), new Point3D(2499, 919, 0))// Covetous
-        };
-        private static readonly ArrayList m_Instances = new ArrayList();
-        private static readonly double[] m_Offsets =
-        {
-            Math.Cos(000.0 / 180.0 * Math.PI), Math.Sin(000.0 / 180.0 * Math.PI),
-            Math.Cos(040.0 / 180.0 * Math.PI), Math.Sin(040.0 / 180.0 * Math.PI),
-            Math.Cos(080.0 / 180.0 * Math.PI), Math.Sin(080.0 / 180.0 * Math.PI),
-            Math.Cos(120.0 / 180.0 * Math.PI), Math.Sin(120.0 / 180.0 * Math.PI),
-            Math.Cos(160.0 / 180.0 * Math.PI), Math.Sin(160.0 / 180.0 * Math.PI),
-            Math.Cos(200.0 / 180.0 * Math.PI), Math.Sin(200.0 / 180.0 * Math.PI),
-            Math.Cos(240.0 / 180.0 * Math.PI), Math.Sin(240.0 / 180.0 * Math.PI),
-            Math.Cos(280.0 / 180.0 * Math.PI), Math.Sin(280.0 / 180.0 * Math.PI),
-            Math.Cos(320.0 / 180.0 * Math.PI), Math.Sin(320.0 / 180.0 * Math.PI),
-        };
-
-        private bool m_TrueForm;
-        private bool m_IsSpawned;
-        private Item m_GateItem;
-        private List<HarrowerTentacles> m_Tentacles;
-
-        Dictionary<Mobile, int> m_DamageEntries;
-        [Constructable]
-        public Harrower()
-            : base(AIType.AI_NecroMage, FightMode.Closest, 18, 1, 0.2, 0.4)
-        {
-            Name = "Przedwieczny";
-            BodyValue = 146;
-
-            SetStr(900, 1000);
-            SetDex(125, 135);
-            SetInt(1000, 1200);
-
-            Fame = 22500;
-            Karma = -22500;
-
-            SetDamageType(ResistanceType.Physical, 50);
-            SetDamageType(ResistanceType.Energy, 50);
-
-            SetResistance(ResistanceType.Physical, 55, 65);
-            SetResistance(ResistanceType.Fire, 60, 80);
-            SetResistance(ResistanceType.Cold, 60, 80);
-            SetResistance(ResistanceType.Poison, 60, 80);
-            SetResistance(ResistanceType.Energy, 60, 80);
-
-            SetSkill(SkillName.Wrestling, 90.1, 100.0);
-            SetSkill(SkillName.Tactics, 90.2, 110.0);
-            SetSkill(SkillName.MagicResist, 120.2, 160.0);
-            SetSkill(SkillName.Magery, 120.0);
-            SetSkill(SkillName.EvalInt, 120.0);
-            SetSkill(SkillName.Meditation, 120.0);
-
-            m_Tentacles = new List<HarrowerTentacles>();
-        }
-
-        public Harrower(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public static ArrayList Instances => m_Instances;
-
-        public static bool CanSpawn => (m_Instances.Count == 0);
-
-        public Type[] UniqueList => new[] { typeof(AcidProofRobe) };
-
-        public Type[] SharedList => new[] { typeof(TheRobeOfBritanniaAri) };
-
-        public Type[] DecorativeList => new[] { typeof(EvilIdolSkull), typeof(SkullPole) };
-
-        public override bool AutoDispel => true;
-
-        public override bool Unprovokable => true;
-
-        public override Poison PoisonImmune => Poison.Lethal;
-
-        [CommandProperty(AccessLevel.GameMaster)]
-        public override int HitsMax => m_TrueForm ? 65000 : 30000;
-
-        [CommandProperty(AccessLevel.GameMaster)]
-        public override int ManaMax => 5000;
-
-        public override bool DisallowAllMoves => m_TrueForm;
-
-        public override bool TeleportsTo => true;
-
-        public static Harrower Spawn(Point3D platLoc, Map platMap)
-        {
-            if (m_Instances.Count > 0)
-                return null;
-
-            SpawnEntry entry = m_Entries[Utility.Random(m_Entries.Length)];
-
-            Harrower harrower = new Harrower
+            if (!IsBonded && !corpse.Carved && !IsChampionSpawn)
             {
-                m_IsSpawned = true
-            };
-
-            m_Instances.Add(harrower);
-
-            harrower.MoveToWorld(entry.m_Location, Map.Felucca);
-
-            harrower.m_GateItem = new HarrowerGate(harrower, platLoc, platMap, entry.m_Entrance, Map.Felucca);
-
-            return harrower;
-        }
-
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.SuperBoss, 2);
-            AddLoot(LootPack.Meager);
-        }
-
-        public void Morph()
-        {
-            if (m_TrueForm)
-                return;
-
-            m_TrueForm = true;
-
-            Name = "Prawdziwa forma Przedwiecznego";
-            BodyValue = 780;
-            Hue = 0x497;
-
-            Hits = HitsMax;
-            Stam = StamMax;
-            Mana = ManaMax;
-
-            ProcessDelta();
-
-            Say(1049499); // Behold my true form!
-
-            Map map = Map;
-
-            if (map != null)
-            {
-                for (int i = 0; i < m_Offsets.Length; i += 2)
-                {
-                    double rx = m_Offsets[i];
-                    double ry = m_Offsets[i + 1];
-
-                    int dist = 0;
-                    bool ok = false;
-                    int x = 0, y = 0, z = 0;
-
-                    while (!ok && dist < 10)
-                    {
-                        int rdist = 10 + dist;
-
-                        x = X + (int)(rx * rdist);
-                        y = Y + (int)(ry * rdist);
-                        z = map.GetAverageZ(x, y);
-
-                        if (!(ok = map.CanFit(x, y, Z, 16, false, false)))
-                            ok = map.CanFit(x, y, z, 16, false, false);
-
-                        if (dist >= 0)
-                            dist = -(dist + 1);
-                        else
-                            dist = -(dist - 1);
-                    }
-
-                    if (!ok)
-                        continue;
-
-                    HarrowerTentacles spawn = new HarrowerTentacles(this)
-                    {
-                        Team = Team
-                    };
-
-                    spawn.MoveToWorld(new Point3D(x, y, z), map);
-
-                    m_Tentacles.Add(spawn);
-                }
+               
+					if (Utility.RandomDouble() < 0.15)
+                    corpse.DropItem(new ParoxysmusSwampDragonStatuette());
             }
-        }
+		}
+		public override bool AutoDispel{ get{ return true; } }
+		public override bool Unprovokable{ get{ return true; } }
+		public override Poison PoisonImmune{ get{ return Poison.Lethal; } }
 
-        public override void OnAfterDelete()
-        {
-            m_Instances.Remove(this);
+		private static readonly double[] m_Offsets = new double[]
+			{
+				Math.Cos( 000.0 / 180.0 * Math.PI ), Math.Sin( 000.0 / 180.0 * Math.PI ),
+				Math.Cos( 040.0 / 180.0 * Math.PI ), Math.Sin( 040.0 / 180.0 * Math.PI ),
+				Math.Cos( 080.0 / 180.0 * Math.PI ), Math.Sin( 080.0 / 180.0 * Math.PI ),
+				Math.Cos( 120.0 / 180.0 * Math.PI ), Math.Sin( 120.0 / 180.0 * Math.PI ),
+				Math.Cos( 160.0 / 180.0 * Math.PI ), Math.Sin( 160.0 / 180.0 * Math.PI ),
+				Math.Cos( 200.0 / 180.0 * Math.PI ), Math.Sin( 200.0 / 180.0 * Math.PI ),
+				Math.Cos( 240.0 / 180.0 * Math.PI ), Math.Sin( 240.0 / 180.0 * Math.PI ),
+				Math.Cos( 280.0 / 180.0 * Math.PI ), Math.Sin( 280.0 / 180.0 * Math.PI ),
+				Math.Cos( 320.0 / 180.0 * Math.PI ), Math.Sin( 320.0 / 180.0 * Math.PI ),
+			};
 
-            base.OnAfterDelete();
-        }
+		public void Morph()
+		{
+			if ( m_TrueForm )
+				return;
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-            writer.Write(1); // version
+			m_TrueForm = true;
 
-            writer.Write(m_IsSpawned);
-            writer.Write(m_TrueForm);
-            writer.Write(m_GateItem);
-            writer.WriteMobileList(m_Tentacles);
-        }
+			Name = "Wielki Przedwieczny";
+			BodyValue = 780;
+			Hue = 0x497;
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-            int version = reader.ReadInt();
+			Hits = HitsMax;
+			Stam = StamMax;
+			Mana = ManaMax;
 
-            m_IsSpawned = reader.ReadBool();
-            m_TrueForm = reader.ReadBool();
-            m_GateItem = reader.ReadItem();
-            m_Tentacles = reader.ReadStrongMobileList<HarrowerTentacles>();
+			ProcessDelta();
 
-            if (m_IsSpawned)
-                m_Instances.Add(this);
-        }
+			Say( 1049499 ); // Behold my true form!
 
-        public void GivePowerScrolls()
-        {
-            List<Mobile> toGive = new List<Mobile>();
-            List<DamageStore> rights = GetLootingRights();
+			Map map = this.Map;
 
-            for (int i = rights.Count - 1; i >= 0; --i)
-            {
-                DamageStore ds = rights[i];
+			if ( map != null )
+			{
+				for ( int i = 0; i < m_Offsets.Length; i += 2 )
+				{
+					double rx = m_Offsets[i];
+					double ry = m_Offsets[i + 1];
 
-                if (ds.m_HasRight)
-                    toGive.Add(ds.m_Mobile);
-            }
+					int dist = 0;
+					bool ok = false;
+					int x = 0, y = 0, z = 0;
 
-            if (toGive.Count == 0)
-                return;
+					while ( !ok && dist < 10 )
+					{
+						int rdist = 10 + dist;
 
-            // Randomize
-            for (int i = 0; i < toGive.Count; ++i)
-            {
-                int rand = Utility.Random(toGive.Count);
-                Mobile hold = toGive[i];
-                toGive[i] = toGive[rand];
-                toGive[rand] = hold;
-            }
+						x = this.X + (int)(rx * rdist);
+						y = this.Y + (int)(ry * rdist);
+						z = map.GetAverageZ( x, y );
 
-            for (int i = 0; i < ChampionSystem.StatScrollAmount; ++i)
-            {
-                Mobile m = toGive[i % toGive.Count];
+						if ( !(ok = map.CanFit( x, y, this.Z, 16, false, false ) ) )
+							ok = map.CanFit( x, y, z, 16, false, false );
 
-                m.SendLocalizedMessage(1049524); // You have received a scroll of power!
-                m.AddToBackpack(new StatCapScroll(m_StatCap + RandomStatScrollLevel()));
+						if ( dist >= 0 )
+							dist = -(dist + 1);
+						else
+							dist = -(dist - 1);
+					}
 
-                if (m is PlayerMobile)
-                {
-                    PlayerMobile pm = (PlayerMobile)m;
+					if ( !ok )
+						continue;
 
-                    for (int j = 0; j < pm.JusticeProtectors.Count; ++j)
-                    {
-                        Mobile prot = pm.JusticeProtectors[j];
+					HarrowerTentacles spawn = new HarrowerTentacles( this );
 
-                        if (prot.Map != m.Map || prot.Murderer || prot.Criminal || !JusticeVirtue.CheckMapRegion(m, prot))
-                            continue;
+					spawn.Team = this.Team;
 
-                        int chance = 0;
+					spawn.MoveToWorld( new Point3D( x, y, z ), map );
 
-                        switch (VirtueHelper.GetLevel(prot, VirtueName.Justice))
-                        {
-                            case VirtueLevel.Seeker:
-                                chance = 60;
-                                break;
-                            case VirtueLevel.Follower:
-                                chance = 80;
-                                break;
-                            case VirtueLevel.Knight:
-                                chance = 100;
-                                break;
-                        }
+					m_Tentacles.Add( spawn );
+				}
+			}
+		}
 
-                        if (chance > Utility.Random(100))
-                        {
-                            prot.SendLocalizedMessage(1049368); // You have been rewarded for your dedication to Justice!
-                            prot.AddToBackpack(new StatCapScroll(m_StatCap + RandomStatScrollLevel()));
-                        }
-                    }
-                }
-            }
-        }
+		[CommandProperty( AccessLevel.GameMaster )]
+		public override int HitsMax{ get{ return m_TrueForm ? 65000 : 30000; } }
 
-        private static int RandomStatScrollLevel()
-        {
-            double random = Utility.RandomDouble();
+		[CommandProperty( AccessLevel.GameMaster )]
+		public override int ManaMax{ get{ return 5000; } }
 
-            if (0.1 >= random)
-                return 25;
-            else if (0.25 >= random)
-                return 20;
-            else if (0.45 >= random)
-                return 15;
-            else if (0.70 >= random)
-                return 10;
-            return 5;
-        }
+		public Harrower( Serial serial ) : base( serial )
+		{
+			m_Instances.Add( this );
+		}
 
-        public override bool OnBeforeDeath()
-        {
-            if (m_TrueForm)
-            {
-                List<DamageStore> rights = GetLootingRights();
+		public override void OnAfterDelete()
+		{
+			m_Instances.Remove( this );
 
-                for (int i = rights.Count - 1; i >= 0; --i)
-                {
-                    DamageStore ds = rights[i];
+			base.OnAfterDelete();
+		}
 
-                    if (ds.m_HasRight && ds.m_Mobile is PlayerMobile)
-                        PlayerMobile.ChampionTitleInfo.AwardHarrowerTitle((PlayerMobile)ds.m_Mobile);
-                }
+		public override bool DisallowAllMoves{ get{ return m_TrueForm; } }
 
-                if (!NoKillAwards)
-                {
-                    GivePowerScrolls();
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
 
-                    GoldShower.DoForHarrower(Location, Map);
+			writer.Write( (int) 0 ); // version
 
-                    m_DamageEntries = new Dictionary<Mobile, int>();
+			writer.Write( m_TrueForm );
+			writer.Write( m_GateItem );
+			writer.WriteMobileList<HarrowerTentacles>( m_Tentacles );
+		}
 
-                    for (int i = 0; i < m_Tentacles.Count; ++i)
-                    {
-                        Mobile m = m_Tentacles[i];
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
 
-                        if (!m.Deleted)
-                            m.Kill();
+			int version = reader.ReadInt();
 
-                        RegisterDamageTo(m);
-                    }
+			switch ( version )
+			{
+				case 0:
+				{
+					m_TrueForm = reader.ReadBool();
+					m_GateItem = reader.ReadItem();
+					m_Tentacles = reader.ReadStrongMobileList<HarrowerTentacles>();
 
-                    m_Tentacles.Clear();
+					m_Timer = new TeleportTimer( this );
+					m_Timer.Start();
 
-                    RegisterDamageTo(this);
-                    AwardArtifact(GetArtifact());
+					break;
+				}
+			}
+		}
 
-                    if (m_GateItem != null)
-                        m_GateItem.Delete();
-                }
+		public void GivePowerScrolls()
+		{
+			List<Mobile> toGive = new List<Mobile>();
+			List<DamageStore> rights = GetLootingRights();
+			
+			for ( int i = rights.Count - 1; i >= 0; --i )
+			{
+				DamageStore ds = rights[i];
 
-                return base.OnBeforeDeath();
-            }
-            else
-            {
-                Morph();
-                return false;
-            }
-        }
+				if ( ds.m_HasRight )
+					toGive.Add( ds.m_Mobile );
+			}
 
-        public virtual void RegisterDamageTo(Mobile m)
-        {
-            if (m == null)
-                return;
+			if ( toGive.Count == 0 )
+				return;
 
-            foreach (DamageEntry de in m.DamageEntries)
-            {
-                Mobile damager = de.Damager;
+			// Randomize
+			for ( int i = 0; i < toGive.Count; ++i )
+			{
+				int rand = Utility.Random( toGive.Count );
+				Mobile hold = toGive[i];
+				toGive[i] = toGive[rand];
+				toGive[rand] = hold;
+			}
 
-                Mobile master = damager.GetDamageMaster(m);
+			for ( int i = 0; i < 6; ++i )
+			{
+				int level;
+				double random = Utility.RandomDouble();
 
-                if (master != null)
-                    damager = master;
+				if (0.05 >= random || i == 0)
+					level = 20;
+				else if (0.3 >= random)
+					level = 15;
+				else
+					level = 10;
 
-                RegisterDamage(damager, de.DamageGiven);
-            }
-        }
+				Mobile m = toGive[i % toGive.Count];
 
-        public void RegisterDamage(Mobile from, int amount)
-        {
-            if (from == null || !from.Player)
-                return;
+				m.SendLocalizedMessage( 1049524 ); // You have received a scroll of power!
+				m.AddToBackpack(PowerScroll.CreateRandomNoCraft(level, level));
 
-            if (m_DamageEntries.ContainsKey(from))
-                m_DamageEntries[from] += amount;
-            else
-                m_DamageEntries.Add(from, amount);
+				if ( m is PlayerMobile )
+				{
+					PlayerMobile pm = (PlayerMobile)m;
 
-            from.SendMessage(string.Format("Total Damage: {0}", m_DamageEntries[from]));
-        }
+					for ( int j = 0; j < pm.JusticeProtectors.Count; ++j )
+					{
+						Mobile prot = (Mobile)pm.JusticeProtectors[j];
 
-        public void AwardArtifact(Item artifact)
-        {
-            if (artifact == null)
-                return;
+						if ( prot.Map != m.Map || prot.Kills >= 5 || prot.Criminal || !JusticeVirtue.CheckMapRegion( m, prot ) )
+							continue;
 
-            int totalDamage = 0;
+						int chance = 0;
 
-            Dictionary<Mobile, int> validEntries = new Dictionary<Mobile, int>();
+						switch ( VirtueHelper.GetLevel( prot, VirtueName.Justice ) )
+						{
+							case VirtueLevel.Seeker: chance = 60; break;
+							case VirtueLevel.Follower: chance = 80; break;
+							case VirtueLevel.Knight: chance = 100; break;
+						}
 
-            foreach (KeyValuePair<Mobile, int> kvp in m_DamageEntries)
-            {
-                if (IsEligible(kvp.Key, artifact))
-                {
-                    validEntries.Add(kvp.Key, kvp.Value);
-                    totalDamage += kvp.Value;
-                }
-            }
+						if ( chance > Utility.Random( 100 ) )
+						{
+							prot.SendLocalizedMessage( 1049368 ); // You have been rewarded for your dedication to Justice!
+							prot.AddToBackpack(PowerScroll.CreateRandomNoCraft(level, level));
+						}
+					}
+				}
+			}
+		}
 
-            int randomDamage = Utility.RandomMinMax(1, totalDamage);
+		public override bool OnBeforeDeath()
+		{
+			if (m_TrueForm)
+			{
+				List<DamageStore> rights = GetLootingRights();
 
-            totalDamage = 0;
+				foreach (var ds in rights)
+				{
+					if (ds.m_HasRight && ds.m_Mobile is PlayerMobile pm)
+						PlayerMobile.ChampionTitleInfo.AwardHarrowerTitle(pm);
+				}
 
-            foreach (KeyValuePair<Mobile, int> kvp in validEntries)
-            {
-                totalDamage += kvp.Value;
+				if (!NoKillAwards)
+				{
+					GivePowerScrolls();
 
-                if (totalDamage >= randomDamage)
-                {
-                    GiveArtifact(kvp.Key, artifact);
-                    return;
-                }
-            }
+					Map map = this.Map;
 
-            artifact.Delete();
-        }
+					if (map != null)
+					{
+						for (int x = -7; x <= 7; ++x)
+						{
+							for (int y = -7; y <= 7; ++y)
+							{
+								double dist = Math.Sqrt(x * x + y * y);
+								if (dist <= 7)
+									new GoodiesTimer(map, X + x, Y + y).Start();
+							}
+						}
+					}
 
-        public void GiveArtifact(Mobile to, Item artifact)
-        {
-            if (to == null || artifact == null)
-                return;
+					m_DamageEntries = new Dictionary<Mobile, int>();
 
-            to.PlaySound(0x5B4);
+					foreach (Mobile m in m_Tentacles)
+					{
+						if (!m.Deleted)
+							m.Kill();
 
-            Container pack = to.Backpack;
+						RegisterDamageTo(m);
+					}
 
-            if (pack == null || !pack.TryDropItem(to, artifact, false))
-                artifact.Delete();
-            else
-                to.SendLocalizedMessage(1062317); // For your valor in combating the fallen beast, a special artifact has been bestowed on you.
-        }
+					m_Tentacles.Clear();
 
-        public bool IsEligible(Mobile m, Item Artifact)
-        {
-            return m.Player && m.Alive && m.InRange(Location, 32) && m.Backpack != null && m.Backpack.CheckHold(m, Artifact, false);
-        }
+					RegisterDamageTo(this);
 
-        public Item GetArtifact()
-        {
-            double random = Utility.RandomDouble();
-            if (0.05 >= random)
-                return CreateArtifact(UniqueList);
-            else if (0.15 >= random)
-                return CreateArtifact(SharedList);
-            else if (0.30 >= random)
-                return CreateArtifact(DecorativeList);
-            return null;
-        }
+					List<Mobile> eligible = rights
+						.Where(r => r.m_HasRight)
+						.Select(r => r.m_Mobile)
+						.OrderBy(x => Utility.RandomDouble())
+						.ToList();
 
-        public Item CreateArtifact(Type[] list)
-        {
-            if (list.Length == 0)
-                return null;
+					int artifactCount = 1;
+					if (Utility.RandomDouble() < 0.03)
+						artifactCount++;
+					if (Utility.RandomDouble() < 0.01)
+						artifactCount++;
 
-            int random = Utility.Random(list.Length);
+					for (int i = 0; i < artifactCount && i < eligible.Count; i++)
+					{
+						Mobile m = eligible[i];
+						Type artType = Utility.RandomList(ArtifactHelper.AllArtifactsCurrentSeason);
+						Item artifact = Loot.Construct(artType);
+						ArtifactHelper.GiveArtifact(m, artifact);
+					}
 
-            Type type = list[random];
+					if (m_GateItem != null)
+						m_GateItem.Delete();
+				}
 
-            return Loot.Construct(type);
-        }
+				return base.OnBeforeDeath();
+			}
+			else
+			{
+				Morph();
+				return false;
+			}
+		}
+		
+		Dictionary<Mobile, int> m_DamageEntries;
 
-        private class SpawnEntry
-        {
-            public readonly Point3D m_Location;
-            public readonly Point3D m_Entrance;
-            public SpawnEntry(Point3D loc, Point3D ent)
-            {
-                m_Location = loc;
-                m_Entrance = ent;
-            }
-        }
-    }
+		public virtual void RegisterDamageTo( Mobile m )
+		{
+			if ( m == null )
+				return;
+
+			foreach ( DamageEntry de in m.DamageEntries )
+			{
+				Mobile damager = de.Damager;
+
+				Mobile master = damager.GetDamageMaster( m );
+
+				if ( master != null )
+					damager = master;
+
+				RegisterDamage( damager, de.DamageGiven );
+			}
+		}
+
+		public void RegisterDamage( Mobile from, int amount )
+		{
+			if ( from == null || !from.Player )
+				return;
+
+			if ( m_DamageEntries.ContainsKey( from ) )
+				m_DamageEntries[from] += amount;
+			else
+				m_DamageEntries.Add( from, amount );
+
+			from.SendMessage( String.Format( "Total Damage: {0}", m_DamageEntries[from] ) );
+		}
+
+		public void AwardArtifact( Item artifact )
+		{
+			if ( artifact == null )
+				return;
+
+			int totalDamage = 0;
+
+			Dictionary<Mobile, int> validEntries = new Dictionary<Mobile, int>();
+
+			foreach ( KeyValuePair<Mobile, int> kvp in m_DamageEntries )
+			{
+				if ( IsEligible( kvp.Key, artifact ) )
+				{
+					validEntries.Add( kvp.Key, kvp.Value );
+					totalDamage += kvp.Value;
+				}
+			}
+
+			int randomDamage = Utility.RandomMinMax( 1, totalDamage );
+
+			totalDamage = 0;
+
+			foreach ( KeyValuePair<Mobile, int> kvp in m_DamageEntries )
+			{
+				totalDamage += kvp.Value;
+
+				if ( totalDamage > randomDamage )
+				{
+					GiveArtifact( kvp.Key, artifact );
+					break;
+				}
+			}
+		}
+
+		public void GiveArtifact( Mobile to, Item artifact )
+		{
+			if ( to == null || artifact == null )
+				return;
+
+			Container pack = to.Backpack;
+
+			if ( pack == null || !pack.TryDropItem( to, artifact, false ) )
+				artifact.Delete();
+			else
+				to.SendLocalizedMessage( 1062317 ); // For your valor in combating the fallen beast, a special artifact has been bestowed on you.
+		}
+
+		public bool IsEligible( Mobile m, Item Artifact )
+		{
+			return m.Player && m.Alive && m.InRange( Location, 32 ) && m.Backpack != null && m.Backpack.CheckHold( m, Artifact, false );
+		}
+
+		public Item GetArtifact()
+		{
+			double random = Utility.RandomDouble();
+			if ( 0.05 >= random )
+				return CreateArtifact( UniqueList );
+			else if ( 0.15 >= random )
+				return CreateArtifact( SharedList );
+			else if ( 0.30 >= random )
+				return CreateArtifact( DecorativeList );
+			return null;
+		}
+
+		public Item CreateArtifact( Type[] list )
+		{
+			if ( list.Length == 0 )
+				return null;
+
+			int random = Utility.Random( list.Length );
+
+			Type type = list[random];
+
+			return Loot.Construct( type );
+		}
+
+		private class TeleportTimer : Timer
+		{
+			private Mobile m_Owner;
+
+			private static int[] m_Offsets = new int[]
+			{
+				-1, -1,
+				-1,  0,
+				-1,  1,
+				0, -1,
+				0,  1,
+				1, -1,
+				1,  0,
+				1,  1
+			};
+
+			public TeleportTimer( Mobile owner ) : base( TimeSpan.FromSeconds( 5.0 ), TimeSpan.FromSeconds( 5.0 ) )
+			{
+				Priority = TimerPriority.TwoFiftyMS;
+
+				m_Owner = owner;
+			}
+
+			protected override void OnTick()
+			{
+				if ( m_Owner.Deleted )
+				{
+					Stop();
+					return;
+				}
+
+				Map map = m_Owner.Map;
+
+				if ( map == null )
+					return;
+
+				if ( 0.25 < Utility.RandomDouble() )
+					return;
+
+				Mobile toTeleport = null;
+
+				IPooledEnumerable eable = m_Owner.GetMobilesInRange( 16 );
+				foreach ( Mobile m in eable )
+				{
+					if ( m != m_Owner && m.Player && m_Owner.CanBeHarmful( m ) && m_Owner.CanSee( m ) )
+					{
+						toTeleport = m;
+						break;
+					}
+				}
+				eable.Free();
+
+				if ( toTeleport != null )
+				{
+					int offset = Utility.Random( 8 ) * 2;
+
+					Point3D to = m_Owner.Location;
+
+					for ( int i = 0; i < m_Offsets.Length; i += 2 )
+					{
+						int x = m_Owner.X + m_Offsets[(offset + i) % m_Offsets.Length];
+						int y = m_Owner.Y + m_Offsets[(offset + i + 1) % m_Offsets.Length];
+
+						if ( map.CanSpawnMobile( x, y, m_Owner.Z ) )
+						{
+							to = new Point3D( x, y, m_Owner.Z );
+							break;
+						}
+						else
+						{
+							int z = map.GetAverageZ( x, y );
+
+							if ( map.CanSpawnMobile( x, y, z ) )
+							{
+								to = new Point3D( x, y, z );
+								break;
+							}
+						}
+					}
+
+					Mobile m = toTeleport;
+
+					Point3D from = m.Location;
+
+					m.Location = to;
+
+					Server.Spells.SpellHelper.Turn( m_Owner, toTeleport );
+					Server.Spells.SpellHelper.Turn( toTeleport, m_Owner );
+
+					m.ProcessDelta();
+
+					Effects.SendLocationParticles( EffectItem.Create( from, m.Map, EffectItem.DefaultDuration ), 0x3728, 10, 10, 2023 );
+					Effects.SendLocationParticles( EffectItem.Create(   to, m.Map, EffectItem.DefaultDuration ), 0x3728, 10, 10, 5023 );
+
+					m.PlaySound( 0x1FE );
+
+					m_Owner.Combatant = toTeleport;
+				}
+			}
+		}
+
+		private class GoodiesTimer : Timer
+		{
+			private Map m_Map;
+			private int m_X, m_Y;
+
+			public GoodiesTimer( Map map, int x, int y ) : base( TimeSpan.FromSeconds( Utility.RandomDouble() * 10.0 ) )
+			{
+				Priority = TimerPriority.TwoFiftyMS;
+
+				m_Map = map;
+				m_X = x;
+				m_Y = y;
+			}
+
+			protected override void OnTick()
+			{
+				int z = m_Map.GetAverageZ( m_X, m_Y );
+				bool canFit = m_Map.CanFit( m_X, m_Y, z, 6, false, false );
+
+				for ( int i = -3; !canFit && i <= 3; ++i )
+				{
+					canFit = m_Map.CanFit( m_X, m_Y, z + i, 6, false, false );
+
+					if ( canFit )
+						z += i;
+				}
+
+				if ( !canFit )
+					return;
+
+				Gold g = new Gold( 750, 1250 );
+				
+				g.MoveToWorld( new Point3D( m_X, m_Y, z ), m_Map );
+
+				if ( 0.5 >= Utility.RandomDouble() )
+				{
+					switch ( Utility.Random( 3 ) )
+					{
+						case 0: // Fire column
+						{
+							Effects.SendLocationParticles( EffectItem.Create( g.Location, g.Map, EffectItem.DefaultDuration ), 0x3709, 10, 30, 5052 );
+							Effects.PlaySound( g, g.Map, 0x208 );
+
+							break;
+						}
+						case 1: // Explosion
+						{
+							Effects.SendLocationParticles( EffectItem.Create( g.Location, g.Map, EffectItem.DefaultDuration ), 0x36BD, 20, 10, 5044 );
+							Effects.PlaySound( g, g.Map, 0x307 );
+
+							break;
+						}
+						case 2: // Ball of fire
+						{
+							Effects.SendLocationParticles( EffectItem.Create( g.Location, g.Map, EffectItem.DefaultDuration ), 0x36FE, 10, 10, 5052 );
+
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
 }

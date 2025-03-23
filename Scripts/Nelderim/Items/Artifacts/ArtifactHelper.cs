@@ -143,6 +143,9 @@ namespace Server.Items
 		{
 			if (e.Creature is BaseCreature bc && _CreatureInfo.ContainsKey(bc.GetType()))
 			{
+				if (bc is Server.Mobiles.Harrower) // Wyłaczenie Harrowera z dropu, ma swoje wlasne zasady dropu w Harrower.cs
+					return;
+
 				DistributeArtifacts(bc);
 			}
 		}
