@@ -110,7 +110,7 @@ namespace Server.Items
 			_CreatureInfo.Add(typeof(BagusGagakCreeper), new ArtInfo(5, Rolls.One, ArtGroup.Miniboss));
 			_CreatureInfo.Add(typeof(VitVarg), new ArtInfo(5, Rolls.One, ArtGroup.Miniboss));
 			_CreatureInfo.Add(typeof(TilkiBug), new ArtInfo(5, Rolls.One, ArtGroup.Miniboss));
-			_CreatureInfo.Add(typeof(NelderimDragon), new ArtInfo(5.5, Rolls.One, ArtGroup.Miniboss));
+			_CreatureInfo.Add(typeof(NelderimDragon), new ArtInfo(7, Rolls.Three, ArtGroup.Miniboss));
 			_CreatureInfo.Add(typeof(ShimmeringEffusion), new ArtInfo(5, Rolls.Three, ArtGroup.Miniboss));
 			_CreatureInfo.Add(typeof(MonstrousInterredGrizzle), new ArtInfo(6, Rolls.One, ArtGroup.Miniboss));
 			_CreatureInfo.Add(typeof(NSilshashaszals), new ArtInfo(4, Rolls.One, ArtGroup.Miniboss));

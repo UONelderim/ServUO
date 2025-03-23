@@ -23,13 +23,13 @@ namespace Server.Mobiles
 			BaseSoundID = 362;
 			Hue = 1034;
 
-			SetStr(1196, 1225);
-			SetDex(200, 250);
-			SetInt(550, 600);
+			SetStr(1232, 1400);
+			SetDex(76, 82);
+			SetInt(76, 85);
 
-			SetHits(1500, 1600);
+			SetHits( 12000 );
 
-			SetDamage(35, 45);
+			SetDamage(35, 37);
 
 			SetDamageType(ResistanceType.Physical, 60);
 			SetDamageType(ResistanceType.Fire, 40);
