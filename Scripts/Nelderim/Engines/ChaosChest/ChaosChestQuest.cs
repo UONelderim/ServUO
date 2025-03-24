@@ -193,16 +193,16 @@ namespace Nelderim.Engines.ChaosChest
 			DropChanceOverride = reader.ReadDouble();
 		}
 
-		public static void AddLoot(BaseCreature baseCreature)
+		public static void AddLoot(BaseCreature bc)
 		{
-			if (baseCreature != null && baseCreature.Region != null &&
-			    baseCreature.Region.Name != null &&
-			    REGION_MAP.ContainsKey(baseCreature.Region.Name) &&
-			    REGION_MAP[baseCreature.Region.Name].Equals(CURRENT_STAGE))
+			if (bc != null && bc.Region != null &&
+			    bc.Region.Name != null &&
+			    REGION_MAP.ContainsKey(bc.Region.Name) &&
+			    REGION_MAP[bc.Region.Name].Equals(CURRENT_STAGE))
 			{
 				if (Utility.RandomDouble() < DROP_CHANCE)
 				{
-					baseCreature.AddToBackpack(new ChaosKey(CURRENT_STAGE));
+					bc.AddLoot(LootPack.LootItemCallback(_ => new ChaosKey(CURRENT_STAGE)));
 				}
 			}
 		}
