@@ -151,7 +151,7 @@ namespace Server.Items
 			}
 		}
 		
-		private static void DistributeArtifacts(BaseCreature creature)
+		public static void DistributeArtifacts(BaseCreature creature)
 		{
 			if (creature.Summoned || creature.NoKillAwards)
 				return;

@@ -13,23 +13,9 @@ namespace Server.Mobiles
 
         private static readonly SpawnEntry[] m_Entries =
         {
-            new SpawnEntry(new Point3D(5242, 945, -40), new Point3D(1176, 2638, 0)), // Destard
-            new SpawnEntry(new Point3D(5225, 798, 0), new Point3D(1176, 2638, 0)), // Destard
-            new SpawnEntry(new Point3D(5556, 886, 30), new Point3D(1298, 1080, 0)), // Despise
-            new SpawnEntry(new Point3D(5187, 615, 0), new Point3D(4111, 432, 5)), // Deceit
-            new SpawnEntry(new Point3D(5319, 583, 0), new Point3D(4111, 432, 5)), // Deceit
-            new SpawnEntry(new Point3D(5713, 1334, -1), new Point3D(2923, 3407, 8)), // Fire
-            new SpawnEntry(new Point3D(5860, 1460, -2), new Point3D(2923, 3407, 8)), // Fire
-            new SpawnEntry(new Point3D(5328, 1620, 0), new Point3D(5451, 3143, -60)), // Terathan Keep
-            new SpawnEntry(new Point3D(5690, 538, 0), new Point3D(2042, 224, 14)), // Wrong
-            new SpawnEntry(new Point3D(5609, 195, 0), new Point3D(514, 1561, 0)), // Shame
-            new SpawnEntry(new Point3D(5475, 187, 0), new Point3D(514, 1561, 0)), // Shame
-            new SpawnEntry(new Point3D(6085, 179, 0), new Point3D(4721, 3822, 0)), // Hythloth
-            new SpawnEntry(new Point3D(6084, 66, 0), new Point3D(4721, 3822, 0)), // Hythloth
-            /*new SpawnEntry(new Point3D(5499, 2003, 0), new Point3D(2499, 919, 0)), // Covetous*/
-            new SpawnEntry(new Point3D(5579, 1858, 0), new Point3D(2499, 919, 0))// Covetous
+	        new(new Point3D(5526, 589, 5), new Point3D(5525, 681, 5))
         };
-        private static readonly ArrayList m_Instances = new ArrayList();
+        private static readonly List<Harrower> m_Instances = [];
         private static readonly double[] m_Offsets =
         {
             Math.Cos(000.0 / 180.0 * Math.PI), Math.Sin(000.0 / 180.0 * Math.PI),
@@ -42,6 +28,8 @@ namespace Server.Mobiles
             Math.Cos(280.0 / 180.0 * Math.PI), Math.Sin(280.0 / 180.0 * Math.PI),
             Math.Cos(320.0 / 180.0 * Math.PI), Math.Sin(320.0 / 180.0 * Math.PI),
         };
+
+        private const int PowerScrollAmount = 6;
 
         private bool m_TrueForm;
         private bool m_IsSpawned;
@@ -86,8 +74,6 @@ namespace Server.Mobiles
             : base(serial)
         {
         }
-
-        public static ArrayList Instances => m_Instances;
 
         public static bool CanSpawn => (m_Instances.Count == 0);
 
@@ -136,8 +122,7 @@ namespace Server.Mobiles
 
         public override void GenerateLoot()
         {
-            AddLoot(LootPack.SuperBoss, 2);
-            AddLoot(LootPack.Meager);
+	        AddLoot(LootPack.LootItem<ParoxysmusSwampDragonStatuette>(15));
         }
 
         public void Morph()
@@ -261,12 +246,12 @@ namespace Server.Mobiles
                 toGive[rand] = hold;
             }
 
-            for (int i = 0; i < ChampionSystem.StatScrollAmount; ++i)
+            for (int i = 0; i < PowerScrollAmount; ++i)
             {
                 Mobile m = toGive[i % toGive.Count];
 
                 m.SendLocalizedMessage(1049524); // You have received a scroll of power!
-                m.AddToBackpack(new StatCapScroll(m_StatCap + RandomStatScrollLevel()));
+                m.AddToBackpack(RandomPowerScroll(i == 0));
 
                 if (m is PlayerMobile)
                 {
@@ -297,26 +282,27 @@ namespace Server.Mobiles
                         if (chance > Utility.Random(100))
                         {
                             prot.SendLocalizedMessage(1049368); // You have been rewarded for your dedication to Justice!
-                            prot.AddToBackpack(new StatCapScroll(m_StatCap + RandomStatScrollLevel()));
+                            prot.AddToBackpack(RandomPowerScroll());
                         }
                     }
                 }
             }
         }
 
-        private static int RandomStatScrollLevel()
+        //First is always 120
+        private static PowerScroll RandomPowerScroll(bool first = false)
         {
-            double random = Utility.RandomDouble();
+	        int level;
+	        double random = Utility.RandomDouble();
 
-            if (0.1 >= random)
-                return 25;
-            else if (0.25 >= random)
-                return 20;
-            else if (0.45 >= random)
-                return 15;
-            else if (0.70 >= random)
-                return 10;
-            return 5;
+	        if (0.05 >= random || first)
+		        level = 20;
+	        else if (0.3 >= random)
+		        level = 15;
+	        else
+		        level = 10;
+
+	        return PowerScroll.CreateRandomNoCraft(level, level);
         }
 
         public override bool OnBeforeDeath()
@@ -354,7 +340,12 @@ namespace Server.Mobiles
                     m_Tentacles.Clear();
 
                     RegisterDamageTo(this);
-                    AwardArtifact(GetArtifact());
+                    
+                    //Two extra chances for artifact
+                    if (Utility.RandomDouble() < 0.03) 
+	                    ArtifactHelper.DistributeArtifacts(this);
+                    if (Utility.RandomDouble() < 0.01) 
+	                    ArtifactHelper.DistributeArtifacts(this);
 
                     if (m_GateItem != null)
                         m_GateItem.Delete();
@@ -399,87 +390,7 @@ namespace Server.Mobiles
 
             from.SendMessage(string.Format("Total Damage: {0}", m_DamageEntries[from]));
         }
-
-        public void AwardArtifact(Item artifact)
-        {
-            if (artifact == null)
-                return;
-
-            int totalDamage = 0;
-
-            Dictionary<Mobile, int> validEntries = new Dictionary<Mobile, int>();
-
-            foreach (KeyValuePair<Mobile, int> kvp in m_DamageEntries)
-            {
-                if (IsEligible(kvp.Key, artifact))
-                {
-                    validEntries.Add(kvp.Key, kvp.Value);
-                    totalDamage += kvp.Value;
-                }
-            }
-
-            int randomDamage = Utility.RandomMinMax(1, totalDamage);
-
-            totalDamage = 0;
-
-            foreach (KeyValuePair<Mobile, int> kvp in validEntries)
-            {
-                totalDamage += kvp.Value;
-
-                if (totalDamage >= randomDamage)
-                {
-                    GiveArtifact(kvp.Key, artifact);
-                    return;
-                }
-            }
-
-            artifact.Delete();
-        }
-
-        public void GiveArtifact(Mobile to, Item artifact)
-        {
-            if (to == null || artifact == null)
-                return;
-
-            to.PlaySound(0x5B4);
-
-            Container pack = to.Backpack;
-
-            if (pack == null || !pack.TryDropItem(to, artifact, false))
-                artifact.Delete();
-            else
-                to.SendLocalizedMessage(1062317); // For your valor in combating the fallen beast, a special artifact has been bestowed on you.
-        }
-
-        public bool IsEligible(Mobile m, Item Artifact)
-        {
-            return m.Player && m.Alive && m.InRange(Location, 32) && m.Backpack != null && m.Backpack.CheckHold(m, Artifact, false);
-        }
-
-        public Item GetArtifact()
-        {
-            double random = Utility.RandomDouble();
-            if (0.05 >= random)
-                return CreateArtifact(UniqueList);
-            else if (0.15 >= random)
-                return CreateArtifact(SharedList);
-            else if (0.30 >= random)
-                return CreateArtifact(DecorativeList);
-            return null;
-        }
-
-        public Item CreateArtifact(Type[] list)
-        {
-            if (list.Length == 0)
-                return null;
-
-            int random = Utility.Random(list.Length);
-
-            Type type = list[random];
-
-            return Loot.Construct(type);
-        }
-
+        
         private class SpawnEntry
         {
             public readonly Point3D m_Location;
