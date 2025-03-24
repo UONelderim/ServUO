@@ -67,10 +67,13 @@ namespace Server.Mobiles
 		{
 			if (!IsBonded && !corpse.Carved && !IsChampionSpawn)
 			{
+				corpse.Carved = true;
+
 				corpse.DropItem(new NSerceKatrilla());
 
 				if (Utility.RandomDouble() < 0.20)
 					corpse.DropItem(new Bloodspawn());
+
 				if (Utility.RandomDouble() < 0.50)
 					corpse.DropItem(new DaemonBone());
 			}
