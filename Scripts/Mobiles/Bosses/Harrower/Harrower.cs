@@ -68,6 +68,7 @@ namespace Server.Mobiles
             SetSkill(SkillName.Meditation, 120.0);
 
             m_Tentacles = new List<HarrowerTentacles>();
+            StartTeleportTimer();
         }
 
         public Harrower(Serial serial)
@@ -192,6 +193,7 @@ namespace Server.Mobiles
         public override void OnAfterDelete()
         {
             m_Instances.Remove(this);
+            _TeleportTimer?.Stop();
 
             base.OnAfterDelete();
         }
@@ -219,6 +221,8 @@ namespace Server.Mobiles
 
             if (m_IsSpawned)
                 m_Instances.Add(this);
+            
+            StartTeleportTimer();
         }
 
         public void GivePowerScrolls()
@@ -359,7 +363,7 @@ namespace Server.Mobiles
                 return false;
             }
         }
-
+        
         public virtual void RegisterDamageTo(Mobile m)
         {
             if (m == null)
@@ -389,6 +393,96 @@ namespace Server.Mobiles
                 m_DamageEntries.Add(from, amount);
 
             from.SendMessage(string.Format("Total Damage: {0}", m_DamageEntries[from]));
+        }
+
+        private Timer _TeleportTimer;
+
+        private void StartTeleportTimer()
+        {
+	        _TeleportTimer = Timer.DelayCall(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5), DoTeleport);
+        }
+
+        private void DoTeleport()
+        {
+	        if (Deleted)
+		        return;
+	        
+            if (Map == null)
+                return;
+
+            if (Utility.RandomDouble() > 0.25)
+                return;
+
+            Mobile target = null;
+
+            IPooledEnumerable eable = GetMobilesInRange(16);
+            foreach (Mobile m in eable)
+            {
+                if (m != this && m.Player && CanBeHarmful(m) && CanSee(m))
+                {
+                    target = m;
+                    break;
+                }
+            }
+
+            eable.Free();
+
+            if (target != null)
+            {
+                Point3D teleportLocation = Location;
+
+                for (int i = 0; i < 5; i += 2)
+                {
+                    // <-1, 1>
+                    var offsetX = Utility.Random(-1, 3);
+                    var offsetY = Utility.Random(-1, 3);
+                    
+                    if(offsetX == 0 && offsetY == 0)
+	                    continue;
+
+                    var x = Location.X + offsetX;
+                    var y = Location.Y + offsetY;
+
+                    if (Map.CanSpawnMobile(x, y, Z))
+                    {
+                        teleportLocation = new Point3D(x, y, Z);
+                        break;
+                    }
+
+                    int z = Map.GetAverageZ(x, y);
+
+                    if (Map.CanSpawnMobile(x, y, z))
+                    {
+	                    teleportLocation = new Point3D(x, y, z);
+	                    break;
+                    }
+                }
+
+                var from = target.Location;
+                
+                target.Location = teleportLocation;
+
+                Spells.SpellHelper.Turn(this, target);
+                Spells.SpellHelper.Turn(target, this);
+
+                target.ProcessDelta();
+
+                Effects.SendLocationParticles(EffectItem.Create(from, target.Map, EffectItem.DefaultDuration),
+                    0x3728,
+                    10,
+                    10,
+                    2023);
+                
+                Effects.SendLocationParticles(EffectItem.Create(teleportLocation, target.Map, EffectItem.DefaultDuration),
+                    0x3728,
+                    10,
+                    10,
+                    5023);
+
+                target.PlaySound(0x1FE);
+
+                Combatant = target;
+            }
         }
         
         private class SpawnEntry
