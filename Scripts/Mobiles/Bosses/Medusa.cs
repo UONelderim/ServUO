@@ -95,8 +95,6 @@ namespace Server.Mobiles
                 corpse.DropItem(new MedusaBlood());
 
             base.OnCarve(from, corpse, with);
-
-            corpse.Carved = true;
         }
 
         public override void OnGotMeleeAttack(Mobile m)

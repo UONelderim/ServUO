@@ -2171,7 +2171,7 @@ namespace Server.Mobiles
                     from.SendLocalizedMessage(1112765); // You shear it, and the fur is now on the corpse.
                 }
 
-                corpse.Carved = true;
+                
                 EventSink.InvokeCreatureCarved(new CreatureCarvedEventArgs(from, this, with));
 
                 if (corpse.IsCriminalAction(from))
@@ -2179,6 +2179,7 @@ namespace Server.Mobiles
                     from.CriminalAction(true);
                 }
             }
+            corpse.Carved = true;
         }
 
         public const int DefaultRangePerception = 16;

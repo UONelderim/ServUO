@@ -71,15 +71,13 @@ namespace Server.Mobiles
 
         public override void OnCarve(Mobile from, Corpse corpse, Item with)
         {
-            if (corpse.Carved == false)
+            if (!corpse.Carved)
             {
-                base.OnCarve(from, corpse, with);
-
                 corpse.AddCarvedItem(new Gold(Utility.RandomMinMax(26, 100)), from);
-
-                from.SendMessage("You carve up gold.");
-                corpse.Carved = true;
+                from.SendMessage("Wyciales troche zlota.");
             }
+            
+            base.OnCarve(from, corpse, with);
         }
 
         public override bool CanRummageCorpses => true;

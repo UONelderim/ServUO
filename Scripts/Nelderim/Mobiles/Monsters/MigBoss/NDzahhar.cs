@@ -65,8 +65,7 @@ namespace Server.Mobiles
 		{
 			if (!IsBonded && !corpse.Carved && !IsChampionSpawn)
 			{
-				corpse.Carved = true;
-
+				from.SendMessage("Wyciales serce demona");
 				corpse.DropItem(new NSerceDzahhara());
 
 				if (Utility.RandomDouble() < 0.20)
