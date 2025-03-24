@@ -230,12 +230,12 @@ namespace Server.Regions
 
         public override void GetContextMenuEntries(Mobile from, List<ContextMenuEntry> list, Item item)
         {
-            if (House.IsOwner(from) && item.Parent == null &&
-                (House.IsLockedDown(item) || House.IsSecure(item)) &&
-                !House.Addons.ContainsKey(item))
-            {
-                list.Add(new ReleaseEntry(from, item, House));
-            }
+            // if (House.IsOwner(from) && item.Parent == null &&
+            //     (House.IsLockedDown(item) || House.IsSecure(item)) &&
+            //     !House.Addons.ContainsKey(item))
+            // {
+            //     list.Add(new ReleaseEntry(from, item, House));
+            // }
 
             if (item is BaseContainer && House.IsSecure(item) &&
                 !House.IsLockedDown(item) && item.Parent == null && House.IsOwner(from) &&
