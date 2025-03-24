@@ -296,7 +296,12 @@ namespace Server.Items
                 m_Props.Set(25, true); // Only bows can be Balanced
                 m_Props.Set(26, true); // Only bows have Velocity
             }
-
+            
+            for (int i = 16; i < 22; i++)
+            {
+	            m_Props.Set( i, true ); // disable LowerStatReq and resists for weapons
+            }
+            
             for (int i = 0; i < attributeCount; ++i)
             {
                 int random = GetUniqueRandom(27);
@@ -502,13 +507,15 @@ namespace Server.Items
 
             if (!isShield && armor.MeditationAllowance == ArmorMeditationAllowance.All)
                 m_Props.Set(3, true); // remove mage armor from possible properties
-            if (armor.Resource >= CraftResource.RegularLeather && armor.Resource <= CraftResource.BarbedLeather)
+
+            if (isShield)
             {
-                m_Props.Set(0, true); // remove lower requirements from possible properties for leather armor
-                m_Props.Set(2, true); // remove durability bonus from possible properties
+	            m_Props.Set(3, true); // remove lower stat req from shields
             }
-            if (Race.Elf.IsExclusiveEquipment(armor))
-                m_Props.Set(7, true); // elves inherently have night sight and elf only armor doesn't get night sight as a mod
+            else
+            {
+	            m_Props.Set(0, true); // remove lower stat req from armors
+            }
 
             for (int i = 0; i < attributeCount; ++i)
             {
@@ -521,7 +528,7 @@ namespace Server.Items
 
                 switch (random)
                 {
-                    /* Begin Sheilds */
+                    /* Begin Shields */
                     case 0:
                         ApplyAttribute(primary, min, max, AosAttribute.SpellChanneling, 1, 1);
                         break;
@@ -631,6 +638,7 @@ namespace Server.Items
             AosElementAttributes resists = hat.Resistances;
 
             m_Props.SetAll(false);
+            m_Props.Set(11, true); //Disable Lower Stat Req
 
             for (int i = 0; i < attributeCount; ++i)
             {
