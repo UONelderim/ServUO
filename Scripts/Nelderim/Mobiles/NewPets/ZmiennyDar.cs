@@ -34,6 +34,7 @@ namespace Server.Mobiles
 
 
             SetSkill(SkillName.Meditation, 95.1, 110.0);
+            SetSkill(SkillName.Magery, 95.1, 105.0);
             SetSkill(SkillName.EvalInt, 110.1, 120.0);
             SetSkill(SkillName.MagicResist, 99.1, 100.0);
             SetSkill(SkillName.Tactics, 90.1, 100.0);
