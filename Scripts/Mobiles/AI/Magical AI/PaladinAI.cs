@@ -9,7 +9,6 @@ namespace Server.Mobiles
     public class PaladinAI : MageAI
     {
         private DateTime m_NextDispelTime = DateTime.UtcNow;
-        private readonly TimeSpan m_DispelCooldown = TimeSpan.FromSeconds(30); // 30 second cooldown
 
         public override SkillName CastSkill => SkillName.Chivalry;
         public override bool UsesMagery => false;
@@ -29,28 +28,23 @@ namespace Server.Mobiles
 
         public override Spell GetRandomCurseSpell()
         {
-            // Ensure we have enough mana to cast (DispelEvil costs 10 mana)
             if (m_Mobile.Mana < 10)
                 return null;
                 
-            // If cooldown hasn't expired, don't cast
             if (DateTime.UtcNow < m_NextDispelTime)
                 return null;
                 
-            // Ensure we have a valid target
             if (m_Mobile.Combatant is not BaseCreature bc)
                 return null;
             
             var dispellable = bc.Summoned && !bc.IsAnimatedDead;
-            var evil = !bc.Controlled && bc.Karma < -5000; // Require significantly negative karma
-            var isRevenant = bc is Revenant; // Check if target is a Revenant
+            var evil = !bc.Controlled && bc.Karma < -5000; 
+            var isRevenant = bc is Revenant;
             
-            // Add randomization factor (15% chance to cast when conditions are met)
             if ((dispellable || evil || isRevenant) && Utility.RandomDouble() < 0.15)
             {
-                // Set the cooldown timer
-                m_NextDispelTime = DateTime.UtcNow + m_DispelCooldown;
-                return new DispelEvilSpell(m_Mobile, null);
+	            m_NextDispelTime = DateTime.UtcNow + TimeSpan.FromSeconds(30);;
+	            return new DispelEvilSpell(m_Mobile, null);
             }
 
             return null;
