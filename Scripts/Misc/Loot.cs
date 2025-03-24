@@ -374,308 +374,103 @@ namespace Server
             return Construct(m_NewWandTypes) as BaseWand;
         }
 
-        public static BaseClothing RandomClothing(bool inTokuno = false, bool isMondain = false, bool isStygian = false)
+        public static BaseClothing RandomClothing()
         {
-            if (isStygian)
-            {
-                return Construct(m_SAClothingTypes, m_ClothingTypes) as BaseClothing;
-            }
-
-            if (isMondain)
-            {
-                return Construct(m_MLClothingTypes, m_ClothingTypes) as BaseClothing;
-            }
-
-            if (inTokuno)
-            {
-                return Construct(m_SEClothingTypes, m_ClothingTypes) as BaseClothing;
-            }
-
-            return Construct(m_ClothingTypes) as BaseClothing;
+	        return Construct(m_MLClothingTypes, m_SEClothingTypes, m_ClothingTypes) as BaseClothing;
         }
 
-        public static BaseWeapon RandomRangedWeapon(bool inTokuno = false, bool isMondain = false, bool isStygian = false)
+        public static BaseWeapon RandomRangedWeapon()
         {
-            if (isStygian)
-            {
-                return Construct(m_SARangedWeaponTypes, m_RangedWeaponTypes) as BaseWeapon;
-            }
-
-            if (isMondain)
-            {
-                return Construct(m_MLRangedWeaponTypes, m_RangedWeaponTypes) as BaseWeapon;
-            }
-
-            if (inTokuno)
-            {
-                return Construct(m_SERangedWeaponTypes, m_RangedWeaponTypes) as BaseWeapon;
-            }
-
-            return Construct(m_RangedWeaponTypes) as BaseWeapon;
+	        return Construct(m_SARangedWeaponTypes,
+		        m_MLRangedWeaponTypes,
+		        m_SERangedWeaponTypes,
+		        m_RangedWeaponTypes) as BaseWeapon;
         }
 
-        public static BaseWeapon RandomWeapon(bool inTokuno = false, bool isMondain = false, bool isStygian = false)
+        public static BaseWeapon RandomWeapon()
         {
-            if (isStygian)
-            {
-                return Construct(m_SAWeaponTypes, m_WeaponTypes) as BaseWeapon;
-            }
-
-            if (isMondain)
-            {
-                return Construct(m_MLWeaponTypes, m_WeaponTypes) as BaseWeapon;
-            }
-
-            if (inTokuno)
-            {
-                return Construct(m_SEWeaponTypes, m_WeaponTypes) as BaseWeapon;
-            }
-
-            return Construct(m_WeaponTypes) as BaseWeapon;
+	        return Construct(m_MLWeaponTypes, m_SEWeaponTypes, m_WeaponTypes) as BaseWeapon;
         }
 
-        public static Item RandomWeaponOrJewelry(bool inTokuno = false, bool isMondain = false, bool isStygian = false)
+        public static Item RandomWeaponOrJewelry()
         {
-            if (isStygian)
-            {
-                return Construct(m_SAWeaponTypes, m_WeaponTypes, m_JewelryTypes, m_SAJewelryTypes);
-            }
-
-            if (isMondain)
-            {
-                return Construct(m_MLWeaponTypes, m_WeaponTypes, m_JewelryTypes);
-            }
-
-            if (inTokuno)
-            {
-                return Construct(m_SEWeaponTypes, m_WeaponTypes, m_JewelryTypes);
-            }
-
-            return Construct(m_WeaponTypes, m_JewelryTypes);
+	        return Construct(m_SEWeaponTypes, m_WeaponTypes, m_MLWeaponTypes, m_JewelryTypes);
         }
 
-        public static BaseJewel RandomJewelry(bool isStygian = false)
+        public static BaseJewel RandomJewelry()
         {
-            if (isStygian)
-            {
-                return Construct(m_SAJewelryTypes, m_JewelryTypes) as BaseJewel;
-            }
-
-            return Construct(m_JewelryTypes) as BaseJewel;
+	        return Construct(m_JewelryTypes) as BaseJewel;
         }
 
-        public static BaseArmor RandomArmor(bool inTokuno = false, bool isMondain = false, bool isStygian = false)
+        public static BaseArmor RandomArmor()
         {
-            if (isStygian)
-            {
-                return Construct(m_SAArmorTypes, m_ArmorTypes) as BaseArmor;
-            }
-
-            if (isMondain)
-            {
-                return Construct(m_MLArmorTypes, m_ArmorTypes) as BaseArmor;
-            }
-
-            if (inTokuno)
-            {
-                return Construct(m_SEArmorTypes, m_ArmorTypes) as BaseArmor;
-            }
-
-            return Construct(m_ArmorTypes) as BaseArmor;
+	        return Construct(m_MLArmorTypes, m_SEArmorTypes, m_ArmorTypes) as BaseArmor;
         }
 
-        public static BaseHat RandomHat(bool inTokuno = false)
+        public static BaseHat RandomHat()
         {
-            if (inTokuno)
-            {
-                return Construct(m_SEHatTypes, m_HatTypes) as BaseHat;
-            }
-
-            return Construct(m_HatTypes) as BaseHat;
+	        return Construct(m_HatTypes, m_SEHatTypes) as BaseHat;
         }
 
-        public static Item RandomArmorOrHat(bool inTokuno = false, bool isMondain = false, bool isStygian = false)
+        public static Item RandomArmorOrHat()
         {
-            if (isStygian)
-            {
-                return Construct(m_SAArmorTypes, m_ArmorTypes, m_HatTypes);
-            }
-
-            if (isMondain)
-            {
-                return Construct(m_MLArmorTypes, m_ArmorTypes, m_HatTypes);
-            }
-
-            if (inTokuno)
-            {
-                return Construct(m_SEArmorTypes, m_ArmorTypes, m_SEHatTypes, m_HatTypes);
-            }
-
-            return Construct(m_ArmorTypes, m_HatTypes);
+	        return Construct(m_MLArmorTypes, m_SEArmorTypes, m_ArmorTypes, m_SEHatTypes, m_HatTypes);
         }
 
-        public static BaseShield RandomShield(bool isStygian = false)
+        public static BaseShield RandomShield()
         {
-            if (isStygian)
-            {
-                return Construct(m_ShieldTypes, m_SAShieldTypes) as BaseShield;
-            }
-
-            return Construct(m_ShieldTypes) as BaseShield;
+	        return Construct(m_ShieldTypes) as BaseShield;
         }
 
-        public static BaseArmor RandomArmorOrShield(bool inTokuno = false, bool isMondain = false, bool isStygian = false)
+        public static BaseArmor RandomArmorOrShield()
         {
-            if (isStygian)
-            {
-                return Construct(m_SAArmorTypes, m_ArmorTypes, m_ShieldTypes, m_SAShieldTypes) as BaseArmor;
-            }
-
-            if (isMondain)
-            {
-                return Construct(m_MLArmorTypes, m_ArmorTypes, m_ShieldTypes) as BaseArmor;
-            }
-
-            if (inTokuno)
-            {
-                return Construct(m_SEArmorTypes, m_ArmorTypes, m_ShieldTypes) as BaseArmor;
-            }
-
-            return Construct(m_ArmorTypes, m_ShieldTypes) as BaseArmor;
+	        return Construct(m_MLArmorTypes, m_SEArmorTypes, m_ArmorTypes, m_ShieldTypes) as BaseArmor;
         }
 
-        public static Item RandomArmorOrShieldOrJewelry(bool inTokuno = false, bool isMondain = false, bool isStygian = false)
+        public static Item RandomArmorOrShieldOrJewelry()
         {
-            if (isStygian)
-            {
-                return Construct(m_SAArmorTypes, m_ArmorTypes, m_HatTypes, m_ShieldTypes, m_JewelryTypes, m_SAJewelryTypes, m_SAShieldTypes);
-            }
-
-            if (isMondain)
-            {
-                return Construct(m_MLArmorTypes, m_ArmorTypes, m_HatTypes, m_ShieldTypes, m_JewelryTypes);
-            }
-
-            if (inTokuno)
-            {
-                return Construct(
-                    m_SEArmorTypes,
-                    m_ArmorTypes,
-                    m_SEHatTypes,
-                    m_HatTypes,
-                    m_ShieldTypes,
-                    m_JewelryTypes);
-            }
-
-            return Construct(m_ArmorTypes, m_HatTypes, m_ShieldTypes, m_JewelryTypes);
+	        return Construct(m_MLArmorTypes,
+		        m_SEArmorTypes,
+		        m_ArmorTypes,
+		        m_SEHatTypes,
+		        m_HatTypes,
+		        m_ShieldTypes,
+		        m_JewelryTypes);
         }
 
-        public static Item RandomArmorOrShieldOrWeapon(bool inTokuno = false, bool isMondain = false, bool isStygian = false)
+        public static Item RandomArmorOrShieldOrWeapon()
         {
-            if (isStygian)
-                return Construct(
-                    m_SAWeaponTypes,
-                    m_WeaponTypes,
-                    m_SARangedWeaponTypes,
-                    m_RangedWeaponTypes,
-                    m_SAArmorTypes,
-                    m_ArmorTypes,
-                    m_HatTypes,
-                    m_ShieldTypes,
-                    m_SAShieldTypes);
-
-            if (isMondain)
-            {
-                return Construct(
-                    m_MLWeaponTypes,
-                    m_WeaponTypes,
-                    m_MLRangedWeaponTypes,
-                    m_RangedWeaponTypes,
-                    m_MLArmorTypes,
-                    m_ArmorTypes,
-                    m_HatTypes,
-                    m_ShieldTypes);
-            }
-
-            if (inTokuno)
-            {
-                return Construct(
-                    m_SEWeaponTypes,
-                    m_WeaponTypes,
-                    m_SERangedWeaponTypes,
-                    m_RangedWeaponTypes,
-                    m_SEArmorTypes,
-                    m_ArmorTypes,
-                    m_SEHatTypes,
-                    m_HatTypes,
-                    m_ShieldTypes);
-            }
-
-            return Construct(
-                m_WeaponTypes,
-                m_RangedWeaponTypes,
-                m_ArmorTypes,
-                m_HatTypes,
-                m_ShieldTypes);
+	        return Construct(m_MLWeaponTypes,
+		        m_SEWeaponTypes,
+		        m_WeaponTypes,
+		        m_SARangedWeaponTypes,
+		        m_MLRangedWeaponTypes,
+		        m_SERangedWeaponTypes,
+		        m_RangedWeaponTypes,
+		        m_MLArmorTypes,
+		        m_SEArmorTypes,
+		        m_ArmorTypes,
+		        m_SEHatTypes,
+		        m_HatTypes,
+		        m_ShieldTypes);
         }
 
-        public static Item RandomArmorOrShieldOrWeaponOrJewelry(bool inTokuno = false, bool isMondain = false, bool isStygian = false)
+        public static Item RandomArmorOrShieldOrWeaponOrJewelry()
         {
-            if (isStygian)
-            {
-                return Construct(
-
-                    m_SAWeaponTypes,
-                    m_WeaponTypes,
-                    m_SARangedWeaponTypes,
-                    m_RangedWeaponTypes,
-                    m_SAArmorTypes,
-                    m_ArmorTypes,
-                    m_HatTypes,
-                    m_ShieldTypes,
-                    m_JewelryTypes,
-                    m_SAJewelryTypes,
-                    m_SAShieldTypes);
-            }
-
-            if (isMondain)
-            {
-                return Construct(
-
-                    m_MLWeaponTypes,
-                    m_WeaponTypes,
-                    m_MLRangedWeaponTypes,
-                    m_RangedWeaponTypes,
-                    m_MLArmorTypes,
-                    m_ArmorTypes,
-                    m_HatTypes,
-                    m_ShieldTypes,
-                    m_JewelryTypes);
-            }
-
-            if (inTokuno)
-            {
-                return Construct(
-
-                    m_SEWeaponTypes,
-                    m_WeaponTypes,
-                    m_SERangedWeaponTypes,
-                    m_RangedWeaponTypes,
-                    m_SEArmorTypes,
-                    m_ArmorTypes,
-                    m_SEHatTypes,
-                    m_HatTypes,
-                    m_ShieldTypes,
-                    m_JewelryTypes);
-            }
-
-            return Construct(
-                m_WeaponTypes,
-                m_RangedWeaponTypes,
-                m_ArmorTypes,
-                m_HatTypes,
-                m_ShieldTypes,
-                m_JewelryTypes);
+	        return Construct(m_MLWeaponTypes,
+		        m_SEWeaponTypes,
+		        m_WeaponTypes,
+		        m_SARangedWeaponTypes,
+		        m_MLRangedWeaponTypes,
+		        m_SERangedWeaponTypes,
+		        m_RangedWeaponTypes,
+		        m_MLArmorTypes,
+		        m_SEArmorTypes,
+		        m_ArmorTypes,
+		        m_SEHatTypes,
+		        m_HatTypes,
+		        m_ShieldTypes,
+		        m_JewelryTypes);
         }
 
         #region Chest of Heirlooms

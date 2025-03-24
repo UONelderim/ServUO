@@ -111,7 +111,7 @@ namespace Server.Engines.Quests
 
         public static Item RangedWeapon()
         {
-            BaseWeapon item = Loot.RandomRangedWeapon(false, true);
+            BaseWeapon item = Loot.RandomRangedWeapon();
             ApplyMods(item);
 
             return item;
@@ -124,7 +124,7 @@ namespace Server.Engines.Quests
 
         public static Item Armor()
         {
-            BaseArmor item = Loot.RandomArmor(false, true);
+            BaseArmor item = Loot.RandomArmor();
             ApplyMods(item);
 
             return item;
@@ -137,7 +137,7 @@ namespace Server.Engines.Quests
 
         public static Item Weapon()
         {
-            BaseWeapon item = Loot.RandomWeapon(false, true);
+            BaseWeapon item = Loot.RandomWeapon();
             ApplyMods(item);
 
             return item;

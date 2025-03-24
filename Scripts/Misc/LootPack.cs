@@ -797,46 +797,6 @@ namespace Server
 
         public bool StandardLootItem { get; set; }
 
-        public static bool IsInTokuno(IEntity e)
-        {
-            if (e == null)
-            {
-                return false;
-            }
-
-            Region r = Region.Find(e.Location, e.Map);
-
-            if (r.IsPartOf("Fan Dancer's Dojo"))
-            {
-                return true;
-            }
-
-            if (r.IsPartOf("Yomotsu Mines"))
-            {
-                return true;
-            }
-
-            return e.Map == Map.Tokuno;
-        }
-
-        public static bool IsMondain(IEntity e)
-        {
-            if (e == null)
-                return false;
-
-            return MondainsLegacy.IsMLRegion(Region.Find(e.Location, e.Map));
-        }
-
-        public static bool IsStygian(IEntity e)
-        {
-	        if (!NConfig.Loot.SALootEnabled)
-		        return false;
-            if (e == null)
-                return false;
-
-            return e.Map == Map.TerMur || (!IsInTokuno(e) && !IsMondain(e) && Utility.RandomBool());
-        }
-
         public bool CanGenerate(LootStage stage, bool hasBeenStolenFrom)
         {
             switch (stage)
@@ -883,7 +843,7 @@ namespace Server
                     }
                     else
                     {
-                        loot = item.Construct(IsInTokuno(from), IsMondain(from), IsStygian(from));
+                        loot = item.Construct();
                     }
 
                     if (loot != null)
@@ -1145,7 +1105,7 @@ namespace Server
 
         public Func<IEntity, Item> ConstructCallback { get; set; }
 
-        public Item Construct(bool inTokuno, bool isMondain, bool isStygian)
+        public Item Construct()
         {
             try
             {
@@ -1153,23 +1113,23 @@ namespace Server
 
                 if (Type == typeof(BaseRanged))
                 {
-                    item = Loot.RandomRangedWeapon(inTokuno, isMondain, isStygian);
+                    item = Loot.RandomRangedWeapon();
                 }
                 else if (Type == typeof(BaseWeapon))
                 {
-                    item = Loot.RandomWeapon(inTokuno, isMondain, isStygian);
+                    item = Loot.RandomWeapon();
                 }
                 else if (Type == typeof(BaseArmor))
                 {
-                    item = Loot.RandomArmorOrHat(inTokuno, isMondain, isStygian);
+                    item = Loot.RandomArmorOrHat();
                 }
                 else if (Type == typeof(BaseShield))
                 {
-                    item = Loot.RandomShield(isStygian);
+                    item = Loot.RandomShield();
                 }
                 else if (Type == typeof(BaseJewel))
                 {
-                    item = Loot.RandomJewelry(isStygian);
+                    item = Loot.RandomJewelry();
                 }
                 else if (Type == typeof(BaseInstrument))
                 {
