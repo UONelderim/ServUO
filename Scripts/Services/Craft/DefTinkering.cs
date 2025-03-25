@@ -340,9 +340,9 @@ namespace Server.Engines.Craft
             //TODO: focus of theurgy - 20th Anniversary Event 
             
             // Narzedzia pszczelarskie
-            AddCraft(typeof(HiveTool), 1044046, 1044116, 70.0, 100.0, typeof(IronIngot), 1044036, 2, 1044037);
-            AddCraft(typeof(apiSmallWaxPot), 1044046, 1044117, 70.0, 100.0, typeof(IronIngot), 1044036, 20, 1044037);
-            AddCraft(typeof(apiLargeWaxPot), 1044046, 1044118, 60.0, 100.0, typeof(IronIngot), 1044036, 30, 1044037);
+            AddCraft(typeof(HiveTool), 1044046, 3070062, 70.0, 100.0, typeof(IronIngot), 1044036, 2, 1044037);
+            AddCraft(typeof(apiSmallWaxPot), 1044046, 3070063, 70.0, 100.0, typeof(IronIngot), 1044036, 20, 1044037);
+            AddCraft(typeof(apiLargeWaxPot), 1044046, 3070064, 60.0, 100.0, typeof(IronIngot), 1044036, 30, 1044037);
 
             // Zbieranie lajna
             AddCraft(typeof(DungShovel), 1044046, "Szufla do lajna", 30.0, 80.0, typeof(IronIngot), 1044036, 4, 1044037);
