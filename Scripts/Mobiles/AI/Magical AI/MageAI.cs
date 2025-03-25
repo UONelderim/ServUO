@@ -955,9 +955,9 @@ namespace Server.Mobiles
             {
                 if (m_Mobile.Mana > 100)
                 {
-                    if (!SkillMasterySpell.HasSpell(m_Mobile, typeof(DeathRaySpell)))
+                    /*if (!SkillMasterySpell.HasSpell(m_Mobile, typeof(DeathRaySpell)))
                         select = Utility.RandomMinMax(0, 4);
-                    else
+                    else*/
                         select = Utility.RandomMinMax(1, 4);
                 }
                 else if (CheckCanCastMagery(7))
@@ -971,8 +971,8 @@ namespace Server.Mobiles
 
                 switch (select)
                 {
-                    case 0:
-                        return new DeathRaySpell(m_Mobile, null);
+                   // case 0:
+                    //    return new DeathRaySpell(m_Mobile, null);
                     case 1:
                         return new MindBlastSpell(m_Mobile, null);
                     case 2:
