@@ -1158,7 +1158,7 @@ namespace Server.Items
                 //Distance malas
                 if (attacker.InRange(defender, 1))  //Close Quarters
                 {
-                    chance -= (.12 - Math.Min(12, (attacker.Skills[SkillName.Throwing].Value + attacker.RawDex) / 20) / 10);
+                    chance -= (.12 - Math.Min(12, (attacker.Skills[SkillName.Throwing].Value + attacker.RawDex) / 20) / 100);
                 }
                 else if (attacker.GetDistanceToSqrt(defender) < ((BaseThrown)atkWeapon).MinThrowRange)  //too close
                 {
