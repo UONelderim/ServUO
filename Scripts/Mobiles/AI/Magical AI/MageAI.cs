@@ -971,8 +971,8 @@ namespace Server.Mobiles
 
                 switch (select)
                 {
-                   // case 0:
-                    //    return new DeathRaySpell(m_Mobile, null);
+                    case 0:
+                        return new DeathRaySpell(m_Mobile, null);
                     case 1:
                         return new MindBlastSpell(m_Mobile, null);
                     case 2:
