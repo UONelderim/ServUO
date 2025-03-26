@@ -11,7 +11,9 @@ namespace Server.Items
         public override Type[] Keys => new Type[]
         {
 	        typeof( OdnogaStaregoGazera ), typeof( PowiekaGazera ), typeof( KielBiesa ) 
-};
+		};
+
+        public override string[] _Regions => ["Alcala"];
 
         public override BasePeerless Boss => new NBurugh();
 

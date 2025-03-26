@@ -6,6 +6,7 @@ using Nelderim.Configuration;
 using Nelderim.Engines.ChaosChest;
 using Server.ContextMenus;
 using Server.Gumps;
+using Server.Items;
 using Server.Nelderim;
 
 #endregion
@@ -115,6 +116,7 @@ namespace Server.Mobiles
 		public void NGenerateExtraLoot()
 		{
 			ChaosChestQuest.AddLoot(this);
+			PeerlessAltar.AddLoot(this);
 		}
 
 		public override void NAddProperties(ObjectPropertyList list)
@@ -157,7 +159,7 @@ namespace Server.Mobiles
 			}
 		}
 
-		protected bool IsInAnyRegion(params string[] regionNames)
+		public bool IsInAnyRegion(params string[] regionNames)
 		{
 			if (Region == null || Region.Name == null)
 				return false;
