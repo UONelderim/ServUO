@@ -48,10 +48,10 @@ namespace Server.Mobiles
 
         public override int TreasureMapLevel => 4;
         public override void GenerateLoot()
-        {
+        { 
             AddLoot(LootPack.FilthyRich);
 
-            if (IsInAnyRegion("Alcala", "LoenTorech"))
+            if (IsInAnyRegion("LoenTorech"))
             {
 	            AddLoot(LootPack.LootItem<OdnogaStaregoGazera>(30.0));
             }

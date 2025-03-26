@@ -14,7 +14,7 @@ namespace Server.Items
         public bool Active { get; set; }
     }
 
-    public abstract class PeerlessAltar : Container
+    public abstract partial class PeerlessAltar : Container
     {
         public override bool IsPublicContainer => true;
         public override bool IsDecoContainer => false;
@@ -71,6 +71,7 @@ namespace Server.Items
 
             Fighters = new List<Mobile>();
             MasterKeys = new List<Item>();
+            Altars.Add(this);
         }
 
         public PeerlessAltar(Serial serial)
@@ -361,6 +362,14 @@ namespace Server.Items
             {
                 FinishSequence();
             }
+            
+            Altars.Add(this);
+        }
+
+        public override void OnDelete()
+        {
+	        Altars.Remove(this);
+	        base.OnDelete();
         }
 
         public virtual void ClearContainer()

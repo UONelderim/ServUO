@@ -51,7 +51,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.Average);
             AddLoot(LootPack.Potions);
             AddLoot(LootPack.LootItem<Nightshade>(4, true));
-            if (IsInAnyRegion("Alcala", "LoenTorech"))
+            if (IsInAnyRegion("LoenTorech"))
             {
 	            AddLoot(LootPack.LootItem<PowiekaGazera>(30.0));
             }
