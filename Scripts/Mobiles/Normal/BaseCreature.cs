@@ -5173,7 +5173,8 @@ namespace Server.Mobiles
 
             KillersLuck = 0;
 
-            NGenerateExtraLoot();
+            if(LootStage == LootStage.Death)
+				NGenerateExtraLoot();
         }
 
         public virtual void GenerateLoot()
