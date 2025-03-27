@@ -417,7 +417,7 @@
 500415;Pokaz... 
 500416;I dare not approach thee too closely, lest others think me an easy mark... 
 500417;A sense of great foreboding overtakes you. 
-500418;This item is of imported material, probably bought at a store, and does not yield much metal. 
+500418;Ten przedmiot jest z importowanych materiałów, prawdopodobnie kupiony w sklepie, nie udało się odzyskać zbyt wiele. 
 500419;Some metal seems to have lost its color due to the heat. 
 500420;Jestes za daleko od kuzni. 
 500421;Nie mozesz tego uzyc. 
@@ -24630,10 +24630,10 @@
 1044267;Musisz byc obok kowadla i paleniska, zeby wykuwac przedmioty. 
 1044268;Nie wiesz jak wykuc cos z tego metalu. 
 1044269;Nie wiesz jak wykuc cos z tego metalu. 
-1044270;Przetapiasz przedmiot, odzyskujac czesc surowca. 
-1044271;Nie mozesz przetopic przedmiotu nad ktorym pracujesz! 
-1044272;Nie mozesz tego przetopic/porabac. 
-1044273;Wybierz item do przetopienia/porabania. 
+1044270;Odzyskujesz czesc surowca z przedmioty. 
+1044271;Nie możesz przetopić przedmiotu nad ktorym pracujesz! 
+1044272;Nie możesz z tego odzyskać materiałów. 
+1044273;Wybierz przedmiot z którego chcesz odzyskać materiały
 1044274;Przedmiot do przetopienia musi znajdowac sie w twoim plecaku. 
 1044275;Przedmiot do naprawienia musi znajdowac sie w twoim plecaku. 
 1044276;Wskaz przedmiot do naprawienia: 
