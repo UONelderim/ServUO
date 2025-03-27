@@ -855,6 +855,9 @@ namespace Server.Engines.Craft
             
             MarkOption = true;
             Repair = true;
+            Recycle = true;
+            RecycleAction = Rechop.Do;
+            RecycleText = "ODZYSKAJ DESKI";
             CanEnhance = true;
             CanAlter = false;
 
