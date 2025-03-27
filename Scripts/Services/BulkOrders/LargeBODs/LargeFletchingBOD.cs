@@ -23,7 +23,7 @@ namespace Server.Engines.BulkOrders
             LargeBulkEntry[] entries;
             bool useMaterials = true;
 
-            switch (Utility.Random(5))
+            switch (Utility.Random(3)) //NELDERIM
             {
                 default:
                 case 0:

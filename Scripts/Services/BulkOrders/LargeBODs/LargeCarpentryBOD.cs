@@ -23,7 +23,7 @@ namespace Server.Engines.BulkOrders
             LargeBulkEntry[] entries;
             bool useMaterials = true;
 
-            switch (Utility.Random(7))
+            switch (Utility.Random(6)) //NELDERIM
             {
                 default:
                 case 0:
@@ -36,7 +36,7 @@ namespace Server.Engines.BulkOrders
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.LargeChests);
                     break;
                 case 3:
-                    entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.LargeElvenWeapons);
+	                entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.LargeWoodFurniture);
                     break;
                 case 4:
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.LargeInstruments);
@@ -45,7 +45,7 @@ namespace Server.Engines.BulkOrders
                     entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.LargeWeapons);
                     break;
                 case 6:
-                    entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.LargeWoodFurniture);
+	                entries = LargeBulkEntry.ConvertEntries(this, LargeBulkEntry.LargeElvenWeapons);
                     break;
             }
 
