@@ -67,15 +67,14 @@ namespace Server.Engines.Quests.TimeLord
 
         public static void OnSave(WorldSaveEventArgs e)
         {
-            Timer.DelayCall(TimeSpan.FromSeconds(1), () =>
-            {
-                if (DateTime.UtcNow > NextTarget)
-                {
-                    NextTarget = DateTime.UtcNow;
-                    TargetOfTheDay = _Targets[Utility.Random(_Targets.Length)];
-                    Console.WriteLine($"New target: {TargetOfTheDay.Name}");
-                }
-            });
+	        Timer.DelayCall(TimeSpan.FromSeconds(30), () =>
+	        {
+		        if (DateTime.UtcNow > NextTarget)
+		        {
+			        NextTarget = DateTime.UtcNow + TimeSpan.FromHours(24);
+			        TargetOfTheDay = _Targets[Utility.Random(_Targets.Length)];
+		        }
+	        });
         }
 
         public static void Initialize()
