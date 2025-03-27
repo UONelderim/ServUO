@@ -28,8 +28,10 @@ namespace Server.Items
             get { return _Resource; }
             set
             {
+	            UnscaleUses();
                 _Resource = value;
                 Hue = CraftResources.GetHue(_Resource);
+                ScaleUses();
                 InvalidateProperties();
             }
         }
@@ -80,21 +82,34 @@ namespace Server.Items
 
         public void ScaleUses()
         {
-            m_UsesRemaining = (m_UsesRemaining * GetUsesScalar()) / 100;
+            m_UsesRemaining = (int)(m_UsesRemaining * GetUsesScalar());
             InvalidateProperties();
         }
 
         public void UnscaleUses()
         {
-            m_UsesRemaining = (m_UsesRemaining * 100) / GetUsesScalar();
+            m_UsesRemaining = (int)(m_UsesRemaining / GetUsesScalar());
         }
 
-        public int GetUsesScalar()
+        public double GetUsesScalar()
         {
+	        var result = _Resource switch
+	        {
+		        CraftResource.DullCopper => 1.2,
+		        CraftResource.ShadowIron => 1.4,
+		        CraftResource.Copper => 1.6,
+		        CraftResource.Bronze => 1.8,
+		        CraftResource.Gold => 2.0,
+		        CraftResource.Agapite => 2.3,
+		        CraftResource.Verite => 2.6,
+		        CraftResource.Valorite => 3.0,
+		        _ => 1.0
+	        };
+	        
             if (m_Quality == ItemQuality.Exceptional)
-                return 200;
-
-            return 100;
+                result *= 2.0;
+            
+            return result;
         }
 
         public bool ShowUsesRemaining
@@ -298,6 +313,16 @@ namespace Server.Items
 
             if (makersMark)
                 Crafter = from;
+            
+            if (typeRes == null)
+            {
+	            typeRes = craftItem.Resources.GetAt(0).ItemType;
+            }
+
+            if (!craftItem.ForceNonExceptional)
+            {
+	            Resource = CraftResources.GetFromType(typeRes);
+            }
 
             return quality;
         }

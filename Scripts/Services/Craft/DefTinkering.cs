@@ -111,6 +111,7 @@ namespace Server.Engines.Craft
             typeof(PlantPigment), typeof(SoftenedReeds), typeof(DryReeds), typeof(PlantClippings),
 
             typeof(KotlAutomatonHead)
+            
         };
 
         public override bool RetainsColorFrom(CraftItem item, Type type)
