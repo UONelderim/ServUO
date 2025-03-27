@@ -8,12 +8,13 @@ namespace Server.Items
         public override int KeyCount => 3;
         public override MasterKey MasterKey => new BurughKey();
 
-        public override Type[] Keys => new Type[]
-        {
-	        typeof( OdnogaStaregoGazera ), typeof( PowiekaGazera ), typeof( KielBiesa ) 
+		public override Type[] Keys => new Type[]
+		{
+			typeof( PieczecBurugh1 ), typeof( PieczecBurugh2 ), typeof( PieczecBurugh3 ) 
 		};
 
-        public override string[] _Regions => ["Alcala"];
+		public override string[] _Regions => ["Alcala"];
+		public override double _KeyDropChance => 0.035;
 
         public override BasePeerless Boss => new NBurugh();
 
