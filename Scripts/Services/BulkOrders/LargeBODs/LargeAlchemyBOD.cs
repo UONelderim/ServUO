@@ -11,7 +11,7 @@ namespace Server.Engines.BulkOrders
         {
             LargeBulkEntry[] entries;
 
-            switch (Utility.Random(5))
+            switch (Utility.Random(4)) //Nelderim
             {
                 default:
                 case 0:
