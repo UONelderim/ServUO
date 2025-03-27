@@ -10,9 +10,28 @@ namespace Server.Items
 
         public override Type[] Keys => new Type[]
         {
-	        typeof( PalecImiennegoSmoka ), typeof( PazurImiennegoSmoka ), typeof( ZabImiennegoSmoka ) 
+	        typeof( PieczecNelderimDragon1 ), typeof( PieczecNelderimDragon2 ), typeof( PieczecNelderimDragon3 ) 
 };
 
+        public override string[] _Regions => new[]
+        {
+	        "Wulkan_LVL1_Entrance",
+	        "Wulkan_LVL1_VeryEasy",
+	        "Wulkan_LVL2_Entrance",
+	        "Wulkan_LVL2_Easy",
+	        "Wulkan_LVL2_Easy_2",
+	        "Wulkan_LVL2_Entrance2",
+	        "Wulkan_LVL2_Medium",
+	        "Wulkan_LVL2_Medium_2",
+	        "Wulkan_LVL3_Entrance",
+	        "Wulkan_LVL3_Difficult",
+	        "Wulkan_LVL3_Difficult_2",
+	        "Wulkan_LVL3_VeryDifficult",
+	        "Wulkan_LVL4_Entrance",
+	        "Wulkan_LVL4_VeryDifficult"
+        };
+        public override double _KeyDropChance => 0.02;
+        
         public override BasePeerless Boss => new NelderimDragon();
 
         [Constructable]
