@@ -34,10 +34,7 @@ namespace Server.ACC.CSS.Systems.Druid
 
 		public override bool CheckCast()
 		{
-			var bc = Table[Caster];
-
-			if (bc != null && !bc.Deleted)
-			{
+			if(Table.TryGetValue(Caster, out var bc) && !bc.Deleted){
 				Caster.SendLocalizedMessage(1061605); // You already have a familiar.
 				return false;
 			}
