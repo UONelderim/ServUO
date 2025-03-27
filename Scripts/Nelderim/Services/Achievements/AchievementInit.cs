@@ -214,7 +214,7 @@ namespace Nelderim.Achievements
 			Register(new Achievement(zlecenia, "Na zamowienie 5", "Wykonaj 100 malych zlecen stolarza", 0, 1,
 				false, null, new BulkOrderGoal(100, typeof(SmallCarpentryBOD))));
 			Register(new Achievement(zlecenia, "Na zamowienie 6", "Wykonaj 100 malych zlecen łukmistrza", 0, 1,
-				false, null, new BulkOrderGoal(100, typeof(SmallFletcherBOD))));
+				false, null, new BulkOrderGoal(100, typeof(SmallFletchingBOD))));
 			Register(new Achievement(zlecenia, "Na zamowienie 7", "Wykonaj 100 malych zlecen skryby", 0, 1,
 				false, null, new BulkOrderGoal(100, typeof(SmallInscriptionBOD))));
 			Register(new Achievement(zlecenia, "Na zamowienie 8", "Wykonaj 100 malych zlecen myśliwego", 0, 1,
