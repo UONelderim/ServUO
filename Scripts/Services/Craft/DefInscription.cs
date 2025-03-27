@@ -382,12 +382,12 @@ namespace Server.Engines.Craft
             AddRes(index, typeof(Corruption), 1032676, 2, 1044253);
             ForceNonExceptional(index);
             
-            index = AddCraft(typeof(ScrappersCompendium), otherGroup, 1072940, 75.0, 125.0, typeof(BlankScroll), 1044377, 100, 1044378);
+            /*index = AddCraft(typeof(ScrappersCompendium), otherGroup, 1072940, 75.0, 125.0, typeof(BlankScroll), 1044377, 100, 1044378);
             AddRes(index, typeof(DreadHornMane), 1032682, 1, 1044253);
             AddRes(index, typeof(Taint), 1032679, 10, 1044253);
             AddRes(index, typeof(Corruption), 1032676, 10, 1044253);
             AddRecipe(index, (int)TinkerRecipes.ScrappersCompendium);
-            ForceNonExceptional(index);
+            ForceNonExceptional(index);*/
 
             index = AddCraft(typeof(SpellbookEngraver), otherGroup, 1072151, 75.0, 100.0, typeof(Feather), 1044562, 1, 1044563);
             AddRes(index, typeof(BlackPearl), 1015001, 7, 1044253);
