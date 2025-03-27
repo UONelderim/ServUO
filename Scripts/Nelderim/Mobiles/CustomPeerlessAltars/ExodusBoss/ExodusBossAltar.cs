@@ -10,8 +10,18 @@ namespace Server.Items
 
         public override Type[] Keys => new Type[]
         {
-	        typeof( PlatynowaZbroja ), typeof( UszkodzonaDzwignia ), typeof( WiekszyKrysztalMocy ) 
-};
+	        typeof( PieczecExoddusBoss1 ), typeof( PieczecExoddusBoss2 ), typeof( PieczecExoddusBoss3 ) 
+};  
+
+        public override string[] _Regions => new[]
+        {
+	        "MechanicznaKrypta_VeryEasy",
+	        "MechanicznaKrypta_Easy",
+	        "MechanicznaKrypta_Medium",
+	        "MechanicznaKrypta_Difficult",
+	        "MechanicznaKrypta_VeryDifficult"
+        };
+        public override double _KeyDropChance => 0.05;
 
         public override BasePeerless Boss => new ExodusBoss();
 
