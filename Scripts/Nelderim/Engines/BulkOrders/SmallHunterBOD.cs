@@ -205,64 +205,63 @@ namespace Server.Engines.BulkOrders
 				 reader.ReadDouble(); //CollectedPoints
 		}
 
-		public override void EndCombine(Mobile from, object o)
+		public override void EndCombine( Mobile from, object o )
 		{
-			if (o is Corpse corpse && corpse.Owner is BaseCreature bc)
+			if ( o is Corpse corpse && corpse.Owner != null )
 			{
-				var mobType = corpse.Owner.GetType();
+				Type objectType = corpse.Owner.GetType();
 
-				if (AmountCur >= AmountMax)
+				if ( AmountCur >= AmountMax )
 				{
-					from.SendLocalizedMessage(
-						1045166); // The maximum amount of requested items have already been combined to this deed.
+					from.SendLocalizedMessage( 1045166 ); // The maximum amount of requested items have already been combined to this deed.
 				}
-				else if (Type == null || (mobType != Type && !mobType.IsSubclassOf(Type)))
+				else if ( Type == null || (objectType != Type && !objectType.IsSubclassOf( Type )) )
 				{
-					from.SendLocalizedMessage(1045169); // The item is not in the request.
+					from.SendLocalizedMessage( 1045169 ); // The item is not in the request.
 				}
-				else if (bc.IsChampionSpawn || bc.Summoned)
+				else if (corpse.Hunters.Contains(from))
 				{
-					from.SendMessage("Te zwłoki nie mogą zostać oddane.");
+					from.SendMessage("Już oddałeś te zwłoki.");
 				}
-				else if (bc.CollectedByHunter)
+				else if (corpse.HunterBods.Contains(this))
 				{
-					from.SendMessage("Te zwłoki zostaly juz oddane.");
+					from.SendMessage("To zlecenie już zawiera te zwłoki");
 				}
-				else if (!CanBeCollected(from, corpse))
+				else if ( !CanBeHunted( from, corpse ) )
 				{
-					from.SendMessage("Te zwłoki naleza do kogos innego.");
-				}
+					from.SendMessage("Te zwłoki nie mogą zostać dodane.");
+				} 
 				else
-				{
-					bc.CollectedByHunter = true;
+				{ 
+					corpse.Hunters.Add(from);
+					corpse.HunterBods.Add(this);
 					++AmountCur;
 
-					from.SendLocalizedMessage(1045170); // The item has been combined with the deed.
-					from.SendGump(new SmallBODGump(from, this));
+					from.SendLocalizedMessage( 1045170 ); // The item has been combined with the deed.
 
-					if (AmountCur < AmountMax)
-						BeginCombine(from);
+					from.SendGump( new SmallBODGump( from, this ) );
+
+					if ( AmountCur < AmountMax )
+						BeginCombine( from );
 				}
 			}
 			else
 			{
-				from.SendMessage("Te zwłoki są zbyt stare, żebyś mógł je dodać do zamówienia.");
+				from.SendMessage("To nie może zostać dodane.");
 			}
 		}
-
-		public bool CanBeCollected(Mobile from, Corpse c)
+		
+		private bool CanBeHunted( Mobile from, Corpse c )
 		{
-			if (from is PlayerMobile && c?.Owner is BaseCreature mob)
+			if( c == null || c.Owner == null )
+				return false;
+			
+			if( from is PlayerMobile && c.Owner is BaseCreature mob)
 			{
-				if (c.TimeOfDeath + _HuntProtection > DateTime.Now)
-				{
-					var lootingRights = mob.GetLootingRights();
-					if (lootingRights.Count == 0)
-						return false;
-					var maxDamage = lootingRights.OrderByDescending(r => r.m_Damage).First();
-					return from == maxDamage.m_Mobile;
-				}
-				return true;
+				if (mob.IsChampionSpawn || mob.Summoned)
+					return false;
+				
+				return c.HasLootingRights.Contains(from);
 			}
 			return false;
 		}

@@ -608,6 +608,7 @@ namespace Server.Items
                     if (ds.m_HasRight)
                     {
                         m_Aggressors.Add(ds.m_Mobile);
+                        HasLootingRights.Add(ds.m_Mobile); //NELDERIM
                     }
                 }
             }
