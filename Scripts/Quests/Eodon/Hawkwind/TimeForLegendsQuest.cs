@@ -57,7 +57,8 @@ namespace Server.Engines.Quests.TimeLord
         private static readonly Type[] _Targets =
         {
             typeof(Semidar), typeof(Mephitis), typeof(Rikktor), typeof(LordOaks), typeof(Neira), typeof(Barracoon), typeof(Serado), typeof(Meraktus), typeof(Ilhenir),
-            typeof(Twaulo)/*, typeof(AbyssalInfernal), typeof(PrimevalLich), typeof(CorgulTheSoulBinder), typeof(CorgulTheSoulBinder) /*dragon turtle*/, //odkomentowac, gdy juz bedziemy mieli champy SA/HS
+            typeof(Twaulo),
+            // typeof(AbyssalInfernal), typeof(PrimevalLich), typeof(CorgulTheSoulBinder), typeof(CorgulTheSoulBinder) /*dragon turtle*/ //odkomentowac, gdy juz bedziemy mieli champy SA/HS
             typeof(DreadHorn), typeof(Travesty), typeof(ChiefParoxysmus), typeof(LadyMelisande), typeof(MonstrousInterredGrizzle), typeof(ShimmeringEffusion)
         };
 
@@ -66,12 +67,13 @@ namespace Server.Engines.Quests.TimeLord
 
         public static void OnSave(WorldSaveEventArgs e)
         {
-            Timer.DelayCall(TimeSpan.FromSeconds(30), () =>
+            Timer.DelayCall(TimeSpan.FromSeconds(1), () =>
             {
                 if (DateTime.UtcNow > NextTarget)
                 {
-                    NextTarget = DateTime.UtcNow + TimeSpan.FromHours(24);
+                    NextTarget = DateTime.UtcNow;
                     TargetOfTheDay = _Targets[Utility.Random(_Targets.Length)];
+                    Console.WriteLine($"New target: {TargetOfTheDay.Name}");
                 }
             });
         }
