@@ -14,7 +14,7 @@ namespace Server.Items
             : base(0x1081)
         {
             Stackable = true;
-            Weight = 1.0;
+            Weight = 0.5;
             Amount = amount;
             Hue = CraftResources.GetHue(resource);
 
@@ -85,6 +85,9 @@ namespace Server.Items
                         break;
                     }
             }
+
+            if (Weight > 0.5)
+	            Weight = 0.5;
         }
 
         public override void AddNameProperty(ObjectPropertyList list)
