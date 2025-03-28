@@ -115,6 +115,7 @@ namespace Server.Items
             Hue = CraftResources.GetHue(resource);
 
             m_Resource = resource;
+            Weight = 3.0;
         }
 
         public BaseOre(Serial serial)
@@ -464,6 +465,9 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
+
+            if (Weight > 3.0)
+	            Weight = 3.0;
         }
 
         public override BaseIngot GetIngot()
