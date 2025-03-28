@@ -65,6 +65,7 @@ namespace Server.Items
 
             m_Resource = resource;
             Hue = CraftResources.GetHue(resource);
+            Weight = 0.25;
         }
 
         public override void GetProperties(ObjectPropertyList list)
@@ -112,8 +113,8 @@ namespace Server.Items
                     }
             }
 
-            if ((version == 0 && Weight == 0.1) || (version <= 2 && Weight == 2))
-                Weight = -1;
+            if (Weight > 0.25)
+	            Weight = 0.25;
 
             if (version <= 1)
                 m_Resource = CraftResource.RegularWood;
