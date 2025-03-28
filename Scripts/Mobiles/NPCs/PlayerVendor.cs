@@ -1674,7 +1674,7 @@ namespace Server.Mobiles
                 if (vendor.Renew && vendor.HoldGold >= renewalPrice)
                 {
                     vendor.HoldGold -= renewalPrice;
-                    vendor.RentalGold += renewalPrice;
+                    vendor.RentalGold += (int)(renewalPrice * 0.95);
 
                     vendor.RentalPrice = renewalPrice;
 
