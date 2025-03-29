@@ -31878,7 +31878,7 @@
 1072302;Podróżniku! Mam dla ciebie propozycję. 
 1072303;Poczekaj! Mam dla ciebie okazję, żeby zarobić! 
 1072304;Wlascicielem jest: ~1_name~ 
-1072305;Podpisane przez: ~1_INSCRIPTION~ 
+1072305;Podpis: ~1_INSCRIPTION~ 
 1072306;You must wait a moment for it to recharge. 
 1072307;You must upgrade to the Mondain's Legacy Expansion Pack in order to use the engraving tool. 
 1072308;You can not access the engraving tool. 
@@ -31926,20 +31926,20 @@
 1072350;Deliver the weapons as instructed.  Only then will you be rewarded. 
 1072351;Przedmiot Zadania 
 1072352;Target the item you wish to toggle Przedmiot Zadania status on <ESC> to cancel 
-1072353;You set the item to Przedmiot Zadania status 
-1072354;You remove Przedmiot Zadania status from the item 
-1072355;That item does not match any of your quest criteria 
-1072356;What happened to the items I was expecting?  You have failed us, now go away! 
-1072357;Select an object to engrave. 
-1072358;This object was engraved using an older style of tool and can not be engraved again. 
-1072359;<CENTER>Engraving Tool</CENTER> 
-1072360;Please enter the text to add to the selected object.  Leave the text area blank to remove the text from the object without using up the tool 
-1072361;You engraved the object. 
-1072362;You remove the engraving from the object. 
-1072363;The object was not engraved. 
-1072364;delete me 
-1072365;Crafting Bonus ~1_val~% 
-1072366;Craft Wyjatkowej jakosci Bonus ~1_val~% 
+1072353;Ustawiles przedmiot na status Przedmiot Zadania  
+1072354;Usuwasz status Przedmiot Zadania z przedmiotu  
+1072355;Ten przedmiot nie spelnia zadnych kryteriow twojego zadania  
+1072356;Co stalo sie z przedmiotami, ktorych sie spodziewalem? Zawiodles nas, teraz odejdz!  
+1072357;Wybierz obiekt do wygrawerowania.  
+1072358;Ten obiekt zostal wygrawerowany przy uzyciu starszego narzedzia i nie moze zostac ponownie wygrawerowany.  
+1072359;<CENTER>Narzedzie do podpisywania</CENTER>  
+1072360;Wpisz tekst, ktory chcesz dodac do wybranego obiektu. Pozostaw pole tekstowe puste, aby usunac tekst z obiektu bez zuzywania narzedzia.  
+1072361;Wygrawerowales obiekt.  
+1072362;Usuwasz grawer z obiektu.  
+1072363;Obiekt nie zostal wygrawerowany.  
+1072364;usun mnie  
+1072365;Premia do wytwarznia ~1_val~% 
+1072366;Premia do Wyjatkowej jakosci ~1_val~% 
 1072367;Freedom! 
 1072368;Moug-Guur Must Die 
 1072369;Brotherly Love 
@@ -35727,12 +35727,12 @@
 1076159;Rideable Polar Bear Statuette 
 1076160;Punkbuster must be installed to gain access to all shards. 
 1076161;Punkbuster install program not found. 
-1076162;Weapon Engraving Tool 
-1076163;There are no charges left on this engraving tool. 
-1076164;I can only help with this if you are carrying an engraving tool that needs repair. 
-1076165;Your engraver should be good as new! 
-1076166;You do not have a blue diamond needed to recharge the engraving tool. 
-1076167;You need a 100,000 gold and a blue diamond to recharge the weapon engraver. 
+1076162;Narzedzie do grawerowania broni  
+1076163;Na tym narzedziu do grawerowania nie pozostaly juz zadne ladunki.  
+1076164;Moge pomoc tylko, jesli masz przy sobie narzedzie do grawerowania wymagajace naprawy.  
+1076165;Twoje narzedzie do grawerowania jest jak nowe!  
+1076166;Nie masz niebieskiego diamentu potrzebnego do naladowania narzedzia do grawerowania.  
+1076167;Potrzebujesz 100 000 zlota i niebieskiego diamentu, aby naladowac narzedzie do grawerowania broni.   
 1076168;Choose Pose 
 1076169;It will cost you 100,000 gold and a blue diamond to recharge your weapon engraver with 10 charges. 
 1076170;Choose Direction 
