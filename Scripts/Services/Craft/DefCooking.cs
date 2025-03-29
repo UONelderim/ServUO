@@ -135,7 +135,7 @@ namespace Server.Engines.Craft
             SetItemHue(index, 0x457);
             SetNeedOven(index, true);
 
-            index = AddCraft(typeof(CocoaLiquor), 1044495, 1079999, 0.0, 100.0, typeof(CocoaPulp), 1080530, 1, 1044253);
+            index = AddCraft(typeof(CocoaLiquor), 1044495, 1080007, 0.0, 100.0, typeof(CocoaPulp), 1080530, 1, 1044253);
             AddRes(index, typeof(EmptyPewterBowl), 1025629, 1, 1044253);
             SetItemHue(index, 0x46A);
             SetNeedOven(index, true);
