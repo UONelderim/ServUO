@@ -314,16 +314,24 @@ namespace Server.Mobiles
 
             AddButton(240, 328, 0x15E1, 0x15E5, 0, GumpButtonType.Page, 8);
             AddButton(217, 328, 0x15E3, 0x15E7, 0, GumpButtonType.Page, 6);
-
+            
             if (Creature.Tamable)
             {
-                AddImage(28, 218, 0x826);
+	            AddImage(28, 218, 0x826);
 
-                AddHtmlLocalized(47, 216, 160, 18, 1115783, 0xC8, false, false); // Pet Slots
-                AddHtml(53, 236, 80, 18, FormatPetSlots(Creature.ControlSlots, Creature.ControlSlotsMax), false, false);
+	            AddHtmlLocalized(47, 216, 160, 18, 1115783, 0xC8, false, false); // Pet Slots
+	            AddHtml(53, 236, 80, 18, FormatPetSlots(Creature.ControlSlots, Creature.ControlSlotsMax), false, false);
 
-                AddHtmlLocalized(158, 236, 115, 18, 1157600, Creature.CurrentTameSkill.ToString("0.0"), _Label, false, false);
-                AddTooltip(1157586);
+	            // Display the current taming skill requirement 
+	            AddHtmlLocalized(130, 236, 200, 18, 1157600, FormatTamingSkill(Creature.MinTameSkill, Creature.CurrentTameSkill ), _Label, false, false);
+	            AddTooltip(3070065); // Shows base minimum and current taming requirements
+            }
+
+// Helper method to format taming skill display (add this method to the class)
+string FormatTamingSkill(double minSkill, double currentSkill)
+            {
+	            // Format to display both the base minimum taming and the current requirement after training
+	            return string.Format("{0:F1} / {1:F1}", minSkill, currentSkill);
             }
 
             AddButton(240, 328, 0x15E1, 0x15E5, 0, GumpButtonType.Page, 8);
