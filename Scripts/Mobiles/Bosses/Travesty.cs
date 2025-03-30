@@ -38,7 +38,7 @@ namespace Server.Mobiles
         public Travesty()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-			Name = "Zmiennoksztaltny Vox Populi";
+			Name = "Nasladowca Vox Populi";
 			Body = 247;
 
             BaseSoundID = 0x46E;
