@@ -36,7 +36,7 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo("1116740", typeof(TokunoGalleonDeed), 2000000, 5, 0x14F2, 0));
 				Add(new GenericBuyInfo("1116739", typeof(GargishGalleonDeed), 2500000, 5, 0x14F2, 0));
 				//Add(new GenericBuyInfo("1116738", typeof(OrcishGalleonDeed), 2700000, 5, 0x14F2, 0)); Orczy galeon dostępny jest z questa. Można dodać kiedyś.
-				Add(new GenericBuyInfo("1150017", typeof(BritannianShipDeed), 3000000, 5, 0x14F2, 0));
+				//Add(new GenericBuyInfo("1150017", typeof(BritannianShipDeed), 3000000, 5, 0x14F2, 0));
 				
 				Add(new GenericBuyInfo(typeof(Spyglass), 3, 20, 0x14F5, 0));
 			}
