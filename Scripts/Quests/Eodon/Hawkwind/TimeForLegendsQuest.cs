@@ -22,6 +22,12 @@ namespace Server.Engines.Quests.TimeLord
         public SkillName Mastery { get; set; }
         public Type ToSlay { get; set; }
 
+        /// <summary>
+        /// Constant for the localized message indicating player already has this mastery
+        /// If there's no existing message ID, you can define a custom one
+        /// </summary>
+        public const int AlreadyMasteredMessage = 1158721; // You have already learned this mastery. You cannot receive this quest again.
+
         public TimeForLegendsQuest(PlayerMobile from)
             : base(from)
         {
@@ -29,6 +35,23 @@ namespace Server.Engines.Quests.TimeLord
 
         public TimeForLegendsQuest()
         {
+        }
+
+        /// <summary>
+        /// Checks if the player has already learned a specific mastery
+        /// </summary>
+        /// <param name="from">The player to check</param>
+        /// <param name="skill">The mastery skill to verify</param>
+        /// <returns>True if the player has already learned the mastery</returns>
+        public static bool HasLearnedMastery(PlayerMobile from, SkillName skill)
+        {
+            if (from == null)
+                return false;
+
+            Skill sk = from.Skills[skill];
+            
+            // If the skill exists, is a mastery, and has been learned (VolumeLearned > 0)
+            return sk != null && sk.IsMastery && sk.VolumeLearned > 0;
         }
 
         public override void Accept()
@@ -153,6 +176,7 @@ namespace Server.Engines.Quests.TimeLord
                 if (sk == null || skName == SkillName.Discordance || skName == SkillName.Provocation || skName == SkillName.Peacemaking)
                     continue;
 
+                // Changed condition to skip masteries that player has already learned
                 if (sk.IsMastery && sk.VolumeLearned == 0)
                 {
                     AddButton(30, y, 4005, 4007, (int)skName + 1, GumpButtonType.Reply, 0);
@@ -173,9 +197,25 @@ namespace Server.Engines.Quests.TimeLord
 
             if (id >= 0 && id < SkillInfo.Table.Length)
             {
-                Quest.Mastery = (SkillName)id;
-                Quest.ToSlay = TimeForLegendsQuest.TargetOfTheDay;
-                Quest.AddObjective(new TimeForLegendsObjective());
+                SkillName selectedMastery = (SkillName)id;
+                
+                // Check if player has already learned this mastery
+                if (TimeForLegendsQuest.HasLearnedMastery(User, selectedMastery))
+                {
+                    // Inform player they've already learned this mastery
+                    User.SendLocalizedMessage(3070067); // Juz otrzymales talent. Nie mozesz go otrzymac ponownie
+                    
+                    // Cancel the quest
+                    if (User.Quest != null && User.Quest is TimeForLegendsQuest)
+                        User.Quest.Cancel();
+                }
+                else
+                {
+                    // Proceed with the quest as normal
+                    Quest.Mastery = selectedMastery;
+                    Quest.ToSlay = TimeForLegendsQuest.TargetOfTheDay;
+                    Quest.AddObjective(new TimeForLegendsObjective());
+                }
             }
         }
     }
