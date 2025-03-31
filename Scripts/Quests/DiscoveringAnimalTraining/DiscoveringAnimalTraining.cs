@@ -350,7 +350,8 @@ namespace Server.Engines.Quests
         {
             base.GiveRewards();
 
-            Owner.AddToBackpack(new EthologistTitleDeed());
+            //Owner.AddToBackpack(new EthologistTitleDeed());
+            Owner.AddToBackpack(new Gold(2000)); //Changed the reward to Gold
         }
 
         public class InternalObjective : BaseObjective
