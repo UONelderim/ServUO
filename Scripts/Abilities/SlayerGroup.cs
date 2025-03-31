@@ -67,7 +67,15 @@ namespace Server.Items
 				typeof(GrayGoblinMageRenowned), typeof(CorgulTheSoulBinder),
 				typeof(PirateCrew), typeof(LizardmanWitchdoctor),
 				typeof(OrcFootSoldier), typeof(RatmanAssassin),
-				typeof(OgreBoneCrusher), typeof(TitanRockHunter)
+				typeof(OgreBoneCrusher), typeof(TitanRockHunter),
+				typeof(KapitanIIILegionuOrkow),
+				typeof(KorahaTilkiDancer), typeof(KorahaTilkiLord), typeof(KorahaTilkiPeasant), typeof(KorahaTilkiPikador), typeof(KorahaTilkiShaman), typeof(KorahaTilkiSpearman), typeof(KorahaTilkiWarrior), typeof(KorahaTilkiXBowmen),
+				typeof(HungaNekahiCavalry), typeof(HungaNekahiLord), typeof(HungaNekahiMage), typeof(HungaNekahiOverseer), typeof(HungaNekahiPirate), typeof(HungaNekahiServant), typeof(HungaNekahiWarrior), typeof(HungaNekahiXBowmen),
+				typeof(BagusGagakArcher), typeof(BagusGagakFencer), typeof(BagusGagakLightCav), typeof(BagusGagakLord), typeof(BagusGagakLumberjack), typeof(BagusGagakNinja), typeof(BagusGagakShaman), typeof(BagusGagakWarrior),
+				typeof(VitVarg), typeof(VitVargAmazon), typeof(VitVargArcher), typeof(VitVargBerserker), typeof(VitVargCook), typeof(VitVargCutler), typeof(VitVargLord), typeof(VitVargMage), typeof(VitVargWarrior), typeof(VitVargWorker),
+				typeof(PSavage), typeof(PSavage1), typeof(PSavageRider), typeof(PSavageShaman), typeof(FieryGoblinSapper), typeof(GoblinSapper), typeof(Goblin), typeof(GoblinWarrior), typeof(LesserGoblinSapper),  
+				typeof(NPirateCaptain), typeof(NPirateCrew), typeof(NPrzeklety), typeof(NZapomniany), 
+				typeof(LucznikMorrlok), typeof(KusznikMorrlok), typeof(LordMorrlok), typeof(MagMorrlok), typeof(JezdziecMorrlok), typeof(MordercaMorrlok), typeof(WojownikMorrlok)
 			);
 
 			humanoid.Entries = new SlayerEntry[]
@@ -273,7 +281,25 @@ namespace Server.Items
 				typeof(EffeteUndeadGargoyle), typeof(PitFiend),
 				typeof(ArchDaemon), typeof(AbyssalAbomination),
 				typeof(Virtuebane), typeof(LesserOni),
-				typeof(Lifestealer)
+				typeof(Lifestealer),
+				typeof(BaronowaFrozen),typeof(LesserArcaneDaemon), 
+				typeof(xCommonArcaneDaemon), 
+				typeof(GreaterArcaneDaemon), 
+				typeof(LesserHordeDaemon), 
+				typeof(CommonHordeDaemon), 
+				typeof(GreaterHordeDaemon), 
+				typeof(LesserDaemon), 
+				typeof(CommonDaemon), 
+				typeof(GreaterDaemon), 
+				typeof(LesserChaosDaemon), 
+				typeof(xCommonChaosDaemon), 
+				typeof(GreaterChaosDaemon), 
+				typeof(xMoloch), 
+				typeof(LesserMoloch), 
+				typeof(CommonMoloch), 
+				typeof(GreaterMoloch),
+				// bossy:
+				typeof(NDeloth), typeof(NDzahhar), typeof(NKatrill), typeof(WladcaDemonow), typeof(Zhoaminth), typeof(WladcaJezioraLawy)
 			);
 
 			abyss.Entries = new SlayerEntry[]
@@ -314,7 +340,8 @@ namespace Server.Items
 				typeof(Malefic), typeof(Navrey),
 				typeof(SentinelSpider), typeof(WolfSpider),
 				typeof(TrapdoorSpider), typeof(Anlorzen),
-				typeof(Anlorlem)
+				typeof(Anlorlem), typeof(NSzeol), // boss
+				typeof(Arachne), typeof(LadySabrix), typeof(PomiotPajaka), typeof(Malefic), typeof (LadySabrix), typeof(LadyLissith), typeof(SkorpionKrolewski)
 			);
 
 			arachnid.Entries = new SlayerEntry[]
@@ -382,7 +409,19 @@ namespace Server.Items
 				typeof(Raptor), typeof(Kepetch),
 				typeof(KepetchAmbusher), typeof(FrostDragon),
 				typeof(ColdDrake), typeof(FrostDrake), typeof(Coil),
-				typeof(SkeletalDrake), typeof(CoralSnake)
+				typeof(SkeletalDrake), typeof(CoralSnake),
+				typeof(NelderimDragon),
+				typeof(LodowySmok), typeof(MlodyLodowySmok), typeof(PrastaryLodowySmok), typeof(StaryLodowySmok),
+				typeof(NStarozytnyLodowySmok), // boss
+				typeof(OgnistyNiewolnik), typeof(OgnistySzaman), typeof(OgnistyWojownik),
+				typeof(MlodyOgnistySmok), typeof(OgnistySmok), typeof(PrastaryOgnistySmok), typeof(StaryOgnistySmok),
+				typeof(NStarozytnySmok), // boss
+				typeof(AmethystDragon), typeof(AmethystDrake), typeof(DiamondDragon), typeof(DiamondDrake), typeof(EmeraldDragon), typeof(EmeraldDrake), typeof(RubyDragon), typeof(RubyDrake), typeof(SapphireDragon),  typeof(SapphireDrake), typeof(GreaterDragon),
+				typeof(StarozytnyDiamentowySmok), //boss
+				typeof(NSkeletalDragon), // boss
+				typeof(Rikktor), // champion
+				typeof(NGorogon) // boss
+				, typeof(NChimera)
 			);
 
 			reptilian.Entries = new SlayerEntry[]
@@ -402,7 +441,22 @@ namespace Server.Items
 					typeof(Rend), typeof(Abscess),
 					typeof(Grim), typeof(StygianDragon),
 					typeof(FairyDragon), typeof(SkeletalDrake),
-					typeof(ColdDrake)
+					typeof(ColdDrake),
+					typeof(NelderimDragon), typeof(Reptalon),
+					typeof(LodowySmok),
+					typeof(MlodyLodowySmok),
+					typeof(PrastaryLodowySmok),
+					typeof(StaryLodowySmok),
+					typeof(MlodyOgnistySmok),
+					typeof(OgnistySmok),
+					typeof(PrastaryOgnistySmok),
+					typeof(StaryOgnistySmok), typeof(GreaterDragon),  typeof(NStarozytnyLodowySmok), // boss
+					typeof(NStarozytnySmok), // boss
+					typeof(StarozytnyDiamentowySmok), //boss
+					typeof(NSkeletalDragon), // boss
+					typeof(Rikktor), // champion
+					typeof(AmethystDragon), typeof(AmethystDrake), typeof(DiamondDragon), typeof(DiamondDrake), typeof(EmeraldDragon), typeof(EmeraldDrake), typeof(RubyDragon), typeof(RubyDrake), typeof(SapphireDragon),  typeof(SapphireDrake)
+
 				),
 				new SlayerEntry
 				(
