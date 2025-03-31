@@ -18,6 +18,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Nelderim.Configuration;
+using Server.ACC.CSS.Systems.Avatar;
+using Server.Spells.DeathKnight;
 
 #endregion
 
@@ -1989,6 +1991,56 @@ namespace Server.Items
                         percentageBonus += enemyOfOneContext.DamageScalar;
                     }
                 }
+            }
+            #endregion
+            
+            #region Grim Reaper
+			// Add handling for GrimReaper spell (Death Knight version of Enemy of One)
+            GrimReaperContext grimReaperContext = GrimReaperSpell.GetContext(defender);
+
+            if (grimReaperContext != null && !grimReaperContext.IsWaitingForEnemy && !grimReaperContext.IsEnemy(attacker))
+            {
+	            percentageBonus += 100; // Same bonus as EnemyOfOne
+            }
+            else
+            {
+	            grimReaperContext = GrimReaperSpell.GetContext(attacker);
+
+	            if (grimReaperContext != null)
+	            {
+		            grimReaperContext.OnHit(defender);
+
+		            if (grimReaperContext.IsEnemy(defender))
+		            {
+			            defender.FixedEffect(0x37B9, 10, 5, 1160, 0); // Same visual effect
+			            percentageBonus += grimReaperContext.DamageScalar;
+		            }
+	            }
+            }
+            #endregion
+            
+            #region Avatar Enemy of One
+            // Add handling for AvatarEnemyOfOne spell (Avatar version of Enemy of One)
+            AvatarEnemyOfOneContext avatarContext = AvatarEnemyOfOneSpell.GetContext(defender);
+
+            if (avatarContext != null && !avatarContext.IsWaitingForEnemy && !avatarContext.IsEnemy(attacker))
+            {
+	            percentageBonus += 100;
+            }
+            else
+            {
+	            avatarContext = AvatarEnemyOfOneSpell.GetContext(attacker);
+
+	            if (avatarContext != null)
+	            {
+		            avatarContext.OnHit(defender);
+
+		            if (avatarContext.IsEnemy(defender))
+		            {
+			            defender.FixedEffect(0x37B9, 10, 5, 1160, 0);
+			            percentageBonus += avatarContext.DamageScalar;
+		            }
+	            }
             }
             #endregion
 

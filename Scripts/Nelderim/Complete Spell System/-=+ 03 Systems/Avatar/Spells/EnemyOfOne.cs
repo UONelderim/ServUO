@@ -11,104 +11,40 @@ using Server.Spells.Chivalry;
 
 namespace Server.ACC.CSS.Systems.Avatar
 {
-	public class AvatarEnemyOfOneSpell : AvatarSpell
-	{
-		private static SpellInfo m_Info = new SpellInfo(
-				"Naznaczony", "Consecro",
-				-1,
-				9002
-			);
-		public override SpellCircle Circle
+    public class AvatarEnemyOfOneSpell : AvatarSpell
+    {
+        private static SpellInfo m_Info = new SpellInfo(
+                "Naznaczony", "Consecro",
+                -1,
+                9002
+            );
+        public override SpellCircle Circle
         {
             get { return SpellCircle.Fourth; }
         }
-		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 0.5 ); } }
+        public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds(0.5); } }
 
-		public override double RequiredSkill{ get{ return 45.0; } }
-		public override int RequiredMana{ get{ return 20; } }
-		public override int RequiredTithing{ get{ return 15; } }
-		public override bool BlocksMovement{ get{ return false; } }
+        public override double RequiredSkill { get { return 45.0; } }
+        public override int RequiredMana { get { return 20; } }
+        public override int RequiredTithing { get { return 15; } }
+        public override bool BlocksMovement { get { return false; } }
 
-		public AvatarEnemyOfOneSpell( Mobile caster, Item scroll ) : base( caster, scroll, m_Info )
-		{
-		}
+        // Create a separate static dictionary for the Avatar version
+        private static readonly Dictionary<Mobile, AvatarEnemyOfOneContext> s_Table = new Dictionary<Mobile, AvatarEnemyOfOneContext>();
 
-       public override void OnCast()
+        // Implementation of Configure, GetTypeName, and AddNameToCache specific to this class
+        private static Dictionary<Type, string> s_NameCache;
+
+        public static Dictionary<Type, string> NameCache
         {
-            if (UnderEffect(Caster))
+            get
             {
-                PlayEffects();
-
-                // As per Pub 71, Enemy of one has now been changed to a Spell Toggle. You can remove the effect
-                // before the duration expires by recasting the spell.
-                RemoveEffect(Caster);
+                if (s_NameCache == null)
+                    s_NameCache = new Dictionary<Type, string>();
+                return s_NameCache;
             }
-            else if (CheckSequence())
-            {
-                PlayEffects();
-
-                // TODO: validate formula
-                int seconds = ComputePowerValue(1);
-                Utility.FixMinMax(ref seconds, 67, 228);
-
-                TimeSpan delay = TimeSpan.FromSeconds(seconds);
-
-                Timer timer = Timer.DelayCall(delay, RemoveEffect, Caster);
-
-                DateTime expire = DateTime.UtcNow + delay;
-
-                EnemyOfOneContext context = new EnemyOfOneContext(Caster, timer, expire);
-                context.OnCast();
-                AddContext(Caster, context);
-            }
-
-            FinishSequence();
+            set { s_NameCache = value; }
         }
-
-        private void PlayEffects()
-        {
-            Caster.PlaySound(0x0F5);
-            Caster.PlaySound(0x1ED);
-
-            Caster.FixedParticles(0x375A, 1, 30, 9966, 33, 2, EffectLayer.Head);
-            Caster.FixedParticles(0x37B9, 1, 30, 9502, 43, 3, EffectLayer.Head);
-        }
-
-        private static readonly Dictionary<Mobile, EnemyOfOneContext> m_Table = new Dictionary<Mobile, EnemyOfOneContext>();
-
-        public static void AddContext(Mobile m, EnemyOfOneContext context)
-        {
-	        m_Table[m] = context;
-        }
-
-        public static EnemyOfOneContext GetContext(Mobile m)
-        {
-            if (!m_Table.ContainsKey(m))
-                return null;
-
-            return m_Table[m];
-        }
-
-        public static bool UnderEffect(Mobile m)
-        {
-            return m_Table.ContainsKey(m);
-        }
-
-        public static void RemoveEffect(Mobile m)
-        {
-            if (m_Table.ContainsKey(m))
-            {
-                EnemyOfOneContext context = m_Table[m];
-
-                m_Table.Remove(m);
-
-                context.OnRemoved();
-
-                m.PlaySound(0x1F8);
-            }
-        }
-
-        public static Dictionary<Type, string> NameCache { get; set; }
 
         public static void Configure()
         {
@@ -158,15 +94,105 @@ namespace Server.ACC.CSS.Systems.Avatar
                     name = name + "s";
                 }
 
-
                 NameCache[t] = name.ToLower();
             }
 
             return name;
         }
+
+        public static void AddContext(Mobile m, AvatarEnemyOfOneContext context)
+        {
+            s_Table[m] = context;
+        }
+
+        public static AvatarEnemyOfOneContext GetContext(Mobile m)
+        {
+            if (!s_Table.ContainsKey(m))
+                return null;
+
+            return s_Table[m];
+        }
+
+        public static bool UnderEffect(Mobile m)
+        {
+            return s_Table.ContainsKey(m);
+        }
+
+        public static void RemoveEffect(Mobile m)
+        {
+            if (s_Table.ContainsKey(m))
+            {
+                AvatarEnemyOfOneContext context = s_Table[m];
+
+                s_Table.Remove(m);
+
+                context.OnRemoved();
+
+                m.PlaySound(0x1F8);
+            }
+        }
+
+        public AvatarEnemyOfOneSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
+        {
+        }
+
+        public override TimeSpan GetCastDelay()
+        {
+            TimeSpan delay = base.GetCastDelay();
+
+            if (UnderEffect(Caster))
+            {
+                double milliseconds = delay.TotalMilliseconds / 2;
+
+                delay = TimeSpan.FromMilliseconds(milliseconds);
+            }
+
+            return delay;
+        }
+
+        public override void OnCast()
+        {
+            if (UnderEffect(Caster))
+            {
+                PlayEffects();
+
+                // As per Pub 71, Enemy of one has now been changed to a Spell Toggle. You can remove the effect
+                // before the duration expires by recasting the spell.
+                RemoveEffect(Caster);
+            }
+            else if (CheckSequence())
+            {
+                PlayEffects();
+
+                // TODO: validate formula
+                int seconds = ComputePowerValue(1);
+                Utility.FixMinMax(ref seconds, 67, 228);
+
+                TimeSpan delay = TimeSpan.FromSeconds(seconds);
+
+                Timer timer = Timer.DelayCall(delay, RemoveEffect, Caster);
+
+                DateTime expire = DateTime.UtcNow + delay;
+
+                AvatarEnemyOfOneContext context = new AvatarEnemyOfOneContext(Caster, timer, expire);
+                context.OnCast();
+                AddContext(Caster, context);
+            }
+
+            FinishSequence();
+        }
+
+        private void PlayEffects()
+        {
+            Caster.PlaySound(0x0F5);
+            Caster.PlaySound(0x1ED);
+
+            Caster.FixedParticles(0x375A, 1, 30, 9966, 33, 2, EffectLayer.Head);
+            Caster.FixedParticles(0x37B9, 1, 30, 9502, 43, 3, EffectLayer.Head);
+        }
     }
 
-    public class EnemyOfOneContext
+    public class AvatarEnemyOfOneContext
     {
         private readonly Mobile m_Owner;
         private Timer m_Timer;
@@ -183,7 +209,7 @@ namespace Server.ACC.CSS.Systems.Avatar
         public int DamageScalar => m_DamageScalar;
         public string TypeName => m_TypeName;
 
-        public EnemyOfOneContext(Mobile owner, Timer timer, DateTime expire)
+        public AvatarEnemyOfOneContext(Mobile owner, Timer timer, DateTime expire)
         {
             m_Owner = owner;
             m_Timer = timer;
@@ -223,8 +249,8 @@ namespace Server.ACC.CSS.Systems.Avatar
 
         private void UpdateDamage()
         {
-            int chivalry = (int)m_Owner.Skills.Chivalry.Value;
-            m_DamageScalar = 10 + ((chivalry - 40) * 9) / 10;
+            int anatomy = (int)m_Owner.Skills.Anatomy.Value;
+            m_DamageScalar = 10 + ((anatomy - 40) * 9) / 10;
 
             if (m_PlayerOrPet != null)
                 m_DamageScalar /= 2;
@@ -246,7 +272,8 @@ namespace Server.ACC.CSS.Systems.Avatar
         {
             if (m_TargetType == null)
             {
-                m_TypeName = EnemyOfOneSpell.GetTypeName(defender);
+                // Use AvatarEnemyOfOneSpell's GetTypeName instead of EnemyOfOneSpell's
+                m_TypeName = AvatarEnemyOfOneSpell.GetTypeName(defender);
 
                 if (defender is PlayerMobile || (defender is BaseCreature && ((BaseCreature)defender).GetMaster() is PlayerMobile))
                 {
@@ -264,7 +291,8 @@ namespace Server.ACC.CSS.Systems.Avatar
                         m_Timer = null;
                     }
 
-                    m_Timer = Timer.DelayCall(duration, EnemyOfOneSpell.RemoveEffect, m_Owner);
+                    // Use AvatarEnemyOfOneSpell's RemoveEffect instead of EnemyOfOneSpell's
+                    m_Timer = Timer.DelayCall(duration, AvatarEnemyOfOneSpell.RemoveEffect, m_Owner);
                 }
                 else
                 {
@@ -313,6 +341,5 @@ namespace Server.ACC.CSS.Systems.Avatar
 
             eable.Free();
         }
-	}
+    }
 }
-

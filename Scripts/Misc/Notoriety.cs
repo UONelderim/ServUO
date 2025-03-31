@@ -11,7 +11,9 @@ using Server.Spells.Chivalry;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Server.ACC.CSS.Systems.Avatar;
 using Server.Nelderim;
+using Server.Spells.DeathKnight;
 
 #endregion
 
@@ -301,11 +303,23 @@ namespace Server.Misc
 
             if (target is PlayerVendor || target is TownCrier)
                 return Notoriety.Invulnerable;
+            
+            // Check for Grim Reaper context
+            GrimReaperContext grimReaperContext = GrimReaperSpell.GetContext(source);
 
+            if (grimReaperContext != null && grimReaperContext.IsEnemy(target))
+	            return Notoriety.Enemy;
+            
             EnemyOfOneContext context = EnemyOfOneSpell.GetContext(source);
 
             if (context != null && context.IsEnemy(target))
                 return Notoriety.Enemy;
+            
+            // Check for Avatar Enemy of One context
+            AvatarEnemyOfOneContext avatarContext = AvatarEnemyOfOneSpell.GetContext(source);
+
+            if (avatarContext != null && avatarContext.IsEnemy(target))
+	            return Notoriety.Enemy;
 
             if (PVPArenaSystem.IsEnemy(source, target))
                 return Notoriety.Enemy;

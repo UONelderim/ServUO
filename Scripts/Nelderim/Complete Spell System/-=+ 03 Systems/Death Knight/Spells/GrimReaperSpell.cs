@@ -5,25 +5,25 @@ using Server.Spells.Chivalry;
 
 namespace Server.Spells.DeathKnight
 {
-	public class GrimReaperSpell : DeathKnightSpell
-	{
-		private static SpellInfo m_Info = new(
-			"Ponury Zniwiarz", "Astaroth Mortem",
-			-1,
-			9002
-		);
+    public class GrimReaperSpell : DeathKnightSpell
+    {
+        private static SpellInfo m_Info = new(
+            "Ponury Zniwiarz", "Astaroth Mortem",
+            -1,
+            9002
+        );
 
-		public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(0.5);
-		public override int RequiredTithing => 42;
-		public override double RequiredSkill => 30.0;
-		public override bool BlocksMovement => false;
-		public override int RequiredMana => 28;
+        public override TimeSpan CastDelayBase => TimeSpan.FromSeconds(0.5);
+        public override int RequiredTithing => 42;
+        public override double RequiredSkill => 30.0;
+        public override bool BlocksMovement => false;
+        public override int RequiredMana => 28;
 
-		public GrimReaperSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
-		{
-		}
+        public GrimReaperSpell(Mobile caster, Item scroll) : base(caster, scroll, m_Info)
+        {
+        }
 
-      public override TimeSpan GetCastDelay()
+        public override TimeSpan GetCastDelay()
         {
             TimeSpan delay = base.GetCastDelay();
 
@@ -61,7 +61,7 @@ namespace Server.Spells.DeathKnight
 
                 DateTime expire = DateTime.UtcNow + delay;
 
-                EnemyOfOneContext context = new EnemyOfOneContext(Caster, timer, expire);
+                GrimReaperContext context = new GrimReaperContext(Caster, timer, expire);
                 context.OnCast();
                 AddContext(Caster, context);
             }
@@ -78,33 +78,34 @@ namespace Server.Spells.DeathKnight
             Caster.FixedParticles(0x37B9, 1, 30, 9502, 43, 3, EffectLayer.Head);
         }
 
-        private static readonly Dictionary<Mobile, EnemyOfOneContext> m_Table = new Dictionary<Mobile, EnemyOfOneContext>();
+        // Renamed from m_Table to s_Table to follow C# conventions for static fields
+        private static readonly Dictionary<Mobile, GrimReaperContext> s_Table = new Dictionary<Mobile, GrimReaperContext>();
 
-        public static void AddContext(Mobile m, EnemyOfOneContext context)
+        public static void AddContext(Mobile m, GrimReaperContext context)
         {
-	        m_Table[m] = context;
+            s_Table[m] = context;
         }
 
-        public static EnemyOfOneContext GetContext(Mobile m)
+        public static GrimReaperContext GetContext(Mobile m)
         {
-            if (!m_Table.ContainsKey(m))
+            if (!s_Table.ContainsKey(m))
                 return null;
 
-            return m_Table[m];
+            return s_Table[m];
         }
 
         public static bool UnderEffect(Mobile m)
         {
-            return m_Table.ContainsKey(m);
+            return s_Table.ContainsKey(m);
         }
 
         public static void RemoveEffect(Mobile m)
         {
-            if (m_Table.ContainsKey(m))
+            if (s_Table.ContainsKey(m))
             {
-                EnemyOfOneContext context = m_Table[m];
+                GrimReaperContext context = s_Table[m];
 
-                m_Table.Remove(m);
+                s_Table.Remove(m);
 
                 context.OnRemoved();
 
@@ -112,7 +113,18 @@ namespace Server.Spells.DeathKnight
             }
         }
 
-        public static Dictionary<Type, string> NameCache { get; set; }
+        private static Dictionary<Type, string> s_NameCache;
+
+        public static Dictionary<Type, string> NameCache 
+        { 
+            get 
+            {
+                if (s_NameCache == null)
+                    s_NameCache = new Dictionary<Type, string>();
+                return s_NameCache;
+            }
+            set { s_NameCache = value; }
+        }
 
         public static void Configure()
         {
@@ -162,7 +174,6 @@ namespace Server.Spells.DeathKnight
                     name = name + "s";
                 }
 
-
                 NameCache[t] = name.ToLower();
             }
 
@@ -170,7 +181,8 @@ namespace Server.Spells.DeathKnight
         }
     }
 
-    public class EnemyOfOneContext
+    // Renamed from EnemyOfOneContext to GrimReaperContext
+    public class GrimReaperContext
     {
         private readonly Mobile m_Owner;
         private Timer m_Timer;
@@ -187,7 +199,7 @@ namespace Server.Spells.DeathKnight
         public int DamageScalar => m_DamageScalar;
         public string TypeName => m_TypeName;
 
-        public EnemyOfOneContext(Mobile owner, Timer timer, DateTime expire)
+        public GrimReaperContext(Mobile owner, Timer timer, DateTime expire)
         {
             m_Owner = owner;
             m_Timer = timer;
@@ -227,8 +239,9 @@ namespace Server.Spells.DeathKnight
 
         private void UpdateDamage()
         {
-            int chivalry = (int)m_Owner.Skills.Chivalry.Value;
-            m_DamageScalar = 10 + ((chivalry - 40) * 9) / 10;
+
+            int skillValue = (int)m_Owner.Skills.Chivalry.Value;
+            m_DamageScalar = 10 + ((skillValue - 40) * 9) / 10;
 
             if (m_PlayerOrPet != null)
                 m_DamageScalar /= 2;
@@ -250,7 +263,8 @@ namespace Server.Spells.DeathKnight
         {
             if (m_TargetType == null)
             {
-                m_TypeName = EnemyOfOneSpell.GetTypeName(defender);
+                // Changed from EnemyOfOneSpell to GrimReaperSpell
+                m_TypeName = GrimReaperSpell.GetTypeName(defender);
 
                 if (defender is PlayerMobile || (defender is BaseCreature && ((BaseCreature)defender).GetMaster() is PlayerMobile))
                 {
@@ -268,7 +282,8 @@ namespace Server.Spells.DeathKnight
                         m_Timer = null;
                     }
 
-                    m_Timer = Timer.DelayCall(duration, EnemyOfOneSpell.RemoveEffect, m_Owner);
+                    // Changed from EnemyOfOneSpell to GrimReaperSpell
+                    m_Timer = Timer.DelayCall(duration, GrimReaperSpell.RemoveEffect, m_Owner);
                 }
                 else
                 {
@@ -317,5 +332,5 @@ namespace Server.Spells.DeathKnight
 
             eable.Free();
         }
-	}
+    }
 }
