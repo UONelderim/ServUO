@@ -234,7 +234,7 @@ namespace Server.Mobiles
         private BaseHouse m_House;
         private string m_ShopName;
 
-        public double CommissionPerc => 5.25;
+        public double CommissionPerc => 1.0;
         public virtual bool ChargeCommision => false;
         public virtual bool ChargeDaily => true;
 
