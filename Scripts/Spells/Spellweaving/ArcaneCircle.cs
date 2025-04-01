@@ -69,10 +69,8 @@ namespace Server.Spells.Spellweaving
 
         private static bool IsBonus(Point3D p, Map m)
         {
-            return (m == Map.Trammel || m == Map.Felucca) &&
-                (p.X == 6267 && p.Y == 131) ||
-                (p.X == 6589 && p.Y == 178) ||
-                (p.X == 1431 && p.Y == 1696); // new brit bank
+	        return ( m == Map.Felucca) &&
+	               (p.X == 1396 && p.Y == 2481); //Hirneth
         }
 
         private static int GetStrength(Mobile m)
@@ -131,7 +129,7 @@ namespace Server.Spells.Spellweaving
             IPooledEnumerable eable = Caster.GetMobilesInRange(1);
             foreach (Mobile m in eable)	//Range verified as 1
             {
-                if (m != Caster && m is PlayerMobile && Caster.CanBeBeneficial(m, false) && Math.Abs(Caster.Skills.Spellweaving.Value - m.Skills.Spellweaving.Value) <= 20 && !(m is Clone))
+                if (m != Caster && m is Mobile && Caster.CanBeBeneficial(m, false) && Math.Abs(Caster.Skills.Spellweaving.Value - m.Skills.Spellweaving.Value) <= 20 && !(m is Clone))
                 {
                     weavers.Add(m);
                 }
