@@ -1347,7 +1347,7 @@ Circle375
 		{
 			var name = Name ?? String.Empty;
 
-			if (String.IsNullOrWhiteSpace(name))
+			if (name == null)
 			{
 				if (m_Amount <= 1)
 				{
