@@ -30,12 +30,12 @@ namespace Server.Mobiles
             set { }
         }
 
-        [CommandProperty(AccessLevel.GameMaster)]
+        /*[CommandProperty(AccessLevel.GameMaster)]
         public override OrderType ControlOrder
         {
             get { return OrderType.Come; }
             set { }
-        }
+        }*/
 
         public BaseFamiliar()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, -1, -1)
@@ -47,7 +47,7 @@ namespace Server.Mobiles
 
         public override bool BardImmune => true;
         public override Poison PoisonImmune => Poison.Lethal;
-        public override bool Commandable => false;
+        public override bool Commandable => true;
         public override bool PlayerRangeSensitive => false;
         public override bool CanDetectHidden => false;
 
