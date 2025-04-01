@@ -330,13 +330,7 @@ namespace Server.Mobiles
         {
             get
             {
-                long total = 0;
-                foreach (VendorItem vi in m_SellItems.Values)
-                {
-                    total += vi.Price;
-                }
-
-                int perDay = (int)(60 + (total / 500) * 3);
+	            var perDay = 500;
 
                 var trinket = GetMerchantsTrinket();
 
