@@ -401,7 +401,8 @@ namespace Server.Items
                     else if (0.25 > Utility.RandomDouble())
                         special = GetRandomSpecial(level, cont.Map);
 
-                    arty = Loot.Construct(m_Artifacts);
+                    //arty = Loot.Construct(m_Artifacts); // było tak
+                    arty = ArtifactHelper.GetRandomArtifact(ArtGroup.Cartography);
                 }
                 else if (level >= 6)
                 {
@@ -410,7 +411,8 @@ namespace Server.Items
                     else if (0.20 > Utility.RandomDouble())
                         special = GetRandomSpecial(level, cont.Map);
 
-                    arty = Loot.Construct(m_Artifacts);
+                    //arty = Loot.Construct(m_Artifacts); // było tak
+                    arty = ArtifactHelper.GetRandomArtifact(ArtGroup.Cartography);
                 }
                 else if (level >= 5)
                 {
