@@ -42,8 +42,9 @@ namespace Nelderim.Gains
 		{
 			Register(new Gains());
 			CommandSystem.Register("GainInfo", AccessLevel.Player, GainInfo);
-			CommandSystem.Register("GainFactor", AccessLevel.GameMaster, GainFactor);
-			CommandSystem.Register("PowerHour", AccessLevel.GameMaster, PowerHour);
+			CommandSystem.Register("PowerHour", AccessLevel.Player, PowerHour);
+			CommandSystem.Register("GainFactor", AccessLevel.Administrator, GainFactor);
+			CommandSystem.Register("GlobalPowerHour", AccessLevel.GameMaster, GlobalPowerHour);
 			EventSink.Login += OnPlayerLogin;
 		}
 
@@ -56,7 +57,7 @@ namespace Nelderim.Gains
 			}
 		}
 
-		public static double calculateGainFactor(Mobile from)
+		public static double CalculateGainFactor(Mobile from)
 		{
 			var gainFactor = 1.0;
 			gainFactor += _GlobalGainFactor - 1.0;
@@ -81,7 +82,7 @@ namespace Nelderim.Gains
 						pm.SendMessage(0x40, $"Gain Boost aktywny do {pm.GainBoostEndTime}");
 				}
 
-				e.Mobile.SendMessage($"Wynikowy mnożnik gainów: x{calculateGainFactor(e.Mobile)}");
+				e.Mobile.SendMessage($"Wynikowy mnożnik gainów: x{CalculateGainFactor(e.Mobile)}");
 			}
 			else
 			{
@@ -124,9 +125,9 @@ namespace Nelderim.Gains
 			e.Mobile.SendMessage($"Globalny mnożnik gainów: x{_GlobalGainFactor}");
 		}
 
-		[Usage("PowerHour {value} [{DurationInMinutes}]")]
+		[Usage("GlobalPowerHour {value} [{DurationInMinutes}]")]
 		[Description("Ustala globalny modyfikator gainów na czas określony, domyślnie na czas 1h")]
-		private static void PowerHour(CommandEventArgs e)
+		private static void GlobalPowerHour(CommandEventArgs e)
 		{
 			var duration = TimeSpan.FromHours(1);
 			if (e.Length == 0)
@@ -148,6 +149,28 @@ namespace Nelderim.Gains
 			{
 				_GlobalGainFactor = gainFactor;
 				PhEndDate = DateTime.Now + duration;
+			}
+		}
+
+		private static readonly TimeSpan _DailyPowerHourDuration = TimeSpan.FromHours(1);
+		private static readonly double _DailyPowerHourFactor = 2.0;
+		
+		private static void PowerHour(CommandEventArgs e)
+		{
+			if (e.Mobile is PlayerMobile pm)
+			{
+				if (pm.LastDailyPowerHour.Date == DateTime.Now.Date)
+				{
+					pm.SendMessage("Wykorzystales juz dzisiaj Power Hour");
+				}
+				else if (Get(pm).ActivateGainBoost(_DailyPowerHourFactor, _DailyPowerHourDuration))
+				{
+					pm.SendMessage(0x40,
+						$"Aktywowales dzienne Power Hour o mnożniku x{_DailyPowerHourFactor} które będzie trwać do {DateTime.Now + _DailyPowerHourDuration}");
+					pm.LastDailyPowerHour = DateTime.Now;
+				}
+				else
+					pm.SendMessage("Masz już aktywny Gain Booster");
 			}
 		}
 	}

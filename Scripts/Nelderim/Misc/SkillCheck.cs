@@ -88,7 +88,7 @@ namespace Server.Misc
 
 			gc *= NConfig.BaseGainFactor;
 			
-			gc *= Gains.calculateGainFactor(from);
+ 			gc *= Gains.CalculateGainFactor(from);
 
 			gc *= EaseInOutSine(skill.Base, skill.Cap);
 			

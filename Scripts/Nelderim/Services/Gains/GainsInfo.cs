@@ -12,6 +12,7 @@ namespace Nelderim.Gains
 		private double _GainFactor = 1.0;
 		private Timer _GainBoostTimer;
 		private DateTime _GainBoostEndTime;
+		private DateTime _LastDailyPowerHour;
 
 		public double GainFactor
 		{
@@ -27,9 +28,19 @@ namespace Nelderim.Gains
 				_GainBoostTimer?.Stop();
 				
 				_GainBoostEndTime = value;
+				if (_GainBoostEndTime < DateTime.Now)
+				{
+					GainFactor = 1.0;
+				}
 				if(GainBoostEndTime > DateTime.Now)
 					_GainBoostTimer = Timer.DelayCall(GainBoostEndTime - DateTime.Now, () => GainFactor = 1.0);
 			}
+		}
+
+		public DateTime LastDailyPowerHour
+		{
+			get => _LastDailyPowerHour;
+			set => _LastDailyPowerHour = value;
 		}
 
 		public bool ActivateGainBoost(double gainFactor, TimeSpan duration)
@@ -43,9 +54,10 @@ namespace Nelderim.Gains
 
 		public override void Serialize(GenericWriter writer)
 		{
-			writer.Write( (int)0 ); //version
-			writer.Write(GainFactor);
-			writer.Write(GainBoostEndTime - DateTime.Now);
+			writer.Write( (int)1 ); //version
+			writer.Write(_GainFactor);
+			writer.Write(_GainBoostEndTime - DateTime.Now);
+			writer.Write(_LastDailyPowerHour);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -54,6 +66,10 @@ namespace Nelderim.Gains
 			
 			GainFactor = reader.ReadDouble();
 			GainBoostEndTime = DateTime.Now + reader.ReadTimeSpan();
+			if (version >= 1)
+				_LastDailyPowerHour = reader.ReadDateTime();
+			else
+				_LastDailyPowerHour = DateTime.MinValue;
 		}
 	}
 }

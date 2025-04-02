@@ -36,6 +36,13 @@ namespace Server.Mobiles
 		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
 		public bool GainDebug { get; set; }
 		
+		[CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
+		public DateTime LastDailyPowerHour
+		{
+			get => Gains.Get(this).LastDailyPowerHour;
+			set => Gains.Get(this).LastDailyPowerHour = value;
+		}
+		
 		public DateTime LastMacroCheck { get; set; }
 
 		// SUS
