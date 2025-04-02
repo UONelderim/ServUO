@@ -881,48 +881,47 @@ namespace Server.Items
 
         public virtual void Decode(Mobile from)
         {
-            if (m_Completed || m_Decoder != null)
-            {
-                return;
-            }
+	        if (m_Completed || m_Decoder != null)
+	        {
+		        return;
+	        }
 
-            if (m_Level == 0)
-            {
-                if (!CheckYoung(from))
-                {
-                    from.SendLocalizedMessage(1046447); // Only a young player may use this treasure map.
-                    return;
-                }
-            }
-            else
-            {
-                double minSkill = GetMinSkillLevel();
+	        if (m_Level == 0)
+	        {
+		        if (!CheckYoung(from))
+		        {
+			        from.SendLocalizedMessage(1046447); // Only a young player may use this treasure map.
+			        return;
+		        }
+	        }
+	        else
+	        {
+		        double minSkill = GetMinSkillLevel();
 
-                if (from.Skills[SkillName.Cartography].Value < minSkill)
-                {
-                    if (m_Level == 1)
-                    {
-                        from.CheckSkill(SkillName.Cartography, 0, minSkill);
-                    }
-                    else
-                    {
-                        from.SendLocalizedMessage(503013); // The map is too difficult to attempt to decode.
-                    }
-                }
+		        if (from.Skills[SkillName.Cartography].Value < minSkill)
+		        {
+			        if (m_Level == 1)
+			        {
+				        from.CheckSkill(SkillName.Cartography, 0, minSkill);
+			        }
+			        else
+			        {
+				        from.SendLocalizedMessage(503013); // The map is too difficult to attempt to decode.
+			        }
+		        }
 
-                if (!from.CheckSkill(SkillName.Cartography, minSkill - 10, minSkill + 30))
-                {
-                    from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 503018); // You fail to make anything of the map.
-                    return;
-                }
-            }
+		        if (!from.CheckSkill(SkillName.Cartography, minSkill - 10, minSkill + 30))
+		        {
+			        from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 503018); // You fail to make anything of the map.
+			        return;
+		        }
+	        }
 
-            from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 503019); // You successfully decode a treasure map!
-            Decoder = from;
+	        from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 503019); // You successfully decode a treasure map!
+	        Decoder = from;
 
-            LootType = LootType.Blessed;
-
-            DisplayTo(from);
+	        LootType = LootType.Blessed;
+	        // Usunięto wywołanie DisplayTo(from);
         }
 
         public void ResetLocation()
