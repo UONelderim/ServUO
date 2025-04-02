@@ -1345,9 +1345,7 @@ Circle375
 		/// </summary>
 		public virtual void AddNameProperty(ObjectPropertyList list)
 		{
-			var name = Name ?? String.Empty;
-
-			if (name == null)
+			if (Name == null)
 			{
 				if (m_Amount <= 1)
 				{
@@ -1362,7 +1360,7 @@ Circle375
 			{
 				if (m_Amount <= 1)
 				{
-					list.Add(name);
+					list.Add(Name);
 				}
 				else
 				{
