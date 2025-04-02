@@ -7,7 +7,7 @@ namespace Server.Mobiles
     {
         private static readonly string[] m_Names = new string[]
         {
-            "starszy mag ophidian",
+            "mag ophidian",
             "szaman ophidian"
         };
         [Constructable]
