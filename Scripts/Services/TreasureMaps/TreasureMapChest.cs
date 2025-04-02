@@ -454,18 +454,24 @@ namespace Server.Items
         {
             Item special;
 
-            switch (Utility.Random(8))
+            switch (Utility.Random(6)) //zmien na 8 po wprowadzeniu receptur
             {
                 default:
-                case 0: special = new CreepingVine(); break;
+             /*   case 0: special = new CreepingVine(); break;
                 case 1: special = new MessageInABottle(); break;
-                case 2: special = GetRandomRecipe(); break; // dodałem recepturę zamiast Scroll Of Alactiy //TODO: później zamienić na coś innego
-	                //ScrollOfAlacrity(PowerScroll.Skills[Utility.Random(PowerScroll.Skills.Count)]); break;
+                case 2: special = GetRandomRecipe(); break; 
                 case 3: special = new Skeletonkey(); break;
                 case 4: special = new TastyTreat(5); break;
                 case 5: special = new TreasureMap(Utility.RandomMinMax(level, Math.Min(7, level + 1)), map); break;
                 case 6: special = GetRandomRecipe(); break;
-                case 7: special = ScrollOfTranscendence.CreateRandom(1, 5); break;
+                case 7: special = ScrollOfTranscendence.CreateRandom(1, 5); break;*/  //ODKMONETOWAĆ PO WPROWADZENIU RECPTUR
+                
+                case 0: special = new CreepingVine(); break;
+                case 1: special = new MessageInABottle(); break;
+                case 2: special = new Skeletonkey(); break;
+                case 3: special = new TastyTreat(5); break;
+                case 4: special = new TreasureMap(Utility.RandomMinMax(level, Math.Min(7, level + 1)), map); break;
+                case 5: special = ScrollOfTranscendence.CreateRandom(1, 5); break;
             }
 
             return special;
@@ -622,15 +628,15 @@ namespace Server.Items
                     spawn.Tamable = false;
 
                     if (spawn.HitsMaxSeed >= 0)
-                        spawn.HitsMaxSeed = (int)(spawn.HitsMaxSeed * Paragon.HitsBuff);
+                        spawn.HitsMaxSeed = (int)(spawn.HitsMaxSeed /* Paragon.HitsBuff*/); //Ancient Guardians' stats won't be scaled
 
-                    spawn.RawStr = (int)(spawn.RawStr * Paragon.StrBuff);
+                 /*   spawn.RawStr = (int)(spawn.RawStr * Paragon.StrBuff);
                     spawn.RawInt = (int)(spawn.RawInt * Paragon.IntBuff);
                     spawn.RawDex = (int)(spawn.RawDex * Paragon.DexBuff);
 
                     spawn.Hits = spawn.HitsMax;
                     spawn.Mana = spawn.ManaMax;
-                    spawn.Stam = spawn.StamMax;
+                    spawn.Stam = spawn.StamMax;*/
 
                     spawn.Hue = 1960;
 
@@ -639,7 +645,8 @@ namespace Server.Items
                         Skill skill = spawn.Skills[i];
 
                         if (skill.Base > 0.0)
-                            skill.Base *= Paragon.SkillsBuff;
+                           // skill.Base *= Paragon.SkillsBuff;
+                           skill.Base = skill.Base;
                     }
 
                     AncientGuardians.Add(spawn);
