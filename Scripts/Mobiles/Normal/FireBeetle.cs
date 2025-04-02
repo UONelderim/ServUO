@@ -51,7 +51,6 @@ namespace Server.Mobiles
         {
             AddLoot(LootPack.LootItem<SulfurousAsh>(16, 25, true));
             AddLoot(LootPack.LootItem<IronIngot>(2, true));
-            AddLoot(LootPack.LootItem<PazurImiennegoSmoka>(30.0));
         }
 
         public override bool SubdueBeforeTame => true;// Must be beaten into submission

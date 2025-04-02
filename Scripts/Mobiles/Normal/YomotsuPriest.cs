@@ -61,7 +61,6 @@ namespace Server.Mobiles
             AddLoot(LootPack.Gems, 4);
             AddLoot(LootPack.LootItem<GreenGourd>(true));
             AddLoot(LootPack.BonsaiSeed);
-            AddLoot(LootPack.LootItem<PalecImiennegoSmoka>(30.0));
         }
 
         // TODO: Body Transformation

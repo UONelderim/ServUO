@@ -64,7 +64,6 @@ namespace Server.Mobiles
             AddLoot(LootPack.Rich);
             AddLoot(LootPack.MedScrolls, 2);
             AddLoot(LootPack.MageryRegs, 3);
-            AddLoot(LootPack.LootItem<PalecImiennegoSmoka>(30.0));
         }
 
         public override void Serialize(GenericWriter writer)
