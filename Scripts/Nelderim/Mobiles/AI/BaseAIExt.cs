@@ -116,7 +116,8 @@ namespace Server.Mobiles
 			if (m_Mobile is BaseNelderimGuard)
 				m_Mobile.SetLocation(m_Mobile.Home, false);
 		}
-
+		
+		//FIXME!
 		protected void OnGuardActionAttack(IDamageable combatant)
 		{
 			if (!(m_Mobile is BaseNelderimGuard))
@@ -130,12 +131,11 @@ namespace Server.Mobiles
 				switch (rand)
 				{
 					case 6:
-						msg = String.Format("Ha! {0}! Ty psi pomiocie! Dopadne Cie i ukarze w imie Sprawiedliwosci!",
-							m_Mobile.FocusMob.Name);
+						msg = "Ty psi pomiocie! Dopadne Cie i ukarze w imie Sprawiedliwosci!";
 						break;
 					case 7:
 					case 8:
-						msg = String.Format("{0}! Stoj!", m_Mobile.FocusMob.Name);
+						msg = $"{m.Race.GetName(Cases.Wolacz)}! Stoj!";
 						break;
 					default:
 						msg = "Stoj!";
