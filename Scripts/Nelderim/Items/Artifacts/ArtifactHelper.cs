@@ -130,8 +130,8 @@ namespace Server.Items
 			_CreatureInfo.Add(typeof(MikolajBoss), new ArtInfo(5, Rolls.One, ArtGroup.CustomChamp));
 			//Fishing Bossy
 			_CreatureInfo.Add(typeof(Leviathan), new ArtInfo(10, Rolls.One, ArtGroup.Fishing));
-			
-			//HalrandBoss
+      
+			//Halrand Arty
 			_CreatureInfo.Add(typeof(HalrandBoss), new ArtInfo(6, Rolls.Three, ArtGroup.Boss));
 			
 			//BaronowaFrozen
