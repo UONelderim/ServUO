@@ -132,7 +132,7 @@ namespace Server.Items
 			_CreatureInfo.Add(typeof(Leviathan), new ArtInfo(10, Rolls.One, ArtGroup.Fishing));
       
 			//Halrand Arty
-			_CreatureInfo.Add(typeof(HalrandBoss), new ArtInfo(6, Rolls.Three, ArtGroup.Boss));
+			_CreatureInfo.Add(typeof(HalrandBoss), new ArtInfo(6, Rolls.Three, ArtGroup.HalrandBoss));
 			
 			//BaronowaFrozen
 			_CreatureInfo.Add(typeof(BaronowaFrozen), new ArtInfo(7, Rolls.Two, ArtGroup.BaronowaFrozen));
