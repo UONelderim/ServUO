@@ -28,7 +28,7 @@ namespace Server.Mobiles
         public virtual bool UsesMagery => true;
         public virtual double HealChance => 0.25;
 
-        protected const double DispelChance = 0.15; // 15% chance to dispel at gm skill  (było 75)
+        protected const double DispelChance = 0.1; // 10% chance to dispel at gm skill  (było 75)
         protected double TeleportChance => m_Mobile.TeleportChance;
 
         private LandTarget m_RevealTarget;
