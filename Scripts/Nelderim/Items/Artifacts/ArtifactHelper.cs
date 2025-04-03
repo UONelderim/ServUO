@@ -22,7 +22,8 @@ namespace Server.Items
 		CustomChamp,
 		Elghin,
 		Paragon,
-		HalrandBoss
+		HalrandBoss,
+		BaronowaFrozen
 	}
 
 	enum ArtSeason
@@ -129,9 +130,12 @@ namespace Server.Items
 			_CreatureInfo.Add(typeof(MikolajBoss), new ArtInfo(5, Rolls.One, ArtGroup.CustomChamp));
 			//Fishing Bossy
 			_CreatureInfo.Add(typeof(Leviathan), new ArtInfo(10, Rolls.One, ArtGroup.Fishing));
+      
+			//Halrand Arty
+			_CreatureInfo.Add(typeof(HalrandBoss), new ArtInfo(6, Rolls.Three, ArtGroup.Boss));
 			
-			//HalrandBoss
-			_CreatureInfo.Add(typeof(HalrandBoss), new ArtInfo(6, Rolls.Three, ArtGroup.HalrandBoss));
+			//BaronowaFrozen
+			_CreatureInfo.Add(typeof(BaronowaFrozen), new ArtInfo(7, Rolls.Two, ArtGroup.BaronowaFrozen));
 
 			InitializeArtifacts();
 			
@@ -305,6 +309,7 @@ namespace Server.Items
 			_Artifacts.Add(ArtGroup.Elghin, ForAllSeasons(_ElghinArtifacts));
 			_Artifacts.Add(ArtGroup.Paragon, ForAllSeasons(_ParagonArtifacts));
 			_Artifacts.Add(ArtGroup.HalrandBoss, ForAllSeasons(_HalrandBossArtifacts));
+			_Artifacts.Add(ArtGroup.BaronowaFrozen, ForAllSeasons(_BaronowaFrozenArtifacts));
 			var allHunterArtifacts = new[]
 				{
 					HunterRewardCalculator.ArtLvl1, HunterRewardCalculator.ArtLvl2, HunterRewardCalculator.ArtLvl3,
@@ -351,6 +356,11 @@ namespace Server.Items
 			typeof(InquisitorsArms), typeof(LegsOfTheFallenKing), typeof(MadmansHatchet), typeof(MinersPickaxe), 
 			typeof(VampiricBladedWhip), typeof(BlabberBlade), typeof(BowOfHarps),
 			typeof(Erotica), typeof(SatanicHelm), typeof(ShieldOfIce), typeof(ColdBreeze)
+		};
+		
+		private static Type[] _BaronowaFrozenArtifacts = {
+			typeof(WloczniaNieudacznika), typeof(Annihilation), typeof(ArcaneArms), typeof(BraceletOfTheElements), 
+			typeof(InquisitorsHelm), typeof(SinbadsSword)
 		};
 		
 		private static Dictionary<ArtSeason, Type[]> _BossArtifacts = new()
