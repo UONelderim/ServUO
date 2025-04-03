@@ -74,7 +74,7 @@ public class BaseNelderimGuard : BaseCreature
     {
         return _GuardMode switch
         {
-            GuardMode.Spider => IsEnemyOfSpider(m),
+            GuardMode.Spider => IsEnemyOfGuardSpider(m),
             GuardMode.Harmless => false,
             _ => DefaultIsEnemy(m)
         };
@@ -245,34 +245,38 @@ public class BaseNelderimGuard : BaseCreature
         }
     }
     
-    private bool IsEnemyOfSpider(Mobile m)
+    private bool IsEnemyOfGuardSpider(Mobile m)
     {
-	    if (m == null)
-		    return false;
-        
-	    if (Faction != null && Faction.IsEnemy(m))
-		    return true;
-	    
+        if (m == null)
+            return false;
+
+        if (Faction != null && Faction.IsEnemy(m))
+            return true;
+
         // Nie atakuj innych straznikow (obszarowka moze triggerowac walke miedzy nimi)
-        if (m is BaseNelderimGuard)
+        if (m is BaseNelderimGuard gm && _GuardMode == gm._GuardMode)
             return false;
 
         // nie atakuj drowow i obywateli drowiego miasta (oraz ich zwierzat i przywolancow)
         if (BaseAI.IsSpidersFriend(m))
             return false;
 
+        // nie atakuj czlonkow swojej frakcji
+        if (Faction == m.Faction)
+            return false;
+
         // atakuj wszystkich graczy
         if (m is PlayerMobile)
-            return true;
+           return true;
 
         if (m is BaseCreature)
         {
             BaseCreature bc = m as BaseCreature;
 
-            // atakuj pety i przywolance graczy
-            if ((bc.Controlled && bc.ControlMaster != null && bc.ControlMaster.AccessLevel < AccessLevel.Counselor) ||
-                (bc.Summoned && bc.SummonMaster != null && bc.SummonMaster.AccessLevel < AccessLevel.Counselor))
-                return true;
+            if (bc.Controlled && bc.ControlMaster != null)
+                return IsEnemy(bc.ControlMaster);
+            if (bc.Summoned && bc.SummonMaster != null)
+                return IsEnemy(bc.SummonMaster);
 
             // nie atakuj dzikich pajakow
             if (SlayerGroup.GetEntryByName(SlayerName.SpidersDeath).Slays(m) && !bc.IsChampionSpawn && !(m is NSzeol) &&
