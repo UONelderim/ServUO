@@ -2,16 +2,16 @@ namespace Server.Items
 {
     [Furniture]
 
-    public class FilletedFish : Item
+    public class FruitBasket2 : Item
     {
         [Constructable]
-        public FilletedFish()
-            : base(0xA8ED)
+        public FruitBasket2()
+            : base(0x5059)
         {
             Weight = 3.0;
         }
 
-        public FilletedFish(Serial serial)
+        public FruitBasket2(Serial serial)
             : base(serial)
         {
         }

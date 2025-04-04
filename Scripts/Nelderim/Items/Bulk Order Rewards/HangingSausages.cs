@@ -1,12 +1,12 @@
 namespace Server.Items
 {
     [Furniture]
-    [Flipable(0xA8F0, 0xA8F1)]
+    [Flipable(0x4FC4, 0x4FC5)]
     public class HangingSausages : Item
     {
         [Constructable]
         public HangingSausages()
-            : base(0xA8F0)
+            : base(0x4FC4)
         {
             Weight = 3.0;
         }

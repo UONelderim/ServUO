@@ -5,7 +5,7 @@ namespace Server.Items
 	{
 		[Constructable]
 		public FlowerInGlassB()
-			: base(0xA8EB)
+			: base(0x5009)
 		{
 			Weight = 20.0;
 		}

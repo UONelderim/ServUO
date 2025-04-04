@@ -1594,16 +1594,13 @@ namespace Server.Engines.BulkOrders
             RewardCollection = new List<CollectionItem>();
 
             RewardCollection.Add(new BODCollectionItem(0x97F, 1157219, 0, 10, Skillet));
-       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157197, 0, 25, RewardTitle, 13));
 			RewardCollection.Add(new BODCollectionItem(0x13C6, 3060055, 0, 25, CookingGloves, 1));
 			if(NConfig.Loot.RecipesEnabled) 
 				RewardCollection.Add(new BODCollectionItem(0x2831, 1031233, 0, 25, Recipe, 4));
-       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157198, 0, 50, RewardTitle, 14));
 	        RewardCollection.Add(new BODCollectionItem(0x13C6, 3060057, 0, 50, CookingGloves, 3));
 	        RewardCollection.Add(new BODCollectionItem(3854, "Skladniki Do Wywarow x5", 1952, 190, ElixirIngredient2)); 
-       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157199, 0, 210, RewardTitle, 15));
 			RewardCollection.Add(new BODCollectionItem(3854, "Skladniki Do Wywarow x10", 1952, 150, ElixirIngredient)); 
-			RewardCollection.Add(new BODCollectionItem(0xA8ED, 3060078, 0, 200, FilletedFish));
+			RewardCollection.Add(new BODCollectionItem(0xA8ED, 3060078, 0, 200, FruitBasket));
 			RewardCollection.Add(new BODCollectionItem(0x13C6, 3060059, 0, 210, CookingGloves, 5));
             RewardCollection.Add(new BODCollectionItem(0x9E27, 1157264, 0, 250, CraftsmanTalisman, 10));
             RewardCollection.Add(new BODCollectionItem(0x0E7B, "Wiadro na nawoz", 2966, 275, DungBucket));
@@ -1660,9 +1657,9 @@ namespace Server.Engines.BulkOrders
 	        throw new InvalidOperationException();
         }
         
-        private static Item FilletedFish(int type)
+        private static Item FruitBasket(int type)
         {
-	        return new FilletedFish();
+	        return new FruitBasket2();
         }
         
         private static Item MuffinShelf(int type)
@@ -2079,12 +2076,9 @@ namespace Server.Engines.BulkOrders
             RewardCollection = new List<CollectionItem>();
 
             RewardCollection.Add(new BODCollectionItem(0xE9B, 1157219, 0, 10, MortarAndPestle));
-       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157183, 0, 25, RewardTitle, 20));
-       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157202, 0, 50, RewardTitle, 21));
-       //   RewardCollection.Add(new BODCollectionItem(0x14F0, 1157203, 0, 210, RewardTitle, 22));
-			RewardCollection.Add(new BODCollectionItem(0x14F0, 3060074, 0x481, 210, PowerScroll, 5));
-			RewardCollection.Add(new BODCollectionItem(0xA8EA, "roslina w sloju", 0, 200, CreateItem, 1));
-            RewardCollection.Add(new BODCollectionItem(0x182B, 1157278, 2741, 225, NaturalDye, 0));
+		    RewardCollection.Add(new BODCollectionItem(0xA8EA, "roslina w sloju", 0, 200, CreateItem, 1));
+		    RewardCollection.Add(new BODCollectionItem(0x14F0, 3060074, 0x481, 210, PowerScroll, 5));
+		    RewardCollection.Add(new BODCollectionItem(0x182B, 1157278, 2741, 225, NaturalDye, 0));
             RewardCollection.Add(new BODCollectionItem(0x975, 1152660, CraftResources.GetHue(CraftResource.AshWood), 250, Cauldron, 0));
             RewardCollection.Add(new BODCollectionItem(0x975, 1152656, CraftResources.GetHue(CraftResource.Bronze), 260, Cauldron, 1));
             RewardCollection.Add(new BODCollectionItem(0x9E26, 1157264, 0, 275, CraftsmanTalisman, 10)); // todo: Get id

@@ -1,12 +1,12 @@
 namespace Server.Items
 {
     [Furniture]
-    [Flipable(0xA8EE, 0xA8EF)]
+    [Flipable(0x5039, 0x503A)]
     public class MuffinShelf : Item
     {
         [Constructable]
         public MuffinShelf()
-            : base(0xA8EE)
+            : base(0x5039)
         {
             Weight = 20.0;
         }

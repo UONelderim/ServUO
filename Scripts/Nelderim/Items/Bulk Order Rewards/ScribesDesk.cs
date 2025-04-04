@@ -1,12 +1,12 @@
 namespace Server.Items
 {
     [Furniture]
-    [Flipable(0xA8E8, 0xA8E9)]
+    [Flipable(0x4FFE, 0x4FFF)]
     public class ScribesDesk : Item
     {
         [Constructable]
         public ScribesDesk()
-            : base(0xA8E8)
+            : base(0x4FFE)
         {
             Weight = 20.0;
         }
