@@ -22,8 +22,8 @@ namespace Server.Spells.Spellweaving
         public override int RequiredMana => 24;
         public static bool IsValidTile(int itemID)
         {
-            //Per OSI, Center tile only
-            return (itemID == 0xFEA || itemID == 0x1216 || itemID == 0x307F || itemID == 0x1D10 || itemID == 0x1D0F || itemID == 0x1D1F || itemID == 0x1D12);	// Pentagram center, Abbatoir center, Arcane Circle Center, Bloody Pentagram has 4 tiles at center
+
+            return (itemID == 0x3083 || itemID == 0x3080 || itemID == 0x3082 || itemID == 0x3081 || itemID == 0x307D || itemID == 0x307F || itemID == 0x307E || itemID == 0xFE7 || itemID == 0xFE8 || itemID == 0xFEB || itemID == 0xFE6 || itemID == 0xFEA || itemID == 0xFEE || itemID == 0xFE9);
         }
 
         public override bool CheckCast()
