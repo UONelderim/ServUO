@@ -5720,16 +5720,16 @@
 1008143;House secure container count : 
 1008144;Number of secures left : 
 1008145;This item cannot be locked down. Your house currently has the maximum number of locked down item(s). You will need to free up additional lockdown slots. 
-1008146;a new moon 
-1008147;a waxing crescent moon 
-1008148;in the first quarter 
-1008149;waxing gibbous 
-1008150;a full moon 
-1008151;waning gibbous 
-1008152;in its last quarter 
-1008153;a waning crescent 
-1008154;big and round, a satellite, and made of cheese 
-1008155;You peer into the heavens, seeking the moons... 
+1008146;now ksiezyca
+1008147;rosnacy sierp ksiezyca
+1008148;w pierwszej kwadrze
+1008149;rosnacy ksiezyc garbaty
+1008150;pelnia ksiezyca
+1008151;malejacy ksiezyc garbaty
+1008152;w ostatniej kwadrze
+1008153;malejacy sierp
+1008154;duzy i okragly, satelita i zrobiony z sera
+1008155;Patrzysz w niebo, szukajac ksiezycow...
 1008156;Tasted ingredients : 
 1008157;Identified : 
 1008158;Wyleczono czesc obrazen: 
@@ -5850,7 +5850,7 @@
 1010092;You may not use this on a black dye tub. 
 1010093;You may not dye items which are locked down. 
 1010094;Ouch!  Guards! 
-1010095;This must be on your person to use. 
+1010095;Aby tego uzyc, musisz miec to przy sobie.
 1010096;You cannot use this in your current form. 
 1010097;Jesli chcesz prowadzic statek, to najpierw zejdz z wierzcha! 
 1010098;[Faction Trap] 
@@ -6234,36 +6234,36 @@
 1010476;To nie wyglada na odpowiednie miejsce na mapie skarbow... ale mozesz tu sprobowac kopac.
 1010477;Bedziesz musial rozszyfrowac te mape, zanim bedziesz mogl wykopac skarb.
 1010478;Nie rozszyfrowales tej mapy. Tylko osoba, ktora ja rozszyfrowala, bedzie mogla skutecznie znalezc i wykopac skarb.
-1010479;Wyglada na to, ze jestes we wlasciwym miejscu, ale mozesz byc na niewlasciwej plaszczyznie (mapie)!
+1010479;Wyglada na to, ze jestes we wlasciwym miejscu, ale mozesz byc na niewlasciwej mapie!
 1010480;Gdzie zamierzasz kopac swoj skarb?
 1010481;Twoj plecak jest przepelniony, wykopana ruda przepada. 
-1010482;You can't use this if it is locked down. 
-1010483;Someone is already using that net! 
-1010484;Where do you wish to use the net? 
-1010485;You can only use this net in deep water! 
-1010486;You can only use this net in deep water! 
-1010487;You plunge the net into the sea... 
-1010488;You pull up sea monsters! 
-1010489;A magical aura surrounds you and prevents the spell. 
-1010490;Your acute sense of time reveals the aura will disperse in less than a minute. 
-1010491;Your acute sense of time reveals the aura will disperse in 1 minute. 
-1010492;Your sense of time reveals the aura will not disperse for several minutes. 
-1010493;You cannot bury a stone in jail! 
-1010494;A sextant has been placed in your backpack. 
-1010495;A spellbook with all 1st to 4th circle spells has been placed in your backpack. 
-1010496;You have cleaned the item, but you have used up the rag. 
-1010497;You have cleaned the item. 
-1010498;A magical aura surrounds you and prevents the spell. 
-1010499;Your acute sense of time reveals the aura will disperse in less than a minute. 
-1010500;Your acute sense of time reveals the aura will disperse in 1 minute. 
-1010501;Your sense of time reveals the aura will not disperse for several minutes. 
-1010502;A magical aura surrounds you and prevents the spell. 
-1010503;Your acute sense of time reveals the aura will disperse in less than a minute. 
-1010504;Your acute sense of time reveals the aura will disperse in 1 minute. 
-1010505;Your sense of time reveals the aura will not disperse for several minutes. 
-1010506;You have become less intelligent and cannot remove this helm for one hour! 
-1010507;You cannot transfer a pet with a trade pending 
-1010508;You must wait to purchase more animals. 
+11010482;Nie mozesz tego uzyc, jesli jest zablokowane.
+1010483;Ktos juz uzywa tej sieci!
+1010484;Gdzie chcesz uzyc sieci?
+1010485;Mozesz uzyc tej sieci tylko w glebokiej wodzie!
+1010486;Mozesz uzyc tej sieci tylko w glebokiej wodzie!
+1010487;Zanurzasz siec w morzu...
+1010488;Wyciagasz potwory morskie!
+1010489;Magiczna aura cie otacza i uniemozliwia rzucenie zaklecia.
+1010490;Twoj wyostrzony zmysl czasu ujawnia, ze aura rozproszy sie w mniej niz minute.
+1010491;Twoj wyostrzony zmysl czasu ujawnia, ze aura rozproszy sie za 1 minute.
+1010492;Twoj zmysl czasu ujawnia, ze aura nie rozproszy sie przez kilka minut.
+1010493;Nie mozesz zakopac kamienia w wiezieniu!
+1010494;Sekstant zostal umieszczony w twoim plecaku.
+1010495;Ksiega zaklec ze wszystkimi zakleciami od 1 do 4 kregu zostala umieszczona w twoim plecaku.
+1010496;Wyczysciles przedmiot, ale zuzyles szmate.
+1010497;Wyczysciles przedmiot.
+1010498;Magiczna aura cie otacza i uniemozliwia rzucenie zaklecia.
+1010499;Twoj wyostrzony zmysl czasu ujawnia, ze aura rozproszy sie w mniej niz minute.
+1010500;Twoj wyostrzony zmysl czasu ujawnia, ze aura rozproszy sie za 1 minute.
+1010501;Twoj zmysl czasu ujawnia, ze aura nie rozproszy sie przez kilka minut.
+1010502;Magiczna aura cie otacza i uniemozliwia rzucenie zaklecia.
+1010503;Twoj wyostrzony zmysl czasu ujawnia, ze aura rozproszy sie w mniej niz minute.
+1010504;Twoj wyostrzony zmysl czasu ujawnia, ze aura rozproszy sie za 1 minute.
+1010505;Twoj zmysl czasu ujawnia, ze aura nie rozproszy sie przez kilka minut.
+1010506;Stales sie mniej inteligentny i nie mozesz zdjac tego helmu przez godzine!
+1010507;Nie mozesz przekazac zwierzaka z oczekujaca wymiana.
+1010508;Musisz poczekac, aby kupic wiecej zwierzat.
 1010509;You have selected too many animals to purchase. 
 1010510;Murderers aren't allowed here, you are banished! 
 1010511;Murderers aren't allowed here, you are banished! 
@@ -21074,31 +21074,31 @@
 1034237;krwawy wir 
 1034238;glowing arrow 
 1034239;small bolt 
-1034240;field of blades 
-1034241;field of blades 
-1034242;field of blades 
-1034243;field of blades 
-1034244;field of blades 
-1034245;field of blades 
-1034246;field of blades 
-1034247;field of blades 
-1034248;field of blades 
-1034249;field of blades 
-1034250;field of blades 
-1034251;field of blades 
-1034252;field of blades 
-1034253;field of blades 
-1034254;field of blades 
-1034255;field of blades 
-1034256;field of blades 
-1034257;field of blades 
-1034258;field of blades 
-1034259;field of blades 
-1034260;field of blades 
-1034261;field of blades 
-1034262;field of blades 
-1034263;field of blades 
-1034264;field of blades 
+1034240;pole ostrzy
+1034241;pole ostrzy
+1034242;pole ostrzy
+1034243;pole ostrzy
+1034244;pole ostrzy
+1034245;pole ostrzy
+1034246;pole ostrzy
+1034247;pole ostrzy
+1034248;pole ostrzy
+1034249;pole ostrzy
+1034250;pole ostrzy
+1034251;pole ostrzy
+1034252;pole ostrzy
+1034253;pole ostrzy
+1034254;pole ostrzy
+1034255;pole ostrzy
+1034256;pole ostrzy
+1034257;pole ostrzy
+1034258;pole ostrzy
+1034259;pole ostrzy
+1034260;pole ostrzy
+1034261;pole ostrzy
+1034262;pole ostrzy
+1034263;pole ostrzy
+1034264;pole ostrzy
 1034265;glow 
 1034266;glow 
 1034267;glow 
@@ -21143,43 +21143,43 @@
 1034306;wir smierci 
 1034307;wir smierci 
 1034308;wir smierci 
-1034315;field of blades 
-1034316;field of blades 
-1034317;field of blades 
-1034318;field of blades 
-1034319;field of blades 
-1034320;field of blades 
-1034321;field of blades 
-1034322;field of blades 
-1034323;field of blades 
-1034324;field of blades 
-1034325;field of blades 
-1034326;field of blades 
-1034327;field of blades 
-1034328;field of blades 
-1034329;field of blades 
-1034330;field of blades 
-1034331;field of blades 
-1034332;field of blades 
-1034333;field of blades 
-1034334;field of blades 
-1034335;field of blades 
-1034336;field of blades 
-1034337;field of blades 
-1034338;field of blades 
-1034339;field of blades 
-1034340;field of blades 
-1034341;field of blades 
-1034342;field of blades 
-1034343;field of blades 
-1034344;field of blades 
-1034345;field of blades 
-1034346;field of blades 
-1034347;field of blades 
-1034348;field of blades 
-1034349;field of blades 
-1034350;field of blades 
-1034351;field of blades 
+1034315;pole ostrzy
+1034316;pole ostrzy
+1034317;pole ostrzy
+1034318;pole ostrzy
+1034319;pole ostrzy
+1034320;pole ostrzy
+1034321;pole ostrzy
+1034322;pole ostrzy
+1034323;pole ostrzy
+1034324;pole ostrzy
+1034325;pole ostrzy
+1034326;pole ostrzy
+1034327;pole ostrzy
+1034328;pole ostrzy
+1034329;pole ostrzy
+1034330;pole ostrzy
+1034331;pole ostrzy
+1034332;pole ostrzy
+1034333;pole ostrzy
+1034334;pole ostrzy
+1034335;pole ostrzy
+1034336;pole ostrzy
+1034337;pole ostrzy
+1034338;pole ostrzy
+1034339;pole ostrzy
+1034340;pole ostrzy
+1034341;pole ostrzy
+1034342;pole ostrzy
+1034343;pole ostrzy
+1034344;pole ostrzy
+1034345;pole ostrzy
+1034346;pole ostrzy
+1034347;pole ostrzy
+1034348;pole ostrzy
+1034349;pole ostrzy
+1034350;pole ostrzy
+1034351;pole ostrzy
 1034360;energy 
 1034361;energy 
 1034362;energy 
@@ -27143,27 +27143,27 @@
 1055017;Znajdz lokalizacje pokazana na mapie, ktora dal ci chochlik. Kiedy dotrzesz na miejsce, zagraj na magicznym flecie, ktory dostarczyl, a imp Zeefzorpul zostanie przyciagniety do twojej obecnosci. 
 1055018;Wroc do starej Wiedzmy i powiedz jej, ze odzyskales jej przepis na magiczny napar od dziwacznego chochlika o imieniu Zeefzorpul. 
 1055019;Musisz zebrac kazdy skladnik z listy Wiedzmy, aby mogla ugotowac swoj okropny Magiczny Napar. Pierwszy skladnik to: 
-1055020;sheep liver 
-1055021;rabbit's foot 
-1055022;mongbat wing 
-1055023;chicken gizzard 
-1055024;rat tail 
-1055025;frog's leg 
-1055026;deer heart 
-1055027;lizard tongue 
-1055028;slime ooze 
-1055029;spirit essence 
-1055030;Swamp Water 
-1055031;Freshly Cut Red Mushrooms 
-1055032;Bones Buried In Hallowed Ground 
-1055033;Star Chart 
-1055034;Captain Blackheart's Whiskey 
-1055035;You dip the container into the disgusting swamp water, collecting enough for the Hag's vile stew. 
-1055036;You slice a red cap mushroom from its stem. 
-1055037;You finish your grim work, finding some of the specific bones listed in the Hag's recipe. 
-1055038;You dig through the dirt, but turn up no bones that match the descriptions of those in the Hag's recipe. 
-1055039;You gaze up into the sky, but it is not dark enough to see any stars. 
-1055040;You gaze up into the glittering night sky.  With great care, you compose a chart of the most prominent star patterns. 
+1055020;watroba owcy
+1055021;krolicza lapka
+1055022;skrzydlo nietoperza
+1055023;kurzy zoladek
+1055024;ogon szczura
+1055025;zabia nozka
+1055026;serce jelenia
+1055027;jezyk jaszczurki
+1055028;oslizgla maz
+1055029;esencja ducha
+1055030;Woda z Bagna
+1055031;Swiezo Sciete Czerwone Grzyby
+1055032;Kosci Zakopane w Poswieconej Ziemi
+1055033;Mapa Gwiazd
+1055034;Whisky Kapitana Blackhearta
+1055035;Zanurzasz pojemnik w obrzydliwej wodzie z bagna, zbierajac wystarczajaco duzo na ohydny gulasz Wiedzmy.
+1055036;Odcinasz kapelusz czerwonego grzyba od lodygi.
+1055037;Konczysz swoja ponura prace, znajdujac niektore z konkretnych kosci wymienionych w przepisie Wiedzmy.
+1055038;Przeszukujesz ziemie, ale nie znajdujesz kosci pasujacych do opisow tych z przepisu Wiedzmy.
+1055039;Spogladasz w niebo, ale nie jest wystarczajaco ciemno, aby zobaczyc gwiazdy.
+1055040;Spogladasz w lsniace nocne niebo. Z wielka starannoscia ukladasz mape najbardziej widocznych ukladow gwiazd.
 1055041;Pijany pirat trzesie sie i wygraza piescia. 
 1055042;Uczen Wiedzmy 
 1055043;Zbierasz ~1_INGREDIENT_NAME~ z ciala. 
@@ -30976,7 +30976,7 @@
 1071033;Przywolanie Demona 
 1071034;Forma Zniwiarza 
 1071035;Ogien Dzikiej Przyrody 
-1071036;Eteryczna Wedrowka 
+1071036;Esencja Wiatru
 1071037;Czarujacy Dryad 
 1071038;Eteryczna Podroz 
 1071039;Slowo Smierci 
@@ -31391,7 +31391,7 @@
 1071457;Noble Gold
 1071458;Pale Orange
 1071459;Chaos Blue
-1071460;Leurocian's Mempo of Fortune
+1071460;Morskie podgardle szczescia
 1071461;Subdued Coal
 1071462;Supreme Maestro
 1071463;Cap of Supreme Maestro
@@ -34050,32 +34050,32 @@
 1074477;Bone couch 
 1074478;Bone table 
 1074479;Disturbing portrait 
-1074480;Unsettling portrait 
-1074481;Creepy portrait 
-1074482;Mounted pixie 
-1074483;Haunted mirror 
-1074484;Bed of nails 
-1074485;Grizzled Mare 
-1074486;You could not hold the creature. 
-1074487;The creatures are too quick for you! 
-1074488;You could not hold the creature. 
-1074489;A live creature jumps into the fish bowl in your pack! 
-1074490;A live creature flops around in your pack before running out of air. 
-1074491;You can only use this net in water! 
-1074492;You plunge the net into the water... 
-1074493;Mark of Travesty 
-1074494;Contains: ~1_CREATURE~ 
-1074495;The creature has been removed from the fish bowl. 
-1074496;There is no room in your pack for the creature. 
-1074497;Duze Akwarium (PN) 
-1074499;Male okragle akwarium 
-1074500;Tragic Remains of the Travesty 
-1074501;Duze Akwarium (WS) 
-1074502;It looks explosive. 
-1074503;Shimmering Effusion Statuette 
-1074504;Fetid Essence Statuette 
-1074505;Mantra Effervescence Statuette 
-1074506;Corporeal Brume Statuette 
+1074480;Niepokojacy portret
+1074481;Straszny portret
+1074482;Wypchany chochlik
+1074483;Nawiedzone lustro
+1074484;Loze z gwozdzi
+1074485;Siwa Klacz
+1074486;Nie mogles utrzymac stworzenia.
+1074487;Stworzenia sa dla ciebie zbyt szybkie!
+1074488;Nie mogles utrzymac stworzenia.
+1074489;Zywe stworzenie wskakuje do akwarium w twoim plecaku!
+1074490;Zywe stworzenie miota sie w twoim plecaku, zanim zabraknie mu powietrza.
+1074491;Mozesz uzyc tej sieci tylko w wodzie!
+1074492;Zanurzasz siec w wodzie...
+1074493;Znak Parodii
+1074494;Zawiera: ~1_CREATURE~
+1074495;Stworzenie zostalo usuniete z akwarium.
+1074496;W twoim plecaku nie ma miejsca na stworzenie.
+1074497;Duze Akwarium (PN)
+1074499;Male okragle akwarium
+1074500;Tragiczne Resztki Parodii
+1074501;Duze Akwarium (WS)
+1074502;Wyglada na wybuchowe.
+1074503;Migoczaca Statuetka Wyziewu
+1074504;Smierdzaca Statuetka Esencji
+1074505;Statuetka Mantry Musujacej
+1074506;Statuetka Cielesnej Mgielki
 1074507;Probuje zlapac powietrze 
 1074508;Okay.  Best of luck with your other endeavors. 
 1074509;Lord overseers are the best source I know for power crystals of the type I need.  Iron golems too, can have them but they're harder to find. 
@@ -34386,7 +34386,7 @@
 1074815;<CENTER>You are teleporting to an unknown area.<BR>Do you wish to go?</CENTER> 
 1074816;Charger of the Fallen Statuette 
 1074817;Sacrificial altar 
-1074818;Sacrificial Altar 
+1074818;Oltarz Corgula
 1074819;Pokarm dla rybek akwariowych 
 1074820;Pet Beetles 
 1074821;Unusual Riding Creatures 
@@ -35819,9 +35819,9 @@
 1076251;Your pet was unable to join you while you are a ghost.  Please re-login once you have ressurected to claim your pets. 
 1076252;You have been removed from the game for 2 minutes for use of an illegal 3rd party program. Please make sure you have removed the following program from your computer: ~2_PROGRAM~. At this time your account is being reviewed, and action may be taken for this violation. Continued logins while using unauthorized third party programs may result in further penalties. Please see support.uo.com for further information. ~1_REASON~ 
 1076253;NO-DROP 
-1076254;That item cannot be dropped. 
+1076254;Tego nie mozna upuscic. 
 1076255;Brak mozliwosci wymiany 
-1076256;That item cannot be traded. 
+1076256;Tego nie mozna wymienic.
 1076257;Broken Covered Chair 
 1076258;Broken Bookcase 
 1076259;Standing Broken Chair 
@@ -40944,24 +40944,24 @@
 1096149;gargish Draxinusom door 
 1096473;Kula armatnia z wygrawerowanym znakiem Pana 
 1096474;Kule armatnia z wygrawerowanym znakiem Pana 
-1096475;barracuda 
-1096476;barracuda 
+1096475;barakuda 
+1096476;barakuda 
 1096477;mahi-mahi 
 1096478;mahi-mahi 
 1096479;small soul forge 
 1096480;small soul forge 
 1096481;small soul forge 
 1096482;small soul forge 
-1096483;bouy 
-1096484;bouy 
-1096485;bouy 
-1096486;bouy 
-1096487;lobster trap 
-1096488;lobster trap 
-1096489;crab 
-1096490;crab 
-1096491;lobster 
-1096492;lobster 
+1096483;boja 
+1096484;boja 
+1096485;boja  
+1096486;boja 
+1096487;pulapka na homara 
+1096488;pulapka na homara 
+1096489;krab 
+1096490;krab 
+1096491;homar 
+1096492;homar 
 1096493;grandfather clock 
 1096494;grandfather clock 
 1096495;grandfather clock 
@@ -46666,9 +46666,9 @@
 1116331;NORTH 
 1116332;SOUTH 
 1116333;EAST 
-1116334;a stone crab 
-1116335;a blue lobster 
-1116336;a spider crab 
+1116334;krab kamienny
+1116335;niebieski homar
+1116336;krab pajak
 1116337;New Player Aura Effect 
 1116338;Samuel's Secret Sauce 
 1116339;You do not have enough ~1_INGREDIENT~ to make that. 
@@ -46687,15 +46687,15 @@
 1116352;Colorative 
 1116353;Dziwne Wywary
 1116354;Armaty 
-1116355;medium chainshot 
-1116356;heavy chainshot 
-1116357;You cannot eat this until it has been prepared by a cook. 
-1116358;The island's location cannot be marked on this map. 
-1116359;The island's location has been marked on your map. You should make haste while the island is still afloat. 
-1116360;The island's location cannot be marked on a treasure map. 
-1116361;You sense an island nearby... but are unable to see it. 
-1116362;You cannot imbue this item with the durability property. 
-1116363;You need lava to fish in! 
+1116355;sredni lancuchowy pocisk
+1116356;ciezki lancuchowy pocisk
+1116357;Nie mozesz tego zjesc, dopoki nie zostanie to przygotowane przez kucharza.
+1116358;Lokalizacja wyspy nie moze zostac zaznaczona na tej mapie.
+1116359;Lokalizacja wyspy zostala zaznaczona na twojej mapie. Powinienes sie pospieszyc, poki wyspa sie unosi.
+1116360;Lokalizacja wyspy nie moze zostac zaznaczona na mapie skarbow.
+1116361;Czujesz w poblizu wyspe... ale nie jestes w stanie jej zobaczyc.
+1116362;Nie mozesz nasycic tego przedmiotu wlasciwoscia trwalosci.
+1116363;Potrzebujesz lawy, aby lowic ryby!
 1116364;**rusza sie** 
 1116365;kamienny krab 
 1116366;niebieski homar 
@@ -46717,15 +46717,15 @@
 1116382;homar Fred
 1116383;opancerzony homar 
 1116384;homar lopatoglowy 
-1116385;~1_NAME~'s trap bouy is pulled beneath the waves. 
-1116386;You remove ~1_ITEM~ from the trap and put it in your pack. 
-1116387;Please wait until the session which you participated is finished completely. 
-1116388;The trap is too cumbersome to deploy that far away. 
-1116389;pusta pulapka na homara 
-1116390;pulapka na homara nalezaca do ~1_NAME~ 
-1116391;You realize that the trap isn't yours so you leave it alone. 
-1116392;Team: Order (Blue) / Chaos (Red) 
-1116393;This location is too close to another trap. 
+1116385;Boja pulapki ~1_NAME~ zostaje wciagnieta pod fale.
+1116386;Wyjmujesz ~1_ITEM~ z pulapki i wkladasz do plecaka.
+1116387;Prosze poczekac, az sesja, w ktorej brales udzial, calkowicie sie zakonczy.
+1116388;Pulapka jest zbyt nieporeczna, aby rozstawic ja tak daleko.
+1116389;pusta pulapka na homary
+1116390;pulapka na homary nalezaca do ~1_NAME~
+1116391;Zdajesz sobie sprawe, ze pulapka nie jest twoja, wiec zostawiasz ja w spokoju.
+1116392;Druzyna: Porzadek (Niebieski) / Chaos (Czerwony)
+1116393;Ta lokalizacja jest zbyt blisko innej pulapki.
 1116394;lupacz
 1116395;dorsz atlantycki
 1116396;czarny okon morski
@@ -46793,24 +46793,24 @@
 1116458;~1_val~: ~2_val~/~3_val~ 
 1116459;~1_val~: ~2_val~/~3_val~ 
 1116460;~1_val~: ~2_val~/~3_val~ 
-1116461;This is not needed to fill the order. 
+1116461;Tego nie potrzeba, by wypelnic zlecenie. 
 1116462;The host player has moved you to another team. 
 1116463;To start a duel, both of teams must have one or more participants. 
-1116464;~1_token~ ~2_token~ bait 
-1116465;~1_token~ bait 
-1116466;amount: ~1_val~ 
-1116467;Your bait is used up so you destroy the container. 
-1116468;baited to attract: ~1_val~ 
-1116469;You combine these baits into one cup and destroy the other cup. 
-1116470;smelly 
-1116471;extra smelly 
-1116472;extra extra smelly 
-1116473;lava fishing pole 
-1116474;lava lobster trap 
-1116475;Lost and Found 
-1116476;Your duel is about to begin but the opposing team has not came to the arena. This session will be aborted and you will be ejected from the arena. 
-1116477;fishing 
-1116478;Fishing 
+1116464;~1_token~ ~2_token~ przyneta 
+1116465;~1_token~ przyneta  
+1116466;ilosc: ~1_val~ 
+1116467;Twoja przyneta zostala zuzyta, wiec niszczysz pojemnik.
+1116468;przyneta do przyciagania: ~1_val~
+1116469;Laczysz te przynety w jednym wiadrze i niszczysz drugie wiadro.
+1116470;smierdzacy
+1116471;bardzo smierdzacy
+1116472;wyjatkowo smierdzacy
+1116473;wedka do lowienia w lawie
+1116474;pulapka na homary do lawy
+1116475;Biuro Rzeczy Znalezionych
+1116476;Twoja walka ma sie rozpoczac, ale przeciwna druzyna nie pojawila sie na arenie. Ta sesja zostanie przerwana i zostaniesz usuniety z areny.
+1116477;lowienie ryb
+1116478;Lowienie ryb
 1116479;Order Team (Blue) 
 1116480;Chaos Team (Red) 
 1116481;<CENTER>~1_VAL~~2_VAL~</CENTER> 
@@ -46828,36 +46828,36 @@
 1116493;Team 
 1116494;Public 
 1116495;Private 
-1116496;Deliver to Floating Emporium 
-1116497;Deliver to Britain 
-1116498;Deliver to Trinsic 
-1116499;Deliver to Moon Glow 
-1116500;Deliver to Skara Brae 
-1116501;Deliver to Vesper 
-1116502;Deliver to Jhelom 
-1116503;Deliver to Papua 
+1116496;Dostarcz do Tasandory 
+1116497;Dostarcz do Tirassy
+1116498;Dostarcz do Orod 
+1116499;Dostarcz do Ferion 
+1116500;Dostarcz do Lotharn 
+1116501;Dostarcz do Garlan 
+1116502;Dostarcz do Wyspy na srodku jeziora w Podmroku
+1116503;Dostarcz do Portu na srodku morza u sprzedawcy zwojow
 1116504;Odzyskaj ladownie statku 
 1116505;Moge odzyskac zawartosc ladowni twego statku za niewielka oplata. Cena wynosi: 
 1116506;Cena to ~1_price~  centarow i mniej nie wezme! 
-1116507;Professional Fisher Quest - Floating Emporium 
-1116508;This quest is part of a category of quests where you catch uncommon fish and use your ship to deliver them to ports to gain rewards and better fishing orders.<br><br>Successful completion of this quest increases your standing with the fishmonger guild and unlocks bigger orders and greater rewards.  Destroying the crate will forfeit the order and hurt your standing with the fishmonger guild.<br><br>You must have the High Seas booster pack to do this quest.<br><br>***NOTICE: You will not be able to dry dock your ship while you are on this quest.  Destroying the crate in your hull will cancel the quest and re-enable dry docking.*** <br><br><center>-----</center><br><br>Greetings sailor, I see ye have a fine ship, might ye be looking for work?<br><br>I have some orders for some particular fish that needs catchin' an' deliverin' and I be lookin' for some business partners.  If ye will agree to fill this order an' deliver it fer me, I will reward ye with a rare prize as payment.  What say ye? 
-1116509;Fill the crate on your ship with the correct fish. 
-1116510;A rare reward from the Order of the Dragonfish. 
-1116511;As you wish.  If'n ye change yer mind you know where to find me. 
-1116512;Aye, partner, how goes the fishin?  Me customer be waitin' fer ye and won't be payin' either of us till ye deliver. 
-1116513;Ahoy, sailor! These be a fine batch o' fish and I'll be glad to pay the price.  I will forwarded the money owed to the fishmonger who brokered this business with me compliments.<br><br>Fer ye I have a rare gift from the Order of the Dragonfish that ye can't buy with gold.  Let me jes' tuck it in yer backpack here...  There you go!  Use it wisely and it can make ye wealthy!<br><br>If ye are interested in gettin more fishin' business from me, I have some orders of me own to fill and ship.  Jes' let me know. 
-1116514;Przyprowadz zes swoja lajbe, a moze bede miec dla Ciebie robote, kurna! 
-1116515;Shipping Crate for ~1_name~ 
-1116516;Thou must return thy current shipping crate before I can retrieve another shipment for you. 
-1116517;Arrrgh!  My dock has no more room.  Please come back later. 
-1116518;Speak with the fishmonger at the port of delivery. 
-1116519;I can't find your ship! You need to bring it in closer. 
-1116520;Statek do suchego doku 
-1116521;Load Ship from Crate 
-1116522;Destroy Crate 
-1116523;Are you sure you want to destroy your shipping crate and its contents? 
-1116524;You cannot summon creatures in the arena before starting the duel. 
-1116525;You currently exceed the maximum number of pet slots for this duel. 
+1116507;Profesjonalny Rybak Kompanii Handlowej - Tasandora
+1116508;To zadanie jest czescia kategorii zadan, w ktorych lowisz rzadkie ryby i uzywasz swojego statku, aby dostarczyc je do portow, aby zdobyc nagrody i lepsze zlecenia na polow.<br><br>Pomyslne ukonczenie tego zadania zwieksza twoja pozycje w kregach rybackich i odblokowuje wieksze zlecenia oraz wieksze nagrody. Zniszczenie skrzyni spowoduje utrate zlecenia i zaszkodzi twojej pozycji miedzy rybami.<br><br>***UWAGA: Nie bedziesz mogl dokowac swojego statku w doku podczas wykonywania tego zadania. Zniszczenie skrzyni w kadlubie statku anuluje zadanie i ponownie wlaczy dokowanie w doku.***<br><br><center>-----</center><br><br>Witaj, zeglarzu, widze, ze masz piekny statek, moze szukasz pracy?<br><br>Mam kilka zamowien na konkretne ryby, ktore trzeba zlowic i dostarczyc, i szukam partnerow biznesowych. Jesli zgodzisz sie zrealizowac to zamowienie i dostarczyc je dla mnie, wynagrodze cie rzadka nagroda jako zaplata. Co ty na to?
+1116509;Wypelnij skrzynie na swoim statku odpowiednimi rybami.
+1116510;Rzadka nagroda od Zakonu Ryby Smoczej.
+1116511;Jak sobie zyczysz. Jesli zmienisz zdanie, wiesz, gdzie mnie znalezc.
+1116512;Hej, partnerze, jak idzie lowienie? Moj klient na ciebie czeka i nie zaplaci zadnemu z nas, dopoki nie dostarczysz.
+1116513;Ahoj, zeglarzu! To wspaniala partia ryb i z przyjemnoscia zaplace cene. Przekaze nalezne pieniadze handlarzowi rybami, ktory zalatwil ten interes, z moimi komplementami.<br><br>Mam dla ciebie rzadki prezent od Zakonu Ryby Smoczej, ktorego nie kupisz za zloto. Pozwol, ze wloze go tutaj do twojego plecaka... Gotowe! Uzywaj go madrze, a moze cie wzbogacic!<br><br>Jesli jestes zainteresowany otrzymaniem ode mnie wiecej zlecen polowowych, mam kilka wlasnych zamowien do zrealizowania i wyslania. Daj mi znac.
+1116514;Przyprowadz swoja lajbe, a moze bede mial dla ciebie robote, kurde!
+1116515;Skrzynia wysylkowa dla ~1_name~.
+1116516;Musisz zwrocic swoja obecna skrzynie wysylkowa, zanim bede mogl odebrac dla ciebie kolejna przesylke.
+1116517;Arrrgh! W moim doku nie ma juz miejsca. Prosze wrocic pozniej.
+1116518;Porozmawiaj z handlarzem rybami w porcie dostawy.
+1116519;Nie moge znalezc twojego statku! Musisz podplynac blizej.
+1116520;Statek do suchego doku.
+1116521;Zaladuj statek ze skrzyni.
+1116522;Zniszcz skrzynie.
+1116523;Czy na pewno chcesz zniszczyc swoja skrzynie wysylkowa i jej zawartosc?
+1116524;Nie mozesz przyzywac stworzen na arenie przed rozpoczeciem pojedynku.
+1116525;Obecnie przekraczasz maksymalna liczbe miejsc na zwierzaki w tym pojedynku.
 1116526;Hit Chance 
 1116527;Defense Chance 
 1116528;Soak Fire 
@@ -46951,16 +46951,16 @@
 1116616;Musisz usunac kilka osob z listy dostepu do swojego statku, zanim bedziesz mogl dodac kolejne. 
 1116617;Nie masz uprawnien do wejscia na ten statek. 
 1116618;Jestes pewien, ze chcesz wyczyscic liste dostepu do swojego statku? 
-1116619;Naramienniki z lewiatanowej skory 
+1116619;Naramienniki ze skory lewiatana 
 1116620;Pierscien Zaklecia Dusz 
 1116621;Helm Zemsty 
 1116622;Wytatuowana Drewniana Noga 
 1116623;Wielki Rozdzka Gromowego Chwaly 
-1116624;Zaklety Bransoletka z Koralu 
+1116624;Zakleta Koralowa Branzoleta
 1116625;Musisz byc na statku, aby rozmiescic bron. 
 1116626;Musisz uzyc tego na podkladce do broni statkowej. 
 1116627;Musisz byc wlascicielem statku, aby to zrobic. 
-1116628;Usmiechnieta Ksiezycowa Ostrza 
+1116628;Rechoczace Ksiezycowe Ostrze 
 1116629;Nic nie robi! 
 1116630;Siekiera Do Rzezbiarstwa 
 1116631;Krwawy 
@@ -47060,16 +47060,16 @@
 1116725;Ten statek jest zbyt zniszczony, by moc go prowadzic. 
 1116726;To nie jest Twoj statek. 
 1116727;Pilotujesz te lajbe 
-1116728;Professional Fisher Quest - Britain 
+1116728;Profesjonalny Rybak Kompanii Handlowej - Tirassa 
 1116729;Przesun pilota 
-1116730;Professional Fisher Quest - Trinsic 
-1116731;Professional Fisher Quest - Moonglow 
-1116732;Professional Fisher Quest - Skara Brae 
-1116733;Professional Fisher Quest - Vesper 
-1116734;Professional Fisher Quest - 'Jhelom 
-1116735;Professional Fisher Quest - Papua 
+1116730;Profesjonalny Rybak Kompanii Handlowej - Orod 
+1116731;Profesjonalny Rybak Kompanii Handlowej - Ferion 
+1116732;Profesjonalny Rybak Kompanii Handlowej - Lotharn 
+1116733;Profesjonalny Rybak Kompanii Handlowej - Garlan 
+1116734;Profesjonalny Rybak Kompanii Handlowej - Podmrok 
+1116735;Profesjonalny Rybak Kompanii Handlowej- Handlarze Zwojami
 1116736;Where do you wish to station the pilot? 
-1116737;A Field of Blades 
+1116737;pole ostrzy
 1116738;Kontrakt na orczy galeon 
 1116739;Kontrakt na garguclowy galeon 
 1116740;Kontrakt na statek w stylu wschodnim 
@@ -47101,10 +47101,10 @@
 1116766;Zmywacz farby do lodzi 
 1116767;Niestety, ale nie moge namierzyc Twego statku. 
 1116768;Permanentna farba do lodzi 
-1116769;You must have the High Seas booster pack to decode this map. 
-1116770;The paint on your ship has faded over time. 
-1116771;You apply a fresh coat of paint to your ship. 
-1116772;You strip a coat of paint from your ship. 
+1116769;Musisz miec pakiet rozszerzajacy High Seas, aby rozszyfrowac te mape.
+1116770;Farba na twoim statku z czasem wyblakla.
+1116771;Nakladasz swieza warstwe farby na swoj statek.
+1116772;Zdzierasz warstwe farby z twojego statku.
 1116773;Pokretna mapa skarbu
 1116774;You have reached this paint color's maximum intensity. 
 1116775;You apply the permanent paint to your ship.  This is now the base color of your ship. 
@@ -47123,7 +47123,7 @@
 1116788;You have completed a deed for an Orc Ship! 
 1116789;You did not assist in the capture of this pirate and do not receive a reward. 
 1116790;wystrzepiona, pokretnie naszkicowana mapa skarbu
-1116791;You must wait a few minutes before making your sacrifice. 
+1116791;Musisz zaczekac zanim znow dokonasz poswiecenia. 
 1116841;hatch 
 1117041;hatch 
 1117241;hatch 
@@ -49630,9 +49630,9 @@
 1149755;Are you sure you wish to make this person Captain? This will allow full unlimited power over the ship! 
 1149756;YES 
 1149757;NO 
-1149758;There is not enough to bait the whole stack. 
-1149759;You bait the hook. 
-1149760;You bait the trap. 
+1149758;Jest za malo, aby zanecic caly stos.
+1149759;Zanecasz haczyk.
+1149760;Zanecasz pulapke.
 1149761;Statek:
 1149762;Wlasciciel: 
 1149763;Osoba: 
@@ -49651,10 +49651,10 @@
 1149776;USUN Z LISTY 
 1149777;POWROT 
 1149778;Nigdy 
-1149779;Corgul's Handbook on Mysticism 
-1149780;Corgul's Handbook on the Undead 
-1149781;Corgul's Enchanted Sash 
-1149782;Floating Emporium Parking Area 
+1149779;Podrecznik Corgula o mistycyzmie
+1149780;Podrecznik Corgula o nieumarlych
+1149781;Zaczarowany pas Corgula
+1149782;Tasandorski port 
 1149783;PAGE 1 
 1149784;PAGE 2 
 1149785;A strong tide comes and carries your boat to deeper water. 
@@ -49695,7 +49695,7 @@
 1149820;General Store 
 1149821;Winds Tavern 
 1149822;Abyssal Hair Dye 
-1149823;The owner of the lobster trap notices you committing a criminal act! 
+1149823;Wlasciciel pulapki na homary zauwaza, ze popelniasz przestepstwo!
 1149824;Here's the ~1_val~ gold reward money, you've earned it! 
 1149825;Here's your share of the ~1_val~ reward money, you get ~2_val~ gold.  You've earned it! 
 1149826;You cannot apply this paint to your ship while it has other paints on it. Please use paint remover to restore your ship to its permanent base color and then try again. 
@@ -50062,15 +50062,15 @@
 1150187;Blacksmith 
 1150188;Tailor 
 1150189;<DIV ALIGN=RIGHT>NEXT PAGE</DIV> 
-1150190;You peer into the spyglass, images swirl in your mind as the magic device searches. 
-1150191;The location you seek is: ~1_val~ 
+1150190;Zagladasz do lunety, obrazy wiruja w twoim umysle, gdy magiczne urzadzenie przeszukuje.
+1150191;Lokalizacja, ktorej szukasz to: ~1_val~
 1150192;ADD TO INVENTORY 
 1150193;VIEW INVENTORY / REMOVE ITEMS 
 1150194;SET PRICES AND LIMITS 
 1150195;Withdraw Funds: 
 1150196;Deposit Funds: 
 1150197;<DIV ALIGN=RIGHT>N/A</DIV> 
-1150198;The spyglass goes dark, it has failed to find what you seek. 
+1150198;Luneta pociemniala, nie udalo jej sie znalezc tego, czego szukasz.
 1150199;Broker Account Balance: 
 1150200;<CENTER>STOCK FOR: ~1_NAME~</CENTER> 
 1150201;IN STOCK 
@@ -50079,7 +50079,7 @@
 1150204;BUY AT 
 1150205;SELL AT 
 1150206;<DIV ALIGN=CENTER>MODIFY</DIV> 
-1150207;[attuned to: ~1_val~] 
+1150207;[dostrojony do: ~1_val~] 
 1150208;charybdis 
 1150209;Target commodity items or filled commodity deeds in your backpack to add them to the broker's inventory. These items will be retrievable, and the broker will not trade them until you establish prices.<br><br>When done, press the [ESC] key to cancel your targeting cursor, or click the MAIN MENU button below. 
 1150210;<DIV ALIGN=RIGHT>Amount to withdraw:</DIV> 
@@ -50742,27 +50742,27 @@
 1150867;Click the button next to the commodity to select it. Enter the amount to withdraw in the entry field below, and click the WITHDRAW button to receive your items. 
 1150868;A strong magical energy prevents the creature from responding. 
 1150869;Potrzebujesz pustej butelki na olej by to zrobic. 
-1150870;Your spirit speak skill must be higher. 
-1150871;You receive charybdis bait 
-1150872;Parrots can only be placed on Parrot Perches on ships where you are at least the captain. 
-1150873;CUSTOMIZE APPEARANCE 
-1150874;The broker had some items equipped. ~1_COUNT~ of these items have been transferred to your backpack. 
-1150875;Your backpack could not hold ~1_COUNT~ items. These are still in storage. Please free up space in your backpack and return here to claim those items. 
-1150876;Broker Name: 
-1150877;RELOCATE BROKER 
-1150878;To relocate your broker, you must stand on the encampment at the location the broker will move to before clicking the MOVE BROKER button. 
-1150879;~1_token~ has magically received an item from the charybdis corpse. 
-1150880;Your broker has been relocated to the place where you stand. 
-1150881;Your have changed the broker's name. 
-1150882;~1_token~ hook 
-1150883;junk proof hook 
-1150884;You tie the hook to the fishing line. 
-1150885;special hook: ~1_token~ 
-1150886;Splashes from the creature encrust your weapon and equipment, slowing your movement. 
-1150887;You are no longer slowed and encrusted. 
-1150888;lava proof hook 
-1150889;Hook condition: ~1_val~ 
-1150890;Dredging hook 
+1150870;Twoja umiejetnosc mowy duchowej musi byc wyzsza.
+1150871;Otrzymujesz przynete na charybde.
+1150872;Papugi mozna umieszczac tylko na grzedach dla papug na statkach, na ktorych jestes co najmniej kapitanem.
+1150873;DOSTOSUJ WYGLAD
+1150874;Makler mial wyposazone przedmioty. ~1_COUNT~ z tych przedmiotow zostalo przeniesionych do twojego plecaka.
+1150875;Twoj plecak nie pomiescil ~1_COUNT~ przedmiotow. Nadal znajduja sie w magazynie. Zwolnij miejsce w plecaku i wroc tutaj, aby odebrac te przedmioty.
+1150876;Nazwa maklera:
+1150877;PRZENIES MAKLERA
+1150878;Aby przeniesc maklera, musisz stanac w obozie w miejscu, do ktorego makler ma sie przeniesc, zanim klikniesz przycisk PRZENIES MAKLERA.
+1150879;~1_token~ magicznie otrzymal przedmiot z trupa charybdy.
+1150880;Twoj makler zostal przeniesiony w miejsce, w ktorym stoisz.
+1150881;Zmieniles nazwe maklera.
+1150882;haczyk ~1_token~
+1150883;haczyk odporny na smieci
+1150884;Przywiazujesz haczyk do zylki wedkarskiej.
+1150885;specjalny haczyk: ~1_token~
+1150886;Bryzgi z potwora pokrywaja twoja bron i ekwipunek, spowalniajac twoje ruchy.
+1150887;Nie jestes juz spowolniony i pokryty bryzgami.
+1150888;haczyk odporny na lawe
+1150889;Stan haczyka: ~1_val~
+1150890;Haczyk do poglebiania.
 1150891;By order of the newly crowned Queen Zhah, the Great Library will be rebuilt in the Royal City. The Athenaeum Isle has been deemed dangerous territory. All salvageable items from the fallen library on the Isle will be secured and transferred to the Royal City. 
 1150892;Prugyilonus 
 1150893;King Trajalem 
@@ -51059,21 +51059,21 @@
 1151184;Spring Cleaning 2011 Donation Box Gold 
 1151185;Spring Cleaning 2011 Donation Box Silver 
 1151186;Aka-Sabi 
-1151187;Dream Serpent Charm 
-1151188;Soulbinder's Jar 
-1151189;Fisherman's Eelskin Gloves 
-1151190;Fisherman's Tall Straw Hat 
-1151191;Fisherman's Trousers 
-1151192;Fisherman's Vest 
-1151193;Artificer's Earrings 
-1151194;Artificer's Cloth Chest 
-1151195;Artificer's Cloth Kilt 
-1151196;Artificer's Mysticism Spellbook 
-1151197;Bestial Helm 
-1151198;Bestial Gloves 
-1151199;Bestial Leggings 
-1151200;Bestial Gorget 
-1151201;Mysterious Barrier 
+1151187;Amulet Wezowego Snu  
+1151188;Sloik Wiazacy Dusze  
+1151189;Rekawice z Wegorzej Skory Rybaka  
+1151190;Wysoki Slomkowy Kapelusz Rybaka  
+1151191;Spodnie Rybaka  
+1151192;Kamizelka Rybaka  
+1151193;Kolczyki Magow 
+1151194;Materialowy Napiersnik Magow  
+1151195;Materialowy Kilt Magow  
+1151196;Ksiega Zaklec Mistycyzmu Magow  
+1151197;Bestialny Helm  
+1151198;Bestialne Rekawice  
+1151199;Bestialne Nogawice  
+1151200;Bestialna Ochraniacz na Gardlo  
+1151201;Tajemnicza Bariera  
 1151202;Humans & Elves are our friends! 
 1151203;Gargoyles are our friends! 
 1151204;We are pirates! 
@@ -59088,8 +59088,8 @@
 1159218;"You have just been hit by a Jack o' Lantern!!!	" 
 1159219;You hit your target! 
 1159220;Exploding Jack o' Lantern 
-1159221;Hungry Coconut Crab Statuette 
-1159222;*Redeemable for a pet*<br>*Requires High Seas Booster Pack* 
+1159221;Statuetka glodnego kraba kokosowego 
+1159222;*mozna zamienic na zwierze* 
 1159223;Jack O' Lantern Helm 
 1159224;Elegancki Kolnierz
 1159225;Elegancki Kolnierz Szczescia
@@ -61084,3 +61084,4 @@
 3070065;Shows base minimum and current taming requirements
 3070066;Wymagana umiejetnosc
 3070067;Juz otrzymales talent. Nie mozesz go otrzymac ponownie
+3070068;Tutaj nie postawisz pulapki

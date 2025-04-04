@@ -218,26 +218,26 @@ namespace Server.Items
                 Region reg = Quest.TurnIn.Region;
 
                 if (reg == null || reg.Name == null)
-                    return "Unknown Delivery";
+                    return "Nieznany region dostawy";
 
-                if (reg.Name == "Sea Market")
+                if (reg.Name == "Tasandora")
                     return 1116496;
-                if (reg.Name == "Britain")
+                if (reg.Name == "Tirassa")
                     return 1116497;
-                if (reg.Name == "Trinsic")
+                if (reg.Name == "Orod")
                     return 1116498;
-                if (reg.Name == "Moonglow")
+                if (reg.Name == "Ferion")
                     return 1116499;
-                if (reg.Name == "Skara Brae")
+                if (reg.Name == "Lotharn")
                     return 1116500;
-                if (reg.Name == "Vesper")
+                if (reg.Name == "Garlan")
                     return 1116501;
-                if (reg.Name == "Jhelom")
+                if (reg.Name == "Podmrok_C")
                     return 1116502;
-                if (reg.Name == "Papua")
+                if (reg.Name == "ArtTrader")
                     return 1116503;
             }
-            return "Unknown Delivery";
+            return "Nieznany region dostawy";
         }
 
         public void AddQuest(ProfessionalFisherQuest quest)

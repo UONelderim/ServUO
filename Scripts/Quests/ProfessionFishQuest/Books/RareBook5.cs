@@ -5,209 +5,206 @@
         [Constructable]
         public FishingGuideBook5() : base(Utility.Random(0xFF1, 2), false)
         {
-            Name = "Volume 5 - Enchanted Sea Creatures";
+            Name = "Tom 5 - Kreatury z zaczarowanych morz";
         }
 
         public static readonly BookContent Content = new BookContent
-        (
-            null, "Cpt. Piddlewash",
+(
+null, "Cpt. Piddlewash",
 
-            new BookPageInfo
-            (
-                "Autumn Dragonfish:",
+new BookPageInfo
+(
+    "Jesienna Ryba Smocza:",
 
-                "This beauty be",
-                "found in Ilshenar.",
-                "If prepared ",
-                "correctly and eaten,",
-                "it be improvin' yer",
-                "ability to meditate."
-            ),
+    "To piekno mozna",
+    "znalezc w Ilshenar.",
+    "Jesli przygotowane",
+    "poprawnie i zjedzone,",
+    "poprawia twoja",
+    "zdolnosc do medytacji."
+),
 
-            new BookPageInfo
-            (
-                "Bull Fish:",
+new BookPageInfo
+(
+    "Ryba Byk:",
 
-                "The bull fish be ",
-                "found in the ",
-                "labrynth o' Malas.",
-                "If prepared ",
-                "correctly and eaten,",
-                "it be increasin'",
-                "power to yer sword hand."
-            ),
+    "Ryba byk jest",
+    "znajdowana w",
+    "labiryncie Malas.",
+    "Jesli przygotowane",
+    "poprawnie i zjedzone,",
+    "zwieksza moc",
+    "twojej reki z mieczem."
+),
 
-            new BookPageInfo
-            (
-                "Crystal Fish:",
+new BookPageInfo
+(
+    "Krysztalowa Ryba:",
 
-                "This mystical fish",
-                "be found in the ",
-                "prism o' light. If",
-                "prepared correctly",
-                "and eaten, it be",
-                "protectin' a sailor",
-                "from lightning. "
-            ),
+    "Ta mistyczna ryba",
+    "znajduje sie w",
+    "pryzmacie swiatla. Jesli",
+    "przygotowana poprawnie",
+    "i zjedzona, chroni",
+    "zeglarza przed",
+    "uderzeniem pioruna."
+),
 
-            new BookPageInfo
-            (
-                "Fairy Salmon:",
+new BookPageInfo
+(
+    "Bajkowy Losos:",
 
-                "This daring fish",
-                "swims the rivers o'",
-                string.Format("{0}. If prepared", FishInfo.GetFishLocation(typeof(FairySalmon))),
-                "correctly, and eaten,",
-                "it be helpin' improve",
-                "a sailor's concentration",
-                "when casting spells."
-            ),
+    "Ta smiala ryba",
+    "plywa w rzekach",
+    string.Format("{0}. Jesli przygotowany", FishInfo.GetFishLocation(typeof(FairySalmon))),
+    "poprawnie i zjedzony,",
+    "pomaga poprawic",
+    "koncentracje zeglarza",
+    "podczas rzucania zaklec."
+),
 
-            new BookPageInfo
-            (
-                "Fire Fish:",
+new BookPageInfo
+(
+    "Ryba Ognista:",
 
-                "This fish be found",
-                "in the dungeon o' ",
-                "Shame. If prepared",
-                "correctly and eaten,",
-                "it be protecting a",
-                "sailor from fire."
+    "Ta ryba znajduje sie",
+    "w lochu Wstydu. ",
+    "Jesli przygotowana",
+    "poprawnie i zjedzona,",
+    "chroni zeglarza",
+    "przed ogniem."
 
-            ),
+),
 
-            new BookPageInfo
-            (
-                "Giant Koi:",
+new BookPageInfo
+(
+    "Gigantyczny Koi:",
 
-                "This fish be found in",
-                "deep waters o' Tokuno.",
-                "If prepared correctly",
-                "and eaten, it be givin",
-                "a sailor it's ability",
-                "to dodge."
-            ),
+    "Ta ryba znajduje sie w",
+    "glebokich wodach Tokuno.",
+    "Jesli przygotowana poprawnie",
+    "i zjedzona, daje",
+    "zeglarzowi zdolnosc",
+    "do unikania ciosow."
+),
 
-            new BookPageInfo
-            (
-                "Great Barracuda:",
+new BookPageInfo
+(
+    "Wielka Barakuda:",
 
-                "This fish be found in",
-                "the deep waters o'",
-                "Felucca. If prepared",
-                "correctly and eaten,",
-                "it be increasin' yer",
-                "accuracy with weapons."
-            ),
+    "Ta ryba znajduje sie w",
+    "glebokich wodach",
+    "Felucca. Jesli przygotowana",
+    "poprawnie i zjedzona,",
+    "zwieksza twoja",
+    "celnosc bronia."
+),
 
-            new BookPageInfo
-            (
-                "Holy Mackerel:",
+new BookPageInfo
+(
+    "Swieta Makrela:",
 
-                "This fish be found in",
-                "the spirit filled ",
-                "waters o' Malas. If",
-                "prepared correctly and",
-                "eaten, it be making ye",
-                "gain mana more quickly."
-            ),
+    "Ta ryba znajduje sie w",
+    "wodach Malas, pelnych duchow.",
+    "Jesli przygotowana poprawnie i",
+    "zjedzona, sprawia, ze",
+    "szybciej zyskujesz mane."
+),
 
-            new BookPageInfo
-            (
-                "Lava Fish:",
+new BookPageInfo
+(
+    "Ryba Lawowa:",
 
-                "This fish be found in",
-                "the lava rivers o' the",
-                string.Format("{0}. When ", FishInfo.GetFishLocation(typeof(LavaFish))),
-                "prepared correctly and",
-                "eaten, it be increasin'",
-                "yer mana when ye be ",
-                "injured."
-            ),
+    "Ta ryba znajduje sie w",
+    "lawowych rzekach",
+    string.Format("{0}. Gdy ", FishInfo.GetFishLocation(typeof(LavaFish))),
+    "przygotowana poprawnie i",
+    "zjedzona, zwieksza twoja",
+    "mane, gdy jestes",
+    "ranny."
+),
 
-            new BookPageInfo
-            (
-                "Reaper Fish:",
+new BookPageInfo
+(
+    "Ryba Zniwiarz:",
 
-                "This fish be found in",
-                "the lakes o' dungeon",
-                "Doom. If prepared ",
-                "correctly and eaten ",
-                "it be protectin' ye ",
-                "from poison damage."
-            ),
+    "Ta ryba znajduje sie w",
+    "jeziorach lochu",
+    "Zaglady. Jesli przygotowana",
+    "poprawnie i zjedzona",
+    "chroni cie przed",
+    "obrazeniami od trucizny."
+),
 
-            new BookPageInfo
-            (
-                "Summer Dragonfish:",
+new BookPageInfo
+(
+    "Letnia Ryba Smocza:",
 
-                "This beautiful fish ",
-                "be found in the pools",
-                "o' dungeon Destard. ",
-                "If prepared correctly",
-                "and eaten, it will ",
-                "increase spell damage."
-            ),
+    "Ta piekna ryba",
+    "znajduje sie w sadzawkach",
+    "lochu Destard. ",
+    "Jesli przygotowana poprawnie",
+    "i zjedzona, zwiekszy",
+    "obrazenia od zaklec."
+),
 
-            new BookPageInfo
-            (
-                "Unicorn Fish:",
+new BookPageInfo
+(
+    "Ryba Jednorozec:",
 
-                "This great fish be ",
-                "found in the Twisted ",
-                "Weald. If prepared ",
-                "correctly and eaten, ",
-                "ye will recover from ",
-                "fatigue more quickly."
-            ),
+    "Ta wspaniala ryba",
+    "znajduje sie w Skreconym",
+    "Gaju. Jesli przygotowana",
+    "poprawnie i zjedzona,",
+    "szybciej odzyskasz sily",
+    "po zmeczeniu."
+),
 
-            new BookPageInfo
-            (
-                "Yellowtail Barracuda:",
+new BookPageInfo
+(
+    "Zoltoogonowa Barakuda:",
 
-                "This devil be found ",
-                "in the deep waters o'",
-                "Trammel. If prepared ",
-                "correctly and eaten,",
-                "ye will heal more",
-                "quickly."
-            ),
+    "Ten diabel znajduje sie",
+    "w glebokich wodach",
+    "Trammel. Jesli przygotowana",
+    "poprawnie i zjedzona,",
+    "szybciej sie wyleczysz."
+),
 
-            new BookPageInfo
-            (
-                "Blue Lobster:",
+new BookPageInfo
+(
+    "Niebieski Homar:",
 
-                "This lobster be exclusive",
-                "to the Ice Dungeon. If",
-                "prepared correctly and",
-                "eaten, it protects ye",
-                "from damage due to cold."
-            ),
+    "Ten homar wystepuje wylacznie",
+    "w Lodowym Lochu. Jesli",
+    "przygotowany poprawnie i",
+    "zjedzony, chroni cie",
+    "przed obrazeniami od zimna."
+),
 
-            new BookPageInfo
-            (
-                "Spider Crab:",
+new BookPageInfo
+(
+    "Krab Pajak:",
 
-                "Found in the waters o'",
-                "Terathan Keep. If ",
-                "prepared correctly and",
-                "eaten, it be improvin",
-                "yer ability to focus."
-            ),
+    "Znaleziony w wodach",
+    "Twierdzy Terathan. Jesli",
+    "przygotowany poprawnie i",
+    "zjedzony, poprawia twoja",
+    "zdolnosc koncentracji."
+),
 
-            new BookPageInfo
-            (
-                "Stone Crab:",
+new BookPageInfo
+(
+    "Krab Kamienny:",
 
-                "This tough customer",
-                "be ound in the deep ",
-                "sea o' the Lost Lands.",
-                "If prepared correctly",
-                "and eaten, it makes yer",
-                "skin tougher."
-            )
-        );
-
+    "Ten twardy klient",
+    "znajduje sie w glebokim",
+    "morzu Zaginionych Ziem.",
+    "Jesli przygotowany poprawnie",
+    "i zjedzony, sprawia, ze",
+    "twoja skora jest twardsza."
+)
+);
         public override BookContent DefaultContent => Content;
 
         public FishingGuideBook5(Serial serial) : base(serial)

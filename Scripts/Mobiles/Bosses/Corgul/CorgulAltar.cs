@@ -20,18 +20,18 @@ namespace Server.Items
                 new Rectangle2D(330,  2940, 400, 400),
                 new Rectangle2D(4040, 2550, 500, 350),
                 new Rectangle2D(4040, 1755, 500, 250),
-                new Rectangle2D(180,  180,  300, 300)
+                new Rectangle2D(180,  180,  300, 300) ////TODO: nowe koordy
         };
 
         public static Rectangle2D[] WarpLocations => m_WarpLocations;
 
-        private static Rectangle2D m_BoatKickLocation = new Rectangle2D(2400, 2500, 500, 500);
+        private static Rectangle2D m_BoatKickLocation = new Rectangle2D(2400, 2500, 500, 500); //TODO: nowe koordy
         public static Rectangle2D BoatKickLocation => m_BoatKickLocation;
 
-        private static Rectangle2D m_LandKickLocation = new Rectangle2D(2125, 3090, 25, 30);
+        private static Rectangle2D m_LandKickLocation = new Rectangle2D(2125, 3090, 25, 30); //TODO: nowe koordy
         public static Rectangle2D LandKickLocation => m_LandKickLocation;
 
-        private static Rectangle2D m_CorgulBounds = new Rectangle2D(6337, 1156, m_RegionSize, m_RegionSize);
+        private static Rectangle2D m_CorgulBounds = new Rectangle2D(6337, 1156, m_RegionSize, m_RegionSize); //TODO: nowe koordy
 
         public static Rectangle2D CorgulBounds => m_CorgulBounds;
         #endregion
@@ -56,7 +56,7 @@ namespace Server.Items
             set
             {
                 m_Active = value;
-                PublicOverheadMessage(Network.MessageType.Regular, 25, false, string.Format("Corgul Altar for {0} has been {1}", Map, m_Active ? "activated" : "deactivated"));
+                PublicOverheadMessage(Network.MessageType.Regular, 25, false, string.Format("Oltarz Corgula dla {0} zostal {1}", Map, m_Active ? "aktywowany" : "dezaktywowany"));
             }
         }
 
@@ -68,7 +68,7 @@ namespace Server.Items
             typeof(TreasureMap), typeof(WorldMap)
         };
 
-        public static Point3D SpawnLoc = new Point3D(6431, 1236, 10);
+        public static Point3D SpawnLoc = new Point3D(6431, 1236,  10); //TODO: nowe koordy
 
         [CommandProperty(AccessLevel.GameMaster)]
         public DateTime DeadLine => m_DeadLine;
@@ -76,7 +76,8 @@ namespace Server.Items
         public int KeyStage => m_KeyStage;
 
         public override int LabelNumber => 1074818;
-
+        
+        [Constructable]
         public CorgulAltar()
             : base(13807)
         {
@@ -141,7 +142,7 @@ namespace Server.Items
         public override void OnDoubleClick(Mobile from)
         {
             if (!m_Active)
-                from.SendMessage("This altar has been deactivated.");
+                from.SendMessage("Ten oltarz zostal dezaktywowany.");
             else if (!CheckCanUse(from))
                 from.SendLocalizedMessage(1116791); // You must wait a few minutes before making your sacrifice.
             else if (from.InRange(Location, 3))
@@ -285,7 +286,7 @@ namespace Server.Items
             foreach (Mobile m in m_BossRegion.AllPlayers)
             {
                 if (m is PlayerMobile)
-                    m.SendMessage("You have failed to slay Corgul in time.");
+                    m.SendMessage("Nie udalo Ci sie pokonac Corgula na czas.");
             }
             Reset();
         }

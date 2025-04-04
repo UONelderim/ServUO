@@ -657,9 +657,9 @@ namespace Server.Mobiles
                 default:
                 case 0: return (NConfig.Loot.RecipesEnabled ? new RecipeScroll(1102) : null);
                 case 1: return (NConfig.Loot.RecipesEnabled ? new RecipeScroll(1103) : null);
-                case 2: return new HungryCoconutCrabStatue();
-                case 3: return new LeurociansMempoOfFortune();
-                case 4: return new CaptainsHeartyRum();
+               // case 2: return new HungryCoconutCrabStatue();
+                case 2: return new LeurociansMempoOfFortune();
+                case 3: return new CaptainsHeartyRum();
             }
         }
 
@@ -707,7 +707,7 @@ namespace Server.Mobiles
                 ((Charydbis)master).AddTentacle(this);
             }
 
-            Name = "a giant tentacle";
+            Name = "wielka macka";
             Body = 1245;
             BaseSoundID = 0x161;
 

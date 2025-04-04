@@ -110,7 +110,7 @@ namespace Server.Regions
             foreach (Mobile m in AllPlayers)
             {
                 if (message && m is PlayerMobile)
-                    m.SendMessage("You have failed to meet the deadline.");
+                    m.SendMessage("Nie udalo sie pokonac Corgula na czas.");
 
                 if (BaseBoat.FindBoatAt(m, m.Map) != null)
                     continue;
@@ -183,7 +183,7 @@ namespace Server.Regions
                 if (boat.CanFit(ePnt, Map, boat.ItemID))
                 {
                     boat.Teleport(offsetX, offsetY, -5);
-                    boat.SendMessageToAllOnBoard("A rough patch of sea has disoriented the crew!");
+                    boat.SendMessageToAllOnBoard("Sztorm na morzu zdezorientowal zaloge.!");
 
                     //int z = this.Map.GetAverageZ(boat.X, boat.Y);
                     if (boat.Z != -5)

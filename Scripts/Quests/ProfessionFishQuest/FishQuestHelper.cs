@@ -234,7 +234,7 @@ namespace Server.Engines.Quests
                 }
                 else if (item is PermanentBoatPaint)
                 {
-                    from.SendMessage("You recieve permanent boat paint!");
+                    from.SendMessage("Otrzymujesz farbe do lodzi!");
                 }
                 else
                 {

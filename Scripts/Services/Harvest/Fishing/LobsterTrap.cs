@@ -127,7 +127,7 @@ namespace Server.Items
                 if (Items.Count > 0)
                 {
                     DumpContents(from);
-                    from.SendMessage("You dump the contents of the lobster trap into your pack.");
+                    from.SendMessage("Wysypujesz zawartosc pulapki na homary do swojego plecaka.");
                 }
                 else
                 {
@@ -187,7 +187,7 @@ namespace Server.Items
                 from.SendLocalizedMessage(1116388); // The trap is too cumbersome to deploy that far away.
             }
             else if (!IsValidTile(targeted, map))
-                from.SendMessage("You cannot deploy a trap there!"); //TODO: Get Cliloc
+                from.SendLocalizedMessage(3070068); //Tutaj nie postawisz pulapki
             else if (!IsValidLocation(x, y, z, map))
                 from.SendLocalizedMessage(1116393); //The location is too close to another trap.
             else
@@ -282,7 +282,7 @@ namespace Server.Items
                 }
 
                 if (m_Owner != null)
-                    m_Owner.SendMessage("It looks like you caught something!");
+                    m_Owner.SendMessage("Wyglada na to, ze cos zlapales!");
 
                 CheckBait();
             }
@@ -296,7 +296,7 @@ namespace Server.Items
                     item = new Lobster();
 
                 if (m_Owner != null)
-                    m_Owner.SendMessage("It looks like you caught something!");
+                    m_Owner.SendMessage("Wyglada na to, ze cos zlapales!");
 
                 DropItem(item);
                 CheckBait();
@@ -315,7 +315,7 @@ namespace Server.Items
                     EnhancedBait = false;
 
                     if (m_Owner != null)
-                        m_Owner.SendMessage("You have used up the bait on your lobster trap.");
+                        m_Owner.SendMessage("Wykorzystales cala przynete.");
                 }
             }
         }
@@ -364,7 +364,7 @@ namespace Server.Items
                 from.SendLocalizedMessage(1149823); //The owner of the lobster trap notices you committing a criminal act!
 
                 if (m_Owner != null)
-                    m_Owner.SendMessage("You notice {0} taking your lobster trap out of the water!", from.Name);
+                    m_Owner.SendMessage("Widzisz jak ktos dobiera sie do Twojej pulapki na homary");
 
                 return true;
             }

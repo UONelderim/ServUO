@@ -52,8 +52,8 @@ namespace Server.Mobiles
 
         public override bool OnBeforeDeath()
         {
-            RegisterDamageTo(this);
-            // AwardArtifact(GetArtifact());
+            RegisterDamageTo(this); 
+            AwardArtifact(GetArtifact());
 
             return base.OnBeforeDeath();
         }
