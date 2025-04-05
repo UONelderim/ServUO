@@ -2548,9 +2548,10 @@ namespace Server.Items
 
         private int GetResistBonus(Mobile from, bool runic)
         {
-            int amount = runic ? 6 : 15;
+            int amount = 15;
+            var armsLoreFactor = Siege.SiegeShard ? 12.5 : 20.0;
 
-            return Siege.SiegeShard ? amount + (int)(from.Skills[SkillName.ArmsLore].Value / 12.5) : amount + (int)(from.Skills[SkillName.ArmsLore].Value / 20.0);
+            return amount + (int)(from.Skills[SkillName.ArmsLore].Value / armsLoreFactor);
         }
 
         protected virtual void ApplyResourceResistances(CraftResource oldResource, CraftResource newResource)
