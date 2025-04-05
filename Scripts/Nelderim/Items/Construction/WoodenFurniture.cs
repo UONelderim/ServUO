@@ -42,8 +42,15 @@ namespace Server.Items
 			//    list.Add(woodType);
 		}
 
-		public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool,
-			CraftItem craftItem, int resHue)
+		public int OnCraft(int quality,
+			bool makersMark,
+			Mobile from,
+			CraftSystem craftSystem,
+			Type typeRes,
+			Type typeRes2,
+			ITool tool,
+			CraftItem craftItem,
+			int resHue)
 		{
 			Resource = CraftResources.GetFromType(typeRes);
 			return quality;
@@ -95,8 +102,15 @@ namespace Server.Items
 			//    list.Add(woodType);
 		}
 
-		public override int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes,
-			ITool tool, CraftItem craftItem, int resHue)
+		public override int OnCraft(int quality,
+			bool makersMark,
+			Mobile from,
+			CraftSystem craftSystem,
+			Type typeRes,
+			Type typeRes2,
+			ITool tool,
+			CraftItem craftItem,
+			int resHue)
 		{
 			Resource = CraftResources.GetFromType(typeRes);
 			return quality;
@@ -165,8 +179,15 @@ namespace Server.Items
 			//    list.Add(woodType);
 		}
 
-		public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool,
-			CraftItem craftItem, int resHue)
+		public int OnCraft(int quality,
+			bool makersMark,
+			Mobile from,
+			CraftSystem craftSystem,
+			Type typeRes,
+			Type typeRes2,
+			ITool tool,
+			CraftItem craftItem,
+			int resHue)
 		{
 			Resource = CraftResources.GetFromType(typeRes);
 			return quality;

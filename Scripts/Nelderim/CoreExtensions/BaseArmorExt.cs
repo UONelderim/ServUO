@@ -22,6 +22,8 @@ namespace Server.Items
 					ExtraCraftResource.Get(this).Resource2 = value;
 					ApplyResourceResistances(old, value);
 					
+					Hue = CraftResources.GetHue(value);
+					
 					Invalidate();
 					InvalidateProperties();
 					

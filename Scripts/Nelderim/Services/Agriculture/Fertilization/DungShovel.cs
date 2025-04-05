@@ -26,9 +26,17 @@ namespace Server.Items
 		{
 		}
 
-		public new int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool, CraftItem craftItem, int resHue)
+		public new int OnCraft(int quality,
+			bool makersMark,
+			Mobile from,
+			CraftSystem craftSystem,
+			Type typeRes,
+			Type typeRes2,
+			ITool tool,
+			CraftItem craftItem,
+			int resHue)
 		{
-			int r = base.OnCraft(quality, makersMark, from, craftSystem, typeRes, tool, craftItem, resHue);
+			int r = base.OnCraft(quality, makersMark, from, craftSystem, typeRes, typeRes2, tool, craftItem, resHue);
 
 			Hue = DefaultHue;
 

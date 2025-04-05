@@ -213,7 +213,15 @@ namespace Server.Items
             return dropped is BasePotion pot && pot.m_PotionEffect == m_PotionEffect && base.WillStack(from, pot);
         }
 
-        public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool, CraftItem craftItem, int resHue)
+        public int OnCraft(int quality,
+	        bool makersMark,
+	        Mobile from,
+	        CraftSystem craftSystem,
+	        Type typeRes,
+	        Type typeRes2,
+	        ITool tool,
+	        CraftItem craftItem,
+	        int resHue)
         {
             if (craftSystem is DefAlchemy)
             {

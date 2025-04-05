@@ -751,8 +751,8 @@ namespace Server.Engines.Craft
 
         public abstract TrapType TrapType { get; }
 
-        public TrapCraft(Mobile from, CraftItem craftItem, CraftSystem craftSystem, Type typeRes, ITool tool, int quality)
-            : base(from, craftItem, craftSystem, typeRes, tool, quality)
+        public TrapCraft(Mobile from, CraftItem craftItem, CraftSystem craftSystem, Type typeRes, Type typeRes2, ITool tool, int quality)
+            : base(from, craftItem, craftSystem, typeRes, typeRes2, tool, quality)
         {
         }
 
@@ -812,7 +812,7 @@ namespace Server.Engines.Craft
                 int message;
 
                 if (m_TrapCraft.Acquire(targeted, out message))
-                    m_TrapCraft.CraftItem.CompleteCraft(m_TrapCraft.Quality, false, m_TrapCraft.From, m_TrapCraft.CraftSystem, m_TrapCraft.TypeRes, m_TrapCraft.Tool, m_TrapCraft);
+                    m_TrapCraft.CraftItem.CompleteCraft(m_TrapCraft.Quality, false, m_TrapCraft.From, m_TrapCraft.CraftSystem, m_TrapCraft.TypeRes, m_TrapCraft.TypeRes2, m_TrapCraft.Tool, m_TrapCraft);
                 else
                     Failure(message);
             }
@@ -866,8 +866,8 @@ namespace Server.Engines.Craft
     {
         public override TrapType TrapType => TrapType.DartTrap;
 
-        public DartTrapCraft(Mobile from, CraftItem craftItem, CraftSystem craftSystem, Type typeRes, ITool tool, int quality)
-            : base(from, craftItem, craftSystem, typeRes, tool, quality)
+        public DartTrapCraft(Mobile from, CraftItem craftItem, CraftSystem craftSystem, Type typeRes, Type typeRes2,  ITool tool, int quality)
+            : base(from, craftItem, craftSystem, typeRes, typeRes2, tool, quality)
         {
         }
     }
@@ -877,8 +877,8 @@ namespace Server.Engines.Craft
     {
         public override TrapType TrapType => TrapType.PoisonTrap;
 
-        public PoisonTrapCraft(Mobile from, CraftItem craftItem, CraftSystem craftSystem, Type typeRes, ITool tool, int quality)
-            : base(from, craftItem, craftSystem, typeRes, tool, quality)
+        public PoisonTrapCraft(Mobile from, CraftItem craftItem, CraftSystem craftSystem, Type typeRes, Type typeRes2,  ITool tool, int quality)
+            : base(from, craftItem, craftSystem, typeRes, typeRes2, tool, quality)
         {
         }
     }
@@ -888,8 +888,8 @@ namespace Server.Engines.Craft
     {
         public override TrapType TrapType => TrapType.ExplosionTrap;
 
-        public ExplosionTrapCraft(Mobile from, CraftItem craftItem, CraftSystem craftSystem, Type typeRes, ITool tool, int quality)
-            : base(from, craftItem, craftSystem, typeRes, tool, quality)
+        public ExplosionTrapCraft(Mobile from, CraftItem craftItem, CraftSystem craftSystem, Type typeRes, Type typeRes2, ITool tool, int quality)
+            : base(from, craftItem, craftSystem, typeRes, typeRes2, tool, quality)
         {
         }
     }

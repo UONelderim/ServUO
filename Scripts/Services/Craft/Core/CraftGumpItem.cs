@@ -135,19 +135,29 @@ namespace Server.Engines.Craft
                         else
                         {
                             Type type = null;
+                            Type type2 = null;
 
                             CraftContext context = m_CraftSystem.GetContext(m_From);
 
                             if (context != null)
                             {
-                                CraftSubResCol res = (m_CraftItem.UseSubRes2 ? m_CraftSystem.CraftSubRes2 : m_CraftSystem.CraftSubRes);
-                                int resIndex = (m_CraftItem.UseSubRes2 ? context.LastResourceIndex2 : context.LastResourceIndex);
+                                CraftSubResCol res = m_CraftSystem.CraftSubRes;
+                                int resIndex = context.LastResourceIndex;
 
                                 if (resIndex > -1)
                                     type = res.GetAt(resIndex).ItemType;
                             }
+                            
+                            if (context != null && m_CraftItem.UseSubRes2)
+                            {
+	                            var res2 = m_CraftSystem.CraftSubRes2;
+	                            var resIndex2 = context.LastResourceIndex2;
+	                
+	                            if (resIndex2 >= 0 && resIndex2 < res2.Count)
+		                            type2 = res2.GetAt(resIndex2).ItemType;
+                            }
 
-                            m_CraftSystem.CreateItem(m_From, m_CraftItem.ItemType, type, m_Tool, m_CraftItem);
+                            m_CraftSystem.CreateItem(m_From, m_CraftItem.ItemType, type, type2, m_Tool, m_CraftItem);
                         }
                         break;
                     }

@@ -21,15 +21,15 @@ namespace Server.Engines.Craft
 
     public interface ICraftable
     {
-        int OnCraft(
-            int quality,
-            bool makersMark,
-            Mobile from,
-            CraftSystem craftSystem,
-            Type typeRes,
-            ITool tool,
-            CraftItem craftItem,
-            int resHue);
+        int OnCraft(int quality,
+	        bool makersMark,
+	        Mobile from,
+	        CraftSystem craftSystem,
+	        Type typeRes,
+	        Type typeRes2,
+	        ITool tool,
+	        CraftItem craftItem,
+	        int resHue);
     }
 
     public partial class CraftItem
@@ -1455,7 +1455,7 @@ namespace Server.Engines.Craft
             }
         }
 
-        public void Craft(Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool)
+        public void Craft(Mobile from, CraftSystem craftSystem, Type typeRes, Type typeRes2, ITool tool)
         {
             if (from.BeginAction(typeof(CraftSystem)))
             {
@@ -1479,7 +1479,7 @@ namespace Server.Engines.Craft
                                     {
                                         if (RequiresResTarget && NeedsResTarget(from, craftSystem))
                                         {
-                                            from.Target = new ChooseResTarget(from, this, craftSystem, typeRes, tool);
+                                            from.Target = new ChooseResTarget(from, this, craftSystem, typeRes, typeRes2, tool);
                                             from.SendMessage("Choose the resource you would like to use.");
                                             return;
                                         }
@@ -1505,7 +1505,7 @@ namespace Server.Engines.Craft
                                                 int iMax = (craftSystem.MaxCraftEffect - iMin) + 1;
                                                 int iRandom = Utility.Random(iMax);
                                                 iRandom += iMin + 1;
-                                                new InternalTimer(from, craftSystem, this, typeRes, tool, iRandom).Start();
+                                                new InternalTimer(from, craftSystem, this, typeRes, typeRes2, tool, iRandom).Start();
                                                 return;
                                             }
                                             else
@@ -1590,7 +1590,8 @@ namespace Server.Engines.Craft
             bool makersMark,
             Mobile from,
             CraftSystem craftSystem,
-            Type typeRes,
+            Type typeRes, 
+            Type typeRes2, 
             ITool tool,
             CustomCraft customCraft)
         {
@@ -1815,7 +1816,7 @@ namespace Server.Engines.Craft
 
                     if (item is ICraftable)
                     {
-                        endquality = ((ICraftable)item).OnCraft(quality, makersMark, from, craftSystem, typeRes, tool, this, resHue);
+                        endquality = ((ICraftable)item).OnCraft(quality, makersMark, from, craftSystem, typeRes, typeRes2, tool, this, resHue);
                     }
                     else if (item is Food)
                     {
@@ -2034,11 +2035,12 @@ namespace Server.Engines.Craft
             private readonly CraftItem m_CraftItem;
             private readonly CraftSystem m_CraftSystem;
             private readonly Type ItemTypeRes;
+            private readonly Type ItemTypeRes2;
             private readonly ITool m_Tool;
             private readonly bool m_AutoCraft;
 
             public InternalTimer(
-                Mobile from, CraftSystem craftSystem, CraftItem craftItem, Type typeRes, ITool tool, int iCountMax)
+                Mobile from, CraftSystem craftSystem, CraftItem craftItem, Type typeRes, Type typeRes2, ITool tool, int iCountMax)
                 : base(TimeSpan.Zero, TimeSpan.FromSeconds(craftSystem.Delay), iCountMax)
             {
                 m_From = from;
@@ -2047,6 +2049,7 @@ namespace Server.Engines.Craft
                 m_iCountMax = iCountMax;
                 m_CraftSystem = craftSystem;
                 ItemTypeRes = typeRes;
+                ItemTypeRes2 = typeRes2;
                 m_Tool = tool;
                 m_AutoCraft = AutoCraftTimer.HasTimer(from);
             }
@@ -2128,7 +2131,7 @@ namespace Server.Engines.Craft
 
                     if (makersMark && context.MarkOption == CraftMarkOption.PromptForMark && !m_AutoCraft)
                     {
-                        m_From.SendGump(new QueryMakersMarkGump(quality, m_From, m_CraftItem, m_CraftSystem, ItemTypeRes, m_Tool));
+                        m_From.SendGump(new QueryMakersMarkGump(quality, m_From, m_CraftItem, m_CraftSystem, ItemTypeRes, ItemTypeRes2, m_Tool));
                     }
                     else
                     {
@@ -2137,7 +2140,7 @@ namespace Server.Engines.Craft
                             makersMark = false;
                         }
 
-                        m_CraftItem.CompleteCraft(quality, makersMark, m_From, m_CraftSystem, ItemTypeRes, m_Tool, null);
+                        m_CraftItem.CompleteCraft(quality, makersMark, m_From, m_CraftSystem, ItemTypeRes, ItemTypeRes2, m_Tool, null);
                     }
                 }
             }
@@ -2214,14 +2217,16 @@ namespace Server.Engines.Craft
             private readonly CraftItem m_CraftItem;
             private readonly CraftSystem m_CraftSystem;
             private readonly Type ItemTypeRes;
+            private readonly Type ItemTypeRes2;
             private readonly ITool m_Tool;
 
-            public ChooseResTarget(Mobile from, CraftItem craftitem, CraftSystem craftSystem, Type typeRes, ITool tool)
+            public ChooseResTarget(Mobile from, CraftItem craftitem, CraftSystem craftSystem, Type typeRes, Type typeRes2,  ITool tool)
                 : base(-1, false, Targeting.TargetFlags.None)
             {
                 m_CraftItem = craftitem;
                 m_CraftSystem = craftSystem;
                 ItemTypeRes = typeRes;
+                ItemTypeRes2 = typeRes2;
                 m_Tool = tool;
 
                 AddResTarget(from);
@@ -2237,7 +2242,7 @@ namespace Server.Engines.Craft
                     context.RequiredPigmentHue = ((IPigmentHue)targeted).PigmentHue;
 
                 from.EndAction(typeof(CraftSystem));
-                m_CraftItem.Craft(from, m_CraftSystem, ItemTypeRes, m_Tool);
+                m_CraftItem.Craft(from, m_CraftSystem, ItemTypeRes, ItemTypeRes2, m_Tool);
             }
 
             protected override void OnTargetCancel(Mobile from, Targeting.TargetCancelType cancelType)

@@ -161,7 +161,15 @@ namespace Server.Items
             list.Add(1153494); // House Only
         }
 
-        public virtual int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool, CraftItem craftItem, int resHue)
+        public virtual int OnCraft(int quality,
+	        bool makersMark,
+	        Mobile from,
+	        CraftSystem craftSystem,
+	        Type typeRes,
+	        Type typeRes2,
+	        ITool tool,
+	        CraftItem craftItem,
+	        int resHue)
         {
             if (craftItem != null && craftItem.Data is CraftableItemType)
             {
@@ -611,7 +619,15 @@ namespace Server.Items
             return new CraftableMetalHouseDoor(type, GetDoorFacing(type));
         }
 
-        public virtual int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool, CraftItem craftItem, int resHue)
+        public virtual int OnCraft(int quality,
+	        bool makersMark,
+	        Mobile from,
+	        CraftSystem craftSystem,
+	        Type typeRes,
+	        Type typeRes2,
+	        ITool tool,
+	        CraftItem craftItem,
+	        int resHue)
         {
             if (craftItem != null)
             {
@@ -874,7 +890,15 @@ namespace Server.Items
             return new CraftableStoneHouseDoor(type, CraftableMetalHouseDoor.GetDoorFacing(type));
         }
 
-        public virtual int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool, CraftItem craftItem, int resHue)
+        public virtual int OnCraft(int quality,
+	        bool makersMark,
+	        Mobile from,
+	        CraftSystem craftSystem,
+	        Type typeRes,
+	        Type typeRes2,
+	        ITool tool,
+	        CraftItem craftItem,
+	        int resHue)
         {
             if (craftItem != null)
             {

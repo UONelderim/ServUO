@@ -130,9 +130,17 @@ namespace Server.Items
             typeof(SilverSerpent)
         };
 
-        public override int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool, CraftItem craftItem, int resHue)
+        public override int OnCraft(int quality,
+	        bool makersMark,
+	        Mobile from,
+	        CraftSystem craftSystem,
+	        Type typeRes,
+	        Type typeRes2,
+	        ITool tool,
+	        CraftItem craftItem,
+	        int resHue)
         {
-            base.OnCraft(quality, makersMark, from, craftSystem, typeRes, tool, craftItem, resHue);
+            base.OnCraft(quality, makersMark, from, craftSystem, typeRes, typeRes2, tool, craftItem, resHue);
 
             Hue = 0x187;
 

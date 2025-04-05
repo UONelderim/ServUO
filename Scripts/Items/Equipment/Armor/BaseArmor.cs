@@ -2124,6 +2124,12 @@ namespace Server.Items
                 else
                     list.Add(Name);
             }
+            
+            int res2Name = CraftResources.GetNameSuffixNumber(Resource2);
+            if (res2Name != 0)
+            {
+	            list.Add(res2Name);
+            }
 
             if (!string.IsNullOrEmpty(_EngravedText))
             {
@@ -2442,7 +2448,7 @@ namespace Server.Items
 
         #region ICraftable Members
 
-        public virtual int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool, CraftItem craftItem, int resHue)
+        public virtual int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, Type typeRes2, ITool tool, CraftItem craftItem, int resHue)
         {
             Quality = (ItemQuality)quality;
 
@@ -2459,6 +2465,11 @@ namespace Server.Items
 
             if (typeRes == null || craftItem.ForceNonExceptional)
                 typeRes = craftItem.Resources.GetAt(0).ItemType;
+
+            if (typeRes2 != null)
+            {
+	            Resource2 = CraftResources.GetFromType(typeRes2);
+            }
 
             PlayerConstructed = true;
 
@@ -2558,7 +2569,7 @@ namespace Server.Items
         {
             CraftAttributeInfo info;
 
-            if (oldResource > CraftResource.None)
+            if (oldResource != DefaultResource)
             {
                 info = GetResourceAttrs(oldResource);
 

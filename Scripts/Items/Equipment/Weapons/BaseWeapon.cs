@@ -4328,6 +4328,12 @@ namespace Server.Items
             {
                 list.Add(1053099, "#{0}\t{1}", oreType, GetNameString()); // ~1_oretype~ ~2_armortype~
             }
+            
+            int res2Name = CraftResources.GetNameSuffixNumber(Resource2);
+            if (res2Name != 0)
+            {
+	            list.Add(res2Name);
+            }
             #region High Seas
             else if (SearingWeapon)
             {
@@ -4342,6 +4348,7 @@ namespace Server.Items
             {
                 list.Add(Name);
             }
+            
 
             /*
             * Want to move this to the engraving tool, let the non-harmful
@@ -5134,15 +5141,15 @@ namespace Server.Items
         public static BaseWeapon Fists { get; set; }
 
         #region ICraftable Members
-        public int OnCraft(
-            int quality,
-            bool makersMark,
-            Mobile from,
-            CraftSystem craftSystem,
-            Type typeRes,
-            ITool tool,
-            CraftItem craftItem,
-            int resHue)
+        public int OnCraft(int quality,
+	        bool makersMark,
+	        Mobile from,
+	        CraftSystem craftSystem,
+	        Type typeRes,
+	        Type typeRes2,
+	        ITool tool,
+	        CraftItem craftItem,
+	        int resHue)
         {
             Quality = (ItemQuality)quality;
 
@@ -5161,6 +5168,11 @@ namespace Server.Items
             if (!craftItem.ForceNonExceptional)
             {
                 Resource = CraftResources.GetFromType(typeRes);
+                
+                if (typeRes2 != null)
+                {
+	                Resource2 = CraftResources.GetFromType(typeRes2);
+                }
             }
 
             CraftContext context = craftSystem.GetContext(from);

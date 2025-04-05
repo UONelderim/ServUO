@@ -23,8 +23,15 @@ namespace Server.Items
 			}
 		}
 
-		public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool,
-			CraftItem craftItem, int resHue)
+		public int OnCraft(int quality,
+			bool makersMark,
+			Mobile from,
+			CraftSystem craftSystem,
+			Type typeRes,
+			Type typeRes2,
+			ITool tool,
+			CraftItem craftItem,
+			int resHue)
 		{
 			Resource = CraftResources.GetFromType(typeRes);
 			return 0;
@@ -75,8 +82,15 @@ namespace Server.Items
 			}
 		}
 
-		public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool,
-			CraftItem craftItem, int resHue)
+		public int OnCraft(int quality,
+			bool makersMark,
+			Mobile from,
+			CraftSystem craftSystem,
+			Type typeRes,
+			Type typeRes2,
+			ITool tool,
+			CraftItem craftItem,
+			int resHue)
 		{
 			Resource = CraftResources.GetFromType(typeRes);
 			return 0;
@@ -127,8 +141,15 @@ namespace Server.Items
 			}
 		}
 
-		public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool,
-			CraftItem craftItem, int resHue)
+		public int OnCraft(int quality,
+			bool makersMark,
+			Mobile from,
+			CraftSystem craftSystem,
+			Type typeRes,
+			Type typeRes2,
+			ITool tool,
+			CraftItem craftItem,
+			int resHue)
 		{
 			Resource = CraftResources.GetFromType(typeRes);
 			return 0;
@@ -179,8 +200,15 @@ namespace Server.Items
 			}
 		}
 
-		public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool,
-			CraftItem craftItem, int resHue)
+		public int OnCraft(int quality,
+			bool makersMark,
+			Mobile from,
+			CraftSystem craftSystem,
+			Type typeRes,
+			Type typeRes2,
+			ITool tool,
+			CraftItem craftItem,
+			int resHue)
 		{
 			Resource = CraftResources.GetFromType(typeRes);
 			return 0;
@@ -231,8 +259,15 @@ namespace Server.Items
 			}
 		}
 
-		public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool,
-			CraftItem craftItem, int resHue)
+		public int OnCraft(int quality,
+			bool makersMark,
+			Mobile from,
+			CraftSystem craftSystem,
+			Type typeRes,
+			Type typeRes2,
+			ITool tool,
+			CraftItem craftItem,
+			int resHue)
 		{
 			Resource = CraftResources.GetFromType(typeRes);
 			return 0;
@@ -283,8 +318,15 @@ namespace Server.Items
 			}
 		}
 
-		public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool,
-			CraftItem craftItem, int resHue)
+		public int OnCraft(int quality,
+			bool makersMark,
+			Mobile from,
+			CraftSystem craftSystem,
+			Type typeRes,
+			Type typeRes2,
+			ITool tool,
+			CraftItem craftItem,
+			int resHue)
 		{
 			Resource = CraftResources.GetFromType(typeRes);
 			return 0;
@@ -336,8 +378,15 @@ namespace Server.Items
 			}
 		}
 
-		public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool,
-			CraftItem craftItem, int resHue)
+		public int OnCraft(int quality,
+			bool makersMark,
+			Mobile from,
+			CraftSystem craftSystem,
+			Type typeRes,
+			Type typeRes2,
+			ITool tool,
+			CraftItem craftItem,
+			int resHue)
 		{
 			Resource = CraftResources.GetFromType(typeRes);
 			return 0;
@@ -388,8 +437,15 @@ namespace Server.Items
 			}
 		}
 
-		public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool,
-			CraftItem craftItem, int resHue)
+		public int OnCraft(int quality,
+			bool makersMark,
+			Mobile from,
+			CraftSystem craftSystem,
+			Type typeRes,
+			Type typeRes2,
+			ITool tool,
+			CraftItem craftItem,
+			int resHue)
 		{
 			Resource = CraftResources.GetFromType(typeRes);
 			return 0;
@@ -440,8 +496,15 @@ namespace Server.Items
 			}
 		}
 
-		public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool,
-			CraftItem craftItem, int resHue)
+		public int OnCraft(int quality,
+			bool makersMark,
+			Mobile from,
+			CraftSystem craftSystem,
+			Type typeRes,
+			Type typeRes2,
+			ITool tool,
+			CraftItem craftItem,
+			int resHue)
 		{
 			Resource = CraftResource.None; // for now
 			return 0;
@@ -492,8 +555,15 @@ namespace Server.Items
 			}
 		}
 
-		public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool,
-			CraftItem craftItem, int resHue)
+		public int OnCraft(int quality,
+			bool makersMark,
+			Mobile from,
+			CraftSystem craftSystem,
+			Type typeRes,
+			Type typeRes2,
+			ITool tool,
+			CraftItem craftItem,
+			int resHue)
 		{
 			Resource = CraftResource.None; // for now
 			return 0;

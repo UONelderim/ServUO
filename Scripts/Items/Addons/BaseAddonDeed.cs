@@ -129,7 +129,15 @@ namespace Server.Items
                 list.Add(CraftResources.GetLocalizationNumber(m_Resource));
         }
 
-        public virtual int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool, CraftItem craftItem, int resHue)
+        public virtual int OnCraft(int quality,
+	        bool makersMark,
+	        Mobile from,
+	        CraftSystem craftSystem,
+	        Type typeRes,
+	        Type typeRes2,
+	        ITool tool,
+	        CraftItem craftItem,
+	        int resHue)
         {
             Type resourceType = typeRes;
 

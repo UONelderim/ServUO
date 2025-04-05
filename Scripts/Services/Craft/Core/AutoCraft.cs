@@ -66,6 +66,7 @@ namespace Server.Engines.Craft
         private int m_Attempts;
         private int m_Ticks;
         private readonly Type m_TypeRes;
+        private readonly Type m_TypeRes2;
 
         public int Amount => m_Amount;
         public int Attempts => m_Attempts;
@@ -90,6 +91,14 @@ namespace Server.Engines.Craft
 
                 if (resIndex > -1)
                     m_TypeRes = res.GetAt(resIndex).ItemType;
+            }
+            if (context != null && item.UseSubRes2)
+            {
+	            var res2 = m_CraftSystem.CraftSubRes2;
+	            var resIndex2 = context.LastResourceIndex2;
+	                
+	            if (resIndex2 >= 0 && resIndex2 < res2.Count)
+		            m_TypeRes2 = res2.GetAt(resIndex2).ItemType;
             }
 
             m_AutoCraftTable[from] = this;
@@ -134,7 +143,7 @@ namespace Server.Engines.Craft
             }
             else
             {
-                m_CraftSystem.CreateItem(m_From, m_CraftItem.ItemType, m_TypeRes, m_Tool, m_CraftItem);
+                m_CraftSystem.CreateItem(m_From, m_CraftItem.ItemType, m_TypeRes, m_TypeRes2, m_Tool, m_CraftItem);
             }
         }
 

@@ -16,6 +16,7 @@ namespace Server.Items
 			{
 				UnscaleDurability();
 				ExtraCraftResource.Get(this).Resource2 = value;
+				Hue = CraftResources.GetHue(value);
 				InvalidateProperties();
 				ScaleDurability();
 			}

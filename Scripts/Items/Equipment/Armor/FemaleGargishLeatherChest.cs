@@ -39,7 +39,7 @@ namespace Server.Items
         public override ArmorMaterialType MaterialType => ArmorMaterialType.Leather;
         public override CraftResource DefaultResource => CraftResource.RegularLeather;
 
-        public override int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool, CraftItem craftItem, int resHue)
+        public override int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, Type typeRes2,  ITool tool, CraftItem craftItem, int resHue)
         {
             Quality = (ItemQuality)quality;
 
