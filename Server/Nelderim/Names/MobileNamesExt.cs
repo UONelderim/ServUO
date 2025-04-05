@@ -23,13 +23,28 @@ namespace Server
 		[CommandProperty(AccessLevel.GameMaster)]
 		public bool IdentityHidden { get; set; }
 		
-		public virtual string NGetName(Mobile m)
+		public virtual bool NTryGetName(Mobile witness, out string name)
 		{
-			if (NConfig.NameSystemEnabled && !UseRealName(m) )
+			if (NConfig.NameSystemEnabled && !UseRealName(witness))
 			{
-				return (m != null && NameFor.TryGetValue(m, out var assignedName)) && !IdentityHidden ? assignedName : FallbackName;
+				if (witness != null && NameFor.TryGetValue(witness, out name) && !IdentityHidden)
+				{
+					return true;
+				}
+				else
+				{
+					name = FallbackName;
+					return false;
+				}
 			}
-			return Name;
+			name = Name;
+			return true;
+		}
+
+		public virtual string NGetName(Mobile witness)
+		{
+			NTryGetName(witness, out var name);
+			return name;
 		}
 
 		public virtual bool UseRealName(Mobile m)

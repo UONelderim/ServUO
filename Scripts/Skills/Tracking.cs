@@ -163,9 +163,19 @@ namespace Server.SkillHandlers
                 AddItem(20 + ((i % 4) * 100), 20 + ((i / 4) * 155), ShrinkTable.Lookup(m));
                 AddButton(20 + ((i % 4) * 100), 130 + ((i / 4) * 155), 4005, 4007, i + 1, GumpButtonType.Reply, 0);
 
-                if (m.Name != null)
-                    AddHtml(20 + ((i % 4) * 100), 90 + ((i / 4) * 155), 90, 40, m.Name, false, false);
+                AddHtml(20 + ((i % 4) * 100), 90 + ((i / 4) * 155), 90, 40, GetDisplayedName(m), false, false);
             }
+        }
+
+        private string GetDisplayedName(Mobile tracked)
+        {
+            string name = "?";
+            if (!tracked.NTryGetName(m_From, out name))
+            {
+                var id = (tracked.Serial.Value % 1000).ToString();
+                name = name + " " + id;
+            }
+            return name;
         }
 
         public static void DisplayTo(bool success, Mobile from, int type)
