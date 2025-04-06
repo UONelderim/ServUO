@@ -4,6 +4,11 @@ namespace Server.Mobiles
 {
 	public partial class PlayerVendor
 	{
+		public override string NGetName(Mobile witness)
+		{
+			return Name;
+		}
+
 		private void NelderimOnSpeech(SpeechEventArgs e)
 		{
 			Mobile from = e.Mobile;
