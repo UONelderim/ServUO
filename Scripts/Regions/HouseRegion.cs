@@ -75,7 +75,7 @@ namespace Server.Regions
         {
             Item item = e as Item;
 
-            if (item != null && ((m.PublicHouseContent && House.Public) ||
+            if (item != null && (House.Public ||
                                  House.IsInside(m) ||
                                  ExcludeItem(item) ||
                                  (item.RootParent != null && m.CanSee(item.RootParent))))
