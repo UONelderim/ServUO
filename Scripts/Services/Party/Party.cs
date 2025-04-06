@@ -288,7 +288,7 @@ namespace Server.Engines.PartySystem
 					Disband();
 				}
 			}
-			m.SendRemovePacket();
+			m.SendRemovePacket(false);
 
 			Spells.SkillMasteries.SkillMasterySpell.OnPartyRemoved(m, m_Members == null || m_Members.Count == 0);
 		}
