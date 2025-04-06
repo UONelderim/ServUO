@@ -1,0 +1,34 @@
+namespace Server.Items
+{
+	public class PieczecDreadHorn1 : PeerlessKey
+	{
+		[Constructable]
+		public PieczecDreadHorn1()
+			: base(0x1F14)
+		{
+			Name = "Pierwsza Pieczec";
+			Label0 = "Jaskinia Spaczonego Jednorożca";
+			Weight = 1;
+			Hue = 0x1F0;
+			LootType = LootType.Blessed;
+		}
+
+		public PieczecDreadHorn1(Serial serial)
+			: base(serial)
+		{
+		}
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
+
+			writer.Write(0); // version
+		}
+
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
+
+			int version = reader.ReadInt();
+		}
+	}
+}
