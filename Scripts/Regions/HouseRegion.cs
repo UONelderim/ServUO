@@ -71,39 +71,6 @@ namespace Server.Regions
             });
         }
 
-        public override bool CanSee(Mobile m, IEntity e)
-        {
-            Item item = e as Item;
-
-            if (item != null && (House.Public ||
-                                 House.IsInside(m) ||
-                                 ExcludeItem(item) ||
-                                 (item.RootParent != null && m.CanSee(item.RootParent))))
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private bool ExcludeItem(Item item)
-        {
-            return IsStairArea(item) || m_ItemTypes.Any(t => t == item.GetType() || item.GetType().IsSubclassOf(t));
-        }
-
-        private static readonly Type[] m_ItemTypes = new Type[]
-        {
-            typeof(BaseHouse),  typeof(HouseTeleporter),
-            typeof(BaseDoor),   typeof(Static),
-            typeof(HouseSign)
-        };
-
-        public bool IsStairArea(Item item)
-        {
-            bool frontStairs;
-            return House.IsStairArea(item, out frontStairs) && frontStairs;
-        }
-
         public override bool SendInaccessibleMessage(Item item, Mobile from)
         {
             if (item is Container)
