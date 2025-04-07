@@ -1824,6 +1824,8 @@ namespace Server.Items
 
             if (Parent is Mobile)
                 ((Mobile)Parent).CheckStatTimers();
+            
+            FixDragonArmorResource();
         }
 
         public virtual CraftResource DefaultResource => CraftResource.Iron;
@@ -2569,7 +2571,7 @@ namespace Server.Items
         {
             CraftAttributeInfo info;
 
-            if (oldResource != DefaultResource)
+            if (oldResource > CraftResource.None)
             {
                 info = GetResourceAttrs(oldResource);
 

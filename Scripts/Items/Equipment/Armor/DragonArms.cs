@@ -24,7 +24,6 @@ namespace Server.Items
         public override int InitMaxHits => 75;
         public override int StrReq => 75;
         public override ArmorMaterialType MaterialType => ArmorMaterialType.Dragon;
-        public override CraftResource DefaultResource => CraftResource.RedScales;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
