@@ -3031,6 +3031,13 @@
 			<go x="5613" y="892" z="0" />
 			<music name="OldUlt04" />
 		</region>
+		<region type="DungeonRegion" name="TylReviaren">
+			<rect x="5807" y="1052" width="144" height="192" />
+			<rect x="5831" y="1025" width="85" height="27" />
+			<rect x="5951" y="1058" width="56" height="113" />
+			<rect x="5951" y="1171" width="46" height="21" />
+			<go x="5910" y="1123" z="0" />
+		</region>
 		<region type="DungeonRegion" name="TylReviaren_Entrance">
 			<rect x="5271" y="1711" width="52" height="11" />
 			<rect x="5274" y="1709" width="13" height="2" />
