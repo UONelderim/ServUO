@@ -70,6 +70,8 @@ namespace Server.Mobiles
         public override int Meat => 4;
         public override int Hides => 25;
         public override FoodType FavoriteFood => FoodType.Meat;
+        
+        public override PackInstinct PackInstinct => PackInstinct.Canine;
 
         public override void GenerateLoot()
         {
