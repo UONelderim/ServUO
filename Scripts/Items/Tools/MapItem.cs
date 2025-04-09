@@ -353,8 +353,8 @@ namespace Server.Items
                 short mapValue = 0x00;
                 if (map.Facet == Map.Felucca)
                     mapValue = 0x00;
-                else if (map.Facet == Map.Trammel)
-                    mapValue = 0x01;
+                //else if (map.Facet == Map.Trammel)
+                  //  mapValue = 0x01;
                 else if (map.Facet == Map.Ilshenar)
                     mapValue = 0x02;
                 else if (map.Facet == Map.Malas)

@@ -16,22 +16,22 @@ namespace Server.Items
 
         private static readonly Rectangle2D[] m_WarpLocations =
         {
-                new Rectangle2D(2885, 1373, 500, 800),
-                new Rectangle2D(330,  2940, 400, 400),
-                new Rectangle2D(4040, 2550, 500, 350),
-                new Rectangle2D(4040, 1755, 500, 250),
-                new Rectangle2D(180,  180,  300, 300) ////TODO: nowe koordy
+                new Rectangle2D(2134, 981, 500, 800),
+                new Rectangle2D(4378,  386, 400, 400),
+                new Rectangle2D(4493, 2227, 500, 350),
+                new Rectangle2D(3266, 3543, 500, 250),
+                new Rectangle2D(1105,  3678,  300, 300) 
         };
 
         public static Rectangle2D[] WarpLocations => m_WarpLocations;
 
-        private static Rectangle2D m_BoatKickLocation = new Rectangle2D(2400, 2500, 500, 500); //TODO: nowe koordy
+        private static Rectangle2D m_BoatKickLocation = new Rectangle2D(1589, 1800, 10, 10); 
         public static Rectangle2D BoatKickLocation => m_BoatKickLocation;
 
-        private static Rectangle2D m_LandKickLocation = new Rectangle2D(2125, 3090, 25, 30); //TODO: nowe koordy
+        private static Rectangle2D m_LandKickLocation = new Rectangle2D(1521, 1823, 10, 10); 
         public static Rectangle2D LandKickLocation => m_LandKickLocation;
 
-        private static Rectangle2D m_CorgulBounds = new Rectangle2D(6337, 1156, m_RegionSize, m_RegionSize); //TODO: nowe koordy
+        private static Rectangle2D m_CorgulBounds = new Rectangle2D(6144, 1051, m_RegionSize, m_RegionSize);
 
         public static Rectangle2D CorgulBounds => m_CorgulBounds;
         #endregion
@@ -68,7 +68,7 @@ namespace Server.Items
             typeof(TreasureMap), typeof(WorldMap)
         };
 
-        public static Point3D SpawnLoc = new Point3D(6431, 1236,  10); //TODO: nowe koordy
+        public static Point3D SpawnLoc = new Point3D(6305, 1201,  10); 
 
         [CommandProperty(AccessLevel.GameMaster)]
         public DateTime DeadLine => m_DeadLine;
