@@ -535,7 +535,7 @@ namespace Server.Mobiles
         #endregion
 
         #region Pet Training
-        public static double MaxTameRequirement = 108.0;
+        public static double MaxTameRequirement = 115.1;
 
         private AbilityProfile _Profile;
         private TrainingProfile _TrainingProfile;
