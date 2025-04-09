@@ -15,7 +15,7 @@ namespace Server.Mobiles
 
         [Constructable]
         public GBBigglesby()
-            : base("the proprietor")
+            : base("- wlasciciel akcji Kompanii Handlowej")
         {
             Name = "G.B. Bigglesby";
         }
