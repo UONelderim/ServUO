@@ -9,7 +9,7 @@ namespace Server.Mobiles
         protected override List<SBInfo> SBInfos => m_SBInfos;
 
         [Constructable]
-        public SeaMarketTavernKeeper() : base("- karczmarz")
+        public SeaMarketTavernKeeper() : base("- karczmarz nadmorski")
         {
         }
 
