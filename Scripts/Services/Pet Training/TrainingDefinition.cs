@@ -54,7 +54,7 @@ namespace Server.Mobiles
 	        AreaEffects = areaEffect;
 
 	        ControlSlotsMin = controlSlots;
-	        ControlSlotsMax = controlSlots + 1;
+	        ControlSlotsMax = Math.Min(5, controlSlots + 2);
         }
 
         public bool HasSpecialAbility(SpecialAbility ability)

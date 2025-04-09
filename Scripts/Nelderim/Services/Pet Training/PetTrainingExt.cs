@@ -6,14 +6,7 @@ namespace Server.Mobiles
 	{
 		private int NAssignStartingTrainingPoints()
 		{
-			return ControlSlots switch
-			{
-				1 => 1501,//800
-				2 => 1401,//700,
-				3 => 1301,//600,
-				4 => 1201, //500,
-				_ => 0
-			};
+			return ControlSlots == ControlSlotsMin ? 1501 : 1201;
 		}
 	}
 	
