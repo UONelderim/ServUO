@@ -790,7 +790,7 @@ namespace Server.Engines.Quests
                     mapitem.AddWorldPin(pnt.X, pnt.Y);
                 }
 
-                mapitem.Name = string.Format("Pirate - Jhelom {0}", i + 1);
+                mapitem.Name = string.Format("Piraci - Nelderim {0}", i + 1);
                 e.Mobile.AddToBackpack(mapitem);
             }
 
@@ -805,7 +805,7 @@ namespace Server.Engines.Quests
                     mapitem.AddWorldPin(pnt.X, pnt.Y);
                 }
 
-                mapitem.Name = string.Format("Pirate - Moonglow {0}", i + 1);
+                mapitem.Name = string.Format("Piraci - Nelderim {0}", i + 1);
                 e.Mobile.AddToBackpack(mapitem);
             }
 
@@ -849,7 +849,7 @@ namespace Server.Engines.Quests
                     mapitem.AddWorldPin(pnt.X, pnt.Y);
                 }
 
-                mapitem.Name = string.Format("Merchant - tram/fel(a) {0}", i + 1);
+                mapitem.Name = string.Format("Handlarze - Nelderim(a) {0}", i + 1);
                 e.Mobile.AddToBackpack(mapitem);
             }
             for (int i = 0; i < SpawnDefinition.MerchantTramFelCourses2.Length; i++)
@@ -863,7 +863,7 @@ namespace Server.Engines.Quests
                     mapitem.AddWorldPin(pnt.X, pnt.Y);
                 }
 
-                mapitem.Name = string.Format("Merchant - tram/fel(b) {0}", i + 1);
+                mapitem.Name = string.Format("Handlarze - Nelderim(b) {0}", i + 1);
                 e.Mobile.AddToBackpack(mapitem);
             }
 
