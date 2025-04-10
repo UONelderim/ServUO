@@ -2,6 +2,7 @@ using System;
 using Server.Items;
 using System.Collections.Generic;
 using Server.Engines.Apiculture;
+using Server.Items.Crops;
 
 namespace Server.Mobiles
 {
@@ -46,6 +47,24 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo(typeof(Grapes), 3, 50, 0x9D1, 0));
 				Add(new GenericBuyInfo(typeof(Apple), 3, 50, 0x9D0, 0));
 				Add(new GenericBuyInfo(typeof(SheafOfHay), 2, 50, 0xF36, 0));
+				
+				Add(new GenericBuyInfo("Nasiona bawelny", typeof(SzczepkaBawelna), 100, 10, 0xF27, 0x5E2));
+				Add(new GenericBuyInfo("Nasiona lnu", typeof(SzczepkaLen), 100, 10, 0xF27, 0x5E2));
+				Add(new GenericBuyInfo("Nasiona konopii", typeof(SzczepkaKonopia), 100, 10, 0xF27, 0x5E2));
+				Add(new GenericBuyInfo("Nasiona rosliny dla jedwabnika", typeof(SzczepkaJedwab), 100, 10, 0xF27, 0x5E2));
+				Add(new GenericBuyInfo("Nasiona pszenicy", typeof(SzczepkaPszenica), 30, 20, 0xF27, 0x5E2));
+				Add(new GenericBuyInfo("Nasiona kukurydzy", typeof(SzczepkaKukurydza), 15, 10, 0xF27, 0x5E2));
+				Add(new GenericBuyInfo("Nasiona marchwi", typeof(SzczepkaMarchew), 20, 10, 0xF27, 0x5E2));
+				Add(new GenericBuyInfo("Nasiona cebuli", typeof(SzczepkaCebula), 20, 10, 0xF27, 0x5E2));
+				Add(new GenericBuyInfo("Nasiona salaty", typeof(SzczepkaSalata), 10, 10, 0xF27, 0x5E2));
+				Add(new GenericBuyInfo("Nasiona kapusty", typeof(SzczepkaKapusta), 10, 10, 0xF27, 0x5E2));
+				
+				Add( new GenericBuyInfo( "Maly Ogrod Domowy", typeof( MalyOgrodAddonDeed ), 20000, 10, 0xE87, 0xE88 ) );
+				Add( new GenericBuyInfo( "Maly Ogrod Domowy", typeof( SredniOgrodAddonDeed ), 40000, 10, 0xE87, 0xE88 ) );
+				Add( new GenericBuyInfo( "Maly Ogrod Domowy", typeof( WielkiOgrodAddonDeed ), 60000, 10, 0xE87, 0xE88 ) );
+
+				Add(new GenericBuyInfo("Szufla do lajna", typeof(DungShovel), 30, 50, 0xF39, DungShovel.DefaultHue));
+				Add(new GenericBuyInfo("Wiadro na nawoz", typeof(DungBucket), 2000, 5, DungBucket.GraphicsEmpty, DungBucket.HueEmpty));
 			}
 		}
 
