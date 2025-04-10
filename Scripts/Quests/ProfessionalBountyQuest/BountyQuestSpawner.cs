@@ -918,37 +918,37 @@ namespace Server.Engines.Quests
         //Defines the definitions.
         public static void Configure()
         {
-            new SpawnDefinition(new Rectangle2D(1500, 3600, 180, 400), m_PirateTramFelCoursesJhelom, SpawnZone.TramJhelom, Map.Trammel);
+           // new SpawnDefinition(new Rectangle2D(1500, 3600, 180, 400), m_PirateTramFelCoursesJhelom, SpawnZone.TramJhelom, Map.Trammel);
             new SpawnDefinition(new Rectangle2D(1500, 3600, 180, 400), m_PirateTramFelCoursesJhelom, SpawnZone.FelJhelom, Map.Felucca);
-            new SpawnDefinition(new Rectangle2D(4570, 630, 400, 100), m_PirateTramFelCoursesMoonglow, SpawnZone.TramMoonglow, Map.Trammel);
+            //new SpawnDefinition(new Rectangle2D(4570, 630, 400, 100), m_PirateTramFelCoursesMoonglow, SpawnZone.TramMoonglow, Map.Trammel);
             new SpawnDefinition(new Rectangle2D(4570, 630, 400, 100), m_PirateTramFelCoursesMoonglow, SpawnZone.FelMoonglow, Map.Felucca);
-            new SpawnDefinition(new Rectangle2D(1022, 1182, 350, 200), m_PirateTokunoCourses, SpawnZone.TokunoPirate, Map.Tokuno);
+           // new SpawnDefinition(new Rectangle2D(1022, 1182, 350, 200), m_PirateTokunoCourses, SpawnZone.TokunoPirate, Map.Tokuno);
 
-            new SpawnDefinition(new Rectangle2D(1780, 1650, 300, 200), m_MerchantTramFelCourses1, SpawnZone.TramMerch1, Map.Trammel);
+           // new SpawnDefinition(new Rectangle2D(1780, 1650, 300, 200), m_MerchantTramFelCourses1, SpawnZone.TramMerch1, Map.Trammel);
             new SpawnDefinition(new Rectangle2D(1780, 1650, 300, 200), m_MerchantTramFelCourses1, SpawnZone.FelMerch1, Map.Felucca);
-            new SpawnDefinition(new Rectangle2D(3780, 2300, 100, 200), m_MerchantTramFelCourses2, SpawnZone.TramMerch2, Map.Trammel);
-            new SpawnDefinition(new Rectangle2D(3780, 2300, 100, 200), m_MerchantTramFelCourses2, SpawnZone.FelMerch2, Map.Felucca);
-            new SpawnDefinition(new Rectangle2D(425, 1335, 160, 80), m_MerchantTokunoCourses, SpawnZone.TokunoMerch, Map.Tokuno);
+           // new SpawnDefinition(new Rectangle2D(3780, 2300, 100, 200), m_MerchantTramFelCourses2, SpawnZone.TramMerch2, Map.Trammel);
+            new SpawnDefinition(new Rectangle2D(4400, 2924, 100, 200), m_MerchantTramFelCourses2, SpawnZone.FelMerch2, Map.Felucca);
+          // new SpawnDefinition(new Rectangle2D(425, 1335, 160, 80), m_MerchantTokunoCourses, SpawnZone.TokunoMerch, Map.Tokuno);
         }
 
         public static Point2D[][] PirateTramFelCoursesJhelom => m_PirateTramFelCoursesJhelom;
         private static readonly Point2D[][] m_PirateTramFelCoursesJhelom =
         {
             new Point2D[]{ new Point2D(1598, 3861), new Point2D(1520, 3470), new Point2D(1418, 3314), new Point2D(1159, 3277), new Point2D(1320, 3508), new Point2D(1527, 3584) },
-            new Point2D[]{ new Point2D(1947, 3536), new Point2D(2023, 4016), new Point2D(1795, 3855), new Point2D(1613, 3887) },
+            new Point2D[]{ new Point2D(2190, 3667), new Point2D(2023, 4016), new Point2D(1795, 3855), new Point2D(1613, 3887) },
             new Point2D[]{ new Point2D(2135, 4070), new Point2D(2802, 4070), new Point2D(2620, 3761), new Point2D(1725, 3794), },
             new Point2D[]{ new Point2D(2154, 3775), new Point2D(2378, 3652), new Point2D(2388, 3812), new Point2D(1696, 3797), },
             new Point2D[]{ new Point2D(1599, 3933), new Point2D(1299, 3953), new Point2D(971, 3799), new Point2D(813, 3326), new Point2D(1247, 3296), new Point2D(1655, 3890) },
-            new Point2D[]{ new Point2D(1694, 3735), new Point2D(1960, 3678), new Point2D(1808, 3966), },
-            new Point2D[]{ new Point2D(1799, 4070), new Point2D(1810, 3727), new Point2D(2150, 3727), new Point2D(1691, 3916), },
+            new Point2D[]{ new Point2D(1694, 3735), new Point2D(1607, 3402), new Point2D(1808, 3966), },
+            new Point2D[]{ new Point2D(1068, 3616), new Point2D(1491, 3751), new Point2D(2150, 3727), new Point2D(1691, 3916), },
         };
 
         public static Point2D[][] PirateTramFelCoursesMoonglow => m_PirateTramFelCoursesMoonglow;
         private static readonly Point2D[][] m_PirateTramFelCoursesMoonglow =
         {
-            new Point2D[]{ new Point2D(4415, 792), new Point2D(3927, 900), new Point2D(4069, 1630), new Point2D(4799, 1670), new Point2D(4861, 1061), new Point2D(4533, 589) },
+            new Point2D[]{ new Point2D(4415, 792), new Point2D(3509, 835), new Point2D(4073, 1809), new Point2D(4799, 1670), new Point2D(4861, 1061), new Point2D(4533, 589) },
             new Point2D[]{ new Point2D(4265, 145), new Point2D(5015, 153), new Point2D(5001, 669), new Point2D(4950, 720), new Point2D(4573, 663) },
-            new Point2D[]{ new Point2D(4265, 145), new Point2D(3709, 107), new Point2D(3703, 773), new Point2D(4131, 913), new Point2D(4533, 713) },
+            new Point2D[]{ new Point2D(5739, 3749), new Point2D(5408, 3688), new Point2D(5683, 3461), new Point2D(5793, 3733), new Point2D(5708, 3593) }, //Podmrok_C
             new Point2D[]{ new Point2D(5043, 155), new Point2D(4447, 231), new Point2D(4531, 609) },
         };
 
@@ -971,15 +971,15 @@ namespace Server.Engines.Quests
         public static Point2D[][] MerchantTramFelCourses1 => m_MerchantTramFelCourses1;
         private static readonly Point2D[][] m_MerchantTramFelCourses1 =
         {
-            new Point2D[]{ new Point2D(2420, 1708), new Point2D(2420, 1400), new Point2D(3516, 1400), new Point2D(3516, 1696), new Point2D(2500, 1696) },
-            new Point2D[]{ new Point2D(2420, 1708), new Point2D(2420, 2760), new Point2D(3164, 2760), new Point2D(3164, 1696), new Point2D(2500, 1696) },
+            new Point2D[]{ new Point2D(2290, 1479), new Point2D(2420, 1400), new Point2D(3936, 1866), new Point2D(3244, 2245), new Point2D(1843, 1947) },
+            new Point2D[]{ new Point2D(2649, 1680), new Point2D(2296, 2910), new Point2D(3226, 2902), new Point2D(2884, 1765), new Point2D(2711, 1564) },
         };
 
         public static Point2D[][] MerchantTramFelCourses2 => m_MerchantTramFelCourses2;
         private static readonly Point2D[][] m_MerchantTramFelCourses2 =
         {
             new Point2D[]{ new Point2D(4129, 2367), new Point2D(4129, 1891), new Point2D(4773, 1891), new Point2D(4773, 2639), new Point2D(4129, 2639), new Point2D(4129, 2351) },
-            new Point2D[]{ new Point2D(4000, 2415), new Point2D(4000, 3515), new Point2D(3141, 3515), new Point2D(3141, 3043), new Point2D(4093, 3043), new Point2D(4093, 2371) },
+            new Point2D[]{ new Point2D(4013, 2382), new Point2D(4000, 3515), new Point2D(3141, 3515), new Point2D(3141, 3043), new Point2D(4093, 3043), new Point2D(4093, 2371) },
         };
     }
 }
