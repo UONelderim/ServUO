@@ -47020,42 +47020,42 @@
 1116685;Jimmy 
 1116686;O'Shaughnessy 
 1116687;Cholera! Toniemy! 
-1116688;There is no good spot nearby to go ashore. 
-1116689;WANTED FOR PIRACY 
-1116690;~1_val~ ~2_val~ ~3_val~ 
-1116691;~1_val~ ~2_val~ ~3_val~ 
-1116692;~1_val~ ~2_val~ ~3_val~ 
-1116693;~1_val~ ~2_val~ ~3_val~ 
-1116694;~1_val~ ~2_val~ ~3_val~ 
-1116695;The water there is too shallow for the trap. 
-1116696;Reward: ~1_val~ 
-1116697;Reward: ~1_val~ 
-1116698;Reward: ~1_val~ 
-1116699;Reward: ~1_val~ 
-1116700;Reward: ~1_val~ 
-1116701;a water puddle 
-1116702;The Dread Pirate ~1_val~ ~2_val~ ~3_val~ is no longer wanted. 
-1116703;WANTED DEAD OR ALIVE 
-1116704;Notice to all sailors 
-1116705;There be a bounty on these lowlifes! 
-1116706;See officers fer information. 
-1116707;******** 
-1116708;Professional Bountyhunter Quest 
-1116709;"This quest is to capture or kill any of the wanted pirates on the bulletin board. Return with the chained pirate or a death certificate for the pirate for your reward.<br><br>If you choose to capture the pirate, subdue them in battle and then use the rope that the officer gives you to tie them up. When tied up, they will appear chained on the deck of your ship. If you kill the pirate, return with their ""death certificate"" for your reward.<br><br><center>-----</center><br><br>Ahoy matey! Tis good to see an able body ready to make the seas safer. However, dirty pirates threaten us and merchants and we mean to make it stop!<br><br>That's why we be offerin' good rewards fer the capture of pirates what have harmed us and merchants. Now, we don't be advocating violence, so we will be loanin' ye some o' us special pirate bindin' rope so ye can bring 'em back alive.<br><br>Now, we realizes that sometimes a sailor has no choice but to lay a pirate down fer the last time. If ye were to bring us a death certificate on one o' these baddies, We would be willin' to pay too. If'n ye accept, we will deputize you an' have yer ship fitted with some chains to bring back a pirate! "
-1116710;Capture or kill a pirate listed on the bulletin board. 
-1116711;Return to the officer with the pirate or a death certificate for your reward. 
-1116712;The gold listed on the bulletin board and a special reward from the officer if captured alive. 
-1116713;Well, I can understand.  The dangers o' the life of a bountyhunter is not fer everyone. 
-1116714;Ahoy deputy! How is the bounty hunting going? The gold in us vault be gettin' cold waitin' on ye to bring me some o' those pirates! It ought to be makin' yer pockets jingle but ye need to deliver some pirates! 
-1116715;Well done, deputy!<br><br>The seas be a bit safer now because o' ye and yer crew.  Get some rest an' come back when ye be ready for more fightin', I'm sure another black hearted nick will have popped up to make trouble.<br><br>Jus' speak with me if'n ye want to do some more deputy work. 
-1116716;death certificate 
-1116717;pirate bindin' rope 
-1116718;pirate bindin' pole 
-1116719;pirate chains 
-1116720;Who do you want to tie up? 
-1116721;You begin binding the pirate. 
-1116722;The pirate has eluded you. 
-1116723;Your ship is missing! 
+1116688;W poblizu nie ma dobrego miejsca do zejscia na lad.
+1116689;POSZUKIWANY ZA PIRACTWO
+1116690;~1_val~ ~2_val~ ~3_val~
+1116691;~1_val~ ~2_val~ ~3_val~
+1116692;~1_val~ ~2_val~ ~3_val~
+1116693;~1_val~ ~2_val~ ~3_val~
+1116694;~1_val~ ~2_val~ ~3_val~
+1116695;Tamta woda jest zbyt plytka na pulapke.
+1116696;Nagroda: ~1_val~
+1116697;Nagroda: ~1_val~
+1116698;Nagroda: ~1_val~
+1116699;Nagroda: ~1_val~
+1116700;Nagroda: ~1_val~
+1116701;kaluza
+1116702;Postrach Piratow ~1_val~ ~2_val~ ~3_val~ nie jest juz poszukiwany.
+1116703;POSZUKIWANY ZYWY LUB MARTWY
+1116704;Ogloszenie dla wszystkich zeglarzy
+1116705;Za tych nikczemnikow wyznaczono nagrode!
+1116706;Informacji udzielaja oficerowie.
+1116707;********
+1116708;Zlecenie Profesjonalnego Lowcy Nagrod
+1116709;"To zadanie polega na schwytaniu lub zabiciu ktoregokolwiek z poszukiwanych piratow z tablicy ogloszen. Wroc ze skutym piratem lub aktem zgonu pirata, aby otrzymac nagrode.<br><br>Jesli zdecydujesz sie schwytac pirata, obezwladnij go w bitwie, a nastepnie uzyj liny, ktora da ci oficer, aby go zwiazac. Po zwiazaniu pojawi sie on w kajdanach na pokladzie twojego statku. Jesli zabijesz pirata, wroc z jego ""aktem zgonu"", aby otrzymac nagrode.<br><br><center>-----</center><br><br>Ahoj, kamracie! Dobrze widziec sprawnego czlowieka gotowego uczynic morza bezpieczniejszymi. Jednak brudni piraci zagrazaja nam i kupcom, i zamierzamy to powstrzymac!<br><br>Dlatego oferujemy dobre nagrody za schwytanie piratow, ktorzy skrzywdzili nas i kupcow. Nie popieramy przemocy, wiec pozyczymy ci specjalna line do wiazania piratow, abys mogl ich przyprowadzic zywych.<br><br>Zdajemy sobie sprawe, ze czasami marynarz nie ma innego wyboru, jak polozyc pirata na wieczny spoczynek. Jesli przyniesiesz nam akt zgonu jednego z tych zloczyncow, tez bedziemy sklonni zaplacic. Jesli sie zgodzisz, mianujemy cie zastepca i wyposazymy twoj statek w lancuchy do przyprowadzenia pirata!"
+1116710;Schwytaj lub zabij pirata wymienionego na tablicy ogloszen.
+1116711;Wroc do oficera z piratem lub aktem zgonu, aby otrzymac nagrode.
+1116712;Zloto wymienione na tablicy ogloszen i specjalna nagroda od oficera w przypadku schwytania zywego.
+1116713;Coz, rozumiem. Niebezpieczenstwa zycia lowcy nagrod nie sa dla kazdego.
+1116714;Ahoj, zastepco! Jak idzie polowanie na nagrody? Zloto w naszej skarbcu czeka na ciebie, az przyprowadzisz mi ktoregos z tych piratow! Powinno dzwonic w twoich kieszeniach, ale musisz dostarczyc piratow!
+1116715;Brawo, zastepco!<br><br>Morza sa teraz nieco bezpieczniejsze dzieki tobie i twojej zalodze. Odpocznij i wroc, gdy bedziesz gotowy na wiecej walki, jestem pewien, ze pojawi sie kolejny czarny charakter, ktory bedzie sprawial klopoty.<br><br>Po prostu porozmawiaj ze mna, jesli chcesz podjac sie kolejnej pracy zastepcy.
+1116716;akt zgonu
+1116717;lina do wiazania piratow
+1116718;drag do wiazania piratow
+1116719;lancuchy pirackie
+1116720;Kogo chcesz zwiazac?
+1116721;Zaczynasz wiazac pirata.
+1116722;Pirata ci sie wymknal.
+1116723;Twoj statek zniknal?!
 1116724;Nie mozesz prowadzic statku, chyba, ze znajdujesz sie na jego pokladzie. 
 1116725;Ten statek jest zbyt zniszczony, by moc go prowadzic. 
 1116726;To nie jest Twoj statek. 
@@ -47083,13 +47083,13 @@
 1116748;Gargulcowy statek 
 1116749;Statek w stylu wschodnim 
 1116750;Szalupa ratunkowa 
-1116751;The ship you are captaining could not take on a pirate ship.  Bring a warship if you want this quest. 
-1116752;Your ship is a mess!  Fix it first and then we can talk about catching pirates. 
-1116753;You direct your crew to throw the bountyhunter shackles overboard. *splash* 
-1116754;~1_val~'s ship, ~2_val~ 
-1116755;~1_val~'s unnamed ship 
-1116756;The pirate seems to have too much fight left to be bound. 
-1116757;You were struck and the pirate eludes capture. 
+11116751;Statek, ktorym dowodzisz, nie moglby zmierzyc sie z pirackim statkiem. Przyprowadz okret wojenny, jesli chcesz to zadanie.
+1116752;Twoj statek to balagan! Najpierw go napraw, a potem mozemy porozmawiac o lapaniu piratow.
+1116753;Rozkazujesz zalodze wyrzucic za burte kajdany lowcy nagrod. plusk
+1116754;Statek ~1_val~, ~2_val~
+1116755;Bezimienny statek ~1_val~
+1116756;Wyglada na to, ze pirat ma jeszcze zbyt duzo sily, by go zwiazac.
+1116757;Zostales uderzony i pirat uniknal schwytania.
 1116758;Twoj statek juz znajduje sie na morzu. 
 1116759;ognista kula armatnia 
 1116760;ognista kula armatnia 

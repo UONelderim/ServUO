@@ -347,7 +347,7 @@ namespace Server.Engines.Quests
                     Mobile crew = new PirateCrew();
 
                     if (i == 0)
-                        crew.Title = "the orc captain";
+                        crew.Title = "- kapitan orkow";
 
                     pirate.AddToCrew(crew);
                     crew.MoveToWorld(new Point3D(gal.X + Utility.RandomList(-1, 1), gal.Y + Utility.RandomList(-1, 0, 1), gal.ZSurface), map);
@@ -472,23 +472,23 @@ namespace Server.Engines.Quests
                     switch (Utility.Random(5))
                     {
                         case 0:
-                            steaks.Name = "Spiced Salmon";
+                            steaks.Name = "dorsz w przyprawach";
                             steaks.Hue = 1759;
                             break;
                         case 1:
-                            steaks.Name = "Dried Tuna";
+                            steaks.Name = "suszony tunczyk";
                             steaks.Hue = 2108;
                             break;
                         case 2:
-                            steaks.Name = "Salted Snapper";
+                            steaks.Name = "solona makrela";
                             steaks.Hue = 1864;
                             break;
                         case 3:
-                            steaks.Name = "Salted Herring";
+                            steaks.Name = "solony sledz";
                             steaks.Hue = 2302;
                             break;
                         case 4:
-                            steaks.Name = "Spiced Salmon";
+                            steaks.Name = "dorsz w przyprawach";
                             steaks.Hue = 1637;
                             break;
                     }
