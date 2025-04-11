@@ -15,7 +15,7 @@ namespace Server.Mobiles
         {
             public InternalBuyInfo()
             {
-                Add(new GenericBuyInfo("empty lobster trap", typeof(LobsterTrap), 137, 500, 17615, 0));
+                Add(new GenericBuyInfo("empty lobster trap", typeof(LobsterTrap), 3000, 10, 17615, 0));
             }
         }
 
