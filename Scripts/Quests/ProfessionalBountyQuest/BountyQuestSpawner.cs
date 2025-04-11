@@ -666,16 +666,19 @@ namespace Server.Engines.Quests
 
                 if (RisingTideEvent.Instance.Running)
                 {
-                    hold.DropItem(new MaritimeCargo());
-                    hold.DropItem(new MaritimeCargo());
+                   // hold.DropItem(new MaritimeCargo());
+                    //hold.DropItem(new MaritimeCargo());
+                    hold.DropItem(new BloodwoodBoard(Utility.RandomMinMax(40, 50))); //TODO: Po przerobieniu systemu Maritime, zmienic
 
                     if (galleon is OrcishGalleon)
                     {
-                        hold.DropItem(new MaritimeCargo());
+                        //hold.DropItem(new MaritimeCargo());
+                        hold.DropItem(new SpinedLeather(Utility.RandomMinMax(40, 50))); //TODO: Po przerobieniu systemu Maritime, zmienic
 
                         if (Utility.RandomBool())
                         {
-                            hold.DropItem(new MaritimeCargo());
+                           /// hold.DropItem(new MaritimeCargo());
+                           hold.DropItem(new RawFishSteak(40)); //TODO: Po przerobieniu systemu Maritime, zmienic
                         }
                     }
                 }
