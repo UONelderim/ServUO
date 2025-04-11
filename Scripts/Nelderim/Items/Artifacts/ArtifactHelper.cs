@@ -507,7 +507,7 @@ namespace Server.Items
 			typeof(LegendaStraznika), typeof(Pogrobowce), typeof(WidlyMroku), typeof(ZlamanyGungnir),
 			typeof(Subdue), typeof(MelisandesCorrodedHatchet), typeof(RaedsGlory), typeof(SoulSeeker),
 			typeof(RuneBeetleCarapace), typeof(OponczaMrozu), typeof(LeggingsOfEmbers),
-			typeof(PasMurdulfaZlotobrodego), typeof(PadsOfTheCuSidhe), typeof(StudniaOdnowy),
+			typeof(PasMurdulfaZlotobrodego), typeof(PadsOfTheCuSidhe), typeof(StudniaOdnowy), typeof(ForgedPardon), typeof(ManaPhasingOrb), typeof(RunedSashOfWarding), typeof(SurgeShield),
 		};
 
 		private static Dictionary<ArtSeason, Type[]> _CartographyArtifacts = new()
