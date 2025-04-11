@@ -31566,7 +31566,7 @@
 1071953;The vendor is too far away and cannot be temporarily moved to your location right now.
 1071955;You cannot teleport while dragging an object.
 1071956;You cannot provoke a creature that is ignoring you.
-1071958;* ~1_VAL~ seems resist to the poison *
+1071958;* ~1_VAL~ wydaje sie opierac truciznie *
 1071959;* You feel yourself resisting the effects of the plague! *
 1071960;This bowl of dirt already has a seed in it!
 1071961;This song has been added to the musicbox.
@@ -44778,26 +44778,26 @@
 1114425;dook 
 1114426;dook dook 
 1114427;dook dook dook! 
-1114428;* A magical bunny leaps out of its hole, disturbed by the thorn's effect! * 
-1114429;* Strange green tendrils rise from the ground, whipping wildly! * 
-1114430;* Slithering ice serpents rise to the surface to investigate the disturbance! * 
-1114431;* The sand collapses, revealing a dark hole. * 
-1114432;* The ground erupts with chaotic growth! * 
-1114433;* You slice through the plague beast's amorphous tissue * 
-1114434;* ~1_NAME~ slices through the plague beast's amorphous tissue * 
-1114435;* Your skin begins to itch as hideous boils cover your flesh * 
-1114436;* ~1_NAME~ is covered with hideous boils! * 
-1114437;* You cry out in agony as your brain begins to boil * 
-1114438;* ~1_NAME~ emits a hideous scream of pain! * 
-1114439;* The plague spawn begins to dissolve * 
-1114440;* The plague spawn burbles incoherently * 
-1114441;* You feel yourself resisting the effects of the poison * 
-1114442;* ~1_NAME~ seems resistant to the poison * 
-1114443;* Your body convulses from electric shock * 
-1114444;* ~1_NAME~ spasms from electric shock * 
-1114445;* The solen queen summons her workers to her aid! * 
-1114446;* ~1_NAME~ dives into the mysterious hole! * 
-1114447;* ~1_NAME~ is stung by a swarm of insects * 
+1114428;* Magiczny krolik wyskakuje ze swojej nory, sploszony dzialaniem ciernia! *
+1114429;* Dziwne zielone pnacza wyrastaja z ziemi, smagajac dziko! *
+1114430;* Sliskie lodowe weze wynurzaja sie na powierzchnie, aby zbadac zamieszanie! *
+1114431;* Piasek zapada sie, odslaniajac ciemna dziure. *
+1114432;* Ziemia wybucha chaotycznym wzrostem! *
+1114433;* Przecinasz bezksztaltna tkanke plugawego monstrum *
+1114434;* ~1_NAME~ przecina bezksztaltna tkanke plugawego monstrum *
+1114435;* Twoja skora zaczyna swedziec, gdy okropne wrzody pokrywaja twoje cialo *
+1114436;* ~1_NAME~ pokrywa sie okropnymi wrzodami! *
+1114437;* Krzyczysz z bolu, gdy twoj mozg zaczyna wrzec *
+1114438;* ~1_NAME~ wydaje przerazliwy krzyk bolu! *
+1114439;* Plaga zaczyna sie rozpuszczac *
+1114440;* Plaga bulgocze nieskladnie *
+1114441;* Czujesz, ze opierasz sie dzialaniu trucizny *
+1114442;* ~1_NAME~ wydaje sie odporny na trucizne *
+1114443;* Twoje cialo drga od wstrzasu elektrycznego *
+1114444;* ~1_NAME~ drga od wstrzasu elektrycznego *
+1114445;* Krolowa solen wzywa swoje robotnice na pomoc! *
+1114446;* ~1_NAME~ nurkuje w tajemnicza dziure! *
+1114447;* ~1_NAME~ jest kasany przer roj pszczol * 
 1114448;All Crystal Locks Disabled. Core Shutdown in ten seconds. 
 1114449;Correct Code Entered. Crystal Lock Disengaged. 
 1114450;* The bunny begins to dig a tunnel back to its underground lair * 
@@ -53656,7 +53656,7 @@
 1153782;Applies ~1_DMG~ additional fire damage to hit target. 
 1153783;~1_NAME~ ~2_PROC~% 
 1153784;Orange Petals 
-1153785;Poison Immunity 
+1153785;Odpornosc na trucizny 
 1153786;Perfection 
 1153787;Fan Dancer Fire 
 1153788;Rage Attack 
@@ -53685,7 +53685,7 @@
 1153811;+~1_HC~% hit chance increase.<br>+~2_CRIT~% Chance to critical attack. 
 1153812;+~1_DI~% Damage bonus towards nearby target if targeted opponent is killed. 
 1153813;+~1_AMT~ Strength. 
-1153814;Resistance to most poisons. 
+1153814;Odpornosc na trucizny. 
 1153815;You have honored: ~1_NAME~. 
 1153816;Your next mana check is made at a cost of zero mana. 
 1153817;-~1_FIRE~% fire resistance. 
