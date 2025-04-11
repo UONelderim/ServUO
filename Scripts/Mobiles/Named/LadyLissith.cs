@@ -53,7 +53,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.UltraRich, 2);
             //AddLoot(LootPack.ArcanistScrolls);
            // AddLoot(LootPack.LootItem<GreymistChest>(2.5));
-            AddLoot(LootPack.LootItem<LissithsSilk>(45.0));
+            //AddLoot(LootPack.LootItem<LissithsSilk>(45.0));
             AddLoot(LootPack.Parrot);
         }
 

@@ -55,7 +55,7 @@ namespace Server.Mobiles
         {
             AddLoot(LootPack.FilthyRich, 2);
             //AddLoot(LootPack.ArcanistScrolls);
-            AddLoot(LootPack.LootItem<GnawsFang>(30.0));
+            //AddLoot(LootPack.LootItem<GnawsFang>(30.0));
         }
 
         public override void Serialize(GenericWriter writer)

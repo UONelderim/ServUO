@@ -3,16 +3,26 @@ using System;
 
 namespace Server.Items
 {
-    public class TwistedWealdAltar : PeerlessAltar
-    {
-        public override int KeyCount => 3;
-        public override MasterKey MasterKey => new TwistedWealdKey();
+	public class TwistedWealdAltar : PeerlessAltar
+	{
+		public override int KeyCount => 3;
+		public override MasterKey MasterKey => new TwistedWealdKey();
 
-        public override Type[] Keys => new Type[]
-{
-            typeof( BlightedCotton ), typeof( GnawsFang ), typeof( IrksBrain ),
-            typeof( LissithsSilk ), typeof( SabrixsEye ), typeof( ThornyBriar )
-};
+		public override Type[] Keys => new Type[]
+		{
+			typeof( PieczecDreadHorn1 ), typeof( PieczecDreadHorn2 ), typeof( PieczecDreadHorn3 ) 
+		};
+		
+		public override string[] _Regions => new[]
+		{
+			"TylReviaren_Entrance",
+			"TylReviaren_VeryEasy",
+			"TylReviaren_Easy",
+			"TylReviaren_Medium",
+			"TylReviaren_Difficult",
+			"TylReviaren_VeryDifficult"
+		};
+		public override double _KeyDropChance => 0.07;
 
         public override BasePeerless Boss => new DreadHorn();
 
