@@ -261,7 +261,7 @@ namespace Server.Engines.Quests
             if (from == null)
                 return;
 
-            from.SendMessage("Zarobiles {0} reputacji w kregach rybakow.", GetStatus());
+            from.SendMessage("Zdobyles {0} reputacji w kregach rybakow.", GetStatus());
         }
 
         private string GetStatus()
