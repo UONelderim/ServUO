@@ -1,4 +1,5 @@
 using Server.Items;
+using Server.Nelderim;
 using System;
 
 namespace Server.Mobiles
@@ -6,38 +7,9 @@ namespace Server.Mobiles
     [CorpseName("zwloki lewiatana")]
     public class Leviathan : BaseCreature
     {
-        private static readonly Type[] m_Artifacts = new Type[]
-        {
-            // Decorations
-            typeof(CandelabraOfSouls),
-            typeof(GhostShipAnchor),
-            typeof(GoldBricks),
-            typeof(PhillipsWoodenSteed),
-            typeof(SeahorseStatuette),
-            typeof(ShipModelOfTheHMSCape),
-            typeof(AdmiralsHeartyRum),
-
-            // Equipment
-            typeof(AlchemistsBauble),
-            typeof(ArcticDeathDealer),
-            typeof(BlazeOfDeath),
-            typeof(BurglarsBandana),
-            typeof(CaptainQuacklebushsCutlass),
-            typeof(CavortingClub),
-            typeof(DreadPirateHat),
-            typeof(EnchantedTitanLegBone),
-            typeof(GwennosHarp),
-            typeof(IolosLute),
-            typeof(LunaLance),
-            typeof(NightsKiss),
-            typeof(NoxRangersHeavyCrossbow),
-            typeof(PolarBearMask),
-            typeof(VioletCourage)
-        };
-
         private Mobile m_Fisher;
         private DateTime m_NextWaterBall;
-
+        
         [Constructable]
         public Leviathan()
             : this(null)
@@ -95,8 +67,6 @@ namespace Server.Mobiles
             : base(serial)
         {
         }
-
-        public static Type[] Artifacts => m_Artifacts;
 
         public Mobile Fisher
         {
@@ -169,16 +139,17 @@ namespace Server.Mobiles
 
         public static void GiveArtifactTo(Mobile m)
         {
-            Item item = Loot.Construct(m_Artifacts);
+            // Use the correct method from ArtifactHelper to get a random Fishing artifact
+            Item item = ArtifactHelper.GetRandomArtifact(ArtGroup.Fishing);
 
             if (item == null)
                 return;
 
-            // TODO: Confirm messages
+            // Updated message to reflect Fishing theme
             if (m.AddToBackpack(item))
-                m.SendMessage("As a reward for slaying the mighty leviathan, an artifact has been placed in your backpack.");
+                m.SendMessage("Za pokonanie potężnego lewiatana, otrzymujesz starożytny artefakt z krakena.");
             else
-                m.SendMessage("As your backpack is full, your reward for destroying the legendary leviathan has been placed at your feet.");
+                m.SendMessage("Ponieważ twój plecak jest pełny, nagroda za pokonanie legendarnego lewiatana została umieszczona u twoich stóp.");
         }
 
         public override void GenerateLoot()
@@ -186,6 +157,8 @@ namespace Server.Mobiles
             AddLoot(LootPack.FilthyRich, 5);
             AddLoot(LootPack.LootItem<Rope>(2));
             AddLoot(LootPack.LootItem<MessageInABottle>());
+            // Added additional thematic loot
+            AddLoot(LootPack.LootItem<Spyglass>(15.0));
         }
 
         public override void Serialize(GenericWriter writer)
