@@ -213,7 +213,12 @@ namespace Server.Items
 
                 m_KeyResetTimer = Timer.DelayCall(TimeSpan.FromSeconds(30), ResetKeys);
             }
-
+            
+            if (item is WorldMap worldMap)
+            {
+	            worldMap.Facet = Map.Felucca;
+            }
+            
             item.Delete();
         }
 
@@ -370,7 +375,10 @@ namespace Server.Items
 
         private void GiveMap(Mobile from)
         {
-            CorgulIslandMap map = new CorgulIslandMap(m_WarpPoint, this);
+	        CorgulIslandMap map = new CorgulIslandMap(m_WarpPoint, this)
+	        {
+		        Facet = Map.Felucca
+	        };
             from.AddToBackpack(map);
 
             m_IslandMaps.Add(map);
