@@ -22,7 +22,7 @@ namespace Server.Mobiles
             Female = false;
             Race = Race.Human;
 
-            Name = NameList.RandomName("male");
+            Name = "Kapitan Stluczona Butla";
             Title = "- polawiacz ryb";
 
             Hue = Race.RandomSkinHue();

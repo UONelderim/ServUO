@@ -1,177 +1,168 @@
 ﻿namespace Server.Items
 {
-    public class FishingGuideBook4 : BaseBook
-    {
-        [Constructable]
-        public FishingGuideBook4() : base(Utility.Random(0xFF1, 2), false)
-        {
-            Name = "Volume 4 - Uncommon Crustaceans";
-        }
+	public class FishingGuideBook4 : BaseBook
+	{
+		[Constructable]
+		public FishingGuideBook4() : base(Utility.Random(0xFF1, 2), false)
+		{
+			Name = "Tom 4 - Niezwykle wody";
+		}
 
-        public static readonly BookContent Content = new BookContent
-        (
-            null, "Cpt. Piddlewash",
+		public static readonly BookContent Content = new BookContent
+		(
+			null, "Cpt. Piddlewash",
 
-            new BookPageInfo
-            (
-                "apple crab:",
+			new BookPageInfo
+			(
+				"krab jablkowy:",
 
-                "Some say the apple",
-                "crab be so named",
-                "because it makes",
-                "a good cider. To",
-                "this, I say yuck! "
-            ),
+				"Niektorzy mowia, ze krab",
+				"jablkowy tak sie nazywa",
+				"poniewaz robi dobry",
+				"cydr. Na to",
+				"mowie: fuj! "
+			),
 
-            new BookPageInfo
-            (
-                "Blue crab:",
+			new BookPageInfo
+			(
+				"Niebieski krab:",
 
-                "The blue crab can",
-                "be identified by",
-                "the fact that they",
-                "be blue on the ",
-                "bottom. "
-            ),
+				"Niebieskiego kraba mozna",
+				"rozpoznac po tym, ze",
+				"od spodu jest niebieski. ",
+				" "
+			),
 
-            new BookPageInfo
-            (
-                "Dungeoness crab:",
+			new BookPageInfo
+			(
+				"Krab lochowy:",
 
-                "The dungeoness crab",
-                "was so named ",
-                "because 'twas first",
-                "discovered in a ",
-                "dungeon, later it",
-                "was discovered they",
-                "could be found ",
-                "anywhere."
-            ),
+				"Krab lochowy zostal tak",
+				"nazwany, poniewaz zostal",
+				"po raz pierwszy odkryty w",
+				"lochach, pozniej",
+				"odkryto, ze mozna go",
+				"znalezc wszedzie."
+			),
 
-            new BookPageInfo
-            (
-                "King crab:",
+			new BookPageInfo
+			(
+				"Krab krolewski:",
 
-                "The Order is not",
-                "sure who made this",
-                "rascal king, but",
-                "we recon it took",
-                "some fast talkin'."
-            ),
+				"Zakon nie jest",
+				"pewien, kto zrobil z",
+				"tego lobuza krola, ale",
+				"sadzimy, ze potrzeba",
+				"bylo niezlego gadania."
+			),
 
-            new BookPageInfo
-            (
-                "Rock crab:",
+			new BookPageInfo
+			(
+				"Krab skalny:",
 
-                "The rock crab be",
-                "uncommon mostly",
-                "because they",
-                "often get stepped",
-                "on by accident."
+				"Krab skalny jest",
+				"rzadki, glownie",
+				"dlatego, ze",
+				"czesto przypadkowo",
+				"sie go depcze."
 
-            ),
+			),
 
-            new BookPageInfo
-            (
-                "Snow crab:",
+			new BookPageInfo
+			(
+				"Krab sniezny:",
 
-                "Contrary to popular",
-                "belief, the snow",
-                "crab is not found",
-                "in snow. They be",
-                "found in water",
-                "with the rest o'",
-                "the crabs."
-            ),
+				"Wbrew powszechnemu",
+				"przekonaniu, kraba",
+				"snieznego nie znajdziesz",
+				"w sniegu. Znajduja sie",
+				"w wodzie, jak",
+				"reszta krabow."
+			),
 
-            new BookPageInfo
-            (
-                "Crusty lobster:",
+			new BookPageInfo
+			(
+				"Kruchy homar:",
 
-                "Juka like to use",
-                "the shell o' this",
-                "lobster for pie crust. "
-            ),
+				"Juka lubi uzywac",
+				"skorupy tego",
+				"homara do ciasta na tarte. "
+			),
 
-            new BookPageInfo
-            (
-                "Fred lobster:",
+			new BookPageInfo
+			(
+				"Homar Fred:",
 
-                "On occasion I be",
-                "wonderin' to meself",
-                ", who is Fred?",
-                "and how did he get",
-                "to name a lobster?"
-            ),
+				"Czasami zastanawiam",
+				"sie, kim jest Fred?",
+				"i jak nazwal homara?"
+			),
 
-            new BookPageInfo
-            (
-                "Hummer lobster:",
+			new BookPageInfo
+			(
+				"Homar brzeczacy:",
 
-                "Some sailors say",
-                "they can hear the",
-                "hum of a hummer",
-                "lobster. But I",
-                "don't be seein'",
-                "'em catch more",
-                "than anyone else."
-            ),
+				"Niektorzy zeglarze mowia,",
+				"ze slysza brzeczenie",
+				"homara brzeczacego. Ale",
+				"nie widze, zeby",
+				"lapali wiecej niz",
+				"inni."
+			),
 
-            new BookPageInfo
-            (
-                "Rock lobster:",
+			new BookPageInfo
+			(
+				"Homar skalny:",
 
-                "The rock lobster",
-                "be uncommon ",
-                "mostly because ",
-                "they often get ",
-                "st... Wait, I think",
-                "I used that one",
-                "already."
-            ),
+				"Homar skalny jest",
+				"rzadki, glownie",
+				"dlatego, ze",
+				"czesto sa... Chwila,",
+				"chyba juz to",
+				"uzylem."
+			),
 
-            new BookPageInfo
-            (
-                "Shovel-nose lobster:",
+			new BookPageInfo
+			(
+				"Homar o nosie lopatowym:",
 
-                "The shovel-nose ",
-                "lobster has a flat,",
-                "shovel like nose ",
-                "that it uses to dig",
-                "into the sand and hide. "
-            ),
+				"Homar o nosie lopatowym",
+				"ma plaski, nos",
+				"podobny do lopaty,",
+				"ktorego uzywa do kopania",
+				"w piasku i ukrywania sie. "
+			),
 
-            new BookPageInfo
-            (
-                "Spiney lobster:",
+			new BookPageInfo
+			(
+				"Homar kolczasty:",
 
-                "Spiney lobsters be",
-                "hard on traps, ",
-                "sometimes when they",
-                "try to get in a ",
-                "trap they tear it",
-                "to pieces. "
-            )
-        );
+				"Homary kolczaste sa",
+				"trudne dla pulapek,",
+				"czasami, gdy probuja",
+				"wejsc do pulapki,",
+				"rozrywaja ja na kawalki. "
+			)
+		);
 
-        public override BookContent DefaultContent => Content;
+		public override BookContent DefaultContent => Content;
 
-        public FishingGuideBook4(Serial serial) : base(serial)
-        {
-        }
+		public FishingGuideBook4(Serial serial) : base(serial)
+		{
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            writer.WriteEncodedInt(0); // version
-        }
+			writer.WriteEncodedInt(0); // version
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-            int version = reader.ReadEncodedInt();
-        }
-    }
+			int version = reader.ReadEncodedInt();
+		}
+	}
 }

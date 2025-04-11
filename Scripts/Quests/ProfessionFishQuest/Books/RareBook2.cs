@@ -5,206 +5,197 @@
         [Constructable]
         public FishingGuideBook2() : base(Utility.Random(0xFF1, 2), false)
         {
-            Name = "Volume 2 - Uncommon Sea Fish";
+            Name = "Tom 2 - Niezwykle Ryby Morskie";
         }
 
         public static readonly BookContent Content = new BookContent
-        (
-            null, "Cpt. Piddlewash",
+(
+    null, "Kpt. Piddlewash",
 
-            new BookPageInfo
-            (
-                "Amberjack:",
+    new BookPageInfo
+    (
+        "Amberjack:",
 
-                "One o’ these days I’m",
-                "going ta hang up me",
-                "fishin’ pole and start",
-                "me own brewery, and I’m",
-                "going to name me brew",
-                "amberjack."
-            ),
+        "Pewnego dnia odwiesze",
+        "wedke na kolek i otworze",
+        "swoja wlasna browarnie,",
+        "a moje piwo nazwe",
+        "Amberjack."
+    ),
 
-            new BookPageInfo
-            (
-                "Black sea bass",
+    new BookPageInfo
+    (
+        "Czarny okon morski:",
 
-                "The black seabass be",
-                "a more purpley color in",
-                "me personal opinion,",
-                "but it wasn’ me what",
-                "named it. "
-            ),
+        "Czarny okon morski ma",
+        "moim zdaniem bardziej",
+        "fioletowy kolor,",
+        "ale to nie ja go nazwalem."
+    ),
 
-            new BookPageInfo
-            (
-                "Blue grouper:",
+    new BookPageInfo
+    (
+        "Granika blekitna:",
 
-                "Dont let the green color",
-                "scare ye away, it be",
-                "delicious! Folks what eat",
-                "them say they make yer eyes",
-                "turn green."
-            ),
+        "Niech zielony kolor",
+        "cie nie odstraszy,",
+        "bo jest pyszna! Ci, co ja",
+        "jedli, mowia, ze od niej",
+        "oczy robia sie zielone."
+    ),
 
-            new BookPageInfo
-            (
-                "Bluefish:",
+    new BookPageInfo
+    (
+        "Niebieska ryba:",
 
-                "These be uncommon",
-                "because most fishermen",
-                "mistake them for other",
-                "fish cause they ain’t",
-                "actually blue. This be",
-                "thar natural defense. "
-            ),
+        "Sa rzadkie, bo wiekszosc",
+        "rybakow myli je z innymi",
+        "rybami, poniewaz wcale",
+        "nie sa niebieskie. To ich",
+        "naturalna obrona."
+    ),
 
-            new BookPageInfo
-            (
-                "Bonefish:",
+    new BookPageInfo
+    (
+        "Ryba kostna:",
 
-                "This fish be havin ",
-                "lots o’ bones. Like",
-                "double the normal",
-                "amount. I seen some",
-                "that couldn’t even move!"
+        "Ta ryba ma mnostwo kosci.",
+        "Jakby podwojna normalna",
+        "ilosc. Widzialem takie,",
+        "ktore nie mogly sie",
+        "nawet ruszyc!"
+    ),
 
-            ),
+    new BookPageInfo
+    (
+        "Bonito:",
 
-            new BookPageInfo
-            (
-                "Bonito:",
+        "Bonito jest swietne, gdy",
+        "jest wedzone i suszone.",
+        "To przysmak Tokuno."
+    ),
 
-                "Bonito be great when",
-                "smoked and dried. Tis",
-                "a favorite of Tokuno. "
-            ),
+    new BookPageInfo
+    (
+        "Dorsz z Przyladka:",
 
-            new BookPageInfo
-            (
-                "Cape cod:",
+        "Te rybe mozna znalezc",
+        "przy przyladku. Daleko",
+        "od przyladka. Tak daleko,",
+        "ze az na srodku morza."
+    ),
 
-                "This fish be found off",
-                "the cape. Way off the",
-                "cape. Like, in the",
-                "middle o the sea. "
-            ),
+    new BookPageInfo
+    (
+        "Kapitan snook:",
 
-            new BookPageInfo
-            (
-                "Captain snook:",
+        "Ktorys tam oszalaly",
+        "marynarz nazwal tego",
+        "biedaka kapitanem Snookiem,",
+        "za co powinien zostac",
+        "przeciagniety pod kilem!",
+        "Znalem kapitana Snooka,",
+        "to nie jest kapitan Snook."
+    ),
 
-                "Whatever sun baked ",
-                "swab named this poor",
-                "devil cap’n snook",
-                "should be keel hauled!",
-                "I knew Cap’n Snook,",
-                "this be no Cap’n Snook. "
-            ),
+    new BookPageInfo
+    (
+        "Kobia:",
 
-            new BookPageInfo
-            (
-                "Cobia:",
+        "Lepiej nie mylic kobii",
+        "z kobra, bo kobra wymaga",
+        "zupelnie innej przynety."
+    ),
 
-                "Best to not be confusin’",
-                "the cobia with the cobra,",
-                "the cobra be requiring",
-                "a totally different kind",
-                "o’ bait."
-            ),
+    new BookPageInfo
+    (
+        "Szary lucjan:",
 
-            new BookPageInfo
-            (
-                "Gray snapper:",
+        "Starzy marynarze mowia,",
+        "ze wiele pokolen temu",
+        "szary lucjan byl kiedys",
+        "blond lucjanem."
+    ),
 
-                "Old sailors say that",
-                "many generations ago",
-                "the gray snapper used",
-                "to be the blonde snapper."
-            ),
+    new BookPageInfo
+    (
+        "Lupacz:",
 
-            new BookPageInfo
-            (
-                "Haddock:",
+        "Gdy wiatr rozwiewa ci wlosy,",
+        "sol osiada na wargach,",
+        "a haczyk zaplatal sie",
+        "w wedke - to znak,",
+        "ze lupacz jest blisko."
+    ),
 
-                "When tha’ wind’s in",
-                "yar hair, the salt’s",
-                "on yar lips and yar",
-                "hook’s wrapped around",
-                "yar pole, the haddock",
-                "be thar."
-            ),
+    new BookPageInfo
+    (
+        "Mahi mahi:",
 
-            new BookPageInfo
-            (
-                "Mahi mahi:",
+        "Mowia, ze najlepszy argument",
+        "to powtarzanie.",
+        "Moze to dlatego mahi mahi",
+        "jest tak popularne."
+    ),
 
-                "They say that the most",
-                "persuasive argument is",
-                "repetition. This might",
-                "explain why mahi mahi",
-                "be so popular."
-            ),
+    new BookPageInfo
+    (
+        "Czerwony drum:",
 
-            new BookPageInfo
-            (
-                "Red drum:",
+        "Czerwony drum nosi swoja",
+        "nazwe od dzwieku, jaki",
+        "wydaje, gdy uderzysz go",
+        "w glowe."
+    ),
 
-                "The red drum is thus",
-                "named because o’ the",
-                "sound it makes when",
-                "you thump it on the",
-                "head."
-            ),
+    new BookPageInfo
+    (
+        "Czerwony granik:",
 
-            new BookPageInfo
-            (
-                "Red grouper:",
+        "Czerwony granik smakuje",
+        "jeszcze lepiej z odrobina",
+        "pikantnego sosu Madam Beamy."
+    ),
 
-                "Red grouper be extra",
-                "good with a dalop o’",
-                "Madam Beamy’s hot sauce."
-            ),
+    new BookPageInfo
+    (
+        "Czerwony snook:",
 
-            new BookPageInfo
-            (
-                "Red Snook:",
+        "Te rybe mozna znalezc",
+        "wszedzie tam, gdzie sa",
+        "pozostale ryby w tym poradniku."
+    ),
 
-                "This fish be found",
-                "anywhere the rest o",
-                "the fish in this handbook",
-                "be found."
-            ),
+    new BookPageInfo
+    (
+        "Sledz:",
 
-            new BookPageInfo
-            (
-                "Shad:",
+        "Sledz to jedna z moich",
+        "ulubionych rzadkich",
+        "ryb glebinowych."
+    ),
 
-                "The shad be one o’",
-                "me personal favorite",
-                "deep sea uncommon fish."
-            ),
+    new BookPageInfo
+    (
+        "Tarpon:",
 
-            new BookPageInfo
-            (
-                "Tarpon:",
+        "Pewien gosc powiedzial mi,",
+        "ze slowo ,,Tarpon,, pochodzi",
+        "od slowa ,,Tarpaulin,,,",
+        "ale jestem pewien, ze byl szalony."
+    ),
 
-                "This fella once told",
-                "me the word ‘Tarpon’ be",
-                "derived from the word",
-                "‘Tarpaulin’, but I’s",
-                "pretty sure he was insane."
-            ),
+    new BookPageInfo
+    (
+        "Tunczyk zoltopletwy:",
 
-            new BookPageInfo
-            (
-                "Yellowfin tuna:",
+        "Najlepsze w tunczyku jest to,",
+        "ze smakuje jak kurczak,",
+        "ktorego zjadla ryba."
+    )
 
-                "The best thing about",
-                "tuna is that it tastes",
-                "like chicken that was",
-                "eaten by a fish."
-            )
-        );
+
+);
 
         public override BookContent DefaultContent => Content;
 

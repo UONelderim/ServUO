@@ -35,7 +35,7 @@ namespace Server.Items
         [Constructable]
         public MiniSoulForgeDeed()
         {
-            Name = "SoulForge";
+            Name = "Kowadlo Dusz";
         }
 
         public MiniSoulForgeDeed(Serial serial) : base(serial)

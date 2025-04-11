@@ -15,8 +15,9 @@ namespace Server.Items
         [Constructable]
         public CorgulIslandMap(Point3D pnt, CorgulAltar altar)
         {
-            Name = "Island Map";
+            Name = "Mapa Wyspy";
             m_DestinationPoint = pnt;
+            Facet = Map.Felucca; //Added Facet cuz it called Trammel
             AddWorldPin(pnt.X, pnt.Y);
             Protected = true;
 
@@ -29,7 +30,7 @@ namespace Server.Items
 
             if (Altar != null && Altar.DeadLine != DateTime.MinValue && Altar.DeadLine > DateTime.UtcNow)
             {
-                list.Add(1072516, string.Format("map of the world\t{0}", (int)(Altar.DeadLine - DateTime.UtcNow).TotalSeconds)); // ~1_name~ will expire in ~2_val~ seconds!
+                list.Add(1072516, string.Format("mapa swiata\t{0}", (int)(Altar.DeadLine - DateTime.UtcNow).TotalSeconds)); // ~1_name~ will expire in ~2_val~ seconds!
             }
         }
 

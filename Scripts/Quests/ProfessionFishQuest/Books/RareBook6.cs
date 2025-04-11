@@ -1,257 +1,248 @@
 ﻿namespace Server.Items
 {
-    public class FishingGuideBook6 : BaseBook
-    {
-        [Constructable]
-        public FishingGuideBook6() : base(Utility.Random(0xFF1, 2), false)
-        {
-            Name = "Vplume 6 - Legendary Sea Creatures";
-        }
+	public class FishingGuideBook6 : BaseBook
+	{
+		[Constructable]
+		public FishingGuideBook6() : base(Utility.Random(0xFF1, 2), false)
+		{
+			Name = "Tom 6 - Legendarne kreatury";
+		}
 
-        public static readonly BookContent Content = new BookContent
-        (
-            null, "Cpt. Piddlewash",
+		public static readonly BookContent Content = new BookContent
+		(
+			null, "Cpt. Piddlewash",
 
-            new BookPageInfo
-            (
-                "Abyssal Dragonfish:",
+			new BookPageInfo
+			(
+				"Glebinowa Ryba Smocza:",
 
-                "In the bottomless wells",
-                "o' Destard lurk many ",
-                "dangers. Some say a",
-                "black dragonfish swims",
-                "there."
-            ),
+				"W bezdennych studniach",
+				"Destard czai sie wiele",
+				"niebezpieczenstw. Niektorzy mowia, ze",
+				"plywa tam czarna ryba smocza."
+			),
 
-            new BookPageInfo
-            (
-                "Black Marlin:",
+			new BookPageInfo
+			(
+				"Czarny Marlin:",
 
-                "Somewhere out in the ",
-                "deep waters o' Felucca,",
-                "sailors say they caught",
-                "a black marlin but it",
-                "got away."
-            ),
+				"Gdzies na glebokich",
+				"wodach Felucca, zeglarze",
+				"mowia, ze zlapali czarnego",
+				"marlina, ale uciekl."
+			),
 
-            new BookPageInfo
-            (
-                "Blue Marlin:",
+			new BookPageInfo
+			(
+				"Niebieski Marlin:",
 
-                "An old sailor once told",
-                "me that he saw a blue",
-                "marlin leap from the ",
-                "seas o' Trammel. This",
-                "hath ne'er been confirmed."
-            ),
+				"Pewien stary zeglarz powiedzial",
+				"mi kiedys, ze widzial niebieskiego",
+				"marlina wyskakujacego z",
+				"morz Trammel. To",
+				"nigdy nie zostalo potwierdzone."
+			),
 
-            new BookPageInfo
-            (
-                "Dungeon Pike:",
+			new BookPageInfo
+			(
+				"Lochowy Szczupak:",
 
-                "A journal was found in",
-                "the Terathan Keep by a",
-                "pile o' bones. The late",
-                "fisherman claimed that",
-                "he has caught this fish",
-                "thar."
-            ),
+				"W Terathan Keep znaleziono",
+				"dziennik przy stercie kosci. ",
+				"Zmarly rybak twierdzil, ze",
+				"zlapal tam te rybe."
+			),
 
-            new BookPageInfo
-            (
-                "Giant Samurai Fish:",
+			new BookPageInfo
+			(
+				"Gigantyczna Ryba Samuraj:",
 
-                "Tokuno fishermen tell ",
-                "stories of ancient ",
-                "samurai fish o' legendary",
-                "size. None o' their ",
-                "stories have ever been",
-                "confirmed."
-            ),
+				"Rybacy z Tokuno opowiadaja",
+				"historie o starozytnych",
+				"rybach samurajach o legendarnej",
+				"wielkosci. Zadna z ich",
+				"historii nigdy nie zostala",
+				"potwierdzona."
+			),
 
-            new BookPageInfo
-            (
-                "Golden Tuna:",
+			new BookPageInfo
+			(
+				"Zloty Tunczyk:",
 
-                "This fish be only known",
-                "in the myth. But come",
-                "believe they exist in",
-                "the deep waters o' ",
-                "Tokuno."
-            ),
+				"Ta ryba jest znana tylko",
+				"w micie. Ale niektorzy",
+				"wierza, ze istnieja w",
+				"glebokich wodach",
+				"Tokuno."
+			),
 
-            new BookPageInfo
-            (
-                "Winter Dragonfish:",
+			new BookPageInfo
+			(
+				"Zimowa Ryba Smocza:",
 
-                "The Ice Dungeon holds",
-                "many mysteries, most",
-                "of them will kill ye. ",
-                "But there be a legend",
-                "of a dragonfish that",
-                "rules the rivers thar."
-            ),
+				"Lodowy Loch kryje",
+				"wiele tajemnic, wiekszosc",
+				"z nich cie zabije. ",
+				"Ale jest legenda",
+				"o rybie smoczej, ktora",
+				"rzadzi tamtejszymi rzekami."
+			),
 
-            new BookPageInfo
-            (
-                "Kingfish",
+			new BookPageInfo
+			(
+				"Krolewska Ryba:",
 
-                "The kingfish be",
-                "extraordinarily rare.",
-                "They say that Lord ",
-                "British caught one ",
-                "once, but this ne'er",
-                "was confirmed."
-            ),
+				"Krolewska ryba jest",
+				"niezwykle rzadka.",
+				"Mowia, ze Lord",
+				"British zlapal jedna",
+				"raz, ale to nigdy",
+				"nie zostalo potwierdzone."
+			),
 
-            new BookPageInfo
-            (
-                "Lantern Fish:",
+			new BookPageInfo
+			(
+				"Ryba Latarnia:",
 
-                "This fish be said to",
-                "live in the Prism o'",
-                "light. However like",
-                "many legends, it has",
-                "never been confirmed."
-            ),
+				"Mowi sie, ze ta ryba",
+				"zyje w Pryzmacie",
+				"Swiatla. Jednak, jak",
+				"wiele legend, nigdy",
+				"nie zostala potwierdzona."
+			),
 
-            new BookPageInfo
-            (
-                "Rainbow Fish:",
+			new BookPageInfo
+			(
+				"Ryba Teczowa:",
 
-                "The elves tell a tale",
-                "of princess who fell",
-                "into the river of the",
-                "Twisted Weald and was",
-                "eaten by this elusive",
-                "fish."
-            ),
+				"Elfy opowiadaja historie",
+				"o ksiezniczce, ktora wpadla",
+				"do rzeki Skreconego",
+				"Gaju i zostala",
+				"zjedzona przez te nieuchwytna",
+				"rybe."
+			),
 
-            new BookPageInfo
-            (
-                "Seeker Fish:",
+			new BookPageInfo
+			(
+				"Ryba Poszukiwacz:",
 
-                "The story o' this fish",
-                "is that it wandered ",
-                "into the Labyrinth of",
-                "Malas and became lost.",
-                "'Tis an odd story with",
-                "many holes but it might",
-                "be thar."
-            ),
+				"Historia tej ryby",
+				"mowi, ze zablakala sie",
+				"do Labiryntu Malas i",
+				"zaginela. To dziwna",
+				"historia z wieloma lukami,",
+				"ale moze tam byc."
+			),
 
-            new BookPageInfo
-            (
-                "Spring Dragonfish:",
+			new BookPageInfo
+			(
+				"Wiosenna Ryba Smocza:",
 
-                "Before one was caught",
-                "by Mistress Kegwood ",
-                "in Ilshenar, these were",
-                "unknown. It hangs in ",
-                "the secret hall o' the",
-                "Order of the Dragonfish."
-            ),
+				"Zanim Mistrzyni Kegwood",
+				"zlapala jedna w Ilshenar,",
+				"byly nieznane. Wisza w",
+				"tajnej sali Zakonu",
+				"Ryby Smoczej."
+			),
 
-            new BookPageInfo
-            (
-                "Stone Fish:",
+			new BookPageInfo
+			(
+				"Ryba Kamienna:",
 
-                "The stone harpies worship",
-                "a great Stone fish they",
-                "say sleeps at the bottom",
-                "o' the sea in the Lost ",
-                "Lands. Many of our order",
-                "seek to catch it."
-            ),
+				"Kamienne harpie czcza",
+				"wielka Kamienna rybe, ktora",
+				"podobno spi na dnie",
+				"morza w Zaginionych",
+				"Ziemiach. Wielu czlonkow",
+				"naszego zakonu stara sie ja zlapac."
+			),
 
-            new BookPageInfo
-            (
-                "Zombie Fish:",
+			new BookPageInfo
+			(
+				"Ryba Zombie:",
 
-                "'Tis said that there be",
-                "an Undead fish in the ",
-                "waters o' Malas. Some say",
-                "it be an unholy experiment,",
-                "some say it be a lie."
-            ),
+				"Mowi sie, ze w wodach",
+				"Malas jest Nieumarla ryba.",
+				"Niektorzy mowia, ze to bezbozny eksperyment,",
+				"inni, ze to klamstwo."
+			),
 
-            new BookPageInfo
-            (
-                "Blood Lobster:",
+			new BookPageInfo
+			(
+				"Krwawy Homar:",
 
-                "In the depths o' the",
-                "dungeon Shame this strange",
-                "creature be said to lurk.",
-                "Some say it feeds on the",
-                "blood o' the fallen."
-            ),
+				"W glebinach lochu",
+				"Wstydu podobno czai sie",
+				"to dziwne stworzenie. Niektorzy",
+				"mowia, ze zywi sie krwia",
+				"poleglych."
+			),
 
-            new BookPageInfo
-            (
-                "Dread Lobster:",
+			new BookPageInfo
+			(
+				"Homar Grozy:",
 
-                "'Tis said that this ",
-                "lobster is the reason",
-                "monsters don't go into",
-                "the waters of Doom."
-            ),
+				"Mowi sie, ze ten",
+				"homar jest powodem,",
+				"dla ktorego potwory nie wchodza",
+				"do wod Zaglady."
+			),
 
-            new BookPageInfo
-            (
-                "Tunnel Crab:",
+			new BookPageInfo
+			(
+				"Krab Tunelowy:",
 
-                "This creature be said",
-                "to live in the",
-                string.Format("{0} beneath Fire", FishInfo.GetFishLocation(typeof(TunnelCrab))),
-                "Island. 'Tis a goblin",
-                "legend so 'tis a bit",
-                "suspect."
-            ),
+				"Mowi sie, ze to stworzenie",
+				"zyje w",
+				string.Format("{0} pod Ognista", FishInfo.GetFishLocation(typeof(TunnelCrab))),
+				"Wyspa. To goblinia",
+				"legenda, wiec jest nieco",
+				"podejrzana."
+			),
 
-            new BookPageInfo
-            (
-                "Void Crab:",
+			new BookPageInfo
+			(
+				"Krab Pustki:",
 
-                "Some old fisherman in",
-                string.Format("{0} say they have", FishInfo.GetFishLocation(typeof(VoidCrab))),
-                "seen a crab that ",
-                "resembles a void demon",
-                "in the rivers. This has",
-                "not been confirmed."
-            ),
+				"Niektorzy starzy rybacy w",
+				string.Format("{0} mowia, ze widzieli", FishInfo.GetFishLocation(typeof(VoidCrab))),
+				"kraba, ktory przypomina",
+				"demona pustki w rzekach. To",
+				"nie zostalo potwierdzone."
+			),
 
-            new BookPageInfo
-            (
-                "Void Lobster:",
+			new BookPageInfo
+			(
+				"Homar Pustki:",
 
-                "The goblins o' the",
-                string.Format("{0} tell o' a", FishInfo.GetFishLocation(typeof(VoidLobster))),
-                "creature that looks like",
-                "a cross between a void",
-                "demon and a lobster. They",
-                "say it lives in the lava",
-                "therein."
-            )
-        );
+				"Gobliny z",
+				string.Format("{0} opowiadaja o", FishInfo.GetFishLocation(typeof(VoidLobster))),
+				"stworzeniu, ktore wyglada jak",
+				"krzyzowka demona pustki",
+				"i homara. Mowia, ze zyje",
+				"tam w lawie."
+			)
+		);
 
-        public override BookContent DefaultContent => Content;
+		public override BookContent DefaultContent => Content;
 
-        public FishingGuideBook6(Serial serial) : base(serial)
-        {
-        }
+		public FishingGuideBook6(Serial serial) : base(serial)
+		{
+		}
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
+		public override void Serialize(GenericWriter writer)
+		{
+			base.Serialize(writer);
 
-            writer.WriteEncodedInt(0); // version
-        }
+			writer.WriteEncodedInt(0); // version
+		}
 
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
+		public override void Deserialize(GenericReader reader)
+		{
+			base.Deserialize(reader);
 
-            int version = reader.ReadEncodedInt();
-        }
-    }
+			int version = reader.ReadEncodedInt();
+		}
+	}
 }

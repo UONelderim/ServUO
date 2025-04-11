@@ -42,11 +42,11 @@ namespace Server.Mobiles
 
         private readonly Point3D[] _SpawnLocs =
         {
-            new Point3D(6447, 1262, 10),
-            new Point3D(6424, 1279, 10),
-            new Point3D(6406, 1250, 10),
-            new Point3D(6423, 1220, 10),
-            new Point3D(6461, 1237, 10),
+            new Point3D(6305, 1201, 10),
+            new Point3D(6314, 1178, 10),
+            new Point3D(6323, 1224, 10),
+            new Point3D(6295, 1242, 10),
+            new Point3D(6277, 1212, 10),
         };
 
         [Constructable]

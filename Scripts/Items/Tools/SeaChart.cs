@@ -25,10 +25,10 @@ namespace Server.Items
             else if (size > 400)
                 size = 400;
 
-            if (Facet == Map.Trammel || Facet == Map.Felucca)
+            Facet = Map.Felucca;
                 SetDisplay(from.X - dist, from.Y - dist, from.X + dist, from.Y + dist, size, size);
-            else
-                SetDisplayByFacet();
+            //else
+            //    SetDisplayByFacet();
         }
 
         public override int LabelNumber => 1015232;  // sea chart

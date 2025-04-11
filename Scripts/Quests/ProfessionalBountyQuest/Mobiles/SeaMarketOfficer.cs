@@ -8,10 +8,11 @@ namespace Server.Mobiles
     public class SeaMarketOfficer : MondainQuester
     {
         public override Type[] Quests => new Type[] { typeof(ProfessionalBountyQuest) };
-
+	    
+        [Constructable]
         public SeaMarketOfficer()
         {
-            Title = "the officer";
+            Title = "- oficer marynarki pod bandera Kompanii Handlowej";
             Name = NameList.RandomName("male");
 
             CantWalk = true;

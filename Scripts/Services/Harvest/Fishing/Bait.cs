@@ -62,13 +62,13 @@ namespace Server.Items
             {
                 if (UsePrompt && m_UsesRemaining > 1)
                 {
-                    from.SendMessage("How much bait would you like to use?");
+                    from.SendMessage("Ile przynety chcesz uzyc?");
                     from.Prompt = new InternalPrompt(this);
                 }
                 else
                 {
                     from.Target = new InternalTarget(this, 1);
-                    from.SendMessage("Target the fishing pole or lobster trap that you would like to apply the bait to.");
+                    from.SendMessage("Wskaz wedke lub pulapke na homary, do ktorej chcesz zastosowac przynete..");
                 }
             }
         }
@@ -79,7 +79,7 @@ namespace Server.Items
             if (amount > m_UsesRemaining) amount = m_UsesRemaining;
 
             from.Target = new InternalTarget(this, amount);
-            from.SendMessage("Target the fishing pole or lobster trap that you would like to apply the bait to.");
+            from.SendMessage("Skieruj na wedke lub pulapke na homary, do ktorej chcesz przylozyc przynete.");
         }
 
         public override void AddNameProperty(ObjectPropertyList list)
@@ -124,7 +124,7 @@ namespace Server.Items
 
             public override void OnCancel(Mobile from)
             {
-                from.SendMessage("Not applying bait...");
+                from.SendMessage("Nie nakladasz przynety...");
             }
         }
 
@@ -149,7 +149,7 @@ namespace Server.Items
                 {
                     if (!m_Bait.IsFishBait())
                     {
-                        from.SendMessage("Think again before applying lobster or crab bait to a fishing pole!");
+                        from.SendMessage("Zastanow sie dwa razy, zanim nalozysz przynete na homary lub kraby na wedke!");
                         return;
                     }
 
@@ -158,7 +158,7 @@ namespace Server.Items
                     bool hasBait = pole.BaitType != null;
 
                     if (hasBait && pole.BaitType != m_Bait.BaitType)
-                        from.SendMessage("You swap out the old bait for new.");
+                        from.SendMessage("Wymieniasz stara przynete na nowa.");
 
                     if (pole.BaitType == m_Bait.BaitType)
                         pole.BaitUses += m_Amount;
@@ -178,7 +178,7 @@ namespace Server.Items
                 {
                     if (m_Bait.IsFishBait())
                     {
-                        from.SendMessage("Think again before applying fish bait to a lobster trap!");
+                        from.SendMessage("Zastanow sie dwa razy, zanim nalozysz przynete na ryby na pulapke na homary!");
                         return;
                     }
 
@@ -190,7 +190,7 @@ namespace Server.Items
                     //trap.Hue = m_Bait.Hue;
 
                     if (hasBait && trap.BaitType != m_Bait.BaitType)
-                        from.SendMessage("You swap out the old bait for new.");
+                        from.SendMessage("Wymieniasz stara przynete na nowa.");
 
                     if (trap.BaitType == m_Bait.BaitType)
                         trap.BaitUses += m_Amount;
@@ -219,7 +219,7 @@ namespace Server.Items
                         from.SendLocalizedMessage(1116469); //You combine these baits into one cup and destroy the other cup.
                     }
                     else
-                        from.SendMessage("You combine these baits into one cup.");
+                        from.SendMessage("Laczysz te przynety w jeden kubek..");
 
                     return;
                 }

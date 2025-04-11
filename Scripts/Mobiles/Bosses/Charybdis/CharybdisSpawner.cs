@@ -105,11 +105,11 @@ namespace Server.Mobiles
                 if (m_Charydbis != null && m_Charydbis.Alive)
                 {
                     Point3D pnt = new Point3D(m_CurrentLocation.X + 5, m_CurrentLocation.Y + 5, -5);
-                    from.SendMessage(string.Format("The location you seek is: {0} in {1}", GetSextantLocation(pnt), m_Map));
+                    from.SendMessage(string.Format("Lokacja, ktorej szukasz jest: {0} w {1}", GetSextantLocation(pnt), m_Map));
                 }
                 else if (m_HasSpawned && (m_Charydbis == null || !m_Charydbis.Alive))
                 {
-                    from.SendMessage("The creature you seek has already been slain.");
+                    from.SendMessage("Stwor, ktorego poszukujesz zostal zgladzony.");
                 }
                 else
                     from.SendLocalizedMessage(1150198); //The spyglass goes dark, it has failed to find what you seek.
@@ -125,7 +125,7 @@ namespace Server.Mobiles
 
             if (map != Map.Felucca && map != Map.Trammel)
             {
-                from.SendMessage("You can only summon Charydbis in Felucca or Trammel.");
+                from.SendMessage("Tu nie przyzwiesz tego stwora.");
                 return false;
             }
 
@@ -135,7 +135,7 @@ namespace Server.Mobiles
             m_NextSpawn = DateTime.UtcNow + NoSpawnDelay;
             m_IsSummoned = true;
             Point3D p = SOS.FindLocation(map);
-            from.SendMessage(string.Format("The location you seek is: {0} in {1}", GetSextantLocation(p), m_Map));
+            from.SendMessage(string.Format("Lokacja, ktorej szukasz jest: {0} w {1}", GetSextantLocation(p), m_Map));
             m_CurrentLocation = new Rectangle2D(p.X - 5, p.Y - 5, 10, 10);
             m_LastLocation = m_CurrentLocation;
             m_Timer = new InternalTimer(this, NoSpawnDelay);
@@ -151,7 +151,7 @@ namespace Server.Mobiles
             bool xEast = false, ySouth = false;
 
             if (Sextant.Format(pnt, m_Map, ref xLong, ref yLat, ref xMins, ref yMins, ref xEast, ref ySouth))
-                return string.Format("{0}° {1}'{2}, {3}° {4}'{5}", yLat, yMins, ySouth ? "S" : "N", xLong, xMins, xEast ? "E" : "W");
+                return string.Format("{0}° {1}'{2}, {3}° {4}'{5}", yLat, yMins, ySouth ? "PL" : "PN", xLong, xMins, xEast ? "WS" : "ZACH");
 
             return pnt.ToString();
         }
@@ -161,7 +161,7 @@ namespace Server.Mobiles
             Effects.PlaySound(pnt, map, 0x668);
 
             m_Charydbis = new Charydbis(from);
-            from.SendMessage("It seems as though you've snagged your hook.");
+            from.SendMessage("Wyglada na to, ze zahaczyles haczykiem o cos.");
 
             Timer.DelayCall(TimeSpan.FromSeconds(11), new TimerStateCallback(DoTeleportEffect), new object[] { pnt, map });
             Timer.DelayCall(TimeSpan.FromSeconds(12), new TimerStateCallback(DoDelayedSpawn), new object[] { from, pnt, map, boat });
@@ -188,7 +188,7 @@ namespace Server.Mobiles
             m_Charydbis.MoveToWorld(new Point3D(x, y, map.GetAverageZ(pnt.X, pnt.Y)), map);
             m_Charydbis.Combatant = from;
 
-            from.SendMessage("THATS NO FISH!");
+            from.SendMessage("TO NIE JEST RYBA!");
 
             if (boat != null)
             {
@@ -254,7 +254,7 @@ namespace Server.Mobiles
                 foreach (Mobile mob in eable)
                 {
                     if (mob is PlayerMobile)
-                        mob.SendMessage("Charydbis sinks to the depths of the ocean from which it came from...You have taken too long!");
+                        mob.SendMessage("Charydbis opada w glebiny oceanu, skad przybyla... Zbyt dlugo zwlekales.!");
                 }
                 eable.Free();
 
