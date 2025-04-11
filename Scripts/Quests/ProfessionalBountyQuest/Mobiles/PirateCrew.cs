@@ -32,7 +32,7 @@ namespace Server.Mobiles
         [Constructable]
         public PirateCrew() : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Orcish Crew";
+            Name = "Orkowa zaloga";
 
             Body = 0.33 > Utility.RandomDouble() ? 0x8C : Utility.RandomList(0xB5, 0xB6);
 
