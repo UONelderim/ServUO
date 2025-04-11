@@ -39945,16 +39945,16 @@
 1080527;Brazier Deed 
 1080528;peculiar 
 1080529;fragrant 
-1080530;cocoa pulp 
-1080531;a decorative cocoa tree 
-1080532;cocoa tree 
-1080533;cocoa tree seed 
-1080534;a ~1_HEALTH~ cocoa tree 
-1080535;a ~1_val~ of ~2_val~ dirt with a ~3_val~ ~4_val~ ~5_val~ 
-1080536;a ~1_val~ of ~2_val~ dirt with a ~3_val~ cocoa tree seed 
-1080537;You cannot gather pollen from this type of plant! 
+1080530;pulpa kakaowa
+1080531;dekoracyjne drzewko kakaowe
+1080532;drzewko kakaowe
+1080533;ziarna drzewa kakaowego
+1080534;~1_HEALTH~ drzewko kakaowe
+1080535;~1_val~ of ~2_val~ ziemia ~3_val~ ~4_val~ ~5_val~ 
+1080536;~1_val~ of ~2_val~ ziemia z ~3_val~ ziarnami drzewa kakaowego
+1080537;Nie zbierzesz pylku z rosliny tego typu
 1080538;You cannot think of any reason to want to do this. 
-1080539;a decorative ~2_TYPE~ 
+1080539;dekoracyjne ~2_TYPE~ 
 1080540;Latitude: 
 1080541;Longitude: 
 1080542;Pepta's Satiety Cure 
