@@ -25,7 +25,7 @@ namespace Server.Engines.Quests
             if (m_Instance == null)
             {
                 m_Instance = new BountyQuestSpawner();
-                m_Instance.MoveToWorld(new Point3D(4558, 2347, 0), Map.Trammel);
+                m_Instance.MoveToWorld(new Point3D(4558, 2347, 0), Map.Felucca);
             }
         }
 
@@ -242,7 +242,7 @@ namespace Server.Engines.Quests
 
                 switch (zone)
                 {
-                    case SpawnZone.TramJhelom:
+                  /*  case SpawnZone.TramJhelom:
                         if (m_ActiveZones[zone].Count < m_MaxTram)
                             SpawnPirateAndGalleon(zone, Map.Trammel);
                         break;
@@ -253,12 +253,12 @@ namespace Server.Engines.Quests
                     case SpawnZone.TramMoonglow:
                         if (m_ActiveZones[zone].Count < m_MaxTram)
                             SpawnPirateAndGalleon(zone, Map.Trammel);
-                        break;
+                        break;*/
                     case SpawnZone.FelMoonglow:
                         if (m_ActiveZones[zone].Count < m_MaxFel)
                             SpawnPirateAndGalleon(zone, Map.Felucca);
                         break;
-                    case SpawnZone.TokunoPirate:
+                 /*   case SpawnZone.TokunoPirate:
                         if (m_ActiveZones[zone].Count < m_MaxTokuno)
                             SpawnPirateAndGalleon(zone, Map.Tokuno);
                         break;
@@ -269,7 +269,7 @@ namespace Server.Engines.Quests
                     case SpawnZone.TramMerch2:
                         if (m_ActiveZones[zone].Count < m_MaxTram)
                             SpawnMerchantAndGalleon(zone, Map.Trammel);
-                        break;
+                        break;*/
                     case SpawnZone.FelMerch1:
                         if (m_ActiveZones[zone].Count < m_MaxFel)
                             SpawnMerchantAndGalleon(zone, Map.Felucca);
@@ -278,10 +278,10 @@ namespace Server.Engines.Quests
                         if (m_ActiveZones[zone].Count < m_MaxFel)
                             SpawnMerchantAndGalleon(zone, Map.Felucca);
                         break;
-                    case SpawnZone.TokunoMerch:
+                  /*  case SpawnZone.TokunoMerch:
                         if (m_ActiveZones[zone].Count < m_MaxTokuno)
                             SpawnMerchantAndGalleon(zone, Map.Tokuno);
-                        break;
+                        break;*/
                 }
             }
         }
