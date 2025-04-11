@@ -86,8 +86,8 @@ namespace Server.Engines.Craft
 
             if (context != null)
             {
-                CraftSubResCol res = (m_CraftItem.UseSubRes2 ? m_CraftSystem.CraftSubRes2 : m_CraftSystem.CraftSubRes);
-                int resIndex = (m_CraftItem.UseSubRes2 ? context.LastResourceIndex2 : context.LastResourceIndex);
+                CraftSubResCol res = m_CraftSystem.CraftSubRes;
+                int resIndex = context.LastResourceIndex;
 
                 if (resIndex > -1)
                     m_TypeRes = res.GetAt(resIndex).ItemType;
@@ -95,10 +95,15 @@ namespace Server.Engines.Craft
             if (context != null && item.UseSubRes2)
             {
 	            var res2 = m_CraftSystem.CraftSubRes2;
-	            var resIndex2 = context.LastResourceIndex2;
-	                
-	            if (resIndex2 >= 0 && resIndex2 < res2.Count)
-		            m_TypeRes2 = res2.GetAt(resIndex2).ItemType;
+	            if (res2.Count > 0)
+	            {
+		            var resIndex2 = context.LastResourceIndex2;
+		            
+		            if (resIndex2 < 0 || resIndex2 >= res2.Count)
+			            resIndex2 = 0;
+
+			        m_TypeRes2 = res2.GetAt(resIndex2).ItemType;
+	            }
             }
 
             m_AutoCraftTable[from] = this;

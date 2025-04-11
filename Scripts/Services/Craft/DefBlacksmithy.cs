@@ -306,19 +306,24 @@ namespace Server.Engines.Craft
             AddCraft(typeof(PlateHaidate), 1111704, 1030200, 65.0, 115.0, typeof(IronIngot), 1044036, 20, 1044037);
 
             #region Dragon
-            index = AddCraft(typeof(DragonGloves), 1111704, 1029795, 68.9, 118.9, typeof(RedScales), 1060883, 16, 1060884);
+            index = AddCraft(typeof(DragonGloves), 1111704, 1029795, 68.9, 118.9, typeof(IronIngot), 1044036, 12, 1044037);
+            AddRes(index, typeof(RedScales), 1060883, 16, 1060884);
             SetUseSubRes2(index, true);
 
-            index = AddCraft(typeof(DragonHelm), 1111704, 1029797, 72.6, 122.6, typeof(RedScales), 1060883, 20, 1060884);
+            index = AddCraft(typeof(DragonHelm), 1111704, 1029797, 72.6, 122.6, typeof(IronIngot), 1044036, 15, 1044037);
+            AddRes(index, typeof(RedScales), 1060883, 20, 1060884);
             SetUseSubRes2(index, true);
 
-            index = AddCraft(typeof(DragonLegs), 1111704, 1029799, 78.8, 128.8, typeof(RedScales), 1060883, 28, 1060884);
+            index = AddCraft(typeof(DragonLegs), 1111704, 1029799, 78.8, 128.8, typeof(IronIngot), 1044036, 20, 1044037);
+            AddRes(index, typeof(RedScales), 1060883, 28, 1060884);
             SetUseSubRes2(index, true);
 
-            index = AddCraft(typeof(DragonArms), 1111704, 1029815, 76.3, 126.3, typeof(RedScales), 1060883, 24, 1060884);
+            index = AddCraft(typeof(DragonArms), 1111704, 1029815, 76.3, 126.3, typeof(IronIngot), 1044036, 18, 1044037);
+            AddRes(index, typeof(RedScales), 1060883, 24, 1060884);
             SetUseSubRes2(index, true);
 
-            index = AddCraft(typeof(DragonChest), 1111704, 1029793, 85.0, 135.0, typeof(RedScales), 1060883, 36, 1060884);
+            index = AddCraft(typeof(DragonChest), 1111704, 1029793, 85.0, 135.0, typeof(IronIngot), 1044036, 25, 1044037);
+            AddRes(index, typeof(RedScales), 1060883, 36, 1060884);
             SetUseSubRes2(index, true);
             #endregion
 

@@ -119,7 +119,7 @@ namespace Server.Engines.Craft
 
             int resHue = 0, maxAmount = 0;
 
-            if (!craftItem.ConsumeRes(from, resType, craftSystem, ref resHue, ref maxAmount, ConsumeType.None, ref resMessage))
+            if (!craftItem.ConsumeRes(from, resType, null, craftSystem, ref resHue, ref maxAmount, ConsumeType.None, ref resMessage))
                 return EnhanceResult.NoResources;
 
             if (!CraftResources.IsStandard(ires.Resource))
@@ -262,7 +262,7 @@ namespace Server.Engines.Craft
                 case EnhanceResult.Broken:
                     {
 	                    from.PlaySound( 0x03F );
-                        if (!craftItem.ConsumeRes(from, resType, craftSystem, ref resHue, ref maxAmount, ConsumeType.Half, ref resMessage))
+                        if (!craftItem.ConsumeRes(from, resType, null, craftSystem, ref resHue, ref maxAmount, ConsumeType.Half, ref resMessage))
                             return EnhanceResult.NoResources;
 
                         item.Delete();
@@ -275,7 +275,7 @@ namespace Server.Engines.Craft
 		                    LabelsConfig.AddTamperingMark(item, from);
 	                    }
 	                    from.PlaySound( 0x01FD );
-                        if (!craftItem.ConsumeRes(from, resType, craftSystem, ref resHue, ref maxAmount, ConsumeType.All, ref resMessage))
+                        if (!craftItem.ConsumeRes(from, resType, null, craftSystem, ref resHue, ref maxAmount, ConsumeType.All, ref resMessage))
                             return EnhanceResult.NoResources;
 
                         if (craftItem.CaddelliteCraft)
@@ -309,7 +309,7 @@ namespace Server.Engines.Craft
                     }
                 case EnhanceResult.Failure:
                     {
-                        if (!craftItem.ConsumeRes(from, resType, craftSystem, ref resHue, ref maxAmount, ConsumeType.Half, ref resMessage))
+                        if (!craftItem.ConsumeRes(from, resType, null, craftSystem, ref resHue, ref maxAmount, ConsumeType.Half, ref resMessage))
                             return EnhanceResult.NoResources;
 
                         break;

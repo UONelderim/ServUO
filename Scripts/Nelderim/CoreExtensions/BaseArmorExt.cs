@@ -7,7 +7,7 @@ using Nelderim;
 
 namespace Server.Items
 {
-	public partial class BaseArmor
+	public partial class BaseArmor : IResource2
 	{
 		[CommandProperty(AccessLevel.GameMaster)]
 		public CraftResource Resource2

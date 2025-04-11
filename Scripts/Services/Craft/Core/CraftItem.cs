@@ -860,18 +860,20 @@ namespace Server.Engines.Craft
         public bool ConsumeRes(
             Mobile from,
             Type typeRes,
+            Type typeRes2,
             CraftSystem craftSystem,
             ref int resHue,
             ref int maxAmount,
             ConsumeType consumeType,
             ref object message)
         {
-            return ConsumeRes(from, typeRes, craftSystem, ref resHue, ref maxAmount, consumeType, ref message, false);
+            return ConsumeRes(from, typeRes, typeRes2, craftSystem, ref resHue, ref maxAmount, consumeType, ref message, false);
         }
 
         public bool ConsumeRes(
             Mobile from,
             Type typeRes,
+            Type typeRes2,
             CraftSystem craftSystem,
             ref int resHue,
             ref int maxAmount,
@@ -942,7 +944,8 @@ namespace Server.Engines.Craft
 
             maxAmount = int.MaxValue;
 
-            CraftSubResCol resCol = (UseSubRes2 ? craftSystem.CraftSubRes2 : craftSystem.CraftSubRes);
+            CraftSubResCol resCol = craftSystem.CraftSubRes;
+            CraftSubResCol resCol2 = craftSystem.CraftSubRes2;
             MasterCraftsmanTalisman talisman = null;
 
             for (int i = 0; i < types.Length; ++i)
@@ -969,6 +972,10 @@ namespace Server.Engines.Craft
                         message = subResource.Message;
                         return false;
                     }
+                }
+                if ((baseType == resCol2.ResType) && (typeRes2 != null))
+                {
+	                baseType = typeRes2;
                 }
                 // ******************
 
@@ -1488,7 +1495,7 @@ namespace Server.Engines.Craft
                                         int maxAmount = 0;
                                         object message = null;
 
-                                        if (ConsumeRes(from, typeRes, craftSystem, ref resHue, ref maxAmount, ConsumeType.None, ref message))
+                                        if (ConsumeRes(from, typeRes, typeRes2, craftSystem, ref resHue, ref maxAmount, ConsumeType.None, ref message))
                                         {
                                             message = null;
 
@@ -1617,7 +1624,7 @@ namespace Server.Engines.Craft
             object checkMessage = null;
 
             // Not enough resource to craft it
-            if (!ConsumeRes(from, typeRes, craftSystem, ref checkResHue, ref checkMaxAmount, ConsumeType.None, ref checkMessage))
+            if (!ConsumeRes(from, typeRes, typeRes2, craftSystem, ref checkResHue, ref checkMaxAmount, ConsumeType.None, ref checkMessage))
             {
                 if (tool != null && !tool.Deleted && tool.UsesRemaining > 0)
                 {
@@ -1672,7 +1679,7 @@ namespace Server.Engines.Craft
                 object message = null;
 
                 // Not enough resource to craft it
-                if (!ConsumeRes(from, typeRes, craftSystem, ref resHue, ref maxAmount, ConsumeType.All, ref message))
+                if (!ConsumeRes(from, typeRes, typeRes2, craftSystem, ref resHue, ref maxAmount, ConsumeType.All, ref message))
                 {
                     if (tool != null && !tool.Deleted && tool.UsesRemaining > 0)
                     {
@@ -1976,7 +1983,7 @@ namespace Server.Engines.Craft
                 object message = null;
 
                 // Not enough resource to craft it
-                if (!ConsumeRes(from, typeRes, craftSystem, ref resHue, ref maxAmount, consumeType, ref message, true))
+                if (!ConsumeRes(from, typeRes, typeRes2, craftSystem, ref resHue, ref maxAmount, consumeType, ref message, true))
                 {
                     if (tool != null && !tool.Deleted && tool.UsesRemaining > 0)
                     {

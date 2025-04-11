@@ -2,6 +2,7 @@ using Server.Items;
 using Server.Mobiles;
 using Server.Targeting;
 using System;
+using Nelderim;
 
 namespace Server.Engines.Craft
 {
@@ -222,9 +223,6 @@ namespace Server.Engines.Craft
                         }
                         
                         var craftItem = m_CraftSystem.CraftItems.SearchForSubclass(targeted.GetType());
-                        int resHue = 0;
-                        int maxAmount = 0;
-                        object message = null;
 
                         if (m_CraftSystem.CanCraft(from, m_Tool, targeted.GetType()) == 1044267)
                         {
@@ -237,19 +235,12 @@ namespace Server.Engines.Craft
                             else
                                 number = 1044280; // You fail to repair the item.
                         }
-                        else if (targeted is BaseWeapon)
+                        else if (targeted is BaseWeapon weapon)
                         {
-                            BaseWeapon weapon = (BaseWeapon)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
-                            var resource = weapon.Resource;
-                            var typeRes = resource <= CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource)?.ResourceTypes[0];
                             int toWeaken = 1;
-
-                            if (typeRes == null)
-                            {
-	                            number = 1044277;
-                            }
-                            else if (craftItem == null && !CheckSpecial(weapon))
+                            
+                            if (craftItem == null && !CheckSpecial(weapon))
                             {
                                 number = (usingDeed) ? 1061136 : 1044277; // That item cannot be repaired. // You cannot repair that item with this type of repair contract.
                             }
@@ -269,17 +260,9 @@ namespace Server.Engines.Craft
                             {
                                 number = 1044277; // That item cannot be repaired.
                             }
-                            else if (craftItem != null && !craftItem.ConsumeRes(from,
-	                                     typeRes,
-	                                     m_CraftSystem,
-	                                     ref resHue,
-	                                     ref maxAmount,
-	                                     ConsumeType.Half,
-	                                     ref message,
-	                                     false,
-	                                     value))
+                            else if (!ConsumeResources(from, value, weapon, out var messageNumber))
                             {
-	                            number = message is int i ? i : 0;
+	                            number = messageNumber;
                             }
 							else
 							{
@@ -306,19 +289,12 @@ namespace Server.Engines.Craft
 	                            toDelete = true;
                             }
                         }
-                        else if (targeted is BaseArmor)
+                        else if (targeted is BaseArmor armor)
                         {
-                            BaseArmor armor = (BaseArmor)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
-                            var resource = armor.Resource;
-                            var typeRes = resource <= CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource)?.ResourceTypes[0];
                             int toWeaken = 1;
 
-                            if (typeRes == null)
-                            {
-	                            number = 1044277;
-                            }
-                            else if (craftItem == null && !CheckSpecial(armor))
+                            if (craftItem == null && !CheckSpecial(armor))
                             {
                                 number = (usingDeed) ? 1061136 : 1044277; // That item cannot be repaired. // You cannot repair that item with this type of repair contract.
                             }
@@ -338,17 +314,9 @@ namespace Server.Engines.Craft
                             {
                                 number = 1044277; // That item cannot be repaired.
                             }
-                            else if (craftItem != null && !craftItem.ConsumeRes(from,
-	                                      typeRes,
-	                                      m_CraftSystem,
-	                                      ref resHue,
-	                                      ref maxAmount,
-	                                      ConsumeType.Half,
-	                                      ref message,
-	                                      false,
-	                                      value))
+                            else if (!ConsumeResources(from, value, armor, out var messageNumber))
                             {
-	                            number = message is int i ? i : 0;
+	                            number = messageNumber;
                             }
                             else
                             {
@@ -375,19 +343,12 @@ namespace Server.Engines.Craft
                                 toDelete = true;
                             }
                         }
-                        else if (targeted is BaseJewel)
+                        else if (targeted is BaseJewel jewel)
                         {
-                            BaseJewel jewel = (BaseJewel)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
-                            var resource = jewel.Resource;
-                            var typeRes = resource <= CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource)?.ResourceTypes[0];
                             int toWeaken = 1;
 
-                            if (typeRes == null)
-                            {
-	                            number = 1044277;
-                            }
-                            else if (craftItem == null && !CheckSpecial(jewel))
+                            if (craftItem == null && !CheckSpecial(jewel))
                             {
                                 number = (usingDeed) ? 1061136 : 1044277; // That item cannot be repaired. // You cannot repair that item with this type of repair contract.
                             }
@@ -407,17 +368,9 @@ namespace Server.Engines.Craft
                             {
                                 number = 1044277; // That item cannot be repaired.
                             }
-                            else if (craftItem != null && !craftItem.ConsumeRes(from,
-	                                     typeRes,
-	                                     m_CraftSystem,
-	                                     ref resHue,
-	                                     ref maxAmount,
-	                                     ConsumeType.Half,
-	                                     ref message,
-	                                     false,
-	                                     value))
+                            else if (!ConsumeResources(from, value, jewel, out var messageNumber))
                             {
-	                            number = message is int i ? i : 0;
+	                            number = messageNumber;
                             }
                             else
                             {
@@ -444,19 +397,12 @@ namespace Server.Engines.Craft
                                 toDelete = true;
                             }
                         }
-                        else if (targeted is BaseClothing)
+                        else if (targeted is BaseClothing clothing)
                         {
-                            BaseClothing clothing = (BaseClothing)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
-                            var resource = clothing.Resource;
-                            var typeRes = resource <= CraftResource.Iron && craftItem != null ? craftItem.Resources.GetAt(0).ItemType : CraftResources.GetInfo(resource)?.ResourceTypes[0];
                             int toWeaken = 1;
-
-                            if (typeRes == null)
-                            {
-	                            number = 1044277;
-                            }
-                            else if (craftItem == null && !CheckSpecial(clothing))
+                            
+                            if (craftItem == null && !CheckSpecial(clothing))
                             {
                                 number = (usingDeed) ? 1061136 : 1044277; // That item cannot be repaired. // You cannot repair that item with this type of repair contract.
                             }
@@ -476,17 +422,9 @@ namespace Server.Engines.Craft
                             {
                                 number = 1044277; // That item cannot be repaired.
                             }
-                            else if (craftItem != null && !craftItem.ConsumeRes(from,
-	                                     typeRes,
-	                                     m_CraftSystem,
-	                                     ref resHue,
-	                                     ref maxAmount,
-	                                     ConsumeType.Half,
-	                                     ref message,
-	                                     false,
-	                                     value))
+                            else if (!ConsumeResources(from, value, clothing, out var messageNumber))
                             {
-	                            number = message is int i ? i : 0;
+	                            number = messageNumber;
                             }
                             else
                             {
@@ -513,9 +451,8 @@ namespace Server.Engines.Craft
                                 toDelete = true;
                             }
                         }
-                        else if (targeted is BaseTalisman)
+                        else if (targeted is BaseTalisman talisman)
                         {
-                            BaseTalisman talisman = (BaseTalisman)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
                             int toWeaken = 1;
 
@@ -567,7 +504,6 @@ namespace Server.Engines.Craft
                         else if (targeted is Spellbook spellbook)
                         {
                             SkillName skill = m_CraftSystem.MainSkill;
-                            var typeRes = typeof(BlankScroll);
                             int toWeaken = 1;
 
                             if (craftItem == null && !CheckSpecial(spellbook))
@@ -590,17 +526,9 @@ namespace Server.Engines.Craft
                             {
                                 number = 1044277; // That item cannot be repaired.
                             }
-                            else if (craftItem != null && !craftItem.ConsumeRes(from,
-	                                     typeRes,
-	                                     m_CraftSystem,
-	                                     ref resHue,
-	                                     ref maxAmount,
-	                                     ConsumeType.Half,
-	                                     ref message,
-	                                     false,
-	                                     value))
+                            else if (!ConsumeResources(from, value, spellbook, out var messageNumber))
                             {
-	                            number = message is int i ? i : 0;
+	                            number = messageNumber;
                             }
                             else
                             {
@@ -691,6 +619,59 @@ namespace Server.Engines.Craft
                             m_Deed.Delete();
                     }
                 }
+            }
+
+            private bool ConsumeResources(Mobile from, double skillValue, Item targeted, out int number)
+            {
+	            number = 0;
+	            var craftItem = m_CraftSystem.CraftItems.SearchForSubclass(targeted.GetType());
+	            if (craftItem == null && CheckSpecial(targeted))
+	            {
+		            //Non-craftable but repairable item, don't consume resources
+		            return true;
+	            }
+	            if (targeted is not IResource resItem)
+	            {
+		            //Item doesn't have resource, we don't know what to consume
+		            return true;
+	            }
+
+	            Type typeRes;
+	            var resource = resItem.Resource;
+	            
+	            if (resource == CraftResource.None)
+		            resource = CraftResource.Iron; //Normalize to Iron just in case
+	            
+	            if (resource == CraftResource.Iron && craftItem != null)
+		            typeRes = craftItem.Resources.GetAt(0).ItemType; //Default resource from craft
+	            else
+		            typeRes = CraftResources.GetInfo(resource)?.ResourceTypes[0]; //Use resource assigned to item
+	            
+	            Type typeRes2 = null;
+	            if (targeted is IResource2 resItem2)
+	            {
+		            var resource2 = resItem2.Resource2;
+		            if (resource2 != CraftResource.None)
+				        typeRes2 = CraftResources.GetInfo(resource2)?.ResourceTypes[0];
+		            
+	            }
+	            
+	            int discard1 = 0;
+	            int discard2 = 0;
+	            object message = null;
+	            var result= craftItem != null && craftItem.ConsumeRes(from,
+		            typeRes,
+		            typeRes2,
+		            m_CraftSystem,
+		            ref discard1,
+		            ref discard2,
+		            ConsumeType.Half,
+		            ref message,
+		            false,
+		            skillValue);
+	            
+	            number = message is int i ? i : 0;
+	            return result;
             }
 
             protected override void OnTargetCancel(Mobile from, TargetCancelType cancelType)

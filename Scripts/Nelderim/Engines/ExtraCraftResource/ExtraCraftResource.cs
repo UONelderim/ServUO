@@ -7,6 +7,10 @@ using Server.Items;
 
 namespace Nelderim
 {
+	public interface IResource2
+	{
+		CraftResource Resource2 { get; set; }
+	}
 	class ExtraCraftResource() : NExtension<ExtraCraftResourceInfo>("ExtraCraftResource")
 	{
 		public static void Configure()

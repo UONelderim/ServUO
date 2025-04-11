@@ -492,10 +492,15 @@ namespace Server.Engines.Craft
                 if (context != null && item.UseSubRes2)
                 {
 	                var res2 = m_CraftSystem.CraftSubRes2;
-	                var resIndex2 = context.LastResourceIndex2;
-	                
-	                if (resIndex2 >= 0 && resIndex2 < res2.Count)
+	                if (res2.Count > 0)
+	                {
+		                var resIndex2 = context.LastResourceIndex2;
+		            
+		                if (resIndex2 < 0 || resIndex2 >= res2.Count)
+			                resIndex2 = 0;
+
 		                type2 = res2.GetAt(resIndex2).ItemType;
+	                }
                 }
 
                 m_CraftSystem.CreateItem(m_From, item.ItemType, type, type2, m_Tool, item);

@@ -151,10 +151,15 @@ namespace Server.Engines.Craft
                             if (context != null && m_CraftItem.UseSubRes2)
                             {
 	                            var res2 = m_CraftSystem.CraftSubRes2;
-	                            var resIndex2 = context.LastResourceIndex2;
-	                
-	                            if (resIndex2 >= 0 && resIndex2 < res2.Count)
+	                            if (res2.Count > 0)
+	                            {
+		                            var resIndex2 = context.LastResourceIndex2;
+		            
+		                            if (resIndex2 < 0 || resIndex2 >= res2.Count)
+			                            resIndex2 = 0;
+
 		                            type2 = res2.GetAt(resIndex2).ItemType;
+	                            }
                             }
 
                             m_CraftSystem.CreateItem(m_From, m_CraftItem.ItemType, type, type2, m_Tool, m_CraftItem);
@@ -207,13 +212,13 @@ namespace Server.Engines.Craft
                 AddLabel(430, 132 + (i * 20), LabelHue, string.Format("{0:F1}", minSkill));
             }
 
-            CraftSubResCol res = (m_CraftItem.UseSubRes2 ? m_CraftSystem.CraftSubRes2 : m_CraftSystem.CraftSubRes);
+            CraftSubResCol res = m_CraftSystem.CraftSubRes;
             int resIndex = -1;
 
             CraftContext context = m_CraftSystem.GetContext(m_From);
 
             if (context != null)
-                resIndex = (m_CraftItem.UseSubRes2 ? context.LastResourceIndex2 : context.LastResourceIndex);
+                resIndex = context.LastResourceIndex;
 
             bool allRequiredSkills = true;
             double chance = m_CraftItem.GetSuccessChance(m_From, resIndex > -1 ? res.GetAt(resIndex).ItemType : null, m_CraftSystem, false, ref allRequiredSkills);
@@ -245,11 +250,11 @@ namespace Server.Engines.Craft
 
             CraftContext context = m_CraftSystem.GetContext(m_From);
 
-            CraftSubResCol res = (m_CraftItem.UseSubRes2 ? m_CraftSystem.CraftSubRes2 : m_CraftSystem.CraftSubRes);
+            CraftSubResCol res = m_CraftSystem.CraftSubRes;
             int resIndex = -1;
 
             if (context != null)
-                resIndex = (m_CraftItem.UseSubRes2 ? context.LastResourceIndex2 : context.LastResourceIndex);
+                resIndex = context.LastResourceIndex;
 
             bool cropScroll = (m_CraftItem.Resources.Count > 1) &&
                               m_CraftItem.Resources.GetAt(m_CraftItem.Resources.Count - 1).ItemType == typeofBlankScroll &&
