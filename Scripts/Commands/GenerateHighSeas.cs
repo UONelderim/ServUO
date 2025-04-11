@@ -233,6 +233,17 @@ namespace Server.Items
             sp.MoveToWorld(new Point3D(5653, 3594, 10), Map.Felucca);
             sp.Respawn();
             WeakEntityCollection.Add(name, sp);
+            
+            toSpawn = "SeaMarketOfficer";
+            //Tasadnora
+            sp = new XmlSpawner(toSpawn)
+            {
+	            SpawnRange = 3,
+	            HomeRange = 6
+            };
+            //sp.MoveToWorld(new Point3D(1482, 1754, -2), Map.Trammel);
+            // sp.Respawn();
+            // WeakEntityCollection.Add(name, sp);
 
             toSpawn = "DocksAlchemist";
 
@@ -250,6 +261,15 @@ namespace Server.Items
             {
                 SpawnRange = 1,
                 HomeRange = 5
+            };
+            sp.MoveToWorld(new Point3D(1544, 1829, 0), Map.Felucca);
+            sp.Respawn();
+            WeakEntityCollection.Add(name, sp);
+
+            sp = new XmlSpawner(toSpawn)
+            {
+	            SpawnRange = 1,
+	            HomeRange = 5
             };
             sp.MoveToWorld(new Point3D(1544, 1829, 0), Map.Felucca);
             sp.Respawn();
