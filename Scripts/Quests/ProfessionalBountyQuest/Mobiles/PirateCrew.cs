@@ -4,7 +4,7 @@ using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a glowing orc corpse")]
+    [CorpseName("cialo orka")]
     public class PirateCrew : BaseCreature
     {
         public override WeaponAbility GetWeaponAbility()

@@ -59,7 +59,7 @@ namespace Server.Mobiles
                 Female = true;
 
             SpeechHue = Utility.RandomDyedHue();
-            Title = "the dread pirate";
+            Title = "- kapitan piratow";
             Hue = Race.RandomSkinHue();
 
             Body = Female ? 0x191 : 0x190;
@@ -186,7 +186,7 @@ namespace Server.Mobiles
 
             if (m_IsCaught)
             {
-                from.SendMessage("That pirate is already bound to a ship!");
+                from.SendMessage("Ten pirat jest przywiazany do statku!");
                 return false;
             }
 
@@ -245,7 +245,7 @@ namespace Server.Mobiles
                 MoveToWorld(new Point3D(x, y, pole.Z), pole.Map);
 
             Blessed = true;
-            Title = "[Captured Captain]";
+            Title = "[Pochwycony Kapitan]";
         }
 
         public override bool OnBeforeDeath()
