@@ -6755,7 +6755,7 @@
 1011341;Small Stone Workshop<br>A blacksmith's home and shop in one. This is a sturdy structure with an open area for a forge and shop, while a second story provides plenty of room for private living quarters.<br>Highest Possible Secure Containers: 3<br>Highest Possible Lockdowns: 425 
 1011342;Small Marble Workshop<br>This home has three stories and makes the most of a small footprint. An excellent use of space, this attractive home is good for the businessperson or adventurer.<br>Highest Possible Secure Containers: 3<br>Highest Possible Lockdowns: 425 
 1011343;Jhelom 
-1011344;Moonglow 
+1011344;Tasandora 
 1011345;Magincia 
 1011346;Nujel'm 
 1011347;Skara Brae 
@@ -58763,49 +58763,49 @@
 1158893;Arr! Nie moge wykonac tego rozkazu! 
 1158894;Aye Aye Kapitanie! Strzelam z dzial na lewej burcie! 
 1158895;Aye Aye Kapitanie! Strzelam z dzial na prawej burcie! 
-1158896;Change Type 
-1158897;Target the gate scrolls you wish to recharge this item with... 
-1158898;Target gate scroll to recharge the teleporter. 
-1158899;Tinkering: ~1_CHARGES~<br>Blacksmithing: ~2_CHARGES~<br>Carpentry: ~3_CHARGES~<br>Tailoring: ~4_CHARGES~<br>Fletching: ~5_CHARGES~<br>Masonry: ~6_CHARGES~<br>Glassblowing: ~7_CHARGES~ 
-1158900;Granite 
-1158901;Glassware 
-1158902;Munitions 
-1158903;<BASEFONT COLOR=#66C2FF>~1_STUFF~ of Grandmaster Quality<BASEFONT COLOR=#FFFFFF> 
-1158904;<BASEFONT COLOR=#53FF1A>~1_STUFF~ of Exalted Quality<BASEFONT COLOR=#FFFFFF> 
-1158905;"<BASEFONT COLOR=#FF8300>~1_STUFF~ of Legendary Quality<BASEFONT COLOR=#FFFFFF>	" 
-1158906;Maritime Trade Cargo Destined for ~1_CITY~ 
-1158907;You recover maritime trade cargo! 
-1158908;You don't have enough doubloons for that! 
-1158909;Click maritime trade cargo to turn in for doubloons. 
-1158910;You have ~1_COUNT~ doubloons! 
-1158911;Bring me maritime trade cargo and I will pay you in doubloons! 
-1158912;Sell Maritime Trade Cargo 
-1158913;Buy Pirate Loot 
-1158914;Maritime Black Market Merchant 
-1158915;You are currently at cap for doubloons! 
-1158916;Your Doubloons 
-1158917;What ye buyin' Matey? 
-1158918;Maritime Black Market 
-1158919;The city thanks you for delivering these goods! 
-1158920;By continuing with the transfer you will be unlinking this character from your lighthouse. Any existing ships will remain linked to your lighthouse on this shard. 
-1158921;Wood Carving of ~1_name~ 
-1158922;hit explosion ~1_val~% 
-1158923;Barbed Whip of Plundering 
-1158924;Bladed Whip of Plundering 
-1158925;Spiked Whip of Plundering 
-1158926;Dekoracyjna Smocza Armata 
-1158927;Decorative Ship Carving 
-1158928;Shoulder Parrot 
-1158929;Triton 
-1158930;Mysterious Statue 
-1158931;Nautical Chart 
-1158932;Magazynek nie ma amunicji do zaladowania tego dziala. 
-1158933;Potrzebujemy amunicji! 
-1158934;STATUS 
-1158935;Mysterious Statue 
-1158936;Purchased from a Pirate Merchant 
-1158937;This mysterious statue towers above you. Even as skilled a mason as you are, the craftsmanship is uncanny, and unlike anything you have encountered before. The stone appears to be smooth and special attention was taken to sculpt the statue as a perfect likeness. According to the pirate you purchased the statue from, it was recovered somewhere at sea. The amount of marine growth seems to reinforce this claim, yet you cannot discern how long it may have been submerged and are thus unsure of its age. Whatever its origins, one thing is clear - the figure is one you hope you do not encounter anytime soon... 
-1158938;Pirate Wall Map 
+1158896;Zmien Typ
+1158897;Wskaz zwoje bramy, ktorymi chcesz naladowac ten przedmiot...
+1158898;Wskaz zwoj bramy, aby naladowac teleporter.
+1158899;Majsterkowanie: ~1_LADUNKI~<br>Kowalstwo: ~2_LADUNKI~<br>Stolarstwo: ~3_LADUNKI~<br>Krawiectwo: ~4_LADUNKI~<br>Strzelnictwo: ~5_LADUNKI~<br>Kamieniarstwo: ~6_LADUNKI~<br>Hutnictwo szkla: ~7_LADUNKI~
+1158900;Granit
+1158901;Wyroby szklane
+1158902;Amunicja
+1158903;<BASEFONT COLOR=#66C2FF>~1_PRZEDMIOT~ jakosci arcymistrzowskiej<BASEFONT COLOR=#FFFFFF>
+1158904;<BASEFONT COLOR=#53FF1A>~1_PRZEDMIOT~ jakosci wywyzszonej<BASEFONT COLOR=#FFFFFF>
+1158905;"<BASEFONT COLOR=#FF8300>~1_PRZEDMIOT~ jakosci legendarnej<BASEFONT COLOR=#FFFFFF> "
+1158906;Ladunek Handlu Morskiego Przeznaczony dla ~1_MIASTO~
+1158907;Odzyskujesz ladunek handlu morskiego!
+1158908;Nie masz wystarczajaco duzo dublonow!
+1158909;Kliknij ladunek handlu morskiego, aby wymienic go na dublony.
+1158910;Masz ~1_LICZBA~ dublonow!
+1158911;Przynies mi ladunek handlu morskiego, a zaplace ci w dublonach!
+1158912;Sprzedaj Ladunek Handlu Morskiego
+1158913;Kup Lupy Piratow
+1158914;Handlarz z Morskiego Czarnego Rynku
+1158915;Aktualnie masz maksymalna liczbe dublonow!
+1158916;Twoje Dublony
+1158917;Co kupujesz, kamracie?
+1158918;Morski Czarny Rynek
+1158919;Miasto dziekuje ci za dostarczenie tych towarow!
+1158920;Kontynuujac transfer, odlaczysz te postac od swojej latarni morskiej. Istniejace statki pozostana polaczone z twoja latarnia morska na tym odlamku.
+1158921;Drewniana Rzezba ~1_nazwa~
+1158922;uderzenie eksplozji ~1_wartosc~%
+1158923;Kolczasty Bicz Rabunku
+1158924;Ostrzowy Bicz Rabunku
+1158925;Najezony Bicz Rabunku
+1158926;Dekoracyjna Smocza Armata
+1158927;Dekoracyjna Rzezba Okretowa
+1158928;Papuga na Ramie
+1158929;Tryton
+1158930;Tajemniczy Posag
+1158931;Mapa Nauticzna
+1158932;Magazynek nie ma amunicji, aby zaladowac to dzialo.
+1158933;Potrzebujemy amunicji!
+1158934;STATUS
+1158935;Tajemniczy Posag
+1158936;Zakupiono od Pirackiego Handlarza
+1158937;Ten tajemniczy posag goruje nad toba. Nawet dla tak wprawnego kamieniarza jak ty, kunszt wykonania jest niesamowity i niepodobny do niczego, z czym sie dotad spotkales. Kamien wydaje sie gladki, a szczegolna uwage poswiecono wyrzezbieniu posagu jako doskonalego podobienstwa. Wedlug pirata, od ktorego kupiles ten posag, zostal on odnaleziony gdzies na morzu. Ilosc porostu morskiego zdaje sie potwierdzac to twierdzenie, jednak nie potrafisz okreslic, jak dlugo mogl byc zanurzony, a tym samym nie jestes pewien jego wieku. Bez wzgledu na jego pochodzenie, jedno jest jasne - figura przedstawia kogos, kogo miejmy nadzieje nie spotkasz w najblizszym czasie...
+1158938;Piracka Mapa Scienna
 1158939;Magazynek nie ma zapalnika do naladowania dziala. 
 1158940;Nie mozesz otrzymac tej nagrody, gdy masz schwytanego pirata na swoim statku na innej plaszczyznie. 
 1158941;Twoj schwytany pirat wyglada na to, ze uciekl! 
