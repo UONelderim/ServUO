@@ -66,7 +66,6 @@ namespace Server.Mobiles
         {
             AddLoot(LootPack.FilthyRich, 2);
             AddLoot(LootPack.Gems, 8);
-            AddLoot(LootPack.LootItem<ZabImiennegoSmoka>(30.0));
         }
 
         public override void Serialize(GenericWriter writer)
