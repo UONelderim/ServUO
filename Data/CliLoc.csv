@@ -23750,10 +23750,10 @@
 1042710;Take thy gifts, the gifts that such a shrine can give - for fate is in thy hands, and in thy hands the sacred number of three. 
 1042711;[Faction Trap] 
 1042712;You reveal a trap placed by a faction: 
-1042713;shakes the cup and spills the dice 
-1042714;The first die rolls to a stop and shows: 
-1042715;The second die stops and shows: 
-1042716;Total for this roll: 
+1042713;potrzasnie kubkiem i rozsypie kostki
+1042714;Pierwsza kostka zatrzymuje sie i pokazuje:
+1042715;Druga kostka zatrzymuje sie i pokazuje:
+1042716;Suma dla tego rzutu:
 1042717;I am waiting for an escort to take me somewhere: 
 1042718;If thou art interested, check the local bulletin board for details, or just say 'I will take thee' 
 1042719;Lead on! Payment will be made when we arrive in: 
@@ -46632,8 +46632,8 @@
 1116297;Dzialo okretowe zostalo zniszczone! 
 1116298;stek z wielkiej barakudy
 1116299;tasandorska przyprawa
-1116300;dark truffle 
-1116301;yellowtail barracuda steak 
+1116300;ciemna trufla
+1116301;stek z barakudy zoltoogoniastej
 1116302;saletra
 1116303;wegiel drzewny 
 1116304;match cord 
@@ -53643,14 +53643,14 @@
 1153769;Character transfer unavailable with items remaining in the transfer crate. 
 1153770;The deed is not in the same house as you. 
 1153771;You have achieved the highest path in Honesty and can no longer gain any further. 
-1153772;Bank of Cove 
-1153773;A Ferret Imprisoned in Crystal 
-1153774;Mr. Plain's Cookies 
-1153775;Pumpkin Pizza 
-1153776;Creepy Cake 
-1153777;kociol  
-1153778;an orcish bow 
-1153779;a barkeep contract 
+1153772;Bank w Cove
+1153773;Fretka uwieziony w krysztale
+1153774;Ciasteczka pana Plaina
+1153775;Pizza dyniowa
+1153776;Straszne Cake
+1153777;kociol
+1153778;luk orka
+1153779;kontrakt barmana
 1153780;+50% hit life drain. 
 1153781;+~1_SS~% swing speed increase.<br>+~2_DEX~% spell damage increase.<br>+~3_PR~% physical resist.<br>+~4_CR~% cold resist.<br>+~5_PR~% poison resist.<br>+~6_ER~% energy resist.<br>-~7_FR~% fire resist. 
 1153782;Applies ~1_DMG~ additional fire damage to hit target. 
