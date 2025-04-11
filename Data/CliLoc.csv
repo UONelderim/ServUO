@@ -46630,8 +46630,8 @@
 1116295;You must have the High Seas booster pack to use this feature 
 1116296;"* Requires the ""High Seas"" booster "
 1116297;Dzialo okretowe zostalo zniszczone! 
-1116298;great barracuda steak 
-1116299;Mento Seasoning 
+1116298;stek z wielkiej barakudy
+1116299;tasandorska przyprawa
 1116300;dark truffle 
 1116301;yellowtail barracuda steak 
 1116302;saletra
@@ -46644,7 +46644,7 @@
 1116309;stek z krysztalowej ryby 
 1116310;stek z byczej ryby 
 1116311;letni stek ze smoczej ryby 
-1116312;bajkowy stek z lososia 
+1116312;stek z bajkowego lososia 
 1116313;stek z ryby lawowej 
 1116314;jesienny stek ze smoczej ryby 
 1116315;swiety stek z makreli 
@@ -46769,22 +46769,22 @@
 1116434;pokrecony szczupak
 1116435;ryba czyhajaca
 1116436;~1_PROCESS~ ~2_STAPLE~ 
-1116437;dried 
-1116438;salted 
-1116439;smoked 
-1116440;cured 
-1116441;pickled 
-1116442;spiced 
-1116443;herring 
-1116444;salmon 
-1116445;sea bass 
-1116446;tuna 
-1116447;yellowtail 
-1116448;cod 
-1116449;snapper 
-1116450;monkfish 
-1116451;hake 
-1116452;swordfish 
+1116437;suszony
+1116438;solony
+1116439;wedzony
+1116440;konserwowany
+1116441;marynowany
+1116442;przyprawiony
+1116443;sledz
+1116444;losos
+1116445;okon morski
+1116446;tunczyk
+1116447;zoltoogon
+1116448;dorsz
+1116449;lucjan
+1116450;ryba morska
+1116451;morszczuk
+1116452;miecznik
 1116453;~1_val~: ~2_val~/~3_val~ 
 1116454;~1_val~: ~2_val~/~3_val~ 
 1116455;~1_val~: ~2_val~/~3_val~ 
@@ -59058,29 +59058,29 @@
 1159188;<BASEFONT COLOR=#FF8300>Soulbound<BASEFONT COLOR=#FFFFFF> 
 1159189;The soul has been cleansed and you have been awarded ~1_SILVER~ Fellowship Silver for your efforts! 
 1159190;Ethereal Sand 
-1159191;GP: ~1_VALUE~ 
-1159192;Available For Purchase: ~1_PART~ / ~2_WHOLE~ 
-1159193;x~1_QUANT~ GP: ~2_COST~ 
-1159194;Purchase a Commodity Deed filled with ~1_QUANT~ ~2_NAME~ for ~3_COST~ GP? 
+1159191;Zloto: ~1_VALUE~ 
+1159192;Mozna zakupic: ~1_PART~ / ~2_WHOLE~ 
+1159193;x~1_QUANT~ zlota: ~2_COST~ 
+1159194;Kup akt notarialny wypelniony ~1_QUANT~ ~2_NAME~ za ~3_COST~ zlota? 
 1159195;Begging thy pardon, but your family has purchased the maximum amount of that commodity.  I cannot sell you more until a new shipment arrives! 
 1159196;Ethereal Soulcleanser 
 1159197;grillowane zeberka z weza 
 1159198;grillowane zeberka z dinozaura 
 1159199;kurczak waku 
 1159200;swieze przyprawy 
-1159201;salt 
-1159202;raw sea serpent steak 
-1159203;raw dino ribs 
-1159204;grilled serpent steak recipe 
-1159205;BBQ Dino Ribs Recipe 
-1159206;Waku Chicken Recipe 
-1159207;bake kitsune hat 
-1159208;mace belt 
-1159209;sword belt 
-1159210;Dagger Belt
-1159211;Crimson Mace Belt
-1159212;Crimson Sword Belt
-1159213;Crimson Dagger Belt
+1159201;sol 
+1159202;surowy stek z weza morskiego
+1159203;surowe zeberka dinozaura
+1159204;przepis na grillowanego steka z weza
+1159205;przepis na zeberka dinozaura z grilla
+1159206;przepis na kurczaka waku
+1159207;pieczony kapelusz kitsune
+1159208;pas z bulawa
+1159209;pas z mieczem
+1159210;pas ze sztyletem
+1159211;pas z maczuga szkarlatna
+1159212;pas ze szkarlatnym mieczem
+1159213;pas ze szkarlatnym sztyletem
 1159214;Ensign 
 1159215;Commander 
 1159216;Captain 
