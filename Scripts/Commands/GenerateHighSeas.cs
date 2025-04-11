@@ -58,7 +58,7 @@ namespace Server.Items
            // WeakEntityCollection.Add(name, board);
 
             board = new ProfessionalBountyBoard();
-            board.MoveToWorld(new Point3D(4544, 2298, -1), Map.Felucca);
+            board.MoveToWorld(new Point3D(1556, 1823, 0), Map.Felucca);
             WeakEntityCollection.Add(name, board);
 /*
             LocalizedSign sign;
@@ -411,7 +411,7 @@ namespace Server.Items
                 SpawnRange = 1,
                 HomeRange = 10
             };
-            sp.MoveToWorld(new Point3D(713, 1370, 6), Map.Felucca);
+            sp.MoveToWorld(new Point3D(1542, 1872, 0), Map.Felucca);
             sp.Respawn();
             WeakEntityCollection.Add(name, sp);
 
@@ -522,13 +522,13 @@ namespace Server.Items
             };
             sp.MoveToWorld(new Point3D(4544, 2302, -1), Map.Trammel);
             sp.Respawn();
-            WeakEntityCollection.Add(name, sp);
+            WeakEntityCollection.Add(name, sp);*/
 
             sp = new XmlSpawner(toSpawn)
             {
                 SpawnRange = 1,
                 HomeRange = 5
-            };*/
+            };
             sp.MoveToWorld(new Point3D(1573, 1821, 0), Map.Felucca);
             sp.Respawn();
             WeakEntityCollection.Add(name, sp);
