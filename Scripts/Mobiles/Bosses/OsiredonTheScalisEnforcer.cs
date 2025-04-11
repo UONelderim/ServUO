@@ -306,7 +306,7 @@ namespace Server.Mobiles
                 ((Osiredon)master).AddEel(this);
             }
 
-            Name = "trujacy wegoz";
+            Name = "trujacy wegorz";
             Body = 0x34;
             //BaseSoundID = 589;
             //TODO: soundid, Body    

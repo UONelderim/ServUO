@@ -28,7 +28,7 @@ namespace Server.Items
             m_FishInfos.Add(new FishInfo(2558, typeof(StoneCrab), 1116365, "Hernport", true, RareChance, 103.1)); //Confirmed
             m_FishInfos.Add(new FishInfo(43, typeof(SummerDragonfish), 1116091, "Orda", false, RareChance, 105.2));  //Confirmed
             m_FishInfos.Add(new FishInfo(1154, typeof(UnicornFish), 1116086, "Orda", false, RareChance, 110.0)); //Confirmed
-            m_FishInfos.Add(new FishInfo(2515, typeof(YellowtailBarracuda), 1116098, "SwiatyniaHirneth", true, RareChance, 81.9));//Confirmed
+            m_FishInfos.Add(new FishInfo(2515, typeof(YellowtailBarracuda), 1116098, "TylReviaren", true, RareChance, 81.9));//Confirmed
 
             //Legendary Fish ; 16-34
             m_FishInfos.Add(new FishInfo(2406, typeof(AbyssalDragonfish), 1116118, "Cesarstwo", false, LegendaryChance, 120.0)); //Confirmed
