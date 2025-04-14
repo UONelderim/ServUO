@@ -242,34 +242,10 @@ namespace Server.Engines.Quests
 
                 switch (zone)
                 {
-                  /*  case SpawnZone.TramJhelom:
-                        if (m_ActiveZones[zone].Count < m_MaxTram)
-                            SpawnPirateAndGalleon(zone, Map.Trammel);
-                        break;
-                    case SpawnZone.FelJhelom:
-                        if (m_ActiveZones[zone].Count < m_MaxFel)
-                            SpawnPirateAndGalleon(zone, Map.Felucca);
-                        break;
-                    case SpawnZone.TramMoonglow:
-                        if (m_ActiveZones[zone].Count < m_MaxTram)
-                            SpawnPirateAndGalleon(zone, Map.Trammel);
-                        break;*/
                     case SpawnZone.FelMoonglow:
                         if (m_ActiveZones[zone].Count < m_MaxFel)
                             SpawnPirateAndGalleon(zone, Map.Felucca);
                         break;
-                 /*   case SpawnZone.TokunoPirate:
-                        if (m_ActiveZones[zone].Count < m_MaxTokuno)
-                            SpawnPirateAndGalleon(zone, Map.Tokuno);
-                        break;
-                    case SpawnZone.TramMerch1:
-                        if (m_ActiveZones[zone].Count < m_MaxTram)
-                            SpawnMerchantAndGalleon(zone, Map.Trammel);
-                        break;
-                    case SpawnZone.TramMerch2:
-                        if (m_ActiveZones[zone].Count < m_MaxTram)
-                            SpawnMerchantAndGalleon(zone, Map.Trammel);
-                        break;*/
                     case SpawnZone.FelMerch1:
                         if (m_ActiveZones[zone].Count < m_MaxFel)
                             SpawnMerchantAndGalleon(zone, Map.Felucca);
@@ -278,10 +254,6 @@ namespace Server.Engines.Quests
                         if (m_ActiveZones[zone].Count < m_MaxFel)
                             SpawnMerchantAndGalleon(zone, Map.Felucca);
                         break;
-                  /*  case SpawnZone.TokunoMerch:
-                        if (m_ActiveZones[zone].Count < m_MaxTokuno)
-                            SpawnMerchantAndGalleon(zone, Map.Tokuno);
-                        break;*/
                 }
             }
         }
@@ -921,17 +893,11 @@ namespace Server.Engines.Quests
         //Defines the definitions.
         public static void Configure()
         {
-           // new SpawnDefinition(new Rectangle2D(1500, 3600, 180, 400), m_PirateTramFelCoursesJhelom, SpawnZone.TramJhelom, Map.Trammel);
             new SpawnDefinition(new Rectangle2D(1500, 3600, 180, 400), m_PirateTramFelCoursesJhelom, SpawnZone.FelJhelom, Map.Felucca);
-            //new SpawnDefinition(new Rectangle2D(4570, 630, 400, 100), m_PirateTramFelCoursesMoonglow, SpawnZone.TramMoonglow, Map.Trammel);
             new SpawnDefinition(new Rectangle2D(4570, 630, 400, 100), m_PirateTramFelCoursesMoonglow, SpawnZone.FelMoonglow, Map.Felucca);
-           // new SpawnDefinition(new Rectangle2D(1022, 1182, 350, 200), m_PirateTokunoCourses, SpawnZone.TokunoPirate, Map.Tokuno);
 
-           // new SpawnDefinition(new Rectangle2D(1780, 1650, 300, 200), m_MerchantTramFelCourses1, SpawnZone.TramMerch1, Map.Trammel);
             new SpawnDefinition(new Rectangle2D(1780, 1650, 300, 200), m_MerchantTramFelCourses1, SpawnZone.FelMerch1, Map.Felucca);
-           // new SpawnDefinition(new Rectangle2D(3780, 2300, 100, 200), m_MerchantTramFelCourses2, SpawnZone.TramMerch2, Map.Trammel);
             new SpawnDefinition(new Rectangle2D(4400, 2924, 100, 200), m_MerchantTramFelCourses2, SpawnZone.FelMerch2, Map.Felucca);
-          // new SpawnDefinition(new Rectangle2D(425, 1335, 160, 80), m_MerchantTokunoCourses, SpawnZone.TokunoMerch, Map.Tokuno);
         }
 
         public static Point2D[][] PirateTramFelCoursesJhelom => m_PirateTramFelCoursesJhelom;

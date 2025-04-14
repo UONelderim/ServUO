@@ -17,7 +17,7 @@ namespace Server.Items
         {
             Name = "Mapa Wyspy";
             m_DestinationPoint = pnt;
-            Facet = Map.Felucca; //Added Facet cuz it called Trammel
+            Facet = Map.Felucca;
             AddWorldPin(pnt.X, pnt.Y);
             Protected = true;
 

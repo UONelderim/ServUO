@@ -52,7 +52,6 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public Mobile Owner { get { return m_Owner; } set { m_Owner = value; InvalidateProperties(); } }
 
-        //public override int LabelNumber { get { if (m_Owner == null) return 1096487; else return 0; } }
         public override int LabelNumber => 1096487;
         public override bool DisplaysContent => false;
 
