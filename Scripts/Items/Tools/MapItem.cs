@@ -30,7 +30,7 @@ namespace Server.Items
 
         [Constructable]
         public MapItem()
-            : this(Siege.SiegeShard ? Map.Felucca : Map.Trammel)
+            : this(Map.Felucca)
         {
         }
 
@@ -349,22 +349,7 @@ namespace Server.Items
                 m_Stream.Write((short)map.Bounds.End.Y);
                 m_Stream.Write((short)map.Width);
                 m_Stream.Write((short)map.Height);
-
-                short mapValue = 0x00;
-                if (map.Facet == Map.Felucca)
-                    mapValue = 0x00;
-                //else if (map.Facet == Map.Trammel)
-                  //  mapValue = 0x01;
-                else if (map.Facet == Map.Ilshenar)
-                    mapValue = 0x02;
-                else if (map.Facet == Map.Malas)
-                    mapValue = 0x03;
-                else if (map.Facet == Map.Tokuno)
-                    mapValue = 0x04;
-                else if (map.Facet == Map.TerMur)
-                    mapValue = 0x05;
-
-                m_Stream.Write(mapValue);
+                m_Stream.Write((short)(map.Facet.MapIndex));
             }
         }
 
