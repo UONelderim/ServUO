@@ -53,7 +53,7 @@ namespace Server.Items
             else if (size > 400)
                 size = 400;
 
-            if ( Facet == Map.Felucca)
+            if (Facet == Map.Felucca || Facet == Map.Trammel)
             {
                 if (Spells.SpellHelper.IsAnyT2A(Facet, from.Location))
                 {
