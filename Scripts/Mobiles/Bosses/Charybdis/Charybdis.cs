@@ -657,9 +657,9 @@ namespace Server.Mobiles
                 default:
                 case 0: return (NConfig.Loot.RecipesEnabled ? new RecipeScroll(1102) : null);
                 case 1: return (NConfig.Loot.RecipesEnabled ? new RecipeScroll(1103) : null);
-                case 2: return new HungryCoconutCrabStatue();
-                case 3: return new LeurociansMempoOfFortune();
-                case 4: return new CaptainsHeartyRum();
+               // case 2: return new HungryCoconutCrabStatue();
+                case 2: return new LeurociansMempoOfFortune();
+                case 3: return new CaptainsHeartyRum();
             }
         }
 
@@ -699,7 +699,7 @@ namespace Server.Mobiles
     {
         private Mobile m_Master;
 
-        public GiantTentacle(Mobile master) : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
+        public GiantTentacle(Mobile master) : base(AIType.AI_Melee, FightMode.Closest, 10, 2, 0.2, 0.4)
         {
             if (master is Charydbis)
             {
@@ -707,7 +707,7 @@ namespace Server.Mobiles
                 ((Charydbis)master).AddTentacle(this);
             }
 
-            Name = "a giant tentacle";
+            Name = "wielka macka";
             Body = 1245;
             BaseSoundID = 0x161;
 
@@ -730,8 +730,8 @@ namespace Server.Mobiles
             SetResistance(ResistanceType.Poison, 60, 70);
             SetResistance(ResistanceType.Energy, 5, 10);
 
-            SetSkill(SkillName.Wrestling, 52.0, 70.0);
-            SetSkill(SkillName.Tactics, 0.0);
+            SetSkill(SkillName.Wrestling, 52.0, 100.0);
+            SetSkill(SkillName.Tactics, 89.0);
             SetSkill(SkillName.MagicResist, 100.4, 113.5);
             SetSkill(SkillName.Anatomy, 1.0, 0.0);
             SetSkill(SkillName.Magery, 60.2, 72.4);

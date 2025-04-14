@@ -111,7 +111,7 @@ namespace Server.Regions
                 else
                 {
                     boat.StopMove(true);
-                    boat.SendMessageToAllOnBoard("The boat has struck a coral reef!");
+                    boat.SendMessageToAllOnBoard("Lodz utknela na rafie koralowej!");
                 }
 
             }

@@ -22,7 +22,7 @@ namespace Server.Items
         {
             base.GetProperties(list);
 
-            list.Add(1070857, m_CaughtBy != null ? m_CaughtBy.Name : "An Unknown Fisher"); //Caught by ~1_fisherman~
+            list.Add(1070857, m_CaughtBy != null ? m_CaughtBy.Name : "Nieznanego rybaka"); //Caught by ~1_fisherman~
 
             if (m_DateCaught != DateTime.MinValue)
                 list.Add("[{0}]", m_DateCaught.ToShortDateString());

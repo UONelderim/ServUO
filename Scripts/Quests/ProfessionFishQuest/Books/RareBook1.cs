@@ -5,134 +5,133 @@
         [Constructable]
         public FishingGuideBook1() : base(Utility.Random(0xFF1, 2), false)
         {
-            Name = "Volume 1 - Uncommon Shore Fish";
+            Name = "Tom 1 - Niezwykle ryby brzegowe";
         }
 
         public static readonly BookContent Content = new BookContent
         (
-            null, "Cpt. Piddlewash",
+            null, "Kapitan Fladroglowy",
 
             new BookPageInfo
             (
-                "Bluegill Sunfish:",
-                "Be wary o these bluegills,",
-                "they be a bit snooty but",
-                "they be tastin' great on a",
-                "cracker."
+	            "Niebieski granik: ", 
+        "Strzez sie tych niebieskich granikow, " ,
+        "sa troche wyniosle, ale  ",
+	       " swietnie smakuja na krakersie."
             ),
 
             new BookPageInfo
             (
-                "Brook trout:",
-                "These be found in brooks",
-                "mostly, but sometimes",
-                "streams, ponds, creeks,",
-                "rivers, inlets, fords, and",
-                "occasionally puddles."
+	            "Pstrag potokowy: ", 
+	           "Zwykle mozna go znalezc w strumykach",  
+        "ale czasem tez w potokach, stawach",  
+        "strumieniach, rzekach, doplywach",  
+        "brodach, a okazjonalnie nawet w kaluzach."
             ),
 
             new BookPageInfo
             (
-                "Green catfish:",
+	            "Zielony sum:",  
 
-                "Dont let the green color",
-                "scare ye away, it be",
-                "delicious! Folks what eat",
-                "them say they make yer eyes",
-                "turn green."
+	            "Niech zielony kolor",  
+	            "cie nie odstraszy, bo jest", 
+	            "pyszny! Ci, co go jedli",  
+	            "mowia, ze od niego oczy",  
+		            "robia sie zielone."
             ),
 
             new BookPageInfo
             (
-                "Kokanee salmon:",
+	            "Losos Kokanee:",  
 
-                "I named this'n fer me",
-                "favorite aunt in hopes that",
-                "she would leave me her ship.",
-                "Then she left it to her",
-                "boyfriend so I changed it to",
-                "Kokanee. "
+	            "Nazwalem go na czesc",  
+	            "mojej ulubionej ciotki, liczac, ",
+	            "ze zapisze mi swoj statek.",  
+	            "Ale zostawila go swojemu",  
+	            "chlopakowi, wiec zmienilem",  
+	            "nazwe na Kokanee."
             ),
 
             new BookPageInfo
             (
-                "Pike:",
+	            "Szczupak:",
 
-                "This fresh water fish be lookin'",
-                "a bit like their ocean cousin",
-                "the barracuda. But don't be",
-                "fooled, they bite!"
+	            "Ta slodkowodna ryba wyglada",
+	            "troche jak jej oceaniczny kuzyn,",
+	            "barakuda. Ale nie daj sie",
+	            "zmylic, gryzie!"
 
             ),
 
             new BookPageInfo
             (
-                "Pumpkinseed Sunfish:",
+	            "Slonecznica dyniowa:",
 
-                "Found in rivers and other shallow",
-                "waters, this fish be so named",
-                "because it be first caught by me",
-                "friend, Pumpkinseed Smith."
+	            "Znajdowana w rzekach i innych",
+	            "plytkich wodach, ta ryba nosi",
+	            "swoja nazwe, bo jako pierwszy",
+	            "zlowil ja moj przyjaciel,",
+	            "Pumpkinseed Smith."
             ),
 
             new BookPageInfo
             (
-                "Rainbow trout:",
+	            "Pstrag teczowy:",
 
-                "These trout be colored a bit like",
-                "rainbow salmon but they're not,",
-                "they're trout."
+	            "Te pstragi maja kolory troche",
+	            "jak teczowy losos, ale to nie losos,",
+	            "to pstrag."
             ),
 
             new BookPageInfo
             (
-                "Redbelly bream:",
+	            "Leszcz czerwonobrzuchy:",
 
-                "The secret ta catchin' these",
-                "particular bream is ta be fishin'",
-                "near the shores."
+	            "Sekretem lowienia tych",
+	            "szczegolnych leszczy jest",
+	            "wedkowanie blisko brzegu."
             ),
 
             new BookPageInfo
             (
-                "Smallmouth bass:",
+	            "Bass malogebowy:",
 
-                "'Tis believed that this",
-                "fish is uncommon simply",
-                "because it be a picky 'eater. "
+	            "Wierzy sie, ze ta ryba",
+	            "jest rzadka po prostu dlatego,",
+	            "ze jest wybredna w jedzeniu."
             ),
 
             new BookPageInfo
             (
-                "Uncommon shiner:",
+	            "Niezwykly kielb:",
 
-                "This fish is not to be",
-                "confused with the common",
-                "shiner. The uncommon",
-                "shiner tastes way better."
+	            "Tej ryby nie nalezy mylic",
+	            "ze zwyklym kielbem.",
+	            "Niezwykly kielb smakuje",
+	            "o wiele lepiej."
             ),
 
             new BookPageInfo
             (
-                "Walleye:",
+	            "Sandacz:",
 
-                "This be a tricky devil",
-                "'cause he can see ye coming.",
-                "'Tis best to fish her them",
-                "at night or ta be wearin'",
-                "a worm costume."
+	            "To sprytny diabel,",
+	            "bo widzi cie, jak nadchodzisz.",
+	            "Najlepiej lowic go w nocy",
+	            "albo zalozyc kostium robaka."
             ),
 
             new BookPageInfo
             (
-                "Yellow perch:",
+	            "Okon zolty:",
 
-                "Ye can sometimes see",
-                "these swimmin' near rocks",
-                "and such. They be easy ta",
-                "spot cause they be yellow",
-                "somewhere on thar body."
+	            "Czasami mozna je zobaczyc",
+	            "plywajace w poblizu skal",
+	            "i tym podobnych. Latwo je",
+	            "dostrzec, bo maja zolty kolor",
+	            "gdzies na ciele."
             )
+
         );
 
         public override BookContent DefaultContent => Content;

@@ -10,7 +10,7 @@ namespace Server.Items
         {
             AddonComponent comp = new AddonComponent(14284)
             {
-                Name = "an enchanted vortex"
+                Name = "zaklety wir"
             };
             AddComponent(comp, 0, 0, 0);
         }
@@ -40,7 +40,7 @@ namespace Server.Items
         [Constructable]
         public EnchantedVortexDeed()
         {
-            Name = "A deed for an enchanted vortex";
+            Name = "Zwoj zakletego wiru";
         }
 
         public EnchantedVortexDeed(Serial serial)

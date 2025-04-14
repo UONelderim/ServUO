@@ -85,11 +85,11 @@ namespace Server.Engines.Quests
                 return;
 
             if (points <= 100)
-                m_Player.SendMessage("You have gained a fair amount of reputation with the Fish Mongers.");
+                m_Player.SendMessage("Uzyskales troche reputacji w kregach rybackich.");
             else if (points <= 150)
-                m_Player.SendMessage("You have gained a good amount of reputation with the Fish Mongers.");
+                m_Player.SendMessage("Uzyskales calkiem sporo reputacji w kregach rybackich.");
             else
-                m_Player.SendMessage("You have gained a large amount of reputation with the Fish Mongers.");
+                m_Player.SendMessage("Uzyskales duzo reputacji w kregach rybackich.");
         }
 
         public int CalculateLines()
@@ -261,7 +261,7 @@ namespace Server.Engines.Quests
             if (from == null)
                 return;
 
-            from.SendMessage("You have earned {0} amount of reputation with the Fish Mongers.", GetStatus());
+            from.SendMessage("Zdobyles {0} reputacji w kregach rybakow.", GetStatus());
         }
 
         private string GetStatus()
@@ -283,12 +283,12 @@ namespace Server.Engines.Quests
 
         private readonly string[] m_Status =
         {
-            "a small",
-            "a fair",
-            "a moderate",
-            "a tremendous",
-            "an outstanding",
-            "an enormous",
+            "maly",
+            "niezly",
+            "umiarkowany",
+            "wiekszy",
+            "niesamowity",
+            "ogromny",
         };
 
         public static void FishMongerStatus_OnCommand(CommandEventArgs e)
@@ -298,7 +298,7 @@ namespace Server.Engines.Quests
             if (entry != null)
                 entry.GetFishMongerReputation(e.Mobile);
             else
-                e.Mobile.SendMessage("You have no reputation with the Fish Mongers.");
+                e.Mobile.SendMessage("Brak Ci reputacji w kregach rybackich.");
         }
     }
 }

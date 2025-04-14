@@ -31,7 +31,7 @@ namespace Server.Mobiles
         public override double TreasureMapChance => .50;
         public override int TreasureMapLevel => 7;
 
-        public override Type[] UniqueList => new Type[] { typeof(EnchantedCoralBracelet), typeof(WandOfThunderingGlory), typeof(LeviathanHideBracers), typeof(SmilingMoonBlade) };
+        public override Type[] UniqueList => new Type[] { typeof(EnchantedCoralBracelet), /*typeof(WandOfThunderingGlory), */typeof(LeviathanHideBracers), typeof(SmilingMoonBlade) };
         public override Type[] SharedList => new Type[] { typeof(MiniSoulForgeDeed) };
         public override Type[] DecorativeList => new Type[] { typeof(EnchantedBladeDeed), typeof(EnchantedVortexDeed) };
 
@@ -306,7 +306,7 @@ namespace Server.Mobiles
                 ((Osiredon)master).AddEel(this);
             }
 
-            Name = "a parasitic eel";
+            Name = "trujacy wegorz";
             Body = 0x34;
             //BaseSoundID = 589;
             //TODO: soundid, Body    

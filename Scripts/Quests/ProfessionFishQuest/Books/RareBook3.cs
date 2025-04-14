@@ -5,143 +5,139 @@
         [Constructable]
         public FishingGuideBook3() : base(Utility.Random(0xFF1, 2), false)
         {
-            Name = "Volume 3 - Uncommon Dungeon Fish";
+            Name = "Tom 3 - Niezwykle Ryby Podmroczne";
         }
 
         public static readonly BookContent Content = new BookContent
-        (
-            null, "Cpt. Piddlewash",
+(
+    null, "Kpt. Piddlewash",
 
-            new BookPageInfo
-            (
-                "Crag Snapper:",
+    new BookPageInfo
+    (
+        "Graniakowaty lucjan:",
 
-                "Crag Snapper be fine",
-                "eating. Just mind yer",
-                "fingers. "
-            ),
+        "Graniakowaty lucjan to",
+        "wysmienita ryba.",
+        "Tylko uwazaj na palce."
+    ),
 
-            new BookPageInfo
-            (
-                "Cutthrout Trout:",
+    new BookPageInfo
+    (
+        "Pstrag Podrzynacz:",
 
-                "This dungeon menace",
-                "'tis the very one that",
-                "gave rise to the ol'",
-                "saying. 'Ne'er take a",
-                "bath in dungeon water. "
-            ),
+        "Ten lochowy postrach",
+        "to wlasnie ten, ktory",
+        "dal poczatek staremu",
+        "powiedzeniu: 'Nigdy nie",
+        "kap sie w wodzie z lochow.'"
+    ),
 
-            new BookPageInfo
-            (
-                "Darkfish:",
+    new BookPageInfo
+    (
+        "Mroczna ryba:",
 
-                "Ye find this fish in",
-                "undergroun rivers and",
-                "lakes. But only dark",
-                "undergroun rivers and",
-                "lakes. "
-            ),
+        "Znajdziesz te rybe w",
+        "podziemnych rzekach i",
+        "jeziorach. Ale tylko w",
+        "ciemnych podziemnych",
+        "rzekach i jeziorach."
+    ),
 
-            new BookPageInfo
-            (
-                "Demon Trout:",
+    new BookPageInfo
+    (
+        "Demoniczny pstrag:",
 
-                "Beware, this big devil",
-                "comes out of the water",
-                "spicy. "
-            ),
+        "Uwazaj, ten diabelski",
+        "potwor wychodzi z wody",
+        "juz przyprawiony na ostro."
+    ),
 
-            new BookPageInfo
-            (
-                "Drakefish:",
+    new BookPageInfo
+    (
+        "Smocza ryba:",
 
-                "The smaller cousin o'",
-                "the dragonfish, this",
-                "beauty be much easier",
-                "to catch and thus more",
-                "commonly used in cooking."
+        "Mniejszy kuzyn smoczej",
+        "ryby, ten piekny okaz",
+        "jest duzo latwiejszy",
+        "do zlapania i dlatego",
+        "czesciej uzywany w kuchni."
+    ),
 
-            ),
+    new BookPageInfo
+    (
+        "Lochowy sledz:",
 
-            new BookPageInfo
-            (
-                "Dungeon Chub:",
+        "To jedyny podziemny",
+        "przedstawiciel rodziny",
+        "sledzi."
+    ),
 
-                "This be the only",
-                "subterranean member",
-                "o' the chub family. "
-            ),
+    new BookPageInfo
+    (
+        "Ponury Cisco:",
 
-            new BookPageInfo
-            (
-                "Grim Cisco:",
+        "Ta ryba jest poszukiwana",
+        "ze wzgledu na jej",
+        "wlasciwosci lecznicze.",
+        "Mowia, ze to najlepsze",
+        "lekarstwo na histerie."
+    ),
 
-                "This fish is sought",
-                "for medicinal",
-                "purposes. They say",
-                "it be the best cure",
-                "for hysteria. "
-            ),
+    new BookPageInfo
+    (
+        "Piekielny tunczyk:",
 
-            new BookPageInfo
-            (
-                "Infernal Tuna:",
+        "Ta ryba jest smiertelnie",
+        "trujaca, chyba ze ja",
+        "usmazysz na masle",
+        "z odrobina tymianku",
+        "i podasz z piwem."
+    ),
 
-                "This fish be deadly",
-                "poisonous unless ye",
-                "cook it in butter",
-                "with a bit o' ",
-                "thyme and serve it",
-                "will ale. "
-            ),
+    new BookPageInfo
+    (
+        "Ryba czatujaca:",
 
-            new BookPageInfo
-            (
-                "Lurker Fish:",
+        "Te ryby lubia ukrywac",
+        "sie pod unoszacymi sie",
+        "w podziemnych rzekach",
+        "zwlokami."
+    ),
 
-                "These fish like to",
-                "hide up under",
-                "corpses floating",
-                "in underground rivers."
-            ),
+    new BookPageInfo
+    (
+        "Orczy okon:",
 
-            new BookPageInfo
-            (
-                "Orc Bass:",
+        "Jesli kiedys beda cie",
+        "gonic orkowie, rzuc",
+        "jednego i uciekaj dalej!",
+        "Odkad zaczalem to",
+        "opowiadac, sprzedaje",
+        "wiecej orczych okoni."
+    ),
 
-                "If ye be ever ",
-                "chased by orcs, ",
-                "throw one down an",
-                "keep runnin! Ever",
-                "since I started",
-                "tellin' folks this,",
-                "I been sellin more",
-                "orc bass. "
-            ),
+    new BookPageInfo
+    (
+        "Zebata bassica:",
 
-            new BookPageInfo
-            (
-                "Snaggletoth Bass:",
+        "Ten lochowy drapieznik",
+        "przypomina okonia",
+        "szerokogebego, z ta",
+        "roznica, ze ma ogromne,",
+        "postrzepione zeby."
+    ),
 
-                "This dungeon lurker",
-                "be resemblin' a ",
-                "large mouth bass",
-                "excepting it be",
-                "having huge jagged",
-                "teeth."
-            ),
+    new BookPageInfo
+    (
+        "Udreczony szczupak:",
 
-            new BookPageInfo
-            (
-                "Tormented Pike:",
+        "Ten szczupak jest celem",
+        "polowan niemal kazdego",
+        "potwora w Sosarii,",
+        "z wyjatkiem kilku."
+    )
+);
 
-                "This pike be hunted",
-                "by every monster in",
-                "Sosaria except few a",
-                "few."
-            )
-        );
 
         public override BookContent DefaultContent => Content;
 

@@ -36,7 +36,7 @@
         [Constructable]
         public EnchantedBladeDeed()
         {
-            Name = "A deed for an enchanted blade";
+            Name = "zwoj na zaklete ostrze";
         }
 
         public EnchantedBladeDeed(Serial serial) : base(serial)

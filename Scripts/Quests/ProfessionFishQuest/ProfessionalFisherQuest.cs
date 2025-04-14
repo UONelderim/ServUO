@@ -111,21 +111,21 @@ namespace Server.Engines.Quests
             if (reg == null || reg.Name == null)
                 return 1116507;
 
-            if (reg.Name == "Sea Market")
+            if (reg.Name == "Tasandora")
                 return 1116507; //Professional Fisher Quest - Floating Emporium
-            if (reg.Name == "Britain")
+            if (reg.Name == "Tirassa")
                 return 1116728; //Professional Fisher Quest - Britain
-            if (reg.Name == "Trinsic")
+            if (reg.Name == "Orod")
                 return 1116730; //Professional Fisher Quest - Trinsic
-            if (reg.Name == "Moonglow")
+            if (reg.Name == "Ferion")
                 return 1116731; //Professional Fisher Quest - Moonglow
-            if (reg.Name == "Skara Brae")
+            if (reg.Name == "Lotharn")
                 return 1116732; //Professional Fisher Quest - Skara Brae
-            if (reg.Name == "Vesper")
+            if (reg.Name == "Garlan")
                 return 1116733; //Professional Fisher Quest - Vesper
-            if (reg.Name == "Jhelom" || reg.Name == "Jhelom Islands")
+            if (reg.Name == "Podmrok_C" )
                 return 1116734; //Professional Fisher Quest - Jhelom
-            if (reg.Name == "Papua")
+            if (reg.Name == "ArtTrader")
                 return 1116735; //Professional Fisher Quest - Papua
             return 1116507;
         }
