@@ -535,7 +535,7 @@ namespace Server.Mobiles
         #endregion
 
         #region Pet Training
-        public static double MaxTameRequirement = 115.1;
+        public double MaxTameRequirement => Math.Max(MinTameSkill, ControlSlots == ControlSlotsMax ? 115.1 : 105.1);
 
         private AbilityProfile _Profile;
         private TrainingProfile _TrainingProfile;

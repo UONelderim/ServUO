@@ -984,7 +984,7 @@ namespace Server.Mobiles
         #region Training Helpers
         public static bool CanControl(Mobile m, BaseCreature bc, TrainingProfile trainProfile)
         {
-            double projected = Math.Min(BaseCreature.MaxTameRequirement, bc.CurrentTameSkill + trainProfile.GetRequirementIncrease(!trainProfile.HasIncreasedControlSlot));
+            double projected = Math.Min(bc.MaxTameRequirement, bc.CurrentTameSkill + trainProfile.GetRequirementIncrease(!trainProfile.HasIncreasedControlSlot));
 
             return m.Skills[SkillName.AnimalTaming].Value >= projected;
         }
