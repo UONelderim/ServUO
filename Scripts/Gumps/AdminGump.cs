@@ -273,8 +273,8 @@ namespace Server.Gumps
 					AddLabel(20, 330, LabelHue, "Framework:");
 					AddLabel(150, 330, LabelHue, Environment.Version.ToString());
 
-					AddLabel(20, 350, LabelHue, "Operating System: ");
-					string os = Environment.OSVersion.ToString();
+					AddLabel(20, 350, LabelHue, "CommitId: ");
+					string os = GitInfo.CommitId;
 
 					os = os.Replace("Service Pack", "SP");
 

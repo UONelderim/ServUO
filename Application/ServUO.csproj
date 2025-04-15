@@ -10,7 +10,6 @@
 		<OutputPath>..\</OutputPath>
 		<ServerGarbageCollection>true</ServerGarbageCollection>
 		<ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<StartupObject>ServUO.ServUO</StartupObject>
 		<RootNamespace>Server</RootNamespace>
 		<NoWin32Manifest>true</NoWin32Manifest>
