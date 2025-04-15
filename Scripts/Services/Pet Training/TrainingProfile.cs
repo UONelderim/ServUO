@@ -161,11 +161,11 @@ namespace Server.Mobiles
 
         public void OnTrain(PlayerMobile pm, int points)
         {
-            int reqInc;
+            double reqInc;
 
             if (!HasIncreasedControlSlot)
             {
-                reqInc = GetRequirementIncrease(true);
+	            reqInc = GetRequirementIncrease(true);
 
                 Creature.RemoveFollowers();
                 Creature.ControlSlots++;
@@ -181,23 +181,27 @@ namespace Server.Mobiles
                 reqInc = GetRequirementIncrease(false);
             }
 
-            Creature.CurrentTameSkill = Math.Min(BaseCreature.MaxTameRequirement, Creature.CurrentTameSkill + reqInc);
+            Creature.CurrentTameSkill += reqInc;
             TrainingPoints -= points;
         }
 
-        public int GetRequirementIncrease(bool slotIncreased)
+        public double GetRequirementIncrease(bool slotIncreased)
         {
+	        var limit = ControlSlots + 1 >= ControlSlotsMax ? 115.1 : 105.1;
+	        var increaseLimit = Math.Max(0, limit - Creature.CurrentTameSkill);
+	        double increase;
+	        
             if (slotIncreased)
             {
                 // First level
-                if (ControlSlotsMin + 1 == ControlSlots)
+                if (ControlSlotsMin == ControlSlots)
                 {
-                    return 21;
+	                increase = 21;
                 }
                 // subsequent trains of that level
                 else
                 {
-                    return 22;
+	                increase = 22;
                 }
             }
             else
@@ -205,14 +209,16 @@ namespace Server.Mobiles
                 // First train of that level (after level increase, so actually 2nd train)
                 if (TrainedThisLevel == 1)
                 {
-                    return 3;
+	                increase = 3;
                 }
                 // subsequent trains of that level
                 else
                 {
-                    return 2;
+	                increase = 2;
                 }
             }
+
+            return Math.Min(increaseLimit, increase);
         }
 
         public void EndTraining()

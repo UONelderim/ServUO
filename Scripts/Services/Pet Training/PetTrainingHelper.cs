@@ -1763,6 +1763,9 @@ namespace Server.Mobiles
                                     bc.Owners.Add(m);
 
                                     GetAbilityProfile(bc, true).OnTame();
+                                    var prof = GetTrainingProfile(bc, true);
+                                    prof.BeginTraining();
+                                    prof.TrainingProgress = 100;
                                 });
                             }
                         }

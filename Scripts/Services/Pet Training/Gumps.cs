@@ -323,15 +323,8 @@ namespace Server.Mobiles
 	            AddHtml(53, 236, 80, 18, FormatPetSlots(Creature.ControlSlots, Creature.ControlSlotsMax), false, false);
 
 	            // Display the current taming skill requirement 
-	            AddHtmlLocalized(130, 236, 200, 18, 1157600, FormatTamingSkill(Creature.MinTameSkill, Creature.CurrentTameSkill ), _Label, false, false);
-	            AddTooltip(3070065); // Shows base minimum and current taming requirements
-            }
-
-// Helper method to format taming skill display (add this method to the class)
-string FormatTamingSkill(double minSkill, double currentSkill)
-            {
-	            // Format to display both the base minimum taming and the current requirement after training
-	            return string.Format("{0:F1} / {1:F1}", minSkill, currentSkill);
+	            AddHtmlLocalized(130, 236, 200, 18, 1157600, FormatTamingSkill(Creature.CurrentTameSkill, Creature.MinTameSkill), _Label, false, false);
+	            AddTooltip(3070065);
             }
 
             AddButton(240, 328, 0x15E1, 0x15E5, 0, GumpButtonType.Page, 8);
@@ -634,6 +627,11 @@ string FormatTamingSkill(double minSkill, double currentSkill)
         public string FormatPetSlots(int min, int max)
         {
             return string.Format("<BASEFONT COLOR=#57412F>{0} => {1}", min.ToString(), max.ToString());
+        }
+        
+        string FormatTamingSkill(double s1, double s2)
+        {
+	        return $"{s1:F1} / {s2:F1}";
         }
     }
 

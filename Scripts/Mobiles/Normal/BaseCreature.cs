@@ -695,19 +695,9 @@ namespace Server.Mobiles
 
         public void AdjustTameRequirements()
         {
-            if (ControlSlots <= ControlSlotsMin)
-            {
-                CurrentTameSkill = MinTameSkill;
-            }
-            else
-            {
-                CurrentTameSkill = ((ControlSlots - ControlSlotsMin) * 21) + 1;
-            }
-
-            if (CurrentTameSkill > MaxTameRequirement)
-            {
-                CurrentTameSkill = MaxTameRequirement;
-            }
+	        CurrentTameSkill = MinTameSkill;
+	        CurrentTameSkill += (ControlSlots - ControlSlotsMin) * 21;
+	        CurrentTameSkill = Math.Min(CurrentTameSkill, MaxTameRequirement);
         }
         #endregion
 
@@ -2775,18 +2765,10 @@ namespace Server.Mobiles
             {
                 CurrentTameSkill = reader.ReadDouble();
 
-                if (Controlled && version == 26)
-                {
-                    AdjustTameRequirements();
-                }
-                else if (Controlled && CurrentTameSkill > MaxTameRequirement)
+                if (Controlled && CurrentTameSkill > MaxTameRequirement)
                 {
                     CurrentTameSkill = MaxTameRequirement;
                 }
-            }
-            else
-            {
-                AdjustTameRequirements();
             }
 
             if (version <= 14 && m_Paragon && Hue == 0x31)
