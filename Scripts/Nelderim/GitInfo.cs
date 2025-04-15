@@ -10,12 +10,19 @@ namespace Server.Commands
 		
 		public static void Configure()
 		{
-			var x = Assembly
-				.GetExecutingAssembly()
-				.GetCustomAttribute<AssemblyInformationalVersionAttribute>()
-				.InformationalVersion;
-			_commitId = x.Split("+")[1];
-			Console.WriteLine($"Commit ID: {_commitId}");
+			try
+			{
+				var x = Assembly
+					.GetExecutingAssembly()
+					.GetCustomAttribute<AssemblyInformationalVersionAttribute>()
+					.InformationalVersion;
+				_commitId = x.Split("+")[1];
+				Console.WriteLine($"Commit ID: {_commitId}");
+			}
+			catch(Exception ex)
+			{
+				Console.WriteLine($"Error fetching commit id: {ex.Message}");
+			}
 		}
 	}
 }
