@@ -187,8 +187,7 @@ namespace Server.Mobiles
 
         public double GetRequirementIncrease(bool slotIncreased)
         {
-	        var limit = ControlSlots + 1 >= ControlSlotsMax ? 115.1 : 105.1;
-	        var increaseLimit = Math.Max(0, limit - Creature.CurrentTameSkill);
+	        var increaseLimit = Math.Max(0, Creature.MaxTameRequirement - Creature.CurrentTameSkill);
 	        double increase;
 	        
             if (slotIncreased)
