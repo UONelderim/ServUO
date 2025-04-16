@@ -73,7 +73,7 @@ public class NamelessHood : BaseHat
 
 		if (Parent is Mobile mobile)
 		{
-			if (mobile.Region is CityRegion || mobile.Region is VillageRegion && mobile.IdentityHidden)
+			if ((mobile.Region is CityRegion || mobile.Region is VillageRegion) && mobile.IdentityHidden)
 			{
 				mobile.SendMessage("Nie lubi się tutaj zakapturzonych typów, uważaj na straż.");
 			}
