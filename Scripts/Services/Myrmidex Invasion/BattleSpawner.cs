@@ -111,7 +111,7 @@ namespace Server.Engines.MyrmidexInvasion
                 Instance.BattleRegion.Spawner = Instance;
             }
 
-            CommandSystem.Register("CheckPoints", AccessLevel.GameMaster, e =>
+            CommandSystem.Register("BattleSpawnerCheckPoints", AccessLevel.GameMaster, e =>
             {
                 if (Instance != null)
                     CheckPoints(e);
