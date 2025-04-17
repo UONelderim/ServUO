@@ -202,7 +202,7 @@ namespace Server.Commands
 
 		public static void Register(string command, AccessLevel access, CommandEventHandler handler)
 		{
-			Entries[command] = new CommandEntry(command, handler, access);
+			Entries.Add(command, new CommandEntry(command, handler, access));
 		}
 
 		public static AccessLevel BadCommandIgnoreLevel { get; set; } = AccessLevel.Player;
