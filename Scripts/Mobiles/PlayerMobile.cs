@@ -1616,7 +1616,7 @@ namespace Server.Mobiles
             }
             #endregion
 
-            BaseFamiliar.OnLogout(pm);
+            //BaseFamiliar.OnLogout(pm);
 
             BasketOfHerbs.CheckBonus(pm);
 
