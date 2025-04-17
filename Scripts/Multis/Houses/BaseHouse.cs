@@ -3427,12 +3427,6 @@ namespace Server.Multis
                 SetDynamicDecay(old);
             }
 
-            if (!CheckDecay())
-            {
-                if (RelocatedEntities.Count > 0)
-                    Timer.DelayCall(RestoreRelocatedEntities);
-            }
-
             if (version == 19)
             {
                 Timer.DelayCall(CheckUnregisteredAddons);
