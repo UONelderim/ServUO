@@ -941,8 +941,9 @@ namespace Server
 
 			LastSave = DateTime.UtcNow;
 		}
-
+		
 		static internal List<Type> m_ItemTypes = new List<Type>();
+		static public IReadOnlyList<Type> ItemTypes => m_ItemTypes.AsReadOnly();
 		static internal List<Type> m_MobileTypes = new List<Type>();
 
 		public static IEntity FindEntity(Serial serial)

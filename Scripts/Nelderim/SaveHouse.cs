@@ -74,10 +74,12 @@ namespace Server
 					item.Serialize(bin);
 					idx.Write((int)(bin.Position - start));
 			}
-			tdb.Write(World.m_ItemTypes.Count);
 
-			for (var i = 0; i < World.m_ItemTypes.Count; ++i)
-				tdb.Write(World.m_ItemTypes[i].FullName);
+			var types = World.ItemTypes;
+			tdb.Write(types.Count);
+
+			for (var i = 0; i < types.Count; ++i)
+				tdb.Write(types[i].FullName);
 			
 			idx.Close();
 			tdb.Close();
