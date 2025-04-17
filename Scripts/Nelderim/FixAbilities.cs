@@ -12,8 +12,8 @@ namespace Server.Commands
 		
 		public static void Initialize()
 		{
-			CommandSystem.Register("FixCreatures", AccessLevel.Administrator, OnFixAbilities);
-			CommandSystem.Register("FixCreature", AccessLevel.Administrator, e => e.Mobile.BeginTarget(12, false, TargetFlags.None,
+			CommandSystem.Register("FixAbilities", AccessLevel.Administrator, OnFixAbilities);
+			CommandSystem.Register("FixCreatureAbilities", AccessLevel.Administrator, e => e.Mobile.BeginTarget(12, false, TargetFlags.None,
 				(from, targeted) =>
 				{
 					if (targeted is BaseCreature bc)
