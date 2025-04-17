@@ -2790,9 +2790,9 @@ Circle375
 			return (flags & toGet) != 0;
 		}
 
-		int ISerializable.TypeReference => m_TypeRef;
+		public int TypeReference => m_TypeRef;
 
-		int ISerializable.SerialIdentity => m_Serial;
+		public int SerialIdentity => m_Serial;
 
 		public virtual void Serialize(GenericWriter writer)
 		{

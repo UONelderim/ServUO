@@ -1139,7 +1139,7 @@ namespace Server
 		}
 	}
 
-	public sealed partial class BinaryFileReader : GenericReader
+	public partial class BinaryFileReader : GenericReader
 	{
 		private readonly BinaryReader m_File;
 
