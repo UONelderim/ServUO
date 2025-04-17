@@ -159,15 +159,9 @@ namespace Server.Mobiles
 						{
 							var bulkOrder = BulkOrderSystem.CreateBulkOrder(m_From, m_Vendor.BODType, true);
 
-							if (bulkOrder is LargeBOD)
+							if (m_From.PlaceInBackpack(bulkOrder))
 							{
-								m_From.CloseGump(typeof(LargeBODAcceptGump));
-								m_From.SendGump(new LargeBODAcceptGump(m_From, (LargeBOD)bulkOrder));
-							}
-							else if (bulkOrder is SmallBOD)
-							{
-								m_From.CloseGump(typeof(SmallBODAcceptGump));
-								m_From.SendGump(new SmallBODAcceptGump(m_From, (SmallBOD)bulkOrder));
+								m_From.SendLocalizedMessage(1045152); // The bulk order deed has been placed in your backpack.
 							}
 						}
 						else
@@ -195,15 +189,9 @@ namespace Server.Mobiles
 
 							var bulkOrder = m_Vendor.CreateBulkOrder(m_From, true);
 
-							if (bulkOrder is LargeBOD)
+							if (m_From.PlaceInBackpack(bulkOrder))
 							{
-								m_From.CloseGump(typeof(LargeBODAcceptGump));
-								m_From.SendGump(new LargeBODAcceptGump(m_From, (LargeBOD)bulkOrder));
-							}
-							else if (bulkOrder is SmallBOD)
-							{
-								m_From.CloseGump(typeof(SmallBODAcceptGump));
-								m_From.SendGump(new SmallBODAcceptGump(m_From, (SmallBOD)bulkOrder));
+								m_From.SendLocalizedMessage(1045152); // The bulk order deed has been placed in your backpack.
 							}
 						}
 						else
