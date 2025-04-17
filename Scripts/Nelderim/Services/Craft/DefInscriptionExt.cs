@@ -484,6 +484,68 @@ namespace Server.Engines.Craft
             index = AddCraft( typeof( RogueIntimidationScroll ), "Umiejetnosci specjalne", "Zastraszenie", 70.0, 100.0, typeof( Gold ), "zloto" , 2000, 1044253 );
             AddRes( index, typeof( CapturedEssence ), "złapana esencja" , 2, 1044253 );
             AddRes( index, typeof( PowderOfTranslocation ), "proszek translokacji" , 10, 1044253 );
+            
+            
+            //Spellweaving
+            
+            index = AddCraft( typeof( ArcaneCircleScroll ), "Umiejetnosci specjalne", "Krag Druida", 50.0, 70.0, typeof( Gold ), "zloto" , 2000, 1044253 );
+            AddRes( index, typeof( Pumice ), "pumeks" , 20, 1044253 );
+            AddRes( index, typeof( BladeSpiritsScroll ), "zwoj ducha ostrzy" , 5, 1044253 );
+            index = AddCraft( typeof( ArcaneEmpowermentScroll ), "Umiejetnosci specjalne", "Druidyczne Wzmocnienie", 80.0, 110.0, typeof( Blight ), "zaraza" , 20, 1044253 );
+            AddRes( index, typeof( DiseasedBark ), "zgniła kora" , 10, 1044253 );
+            AddRes( index, typeof( FireRuby ), "ognisty rubin" , 20, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft( typeof( AttuneWeaponScroll), "Umiejetnosci specjalne", "Dostrojenie", 80.0, 110.0, typeof( Taint ), "skaza" , 20, 1044253 );
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( Pumice ), "pumeks" , 20, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft( typeof( DryadAllureScroll ), "Umiejetnosci specjalne", "Podszepty Driady", 80.0, 110.0, typeof( Taint ), "skaza" , 20, 1044253 );
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( Pumice ), "pumeks" , 20, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft( typeof( EssenceOfWindScroll ), "Umiejetnosci specjalne", "Esencja Wiatru", 70.0, 100.0, typeof( Gold ), "zloto" , 2000, 1044253 );
+            AddRes( index, typeof( Pumice ), "pumeks" , 20, 1044253 );
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 1, 1044253 );
+            index = AddCraft( typeof( EtherealVoyageScroll ), "Umiejetnosci specjalne", "Eteryczna podroz", 80.0, 110.0, typeof( Taint ), "skaza" , 20, 1044253 );
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( FireRuby ), "ognisty rubin" , 10, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft( typeof( GiftOfLifeScroll), "Umiejetnosci specjalne", "Dar Zycia", 70.0, 100.0, typeof( Gold ), "zloto" , 2000, 1044253 );
+            AddRes( index, typeof( ObsidianStone ), "obysdian" , 20, 1044253 );
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 1, 1044253 );
+            index = AddCraft( typeof( GiftOfRenewalScroll ), "Umiejetnosci specjalne", "Odnowa", 70.0, 100.0, typeof( Gold ), "zloto" , 2000, 1044253 );
+            AddRes( index, typeof( CapturedEssence ), "złapana esencja" , 2, 1044253 );
+            AddRes( index, typeof( PowderOfTranslocation ), "proszek translokacji" , 10, 1044253 );
+            index = AddCraft( typeof( ImmolatingWeaponScroll ), "Umiejetnosci specjalne", "Plonaca Bron", 80.0, 110.0, typeof( Blight ), "zaraza" , 20, 1044253 );
+            AddRes( index, typeof( DiseasedBark ), "zgniła kora" , 10, 1044253 );
+            AddRes( index, typeof( FireRuby ), "ognisty rubin" , 20, 1044253 );
+            index = AddCraft( typeof( NatureFuryScroll ), "Umiejetnosci specjalne", "Furia Natury", 80.0, 110.0, typeof( Taint ), "skaza" , 20, 1044253 );
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( Pumice ), "pumeks" , 20, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft( typeof( ReaperFormScroll ), "Umiejetnosci specjalne", "Forma Drzewca", 80.0, 110.0, typeof( Blight ), "zaraza" , 20, 1044253 );
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( ObsidianStone ), "obysdian" , 20, 1044253 );
+            index = AddCraft( typeof( SummonFeyScroll ), "Umiejetnosci specjalne", "Przywolanie Wrozki", 80.0, 110.0, typeof( DryIce ), "suchy lód" , 20, 1044253 );
+            AddRes( index, typeof( DreadHornMane ), "Grzywa Spaczonego" , 10, 1044253 );
+            AddRes( index, typeof( CapturedEssence ), "złapana esencja" , 2, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft( typeof( SummonFiendScroll ), "Umiejetnosci specjalne", "Przywolanie Impa", 80.0, 110.0, typeof( DryIce ), "suchy lód" , 20, 1044253 );
+            AddRes( index, typeof( DreadHornMane ), "Grzywa Spaczonego" , 10, 1044253 );
+            AddRes( index, typeof( CapturedEssence ), "złapana esencja" , 2, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft( typeof( WildfireScroll ), "Umiejetnosci specjalne", "Dziki pozar", 80.0, 110.0, typeof( Taint ), "skaza" , 20, 1044253 );
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
+            AddRes( index, typeof( Pumice ), "pumeks" , 20, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft( typeof( ThunderstormScroll ), "Umiejetnosci specjalne", "Burza z Piorunami", 80.0, 110.0, typeof( Blight ), "zaraza" , 20, 1044253 );
+            AddRes( index, typeof( DiseasedBark ), "zgniła kora" , 10, 1044253 );
+            AddRes( index, typeof( FireRuby ), "ognisty rubin" , 10, 1044253 );
+            AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
+            index = AddCraft( typeof( WordOfDeathScroll), "Umiejetnosci specjalne", "Slowo Smierci", 70.0, 100.0, typeof( Gold ), "zloto" , 2000, 1044253 );
+            AddRes( index, typeof( ObsidianStone ), "obysdian" , 20, 1044253 );
+            AddRes( index, typeof( GrizzledBones ), "blade kości" , 1, 1044253 );
+            AddRes( index, typeof( FireRuby ), "ognisty rubin" , 10, 1044253 );
 		}
 	}
 }

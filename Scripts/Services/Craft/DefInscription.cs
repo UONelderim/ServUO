@@ -204,6 +204,8 @@ namespace Server.Engines.Craft
                 AddRes(index, m_RegTypes[(int)regs[i]], GetRegLocalization(regs[i]), 1, 501627);
 
             AddRes(index, typeof(BlankScroll), 1044377, 1, 1044378);
+            AddRes( index, typeof( CapturedEssence ), "złapana esencja" , 2, 1044253 );
+            AddRes( index, typeof( FireRuby ), "ognisty rubin" , 10, 1044253 );
 
             SetManaReq(index, mana);
         }
@@ -431,22 +433,22 @@ namespace Server.Engines.Craft
             AddRes( index, typeof( Beeswax ), "wosk" , 35, 1044253 );
 
             //!Mistyk!
-            // AddMysticSpell(1031678, 4, 0.0, typeof(NetherBoltScroll), Reg.SulfurousAsh, Reg.BlackPearl);
-            // AddMysticSpell(1031679, 4, 0.0, typeof(HealingStoneScroll), Reg.Bone, Reg.Garlic, Reg.Ginseng, Reg.SpidersSilk);
-            // AddMysticSpell(1031680, 6, 0.0, typeof(PurgeMagicScroll), Reg.FertileDirt, Reg.Garlic, Reg.MandrakeRoot, Reg.SulfurousAsh);
-            // AddMysticSpell(1031681, 6, 0.0, typeof(EnchantScroll), Reg.SpidersSilk, Reg.MandrakeRoot, Reg.SulfurousAsh);
-            // AddMysticSpell(1031682, 9, 3.5, typeof(SleepScroll), Reg.SpidersSilk, Reg.BlackPearl, Reg.Nightshade);
-            // AddMysticSpell(1031683, 9, 3.5, typeof(EagleStrikeScroll), Reg.SpidersSilk, Reg.Bloodmoss, Reg.MandrakeRoot, Reg.Bone);
-            // AddMysticSpell(1031684, 11, 17.8, typeof(AnimatedWeaponScroll), Reg.Bone, Reg.BlackPearl, Reg.MandrakeRoot, Reg.Nightshade);
-            // AddMysticSpell(1031685, 11, 17.8, typeof(StoneFormScroll), Reg.Bloodmoss, Reg.FertileDirt, Reg.Garlic);
-            // AddMysticSpell(1031686, 14, 32.1, typeof(SpellTriggerScroll), Reg.SpidersSilk, Reg.MandrakeRoot, Reg.Garlic, Reg.DragonBlood);
-            // AddMysticSpell(1031687, 14, 32.1, typeof(MassSleepScroll), Reg.SpidersSilk, Reg.Nightshade, Reg.Ginseng);
-            // AddMysticSpell(1031688, 20, 46.4, typeof(CleansingWindsScroll), Reg.Ginseng, Reg.Garlic, Reg.DragonBlood, Reg.MandrakeRoot);
-            // AddMysticSpell(1031689, 20, 46.4, typeof(BombardScroll), Reg.Garlic, Reg.DragonBlood, Reg.SulfurousAsh, Reg.Bloodmoss);
-            // AddMysticSpell(1031690, 40, 60.7, typeof(SpellPlagueScroll), Reg.DaemonBone, Reg.DragonBlood, Reg.MandrakeRoot, Reg.Nightshade, Reg.SulfurousAsh, Reg.DaemonBone);
-            // AddMysticSpell(1031691, 40, 60.7, typeof(HailStormScroll), Reg.DragonBlood, Reg.BlackPearl, Reg.MandrakeRoot, Reg.Bloodmoss);
-            // AddMysticSpell(1031692, 50, 75.0, typeof(NetherCycloneScroll), Reg.Bloodmoss, Reg.Nightshade, Reg.SulfurousAsh, Reg.MandrakeRoot);
-            // AddMysticSpell(1031693, 50, 75.0, typeof(RisingColossusScroll), Reg.DaemonBone, Reg.FertileDirt, Reg.DragonBlood, Reg.Nightshade, Reg.MandrakeRoot);
+             AddMysticSpell(1031678, 4, 80.0, typeof(NetherBoltScroll), Reg.SulfurousAsh, Reg.BlackPearl);
+             AddMysticSpell(1031679, 4, 80.0, typeof(HealingStoneScroll), Reg.Bone, Reg.Garlic, Reg.Ginseng);
+             AddMysticSpell(1031680, 6, 80.0, typeof(PurgeMagicScroll), Reg.FertileDirt, Reg.Garlic);
+             AddMysticSpell(1031681, 6, 80.0, typeof(EnchantScroll), Reg.SpidersSilk, Reg.MandrakeRoot);
+             AddMysticSpell(1031682, 9, 80.0, typeof(SleepScroll), Reg.SpidersSilk, Reg.BlackPearl);
+             AddMysticSpell(1031683, 9, 80.0, typeof(EagleStrikeScroll), Reg.SpidersSilk, Reg.Bone);
+             AddMysticSpell(1031684, 11, 80.0, typeof(AnimatedWeaponScroll), Reg.Bone, Reg.BlackPearl);
+             AddMysticSpell(1031685, 11, 80.0, typeof(StoneFormScroll), Reg.Bloodmoss, Reg.FertileDirt);
+             AddMysticSpell(1031686, 14, 80.0, typeof(SpellTriggerScroll), Reg.SpidersSilk, Reg.DragonBlood);
+             AddMysticSpell(1031687, 14, 80.0, typeof(MassSleepScroll), Reg.SpidersSilk, Reg.Nightshade);
+             AddMysticSpell(1031688, 20, 80.0, typeof(CleansingWindsScroll), Reg.Ginseng, Reg.Garlic);
+             AddMysticSpell(1031689, 20, 80.0, typeof(BombardScroll), Reg.Garlic, Reg.DragonBlood, Reg.SulfurousAsh);
+             AddMysticSpell(1031690, 40, 80.0, typeof(SpellPlagueScroll), Reg.DaemonBone, Reg.DragonBlood);
+             AddMysticSpell(1031691, 40, 80.0, typeof(HailStormScroll), Reg.DragonBlood, Reg.BlackPearl);
+             AddMysticSpell(1031692, 50, 80.0, typeof(NetherCycloneScroll), Reg.Bloodmoss, Reg.Nightshade);
+             AddMysticSpell(1031693, 50, 80.0, typeof(RisingColossusScroll), Reg.DaemonBone, Reg.FertileDirt, Reg.DragonBlood);
 
             InitNelderimSpells();
             
