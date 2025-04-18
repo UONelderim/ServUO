@@ -409,7 +409,7 @@ namespace Server.Engines.Craft
             AddRes(index, typeof(WoodPulp), 1113136, 10, 1113289);
             AddRes(index, typeof(Beeswax), 1025154, 5, 1044253);
 
-            AddCraft(typeof(BlankScroll), otherGroup, 1023636, 50.0, 100.0, typeof(WoodPulp), 1113136, 1, 1044378);
+            AddCraft(typeof(BlankScroll), otherGroup, 1023636, 50.0, 100.0, typeof(Board), "deska", 1, 1044378);
 
             index = AddCraft(typeof(ScrollBinderDeed), otherGroup, 1113135, 75.0, 125.0, typeof(WoodPulp), 1113136, 1, 1044253);
             SetItemHue(index, 1641);
