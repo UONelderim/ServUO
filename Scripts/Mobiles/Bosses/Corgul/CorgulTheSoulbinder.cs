@@ -31,7 +31,7 @@ namespace Server.Mobiles
         public override double TeleportProb => 1.0;
         public override bool TeleportsPets => true;
 
-        public override Type[] UniqueList => new Type[] { typeof(CorgulsEnchantedSash), typeof(CorgulsHandbookOnMysticism), typeof(CorgulsHandbookOnTheUndead) };
+        public override Type[] UniqueList => new Type[] { /*typeof(CorgulsEnchantedSash),*/ typeof(CorgulsHandbookOnMysticism), typeof(CorgulsHandbookOnTheUndead) };
         public override Type[] SharedList => new Type[] { typeof(HelmOfVengence), typeof(RingOfTheSoulbinder), typeof(RuneEngravedPegLeg), typeof(CullingBlade) };
         public override Type[] DecorativeList => new Type[] { typeof(EnchantedBladeDeed), typeof(EnchantedVortexDeed) };
 
