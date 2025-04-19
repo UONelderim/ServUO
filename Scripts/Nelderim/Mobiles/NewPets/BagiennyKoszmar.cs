@@ -117,6 +117,8 @@ namespace Server.Mobiles
 		public override HideType HideType { get { return HideType.Barbed; } }
 		public override FoodType FavoriteFood { get { return FoodType.Meat; } }
 		public override bool CanAngerOnTame { get { return true; } }
+		
+		public override PackInstinct PackInstinct => PackInstinct.Daemon;
 
 		public BagiennyKoszmar(Serial serial) : base(serial)
 		{

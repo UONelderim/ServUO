@@ -91,6 +91,8 @@ namespace Server.Mobiles
         public override HideType HideType => HideType.Barbed;
         public override FoodType FavoriteFood => FoodType.Meat;
         public override bool CanAngerOnTame => true;
+        
+        public override PackInstinct PackInstinct => PackInstinct.Daemon;
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Rich);
