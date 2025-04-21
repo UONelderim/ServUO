@@ -84,9 +84,9 @@ namespace Server.Commands
 
         public static void Initialize()
         {
-            CommandSystem.Register("Createworld", AccessLevel.Administrator, Create_OnCommand);
-            CommandSystem.Register("DeleteWorld", AccessLevel.Administrator, Delete_OnCommand);
-            CommandSystem.Register("RecreateWorld", AccessLevel.Administrator, Recreate_OnCommand);
+            // CommandSystem.Register("Createworld", AccessLevel.Administrator, Create_OnCommand);
+            // CommandSystem.Register("DeleteWorld", AccessLevel.Administrator, Delete_OnCommand);
+            // CommandSystem.Register("RecreateWorld", AccessLevel.Administrator, Recreate_OnCommand);
         }
 
         [Usage("CreateWorld [nogump]")]

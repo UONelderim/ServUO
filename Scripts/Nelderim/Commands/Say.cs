@@ -16,7 +16,6 @@ namespace Server.Commands
 		{
 			Color = 99;
 			Register("Say", AccessLevel.Counselor, SayCommand);
-			Register("S", AccessLevel.Counselor, SayCommand);
 			Register("SetSayColor", AccessLevel.Counselor, SetSayColorCommand);
 		}
 

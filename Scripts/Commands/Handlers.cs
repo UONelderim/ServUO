@@ -53,11 +53,9 @@ namespace Server.Commands
 
             Register("SMsg", AccessLevel.Counselor, StaffMessage_OnCommand);
             Register("SM", AccessLevel.Counselor, StaffMessage_OnCommand);
-            Register("S", AccessLevel.Counselor, StaffMessage_OnCommand);
 
             Register("BCast", AccessLevel.GameMaster, BroadcastMessage_OnCommand);
             Register("BC", AccessLevel.GameMaster, BroadcastMessage_OnCommand);
-            Register("B", AccessLevel.GameMaster, BroadcastMessage_OnCommand);
 
             Register("Bank", AccessLevel.GameMaster, Bank_OnCommand);
 

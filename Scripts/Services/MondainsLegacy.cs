@@ -186,8 +186,8 @@ namespace Server
         {
             // EventSink.OnKilledBy += OnKilledBy;
 
-            CommandSystem.Register("DecorateML", AccessLevel.Administrator, DecorateML_OnCommand);
-            CommandSystem.Register("DecorateMLDelete", AccessLevel.Administrator, DecorateMLDelete_OnCommand);
+            // CommandSystem.Register("DecorateML", AccessLevel.Administrator, DecorateML_OnCommand);
+            // CommandSystem.Register("DecorateMLDelete", AccessLevel.Administrator, DecorateMLDelete_OnCommand);
             CommandSystem.Register("SettingsML", AccessLevel.Administrator, SettingsML_OnCommand);
             CommandSystem.Register("QuestsML", AccessLevel.GameMaster, Quests_OnCommand);
 
