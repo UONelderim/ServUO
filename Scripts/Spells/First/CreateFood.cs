@@ -137,6 +137,8 @@ namespace Server.Spells.First
 		    }
 
 		    var index = info.ButtonID - 1;
+		    if (index == -1) //Close
+			    return;
 		    if(index < 0 || index >= CreateFoodSpell.m_Food.Length)
 		    {
 			    _Caster.SendMessage("OSZUST!");
