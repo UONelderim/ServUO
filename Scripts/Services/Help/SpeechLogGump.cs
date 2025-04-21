@@ -30,8 +30,8 @@ namespace Server.Engines.Help
             m_Log = log;
             m_Page = page;
 
-            AddImageTiled(0, 0, 300, 425, 0xA40);
-            AddAlphaRegion(1, 1, 298, 423);
+            AddImageTiled(0, 0, 600, 425, 0xA40);
+            AddAlphaRegion(1, 1, 598, 423);
 
             string playerName = player.Name;
             string playerAccount = player.Account is Account ? player.Account.Username : "???";
@@ -66,13 +66,13 @@ namespace Server.Engines.Help
                     if (i != min)
                         builder.Append("<br>");
 
-                    builder.AppendFormat("<u>{0}</u> (<i>{1}</i>): {2}", name, Utility.FixHtml(account), Utility.FixHtml(speech));
+                    builder.Append($"{entry.Created} {name} ({Utility.FixHtml(account)}): {Utility.FixHtml(speech)}");
                 }
 
                 sLog = builder.ToString();
             }
 
-            AddHtml(10, 40, 280, 350, sLog, false, true);
+            AddHtml(10, 40, 580, 350, sLog, false, true);
 
             if (page > 0)
                 AddButton(10, 395, 0xFAE, 0xFB0, 1, GumpButtonType.Reply, 0); // Previous page
