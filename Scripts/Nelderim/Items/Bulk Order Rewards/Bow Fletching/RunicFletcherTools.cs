@@ -53,7 +53,7 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 			
-			ReplaceWith(new RunicFletcherTool(Resource, UsesRemaining));
+			Replacer.Replace(this, new RunicFletcherTool(Resource, UsesRemaining));
 		}
 	}
 }

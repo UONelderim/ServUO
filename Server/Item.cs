@@ -6678,23 +6678,6 @@ Circle375
 			}
 		}
 
-		public virtual void ReplaceWith(Item newItem)
-		{
-			if (Parent is Container container)
-			{
-				container.AddItem(newItem);
-				newItem.Location = m_Location;
-			}
-			else
-			{
-				newItem.MoveToWorld(GetWorldLocation(), m_Map);
-			}
-			newItem.IsLockedDown = IsLockedDown;
-			newItem.IsSecure = IsSecure;
-
-			Delete();
-		}
-
 		[NoDupe, CommandProperty(AccessLevel.GameMaster)]
 		public bool QuestItem
 		{

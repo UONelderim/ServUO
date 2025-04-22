@@ -114,7 +114,7 @@ namespace Server.Items
                         Name = beverage.Name
                     };
 
-                    beverage.ReplaceWith(bomb);
+                    Replacer.Replace(beverage, bomb);
 
                     from.SendLocalizedMessage(1060580); // You prepare a firebomb.
                     Consume();
