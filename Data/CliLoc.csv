@@ -49784,18 +49784,18 @@
 1149909;Display Case (East) 
 1149910;Your gift could not be created. Please try again later. 
 1149911;13th Anniversary Fruit Basket 
-1149912;~1_SIZE~ niter deposit 
-1149913;small 
-1149914;large 
-1149915;huge 
-1149916;clumsy 
-1149917;gigantic 
-1149918;You have uncovered a ~1_SIZE~ deposit of niter! Mine it to obtain saltpeter. 
-1149919;You have already buffed yourself: ~1_VAL~ ~2_VAL~% 
-1149920;The next time that you try to enhance an item the success rate will be the value listed below regardless of your skill and total intensity of the item. Skill requirements still apply to material usage.  One charge on this item will be consumed per use and only one instance of this buff can be active at any time. 
-1149921;Skill: 
-1149922;13th Anniversary Gift Ticket 
-1149923;You mine the niter deposit but fail to produce any usable saltpeter. 
+1149912;~1_SIZE~ depozyt saletry 
+1149913;maly
+1149914;duzy
+1149915;ogromny
+1149916;nieporeczny
+1149917;gigantyczny
+1149918;Odkryles zloze saletry ~1_SIZE~! Wydobadz je, aby uzyskac saletre.
+1149919;Juz sie wzmocniles: ~1_VAL~ ~2_VAL~%
+1149920;Nastepnym razem, gdy sprobujesz ulepszyc przedmiot, wspolczynnik sukcesu bedzie wartoscia podana ponizej, niezaleznie od twoich umiejetnosci i calkowitej intensywnosci przedmiotu. Wymagania umiejetnosci nadal dotycza wykorzystania materialow. Jedno ladowanie tego przedmiotu zostanie zuzyte na kazde uzycie, a tylko jedna instancja tego wzmocnienia moze byc aktywna w dowolnym momencie.
+1149921;Umiejetnosc:
+1149922;Bilet na 13. rocznice
+1149923;Wydobywasz zloze saletry, ale nie udaje ci sie wyprodukowac zadnej uzytecznej saletry.
 1149924;Wydobywasz ~1_COUNT~ saltery. 
 1149925;bloody sash 
 1149926;A Quest for Truth 
