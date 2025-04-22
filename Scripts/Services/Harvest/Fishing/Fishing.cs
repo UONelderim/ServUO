@@ -287,7 +287,7 @@ namespace Server.Engines.Harvest
 
         private bool IsDeepWater(Point3D p, Map map)
         {
-            return SpecialFishingNet.ValidateDeepWater(map, p.X, p.Y) && (map == Map.Trammel || map == Map.Felucca || map == Map.Tokuno);
+            return SpecialFishingNet.FullValidation(map, p.X, p.Y);
         }
 
         public override bool CheckResources(Mobile from, Item tool, HarvestDefinition def, Map map, Point3D loc, bool timed)
