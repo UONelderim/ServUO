@@ -105,7 +105,7 @@ namespace Server.Items
         {
             if (IsChildOf(from.Backpack))
             {
-                ReplaceWith(new SOS(m_TargetMap, m_Level));
+                Replacer.Replace(this, new SOS(m_TargetMap, m_Level));
                 from.LocalOverheadMessage(Network.MessageType.Regular, 0x3B2, 501891); // You extract the message from the bottle.
             }
             else
