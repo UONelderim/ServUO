@@ -120,8 +120,8 @@ namespace Server.ACC.CSS.Systems.Ranger
 
 			AddHtmlLocalized(30, 26, 200, 20, 1060147, EnabledColor16, false, false); // Chose thy familiar...
 
-			double lore = from.Skills[SkillName.AnimalLore].Base;
-			double taming = from.Skills[SkillName.AnimalTaming].Base;
+			double lore = from.Skills[SkillName.Tactics].Base;
+			double taming = from.Skills[SkillName.Archery].Base;
 
 			for (int i = 0; i < entries.Length; ++i)
 			{
@@ -151,8 +151,8 @@ namespace Server.ACC.CSS.Systems.Ranger
 			{
 				RangerFamiliarEntry entry = m_Entries[index];
 
-				double lore = m_From.Skills[SkillName.AnimalLore].Base;
-				double taming = m_From.Skills[SkillName.AnimalTaming].Base;
+				double lore = m_From.Skills[SkillName.Tactics].Base;
+				double taming = m_From.Skills[SkillName.Archery].Base;
 
 				BaseCreature check = (BaseCreature)RangerFamiliarSpell.Table[m_From];
 
@@ -164,7 +164,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 				{
 					// That familiar requires ~1_NECROMANCY~ Necromancy and ~2_SPIRIT~ Spirit Speak.
 					m_From.SendMessage(String.Format(
-						"Ten przywołaniec wymaga {0:F1} Wiedzy o Zwierzętach i {1:F1} Oswajania.", entry.ReqAnimalLore,
+						"Ten przywołaniec wymaga {0:F1} Taktyki i {1:F1} Łucznictwa.", entry.ReqAnimalLore,
 						entry.ReqAnimalTaming));
 
 					m_From.CloseGump(typeof(RangerFamiliarGump));
