@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Server.Commands;
+using Server.Items;
 using Server.Multis;
 using Server.Targeting;
 
@@ -13,8 +14,8 @@ namespace Server
 	{
 		public static void Initialize()
 		{
-			CommandSystem.Register("SaveHouse", AccessLevel.Owner, SaveHouse_OnCommand);
-			CommandSystem.Register("LoadHouse", AccessLevel.Owner, LoadHouse_OnCommand);
+			CommandSystem.Register("SaveHouse", AccessLevel.Administrator, SaveHouse_OnCommand);
+			CommandSystem.Register("LoadHouse", AccessLevel.Administrator, LoadHouse_OnCommand);
 		}
 
 		private static void SaveHouse_OnCommand(CommandEventArgs e)
@@ -49,9 +50,12 @@ namespace Server
 			toSave.Add(house);
 			toSave.Add(house.Sign);
 			toSave.AddRange(house.LockDowns.Keys);
-			toSave.AddRange(house.Secures.Select(s => s.Item));
+			var securedItems = house.Secures.Select(s => s.Item).ToArray();
+			toSave.AddRange(securedItems);
+			toSave.AddRange(securedItems.OfType<BaseContainer>().SelectMany(x => x.Items));
 			toSave.AddRange(house.Carpets);
 			toSave.AddRange(house.Addons.Keys);
+			toSave.AddRange(house.Addons.Keys.OfType<BaseAddon>().SelectMany(a => a.Components));
 			toSave.AddRange(house.Doors);
 			if (house is HouseFoundation foundation)
 			{
