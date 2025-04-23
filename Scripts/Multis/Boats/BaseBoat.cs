@@ -502,7 +502,7 @@ namespace Server.Multis
         public virtual int MaxHits => 25000;
         public virtual double TurnDelay => 0.5;
         public virtual double ScuttleLevel => 25.0;
-        public virtual TimeSpan BoatDecayDelay => TimeSpan.FromDays(13);
+        public virtual TimeSpan BoatDecayDelay => TimeSpan.FromDays(14);
 
         [CommandProperty(AccessLevel.GameMaster)]
         public virtual bool Scuttled => !IsUnderEmergencyRepairs() && Durability < ScuttleLevel;

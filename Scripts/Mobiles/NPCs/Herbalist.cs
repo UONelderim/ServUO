@@ -26,6 +26,10 @@ namespace Server.Mobiles
         public override void InitSBInfo()
         {
             m_SBInfos.Add(new SBHerbalist());
+            if (Race == Race.NDrow)
+	            m_SBInfos.Add(new SBHerbalistUndershadow());
+            else
+	            m_SBInfos.Add(new SBHerbalistOverworld());
         }
 
         public override void Serialize(GenericWriter writer)

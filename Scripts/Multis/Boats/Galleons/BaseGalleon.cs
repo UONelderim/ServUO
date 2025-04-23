@@ -81,6 +81,7 @@ namespace Server.Multis
         public override int LabelNumber => 1035980;  // mast
 
         public override bool IsClassicBoat => false;
+        public override TimeSpan BoatDecayDelay => TimeSpan.FromDays(28);
 
         public virtual int MaxCannons => 0;
         public virtual int WheelDistance => 0;

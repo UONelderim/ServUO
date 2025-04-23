@@ -58,41 +58,15 @@ namespace Server
 	{
 		private Dictionary<Serial, Serial> _Mapping = mapping;
 
-		public override IEntity ReadEntity()
+		public override Serial ReadSerial()
 		{
-			var serial = ReadSerial();
+			var serial =  base.ReadSerial();
 			if (_Mapping.TryGetValue(serial, out var newSerial))
 			{
-				Console.WriteLine($"Fixing entity serial {serial}");
-				return World.FindEntity(newSerial);
+				Console.WriteLine($"Fixing serial {serial} -> {newSerial}");
+				return newSerial;
 			}
-			return World.FindEntity(serial);
-		}
-
-		public override Item ReadItem()
-		{
-			var serial = ReadSerial();
-			if (_Mapping.TryGetValue(serial, out var newSerial))
-			{
-				Console.WriteLine($"Fixing item serial {serial}->{newSerial}");
-				var oldItem = World.FindItem(serial);
-				Console.WriteLine($"Old: {oldItem.GetType().Name} {oldItem.Location.ToString()}");
-				var newItem = World.FindItem(newSerial);
-				Console.WriteLine($"New: {newItem.GetType().Name} {newItem.Location.ToString()}");
-				return newItem;
-			}
-			return World.FindItem(serial);
-		}
-
-		public override Mobile ReadMobile()
-		{
-			var serial = ReadSerial();
-			if (_Mapping.TryGetValue(serial, out var newSerial))
-			{
-				Console.WriteLine($"Fixing mobile serial {serial}");
-				return World.FindMobile(newSerial);
-			}
-			return World.FindMobile(serial);
+			return serial;
 		}
 	}
 }

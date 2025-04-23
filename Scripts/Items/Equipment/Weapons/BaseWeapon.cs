@@ -2523,7 +2523,6 @@ namespace Server.Items
                 }
             }
 
-           // BaseFamiliar.OnHit(attacker, damageable);
             WhiteTigerFormSpell.OnHit(attacker, defender);
         }
 

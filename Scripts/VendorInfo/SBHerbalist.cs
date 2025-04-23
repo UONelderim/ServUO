@@ -26,11 +26,11 @@ namespace Server.Mobiles
 		{
 			public InternalBuyInfo()
 			{
-				Add(new GenericBuyInfo(typeof(Bloodmoss), SBHerbalist.GlobalHerbsPriceBuy, 200, 0xF7B, 0));
-				Add(new GenericBuyInfo(typeof(MandrakeRoot), SBHerbalist.GlobalHerbsPriceBuy, 200, 0xF86, 0));
-				Add(new GenericBuyInfo(typeof(Garlic), SBHerbalist.GlobalHerbsPriceBuy, 200, 0xF84, 0));
-				Add(new GenericBuyInfo(typeof(Ginseng), SBHerbalist.GlobalHerbsPriceBuy, 200, 0xF85, 0));
-				Add(new GenericBuyInfo(typeof(Nightshade), SBHerbalist.GlobalHerbsPriceBuy, 200, 0xF88, 0));
+				Add(new GenericBuyInfo(typeof(Bloodmoss), GlobalHerbsPriceBuy, 200, 0xF7B, 0));
+				Add(new GenericBuyInfo(typeof(MandrakeRoot), GlobalHerbsPriceBuy, 200, 0xF86, 0));
+				Add(new GenericBuyInfo(typeof(Garlic), GlobalHerbsPriceBuy, 200, 0xF84, 0));
+				Add(new GenericBuyInfo(typeof(Ginseng), GlobalHerbsPriceBuy, 200, 0xF85, 0));
+				Add(new GenericBuyInfo(typeof(Nightshade), GlobalHerbsPriceBuy, 200, 0xF88, 0));
 				Add(new GenericBuyInfo(typeof(Bottle), 5, 200, 0xF0E, 0));
 				Add(new GenericBuyInfo(typeof(MortarPestle), 30, 20, 0xE9B, 0));
 				Add(new GenericBuyInfo(typeof(DestroyingAngel), 8, 50, 0xE1F, 0));
@@ -38,11 +38,6 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo(typeof(SpringWater), 8, 50, 0xE24, 0));
 				Add(new GenericBuyInfo("Szufla do lajna", typeof(DungShovel), 30, 50, 0xF39, DungShovel.DefaultHue));
 				Add(new GenericBuyInfo("Wiadro na nawoz", typeof(DungBucket), 2000, 5, DungBucket.GraphicsEmpty, DungBucket.HueEmpty));
-				Add(new GenericBuyInfo(typeof(SzczepkaCzosnek), SBHerbalist.GlobalHerbsSeedlingPriceBuy, 50, 0x18E3, 178));
-				Add(new GenericBuyInfo(typeof(SzczepkaZenszen), SBHerbalist.GlobalHerbsSeedlingPriceBuy, 50, 0x18EB, 0));
-				Add(new GenericBuyInfo(typeof(SzczepkaMandragora), SBHerbalist.GlobalHerbsSeedlingPriceBuy, 50, 0x18DD, 0));
-				Add(new GenericBuyInfo(typeof(SzczepkaKrwawyMech), SBHerbalist.GlobalHerbsSeedlingPriceBuy, 50, 0x0DCD, 438));
-				Add(new GenericBuyInfo(typeof(SzczepkaWilczaJagoda), SBHerbalist.GlobalHerbsSeedlingPriceBuy, 50, 0x18E7, 0));
 			}
 		}
 
@@ -50,20 +45,15 @@ namespace Server.Mobiles
 		{
 			public InternalSellInfo()
 			{
-				Add(typeof(Bloodmoss), SBHerbalist.GlobalHerbsPriceSell);
-				Add(typeof(MandrakeRoot), SBHerbalist.GlobalHerbsPriceSell);
-				Add(typeof(Garlic), SBHerbalist.GlobalHerbsPriceSell);
-				Add(typeof(Ginseng), SBHerbalist.GlobalHerbsPriceSell);
-				Add(typeof(Nightshade), SBHerbalist.GlobalHerbsPriceSell);
+				Add(typeof(Bloodmoss), GlobalHerbsPriceSell);
+				Add(typeof(MandrakeRoot), GlobalHerbsPriceSell);
+				Add(typeof(Garlic), GlobalHerbsPriceSell);
+				Add(typeof(Ginseng), GlobalHerbsPriceSell);
+				Add(typeof(Nightshade), GlobalHerbsPriceSell);
 				Add(typeof(Bottle), 3);
 				Add(typeof(MortarPestle), 4);
 				Add(typeof(DungShovel), 6);
 				Add(typeof(DungBucket), 8);
-				Add(typeof(SzczepkaCzosnek), SBHerbalist.GlobalHerbsSeedlingPriceSell);
-				Add(typeof(SzczepkaZenszen), SBHerbalist.GlobalHerbsSeedlingPriceSell);
-				Add(typeof(SzczepkaMandragora), SBHerbalist.GlobalHerbsSeedlingPriceSell);
-				Add(typeof(SzczepkaKrwawyMech), SBHerbalist.GlobalHerbsSeedlingPriceSell);
-				Add(typeof(SzczepkaWilczaJagoda), SBHerbalist.GlobalHerbsSeedlingPriceSell);
 			}
 		}
 	}
