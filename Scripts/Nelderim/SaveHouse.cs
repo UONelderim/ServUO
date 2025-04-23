@@ -14,8 +14,8 @@ namespace Server
 	{
 		public static void Initialize()
 		{
-			CommandSystem.Register("SaveHouse", AccessLevel.Administrator, SaveHouse_OnCommand);
-			CommandSystem.Register("LoadHouse", AccessLevel.Administrator, LoadHouse_OnCommand);
+			CommandSystem.Register("SaveHouse", AccessLevel.Owner, SaveHouse_OnCommand);
+			CommandSystem.Register("LoadHouse", AccessLevel.Owner, LoadHouse_OnCommand);
 		}
 
 		private static void SaveHouse_OnCommand(CommandEventArgs e)
