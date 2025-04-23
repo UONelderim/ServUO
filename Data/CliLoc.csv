@@ -2407,26 +2407,26 @@
 502399;Your spirit was too weak to return to corporeal form. 
 502400;Nie widzisz celu. 
 502401;Nie ma juz miejsca w tej ksiedze run. 
-502402;That is inaccessible. 
-502403;This book needs time to recharge. 
-502404;This book needs time to recharge. 
-502405;That is inaccessible. 
+502402;Brak dostepu.
+502403;Ta ksiega musi sie naladowac ponownie - zaczekaj chwilke.
+502404;Ta ksiega musi sie naladowac ponownie - zaczekaj chwilke.
+502405;Brak dostepu.
 502406;Ta ksiega potrzebuje czasu na odnowienie. 
 502407;Ta ksiega potrzebuje czasu na odnowienie. 
-502408;Nothing selected. 
-502409;This rune does not have a marked location. 
-502410;This book already has the maximum amount of charges. 
-502411;This place in the book is empty. 
+502408;Nic nie jest wybrane
+502409;Ta runa nie jest zaznaczona. Oznacz lokacje teleportacji czarem.
+502410;Tej ksiegi nie naladujesz wieksza iloscia ladunkow.
+502411;Miejsce w tej ksiedze jest puste.
 502412;W tym przedmiocie skonczyly sie ladunki. 
 502413;Nie mozna tego zrobic, gdy ksiega jest zablokowana. 
 502414;Wpisz nazwe ksiegi run: 
 502415;Anulowano 
 502416;Nie mozna tego zrobic podczas, gdy ksiega jest zablokowana 
 502417;Nowa lokacja domyslna zostala ustawiona. 
-502418;Location was not valid. 
-502419;That cannot be done while the book is locked down. 
-502420;You have no room for a rune in your backpack. 
-502421;You have removed the rune. 
+502418;Niepoprawna lokacja.
+502419;Tego nie mozna uzywac w momencie, gdy jest zablokowane.
+502420;Nie masz w plecaku miejsca na rune.
+502421;Usuwasz rune.
 502422;Nie ma runy, ktora mozna upuscic. 
 502423;To miejsce w ksiedze jest puste. 
 502424;To miejsce w ksiedze jest puste. 
