@@ -2,9 +2,7 @@
 using Server.ContextMenus;
 using Server.Items;
 using Server.Spells.Necromancy;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 #endregion
 
 namespace Server.Mobiles
@@ -12,30 +10,6 @@ namespace Server.Mobiles
     public abstract class BaseFamiliar : BaseCreature
     {
         private bool m_LastHidden;
-        private long m_NextMove;
-
-        private DateTime m_SeperationStart;
-
-        [CommandProperty(AccessLevel.GameMaster)]
-        public DateTime SeperationStart
-        {
-            get { return m_SeperationStart; }
-            set { m_SeperationStart = value; }
-        }
-
-        [CommandProperty(AccessLevel.GameMaster)]
-        public override IDamageable Combatant
-        {
-            get { return null; }
-            set { }
-        }
-
-        /*[CommandProperty(AccessLevel.GameMaster)]
-        public override OrderType ControlOrder
-        {
-            get { return OrderType.Come; }
-            set { }
-        }*/
 
         public BaseFamiliar()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, -1, -1)
@@ -50,73 +24,7 @@ namespace Server.Mobiles
         public override bool Commandable => true;
         public override bool PlayerRangeSensitive => false;
         public override bool CanDetectHidden => false;
-
-        public virtual bool RangeCheck()
-        {
-            Mobile master = ControlMaster;
-
-            if (Deleted || master == null || master.Deleted)
-                return false;
-
-            int dist = (int)master.GetDistanceToSqrt(Location);
-
-            if (master.Map != Map || dist > 15)
-            {
-                if (m_SeperationStart == DateTime.MinValue)
-                {
-                    m_SeperationStart = DateTime.UtcNow + TimeSpan.FromMinutes(60);
-                }
-                else if (m_SeperationStart < DateTime.UtcNow)
-                {
-                    Delete();
-                }
-
-                return false;
-            }
-
-            if (m_SeperationStart != DateTime.MinValue)
-            {
-                m_SeperationStart = DateTime.MinValue;
-            }
-
-            const int range = 4;
-
-            if (!InRange(ControlMaster.Location, RangeHome) && InLOS(ControlMaster))
-            {
-                Point3D loc = Point3D.Zero;
-
-                if (Map == master.Map)
-                {
-                    int x = (X > master.X) ? (master.X + range) : (master.X - range);
-                    int y = (Y > master.Y) ? (master.Y + range) : (master.Y - range);
-
-                    for (int i = 0; i < 10; i++)
-                    {
-                        loc.X = x + Utility.RandomMinMax(-1, 1);
-                        loc.Y = y + Utility.RandomMinMax(-1, 1);
-
-                        loc.Z = Map.GetAverageZ(loc.X, loc.Y);
-
-                        if (Map.CanSpawnMobile(loc))
-                        {
-                            break;
-                        }
-
-                        loc = master.Location;
-                    }
-
-                    if (!Deleted)
-                    {
-                        SetLocation(loc, true);
-                    }
-                }
-
-                return false;
-            }
-
-            return true;
-        }
-
+        
         public override void OnThink()
         {
             if (Deleted || Map == null)
@@ -136,52 +44,6 @@ namespace Server.Mobiles
             if (m_LastHidden != master.Hidden)
             {
                 Hidden = m_LastHidden = master.Hidden;
-            }
-
-            if (RangeCheck())
-            {
-                if (AIObject != null && AIObject.WalkMobileRange(master, 5, true, 1, 1))
-                {
-                    if (master.Combatant != null && master.InRange(master.Combatant, 1) && Core.TickCount > m_NextMove)
-                    {
-                        IDamageable combatant = master.Combatant;
-
-                        if (!InRange(combatant.Location, 1))
-                        {
-                            for (int x = combatant.X - 1; x <= combatant.X + 1; x++)
-                            {
-                                for (int y = combatant.Y - 1; y <= combatant.Y + 1; y++)
-                                {
-                                    if (x == combatant.X && y == combatant.Y)
-                                    {
-                                        continue;
-                                    }
-
-                                    Point2D p = new Point2D(x, y);
-
-                                    if (InRange(p, 1) && master.InRange(p, 1) && Map != null)
-                                    {
-                                        CurrentSpeed = .01;
-                                        AIObject.MoveTo(new Point3D(x, y, Map.GetAverageZ(x, y)), false, 0);
-                                        m_NextMove = Core.TickCount + 500;
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            CurrentSpeed = .1;
-                        }
-                    }
-                    else if (master.Combatant == null)
-                    {
-                        CurrentSpeed = .1;
-                    }
-                }
-                else
-                {
-                    CurrentSpeed = .1;
-                }
             }
         }
 
@@ -226,24 +88,6 @@ namespace Server.Mobiles
                 for (int i = 0; i < list.Count; ++i)
                 {
                     list[i].MoveToWorld(Location, map);
-                }
-            }
-        }
-
-        public static void OnHit(Mobile attacker, IDamageable defender)
-        {
-            BaseCreature check = (BaseCreature)SummonFamiliarSpell.Table[attacker];
-
-            if (check != null && check is BaseFamiliar && check.Weapon != null && check.InRange(defender.Location, check.Weapon.MaxRange))
-            {
-                check.Weapon.OnSwing(check, defender);
-            }
-
-            if (attacker is PlayerMobile)
-            {
-                foreach (Mobile ts in ((PlayerMobile)attacker).AllFollowers.Where(m => m is BaseTalismanSummon && m.InRange(defender.Location, m.Weapon.MaxRange)))
-                {
-                    ts.Weapon.OnSwing(ts, defender);
                 }
             }
         }
