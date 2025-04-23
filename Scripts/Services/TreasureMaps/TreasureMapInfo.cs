@@ -502,12 +502,12 @@ namespace Server.Items
         {
             new Type[][] // Artisan
                 {
-                    new Type[] { typeof(Bonnet), typeof(Cap), typeof(Circlet), typeof(ElvenGlasses), typeof(FeatheredHat), typeof(FlowerGarland), typeof(JesterHat), typeof(SkullCap), typeof(StrawHat), typeof(TallStrawHat), typeof(WideBrimHat) }, // Trammel/Fel
+                    new Type[] { typeof(Bonnet), typeof(Cap), typeof(Circlet), typeof(FeatheredHat), typeof(FlowerGarland), typeof(JesterHat), typeof(SkullCap), typeof(StrawHat), typeof(TallStrawHat), typeof(WideBrimHat) }, // Trammel/Fel
                     null, // Ilshenar
                     null, // Malas
                     null, // Tokuno
                     null, // TerMur
-                    new Type[] { typeof(Bonnet), typeof(Cap), typeof(Circlet), typeof(ElvenGlasses), typeof(FeatheredHat), typeof(FlowerGarland), typeof(JesterHat), typeof(SkullCap), typeof(StrawHat), typeof(TallStrawHat), typeof(WideBrimHat), typeof(ChefsToque) }, // Eodon
+                    new Type[] { typeof(Bonnet), typeof(Cap), typeof(Circlet), typeof(FeatheredHat), typeof(FlowerGarland), typeof(JesterHat), typeof(SkullCap), typeof(StrawHat), typeof(TallStrawHat), typeof(WideBrimHat), typeof(ChefsToque) }, // Eodon
                 },
             new Type[][] // Assassin
                 {
@@ -563,10 +563,10 @@ namespace Server.Items
         public static Type[][] _DecorativeTable = new Type[][]
             {
                 new Type[] { typeof(carpet11mDeed) }, //bylo SkullTiledFloorAddonDee
-                new Type[] { typeof(AncientWeapon3) },
+                new Type[] { typeof(LuminescentFungi) }, //bylo AncientWeapon3
                 new Type[] { typeof(DecorativeHourglass) },
-                new Type[] { typeof(AncientWeapon1), typeof(CreepingVine) },
-                new Type[] { typeof(AncientWeapon2) },
+                new Type[] { typeof(BarkFragment), typeof(CreepingVine) }, //bylo AncientWeapon1
+                new Type[] { typeof(Corruption) }, //bylo typeof(AncientWeapon2)
             };
 
         public static Type[][] _SpecialMaterialTable = new Type[][]
@@ -583,15 +583,15 @@ namespace Server.Items
         public static Type[][] _SpecialSupplyLoot = new Type[][]
             {
                 new Type[] { typeof(LegendaryMapmakersGlasses), typeof(ManaPhasingOrb), typeof(RunedSashOfWarding), typeof(ShieldEngravingTool), null },
-                new Type[] { typeof(ForgedPardon), typeof(LegendaryMapmakersGlasses), typeof(ManaPhasingOrb), typeof(RunedSashOfWarding), typeof(Skeletonkey), typeof(MasterSkeletonKey), typeof(SurgeShield) },
-                new Type[] { typeof(LegendaryMapmakersGlasses), typeof(ManaPhasingOrb), typeof(RunedSashOfWarding) },
-                new Type[] { typeof(LegendaryMapmakersGlasses), typeof(ManaPhasingOrb), typeof(RunedSashOfWarding), typeof(TastyTreat) },
-                new Type[] { typeof(LegendaryMapmakersGlasses), typeof(ManaPhasingOrb), typeof(RunedSashOfWarding) },
+                //new Type[] { typeof(ForgedPardon), typeof(LegendaryMapmakersGlasses), typeof(ManaPhasingOrb), typeof(RunedSashOfWarding), typeof(Skeletonkey), typeof(MasterSkeletonKey), typeof(SurgeShield) },
+               // new Type[] { typeof(LegendaryMapmakersGlasses), typeof(ManaPhasingOrb), typeof(RunedSashOfWarding) },
+               // new Type[] { typeof(LegendaryMapmakersGlasses), typeof(ManaPhasingOrb), typeof(RunedSashOfWarding), typeof(TastyTreat) },
+                //new Type[] { typeof(LegendaryMapmakersGlasses), typeof(ManaPhasingOrb), typeof(RunedSashOfWarding) },
             };
 
         public static Type[] _SpecialCacheHordeAndTrove = new Type[]
             {
-                typeof(OctopusNecklace), typeof(SkullGnarledStaff), typeof(SkullLongsword)
+                typeof(OctopusNecklace)/*, typeof(SkullGnarledStaff), typeof(SkullLongsword)*/
             };
 
         public static Type[] _DecorativeMinorArtifacts = new Type[]
