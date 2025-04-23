@@ -1,125 +1,305 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Server;
-using Server.Items;
+#region References
 using Server.ContextMenus;
+using Server.Items;
+using Server.Spells.Necromancy;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+#endregion
 
 namespace Server.Mobiles
 {
-	public abstract class BaseFamiliar : BaseCreature
-	{
-		public BaseFamiliar() : base( AIType.AI_Melee, FightMode.Closest, 12, 1, 0.2, 0.4 )
-		{
-		}
+    public abstract class BaseFamiliar : BaseCreature
+    {
+        private bool m_LastHidden;
+        private long m_NextMove;
 
-		public override bool BardImmune{ get{ return true; } }
-		public override Poison PoisonImmune{ get{ return Poison.Lethal; } }
-		public override bool Commandable{ get{ return true; } }
+        private DateTime m_SeperationStart;
 
-		private bool m_LastHidden;
+        [CommandProperty(AccessLevel.GameMaster)]
+        public DateTime SeperationStart
+        {
+            get { return m_SeperationStart; }
+            set { m_SeperationStart = value; }
+        }
 
-		public override void OnThink()
-		{
-			base.OnThink();
+        [CommandProperty(AccessLevel.GameMaster)]
+        public override IDamageable Combatant
+        {
+            get { return null; }
+            set { }
+        }
 
-			Mobile master = ControlMaster;
+        /*[CommandProperty(AccessLevel.GameMaster)]
+        public override OrderType ControlOrder
+        {
+            get { return OrderType.Come; }
+            set { }
+        }*/
 
-			if ( master == null )
-				return;
+        public BaseFamiliar()
+            : base(AIType.AI_Melee, FightMode.Closest, 10, 1, -1, -1)
+        { }
 
-			if ( master.Deleted || master.Map != this.Map || !InRange( master.Location, 20 ) )
-			{
-				DropPackContents();
-				EndRelease( null );
-				return;
-			}
-		}
+        public BaseFamiliar(Serial serial)
+            : base(serial)
+        { }
 
-		public override void GetContextMenuEntries( Mobile from, List<ContextMenuEntry> list )
-		{
-			base.GetContextMenuEntries( from, list );
+        public override bool BardImmune => true;
+        public override Poison PoisonImmune => Poison.Lethal;
+        public override bool Commandable => true;
+        public override bool PlayerRangeSensitive => false;
+        public override bool CanDetectHidden => false;
 
-			if (from.Alive && Controlled && from == ControlMaster && from.InRange(this, 14))
-			{
-				list.Add(new ReleaseEntry(from, this));
-			}
-		}
+        public virtual bool RangeCheck()
+        {
+            Mobile master = ControlMaster;
 
-		public virtual void BeginRelease(Mobile from)
-		{
-			if (!Deleted && Controlled && from == ControlMaster && from.CheckAlive())
-			{
-				EndRelease(from);
-			}
-		}
+            if (Deleted || master == null || master.Deleted)
+                return false;
 
-		public virtual void EndRelease( Mobile from )
-		{
-			if ( from == null || (!Deleted && Controlled && from == ControlMaster && from.CheckAlive()) )
-			{
-				Effects.SendLocationParticles( EffectItem.Create( Location, Map, EffectItem.DefaultDuration ), 0x3728, 1, 13, 2100, 3, 5042, 0 );
-				PlaySound( 0x201 );
-				Delete();
-			}
-		}
+            int dist = (int)master.GetDistanceToSqrt(Location);
 
-		public virtual void DropPackContents()
-		{
-			Map map = this.Map;
-			Container pack = this.Backpack;
+            if (master.Map != Map || dist > 15)
+            {
+                if (m_SeperationStart == DateTime.MinValue)
+                {
+                    m_SeperationStart = DateTime.UtcNow + TimeSpan.FromMinutes(60);
+                }
+                else if (m_SeperationStart < DateTime.UtcNow)
+                {
+                    Delete();
+                }
 
-			if ( map != null && map != Map.Internal && pack != null )
-			{
-				List<Item> list = new List<Item>( pack.Items );
+                return false;
+            }
 
-				for ( int i = 0; i < list.Count; ++i )
-					list[i].MoveToWorld( Location, map );
-			}
-		}
+            if (m_SeperationStart != DateTime.MinValue)
+            {
+                m_SeperationStart = DateTime.MinValue;
+            }
 
-		public BaseFamiliar( Serial serial ) : base( serial )
-		{
-		}
+            const int range = 4;
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
+            if (!InRange(ControlMaster.Location, RangeHome) && InLOS(ControlMaster))
+            {
+                Point3D loc = Point3D.Zero;
 
-			writer.Write(0);
-		}
+                if (Map == master.Map)
+                {
+                    int x = (X > master.X) ? (master.X + range) : (master.X - range);
+                    int y = (Y > master.Y) ? (master.Y + range) : (master.Y - range);
 
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
+                    for (int i = 0; i < 10; i++)
+                    {
+                        loc.X = x + Utility.RandomMinMax(-1, 1);
+                        loc.Y = y + Utility.RandomMinMax(-1, 1);
 
-			reader.ReadInt();
+                        loc.Z = Map.GetAverageZ(loc.X, loc.Y);
 
-			ValidationQueue<BaseFamiliar>.Add(this);
-		}
+                        if (Map.CanSpawnMobile(loc))
+                        {
+                            break;
+                        }
 
-		public void Validate()
-		{
-			DropPackContents();
-			Delete();
-		}
+                        loc = master.Location;
+                    }
 
-		private class ReleaseEntry : ContextMenuEntry
-		{
-			private readonly Mobile m_From;
-			private readonly BaseFamiliar m_Familiar;
+                    if (!Deleted)
+                    {
+                        SetLocation(loc, true);
+                    }
+                }
 
-			public ReleaseEntry( Mobile from, BaseFamiliar familiar ) : base( 6118, 14 )
-			{
-				m_From = from;
-				m_Familiar = familiar;
-			}
+                return false;
+            }
 
-			public override void OnClick()
-			{
-				if ( !m_Familiar.Deleted && m_Familiar.Controlled && m_From == m_Familiar.ControlMaster && m_From.CheckAlive() )
-					m_Familiar.BeginRelease( m_From );
-			}
-		}
-	}
+            return true;
+        }
+
+        public override void OnThink()
+        {
+            if (Deleted || Map == null)
+            {
+                return;
+            }
+
+            Mobile master = ControlMaster;
+
+            if (master == null || master.Deleted)
+            {
+                DropPackContents();
+                EndRelease(null);
+                return;
+            }
+
+            if (m_LastHidden != master.Hidden)
+            {
+                Hidden = m_LastHidden = master.Hidden;
+            }
+
+            if (RangeCheck())
+            {
+                if (AIObject != null && AIObject.WalkMobileRange(master, 5, true, 1, 1))
+                {
+                    if (master.Combatant != null && master.InRange(master.Combatant, 1) && Core.TickCount > m_NextMove)
+                    {
+                        IDamageable combatant = master.Combatant;
+
+                        if (!InRange(combatant.Location, 1))
+                        {
+                            for (int x = combatant.X - 1; x <= combatant.X + 1; x++)
+                            {
+                                for (int y = combatant.Y - 1; y <= combatant.Y + 1; y++)
+                                {
+                                    if (x == combatant.X && y == combatant.Y)
+                                    {
+                                        continue;
+                                    }
+
+                                    Point2D p = new Point2D(x, y);
+
+                                    if (InRange(p, 1) && master.InRange(p, 1) && Map != null)
+                                    {
+                                        CurrentSpeed = .01;
+                                        AIObject.MoveTo(new Point3D(x, y, Map.GetAverageZ(x, y)), false, 0);
+                                        m_NextMove = Core.TickCount + 500;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            CurrentSpeed = .1;
+                        }
+                    }
+                    else if (master.Combatant == null)
+                    {
+                        CurrentSpeed = .1;
+                    }
+                }
+                else
+                {
+                    CurrentSpeed = .1;
+                }
+            }
+        }
+
+        public override void GetContextMenuEntries(Mobile from, List<ContextMenuEntry> list)
+        {
+            base.GetContextMenuEntries(from, list);
+
+            if (from.Alive && Controlled && from == ControlMaster && from.InRange(this, 14))
+            {
+                list.Add(new ReleaseEntry(from, this));
+            }
+        }
+
+        public virtual void BeginRelease(Mobile from)
+        {
+            if (!Deleted && Controlled && from == ControlMaster && from.CheckAlive())
+            {
+                EndRelease(from);
+            }
+        }
+
+        public virtual void EndRelease(Mobile from)
+        {
+            if (from == null || (!Deleted && Controlled && from == ControlMaster && from.CheckAlive()))
+            {
+                Effects.SendLocationParticles(
+                    EffectItem.Create(Location, Map, EffectItem.DefaultDuration), 0x3728, 1, 13, 2100, 3, 5042, 0);
+                PlaySound(0x201);
+                Delete();
+            }
+        }
+
+        public virtual void DropPackContents()
+        {
+            Map map = Map;
+            Container pack = Backpack;
+
+            if (map != null && map != Map.Internal && pack != null)
+            {
+                List<Item> list = new List<Item>(pack.Items);
+
+                for (int i = 0; i < list.Count; ++i)
+                {
+                    list[i].MoveToWorld(Location, map);
+                }
+            }
+        }
+
+        public static void OnHit(Mobile attacker, IDamageable defender)
+        {
+            BaseCreature check = (BaseCreature)SummonFamiliarSpell.Table[attacker];
+
+            if (check != null && check is BaseFamiliar && check.Weapon != null && check.InRange(defender.Location, check.Weapon.MaxRange))
+            {
+                check.Weapon.OnSwing(check, defender);
+            }
+
+            if (attacker is PlayerMobile)
+            {
+                foreach (Mobile ts in ((PlayerMobile)attacker).AllFollowers.Where(m => m is BaseTalismanSummon && m.InRange(defender.Location, m.Weapon.MaxRange)))
+                {
+                    ts.Weapon.OnSwing(ts, defender);
+                }
+            }
+        }
+
+        public static void OnLogout(PlayerMobile pm)
+        {
+            if (pm == null)
+                return;
+
+            BaseCreature check = (BaseCreature)SummonFamiliarSpell.Table[pm];
+
+            if (check != null)
+                check.Delete();
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write(0);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            reader.ReadInt();
+
+            ValidationQueue<BaseFamiliar>.Add(this);
+        }
+
+        public void Validate()
+        {
+            DropPackContents();
+            Delete();
+        }
+
+        private class ReleaseEntry : ContextMenuEntry
+        {
+            private readonly Mobile m_From;
+            private readonly BaseFamiliar m_Familiar;
+
+            public ReleaseEntry(Mobile from, BaseFamiliar familiar)
+                : base(6118, 14)
+            {
+                m_From = from;
+                m_Familiar = familiar;
+            }
+
+            public override void OnClick()
+            {
+                if (!m_Familiar.Deleted && m_Familiar.Controlled && m_From == m_Familiar.ControlMaster && m_From.CheckAlive())
+                {
+                    m_Familiar.BeginRelease(m_From);
+                }
+            }
+        }
+    }
 }
