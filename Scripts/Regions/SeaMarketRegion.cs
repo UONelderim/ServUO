@@ -51,7 +51,7 @@ namespace Server.Regions
 
         private static readonly Rectangle2D[] m_Bounds = new Rectangle2D[]
         {
-            new Rectangle2D(4529, 2296, 45, 112),
+            new Rectangle2D(1522, 1823, 45, 112),
         };
 
         private Timer m_Timer;
@@ -138,7 +138,7 @@ namespace Server.Regions
                     string combine;
 
                     if (Sextant.Format(loc, map, ref xLong, ref yLat, ref xMins, ref yMins, ref xEast, ref ySouth))
-                        locArgs = string.Format("{0}°{1}'{2},{3}°{4}'{5}", yLat, yMins, ySouth ? "S" : "N", xLong, xMins, xEast ? "E" : "W");
+                        locArgs = string.Format("{0}°{1}'{2},{3}°{4}'{5}", yLat, yMins, ySouth ? "PD" : "PN", xLong, xMins, xEast ? "WS" : "ZACH");
                     else
                         locArgs = "?????";
 
