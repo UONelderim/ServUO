@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<BoatWarpRegions>
+  <Region name="BoatWarpAtoB" map="Felucca" x="2252" y="29" width="10" height="10" destinationIndex="1" showBoundaries="true" />
+  <Region name="BoatWarpBtoA" map="Felucca" x="5534" y="3655" width="10" height="10" destinationIndex="0" showBoundaries="true" />
+</BoatWarpRegions>
