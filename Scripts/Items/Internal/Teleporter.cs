@@ -128,7 +128,7 @@ namespace Server.Items
 		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Map MapDest
+		public virtual Map MapDest
 		{
 			get { return m_MapDest; }
 			set
