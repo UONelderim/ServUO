@@ -39,7 +39,7 @@ namespace Server
 					}
 				});
 		}
-		
+
 		private static void SaveHouseInternal(Mobile m, BaseHouse house, string name)
 		{
 			var idx = new BinaryFileWriter($"{name}.idx", false);
@@ -51,8 +51,10 @@ namespace Server
 			toSave.Add(house.Sign);
 			toSave.AddRange(house.LockDowns.Keys);
 			var securedItems = house.Secures.Select(s => s.Item).ToArray();
-			toSave.AddRange(securedItems);
-			toSave.AddRange(securedItems.OfType<BaseContainer>().SelectMany(x => x.Items));
+			foreach (var securedItem in securedItems)
+			{
+				AddItemsRecursively(toSave, securedItem);
+			}
 			toSave.AddRange(house.Carpets);
 			toSave.AddRange(house.Addons.Keys);
 			toSave.AddRange(house.Addons.Keys.OfType<BaseAddon>().SelectMany(a => a.Components));
@@ -90,7 +92,13 @@ namespace Server
 			bin.Close();
 			m.SendMessage("Done");
 		}
-		
+
+		private static void AddItemsRecursively(List<Item> items, Item item)
+		{
+			items.Add(item);
+			item.Items.ForEach(i => AddItemsRecursively(items, i));
+		}
+
 		private static void LoadHouse_OnCommand(CommandEventArgs args)
 		{
 			if (args.Arguments.Length != 1)
@@ -203,7 +211,7 @@ namespace Server
 			args.Mobile.SendEverything();
 
 		}
-		
+
 		private sealed class ItemEntry
 		{
 			public Item Item { get; }
