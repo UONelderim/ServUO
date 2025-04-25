@@ -538,7 +538,7 @@
 			<rect x="2256" y="2933" width="126" height="129" />
 			<rect x="2363" y="3062" width="800" height="100" />
 		</region>
-		<region type="CityRegion" name="Naur">
+		<region type="DungeonRegion" name="Naur">
 			<rect x="3050" y="2571" width="125" height="234" />
 			<rect x="3082" y="2543" width="100" height="30" />
 			<rect x="3175" y="2573" width="43" height="278" />
@@ -3377,7 +3377,7 @@
 		<region name="JaskiniaDrowow">
 			<rect x="5225" y="389" width="38" height="38" />
 		</region>
-		<region type="VillageRegion" name="Thila">
+		<region type="DungeonRegion" name="Thila">
 			<rect x="2900" y="2642" width="28" height="70" />
 			<rect x="2928" y="2620" width="84" height="112" />
 			<go x="2962" y="2676" z="0" />
