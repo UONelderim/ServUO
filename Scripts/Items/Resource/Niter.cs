@@ -100,7 +100,7 @@ namespace Server.Items
 
                 if (m_Hits <= 0)
                 {
-                    from.SendMessage("You have mined the last of the niter deposit.");
+                    from.SendMessage("Wykopales ostatnie resztki saletry z tego zrodla.");
                     Delete();
                     return;
                 }
