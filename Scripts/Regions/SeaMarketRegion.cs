@@ -51,7 +51,7 @@ namespace Server.Regions
 
         private static readonly Rectangle2D[] m_Bounds = new Rectangle2D[]
         {
-            new Rectangle2D(1522, 1823, 45, 112),
+            new Rectangle2D(1508, 1871, 45, 112),
         };
 
         private Timer m_Timer;

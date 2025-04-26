@@ -11268,5 +11268,8 @@
 			<rect x="6412" y="286" width="59" height="56" />
 			<music name="MelisandesLair" />
 		</region>
+		<region type="SeaMarketRegion" name="SeaMarketRegion">
+			<rect x="1482" y="1750" width="260" height="148" />
+		</region>
 	</Facet>
 </ServerRegions>
