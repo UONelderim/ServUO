@@ -741,10 +741,16 @@ namespace Server.Multis
             Region oldReg = Region.Find(old, Map);
             Region newReg = Region.Find(Location, Map);
 
-            if (oldReg != newReg && oldReg is CorgulRegion)
-                Timer.DelayCall(TimeSpan.FromSeconds(0.5), new TimerStateCallback(CheckExit), oldReg);
-            else if (oldReg != newReg && newReg is CorgulWarpRegion)
-                Timer.DelayCall(TimeSpan.FromSeconds(1), new TimerStateCallback(CheckEnter), newReg);
+            if (oldReg != newReg)
+            {
+	            if(oldReg is CorgulRegion cr)
+					Timer.DelayCall(TimeSpan.FromSeconds(0.5), () => cr.CheckExit(this));
+	            else if (newReg is CorgulWarpRegion cwr)
+		            Timer.DelayCall(TimeSpan.FromSeconds(1), () => cwr.CheckEnter(this));
+	            else if (newReg is BoatTeleportRegion btr)
+		            Timer.DelayCall(TimeSpan.FromSeconds(1), () => btr.CheckEnter(this));
+            }
+            
             #endregion
         }
 
@@ -3051,18 +3057,6 @@ namespace Server.Multis
         }
 
         #endregion
-         
-        public void CheckExit(object o)
-        {
-            if (o is CorgulRegion)
-                ((CorgulRegion)o).CheckExit(this);
-        }
-
-        public void CheckEnter(object o)
-        {
-            if (o is CorgulWarpRegion)
-                ((CorgulWarpRegion)o).CheckEnter(this);
-        }
 
         private void ComputeDamage()
         {
