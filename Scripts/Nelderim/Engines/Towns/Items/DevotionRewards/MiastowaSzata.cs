@@ -51,6 +51,7 @@ namespace Server.Items
 		public MiastowaSzataOrod()
 			: base(2894)
 		{
+			Hue = 2081;
 		}
 
 		public MiastowaSzataOrod(Serial serial)
@@ -132,7 +133,7 @@ namespace Server.Items
 	public class MiastowaSzataWioskaDrowow : MiastowaSzata
 	{
 		public override int BaseFireResistance => 1;
-		//public override int LabelNumber { get { return 1063967; } } // Szata miasta Nehkrumorgh
+		public override int LabelNumber { get { return 1063967; } } // Szata miasta Nehkrumorgh
 
 		[Constructable]
 		public MiastowaSzataWioskaDrowow()
@@ -220,7 +221,7 @@ namespace Server.Items
 	public class MiastowaSzataTirassa : MiastowaSzata
 	{
 		public override int BasePoisonResistance => 1;
-		public override int LabelNumber => 1063968; // Szata miasta Magizhaar
+		public override int LabelNumber => 3070069; // Szata miasta Tirassa
 
 		[Constructable]
 		public MiastowaSzataTirassa()
@@ -367,7 +368,7 @@ namespace Server.Items
 		public MiastowaSzataZKapturemOrod()
 			: base(1570)
 		{
-			Hue = 327;
+			Hue = 2081;
 		}
 
 		public MiastowaSzataZKapturemOrod(Serial serial)
@@ -537,7 +538,7 @@ namespace Server.Items
 	public class MiastowaSzataZKapturemTirassa : MiastowaSzataZKapturem
 	{
 		public override int BasePoisonResistance => 2;
-		public override int LabelNumber => 1063968; // Szata miasta Magizhaar
+		public override int LabelNumber => 3070069; // Szata miasta Tirassa
 
 		[Constructable]
 		public MiastowaSzataZKapturemTirassa()
