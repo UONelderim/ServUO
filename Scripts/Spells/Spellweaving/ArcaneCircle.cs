@@ -69,8 +69,8 @@ namespace Server.Spells.Spellweaving
 
         private static bool IsBonus(Point3D p, Map m)
         {
-	        return ( m == Map.Felucca) &&
-	               (p.X == 1396 && p.Y == 2481); //Hirneth
+            return (m == Map.Felucca) &&
+                   (p.X == 1396 && p.Y == 2481); //Hirneth
         }
 
         private static int GetStrength(Mobile m)
@@ -127,9 +127,13 @@ namespace Server.Spells.Spellweaving
 
             //OSI Verified: Even enemies/combatants count
             IPooledEnumerable eable = Caster.GetMobilesInRange(1);
-            foreach (Mobile m in eable)	//Range verified as 1
+            foreach (Mobile m in eable)  //Range verified as 1
             {
-                if (m != Caster && m is Mobile && Caster.CanBeBeneficial(m, false) && Math.Abs(Caster.Skills.Spellweaving.Value - m.Skills.Spellweaving.Value) <= 20 && !(m is Clone))
+                // Modified to include both PlayerMobile and BaseVendor types
+                if (m != Caster && (m is PlayerMobile || m is BaseVendor) && 
+                    Caster.CanBeBeneficial(m, false) && 
+                    Math.Abs(Caster.Skills.Spellweaving.Value - m.Skills.Spellweaving.Value) <= 20 && 
+                    !(m is Clone))
                 {
                     weavers.Add(m);
                 }
@@ -143,7 +147,7 @@ namespace Server.Spells.Spellweaving
 
         private void GiveArcaneFocus(Mobile to, TimeSpan duration, int strengthBonus)
         {
-            if (to == null)	//Sanity
+            if (to == null)  //Sanity
                 return;
 
             ArcaneFocus focus = FindArcaneFocus(to);
