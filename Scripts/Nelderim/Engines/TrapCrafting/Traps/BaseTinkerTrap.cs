@@ -1,15 +1,6 @@
-//
-// ** Basic Trap Framework (BTF)
-// ** Author: Lichbane
-//
-
-#region References
-
 using System;
 using Server.Mobiles;
 using Server.Regions;
-
-#endregion
 
 namespace Server.Items
 {
@@ -63,7 +54,6 @@ namespace Server.Items
 		public string ArmedName { get; set; }
 
 		public string UnarmedName { get; set; }
-
 
 		public int DisarmingSkillReq { get; set; }
 
@@ -208,7 +198,18 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write(1); // version
+			writer.Write(2); // version updated to 2
+
+			// Version 2
+			writer.Write(this.TrapArmed);
+			writer.Write(this.TimeTrapArmed);
+			writer.Write(this.ExpiresIn);
+			writer.Write(this.AllowedInTown);
+			writer.Write(this.ArmedName);
+			writer.Write(this.UnarmedName);
+			writer.Write(this.DisarmingSkillReq);
+			writer.Write(this.KarmaLoss);
+			writer.Write(this.PlayerSafe);
 
 			// Version 1
 			writer.Write(this.Owner);
@@ -220,9 +221,45 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 
+			if (version >= 2)
+			{
+				this.TrapArmed = reader.ReadBool();
+				this.TimeTrapArmed = reader.ReadDateTime();
+				this.ExpiresIn = reader.ReadDouble();
+				this.AllowedInTown = reader.ReadBool();
+				this.ArmedName = reader.ReadString();
+				this.UnarmedName = reader.ReadString();
+				this.DisarmingSkillReq = reader.ReadInt();
+				this.KarmaLoss = reader.ReadInt();
+				this.PlayerSafe = reader.ReadBool();
+			}
+
 			if (version >= 1)
 			{
 				this.Owner = reader.ReadMobile();
+			}
+            
+			// Restart the expiry timer if the trap is still armed after server restart
+			if (this.TrapArmed)
+			{
+				// Check if the trap should have expired already
+				DateTime now = DateTime.Now;
+				TimeSpan age = now - this.TimeTrapArmed;
+				
+				if (age >= TimeSpan.FromSeconds(ExpiresIn))
+				{
+					// Trap should have expired already
+					if ((m_TrapsLimit) && (this.Owner is PlayerMobile pm) && (pm.TrapsActive > 0))
+						pm.TrapsActive -= 1;
+						
+					Timer.DelayCall(TimeSpan.Zero, () => this.Delete());
+				}
+				else
+				{
+					// Restart the timer with remaining time
+					double remainingTime = ExpiresIn - age.TotalSeconds;
+					Timer.DelayCall(TimeSpan.FromSeconds(remainingTime > 0 ? remainingTime : 0), TrapExpiry);
+				}
 			}
 		}
 	}
