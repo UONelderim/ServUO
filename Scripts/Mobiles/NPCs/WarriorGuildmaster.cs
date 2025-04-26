@@ -4,7 +4,7 @@ namespace Server.Mobiles
     {
         [Constructable]
         public WarriorGuildmaster()
-            : base("ojownikow")
+            : base("wojownikow")
         {
             SetSkill(SkillName.ArmsLore, 75.0, 98.0);
             SetSkill(SkillName.Parry, 85.0, 100.0);
