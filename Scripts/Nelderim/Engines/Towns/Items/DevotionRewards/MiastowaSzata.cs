@@ -271,6 +271,7 @@ namespace Server.Items
 			: base(2702)
 		{
 			Name = "Szata Lotharn";
+			Hue = 1182;
 		}
 
 		public MiastowaSzataLotharn(Serial serial)
@@ -590,6 +591,7 @@ namespace Server.Items
 			: base(2702)
 		{
 			Name = "Szata Lotharn";
+			Hue = 1182;
 		}
 
 		public MiastowaSzataZKapturemLotharn(Serial serial)
