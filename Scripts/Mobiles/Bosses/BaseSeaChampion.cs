@@ -27,7 +27,7 @@ namespace Server.Mobiles
         public virtual int DamageRange => 15;
 
         public override double BonusPetDamageScalar => 1.75;
-        public override int MasteryPrimerAmount => 0;
+        public override int MasteryPrimerAmount => 1;
 
         public BaseSeaChampion(Mobile fisher, AIType ai, FightMode fm)
             : base(ai, fm)
