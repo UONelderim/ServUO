@@ -130,7 +130,7 @@ namespace Server
         {
             typeof(SkullCap), typeof(Bandana), typeof(FloppyHat), typeof(Cap), typeof(WideBrimHat), typeof(StrawHat),
             typeof(TallStrawHat), typeof(WizardsHat), typeof(Bonnet), typeof(FeatheredHat), typeof(TricorneHat),
-            typeof(JesterHat), typeof(OrcMask), typeof(TribalMask), typeof(FlowerGarland), typeof(BearMask), typeof(DeerMask)
+            typeof(JesterHat), typeof(OrcMask), typeof(NTribalMask), typeof(FlowerGarland), typeof(NBearMask), typeof(NDeerMask)
         };
         public static Type[] HatTypes => m_HatTypes;
 		
