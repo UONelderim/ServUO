@@ -117,7 +117,7 @@ namespace Server.Items
 		public virtual int DefaultDropSound => ContainerData.DropSound;
 
 		public virtual int DefaultMaxItems => GlobalMaxItems;
-		public virtual int DefaultMaxWeight => GlobalMaxWeight;
+		public virtual int DefaultMaxWeight => Parent is Item ? 0 : GlobalMaxWeight;
 
 		public virtual bool CheckHoldCount => true;
 		public virtual bool CheckHoldWeight => true;
