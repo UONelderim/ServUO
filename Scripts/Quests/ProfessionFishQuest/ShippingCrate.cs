@@ -213,31 +213,23 @@ namespace Server.Items
 
         public object GetDeliveryInfo()
         {
-            if (Quest != null && Quest is ProfessionalFisherQuest && Quest.TurnIn != null)
+	        var RegionName = Quest?.TurnIn?.Region?.Name;
+
+            if (String.IsNullOrEmpty(RegionName))
+	            return "Nieznany region dostawy";
+
+            return RegionName switch
             {
-                Region reg = Quest.TurnIn.Region;
-
-                if (reg == null || reg.Name == null)
-                    return "Nieznany region dostawy";
-
-                if (reg.Name == "Tasandora")
-                    return 1116496;
-                if (reg.Name == "Tirassa")
-                    return 1116497;
-                if (reg.Name == "Orod")
-                    return 1116498;
-                if (reg.Name == "Ferion")
-                    return 1116499;
-                if (reg.Name == "Lotharn")
-                    return 1116500;
-                if (reg.Name == "Garlan")
-                    return 1116501;
-                if (reg.Name == "Podmrok_C")
-                    return 1116502;
-                if (reg.Name == "ArtTrader")
-                    return 1116503;
-            }
-            return "Nieznany region dostawy";
+	            "Tasandora" => 1116496,
+	            "Tirassa" => 1116497,
+	            "Orod" => 1116498,
+	            "Ferion" => 1116499,
+	            "Lotharn" => 1116500,
+	            "Garlan" => 1116501,
+	            "Podmrok_C" => 1116502,
+	            "ArtTrader" => 1116503,
+	            _ => $"Nieznany region dostawy ({RegionName}"
+            };
         }
 
         public void AddQuest(ProfessionalFisherQuest quest)
