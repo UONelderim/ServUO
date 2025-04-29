@@ -129,8 +129,7 @@ namespace Server.Spells.Spellweaving
             IPooledEnumerable eable = Caster.GetMobilesInRange(1);
             foreach (Mobile m in eable)  //Range verified as 1
             {
-                // Modified to include both PlayerMobile and BaseVendor types
-                if (m != Caster && (m is PlayerMobile || m is BaseVendor) && 
+                if (m != Caster && m is Mobile && 
                     Caster.CanBeBeneficial(m, false) && 
                     Math.Abs(Caster.Skills.Spellweaving.Value - m.Skills.Spellweaving.Value) <= 20 && 
                     !(m is Clone))
