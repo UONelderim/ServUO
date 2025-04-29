@@ -140,9 +140,8 @@ namespace Server.Items
 					TrapEffect(from);
 					Expire();
 				});
-				return true;
 			}
-			return false;
+			return true;
 		}
 
 		public virtual bool CheckTrigger(Mobile from)
