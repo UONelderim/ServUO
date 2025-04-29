@@ -156,11 +156,6 @@ namespace Server.Mobiles
 			}
 		}
 
-		// Traps
-
-		[CommandProperty(AccessLevel.GameMaster)]
-		public int TrapsActive { get; set; } = 0;
-
 		// Nowy detect hidden
 
 		public Timer PassiveDetectHiddenTimer { get; set; }

@@ -1,47 +1,28 @@
-//
-// ** Basic Trap Framework (BTF)
-// ** Author: Lichbane
-//
 using System;
-using Server.Mobiles;
 
 namespace Server.Items
 {
     public class FreezingLesserTrap : BaseTinkerTrap
     {
-        private Boolean m_TrapArmed = false;
-        private DateTime m_TimeTrapArmed;
-
-        private static string m_ArmedName = "uzbrojona pomniejsza zamrażająca pułapka";
-        private static string m_UnarmedName = "nieuzbrojona pomniejsza zamrażająca pułapka";
-        private static double m_ExpiresIn = 900.0;
-        private static int m_DisarmingSkill = 40;
-        private static int m_KarmaLoss = 40;
-        private static bool m_AllowedInTown = false;
+	    public override int DisarmingSkillReq => 40;
+        protected override int KarmaLoss => 40;
+        protected override bool AllowedInTown => false;
 
         [Constructable]
         public FreezingLesserTrap()
-            : base(m_ArmedName, m_UnarmedName, m_ExpiresIn, m_DisarmingSkill, m_KarmaLoss, m_AllowedInTown)
         {
+	        Name = "Mniejsza Zamrażająca Pułapka";
         }
 
         public override void TrapEffect(Mobile from)
         {
-            from.PlaySound(0x4A);  // click sound
-
             from.PlaySound(0x204);
             from.FixedEffect(0x376A, 6, 1);
 
-            int duration     = Utility.RandomMinMax(2, 4);
-            int damage = Utility.RandomMinMax(20, 40);
+            var damage = Utility.RandomMinMax(20, 40);
             AOS.Damage(from, from, damage, 0, 0, 100, 0, 0);
+            var duration = Utility.RandomMinMax(2, 4);
             from.Paralyze(TimeSpan.FromSeconds(duration));
-
-            bool m_TrapsLimit = Trapcrafting.Config.TrapsLimit;
-            if ((m_TrapsLimit) && (((PlayerMobile)this.Owner).TrapsActive > 0))
-                ((PlayerMobile)this.Owner).TrapsActive -= 1;
-
-            this.Delete();
         }
 
         public FreezingLesserTrap(Serial serial) : base(serial)

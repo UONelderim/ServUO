@@ -1,140 +1,87 @@
 using System;
-using Server.Mobiles;
+using System.Collections.Generic;
 using Server.Regions;
 
 namespace Server.Items
 {
 	public abstract class BaseTinkerTrap : Item
 	{
-		#region Internal Definitions
+		private const bool _KarmaLossOnArming = false;
+		private const int _MaxTraps = 10;
 
-		// Config Variables
-		private readonly bool tr_KarmaLossOnArming = Trapcrafting.Config.KarmaLossOnArming;
-		private readonly bool m_TrapsLimit = Trapcrafting.Config.TrapsLimit;
-		private readonly int m_TrapLimitNumber = Trapcrafting.Config.TrapLimitNumber;
+		private static Dictionary<Mobile, int> _Table = [];
+		private DateTime _ExpireTime = DateTime.MinValue;
+		public static int ActiveTraps(Mobile pm) => _Table.GetValueOrDefault(pm, 0);
 
-		// Individual Trap Parameters
-
-		// Internal Variables
-
-		#endregion
-
+		public abstract int DisarmingSkillReq { get; }
+		protected virtual TimeSpan ExpirationDuration => TimeSpan.FromMinutes(15);
+		protected abstract int KarmaLoss { get; }
+		protected abstract bool AllowedInTown { get; }
+		
 		[Constructable]
-		public BaseTinkerTrap(string ArmedName, string UnarmedName, double ExpiresIn,
-			int DisarmingSkill, int KarmaLoss, bool AllowedInTown) : base(0x2AAA)
+		public BaseTinkerTrap() : base(0x2AAA)
 		{
-			this.Name = UnarmedName;
-			this.Light = LightType.Empty;
-
-			this.ArmedName = ArmedName;
-			this.UnarmedName = UnarmedName;
-			this.ExpiresIn = ExpiresIn;
-			this.DisarmingSkillReq = DisarmingSkill;
-			this.KarmaLoss = KarmaLoss;
-			this.AllowedInTown = AllowedInTown;
+			Light = LightType.Empty;
 		}
-
-		#region Trap Properties
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public Mobile Owner { get; set; }
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public bool TrapArmed { get; set; }
+		public DateTime ExpireTime
+		{
+			get => _ExpireTime;
+			set
+			{
+				_ExpireTime = value;
+				InvalidateProperties();
+			}
+		}
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public DateTime TimeTrapArmed { get; set; }
+		public bool TrapArmed => ExpireTime > DateTime.MinValue;
 
-		[CommandProperty(AccessLevel.GameMaster)]
-		public double ExpiresIn { get; set; }
-
-		[CommandProperty(AccessLevel.GameMaster)]
-		public bool AllowedInTown { get; set; }
-
-		public string ArmedName { get; set; }
-
-		public string UnarmedName { get; set; }
-
-		public int DisarmingSkillReq { get; set; }
-
-		public int KarmaLoss { get; set; }
-
-		public bool PlayerSafe { get; set; } = true;
-
-		#endregion
+		public override void AddNameProperty(ObjectPropertyList list)
+		{
+			var prefix = TrapArmed ? "Uzbrojona" : "Nieuzbrojona";
+			list.Add($"{prefix} {Name}"); 
+		}
 
 		public override void OnDoubleClick(Mobile from)
 		{
-			if (!this.TrapArmed) //  Code for arming the Trap
+			if (from == null || from.Deleted)
+				return;
+			
+			if (!TrapArmed) //  Code for arming the Trap
 			{
-				if (this.IsChildOf(from.Backpack))
+				if (IsChildOf(from.Backpack))
 					from.SendMessage("Pułapka musi zostać najpierw ustawiona zanim ją uzbroisz.");
-
-				else if (!from.InRange(this.GetWorldLocation(), 2))
+				else if (!from.InRange(GetWorldLocation(), 2))
 					from.SendMessage("Z tego miejsca nie możesz uzbroić pułapki.");
-
-				else if ((from.Region is CityRegion) && (!this.AllowedInTown))
+				else if ((from.Region is CityRegion) && (!AllowedInTown))
 					from.SendMessage("Nie możesz tego zrobić w mieście.");
-
-				else if ((m_TrapsLimit) && ((((PlayerMobile)from).TrapsActive + 1) > m_TrapLimitNumber))
-					from.SendMessage("Niestety osiągąłeś limit pułapek, które możesz ustawić.");
-
+				else if (ActiveTraps(from) > _MaxTraps)
+					from.SendMessage("Niestety osiągnąłeś limit pułapek, które możesz ustawić.");
 				else
 				{
-					if (tr_KarmaLossOnArming)
-						from.Karma -= this.KarmaLoss;
-
-					if (m_TrapsLimit)
-						((PlayerMobile)from).TrapsActive += 1;
-
-					this.Name = this.ArmedName;
-					this.Movable = false;
-					this.TrapArmed = true;
-					this.Owner = from;
-
-					this.PlayerSafe = true;
-					if (this.Map.Rules == MapRules.FeluccaRules)
-						PlayerSafe = false;
-
-					this.TimeTrapArmed = DateTime.Now;
-					Timer.DelayCall(TimeSpan.FromSeconds(this.ExpiresIn), TrapExpiry);
-
-					ArmTrap(from); // Any specialised trap arming code?
+					ArmTrap(from);
 					from.SendMessage("Ta pułapka jest uzbrojona.");
 					from.PlaySound(0x4A);
 				}
 			}
 			else //  Code for disarming the Trap
 			{
-				if (this.Visible)
+				if (Visible)
 				{
-					double m_RemoveTrap = (from.Skills.RemoveTrap.Value / 100); // Get disarmers Remove Traps skill.
-					if (from.Skills.RemoveTrap.Value + 1 < this.DisarmingSkillReq)
+					if (from.Skills.RemoveTrap.Value + 1 < DisarmingSkillReq)
 						from.SendMessage("Ta pułapka wygląda na zbyt skomplikowaną byś mógł ją rozbroić.");
-
-					else if (!from.InRange(this.GetWorldLocation(), 2))
+					else if (!from.InRange(GetWorldLocation(), 2))
 						from.SendMessage("Nie możesz rozbrajać z tego miejsca.");
-
-					else if (this.DisarmingSkillReq > 0 &&
-					         (m_RemoveTrap < Utility.RandomDouble())) // Failed to disarm the Trap.
+					else if (DisarmingSkillReq > 0 && !from.CheckSkill(SkillName.RemoveTrap, DisarmingSkillReq - 25, DisarmingSkillReq + 25)) // Failed to disarm the Trap.
 						TrapEffect(from);
-
 					else
 					{
-						if ((tr_KarmaLossOnArming) && (this.Owner == from))
-							from.Karma += (this.KarmaLoss / 2); // Recover half Karma Loss for disarming your own trap. 
-
-						if ((m_TrapsLimit) && (((PlayerMobile)this.Owner).TrapsActive > 0))
-							((PlayerMobile)this.Owner).TrapsActive -= 1;
-
-						this.Name = this.UnarmedName;
-						this.Movable = true;
-						this.TrapArmed = false;
-						this.Owner = from;
-
-						this.PlayerSafe = true;
-
-						DisarmTrap(from); // Any specialised trap disarming code?
+						DisarmTrap(from);
 						from.SendMessage("The trap is disarmed.");
 						from.PlaySound(0x4A);
 					}
@@ -142,50 +89,73 @@ namespace Server.Items
 			}
 		}
 
-		private void TrapExpiry()
+		private void ArmTrap(Mobile from)
 		{
-			// Trap may have been triggered or disarmed since the timer started. 
-			if (this == null || this.Deleted || !this.TrapArmed)
+			Movable = false;
+			Visible = false;
+			Owner = from;
+			_Table[from] = ActiveTraps(from) + 1;
+					
+			if (_KarmaLossOnArming)
+				from.Karma -= KarmaLoss;
+			
+			Timer.DelayCall(ExpirationDuration, Expire);
+			ExpireTime = DateTime.UtcNow + ExpirationDuration;
+			OnTrapArmed(from);
+		}
+
+		private void DisarmTrap(Mobile from)
+		{
+			Movable = true;
+			Visible = true;
+			if (Owner != null)
+			{
+				_Table[Owner] = Math.Min(0, ActiveTraps(Owner) - 1);
+				Owner = null;
+			}
+
+			if (_KarmaLossOnArming && from == Owner)
+				from.Karma += (KarmaLoss / 2); // Recover half Karma Loss for disarming your own trap. 
+			
+			ExpireTime = DateTime.MinValue;
+			OnTrapDisarmed(from);
+		}
+
+		private void Expire()
+		{
+			if (Deleted || !TrapArmed)
 				return;
-
-			//  Double check the trap has expired since the LAST arming.
-			DateTime now = DateTime.Now;
-			TimeSpan age = now - this.TimeTrapArmed;
-			Mobile from = this.Owner;
-			if (age < TimeSpan.FromSeconds(ExpiresIn))
-				return;
-
-			if ((m_TrapsLimit) && (((PlayerMobile)this.Owner).TrapsActive > 0))
-				((PlayerMobile)this.Owner).TrapsActive -= 1;
-
-			this.Delete();
+			
+			DisarmTrap(Owner);
+			Delete();
 		}
 
 		public override bool OnMoveOver(Mobile from)
 		{
-			if (TrapArmed)
+			if (TrapArmed && CheckTrigger(from))
 			{
-				if (!(from.Player && this.PlayerSafe)) // Make sure the rules are Felucca
-					Timer.DelayCall(() =>TrapCheckTrigger(from)); // for players triggering the trap.
-
+				Timer.DelayCall(() =>
+				{
+					from.PlaySound(0x4A);  // click sound
+					TrapEffect(from);
+					Expire();
+				});
 				return true;
 			}
-
 			return false;
 		}
 
-		public virtual void ArmTrap(Mobile from) // Default for Trap Specific Arming Effects.
+		public virtual bool CheckTrigger(Mobile from)
 		{
-			this.Visible = false;
+			return true;
 		}
 
-		public virtual void DisarmTrap(Mobile from) // Default for Trap Specific Disarming Effects
+		public virtual void OnTrapArmed(Mobile from)
 		{
 		}
 
-		public virtual void TrapCheckTrigger(Mobile from)
+		public virtual void OnTrapDisarmed(Mobile from)
 		{
-			TrapEffect(from); // Default behavior for trap triggering (trigger all the time).
 		}
 
 		public abstract void TrapEffect(Mobile from);
@@ -198,21 +168,10 @@ namespace Server.Items
 		{
 			base.Serialize(writer);
 
-			writer.Write(2); // version updated to 2
+			writer.Write(2); // version
 
-			// Version 2
-			writer.Write(this.TrapArmed);
-			writer.Write(this.TimeTrapArmed);
-			writer.Write(this.ExpiresIn);
-			writer.Write(this.AllowedInTown);
-			writer.Write(this.ArmedName);
-			writer.Write(this.UnarmedName);
-			writer.Write(this.DisarmingSkillReq);
-			writer.Write(this.KarmaLoss);
-			writer.Write(this.PlayerSafe);
-
-			// Version 1
-			writer.Write(this.Owner);
+			writer.Write(ExpireTime - DateTime.UtcNow);
+			writer.Write(Owner);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -223,44 +182,14 @@ namespace Server.Items
 
 			if (version >= 2)
 			{
-				this.TrapArmed = reader.ReadBool();
-				this.TimeTrapArmed = reader.ReadDateTime();
-				this.ExpiresIn = reader.ReadDouble();
-				this.AllowedInTown = reader.ReadBool();
-				this.ArmedName = reader.ReadString();
-				this.UnarmedName = reader.ReadString();
-				this.DisarmingSkillReq = reader.ReadInt();
-				this.KarmaLoss = reader.ReadInt();
-				this.PlayerSafe = reader.ReadBool();
+				ExpireTime = DateTime.UtcNow + reader.ReadTimeSpan();
 			}
-
-			if (version >= 1)
-			{
-				this.Owner = reader.ReadMobile();
-			}
-            
-			// Restart the expiry timer if the trap is still armed after server restart
-			if (this.TrapArmed)
-			{
-				// Check if the trap should have expired already
-				DateTime now = DateTime.Now;
-				TimeSpan age = now - this.TimeTrapArmed;
-				
-				if (age >= TimeSpan.FromSeconds(ExpiresIn))
-				{
-					// Trap should have expired already
-					if ((m_TrapsLimit) && (this.Owner is PlayerMobile pm) && (pm.TrapsActive > 0))
-						pm.TrapsActive -= 1;
-						
-					Timer.DelayCall(TimeSpan.Zero, () => this.Delete());
-				}
-				else
-				{
-					// Restart the timer with remaining time
-					double remainingTime = ExpiresIn - age.TotalSeconds;
-					Timer.DelayCall(TimeSpan.FromSeconds(remainingTime > 0 ? remainingTime : 0), TrapExpiry);
-				}
-			}
+			Owner = reader.ReadMobile();
+			
+			if (ExpireTime >= DateTime.UtcNow)
+				Timer.DelayCall(DateTime.UtcNow - ExpireTime, Expire);
+			else
+				Timer.DelayCall(TimeSpan.Zero, Expire);
 		}
 	}
 }
