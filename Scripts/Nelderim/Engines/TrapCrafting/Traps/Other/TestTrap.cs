@@ -1,15 +1,13 @@
-using Server.Mobiles;
-
 namespace Server.Items
 {
-    public class TrapTest : BaseTinkerTrap
+    public class TestTrap : BaseTinkerTrap
     {
 	    public override int DisarmingSkillReq => 10;
         protected override int KarmaLoss => 0;
         protected override bool AllowedInTown => true;
 
         [Constructable]
-        public TrapTest()
+        public TestTrap()
         {
 	        Name = "Testowa pułapka";
         }
@@ -20,7 +18,7 @@ namespace Server.Items
             from.SendMessage("Aktywacja");
         }
 
-        public TrapTest(Serial serial) : base(serial)
+        public TestTrap(Serial serial) : base(serial)
 		{
 		}
 

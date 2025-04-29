@@ -2,7 +2,6 @@ namespace Server.Items
 {
   	public class TrapDetector : Item
     {
-
         [Constructable]
         public TrapDetector() : base(0x1B73)
         {

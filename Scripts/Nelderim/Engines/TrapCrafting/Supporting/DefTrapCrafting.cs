@@ -249,7 +249,7 @@ namespace Server.Engines.Craft
 			AddRes(index, typeof(Hammer), "Hmłotek", 4, "Potrzeba więcej młotków");
 			AddRes(index, typeof(Buckler), "puklerz", 1, "Potrzeba więcej puklerzy.");
 
-			index = AddCraft(typeof(TrapTest), "Inne urządzenia", "pułapka testowa", 25.0, 45.0, typeof(TrapFrame),
+			index = AddCraft(typeof(TestTrap), "Inne urządzenia", "pułapka testowa", 25.0, 45.0, typeof(TrapFrame),
 				"Podstawa", 1, "Potrzeba więcej podstaw do pułapki.");
 			AddRes(index, typeof(Leather), "skóra", 2, "Potrzeba więcej skór.");
 			AddRes(index, typeof(Gears), "Przekładnie", 2, "Potrzeba więcej przekładni.");
