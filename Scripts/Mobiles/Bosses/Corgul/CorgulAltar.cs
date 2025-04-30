@@ -30,8 +30,14 @@ namespace Server.Items
 
         private static Rectangle2D m_LandKickLocation = new Rectangle2D(1521, 1823, 10, 10); 
         public static Rectangle2D LandKickLocation => m_LandKickLocation;
+        
+        public static Point3D SpawnLoc = new Point3D(6305, 1201,  10); 
 
-        private static Rectangle2D m_CorgulBounds = new Rectangle2D(6144, 1051, m_RegionSize, m_RegionSize);
+        private static Rectangle2D m_CorgulBounds = new Rectangle2D(
+	        SpawnLoc.X - m_RegionSize / 2, 
+	        SpawnLoc.Y - m_RegionSize / 2, 
+	        m_RegionSize, 
+	        m_RegionSize);
 
         public static Rectangle2D CorgulBounds => m_CorgulBounds;
         #endregion
@@ -67,8 +73,6 @@ namespace Server.Items
         {
             typeof(TreasureMap), typeof(WorldMap)
         };
-
-        public static Point3D SpawnLoc = new Point3D(6305, 1201,  10); 
 
         [CommandProperty(AccessLevel.GameMaster)]
         public DateTime DeadLine => m_DeadLine;

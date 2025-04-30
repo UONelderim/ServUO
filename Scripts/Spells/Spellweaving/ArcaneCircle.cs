@@ -22,8 +22,8 @@ namespace Server.Spells.Spellweaving
         public override int RequiredMana => 24;
         public static bool IsValidTile(int itemID)
         {
-
-            return (itemID == 0x3083 || itemID == 0x3080 || itemID == 0x3082 || itemID == 0x3081 || itemID == 0x307D || itemID == 0x307F || itemID == 0x307E || itemID == 0xFE7 || itemID == 0xFE8 || itemID == 0xFEB || itemID == 0xFE6 || itemID == 0xFEA || itemID == 0xFEE || itemID == 0xFE9);
+	        return itemID is >= 0x307B and <= 0x3083 ||
+	               itemID is >= 0xFE6 and <= 0xFEE;
         }
 
         public override bool CheckCast()
@@ -129,8 +129,7 @@ namespace Server.Spells.Spellweaving
             IPooledEnumerable eable = Caster.GetMobilesInRange(1);
             foreach (Mobile m in eable)  //Range verified as 1
             {
-                // Modified to include both PlayerMobile and BaseVendor types
-                if (m != Caster && (m is PlayerMobile || m is BaseVendor) && 
+                if (m != Caster && m is Mobile && 
                     Caster.CanBeBeneficial(m, false) && 
                     Math.Abs(Caster.Skills.Spellweaving.Value - m.Skills.Spellweaving.Value) <= 20 && 
                     !(m is Clone))

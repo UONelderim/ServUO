@@ -113,7 +113,6 @@ namespace Server.Regions
                     boat.StopMove(true);
                     boat.SendMessageToAllOnBoard("Lodz utknela na rafie koralowej!");
                 }
-
             }
         }
     }
