@@ -146,10 +146,7 @@ namespace Server.Misc
 
 			try
 			{
-				var now = DateTime.Now;
-
-				var ampm = now.Hour < 12 ? "AM" : "PM";
-				var hour12 = now.Hour > 12 ? now.Hour - 12 : now.Hour <= 0 ? 12 : now.Hour;
+				var now = DateTime.UtcNow;
 
 				string date;
 
@@ -157,8 +154,8 @@ namespace Server.Misc
 				{
 					case MergeType.Months: date = $"{now.Month}-{now.Year}"; break;
 					case MergeType.Days: date = $"{now.Day}-{now.Month}-{now.Year}"; break;
-					case MergeType.Hours: date = $"{now.Day}-{now.Month}-{now.Year} {hour12:D2} {ampm}"; break;
-					case MergeType.Minutes: default: date = $"{now.Day}-{now.Month}-{now.Year} {hour12:D2}-{now.Minute:D2} {ampm}"; break;
+					case MergeType.Hours: date = $"{now.Day}-{now.Month}-{now.Year} {now.Hour:D2}"; break;
+					case MergeType.Minutes: default: date = $"{now.Day}-{now.Month}-{now.Year} {now.Hour:D2}-{now.Minute:D2}"; break;
 				}
 
 				var file = $"{ServerList.ServerName} Saves ({date}).zip";
