@@ -19,9 +19,9 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo(typeof(Dyes), 8, 20, 0xFA9, 0));
 				Add(new GenericBuyInfo(typeof(DyeTub), 9, 20, 0xFAB, 0));
 				Add(new GenericBuyInfo(typeof(BoltOfCloth), 100, 20, 0xf95, 0));
-				Add(new GenericBuyInfo(typeof(LightYarnUnraveled), 18, 20, 0xE1F, 0));
-				Add(new GenericBuyInfo(typeof(LightYarn), 18, 20, 0xE1E, 0));
-				Add(new GenericBuyInfo(typeof(DarkYarn), 18, 20, 0xE1D, 0));
+				Add(new GenericBuyInfo("1023614", typeof(LightYarnUnraveled), 18, 20, 0xE1F, 0));
+				Add(new GenericBuyInfo("1023614", typeof(LightYarn), 18, 20, 0xE1E, 0));
+				Add(new GenericBuyInfo("1023615", typeof(DarkYarn), 18, 20, 0xE1D, 0));
 
 				Add(new GenericBuyInfo("1154003", typeof(LeatherBraid), 50, 500, 5152, 2968));
 			}
