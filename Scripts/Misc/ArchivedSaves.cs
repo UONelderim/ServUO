@@ -155,10 +155,10 @@ namespace Server.Misc
 					case MergeType.Months: date = $"{now.Month}-{now.Year}"; break;
 					case MergeType.Days: date = $"{now.Day}-{now.Month}-{now.Year}"; break;
 					case MergeType.Hours: date = $"{now.Day}-{now.Month}-{now.Year} {now.Hour:D2}"; break;
-					case MergeType.Minutes: default: date = $"{now.Day}-{now.Month}-{now.Year} {now.Hour:D2}-{now.Minute:D2}"; break;
+					case MergeType.Minutes: default: date = $"{now.Day}-{now.Month}-{now.Year}_{now.Hour:D2}-{now.Minute:D2}"; break;
 				}
 
-				var file = $"{ServerList.ServerName} Saves ({date}).zip";
+				var file = $"{ServerList.ServerName}_Saves_{date}.zip";
 
 				dest = Path.Combine(Destination, file);
 
