@@ -220,9 +220,9 @@ namespace Server.Engines.Craft
             index = AddCraft(typeof(Backpack), 3070046, 3070043, 0.0, 30.0, typeof(Leather), 1044462, 2, 1044463);
             ForceNonExceptional(index);
 
-    //        index = AddCraft(typeof(PowderCharge), 1044457, 1116160, 0.0, 50.0, typeof(Cloth), 1044455, 1, 1044253);
-    //        AddRes(index, typeof(BlackPowder), 1095826, 4, 1044253);
-    //        SetUseAllRes(index, true);
+            index = AddCraft(typeof(PowderCharge), 1044457, 1116160, 0.0, 50.0, typeof(Cloth), 1044455, 1, 1044253);
+            AddRes(index, typeof(BlackPowder), 1095826, 4, 1044253);
+            SetUseAllRes(index, true);
 
      //       index = AddCraft(typeof(AbyssalCloth), 1044457, 1113350, 110.0, 160.0, typeof(Cloth), 1044455, 50, 1044253);
      //       AddRes(index, typeof(CrystallineBlackrock), 1077568, 1, 1044253);
