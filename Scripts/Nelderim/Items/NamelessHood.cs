@@ -6,11 +6,11 @@ using Server.Regions;
 [Flipable(0x278F, 0x27DA)]
 public class NamelessHood : BaseHat
 {
-	public override int BasePhysicalResistance => 3;
-	public override int BaseFireResistance => 3;
-	public override int BaseColdResistance => 6;
-	public override int BasePoisonResistance => 9;
-	public override int BaseEnergyResistance => 9;
+	public override int BasePhysicalResistance => 0;
+	public override int BaseFireResistance => 0;
+	public override int BaseColdResistance => 0;
+	public override int BasePoisonResistance => 0;
+	public override int BaseEnergyResistance => 0;
 
 	public override int InitMinHits => 20;
 	public override int InitMaxHits => 30;
