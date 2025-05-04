@@ -2290,7 +2290,7 @@ namespace Server.Gumps
 										break;
 									case Towns.Orod:
 										TownDatabase.GetCitinzeship(from).UseDevotion(1000);
-										m_toGive = new PigmentTasandora();
+										m_toGive = new PigmentOrod();
 										from.AddToBackpack(m_toGive);
 										break;
 									case Towns.Garlan:
@@ -2300,7 +2300,7 @@ namespace Server.Gumps
 										break;
 									 case Towns.Twierdza:
 									     TownDatabase.GetCitinzeship(from).UseDevotion(1000);
-									     m_toGive = new MiastowaSzataTwierdza(); //TODO: zmienić na PigmentTwierdza, po jego stworzeniu
+									     m_toGive = new PigmentTwierdza(); 
 									     from.AddToBackpack(m_toGive);
 									     break;
 									case Towns.LDelmah:
@@ -2315,7 +2315,7 @@ namespace Server.Gumps
 										break;
 									case Towns.Tirassa:
 										TownDatabase.GetCitinzeship(from).UseDevotion(1000);
-										m_toGive = new PigmentTasandora(); //TODO: zmienić na PigmentTirassa, po jego stworzeniu
+										m_toGive = new PigmentTirassa(); 
 										from.AddToBackpack(m_toGive);
 										break;
 									default:
