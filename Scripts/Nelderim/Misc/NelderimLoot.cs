@@ -508,43 +508,43 @@ namespace Nelderim
 		];
 
 		public static readonly LootPack AncientScrolls = new([
-			new LootPackEntry(false, true, AncientScrollItems, 30.00, 1)
+			new LootPackEntry(false, true, AncientScrollItems, 70.00, 1)
 		]);
 
 		public static readonly LootPack AvatarScrolls = new([
-			new LootPackEntry(false, true, AvatarScrollItems, 30.00, 1)
+			new LootPackEntry(false, true, AvatarScrollItems, 70.00, 1)
 		]);
 
 		public static readonly LootPack BardScrolls = new([
-			new LootPackEntry(false, true, BardScrollItems, 30.00, 1)
+			new LootPackEntry(false, true, BardScrollItems, 70.00, 1)
 		]);
 
 		public static readonly LootPack ClericScrolls = new([
-			new LootPackEntry(false, true, ClericScrollItems, 30.00, 1)
+			new LootPackEntry(false, true, ClericScrollItems, 70.00, 1)
 		]);
 
 		public static readonly LootPack DruidScrolls = new([
-			new LootPackEntry(false, true, DruidScrollItems, 30.00, 1)
+			new LootPackEntry(false, true, DruidScrollItems, 70.00, 1)
 		]);
 
 		public static readonly LootPack RangerScrolls = new([
-			new LootPackEntry(false, true, RangerScrollItems, 30.00, 1)
+			new LootPackEntry(false, true, RangerScrollItems, 70.00, 1)
 		]);
 
 		public static readonly LootPack RogueScrolls = new([
-			new LootPackEntry(false, true, RogueScrollItems, 30.00, 1)
+			new LootPackEntry(false, true, RogueScrollItems, 70.00, 1)
 		]);
 
 		public static readonly LootPack UndeadScrolls = new([
-			new LootPackEntry(false, true, UndeadScrollItems, 30.00, 1)
+			new LootPackEntry(false, true, UndeadScrollItems, 70.00, 1)
 		]);
 
 		public static readonly LootPack DeathKnightScrolls = new([
-			new( false, true,  DeathKnightItems, 30.00, 1 )
+			new( false, true,  DeathKnightItems, 70.00, 1 )
 		]);
 		
-		public static readonly LootPack ArcanistScrolls = new([new LootPackEntry(false, true, LootPack.ArcanistScrollItems, 30.00, 1)]);
-		public static readonly LootPack MysticScrolls =  new([new LootPackEntry(false, true, LootPack.MysticScrollItems, 30.00, 1)]);
+		public static readonly LootPack ArcanistScrolls = new([new LootPackEntry(false, true, LootPack.ArcanistScrollItems, 70.00, 1)]);
+		public static readonly LootPack MysticScrolls =  new([new LootPackEntry(false, true, LootPack.MysticScrollItems, 70.00, 1)]);
 		
 		#endregion
 		
