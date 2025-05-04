@@ -35,7 +35,7 @@ namespace Server.Mobiles
         public virtual bool RestrictedToFelucca => true;
         public virtual int PowerScrollAmount => ChampionSystem.PowerScrollAmount;
         public virtual int MasteryPrimerAmount => 1;
-        public virtual double MasteryPrimerChance => 0.2;
+        public virtual double MasteryPrimerChance => 0.4;
 
         public override void Serialize(GenericWriter writer)
         {
