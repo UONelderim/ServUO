@@ -334,15 +334,15 @@ namespace Server.Services.TownCryer
             switch (city)
             {
                 default:
-                case City.Britain: return 1158043;
-                case City.Jhelom: return 1158044;
-                case City.Minoc: return 1158045;
-                case City.Moonglow: return 1158046;
-                case City.NewMagincia: return 1158047;
-                case City.SkaraBrae: return 1158048;
-                case City.Trinsic: return 1158049;
-                case City.Vesper: return 1158050;
-                case City.Yew: return 1158051;
+                case City.Twierdza: return 1158043;
+                case City.Tirassa: return 1158044;
+                case City.Orod: return 1158045;
+                case City.Tasandora: return 1158046;
+                case City.ArtTrader: return 1158047;
+                case City.Garlan: return 1158048;
+                case City.Lotharn: return 1158049;
+                case City.Celendir: return 1158050;
+                case City.LDelmah: return 1158051;
             }
         }
 

@@ -66,15 +66,15 @@ namespace Server.Engines.CityLoyalty
 
                 switch (city)
                 {
-                    case City.Moonglow: sys = CityLoyaltySystem.Moonglow; break;
-                    case City.Britain: sys = CityLoyaltySystem.Britain; break;
-                    case City.Jhelom: sys = CityLoyaltySystem.Jhelom; break;
-                    case City.Yew: sys = CityLoyaltySystem.Yew; break;
-                    case City.Minoc: sys = CityLoyaltySystem.Minoc; break;
-                    case City.Trinsic: sys = CityLoyaltySystem.Trinsic; break;
-                    case City.SkaraBrae: sys = CityLoyaltySystem.SkaraBrae; break;
-                    case City.NewMagincia: sys = CityLoyaltySystem.NewMagincia; break;
-                    case City.Vesper: sys = CityLoyaltySystem.Vesper; break;
+                    case City.Tasandora: sys = CityLoyaltySystem.Tasandora; break;
+                    case City.Twierdza: sys = CityLoyaltySystem.Twierdza; break;
+                    case City.Tirassa: sys = CityLoyaltySystem.Tirassa; break;
+                    case City.LDelmah: sys = CityLoyaltySystem.LDelmah; break;
+                    case City.Orod: sys = CityLoyaltySystem.Orod; break;
+                    case City.Lotharn: sys = CityLoyaltySystem.Lotharn; break;
+                    case City.Garlan: sys = CityLoyaltySystem.Garlan; break;
+                    case City.ArtTrader: sys = CityLoyaltySystem.ArtTrader; break;
+                    case City.Celendir: sys = CityLoyaltySystem.Celendir; break;
                 }
 
                 if (sys != null)

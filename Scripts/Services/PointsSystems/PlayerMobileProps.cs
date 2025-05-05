@@ -410,7 +410,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return CityLoyaltySystem.Moonglow.GetPlayerEntry<CityLoyaltyEntry>(Player);
+                return CityLoyaltySystem.Tasandora.GetPlayerEntry<CityLoyaltyEntry>(Player);
             }
             set { }
         }
@@ -420,7 +420,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return CityLoyaltySystem.Britain.GetPlayerEntry<CityLoyaltyEntry>(Player);
+                return CityLoyaltySystem.Twierdza.GetPlayerEntry<CityLoyaltyEntry>(Player);
             }
             set { }
         }
@@ -430,7 +430,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return CityLoyaltySystem.Jhelom.GetPlayerEntry<CityLoyaltyEntry>(Player);
+                return CityLoyaltySystem.Tirassa.GetPlayerEntry<CityLoyaltyEntry>(Player);
             }
             set { }
         }
@@ -440,7 +440,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return CityLoyaltySystem.Yew.GetPlayerEntry<CityLoyaltyEntry>(Player);
+                return CityLoyaltySystem.LDelmah.GetPlayerEntry<CityLoyaltyEntry>(Player);
             }
             set { }
         }
@@ -450,7 +450,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return CityLoyaltySystem.Minoc.GetPlayerEntry<CityLoyaltyEntry>(Player);
+                return CityLoyaltySystem.Orod.GetPlayerEntry<CityLoyaltyEntry>(Player);
             }
             set { }
         }
@@ -460,7 +460,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return CityLoyaltySystem.Trinsic.GetPlayerEntry<CityLoyaltyEntry>(Player);
+                return CityLoyaltySystem.Lotharn.GetPlayerEntry<CityLoyaltyEntry>(Player);
             }
             set { }
         }
@@ -470,7 +470,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return CityLoyaltySystem.SkaraBrae.GetPlayerEntry<CityLoyaltyEntry>(Player);
+                return CityLoyaltySystem.Garlan.GetPlayerEntry<CityLoyaltyEntry>(Player);
             }
             set { }
         }
@@ -480,7 +480,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return CityLoyaltySystem.NewMagincia.GetPlayerEntry<CityLoyaltyEntry>(Player);
+                return CityLoyaltySystem.ArtTrader.GetPlayerEntry<CityLoyaltyEntry>(Player);
             }
             set { }
         }
@@ -490,7 +490,7 @@ namespace Server.Mobiles
         {
             get
             {
-                return CityLoyaltySystem.Vesper.GetPlayerEntry<CityLoyaltyEntry>(Player);
+                return CityLoyaltySystem.Celendir.GetPlayerEntry<CityLoyaltyEntry>(Player);
             }
             set { }
         }

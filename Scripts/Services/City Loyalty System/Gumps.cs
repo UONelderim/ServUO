@@ -856,7 +856,7 @@ namespace Server.Engines.CityLoyalty
             AddBackground(0, 0, 400, 400, 5054);
             AddHtml(0, 15, 400, 20, "<center>Election Start Times</center>", false, false);
 
-            if (CityLoyaltySystem.Britain.Election != null && CityLoyaltySystem.Britain.Election.Ongoing)
+            if (CityLoyaltySystem.Twierdza.Election != null && CityLoyaltySystem.Twierdza.Election.Ongoing)
             {
                 AddHtml(15, 35, 370, 40, "You will have to wait until the current election is over before you can start another one.", false, true);
             }
@@ -874,8 +874,8 @@ namespace Server.Engines.CityLoyalty
                 {
                     string start = "";
 
-                    if (CityLoyaltySystem.Britain.Election != null && CityLoyaltySystem.Britain.Election.StartTimes.Length >= i && CityLoyaltySystem.Britain.Election.StartTimes[i] != DateTime.MinValue)
-                        start = CityLoyaltySystem.Britain.Election.StartTimes[i].Month.ToString();
+                    if (CityLoyaltySystem.Twierdza.Election != null && CityLoyaltySystem.Twierdza.Election.StartTimes.Length >= i && CityLoyaltySystem.Twierdza.Election.StartTimes[i] != DateTime.MinValue)
+                        start = CityLoyaltySystem.Twierdza.Election.StartTimes[i].Month.ToString();
 
                     AddLabel(15, 180 + (i * 25), 0, (i + 1).ToString() + ".");
                     AddImageTiled(150, 180 + (i * 25), 50, 20, 5058);
@@ -893,7 +893,7 @@ namespace Server.Engines.CityLoyalty
 
         public override void OnResponse(RelayInfo info)
         {
-            if (info.ButtonID < 1 || (CityLoyaltySystem.Britain.Election != null && CityLoyaltySystem.Britain.Election.Ongoing))
+            if (info.ButtonID < 1 || (CityLoyaltySystem.Twierdza.Election != null && CityLoyaltySystem.Twierdza.Election.Ongoing))
                 return;
 
             if (info.ButtonID == 2)

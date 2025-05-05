@@ -13,15 +13,15 @@ namespace Server.Engines.CityLoyalty
 {
     public enum City
     {
-        Moonglow,
-        Britain,
-        Jhelom,
-        Yew,
-        Minoc,
-        Trinsic,
-        SkaraBrae,
-        NewMagincia,
-        Vesper
+        Tasandora,
+        Twierdza,
+        Tirassa,
+        LDelmah,
+        Orod,
+        Lotharn,
+        Garlan,
+        ArtTrader,
+        Celendir
     }
 
     public enum LoyaltyRating
@@ -954,15 +954,15 @@ namespace Server.Engines.CityLoyalty
             switch (Utility.Random(11))
             {
                 default:
-                case 0: return City.Moonglow;
-                case 1: return City.Britain;
-                case 2: return City.Jhelom;
-                case 3: return City.Yew;
-                case 4: return City.Minoc;
-                case 5: return City.Trinsic;
-                case 6: return City.SkaraBrae;
-                case 7: return City.NewMagincia;
-                case 10: return City.Vesper;
+                case 0: return City.Tasandora;
+                case 1: return City.Twierdza;
+                case 2: return City.Tirassa;
+                case 3: return City.LDelmah;
+                case 4: return City.Orod;
+                case 5: return City.Lotharn;
+                case 6: return City.Garlan;
+                case 7: return City.ArtTrader;
+                case 10: return City.Celendir;
             }
         }
 
@@ -992,15 +992,15 @@ namespace Server.Engines.CityLoyalty
             switch (city)
             {
                 default: return 0;
-                case City.Moonglow: return 1098171;
-                case City.Britain: return 1098172;
-                case City.Jhelom: return 1098173;
-                case City.Yew: return 1098174;
-                case City.Minoc: return 1098175;
-                case City.Trinsic: return 1098170;
-                case City.SkaraBrae: return 1098178;
-                case City.NewMagincia: return 1098177;
-                case City.Vesper: return 1098176;
+                case City.Tasandora: return 1098171;
+                case City.Twierdza: return 1098172;
+                case City.Tirassa: return 1098173;
+                case City.LDelmah: return 1098174;
+                case City.Orod: return 1098175;
+                case City.Lotharn: return 1098170;
+                case City.Garlan: return 1098178;
+                case City.ArtTrader: return 1098177;
+                case City.Celendir: return 1098176;
             }
         }
 
@@ -1009,15 +1009,15 @@ namespace Server.Engines.CityLoyalty
             switch (city)
             {
                 default: return 0;
-                case City.Moonglow: return 1011344;
-                case City.Britain: return 1011028;
-                case City.Jhelom: return 1011343;
-                case City.Yew: return 1011032;
-                case City.Minoc: return 1011031;
-                case City.Trinsic: return 1011029;
-                case City.SkaraBrae: return 1011347;
-                case City.NewMagincia: return 1011345;
-                case City.Vesper: return 1011030;
+                case City.Tasandora: return 1011344;
+                case City.Twierdza: return 1011028;
+                case City.Tirassa: return 1011343;
+                case City.LDelmah: return 1011032;
+                case City.Orod: return 1011031;
+                case City.Lotharn: return 1011029;
+                case City.Garlan: return 1011347;
+                case City.ArtTrader: return 1011345;
+                case City.Celendir: return 1011030;
             }
         }
 
@@ -1118,15 +1118,15 @@ namespace Server.Engines.CityLoyalty
             switch (city)
             {
                 default: return null;
-                case City.Moonglow: return Moonglow;
-                case City.Britain: return Britain;
-                case City.Jhelom: return Jhelom;
-                case City.Yew: return Yew;
-                case City.Minoc: return Minoc;
-                case City.Trinsic: return Trinsic;
-                case City.SkaraBrae: return SkaraBrae;
-                case City.NewMagincia: return NewMagincia;
-                case City.Vesper: return Vesper;
+                case City.Tasandora: return Tasandora;
+                case City.Twierdza: return Twierdza;
+                case City.Tirassa: return Tirassa;
+                case City.LDelmah: return LDelmah;
+                case City.Orod: return Orod;
+                case City.Lotharn: return Lotharn;
+                case City.Garlan: return Garlan;
+                case City.ArtTrader: return ArtTrader;
+                case City.Celendir: return Celendir;
             }
         }
 
@@ -1173,29 +1173,29 @@ namespace Server.Engines.CityLoyalty
             }
         }
 
-        public static Moonglow Moonglow { get; set; }
-        public static Britain Britain { get; set; }
-        public static Jhelom Jhelom { get; set; }
-        public static Yew Yew { get; set; }
-        public static Minoc Minoc { get; set; }
-        public static Trinsic Trinsic { get; set; }
-        public static SkaraBrae SkaraBrae { get; set; }
-        public static NewMagincia NewMagincia { get; set; }
-        public static Vesper Vesper { get; set; }
+        public static Tasandora Tasandora { get; set; }
+        public static Twierdza Twierdza { get; set; }
+        public static Tirassa Tirassa { get; set; }
+        public static LDelmah LDelmah { get; set; }
+        public static Orod Orod { get; set; }
+        public static Lotharn Lotharn { get; set; }
+        public static Garlan Garlan { get; set; }
+        public static ArtTrader ArtTrader { get; set; }
+        public static Celendir Celendir { get; set; }
 
         public static CityTradeSystem CityTrading { get; set; }
 
         public static void ConstructSystems()
         {
-            Moonglow = new Moonglow();
-            Britain = new Britain();
-            Jhelom = new Jhelom();
-            Yew = new Yew();
-            Minoc = new Minoc();
-            Trinsic = new Trinsic();
-            SkaraBrae = new SkaraBrae();
-            NewMagincia = new NewMagincia();
-            Vesper = new Vesper();
+            Tasandora = new Tasandora();
+            Twierdza = new Twierdza();
+            Tirassa = new Tirassa();
+            LDelmah = new LDelmah();
+            Orod = new Orod();
+            Lotharn = new Lotharn();
+            Garlan = new Garlan();
+            ArtTrader = new ArtTrader();
+            Celendir = new Celendir();
 
             CityTrading = new CityTradeSystem();
         }
@@ -1284,7 +1284,7 @@ namespace Server.Engines.CityLoyalty
                     break;
             }
 
-            if (version == 0 && City == City.Britain)
+            if (version == 0 && City == City.Twierdza)
             {
                 int count = reader.ReadInt();
                 for (int i = 0; i < count; i++)
@@ -1310,184 +1310,184 @@ namespace Server.Engines.CityLoyalty
         }
     }
 
-    public class Moonglow : CityLoyaltySystem
+    public class Tasandora : CityLoyaltySystem
     {
         public override PointsType Loyalty => PointsType.Moonglow;
 
-        public Moonglow() : base(City.Moonglow)
+        public Tasandora() : base(City.Tasandora)
         {
             Definition = new CityDefinition(
-                             City.Moonglow,
-                             new Point3D(4480, 1173, 0),
-                             new Point3D(4416, 1044, -2),
-                             new Point3D(4480, 1172, 0),
-                             new Point3D(4551, 1051, 0),
-                             new Point3D(4478, 1170, 0),
-                             "Moonglow",
-                             1114143,
+                             City.Tasandora,
+                             new Point3D(1422, 2087, 0),
+                             new Point3D(1409, 2099, 0),
+                             new Point3D(1420, 2105, 0),
+                             new Point3D(1442, 2098, 0),
+                             new Point3D(1445, 2062, 0),
+                             "Tasandora",
+                             1011344,
                              1154524
                              );
         }
     }
 
-    public class Britain : CityLoyaltySystem
+    public class Twierdza : CityLoyaltySystem
     {
         public override PointsType Loyalty => PointsType.Britain;
 
-        public Britain() : base(City.Britain)
+        public Twierdza() : base(City.Twierdza)
         {
             Definition = new CityDefinition(
-                             City.Britain,
-                             new Point3D(1445, 1694, 0),
-                             new Point3D(1436, 1760, -2),
-                             new Point3D(1446, 1694, 0),
-                             new Point3D(1417, 1715, 20),
-                             new Point3D(1481, 1718, 0),
-                             "Britain",
-                             1114148,
+                             City.Twierdza,
+                             new Point3D(2515, 1806, 0),
+                             new Point3D(2516, 1816, 0),
+                             new Point3D(2536, 1829, 0),
+                             new Point3D(2549, 1818, 0),
+                             new Point3D(2520, 1801, 0),
+                             "Twierdza",
+                             1011028,
                              1154521
                              );
         }
     }
 
-    public class Jhelom : CityLoyaltySystem
+    public class Tirassa : CityLoyaltySystem
     {
         public override PointsType Loyalty => PointsType.Jhelom;
 
-        public Jhelom() : base(City.Jhelom)
+        public Tirassa() : base(City.Tirassa)
         {
             Definition = new CityDefinition(
-                             City.Jhelom,
-                             new Point3D(1336, 3769, 0),
-                             new Point3D(1377, 3879, 0),
-                             new Point3D(1336, 3770, 0),
-                             new Point3D(1379, 3797, 0),
-                             new Point3D(1333, 3776, 0),
-                             "Jhelom",
+                             City.Tirassa,
+                             new Point3D(1993, 2724, 0),
+                             new Point3D(1973, 2738, 0),
+                             new Point3D(1964, 2731, -7),
+                             new Point3D(1963, 2729, 5),
+                             new Point3D(2030, 2757, 0),
+                             "Tirassa",
                              1114146,
                              1154522
                              );
         }
     }
 
-    public class Yew : CityLoyaltySystem
+    public class LDelmah : CityLoyaltySystem
     {
         public override PointsType Loyalty => PointsType.Yew;
 
-        public Yew() : base(City.Yew)
+        public LDelmah() : base(City.LDelmah)
         {
             Definition = new CityDefinition(
-                             City.Yew,
-                             new Point3D(632, 863, 0),
-                             new Point3D(621, 1043, 0),
-                             new Point3D(631, 863, 0),
-                             new Point3D(385, 914, 0),
-                             new Point3D(626, 863, 0),
-                             "Yew",
-                             1114138,
+                             City.LDelmah,
+                             new Point3D(5721,3342, 0),
+                             new Point3D(5723, 3323, 0),
+                             new Point3D(5745,3328, 0),
+                             new Point3D(5753, 3328, 0),
+                             new Point3D(5741, 3313, 0),
+                             "L'Delmah",
+                             1011032,
                              1154529
                              );
         }
     }
 
-    public class Minoc : CityLoyaltySystem
+    public class Orod : CityLoyaltySystem
     {
         public override PointsType Loyalty => PointsType.Minoc;
 
-        public Minoc() : base(City.Minoc)
+        public Orod() : base(City.Orod)
         {
             Definition = new CityDefinition(
-                             City.Minoc,
-                             new Point3D(2514, 558, 0),
-                             new Point3D(2499, 398, 15),
-                             new Point3D(2514, 559, 0),
-                             new Point3D(2424, 533, 0),
-                             new Point3D(2522, 558, 0),
-                             "Minoc",
-                             1114139,
+                             City.Orod,
+                             new Point3D(856, 1880, 0),
+                             new Point3D(843, 1897, 0),
+                             new Point3D(853, 1897, 0),
+                             new Point3D(865, 1888, 0),
+                             new Point3D(829, 1904, 0),
+                             "Orod",
+                             1011031,
                              1154523
                              );
         }
     }
 
-    public class Trinsic : CityLoyaltySystem
+    public class Lotharn : CityLoyaltySystem
     {
         public override PointsType Loyalty => PointsType.Trinsic;
 
-        public Trinsic() : base(City.Trinsic)
+        public Lotharn() : base(City.Lotharn)
         {
             Definition = new CityDefinition(
-                             City.Trinsic,
-                             new Point3D(1907, 2682, 0),
-                             new Point3D(2061, 2855, -2),
-                             new Point3D(1907, 2683, 0),
-                             new Point3D(1851, 2772, 0),
-                             new Point3D(1907, 2679, 0),
-                             "Trinsic",
-                             1114142,
+                             City.Lotharn,
+                             new Point3D(1975, 564, 0),
+                             new Point3D(1975, 589, 1),
+                             new Point3D(1982, 597, 1),
+                             new Point3D(1973, 606, 0),
+                             new Point3D(1956, 603, 0),
+                             "Lotharn",
+                             1011029,
                              1154527
                              );
         }
     }
 
-    public class SkaraBrae : CityLoyaltySystem
+    public class Garlan : CityLoyaltySystem
     {
         public override PointsType Loyalty => PointsType.SkaraBrae;
 
-        public SkaraBrae() : base(City.SkaraBrae)
+        public Garlan() : base(City.Garlan)
         {
-            SkaraBrae = this;
+            Garlan = this;
             Definition = new CityDefinition(
-                             City.SkaraBrae,
-                             new Point3D(587, 2153, 0),
-                             new Point3D(645, 2228, -2),
-                             new Point3D(586, 2153, 0),
-                             new Point3D(571, 2210, 0),
-                             new Point3D(580, 2155, 0),
-                             "Skara Brae",
-                             1114145,
+                             City.Garlan,
+                             new Point3D(928, 661, 30),
+                             new Point3D(919, 679, 2),
+                             new Point3D(926, 684, -1),
+                             new Point3D(913, 686, 2),
+                             new Point3D(940, 683, 1),
+                             "Garlan",
+                             1114138,
                              1154526
                              );
         }
     }
 
-    public class NewMagincia : CityLoyaltySystem
+    public class ArtTrader : CityLoyaltySystem
     {
         public override PointsType Loyalty => PointsType.NewMagincia;
 
-        public NewMagincia() : base(City.NewMagincia)
+        public ArtTrader() : base(City.ArtTrader)
         {
-            NewMagincia = this;
+            ArtTrader = this;
             Definition = new CityDefinition(
-                             City.NewMagincia,
-                             new Point3D(3795, 2247, 20),
-                             new Point3D(3677, 2254, 20),
-                             new Point3D(3796, 2247, 20),
-                             new Point3D(3680, 2269, 26),
-                             new Point3D(3795, 2259, 20),
-                             "Magincia",
-                             1114141,
+                             City.ArtTrader,
+                             new Point3D(1512, 1505, 10),
+                             new Point3D(1512, 15144, 10),
+                             new Point3D(1520, 1513, 10),
+                             new Point3D(1526, 1515, 0),
+                             new Point3D(1517, 1512, 5),
+                             "Wolny port handlarzy zwojami",
+                             3070070,
                              1154525
                              );
         }
     }
 
-    public class Vesper : CityLoyaltySystem
+    public class Celendir : CityLoyaltySystem
     {
         public override PointsType Loyalty => PointsType.Vesper;
 
-        public Vesper() : base(City.Vesper)
+        public Celendir() : base(City.Celendir)
         {
-            Vesper = this;
+            Celendir = this;
             Definition = new CityDefinition(
-                             City.Vesper,
-                             new Point3D(2891, 683, 0),
-                             new Point3D(3004, 834, 0),
-                             new Point3D(2891, 682, 0),
-                             new Point3D(3004, 822, 0),
-                             new Point3D(2899, 685, 0),
-                             "Vesper",
-                             1114140,
+                             City.Celendir,
+                             new Point3D(2016, 2077, 0),
+                             new Point3D(2046, 2038, 5),
+                             new Point3D(2070, 2037, 0),
+                             new Point3D(2053, 2046, 0),
+                             new Point3D(2049, 2044, 0),
+                             "Celendir",
+                             1114144,
                              1154528
                              );
         }

@@ -559,7 +559,7 @@ namespace Server.Engines.Blackthorn
 
             Defs = new Dictionary<City, InvasionDefinition>();
 
-            Defs[City.Moonglow] = new InvasionDefinition(
+            Defs[City.Tasandora] = new InvasionDefinition(
                 new Rectangle2D[]
                 {
                     new Rectangle2D(6314, 2571, 10, 5),
@@ -569,7 +569,7 @@ namespace Server.Engines.Blackthorn
                 },
                 new Point3D(6317, 2555, 0));
 
-            Defs[City.Britain] = new InvasionDefinition(
+            Defs[City.Twierdza] = new InvasionDefinition(
                 new Rectangle2D[]
                 {
                     new Rectangle2D(6296, 2464, 7, 7),
@@ -579,7 +579,7 @@ namespace Server.Engines.Blackthorn
                 },
                 new Point3D(6316, 2477, 11));
 
-            Defs[City.Jhelom] = new InvasionDefinition(
+            Defs[City.Tirassa] = new InvasionDefinition(
                 new Rectangle2D[]
                 {
                     new Rectangle2D(6450, 2465, 10, 8),
@@ -589,7 +589,7 @@ namespace Server.Engines.Blackthorn
                 },
                 new Point3D(6448, 2492, 5));
 
-            Defs[City.Yew] = new InvasionDefinition(
+            Defs[City.LDelmah] = new InvasionDefinition(
                 new Rectangle2D[]
                 {
                     new Rectangle2D(6314, 2397, 12, 5),
@@ -599,7 +599,7 @@ namespace Server.Engines.Blackthorn
                 },
                 new Point3D(6305, 2423, 0));
 
-            Defs[City.Minoc] = new InvasionDefinition(
+            Defs[City.Orod] = new InvasionDefinition(
                 new Rectangle2D[]
                 {
                     new Rectangle2D(6309, 2339, 10, 5),
@@ -609,7 +609,7 @@ namespace Server.Engines.Blackthorn
                 },
                 new Point3D(6307, 2362, 15));
 
-            Defs[City.Trinsic] = new InvasionDefinition(
+            Defs[City.Lotharn] = new InvasionDefinition(
                 new Rectangle2D[]
                 {
                     new Rectangle2D(6356, 2371, 10, 10),
@@ -619,7 +619,7 @@ namespace Server.Engines.Blackthorn
                 },
                 new Point3D(6402, 2368, 25));
 
-            Defs[City.SkaraBrae] = new InvasionDefinition(
+            Defs[City.Garlan] = new InvasionDefinition(
                 new Rectangle2D[]
                 {
                     new Rectangle2D(6434, 2330, 10, 5),
@@ -630,7 +630,7 @@ namespace Server.Engines.Blackthorn
                 },
                 new Point3D(6442, 2351, 0));
 
-            Defs[City.NewMagincia] = new InvasionDefinition(
+            Defs[City.ArtTrader] = new InvasionDefinition(
                 new Rectangle2D[]
                 {
                     new Rectangle2D(6426, 2397, 10, 5),
@@ -640,7 +640,7 @@ namespace Server.Engines.Blackthorn
                 },
                 new Point3D(6440, 2419, 26));
 
-            Defs[City.Vesper] = new InvasionDefinition(
+            Defs[City.Celendir] = new InvasionDefinition(
                 new Rectangle2D[]
                 {
                     new Rectangle2D(6428, 2534, 10, 5),
