@@ -36,9 +36,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 
 		public override bool CheckCast()
 		{
-			BaseCreature check = Table[Caster];
-
-			if (check != null && !check.Deleted)
+			if (Table.TryGetValue(Caster, out var familiar) && !familiar.Deleted)
 			{
 				Caster.SendLocalizedMessage(1061605); // You already have a familiar.
 				return false;
@@ -142,9 +140,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 			{
 				RangerFamiliarEntry entry = m_Entries[index];
 				
-				BaseCreature check = RangerFamiliarSpell.Table[m_From];
-
-				if (check != null && !check.Deleted)
+				if (RangerFamiliarSpell.Table.TryGetValue(m_From, out var familiar) && !familiar.Deleted)
 				{
 					m_From.SendLocalizedMessage(1061605); // You already have a familiar.
 				}

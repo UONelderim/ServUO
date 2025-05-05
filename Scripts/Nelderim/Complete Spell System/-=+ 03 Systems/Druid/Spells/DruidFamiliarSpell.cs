@@ -34,7 +34,8 @@ namespace Server.ACC.CSS.Systems.Druid
 
 		public override bool CheckCast()
 		{
-			if(Table.TryGetValue(Caster, out var bc) && !bc.Deleted){
+			if(Table.TryGetValue(Caster, out var familiar) && !familiar.Deleted)
+			{
 				Caster.SendLocalizedMessage(1061605); // You already have a familiar.
 				return false;
 			}
@@ -158,9 +159,7 @@ namespace Server.ACC.CSS.Systems.Druid
 			{
 				DruidFamiliarEntry entry = m_Entries[index];
 
-				BaseCreature familiar = DruidFamiliarSpell.Table[m_From];
-
-				if (familiar != null && !familiar.Deleted)
+				if (DruidFamiliarSpell.Table.TryGetValue(m_From, out var familiar) && !familiar.Deleted)
 				{
 					m_From.SendLocalizedMessage(1061605); // You already have a familiar.
 				}
