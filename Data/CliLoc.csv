@@ -6439,11 +6439,11 @@
 1011025;Masz mozliwosc wskrzeszenia sie u tego uzdrowiciela. Chcesz sprobowac? <br>DALEJ - zostaniesz wskrzeszony.<br>ZREZYGNUJ - zostaniesz pod postacia ducha. 
 1011026;Masz mozliwosc wskrzeszenia sie tutaj. Chcesz sprobowac? <br>DALEJ - zostaniesz wskrzeszony.<br>ZREZYGNUJ - zostaniesz pod postacia ducha. 
 1011027;Wybierz miasto: 
-1011028;Britain 
-1011029;Trinsic 
-1011030;Vesper 
-1011031;Minoc 
-1011032;Yew 
+1011028;Twierdza
+1011029;Lotharn 
+1011030;Celendir
+1011031;Orod 
+1011032;L'Delmah
 1011033;Cove 
 1011034;Activate this item 
 1011035;Deactivate this item 
@@ -6754,11 +6754,11 @@
 1011340;Sandstone House with Patio<br>The architects of Trinsic recognize good building material and so should you. A bulwark with flare, this home will stand the tests of time as it offers great placement for vendors.<br>Highest Possible Secure Containers: 6<br>Highest Possible Lockdowns: 850 
 1011341;Small Stone Workshop<br>A blacksmith's home and shop in one. This is a sturdy structure with an open area for a forge and shop, while a second story provides plenty of room for private living quarters.<br>Highest Possible Secure Containers: 3<br>Highest Possible Lockdowns: 425 
 1011342;Small Marble Workshop<br>This home has three stories and makes the most of a small footprint. An excellent use of space, this attractive home is good for the businessperson or adventurer.<br>Highest Possible Secure Containers: 3<br>Highest Possible Lockdowns: 425 
-1011343;Jhelom 
+1011343;Tirassa 
 1011344;Tasandora 
-1011345;Magincia 
+1011345;Wolny Port Handlarzy Zwojow
 1011346;Nujel'm 
-1011347;Skara Brae 
+1011347;Garlan
 1011348;Serpent's Hold 
 1011349;Remove the destination arrow 
 1011350;What do you wish to track? 
@@ -23429,7 +23429,7 @@
 1042388;Walka obuchami 
 1042389;Walka szpadami 
 1042390;Walka piesciami 
-1042391;Drwalstwo 
+1042391;Drwalnictwo 
 1042392;Gornictwo 
 1042393;Medytacja 
 1042394;Skradanie sie 
@@ -24140,7 +24140,7 @@
 1043100;walka obuchami 
 1043101;walka szpadami 
 1043102;walka piesciami 
-1043103;drwalstwo 
+1043103;Drwalnictwo 
 1043104;gornictwo 
 1043105;medytacja 
 1043106;skradanie sie 
@@ -24497,7 +24497,7 @@
 1044101;Walka Obuchami 
 1044102;Szermierka 
 1044103;Walka Piesciami 
-1044104;Drwalstwo 
+1044104;Drwalnictwo 
 1044105;Gornictwo 
 1044106;Medytacja 
 1044107;Skradanie sie 
@@ -28432,7 +28432,7 @@
 1061542;<BASEFONT COLOR=#~1_rgb~>Zwieksza umiejetnosc Walka Obuchami<BASEFONT COLOR=#FFFFFF> 
 1061543;<BASEFONT COLOR=#~1_rgb~>Zwieksza umiejetnosc Szermierka<BASEFONT COLOR=#FFFFFF> 
 1061544;<BASEFONT COLOR=#~1_rgb~>Zwieksza umiejetnosc Walka Piesciami<BASEFONT COLOR=#FFFFFF> 
-1061545;<BASEFONT COLOR=#~1_rgb~>Zwieksza umiejetnosc Drwalstwo<BASEFONT COLOR=#FFFFFF> 
+1061545;<BASEFONT COLOR=#~1_rgb~>Zwieksza umiejetnosc Drwalnictwo<BASEFONT COLOR=#FFFFFF> 
 1061546;<BASEFONT COLOR=#~1_rgb~>Zwieksza umiejetnosc Gornictwo<BASEFONT COLOR=#FFFFFF> 
 1061547;<BASEFONT COLOR=#~1_rgb~>Zwieksza umiejetnosc Medytacja<BASEFONT COLOR=#FFFFFF> 
 1061548;<BASEFONT COLOR=#~1_rgb~>Zwieksza umiejetnosc Skradanie sie<BASEFONT COLOR=#FFFFFF> 
@@ -34954,12 +34954,12 @@
 1075383;You’ll find mongbats all over the place. They’re a real pest. Once you’ve killed ten of them, come back and see me again. 
 1075384;Excellent! That’s the old fighting spirit. 
 1075385;Please select your sleigh position 
-1075386;South 
-1075387;East 
-1075388;North-East 
-1075389;North 
-1075390;West 
-1075391;South-West 
+1075386;PD 
+1075387;WS
+1075388;PN-WS
+1075389;PN
+1075390;ZACH
+1075391;PD-ZACH
 1075392;Honest Beggar 
 1075393;Beg pardon, sir. I mean, madam. Uh, can I ask a favor of you? I found this jeweled ring.  Most people would sell it and keep the money, but not me. I ain't never stole nothing, and I ain't about to start. I tried to take it over to Brit castle, figgerin' it must belong to some highborn lady, but the guards threw me out. You look like they might let you pass. Will you take the ring over there and see if you can find the owner? 
 1075394;Find the ring’s owner. 
@@ -36347,7 +36347,7 @@
 1076780;Please select your ladder position.  <br>Use the ladders marked (castle) <br> for accessing the tops of keeps <br> and castles. 
 1076781;There is little chance of getting candy from that! 
 1076782;Halloween Ghoul Statuette 
-1076783;Please select your shadow altar position 
+1076783;Wybierz pozycje
 1076784;Cherry Blossom Trunk 
 1076785;Apple Trunk 
 1076786;Peach Trunk 
@@ -41365,15 +41365,15 @@
 1098167;Lotharn 
 1098168;Tirassa 
 1098169;Twierdza 
-1098170;Banner of Trinsic 
-1098171;Banner of Moonglow 
-1098172;Banner of Britain 
-1098173;Banner of Jhelom 
-1098174;Banner of Yew 
-1098175;Banner of Minoc 
-1098176;Banner of Vesper 
-1098177;Banner of New Magincia 
-1098178;Banner of Skara Brae 
+1098170;Flaga Lotharn
+1098171;Flaga Tasandory
+1098172;Flaga Twierdzy 
+1098173;Flaga Tirassy
+1098174;Flaga L'Delmah
+1098175;Flaga Orod
+1098176;Flaga Celendir
+1098177;Flaga Wolnego Portu Handlarzy Zwojami
+1098178;Flaga Garlan
 1098179;Banner of Trinsic 
 1098180;Banner of Moonglow 
 1098181;Banner of Britain 
@@ -51987,31 +51987,31 @@
 1152112;Target the item to reforge. 
 1152113;You cannot reforge that item. 
 1152114;The item has been reforged. 
-1152115;Unknown 
-1152116;Commended 
-1152117;Doubted 
-1152118;Disfavored 
-1152119;Respected 
-1152120;Esteemed 
-1152121;Distrusted 
-1152122;Disliked 
-1152123;Detested 
-1152124;Adored 
-1152125;Admired 
-1152126;Honored 
-1152127;Disgraced 
-1152128;Loathed 
-1152129;Despised 
-1152130;Reviled 
-1152131;Venerated 
-1152132;Revered 
-1152133;Exalted 
-1152134;Lauded 
-1152135;Denigrated 
-1152136;Scorned 
-1152137;Shunned 
-1152138;Vilified 
-1152139;Abhorred 
+1152115;Nieznany
+1152116;Pochwalony
+1152117;Podwazany
+1152118;Nielubiany
+1152119;Szanowany
+1152120;Ceniony
+1152121;Nieufny
+1152122;Nielubiany
+1152123;Znienawidzony
+1152124;Uwielbiany
+1152125;Podziwiany
+1152126;Czcigodny
+1152127;Skompromitowany
+1152128;Brzydzony
+1152129;Pogardzany
+1152130;Opluwany
+1152131;Otaczany czcia
+1152132;Wielbiony
+1152133;Wyslawiany
+1152134;Chwalony
+1152135;Oczerniany
+1152136;Wzgardzony
+1152137;Unikany
+1152138;Znieslawiony
+1152139;Wstretny
 1152140;Please use 'dz_target' speech command for rideable creatures. 
 1152141;You have submitted an item and the box's points have been increased. 
 1152142;Please enter how often a mob should be spawned (in seconds): 
@@ -52192,8 +52192,8 @@
 1152317;"Nearly every miner in the lands got his start near the town of Minoc. The mountain has produced more ore, gems and granite than any other mine in Sosaria. Generations of miners have toiled away hollowing out and hauling away.<br>Still rumors do blow, and quieted tales around mining camp fires asking the question, ""Have we dug too deep?"" Even the gypsies have made their camp nearby in a sort of watch across the river. <br>The underbelly of Britannia, what dangers slither? What dangers lurk? What foul winds do the grounds do contain? The miners wary, and they all ask the same questions. Yet, before they are too wise to stop, a new generation steps forward with lustful dreams of diamonds and valorite in their heads. It will be years before they start to wonder.<br>The mountain comes alive, sentient elementals walk the mines. Minoc harvests them too. Dragons come to roost in the hollow halls of the mountain. Heroes clear them and the miners continue their work. Yet the danger from below, who can save us from that once the capstone is gone? Could an ancient prison lay below? Could the rumored home of daemons lay just below our feet? Creator protect us, and let us hope we will never know.<br>So young miner, keep your head. The whispers in the mine are not just in your mind, heed them and ask the question. ""Have I dug too deep?"" "
 1152318;You may not use this item out of season. 
 1152319;Current Points: ~1_CURRENT~ / ~2_OBJECTIVE~ 
-1152320;Your deeds in the city of ~1_name~ are worthy of praise. 
-1152321;Your deeds in the city of ~1_name~ are worthy of censure. 
+1152320;Twoje czyny w miescie ~1_name~ zasluguja na pochwale.
+1152321;Twoje czyny w miescie ~1_name~ zasluguja na nagane.
 1152322;the Juka 
 1152323;drunk woman's singing ball 
 1152324;drunk man's singing ball 
@@ -53877,82 +53877,82 @@
 1154003;Skorzany splot
 1154004;Kolba z rozpuszczalnikiem 
 1154005;Plastyczny stop 
-1154006;Where can I find raw materials? 
-1154007;Raw materials to combine with components are available from Blacksmiths, Weavers, and Carpenters in most major cities. 
-1154008;"You would have better results were you to practice your craft at ""A Stitch In Time"" located within the City of Ocllo.  "
-1154009;"You would have better results were you to practice your craft at ""The Warrior's Supplies"" located within the City of Cove.  "
-1154010;"You would have better results were you to practice your craft at ""From Tree to Yew"" located within the City of Jhelom.  "
-1154011;"You would have better results were you to practice your craft at ""Adventurer's Clothing"" located within the City of Trinsic.  "
-1154012;"You would have better results were you to practice your craft at ""The Hammer and Anvil"" located within the City of Britain.  "
-1154013;"You would have better results were you to practice your craft at ""Bloody Thumb Woodworks"" located within the City of Yew.  "
-1154014;Are you sure you wish to Refine this armor? 
-1154015;<CENTER>City Title</CENTER> 
-1154016;"What title doth thou wish to bestow upon this citizen?<BR><BR>Note: All City Titles are automatically followed by ""of (City Name)"" where (City Name) is the name of the city.  "
-1154017;~1_TITLE~ of ~2_CITY~ 
-1154018;Grant Citizen Title 
-1154019;Remove City Title 
-1154020;Pay City Tax 
-1154021;Paying of City Taxes is not mandatory, but will allow needed capital to fund the City. 
-1154022;Pay Tax: 
-1154023;City Treasury Balance: ~1_AMT~ 
-1154024;The City thanks thee, however, the treasury overflows with so much gold we cannot accept anymore! 
-1154025;My apologies, I only accept gold coins and checks. 
-1154026;poison resist ~1_val~% / ~2_val~% Max 
-1154027;Which Citizen do you wish to bestow a title? 
-1154028;You can only bestow a title on a player! 
-1154029;You may only bestow a title on citizens of this city! 
-1154030;Which Trade Guild do you wish to make a deal with?  A new trade deal costs 2,000,000gp and is valid for one week, at which time you may opt to renew the deal or choose a different deal. 
-1154031;Open Trade Deal 
-1154032;Guild of Arcane Arts 
-1154033;Society of Clothiers 
-1154034;Bardic Collegium 
-1154035;Society of Cooks and Chefs 
-1154036;Order of Engineers 
-1154037;Guild of Healers 
-1154038;Maritime Guild 
-1154039;Merchant's Association 
-1154040;Mining Cooperative 
-1154041;League of Rangers 
-1154042;Guild of Assassins 
-1154043;Warrior's Guild 
-1154044;The Guild of Arcane Arts offers its services of heightened awareness of the magical ether, increasing the damage inflicted by spell. (+5 Spell Damage Increase) 
-1154045;The Society of Clothiers offers to teach its methods of enhanced stitching increasing the effectiveness of magical resistances. (+1% to each resist) 
-1154046;The skilled musicians of the Bardic Collegium offer their enhanced techniques of digital dexterity, increasing the rate at which a magic user may cast spells. (+1 Faster Casting) 
-1154047;The Society of Cooks and Chefs offer their hearty recipes, increasing overall vitality. (+5 Hit Point Increase) 
-1154048;The Order of Engineers offers their plans and schematics to clockwork leg gear, granting a bonus to dexterity. (+3 Zrecznosc) 
-1154049;The Guild of Healers offers advanced healing techniques, increasing the effectiveness of healing. (+5% Bandage Leczenie Bonus) 
-1154050;The Maritime Guild is well known for their endurance at Sea, they offer to provide enhanced survival techniques increasing natural restorative healing. (+2 Odzyskiwanie zywotnosci) 
-1154051;The shrewd Merchant's Association is quick thinking and keen.  They can offer to unlock those skills, increasing the regenerative prowess of the mind. (+2 Odzyskiwanie many) 
-1154052;The Mining Cooperative are hard working and strong.  Their labor can offer increased body building techniques, increasing overall strength. (+3 Strength) 
-1154053;The League of Rangers are known throughout for their keen awareness of the wilderness.  They can offer teachings increasing overall intelligence. (+3 Inteligencja) 
-1154054;The Guild of Assassins are cutthroat and unmerciful, they can offer combative techniques increasing the speed at which they can dispatch their targets. (+5 Swing Speed Increase) 
-1154055;The Warrior's Guild are skilled and learned in their trade and offer their training secrets, increasing the chance of landing a potentially deadly hit. (+5 Hit Chance Increase) 
-1154056;You may only make a trade deal once per real world week! 
-1154057;Begging thy pardon but the City Treasury doth nay have the funds available to make such a deal! 
-1154058;Hear Ye! Hear Ye! The City of ~1_CITY~ announces a trade deal with the ~2_GUILD~! 
-1154059;Current Trade Deal: ~1_GUILD~ 
-1154060;Utilize Trade Deal 
-1154061;Only citizens of ~1_CITY~ may use the City Stone! 
-1154062;Begging thy pardon, but thou must be at least Respected within the City to claim the benefits of a Trade Deal! 
-1154063;Thou hath already claimed the benefit of the Trade Deal today! 
-1154064;The City doth nay currently have a Trade Deal in place, perhaps ye should petition the Governor to make such a deal... 
-1154065;You gain the benefit of your city's Trade Deal! 
-1154066;Governor-Elect: ~1_NAME~ 
-1154067;Governor: ~1_NAME~ 
-1154068;Accept Office 
-1154069;You are about to accept the office of Governor of ~1_CITY~. You will hold this office for 120 days. During your time in office you will be expected to:<BR><BR>1. Attend meetings with His Royal Majesty King Blackthorn.<BR>2. Encourage citizens to raise revenue for the City Treasury.<BR>3. Address the needs and concerns of your citizens and bring their voice to The King.<BR>4. Negotiate Trade Deals with various Professional Guilds.<BR>5. Grant titles to those citizens you deem worthy. Any title you bestow that is deemed inappropriate will be grounds for removal from office and action being taken against your account.<BR><BR>At any time during your administration should you have a negative loyalty with the City, renounce your citizenship, or transfer off this shard you will automatically resign your office.<BR><BR>If at any time should you require to take a leave of absence from Britannia or otherwise cannot fulfill the duties of your office it is your responsibility to communicate to King Blackthorn so that a replacement can be found or he shall do so at his discretion.<BR><BR>Congratulations, Governor. 
-1154070;Hear Ye! Hear Ye! ~1_NAME~ hath accepted the Office of Governor! King Blackthorn congratulates Governor ~1_NAME~! 
-1154071;King Blackthorn thanks you for your service. You have been removed from the Office of the Governor. 
-1154072;Vacant 
-1154073;The first election has not yet occurred for this City. Elections begin on the first day of June and December. 
-1154074;The benefit from your City's Trade Deal has expired! Visit the City Stone to reclaim it. 
-1154075;You gain the benefit of your City's Trade Deal! 
-1154076;This seat is reserved for the Crown! 
-1154077;Only the Governor of ~1_CITY~ may sit here! 
-1154078;Welcome back, Governor ~1_NAME~ 
-1154079;Governor of ~1_CITY~ 
-1154080;The Crown 
-1154081;Your opponent cannot be disarmed at this time. 
+1154006;Gdzie moge znalezc surowce?
+1154007;Surowce do laczenia ze skladnikami sa dostepne u Kowali, Tkaczy i Ciesli w wiekszosci duzych miast.
+1154008;"Osiagnalbys lepsze rezultaty, gdybys cwiczyl swoje rzemioslo w ""A Stitch In Time"" znajdujacym sie w miescie Ocllo."
+1154009;"Osiagnalbys lepsze rezultaty, gdybys cwiczyl swoje rzemioslo w ""The Warrior's Supplies"" znajdujacym sie w miescie Cove."
+1154010;"Osiagnalbys lepsze rezultaty, gdybys cwiczyl swoje rzemioslo w ""From Tree to Yew"" znajdujacym sie w miescie Jhelom."
+1154011;"Osiagnalbys lepsze rezultaty, gdybys cwiczyl swoje rzemioslo w ""Adventurer's Clothing"" znajdujacym sie w miescie Trinsic."
+1154012;"Osiagnalbys lepsze rezultaty, gdybys cwiczyl swoje rzemioslo w ""The Hammer and Anvil"" znajdujacym sie w miescie Britain."
+1154013;"Osiagnalbys lepsze rezultaty, gdybys cwiczyl swoje rzemioslo w ""Bloody Thumb Woodworks"" znajdujacym sie w miescie Yew."
+1154014;Czy na pewno chcesz Ulepszyc ten pancerz?
+1154015;\<CENTER\>Tytul Miasta\</CENTER\>
+1154016;"Jaki tytul pragniesz nadac temu obywatelowi?\<BR\>\<BR\>Uwaga: Wszystkie tytuly miejskie sa automatycznie uzupelniane o ""z (Nazwa Miasta)"", gdzie (Nazwa Miasta) jest nazwa miasta."
+1154017;\~1\_TITLE\~ z \~2\_CITY\~
+1154018;Nadaj Tytul Obywatelski
+1154019;Usun Tytul Miejski
+1154020;Zaplac Podatek Miejski
+1154021;Placenie podatkow miejskich nie jest obowiazkowe, ale zapewni potrzebny kapital na finansowanie miasta.
+1154022;Zaplac Podatek:
+1154023;Saldo Skarbu Miejskiego: \~1\_AMT\~
+1154024;Miasto dziekuje ci, jednakze skarbiec przepelniony jest tak wielka iloscia zlota, ze nie mozemy juz wiecej przyjac\!
+1154025;Przepraszam, akceptuje tylko zlote monety i czeki.
+1154026;odpornosc na trucizny \~1\_val\~% / \~2\_val\~% Maks.
+1154027;Ktoremu Obywatelowi chcesz nadac tytul?
+1154028;Tytul mozesz nadac tylko graczowi\!
+1154029;Tytul mozesz nadac tylko obywatelom tego miasta\!
+1154030;Z ktora Gildia Handlowa chcesz zawrzec umowe? Nowa umowa handlowa kosztuje 2 000 000 sztuk zlota i jest wazna przez jeden tydzien, po ktorym mozesz ja odnowic lub wybrac inna.
+1154031;Otworz Umowe Handlowa
+1154032;Gildia Sztuk Tajemnych
+1154033;Stowarzyszenie Sukiennikow
+1154034;Kolegium Bardow
+1154035;Stowarzyszenie Kucharzy i Szefow Kuchni
+1154036;Order Inzynierow
+1154037;Gildia Uzdrowicieli
+1154038;Gildia Morska
+1154039;Stowarzyszenie Kupcow
+1154040;Spoldzielnia Gornicza
+1154041;Liga Straznikow
+1154042;Gildia Zabojcow
+1154043;Gildia Wojownikow
+1154044;Gildia Sztuk Tajemnych oferuje swoje uslugi zwiekszonej swiadomosci eteru magicznego, zwiekszajac obrazenia zadawane przez zaklecia. (+5 do Obrazen Magicznych)
+1154045;Stowarzyszenie Sukiennikow oferuje nauke swoich metod ulepszonego szycia, zwiekszajac skutecznosc odpornosci magicznych. (+1% do kazdej odpornosci)
+1154046;Utalentowani muzycy z Kolegium Bardow oferuja swoje zaawansowane techniki zrecznosci manualnej, zwiekszajac szybkosc rzucania zaklec przez uzytkownika magii. (+1 do Szybszego Rzucania)
+1154047;Stowarzyszenie Kucharzy i Szefow Kuchni oferuje swoje pozywne przepisy, zwiekszajac ogolna witalnosc. (+5 do Punktow Zycia)
+1154048;Order Inzynierow oferuje swoje plany i schematy mechanicznych czesci nog, zapewniajac premie do zrecznosci. (+3 Zrecznosci)
+1154049;Gildia Uzdrowicieli oferuje zaawansowane techniki leczenia, zwiekszajac skutecznosc leczenia bandazami. (+5% Bonus do Leczenia Bandazami)
+1154050;Gildia Morska jest znana ze swojej wytrzymalosci na morzu, oferuje zaawansowane techniki przetrwania, zwiekszajace naturalna regeneracje zdrowia. (+2 do Odzyskiwania Zywotnosci)
+1154051;Sprytne Stowarzyszenie Kupcow jest szybkie w mysleniu i bystre. Moga zaoferowac odblokowanie tych umiejetnosci, zwiekszajac zdolnosc regeneracji umyslu. (+2 do Odzyskiwania Many)
+1154052;Spoldzielnia Gornicza jest pracowita i silna. Ich praca moze zaoferowac zaawansowane techniki budowy ciala, zwiekszajac ogolna sile. (+3 do Sily)
+1154053;Liga Straznikow jest znana ze swojej bystrej swiadomosci dziczy. Moga zaoferowac nauki zwiekszajace ogolna inteligencje. (+3 do Inteligencji)
+1154054;Gildia Zabojcow jest bezwzgledna i okrutna, moga zaoferowac techniki walki zwiekszajace szybkosc, z jaka eliminuja swoje cele. (+5 do Szybszego Ataku)
+1154055;Gildia Wojownikow jest wykwalifikowana i doswiadczona w swoim rzemiosle i oferuje swoje tajemnice szkoleniowe, zwiekszajac szanse na zadanie potencjalnie smiertelnego ciosu. (+5 do Szansy Trafienia)
+1154056;Mozesz zawrzec umowe handlowa tylko raz na tydzien w swiecie rzeczywistym\!
+1154057;Przepraszam najmocniej, ale Skarb Miejski nie posiada wystarczajacych srodkow, aby zawrzec taka umowe\!
+1154058;Sluchajcie\! Sluchajcie\! Miasto \~1\_CITY\~ oglasza umowe handlowa z \~2\_GUILD\~\!
+1154059;Obecna Umowa Handlowa: \~1\_GUILD\~
+1154060;Skorzystaj z Umowy Handlowej
+1154061;Tylko obywatele \~1\_CITY\~ moga korzystac z Kamienia Miejskiego\!
+1154062;Przepraszam najmocniej, ale musisz byc przynajmniej Szanowany w Miescie, aby moc korzystac z Umowy Handlowej\!
+1154063;Juz dzis skorzystales z Umowy Handlowej\!
+1154064;Miasto aktualnie nie ma zawartej Umowy Handlowej, byc moze powinienes zwrocic sie do Gubernatora o zawarcie takiej umowy...
+1154065;Otrzymujesz korzysci z Umowy Handlowej Twojego miasta\!
+1154066;Elekt Gubernatora: \~1\_NAME\~
+1154067;Gubernator: \~1\_NAME\~
+1154068;Przyjmij Urzad
+1154069;Masz zamiar przyjac urzad Gubernatora miasta \~1\_CITY\~. Bedziesz sprawowac ten urzad przez 120 dni. Podczas swojej kadencji bedziesz zobowiazany do:\<BR\>\<BR\>1. Uczestniczenia w spotkaniach z Jego Krolewska Moscia Krolem Blackthornem.\<BR\>2. Zachecania obywateli do zwiekszania dochodow Skarbu Miejskiego.\<BR\>3. Zajmowania sie potrzebami i obawami swoich obywateli oraz przekazywania ich glosu Krolowi.\<BR\>4. Negocjowania Umow Handlowych z roznymi Gildiami Profesjonalnymi.\<BR\>5. Nadawania tytulow obywatelom, ktorych uznasz za godnych. Kazdy nadany przez ciebie tytul, ktory zostanie uznany za niewlasciwy, bedzie podstawa do usuniecia z urzedu i podjecia dzialan przeciwko twojemu kontu.\<BR\>\<BR\>W dowolnym momencie twojej administracji, jesli bedziesz mial negatywna lojalnosc wobec Miasta, zrzekniesz sie obywatelstwa lub przeniesiesz sie na inny shard, automatycznie zrezygnujesz z urzedu.\<BR\>\<BR\>Jesli w jakimkolwiek momencie bedziesz musial opuscic Brytanie lub w inny sposob nie bedziesz mogl wypelniac obowiazkow swojego urzedu, twoim obowiazkiem jest poinformowanie o tym Krola Blackthorna, aby mozna bylo znalezc zastepce, lub on sam to zrobi wedlug wlasnego uznania.\<BR\>\<BR\>Gratulacje, Gubernatorze.
+1154070;Sluchajcie\! Sluchajcie\! \~1\_NAME\~ przyjal Urzad Gubernatora\! Kompania gratuluje Gubernatorowi \~1\_NAME\~\!
+1154071;Kompania Handlowa dziekuje ci za twoja sluzbe. Zostales usuniety z Urzedu Gubernatora.
+1154072;Wolny
+1154073;Pierwsze wybory do tego Miasta jeszcze sie nie odbyly. Wybory rozpoczynaja sie pierwszego dnia czerwca i grudnia.
+1154074;Korzysc z Umowy Handlowej Twojego Miasta wygasla\! Odwiedz Kamien Miejski, aby ja odzyskac.
+1154075;Otrzymujesz korzysci z Umowy Handlowej Twojego miasta\!
+1154076;To miejsce jest zarezerwowane dla Korony\!
+1154077;Tylko Gubernator \~1\_CITY\~ moze tu siedziec\!
+1154078;Witamy z powrotem, Gubernatorze \~1\_NAME\~
+1154079;Gubernator \~1\_CITY\~
+1154080;Korona
+1154081;Twojego przeciwnika nie mozna teraz rozbroic.
 1154082;[ House Owner ] 
 1154083;[ House Co-Owner ] 
 1154084;[ House Friend ] 
@@ -54392,15 +54392,15 @@
 1154518;You have turned in ~1_COUNT~ artifacts bearing the crest of Minax. 
 1154519;Bring me items bearing the crest of Minax and I will reward you with valuable items. 
 1154520;Click a minor artifact to turn in for reward points. 
-1154521;To Arms! To Arms! The City of Britain in Trammel is under attack! 
-1154522;To Arms! To Arms! The City of Jhelom in Trammel is under attack! 
-1154523;To Arms! To Arms! The City of Minoc in Trammel is under attack! 
-1154524;To Arms! To Arms! The City of Moonglow in Trammel is under attack! 
-1154525;To Arms! To Arms! The City of New Magincia in Trammel is under attack! 
-1154526;To Arms! To Arms! The City of Skara Brae in Trammel is under attack! 
-1154527;To Arms! To Arms! The City of Trinsic in Trammel is under attack! 
-1154528;To Arms! To Arms! The City of Vesper in Trammel is under attack! 
-1154529;To Arms! To Arms! The City of Yew in Trammel is under attack! 
+1154521;Do broni! Twierdza jest atakowana!
+1154522;Do broni! Tirassa jest atakowana! 
+1154523;Do broni! Orod jest atakowane!
+1154524;Do broni! Tasandora jest atakowana!
+1154525;Do boju! Wolny port handlarzy zwojami jest atakowany!
+1154526;Do boju! Garlan jest atakowane!
+1154527;Do boju! Lotharn jest atakowane!
+1154528;Do boju! Celendir jest atakowane!
+1154529;Do borni! L'Delmah jest atakowane!
 1154530;You notice the crest of Minax on your fallen foe's equipment and decide it may be of some value... 
 1154531;Equipment 
 1154532;Minimum Price 
@@ -57560,7 +57560,7 @@
 1157690;*Your trade crate has been stolen! Defeat the ambush to recover it!* 
 1157691;*You have recovered your stolen trade order* 
 1157692;Your backpack was too full to return your stolen trade order, so it was lost. 
-1157693;*You lack the required ~1_SKILL~ skill to make anything of it.* 
+1157693;*Nie posiadasz wymaganej wiedzy o umiejetnosci ~1_SKILL~ by cokolwiek odkryc.* 
 1157694;Jewelry Box 
 1157695;Select Filter: 
 1157696;ADD JEWELRY 
@@ -57589,7 +57589,7 @@
 1157719;Not unlike tools used to provoke a response from an intended victim, this whip is studded with beads of hard rock.  The leather is stained deep red from repeated self use. 
 1157720;Folded Stole 
 1157721;Often used during official ceremonies and ritual this long flowing vestment is worn draped over the neck and is embroidered with pentagrams at either end. 
-1157722;*Your proficiency in ~1_SKILL~ reveals more about the item* 
+1157722;*Twa wiedza o umiejetnosci ~1_SKILL~ odkrywa wiecej sekretow, ktore przedmiot skrywal* 
 1157723;The jewelry box is full. 
 1157724;This is not a ring, bracelet, necklace, earring, or talisman. 
 1157725;Target rings, bracelets, necklaces, earrings, or talisman in your backpack. You may also target a sub-container to add contents to the the jewelry box. When done, press ESC. 
@@ -58792,7 +58792,7 @@
 1158922;uderzenie eksplozji ~1_wartosc~%
 1158923;Kolczasty Bicz Rabunku
 1158924;Ostrzowy Bicz Rabunku
-1158925;Najezony Bicz Rabunku
+1158925;Bicz Rabunku
 1158926;Dekoracyjna Smocza Armata
 1158927;Dekoracyjna Rzezba Okretowa
 1158928;Papuga na Ramie
@@ -58818,15 +58818,15 @@
 1158948;Prochowiec 
 1158949;Bosman 
 1158950;Mistrz zeglugi 
-1158951;Prokurator 
+1158951;Kwatermistrz 
 1158952;Nie masz wystarczajaco duzo dukatow na to! 
 1158953;Nazwany losowo slawnym statkiem, lub jesli masz szczescie - nazwany twoim imieniem! 
-1158954;*Redeemable for a pet*<br>*Requires Grandmaster Taming to Claim Pet* 
-1158955;<center>Rising Tide</center><br><br>The Seas call to us once more! A powerful pirate called Hook has taken control of the Guild, an organization of cutthroats and brigands engaged in high seas piracy! Great peril stands in the way of those brave enough to challenge Hook's vile plan - read the latest headlines in the Town Cryer to learn more!<br><br>The realms tinkers have been busy at work and are proud to announce advancements in ship to ship ballistics!  The cannon firing process has been streamlined - from crafting supplies through loading the cannons and lighting the fuse!  FIRE IN THE HOLE!<br><br>Whether you are celebrating your first year in Britannia or your 22nd we want to extend a very special thank you to our veteran players!  New veteran rewards are available! New MONSTER STATUETTES featuring Krampus, Khal Ankur, and the Krampus Minion, are available!  Decorate your home with the WATER WHEEL and personalize your clothes with the EMBROIDERY TOOL.  Every crafter will want to get their hands on the REPAIR BENCH and TINKER BENCH! 
-1158956;Your parrot is too tired to fly right now. 
-1158957;Your parrot can't fly here. 
-1158958;~1_NAME~ Parrot 
-1158959;~1_SKILL~ Animal Taming skill is required to redeem this pet. 
+1158954;*Do wymiany na zwierzaka*<br>Wymaga tytulu Wielkiego Mistrza Oswajania, aby odebrac zwierzaka
+1158955;<center>Wznoszaca sie Fala</center><br></br>Morza wzywaja nas ponownie! Potezny pirat zwany Pijaczyna przejal kontrole nad Gildia, organizacja rzezimieszkow i bandytow zajmujacych sie piractwem na pelnym morzu! Wielkie niebezpieczenstwo stoi na drodze tych, ktorzy sa wystarczajaco odwazni, aby rzucic wyzwanie nikczemnemu planowi Hooka - przeczytaj najnowsze naglowki w Miejskim Krzykaczu, aby dowiedziec sie wiecej!<br></br>Kombinatorzy krolestw ciezko pracowali i z duma oglaszaja postepy w balistyce okretowej! Proces wystrzeliwania armat zostal usprawniony - od wytwarzania materialow, przez ladowanie armat, po zapalanie lontu! OGNIA!<br></br>Niezaleznie od tego, czy swietujesz swoj pierwszy rok w Brytanii, czy dwudziesty drugi, chcemy zlozyc specjalne podziekowania naszym weteranom! Dostepne sa nowe nagrody weterana! Nowe STATUETKI POTWOROW przedstawiajace Krampusa, Khala Ankura i sluge Krampusa sa juz dostepne! Udekoruj swoj dom KOLEM WODNYM i spersonalizuj swoje ubrania za pomoca NARZEDZIA DO HAFTOWANIA. Kazdy rzemieslnik bedzie chcial zdobyc STOL NAPRAWCZY i STOL MONTERSKI!
+1158956;Twoja papuga jest zbyt zmeczona, aby teraz latac.
+1158957;Twoja papuga nie moze tu latac.
+1158958;~1_NAME~ Papuga 
+1158959;~1_SKILL~ umiejetnosci Oswajania wymagane jest, by kontrolowac to zwierze. 
 1158960;The Robin's Roost Castle 
 1158961;The Camelot Castle 
 1158962;The Lacrimae in Caelo Castle 
@@ -58836,7 +58836,7 @@
 1158966;Wash Basin 
 1158967;Wood Stove 
 1158968;Wash Basin 
-1158969;<BASEFONT COLOR=#FF66FF>~1_STUFF~ of Mythical Quality<BASEFONT COLOR=#FFFFFF> 
+1158969;<BASEFONT COLOR=#FF66FF>~1_STUFF~ Jakosci Mitycznej<BASEFONT COLOR=#FFFFFF> 
 1158970;Decorative Kitchen Set 
 1158971;Have you always wanted the kitchen of your dreams? Now you too can live the life of Britannia's most famous Chefs! Enjoy the warming fire of a wood burning stove, the convenience of an indoor wash basin, cabinets for your baked goods and dishware, a butcher block, and additional countertops to complete the look! Customize even further as all included items take dye from furniture, natural, and promotional dyes! 
 1158972;You must be at the same elevation as the teleporter in order to change its type. Unlock it and place it on the ground or lower it using an Interior Decorator to change the type. 
@@ -60327,7 +60327,7 @@
 3006041;Ucz sie: Walka obuchami 
 3006042;Ucz sie: Szermierka 
 3006043;Ucz sie: Walka piesciami 
-3006044;Ucz sie: Drwalstwo 
+3006044;Ucz sie: Drwalnictwo 
 3006045;Ucz sie: Gornictwo 
 3006046;Ucz sie: Medytacja 
 3006047;Ucz sie: Skradanie 
@@ -60792,7 +60792,7 @@
 3060108;Tkacz, Kusnierz i Krawiec naucza Cie umiejetnosci Krawiectwo za drobna oplata. Aby nauczyc sie umiejetnosci nalezy porozmawiac z jednym z kupcow (kliknac na niego lewym przyciskiem myszy, a gdy wysunie sie menu kontekstowe, wybrac pozadana umiejetnosc) i zaplacic zlotem za nia (przeniesc na NPC wymagana przez niego ilosc zlota). Aby cwiczyc te umiejetnosc potrzebujesz narzedzi krawieckich, ktore mozesz wytworzyc za pomoca umiejetnosci Majsterkowanie lub zakupic u Krawca. Musisz tez miec odpowiednie materialy, takie jak material czy skory. Material mozesz kupic lub pozyskac poprzez golenie owiec. 
 3060109;Zbrojmistrz i Kowal moga nas nauczyc Kowalstwa. Dzieki tej umiejetnosci mozemy tworzyc zbroje i bron. Aby nauczyc sie umiejetnosci nalezy porozmawiac z jednym z kupcow (kliknac na niego lewym przyciskiem myszy, a gdy wysunie sie menu kontekstowe, wybrac pozadana umiejetnosc) i zaplacic zlotem za nia (przeniesc na NPC wymagana przez niego ilosc zlota). Potrzebujemy sztab, ktore pozyskamy z rudy za pomoca Gornictwa. Potrzebny tez jest mlot kowalski, ktory zdobedziemy za pomoca Majsterkowania lub zakupimy u Majstra/Kowala oraz musimy stac w poblizu kowadla i paleniska.
 3060110;Stolarz nauczy nas umiejetnosci Stolarstwo. Dzieki tej umiejetnosci mozemy tworzyc meble, bron, zbroje, itp. Aby nauczyc sie umiejetnosci nalezy porozmawiac z jednym z kupcow (kliknac na niego lewym przyciskiem myszy, a gdy wysunie sie menu kontekstowe, wybrac pozadana umiejetnosc) i zaplacic zlotem za nia (przeniesc na NPC wymagana przez niego ilosc zlota).  Wytwarzanie przedmiotow przy uzyciu tej umiejetnosci wymaga pily i drewna, ktora mozna zakupic u stolarza lub wykonac ja samemu za pomoca umiejetnosci Majsterkowanie. 
-3060111;Stolarz nauczy nas umiejetnosci Drwalstwo. Dzieki niej mozna pozyskac m.i. drewno. Aby nauczyc sie umiejetnosci nalezy porozmawiac z jednym z kupcow (kliknac na niego lewym przyciskiem myszy, a gdy wysunie sie menu kontekstowe, wybrac pozadana umiejetnosc) i zaplacic zlotem za nia (przeniesc na NPC wymagana przez niego ilosc zlota).  Aby cwiczyc te umiejetnosc, musimy miec w rekach siekiere, ktora mozna zakupic u Kowala lub wykonac za pomoca umiejetnosci Majsterkowanie. Umiejetnosc cwiczymy poprzez scinanie drzew.
+3060111;Stolarz nauczy nas umiejetnosci Drwalnictwo. Dzieki niej mozna pozyskac m.i. drewno. Aby nauczyc sie umiejetnosci nalezy porozmawiac z jednym z kupcow (kliknac na niego lewym przyciskiem myszy, a gdy wysunie sie menu kontekstowe, wybrac pozadana umiejetnosc) i zaplacic zlotem za nia (przeniesc na NPC wymagana przez niego ilosc zlota).  Aby cwiczyc te umiejetnosc, musimy miec w rekach siekiere, ktora mozna zakupic u Kowala lub wykonac za pomoca umiejetnosci Majsterkowanie. Umiejetnosc cwiczymy poprzez scinanie drzew.
 3060112;Majster moze nauczyc nas umiejetnosci Majsterkowanie. Ta umiejetnosc pozwala na wykonywanie m.i. narzedzi. Aby nauczyc sie umiejetnosci nalezy porozmawiac z jednym z kupcow (kliknac na niego lewym przyciskiem myszy, a gdy wysunie sie menu kontekstowe, wybrac pozadana umiejetnosc) i zaplacic zlotem za nia (przeniesc na NPC wymagana przez niego ilosc zlota).  Korzystanie z tej umiejetnosci wymaga narzedzi majstra, ktore mozna zakupic u Majstra lub wykonac samemu za pomoca umiejetnosci Majsterkowanie, oraz sztab.
 3060113;Majster, Mistrz Gildii Zlodziei oraz Zlodziej moze nauczyc nas umiejetnosci Otwieranie Zamkow. Dzieki niej mozemy otwierac zamkniete skrzynie w lochach, skrzynie z Paragonow, zakopane skrzynie skarbow oraz skrzynie wylowione z Lewiatana. itp. Aby nauczyc sie umiejetnosci nalezy porozmawiac z jednym z kupcow (kliknac na niego lewym przyciskiem myszy, a gdy wysunie sie menu kontekstowe, wybrac pozadana umiejetnosc) i zaplacic zlotem za nia (przeniesc na NPC wymagana przez niego ilosc zlota). Aby otwierac zamkniete skrzynie, musimy miec wytrychy, ktore mozna wykonac za pomoca umiejetnosci Majsterkowanie lub kupic u Majstra. 
 3060114;Majster, Mistrz Gildii Zlodziei oraz Zlodziej moze nauczyc nas umiejetnosci Usuwanie Pulapek. Aby nauczyc sie umiejetnosci nalezy porozmawiac z jednym z kupcow (kliknac na niego lewym przyciskiem myszy, a gdy wysunie sie menu kontekstowe, wybrac pozadana umiejetnosc) i zaplacic zlotem za nia (przeniesc na NPC wymagana przez niego ilosc zlota).  Cwiczenie tej umiejetnosci wymaga podjecia proby zdjecia pulapki ze skrzyni, ktora ja ma. Pulapki moga byc nakladane przez osobe posiadajaca umiejetnosc Magia lub Majsterkowanie.
@@ -61086,3 +61086,7 @@
 3070067;Juz otrzymales talent. Nie mozesz go otrzymac ponownie
 3070068;Tutaj nie postawisz pulapki
 3070069;Szata miasta Tirassa
+3070070;Wolny port handlarzy zwojami
+3070071;Kapitanski Hak
+3070072;Zwoj Wskrzeszenia
+3070073;Klucz deszyfrujacy
