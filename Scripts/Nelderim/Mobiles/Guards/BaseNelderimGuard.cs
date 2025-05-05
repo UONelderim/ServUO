@@ -138,12 +138,15 @@ public class BaseNelderimGuard : BaseCreature
         SetWeaponAbility(WeaponAbility.BleedAttack);
 
         new RaceTimer(this).Start();
+        NoKillAwards = true;
+        NoLootOnDeath = true;
     }
 
     public BaseNelderimGuard(Serial serial) : base(serial)
     {
     }
 
+    
     public override bool AutoDispel => true;
 
     public override bool Unprovokable => true;
@@ -217,6 +220,9 @@ public class BaseNelderimGuard : BaseCreature
                 break;
             }
         }
+        
+        NoKillAwards = true;
+        NoLootOnDeath = true;
     }
     
     private class RaceTimer : Timer
