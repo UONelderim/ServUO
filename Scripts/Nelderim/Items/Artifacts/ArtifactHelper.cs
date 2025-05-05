@@ -47,10 +47,49 @@ namespace Server.Items
 
 	class ArtifactHelper
 	{
-		// TUTAJ PODMIENIAC SEZONY ARTEFAKTOW:
-		private static readonly ArtSeason _CurrentSeason = ArtSeason.Spring;
+		private static ArtSeason RealSeason()
+		{
+			var date = DateTime.Now;
+			var month = date.Month;
+			var day = date.Day;
+
+			return month switch
+			{
+				1 => ArtSeason.Winter,
+				2 => ArtSeason.Winter,
+				3 => day switch
+				{
+					< 21 => ArtSeason.Winter,
+					_ => ArtSeason.Spring
+				},
+				4 => ArtSeason.Spring,
+				5 => ArtSeason.Spring,
+				6 => day switch
+				{
+					< 22 => ArtSeason.Spring,
+					_ => ArtSeason.Summer
+				},
+				7 => ArtSeason.Summer,
+				8 => ArtSeason.Summer,
+				9 => day switch
+				{
+					< 23 => ArtSeason.Summer,
+					_ => ArtSeason.Autumn
+				},
+				10 => ArtSeason.Autumn,
+				11 => ArtSeason.Autumn,
+				12 => day switch
+				{
+					< 22 => ArtSeason.Autumn,
+					_ => ArtSeason.Winter
+				},
+				_ => ArtSeason.Winter
+			};
+
+		}
+		private static ArtSeason _CurrentSeason => RealSeason();
 		
-		private static readonly ArtSeason[] _AllSeasons = { ArtSeason.Summer, ArtSeason.Autumn, ArtSeason.Winter, ArtSeason.Spring };
+		private static readonly ArtSeason[] _AllSeasons = [ArtSeason.Summer, ArtSeason.Autumn, ArtSeason.Winter, ArtSeason.Spring];
 
 		private static readonly Dictionary<Type, ArtInfo> _CreatureInfo = new();
 		
