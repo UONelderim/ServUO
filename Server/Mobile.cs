@@ -11055,7 +11055,7 @@ namespace Server
 			m_NextSkillTime = Core.TickCount;
 			m_CreationTime = DateTime.UtcNow;
 
-			m_DisplayGuildTitle = true;
+			m_DisplayGuildTitle = false;
 			m_AutoPageNotify = true;
 
 			Map = Map.Internal;
