@@ -160,7 +160,11 @@ namespace Nelderim.Gains
 			if (e.Mobile is PlayerMobile pm)
 			{
 				var now = DateTime.Now;
-				if (pm.GainBoostEndTime < now && pm.LastDailyPowerHour.Date == now.Date)
+				if (pm.GainBoostEndTime > now)
+				{
+					pm.SendMessage(0x40, $"Gain Boost aktywny do {pm.GainBoostEndTime}");
+				}
+				else if (pm.LastDailyPowerHour.Date == now.Date)
 				{
 					pm.SendMessage("Wykorzystales juz dzisiaj Power Hour");
 				}
@@ -171,7 +175,9 @@ namespace Nelderim.Gains
 					pm.LastDailyPowerHour = now;
 				}
 				else
-					pm.SendMessage(0x40, $"Gain Boost aktywny do {pm.GainBoostEndTime}");
+				{
+					pm.SendMessage("Coś poszło nie tak");
+				}
 			}
 		}
 	}
