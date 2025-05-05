@@ -48,7 +48,7 @@ namespace Server.Items
 	class ArtifactHelper
 	{
 		// TUTAJ PODMIENIAC SEZONY ARTEFAKTOW:
-		private static readonly ArtSeason _CurrentSeason = ArtSeason.Winter;
+		private static readonly ArtSeason _CurrentSeason = ArtSeason.Spring;
 		
 		private static readonly ArtSeason[] _AllSeasons = { ArtSeason.Summer, ArtSeason.Autumn, ArtSeason.Winter, ArtSeason.Spring };
 
