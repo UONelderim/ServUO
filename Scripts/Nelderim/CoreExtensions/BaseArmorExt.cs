@@ -35,30 +35,5 @@ namespace Server.Items
 				}
 			}
 		}
-
-		//TODO: RemoveMe
-		private void FixDragonArmorResource()
-		{
-			if (this is DragonArms or DragonChest or DragonGloves or DragonLegs or DragonHelm)
-			{
-				Timer.DelayCall(() =>
-				{
-					if ((Resource == DefaultResource || Resource >= CraftResource.RedScales || Resource <= CraftResource.BlueScales) &&
-					    Resource2 is >= CraftResource.Iron and <= CraftResource.Valorite)
-					{
-						Console.WriteLine($"Swapping resources of {GetType().Name}:{Serial}");
-						var origRes = Resource;
-						m_Resource = Resource2;
-						ExtraCraftResource.Get(this).Resource2 = origRes <= CraftResource.RedScales ? CraftResource.RedScales : origRes;
-					}
-
-					if (Resource2 == CraftResource.None)
-					{
-						Console.WriteLine($"Fixing resource2 of {GetType().Name}:{Serial}");
-						Resource2 = CraftResource.RedScales;
-					}
-				});
-			}
-		}
 	}
 }
