@@ -313,11 +313,11 @@ namespace Server.Items
 
                     m.SendGump(g);
 
-                    m.PrivateOverheadMessage(MessageType.Regular, 0x47E, 1157722, "Carpentry", m.NetState); // *Your proficiency in ~1_SKILL~ reveals more about the item*
+                    m.PrivateOverheadMessage(MessageType.Regular, 0x47E, 1157722, "Stolarstwo", m.NetState); // *Your proficiency in ~1_SKILL~ reveals more about the item*
                 }
                 else
                 {
-                    m.PrivateOverheadMessage(MessageType.Regular, 0x47E, 1157693, "Carpentry", m.NetState); // *You lack the required ~1_SKILL~ skill to make anything of it.*
+                    m.PrivateOverheadMessage(MessageType.Regular, 0x47E, 1157693, "Stolarstwo", m.NetState); // *You lack the required ~1_SKILL~ skill to make anything of it.*
                     m.SendSound(m.Female ? 0x31F : 0x42F);
                 }
             }
@@ -374,29 +374,29 @@ namespace Server.Items
 
         private static readonly string[] _ShipNames =
         {
-            "Adventure Galley",
-            "Queen Anne's Revenge",
-            "Fancy",
-            "Whydah",
-            "Royal Fortune",
-            "The Black Pearl",
-            "Satisfaction",
-            "The Golden Fleece",
-            "Bachelor's Delight",
-            "The Revenge",
-            "The Flying Dragon",
-            "The Gabriel",
-            "Privateer's Death",
-            "Kiss of Death",
-            "Devil's Doom",
-            "Monkeebutt",
-            "Mourning Star",
-            "Cursed Sea-Dog",
-            "The Howling Lusty Wench",
-            "Scourage of the Seven Seas",
-            "Neptune's Plague",
-            "Sea's Hellish Plague",
-            "The Salty Bastard"
+	        "Galera Przygody",
+	        "Zemsta Matrony",
+	        "Fantazyjny",
+	        "Ferion", 
+	        "Krolewskie Szczescie",
+	        "Ogien Geriadoru",
+	        "Satysfakcja",
+	        "Zlote Runo",
+	        "Rozkosz Kawalera",
+	        "Zemsta",
+	        "Latajacy Smok",
+	        "Gabriel",
+	        "Smierc Korsarza",
+	        "Pocalunek Smierci",
+	        "Zatracenie Diabla",
+	        "Malpia Dupa",
+	        "Gwiazda Poranna",
+	        "Przeklety Wilk Morski",
+	        " wyjaca, lubiezna dziewucha",
+	        "Plaga Siedmiu Morz",
+	        "Plaga Neptuna",
+	        "Piekielna Plaga Morza",
+	        "Slony Bekart"
         };
 
         public override void AddNameProperty(ObjectPropertyList list)
