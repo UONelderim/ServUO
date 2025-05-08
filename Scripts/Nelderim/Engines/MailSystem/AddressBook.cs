@@ -147,7 +147,7 @@ namespace Server.Items
                 this.Name = this.Name;
                 return true;
             }
-            else if (dropped is RawBeeswax || dropped is PureRawBeeswax )
+            else if (dropped is RawBeeswax || dropped is PureRawBeeswax || dropped is Beeswax )
             {
                 from.SendMessage("Umieszczasz troche wosku w ksiedze");
                 m_Wax += dropped.Amount;
