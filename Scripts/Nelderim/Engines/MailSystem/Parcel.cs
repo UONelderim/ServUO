@@ -1,92 +1,49 @@
-/* 
-	Mail System - Version 1.0
-	
-	Newly Modified On 15/11/2016 
-	
-	By Veldian 
-	Dragon's Legacy Uo Shard 
-*/
-
 using System;
-using System.Collections;
-using Server.Multis;
+using Server.Mail;
+using Server.Items;
 using Server.Mobiles;
-using Server.Network;
 
 namespace Server.Items
 {
-    public class Parcel : TrapableContainer
+    public class Parcel : MailItem
     {
-        private Mobile m_To;
-        private Mobile m_From;
-
-        public override int DefaultGumpID { get { return 0x102; } }
-        public override int DefaultDropSound { get { return 0x48; } }
-
-        [CommandProperty(AccessLevel.GameMaster)]
-        public Mobile To
-        {
-            get { return m_To; }
-            set { m_To = value; InvalidateProperties(); }
-        }
-
-        [CommandProperty(AccessLevel.GameMaster)]
-        public Mobile From
-        {
-            get { return m_From; }
-            set { m_From = value; InvalidateProperties(); }
-        }
-
-        public override Rectangle2D Bounds
-        {
-            get { return new Rectangle2D(44, 65, 142, 94); }
-        }
+        public int DefaultGumpID => 0x102;
+        public int DefaultDropSound => 0x48;
 
         [Constructable]
-        public Parcel()
-            : base(3645)
+        public Parcel() : base(0x232A)
         {
             Weight = 1.0;
+            LootType = LootType.Blessed;
         }
 
-        public Parcel(Serial serial)
-            : base(serial)
-        {
-        }
+        public Parcel(Serial serial) : base(serial) { }
 
         public override void OnDoubleClick(Mobile from)
         {
-            if (m_To == from)
+            if (from == Recipient)
                 base.OnDoubleClick(from);
             else
-                from.SendMessage("This parcel is not for you!");
+                from.SendMessage("Ta paczka nie jest dla Ciebie. Precz te lapki!");
         }
+
         public override void GetProperties(ObjectPropertyList list)
         {
             base.GetProperties(list);
-
-            if (From != null)
-                list.Add(1060658, "{0}\t{1}", "Od", m_From.Name); // Display from
-            if (To != null)
-                list.Add(1060659, "{0}\t{1}", "Do", m_To.Name); // Display to
+            list.Add(1060658, "{0}	{1}", "Od", Sender.Name);
+            list.Add(1060659, "{0}	{1}", "Do", Recipient.Name);
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write((int)0);
-            writer.Write(m_To);
-            writer.Write(m_From);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
-            m_To = reader.ReadMobile();
-            m_From = reader.ReadMobile();
         }
     }
 }

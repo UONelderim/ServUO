@@ -1,12 +1,3 @@
-/* 
-	Mail System - Version 1.0
-	
-	Newly Modified On 15/11/2016 
-	
-	By Veldian 
-	Dragon's Legacy Uo Shard 
-*/
-
 using System; 
 using System.Collections;
 using System.Collections.Generic;
@@ -34,6 +25,7 @@ namespace Server.Mobiles
                
 				Add( new GenericBuyInfo( typeof( BlankScroll ), 5, 20, 0x0E34, 0 ) );
                 Add( new GenericBuyInfo( typeof( AddressBook ), 50, 20, 0x2254, 0 ) );
+				Add( new GenericBuyInfo( typeof( HouseMailBoxDeed ), 20000, 20, 0x14F0, 0 ) );
 			}
 		}
 
@@ -41,7 +33,7 @@ namespace Server.Mobiles
 		{
 			public InternalSellInfo()
 			{
-				Add( typeof( SealingWax ), 1 );
+
 				Add( typeof( BlankScroll ), 3 );
 			}
 		}
