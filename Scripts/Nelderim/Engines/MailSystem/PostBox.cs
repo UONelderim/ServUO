@@ -1,95 +1,74 @@
-/* 
-	Mail System - Version 1.0
-	
-	Newly Modified On 15/11/2016 
-	
-	By Veldian 
-	Dragon's Legacy Uo Shard 
-*/
-
+// -------------------------------
+// File: PostBox.cs (updated)
+// -------------------------------
 using System;
 using Server;
-using Server.Gumps;
-using Server.Network;
-using Server.Menus;
-using Server.Menus.Questions;
+using Server.Items;
 using Server.Mobiles;
-using System.Collections;
+using Server.Mail;
 
-namespace Server.Items
+namespace Server.Engines.MailSystem
 {
-	//[FlipableAttribute(0x4142, 0x4143)] // 0x4141 & 0x4144 have the "you got mail" flag up.
-    public class PostBox : Item
+    public class PostBox : Item, IMailDestination
     {
         [Constructable]
-        public PostBox()
-            : base(0x4142)  //na ServUO zmienić na 0x4142
+        public PostBox() : base(0xE3B) // example itemID
         {
-            Weight = 1.0;
+            Name = "skrzyneczka pocztowa";
             Movable = false;
-            Name = "Skrzynka pocztowa";
-            Hue = 0;
         }
 
-        public PostBox(Serial serial)
-            : base(serial)
+        public PostBox(Serial serial) : base(serial) { }
+
+        public Item ContainerItem => this;
+
+        public bool CanAccept(MailItem mail, Mobile sender)
         {
+            // Bank boxes accept all
+            return true;
+        }
+
+        public void Accept(MailItem mail, Mobile sender)
+        {
+            // Deliver to recipient's home mailbox or bank
+            mail.Recipient.SendMessage($"Otrzymałeś przesyłkę od {mail.Sender.Name}.");
+            mail.Recipient.AddToBackpack(mail);
+        }
+
+        public override bool OnDragDrop(Mobile from, Item dropped)
+        {
+            if (dropped is MailItem mail)
+            {
+                // Ensure the dropper is the sender
+                if (mail.Sender != from)
+                {
+                    from.SendMessage("Nie możesz wysłać czyjejś przesyłki.");
+                    return false;
+                }
+
+                // Find best destination
+                IMailDestination dest = MailUtility.FindBestDestination(mail.Recipient, from);
+
+                // Assign and process
+                mail.Destination = dest;
+                mail.ProcessSend();
+
+                return true;
+            }
+
+            return base.OnDragDrop(from, dropped);
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write((int)0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
-        }
-
-        public override bool OnDragDrop(Mobile from, Item dropped)
-        {
-            PlayerLetter mail = dropped as PlayerLetter;
-            Parcel box = dropped as Parcel;
-            if (mail != null)
-            {
-                if (mail.m_From != null && mail.m_To != null)
-                {
-                    from.SendMessage("Wyslales list!");
-                    if (mail.m_From != from)
-                        mail.m_From.SendMessage("Twoj list zostal wyslany przez " + from.Name + ".");
-                    mail.m_To.AddToBackpack(dropped);
-                    mail.m_To.SendMessage("Otrzymales list od " + mail.m_From.Name + "!");
-                    
-                    return true;
-                }
-                from.SendMessage("Ten list zostal zaadresowany!");
-
-                return false;
-            }
-            else if (box != null)
-            {
-                if (box.From != null && box.To != null)
-                {
-                    from.SendMessage("Wyslales paczke!");
-                    if (box.From != from)
-                        box.From.SendMessage("Twoja paczka zostala wyslana przez " + from.Name + ".");
-                    box.To.AddToBackpack(dropped);
-                    box.To.SendMessage("Otrzymales paczke od " + box.From.Name + "!");
-
-                    return true;
-                }
-                from.SendMessage("Ta paczka nie zostala zaadresowana!");
-                return false;
-            }
-            else
-            {
-                from.SendMessage("To nie jest smietnik!");
-                return false;
-            }
         }
     }
 }
