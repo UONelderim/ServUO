@@ -47,7 +47,7 @@ namespace Server.Items
     public abstract class BaseBulletinBoard : Item
     {
         // Threads will be removed six hours after the last post was made
-        private static readonly TimeSpan ThreadDeletionTime = TimeSpan.FromHours(6.0);
+        private static readonly TimeSpan ThreadDeletionTime = TimeSpan.FromDays(30.0);
         // A player may only create a thread once every two minutes
         private static readonly TimeSpan ThreadCreateTime = TimeSpan.FromMinutes(2.0);
         // A player may only reply once every thirty seconds
