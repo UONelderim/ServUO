@@ -37,10 +37,10 @@ namespace Server.Items
         Chainmail,
         Platemail,
         PlatemailSamurai,
-        GargishPlatemail,
+        //GargishPlatemail,
         Dragon,
         Woodland,
-        GargishStone
+        //GargishStone
     }
 
     public class RefinementComponent : Item

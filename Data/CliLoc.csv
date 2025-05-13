@@ -53846,16 +53846,16 @@
 1153976;potraktowane zywica 
 1153977;Mozesz tylko farbowac tkanine tym kapieliskiem.
 1153978;Brakuje ci wymaganej ilosci surowcow do wykonania ulepszenia pancerza.
-1153979;*Starannie i z duzym umiejetnoscia wykonujesz Ulepszenie Pancerza*
+1153979;*Starannie i z duzym dokladnoscia wykonujesz Ulepszenie Pancerza*
 1153980;*Starannie nakladasz Ulepszenie na zbroje*
-1153981;Only a Grandmaster ~1_PROFESSION~ would know what to do with this. 
+1153981;Tylko majac 100 punktow ~1_PROFESSION~ wiedzialbys jak to zrobic. 
 1153982;You lack the required raw materials to craft the Armor Refinement. 
 1153983;You would have better results were you to practice your craft within the crafting halls of Ocllo, Buccaneer's Den, or Jhelom. 
 1153984;You would have better results were you to practice your craft within the crafting halls of Trinsic, Britain, or Yew. 
-1153985;Target the armor you wish to apply this Refinement. 
-1153986;You cannot refine this piece of armor! 
-1153987;The type of armor you have selected is not compatible with this Refinement Tool. 
-1153988;broken crystals 
+1153985;Co chcesz ulepszyc?. 
+1153986;Tego nie dasz rady ulepszyc! 
+1153987;To nie jest kompatybilne z tym narzedziem. 
+1153988;polamane krysztaly
 1153989;Inspect 
 1153990;Clear Jam 
 1153991;Mozna ulepszac tylko zbroje, ktore nie sa mozliwe do magicznego wzmocnienia.
@@ -53873,15 +53873,15 @@
 1154003;Skorzany splot
 1154004;Kolba z rozpuszczalnikiem 
 1154005;Plastyczny stop 
-1154006;Where can I find raw materials? 
-1154007;Raw materials to combine with components are available from Blacksmiths, Weavers, and Carpenters in most major cities. 
-1154008;"You would have better results were you to practice your craft at ""A Stitch In Time"" located within the City of Ocllo.  "
-1154009;"You would have better results were you to practice your craft at ""The Warrior's Supplies"" located within the City of Cove.  "
-1154010;"You would have better results were you to practice your craft at ""From Tree to Yew"" located within the City of Jhelom.  "
-1154011;"You would have better results were you to practice your craft at ""Adventurer's Clothing"" located within the City of Trinsic.  "
-1154012;"You would have better results were you to practice your craft at ""The Hammer and Anvil"" located within the City of Britain.  "
-1154013;"You would have better results were you to practice your craft at ""Bloody Thumb Woodworks"" located within the City of Yew.  "
-1154014;Are you sure you wish to Refine this armor? 
+1154006;Gdzie znajde materialy?
+1154007;Znajdziesz je u stolarza, kowala czy krawca w jednym z miast frakcyjnych. 
+1154008;Lepiej udac sie do oczyszcza zbroi w Tasandorze.
+1154009;Lepiej udac sie do oczyszcza zbroi w Tasandorze.
+1154010;Lepiej udac sie do oczyszcza zbroi w Tasandorze.
+1154011;Lepiej udac sie do oczyszcza zbroi w Tasandorze.
+1154012;Lepiej udac sie do oczyszcza zbroi w Tasandorze.
+1154013;Lepiej udac sie do oczyszcza zbroi w Tasandorze.
+1154014;Czy jestes pewien, ze chcesz to zrobic? 
 1154015;<CENTER>City Title</CENTER> 
 1154016;"What title doth thou wish to bestow upon this citizen?<BR><BR>Note: All City Titles are automatically followed by ""of (City Name)"" where (City Name) is the name of the city.  "
 1154017;~1_TITLE~ of ~2_CITY~ 
