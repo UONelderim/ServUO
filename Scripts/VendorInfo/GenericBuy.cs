@@ -165,7 +165,7 @@ namespace Server.Mobiles
 			m_DisplayEntity = null;
 		}
 
-		public IEntity GetDisplayEntity()
+		public virtual IEntity GetDisplayEntity()
 		{
 			if (m_DisplayEntity != null && !m_DisplayEntity.Deleted)
 				return m_DisplayEntity;

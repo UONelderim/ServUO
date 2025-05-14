@@ -30372,11 +30372,7 @@
 1063962;Wydaj punkty poswiecenia 
 1063963;Szata miasta - 2000 pkt poswiecenia 
 1063964;Szata miasta z kapturem - 10000 pkt poswiecenia 
-1063965;Szata miasta Orod 
-1063966;Szata miasta Twierdzy Krasnoludow 
-1063967;Szata miasta L'Delmah
-1063968;Szata miasta Garlan 
-1063969;Szata miasta 
+1063965;Szata miasta ~1_val~ 
 1063970;Cos powstrzymuje cie od zalozenia tej szaty. Czyzby wyczuwala skad pochodzisz? 
 1063971;Nie masz wystarczajacej ilosci poswiecenia 
 1063972;Musisz nalezec do miasta 
@@ -53850,16 +53846,16 @@
 1153976;potraktowane zywica 
 1153977;Mozesz tylko farbowac tkanine tym kapieliskiem.
 1153978;Brakuje ci wymaganej ilosci surowcow do wykonania ulepszenia pancerza.
-1153979;*Starannie i z duzym umiejetnoscia wykonujesz Ulepszenie Pancerza*
+1153979;*Starannie i z duzym dokladnoscia wykonujesz Ulepszenie Pancerza*
 1153980;*Starannie nakladasz Ulepszenie na zbroje*
-1153981;Only a Grandmaster ~1_PROFESSION~ would know what to do with this. 
+1153981;Tylko majac 100 punktow ~1_PROFESSION~ wiedzialbys jak to zrobic. 
 1153982;You lack the required raw materials to craft the Armor Refinement. 
 1153983;You would have better results were you to practice your craft within the crafting halls of Ocllo, Buccaneer's Den, or Jhelom. 
 1153984;You would have better results were you to practice your craft within the crafting halls of Trinsic, Britain, or Yew. 
-1153985;Target the armor you wish to apply this Refinement. 
-1153986;You cannot refine this piece of armor! 
-1153987;The type of armor you have selected is not compatible with this Refinement Tool. 
-1153988;broken crystals 
+1153985;Co chcesz ulepszyc?. 
+1153986;Tego nie dasz rady ulepszyc! 
+1153987;To nie jest kompatybilne z tym narzedziem. 
+1153988;polamane krysztaly
 1153989;Inspect 
 1153990;Clear Jam 
 1153991;Mozna ulepszac tylko zbroje, ktore nie sa mozliwe do magicznego wzmocnienia.
@@ -61085,7 +61081,6 @@
 3070066;Wymagana umiejetnosc
 3070067;Juz otrzymales talent. Nie mozesz go otrzymac ponownie
 3070068;Tutaj nie postawisz pulapki
-3070069;Szata miasta Tirassa
 3070070;Wolny port handlarzy zwojami
 3070071;Kapitanski Hak
 3070072;Zwoj Wskrzeszenia

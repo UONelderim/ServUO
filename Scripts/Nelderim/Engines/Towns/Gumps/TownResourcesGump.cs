@@ -2198,7 +2198,7 @@ namespace Server.Gumps
 										break;
 									case Towns.LDelmah:
 										TownDatabase.GetCitinzeship(from).UseDevotion(2000);
-										m_toGive = new MiastowaSzataWioskaDrowow();
+										m_toGive = new MiastowaSzataLDelmah();
 										from.AddToBackpack(m_toGive);
 										break;
 									case Towns.Lotharn:
@@ -2249,7 +2249,7 @@ namespace Server.Gumps
 										break;
 									case Towns.LDelmah:
 										TownDatabase.GetCitinzeship(from).UseDevotion(10000);
-										m_toGive = new MiastowaSzataZKapturemWioskaDrowow();
+										m_toGive = new MiastowaSzataZKapturemLDelmah();
 										from.AddToBackpack(m_toGive);
 										break;
 									case Towns.Lotharn:

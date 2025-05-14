@@ -1730,7 +1730,7 @@ Circle375
 					{
 						if (!ip.Movable || rpm == from || ip.Map == bounce.m_Map && ip.GetWorldLocation() == bounce.m_WorldLoc)
 						{
-							if (from != null && ip is Container c && (c.TotalItems >= c.MaxItems || c.TotalWeight >= c.MaxWeight))
+							if (from != null && ip is Container c && !c.CheckHold(from, this, false, true, true))
 							{
 								MoveToWorld(from.Location, from.Map);
 							}

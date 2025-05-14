@@ -43,31 +43,34 @@ namespace Server.Mobiles
 
 		public class PowerScrollBuyInfo : GenericBuyInfo<PowerScroll>
 		{
-			private static readonly List<SkillName> allowedSkills =
+			private static readonly List<SkillName> _AllowedSkills =
 				PowerScroll.Skills.Where(s => !Utility.CraftSkills.Contains(s)).ToList();
 
-			private int _powerLevel { get; }
+			private readonly int _PowerLevel;
+			private readonly IEntity _DisplayEntity;
 			
 			public PowerScrollBuyInfo(int powerLevel, int amount) : base (GetBuyPrice(powerLevel), amount, 0x14F0, 0x481)
 			{
-				_powerLevel = powerLevel;
+				_PowerLevel = powerLevel;
 				CreateCallback = InitializePS;
+				
+				_DisplayEntity = new Item
+				{
+					ItemID = 0x14F0,
+					Hue = 0x481,
+					Name = GetName(_PowerLevel)
+				};
 			}
 
 			private void InitializePS(PowerScroll powerScroll, GenericBuyInfo buyInfo)
 			{
-				powerScroll.Value = _powerLevel;
-				powerScroll.Skill = Utility.RandomList(allowedSkills);
+				powerScroll.Value = _PowerLevel;
+				powerScroll.Skill = Utility.RandomList(_AllowedSkills);
 			}
 			
-			public override IEntity GetEntity()
+			public override IEntity GetDisplayEntity()
 			{
-				return new Item //Just a dummy to hack in the name
-				{
-					ItemID = 0x14F0,
-					Hue = 0x481,
-					Name = GetName(_powerLevel)
-				};
+				return _DisplayEntity;
 			}
 		}
 		

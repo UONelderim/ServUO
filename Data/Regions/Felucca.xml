@@ -4,7 +4,7 @@
 		<region type="GreenAcres" priority="100" name="GreenAcres">
 			<rect x="5597" y="0" width="169" height="66" />
 		</region>
-		<region type="JailRegion" priority="90" name="Wiezienie">
+		<region type="Jail" priority="90" name="Wiezienie">
 			<rect x="1965" y="1531" width="108" height="102" />
 			<rect x="1974" y="1632" width="50" height="50" />
 			<rect x="2023" y="1631" width="21" height="30" />
@@ -728,8 +728,11 @@
 			<music name="Tavern01" />
 			<logoutDelay active="false" />
 		</region>
-		<region type="TavernRegion" priority="100" name="WesolaMlynareczka">
-			<rect x="1005" y="676" width="16" height="10" />
+		<region type="TavernRegion" priority="100" name="BialyMis">
+			<rect x="1012" y="586" width="10" height="17" />
+			<rect x="1022" y="586" width="1" height="16" />
+			<rect x="1011" y="586" width="1" height="16" />
+			<go x="1017" y="590" z="0" />
 			<music name="Tavern01" />
 			<logoutDelay active="false" />
 		</region>
@@ -771,7 +774,7 @@
 			<logoutDelay active="false" />
 		</region>
 		<region type="TavernRegion" priority="100" name="PodZelaznymMlotem">
-			<rect x="5506" y="1094" width="19" height="20" />
+			<rect x="5535" y="1099" width="13" height="14" />
 			<go x="5516" y="1104" z="0" />
 			<music name="Tavern01" />
 			<logoutDelay active="false" />
@@ -11271,6 +11274,14 @@
 		</region>
 		<region type="SeaMarketRegion" name="SeaMarketRegion">
 			<rect x="1482" y="1750" width="260" height="148" />
+		</region>
+		<region type="TavernRegion" name="KufelWPiasku">
+			<rect x="2074" y="2682" width="14" height="8" />
+			<go x="2082" y="2685" z="-5" />
+		</region>
+		<region type="TavernRegion" name="TamaelskaMordownia">
+			<rect x="638" y="1990" width="18" height="26" />
+			<go x="647" y="2005" z="0" />
 		</region>
 	</Facet>
 </ServerRegions>

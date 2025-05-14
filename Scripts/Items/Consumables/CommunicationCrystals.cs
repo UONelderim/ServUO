@@ -346,15 +346,15 @@ namespace Server.Items
             if (!Active)
                 return;
 
-            string text = string.Format("{0} says {1}", from.Name, message);
+            string text = string.Format("{0} mowi {1}", from.Name, message);
 
             if (RootParent is Mobile)
             {
-                ((Mobile)RootParent).SendMessage(0x2B2, "Crystal: " + text);
+                ((Mobile)RootParent).SendMessage(0x2B2, "Krysztal: " + text);
             }
             else if (RootParent is Item)
             {
-                ((Item)RootParent).PublicOverheadMessage(MessageType.Regular, 0x2B2, false, "Crystal: " + text);
+                ((Item)RootParent).PublicOverheadMessage(MessageType.Regular, 0x2B2, false, "Krysztal: " + text);
             }
             else
             {

@@ -96,6 +96,31 @@ namespace Nelderim.Towns
 		Orod = 7
 	}
 
+	public static class EnumExtensions
+	{
+		public static string PrettyName(this Towns town)
+		{
+			return town switch
+			{
+				Towns.LDelmah => "L'Delmah",
+				_ => town.ToString()
+			};
+		}
+
+		public static string PrettyName(this TownStatus status)
+		{
+			return status switch
+			{
+				TownStatus.Leader => "Przywódca",
+				TownStatus.Counsellor => "Kanclerz",
+				TownStatus.Citizen => "Obywatel",
+				TownStatus.Vendor => "Sprzedawca",
+				TownStatus.Guard => "Straznik",
+				_ => String.Empty
+			};
+		}
+	}
+
 	public class TownResource
 	{
 		public TownResourceType ResourceType { get; }
