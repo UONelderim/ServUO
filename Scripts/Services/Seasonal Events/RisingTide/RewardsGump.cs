@@ -3,6 +3,7 @@ using Server.Gumps;
 using Server.Items;
 using Server.Mobiles;
 using System.Collections.Generic;
+using Felladrin.Items;
 
 namespace Server.Engines.RisingTide
 {
@@ -70,10 +71,10 @@ namespace Server.Engines.RisingTide
             Rewards.Add(new CollectionItem(typeof(MysteriousStatue), 0xA2C6, 1158935, 0, 35000));
             Rewards.Add(new CollectionItem(typeof(ShoulderParrot), 0xA2CA, 1158928, 0, 100000));
             Rewards.Add(new CollectionItem(typeof(DecorativeWoodCarving), 0x4C26, 1158943, 2968, 15000));
-            Rewards.Add(new CollectionItem(typeof(QuartermasterRewardDeed), 0x14EF, 0, 0, 25000));
-            Rewards.Add(new CollectionItem(typeof(SailingMasterRewardDeed), 0x14EF, 0, 0, 20000));
-            Rewards.Add(new CollectionItem(typeof(BotswainRewardDeed), 0x14EF, 0, 0, 15000));
-            Rewards.Add(new CollectionItem(typeof(PowderMonkeyRewardDeed), 0x14EF, 0, 0, 10000));
+            Rewards.Add(new CollectionItem(typeof(ScrollOfResurrection), 0x227B, 3070072, 0, 25000));
+           // Rewards.Add(new CollectionItem(typeof(SailingMasterRewardDeed), 0x14EF, 0, 0, 20000));
+           // Rewards.Add(new CollectionItem(typeof(BotswainRewardDeed), 0x14EF, 0, 0, 15000));
+			Rewards.Add(new CollectionItem(typeof(PowerGeneratorKey), 0x32F8, 3070073, 0, 10000));
             Rewards.Add(new CollectionItem(typeof(SpikedWhipOfPlundering), 0xA28B, 0, 0, 180000));
             Rewards.Add(new CollectionItem(typeof(BladedWhipOfPlundering), 0xA28B, 0, 0, 180000));
             Rewards.Add(new CollectionItem(typeof(BarbedWhipOfPlundering), 0xA28B, 0, 0, 180000));

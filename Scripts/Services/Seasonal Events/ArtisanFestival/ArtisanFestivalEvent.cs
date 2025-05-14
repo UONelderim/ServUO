@@ -29,7 +29,7 @@ namespace Server.Engines.ArtisanFestival
 
         private static readonly City[] Cities = new[]
         {
-            City.Britain, City.Jhelom, City.Minoc, City.Moonglow, City.NewMagincia, City.SkaraBrae, City.Trinsic, City.Vesper, City.Yew
+            City.Twierdza, City.Tirassa, City.Orod, City.Tasandora, City.ArtTrader, City.Garlan, City.Lotharn, City.Celendir, City.LDelmah
         };
 
         private int _Stage = -1;
@@ -302,15 +302,15 @@ namespace Server.Engines.ArtisanFestival
         {
             switch (CurrentCity)
             {
-                case City.Jhelom: return 1157167;
-                case City.Minoc: return 1157168;
-                case City.Moonglow: return 1157169;
-                case City.NewMagincia: return 1157170;
-                case City.SkaraBrae: return 1157171;
-                case City.Trinsic: return 1157172;
-                case City.Vesper: return 1157173;
-                case City.Yew: return 1157174;
-                case City.Britain: return 1157175;
+                case City.Tirassa: return 1157167;
+                case City.Orod: return 1157168;
+                case City.Tasandora: return 1157169;
+                case City.ArtTrader: return 1157170;
+                case City.Garlan: return 1157171;
+                case City.Lotharn: return 1157172;
+                case City.Celendir: return 1157173;
+                case City.LDelmah: return 1157174;
+                case City.Twierdza: return 1157175;
             }
 
             return -1;
@@ -339,10 +339,10 @@ namespace Server.Engines.ArtisanFestival
 
             switch (CurrentCity)
             {
-                case City.Trinsic: treeType = 2; break;
-                case City.Britain:
-                case City.NewMagincia: treeType = 3; break;
-                case City.Minoc: treeType = 4; break;
+                case City.Lotharn: treeType = 2; break;
+                case City.Twierdza:
+                case City.ArtTrader: treeType = 3; break;
+                case City.Orod: treeType = 4; break;
             }
 
             if (TownTree != null)

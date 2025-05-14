@@ -105,7 +105,7 @@ namespace Server.Mobiles
             ControlSlots = 2;
             MinTameSkill = 96.0;
 
-            SetSpecialAbility(SpecialAbility.Heal);
+            //SetSpecialAbility(SpecialAbility.Heal);
         }
 
         public override void GenerateLoot()

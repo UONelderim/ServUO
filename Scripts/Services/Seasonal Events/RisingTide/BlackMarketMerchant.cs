@@ -1,3 +1,4 @@
+using Felladrin.Items;
 using Server.Engines.Points;
 using Server.Items;
 using Server.Mobiles;
@@ -8,7 +9,7 @@ namespace Server.Engines.RisingTide
     {
         public static BlackMarketMerchant InstanceTram { get; set; }
         public static BlackMarketMerchant InstanceFel { get; set; }
-        public static Point3D SpawnLocation => new Point3D(2719, 2187, 0);
+        public static Point3D SpawnLocation => new Point3D(1540, 1821, 0);
 
         public override int TitleLocalization => 1158918;  // Maritime Black Market
         public override int CancelLocalization => 1158911; 	// Bring me maritime trade cargo and I will pay you in doubloons!
@@ -18,7 +19,7 @@ namespace Server.Engines.RisingTide
         public override bool IsShrineHealer => false;
 
         [Constructable]
-        public BlackMarketMerchant() : base("the Pirate")
+        public BlackMarketMerchant() : base("- pirat")
         {
         }
 
@@ -32,14 +33,16 @@ namespace Server.Engines.RisingTide
             Hue = Race.RandomSkinHue();
             Body = 0x190;
 
-            PackItem(new QuartermasterRewardDeed());
-            PackItem(new SailingMasterRewardDeed());
-            PackItem(new BotswainRewardDeed());
-            PackItem(new PowderMonkeyRewardDeed());
+            //PackItem(new QuartermasterRewardDeed());
+            //PackItem(new SailingMasterRewardDeed());
+            //PackItem(new BotswainRewardDeed());
+            //PackItem(new PowderMonkeyRewardDeed());
             PackItem(new SpikedWhipOfPlundering());
             PackItem(new BladedWhipOfPlundering());
             PackItem(new BarbedWhipOfPlundering());
             PackItem(new TritonStatue());
+            PackItem(new ScrollOfResurrection());
+            PackItem(new CaptainsHook());
         }
 
         public override void InitOutfit()
