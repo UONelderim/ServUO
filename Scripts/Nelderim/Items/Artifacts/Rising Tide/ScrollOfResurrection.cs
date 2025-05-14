@@ -1,14 +1,7 @@
-// Scroll Of Resurrection v1.0.1
-// Author: Felladrin
-// Started: 2007-07-07
-// Updated: 2016-01-23
-
-using Server;
-using Server.Items;
 using Server.Mobiles;
 using Server.Targeting;
 
-namespace Felladrin.Items
+namespace Server.Items
 {
     public class ScrollOfResurrection : Item
     {
@@ -32,26 +25,30 @@ namespace Felladrin.Items
 
         void OnTarget(Mobile from, object obj)
         {
-            var mob = obj as Mobile;
-            var corpse = obj as Corpse;
+            Mobile mob;
 
-            if (mob == null && corpse == null)
+            switch (obj)
             {
-                from.SendMessage(33, "Tego nie wskrzesisz!");
-                return;
+	            case Mobile m:
+		            mob = m;
+		            break;
+	            case Corpse corpse:
+		            mob = corpse.Owner;
+		            break;
+	            default:
+		            from.SendMessage(33, "Tego nie wskrzesisz!");
+		            return;
             }
 
-            if (corpse != null && corpse.Owner != null)
-                mob = corpse.Owner;
-
-            if (mob.IsDeadBondedPet && mob is BaseCreature)
+            if (mob.Alive)
             {
-                ((BaseCreature)mob).ResurrectPet();
+	            from.SendMessage(33, "Ta istota nie jest martwa!");
+	            return;
             }
-            else if (mob.Alive)
+            
+            if (mob.IsDeadBondedPet && mob is BaseCreature bc)
             {
-                from.SendMessage(33, "Ta istota nie jest martwa!");
-                return;
+                bc.ResurrectPet();
             }
             else
             {
