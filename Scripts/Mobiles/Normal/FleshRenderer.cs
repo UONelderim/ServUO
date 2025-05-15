@@ -56,7 +56,7 @@ namespace Server.Mobiles
         public override bool CanFlee => false;
 
         public override bool IgnoreYoungProtection => true;
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override bool Unprovokable => true;
         public override bool AreaPeaceImmune => true;
         public override Poison PoisonImmune => Poison.Lethal;

@@ -66,7 +66,7 @@ namespace Server.Mobiles
 			AddLoot(LootPack.MageryRegs, 10, 20);
 		}
 
-		public override bool AutoDispel { get { return true; } }
+		public override bool AutoDispel => false;
 		public override int TreasureMapLevel { get { return 3; } }
 		public override int Meat { get { return 10; } }
 		public override int Hides { get { return 10; } }

@@ -59,7 +59,7 @@ namespace Server.Mobiles
 		}
 
 		public override bool BleedImmune { get { return true; } }
-		public override bool AutoDispel { get { return true; } }
+		public override bool AutoDispel => false;
 		public override int TreasureMapLevel { get { return 3; } }
 
 		public override void CheckReflect(Mobile caster, ref bool reflect)

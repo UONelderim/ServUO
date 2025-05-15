@@ -69,7 +69,7 @@ namespace Server.Mobiles
                     typeof(Pier),
                 };
         public override MonsterStatuetteType[] StatueTypes => new MonsterStatuetteType[] { };
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override bool CanFly => true;
         public override bool Unprovokable => true;
         public override bool Uncalmable => true;

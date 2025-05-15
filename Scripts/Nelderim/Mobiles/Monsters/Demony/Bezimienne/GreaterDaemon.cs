@@ -16,7 +16,7 @@ namespace Server.Mobiles
 		public override double DispelFocus { get { return 45.0; } }
 		public override bool CanRummageCorpses { get { return true; } }
 		public override Poison PoisonImmune { get { return Poison.Greater; } }
-		public override bool AutoDispel { get { return true; } }
+		public override bool AutoDispel => false;
 		public override bool BardImmune { get { return false; } }
 
 		public override int TreasureMapLevel { get { return 4; } }

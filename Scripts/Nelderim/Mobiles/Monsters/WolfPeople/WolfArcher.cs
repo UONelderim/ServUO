@@ -98,7 +98,7 @@ namespace Server.Mobiles
 
 		public override double AttackMasterChance { get { return 0.05; } }
 		public override bool AlwaysMurderer { get { return true; } }
-		public override bool AutoDispel { get { return true; } }
+		public override bool AutoDispel => false;
 		public override bool ShowFameTitle { get { return true; } }
 		public override bool CanRummageCorpses { get { return true; } }
 		public override Poison PoisonImmune { get { return Poison.Regular; } }

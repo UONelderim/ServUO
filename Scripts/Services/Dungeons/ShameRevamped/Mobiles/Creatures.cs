@@ -1528,7 +1528,7 @@ namespace Server.Mobiles
             SetSpecialAbility(SpecialAbility.LifeLeech);
         }
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override double AutoDispelChance => 1.0;
         public override int TreasureMapLevel => 5;
         public override double TreasureMapChance => 1.0;

@@ -66,7 +66,7 @@ namespace Server.Mobiles
 		public override double SwitchTargetChance => 0.10;
 		public override double DispelDifficulty => 120.0;
 		public override double DispelFocus => 45.0;
-		public override bool AutoDispel => true;
+		public override bool AutoDispel => false;
 		public override bool CanRummageCorpses => true;
 		public override bool AllureImmune => true;
 

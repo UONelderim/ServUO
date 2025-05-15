@@ -64,7 +64,7 @@ namespace Server.Mobiles
 			AddLoot(NelderimLoot.MysticScrolls);
 		}
 		
-		public override bool AutoDispel => true;
+		public override bool AutoDispel => false;
 		public override Poison PoisonImmune => Poison.Lethal;
 
 		public override int GetIdleSound()

@@ -74,7 +74,7 @@ namespace Server.Mobiles
 			AddLoot(LootPack.LootItem<ZabStarozytnegoOgnistegoSmoka>(30.0));
 		}
 
-		public override bool AutoDispel { get { return true; } }
+		public override bool AutoDispel => false;
 		public override int TreasureMapLevel { get { return 4; } }
 		public override int Meat { get { return 8; } }
 		public override int Hides { get { return 15; } }

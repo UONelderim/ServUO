@@ -72,7 +72,7 @@ namespace Server.Mobiles
 			AddLoot(LootPack.LootItem<PalecStarozytnegoLodowegoSmoka>(30.0));
 		}
 
-		public override bool AutoDispel { get { return true; } }
+		public override bool AutoDispel => false;
 		public override int TreasureMapLevel { get { return 5; } }
 		public override int Meat { get { return 10; } }
 		public override int Hides { get { return 20; } }

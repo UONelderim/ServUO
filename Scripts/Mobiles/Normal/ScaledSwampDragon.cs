@@ -48,7 +48,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AutoDispel => !Controlled;
+        public override bool AutoDispel => false;
         public override FoodType FavoriteFood => FoodType.Meat;
         public override double GetControlChance(Mobile m, bool useBaseSkill)
         {

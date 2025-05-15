@@ -65,7 +65,7 @@ namespace Server.Mobiles
 			AddLoot(NelderimLoot.ClericScrolls);
 		}
 
-		public override bool AutoDispel => true;
+		public override bool AutoDispel => false;
 		public override int TreasureMapLevel => 5;
 		public override int Meat => 8;
 		public override int Hides => 20;

@@ -47,7 +47,7 @@ namespace Server.Mobiles
         }
 
         public override bool ReacquireOnMovement => true;
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override HideType HideType => HideType.Barbed;
         public override int Hides => 40;
         public override int Meat => 19;

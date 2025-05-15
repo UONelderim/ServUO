@@ -16,7 +16,7 @@ namespace Server.Mobiles
 		public override Poison PoisonImmune => Poison.Deadly;
 		public override int Meat => 2;
 		public override bool CanRummageCorpses => true;
-		public override bool AutoDispel => true;
+		public override bool AutoDispel => false;
 
 		[Constructable]
 		public WladcaPiaskow() : base(AIType.AI_Melee, FightMode.Closest, 13, 1, 0.25, 0.5)

@@ -73,7 +73,7 @@ namespace Server.Engines.HunterKiller
 
 		#endregion
 
-		public override bool AutoDispel { get { return true; } }
+		public override bool AutoDispel => false;
 
 		public override void Serialize(GenericWriter writer)
 		{

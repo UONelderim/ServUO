@@ -110,7 +110,7 @@ namespace Server.Mobiles
 
         public override Poison PoisonImmune => Poison.Regular;
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
 
         public override bool CanRummageCorpses => true;
 

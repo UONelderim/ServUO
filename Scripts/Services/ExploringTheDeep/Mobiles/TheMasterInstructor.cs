@@ -99,7 +99,7 @@ namespace Server.Mobiles
 
         public override int TreasureMapLevel => 5;
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
 
         public override int GetIdleSound() { return 0x19D; }
         public override int GetAngerSound() { return 0x175; }

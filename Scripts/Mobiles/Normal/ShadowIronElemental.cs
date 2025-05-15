@@ -42,7 +42,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override bool BleedImmune => true;
         public override int TreasureMapLevel => 1;
         public override Poison PoisonImmune => Poison.Deadly;

@@ -401,7 +401,7 @@ namespace Server.Mobiles
                 base.OnDelete();
             }
 
-            public override bool AutoDispel => true;
+            public override bool AutoDispel => false;
             public override double AutoDispelChance => 1.0;
             public override bool BardImmune => true;
             public override bool Unprovokable => true;

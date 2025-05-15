@@ -51,7 +51,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override bool BardImmune => true;
         public override bool Unprovokable => true;
         public override bool AreaPeaceImmune => true;

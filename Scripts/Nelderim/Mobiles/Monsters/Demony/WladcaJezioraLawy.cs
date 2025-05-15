@@ -75,7 +75,7 @@ namespace Server.Mobiles
 		public override double SwitchTargetChance { get { return 0.10; } }
 		public override double DispelDifficulty { get { return 120.0; } }
 		public override double DispelFocus { get { return 45.0; } }
-		public override bool AutoDispel { get { return true; } }
+		public override bool AutoDispel => false;
 		public override bool CanRummageCorpses { get { return true; } }
 
 		public WladcaJezioraLawy(Serial serial) : base(serial)

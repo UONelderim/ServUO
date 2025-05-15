@@ -17,7 +17,7 @@ namespace Server.Mobiles
 		public override Poison PoisonImmune => Poison.Lethal;
 		public override int Meat => 2;
 		public override bool CanRummageCorpses => true;
-		public override bool AutoDispel => true;
+		public override bool AutoDispel => false;
 		public override bool AllureImmune => true;
 
 		[Constructable]

@@ -61,7 +61,7 @@ namespace Server.Mobiles
 
         public override Poison HitPoison => Poison.Deadly;
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
 
         public override bool BardImmune => true;
 

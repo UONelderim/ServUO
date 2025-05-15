@@ -17,7 +17,7 @@ namespace Server.Mobiles
 		public override bool BleedImmune => true;
 		public override double DispelDifficulty => 135.0;
 		public override double DispelFocus => 45.0;
-		public override bool AutoDispel => true;
+		public override bool AutoDispel => false;
 		public override Poison PoisonImmune => Poison.Lethal;
 		public override bool Unprovokable => true;
 		public override int Meat => 19; // where's it hiding these? :)

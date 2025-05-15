@@ -84,7 +84,7 @@ namespace Server.Mobiles
 
         public Type[] DecorativeList => new[] { typeof(EvilIdolSkull), typeof(SkullPole) };
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
 
         public override bool Unprovokable => true;
 

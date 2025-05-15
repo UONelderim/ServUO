@@ -49,7 +49,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AutoDispel => !Controlled;
+        public override bool AutoDispel => false;
         public override bool BleedImmune => true;
         public override bool ReacquireOnMovement => !Controlled;
         public override double BonusPetDamageScalar => 3.0;

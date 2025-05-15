@@ -73,7 +73,7 @@ namespace Server.Mobiles
                 m_Harrower = value;
             }
         }
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
 
         public override bool Unprovokable => true;
 

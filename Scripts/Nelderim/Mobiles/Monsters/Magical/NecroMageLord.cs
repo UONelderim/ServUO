@@ -58,7 +58,7 @@ namespace Server.Mobiles
 		}
 
 		public override bool CanRummageCorpses { get { return true; } }
-		public override bool AutoDispel { get { return true; } }
+		public override bool AutoDispel => false;
 		public override bool AlwaysMurderer { get { return true; } }
 		public override bool Unprovokable { get { return true; } }
 		public override bool Uncalmable { get { return true; } }

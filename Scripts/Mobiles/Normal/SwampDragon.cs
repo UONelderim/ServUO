@@ -199,7 +199,7 @@ namespace Server.Mobiles
         }
 
         public override bool ReacquireOnMovement => true;
-        public override bool AutoDispel => !Controlled;
+        public override bool AutoDispel => false;
         public override FoodType FavoriteFood => FoodType.Meat;
         public override int Meat => 19;
         public override int Hides => 20;

@@ -71,7 +71,7 @@ namespace Server.Mobiles
         public override Type[] DecorativeList => new[] { typeof(SwampTile), typeof(MonsterStatuette) };
         public override MonsterStatuetteType[] StatueTypes => new[] { MonsterStatuetteType.Slime };
         public override bool AlwaysMurderer => true;
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override double AutoDispelChance => 1.0;
         public override bool AllureImmune => true;
         public override bool Unprovokable => true;

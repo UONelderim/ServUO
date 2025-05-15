@@ -101,7 +101,7 @@ namespace Server.Mobiles
 			typeof(Kryss), typeof(Broadsword), typeof(Katana)
 		};
 
-		public override bool AutoDispel => true;
+		public override bool AutoDispel => false;
         public override bool CanRummageCorpses => true;
         public override bool AlwaysMurderer => true;
         public override bool ShowFameTitle => false;

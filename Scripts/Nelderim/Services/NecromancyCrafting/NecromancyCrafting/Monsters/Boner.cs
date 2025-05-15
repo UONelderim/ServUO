@@ -84,7 +84,7 @@ namespace Server.Mobiles
 			return base.GetHurtSound();
 		}
 
-		public override bool AutoDispel => !Controlled;
+		public override bool AutoDispel => false;
 		public override bool BleedImmune => true;
 		public override bool BardImmune => Controlled;
 		public override bool Unprovokable => true;

@@ -127,7 +127,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 			}
 		}
 
-		public override bool AutoDispel { get { return true; } }
+		public override bool AutoDispel => false;
 		public override Poison HitPoison { get { return Poison.Greater; } }
 
 		public VampireWolfFamiliar(Serial serial) : base(serial)

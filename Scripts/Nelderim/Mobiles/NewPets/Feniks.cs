@@ -63,7 +63,7 @@ namespace Server.Mobiles
 			AddLoot(LootPack.UltraRich, 4);
 		}
 
-		public override bool AutoDispel => !Controlled;
+		public override bool AutoDispel => false;
 
 		public override int TreasureMapLevel => 5;
 		public override int Feathers => 36;

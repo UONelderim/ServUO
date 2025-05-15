@@ -52,7 +52,7 @@ namespace Server.Mobiles
             SetSpecialAbility(SpecialAbility.TailSwipe);
         }
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override Poison PoisonImmune => Poison.Lethal;
         public override bool UseSmartAI => true;
         public override bool ReacquireOnMovement => true;
@@ -360,7 +360,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.SuperBoss, 2);
         }
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override Poison PoisonImmune => Poison.Lethal;
         public override bool UseSmartAI => true;
         public override int TreasureMapLevel => 7;
