@@ -98,7 +98,7 @@ namespace Server.Mobiles
 				Add(new GenericBuyInfo(typeof(HealSprinkler), 20000, 20, 0xE7A, 0));
 
 				Add(new GenericBuyInfo("1079931", typeof(SalvageBag), 1255, 20, 0xE76, Utility.RandomBlueHue()));
-				Add(new GenericBuyInfo("1114770", typeof(SkinTingeingTincture), 1255, 20, 0xEFF, 90));
+				//Add(new GenericBuyInfo("1114770", typeof(SkinTingeingTincture), 1255, 20, 0xEFF, 90));
 			}
 		}
 
