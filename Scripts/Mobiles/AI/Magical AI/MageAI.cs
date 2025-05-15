@@ -524,7 +524,7 @@ namespace Server.Mobiles
         {
             if (!SmartAI)
             {
-                if (CheckCanCastMagery(6) && ScaleByCastSkill(DispelChance) > Utility.RandomDouble())
+                if (GetMaxCircle() >= 6 && ScaleByCastSkill(DispelChance) > Utility.RandomDouble())
                     return new DispelSpell(m_Mobile, null);
 
                 return null;
@@ -532,7 +532,7 @@ namespace Server.Mobiles
 
             Spell spell = CheckCastHealingSpell();
 
-            if (spell == null && CheckCanCastMagery(6))
+            if (spell == null && GetMaxCircle() >= 6)
             {
                 spell = new DispelSpell(m_Mobile, null);
             }
@@ -999,7 +999,7 @@ namespace Server.Mobiles
             {
                 if (CheckCanCastMagery(8))
                     select = 8;
-                else if (CheckCanCastMagery(6))
+                else if (GetMaxCircle() >= 6)
                     select = 6;
                 else if (CheckCanCastMagery(5))
                     select = 5;
@@ -1087,7 +1087,7 @@ namespace Server.Mobiles
 	            if (pois && CheckCanCastMagery(5))
 		            return new PoisonFieldSpell(m_Mobile, null);
 
-	            if (Utility.RandomBool() && CheckCanCastMagery(6))
+	            if (Utility.RandomBool() && GetMaxCircle() >= 6)
 		            return new ParalyzeFieldSpell(m_Mobile, null);
 
 	            if (CheckCanCastMagery(4))
@@ -1102,7 +1102,7 @@ namespace Server.Mobiles
             if (!BlessSpell.IsBlessed(m_Mobile) && CheckCanCastMagery(3))
                 return new BlessSpell(m_Mobile, null);
 
-            if (!m_Mobile.Controlled && CheckCanCastMagery(6))
+            if (!m_Mobile.Controlled && GetMaxCircle() >= 6)
                 return new InvisibilitySpell(m_Mobile, null);
 
             return null;
