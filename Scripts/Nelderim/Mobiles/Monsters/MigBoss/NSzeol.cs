@@ -14,7 +14,7 @@ namespace Server.Mobiles
 		public override double SwitchTargetChance => 2.0;
 		public override double DispelDifficulty => 135.0;
 		public override double DispelFocus => 45.0;
-		public override bool AutoDispel => true;
+		public override bool AutoDispel => false;
 		public override Poison PoisonImmune => Poison.Lethal;
 		public override Poison HitPoison => Poison.Lethal;
 

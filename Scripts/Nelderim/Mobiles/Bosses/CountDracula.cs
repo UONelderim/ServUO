@@ -55,7 +55,7 @@ namespace Server.Mobiles
 		}
 		
 		public override bool AlwaysMurderer => true;
-		public override bool AutoDispel => true;
+		public override bool AutoDispel => false;
 		public override double AutoDispelChance => 1.0;
 		public override bool BardImmune => false;
 		public override bool Unprovokable => true;

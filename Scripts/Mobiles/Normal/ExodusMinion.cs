@@ -52,7 +52,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public bool FieldActive { get; private set; }
         public bool CanUseField => Hits >= HitsMax * 9 / 10;// TODO: an OSI bug prevents to verify this
         public override bool IsScaredOfScaryThings => false;

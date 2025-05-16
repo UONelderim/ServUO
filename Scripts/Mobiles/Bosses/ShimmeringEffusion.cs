@@ -70,7 +70,7 @@ namespace Server.Mobiles
             AddLoot(NelderimLoot.DruidScrolls);
         }
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override int TreasureMapLevel => 5;
         public override bool HasFireRing => true;
         public override double FireRingChance => 0.1;

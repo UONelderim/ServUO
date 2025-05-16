@@ -176,7 +176,7 @@ namespace Server.Items
         public override bool IsScaryToPets => !Controlled;
         public override FoodType FavoriteFood => FoodType.None;
         public override bool DeleteOnRelease => true;
-        public override bool AutoDispel => !Controlled;
+        public override bool AutoDispel => false;
         public override bool BleedImmune => true;
         public override bool BardImmune => true;
         public override Poison PoisonImmune => Poison.Lethal;

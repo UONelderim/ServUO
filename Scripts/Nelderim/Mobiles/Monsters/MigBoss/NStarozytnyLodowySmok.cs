@@ -15,7 +15,7 @@ namespace Server.Mobiles
 		public override double SwitchTargetChance { get { return 0.15; } }
 		public override double DispelDifficulty { get { return 135.0; } }
 		public override double DispelFocus { get { return 45.0; } }
-		public override bool AutoDispel { get { return true; } }
+		public override bool AutoDispel => false;
 		public override Poison PoisonImmune { get { return Poison.Lethal; } }
 		public override int TreasureMapLevel { get { return 5; } }
 		public override int Meat { get { return 19; } }

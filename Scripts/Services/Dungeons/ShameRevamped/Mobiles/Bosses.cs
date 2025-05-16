@@ -70,7 +70,7 @@ namespace Server.Mobiles
             return amount;
         }
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override bool AlwaysMurderer => true;
         public override Poison PoisonImmune => Poison.Lethal;
 

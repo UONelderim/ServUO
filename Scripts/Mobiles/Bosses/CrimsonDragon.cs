@@ -59,7 +59,7 @@ namespace Server.Mobiles
         public override bool BardImmune => true;
 
         public override bool ReacquireOnMovement => true;
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override bool Uncalmable => true;
         public override int Meat => 19;
         public override int Hides => 40;
