@@ -70,6 +70,13 @@ namespace Server.Mobiles
 		{
 			AddLoot(LootPack.FilthyRich, 5);
 		}
+		
+		public override bool OverrideBondingReqs()
+		{
+			if (ControlMaster.Skills[SkillName.Tactics].Base >= 110.0)
+				return true;
+			return false;
+		}
 
 		public override double GetControlChance(Mobile m, bool useBaseSkill)
 		{
