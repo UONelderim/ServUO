@@ -40606,7 +40606,7 @@
 1095372;Dread Sword
 1095373;Gargish Talwar
 1095374;Shortblade
-1095375;Dragon's Blood 
+1095375;Smocza Krew
 1095376;Leczenie Stone 
 1095377;Spell Stone 
 1095378;Eagle Strike 
@@ -57184,11 +57184,11 @@
 1157318;Kruszyciel Kosci 
 1157319;This property provides a chance to cause a loss of stamina over time and prevent the use of refreshment potions for a period of time to the target.  This property can be found on select artifacts. 
 1157320;Bone Breaker 
-1157321;*You are engulfed in a swarm of insects!* 
+1157321;*Jestes pokryty rojem owadow!* 
 1157322;Your target is currently immune to swarm! 
 1157323;*You are overcome with intense energy!* 
 1157324;Your target is currently immune to sparks! 
-1157325;Swarm ~1_val~% 
+1157325;Roj ~1_val~% 
 1157326;Sparks ~1_val~% 
 1157327;This property has a chance to cause a swarm of insects to attack your opponent resulting in physical damage caused by insect bites.  This property can be found on select artifacts. 
 1157328;Swarm 
