@@ -44,7 +44,6 @@ namespace Server.Mobiles
             AddLoot(LootPack.LootItem<ArcaneGem>());
             AddLoot(LootPack.LootItem<ClockworkAssembly>());
             AddLoot(LootPack.RandomLootItem(new System.Type[] { typeof(PowerCrystal), typeof(ArcaneGem), typeof(ClockworkAssembly) }));
-            AddLoot(LootPack.LootItem<PlatynowaZbroja>(30.0));
         }
 
         public ExodusMinion(Serial serial)
