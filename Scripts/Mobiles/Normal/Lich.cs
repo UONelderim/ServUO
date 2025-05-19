@@ -4,7 +4,8 @@ using Server.Items;
 namespace Server.Mobiles
 {
     [CorpseName("zwloki licza")]
-    public class Lich : BaseCreature
+    public class Lich : BaseCreature, LichCrystal.INecroPet
+
     {
         [Constructable]
         public Lich()

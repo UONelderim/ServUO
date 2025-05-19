@@ -4,7 +4,8 @@ using Server.Items;
 namespace Server.Mobiles
 {
 	[CorpseName( "resztki koscieja" )]
-	public class Boner : BaseCreature
+	public class Boner : BaseCreature, BonerCrystal.INecroPet
+
 	{
 		public override bool IsScaredOfScaryThings => false;
 

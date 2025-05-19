@@ -6,6 +6,8 @@ namespace Server.Items
 	public class BoneMagiCrystal : BaseNecroCraftCrystal
 	{
 		public override double RequiredNecroSkill => 40.0;
+		
+		public interface INecroPet { }
 
 		private static Type[] _requiredBodyParts = {
 			typeof( SkeletonMageTorso ),
@@ -17,6 +19,7 @@ namespace Server.Items
 		public override Type SummonType => typeof(BoneMagi);
 
 		public override string DefaultName => "kryształ kościanego maga";
+		
 
 		[Constructable]
 		public BoneMagiCrystal()
@@ -26,6 +29,19 @@ namespace Server.Items
 
 		public BoneMagiCrystal( Serial serial ) : base( serial )
 		{
+		}
+
+		protected void FinishSummon(BaseCreature bc, Mobile from)
+		{
+			bc.Allured = true;
+			bc.ControlMaster = from;
+
+			// Mark it as a necro-trainable pet
+			if (bc is INecroPet == false)
+				bc.GetType().GetInterfaces(); // ensure interface is applied by your creature class
+
+			ScaleCreature(bc, from.Skills[SkillName.Necromancy].Value);
+			bc.MoveToWorld(from.Location, from.Map);
 		}
 
 		public override void Serialize( GenericWriter writer )

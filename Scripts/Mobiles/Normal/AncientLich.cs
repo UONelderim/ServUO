@@ -3,7 +3,8 @@ using Server.Items;
 namespace Server.Mobiles
 {
     [CorpseName("zwloki starozytnego licza")]
-    public class AncientLich : BaseCreature
+    public class AncientLich : BaseCreature, AncientLichCrystal.INecroPet
+
     {
         [Constructable]
         public AncientLich()
