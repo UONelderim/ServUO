@@ -143,7 +143,7 @@ namespace Server.Mobiles
 		public override Poison PoisonImmune => Poison.Lethal;
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public override int HitsMax => _IsTrueForm ? 65000 : 30000;
+		public override int HitsMax => _IsTrueForm ? 65000 : 1000;
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public override int ManaMax => 5000;
