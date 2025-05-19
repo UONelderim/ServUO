@@ -100,10 +100,10 @@ namespace Server.Mobiles
 			SetDamageType(ResistanceType.Energy, 50);
 
 			SetResistance(ResistanceType.Physical, 55, 65);
-			SetResistance(ResistanceType.Fire, 70, 100);
+			SetResistance(ResistanceType.Fire, 70, 90);
 			SetResistance(ResistanceType.Cold, 90, 100);
 			SetResistance(ResistanceType.Poison, 70, 80);
-			SetResistance(ResistanceType.Energy, 90, 100);
+			SetResistance(ResistanceType.Energy, 60, 60);
 
 			SetSkill(SkillName.Wrestling, 90.1, 100.0);
 			SetSkill(SkillName.Swords, 100.1, 120.0);
