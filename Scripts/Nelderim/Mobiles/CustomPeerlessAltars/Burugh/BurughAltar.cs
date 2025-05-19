@@ -14,7 +14,7 @@ namespace Server.Items
 		};
 
 		public override string[] _Regions => ["Alcala"];
-		public override double _KeyDropChance => 0.035;
+		public override double _KeyDropChance => 0.25;
 
         public override BasePeerless Boss => new NBurugh();
 

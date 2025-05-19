@@ -30,7 +30,7 @@ namespace Server.Items
 	        "Wulkan_LVL4_Entrance",
 	        "Wulkan_LVL4_VeryDifficult"
         };
-        public override double _KeyDropChance => 0.02;
+        public override double _KeyDropChance => 0.25;
         
         public override BasePeerless Boss => new NelderimDragon();
 

@@ -22,7 +22,7 @@ namespace Server.Items
 			"TylReviaren_Difficult",
 			"TylReviaren_VeryDifficult"
 		};
-		public override double _KeyDropChance => 0.07;
+		public override double _KeyDropChance => 0.25;
 
         public override BasePeerless Boss => new DreadHorn();
 

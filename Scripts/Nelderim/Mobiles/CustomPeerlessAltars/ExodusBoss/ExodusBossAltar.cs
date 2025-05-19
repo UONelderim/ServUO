@@ -21,7 +21,7 @@ namespace Server.Items
 	        "MechanicznaKrypta_Difficult",
 	        "MechanicznaKrypta_VeryDifficult"
         };
-        public override double _KeyDropChance => 0.05;
+        public override double _KeyDropChance => 0.25;
 
         public override BasePeerless Boss => new ExodusBoss();
 
