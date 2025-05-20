@@ -320,6 +320,19 @@ namespace Server.Engines.Craft
             index = AddCraft(typeof(ThreeTieredCake), 1044497, 1154465, 60.0, 110.0, typeof(CakeMix), 1044471, 3, 1044253);
             AddRecipe(index, (int)CookRecipes.ThreeTieredCake);
             SetNeedOven(index, true);
+            
+            index = AddCraft( typeof( Potrawka ), 1044497 , "pożywne klopsiki" , 55.0, 80.0, typeof( BaseBeverage ), 1046458, 5, 1044253 );
+            AddRes( index, typeof( SweetDough ), 1044475, 1, 1044253 );
+            AddRes( index, typeof( UnbakedQuiche ), 1044518, 1, 1044253 );
+            SetNeedOven( index, true );
+            index = AddCraft( typeof( PotrawkaBle ), 1044497 , "klopsiki z dynią" , 55.0, 80.0, typeof( BaseBeverage ), 1046458, 5, 1044253 );
+            AddRes( index, typeof( Eggs ), 1044477, 1, 1044253 );
+            AddRes( index, typeof( RawFishSteak ), 1044476, 10, 1044253 );
+            SetNeedOven( index, true );
+            index = AddCraft( typeof( PysznaPotrawka ), 1044497 , "tłuste klopsiki" , 55.0, 80.0, typeof( BaseBeverage ), 1046458, 5, 1044253 );
+            AddRes( index, typeof( Dough ), "ciasto", 1, 1044253 );
+            AddRes( index, typeof( Pumpkin ), 1044484, 1, 1044253 );
+            SetNeedOven( index, true );
             #endregion
 
             #region Barbecue
