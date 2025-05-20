@@ -46,6 +46,8 @@ namespace Server.Items
 
     public abstract class BaseBulletinBoard : Item
     {
+        public static readonly bool DisplayAuthor = false;
+
         // Threads will be removed six hours after the last post was made
         private static readonly TimeSpan ThreadDeletionTime = TimeSpan.FromDays(30.0);
         // A player may only create a thread once every two minutes
@@ -534,7 +536,7 @@ namespace Server.Items
         public BBMessageHeader(BaseBulletinBoard board, BulletinMessage msg)
             : base(0x71)
         {
-            string poster = SafeString(msg.PostedName);
+            string poster = SafeString(BaseBulletinBoard.DisplayAuthor ? msg.PostedName : string.Empty);
             string subject = SafeString(msg.Subject);
             string time = SafeString(msg.GetTimeAsString());
 
@@ -583,7 +585,7 @@ namespace Server.Items
         public BBMessageContent(BaseBulletinBoard board, BulletinMessage msg)
             : base(0x71)
         {
-            string poster = SafeString(msg.PostedName);
+            string poster = SafeString(BaseBulletinBoard.DisplayAuthor ? msg.PostedName : string.Empty);
             string subject = SafeString(msg.Subject);
             string time = SafeString(msg.GetTimeAsString());
 
