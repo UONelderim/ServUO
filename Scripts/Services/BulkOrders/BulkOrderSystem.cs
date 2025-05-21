@@ -411,7 +411,7 @@ namespace Server.Engines.BulkOrders
                 case BODType.Hunter: points = HunterRewardCalculator.Instance.ComputePoints(bod); break;
             }
 
-            banked = points * 0.02;
+            banked = points * (bod.BODType == BODType.Hunter ? 0.05 : 0.02);
         }
 
         public static void ComputePoints(LargeBOD bod, out int points, out double banked)
@@ -429,8 +429,8 @@ namespace Server.Engines.BulkOrders
                 case BODType.Carpentry: points = CarpentryRewardCalculator.Instance.ComputePoints(bod); break;
                 case BODType.Hunter: points = HunterRewardCalculator.Instance.ComputePoints(bod); break;
             }
-
-            banked = points * .2;
+            
+            banked = points * (bod.BODType == BODType.Hunter ? 0.5 : 0.2);
         }
 
         public static void AddToPending(Mobile m, BODType type, int points)
