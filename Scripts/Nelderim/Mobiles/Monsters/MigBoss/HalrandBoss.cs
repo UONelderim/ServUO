@@ -387,7 +387,7 @@ namespace Server.Mobiles
 					_ArcaneDaemons.Clear();
 
 					RegisterDamageTo(this);
-					//AwardArtifact(GetArtifact());
+					AwardArtifact(GetArtifact());
 				}
 
 				return base.OnBeforeDeath();
