@@ -3,6 +3,7 @@ using Server.Items;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Server.Custom.Misc;
 
 namespace Server.Mobiles
 {
@@ -131,12 +132,12 @@ namespace Server.Mobiles
 		public static ArrayList Instances => m_Instances;
 
 		public static bool CanSpawn => (m_Instances.Count == 0);
-		public Type[] UniqueList => new[] { typeof(AcidProofRobe) }; //zmienić w przyszłości
+		public Type[] UniqueList => new[] { typeof(InquisitorsArms), typeof(LegsOfTheFallenKing), typeof(ColdBreeze) }; 
 
-		public Type[] SharedList => new[] { typeof(TheRobeOfBritanniaAri) }; //zmienić w przyszłości
+		public Type[] SharedList => new[] { typeof(MadmansHatchet), typeof(MinersPickaxe), typeof(VampiricBladedWhip) }; 
 
-		public Type[] DecorativeList => new[] { typeof(EvilIdolSkull), typeof(SkullPole) }; //zmienić w przyszłości
-		public override bool AutoDispel => true;
+		public Type[] DecorativeList => new[] { typeof(BlabberBlade), typeof(BowOfHarps), typeof(Erotica), typeof(SatanicHelm), typeof(ShieldOfIce) }; 
+		public override bool AutoDispel => false;
 
 		public override bool Unprovokable => true;
 
@@ -148,7 +149,7 @@ namespace Server.Mobiles
 		[CommandProperty(AccessLevel.GameMaster)]
 		public override int ManaMax => 5000;
 
-		public override bool DisallowAllMoves => _IsTrueForm;
+		public override bool DisallowAllMoves => false;
 
 		public override bool TeleportsTo => true;
 
@@ -173,6 +174,29 @@ namespace Server.Mobiles
 			Hits = HitsMax;
 			Stam = StamMax;
 			Mana = ManaMax;
+			
+			SetDamageType(ResistanceType.Cold, 50);
+			SetDamageType(ResistanceType.Energy, 50);
+
+			SetResistance(ResistanceType.Physical, 55, 65);
+			SetResistance(ResistanceType.Fire, 70, 90);
+			SetResistance(ResistanceType.Cold, 90, 100);
+			SetResistance(ResistanceType.Poison, 70, 80);
+			SetResistance(ResistanceType.Energy, 60, 60);
+
+			SetSkill(SkillName.Wrestling, 90.1, 100.0);
+			SetSkill(SkillName.Swords, 100.1, 120.0);
+			SetSkill(SkillName.Tactics, 90.2, 110.0);
+			SetSkill(SkillName.MagicResist, 120.2, 160.0);
+			SetSkill(SkillName.Magery, 120.0);
+			SetSkill(SkillName.EvalInt, 120.0);
+			SetSkill(SkillName.Meditation, 120.0);
+			SetSkill(SkillName.Necromancy, 120.0);
+			SetSkill(SkillName.DetectHidden, 120.0);
+			SetSkill(SkillName.Tracking, 120.0);
+			SetSkill(SkillName.SpiritSpeak, 90.0);
+			SetSkill(SkillName.Chivalry, 120.0);
+			SetSkill(SkillName.Meditation, 120.0);
 
 			SpiritOfTheTotem Helm = new SpiritOfTheTotem();
 			Helm.Hue = 1560;
@@ -363,7 +387,7 @@ namespace Server.Mobiles
 					_ArcaneDaemons.Clear();
 
 					RegisterDamageTo(this);
-					AwardArtifact(GetArtifact());
+					//AwardArtifact(GetArtifact());
 				}
 
 				return base.OnBeforeDeath();
@@ -401,7 +425,7 @@ namespace Server.Mobiles
 			else
 				m_DamageEntries.Add(from, amount);
 
-			from.SendMessage(string.Format("Total Damage: {0}", m_DamageEntries[from]));
+			from.SendMessage(string.Format("Zadane obrazenia w sumie: {0}", m_DamageEntries[from]));
 		}
 
 		public void AwardArtifact(Item artifact)
