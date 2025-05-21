@@ -27845,8 +27845,8 @@
 1060661;~1_val~: ~2_val~ 
 1060662;~1_val~: ~2_val~ 
 1060663;~1_val~: ~2_val~ 
-1060664;This house is currently blocked for administrative purposes. 
-1060665;This house is currently in design mode or blocked for some other reason. 
+1060664;~1_val~: ~2_val~ 
+1060665;~1_val~: ~2_val~ 
 1060666;You manage to evade the wrath of the Paladin forces.  Seek out Mardoth for your reward. 
 1060667;a runa for a Haunted Graveyard west of here 
 1060668;INFORMACJE 
