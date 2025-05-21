@@ -7,6 +7,12 @@ namespace Server.Mobiles
 {
 	public class HalrandBoss : BaseCreature
 	{
+		private static readonly Type[] UniqueList = [typeof(InquisitorsArms), typeof(LegsOfTheFallenKing), typeof(ColdBreeze)]; 
+
+		private static readonly Type[] SharedList = [typeof(MadmansHatchet), typeof(MinersPickaxe), typeof(VampiricBladedWhip)]; 
+
+		private static readonly Type[] DecorativeList = [typeof(BlabberBlade), typeof(BowOfHarps), typeof(Erotica), typeof(SatanicHelm), typeof(ShieldOfIce)]; 
+		
 		private static readonly double[] m_Offsets =
 		{
 			Math.Cos(000.0 / 180.0 * Math.PI), Math.Sin(000.0 / 180.0 * Math.PI), Math.Cos(040.0 / 180.0 * Math.PI),
@@ -17,19 +23,16 @@ namespace Server.Mobiles
 			Math.Sin(280.0 / 180.0 * Math.PI), Math.Cos(320.0 / 180.0 * Math.PI), Math.Sin(320.0 / 180.0 * Math.PI),
 		};
 
-		private readonly int m_MaxAbilityInterval = 15; //seconds
-		private readonly int m_MinAbilityInterval = 10; //seconds
-		private DateTime m_NextAbilityTime;
+		private static readonly int _MaxAbilityInterval = 15; //seconds
+		private static readonly int _MinAbilityInterval = 10; //seconds
+		private DateTime _NextAbilityTime;
 
 		private bool _IsTrueForm;
 
-
-		// private Item m_GateItem;
-		private List<GreaterArcaneDaemon> _ArcaneDaemons;
+		private List<GreaterArcaneDaemon> _ArcaneDaemons = [];
 		public override bool TaintedLifeAura => true;
 		public override bool TeleportsPets => true;
 
-		Dictionary<Mobile, int> m_DamageEntries;
 
 		[Constructable]
 		public HalrandBoss()
@@ -45,52 +48,6 @@ namespace Server.Mobiles
 			SetInt(1000, 1200);
 
 			Kills = 2000;
-
-			Fame = 22500;
-			Karma = -22500;
-
-			SpiritOfTheTotem Helm = new SpiritOfTheTotem();
-			Helm.Hue = 1560;
-			Helm.LootType = LootType.Blessed;
-			Helm.Name = "wilcza maska";
-			AddItem(Helm);
-			PlateDo Chest = new PlateDo();
-			Chest.Hue = 1560;
-			Chest.LootType = LootType.Blessed;
-			AddItem(Chest);
-			JackalsCollar Gorget = new JackalsCollar();
-			Gorget.Hue = 1560;
-			Gorget.LootType = LootType.Blessed;
-			AddItem(Gorget);
-			PlateGloves Gloves = new PlateGloves();
-			Gloves.Hue = 1560;
-			Gloves.LootType = LootType.Blessed;
-			AddItem(Gloves);
-			StuddedArms Arms = new StuddedArms();
-			Arms.Hue = 1560;
-			Arms.LootType = LootType.Blessed;
-			AddItem(Arms);
-			PlateHaidate Legs = new PlateHaidate();
-			Legs.Hue = 1560;
-			Legs.LootType = LootType.Blessed;
-			AddItem(Legs);
-
-
-			HoodedShroudOfShadows Robe = new HoodedShroudOfShadows();
-			Robe.Hue = 1187;
-			Robe.LootType = LootType.Blessed;
-			AddItem(Robe);
-
-			ZyronicClaw Axe = new ZyronicClaw();
-			Axe.LootType = LootType.Blessed;
-			AddItem(Axe);
-
-
-			Item hair = new Item(Utility.RandomList(0x203C));
-			hair.Hue = Race.RandomHairHue();
-			hair.Layer = Layer.Hair;
-			hair.Movable = false;
-			AddItem(hair);
 
 			SetDamageType(ResistanceType.Cold, 50);
 			SetDamageType(ResistanceType.Energy, 50);
@@ -115,25 +72,25 @@ namespace Server.Mobiles
 			SetSkill(SkillName.Chivalry, 120.0);
 			SetSkill(SkillName.Meditation, 120.0);
 
-
-			_ArcaneDaemons = new List<GreaterArcaneDaemon>();
+			SetWearable(new SpiritOfTheTotem{Name = "wilcza maska"}, 1560);
+			SetWearable(new PlateDo(), 1560);
+			SetWearable(new JackalsCollar(), 1560);
+			SetWearable(new PlateGloves(), 1560);
+			SetWearable(new StuddedArms(), 1560);
+			SetWearable(new PlateHaidate(), 1560);
+			SetWearable(new HoodedShroudOfShadows(), 1187);
+			SetWearable(new ZyronicClaw());
+			HairItemID = 0x203C;
+			HairHue = Race.RandomHairHue();
 		}
 
 		public HalrandBoss(Serial serial)
 			: base(serial)
 		{
 		}
-
-
-		public Type[] UniqueList => new[] { typeof(InquisitorsArms), typeof(LegsOfTheFallenKing), typeof(ColdBreeze) }; 
-
-		public Type[] SharedList => new[] { typeof(MadmansHatchet), typeof(MinersPickaxe), typeof(VampiricBladedWhip) }; 
-
-		public Type[] DecorativeList => new[] { typeof(BlabberBlade), typeof(BowOfHarps), typeof(Erotica), typeof(SatanicHelm), typeof(ShieldOfIce) }; 
+		
 		public override bool AutoDispel => false;
-
 		public override bool Unprovokable => true;
-
 		public override Poison PoisonImmune => Poison.Lethal;
 
 		[CommandProperty(AccessLevel.GameMaster)]
@@ -146,12 +103,6 @@ namespace Server.Mobiles
 
 		public override bool TeleportsTo => true;
 
-		public override void GenerateLoot()
-		{
-			AddLoot(LootPack.SuperBoss, 2);
-			AddLoot(LootPack.Meager);
-		}
-
 		public void Morph()
 		{
 			if (_IsTrueForm)
@@ -162,7 +113,7 @@ namespace Server.Mobiles
 			Name = "Prawdziwa forma Halranda Wulfrosta";
 			BodyValue = 400;
 			Female = false;
-			Hue = 0x497;
+			Hue = 1175;
 
 			Hits = HitsMax;
 			Stam = StamMax;
@@ -191,56 +142,11 @@ namespace Server.Mobiles
 			SetSkill(SkillName.Chivalry, 120.0);
 			SetSkill(SkillName.Meditation, 120.0);
 
-			SpiritOfTheTotem Helm = new SpiritOfTheTotem();
-			Helm.Hue = 1560;
-			Helm.LootType = LootType.Blessed;
-			Helm.Name = "wilcza maska";
-			AddItem(Helm);
-			PlateDo Chest = new PlateDo();
-			Chest.Hue = 1560;
-			Chest.LootType = LootType.Blessed;
-			AddItem(Chest);
-			JackalsCollar Gorget = new JackalsCollar();
-			Gorget.Hue = 1560;
-			Gorget.LootType = LootType.Blessed;
-			AddItem(Gorget);
-			PlateGloves Gloves = new PlateGloves();
-			Gloves.Hue = 1560;
-			Gloves.LootType = LootType.Blessed;
-			AddItem(Gloves);
-			StuddedArms Arms = new StuddedArms();
-			Arms.Hue = 1560;
-			Arms.LootType = LootType.Blessed;
-			AddItem(Arms);
-			PlateHaidate Legs = new PlateHaidate();
-			Legs.Hue = 1560;
-			Legs.LootType = LootType.Blessed;
-			AddItem(Legs);
-
-
-			HoodedShroudOfShadows Robe = new HoodedShroudOfShadows();
-			Robe.Hue = 1185;
-			Robe.LootType = LootType.Blessed;
-			AddItem(Robe);
-
-			ZyronicClaw Axe = new ZyronicClaw();
-			Axe.LootType = LootType.Blessed;
-			AddItem(Axe);
-
-
-			Item hair = new Item(Utility.RandomList(0x203C));
-			hair.Hue = Race.RandomHairHue();
-			hair.Layer = Layer.Hair;
-			hair.Movable = false;
-			AddItem(hair);
-
 			ProcessDelta();
 
 			Say("JAK ŚMIECIE WY ŚMIECIE!? JA ZBUDOWAŁEM TEN ŚWIAT!!");
 
-			Map map = Map;
-
-			if (map != null)
+			if (Map != null)
 			{
 				for (int i = 0; i < m_Offsets.Length; i += 2)
 				{
@@ -257,10 +163,10 @@ namespace Server.Mobiles
 
 						x = X + (int)(rx * rdist);
 						y = Y + (int)(ry * rdist);
-						z = map.GetAverageZ(x, y);
+						z = Map.GetAverageZ(x, y);
 
-						if (!(ok = map.CanFit(x, y, Z, 16, false, false)))
-							ok = map.CanFit(x, y, z, 16, false, false);
+						if (!(ok = Map.CanFit(x, y, Z, 16, false, false)))
+							ok = Map.CanFit(x, y, z, 16, false, false);
 
 						if (dist >= 0)
 							dist = -(dist + 1);
@@ -271,9 +177,9 @@ namespace Server.Mobiles
 					if (!ok)
 						continue;
 
-					GreaterArcaneDaemon spawn = new GreaterArcaneDaemon() { Team = Team };
+					var spawn = new GreaterArcaneDaemon{ Team = Team };
 
-					spawn.MoveToWorld(new Point3D(x, y, z), map);
+					spawn.MoveToWorld(new Point3D(x, y, z), Map);
 
 					_ArcaneDaemons.Add(spawn);
 				}
@@ -303,12 +209,12 @@ namespace Server.Mobiles
 
 		public override void OnThink()
 		{
-			if (DateTime.Now >= m_NextAbilityTime)
+			if (DateTime.Now >= _NextAbilityTime)
 			{
 				ThrowSnowball();
-				m_NextAbilityTime = DateTime.Now +
-				                    TimeSpan.FromSeconds(Utility.RandomMinMax(m_MinAbilityInterval,
-					                    m_MaxAbilityInterval));
+				_NextAbilityTime = DateTime.Now +
+				                    TimeSpan.FromSeconds(Utility.RandomMinMax(_MinAbilityInterval,
+					                    _MaxAbilityInterval));
 			}
 
 			base.OnThink();
@@ -324,55 +230,34 @@ namespace Server.Mobiles
 			{
 				Say("Lap To Gowno!");
 				foreach (var target in targets)
-					if (Utility.RandomDouble() > 0.8)
-					{
-						PlaySound(0x145);
-						Animate(9, 1, 1, true, false, 0);
+				{
+					if (Utility.RandomDouble() < 0.8) 
+						continue;
+					
+					PlaySound(0x145);
+					Animate(9, 1, 1, true, false, 0);
 
-
-						Effects.SendMovingEffect(this, target, 0x913, 7, 0, false, true, 1161, 0);
-						AOS.Damage(target, Utility.RandomMinMax(10, 18), 0, 0, 0, 100, 0);
-					}
+					Effects.SendMovingEffect(this, target, 0x913, 7, 0, false, true, 1161, 0);
+					AOS.Damage(target, Utility.RandomMinMax(10, 18), 0, 0, 0, 100, 0);
+				}
 			}
+		}
+		
+		public override void GenerateLoot()
+		{
+			AddLoot(LootPack.MysticScrolls);
 		}
 
 		public override bool OnBeforeDeath()
 		{
-			AddLoot(LootPack.MysticScrolls);
-	
 			if (_IsTrueForm)
 			{
-				List<DamageStore> rights = GetLootingRights();
-
-				for (int i = rights.Count - 1; i >= 0; --i)
-				{
-					DamageStore ds = rights[i];
-
-					if (ds.m_HasRight && ds.m_Mobile is PlayerMobile)
-						PlayerMobile.ChampionTitleInfo.AwardHarrowerTitle((PlayerMobile)ds.m_Mobile);
-				}
-
+				foreach (var m in _ArcaneDaemons) 
+					m.Kill();
+				_ArcaneDaemons.Clear();
+				
 				if (!NoKillAwards)
-				{
-					//GoldShower.DoForHarrower(Location, Map);
-
-					m_DamageEntries = new Dictionary<Mobile, int>();
-
-					for (int i = 0; i < _ArcaneDaemons.Count; ++i)
-					{
-						Mobile m = _ArcaneDaemons[i];
-
-						if (!m.Deleted)
-							m.Kill();
-
-						RegisterDamageTo(m);
-					}
-
-					_ArcaneDaemons.Clear();
-
-					RegisterDamageTo(this);
-					AwardArtifact(GetArtifact());
-				}
+					ArtifactHelper.DistributeArtifact(this, GetArtifact());
 
 				return base.OnBeforeDeath();
 			}
@@ -381,116 +266,15 @@ namespace Server.Mobiles
 			return false;
 		}
 
-		public virtual void RegisterDamageTo(Mobile m)
-		{
-			if (m == null)
-				return;
-
-			foreach (DamageEntry de in m.DamageEntries)
-			{
-				Mobile damager = de.Damager;
-
-				Mobile master = damager.GetDamageMaster(m);
-
-				if (master != null)
-					damager = master;
-
-				RegisterDamage(damager, de.DamageGiven);
-			}
-		}
-
-		public void RegisterDamage(Mobile from, int amount)
-		{
-			if (from == null || !from.Player)
-				return;
-
-			if (m_DamageEntries.ContainsKey(from))
-				m_DamageEntries[from] += amount;
-			else
-				m_DamageEntries.Add(from, amount);
-
-			from.SendMessage(string.Format("Zadane obrazenia w sumie: {0}", m_DamageEntries[from]));
-		}
-
-		public void AwardArtifact(Item artifact)
-		{
-			if (artifact == null)
-				return;
-
-			int totalDamage = 0;
-
-			Dictionary<Mobile, int> validEntries = new Dictionary<Mobile, int>();
-
-			foreach (KeyValuePair<Mobile, int> kvp in m_DamageEntries)
-			{
-				if (IsEligible(kvp.Key, artifact))
-				{
-					validEntries.Add(kvp.Key, kvp.Value);
-					totalDamage += kvp.Value;
-				}
-			}
-
-			int randomDamage = Utility.RandomMinMax(1, totalDamage);
-
-			totalDamage = 0;
-
-			foreach (KeyValuePair<Mobile, int> kvp in validEntries)
-			{
-				totalDamage += kvp.Value;
-
-				if (totalDamage >= randomDamage)
-				{
-					GiveArtifact(kvp.Key, artifact);
-					return;
-				}
-			}
-
-			artifact.Delete();
-		}
-
-		public void GiveArtifact(Mobile to, Item artifact)
-		{
-			if (to == null || artifact == null)
-				return;
-
-			to.PlaySound(0x5B4);
-
-			var pack = to.Backpack;
-
-			if (pack == null || !pack.TryDropItem(to, artifact, false))
-				artifact.Delete();
-			else
-				to.SendLocalizedMessage(
-					1062317); // For your valor in combating the fallen beast, a special artifact has been bestowed on you.
-		}
-
-		public bool IsEligible(Mobile m, Item Artifact)
-		{
-			return m.Player && m.Alive && m.InRange(Location, 32) && m.Backpack != null &&
-			       m.Backpack.CheckHold(m, Artifact, false);
-		}
-
-		public Item GetArtifact()
+		private static Item GetArtifact()
 		{
 			return Utility.RandomDouble() switch
 			{
-				<= 0.0 => CreateArtifact(UniqueList),
-				<= 0.15 => CreateArtifact(DecorativeList),
-				<= 0.30 => CreateArtifact(SharedList),
+				<= 0.05 => Loot.Construct(UniqueList),
+				<= 0.15 => Loot.Construct(SharedList),
+				<= 0.30 => Loot.Construct(DecorativeList),
 				_ => null
 			};
-		}
-
-		public Item CreateArtifact(Type[] list)
-		{
-			if (list.Length == 0)
-				return null;
-
-			int random = Utility.Random(list.Length);
-
-			Type type = list[random];
-
-			return Loot.Construct(type);
 		}
 	}
 }

@@ -96,13 +96,13 @@ namespace Server.Items
 		public static Item GetRandomArtifact(ArtGroup group)
 		{
 			if (group == ArtGroup.None)
-				return Loot.Construct(Utility.RandomList(_AllArtifactsCurrentSeason));
+				return Loot.Construct(_AllArtifactsCurrentSeason);
 			
 			if (_Artifacts.TryGetValue(group, out var groupArtifacts))
 			{
 				if (groupArtifacts.TryGetValue(_CurrentSeason, out var seasonArtifacts))
 				{
-					return Loot.Construct(Utility.RandomList(seasonArtifacts));
+					return Loot.Construct(seasonArtifacts);
 				}
 				Console.WriteLine($"No season {_CurrentSeason} for artifact group {group} ");
 			}
@@ -113,6 +113,7 @@ namespace Server.Items
 
 			return null;
 		}
+
 		
 		public static void Configure()
 		{
@@ -199,7 +200,7 @@ namespace Server.Items
 			if (creature.Summoned || creature.NoKillAwards)
 				return;
 
-			var participants = GetPlayers(creature);
+			var participants = GetEligible(creature);
 			var rolls = (int) GetRollsFor(creature);
 
 			for (int i = 0; i < rolls && participants.Count > 0; i++)
@@ -211,6 +212,17 @@ namespace Server.Items
 					participants.Remove(winner);
 				}
 			}
+		}
+
+		public static void DistributeArtifact(BaseCreature creature, Item artifact)
+		{
+			if (creature.Summoned || creature.NoKillAwards)
+				return;
+
+			if (!CheckArtifactChance(creature))
+				return;
+			
+			DistributeArtifact(GetEligible(creature), artifact);
 		}
 
 		private static Mobile DistributeArtifact(List<Mobile> among, Item artifct)
@@ -260,7 +272,7 @@ namespace Server.Items
 			return Rolls.One;
 		}
 
-		private static List<Mobile> GetPlayers(BaseCreature creature)
+		public static List<Mobile> GetEligible(BaseCreature creature)
 		{
 			var result = creature
 				.GetLootingRights()
