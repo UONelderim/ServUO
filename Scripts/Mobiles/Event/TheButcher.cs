@@ -55,7 +55,7 @@ namespace Server.Mobiles
 
         public override bool IgnoreYoungProtection => true;
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
 
         public override bool Unprovokable => true;
 

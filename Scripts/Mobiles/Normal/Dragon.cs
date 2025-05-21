@@ -51,7 +51,7 @@ namespace Server.Mobiles
         }
 
         public override bool ReacquireOnMovement => !Controlled;
-        public override bool AutoDispel => !Controlled;
+        public override bool AutoDispel => false;
         public override int TreasureMapLevel => 4;
         public override int Meat => 19;
         public override int DragonBlood => 8;

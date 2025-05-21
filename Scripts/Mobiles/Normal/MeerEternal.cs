@@ -50,7 +50,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override bool CanRummageCorpses => true;
         public override Poison PoisonImmune => Poison.Lethal;
         public override int TreasureMapLevel => 5;

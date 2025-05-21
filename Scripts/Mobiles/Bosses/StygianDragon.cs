@@ -73,7 +73,7 @@ namespace Server.Mobiles
         public override bool AlwaysMurderer => true;
         public override bool Unprovokable => false;
         public override bool BardImmune => false;
-        public override bool AutoDispel => !Controlled;
+        public override bool AutoDispel => false;
         public override int Meat => 19;
         public override int Hides => 30;
         public override HideType HideType => HideType.Barbed;

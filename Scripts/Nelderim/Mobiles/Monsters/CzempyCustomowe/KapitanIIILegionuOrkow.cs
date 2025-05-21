@@ -101,7 +101,7 @@ namespace Server.Mobiles
 		}
 
 		public override bool CanRummageCorpses => true;
-		public override bool AutoDispel => true;
+		public override bool AutoDispel => false;
 
 		public override void OnDamagedBySpell(Mobile caster)
 		{

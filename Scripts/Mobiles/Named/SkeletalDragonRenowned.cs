@@ -56,7 +56,7 @@ namespace Server.Mobiles
         public override bool ReacquireOnMovement => true;
         public override double BonusPetDamageScalar => 3.0;
         // TODO: Undead summoning?
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override Poison PoisonImmune => Poison.Lethal;
         public override bool BleedImmune => true;
         public override int Meat => 19;// where's it hiding these? :)

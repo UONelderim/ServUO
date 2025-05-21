@@ -102,7 +102,7 @@ namespace Server.Mobiles
             base.OnDamagedBySpell(caster);
         }
 
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override Poison PoisonImmune => Poison.Lethal;
 
         public override void OnGotMeleeAttack(Mobile attacker)

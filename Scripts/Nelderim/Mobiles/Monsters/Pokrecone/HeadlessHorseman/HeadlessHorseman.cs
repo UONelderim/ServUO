@@ -119,7 +119,7 @@ namespace Server.Mobiles
         }
 
         public override bool BardImmune => true;
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
         public override Poison PoisonImmune => Poison.Lethal;
         public override bool AlwaysMurderer => true;
 

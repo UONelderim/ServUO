@@ -136,7 +136,7 @@ namespace Server.Mobiles
 		public Type[] SharedList => new[] { typeof(TheRobeOfBritanniaAri) }; //zmienić w przyszłości
 
 		public Type[] DecorativeList => new[] { typeof(EvilIdolSkull), typeof(SkullPole) }; //zmienić w przyszłości
-		public override bool AutoDispel => true;
+		public override bool AutoDispel => false;
 
 		public override bool Unprovokable => true;
 

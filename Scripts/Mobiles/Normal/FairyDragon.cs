@@ -8,7 +8,7 @@ namespace Server.Mobiles
     public class FairyDragon : BaseCreature
     {
 
-        public override bool AutoDispel => !Controlled;
+        public override bool AutoDispel => false;
         public override int TreasureMapLevel => 3;
         public override int Meat => 9;
         public override Poison HitPoison => Poison.Greater;

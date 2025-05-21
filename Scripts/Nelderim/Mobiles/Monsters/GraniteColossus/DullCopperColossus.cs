@@ -58,7 +58,7 @@ namespace Server.Mobiles
 			c.DropItem(granite);
 		}
 
-		public override bool AutoDispel { get { return true; } }
+		public override bool AutoDispel => false;
 		public override bool BleedImmune { get { return true; } }
 		public override int TreasureMapLevel { get { return 2; } }
 

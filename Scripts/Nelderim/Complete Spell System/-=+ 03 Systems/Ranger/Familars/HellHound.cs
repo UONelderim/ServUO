@@ -103,7 +103,7 @@ namespace Server.ACC.CSS.Systems.Ranger
 			}
 		}
 
-		public override bool AutoDispel { get { return true; } }
+		public override bool AutoDispel => false;
 
 		public HellHoundFamiliar(Serial serial) : base(serial)
 		{

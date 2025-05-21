@@ -50,7 +50,7 @@ namespace Server.Mobiles
         public override TribeType Tribe => TribeType.Orc;
 
         public override bool CanRummageCorpses => true;
-        public override bool AutoDispel => true;
+        public override bool AutoDispel => false;
 
         public override void GenerateLoot()
         {

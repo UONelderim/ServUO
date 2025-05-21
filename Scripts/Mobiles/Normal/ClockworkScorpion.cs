@@ -51,7 +51,7 @@ namespace Server.Mobiles
         public override bool IsScaryToPets => true;
         public override bool IsBondable => false;
         public override FoodType FavoriteFood => FoodType.Meat;
-        public override bool AutoDispel => !Controlled;
+        public override bool AutoDispel => false;
         public override bool BleedImmune => true;
         public override bool DeleteOnRelease => true;
         public override bool BardImmune => Controlled;

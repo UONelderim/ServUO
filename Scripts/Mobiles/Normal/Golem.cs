@@ -133,7 +133,7 @@ namespace Server.Mobiles
         public override bool IsBondable => false;
         public override FoodType FavoriteFood => FoodType.None;
         public override bool DeleteOnRelease => true;
-        public override bool AutoDispel => !Controlled;
+        public override bool AutoDispel => false;
         public override bool BleedImmune => true;
         public override Poison PoisonImmune => Poison.Lethal;
 

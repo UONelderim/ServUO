@@ -74,7 +74,7 @@ namespace Server.Mobiles
 		public override bool CanRummageCorpses { get { return true; } }
 		public override double AttackMasterChance { get { return 0.15; } }
 		public override double SwitchTargetChance { get { return 0.25; } }
-		public override bool AutoDispel { get { return true; } }
+		public override bool AutoDispel => false;
 		public override bool BardImmune { get { return false; } }
 
 		public GreaterArcaneDaemon(Serial serial) : base(serial)
