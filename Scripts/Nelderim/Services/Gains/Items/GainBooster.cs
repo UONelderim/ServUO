@@ -50,8 +50,8 @@ namespace Server.Items
 		[Constructable]
 		public GainBooster(double factor, int minutes) : base(0x14F0)
 		{
-			base.Hue = 0x381;
-			base.Weight = 1.0;
+			Hue = 897;
+			Weight = 1.0;
 			GainFactor = factor;
 			Duration = TimeSpan.FromMinutes(minutes);
 		}

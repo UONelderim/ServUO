@@ -11,21 +11,23 @@ namespace Server.Engines.BulkOrders
 		{
 			RewardCollection =
 			[
-				new BODCollectionItem(0x0F09, 1159553, 0, 30, BagOfPotions, 0),
-				new BODCollectionItem(0x18E9, 1159541, 0, 100, DecoMinor),
-				new BODCollectionItem(0x0F09, 1159554, 47, 125, BagOfPotions, 1),
-				new BODCollectionItem(0xEFF, 1159542, 0x07A1, 150, Pigment, 0),
-				new BODCollectionItem(0x26B8, 1159543, 0, 250, TranslocationPowder, 20),
-				new BODCollectionItem(0x0F09, 1159555, 22, 300, BagOfPotions, 2),
-				new BODCollectionItem(0xEFF, 1159544, 0x486, 350, Pigment, 1),
-				new BODCollectionItem(0x1006, 1159545, 0, 400, DurabilityPowder),
-				new BODCollectionItem(0x11CC, 1159546, 0, 450, DecoMajor),
-				new BODCollectionItem(0xF0B, 1159547, 0x367, 500, PetResurrectPotion),
-				new BODCollectionItem(0x1415, 1159548, 0x21E, 550, Artifact, (int)ArtType.Art1),
-				new BODCollectionItem(0x1415, 1159549, 0xBAF, 650, Artifact, (int)ArtType.Art2),
-				new BODCollectionItem(0x1415, 1159550, 0x499, 800, Artifact, (int)ArtType.Art3),
-				new BODCollectionItem(0x2F58, 1159551, 0, 900, Talisman),
-				new BODCollectionItem(0x1415, 1159552, 0x445, 1000, Artifact, (int)ArtType.Art4)
+				new BODCollectionItem(0x0F09, 1159553, 0000, 30, BagOfPotions, 0),
+				new BODCollectionItem(0x18E9, 1159541, 0000, 60, DecoMinor),
+				new BODCollectionItem(0x0F09, 1159554, 0047, 100, BagOfPotions, 1),
+				new BODCollectionItem(0x0EFF, 1159542, 1953, 150, Pigment, 0),
+				new BODCollectionItem(0x26B8, 1159543, 0000, 250, TranslocationPowder, 20),
+				new BODCollectionItem(0x0F09, 1159555, 0022, 300, BagOfPotions, 2),
+				new BODCollectionItem(0x0EFF, 1159544, 1158, 350, Pigment, 1),
+				new BODCollectionItem(0x14F0, 1159556, 0897, 350, GainBooster, 2),
+				new BODCollectionItem(0x1006, 1159545, 0000, 400, DurabilityPowder),
+				new BODCollectionItem(0x11CC, 1159546, 0000, 400, DecoMajor),
+				new BODCollectionItem(0x2F58, 1159551, 0000, 450, Talisman),
+				new BODCollectionItem(0x0F0B, 1159547, 0871, 500, PetResurrectPotion),
+				new BODCollectionItem(0x14F0, 1159557, 0897, 550, GainBooster, 3),
+				new BODCollectionItem(0x1415, 1159548, 0542, 600, Artifact, (int)ArtType.Art1),
+				new BODCollectionItem(0x1415, 1159549, 2991, 750, Artifact, (int)ArtType.Art2),
+				new BODCollectionItem(0x1415, 1159550, 1177, 900, Artifact, (int)ArtType.Art3),
+				new BODCollectionItem(0x1415, 1159552, 1093, 1050, Artifact, (int)ArtType.Art4)
 			];
 		}
 
@@ -118,6 +120,11 @@ namespace Server.Engines.BulkOrders
 			}
 
 			return null;
+		}
+
+		private static Item GainBooster(int type)
+		{
+			return new GainBooster(type);
 		}
 
 		private static readonly Dictionary<Type, int> _MinorDecorations = new()
