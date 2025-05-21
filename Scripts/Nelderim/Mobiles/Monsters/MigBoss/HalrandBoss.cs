@@ -1,7 +1,5 @@
-using Server.Engines.CannedEvil;
 using Server.Items;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Server.Custom.Misc;
 
@@ -9,8 +7,6 @@ namespace Server.Mobiles
 {
 	public class HalrandBoss : BaseCreature
 	{
-		private static readonly ArrayList m_Instances = new ArrayList();
-
 		private static readonly double[] m_Offsets =
 		{
 			Math.Cos(000.0 / 180.0 * Math.PI), Math.Sin(000.0 / 180.0 * Math.PI), Math.Cos(040.0 / 180.0 * Math.PI),
@@ -27,7 +23,6 @@ namespace Server.Mobiles
 
 		private bool _IsTrueForm;
 
-		private bool _IsSpawned;
 
 		// private Item m_GateItem;
 		private List<GreaterArcaneDaemon> _ArcaneDaemons;
@@ -129,9 +124,7 @@ namespace Server.Mobiles
 		{
 		}
 
-		public static ArrayList Instances => m_Instances;
 
-		public static bool CanSpawn => (m_Instances.Count == 0);
 		public Type[] UniqueList => new[] { typeof(InquisitorsArms), typeof(LegsOfTheFallenKing), typeof(ColdBreeze) }; 
 
 		public Type[] SharedList => new[] { typeof(MadmansHatchet), typeof(MinersPickaxe), typeof(VampiricBladedWhip) }; 
@@ -287,19 +280,11 @@ namespace Server.Mobiles
 			}
 		}
 
-		public override void OnAfterDelete()
-		{
-			m_Instances.Remove(this);
-
-			base.OnAfterDelete();
-		}
-
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write(1); // version
+			writer.Write(2); // version
 
-			writer.Write(_IsSpawned);
 			writer.Write(_IsTrueForm);
 			writer.WriteMobileList(_ArcaneDaemons);
 		}
@@ -309,12 +294,11 @@ namespace Server.Mobiles
 			base.Deserialize(reader);
 			int version = reader.ReadInt();
 
-			_IsSpawned = reader.ReadBool();
+			if(version < 2)
+				reader.ReadBool(); //IsSpawned
 			_IsTrueForm = reader.ReadBool();
 			_ArcaneDaemons = reader.ReadStrongMobileList<GreaterArcaneDaemon>();
 
-			if (_IsSpawned)
-				m_Instances.Add(this);
 		}
 
 		public override void OnThink()
