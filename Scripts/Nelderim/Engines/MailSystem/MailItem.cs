@@ -33,13 +33,33 @@ namespace Server.Mail
 			double distance = Utility.GetDistanceToSqrt(Sender.Location, Destination.ContainerItem.Location);
 			double weight = Weight;
 
-			Cost = MailProcessor.CalculateCost(distance, weight);
-			DeliveryDelay = MailProcessor.CalculateDelay(distance, weight);
+			Cost = CalculateCost(distance, weight);
+			DeliveryDelay = CalculateDelay(distance, weight);
 			SentTime = DateTime.Now;
 
 			Sender.SendMessage(
 				$"Przesyłka wyceniona na {Cost} szt. i dostarczona za około {DeliveryDelay.TotalSeconds:N0} sek.");
-			MailProcessor.ScheduleDelivery(this);
+			ScheduleDelivery(this);
+		}
+		
+		private int CalculateCost(double distance, double weight)
+		{
+			return (int)(distance * 20 + weight * 20);
+		}
+
+		private static TimeSpan CalculateDelay(double distance, double weight)
+		{
+			double seconds = 5 + distance * 1 + weight * 0.5;
+			return TimeSpan.FromSeconds(seconds);
+		}
+
+		private static void ScheduleDelivery(MailItem mail)
+		{
+			Timer.DelayCall(mail.DeliveryDelay,
+				() =>
+				{
+					mail.Destination.Accept(mail, mail.Sender);
+				});
 		}
 
 		public override void Serialize(GenericWriter writer)
