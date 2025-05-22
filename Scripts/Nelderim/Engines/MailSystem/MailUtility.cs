@@ -13,12 +13,12 @@ namespace Server.Mail
 			list.AddRange(
 				World.Items.OfType<HouseMailBox>()
 					.Where(b => b.CanAccept(null, recipient))
-					.OrderBy(b => MailProcessor.GetDistance(recipient.Location, b.Location))
+					.OrderBy(b => Utility.GetDistanceToSqrt(recipient.Location, b.Location))
 			);
 
 			list.AddRange(
 				World.Items.OfType<BankMailBox>()
-					.OrderBy(b => MailProcessor.GetDistance(sender.Location, b.Location))
+					.OrderBy(b => Utility.GetDistanceToSqrt(sender.Location, b.Location))
 			);
 
 			list.Add(new DirectBackpackDestination(recipient));

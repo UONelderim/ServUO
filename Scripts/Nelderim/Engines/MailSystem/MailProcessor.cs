@@ -4,13 +4,6 @@ namespace Server.Mail
 {
 	public static class MailProcessor
 	{
-		public static double GetDistance(Point3D a, Point3D b)
-		{
-			double dx = a.X - b.X;
-			double dy = a.Y - b.Y;
-			return Math.Sqrt(dx * dx + dy * dy);
-		}
-
 		public static int CalculateCost(double distance, double weight)
 		{
 			return (int)(distance * 20 + weight * 20);

@@ -30,7 +30,7 @@ namespace Server.Mail
 			if (Destination == null)
 				throw new InvalidOperationException("MailItem has no Destination set.");
 
-			double distance = MailProcessor.GetDistance(Sender.Location, Destination.ContainerItem.Location);
+			double distance = Utility.GetDistanceToSqrt(Sender.Location, Destination.ContainerItem.Location);
 			double weight = Weight;
 
 			Cost = MailProcessor.CalculateCost(distance, weight);
