@@ -1,14 +1,8 @@
-using System;
-using Server;
-using Server.Mobiles;
-using Server.Items;
 using Server.Multis;
-using Server.Mail;
 using Server.Targeting;
 
 namespace Server.Items
 {
-
 	public class HouseMailBoxDeed : Item
 	{
 		[Constructable]
@@ -22,7 +16,7 @@ namespace Server.Items
 
 		public override void OnDoubleClick(Mobile from)
 		{
-			if (!from.InRange(this.GetWorldLocation(), 2))
+			if (!from.InRange(GetWorldLocation(), 2))
 			{
 				from.SendMessage("Musisz być bliżej, aby użyć tego przedmiotu.");
 				return;
@@ -62,7 +56,6 @@ namespace Server.Items
 					return;
 				}
 
-				// Tymczasowy przedmiot do określenia house via FindHouseAt(Item)
 				var dummy = new Item(0x1);
 				dummy.MoveToWorld(new Point3D(loc), from.Map);
 				var house = BaseHouse.FindHouseAt(dummy);
@@ -77,11 +70,6 @@ namespace Server.Items
 				var box = new HouseMailBox();
 				box.MoveToWorld(new Point3D(loc), from.Map);
 				from.SendMessage("Postawiłeś skrzynkę pocztową w swoim domu.");
-				_deed.Delete();
-			}
-
-			protected void OnTargetFinish(Mobile from)
-			{
 				_deed.Delete();
 			}
 		}
