@@ -1221,7 +1221,12 @@ namespace Server.Items
                 new LeftArm().MoveToWorld(Location, Map);
                 new RightLeg().MoveToWorld(Location, Map);
                 new RightArm().MoveToWorld(Location, Map);
-                new Head(dead.Name).MoveToWorld(Location, Map);
+                
+                #region Voodoo Dolls
+                Head x = ( new Head( String.Format( "głowa {0}", dead.Name ) ) );
+                x.Owner = m_Owner;
+                x.MoveToWorld( Location, Map );
+                #endregion
 
                 SetFlag(CorpseFlag.Carved, true);
 

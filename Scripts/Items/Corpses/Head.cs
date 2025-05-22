@@ -16,6 +16,17 @@ namespace Server.Items
             : this(null)
         {
         }
+        
+        #region Voodoo Dolls
+        private Mobile      m_Owner;
+                
+        [CommandProperty( AccessLevel.GameMaster )]
+        public Mobile Owner
+        {
+	        get{ return m_Owner; }
+	        set{ m_Owner = value; }
+        }
+        #endregion
 
         [Constructable]
         public Head(string playerName)
@@ -70,13 +81,13 @@ namespace Server.Items
                 switch (m_HeadType)
                 {
                     default:
-                        return string.Format("Glowa {0}", m_PlayerName);
+                        return string.Format("{0}", m_PlayerName);
 
                     case HeadType.Duel:
-                        return string.Format("Glowa {0}, zdobyta w pojedynku", m_PlayerName);
+                        return string.Format("{0}, zdobyta w pojedynku", m_PlayerName);
 
                     case HeadType.Tournament:
-                        return string.Format("Glowa {0}, zdobyta w turnieju", m_PlayerName);
+                        return string.Format("{0}, zdobyta w turnieju", m_PlayerName);
                 }
             }
         }
@@ -85,7 +96,11 @@ namespace Server.Items
             base.Serialize(writer);
 
             writer.Write(1); // version
-
+            #region Voodoo Dolls
+            //writer.Write( (int) 2 ); // If your previous version was 1, use this, otherwise increase your version +1.
+            writer.Write( (int) 1 ); // version
+            writer.Write( m_Owner );
+            #endregion
             writer.Write(m_PlayerName);
             writer.WriteEncodedInt((int)m_HeadType);
         }
@@ -93,7 +108,9 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
+            #region Voodoo Dolls
+            m_Owner = reader.ReadMobile();
+            #endregion
             int version = reader.ReadInt();
 
             switch (version)
