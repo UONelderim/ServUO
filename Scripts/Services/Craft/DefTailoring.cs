@@ -362,6 +362,9 @@ namespace Server.Engines.Craft
             AddCraft(typeof(BrocadeSquareGozaMatSouthDeed), 1015283, 1030410, 55.0, 80.0, typeof(Cloth), 1044455, 25, 1044287);
             AddCraft(typeof(SquareGozaMatDeed), 1015283, 1113621, 55.0, 80.0, typeof(Cloth), 1044455, 25, 1044287);
             
+           index = AddCraft(typeof(Doll), 1015283, "lalka", 65.0, 90.0, typeof(Cloth), 1044455, 25, 1044287);
+           SetNeedHeat( index, true );
+            
             /*
             index = AddCraft(typeof(MaceBelt), 1015283, 1126020, 90.0, 110.0, typeof(Cloth), 1044455, 5, 1044287);
             AddRes(index, typeof(Leather), 1044462, 5, 1044463);

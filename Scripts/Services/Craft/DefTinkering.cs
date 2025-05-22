@@ -349,6 +349,9 @@ namespace Server.Engines.Craft
             AddCraft(typeof(DungShovel), 1044046, "Szufla do lajna", 30.0, 80.0, typeof(IronIngot), 1044036, 4, 1044037);
             index = AddCraft(typeof(DungBucket), 1044046, "Wiadro na nawoz", 30.0, 80.0, typeof(IronIngot), 1044036, 4, 1044037);
             AddRes(index, typeof(Board), "deski", 10, 1044351);
+            
+            //Voodoo Pins
+            AddCraft(typeof(VoodooPin), 1044046, "Szpilka guslarza", 30.0, 80.0, typeof(IronIngot), 1044036, 1, 1044037);
             #endregion
 
             #region Parts

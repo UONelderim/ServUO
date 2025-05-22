@@ -553,6 +553,22 @@ namespace Server.Engines.Craft
             CraftSubRes craftSubRes = new CraftSubRes(type, name, reqSkill, message);
             CraftSubRes2.Add(craftSubRes);
         } 
+        
+        public static class VoodooUtils
+        {
+	        /// <summary>
+	        /// Czy przedmiot jest źródłem ciepła (palenisko, kociołek itd.).
+	        /// </summary>
+	        public static bool IsHeatSource(Item item)
+	        {
+		        return item is Campfire
+		               || item is Brazier
+		               || item is StoneOvenSouthAddon
+		               || item is Kindling
+		               || item is Cauldron; //TODO: add more ?
+	        }
+        }
+
         #endregion
 
     }
