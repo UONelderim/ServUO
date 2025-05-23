@@ -12,7 +12,7 @@ namespace Nelderim.Engines.ChaosChest
 		private static readonly double DEFAULT_DROP_CHANCE = 0.01;
 		private static double DROP_CHANCE_OVERRIDE;
 		private static ChaosSigilType CURRENT_STAGE_OVERRIDE;
-		private static ChaosChestQuest instance;
+		private static ChaosChestQuest _Instance;
 
 		private static readonly Dictionary<string, ChaosSigilType> REGION_MAP = new()
 		{
@@ -127,12 +127,12 @@ namespace Nelderim.Engines.ChaosChest
 
 		private static void CreateChaosChestQuest(CommandEventArgs e)
 		{
-			if (instance == null)
+			if (_Instance == null)
 				e.Mobile.Target = new CreateTarget();
 			else
 			{
-				e.Mobile.Location = instance.Location;
-				e.Mobile.Map = instance.Map;
+				e.Mobile.Location = _Instance.Location;
+				e.Mobile.Map = _Instance.Map;
 			}
 		}
 
@@ -191,6 +191,12 @@ namespace Nelderim.Engines.ChaosChest
 			int version = reader.ReadInt();
 			CurrentStageOverride = (ChaosSigilType)reader.ReadInt();
 			DropChanceOverride = reader.ReadDouble();
+			if (_Instance != null)
+			{
+				Console.WriteLine("Multiple ChaosChestQuest instances!");
+			}
+
+			_Instance = this;
 		}
 
 		public static void AddLoot(BaseCreature bc)
@@ -222,7 +228,7 @@ namespace Nelderim.Engines.ChaosChest
 					ChaosChestQuest quest = new ChaosChestQuest();
 
 					quest.MoveToWorld(new Point3D(location), from.Map);
-					instance = quest;
+					_Instance = quest;
 				}
 				else
 				{
