@@ -9,26 +9,12 @@ namespace Nelderim
 	{
 		public static void Initialize()
 		{
-			CommandSystem.Register("przedstaw", AccessLevel.Player, PrzedstawCommand);
 			CommandSystem.Register("nazwij", AccessLevel.Player, NazwijCommand);
 		}
 		
-		[Description("Przedstawia prawdziwe imie wszystkim w zasiegu")]
-		public static void PrzedstawCommand(CommandEventArgs e)
-		{
-			var from = e.Mobile;
-			var eable = from.GetClientsInRange(Core.GlobalMaxUpdateRange);
-			foreach (var ns in eable)
-			{
-				var m = ns.Mobile;
-				if(m == from) continue;
-				from.NameFor[m] = from.Name;
-			}
-			eable.Free();
-		}
 		
 		[Usage("nazwij <imie>")]
-		[Description("Przyznaje dla postaci tymczasowe imie")]
+		[Description("Przyznaje dla postaci wybrane imie")]
 		public static void NazwijCommand(CommandEventArgs e)
 		{
 			string newName = e.ArgString.Trim();
