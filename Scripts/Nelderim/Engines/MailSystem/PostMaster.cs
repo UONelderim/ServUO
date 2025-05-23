@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Server.Items;
 
 namespace Server.Mobiles
 {
@@ -10,7 +11,7 @@ namespace Server.Mobiles
 		public override NpcGuild NpcGuild => NpcGuild.MagesGuild;
 
 		[Constructable]
-		public PostMaster() : base("- listonosz")
+		public PostMaster() : base("- posłaniec")
 		{
 			SetSkill(SkillName.EvalInt, 60.0, 83.0);
 			SetSkill(SkillName.Inscribe, 90.0, 100.0);
@@ -21,6 +22,14 @@ namespace Server.Mobiles
 			m_SBInfos.Add(new SBPostMaster());
 		}
 
+		public override bool OnDragDrop(Mobile from, Item dropped)
+		{
+			if (dropped is IMailItem)
+			{
+				//Show send gump
+			}
+			return base.OnDragDrop(from, dropped);
+		}
 
 		public PostMaster(Serial serial)
 			: base(serial)

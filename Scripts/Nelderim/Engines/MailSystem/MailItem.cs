@@ -19,18 +19,14 @@ namespace Server.Mail
 		[CommandProperty(AccessLevel.GameMaster)]
 		public DateTime SentTime { get; set; }
 
-		[CommandProperty(AccessLevel.GameMaster)]
-		public IMailDestination Destination { get; set; }
 
 		protected MailItem(int itemID) : base(itemID) { }
 		public MailItem(Serial serial) : base(serial) { }
 
 		public void ProcessSend()
 		{
-			if (Destination == null)
-				throw new InvalidOperationException("MailItem has no Destination set.");
 
-			double distance = Utility.GetDistanceToSqrt(Sender.Location, Destination.ContainerItem.Location);
+			double distance = 0;
 			double weight = Weight;
 
 			Cost = CalculateCost(distance, weight);
@@ -58,7 +54,7 @@ namespace Server.Mail
 			Timer.DelayCall(mail.DeliveryDelay,
 				() =>
 				{
-					mail.Destination.Accept(mail, mail.Sender);
+					// mail.Destination.Accept(mail, mail.Sender);
 				});
 		}
 

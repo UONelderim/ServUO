@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Server.Items;
 
@@ -6,19 +5,20 @@ namespace Server.Mobiles
 {
 	public class SBPostMaster : SBInfo
 	{
-		private List<IBuyItemInfo> m_BuyInfo = new();
-		private IShopSellInfo m_SellInfo = new InternalSellInfo();
+		private InternalBuyInfo _BuyInfo = new();
+		private InternalSellInfo _SellInfo = new();
 
-		public override IShopSellInfo SellInfo => m_SellInfo;
-		public override List<IBuyItemInfo> BuyInfo => m_BuyInfo;
+		public override IShopSellInfo SellInfo => _SellInfo;
+		public override List<IBuyItemInfo> BuyInfo => _BuyInfo;
 
 
-		public class InternalBuyInfo : ArrayList
+		public class InternalBuyInfo : List<IBuyItemInfo>
 		{
 			public InternalBuyInfo()
 			{
-				Add(new GenericBuyInfo(typeof(BlankScroll), 5, 20, 0x0E34, 0));
-				Add(new GenericBuyInfo(typeof(HouseMailBoxDeed), 20000, 20, 0x14F0, 0));
+				Add(new GenericBuyInfo(typeof(Letter), 20, 20, 0x0E34, 0));
+				Add(new GenericBuyInfo(typeof(Parcel), 200, 20, 0x14F0, 0));
+				Add(new GenericBuyInfo(typeof(Beeswax), 3, 50, 0x1422, 0));
 			}
 		}
 
@@ -26,7 +26,7 @@ namespace Server.Mobiles
 		{
 			public InternalSellInfo()
 			{
-				Add(typeof(BlankScroll), 3);
+				//Nothing for players to sell
 			}
 		}
 	}
