@@ -8,7 +8,6 @@ namespace Server.Items
 	{
 		private string _Sender;
 		private string _Recipient;
-		private bool _Sealed;
 		private string _SentTime;
 
 		public string Sender
@@ -27,17 +26,6 @@ namespace Server.Items
 			set
 			{
 				_Recipient = value;
-				InvalidateProperties();
-			}
-		}
-
-		public bool Sealed
-		{
-			get => _Sealed;
-			set
-			{
-				_Sealed = value;
-				ItemID = _Sealed ? 0x0E35 : 0x0E34;
 				InvalidateProperties();
 			}
 		}
@@ -90,7 +78,7 @@ namespace Server.Items
 		public override void GetContextMenuEntries(Mobile from, List<ContextMenuEntry> list)
 		{
 			base.GetContextMenuEntries(from, list);
-			IMailItem.AddMailContextMenuEntries(this, from, list);
+			list.Add(new EnterAddressContextMenuEntry(from, this));
 		}
 
 		public override void Serialize(GenericWriter writer)
@@ -100,7 +88,6 @@ namespace Server.Items
 			writer.Write(_Text);
 			writer.Write(_Sender);
 			writer.Write(_Recipient);
-			writer.Write(_Sealed);
 			writer.Write(_SentTime);
 		}
 
@@ -111,7 +98,6 @@ namespace Server.Items
 			_Text = reader.ReadString();
 			_Sender = reader.ReadString();
 			_Recipient = reader.ReadString();
-			_Sealed = reader.ReadBool();
 			_SentTime = reader.ReadString();
 		}
 	}

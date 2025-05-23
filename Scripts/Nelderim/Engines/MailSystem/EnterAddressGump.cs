@@ -12,11 +12,11 @@ namespace Server.Gumps
 			_Mail = mail;
 
 			AddPage(0);
-			AddBackground(0, 0, 260, 300, 1579);
+			AddBackground(0, 0, 320, 140, 302);
 			AddLabel(20,20,0, "Nadawca:");
-			AddTextEntry(40, 20, 220, 260, 0, 0, mail.Sender, 250);
-			AddLabel(120,20,0, "Adresat:");
-			AddTextEntry(140, 20, 220, 260, 0, 1, mail.Recipient, 250);
+			AddTextEntry(20, 40, 280, 20, 0, 0, mail.Sender, 40);
+			AddLabel(20,80,0, "Adresat:");
+			AddTextEntry(20, 100, 280, 20, 0, 1, mail.Recipient, 40);
 		}
 
 		public override void OnResponse(NetState sender, RelayInfo info)

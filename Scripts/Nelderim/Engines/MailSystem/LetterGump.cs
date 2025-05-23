@@ -7,13 +7,12 @@ namespace Server.Gumps
 {
 	public class LetterGump : Gump
 	{
-		// private const int LINE_LENGTH = 32;
+		private const int LINE_LENGTH = 32;
 		
 		private Letter _Letter;
 
 		public LetterGump(Letter letter) : base(25, 25)
 		{
-			var LINE_LENGTH = 32;
 			_Letter = letter;
 
 			AddPage(0);
@@ -28,7 +27,7 @@ namespace Server.Gumps
 
 		public override void OnResponse(NetState state, RelayInfo info)
 		{
-			var joined = String.Join("", info.TextEntries.Select(x => x.Text.PadRight(32)));
+			var joined = String.Join("", info.TextEntries.Select(x => x.Text.PadRight(LINE_LENGTH)));
 			_Letter.Text = joined;
 		}
 	}
