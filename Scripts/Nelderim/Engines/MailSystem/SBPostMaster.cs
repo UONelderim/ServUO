@@ -18,7 +18,6 @@ namespace Server.Mobiles
 			public InternalBuyInfo()
 			{
 				Add(new GenericBuyInfo(typeof(BlankScroll), 5, 20, 0x0E34, 0));
-				Add(new GenericBuyInfo(typeof(AddressBook), 50, 20, 0x2254, 0));
 				Add(new GenericBuyInfo(typeof(HouseMailBoxDeed), 20000, 20, 0x14F0, 0));
 			}
 		}
