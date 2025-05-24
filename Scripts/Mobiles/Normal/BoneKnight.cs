@@ -1,7 +1,10 @@
+using Server.Items;
+
 namespace Server.Mobiles
 {
     [CorpseName("kosciany rycerz")]
-    public class BoneKnight : BaseCreature
+    public class BoneKnight : BaseCreature, BoneKnightCrystal.INecroPet
+
     {
         [Constructable]
         public BoneKnight()
