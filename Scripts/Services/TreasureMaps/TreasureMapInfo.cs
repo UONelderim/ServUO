@@ -96,10 +96,10 @@ namespace Server.Items
             {
                 if (SpellHelper.IsEodon(map, new Point3D(p.X, p.Y, 0)))
                 {
-                    return TreasureFacet.Eodon;
+                    return TreasureFacet.Felucca;
                 }
 
-                return TreasureFacet.TerMur;
+                return TreasureFacet.Felucca;
             }
 
             if (map == Map.Felucca)
@@ -109,20 +109,20 @@ namespace Server.Items
 
             if (map == Map.Malas)
             {
-                return TreasureFacet.Malas;
+                return TreasureFacet.Felucca;
             }
 
             if (map == Map.Ilshenar)
             {
-                return TreasureFacet.Ilshenar;
+                return TreasureFacet.Felucca;
             }
 
             if (map == Map.Tokuno)
             {
-                return TreasureFacet.Tokuno;
+	            return TreasureFacet.Felucca;
             }
 
-            return TreasureFacet.Trammel;
+            return TreasureFacet.Felucca;
         }
 
         public static IEnumerable<Type> GetRandomEquipment(TreasureLevel level, TreasurePackage package, TreasureFacet facet, int amount)
