@@ -48,5 +48,157 @@
   },
   "oldhaven": {
     "veryweak": 100
+  },
+  "ZwiednietaRoza_VeryEasy": {
+    "veryweak": 70,
+    "weak": 30
+  },
+  "ZwiednietaRoza_Easy": {
+    "veryweak": 20,
+    "weak": 30,
+    "lesser": 50
+
+  },
+  "ZwiednietaRoza_Medium": {
+    "weak": 20,
+    "lesser": 20,
+    "normal": 50,
+    "greater": 10
+  },
+  "ZwiednietaRoza_Difficult": {
+    "weak": 10,
+    "lesser": 10,
+    "normal": 50,
+    "greater": 20,
+    "strong": 10
+  },
+  "ZwiednietaRoza_VeryDifficult": {
+    "weak": 10,
+    "lesser": 10,
+    "normal": 50,
+    "greater": 20,
+    "strong": 5,
+    "verystrong": 5
+  },
+  "LochyOphidian_VeryEasy": {
+    "veryweak": 70,
+    "weak": 30
+  },
+  "LochyOphidian_Easy": {
+    "veryweak": 20,
+    "weak": 30,
+    "lesser": 50
+
+  },
+  "LochyOphidian_Medium": {
+    "weak": 20,
+    "lesser": 20,
+    "normal": 50,
+    "greater": 10
+  },
+  "LochyOphidian_Difficult": {
+    "weak": 10,
+    "lesser": 10,
+    "normal": 50,
+    "greater": 20,
+    "strong": 10
+  },
+  "LochyOphidian_VeryDifficult": {
+    "weak": 10,
+    "lesser": 10,
+    "normal": 50,
+    "greater": 20,
+    "strong": 5,
+    "verystrong": 5
+  },
+  "Grizzle_LVL1_VeryEasy": {
+    "veryweak": 70,
+    "weak": 30
+  },
+  "Grizzle_LVL1_Medium": {
+    "veryweak": 20,
+    "weak": 30,
+    "lesser": 50
+
+  },
+  "Grizzle_LVL1_Easy": {
+    "weak": 20,
+    "lesser": 20,
+    "normal": 50,
+    "greater": 10
+  },
+  "Grizzle_LVL2_Difficult": {
+    "weak": 10,
+    "lesser": 10,
+    "normal": 50,
+    "greater": 20,
+    "strong": 10
+  },
+  "Grizzle_LVL2_VeryDifficult": {
+    "weak": 10,
+    "lesser": 10,
+    "normal": 50,
+    "greater": 20,
+    "strong": 5,
+    "verystrong": 5
+  },
+  "Wulkan_LVL1_VeryEasy": {
+    "veryweak": 70,
+    "weak": 30
+  },
+  "Wulkan_LVL2_Easy": {
+    "veryweak": 20,
+    "weak": 30,
+    "lesser": 50
+
+  },
+  "Wulkan_LVL2_Easy_2": {
+    "veryweak": 20,
+    "weak": 30,
+    "lesser": 50
+
+  },
+  "Wulkan_LVL2_Medium": {
+    "weak": 20,
+    "lesser": 20,
+    "normal": 50,
+    "greater": 10
+  },
+  "Wulkan_LVL2_Medium_2": {
+    "weak": 20,
+    "lesser": 20,
+    "normal": 50,
+    "greater": 10
+  },
+  "Wulkan_LVL3_Difficult": {
+    "weak": 10,
+    "lesser": 10,
+    "normal": 50,
+    "greater": 20,
+    "strong": 10
+  },
+  "Wulkan_LVL3_Difficult_2": {
+    "weak": 10,
+    "lesser": 10,
+    "normal": 50,
+    "greater": 20,
+    "strong": 5,
+    "verystrong": 5
+  },
+  "Wulkan_LVL3_VeryDifficult": {
+    "weak": 10,
+    "lesser": 10,
+    "normal": 50,
+    "greater": 20,
+    "strong": 5,
+    "verystrong": 5
+  },
+  "Wulkan_LVL4_VeryDifficult": {
+    "weak": 5,
+    "lesser": 5,
+    "normal": 50,
+    "greater": 25,
+    "strong": 5,
+    "verystrong": 10
   }
 }
