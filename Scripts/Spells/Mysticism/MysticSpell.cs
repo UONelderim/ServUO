@@ -134,7 +134,7 @@ namespace Server.Spells.Mysticism
 
         public static double GetBoostSkill(Mobile m)
         {
-            return Math.Max(m.Skills[SkillName.Imbuing].Value, m.Skills[SkillName.Focus].Value);
+            return Math.Max(m.Skills[SkillName.EvalInt].Value, m.Skills[SkillName.Focus].Value);
         }
     }
 }
