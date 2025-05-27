@@ -12,9 +12,9 @@ namespace Solaris.BoardGames
     public class BoardGameData
     {
         /// <summary>
-        /// The sub-folder under ServUO’s Saves where Nelderim persists data.
+        /// Sub-folder under the ServUO saves path where Nelderim persists board-game data.
         /// </summary>
-        public const string BaseFolder = "Save/BoardGame Data";
+        public const string BaseFolder = "BoardGame Data";
 
         /// <summary>
         /// Full path to where BoardGameData lives (e.g. ".../Saves/Nelderim/BoardGame Data").
@@ -23,8 +23,8 @@ namespace Solaris.BoardGames
         {
             get
             {
-                // World.SavePath is ServUO's configured ".../Saves" folder.
-                return Path.Combine("Saves", "BoardGame Data");
+                // World.SavePath is ServUO's configured ".../Saves[/ShardName]" folder.
+                return Path.Combine("Saves/BoardGame Data", "boardgames.bin");
             }
         }
 
@@ -33,7 +33,7 @@ namespace Solaris.BoardGames
         /// </summary>
         public const string FILENAME = "boardgames.bin";
 
-        protected static List<BoardGameData> _GameData;
+        private static List<BoardGameData> _GameData;
         /// <summary>
         /// In-memory list of all loaded board-game data.
         /// </summary>
@@ -42,21 +42,18 @@ namespace Solaris.BoardGames
             get { return _GameData ?? (_GameData = new List<BoardGameData>()); }
         }
 
-        protected string _GameName;
-        protected List<BoardGamePlayerScore> _Scores;
+        private string _GameName;
+        private List<BoardGamePlayerScore> _Scores;
 
         /// <summary>
         /// Name of the board game (e.g. "Chess").
         /// </summary>
-        public string GameName { get { return _GameName; } }
+        public string GameName => _GameName;
 
         /// <summary>
         /// List of player scores for this game.
         /// </summary>
-        public List<BoardGamePlayerScore> Scores
-        {
-            get { return _Scores ?? (_Scores = new List<BoardGamePlayerScore>()); }
-        }
+        public List<BoardGamePlayerScore> Scores => _Scores ?? (_Scores = new List<BoardGamePlayerScore>());
 
         /// <summary>
         /// Creates new game data for a given game name.
@@ -104,7 +101,7 @@ namespace Solaris.BoardGames
             }
         }
 
-        protected static BoardGamePlayerScore GetScoreData(string gamename, Mobile player)
+        private static BoardGamePlayerScore GetScoreData(string gamename, Mobile player)
         {
             var scores = GetScores(gamename);
             if (scores == null)
@@ -125,12 +122,18 @@ namespace Solaris.BoardGames
             return scores[index];
         }
 
+        /// <summary>
+        /// Returns the list of scores for a given game, or null if none.
+        /// </summary>
         public static List<BoardGamePlayerScore> GetScores(string gamename)
         {
             int gameindex = IndexOf(gamename);
             return gameindex == -1 ? null : GameData[gameindex].Scores;
         }
 
+        /// <summary>
+        /// Sets a player's score (overwrites existing).
+        /// </summary>
         public static void SetScore(string gamename, Mobile player, int score)
         {
             var scoredata = GetScoreData(gamename, player);
@@ -138,29 +141,44 @@ namespace Solaris.BoardGames
                 scoredata.Score = score;
         }
 
+        /// <summary>
+        /// Gets a player's current score (0 if none).
+        /// </summary>
         public static int GetScore(string gamename, Mobile player)
         {
             var scoredata = GetScoreData(gamename, player);
             return scoredata != null ? scoredata.Score : 0;
         }
 
+        /// <summary>
+        /// Changes a player's score by delta (floor 0).
+        /// </summary>
         public static void ChangeScore(string gamename, Mobile player, int delta)
         {
             SetScore(gamename, player, Math.Max(0, GetScore(gamename, player) + delta));
         }
 
+        /// <summary>
+        /// Increments a player's win count.
+        /// </summary>
         public static void AddWin(string gamename, Mobile player)
         {
             var playerscore = GetScoreData(gamename, player);
             playerscore.Wins += 1;
         }
 
+        /// <summary>
+        /// Increments a player's loss count.
+        /// </summary>
         public static void AddLose(string gamename, Mobile player)
         {
             var playerscore = GetScoreData(gamename, player);
             playerscore.Losses += 1;
         }
 
+        /// <summary>
+        /// Removes all scores for a given game.
+        /// </summary>
         public static void ResetScores(string gamename)
         {
             int gameindex = IndexOf(gamename);
@@ -168,6 +186,9 @@ namespace Solaris.BoardGames
                 GameData.RemoveAt(gameindex);
         }
 
+        /// <summary>
+        /// Finds the index of a game by name (or -1 if not found).
+        /// </summary>
         public static int IndexOf(string gamename)
         {
             for (int i = 0; i < GameData.Count; i++)
@@ -190,12 +211,10 @@ namespace Solaris.BoardGames
         /// </summary>
         private static void OnSave(WorldSaveEventArgs e)
         {
-            if (!Directory.Exists(SAVE_PATH))
-                Directory.CreateDirectory(SAVE_PATH);
+            Directory.CreateDirectory(SAVE_PATH);
 
             var filePath = Path.Combine(SAVE_PATH, FILENAME);
 
-            // Overwrite (append = false) to avoid corrupting the file
             var writer = new BinaryFileWriter(filePath, false);
             writer.Write(0);                  // file version
             writer.Write(GameData.Count);     // how many games
@@ -204,27 +223,35 @@ namespace Solaris.BoardGames
         }
 
         /// <summary>
-        /// Read back what we wrote; if missing, do nothing.
+        /// Read back what we wrote; if missing or corrupted, log and skip.
         /// </summary>
         private static void OnLoad()
         {
             var filePath = Path.Combine(SAVE_PATH, FILENAME);
+
             if (!File.Exists(filePath))
                 return;
 
-            // Clear existing in-memory data (e.g. on script reload)
-            GameData.Clear();
-
-            using (var bin = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            try
             {
-	            var reader = new BinaryFileReader(new BinaryReader(bin));
-	            int version = reader.ReadInt(); // should be 0
-	            int count = reader.ReadInt(); // number of games
+                GameData.Clear();
 
-	            for (int i = 0; i < count; i++)
-		            GameData.Add(new BoardGameData(reader));
+                using (var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                using (var bin = new BinaryReader(fs))
+                {
+                    var reader = new BinaryFileReader(bin);
+                    int version = reader.ReadInt(); // should be 0
+                    int count   = reader.ReadInt(); // number of games
 
-	            reader.End();
+                    for (int i = 0; i < count; i++)
+                        GameData.Add(new BoardGameData(reader));
+
+                    reader.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[BoardGameData] Failed to load saved data: {ex}");
             }
         }
     }
@@ -234,19 +261,31 @@ namespace Solaris.BoardGames
     /// </summary>
     public class BoardGamePlayerScore : IComparable
     {
-        protected Mobile _Player;
-        public Mobile Player { get { return _Player; } }
+        private Mobile _Player;
+        /// <summary>
+        /// The associated Mobile (player) this score belongs to.
+        /// </summary>
+        public Mobile Player => _Player;
 
+        /// <summary>The player's total score.</summary>
         public int Score;
+        /// <summary>The number of wins recorded.</summary>
         public int Wins;
+        /// <summary>The number of losses recorded.</summary>
         public int Losses;
 
+        /// <summary>
+        /// Creates a new score entry for the given player.
+        /// </summary>
         public BoardGamePlayerScore(Mobile player) : this(player, 0) { }
 
+        /// <summary>
+        /// Creates a new score entry for the given player with initial score.
+        /// </summary>
         public BoardGamePlayerScore(Mobile player, int score)
         {
             _Player = player;
-            Score = score;
+            Score   = score;
         }
 
         /// <summary>
@@ -288,9 +327,9 @@ namespace Solaris.BoardGames
         {
             int version = reader.ReadInt();
             _Player = reader.ReadMobile();
-            Score = reader.ReadInt();
-            Wins = reader.ReadInt();
-            Losses = reader.ReadInt();
+            Score   = reader.ReadInt();
+            Wins    = reader.ReadInt();
+            Losses  = reader.ReadInt();
         }
 
         /// <summary>
