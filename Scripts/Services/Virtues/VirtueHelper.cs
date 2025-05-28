@@ -78,12 +78,12 @@ namespace Server.Services.Virtues
                 return false;
 
             if (from.FindItemOnLayer(Layer.TwoHanded) is VirtueShield)
-                amount = amount + (int)(amount * 1.5);
+                amount += (int)(amount * 1.5);
+            
+            amount /= 2; //Nelderim
 
             if ((current + amount) >= maxAmount)
                 amount = maxAmount - current;
-
-            amount = (int)(amount * 0.5); //Nelderim
 
             VirtueLevel oldLevel = GetLevel(from, virtue);
 
