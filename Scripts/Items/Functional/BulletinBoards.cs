@@ -287,6 +287,14 @@ namespace Server.Items
                 thread.LastPostTime = DateTime.UtcNow;
 
             AddItem(new BulletinMessage(from, thread, subject, lines));
+
+            AcquireItems().Sort(delegate(Item a, Item b) {
+                BulletinMessage msgA = a as BulletinMessage;
+                BulletinMessage msgB = b as BulletinMessage;
+                if (msgA == null || msgB == null)
+                    return 0;
+                return msgB.Time.CompareTo(msgA.Time);
+            });
         }
 
         public override void Serialize(GenericWriter writer)
