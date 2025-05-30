@@ -1,10 +1,10 @@
-
 using System.Collections.Generic;
 using Server.ContextMenus;
+using Server.Gumps;
 
 namespace Server.Items
 {
-	public class Parcel : BaseContainer, IMailItem
+	public class Letter : Item, IMailItem
 	{
 		private string _Sender;
 		private string _Recipient;
@@ -39,16 +39,35 @@ namespace Server.Items
 				InvalidateProperties();
 			}
 		}
+		
+		private string _Text;
+
+		public string Text
+		{
+			get => _Text;
+			set
+			{
+				_Text = value;
+				InvalidateProperties();
+			}
+		}
 
 		[Constructable]
-		public Parcel() : base(0x232A)
+		public Letter() : base(0xE34)
 		{
 			Weight = 1.0;
-			Name = "Paczka";
+			Movable = true;
+			Name = "List";
 			Stackable = false;
 		}
 
-		public override int DefaultMaxWeight => 100;
+		public Letter(Serial serial) : base(serial) { }
+
+
+		public override void OnDoubleClick(Mobile from)
+		{
+			from.SendGump(new LetterGump(this));
+		}
 
 		public override void GetProperties(ObjectPropertyList list)
 		{
@@ -62,12 +81,11 @@ namespace Server.Items
 			list.Add(new EnterAddressContextMenuEntry(from, this));
 		}
 
-		public Parcel(Serial serial) : base(serial) { }
-
 		public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
 			writer.Write((int)0);
+			writer.Write(_Text);
 			writer.Write(_Sender);
 			writer.Write(_Recipient);
 			writer.Write(_SentTime);
@@ -77,6 +95,7 @@ namespace Server.Items
 		{
 			base.Deserialize(reader);
 			int version = reader.ReadInt();
+			_Text = reader.ReadString();
 			_Sender = reader.ReadString();
 			_Recipient = reader.ReadString();
 			_SentTime = reader.ReadString();

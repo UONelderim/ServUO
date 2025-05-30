@@ -255,8 +255,8 @@ namespace Server.Mobiles
 		public override void Serialize(GenericWriter writer)
 		{
 			writer.Write((int)0); //version
-			writer.WriteTypeLongDict(CreaturesKilled);
-			writer.WriteTypeLongDict(ParagonsKilled);
+			writer.Write(CreaturesKilled);
+			writer.Write(ParagonsKilled);
 			writer.Write(PlayerKillsFaction.Count);
 			foreach (var pair in PlayerKillsFaction)
 			{
@@ -269,22 +269,22 @@ namespace Server.Mobiles
 				writer.Write(pair.Key);
 				writer.Write(pair.Value);
 			}
-			writer.WriteTypeLongDict(SpellsCast);
-			writer.WriteTypeLongDict(CreaturesSummoned);
-			writer.WriteTypeLongDict(ItemsCrafted);
-			writer.WriteTypeLongDict(ItemsEnhanced);
-			writer.WriteTypeLongDict(ItemsRepaired);
-			writer.WriteTypeLongDict(BulkOrderDeedsCompleted);
-			writer.WriteTypeLongDict(ResourceHarvested);
-			writer.WriteTypeLongDict(CreaturesCarved);
+			writer.Write(SpellsCast);
+			writer.Write(CreaturesSummoned);
+			writer.Write(ItemsCrafted);
+			writer.Write(ItemsEnhanced);
+			writer.Write(ItemsRepaired);
+			writer.Write(BulkOrderDeedsCompleted);
+			writer.Write(ResourceHarvested);
+			writer.Write(CreaturesCarved);
 			writer.Write(GravesDigged);
-			writer.WriteTypeLongDict(AnimalsTamed);
-			writer.WriteTypeLongDict(AnimalsBonded);
-			writer.WriteTypeLongDict(NecromancySummonsCrafted);
-			writer.WriteTypeLongDict(PotionsUsed);
+			writer.Write(AnimalsTamed);
+			writer.Write(AnimalsBonded);
+			writer.Write(NecromancySummonsCrafted);
+			writer.Write(PotionsUsed);
 			writer.Write(BolasThrown);
-			writer.WriteTypeLongDict(FoodConsumed);
-			writer.WriteTypeLongDict(TobaccoSmoked);
+			writer.Write(FoodConsumed);
+			writer.Write(TobaccoSmoked);
 			writer.Write(MaxSkillGained.Count);
 			foreach (var pair in MaxSkillGained)
 			{
@@ -292,16 +292,16 @@ namespace Server.Mobiles
 				writer.Write(pair.Value);
 			}
 			writer.Write(BandagesUsed);
-			writer.WriteTypeLongDict(DungeonTreasureChestsOpened);
-			writer.WriteIntLongDict(TreasureMapChestsDigged);
-			writer.WriteIntLongDict(SOSChestsFished);
+			writer.Write(DungeonTreasureChestsOpened);
+			writer.Write(TreasureMapChestsDigged);
+			writer.Write(SOSChestsFished);
 			writer.Write(ParagonChestsLooted);
 			writer.Write(GoldLooted);
 			writer.Write(StepsTakenTotal);
 			writer.Write(DamageDealtTotal);
 			writer.Write(DamageTakenTotal);
-			writer.WriteTypeLongDict(QuestsCompleted);
-			writer.WriteTypeLongDict(PaintingsCreated);
+			writer.Write(QuestsCompleted);
+			writer.Write(PaintingsCreated);
 		}
 
 		public override void Deserialize(GenericReader reader)
@@ -378,7 +378,7 @@ namespace Server.Mobiles
 			}
 		}
 
-		public static void WriteIntLongDict(this GenericWriter writer, Dictionary<int, long> dict)
+		public static void Write(this GenericWriter writer, Dictionary<int, long> dict)
 		{
 			writer.Write(dict.Count);
 			foreach (var pair in dict)
@@ -402,7 +402,7 @@ namespace Server.Mobiles
 			return dict;
 		}
 		
-		public static void WriteTypeLongDict(this GenericWriter writer, Dictionary<Type, long> dict)
+		public static void Write(this GenericWriter writer, Dictionary<Type, long> dict)
 		{
 			writer.Write(dict.Count);
 			foreach (var pair in dict)

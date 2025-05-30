@@ -639,7 +639,7 @@ namespace Server
 			new SkillInfo(47, "Skradanie", 0.0, 0.0, 0.0, "Lotr",              null, 0.00, 6.00, 2.00, 6.50, StatCode.Dex, StatCode.Int),
 			new SkillInfo(48, "Rozbrajanie", 0.0, 0.0, 0.0, "Rozbrajacz",      null, 0.00, 4.00, 4.00, 8.50, StatCode.Dex, StatCode.Int),
 			new SkillInfo(49, "Nekromancja", 0.0, 0.0, 0.0, "Nekromanta",      null, 2.00, 1.00, 6.00, 2.50, StatCode.Int, StatCode.Str, true ),
-			new SkillInfo(50, "Koncentracja", 0.0, 0.0, 0.0, "Skupiony",       null, 0.00, 4.00, 1.50, 0.00, StatCode.Dex, StatCode.Int),
+			new SkillInfo(50, "Koncentracja", 0.0, 0.0, 0.0, "Skupiony",       null, 0.00, 4.00, 1.50, 1.00, StatCode.Dex, StatCode.Int),
 			new SkillInfo(51, "Rycerstwo", 0.0, 0.0, 0.0, "Paladyn",           null, 2.00, 0.00, 1.50, 2.50, StatCode.Str, StatCode.Int, true ),
 			new SkillInfo(52, "Tradycja Wojenna", 0.0, 0.0, 0.0, "Wojownik",   null, 2.00, 0.00, 1.50, 2.50, StatCode.Str, StatCode.Int, true ),
 			new SkillInfo(53, "Skrytobojstwo", 0.0, 0.0, 0.0, "Ninja",         null, 2.00, 0.00, 1.50, 2.50, StatCode.Dex, StatCode.Int, true ),

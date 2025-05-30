@@ -1,7 +1,7 @@
 #region References
 
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using Server;
 using Server.Gumps;
 using Server.Network;
@@ -30,26 +30,24 @@ namespace Knives.TownHouses
 				}
 		}
 
-		private readonly Hashtable c_Buttons;
-		private readonly Hashtable c_Fields;
+		private readonly Dictionary<int, ButtonPlus> _Buttons = [];
+		private readonly Dictionary<int, string> _TextFields = [];
+		private readonly Dictionary<string, string> _TextFieldValues = [];
 
 		public Mobile Owner { get; }
 
 		public GumpPlusLight(Mobile m, int x, int y) : base(x, y)
 		{
 			Owner = m;
-
-			c_Buttons = new Hashtable();
-			c_Fields = new Hashtable();
-
 			Timer.DelayCall(TimeSpan.FromSeconds(0), NewGump);
 		}
 
 		public void Clear()
 		{
 			Entries.Clear();
-			c_Buttons.Clear();
-			c_Fields.Clear();
+			_Buttons.Clear();
+			_TextFields.Clear();
+			_TextFieldValues.Clear();
 		}
 
 		public virtual void NewGump()
@@ -80,8 +78,8 @@ namespace Knives.TownHouses
 
 			do
 			{
-				random = Utility.Random(20000);
-			} while (c_Buttons[random] != null);
+				random = Utility.Random(100000);
+			} while (_Buttons[random] != null);
 
 			return random;
 		}
@@ -92,8 +90,8 @@ namespace Knives.TownHouses
 
 			do
 			{
-				random = Utility.Random(20000);
-			} while (c_Buttons[random] != null);
+				random = Utility.Random(100000);
+			} while (_Buttons[random] != null);
 
 			return random;
 		}
@@ -155,7 +153,7 @@ namespace Knives.TownHouses
 
 			Add(button);
 
-			c_Buttons[id] = button;
+			_Buttons[id] = button;
 		}
 
 		public void AddButton(int x, int y, int up, int down, GumpStateCallback callback, object arg)
@@ -171,7 +169,7 @@ namespace Knives.TownHouses
 
 			Add(button);
 
-			c_Buttons[id] = button;
+			_Buttons[id] = button;
 		}
 
 		public void AddHtml(int x, int y, int width, string text)
@@ -201,18 +199,18 @@ namespace Knives.TownHouses
 			int id = UniqueTextId();
 
 			AddImageTiled(x, y, width, height, back);
-			base.AddTextEntry(x, y, width, height, color, id, text);
+			AddTextEntry(x, y, width, height, color, id, text);
 
-			c_Fields[id] = name;
-			c_Fields[name] = text;
+			_TextFields[id] = name;
+			_TextFieldValues[name] = text;
 		}
 
 		public string GetTextField(string name)
 		{
-			if (c_Fields[name] == null)
+			if (_TextFieldValues[name] == null)
 				return "";
 
-			return c_Fields[name].ToString();
+			return _TextFieldValues[name];
 		}
 
 		public int GetTextFieldInt(string name)
@@ -237,17 +235,17 @@ namespace Knives.TownHouses
 				}
 
 				foreach (TextRelay t in info.TextEntries)
-					c_Fields[c_Fields[t.EntryID].ToString()] = t.Text;
+					_TextFieldValues[_TextFields[t.EntryID]] = t.Text;
 
 				if (info.ButtonID == 0)
 					OnClose();
 
-				if (c_Buttons[info.ButtonID] == null || !(c_Buttons[info.ButtonID] is ButtonPlus))
+				if (_Buttons[info.ButtonID] == null || !(_Buttons[info.ButtonID] is ButtonPlus))
 					return;
 
-				name = ((ButtonPlus)c_Buttons[info.ButtonID]).Name;
+				name = (_Buttons[info.ButtonID]).Name;
 
-				((ButtonPlus)c_Buttons[info.ButtonID]).Invoke();
+				(_Buttons[info.ButtonID]).Invoke();
 			}
 			catch (Exception e)
 			{
