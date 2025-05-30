@@ -18,6 +18,7 @@ namespace Server.Spells.SkillMasteries
         public override double RequiredSkill => 90;
         public override int RequiredMana => 40;
         public override bool PartyEffects => false;
+        public override bool RevealOnTick => false;
 
         public override SkillName CastSkill => SkillName.Mysticism;
         public override SkillName DamageSkill
