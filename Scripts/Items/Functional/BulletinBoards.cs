@@ -220,6 +220,8 @@ namespace Server.Items
                 if (msg == null)
                     continue;
 
+                msg.Cleanup();
+
                 if (msg.Thread == null && CheckTime(msg.LastPostTime, ThreadDeletionTime))
                 {
                     msg.Delete();
@@ -285,6 +287,14 @@ namespace Server.Items
                 thread.LastPostTime = DateTime.UtcNow;
 
             AddItem(new BulletinMessage(from, thread, subject, lines));
+
+            AcquireItems().Sort(delegate(Item a, Item b) {
+                BulletinMessage msgA = a as BulletinMessage;
+                BulletinMessage msgB = b as BulletinMessage;
+                if (msgA == null || msgB == null)
+                    return 0;
+                return msgB.Time.CompareTo(msgA.Time);
+            });
         }
 
         public override void Serialize(GenericWriter writer)
@@ -356,7 +366,7 @@ namespace Server.Items
             Movable = false;
 
             m_Poster = poster;
-            m_Subject = subject;
+            m_Subject = removePrefixFromSubject(subject);
             m_Time = DateTime.UtcNow;
             m_LastPostTime = m_Time;
             m_Thread = thread;
@@ -405,7 +415,7 @@ namespace Server.Items
         public string[] Lines => m_Lines;
         public string GetTimeAsString()
         {
-            return m_Time.ToString("MMM dd, yyyy");
+            return m_Time.ToString("dd MMM");
         }
 
         public override bool CheckTarget(Mobile from, Targeting.Target targ, object targeted)
@@ -497,6 +507,24 @@ namespace Server.Items
         {
             if (!(Parent is BulletinBoard && ((BulletinBoard)Parent).Items.Contains(this)))
                 Delete();
+        }
+
+        public void Cleanup()
+        {
+            // clean legacy entries:
+            m_Subject = removePrefixFromSubject(m_Subject);
+        }
+
+        public static String removePrefixFromSubject(String subject)
+        {
+            if (subject == null)
+                return null;
+
+            var prefixToRemove = "RE: ";
+            while (subject.StartsWith(prefixToRemove, StringComparison.OrdinalIgnoreCase))
+                subject = subject.Substring(prefixToRemove.Length);
+
+            return subject;
         }
     }
 
