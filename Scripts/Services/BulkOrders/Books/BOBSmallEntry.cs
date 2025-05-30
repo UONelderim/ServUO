@@ -60,6 +60,8 @@ namespace Server.Engines.BulkOrders
 
                         if (type != null)
                             m_ItemType = ScriptCompiler.FindTypeByFullName(type);
+                        if(m_ItemType == null)
+							Console.WriteLine("Warning: BOBSmallEntry has invalid type {0}", type);
 
                         m_RequireExceptional = reader.ReadBool();
 

@@ -145,6 +145,8 @@ namespace Server.Engines.BulkOrders
 
             if (type != null)
                 realType = ScriptCompiler.FindTypeByFullName(type);
+            if (realType == null)
+	            Console.WriteLine("Warning: LargeBOD {0} has invalid type {1}", owner.Serial, type);
 
             m_Details = new SmallBulkEntry(realType, reader.ReadInt(), reader.ReadInt(), version == 0 ? 0 : reader.ReadInt());
         }

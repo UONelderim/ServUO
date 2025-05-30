@@ -36,6 +36,8 @@ namespace Server.Engines.BulkOrders
 
                         if (type != null)
                             m_ItemType = ScriptCompiler.FindTypeByFullName(type);
+                        if(m_ItemType == null)
+							Console.WriteLine("Warning: BOBLargeSubEntry has invalid type {0}", type);
 
                         m_AmountCur = reader.ReadEncodedInt();
                         m_Number = reader.ReadEncodedInt();

@@ -466,6 +466,8 @@ namespace Server.Engines.BulkOrders
 
                         if (type != null)
                             m_Type = ScriptCompiler.FindTypeByFullName(type);
+                        if (m_Type == null)
+	                        Console.WriteLine("Warning: SmallBOD {0} has invalid type {1}", Serial, type);
 
                         m_Number = reader.ReadInt();
                         m_Graphic = reader.ReadInt();
