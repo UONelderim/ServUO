@@ -1,4 +1,5 @@
 using Server.Items;
+using Server.Nelderim;
 
 namespace Server.Engines.BulkOrders
 {
@@ -58,6 +59,7 @@ namespace Server.Engines.BulkOrders
 
                         for (int i = 0; i < m_Entries.Length; ++i)
                             m_Entries[i] = new BOBLargeSubEntry(reader);
+                        FixFletchingBODs.FixType(this, ref m_DeedType);
 
                         break;
                     }
