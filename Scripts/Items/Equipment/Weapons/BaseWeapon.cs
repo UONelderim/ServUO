@@ -1020,7 +1020,18 @@ namespace Server.Items
         {
             SkillName sk;
 
-            if (checkSkillAttrs && m_AosWeaponAttributes.UseBestSkill != 0)
+            if (m_ExtendedWeaponAttributes.MysticWeapon != 0 || Enhancement.GetValue(m, ExtendedWeaponAttribute.MysticWeapon) > 0)
+            {
+	            if (m.Skills[SkillName.Mysticism].Value > m.Skills[Skill].Value)
+	            {
+		            sk = SkillName.Mysticism;
+	            }
+	            else
+	            {
+		            sk = Skill;
+	            }
+            }
+            else if (checkSkillAttrs && m_AosWeaponAttributes.UseBestSkill != 0)
             {
                 double swrd = m.Skills[SkillName.Swords].Value;
                 double fenc = m.Skills[SkillName.Fencing].Value;
@@ -1045,17 +1056,6 @@ namespace Server.Items
                 if (m.Skills[SkillName.Magery].Value > m.Skills[Skill].Value)
                 {
                     sk = SkillName.Magery;
-                }
-                else
-                {
-                    sk = Skill;
-                }
-            }
-            else if (m_ExtendedWeaponAttributes.MysticWeapon != 0 || Enhancement.GetValue(m, ExtendedWeaponAttribute.MysticWeapon) > 0)
-            {
-                if (m.Skills[SkillName.Mysticism].Value > m.Skills[Skill].Value)
-                {
-                    sk = SkillName.Mysticism;
                 }
                 else
                 {
