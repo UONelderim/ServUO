@@ -182,13 +182,18 @@ namespace Server.Items
 
             return (house == null);
         }
+ 
+        public override void Use(Mobile from, bool isLockpicked)
+        {
+            from.SendLocalizedMessage(1061637); // You are not allowed to access this.
+        }
 
         public override void Use(Mobile from)
         {
             if (from.AccessLevel < AccessLevel.Counselor && !CheckAccess(from))
                 from.SendLocalizedMessage(1061637); // You are not allowed to access 
             else
-                base.Use(from);
+                base.Use(from, false);
         }
 
         public override void Serialize(GenericWriter writer)
