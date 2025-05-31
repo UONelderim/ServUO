@@ -11,27 +11,21 @@ namespace Solaris.BoardGames
     /// </summary>
     public class BoardGameData
     {
-        /// <summary>
-        /// Sub-folder under the ServUO saves path where Nelderim persists board-game data.
-        /// </summary>
-        public const string BaseFolder = "BoardGame Data";
-
-        /// <summary>
-        /// Full path to where BoardGameData lives (e.g. ".../Saves/Nelderim/BoardGame Data").
-        /// </summary>
-        public static string SAVE_PATH
+        public static string SAVE_FOLDER_PATH
         {
             get
             {
-                // World.SavePath is ServUO's configured ".../Saves[/ShardName]" folder.
-                return Path.Combine("Saves/BoardGame Data", "boardgames.bin");
+                return Path.Combine("Saves", "BoardGame Data");
             }
         }
 
-        /// <summary>
-        /// Name of the binary file storing all board-game data.
-        /// </summary>
-        public const string FILENAME = "boardgames.bin";
+        public static string SAVE_FILE_PATH
+        {
+            get
+            {
+                return Path.Combine(SAVE_FOLDER_PATH, "boardgames.bin");
+            }
+        }
 
         private static List<BoardGameData> _GameData;
         /// <summary>
@@ -211,11 +205,9 @@ namespace Solaris.BoardGames
         /// </summary>
         private static void OnSave(WorldSaveEventArgs e)
         {
-            Directory.CreateDirectory(SAVE_PATH);
+            Directory.CreateDirectory(SAVE_FOLDER_PATH);
 
-            var filePath = Path.Combine(SAVE_PATH, FILENAME);
-
-            var writer = new BinaryFileWriter(filePath, false);
+            var writer = new BinaryFileWriter(SAVE_FILE_PATH, false);
             writer.Write(0);                  // file version
             writer.Write(GameData.Count);     // how many games
             foreach (var data in GameData)
@@ -227,16 +219,14 @@ namespace Solaris.BoardGames
         /// </summary>
         private static void OnLoad()
         {
-            var filePath = Path.Combine(SAVE_PATH, FILENAME);
-
-            if (!File.Exists(filePath))
+            if (!File.Exists(SAVE_FILE_PATH))
                 return;
 
             try
             {
                 GameData.Clear();
 
-                using (var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                using (var fs = new FileStream(SAVE_FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read))
                 using (var bin = new BinaryReader(fs))
                 {
                     var reader = new BinaryFileReader(bin);
