@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Server.Items
 {
-    public abstract class BaseDoor : Item, ILockable, ITelekinesisable
+    public abstract partial class BaseDoor : Item, ILockable, ITelekinesisable
     {
         private static readonly string m_TimerID = "CloseDoorTimer";
         private static readonly Point3D[] m_Offsets = new Point3D[]
@@ -268,7 +268,12 @@ namespace Server.Items
             return true;
         }
 
-        public virtual void Use(Mobile from)
+        public virtual void Use(Mobile from) {
+            Use(from, false);
+        }
+
+
+        public virtual void Use(Mobile from, bool lockPicked)
         {
             if (m_Locked && !m_Open && UseLocks())
             {
@@ -277,7 +282,7 @@ namespace Server.Items
                     from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 502502); // That is locked, but you open it with your godly powers.
                     //from.Send( new MessageLocalized( Serial, ItemID, MessageType.Regular, 0x3B2, 3, 502502, "", "" ) ); // That is locked, but you open it with your godly powers.
                 }
-                else if (Key.ContainsKey(from.Backpack, KeyValue))
+                else if (Key.ContainsKey(from.Backpack, KeyValue) || lockPicked)
                 {
                     from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 501282); // You quickly unlock, open, and relock the door
                 }
@@ -548,7 +553,7 @@ namespace Server.Items
 
             foreach (Item item in sector.Items)
             {
-				if (!(item is BaseMulti) && item.ItemID <= TileData.MaxItemValue && item.AtWorldPoint(x, y) && !(item is BaseDoor))
+                if (!(item is BaseMulti) && item.ItemID <= TileData.MaxItemValue && item.AtWorldPoint(x, y) && !(item is BaseDoor))
                 {
                     ItemData id = item.ItemData;
                     bool surface = id.Surface;
@@ -561,7 +566,7 @@ namespace Server.Items
 
             foreach (Mobile m in sector.Mobiles)
             {
-				if (m.Location.X == x && m.Location.Y == y)
+                if (m.Location.X == x && m.Location.Y == y)
                 {
                     if (m.Hidden && m.IsPlayer())
                         continue;
