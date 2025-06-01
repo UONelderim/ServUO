@@ -4,6 +4,8 @@ namespace Server.Mobiles
 {
     public class InnKeeper : BaseVendor
     {
+        public override bool RequiresCustomerIdentity => false; // kazdy karczmarz obsluzy zawsze kapturnika
+
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public InnKeeper()

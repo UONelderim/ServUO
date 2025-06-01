@@ -9,6 +9,8 @@ namespace Server.Mobiles
     {
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
 
+        public override bool RequiresCustomerIdentity => false; // kazdy karczmarz obsluzy zawsze kapturnika
+
         [Constructable]
         public Barkeeper()
             : base("- karczmarz")

@@ -66,17 +66,4 @@ public class NamelessHood : BaseHat
 			mobile.IdentityHidden = false;
 		}
 	}
-
-	public override void OnParentLocationChange(Point3D oldLocation)
-	{
-		base.OnParentLocationChange(oldLocation);
-
-		if (Parent is Mobile mobile)
-		{
-			if ((mobile.Region is CityRegion || mobile.Region is VillageRegion) && mobile.IdentityHidden)
-			{
-				mobile.SendMessage("Nie lubi się tutaj zakapturzonych typów, uważaj na straż.");
-			}
-		}
-	}
 }

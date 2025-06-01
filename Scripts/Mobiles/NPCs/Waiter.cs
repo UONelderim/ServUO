@@ -5,6 +5,8 @@ namespace Server.Mobiles
 {
     public class Waiter : BaseVendor
     {
+        public override bool RequiresCustomerIdentity => false; // kazdy kelner obsluzy zawsze kapturnika
+
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
         [Constructable]
         public Waiter()
