@@ -1,6 +1,4 @@
-// TasteID.cs
-// Scripts/SkillHandlers/TasteID.cs
-
+// Updated TasteID.cs
 using System;
 using Server;
 using Server.Targeting;
@@ -21,6 +19,12 @@ namespace Server.SkillHandlers
 
 		public static TimeSpan OnUse(Mobile from)
 		{
+			if (from.Skills[SkillName.TasteID].Value < 50.0)
+			{
+				from.SendMessage("Potrzebujesz co najmniej 50.0 w Guślarstwie, aby użyć tej umiejętności.");
+				return TimeSpan.FromSeconds(1.0);
+			}
+
 			from.SendMessage("Wskaż voodoo szpilkę lub laleczkę, na której chcesz użyć Guślarstwa.");
 			from.Target = new TasteIDTarget();
 			return TimeSpan.FromSeconds(1.0);
@@ -35,11 +39,11 @@ namespace Server.SkillHandlers
 
 			protected override void OnTarget(Mobile from, object targeted)
 			{
-				if (targeted is VoodooPin pin)
+				if (targeted is VoodooPin pin && pin.Deleted == false)
 				{
 					pin.OnDoubleClick(from);
 				}
-				else if (targeted is VoodooDoll doll)
+				else if (targeted is VoodooDoll doll && doll.Deleted == false)
 				{
 					doll.OnDoubleClick(from);
 				}
@@ -51,7 +55,7 @@ namespace Server.SkillHandlers
 
 			protected override void OnTargetOutOfRange(Mobile from, object targeted)
 			{
-				from.SendMessage("Jesteś za daleko, aby użyć umiejętności Goslarstwa.");
+				from.SendMessage("Jesteś za daleko, aby użyć umiejętności Guślarstwa.");
 			}
 		}
 	}

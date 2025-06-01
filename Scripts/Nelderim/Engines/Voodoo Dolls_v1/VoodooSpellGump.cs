@@ -1,88 +1,79 @@
 using System;
+using System.Collections.Generic;
 using Server;
 using Server.Gumps;
-using Server.Network;
 using Server.Items;
-using Server.Mobiles;
+using Server.Network;
 
 namespace Server.Gumps
 {
     public class VoodooSpellGump : Gump
     {
-        private readonly Mobile _from;
         private readonly VoodooDoll _doll;
+        private readonly Mobile     _from;
 
-        // Button IDs: spells and connect option
-        private enum Buttons
+        public VoodooSpellGump(VoodooDoll doll, Mobile from)
+            : base(50, 50)
         {
-            Stab    = (int)VoodooSpellType.Stab,    // Ukłucie
-            Curse   = (int)VoodooSpellType.Curse,   // Klątwa Voodoo
-            Disease = (int)VoodooSpellType.Disease, // Przeniesienie Choroby
-            Connect = 1000                           // Nawiąż połączenie
-        }
-
-        public VoodooSpellGump(Mobile from, VoodooDoll doll) : base(100, 100)
-        {
-            _from = from;
             _doll = doll;
-
-            Closable   = true;   // pozwala na zamknięcie gumpa kliknięciem X
-            Disposable = true;   // gump usuwa się z listy po zamknięciu
+            _from = from;
 
             AddPage(0);
-            AddBackground(0, 0, 220, 200, 9270);
-            AddLabel(20, 20, 1152, "Wybierz zaklęcie Guślarstwa:");
+            AddBackground(0, 0, 220, 240, 9270);
 
-            int yOffset = 50;
+            // Nagłówek
+            AddLabel(20, 15, 1152, "Guślarstwo - Wybierz czar");
 
-            // Ukłucie
-            AddButton(20, yOffset, 4005, 4007, (int)Buttons.Stab, GumpButtonType.Reply, 0);
-            AddLabel(55, yOffset, 1152, "Ukłucie");
-            yOffset += 30;
+            // Lista dostępnych czarów
+            var spells = new List<VoodooSpellType>
+            {
+                VoodooSpellType.Stab,
+                VoodooSpellType.Curse,
+                VoodooSpellType.Disease,
+                VoodooSpellType.Link
+            };
 
-            // Klątwa Voodoo
-            AddButton(20, yOffset, 4005, 4007, (int)Buttons.Curse, GumpButtonType.Reply, 0);
-            AddLabel(55, yOffset, 1152, "Klątwa Słabości");
-            yOffset += 30;
+            int y = 50;
+            foreach (var type in spells)
+            {
+                // ID == wartość enuma (1..4)
+                int buttonID = (int)type;
 
-            // Przeniesienie Choroby
-            AddButton(20, yOffset, 4005, 4007, (int)Buttons.Disease, GumpButtonType.Reply, 0);
-            AddLabel(55, yOffset, 1152, "Przeniesienie Choroby");
-            yOffset += 30;
+                // Polskie nazwy
+                string name = type switch
+                {
+                    VoodooSpellType.Stab    => "Ukłucie",
+                    VoodooSpellType.Curse   => "Klątwa",
+                    VoodooSpellType.Disease => "Choroba",
+                    VoodooSpellType.Link    => "Nawiąż połączenie",
+                    _                       => type.ToString()
+                };
 
-            // Separator
-            yOffset += 10;
-
-            // Nawiąż połączenie
-            AddButton(20, yOffset, 4005, 4007, (int)Buttons.Connect, GumpButtonType.Reply, 0);
-            AddLabel(55, yOffset, 1152, "Nawiąż połączenie");
+                AddButton(10, y, 4005, 4007, buttonID, GumpButtonType.Reply, 0);
+                AddLabel(45, y, 1152, name);
+                y += 30;
+            }
         }
 
         public override void OnResponse(NetState state, RelayInfo info)
         {
-            // Jeśli ButtonID == 0 użytkownik zamknął gump (klik X lub ESC) – przerywamy
-            if (info.ButtonID == 0)
+            int id = info.ButtonID;
+
+            // Czy buttonID to poprawna wartość enum?
+            if (!Enum.IsDefined(typeof(VoodooSpellType), id))
                 return;
 
-            switch (info.ButtonID)
+            var spell = (VoodooSpellType)id;
+
+            // Dla wszystkich czarów poza Link wymagamy aktywnego połączenia
+            if (spell != VoodooSpellType.Link && !_doll.HasActiveLink)
             {
-                case (int)Buttons.Connect:
-                    _doll.TryLink(_from);
-                    break;
-
-                case (int)Buttons.Stab:
-                case (int)Buttons.Curse:
-                case (int)Buttons.Disease:
-                    _doll.CastVoodooSpell(_from, (VoodooSpellType)info.ButtonID);
-                    break;
-
-                default:
-                    // nieobsługiwane ID – nic nie robimy
-                    return;
+                _from.SendMessage("Brak aktywnego połączenia – najpierw użyj „Nawiąż połączenie”.");
+                return;
             }
 
-            // Po wykonaniu akcji prezentujemy gump ponownie
-            _from.SendGump(new VoodooSpellGump(_from, _doll));
+            // Właściwe wywołanie managera
+            VoodooManager.CastSpell(spell, _doll, _from);
         }
     }
 }

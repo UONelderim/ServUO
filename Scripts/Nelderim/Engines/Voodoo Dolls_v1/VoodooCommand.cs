@@ -1,9 +1,10 @@
 using System;
 using Server;
 using Server.Commands;
+using Server.Targeting;
 using Server.Gumps;
 using Server.Items;
-using Server.Targeting;
+using Server.Mobiles;
 
 namespace Server.Scripts.Commands
 {
@@ -11,7 +12,7 @@ namespace Server.Scripts.Commands
 	{
 		public static void Initialize()
 		{
-			// Rejestrujemy komendę [gusla] dla wszystkich graczy
+			// re-register the [gusla command at player level
 			CommandSystem.Register(
 				"gusla",
 				AccessLevel.Player,
@@ -19,39 +20,38 @@ namespace Server.Scripts.Commands
 			);
 		}
 
-		[Usage("gusla")]
-		[Description("Pozwala wskazać lalkę guślarza i otworzyć dla niej gump z zaklęciami.")]
+		[Usage("[gusla")]
+		[Description("Otwiera gump guślarstwa dla wskazanej laleczki voodoo.")]
 		private static void OnGuslaCommand(CommandEventArgs e)
 		{
 			Mobile from = e.Mobile;
-
-			// Nowa walidacja umiejętności TasteID
-			if (from.Skills.TasteID.Value < 50.0)
-			{
-				from.SendMessage("Potrzebujesz co najmniej 50.0 w umiejętności Guślarstwa, aby użyć tej komendy.");
-				return;
-			}
-
-			from.SendMessage("Wskaż lalkę guślarza, dla której chcesz otworzyć gump.");
-			from.Target = new GuslaTarget();
+			from.SendMessage("Wskaż laleczkę guślarza, dla której chcesz otworzyć gump.");
+			from.Target = new GuslaDollTarget();
 		}
 
-		private class GuslaTarget : Target
+		private class GuslaDollTarget : Target
 		{
-			public GuslaTarget() : base(1, false, TargetFlags.None)
+			public GuslaDollTarget() : base(12, false, TargetFlags.None)
 			{
 			}
 
 			protected override void OnTarget(Mobile from, object targeted)
 			{
-				if (targeted is VoodooDoll doll)
+				if (targeted is VoodooDoll doll && !doll.Deleted)
 				{
-					// Otwieramy gump
-					from.SendGump(new VoodooSpellGump(from, doll));
+					// must be animated at least once
+					if (doll.Animated < 1)
+					{
+						from.SendMessage("Ta laleczka nie jest ożywiona - potrzebujesz mikstury animacji.");
+						return;
+					}
+
+					// if no active link yet, we still open the gump so they can cast “Link”
+					from.SendGump(new VoodooSpellGump(doll, from));
 				}
 				else
 				{
-					from.SendMessage("To nie jest lalka voodoo.");
+					from.SendMessage("To nie jest laleczka guślarza.");
 				}
 			}
 		}

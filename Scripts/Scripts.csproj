@@ -32,4 +32,8 @@
       <ProjectReference Include="..\Server\Server.csproj" />
       <ProjectReference Include="..\Settings\Settings.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Nelderim\Engines\Voodoo Dolls_v1\VoodooTests.cs" />
+  </ItemGroup>
 </Project>

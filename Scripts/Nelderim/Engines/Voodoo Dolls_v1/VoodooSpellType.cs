@@ -4,6 +4,7 @@ namespace Server.Items
     {
         Stab = 1,
         Curse,
-        Disease
+        Disease,
+        Link
     }
 }

@@ -1,0 +1,35 @@
+{
+  "PinEffects": [
+    {
+      "Effect": "Stab",
+      "DisplayName": "Ukłucie",
+      "BaseDamage": 2,
+      "DurationSeconds": {
+        "MinSkill": 50,
+        "MaxSkill": 100,
+        "MaxDuration": 30
+      }
+    },
+    {
+      "Effect": "Curse",
+      "DisplayName": "Klątwa",
+      "ParticleEffect": 0x375A,
+      "Sound": 0x204,
+      "DurationSeconds": {
+        "MinSkill": 50,
+        "MaxSkill": 100,
+        "MaxDuration": 30
+      }
+    },
+    {
+      "Effect": "Disease",
+      "DisplayName": "Przeniesienie choroby"
+    }
+  ],
+  "Spells": [
+    "Stab",
+    "Curse",
+    "Disease",
+    "Link"
+  ]
+}
