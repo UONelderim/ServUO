@@ -208,7 +208,7 @@ namespace Server.Mobiles
                 return false;
             }
 
-            if ((from.Kills >= 5 || from.Criminal) && !Smuggler)
+            if ((from.Murderer || from.Criminal) && !Smuggler) // TODO: uzyc funkcji z Notoriety, ktora sprawdza kaptur
 	        {
 		        if(verbose)
 					Yell(00505127); // Takich jak ty tu nie obslugujemy!
