@@ -557,7 +557,7 @@ namespace Server.Engines.Craft
         public static class VoodooUtils
         {
 	        /// <summary>
-	        /// Czy przedmiot jest źródłem ciepła (palenisko, kociołek itd.).
+	        /// Czy przedmiot jest źródłem ciepła (palenisko, kociołek itd.). 
 	        /// </summary>
 	        public static bool IsHeatSource(Item item)
 	        {
@@ -565,7 +565,8 @@ namespace Server.Engines.Craft
 		               || item is Brazier
 		               || item is StoneOvenSouthAddon
 		               || item is Kindling
-		               || item is Cauldron; //TODO: add more ?
+		               || item is CauldronOfTransmutation
+		               || item is Cauldron; 
 	        }
         }
 
