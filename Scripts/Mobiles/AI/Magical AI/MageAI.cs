@@ -522,17 +522,13 @@ namespace Server.Mobiles
 
         public virtual Spell DoDispel(Mobile toDispel)
         {
-            if (!SmartAI)
+	        Spell spell = null;
+            if (SmartAI)
             {
-                if (CheckCanCastMagery(6) && ScaleByCastSkill(DispelChance) > Utility.RandomDouble())
-                    return new DispelSpell(m_Mobile, null);
-
-                return null;
+	            spell = CheckCastHealingSpell();
             }
 
-            Spell spell = CheckCastHealingSpell();
-
-            if (spell == null && CheckCanCastMagery(6))
+            if (spell == null && CheckCanCastMagery(6) && ScaleByCastSkill(DispelChance) > Utility.RandomDouble())
             {
                 spell = new DispelSpell(m_Mobile, null);
             }
