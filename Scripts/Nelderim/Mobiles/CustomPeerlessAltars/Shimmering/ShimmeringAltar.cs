@@ -20,8 +20,8 @@ namespace Server.Items
         public Shimmeringltar() : base(0x207C)
         {
 	        
-	        BossLocation = new Point3D(6687, 310, -1);
-	        TeleportDest = new Point3D(6687, 290, -1);
+	        BossLocation = new Point3D(6708, 138, -1);
+	        TeleportDest = new Point3D(6707, 120, -1);
 	        ExitDest = new Point3D(3384, 1955, 0);
 
             Name = "Oltarz Lsniacego Wysieku";
@@ -32,7 +32,7 @@ namespace Server.Items
 
         private readonly Rectangle2D[] m_Bounds = new Rectangle2D[]
         {
-	        new Rectangle2D(6671, 287, 45, 35),
+	        new Rectangle2D(6692, 116, 45, 35),
         };
 
         public Shimmeringltar(Serial serial) : base(serial)

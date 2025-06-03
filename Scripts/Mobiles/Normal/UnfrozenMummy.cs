@@ -54,7 +54,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.Parrot);
             AddLoot(LootPack.HighScrolls, 2);
             AddLoot(LootPack.MedScrolls);
-            AddLoot(LootPack.LootItem<BrokenCrystals>(60.0));
+            AddLoot(LootPack.LootItem<BrokenCrystals>(80.0));
             AddLoot(LootPack.Parrot);
             AddLoot(LootPack.ArcanistScrolls, 0, 2);
         }

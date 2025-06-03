@@ -56,7 +56,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.HighScrolls, 2);
             AddLoot(LootPack.ArcanistScrolls, 0, 2);
             AddLoot(LootPack.LootItem<CrystallineFragments>(75.0));
-            AddLoot(LootPack.LootItem<PiecesOfCrystal>(7.0));
+            AddLoot(LootPack.LootItem<PiecesOfCrystal>(80.0));
         }
 
         public override void OnGaveMeleeAttack(Mobile defender)

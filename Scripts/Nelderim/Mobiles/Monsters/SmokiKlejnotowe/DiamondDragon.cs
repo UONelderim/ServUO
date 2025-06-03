@@ -71,7 +71,7 @@ namespace Server.Mobiles
 		public override void GenerateLoot()
 		{
 			AddLoot( LootPack.FilthyRich, 5 );
-			AddLoot(LootPack.LootItem<CrushedCrystals>(30.0));
+			AddLoot(LootPack.LootItem<CrushedCrystals>(80.0));
 		}
 		
 		
