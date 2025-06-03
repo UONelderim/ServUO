@@ -366,7 +366,7 @@ namespace Server.Mobiles
 	        
 	        if (!e.Handled && e.Mobile.InRange(vendor, 12))
             {
-                if (e.Mobile.Map.Rules != MapRules.FeluccaRules && !vendor.CheckVendorAccess(e.Mobile))
+                if (e.Mobile.Map.Rules != MapRules.FeluccaRules && !vendor.CheckVendorAccess(e.Mobile, true))
                 {
                     return;
                 }
@@ -516,15 +516,17 @@ namespace Server.Mobiles
         {
             if (from.Alive)
             {
+                bool enabled = CheckVendorAccess(from);
+
                 OpenBankEntry entry = new OpenBankEntry(this)
                 {
-                    Enabled = from.Map.Rules == MapRules.FeluccaRules || CheckVendorAccess(from)
+                    Enabled = enabled
                 };
                 
                 if (InsuranceEnabled && from is PlayerMobile pm)
                 {
-	                list.Add(new PlayerMobile.CallbackEntry(1114299, pm.OpenItemInsuranceMenu));
-	                list.Add(new PlayerMobile.CallbackEntry(6201, pm.ToggleItemInsurance));
+	                list.Add(new PlayerMobile.CallbackEntry(1114299, pm.OpenItemInsuranceMenu) { Enabled = enabled });
+	                list.Add(new PlayerMobile.CallbackEntry(6201, pm.ToggleItemInsurance) { Enabled = enabled });
                 }
 
                 list.Add(entry);

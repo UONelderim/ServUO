@@ -1086,6 +1086,11 @@ namespace Server.Mobiles
 
 		public override bool OnDragDrop(Mobile from, Item dropped)
 		{
+			if (!CheckVendorAccess(from, true))
+			{
+				return false;
+			}
+
 			#region Honesty Item Check
 			var honestySocket = dropped.GetSocket<HonestyItemSocket>();
 

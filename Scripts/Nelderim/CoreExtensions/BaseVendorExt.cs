@@ -65,13 +65,15 @@ namespace Server.Mobiles
 			set => TownsVendor.Get(this).TradesWithCriminals = value;
 		}
 
-		// blokada nietolerancji
+        [CommandProperty(AccessLevel.GameMaster)]
+        public virtual bool RequiresCustomerIdentity => !Smuggler; // domyslnie tylko szmugler obsluzy kapturnika
 
-		[CommandProperty(AccessLevel.GameMaster)]
-		public bool Blocked { get; set; }
-		
-		//Plotki
-		public virtual void SayRumor( Mobile from, SpeechEventArgs e )
+        // blokada nietolerancji
+        [CommandProperty(AccessLevel.GameMaster)]
+        public bool Blocked { get; set; }
+
+        //Plotki
+        public virtual void SayRumor( Mobile from, SpeechEventArgs e )
         {
             try
             {
@@ -197,8 +199,16 @@ namespace Server.Mobiles
 			        return false;
 		        }
 	        }
-	        
-	        if ((from.Kills >= 5 || from.Criminal) && !Smuggler)
+
+            if (RequiresCustomerIdentity && pm.IdentityHidden) // kaptur sprawia ze npc nie obsluguje postaci
+            {
+                if (verbose)
+                    Say("Nie obsluguje kogos, jesli nie moge spojrzec na jego twarz!");
+
+                return false;
+            }
+
+            if ((from.Murderer || from.Criminal) && !Smuggler) // TODO: uzyc funkcji z Notoriety, ktora sprawdza kaptur
 	        {
 		        if(verbose)
 					Yell(00505127); // Takich jak ty tu nie obslugujemy!

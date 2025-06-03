@@ -353,8 +353,13 @@ namespace Server.Misc
                 }
             }
 
-            if (!target.IdentityHidden && target.Murderer)
-                return Notoriety.Murderer;
+            if (target.Murderer)
+            {
+                if (!(Mobile.HiddenIdentityCoversRedStatus && target.IdentityHidden))
+                {
+                    return Notoriety.Murderer;
+                }
+            }
 
             if (target.Body.IsMonster && IsSummoned(bc))
             {

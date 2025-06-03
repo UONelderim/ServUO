@@ -129,8 +129,10 @@ namespace Server.Nelderim
 		{
 			if(source == null || target == null || !source.InLOS(target))
 				return false;
-			if (target.IdentityHidden)
-				return true;
+			if (Mobile.HiddenIdentityProtectsFromIntolerance && target.IdentityHidden)
+			{
+				return false;
+			}
 			try
 			{
 				var intolerance = GetRegion(source.Region.Name).GetIntolerance(target.Race);

@@ -19,10 +19,13 @@ namespace Server
 				InvalidateProperties();
 			}
 		}
-		
+
 		[CommandProperty(AccessLevel.GameMaster)]
 		public bool IdentityHidden { get; set; }
-		
+
+		public static bool HiddenIdentityCoversRedStatus => false;
+		public static bool HiddenIdentityProtectsFromIntolerance => false;
+
 		public virtual bool NTryGetName(Mobile witness, out string name)
 		{
 			if (NConfig.NameSystemEnabled && !UseRealName(witness))
