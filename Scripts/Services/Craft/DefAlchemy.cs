@@ -168,7 +168,7 @@ namespace Server.Engines.Craft
             AddRes(index, typeof(Bottle), 1044529, 1, 500315);
             AddByproduct(index, typeof(Bottle), 10);
             
-            index = AddCraft(typeof(AnimatedVDoll), 1116349, "mikstura animowania" , 70.0, 100.0, typeof(PlonLysiczka), "Swieza lysiczka", 1, 3060326);
+            index = AddCraft(typeof(AnimatedVDoll), 1116349, "mikstura animowania" , 70.0, 100.0, typeof(PlonLysiczka), "Swieza lysiczka", 2, 3060326);
             AddRes(index, typeof(Bottle), 1044529, 1, 500315);
             
             /*index = AddCraft(typeof(InvisibilityPotion), 1116349, 1074860, 65.0, 115.0, typeof(Bottle), 1044529, 1, 500315);
