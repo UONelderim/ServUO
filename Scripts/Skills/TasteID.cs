@@ -49,7 +49,7 @@ namespace Server.SkillHandlers
 				}
 				else
 				{
-					from.SendMessage("To nie jest szpilka ani laleczka.");
+					from.SendMessage("To nie jest szpilka ani laleczka. Spróbuj z czymś innym");
 				}
 			}
 
