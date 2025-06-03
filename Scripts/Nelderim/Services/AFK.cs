@@ -18,7 +18,8 @@ namespace Server.Commands
             {
                 EventSink.Speech += e => UpdateActivity(e.Mobile);
                 EventSink.CraftSuccess += e => UpdateActivity(e.Crafter);
-                EventSink.Login += e => UpdateActivity(e.Mobile);;
+                EventSink.SpellCast += e => UpdateActivity(e.Caster);
+                EventSink.Login += e => UpdateActivity(e.Mobile);
                 EventSink.Logout += OnLogout;
                 
                 new AfkTimer().Start();
@@ -52,7 +53,7 @@ namespace Server.Commands
         private static bool InternalIsIdle(PlayerMobile pm, long durationThreshold) {
 	        var idleThreshold = Core.TickCount - durationThreshold;
 	        var hasActivity = PlayerActivity.TryGetValue(pm, out var lastActivity);
-	        return hasActivity && lastActivity < idleThreshold && pm.LastMoveTime < idleThreshold && pm.NextActionTime < idleThreshold;
+	        return hasActivity && lastActivity < idleThreshold && pm.LastMoveTime < idleThreshold && pm.NextActionTime < idleThreshold && pm.NextSkillTime < idleThreshold;
         }
 
         private class AfkTimer() : Timer(TimeSpan.FromMilliseconds(IdleThreshold), TimerInterval)
