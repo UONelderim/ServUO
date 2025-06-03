@@ -351,7 +351,7 @@ namespace Server.Engines.Craft
             AddRes(index, typeof(Board), "deski", 10, 1044351);
             
             //Voodoo Pins
-            AddCraft(typeof(VoodooPin), 1044046, "Szpilka guslarza", 30.0, 80.0, typeof(IronIngot), 1044036, 1, 1044037);
+            AddCraft(typeof(VoodooPin), 1044046, "Szpilka guslarza", 30.0, 80.0, typeof(IronIngot), 1044036, 2, 1044037);
             #endregion
 
             #region Parts
