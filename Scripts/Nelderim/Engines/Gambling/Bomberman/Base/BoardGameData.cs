@@ -212,6 +212,7 @@ namespace Solaris.BoardGames
             writer.Write(GameData.Count);     // how many games
             foreach (var data in GameData)
 	            data.Serialize(writer);
+            writer.Close();
         }
 
         /// <summary>
