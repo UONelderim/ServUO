@@ -1,7 +1,10 @@
+using Server.Items;
+
 namespace Server.Mobiles
 {
     [CorpseName("resztki ghula")]
-    public class Ghoul : BaseCreature
+    public class Ghoul : BaseCreature, GhoulCrystal.INecroPet
+
     {
         [Constructable]
         public Ghoul()
