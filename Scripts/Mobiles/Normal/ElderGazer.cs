@@ -50,11 +50,6 @@ namespace Server.Mobiles
         public override void GenerateLoot()
         { 
             AddLoot(LootPack.FilthyRich);
-
-            if (IsInAnyRegion("LoenTorech"))
-            {
-	            AddLoot(LootPack.LootItem<OdnogaStaregoGazera>(30.0));
-            }
         }
 
         public override void Serialize(GenericWriter writer)
