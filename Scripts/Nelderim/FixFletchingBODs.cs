@@ -1,25 +1,41 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Server.Commands;
 using Server.Engines.BulkOrders;
+using Server.Mobiles;
 
 namespace Server.Nelderim
 {
-	public class FixFletchingBODs
+	public class FixBODs
 	{
-		public static Type[] FletchingBODTypes = SmallBulkEntry.FletchingSmalls
+		private static Type[] FletchingBODTypes = SmallBulkEntry.FletchingSmalls
 			.Concat(SmallBulkEntry.FletchingSmallsRegular).Select(x => x.Type).ToArray();
+
+		private static Dictionary<int, Type> typeFixTable = new()
+		{
+			{ 1028877, typeof(NSkeletalDragon) },
+			{ 1028889, typeof(WladcaPiaskow) }
+		};
 		
 		public static void Initialize()
 		{
 			CommandSystem.Register("checkfletchingbods", AccessLevel.GameMaster, OnCommand);
 		}
 
-		public static void FixType(BOBLargeEntry entry, ref BODType type)
+		public static void FixBodType(BOBLargeEntry entry, ref BODType type)
 		{
 			if(FletchingBODTypes.Contains(entry.Entries[0].ItemType))
 			{
 				type = BODType.Fletching;
+			}
+		}
+
+		public static void FixType(int number, ref Type type)
+		{
+			if (typeFixTable.TryGetValue(number, out var fixType))
+			{
+				type = fixType;
 			}
 		}
 

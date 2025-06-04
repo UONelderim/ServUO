@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Server.Nelderim;
 
 namespace Server.Engines.BulkOrders
 {
@@ -145,10 +146,20 @@ namespace Server.Engines.BulkOrders
 
             if (type != null)
                 realType = ScriptCompiler.FindTypeByFullName(type);
-            if (realType == null)
-	            Console.WriteLine("Warning: LargeBOD {0} has invalid type {1}", owner.Serial, type);
 
             m_Details = new SmallBulkEntry(realType, reader.ReadInt(), reader.ReadInt(), version == 0 ? 0 : reader.ReadInt());
+
+            if (realType == null)
+            {
+	            Type newType = null;
+	            FixBODs.FixType(m_Details.Number, ref newType);
+	            if (newType != null)
+	            {
+		            m_Details = new SmallBulkEntry(newType, m_Details.Number, m_Details.Graphic, m_Details.Hue);
+	            }
+            }
+            if (realType == null)
+	            Console.WriteLine($"Warning: LargeBulkEntry {m_Details.Number} has invalid type {type}");
         }
 
         public void Serialize(GenericWriter writer)

@@ -1,4 +1,5 @@
 using System;
+using Server.Nelderim;
 
 namespace Server.Engines.BulkOrders
 {
@@ -36,12 +37,15 @@ namespace Server.Engines.BulkOrders
 
                         if (type != null)
                             m_ItemType = ScriptCompiler.FindTypeByFullName(type);
-                        if(m_ItemType == null)
-							Console.WriteLine("Warning: BOBLargeSubEntry has invalid type {0}", type);
 
                         m_AmountCur = reader.ReadEncodedInt();
                         m_Number = reader.ReadEncodedInt();
                         m_Graphic = reader.ReadEncodedInt();
+                        
+                        if (m_ItemType == null)
+	                        FixBODs.FixType(m_Number, ref m_ItemType);
+                        if (m_ItemType == null)
+	                        Console.WriteLine($"Warning: BOBLargeSubEntry {m_Number} has invalid type {type}");
 
                         break;
                     }

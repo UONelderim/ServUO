@@ -59,7 +59,7 @@ namespace Server.Engines.BulkOrders
 
                         for (int i = 0; i < m_Entries.Length; ++i)
                             m_Entries[i] = new BOBLargeSubEntry(reader);
-                        FixFletchingBODs.FixType(this, ref m_DeedType);
+                        FixBODs.FixBodType(this, ref m_DeedType);
 
                         break;
                     }

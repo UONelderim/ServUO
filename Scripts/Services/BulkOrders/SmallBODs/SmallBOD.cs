@@ -2,6 +2,7 @@ using Server.Items;
 using Server.Mobiles;
 using System;
 using System.Collections.Generic;
+using Server.Nelderim;
 
 namespace Server.Engines.BulkOrders
 {
@@ -466,13 +467,16 @@ namespace Server.Engines.BulkOrders
 
                         if (type != null)
                             m_Type = ScriptCompiler.FindTypeByFullName(type);
-                        if (m_Type == null)
-	                        Console.WriteLine("Warning: SmallBOD {0} has invalid type {1}", Serial, type);
 
                         m_Number = reader.ReadInt();
                         m_Graphic = reader.ReadInt();
                         m_RequireExceptional = reader.ReadBool();
                         m_Material = (BulkMaterialType)reader.ReadInt();
+                        
+                        if (m_Type == null)
+	                        FixBODs.FixType(m_Number, ref m_Type);
+                        if (m_Type == null)
+	                        Console.WriteLine($"Warning: SmallBOD {Serial} {m_Number} has invalid type {type}");
 
                         break;
                     }

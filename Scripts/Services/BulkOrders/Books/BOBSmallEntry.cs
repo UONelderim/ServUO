@@ -1,5 +1,6 @@
 using Server.Items;
 using System;
+using Server.Nelderim;
 
 namespace Server.Engines.BulkOrders
 {
@@ -60,8 +61,6 @@ namespace Server.Engines.BulkOrders
 
                         if (type != null)
                             m_ItemType = ScriptCompiler.FindTypeByFullName(type);
-                        if(m_ItemType == null)
-							Console.WriteLine("Warning: BOBSmallEntry has invalid type {0}", type);
 
                         m_RequireExceptional = reader.ReadBool();
 
@@ -73,6 +72,11 @@ namespace Server.Engines.BulkOrders
                         m_Number = reader.ReadEncodedInt();
                         m_Graphic = reader.ReadEncodedInt();
                         m_Price = reader.ReadEncodedInt();
+
+                        if (m_ItemType == null)
+	                        FixBODs.FixType(m_Number, ref m_ItemType);
+                        if (m_ItemType == null)
+	                        Console.WriteLine($"Warning: BOBSmallEntry {m_Number} has invalid type {type}");
 
                         break;
                     }
