@@ -11,9 +11,23 @@ namespace Server.Items
 
         public override Type[] Keys => new Type[]
         {
-	        typeof( KielBiesa ), typeof( PalecLicza ), typeof( PrzekletaKosc ) 
+	        typeof( PieczecSarag1 ), typeof( PieczecSarag2 ), typeof( PieczecSarag3 ) 
 };
+        public override string[] _Regions => new[]
+        {
+	        "HallTorech_LVL1_Entrance",
+	        "HallTorech_LVL1_VeryEasy",
+	        "HallTorech_LVL1_Easy",
+	        "HallTorech_LVL1_Medium",
+	        "HallTorech_LVL1_Difficult",
+	        "HallTorech_LVL2_Entrance",
+	        "HallTorech_LVL2_VeryEasy",
+	        "HallTorech_LVL2_Easy",
+	        "HallTorech_LVL2_Medium",
+	        "HallTorech_LVL2_Difficult"
+        };
 
+        public override double _KeyDropChance => 0.10;
         public override BasePeerless Boss => new NSarag();
 
         [Constructable]
