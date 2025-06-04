@@ -10,9 +10,26 @@ namespace Server.Items
 
         public override Type[] Keys => new Type[]
         {
-	        typeof( OdnogaStaregoGazera ), typeof( PowiekaGazera ), typeof( KolecZukaRunicznego ) 
+	        typeof( PieczecAncientRuneBeetle1 ), typeof( PieczecAncientRuneBeetle2 ), typeof( PieczecAncientRuneBeetle3 ) 
 };
+        public override string[] _Regions => new[]
+        {
+	        "LoenTorech_LVL1_Entrance",
+	        "LoenTorech_LVL1_VeryEasy",
+	        "LoenTorech_LVL1_Easy",
+	        "LoenTorech_LVL1_Medium",
+	        "LoenTorech_LVL1_Difficult",
+	        "LoenTorech_LVL1_VeryDifficult",
+	        "LoenTorech_LVL2_Entrance",
+	        "LoenTorech_LVL2_VeryEasy",
+	        "LoenTorech_LVL2_Easy",
+	        "LoenTorech_LVL2_Medium",
+	        "LoenTorech_LVL2_Difficult",
+	        "LoenTorech_LVL2_VeryDifficult",
+	        "LoenTorech_LVL2_Boss"
+        };
 
+        public override double _KeyDropChance => 0.10;
         public override BasePeerless Boss => new AncientRuneBeetle();
 
         [Constructable]
