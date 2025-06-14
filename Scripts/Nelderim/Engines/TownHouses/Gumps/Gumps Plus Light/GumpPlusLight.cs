@@ -79,7 +79,7 @@ namespace Knives.TownHouses
 			do
 			{
 				random = Utility.Random(100000);
-			} while (_Buttons[random] != null);
+			} while (_Buttons.ContainsKey(random));
 
 			return random;
 		}
@@ -91,7 +91,7 @@ namespace Knives.TownHouses
 			do
 			{
 				random = Utility.Random(100000);
-			} while (_Buttons[random] != null);
+			} while (_TextFields.ContainsKey(random));
 
 			return random;
 		}
@@ -207,10 +207,10 @@ namespace Knives.TownHouses
 
 		public string GetTextField(string name)
 		{
-			if (_TextFieldValues[name] == null)
-				return "";
+			if (_TextFieldValues.TryGetValue(name, out var value))
+				return value;
 
-			return _TextFieldValues[name];
+			return "";
 		}
 
 		public int GetTextFieldInt(string name)
@@ -240,7 +240,7 @@ namespace Knives.TownHouses
 				if (info.ButtonID == 0)
 					OnClose();
 
-				if (_Buttons[info.ButtonID] == null || !(_Buttons[info.ButtonID] is ButtonPlus))
+				if (_Buttons.TryGetValue(info.ButtonID, out var button) && button is not ButtonPlus)
 					return;
 
 				name = (_Buttons[info.ButtonID]).Name;
