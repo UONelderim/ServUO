@@ -52,7 +52,7 @@ namespace Server
             {
                 if (title != null)
                 {
-                    var matches = EnhancementList[m].Where(attrs => attrs.Title == title);
+                    var matches = EnhancementList[m].Where(attrs => attrs.Title == title).ToArray();
 
                     foreach (var match in matches)
                     {
