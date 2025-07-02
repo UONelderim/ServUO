@@ -225,10 +225,17 @@ namespace Server.Items
 			DistributeArtifact(GetEligible(creature), artifact);
 		}
 
-		private static Mobile DistributeArtifact(List<Mobile> among, Item artifct)
+		private static Mobile DistributeArtifact(List<Mobile> among, Item artifact)
 		{
+			if (among == null || among.Count == 0 || artifact == null)
+				return null;
+
 			Mobile winner = Utility.RandomList(among);
-			GiveArtifact(winner, artifct);
+    
+			if (winner != null)
+			{
+				GiveArtifact(winner, artifact);
+			}
 
 			return winner;
 		}
@@ -283,6 +290,7 @@ namespace Server.Items
 			return result;
 		}
 
+
 		public static void GiveArtifact(Mobile m, Item artifact)
 		{
 			if (m == null || artifact == null)
@@ -300,11 +308,14 @@ namespace Server.Items
 				durable.HitPoints = 255;
 			}
 
+			// Send all notifications and effects
 			m.SendLocalizedMessage(1062317); // W nagrode za pokonanie bestii otrzymujesz artefakt!
-			m.Emote("Postac zdobyla artefakt!");
+			m.Emote("*Postac zdobyla artefakt!*"); // Added asterisks to make emote more visible
 			m.PlaySound(0x1F7);
+    
+			// Particle effects
 			m.FixedParticles(0x373A, 1, 15, 9913, 67, 7, EffectLayer.Head);
-
+    
 			var pack = m.Backpack;
 			if (pack == null || !pack.TryDropItem(m, artifact, false))
 			{
@@ -316,12 +327,14 @@ namespace Server.Items
 				{
 					// Otrzymujesz artefakt, lecz nie masz miejsca w plecaku ani banku. Artefakt upada na ziemie!
 					m.SendLocalizedMessage(1072523);
-					m.Emote("Artefakt upadl na ziemie!");
+					m.Emote("*Artefakt upadl na ziemie!*");
 					artifact.MoveToWorld(m.Location, m.Map);
 				}
 			}
 
-			Effects.SendMovingParticles(m,
+			// Additional moving particles effect
+			Effects.SendMovingParticles(
+				m,
 				new Entity(Serial.Zero, new Point3D(m.X, m.Y, m.Z + 50), m.Map),
 				0xF5F,
 				1,
@@ -334,7 +347,9 @@ namespace Server.Items
 				1,
 				0,
 				EffectLayer.Head,
-				0x100);
+				0x100
+			);
+
 			Console.WriteLine($"ART: {m.Serial} {m.Name}: {artifact.GetType().Name}");
 		}
 
