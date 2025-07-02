@@ -213,7 +213,7 @@ namespace Server.Spells.Mysticism
                 caster.SendLocalizedMessage(1115273); // The enchantment on your weapon has expired.
                 caster.PlaySound(0x1E6);
 
-                Enhancement.RemoveMobile(caster);
+                Enhancement.RemoveMobile(caster, ModName);
 
                 if (weapon != null)
                 {

@@ -73,7 +73,7 @@ namespace Server.Spells.SkillMasteries
                 double skill = ((Caster.Skills[CastSkill].Value * 1.5) + Caster.Skills[DamageSkill].Value);
                 double duration = (skill + (GetMasteryLevel() * 50)) * 2;
 
-                Enhancement.SetValue(Caster, ExtendedWeaponAttribute.MysticWeapon, 25, "MysticWeapon");
+                Enhancement.SetValue(Caster, ExtendedWeaponAttribute.MysticWeapon, 25, ModName);
                 BuffInfo.AddBuff(Caster, new BuffInfo(BuffIcon.MysticWeapon, 1155899, 1156055, TimeSpan.FromSeconds(duration), Caster));
 
                 Effects.SendLocationParticles(EffectItem.Create(Caster.Location, Caster.Map, EffectItem.DefaultDuration), 0x36CB, 1, 14, 0x55C, 7, 9915, 0);
@@ -100,7 +100,7 @@ namespace Server.Spells.SkillMasteries
         {
             BuffInfo.RemoveBuff(Caster, BuffIcon.MysticWeapon);
 
-            Enhancement.RemoveMobile(Caster);
+            Enhancement.RemoveMobile(Caster, ModName);
             _Weapon.RemoveMysticMod();
 
             Caster.SendLocalizedMessage(1115273); // The enchantment on your weapon has expired.

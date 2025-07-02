@@ -52,20 +52,23 @@ namespace Server
             {
                 if (title != null)
                 {
-                    EnhancementAttributes match = EnhancementList[m].FirstOrDefault(attrs => attrs.Title == title);
+                    var matches = EnhancementList[m].Where(attrs => attrs.Title == title).ToArray();
 
-                    if (match != null && EnhancementList[m].Contains(match))
+                    foreach (var match in matches)
                     {
-                        if (match.Attributes.BonusStr > 0)
-                            m.RemoveStatMod("MagicalEnhancementStr");
+	                    if (EnhancementList[m].Contains(match))
+	                    {
+		                    if (match.Attributes.BonusStr > 0)
+			                    m.RemoveStatMod("MagicalEnhancementStr");
 
-                        if (match.Attributes.BonusDex > 0)
-                            m.RemoveStatMod("MagicalEnhancementDex");
+		                    if (match.Attributes.BonusDex > 0)
+			                    m.RemoveStatMod("MagicalEnhancementDex");
 
-                        if (match.Attributes.BonusInt > 0)
-                            m.RemoveStatMod("MagicalEnhancementInt");
+		                    if (match.Attributes.BonusInt > 0)
+			                    m.RemoveStatMod("MagicalEnhancementInt");
 
-                        EnhancementList[m].Remove(match);
+		                    EnhancementList[m].Remove(match);
+	                    }
                     }
                 }
 
