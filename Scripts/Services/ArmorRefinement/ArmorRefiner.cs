@@ -6,6 +6,9 @@ namespace Server.Mobiles
 {
     public class ArmorRefiner : BaseVendor
     {
+        // Dzięki temu mamy pewność, że zarówno przedmiot, jak i NPC używają tej samej wartości.
+        public const int InteractionRange = 12;
+
         private RefinementCraftType m_RefineType;
 
         [CommandProperty(AccessLevel.GameMaster)]
@@ -16,11 +19,13 @@ namespace Server.Mobiles
 
         public override void InitSBInfo()
         {
+  
         }
 
         [Constructable]
-        public ArmorRefiner(RefinementCraftType type) : base("- oczyszczacz zbori")
+        public ArmorRefiner(RefinementCraftType type) : base(", - Oczyszczacz Zbroi") 
         {
+
             m_RefineType = type;
 
             SetSkill(SkillName.ArmsLore, 36.0, 68.0);
@@ -43,7 +48,8 @@ namespace Server.Mobiles
 
         public override void OnDoubleClick(Mobile from)
         {
-            if (from.InRange(Location, 10))
+            // Używamy naszej nowej, stałej wartości zasięgu.
+            if (from.InRange(Location, InteractionRange))
                 from.SendGump(new RefinementHelpGump(m_RefineType));
         }
 
@@ -53,16 +59,16 @@ namespace Server.Mobiles
 
         public override void Serialize(GenericWriter writer)
         {
-            base.Serialize(writer);
-            writer.Write(0);
-            writer.Write((int)m_RefineType);
+	        base.Serialize(writer);
+	        writer.Write(0);
+	        writer.Write((int)m_RefineType);
         }
 
         public override void Deserialize(GenericReader reader)
         {
-            base.Deserialize(reader);
-            int v = reader.ReadInt();
-            m_RefineType = (RefinementCraftType)reader.ReadInt();
+	        base.Deserialize(reader);
+	        int v = reader.ReadInt();
+	        m_RefineType = (RefinementCraftType)reader.ReadInt();
         }
     }
 }

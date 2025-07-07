@@ -53875,12 +53875,12 @@
 1154005;Plastyczny stop 
 1154006;Gdzie moge znalezc surowce?
 1154007;Surowce do laczenia ze skladnikami sa dostepne u Kowali, Tkaczy i Ciesli w wiekszosci duzych miast.
-1154008;"Osiagnalbys lepsze rezultaty, gdybys cwiczyl swoje rzemioslo w ""A Stitch In Time"" znajdujacym sie w miescie Ocllo."
-1154009;"Osiagnalbys lepsze rezultaty, gdybys cwiczyl swoje rzemioslo w ""The Warrior's Supplies"" znajdujacym sie w miescie Cove."
-1154010;"Osiagnalbys lepsze rezultaty, gdybys cwiczyl swoje rzemioslo w ""From Tree to Yew"" znajdujacym sie w miescie Jhelom."
-1154011;"Osiagnalbys lepsze rezultaty, gdybys cwiczyl swoje rzemioslo w ""Adventurer's Clothing"" znajdujacym sie w miescie Trinsic."
-1154012;"Osiagnalbys lepsze rezultaty, gdybys cwiczyl swoje rzemioslo w ""The Hammer and Anvil"" znajdujacym sie w miescie Britain."
-1154013;"Osiagnalbys lepsze rezultaty, gdybys cwiczyl swoje rzemioslo w ""Bloody Thumb Woodworks"" znajdujacym sie w miescie Yew."
+1154008;Potrzebujesz pomocy oczyszczacza zbroi krawieckich. Znajdziesz go w dzielnicy rzemieslniczej Tasandory.
+1154009;Potrzebujesz pomocy oczyszczacza zbroi kowalskich. Znajdziesz go w dzielnicy rzemieslniczej Tasandory.
+1154010;Potrzebujesz pomocy oczyszczacza zbroi stolarskich. Znajdziesz go w dzielnicy rzemieslniczej Tasandory.
+1154011;Musisz znalezc oczyszczacza zbroi krawieckich. Spróbuj poszukac w dzielnicy rzemieslniczej Tasandory.
+1154012;Musisz znalezc oczyszczacza zbroi kowalskich. Spróbuj poszukac w dzielnicy rzemieslniczej Tasandory
+1154013;Musisz znalezc oczyszczacza zbroi stolarskich. Spróbuj poszukac w dzielnicy rzemieslniczej Tasandory.
 1154014;Czy na pewno chcesz Ulepszyc ten pancerz?
 1154015;\<CENTER\>Tytul Miasta\</CENTER\>
 1154016;"Jaki tytul pragniesz nadac temu obywatelowi?\<BR\>\<BR\>Uwaga: Wszystkie tytuly miejskie sa automatycznie uzupelniane o ""z (Nazwa Miasta)"", gdzie (Nazwa Miasta) jest nazwa miasta."
@@ -61090,3 +61090,4 @@
 3070074;Zaadresuj
 3070075;Nadaj przesyłkę
 3070079;klucz do jamy gorogona
+3070080;Usługi oczyszczania zbroi są dostępne tylko w miecie Tasandora.
