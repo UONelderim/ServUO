@@ -64,6 +64,14 @@ namespace Server.Engines.CannedEvil
         public string SpawnName { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
+        
+        //If we wanna cofigure SpawnMods
+        
+        [ConfigProperty("Champions.AdvancePercent")]
+        public static int AdvancePercent { get => Config.Get("Champions.AdvancePercent", 75); set => Config.Set("Champions.AdvancePercent", value); }
+
+        [ConfigProperty("Champions.SpawnRateMod")]
+        public static double SpawnRateMod { get => Config.Get("Champions.SpawnRateMod", 0.75); set => Config.Set("Champions.SpawnRateMod", value); }
         public bool ConfinedRoaming
         {
             get
@@ -543,136 +551,168 @@ namespace Server.Engines.CannedEvil
 
         private DateTime _NextGhostCheck;
 
-        public void OnSlice()
+public void OnSlice()
+{
+    if (!m_Active || Deleted)
+        return;
+
+    int currentRank = Rank;
+
+    if (m_Champion != null)
+    {
+        if (m_Champion.Deleted)
         {
-            if (!m_Active || Deleted)
-                return;
+            RegisterDamageTo(m_Champion);
 
-            int currentRank = Rank;
+            // if (m_Champion is BaseChampion)
+            //     AwardArtifact(((BaseChampion)m_Champion).GetArtifact());
 
-            if (m_Champion != null)
+            m_DamageEntries.Clear();
+
+            if (m_Altar != null)
             {
-                if (m_Champion.Deleted)
+                m_Altar.Hue = 0x455;
+
+                if (Map == Map.Felucca)
                 {
-                    RegisterDamageTo(m_Champion);
-
-                    // if (m_Champion is BaseChampion)
-                    //     AwardArtifact(((BaseChampion)m_Champion).GetArtifact());
-
-                    m_DamageEntries.Clear();
-
-                    if (m_Altar != null)
-                    {
-                        m_Altar.Hue = 0x455;
-
-                        if (Map == Map.Felucca)
-                        {
-                            new StarRoomGate(true, m_Altar.Location, m_Altar.Map);
-                        }
-                    }
-
-                    m_Champion = null;
-                    Stop();
-
-                    if (AutoRestart)
-                        BeginRestart(m_RestartDelay);
-                }
-                else if (m_Champion.Alive && m_Champion.GetDistanceToSqrt(this) > MaxStrayDistance)
-                {
-                    m_Champion.MoveToWorld(new Point3D(X, Y, Z - 15), Map);
+                    new StarRoomGate(true, m_Altar.Location, m_Altar.Map);
                 }
             }
-            else
+
+            m_Champion = null;
+            Stop();
+
+            if (AutoRestart)
+                BeginRestart(m_RestartDelay);
+        }
+        else if (m_Champion.Alive && m_Champion.GetDistanceToSqrt(this) > MaxStrayDistance)
+        {
+            m_Champion.MoveToWorld(new Point3D(X, Y, Z - 15), Map);
+        }
+    }
+    else
+    {
+        int kills = m_Kills;
+
+        for (int i = 0; i < m_Creatures.Count; ++i)
+        {
+            Mobile m = m_Creatures[i];
+
+            if (m.Deleted)
             {
-                int kills = m_Kills;
+                m_Creatures.RemoveAt(i);
+                --i;
 
-                for (int i = 0; i < m_Creatures.Count; ++i)
+                int rankOfMob = GetRankFor(m);
+                if (rankOfMob == currentRank)
                 {
-                    Mobile m = m_Creatures[i];
+                    ++m_Kills;
+                    // Accelerated kill counting for faster progression
+                    if (rankOfMob > 0)
+                        ++m_Kills; // Count higher rank mobs as 2 kills
+                }
 
-                    if (m.Deleted)
+                Mobile killer = m.FindMostRecentDamager(false);
+
+                RegisterDamageTo(m);
+
+                if (killer is BaseCreature)
+                    killer = ((BaseCreature)killer).GetMaster();
+
+                if (killer is PlayerMobile)
+                {
+                    #region Scroll of Transcendence
+                    if (Map == Map.Felucca)
                     {
-                        m_Creatures.RemoveAt(i);
-                        --i;
-
-                        int rankOfMob = GetRankFor(m);
-                        if (rankOfMob == currentRank)
-                            ++m_Kills;
-
-                        Mobile killer = m.FindMostRecentDamager(false);
-
-                        RegisterDamageTo(m);
-
-                        if (killer is BaseCreature)
-                            killer = ((BaseCreature)killer).GetMaster();
-
-                        if (killer is PlayerMobile)
+                        if (Utility.RandomDouble() < ChampionSystem.ScrollChance)
                         {
-                            #region Scroll of Transcendence
-                            if (Map == Map.Felucca)
-                            {
-                                if (Utility.RandomDouble() < ChampionSystem.ScrollChance)
-                                {
-                                    PlayerMobile pm = (PlayerMobile)killer;
+                            PlayerMobile pm = (PlayerMobile)killer;
 
-                                    if (Utility.RandomDouble() < ChampionSystem.TranscendenceChance)
-                                    {
-                                        ScrollOfTranscendence SoTF = CreateRandomSoT(true);
-                                        GiveScrollTo(pm, SoTF);
-                                    }
-                                    else
-                                    {
-                                        PowerScroll PS = PowerScroll.CreateRandomNoCraft(5, 5);
-                                        GiveScrollTo(pm, PS);
-                                    }
-                                }
+                            if (Utility.RandomDouble() < ChampionSystem.TranscendenceChance)
+                            {
+                                ScrollOfTranscendence SoTF = CreateRandomSoT(true);
+                                GiveScrollTo(pm, SoTF);
                             }
-                            #endregion
-
-                            int mobSubLevel = rankOfMob + 1;
-                            if (mobSubLevel >= 0)
+                            else
                             {
-                                bool gainedPath = false;
-
-                                int pointsToGain = mobSubLevel * 40;
-
-                                if (VirtueHelper.Award(killer, VirtueName.Valor, pointsToGain, ref gainedPath))
-                                {
-                                    if (gainedPath)
-                                        killer.SendLocalizedMessage(1054032); // You have gained a path in Valor!
-                                    else
-                                        killer.SendLocalizedMessage(1054030); // You have gained in Valor!
-                                    //No delay on Valor gains
-                                }
-
-                                PlayerMobile.ChampionTitleInfo info = ((PlayerMobile)killer).ChampionTitles;
-
-                                info.Award(m_Type, mobSubLevel);
-
-                                CityLoyalty.CityLoyaltySystem.OnSpawnCreatureKilled(m as BaseCreature, mobSubLevel);
+                                PowerScroll PS = PowerScroll.CreateRandomNoCraft(5, 5);
+                                GiveScrollTo(pm, PS);
                             }
                         }
                     }
+                    #endregion
+
+                    int mobSubLevel = rankOfMob + 1;
+                    if (mobSubLevel >= 0)
+                    {
+                        bool gainedPath = false;
+
+                        int pointsToGain = mobSubLevel * 40;
+
+                        if (VirtueHelper.Award(killer, VirtueName.Valor, pointsToGain, ref gainedPath))
+                        {
+                            if (gainedPath)
+                                killer.SendLocalizedMessage(1054032); // You have gained a path in Valor!
+                            else
+                                killer.SendLocalizedMessage(1054030); // You have gained in Valor!
+                            //No delay on Valor gains
+                        }
+
+                        PlayerMobile.ChampionTitleInfo info = ((PlayerMobile)killer).ChampionTitles;
+
+                        info.Award(m_Type, mobSubLevel);
+
+                        CityLoyalty.CityLoyaltySystem.OnSpawnCreatureKilled(m as BaseCreature, mobSubLevel);
+                    }
                 }
-
-                // Only really needed once.
-                if (m_Kills > kills)
-                    InvalidateProperties();
-
-                double n = m_Kills / (double)MaxKills;
-                int p = (int)(n * 100);
-
-                if (p >= 90)
-                    AdvanceLevel();
-                else if (p > 0)
-                    SetWhiteSkullCount(p / 20);
-
-                if (DateTime.UtcNow >= m_ExpireTime)
-                    Expire();
-
-                Respawn();
             }
         }
+
+        // Only really needed once.
+        if (m_Kills > kills)
+            InvalidateProperties();
+
+        double n = m_Kills / (double)MaxKills;
+        int p = (int)(n * 100);
+
+        // Reduced threshold for advancement from 90% to 75%
+        if (p >= 75)
+        {
+            AdvanceLevel();
+            // Reset white skull count after advancement
+            SetWhiteSkullCount(0);
+        }
+        else if (p > 0)
+        {
+            // Adjusted white skull progression
+            SetWhiteSkullCount((p + 15) / 20); // Slightly faster skull progression
+        }
+
+        if (DateTime.UtcNow >= m_ExpireTime)
+            Expire();
+
+        // Enhanced respawn logic
+        int maxSpawn = (int)(MaxKills * 0.75 * SpawnMod); // Increased from 0.5 to 0.75
+        if (Level >= 16)
+            maxSpawn = Math.Min(maxSpawn, MaxKills - m_Kills);
+
+        // Ensure minimum spawn count
+        if (maxSpawn < 5)
+            maxSpawn = 5;
+
+        // Count current rank creatures
+        int currentRankCount = 0;
+        foreach (Mobile mob in m_Creatures)
+        {
+            if (GetRankFor(mob) == currentRank)
+                currentRankCount++;
+        }
+
+        // Trigger respawn if below target count
+        if (currentRankCount < maxSpawn)
+            Respawn();
+    }
+}
 
         public void AdvanceLevel()
         {
@@ -729,73 +769,87 @@ namespace Server.Engines.CannedEvil
         }
 
         public void Respawn()
+{
+    if (!m_Active || Deleted || m_Champion != null)
+        return;
+
+    int currentLevel = Level;
+    int currentRank = Rank;
+    
+    // Increased spawn multiplier from 0.5 to 0.75 for faster progression
+    int maxSpawn = (int)(MaxKills * 0.75d * SpawnMod);
+    if (currentLevel >= 16)
+        maxSpawn = Math.Min(maxSpawn, MaxKills - m_Kills);
+    
+    // Increased minimum spawn count from 3 to 5
+    if (maxSpawn < 5)
+        maxSpawn = 5;
+
+    // Reduced spawn radius for tighter clustering
+    int spawnRadius = (int)(SpawnRadius * ChampionSystem.SpawnRadiusModForLevel(Level) * 0.8);
+    Rectangle2D spawnBounds = new Rectangle2D(
+        new Point2D(X - spawnRadius, Y - spawnRadius),
+        new Point2D(X + spawnRadius, Y + spawnRadius));
+
+    int mobCount = 0;
+    foreach (Mobile m in m_Creatures)
+    {
+        if (GetRankFor(m) == currentRank)
+            ++mobCount;
+    }
+
+    // More aggressive spawn logic
+    while (mobCount < maxSpawn) // Changed from <= to < to prevent overspawning
+    {
+        Mobile m = Spawn();
+
+        if (m == null)
+            return;
+
+        Point3D loc = GetSpawnLocation(spawnBounds, spawnRadius);
+
+        // Allow creatures to turn into Paragons at Ilshenar champions.
+        m.OnBeforeSpawn(loc, Map);
+
+        m_Creatures.Add(m);
+        m.MoveToWorld(loc, Map);
+        ++mobCount;
+
+        if (m is BaseCreature bc)
         {
-            if (!m_Active || Deleted || m_Champion != null)
-                return;
+            bc.Tamable = false;
+            bc.IsChampionSpawn = true;
 
-            int currentLevel = Level;
-            int currentRank = Rank;
-            int maxSpawn = (int)(MaxKills * 0.5d * SpawnMod);
-            if (currentLevel >= 16)
-                maxSpawn = Math.Min(maxSpawn, MaxKills - m_Kills);
-            if (maxSpawn < 3)
-                maxSpawn = 3;
-
-            int spawnRadius = (int)(SpawnRadius * ChampionSystem.SpawnRadiusModForLevel(Level));
-            Rectangle2D spawnBounds = new Rectangle2D(new Point2D(X - spawnRadius, Y - spawnRadius),
-                new Point2D(X + spawnRadius, Y + spawnRadius));
-
-            int mobCount = 0;
-            foreach (Mobile m in m_Creatures)
+            // Optimize creature roaming behavior
+            if (!m_ConfinedRoaming)
             {
-                if (GetRankFor(m) == currentRank)
-                    ++mobCount;
+                bc.Home = Location;
+                // Reduced range home for tighter clustering
+                bc.RangeHome = (int)(spawnRadius * 0.8);
+            }
+            else
+            {
+                bc.Home = bc.Location;
+
+                Point2D xWall1 = new Point2D(spawnBounds.X, bc.Y);
+                Point2D xWall2 = new Point2D(spawnBounds.X + spawnBounds.Width, bc.Y);
+                Point2D yWall1 = new Point2D(bc.X, spawnBounds.Y);
+                Point2D yWall2 = new Point2D(bc.X, spawnBounds.Y + spawnBounds.Height);
+
+                double minXDist = Math.Min(bc.GetDistanceToSqrt(xWall1), bc.GetDistanceToSqrt(xWall2));
+                double minYDist = Math.Min(bc.GetDistanceToSqrt(yWall1), bc.GetDistanceToSqrt(yWall2));
+
+                // Tighter roaming range for confined creatures
+                bc.RangeHome = (int)(Math.Min(minXDist, minYDist) * 0.8);
             }
 
-            while (mobCount <= maxSpawn)
-            {
-                Mobile m = Spawn();
-
-                if (m == null)
-                    return;
-
-                Point3D loc = GetSpawnLocation(spawnBounds, spawnRadius);
-
-                // Allow creatures to turn into Paragons at Ilshenar champions.
-                m.OnBeforeSpawn(loc, Map);
-
-                m_Creatures.Add(m);
-                m.MoveToWorld(loc, Map);
-                ++mobCount;
-
-                if (m is BaseCreature)
-                {
-                    BaseCreature bc = m as BaseCreature;
-                    bc.Tamable = false;
-                    bc.IsChampionSpawn = true;
-
-                    if (!m_ConfinedRoaming)
-                    {
-                        bc.Home = Location;
-                        bc.RangeHome = spawnRadius;
-                    }
-                    else
-                    {
-                        bc.Home = bc.Location;
-
-                        Point2D xWall1 = new Point2D(spawnBounds.X, bc.Y);
-                        Point2D xWall2 = new Point2D(spawnBounds.X + spawnBounds.Width, bc.Y);
-                        Point2D yWall1 = new Point2D(bc.X, spawnBounds.Y);
-                        Point2D yWall2 = new Point2D(bc.X, spawnBounds.Y + spawnBounds.Height);
-
-                        double minXDist = Math.Min(bc.GetDistanceToSqrt(xWall1), bc.GetDistanceToSqrt(xWall2));
-                        double minYDist = Math.Min(bc.GetDistanceToSqrt(yWall1), bc.GetDistanceToSqrt(yWall2));
-
-                        bc.RangeHome = (int)Math.Min(minXDist, minYDist);
-                    }
-                }
-            }
+            // Additional optimizations for creature behavior
+            bc.ActiveSpeed *= 0.9; // Slightly faster movement
+            bc.PassiveSpeed *= 0.9;
+            bc.ControlSlots = 0; // Ensure no taming/controlling
         }
+    }
+}
 
         public Point3D GetSpawnLocation()
         {
