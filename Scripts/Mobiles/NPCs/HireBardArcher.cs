@@ -1,12 +1,12 @@
+using System;
 using Server.Items;
 
 namespace Server.Mobiles
 {
-    public class HireBardArcher : BaseHire
+    public class HireBardArcher : BaseAdvancedHire
     {
         [Constructable]
-        public HireBardArcher()
-            : base(AIType.AI_Archer)
+        public HireBardArcher() : base(AIType.AI_Archer)
         {
             SpeechHue = Utility.RandomDyedHue();
             Hue = Race.RandomSkinHue();
@@ -19,10 +19,10 @@ namespace Server.Mobiles
                 switch (Utility.Random(2))
                 {
                     case 0:
-						SetWearable(new Skirt(), Utility.RandomDyedHue(), 1);
+                        SetWearable(new Skirt(), Utility.RandomDyedHue(), 1);
                         break;
                     case 1:
-						SetWearable(new Kilt(), Utility.RandomNeutralHue(), 1);
+                        SetWearable(new Kilt(), Utility.RandomNeutralHue(), 1);
                         break;
                 }
             }
@@ -30,9 +30,9 @@ namespace Server.Mobiles
             {
                 Body = 0x190;
                 Name = NameList.RandomName("male");
-				SetWearable(new ShortPants(), Utility.RandomNeutralHue(), 1);
+                SetWearable(new ShortPants(), Utility.RandomNeutralHue(), 1);
             }
-            Title = "- bard";
+            Title = "- bard łucznik";
             HairItemID = Race.RandomHair(Female);
             HairHue = Race.RandomHairHue();
             Race.RandomFacialHair(this);
@@ -55,17 +55,108 @@ namespace Server.Mobiles
             Fame = 100;
             Karma = 100;
 
-			SetWearable(new Shoes(), Utility.RandomNeutralHue(), 1);
+            SetWearable(new Shoes(), Utility.RandomNeutralHue(), 1);
 
             switch (Utility.Random(2))
             {
                 case 0:
-					SetWearable(new Doublet(), Utility.RandomDyedHue(), 1);
+                    SetWearable(new Doublet(), Utility.RandomDyedHue(), 1);
                     break;
                 case 1:
-					SetWearable(new Shirt(), Utility.RandomDyedHue(), 1);
+                    SetWearable(new Shirt(), Utility.RandomDyedHue(), 1);
                     break;
             }
+        }
+
+        protected override void OnLevelUp()
+        {
+            base.OnLevelUp();
+
+            // Bard Archer gets extra Dexterity and archery skills
+            RawDex += 1;
+            
+            // Improve archery and musical skills
+            SetSkill(SkillName.Archery, Skills[SkillName.Archery].Base + 1);
+            
+            if (Utility.RandomBool())
+                SetSkill(SkillName.Musicianship, Skills[SkillName.Musicianship].Base + 1);
+            else
+                SetSkill(SkillName.Peacemaking, Skills[SkillName.Peacemaking].Base + 1);
+
+            // Random chance to improve combat skills
+            if (Utility.RandomDouble() < 0.3)
+                SetSkill(SkillName.Tactics, Skills[SkillName.Tactics].Base + 1);
+        }
+
+        protected override int CalculateHourlyFee()
+        {
+            int baseFee = base.CalculateHourlyFee();
+            
+            // Bard Archers with high archery and musicianship are more valuable
+            double archeryBonus = Skills[SkillName.Archery].Base / 100.0;
+            double musicBonus = (Skills[SkillName.Musicianship].Base + Skills[SkillName.Peacemaking].Base) / 200.0;
+            
+            return (int)(baseFee * (1 + archeryBonus + musicBonus));
+        }
+
+        public override void OnThink()
+        {
+            base.OnThink();
+
+            // Occasionally play music or practice archery when idle
+            if (Utility.RandomDouble() < 0.1 && CheckCooldown("Performance"))
+            {
+                if (Utility.RandomBool())
+                    PlayRandomMusic();
+                else
+                    PracticeArchery();
+                    
+                SetCooldown("Performance", TimeSpan.FromMinutes(5));
+            }
+        }
+
+        private void PlayRandomMusic()
+        {
+            if (Happiness < 50)
+            {
+                Say("Jestem zbyt przygnębiony, by grać muzykę...");
+                return;
+            }
+
+            string[] songs = new string[]
+            {
+                "♪ Strzała świszczy w powietrzu... ♫",
+                "♫ Opowieść o łuczniku... ♪",
+                "♪ Pieśń o celnym strzale... ♫",
+                "♫ Ballada o łowach... ♪"
+            };
+
+            Say(songs[Utility.Random(songs.Length)]);
+            
+            if (Utility.RandomDouble() < 0.2)
+                Experience += 5;
+        }
+
+        private void PracticeArchery()
+        {
+            if (Happiness < 50)
+            {
+                Say("Nie mam nastroju na ćwiczenia...");
+                return;
+            }
+
+            string[] practice = new string[]
+            {
+                "* napina cięciwę *",
+                "* ćwiczy celowanie *",
+                "* sprawdza stan łuku *",
+                "* przygotowuje strzały *"
+            };
+
+            Say(practice[Utility.Random(practice.Length)]);
+            
+            if (Utility.RandomDouble() < 0.2)
+                Experience += 5;
         }
 
         public override void GenerateLoot()
@@ -77,23 +168,21 @@ namespace Server.Mobiles
             AddLoot(LootPack.LootGold(10, 50));
         }
 
-        public HireBardArcher(Serial serial)
-            : base(serial)
+        public HireBardArcher(Serial serial) : base(serial)
         {
         }
 
         public override bool ClickTitle => false;
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);// version 
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }

@@ -2,10 +2,10 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    public class HireSailor : BaseHire
+    public class HireSailor : TrainableHire
     {
         [Constructable]
-        public HireSailor()
+        public HireSailor() : base(AIType.AI_Samurai)
         {
             SpeechHue = Utility.RandomDyedHue();
             Hue = Race.RandomSkinHue();
@@ -40,7 +40,7 @@ namespace Server.Mobiles
             SetSkill(SkillName.Tactics, 65.0, 87.5);
             SetSkill(SkillName.Swords, 65.0, 87.5);
             SetSkill(SkillName.Parry, 45.0, 60.5);
-            SetSkill(SkillName.Lockpicking, 65, 87);
+            SetSkill(SkillName.Bushido, 65, 87);
             SetSkill(SkillName.Hiding, 65, 87);
             SetSkill(SkillName.Snooping, 65, 87);
             Fame = 100;

@@ -2,10 +2,10 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    public class HireThief : BaseHire
+    public class HireThief : TrainableHire
     {
         [Constructable]
-        public HireThief()
+        public HireThief() : base(AIType.AI_Ninja)
         {
             SpeechHue = Utility.RandomDyedHue();
             Hue = Race.RandomSkinHue();

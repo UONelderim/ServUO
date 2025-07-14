@@ -2,7 +2,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    public class HireRangerArcher : BaseHire
+    public class HireRangerArcher : TrainableHire
     {
         [Constructable]
         public HireRangerArcher()
