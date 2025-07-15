@@ -1,7 +1,10 @@
+using Server.Items;
+
 namespace Server.Mobiles
 {
     [CorpseName("zwloki zombie")]
-    public class Zombie : BaseCreature
+    public class Zombie : BaseCreature, ZombieCrystal.INecroPet
+
     {
         [Constructable]
         public Zombie()
