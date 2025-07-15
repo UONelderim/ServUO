@@ -84,7 +84,6 @@ namespace Server.Items
         }
         #endregion
 
-        #region Spawn Types
         private static readonly Type[][] m_SpawnTypes = new Type[][]
         {
             new Type[]{ typeof( HeadlessOne ), typeof( Skeleton ) },
@@ -97,159 +96,10 @@ namespace Server.Items
             new Type[]{ typeof( BloodElemental), typeof(ColdDrake), typeof(FrostDragon), typeof(FrostDrake), typeof(GreaterDragon), typeof(PoisonElemental)}
         };
 
-        private static readonly Type[][] m_TokunoSpawnTypes = new Type[][]
-        {
-            new Type[]{ typeof( HeadlessOne ), typeof( Skeleton ) },
-            new Type[]{ typeof( HeadlessOne ), typeof( Mongbat ), typeof( Ratman ), typeof( Skeleton), typeof( Zombie ),  },
-            new Type[]{ typeof( EarthElemental ), typeof( Gazer ), typeof( Gargoyle ), typeof( HellHound ), typeof( OrcishMage ), },
-            new Type[]{ typeof( AirElemental ), typeof( DreadSpider ), typeof( FireElemental ), typeof( Lich ), typeof( OgreLord ), },
-            new Type[]{ typeof( ElderGazer ), typeof( Daemon ), typeof( DreadSpider ), typeof( LichLord ), typeof( OgreLord ), },
-            new Type[]{ typeof( FanDancer ), typeof( RevenantLion ), typeof( Ronin ), typeof( RuneBeetle ) },
-            new Type[]{ typeof( Hiryu ), typeof( LadyOfTheSnow ), typeof( Oni ), typeof( RuneBeetle ), typeof( YomotsuWarrior ), typeof( YomotsuPriest ) },
-            new Type[]{ typeof( Yamandon ), typeof( LadyOfTheSnow ), typeof( RuneBeetle ), typeof( YomotsuPriest ) }
-        };
-
-        private static readonly Type[][] m_MalasSpawnTypes = new Type[][]
-        {
-            new Type[]{ typeof( HeadlessOne ), typeof( Skeleton ) },
-            new Type[]{ typeof( Mongbat ), typeof( Ratman ), typeof( HeadlessOne ), typeof( Skeleton ), typeof( Zombie ) },
-            new Type[]{ typeof( OrcishMage ), typeof( Gargoyle ), typeof( Gazer ), typeof( HellHound ), typeof( EarthElemental ) },
-            new Type[]{ typeof( Lich ), typeof( OgreLord ), typeof( DreadSpider ), typeof( AirElemental ), typeof( FireElemental ) },
-            new Type[]{ typeof( DreadSpider ), typeof( LichLord ), typeof( Daemon ), typeof( ElderGazer ), typeof( OgreLord ) },
-            new Type[]{ typeof( LichLord ), typeof( Ravager ), typeof( WandererOfTheVoid ), typeof( Minotaur ) },
-            new Type[]{ typeof( Devourer ), typeof( MinotaurScout ), typeof( MinotaurCaptain ), typeof( RottingCorpse ), typeof( WandererOfTheVoid ) },
-            new Type[]{ typeof( Devourer ), typeof( MinotaurGeneral ), typeof( MinotaurCaptain ), typeof( RottingCorpse ), typeof( WandererOfTheVoid ) }
-
-        };
-
-        private static readonly Type[][] m_IlshenarSpawnTypes = new Type[][]
-        {
-            new Type[]{ typeof( HeadlessOne ), typeof( Skeleton ) },
-            new Type[]{ typeof( Mongbat ), typeof( Ratman ), typeof( HeadlessOne ), typeof( Skeleton ), typeof( Zombie ) },
-            new Type[]{ typeof( OrcishMage ), typeof( Gargoyle ), typeof( Gazer ), typeof( HellHound ), typeof( EarthElemental ) },
-            new Type[]{ typeof( Lich ), typeof( OgreLord ), typeof( DreadSpider ), typeof( AirElemental ), typeof( FireElemental ) },
-            new Type[]{ typeof( DreadSpider ), typeof( LichLord ), typeof( Daemon ), typeof( ElderGazer ), typeof( OgreLord ) },
-            new Type[]{ typeof( DarkGuardian ), typeof( ExodusOverseer ), typeof( GargoyleDestroyer ), typeof( GargoyleEnforcer ), typeof( PoisonElemental ) },
-            new Type[]{ typeof( Changeling ), typeof( ExodusMinion ), typeof( GargoyleEnforcer ), typeof( GargoyleDestroyer ), typeof( Titan ) },
-            new Type[]{ typeof( RenegadeChangeling ), typeof( ExodusMinion ), typeof( GargoyleEnforcer ), typeof( GargoyleDestroyer ), typeof( Titan ) }
-        };
-
-        private static readonly Type[][] m_TerMurSpawnTypes = new Type[][]
-        {
-            new Type[]{ typeof( HeadlessOne ), typeof( Skeleton ) },
-            new Type[]{ typeof( ClockworkScorpion ), typeof( CorrosiveSlime ), typeof( GreaterMongbat ) },
-            new Type[]{ typeof( AcidSlug ), typeof( FireElemental ), typeof( WaterElemental ) },
-            new Type[]{ typeof( LeatherWolf ), typeof( StoneSlith ), typeof( ToxicSlith ) },
-            new Type[]{ typeof( BloodWorm ), typeof( Kepetch ), typeof( StoneSlith ), typeof( ToxicSlith ) },
-            new Type[]{ typeof( FireAnt ), typeof( LavaElemental ), typeof( MaddeningHorror ) },
-            new Type[]{ typeof( EnragedEarthElemental ), typeof( FireDaemon ), typeof( GreaterPoisonElemental ), typeof( LavaElemental ), typeof( DragonWolf ) },
-            new Type[]{ typeof( EnragedColossus ), typeof( EnragedEarthElemental ), typeof( FireDaemon ), typeof( GreaterPoisonElemental ), typeof( LavaElemental ) }
-        };
-
-        private static readonly Type[][] m_EodonSpawnTypes = new Type[][]
-        {
-            new Type[] { typeof(MyrmidexLarvae), typeof(SilverbackGorilla), typeof(Panther), typeof(WildTiger) },
-            new Type[] { typeof(AcidElemental), typeof(SandVortex), typeof(Lion), typeof(SabreToothedTiger) },
-            new Type[] { typeof(AcidElemental), typeof(SandVortex), typeof(Lion), typeof(SabreToothedTiger) },
-            new Type[] { typeof(Infernus), typeof(FireElemental), typeof(Dimetrosaur), typeof(Saurosaurus) },
-            new Type[] { typeof(Infernus), typeof(FireElemental), typeof(Dimetrosaur), typeof(Saurosaurus) },
-            new Type[] { typeof(KotlAutomaton), typeof(MyrmidexDrone), typeof(Allosaurus), typeof(Triceratops) },
-            new Type[] { typeof(Anchisaur), typeof(Allosaurus), typeof(SandVortex) }
-        };
-        #endregion
-
-        #region Spawn Locations
         private static readonly Rectangle2D[] m_FelTramWrap = new Rectangle2D[]
         {
             new Rectangle2D(0, 0, 5119, 4095)
         };
-
-        private static readonly Rectangle2D[] m_TokunoWrap = new Rectangle2D[]
-        {
-            new Rectangle2D(155, 207, 30, 40),
-            new Rectangle2D(280, 230, 157, 45),
-            new Rectangle2D(445, 215, 30, 35 ),
-            new Rectangle2D(447, 53, 58, 40),
-            new Rectangle2D(612, 240, 20, 17),
-            new Rectangle2D(167, 275, 53, 60),
-            new Rectangle2D(734, 407, 14, 22),
-            new Rectangle2D(753, 489, 8, 30),
-            new Rectangle2D(624, 619, 20, 24),
-            new Rectangle2D(624, 725, 8, 8),
-            new Rectangle2D(574, 734, 20, 16),
-            new Rectangle2D(431, 752, 25, 27),
-            new Rectangle2D(348, 968, 52, 135),
-            new Rectangle2D(282, 1188, 90, 100),
-            new Rectangle2D(348, 1335, 50, 50),
-
-            new Rectangle2D(228, 284, 500, 316),
-            new Rectangle2D(95, 600, 345, 243),
-            new Rectangle2D(155, 842, 146, 1358),
-            new Rectangle2D(495, 812, 435, 350),
-            new Rectangle2D(501, 1156, 100, 150),
-            new Rectangle2D(876, 1156, 90, 150),
-
-            new Rectangle2D(970, 1159, 14, 25),
-            new Rectangle2D(990, 1151, 5, 15),
-            new Rectangle2D(1004, 1120, 16, 30),
-            new Rectangle2D(1008, 1032, 12, 15),
-            new Rectangle2D(1163, 383, 20, 20),
-
-            new Rectangle2D(839, 30, 168, 120),
-            new Rectangle2D(707, 150, 307, 250),
-            new Rectangle2D(845, 397, 179, 75),
-            new Rectangle2D(1068, 382, 60, 80),
-            new Rectangle2D(787, 687, 60, 72),
-            new Rectangle2D(848, 473, 557, 655),
-        };
-
-        private static readonly Rectangle2D[] m_MalasWrap = new Rectangle2D[]
-        {
-            new Rectangle2D(611, 67, 1862, 705),
-            new Rectangle2D(1540, 852, 286, 182),
-            new Rectangle2D(602, 784, 546, 746),
-            new Rectangle2D(1160, 1035, 1299, 871)
-        };
-
-        private static readonly Rectangle2D[] m_IlshenarWrap = new Rectangle2D[]
-        {
-            new Rectangle2D(221, 314, 657, 286),
-            new Rectangle2D(530, 600, 212, 205),
-            new Rectangle2D(261, 805, 495, 655),
-            new Rectangle2D(908, 925, 90, 170),
-            new Rectangle2D(1031, 904, 730, 450),
-            new Rectangle2D(1028, 630, 318, 161),
-            new Rectangle2D(1205, 368, 265, 237),
-            new Rectangle2D(1551, 516, 200, 130),
-        };
-
-        private static readonly Rectangle2D[] m_TerMurWrap = new Rectangle2D[]
-        {
-            new Rectangle2D(535, 2895, 85, 117),
-            new Rectangle2D(525, 3085, 115, 70),
-            new Rectangle2D(755, 2860, 400, 270),
-            new Rectangle2D(1025, 3280, 190, 100 ),
-            new Rectangle2D(305, 3445, 175, 255),
-            new Rectangle2D(480, 3540, 90, 110),
-            new Rectangle2D(605, 3880, 200, 170),
-            new Rectangle2D(750, 3830, 80, 80),
-        };
-
-        private static readonly Rectangle2D[] m_EodonWrap = new Rectangle2D[]
-        {
-            new Rectangle2D(259, 1400, 354, 510),
-            new Rectangle2D(259, 1400, 354, 510),
-            new Rectangle2D(259, 1400, 354, 510),
-            new Rectangle2D(688, 1440, 46, 88),
-            new Rectangle2D(613, 1466, 65, 139),
-            new Rectangle2D(678, 1568, 43, 40),
-            new Rectangle2D(613, 1720, 91, 72),
-            new Rectangle2D(618, 1792, 44, 273),
-            new Rectangle2D(662, 1969, 84, 166),
-            new Rectangle2D(754, 1963, 100, 65),
-            new Rectangle2D(174, 1540, 85, 420),
-        };
-        #endregion
 
         private int m_Level;
         private bool m_Completed;
@@ -362,7 +212,7 @@ namespace Server.Items
                 map = GetRandomMap();
 
             Facet = map;
-            ChestLocation = GetRandomLocation(map, eodon);
+            ChestLocation = GetRandomLocation(map);
 
             Width = 300;
             Height = 300;
@@ -397,48 +247,18 @@ namespace Server.Items
 
         public Map GetRandomMap()
         {
-            switch (Utility.Random(1))
-            {
-	            
-	            
-                default:
-                case 0: return Map.Felucca;
-                /*  case 0: return Map.Trammel;
-                  case 1: return Map.Felucca;
-                  case 2:
-                  case 3: return Map.Ilshenar;
-                  case 4:
-                  case 5: return Map.Malas;
-                  case 6:
-                  case 7: return Map.Tokuno;*/
-            }
+	        return Map.Felucca;
         }
 
         public static Point2D GetRandomLocation(Map map)
-        {
-            return GetRandomLocation(map, false);
-        }
-
-        public static Point2D GetRandomLocation(Map map, bool eodon)
         {
             Rectangle2D[] recs;
 
             int x = 0;
             int y = 0;
 
-            if (/*map == Map.Trammel ||*/ map == Map.Felucca)
-                recs = m_FelTramWrap;
-            else if (map == Map.Tokuno)
-                recs = m_TokunoWrap;
-            else if (map == Map.Malas)
-                recs = m_MalasWrap;
-            else if (map == Map.Ilshenar)
-                recs = m_IlshenarWrap;
-            else if (eodon)
-                recs = m_EodonWrap;
-            else
-                recs = m_TerMurWrap;
-
+            recs = m_FelTramWrap;
+            
             while (true)
             {
                 Rectangle2D rec = recs[Utility.Random(recs.Length)];
@@ -527,21 +347,8 @@ namespace Server.Items
 
         public void GetWidthAndHeight(Map map, out int width, out int height)
         {
-            if (/*map == Map.Trammel ||*/ map == Map.Felucca)
-            {
-                width = 600;
-                height = 600;
-            }
-            if (map == Map.TerMur)
-            {
-                width = 200;
-                height = 200;
-            }
-            else
-            {
-                width = 300;
-                height = 300;
-            }
+            width = 600;
+            height = 600;
         }
 
         public void AdjustMap(Map map, out int x2, out int y2, int x1, int y1, int width, int height)
@@ -554,87 +361,11 @@ namespace Server.Items
             x2 = x1 + width;
             y2 = y1 + height;
 
-            if (/*map == Map.Trammel ||*/ map == Map.Felucca)
-            {
-                if (x2 >= 5120)
-                    x2 = 5119;
+            if (x2 >= 5120)
+                x2 = 5119;
 
-                if (y2 >= 4096)
-                    y2 = 4095;
-            }
-            else if (map == Map.Ilshenar)
-            {
-                if (x2 >= 1890)
-                    x2 = 1889;
-
-                if (x2 <= 120)
-                    x2 = 121;
-
-                if (y2 >= 1465)
-                    y2 = 1464;
-
-                if (y2 <= 105)
-                    y2 = 106;
-            }
-            else if (map == Map.Malas)
-            {
-                if (x2 >= 2522)
-                    x2 = 2521;
-
-                if (x2 <= 515)
-                    x2 = 516;
-
-                if (y2 >= 1990)
-                    y2 = 1989;
-
-                if (y2 <= 0)
-                    y2 = 1;
-            }
-            else if (map == Map.Tokuno)
-            {
-                if (x2 >= 1428)
-                    x2 = 1427;
-
-                if (x2 <= 0)
-                    x2 = 1;
-
-                if (y2 >= 1420)
-                    y2 = 1419;
-
-                if (y2 <= 0)
-                    y2 = 1;
-            }
-            else if (map == Map.TerMur)
-            {
-                if (eodon)
-                {
-                    if (x2 <= 62)
-                        x2 = 63;
-
-                    if (x2 >= 960)
-                        x2 = 959;
-
-                    if (y2 <= 1343)
-                        y2 = 1344;
-
-                    if (y2 >= 2240)
-                        y2 = 2239;
-                }
-                else
-                {
-                    if (x2 >= 1271)
-                        x2 = 1270;
-
-                    if (x2 <= 260)
-                        x2 = 261;
-
-                    if (y2 >= 4094)
-                        y2 = 4083;
-
-                    if (y2 <= 2760)
-                        y2 = 2761;
-                }
-            }
+            if (y2 >= 4096)
+                y2 = 4095;
         }
 
         public virtual void OnMapComplete(Mobile from, TreasureMapChest chest)
@@ -657,25 +388,7 @@ namespace Server.Items
         {
             Type[][] spawns;
 
-            if (/*map == Map.Trammel ||*/ map == Map.Felucca)
-                spawns = m_SpawnTypes;
-            else if (map == Map.Tokuno)
-                spawns = m_TokunoSpawnTypes;
-            else if (map == Map.Ilshenar)
-                spawns = m_IlshenarSpawnTypes;
-            else if (map == Map.Malas)
-                spawns = m_MalasSpawnTypes;
-            else
-            {
-                if (SpellHelper.IsEodon(map, p))
-                {
-                    spawns = m_EodonSpawnTypes;
-                }
-                else
-                {
-                    spawns = m_TerMurSpawnTypes;
-                }
-            }
+            spawns = m_SpawnTypes;
 
             if (level >= 0 && level < spawns.Length)
             {
@@ -984,13 +697,7 @@ namespace Server.Items
 
             switch (facet)
             {
-                //case TreasureFacet.Trammel: list.Add(1041503); break;
                 case TreasureFacet.Felucca: list.Add(1041502); break;
-              /*  case TreasureFacet.Ilshenar: list.Add(1060850); break;
-                case TreasureFacet.Malas: list.Add(1060851); break;
-                case TreasureFacet.Tokuno: list.Add(1115645); break;
-                case TreasureFacet.TerMur: list.Add(1115646); break;
-                case TreasureFacet.Eodon: list.Add(1158985); break;*/
             }
 
             if (m_Completed)

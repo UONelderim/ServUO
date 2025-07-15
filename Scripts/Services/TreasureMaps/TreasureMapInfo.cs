@@ -2,7 +2,6 @@ using Server.Engines.Craft;
 using Server.Engines.PartySystem;
 using Server.Mobiles;
 using Server.SkillHandlers;
-using Server.Spells;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,11 +69,6 @@ namespace Server.Items
             }
         }
 
-        public static TreasureFacet GetFacet(IEntity e)
-        {
-            return GetFacet(e.Location, e.Map);
-        }
-
         public static int PackageLocalization(TreasurePackage package)
         {
             switch (package)
@@ -91,44 +85,14 @@ namespace Server.Items
 
         public static TreasureFacet GetFacet(IPoint2D p, Map map)
         {
-            if (map == Map.TerMur)
-            {
-                if (SpellHelper.IsEodon(map, new Point3D(p.X, p.Y, 0)))
-                {
-                    return TreasureFacet.Felucca;
-                }
-
-                return TreasureFacet.Felucca;
-            }
-
-            if (map == Map.Felucca)
-            {
-                return TreasureFacet.Felucca;
-            }
-
-            if (map == Map.Malas)
-            {
-                return TreasureFacet.Felucca;
-            }
-
-            if (map == Map.Ilshenar)
-            {
-                return TreasureFacet.Felucca;
-            }
-
-            if (map == Map.Tokuno)
-            {
-	            return TreasureFacet.Felucca;
-            }
-
             return TreasureFacet.Felucca;
         }
 
-        public static IEnumerable<Type> GetRandomEquipment(TreasureLevel level, TreasurePackage package, TreasureFacet facet, int amount)
+        public static IEnumerable<Type> GetRandomEquipment(TreasureLevel level, TreasurePackage package, int amount)
         {
-            Type[] weapons = GetWeaponList(level, package, facet);
-            Type[] armor = GetArmorList(level, package, facet);
-            Type[] jewels = GetJewelList(level, package, facet);
+            Type[] weapons = GetWeaponList(level, package);
+            Type[] armor = GetArmorList(level, package);
+            Type[] jewels = GetJewelList(level, package);
             Type[] list;
 
             for (int i = 0; i < amount; i++)
@@ -147,64 +111,19 @@ namespace Server.Items
             }
         }
 
-        public static Type[] GetWeaponList(TreasureLevel level, TreasurePackage package, TreasureFacet facet)
+        public static Type[] GetWeaponList(TreasureLevel level, TreasurePackage package)
         {
-            Type[] list = null;
-
-            switch (facet)
-            {
-                case TreasureFacet.Trammel:
-                case TreasureFacet.Felucca: list = _WeaponTable[(int)package][0]; break;
-                case TreasureFacet.Ilshenar: list = _WeaponTable[(int)package][1]; break;
-                case TreasureFacet.Malas: list = _WeaponTable[(int)package][2]; break;
-                case TreasureFacet.Tokuno: list = _WeaponTable[(int)package][3]; break;
-                case TreasureFacet.TerMur: list = _WeaponTable[(int)package][4]; break;
-                case TreasureFacet.Eodon: list = _WeaponTable[(int)package][5]; break;
-            }
-
-            // tram/fel lists are always default
-            if (list == null || list.Length == 0)
-            {
-                list = _WeaponTable[(int)package][0];
-            }
-
-            return list;
+            return _WeaponTable[(int)package];
         }
 
-        public static Type[] GetArmorList(TreasureLevel level, TreasurePackage package, TreasureFacet facet)
+        public static Type[] GetArmorList(TreasureLevel level, TreasurePackage package)
         {
-            Type[] list = null;
-
-            switch (facet)
-            {
-                case TreasureFacet.Trammel:
-                case TreasureFacet.Felucca: list = _ArmorTable[(int)package][0]; break;
-                case TreasureFacet.Ilshenar: list = _ArmorTable[(int)package][1]; break;
-                case TreasureFacet.Malas: list = _ArmorTable[(int)package][2]; break;
-                case TreasureFacet.Tokuno: list = _ArmorTable[(int)package][3]; break;
-                case TreasureFacet.TerMur: list = _ArmorTable[(int)package][4]; break;
-                case TreasureFacet.Eodon: list = _ArmorTable[(int)package][5]; break;
-            }
-
-            // tram/fel lists are always default
-            if (list == null || list.Length == 0)
-            {
-                list = _ArmorTable[(int)package][0];
-            }
-
-            return list;
+            return _ArmorTable[(int)package];
         }
 
-        public static Type[] GetJewelList(TreasureLevel level, TreasurePackage package, TreasureFacet facet)
+        public static Type[] GetJewelList(TreasureLevel level, TreasurePackage package)
         {
-            if (facet == TreasureFacet.TerMur)
-            {
-                return _JewelTable[1];
-            }
-            else
-            {
-                return _JewelTable[0];
-            }
+            return _JewelTable;
         }
 
         public static SkillName[] GetTranscendenceList(TreasureLevel level, TreasurePackage package)
@@ -250,28 +169,23 @@ namespace Server.Items
             return null;
         }
 
-        public static Type[] GetSpecialMaterials(TreasureLevel level, TreasurePackage package, TreasureFacet facet)
+        public static Type[] GetSpecialMaterials(TreasureLevel level, TreasurePackage package)
         {
             if (package == TreasurePackage.Artisan && level == TreasureLevel.Supply)
             {
-                return _SpecialMaterialTable[(int)facet];
+                return _SpecialMaterialTable;
             }
 
             return null;
         }
 
-        public static Type[] GetDecorativeList(TreasureLevel level, TreasurePackage package, TreasureFacet facet)
+        public static Type[] GetDecorativeList(TreasureLevel level, TreasurePackage package)
         {
             Type[] list = null;
 
             if (level >= TreasureLevel.Cache)
             {
                 list = _DecorativeTable[(int)package];
-
-                if (facet == TreasureFacet.Malas)
-                {
-                    list.Concat(new Type[] { typeof(CoffinPiece) });
-                }
             }
             else if (level == TreasureLevel.Supply)
             {
@@ -281,20 +195,17 @@ namespace Server.Items
             return list;
         }
 
-        public static Type[] GetReagentList(TreasureLevel level, TreasurePackage package, TreasureFacet facet)
+        public static Type[] GetReagentList(TreasureLevel level, TreasurePackage package)
         {
-            if (level != TreasureLevel.Stash || package != TreasurePackage.Mage)
+	        if (level != TreasureLevel.Stash || package != TreasurePackage.Mage)
                 return null;
 
-            switch (facet)
-            {
-                case TreasureFacet.Felucca:
-                case TreasureFacet.Trammel: return Loot.RegTypes;
-                case TreasureFacet.Malas: return Loot.NecroRegTypes;
-                case TreasureFacet.TerMur: return Loot.MysticRegTypes;
-            }
-
-            return null;
+	        return Utility.Random(3) switch
+	        {
+		        1 => Loot.NecroRegTypes,
+		        2 => Loot.MysticRegTypes,
+		        _ => Loot.RegTypes
+	        };
         }
 
         public static Recipe[] GetRecipeList(TreasureLevel level, TreasurePackage package)
@@ -448,101 +359,51 @@ namespace Server.Items
             }
         }
 
-        private static readonly Type[][][] _WeaponTable = new Type[][][]
+        private static readonly Type[][] _WeaponTable = new Type[][]
         {
-            new Type[][] // Artisan
+            new Type[] // Artisan
                 {
-                    new Type[] { typeof(HammerPick), typeof(SledgeHammerWeapon), typeof(SmithyHammer), typeof(WarAxe), typeof(WarHammer), typeof(Axe), typeof(BattleAxe), typeof(DoubleAxe), typeof(ExecutionersAxe), typeof(Hatchet), typeof(LargeBattleAxe), typeof(OrnateAxe), typeof(TwoHandedAxe), typeof(Pickaxe) }, // Trammel, Felucca
-                    null, // Ilshenar
-                    null, // Malas
-                    null, // Tokuno
-                    new Type[] { typeof(HammerPick), typeof(SledgeHammerWeapon), typeof(SmithyHammer), typeof(WarAxe), typeof(WarHammer), typeof(Axe), typeof(BattleAxe), typeof(DoubleAxe), typeof(ExecutionersAxe), typeof(Hatchet), typeof(LargeBattleAxe), typeof(OrnateAxe), typeof(TwoHandedAxe), typeof(Pickaxe), typeof(DualShortAxes) },  // TerMur
-                    new Type[] {  }  // Eodon
+                   typeof(HammerPick), typeof(SledgeHammerWeapon), typeof(SmithyHammer), typeof(WarAxe), typeof(WarHammer), typeof(Axe), typeof(BattleAxe), typeof(DoubleAxe), typeof(ExecutionersAxe), typeof(Hatchet), typeof(LargeBattleAxe), typeof(OrnateAxe), typeof(TwoHandedAxe), typeof(Pickaxe)
                 },
-            new Type[][] // Assassin
+            new Type[] // Assassin
                 {
-                    new Type[] { typeof(Dagger), typeof(Kryss), typeof(Cleaver), typeof(Cutlass), typeof(ElvenMachete) },
-                    null,
-                    null,
-                    null,
-                    new Type[] { typeof(Dagger), typeof(Kryss), typeof(Cleaver), typeof(Cutlass) },
-                    new Type[] { typeof(Dagger), typeof(Kryss), typeof(Cleaver), typeof(Cutlass), typeof(BladedWhip), typeof(BarbedWhip), typeof(SpikedWhip) },
+                   typeof(Dagger), typeof(Kryss), typeof(Cleaver), typeof(Cutlass), typeof(ElvenMachete)
                 },
-            new Type[][] // Mage
+            new Type[] // Mage
                 {
-                    new Type[] { typeof(BlackStaff), typeof(ShepherdsCrook), typeof(GnarledStaff), typeof(QuarterStaff) },
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    typeof(BlackStaff), typeof(ShepherdsCrook), typeof(GnarledStaff), typeof(QuarterStaff)
                 },
-            new Type[][] // Ranger
+            new Type[] // Ranger
                 {
-                    new Type[] { typeof(Bow), typeof(Crossbow), typeof(HeavyCrossbow), typeof(CompositeBow), typeof(ButcherKnife), typeof(SkinningKnife) },
-                    new Type[] { typeof(Bow), typeof(Crossbow), typeof(HeavyCrossbow), typeof(CompositeBow), typeof(ButcherKnife), typeof(SkinningKnife), typeof(SoulGlaive) },
-                    new Type[] { typeof(Bow), typeof(Crossbow), typeof(HeavyCrossbow), typeof(CompositeBow), typeof(ButcherKnife), typeof(SkinningKnife), typeof(ElvenCompositeLongbow) },
-                    null,
-                    new Type[] { typeof(Bow), typeof(Crossbow), typeof(HeavyCrossbow), typeof(CompositeBow), typeof(ButcherKnife), typeof(SkinningKnife), /*typeof(GargishButcherKnife),*/ typeof(Cyclone), typeof(SoulGlaive) },
-                    null,
+                   typeof(Bow), typeof(Crossbow), typeof(HeavyCrossbow), typeof(CompositeBow), typeof(ButcherKnife), typeof(SkinningKnife)
                 },
-            new Type[][] // Warrior
+            new Type[] // Warrior
                 {
-                    new Type[] { typeof(Lance), typeof(Pike), typeof(Pitchfork), typeof(ShortSpear), typeof(WarFork), typeof(Club), typeof(Mace), typeof(Maul), typeof(WarAxe), typeof(Bardiche), typeof(Broadsword), typeof(CrescentBlade), typeof(Halberd), typeof(Longsword), typeof(Scimitar), typeof(VikingSword) },
-                    null,
-                    null,
-                    new Type[] { typeof(Lance), typeof(Pike), typeof(Pitchfork), typeof(ShortSpear), typeof(WarFork), typeof(Club), typeof(Mace), typeof(Maul), typeof(WarAxe), typeof(Bardiche), typeof(Broadsword), typeof(CrescentBlade), typeof(Halberd), typeof(Longsword), typeof(Scimitar), typeof(VikingSword), typeof(Bokuto), typeof(Daisho) },
-                    null,
-                    null,
+                    typeof(Lance), typeof(Pike), typeof(Pitchfork), typeof(ShortSpear), typeof(WarFork), typeof(Club), typeof(Mace), typeof(Maul), typeof(WarAxe), typeof(Bardiche), typeof(Broadsword), typeof(CrescentBlade), typeof(Halberd), typeof(Longsword), typeof(Scimitar), typeof(VikingSword)
                 },
         };
 
-        private static readonly Type[][][] _ArmorTable = new Type[][][]
+        private static readonly Type[][] _ArmorTable = new Type[][]
         {
-            new Type[][] // Artisan
+            new Type[] // Artisan
                 {
-                    new Type[] { typeof(Bonnet), typeof(Cap), typeof(Circlet), typeof(FeatheredHat), typeof(FlowerGarland), typeof(JesterHat), typeof(SkullCap), typeof(StrawHat), typeof(TallStrawHat), typeof(WideBrimHat) }, // Trammel/Fel
-                    null, // Ilshenar
-                    null, // Malas
-                    null, // Tokuno
-                    null, // TerMur
-                    new Type[] { typeof(Bonnet), typeof(Cap), typeof(Circlet), typeof(FeatheredHat), typeof(FlowerGarland), typeof(JesterHat), typeof(SkullCap), typeof(StrawHat), typeof(TallStrawHat), typeof(WideBrimHat), typeof(ChefsToque) }, // Eodon
+                    typeof(Bonnet), typeof(Cap), typeof(Circlet), typeof(FeatheredHat), typeof(FlowerGarland), typeof(JesterHat), typeof(SkullCap), typeof(StrawHat), typeof(TallStrawHat), typeof(WideBrimHat)
                 },
-            new Type[][] // Assassin
+            new Type[] // Assassin
                 {
-                    new Type[] { typeof(ChainLegs), typeof(ChainCoif), typeof(ChainChest), typeof(RingmailLegs), typeof(RingmailGloves), typeof(RingmailChest), typeof(RingmailArms), typeof(Bandana) }, // Trammel/Fel
-                    null, // Ilshenar
-                    null, // Malas
-                    new Type[] { typeof(ChainLegs), typeof(ChainCoif), typeof(ChainChest), typeof(RingmailLegs), typeof(RingmailGloves), typeof(RingmailArms), typeof(RingmailArms), typeof(Bandana), typeof(LeatherSuneate), typeof(LeatherMempo), typeof(LeatherJingasa), typeof(LeatherHiroSode), typeof(LeatherHaidate), typeof(LeatherDo) }, // Tokuno
-                    null, // TerMur
-                    null, // Eodon
+                    typeof(ChainLegs), typeof(ChainCoif), typeof(ChainChest), typeof(RingmailLegs), typeof(RingmailGloves), typeof(RingmailChest), typeof(RingmailArms), typeof(Bandana)
                 },
-            new Type[][] // Mage
+            new Type[] // Mage
                 {
-                    new Type[] { typeof(LeafGloves), typeof(LeafLegs), typeof(LeafTonlet), typeof(LeafGorget), typeof(LeafArms),typeof(LeafChest), typeof(LeatherArms), typeof(LeatherChest), typeof(LeatherLegs), typeof(LeatherGloves), typeof(LeatherGorget), typeof(WizardsHat) }, // Trammel/Fel
-                    null, // Ilshenar
-                    new Type[] { typeof(LeafGloves), typeof(LeafLegs), typeof(LeafTonlet), typeof(LeafGorget), typeof(LeafArms),typeof(LeafChest), typeof(LeatherArms), typeof(LeatherChest), typeof(LeatherLegs), typeof(LeatherGloves), typeof(LeatherGorget), typeof(WizardsHat), typeof(BoneLegs), typeof(BoneHelm), typeof(BoneGloves), typeof(BoneChest), typeof(BoneArms) }, // Malas
-                    null, // Tokuno
-                    new Type[] { typeof(LeatherArms), typeof(LeatherChest), typeof(LeatherLegs), typeof(LeatherGloves), typeof(LeatherGorget), typeof(WizardsHat) }, // TerMur
-                    new Type[] { typeof(LeatherArms), typeof(LeatherChest), typeof(LeatherLegs), typeof(LeatherGloves), typeof(LeatherGorget), typeof(WizardsHat) }, // Eodon
+                    typeof(LeafGloves), typeof(LeafLegs), typeof(LeafTonlet), typeof(LeafGorget), typeof(LeafArms),typeof(LeafChest), typeof(LeatherArms), typeof(LeatherChest), typeof(LeatherLegs), typeof(LeatherGloves), typeof(LeatherGorget), typeof(WizardsHat)
                 },
-            new Type[][] // Ranger
+            new Type[] // Ranger
                 {
-                    new Type[] { typeof(HidePants), typeof(HidePauldrons), typeof(HideGorget), typeof(HideFemaleChest), typeof(HideChest), typeof(HideGloves), typeof(StuddedLegs), typeof(StuddedGorget), typeof(StuddedGloves), typeof(StuddedChest), typeof(StuddedBustierArms), typeof(StuddedArms), typeof(RavenHelm), typeof(VultureHelm), typeof(WingedHelm) }, // Trammel/Fel
-                    null, // Ilshenar
-                    null, // Malas
-                    new Type[] { typeof(StuddedLegs), typeof(StuddedGorget), typeof(StuddedGloves), typeof(StuddedChest), typeof(StuddedBustierArms), typeof(StuddedArms) }, // Tokuno
-                    new Type[] { typeof(HidePants), typeof(HidePauldrons), typeof(HideGorget), typeof(HideFemaleChest), typeof(HideChest), typeof(HideGloves), typeof(StuddedLegs), typeof(StuddedGorget), typeof(StuddedGloves), typeof(StuddedChest), typeof(StuddedBustierArms), typeof(StuddedArms)/*, typeof(GargishLeatherKilt), typeof(GargishLeatherLegs), typeof(GargishLeatherArms), typeof(GargishLeatherChest)*/ }, // TerMur
-                    new Type[] { typeof(StuddedLegs), typeof(StuddedGorget), typeof(StuddedGloves), typeof(StuddedChest), typeof(StuddedBustierArms), typeof(StuddedArms), typeof(TigerPeltSkirt), typeof(TigerPeltShorts), typeof(TigerPeltLegs), typeof(TigerPeltLongSkirt), typeof(TigerPeltHelm), typeof(TigerPeltChest), typeof(TigerPeltCollar), typeof(TigerPeltBustier), typeof(VultureHelm), typeof(TribalMask) }, // Eodon
+                    typeof(HidePants), typeof(HidePauldrons), typeof(HideGorget), typeof(HideFemaleChest), typeof(HideChest), typeof(HideGloves), typeof(StuddedLegs), typeof(StuddedGorget), typeof(StuddedGloves), typeof(StuddedChest), typeof(StuddedBustierArms), typeof(StuddedArms), typeof(RavenHelm), typeof(VultureHelm), typeof(WingedHelm)
                 },
-            new Type[][] // Warrior
+            new Type[] // Warrior
                 {
-                    new Type[] { typeof(PlateLegs), typeof(PlateHelm), typeof(PlateGorget), typeof(PlateGloves), typeof(PlateChest), typeof(PlateArms), typeof(Bascinet), typeof(CloseHelm), typeof(Helmet), typeof(LeatherCap), typeof(NorseHelm), typeof(TricorneHat), typeof(BronzeShield), typeof(Buckler), typeof(ChaosShield), typeof(HeaterShield), typeof(MetalKiteShield), typeof(MetalShield), typeof(OrderShield), typeof(WoodenKiteShield) }, // Trammel/Fel
-                    null, // Ilshenar
-                    new Type[] { typeof(PlateLegs), typeof(PlateHelm), typeof(PlateGorget), typeof(PlateGloves), typeof(PlateChest), typeof(PlateArms), typeof(Bascinet), typeof(CloseHelm), typeof(Helmet), typeof(LeatherCap), typeof(NorseHelm), typeof(TricorneHat), typeof(BronzeShield), typeof(Buckler), typeof(ChaosShield), typeof(HeaterShield), typeof(MetalKiteShield), typeof(MetalShield), typeof(OrderShield), typeof(WoodenKiteShield), typeof(DragonHelm), typeof(DragonGloves), typeof(DragonChest), typeof(DragonArms), typeof(DragonLegs) }, // Malas
-                    new Type[] { typeof(PlateLegs), typeof(PlateHelm), typeof(PlateGorget), typeof(PlateGloves), typeof(PlateChest), typeof(PlateArms), typeof(Bascinet), typeof(CloseHelm), typeof(Helmet), typeof(LeatherCap), typeof(NorseHelm), typeof(TricorneHat), typeof(BronzeShield), typeof(Buckler), typeof(ChaosShield), typeof(HeaterShield), typeof(MetalKiteShield), typeof(MetalShield), typeof(OrderShield), typeof(WoodenKiteShield), typeof(PlateSuneate), typeof(PlateMempo), typeof(PlateHiroSode), typeof(PlateHatsuburi), typeof(PlateHaidate), typeof(PlateDo), typeof(PlateBattleKabuto), typeof(DecorativePlateKabuto), typeof(LightPlateJingasa), typeof(SmallPlateJingasa)  }, // Tokuno
-                    new Type[] { typeof(PlateLegs), typeof(PlateHelm), typeof(PlateGorget), typeof(PlateGloves), typeof(PlateChest), typeof(PlateArms), typeof(Bascinet), typeof(CloseHelm), typeof(Helmet), typeof(LeatherCap), typeof(NorseHelm), typeof(TricorneHat), typeof(BronzeShield), typeof(Buckler), typeof(ChaosShield), typeof(HeaterShield), typeof(MetalKiteShield), typeof(MetalShield), typeof(OrderShield), typeof(WoodenKiteShield)/*, typeof(GargishPlateArms), typeof(GargishPlateChest), typeof(GargishPlateKilt), typeof(GargishPlateLegs), typeof(GargishStoneKilt), typeof(GargishStoneLegs), typeof(GargishStoneArms), typeof(GargishStoneChest)*/ }, // TerMur
-                    new Type[] { typeof(PlateLegs), typeof(PlateHelm), typeof(PlateGorget), typeof(PlateGloves), typeof(PlateChest), typeof(PlateArms), typeof(Bascinet), typeof(CloseHelm), typeof(Helmet), typeof(LeatherCap), typeof(NorseHelm), typeof(TricorneHat), typeof(BronzeShield), typeof(Buckler), typeof(ChaosShield), typeof(HeaterShield), typeof(MetalKiteShield), typeof(MetalShield), typeof(OrderShield), typeof(WoodenKiteShield), typeof(DragonTurtleHideHelm), typeof(DragonTurtleHideLegs), typeof(DragonTurtleHideChest), typeof(DragonTurtleHideBustier), typeof(DragonTurtleHideArms) }, // Eodon
+                    typeof(PlateLegs), typeof(PlateHelm), typeof(PlateGorget), typeof(PlateGloves), typeof(PlateChest), typeof(PlateArms), typeof(Bascinet), typeof(CloseHelm), typeof(Helmet), typeof(LeatherCap), typeof(NorseHelm), typeof(TricorneHat), typeof(BronzeShield), typeof(Buckler), typeof(ChaosShield), typeof(HeaterShield), typeof(MetalKiteShield), typeof(MetalShield), typeof(OrderShield), typeof(WoodenKiteShield)
                 }
         };
 
@@ -553,10 +414,9 @@ namespace Server.Items
             new Type[] { typeof(BarbedLeather), typeof(BloodwoodBoard), typeof(FrostwoodBoard), typeof(ValoriteIngot), typeof(VeriteIngot) }
         };
 
-        public static Type[][] _JewelTable = new Type[][]
+        public static Type[] _JewelTable = new Type[]
             {
-                new Type[] { typeof(GoldRing), typeof(GoldBracelet), typeof(SilverRing), typeof(SilverBracelet) }, // standard
-                new Type[] { typeof(GoldRing), typeof(GoldBracelet), typeof(SilverRing), typeof(SilverBracelet)/*, typeof(GargishBracelet)*/ }, // Ranger/TerMur
+                typeof(GoldRing), typeof(GoldBracelet), typeof(SilverRing), typeof(SilverBracelet)
             };
 
         public static Type[][] _DecorativeTable = new Type[][]
@@ -566,17 +426,12 @@ namespace Server.Items
                 new Type[] { typeof(DecorativeHourglass) },
                 new Type[] { typeof(BarkFragment), typeof(CreepingVine) }, //bylo AncientWeapon1
                 new Type[] { typeof(Corruption) }, //bylo typeof(AncientWeapon2)
+                new Type[] { typeof(CoffinPiece) }
             };
 
-        public static Type[][] _SpecialMaterialTable = new Type[][]
+        public static Type[] _SpecialMaterialTable = new Type[]
             {
-                null, // tram
-                null, // fel
-                null, // ilsh
-                new Type[] { typeof(LuminescentFungi), typeof(BarkFragment), typeof(Blight), typeof(Corruption), typeof(Muculent), typeof(Putrefaction), typeof(Scourge), typeof(Taint)  }, // malas
-                null, // tokuno
-                //TreasureMapChest.ImbuingIngreds, // ter
-                null, // eodon
+                typeof(LuminescentFungi), typeof(BarkFragment), typeof(Blight), typeof(Corruption), typeof(Muculent), typeof(Putrefaction), typeof(Scourge), typeof(Taint) 
             };
 
         public static Type[] _SpecialSupplyLoot = new Type[]
@@ -639,7 +494,6 @@ namespace Server.Items
         {
             TreasureLevel level = tMap.TreasureLevel;
             TreasurePackage package = tMap.Package;
-            TreasureFacet facet = tMap.TreasureFacet;
             ChestQuality quality = chest.ChestQuality;
 
             chest.Movable = false;
@@ -727,7 +581,7 @@ namespace Server.Items
             #endregion
 
             #region Regs
-            list = GetReagentList(level, package, facet);
+            list = GetReagentList(level, package);
 
             if (list != null)
             {
@@ -786,7 +640,7 @@ namespace Server.Items
 
             #region Special Resources
             // TODO: DO each drop, or do only 1 drop?
-            list = GetSpecialMaterials(level, package, facet);
+            list = GetSpecialMaterials(level, package);
 
             if (list != null)
             {
@@ -873,7 +727,7 @@ namespace Server.Items
 
             if (Utility.RandomDouble() < dropChance)
             {
-                list = GetDecorativeList(level, package, facet);
+                list = GetDecorativeList(level, package);
 
                 if (list != null)
                 {
@@ -918,7 +772,7 @@ namespace Server.Items
                 {
                     if (list.Length > 0)
                     {
-                        Type type = MutateType(list[Utility.Random(list.Length)], facet);
+                        Type type = list[Utility.Random(list.Length)];
                         Item deco;
 
                         if (type == null)
@@ -968,7 +822,7 @@ namespace Server.Items
             #region Magic Equipment
             amount = GetEquipmentAmount(from, level, package);
 
-            foreach (Type type in GetRandomEquipment(level, package, facet, amount))
+            foreach (Type type in GetRandomEquipment(level, package, amount))
             {
                 Item item = Loot.Construct(type);
                 int min, max;
@@ -983,20 +837,6 @@ namespace Server.Items
 
             list = null;
             #endregion
-        }
-
-        private static Type MutateType(Type type, TreasureFacet facet)
-        {
-            // if (type == typeof(SkullGnarledStaff))
-            // {
-            //     type = typeof(GargishSkullGnarledStaff);
-            // }
-            // else if (type == typeof(SkullLongsword))
-            // {
-            //     type = typeof(GargishSkullLongsword);
-            // }
-
-            return type;
         }
     }
 }
