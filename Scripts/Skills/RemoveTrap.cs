@@ -61,7 +61,7 @@ namespace Server.SkillHandlers
                     {
                         from.SendLocalizedMessage(502373); // That doesn't appear to be trapped
                     }
-                    else if (targ is TreasureMapChest && TreasureMapInfo.NewSystem)
+                    else if (targ is TreasureMapChest)
                     {
                         TreasureMapChest tChest = (TreasureMapChest)targ;
 
@@ -174,7 +174,7 @@ namespace Server.SkillHandlers
 
             protected override void OnTargetOutOfRange(Mobile from, object targeted)
             {
-                if (targeted is TreasureMapChest && TreasureMapInfo.NewSystem)
+                if (targeted is TreasureMapChest)
                 {
                     // put here to prevent abuse
                     if (from.NextSkillTime > Core.TickCount)

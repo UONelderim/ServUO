@@ -511,8 +511,7 @@ namespace Server.Items
         //Math.Pow(level, 1.5) * 75 + 100
         public static void GetBudgetForLevel(int level, out int min, out int max)
         {
-	        var maxLevel = TreasureMapInfo.NewSystem ? 4 : 7;
-	        level = Math.Clamp(level, 0, maxLevel);
+	        level = Math.Clamp(level, 0, 4);
 	        
 	        max = level switch
 	        {
@@ -541,18 +540,7 @@ namespace Server.Items
                 return false;
             }
 
-            if (!TreasureMapInfo.NewSystem && Level == 0)
-            {
-                if (Guardians.Any(g => g.Alive))
-                {
-                    from.SendLocalizedMessage(1046448); // You must first kill the guardians before you may open this chest.
-                    return true;
-                }
-
-                LockPick(from);
-                return false;
-            }
-            else if (CanOpen(from))
+			if (CanOpen(from))
             {
                 return base.CheckLocked(from);
             }
@@ -562,18 +550,15 @@ namespace Server.Items
 
         public virtual bool CanOpen(Mobile from)
         {
-            if (TreasureMapInfo.NewSystem)
+            if (!Locked && TrapType != TrapType.None)
             {
-                if (!Locked && TrapType != TrapType.None)
-                {
-                    from.SendLocalizedMessage(1159008); // That appears to be trapped, using the remove trap skill would yield better results...
-                    return false;
-                }
-                else if (AncientGuardians.Any(ag => ag.Alive))
-                {
-                    from.SendLocalizedMessage(1046448); // You must first kill the guardians before you may open this chest.
-                    return false;
-                }
+                from.SendLocalizedMessage(1159008); // That appears to be trapped, using the remove trap skill would yield better results...
+                return false;
+            }
+            if (AncientGuardians.Any(ag => ag.Alive))
+            {
+                from.SendLocalizedMessage(1046448); // You must first kill the guardians before you may open this chest.
+                return false;
             }
 
             return !Locked;
@@ -769,7 +754,7 @@ namespace Server.Items
         {
             base.LockPick(from);
 
-            if (Map != null && ((TreasureMapInfo.NewSystem && FailedLockpick) || 0.05 >= Utility.RandomDouble()))
+            if (Map != null && (FailedLockpick || 0.05 >= Utility.RandomDouble()))
             {
                 Grubber grubber = new Grubber();
                 grubber.MoveToWorld(Map.GetSpawnPosition(Location, 1), Map);
@@ -786,11 +771,7 @@ namespace Server.Items
                 }
 
                 grubber.PackItem(item);
-
-                if (TreasureMapInfo.NewSystem)
-                {
-                    grubber.PrivateOverheadMessage(MessageType.Regular, 33, 1159062, from.NetState); // *A grubber appears and ganks a piece of your loot!*
-                }
+                grubber.PrivateOverheadMessage(MessageType.Regular, 33, 1159062, from.NetState); // *A grubber appears and ganks a piece of your loot!*
             }
         }
 
@@ -811,7 +792,7 @@ namespace Server.Items
 
         public override bool ExecuteTrap(Mobile from)
         {
-            if (TreasureMapInfo.NewSystem && TrapType != TrapType.None)
+            if (TrapType != TrapType.None)
             {
                 int damage;
 
@@ -830,10 +811,7 @@ namespace Server.Items
 
                 return true;
             }
-            else
-            {
-                return base.ExecuteTrap(from);
-            }
+            return base.ExecuteTrap(from);
         }
 
         public void BeginRemove(Mobile from)

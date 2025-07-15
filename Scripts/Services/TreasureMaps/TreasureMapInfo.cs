@@ -48,7 +48,6 @@ namespace Server.Items
 
     public static class TreasureMapInfo
     {
-        public static bool NewSystem => true;
 
         /// <summary>
         /// This is called from BaseCreature. Instead of editing EVERY creature that drops a map, we'll simply convert it here.
@@ -56,7 +55,7 @@ namespace Server.Items
         /// <param name="level"></param>
         public static int ConvertLevel(int level)
         {
-            if (!NewSystem || level == -1)
+            if (level == -1)
                 return level;
 
             switch (level)

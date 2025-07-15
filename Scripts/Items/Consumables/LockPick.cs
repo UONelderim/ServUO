@@ -70,8 +70,7 @@ namespace Server.Items
 		{
 			if (item.Locked)
 			{
-				if (item is TreasureMapChest && TreasureMapInfo.NewSystem &&
-				    !((TreasureMapChest)item).Guardians.All(g => g.Deleted))
+				if (item is TreasureMapChest && !((TreasureMapChest)item).Guardians.All(g => g.Deleted))
 				{
 					from.SendLocalizedMessage(
 						1115991); // You must destroy all the guardians before you can unlock the chest.
@@ -168,24 +167,10 @@ namespace Server.Items
 				if (item is TreasureMapChest)
 				{
 					TreasureMapChest chest = (TreasureMapChest)item;
-
-					if (TreasureMapInfo.NewSystem)
+					
+					if (!chest.FailedLockpick)
 					{
-						if (!chest.FailedLockpick)
-						{
-							chest.FailedLockpick = true;
-						}
-					}
-					else if (chest.Items.Count > 0 && 0.25 > Utility.RandomDouble())
-					{
-						Item toBreak = chest.Items[Utility.Random(chest.Items.Count)];
-
-						if (!(toBreak is Container))
-						{
-							toBreak.Delete();
-							Effects.PlaySound(item.Location, item.Map, 0x1DE);
-							from.SendMessage(0x20, "The sound of gas escaping is heard from the chest.");
-						}
+						chest.FailedLockpick = true;
 					}
 				}
 			}

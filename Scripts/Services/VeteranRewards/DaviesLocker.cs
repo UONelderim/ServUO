@@ -573,7 +573,7 @@ namespace Server.Engines.VeteranRewards
 
                 AddHtmlLocalized(78, y, 110, 20, GetFacet(entry), Yellow, false, false);
 
-                if (TreasureMapInfo.NewSystem && entry is TreasureMapEntry)
+                if (entry is TreasureMapEntry)
                 {
                     AddHtmlLocalized(174, y, 110, 20, GetPackage((TreasureMapEntry)entry), Yellow, false, false);
                     AddHtmlLocalized(268, y, 110, 20, GetLevel((TreasureMapEntry)entry), Yellow, false, false);
