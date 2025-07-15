@@ -155,58 +155,6 @@ namespace Server.Items
                     RunicReforging.GenerateRandomItem(item, 0, min, max);
 
                     DropItem(item);
-                    continue;
-                }
-
-                if (item is BaseWeapon)
-                {
-                    BaseWeapon weapon = (BaseWeapon)item;
-
-                    int attributeCount;
-                    int min, max;
-
-                    GetRandomAOSStats(out attributeCount, out min, out max);
-
-                    BaseRunicTool.ApplyAttributesTo(weapon, attributeCount, min, max);
-
-                    DropItem(item);
-                }
-                else if (item is BaseArmor)
-                {
-                    BaseArmor armor = (BaseArmor)item;
-
-                    int attributeCount;
-                    int min, max;
-
-                    GetRandomAOSStats(out attributeCount, out min, out max);
-
-                    BaseRunicTool.ApplyAttributesTo(armor, attributeCount, min, max);
-
-                    DropItem(item);
-                }
-                else if (item is BaseHat)
-                {
-                    BaseHat hat = (BaseHat)item;
-
-                    int attributeCount;
-                    int min, max;
-
-                    GetRandomAOSStats(out attributeCount, out min, out max);
-
-                    BaseRunicTool.ApplyAttributesTo(hat, attributeCount, min, max);
-
-                    DropItem(item);
-                }
-                else if (item is BaseJewel)
-                {
-                    int attributeCount;
-                    int min, max;
-
-                    GetRandomAOSStats(out attributeCount, out min, out max);
-
-                    BaseRunicTool.ApplyAttributesTo((BaseJewel)item, attributeCount, min, max);
-
-                    DropItem(item);
                 }
             }
 
@@ -223,7 +171,7 @@ namespace Server.Items
                 DropItem(item);
             }
 
-            DropItem(new TreasureMap(TreasureMapInfo.ConvertLevel(level + 1), (Siege.SiegeShard ? Map.Felucca : Utility.RandomBool() ? Map.Felucca : Map.Trammel)));
+            DropItem(new TreasureMap(TreasureMapInfo.ConvertLevel(level + 1), Map.Felucca));
         }
     }
 }

@@ -1134,7 +1134,7 @@ namespace Server.Engines.Harvest
 
                 if (item != null)
                 {
-                    GetBudgetForLevel(level, out var min, out var max);
+                    TreasureMapChest.GetBudgetForLevel(level, out var min, out var max);
 
                     RunicReforging.GenerateRandomItem(item, luck, min, max, map);
 
@@ -1230,51 +1230,6 @@ namespace Server.Engines.Harvest
             }
 
             return special;
-        }
-        
-        public static void GetRandomItemStat(out int min, out int max, double scale = 1.0)
-        {
-            int rnd = Utility.Random(100);
-
-            if (rnd <= 1)
-            {
-                min = 500; max = 1300;
-            }
-            else if (rnd < 5)
-            {
-                min = 400; max = 1100;
-            }
-            else if (rnd < 25)
-            {
-                min = 350; max = 900;
-            }
-            else if (rnd < 50)
-            {
-                min = 250; max = 800;
-            }
-            else
-            {
-                min = 100; max = 600;
-            }
-
-            min = (int)(min * scale);
-            max = (int)(max * scale);
-        }
-
-        //Math.Pow(level, 1.5) * 75 + 100
-        public static void GetBudgetForLevel(int level, out int min, out int max)
-        {
-	        level = Math.Clamp(level, 0, 4);
-	        
-	        max = level switch
-	        {
-		        0 => 100,
-		        1 => 175,
-		        2 => 315,
-		        3 => 490,
-		        _ => 700
-	        };
-	        min = max / 2;
         }
         
         public static Type[] SOSArtifacts => m_SOSArtifacts;
