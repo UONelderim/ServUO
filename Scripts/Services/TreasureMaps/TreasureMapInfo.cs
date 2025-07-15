@@ -235,7 +235,7 @@ namespace Server.Items
 
 			if (package > TreasurePackage.Artisan)
 			{
-				list.Concat(_FunctionalMinorArtifacts);
+				list = list.Concat(_FunctionalMinorArtifacts).ToArray();
 			}
 
 			return list;
@@ -849,7 +849,7 @@ namespace Server.Items
 
 						if (type == null)
 						{
-							deco = TreasureMapChest.GetRandomRecipe();
+							deco = GetRandomRecipe();
 						}
 						else
 						{
@@ -917,6 +917,14 @@ namespace Server.Items
 			list = null;
 
 			#endregion
+		}
+		
+		
+		public static Item GetRandomRecipe()
+		{
+			var recipes = new List<Recipe>(Recipe.Recipes.Values);
+
+			return new RecipeScroll(recipes[Utility.Random(recipes.Count)]);
 		}
 	}
 }

@@ -1276,14 +1276,6 @@ namespace Server.Engines.Harvest
 	        };
 	        min = max / 2;
         }
-
-
-        public static Item GetRandomRecipe()
-        {
-            List<Craft.Recipe> recipes = new List<Craft.Recipe>(Craft.Recipe.Recipes.Values);
-
-            return new RecipeScroll(recipes[Utility.Random(recipes.Count)]);
-        }
         
         public static Type[] SOSArtifacts => m_SOSArtifacts;
         private static readonly Type[] m_SOSArtifacts =
