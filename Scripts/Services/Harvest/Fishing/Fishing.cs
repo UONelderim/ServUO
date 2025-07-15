@@ -64,9 +64,9 @@ namespace Server.Engines.Harvest
                 ConsumedPerFeluccaHarvest = 1,
 
                 // The fishing
-                EffectActions = new int[] { 6 },
-                EffectSounds = new int[0],
-                EffectCounts = new int[] { 1 },
+                EffectActions = [6],
+                EffectSounds = [],
+                EffectCounts = [1],
                 EffectDelay = TimeSpan.Zero,
                 EffectSoundDelay = TimeSpan.FromSeconds(8.0),
 
@@ -78,25 +78,25 @@ namespace Server.Engines.Harvest
                 ToolBrokeMessage = 503174 // You broke your fishing pole.
             };
 
-            res = new HarvestResource[]
-            {
-                new HarvestResource(00.0, 00.0, 120.0, 1043297, typeof(Fish))
-            };
+            res =
+            [
+	            new HarvestResource(00.0, 00.0, 120.0, 1043297, typeof(Fish))
+            ];
 
-            veins = new HarvestVein[]
-            {
-                new HarvestVein(100.0, 0.0, res[0], null)
-            };
+            veins =
+            [
+	            new HarvestVein(100.0, 0.0, res[0], null)
+            ];
 
             fish.Resources = res;
             fish.Veins = veins;
 
-            fish.BonusResources = new BonusHarvestResource[]
-            {
-                new BonusHarvestResource(0, 97.0, null, null), //set to same chance as mining ml gems
+            fish.BonusResources =
+            [
+	            new BonusHarvestResource(0, 97.0, null, null), //set to same chance as mining ml gems
 			    new BonusHarvestResource(80.0, 2.0, 1113764, typeof(DelicateScales)),
                 new BonusHarvestResource(80.0, 1.0, 1072597, typeof(WhitePearl))
-            };
+            ];
 
             m_Definition = fish;
             Definitions.Add(fish);
@@ -124,37 +124,37 @@ namespace Server.Engines.Harvest
             }
         }
 
-        private static readonly MutateEntry[] m_MutateTable = new MutateEntry[]
-        {
-            new MutateEntry( 80.0,  80.0,  1865.0,  true, typeof( SpecialFishingNet ) ),
+        private static readonly MutateEntry[] m_MutateTable =
+        [
+	        new MutateEntry( 80.0,  80.0,  1865.0,  true, typeof( SpecialFishingNet ) ),
             new MutateEntry( 90.0,  80.0,  1875.0,  true, typeof( TreasureMap ) ),
             new MutateEntry( 100.0,  80.0,  750.0,  true, typeof( MessageInABottle ) ),
             new MutateEntry( 80.0,  80.0,  4080.0,  true, typeof( BigFish ) ),
             new MutateEntry( 0.0, 125.0, -2375.0, false, typeof( PrizedFish ), typeof( WondrousFish ), typeof( TrulyRareFish ), typeof( PeculiarFish ) ),
             new MutateEntry( 0.0, 125.0,  -420.0, false, typeof( Boots ), typeof( Shoes ), typeof( Sandals ), typeof( ThighBoots ) ),
             new MutateEntry( 80.0,  80.0, 2500.0, false, typeof( MudPuppy ), typeof( RedHerring) ),
-            new MutateEntry( 0.0, 200.0,  -200.0, false, new Type[1]{ null } )
-        };
+            new MutateEntry( 0.0, 200.0,  -200.0, false, [null])
+        ];
 
-        private static readonly MutateEntry[] m_SiegeMutateTable = new MutateEntry[]
-        {
-            new MutateEntry( 80.0,  80.0,  1865.0,  true, typeof( SpecialFishingNet ) ),
-            new MutateEntry( 0.0, 200.0,  -200.0, false, new Type[1]{ null } ),
+        private static readonly MutateEntry[] m_SiegeMutateTable =
+        [
+	        new MutateEntry( 80.0,  80.0,  1865.0,  true, typeof( SpecialFishingNet ) ),
+            new MutateEntry( 0.0, 200.0,  -200.0, false, [null]),
             new MutateEntry( 100.0,  80.0,  1865.0,  true, typeof( MessageInABottle ) ),
             new MutateEntry( 80.0,  80.0,  4080.0,  true, typeof( BigFish ) ),
             new MutateEntry( 0.0, 125.0, -2375.0, false, typeof( PrizedFish ), typeof( WondrousFish ), typeof( TrulyRareFish ), typeof( PeculiarFish ) ),
             new MutateEntry( 0.0, 105.0,  -420.0, false, typeof( Boots ), typeof( Shoes ), typeof( Sandals ), typeof( ThighBoots ) ),
             new MutateEntry( 80.0,  80.0, 2500.0, false, typeof( MudPuppy ), typeof( RedHerring) ),
-            new MutateEntry( 0.0, 200.0,  -200.0, false, new Type[1]{ null } )
-        };
+            new MutateEntry( 0.0, 200.0,  -200.0, false, [null])
+        ];
 
-        private static readonly MutateEntry[] m_LavaMutateTable = new MutateEntry[]
-        {
-            new MutateEntry( 0.0,  80.0, 333, false, typeof(StoneFootwear)),
+        private static readonly MutateEntry[] m_LavaMutateTable =
+        [
+	        new MutateEntry( 0.0,  80.0, 333, false, typeof(StoneFootwear)),
             new MutateEntry( 80.0, 80.0, 333, false, typeof(CrackedLavaRockEast), typeof(CrackedLavaRockSouth)),
             new MutateEntry( 85.0, 80.0, 333, false, typeof(StonePaver)),
             new MutateEntry( 80.0, 80.0, 4080, false, typeof(BaseWeapon))
-        };
+        ];
 
         public override bool SpecialHarvest(Mobile from, Item tool, HarvestDefinition def, Map map, Point3D loc)
         {
@@ -210,10 +210,9 @@ namespace Server.Engines.Harvest
                 }
 
                 #region High Seas Charydbis
-                if (tool is FishingPole && CharydbisSpawner.SpawnInstance != null && CharydbisSpawner.SpawnInstance.IsSummoned)
+                if (tool is FishingPole pole && CharydbisSpawner.SpawnInstance != null && CharydbisSpawner.SpawnInstance.IsSummoned)
                 {
                     Item oracle = from.Backpack.FindItemByType(typeof(OracleOfTheSea));
-                    FishingPole pole = tool as FishingPole;
                     CharydbisSpawner sp = CharydbisSpawner.SpawnInstance;
 
                     if (oracle != null && sp != null)
@@ -341,13 +340,13 @@ namespace Server.Engines.Harvest
                             case 0: // Body parts
                             case 1:
                                 {
-                                    int[] list = new int[]
-                                    {
-                                        0x1CDD, 0x1CE5, // arm
+                                    int[] list =
+                                    [
+	                                    0x1CDD, 0x1CE5, // arm
                                         0x1CE0, 0x1CE8, // torso
                                         0x1CE1, 0x1CE9, // head
                                         0x1CE2, 0x1CEC // leg
-                                    };
+                                    ];
 
                                     preLoot = new ShipwreckedItem(Utility.RandomList(list), dredge);
                                     break;
@@ -355,12 +354,12 @@ namespace Server.Engines.Harvest
                             case 2: // Bone parts
                             case 3:
                                 {
-                                    int[] list = new int[]
-                                    {
-                                        0x1AE0, 0x1AE1, 0x1AE2, 0x1AE3, 0x1AE4, // skulls
+                                    int[] list =
+                                    [
+	                                    0x1AE0, 0x1AE1, 0x1AE2, 0x1AE3, 0x1AE4, // skulls
                                         0x1B09, 0x1B0A, 0x1B0B, 0x1B0C, 0x1B0D, 0x1B0E, 0x1B0F, 0x1B10, // bone piles
                                         0x1B15, 0x1B16 // pelvis bones
-                                    };
+                                    ];
 
                                     preLoot = new ShipwreckedItem(Utility.RandomList(list), dredge);
                                     break;
@@ -396,14 +395,14 @@ namespace Server.Engines.Harvest
                             case 12: // Misc
                             case 13:
                                 {
-                                    int[] list = new int[]
-                                    {
-                                        0x1EB5, // unfinished barrel
+                                    int[] list =
+                                    [
+	                                    0x1EB5, // unfinished barrel
                                         0xA2A, // stool
                                         0xC1F, // broken clock
                                         0x1047, 0x1048, // globe
                                         0x1EB1, 0x1EB2, 0x1EB3, 0x1EB4 // barrel staves
-                                    };
+                                    ];
 
                                     if (Utility.Random(list.Length + 1) == 0)
                                         preLoot = new Candelabra();
@@ -415,13 +414,13 @@ namespace Server.Engines.Harvest
                             #region High Seas
                             case 14:
                                 {
-                                    int[] list = new int[]
-                                    {
-                                        0x1E19, 0x1E1A, 0x1E1B, //Fish heads
+                                    int[] list =
+                                    [
+	                                    0x1E19, 0x1E1A, 0x1E1B, //Fish heads
                                         0x1E2A, 0x1E2B,         //Oars
                                         0x1E71, 0x1E7A,         //Unfinished drawers
-                                        0x1E75,                 //Unfinished legs
-                                    };
+                                        0x1E75 //Unfinished legs
+                                    ];
 
                                     double ran = Utility.RandomDouble();
 
@@ -438,8 +437,8 @@ namespace Server.Engines.Harvest
 
                         if (preLoot != null)
                         {
-                            if (preLoot is IShipwreckedItem)
-                                ((IShipwreckedItem)preLoot).IsShipwreckedItem = true;
+                            if (preLoot is IShipwreckedItem item)
+                                item.IsShipwreckedItem = true;
 
                             return preLoot;
                         }
@@ -474,7 +473,7 @@ namespace Server.Engines.Harvest
                             }
                         }
 
-                        TreasureMapChest.Fill(from, chest, Math.Max(1, Math.Min(4, sos.Level)), true);
+                        Fill(from, chest, sos.Level);
                         sos.OnSOSComplete(chest);
 
                         if (sos.IsAncient)
@@ -551,11 +550,9 @@ namespace Server.Engines.Harvest
                 placeAtFeet = true;
 
             #region High Seas
-            if (item is RareFish)
+            if (item is RareFish fish)
             {
-                RareFish fish = (RareFish)item;
-
-                if (FishInfo.IsRareFish(fish.GetType()))
+	            if (FishInfo.IsRareFish(fish.GetType()))
                 {
                     fish.Fisher = m;
                     fish.DateCaught = DateTime.Now;
@@ -571,12 +568,12 @@ namespace Server.Engines.Harvest
 
         public override void SendSuccessTo(Mobile from, Item item, HarvestResource resource)
         {
-            if (item is BigFish)
+            if (item is BigFish fish)
             {
                 from.SendLocalizedMessage(1042635); // Your fishing pole bends as you pull a big fish from the depths!
 
-                ((BigFish)item).Fisher = from;
-                ((BigFish)item).DateCaught = DateTime.Now;
+                fish.Fisher = from;
+                fish.DateCaught = DateTime.Now;
             }
 
             #region Stygian Abyss
@@ -688,10 +685,8 @@ namespace Server.Engines.Harvest
             base.OnHarvestStarted(from, tool, def, toHarvest);
 
             int tileID;
-            Map map;
-            Point3D loc;
 
-            if (GetHarvestDetails(from, tool, toHarvest, out tileID, out map, out loc))
+            if (GetHarvestDetails(from, tool, toHarvest, out tileID, out var map, out var loc))
                 Timer.DelayCall(TimeSpan.FromSeconds(1.5),
                     delegate
                     {
@@ -760,20 +755,20 @@ namespace Server.Engines.Harvest
             return true;
         }
 
-        private static readonly int[] m_WaterTiles = new int[]
-        {
-            0x00A8, 0x00AB,
+        private static readonly int[] m_WaterTiles =
+        [
+	        0x00A8, 0x00AB,
             0x0136, 0x0137,
             0x5797, 0x579C,
             0x746E, 0x7485,
             0x7490, 0x74AB,
             0x74B5, 0x75D5
-        };
+        ];
 
         #region HighSeas
         public static int[] LavaTiles => m_LavaTiles;
-		private static readonly int[] m_LavaTiles = new int[]
-		{
+		private static readonly int[] m_LavaTiles =
+		[
 			0x1F4, 0x1F5,
 			0x1F6, 0x1F7,
 
@@ -797,44 +792,38 @@ namespace Server.Engines.Harvest
 			4885, 4886,
 			4888, 4889,
 			4890, 4891,
-			4892,
-		};
+			4892
+		];
 
         public override bool GetHarvestDetails(Mobile from, Item tool, object toHarvest, out int tileID, out Map map, out Point3D loc)
         {
             bool lava = HasTypeHook(tool, HookType.Lava);
 
-            if (toHarvest is Static && !((Static)toHarvest).Movable)
+            if (toHarvest is Static @static && !@static.Movable)
             {
-                Static obj = (Static)toHarvest;
-
-                if (lava)
-                    tileID = obj.ItemID;
+	            if (lava)
+                    tileID = @static.ItemID;
                 else
-                    tileID = (obj.ItemID & 0x3FFF) | 0x4000;
+                    tileID = (@static.ItemID & 0x3FFF) | 0x4000;
 
-                map = obj.Map;
-                loc = obj.GetWorldLocation();
+                map = @static.Map;
+                loc = @static.GetWorldLocation();
             }
-            else if (toHarvest is StaticTarget)
+            else if (toHarvest is StaticTarget target)
             {
-                StaticTarget obj = (StaticTarget)toHarvest;
-
-                if (lava)
-                    tileID = obj.ItemID;
+	            if (lava)
+                    tileID = target.ItemID;
                 else
-                    tileID = (obj.ItemID & 0x3FFF) | 0x4000;
+                    tileID = (target.ItemID & 0x3FFF) | 0x4000;
 
                 map = from.Map;
-                loc = obj.Location;
+                loc = target.Location;
             }
-            else if (toHarvest is LandTarget)
+            else if (toHarvest is LandTarget harvest)
             {
-                LandTarget obj = (LandTarget)toHarvest;
-
-                tileID = obj.TileID;
+	            tileID = harvest.TileID;
                 map = from.Map;
-                loc = obj.Location;
+                loc = harvest.Location;
             }
             else
             {
@@ -853,10 +842,9 @@ namespace Server.Engines.Harvest
 
         public override HarvestDefinition GetDefinition(int tileID, Item tool)
         {
-            if (tool is FishingPole)
+            if (tool is FishingPole pole)
             {
-                FishingPole pole = (FishingPole)tool;
-                bool usingLavaHook = HasTypeHook(pole, HookType.Lava);
+	            bool usingLavaHook = HasTypeHook(pole, HookType.Lava);
 
                 if (usingLavaHook && ValidateSpecialTile(tileID))
                     return GetDefinitionFromSpecialTile(tileID);
@@ -882,12 +870,12 @@ namespace Server.Engines.Harvest
             if (!HasTypeHook(tool, HookType.Lava))
                 return false;
 
-            if (toHarvest is StaticTarget)
-                id = ((StaticTarget)toHarvest).ItemID;
-            else if (toHarvest is LandTarget)
-                id = ((LandTarget)toHarvest).TileID;
-            else if (toHarvest is Static && !((Static)toHarvest).Movable)
-                id = ((Static)toHarvest).ItemID;
+            if (toHarvest is StaticTarget target)
+                id = target.ItemID;
+            else if (toHarvest is LandTarget landTarget)
+                id = landTarget.TileID;
+            else if (toHarvest is Static @static && !@static.Movable)
+                id = @static.ItemID;
 
             return ValidateSpecialTile(id);
         }
@@ -902,14 +890,14 @@ namespace Server.Engines.Harvest
 
         public override void OnToolUsed(Mobile from, Item tool, bool caughtsomething)
         {
-            if (tool is FishingPole)
-                ((FishingPole)tool).OnFishedHarvest(from, caughtsomething);
+            if (tool is FishingPole pole)
+                pole.OnFishedHarvest(from, caughtsomething);
         }
 
         public static bool HasTypeHook(Item tool, HookType type)
         {
-            if (tool is FishingPole)
-                return ((FishingPole)tool).HookType == type;
+            if (tool is FishingPole pole)
+                return pole.HookType == type;
             return false;
         }
 
@@ -933,11 +921,7 @@ namespace Server.Engines.Harvest
                 if (!CheckHarvest(from, tool))
                     return;
 
-                int tileID;
-                Map map;
-                Point3D loc;
-
-                if (!GetHarvestDetails(from, tool, toHarvest, out tileID, out map, out loc))
+                if (!GetHarvestDetails(from, tool, toHarvest, out var tileID, out var map, out var loc))
                 {
                     OnBadHarvestTarget(from, tool, toHarvest);
                     return;
@@ -1079,5 +1063,241 @@ namespace Server.Engines.Harvest
             return newType;
         }
         #endregion
+        
+        public static void Fill(Mobile from, LockableContainer cont, int level)
+        {
+	        level = Math.Max(1, Math.Min(4, level));
+            Map map = from.Map;
+            int luck = from is PlayerMobile mobile ? mobile.RealLuck : from.Luck;
+
+            cont.Movable = false;
+            cont.Locked = true;
+            int count;
+
+            cont.TrapType = TrapType.ExplosionTrap;
+            cont.TrapPower = level * 25;
+            cont.TrapLevel = level;
+
+            switch (level)
+            {
+                case 1:
+                    cont.RequiredSkill = 5;
+                    break;
+                case 2:
+                    cont.RequiredSkill = 45;
+                    break;
+                case 3:
+                    cont.RequiredSkill = 65;
+                    break;
+                case 4:
+                    cont.RequiredSkill = 75;
+                    break;
+            }
+
+            cont.LockLevel = cont.RequiredSkill - 10;
+            cont.MaxLockLevel = cont.RequiredSkill + 40;
+
+            cont.DropItem(new Gold(level * 50));
+
+            switch (level)
+            {
+                default: count = 10; break;
+                case 1: count = Utility.RandomMinMax(1, 3); break; 
+                case 2: count = Utility.RandomMinMax(5, 7); break;
+            }
+
+            for (int i = 0; i < count; ++i)
+                cont.DropItem(Loot.RandomScroll(0, 63, SpellbookType.Regular));
+
+            switch (level)
+            {
+                case 1:
+                    count = Utility.RandomMinMax(2, 6);
+                    break;
+                case 2:
+                    count = Utility.RandomMinMax(10, 15);
+                    break;
+                case 3:
+                    count = Utility.RandomMinMax(15, 20);
+                    break;
+                case 4:
+                    count = Utility.RandomMinMax(15, 20);
+                    break;
+                default:
+                    count = 0;
+                    break;
+            }
+
+            for (int i = 0; i < count; ++i)
+            {
+                Item item = Loot.RandomArmorOrShieldOrWeaponOrJewelry();
+
+                if (item != null)
+                {
+                    GetBudgetForLevel(level, out var min, out var max);
+
+                    RunicReforging.GenerateRandomItem(item, luck, min, max, map);
+
+                    cont.DropItem(item);
+                }
+            }
+
+            switch (level)
+            {
+                default: count = Utility.RandomMinMax(25, 30); break;
+                case 1: count = Utility.RandomMinMax(5, 10); break;
+                case 2: count = Utility.RandomMinMax(10, 20); break;
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                cont.DropItemStacked(Loot.RandomPossibleReagent());
+            }
+
+            count = (level * 1); 
+
+            for (int i = 0; i < count; i++)
+            {
+                cont.DropItem(Loot.RandomGem());
+            }
+
+            Item arty = null;
+            Item special = null;
+            Item newSpecial = null;
+
+            if (0.004 * level > Utility.RandomDouble())
+                arty = Loot.Construct(m_SOSArtifacts);
+            if (0.006 * level > Utility.RandomDouble())
+                special = Loot.Construct(m_SOSDecor);
+            else if (0.009 * level > Utility.RandomDouble())
+                special = new TreasureMap(Utility.RandomMinMax(level, Math.Min(7, level + 1)), cont.Map);
+
+            if (level >= 4)
+            {
+                switch (Utility.Random(4))
+                {
+                    case 0: newSpecial = new AncientAquariumFishNet(); break;
+                    case 1: newSpecial = new LiveRock(); break;
+                    case 2: newSpecial = new SaltedSerpentSteaks(); break;
+                    case 3: newSpecial = new OceanSapphire(); break;
+                }
+            }
+
+            if (arty != null)
+            {
+                Container pack = new Backpack
+                {
+                    Hue = 1278
+                };
+
+                pack.DropItem(arty);
+                cont.DropItem(pack);
+            }
+
+            if (special != null)
+                cont.DropItem(special);
+
+            if (newSpecial != null)
+                cont.DropItem(newSpecial);
+
+            int rolls = 2;
+
+            RefinementComponent.Roll(cont, rolls, 0.10);
+        }
+
+        private static Item GetRandomSpecial(int level, Map map)
+        {
+            Item special;
+
+            switch (Utility.Random(6)) //zmien na 8 po wprowadzeniu receptur
+            {
+                default:
+             /*   case 0: special = new CreepingVine(); break;
+                case 1: special = new MessageInABottle(); break;
+                case 2: special = GetRandomRecipe(); break; 
+                case 3: special = new Skeletonkey(); break;
+                case 4: special = new TastyTreat(5); break;
+                case 5: special = new TreasureMap(Utility.RandomMinMax(level, Math.Min(7, level + 1)), map); break;
+                case 6: special = GetRandomRecipe(); break;
+                case 7: special = ScrollOfTranscendence.CreateRandom(1, 5); break;*/  //ODKMONETOWAĆ PO WPROWADZENIU RECPTUR
+                
+                case 0: special = new CreepingVine(); break;
+                case 1: special = new MessageInABottle(); break;
+                case 2: special = new Skeletonkey(); break;
+                case 3: special = new TastyTreat(5); break;
+                case 4: special = new TreasureMap(Utility.RandomMinMax(level, Math.Min(7, level + 1)), map); break;
+                case 5: special = ScrollOfTranscendence.CreateRandom(1, 5); break;
+            }
+
+            return special;
+        }
+        
+        public static void GetRandomItemStat(out int min, out int max, double scale = 1.0)
+        {
+            int rnd = Utility.Random(100);
+
+            if (rnd <= 1)
+            {
+                min = 500; max = 1300;
+            }
+            else if (rnd < 5)
+            {
+                min = 400; max = 1100;
+            }
+            else if (rnd < 25)
+            {
+                min = 350; max = 900;
+            }
+            else if (rnd < 50)
+            {
+                min = 250; max = 800;
+            }
+            else
+            {
+                min = 100; max = 600;
+            }
+
+            min = (int)(min * scale);
+            max = (int)(max * scale);
+        }
+
+        //Math.Pow(level, 1.5) * 75 + 100
+        public static void GetBudgetForLevel(int level, out int min, out int max)
+        {
+	        level = Math.Clamp(level, 0, 4);
+	        
+	        max = level switch
+	        {
+		        0 => 100,
+		        1 => 175,
+		        2 => 315,
+		        3 => 490,
+		        _ => 700
+	        };
+	        min = max / 2;
+        }
+
+
+        public static Item GetRandomRecipe()
+        {
+            List<Craft.Recipe> recipes = new List<Craft.Recipe>(Craft.Recipe.Recipes.Values);
+
+            return new RecipeScroll(recipes[Utility.Random(recipes.Count)]);
+        }
+        
+        public static Type[] SOSArtifacts => m_SOSArtifacts;
+        private static readonly Type[] m_SOSArtifacts =
+        [
+	        typeof(AntiqueWeddingDress),
+	        typeof(KelpWovenLeggings),
+	        typeof(RunedDriftwoodBow),
+	        typeof(ValkyrieArmor)
+        ];
+        public static Type[] SOSDecor => m_SOSDecor;
+        private static readonly Type[] m_SOSDecor =
+        [
+	        typeof(GrapeVine),
+	        typeof(LargeFishingNet)
+        ];
     }
 }
