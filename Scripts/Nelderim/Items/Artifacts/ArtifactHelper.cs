@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Nelderim;
 using Server.Custom.Misc;
@@ -26,7 +27,7 @@ namespace Server.Items
 		BaronowaFrozen
 	}
 
-	enum ArtSeason
+	public enum ArtSeason
 	{
 		Summer,
 		Autumn,
@@ -45,9 +46,11 @@ namespace Server.Items
 
 	internal record struct ArtInfo(double Chance, Rolls Rolls, ArtGroup Group);
 
-	class ArtifactHelper
+	public static class ArtifactHelper
 	{
-		private static ArtSeason RealSeason()
+		private static readonly ArtSeason[] _AllSeasons = [ArtSeason.Summer, ArtSeason.Autumn, ArtSeason.Winter, ArtSeason.Spring];
+		
+		public static ArtSeason CurrentSeason()
 		{
 			var date = DateTime.Now;
 			var month = date.Month;
@@ -85,35 +88,9 @@ namespace Server.Items
 				},
 				_ => ArtSeason.Winter
 			};
-
 		}
-		private static ArtSeason _CurrentSeason => RealSeason();
-		
-		private static readonly ArtSeason[] _AllSeasons = [ArtSeason.Summer, ArtSeason.Autumn, ArtSeason.Winter, ArtSeason.Spring];
 
 		private static readonly Dictionary<Type, ArtInfo> _CreatureInfo = new();
-		
-		public static Item GetRandomArtifact(ArtGroup group)
-		{
-			if (group == ArtGroup.None)
-				return Loot.Construct(_AllArtifactsCurrentSeason);
-			
-			if (_Artifacts.TryGetValue(group, out var groupArtifacts))
-			{
-				if (groupArtifacts.TryGetValue(_CurrentSeason, out var seasonArtifacts))
-				{
-					return Loot.Construct(seasonArtifacts);
-				}
-				Console.WriteLine($"No season {_CurrentSeason} for artifact group {group} ");
-			}
-			else
-			{
-				Console.WriteLine($"No artifact group definition {group} ");
-			}
-
-			return null;
-		}
-
 		
 		public static void Configure()
 		{
@@ -180,6 +157,27 @@ namespace Server.Items
 			InitializeArtifacts();
 			
 			EventSink.CreatureDeath += OnCreatureDeath;
+		}
+		
+		public static Item GetRandomArtifact(ArtGroup group)
+		{
+			if (group == ArtGroup.None)
+				return Loot.Construct(_AllArtifactsPerSeason[CurrentSeason()]);
+			
+			if (_Artifacts.TryGetValue(group, out var groupArtifacts))
+			{
+				if (groupArtifacts.TryGetValue(CurrentSeason(), out var seasonArtifacts))
+				{
+					return Loot.Construct(seasonArtifacts);
+				}
+				Console.WriteLine($"No season {CurrentSeason()} for artifact group {group} ");
+			}
+			else
+			{
+				Console.WriteLine($"No artifact group definition {group} ");
+			}
+
+			return null;
 		}
 
 		public static bool IsBoss(BaseCreature bc)
@@ -354,7 +352,15 @@ namespace Server.Items
 		}
 
 		private static Dictionary<ArtGroup, Dictionary<ArtSeason, Type[]>> _Artifacts = new();
+		private static Dictionary<ArtSeason, Type[]> _AllArtifactsPerSeason = new();
+		private static Type[] _AllArtifacts;
 
+		public static ReadOnlyCollection<Type> ArtifactsCurrentSeason(ArtGroup group) => _Artifacts[group][CurrentSeason()].AsReadOnly();
+		public static ReadOnlyCollection<Type> ArtifactsSelectedSeason(ArtGroup group, ArtSeason season) => _Artifacts[group][season].AsReadOnly();
+		public static ReadOnlyCollection<Type> AllArtifactsCurrentSeason => _AllArtifactsPerSeason[CurrentSeason()].AsReadOnly();
+		public static ReadOnlyCollection<Type> AllArtifactsSelectedSeason(ArtSeason season) => _AllArtifactsPerSeason[season].AsReadOnly();
+		public static ReadOnlyCollection<Type> AllArtifacts => _AllArtifacts.AsReadOnly();
+		
 		private static void InitializeArtifacts()
 		{
 			Dictionary<ArtSeason, Type[]> ForAllSeasons(Type[] artifacts)
@@ -376,6 +382,7 @@ namespace Server.Items
 			_Artifacts.Add(ArtGroup.Paragon, ForAllSeasons(_ParagonArtifacts));
 			_Artifacts.Add(ArtGroup.HalrandBoss, ForAllSeasons(_HalrandBossArtifacts));
 			_Artifacts.Add(ArtGroup.BaronowaFrozen, ForAllSeasons(_BaronowaFrozenArtifacts));
+			
 			var allHunterArtifacts = new[]
 				{
 					HunterRewardCalculator.ArtLvl1, HunterRewardCalculator.ArtLvl2, HunterRewardCalculator.ArtLvl3,
@@ -384,17 +391,18 @@ namespace Server.Items
 				.SelectMany(x => x) //flatten
 				.ToArray();
 			_Artifacts.Add(ArtGroup.Hunter, ForAllSeasons(allHunterArtifacts));
+			
 			var allDoomArtifacts = DoomGauntlet.RewardTable.SelectMany(x => x).Distinct().ToArray();
 			_Artifacts.Add(ArtGroup.Doom, ForAllSeasons(allDoomArtifacts));
-
-			_AllArtifactsCurrentSeason = _Artifacts
-				.Values
-				.SelectMany(x => 
-					x
-					.Where(p => p.Key == _CurrentSeason)
-					.SelectMany(y => y.Value))
-				.Distinct()
-				.ToArray();
+			
+			foreach (var groupPerSeason in _Artifacts.Values)
+			{
+				foreach (var pair in groupPerSeason)
+				{
+					var current = _AllArtifactsPerSeason.GetValueOrDefault(pair.Key, []);
+					_AllArtifactsPerSeason[pair.Key] = current.Concat(pair.Value).Distinct().ToArray();
+				}
+			}
 			
 			_AllArtifacts = _Artifacts
 				.Values
@@ -403,12 +411,6 @@ namespace Server.Items
 				.Distinct()
 				.ToArray();
 		}
-
-		private static Type[] _AllArtifacts;
-		private static Type[] _AllArtifactsCurrentSeason;
-
-		public static Type[] AllArtifacts => _AllArtifacts;
-		public static Type[] AllArtifactsCurrentSeason => _AllArtifactsCurrentSeason;
 		
 
 		private static Type[] _ElghinArtifacts = {

@@ -235,7 +235,7 @@ namespace Server.Items
 
 			if (package > TreasurePackage.Artisan)
 			{
-				list = list.Concat(_FunctionalMinorArtifacts).ToArray();
+				list = list.Concat(ArtifactHelper.ArtifactsCurrentSeason(ArtGroup.Cartography)).ToArray();
 			}
 
 			return list;
@@ -475,17 +475,6 @@ namespace Server.Items
 		[
 			typeof(CandelabraOfSouls), typeof(GoldBricks), typeof(PhillipsWoodenSteed),
 			typeof(AncientShipModelOfTheHMSCape), typeof(AdmiralsHeartyRum)
-		];
-
-		public static Type[] _FunctionalMinorArtifacts =
-		[
-			typeof(ArcticDeathDealer), typeof(BlazeOfDeath), typeof(BurglarsBandana),
-			typeof(CavortingClub), typeof(DreadPirateHat),
-			typeof(EnchantedTitanLegBone), typeof(GwennosHarp), typeof(IolosLute),
-			typeof(LunaLance), typeof(NightsKiss), typeof(NoxRangersHeavyCrossbow),
-			typeof(PolarBearMask), typeof(VioletCourage), typeof(HeartOfTheLion),
-			typeof(ColdBlood), typeof(AlchemistsBauble), typeof(CaptainQuacklebushsCutlass),
-			typeof(ShieldOfInvulnerability)
 		];
 
 		public static SkillName[][] _TranscendenceTable =
@@ -874,17 +863,7 @@ namespace Server.Items
 							}
 						}
 
-						if (_FunctionalMinorArtifacts.Any(t => t == type))
-						{
-							Container pack = new Backpack { Hue = 1278 };
-
-							pack.DropItem(deco);
-							chest.DropItem(pack);
-						}
-						else
-						{
-							chest.DropItem(deco);
-						}
+						chest.DropItem(deco);
 					}
 
 					list = null;

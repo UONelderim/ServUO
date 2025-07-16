@@ -2,6 +2,8 @@
 # Project Assemblies
 /Server/bin
 /Server/obj
+/Scirpts.Test/bin
+/Scripts.Test/obj
 /Scripts/bin
 /Scripts/obj
 /Settings/bin
