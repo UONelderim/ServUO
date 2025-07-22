@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Server.Engines.Craft;
 using Server.Items;
 using Server.Mobiles;
 
@@ -7,114 +9,58 @@ namespace Server.Engines.Craft
     public class DefNecromancyCrafting : CraftSystem
     {
         public static readonly double PowderDropChance = 0.05;
-        public override SkillName MainSkill
-        {
-            get { return SkillName.Necromancy; }
-        }
 
-        public override string GumpTitleString
-        {
-            get { return "<CENTER><BASEFONT COLOR=#FFFFFF>MENU TWORZENIA NIEUMARLYCH</BASEFONT></CENTER>"; } // <CENTER>INSCRIPTION MENU</CENTER>
-        }
+        public override SkillName MainSkill => SkillName.Necromancy;
+
+        public override string GumpTitleString => "<CENTER><BASEFONT COLOR=#FFFFFF>MENU TWORZENIA NIEUMARLYCH</BASEFONT></CENTER>";
 
         private static CraftSystem m_CraftSystem;
+        public static CraftSystem CraftSystem => m_CraftSystem ?? (m_CraftSystem = new DefNecromancyCrafting());
 
-        public static CraftSystem CraftSystem
-        {
-            get
-            {
-                if (m_CraftSystem == null)
-                {
-	                m_CraftSystem = new DefNecromancyCrafting();
-                }
+        private DefNecromancyCrafting() : base(1, 1, 1.25) { }
 
-                return m_CraftSystem;
-            }
-        }
-
-        public override double GetChanceAtMin(CraftItem item)
-        {
-            return 0.0; // 0%
-        }
-
-        private DefNecromancyCrafting() : base(1, 1, 1.25) // base( 1, 2, 1.7 )
-        {
-        }
+        public override double GetChanceAtMin(CraftItem item) => 0.0;
 
         public override int CanCraft(Mobile from, ITool tool, Type itemType)
         {
-	        if ( from.Mounted )
-	        {
-		        return 1072018;  // Nie mozesz wykonywac tej czynnosci bedac konno!
-	        }
-	        
-	        var num = 0;
+            if (from.Mounted)
+                return 1072018;
+
+            int num = 0;
             if (tool == null || tool.Deleted || tool.UsesRemaining < 0)
-            {
-	            return 1044038; // You have worn out your tool!
-            }
-            if (!(from is PlayerMobile && from.Skills[SkillName.Necromancy].Base >= 20.0))
-            {
-	            return 1044153; // You don't have the required skill
-            }
+                return 1044038;
+            if (!(from is PlayerMobile pm && pm.Skills[SkillName.Necromancy].Base >= 20.0))
+                return 1044153;
             if (!tool.CheckAccessible(from, ref num))
-            {
-	            return 1044263; // The tool must be on your person to use.
-            }
+                return 1044263;
 
             return num;
         }
 
-        public override void PlayCraftEffect(Mobile from)
-        {
-            from.PlaySound(0x247); // magic
-            
-        }
+        public override void PlayCraftEffect(Mobile from) => from.PlaySound(0x247);
 
         public override int PlayEndingEffect(Mobile from, bool failed, bool lostMaterial, bool toolBroken, int quality,
             bool makersMark, CraftItem item)
         {
             if (toolBroken)
-            {
-	            from.SendLocalizedMessage(1044038); // You have worn out your tool
-            }
+                from.SendLocalizedMessage(1044038);
 
             if (failed)
             {
-                from.PlaySound(65); // rune breaking
-                if (lostMaterial)
-                {
-	                return 1044043; // You failed to create the item, and some of your materials are lost.
-                }
-                else
-                {
-	                return 1044157; // You failed to create the item, but no materials were lost.
-                }
+                from.PlaySound(65);
+                return lostMaterial ? 1044043 : 1044157;
             }
-            else
-            {
-                from.PlaySound(65); // rune breaking
-                if (quality == 0)
-                {
-	                return 502785; // You were barely able to make this item.  It's quality is below average.
-                }
-                else if (makersMark && quality == 2)
-                {
-	                return 1044156; // You create an exceptional quality item and affix your maker's mark.
-                }
-                else if (quality == 2)
-                {
-	                return 1044155; // You create an exceptional quality item.
-                }
-                else
-                {
-	                return 1044154; // You create the item.
-                }
-            }
+
+            from.PlaySound(65);
+            if (quality == 0) return 502785;
+            if (makersMark && quality == 2) return 1044156;
+            if (quality == 2) return 1044155;
+            return 1044154;
         }
-        
+
         public override void InitCraftList()
         {
+
             int index = AddCraft(typeof(SkeletonCrystal), "Krysztaly", "Krysztal Szkieleta", 20.0, 120.0,
                 typeof(NoxCrystal), "Krysztal Trucizny", 1, "Nie masz wystarczajaco duzo krysztalow trucizny.");
             AddRes(index, typeof(SkeletonPowder), "Proch szkieleta", 1,
@@ -315,7 +261,6 @@ namespace Server.Engines.Craft
             AddRes( index, typeof( GrizzledBones ), "blade kości" , 10, 1044253 );
             AddRes( index, typeof( ObsidianStone ), "obysdian" , 20, 1044253 );
             AddRes( index, typeof( Gold ), "złoto" , 2000, 1044253 );
-
             Recycle = true;
             RecycleAction = NecroRecycle.Do;
             RecycleText = "ROZŁÓŻ PRZYWOŁAŃCA";

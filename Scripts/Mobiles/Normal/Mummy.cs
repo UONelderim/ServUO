@@ -3,7 +3,8 @@ using Server.Items;
 namespace Server.Mobiles
 {
     [CorpseName("resztki mumi")]
-    public class Mummy : BaseCreature
+    public class Mummy : BaseCreature, MummyCrystal.INecroPet
+
     {
         [Constructable]
         public Mummy()

@@ -7,6 +7,16 @@ namespace Server.Items
 {
 	public abstract class BaseNecroCraftCrystal : Item
 	{
+		
+		// ——— Buff rates and caps ———
+		private const double STAT_RATE       = 0.025;  // +2.5% Str/Dex/Int per point over
+		private const double MAX_STAT_BUFF   = 0.50;   // cap at +50%
+		private const double RES_RATE        = 0.005;  // +0.5% resist per point over
+		private const double MAX_RES_BUFF    = 0.10;   // cap at +10%
+		private const double SKILL_RATE      = 0.01;   // +1% skill per point over
+		private const double MAX_SKILL_BUFF  = 0.30;   // cap at +30%
+		private const double SLOT_PENALTY    = 0.10;   // −10% buff per extra control slot
+		
 		private static Dictionary<Type, string> BodyPartName = new()
 		{
 			{ typeof(RottingLegs), "gnijące nogi" },
@@ -24,6 +34,12 @@ namespace Server.Items
 		public abstract double RequiredNecroSkill { get; }
 
 		public abstract Type[] RequiredBodyParts { get; }
+		
+		// Timestamp of last summon for cooldown
+		private DateTime m_LastUse;
+		
+		// The summoned creature instance
+		protected BaseCreature m_Creature;
 
 		public int[] RequiredBodyPartsAmounts => RequiredBodyParts.Select(x => 1).ToArray();
 
@@ -39,105 +55,148 @@ namespace Server.Items
 		{
 		}
 
-		public override void OnDoubleClick(Mobile from)
-		{
-			if (!IsChildOf(from.Backpack))
-			{
-				from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
-				return;
-			}
+ /// <summary>
+    /// Handles the double-click on the crystal, enforcing a 5-second cooldown.
+    /// </summary>
+    public override void OnDoubleClick(Mobile from)
+    {
+        // 1) Cooldown check
+        var nextAllowed = m_LastUse + TimeSpan.FromSeconds(5.0);
+        if (DateTime.UtcNow < nextAllowed)
+        {
+            double secsLeft = (nextAllowed - DateTime.UtcNow).TotalSeconds;
+            from.SendMessage($"Musisz odczekać jeszcze {secsLeft:F1} s, zanim użyjesz kryształu ponownie.");
+            return;
+        }
 
-			double NecroSkill = from.Skills[SkillName.Necromancy].Value;
+        // 2) Record this use
+        m_LastUse = DateTime.UtcNow;
 
-			if (NecroSkill < RequiredNecroSkill)
-			{
-				from.SendMessage(String.Format(
-					"Musisz mieć przynajmniej {0:F1} umiejętności nekromancji, by stworzyć szkieleta.",
-					RequiredNecroSkill));
-				return;
-			}
+        // 3) Original usage logic (skill check, body-parts, summoning, scaling…) 
+        if (!IsChildOf(from.Backpack))
+        {
+            from.SendLocalizedMessage(1042001);
+            return;
+        }
+
+        double necroSkill = from.Skills[SkillName.Necromancy].Value;
+        if (necroSkill < RequiredNecroSkill)
+        {
+            from.SendMessage($"Musisz mieć przynajmniej {RequiredNecroSkill:F1} w nekromancji.");
+            return;
+        }
+
+        var pack = from.Backpack;
+        if (pack == null) return;
+
+        var bc = (BaseCreature)Activator.CreateInstance(SummonType);
+
+        if (from.Followers + bc.ControlSlots > from.FollowersMax)
+        {
+            from.SendLocalizedMessage(1049607);
+            bc.Delete();
+            return;
+        }
+
+        int res = pack.ConsumeTotal(RequiredBodyParts, RequiredBodyPartsAmounts);
+        if (res != -1)
+        {
+            string partName = BodyPartName.ContainsKey(RequiredBodyParts[res])
+                ? BodyPartName[RequiredBodyParts[res]]
+                : RequiredBodyParts[res].Name;
+            from.SendMessage($"Musisz mieć: {partName}");
+            if (from.AccessLevel > AccessLevel.Player)
+                from.SendMessage("Boskie moce pomagają ci stworzyć przywołańca bez wszystkich części.");
+            else
+                return;
+        }
+
+        if (!bc.SetControlMaster(from))
+        {
+            bc.Delete();
+            return;
+        }
+
+        bc.Allured = true;
+
+        ScaleCreature(bc, necroSkill);
+
+        bc.MoveToWorld(from.Location, from.Map);
+        from.PlaySound(0x241);
+        Consume();
+
+        EventSink.InvokeNecromancySummonCrafted(new NecromancySummonCraftedEventArgs(from, bc));
+        if (from is PlayerMobile pm)
+            pm.Statistics.NecromancySummonsCrafted.Increment(SummonType);
+    }
+		
+	/// <summary>
+    /// Applies all “over‐skill” scaling to the summoned creature.
+    /// </summary>
+    /// <param name="bc">The creature being summoned.</param>
+    /// <param name="skillValue">Caster’s Necromancy skill.</param>
+    
+protected void ScaleCreature(BaseCreature bc, double skillValue)
+{
+    // 1) Over‐skill amount
+    double over = Math.Max(0, skillValue - RequiredNecroSkill);
+
+    // 2) Raw buff percentages
+    double statBuff  = Math.Min(over * STAT_RATE,  MAX_STAT_BUFF);
+    double resBuff   = Math.Min(over * RES_RATE,   MAX_RES_BUFF);
+    double skillBuff = Math.Min(over * SKILL_RATE, MAX_SKILL_BUFF);
+
+    // 3) Slot penalty
+    double slotFactor = Math.Max(0.0, 1.0 - SLOT_PENALTY * (bc.ControlSlots - 1));
+    statBuff  *= slotFactor;
+    resBuff   *= slotFactor;
+    skillBuff *= slotFactor;
+
+    // 4) Stats & Seeds (with caps)
+    bc.RawStr      = Math.Min((int)(bc.RawStr      * (1 + statBuff)), 350);
+    bc.RawDex      = Math.Min((int)(bc.RawDex      * (1 + statBuff)), 350);
+    bc.RawInt      = Math.Min((int)(bc.RawInt      * (1 + statBuff)), 350);
+
+    bc.HitsMaxSeed = Math.Min((int)(bc.HitsMaxSeed * (1 + statBuff)), 350);
+    bc.StamMaxSeed = (int)(bc.StamMaxSeed * (1 + statBuff));          // no cap
+    bc.ManaMaxSeed = Math.Min((int)(bc.ManaMaxSeed * (1 + statBuff)), 350);
+
+    // Refresh current HP/Stam/Mana
+    bc.Hits = bc.HitsMax;
+    bc.Stam = bc.StamMax;
+    bc.Mana = bc.ManaMax;
+
+    // 5) Damage ranges (with caps)
+    bc.DamageMin = Math.Min((int)(bc.DamageMin * (1 + statBuff)), 10);
+    bc.DamageMax = Math.Min((int)(bc.DamageMax * (1 + statBuff)), 15);
+
+    // 6) Skills (buff + cap at 100 for those originally ≤ 100)
+    int skillPct = (int)(skillBuff * 100);
+    foreach (var sk in bc.Skills)
+    {
+	    if (sk.Base <= 0)
+		    continue;
+
+	    // Remember original fixed‐point to see if it was ≤ 100
+	    int origFixed = sk.BaseFixedPoint;
+
+	    // Apply the buff
+	    sk.BaseFixedPoint += AOS.Scale(sk.BaseFixedPoint, skillPct);
+
+	    // If it started at 0–100, cap at 100 (i.e. 1000 fixed‐point)
+	    if (origFixed <= 1000)
+		    sk.BaseFixedPoint = Math.Min(sk.BaseFixedPoint, 1000);
+    }
+
+    // 7) Resists
+    bc.SetResistance(ResistanceType.Physical, (int)(bc.PhysicalResistance * (1 + resBuff)));
+    bc.SetResistance(ResistanceType.Fire,     (int)(bc.FireResistance     * (1 + resBuff)));
+    bc.SetResistance(ResistanceType.Cold,     (int)(bc.ColdResistance     * (1 + resBuff)));
+    bc.SetResistance(ResistanceType.Poison,   (int)(bc.PoisonResistance   * (1 + resBuff)));
+    bc.SetResistance(ResistanceType.Energy,   (int)(bc.EnergyResistance   * (1 + resBuff)));
+}
 
 
-			var pack = from.Backpack;
-
-			if (pack == null)
-				return;
-			var bc = (BaseCreature)Activator.CreateInstance(SummonType);
-			if (from.Followers + bc.ControlSlots > from.FollowersMax)
-			{
-				from.SendLocalizedMessage(1049607); // You have too many followers to control that creature.
-				bc.Delete();
-				return;
-			}
-
-			int res = pack.ConsumeTotal(RequiredBodyParts, RequiredBodyPartsAmounts);
-			if (res != -1)
-			{
-				if (BodyPartName.ContainsKey(RequiredBodyParts[res]))
-				{
-					from.SendMessage("Musisz miec " + BodyPartName[RequiredBodyParts[res]]);
-				}
-				else
-				{
-					from.SendMessage("Musisz miec " + RequiredBodyParts[res].Name);
-				}
-
-				if (from.AccessLevel > AccessLevel.Player)
-				{
-					from.SendMessage("Boskie moce pomagają ci stworzyć przywołańca bez wszystkich części ciała");
-				}
-				else
-				{
-					return;
-				}
-			}
-
-			if (bc.SetControlMaster(from))
-			{
-				bc.Allured = true;
-				Scale(bc, NecroSkill);
-				bc.MoveToWorld(from.Location, from.Map);
-				from.PlaySound(0x241);
-				Consume();
-				EventSink.InvokeNecromancySummonCrafted(new NecromancySummonCraftedEventArgs(from, bc));
-				if (from is PlayerMobile pm)
-				{
-					pm.Statistics.NecromancySummonsCrafted.Increment(SummonType);
-				}
-			}
-			else
-			{
-				bc.Delete();
-			}
-		}
-
-		private void Scale(BaseCreature bc, double skillValue)
-		{
-			int scalar = (int)(skillValue - RequiredNecroSkill);
-
-			bc.RawStr += AOS.Scale(bc.RawStr, scalar);
-			bc.RawDex += AOS.Scale(bc.RawDex, scalar);
-			bc.RawInt += AOS.Scale(bc.RawInt, scalar);
-
-			bc.HitsMaxSeed += AOS.Scale(bc.HitsMaxSeed, scalar);
-			bc.StamMaxSeed += AOS.Scale(bc.StamMaxSeed, scalar);
-			bc.ManaMaxSeed += AOS.Scale(bc.ManaMaxSeed, scalar);
-
-			bc.Hits = (int)(bc.HitsMax * 0.5);
-			bc.Stam = bc.StamMax;
-			bc.Mana = bc.ManaMax;
-
-			for (int i = 0; i < bc.Skills.Length; i++)
-			{
-				Skill skill = bc.Skills[i];
-
-				if (skill.Base > 0.0)
-					skill.BaseFixedPoint += AOS.Scale(skill.BaseFixedPoint, scalar);
-			}
-
-			bc.DamageMin += AOS.Scale(bc.DamageMin, scalar);
-			bc.DamageMax += AOS.Scale(bc.DamageMax, scalar);
-		}
 
 		public override void Serialize(GenericWriter writer)
 		{

@@ -14,6 +14,7 @@ namespace Server.Items
 
 		public override Type[] RequiredBodyParts => _requiredBodyParts;
 
+		public interface INecroPet { }
 		public override Type SummonType => typeof(Skeleton);
 
 		public override string DefaultName => "kryształ szkieleta";
@@ -26,6 +27,19 @@ namespace Server.Items
 
 		public SkeletonCrystal( Serial serial ) : base( serial )
 		{
+		}
+
+		protected void FinishSummon(BaseCreature bc, Mobile from)
+		{
+			bc.Allured = true;
+			bc.ControlMaster = from;
+
+			// Mark it as a necro-trainable pet
+			if (bc is INecroPet == false)
+				bc.GetType().GetInterfaces(); // ensure interface is applied by your creature class
+
+			ScaleCreature(bc, from.Skills[SkillName.Necromancy].Value);
+			bc.MoveToWorld(from.Location, from.Map);
 		}
 
 		public override void Serialize( GenericWriter writer )
