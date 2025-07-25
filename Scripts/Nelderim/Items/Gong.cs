@@ -1,4 +1,5 @@
 using Nelderim.Towns;
+using Server.Engines.CityLoyalty;
 using Server.Mobiles;
 using Server.Network;
 using System;
@@ -103,15 +104,23 @@ namespace Server.Items
 			[CommandProperty(AccessLevel.GameMaster)]
 			public bool Twierdza { get; set; } = true;
 
+			[CommandProperty(AccessLevel.GameMaster)]
+			public bool Tirassa { get; set; } = true;
+
+			[CommandProperty(AccessLevel.GameMaster)]
+			public bool Orod { get; set; } = true;
+
 			public void Serialize(GenericWriter writer)
 			{
-				writer.Write((int)0); // version
+				writer.Write((int)1); // version
 				writer.Write(None);
 				writer.Write(Tasandora);
 				writer.Write(Garlan);
 				writer.Write(LDelmah);
 				writer.Write(Lotharn);
 				writer.Write(Twierdza);
+				writer.Write(Tirassa);
+				writer.Write(Orod);
 			}
 
 			public void Deserialize(GenericReader reader)
@@ -123,6 +132,8 @@ namespace Server.Items
 				LDelmah = reader.ReadBool();
 				Lotharn = reader.ReadBool();
 				Twierdza = reader.ReadBool();
+				Tirassa = (version >= 1) ? reader.ReadBool() : false;
+				Orod = (version >= 1) ? reader.ReadBool() : false;
 			}
 
 			public bool Matches(PlayerMobile pm)
@@ -138,6 +149,8 @@ namespace Server.Items
 						case Towns.Twierdza: return Twierdza;
 						case Towns.LDelmah: return LDelmah;
 						case Towns.Lotharn: return Lotharn;
+						case Towns.Tirassa: return Tirassa;
+						case Towns.Orod: return Orod;
 						default:
 							{
 								Console.WriteLine("WARNING: w klasie Gong nie ma przypisanej reakcji na miasto " + playerCity);
@@ -147,7 +160,7 @@ namespace Server.Items
 				}
 				return None;
 			}
-			
+
 			public override string ToString() {
 				return "...";
 			}
