@@ -138,6 +138,10 @@ namespace Server
             if (ranged && from.Race != Race.Gargoyle)
                 quiver = from.FindItemOnLayer(Layer.Cloak) as BaseQuiver;
 
+            if (from is BaseCreature bc && !bc.Controlled && damageable is PlayerMobile)
+            {
+                damage = Math.Min(damage, 300);
+            }
             int totalDamage;
 
             if (!ignoreArmor)
