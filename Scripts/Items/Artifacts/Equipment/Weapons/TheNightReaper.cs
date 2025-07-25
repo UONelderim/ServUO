@@ -7,6 +7,7 @@ namespace Server.Items
         public TheNightReaper()
         {
             Hue = 0x41C;
+            Name = "Nocny Zniwiarz";
             Slayer = SlayerName.Exorcism;
             Attributes.NightSight = 1;
             Attributes.WeaponSpeed = 25;
